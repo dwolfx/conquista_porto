@@ -2,8 +2,10 @@ import React from 'react';
 
 import { Container } from './styles';
 
-export default Home = () => {
+const Home = () => {
   return (
     <Container></Container>
   );
 };
+
+export default Home;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from './pages';
+import Home from './pages/Home';
 
-export default Routes = () => {
+export default function Routes() {
   return (
     <Switch>
       <Route path='/' exact component={Home}/>
