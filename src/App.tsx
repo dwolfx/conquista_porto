@@ -1,9 +1,15 @@
 import React from 'react';
+import { Router } from 'react-router-dom';
+
+import Routes from './routes';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <div className="App">
+      </div>
+      <Routes />
+    </Router>
   );
 }
 
