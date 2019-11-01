@@ -75,7 +75,8 @@ export const Button = styled(Link)`
       top: 0;
       left: 0;
       pointer-events: none;
-      background: transparent radial-gradient(circle, #000 1%, transparent 1%) center/15000%;
+      background: transparent radial-gradient(circle, #000 1%, transparent 1%)
+        center/15000%;
       opacity: 0;
       background-position: center;
       transition: all ease 0.8s;
