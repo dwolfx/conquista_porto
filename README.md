@@ -1,6 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
@@ -15,7 +13,6 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
@@ -25,20 +22,58 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Commit Convention
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Our Commit Convetion is a lightweight convention on top of commit messages. It provides an easy set of rules for creating a commit. Following this commit convention is easy to read and understand commit before open it code.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Why Use Commit Convetion
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Automatically generating CHANGELOGs(Soon).
+Communicating the nature of changes to teammates, the public, and other stakeholders.
+Making it easier for people to contribute to your projects, by allowing them to explore a more structured commit history.
 
-## Learn More
+### Commit Notation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Type = feature | bugfix | chore
+JiraId = TaskId | BugId
+CommitBody = String
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`<Type>:(<JiraId>) <CommitBody>`
+
+### Examples
+
+feature:(#PCNE-01) add menu
+
+bugfix:(#PCNE-01) fix menu dropdown
+
+Reference:
+https://www.conventionalcommits.org/en/v1.0.0/
+
+## Branch organization
+
+Checkout a topic branch from the relevant branch, e.g. develop or master, and merge back againt that branch
+If you start a task listed on Jira, create a branch folowing `Branch Name Notation`
+
+### Branch Name Notation
+
+Type = feature | bugfix
+JiraId = TaskId | BugId
+
+`<Type>:[<JiraId>]`
+
+### Examples
+
+feature/[PCNE-01]
+
+bugfix/[PCNE-01]
+
+## Pull Request Guidelines
+
+- It's OK to have multiple small commits as you work on the PR - GitHub will automatically squash it before merging.
+- Make sure npm test passes. 
+- If adding a new feature:
+  - Add accompanying test case.
+- If fixing bug:
+  - Add appropriate test coverage if applicable.
