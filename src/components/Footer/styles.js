@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { ReactComponent as mail } from '../../assets/mail.svg'
-import { ReactComponent as phone } from '../../assets/phone.svg'
-import { ReactComponent as headset } from '../../assets/call-center.svg'
-import { ReactComponent as arrowRight } from '../../assets/arrow-right.svg'
+import { ReactComponent as mail } from '../../assets/icons/mail.svg'
+import { ReactComponent as phone } from '../../assets/icons/phone.svg'
+import { ReactComponent as headset } from '../../assets/icons/call-center.svg'
+import { ReactComponent as arrowRight } from '../../assets/icons/arrow-right.svg'
 
 export const Container = styled.div`
   width: 100%;
