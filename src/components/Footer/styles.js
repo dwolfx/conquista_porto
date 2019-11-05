@@ -1,0 +1,69 @@
+import styled from 'styled-components';
+import { ReactComponent as mail } from '../../assets/mail.svg'
+import { ReactComponent as phone } from '../../assets/phone.svg'
+import { ReactComponent as headset } from '../../assets/call-center.svg'
+import { ReactComponent as arrowRight } from '../../assets/arrow-right.svg'
+
+export const Container = styled.div`
+  width: 100%;
+  background-color: #fff;
+  padding: 30px;
+  display: flex;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    fill: #33beff;
+    margin-right: 15px;
+    margin-top: 4px;
+  }
+`;
+
+export const Wrapper = styled.div`
+  width: ${props => props.width ? props.width + '%' : '100%'};
+  display: flex;
+  flex-direction: ${props => props.direction ? props.direction : 'column'};
+  align-items: ${props => props.align ? props.algin : 'flex-start'};
+  justify-content: ${props => props.justify ? props.justify : 'flex-start'};
+  margin: ${props => props.margin ? props.margin : '0px 0px  15px 0px'};
+`;
+
+export const Line = styled.div`
+  width: ${props => props.width ? props.width + '%' : '100%'};
+  height: 1px;
+  background-color: #D2D2D2;
+  margin: 20px 0px;
+`
+
+export const Text = styled.p`
+  font-size: ${props => props.size ? props.size + 'px' : '12px'};
+  font-weight: ${props => props.weight ? props.weight : 'normal'};
+  line-height: ${props => props.lineHeight ? props.lineHeight : '24px'};
+  color: ${props => props.color ? props.color : '#000'};
+  letter-spacing: ${props => props.spacing ? props.spacing + 'px' : 'normal'};
+  margin: ${props => props.margin ? props.margin : '0px'}
+`
+
+export const Image = styled.div`
+  width: 220px;
+  height: 57px;
+  background-color: black;
+  margin-bottom: 60px;
+`
+
+export const  ArrowRight = styled(arrowRight)`
+  && {
+    width: 9px;
+    height: 9px;
+    align-self: center;
+    margin: 0px 5px;
+  }
+`;
+
+export const Mail = styled(mail)``;
+
+export const Phone = styled(phone)``;
+
+export const Headset = styled(headset)``;
