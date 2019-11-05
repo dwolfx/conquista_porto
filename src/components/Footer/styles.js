@@ -4,7 +4,7 @@ import { ReactComponent as phone } from '../../assets/icons/phone.svg'
 import { ReactComponent as headset } from '../../assets/icons/call-center.svg'
 import { ReactComponent as arrowRight } from '../../assets/icons/arrow-right.svg'
 
-export const Container = styled.div`
+export const Container = styled.footer`
   width: 100%;
   background-color: #fff;
   padding: 30px;

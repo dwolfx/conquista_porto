@@ -13,6 +13,7 @@ import {
 } from './styles'
 
 export default function Footer() {
+
   return (
     <Container>
       <Wrapper align="flex-start">
