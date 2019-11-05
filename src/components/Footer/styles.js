@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   width: ${props => props.width ? props.width + '%' : '100%'};
   display: flex;
   flex-direction: ${props => props.direction ? props.direction : 'column'};
-  align-items: ${props => props.align ? props.algin : 'flex-start'};
+  align-items: ${props => props.align ? props.align : 'flex-start'};
   justify-content: ${props => props.justify ? props.justify : 'flex-start'};
   margin: ${props => props.margin ? props.margin : '0px 0px  15px 0px'};
 `;
