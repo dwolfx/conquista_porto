@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { ReactComponent as mail } from '../../assets/icons/mail.svg'
 import { ReactComponent as phone } from '../../assets/icons/phone.svg'
 import { ReactComponent as headset } from '../../assets/icons/call-center.svg'
@@ -19,31 +19,31 @@ export const Container = styled.div`
     margin-right: 15px;
     margin-top: 4px;
   }
-`;
+`
 
 export const Wrapper = styled.div`
-  width: ${props => props.width ? props.width + '%' : '100%'};
+  width: ${props => (props.width ? `${props.width}%` : '100%')};
   display: flex;
-  flex-direction: ${props => props.direction ? props.direction : 'column'};
-  align-items: ${props => props.align ? props.align : 'flex-start'};
-  justify-content: ${props => props.justify ? props.justify : 'flex-start'};
-  margin: ${props => props.margin ? props.margin : '0px 0px  15px 0px'};
-`;
+  flex-direction: ${props => (props.direction ? props.direction : 'column')};
+  align-items: ${props => (props.align ? props.align : 'flex-start')};
+  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
+  margin: ${props => (props.margin ? props.margin : '0px 0px  15px 0px')};
+`
 
 export const Line = styled.div`
-  width: ${props => props.width ? props.width + '%' : '100%'};
+  width: ${props => (props.width ? `${props.width}%` : '100%')};
   height: 1px;
-  background-color: #D2D2D2;
+  background-color: #d2d2d2;
   margin: 20px 0px;
 `
 
 export const Text = styled.p`
-  font-size: ${props => props.size ? props.size + 'px' : '12px'};
-  font-weight: ${props => props.weight ? props.weight : 'normal'};
-  line-height: ${props => props.lineHeight ? props.lineHeight : '24px'};
-  color: ${props => props.color ? props.color : '#000'};
-  letter-spacing: ${props => props.spacing ? props.spacing + 'px' : 'normal'};
-  margin: ${props => props.margin ? props.margin : '0px'}
+  font-size: ${props => (props.size ? `${props.size}px` : '12px')};
+  font-weight: ${props => (props.weight ? props.weight : 'normal')};
+  line-height: ${props => (props.lineHeight ? props.lineHeight : '24px')};
+  color: ${props => (props.color ? props.color : '#000')};
+  letter-spacing: ${props => (props.spacing ? `${props.spacing}px` : 'normal')};
+  margin: ${props => (props.margin ? props.margin : '0px')};
 `
 
 export const Image = styled.div`
@@ -53,17 +53,17 @@ export const Image = styled.div`
   margin-bottom: 60px;
 `
 
-export const  ArrowRight = styled(arrowRight)`
+export const ArrowRight = styled(arrowRight)`
   && {
     width: 9px;
     height: 9px;
     align-self: center;
     margin: 0px 5px;
   }
-`;
+`
 
-export const Mail = styled(mail)``;
+export const Mail = styled(mail)``
 
-export const Phone = styled(phone)``;
+export const Phone = styled(phone)``
 
-export const Headset = styled(headset)``;
+export const Headset = styled(headset)``

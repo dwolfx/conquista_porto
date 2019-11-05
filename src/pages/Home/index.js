@@ -1,13 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import { Container } from './styles';
-import Footer from '../../components/Footer';
+import { Container } from './styles'
 
-const Home = () => {
-  return (
-    <Container>
-    </Container>
-  );
-};
+const Home = () => <Container></Container>
 
-export default Home;
+export default Home
