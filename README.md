@@ -35,18 +35,16 @@ Communicating the nature of changes to teammates, the public, and other stakehol
 Making it easier for people to contribute to your projects, by allowing them to explore a more structured commit history.
 
 ### Commit Notation
-
-Type = feature | bugfix | chore
 JiraId = TaskId | BugId
 CommitBody = String
 
-`<Type>:(<JiraId>) <CommitBody>`
+`[JiraId] - <CommitBody>`
 
 ### Examples
 
-feature:(#PCNE-01) add menu
+[PCNE-01] - add menu
 
-bugfix:(#PCNE-01) fix menu dropdown
+[PCNE-01] - fix menu dropdown
 
 Reference:
 https://www.conventionalcommits.org/en/v1.0.0/
@@ -58,16 +56,16 @@ If you start a task listed on Jira, create a branch folowing `Branch Name Notati
 
 ### Branch Name Notation
 
-Type = feature | bugfix
+Type = feature | bugfix | chore
 JiraId = TaskId | BugId
 
-`<Type>:[<JiraId>]`
+`<Type>:<JiraId>`
 
 ### Examples
 
-feature/[PCNE-01]
+feature/PCNE-01
 
-bugfix/[PCNE-01]
+bugfix/PCNE-01
 
 ## Pull Request Guidelines
 
