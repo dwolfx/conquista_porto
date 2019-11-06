@@ -25,7 +25,7 @@ export default function Footer() {
           <Wrapper width={65} direction="row" className="responsiveMainBlock1">
             <Wrapper
               width={50}
-              margin='0px 15px 0px 0px'
+              margin="0px 15px 0px 0px"
               className="responsiveBlock1"
             >
               <Wrapper direction="row">
@@ -56,11 +56,7 @@ export default function Footer() {
                 </Wrapper>
               </Wrapper>
             </Wrapper>
-            <Wrapper
-              width={50}
-              margin='0px 15px'
-              className="responsiveBlock2"
-            >
+            <Wrapper width={50} margin="0px 15px" className="responsiveBlock2">
               <Wrapper direction="row">
                 <Mail />
                 <Wrapper align="flex-start">
