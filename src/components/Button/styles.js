@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import commonStyles from '../../styles/theme'
 
 export const Button = styled.button`
   position: relative;
@@ -7,21 +8,25 @@ export const Button = styled.button`
   background: ${props => {
     switch (props.color) {
       case 'primary':
-        return `linear-gradient(
-          270deg,
-          #3dacff 0,
-          #2fc5ff 50%,
-          #148dbb 60%,
-          #148dbb 100%
-        )`
+        return !props.disabled
+          ? `linear-gradient(
+            270deg,
+            ${commonStyles.colors.lightPrimary} 0,
+            ${commonStyles.colors.mediumPrimary} 50%,
+            ${commonStyles.colors.lightDarkPrimary} 60%,
+            ${commonStyles.colors.darkPrimary} 100%
+          )`
+          : '#86c2d9'
       case 'secondary':
-        return `linear-gradient(
-          270deg,
-          #FF7433 0,
-          #FE5C00 50%,
-          #F35600 60%,
-          #F35600 100%
-        )`
+        return !props.disabled
+          ? `linear-gradient(
+            270deg,
+            ${commonStyles.colors.lightSecondary} 0,
+            ${commonStyles.colors.mediumSecondary} 50%,
+            ${commonStyles.colors.lightDarkSecondary} 60%,
+            ${commonStyles.colors.darkSecondary} 100%
+          )`
+          : '#f4bea5'
       default:
         return `linear-gradient(
           270deg,
@@ -46,7 +51,8 @@ export const Button = styled.button`
 
     return '#30C5FF'
   }};
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? 'disabled' : 'pointer')};
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   transition: all 0.3s ease-out 0s;
   border: ${props => (props.color ? 'none' : '1px solid #30C5FF')};
   text-decoration: none;
@@ -54,13 +60,24 @@ export const Button = styled.button`
   font-weight: 600;
   font-size: 11px;
   text-align: center;
+  margin: 7px;
+  display: inline-block;
 
   &:hover {
     background-position: 0;
 
     &:active {
       &:after {
-        background-color: #148dbb;
+        background-color: ${props => {
+          switch (props.color) {
+            case 'primary':
+              return '#148dbb'
+            case 'secondary':
+              return '#F35600'
+            default:
+              return 'rgba(190,190,190,.2)'
+          }
+        }};
         background-size: 100%;
         transition: all ease 0s;
         opacity: 0.2;
