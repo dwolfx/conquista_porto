@@ -9,6 +9,8 @@ export const Container = styled.footer`
   background-color: #fff;
   padding: 30px;
   display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
 
   svg {
     width: 18px;
