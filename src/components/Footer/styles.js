@@ -19,6 +19,36 @@ export const Container = styled.footer`
     margin-right: 15px;
     margin-top: 4px;
   }
+
+  @media (max-width: 989px) {
+    .responsiveContainer {
+      flex-direction: column;
+    }
+
+    .responsiveBlock2 {
+      margin-left: 0px;
+    }
+
+    .responsiveMainBlock1,
+    .responsiveMainBlock2 {
+      width: 100%;
+    }
+
+    .responsiveMainBlock2 {
+      margin-left: 0px;
+    }
+  }
+
+  @media (max-width: 765px) {
+    .responsiveMainBlock1 {
+      flex-direction: column;
+    }
+
+    .responsiveBlock1,
+    .responsiveBlock2 {
+      width: 100%;
+    }
+  }
 `
 
 export const Wrapper = styled.div`
@@ -28,6 +58,7 @@ export const Wrapper = styled.div`
   align-items: ${props => (props.align ? props.align : 'flex-start')};
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   margin: ${props => (props.margin ? props.margin : '0px 0px  15px 0px')};
+  cursor: ${props => (props.pointer ? 'pointer' : 'default')};
 `
 
 export const Line = styled.div`
@@ -35,6 +66,21 @@ export const Line = styled.div`
   height: 1px;
   background-color: #d2d2d2;
   margin: 20px 0px;
+
+  @media (max-width: 989px) {
+    width: 100%;
+  }
+`
+
+export const ResponsiveLine = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #d2d2d2;
+  margin: 20px 0px;
+
+  @media (min-width: 989px) {
+    display: none;
+  }
 `
 
 export const Text = styled.p`
