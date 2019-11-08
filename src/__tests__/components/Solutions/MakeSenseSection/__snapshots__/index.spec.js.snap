@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MakeSenseSection renders correctly 1`] = `
+<section
+  className="sc-bdVaJa iFbFtt"
+>
+  <div
+    className="sc-bwzfXH hVdcUt"
+  >
+    Quando faz sentido investir?
+  </div>
+  <div
+    className="sc-htpNat jJYBVA"
+  >
+    <div
+      className="sc-bxivhb iqyIjZ"
+    >
+      <div
+        className="sc-ifAKCX gPsFEQ"
+      >
+        <svg
+          fill="white"
+          height={30}
+        >
+          male-female.svg
+        </svg>
+      </div>
+      <p
+        className="sc-EHOje esAqNb"
+      >
+        Quando você quiser uma gestão profissional para
+      buscar as melhores opções do mercado para seu dinheiro.
+      </p>
+    </div>
+    <div
+      className="sc-bxivhb iqyIjZ"
+    >
+      <div
+        className="sc-ifAKCX gPsFEQ"
+      >
+        <svg
+          fill="white"
+          height={30}
+        >
+          bar-chart.svg
+        </svg>
+      </div>
+      <p
+        className="sc-EHOje esAqNb"
+      >
+        Quando você quiser buscar um rendimento melhor do que o da poupança,
+      sem correr, necessariamente, um risco maior.
+      </p>
+    </div>
+    <div
+      className="sc-bxivhb iqyIjZ"
+    >
+      <div
+        className="sc-ifAKCX gPsFEQ"
+      >
+        <svg
+          fill="white"
+          height={30}
+        >
+          safe-box.svg
+        </svg>
+      </div>
+      <p
+        className="sc-EHOje esAqNb"
+      >
+        Quando você quiser se organizar para buscar seus sonhos,
+      economizando seu dinheiro e esperando rendimentos melhores.
+      </p>
+    </div>
+  </div>
+</section>
+`;

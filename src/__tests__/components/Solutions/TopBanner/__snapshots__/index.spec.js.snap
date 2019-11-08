@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopBanner renders correctly 1`] = `
+<section
+  className="sc-bwzfXH kzcIJp"
+>
+  <div
+    className="sc-htpNat cAkMrB"
+  >
+    <h1
+      className="sc-ifAKCX gunszn"
+    >
+      Fundos de Investimentos
+    </h1>
+    <p>
+      Com o Conquista, você pode investir em Fundos de Investimento da Porto Seguro e de gestoras parceiras. Consulte a Lista de Fundos e conheça opções para diversos perfis.
+    </p>
+    <br />
+    <button
+      className="sc-bdVaJa dRmwlZ button-with-right-icon"
+      color="secondary"
+      onClick={[Function]}
+    >
+      Lista de fundos
+       
+      <span>
+        &gt;
+      </span>
+    </button>
+  </div>
+  <img
+    alt="Homem pesquisando investimentos em um website em seu computador"
+    className="sc-bxivhb gCfZiE"
+    src="banner_investimentos.jpg"
+  />
+</section>
+`;

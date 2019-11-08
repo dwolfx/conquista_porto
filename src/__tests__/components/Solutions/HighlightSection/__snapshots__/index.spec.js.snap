@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HighlightSection renders correctly 1`] = `
+<section
+  className="sc-bwzfXH bNxMLf"
+>
+  <div
+    className="sc-htpNat dbNJrl"
+  >
+    <h1
+      className="sc-bxivhb iUdfzJ"
+    >
+      Facilidade para investir
+    </h1>
+    <p
+      className="sc-ifAKCX fbqVSA"
+    >
+      Com o Conquista, é prático e rápido investir.
+      <br />
+      <br />
+      Você confere as opções disponíveis na Lista de Fundo, consulta
+ informações detalhadas de cada um e realiza seus investimentos com a
+ segurança de uma plataforma da Porto Seguro.
+    </p>
+    <br />
+    <br />
+    <button
+      className="sc-bdVaJa dRmwlZ"
+      color="secondary"
+      onClick={[Function]}
+    >
+      lista de fundos
+    </button>
+  </div>
+</section>
+`;
