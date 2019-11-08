@@ -6,6 +6,7 @@ import BulletsSection from '../../components/Solutions/BulletsSection'
 import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
 import HighlightSection from '../../components/Solutions/HighlightSection'
 import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
+import FundsCarouselSection from '../../components/Solutions/Investments/FundsCarousel/index'
 
 import { ReactComponent as MaleFemaleIcon } from '../../assets/icons/male-female.svg'
 import { ReactComponent as SafeBoxIcon } from '../../assets/icons/safe-box.svg'
@@ -53,7 +54,7 @@ const downloadFileSectionData = [
   }
 ]
 
-export default function Investiments() {
+export default function Investments() {
   return (
     <>
       <TopBanner
@@ -105,6 +106,9 @@ export default function Investiments() {
           </DescriptionContent>
         </CustomContent>
       </SectionCustomPicture>
+
+      <FundsCarouselSection />
+
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )
