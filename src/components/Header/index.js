@@ -34,10 +34,24 @@ import {
   ResponsiveTextWrapper,
   ResponsiveWrapper,
   ResponsiveLogoWrapper,
-  ThumbsUpIcon
+  ThumbsUpIcon,
+  IconCircle,
+  CreditCardIcon,
+  SolutionsItem,
+  SolutionsContainer,
+  HomeWithWindowIcon,
+  CarIcon,
+  MoneyIcon,
+  BarChartIcon,
+  TimeIcon,
+  PersonGroupIcon,
+  PlaneIcon,
+  SolutionsDropdownText,
+  BottomMenuText,
 } from './styles'
 import Button from '../Button'
 import ResponsiveHeader from './ResponsiveHeader'
+import Dropdown from '../Dropdown'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -265,7 +279,7 @@ export default function Header() {
                   {10}
                 </Text>
               </NotificationCircle>
-              <BellIcon onClick={() => setIsOpen(!isOpen)} />
+              <BellIcon className="maneiro" onClick={() => setIsOpen(!isOpen)} />
             </RelativeParent>
             <ResponsiveTextWrapper>
               <Text
@@ -278,7 +292,7 @@ export default function Header() {
               >
                 Olá, Júlia.
               </Text>
-              <BlueText size={11} color="#33beff">
+              <BlueText>
                 SAIR
               </BlueText>
             </ResponsiveTextWrapper>
@@ -289,75 +303,96 @@ export default function Header() {
         <Wrapper width="1200px" justify="space-between">
           <WrapperBottomMenuItem>
             <TargetIcon />
-            <Text
-              size={14}
-              fontWeight={600}
-              letterSpacing={2}
-              upperCase
-              cursorPointer
-              color="#000"
-            >
+            <BottomMenuText>
               Objetivos
-            </Text>
+            </BottomMenuText>
           </WrapperBottomMenuItem>
           <RelativeParent>
-            {/* <DropDownContainer>
-
-            </DropDownContainer> */}
             <WrapperBottomMenuItem onClick={() => setIsUp(!isUp)}>
               <AppsIcon />
-              <Text
-                size={14}
-                fontWeight={600}
-                letterSpacing={2}
-                upperCase
-                cursorPointer
-                color="#000"
-              >
+              <BottomMenuText>
                 Soluções
-              </Text>
+              </BottomMenuText>
               {isUp ? <ArrowUpIcon /> : <ArrowDownIcon />}
-            </WrapperBottomMenuItem>
+            </WrapperBottomMenuItem >
+            <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
+              <SolutionsContainer>
+                <SolutionsItem>
+                  <IconCircle>
+                    <CreditCardIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Cartão de Crédito</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+                <SolutionsItem>
+                  <IconCircle>
+                    <HomeWithWindowIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Consórcio de Imóvel</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+                <SolutionsItem>
+                  <IconCircle>
+                    <CarIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Consórcio de Veículo</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+                <SolutionsItem>
+                  <IconCircle>
+                    <MoneyIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Financiamento de Veículo</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+                <SolutionsItem>
+                  <IconCircle>
+                    <BarChartIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+                <SolutionsItem>
+                  <IconCircle>
+                    <TimeIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Previdência Privada</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+                <SolutionsItem>
+                  <IconCircle>
+                    <PersonGroupIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+                <SolutionsItem>
+                  <IconCircle>
+                    <PlaneIcon />
+                  </IconCircle>
+                    <SolutionsDropdownText>Seguro Viagem</SolutionsDropdownText>
+                    <ArrowRightIcon size={11} />
+                </SolutionsItem>
+              </SolutionsContainer>
+            </Dropdown>
           </RelativeParent>
           <WrapperBottomMenuItem>
             <GearIcon />
-            <Text
-              size={14}
-              fontWeight={600}
-              letterSpacing={2}
-              upperCase
-              cursorPointer
-              color="#000"
-            >
+            <BottomMenuText>
               Gerenciador
-            </Text>
+            </BottomMenuText>
           </WrapperBottomMenuItem>
           <WrapperBottomMenuItem>
             <DiamondIcon />
-            <Text
-              hover="true"
-              size={14}
-              fontWeight={600}
-              letterSpacing={2}
-              upperCase
-              cursorPointer
-              color="#000"
-            >
+            <BottomMenuText>
               Pontos
-            </Text>
+            </BottomMenuText>
           </WrapperBottomMenuItem>
           <WrapperBottomMenuItem>
             <IdeaIcon />
-            <Text
-              size={14}
-              fontWeight={600}
-              letterSpacing={2}
-              upperCase
-              cursorPointer
-              color="#000"
-            >
+            <BottomMenuText>
               Recomendações
-            </Text>
+            </BottomMenuText>
           </WrapperBottomMenuItem>
         </Wrapper>
       </BottomMenu>

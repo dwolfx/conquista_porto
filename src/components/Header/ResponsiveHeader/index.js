@@ -10,7 +10,6 @@ import {
   DiamondIcon,
   GearIcon,
   HomeIcon,
-  IconCircle,
   IdeaIcon,
   ItemContainer,
   ItemContainerDropdown,
@@ -20,7 +19,7 @@ import {
   TargetIcon,
   WhiteText
 } from './styles'
-import { Wrapper, BlueText } from '../styles'
+import { Wrapper, BlueText, IconCircle } from '../styles'
 
 export default function ResponsiveHeader() {
   const [isOpen, setIsOpen] = useState(false)
@@ -32,7 +31,7 @@ export default function ResponsiveHeader() {
           <Logo />
         </Wrapper>
         <Wrapper justify="flex-end">
-          <IconCircle>
+          <IconCircle color="#ff7433">
             <CloseIcon />
           </IconCircle>
         </Wrapper>
@@ -45,7 +44,7 @@ export default function ResponsiveHeader() {
         borderBottom="1px solid #fff"
       >
         <WhiteText size={22}>Olá, Julia.</WhiteText>
-        <BlueText size={11}>Perfil</BlueText>
+        <BlueText>Perfil</BlueText>
       </Wrapper>
       <Wrapper
         bgcolor="#555861"
@@ -73,7 +72,7 @@ export default function ResponsiveHeader() {
               padding="10px 0px 0px 0px"
               disable={false}
             >
-              <IconCircle>
+              <IconCircle color="#ff7433">
                 {isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
               </IconCircle>
             </ItemContainer>
@@ -132,7 +131,7 @@ export default function ResponsiveHeader() {
         alignItems="flex-start"
         flexDirection="column"
       >
-        <BlueText size={11}>Sair</BlueText>
+        <BlueText>Sair</BlueText>
       </Wrapper>
     </Container>
   )

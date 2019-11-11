@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Container, RelativeHolder } from './styles';
+import { Container, RelativeHolder, Backdrop } from './styles';
 
-export default function Dropdown({ isOpen, children }) {
+export default function Dropdown({ isOpen, setOpen, children, width  }) {
   return (
-    <RelativeHolder>
-      <Container isOpen={isOpen}>
-        {children}
-      </Container>
-    </RelativeHolder>
-
+    <>
+      <RelativeHolder>
+        <Backdrop isOpen={isOpen} onClick={() => setOpen(!isOpen)}/>
+        <Container isOpen={isOpen} width={width && width}>
+          {children}
+        </Container>
+      </RelativeHolder>
+    </>
   );
 }

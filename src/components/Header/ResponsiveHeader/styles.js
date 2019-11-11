@@ -2,20 +2,17 @@ import styled, { css } from 'styled-components'
 
 import ConquistaIcon from '../../IconExporter'
 
-/* Variáveis dos estilos dos ícones */
 const svgStyle = {
   fill: '#fff',
   width: '23px',
   height: '23px',
-  'margin-right': '15px'
+  marginRight: '15px'
 }
 const arrowSvgStyle = {
   fill: '#fff',
   width: '14px',
   height: '14px'
 }
-
-/* Variável com as propriedades do atributo disable */
 const disable = css`
   svg {
     fill: #a2a2a2;
@@ -24,21 +21,10 @@ const disable = css`
     color: #a2a2a2;
   }
 `
-
-/* Container Inicial */
 export const Container = styled.div`
-  /* *****************************
-********************************
-********************************
-********************************
-******************************** apagar margin top */
-  margin-top: 10px;
   height: auto;
   background-color: #555861;
 `
-
-/* Logo da parte superior da página e círculo laranja dos ícones close, 
-arrowup e arrowdown */
 export const Logo = styled.a`
   background-color: #fff;
   width: 150px;
@@ -46,18 +32,6 @@ export const Logo = styled.a`
   margin-right: 20px;
   cursor: pointer;
 `
-export const IconCircle = styled.div`
-  display: flex;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #ff7433;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`
-
-/* Container para os itens do menu */
 export const ItemContainer = styled.div`
   ${props => props.disable && disable};
   display: flex;
@@ -70,8 +44,6 @@ export const ItemContainer = styled.div`
   padding: ${props => (props.padding ? props.padding : '0px')};
   cursor: pointer;
 `
-
-/* Wrapper da tag 'Em Breve' */
 export const TagWrapper = styled.div`
   display: flex;
   padding: 0px 3px;
@@ -79,11 +51,9 @@ export const TagWrapper = styled.div`
   border-radius: 3px;
   margin-left: 15px;
 `
-
-/* Containers do Dropdown */
 export const ContainerDropdown = styled.div`
   max-height: ${props => (props.isOpen ? '1000px' : '0px')};
-  transition: all 0.8s linear;
+  transition: all 0.3s linear;
   width: 100%;
   overflow: hidden;
 `
@@ -96,10 +66,7 @@ export const ItemContainerDropdown = styled.div`
   padding: 0px 35px 35px 35px;
   cursor: pointer;
 `
-
-/* Estilo dos tipos de texto */
 export const WhiteText = styled.p`
-  display: flex;
   color: ${props => (props.color ? props.color : '#fff')};
   font-size: ${props => (props.size ? `${props.size}px` : '20px')};
   font-weight: 300;
@@ -108,7 +75,6 @@ export const WhiteText = styled.p`
   cursor: pointer;
 `
 export const TagText = styled.p`
-  display: flex;
   color: ${props => (props.color ? props.color : '#fff')};
   line-height: 15px;
   font-size: 11px;
@@ -117,8 +83,6 @@ export const TagText = styled.p`
   text-transform: uppercase;
   cursor: pointer;
 `
-
-/* Estilo dos icones */
 export const CloseIcon = styled(ConquistaIcon).attrs({ name: 'close' })`
   fill: #fff;
   width: 24px;

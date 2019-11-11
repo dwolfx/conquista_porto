@@ -3,29 +3,27 @@ import { NavLink } from 'react-router-dom'
 
 import ConquistaIcon from '../IconExporter'
 
-/* Variáveis dos estilos dos ícones */
 const basicSvgStyle = {
   fill: '#1c1c1c',
   width: '20px',
   height: '20px',
-  'margin-right': '10px'
+  marginRight: '10px'
 }
 const arrowSvgStyle = {
   width: '15px',
-  'margin-right': '0px',
-  'margin-left': '10px'
+  marginRight: '0px',
+  marginLeft: '10px'
 }
 const notificationDropdownSvgStyle = {
   fill: '#30C5FF',
-  'margin-right': '0px'
+  marginRight: '0px'
 }
 const bottomMenuDropdownSvgStyle = {
   fill: '#fff',
-  width: '40px',
-  height: '40px'
+  width: '18px',
+  height: '18px'
 }
 
-/* Container Inicial */
 export const Container = styled.header``
 
 export const TopMenu = styled.div`
@@ -51,7 +49,25 @@ export const Wrapper = styled.div`
   border-bottom: ${props => props.borderBottom};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
 `
-
+export const SolutionsItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #C7C7C7;
+  cursor: pointer;
+`
+export const SolutionsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  ${SolutionsItem}:last-child {
+    border-bottom: none;
+  }
+`
 export const WrapperMenuTop = styled.div`
   display: flex;
   width: ${props => props.width};
@@ -62,7 +78,6 @@ export const WrapperMenuTop = styled.div`
     margin: ${props => (props.margin ? props.margin : '0px')};
   }
 `
-
 export const Logo = styled.a`
   background-color: #fff;
   width: 150px;
@@ -73,12 +88,10 @@ export const Logo = styled.a`
     margin-right: 0px;
   }
 `
-
 export const RelativeParent = styled.div`
   position: relative;
   z-index: 2;
 `
-
 export const NotificationCircle = styled.div`
   display: flex;
   position: absolute;
@@ -92,7 +105,6 @@ export const NotificationCircle = styled.div`
   align-items: center;
   cursor: pointer;
 `
-
 export const BottomMenu = styled.div`
   display: flex;
   background-color: #fff;
@@ -106,7 +118,6 @@ export const BottomMenu = styled.div`
     display: none;
   }
 `
-
 export const WrapperBottomMenuItem = styled.div`
   display: flex;
   cursor: pointer;
@@ -121,7 +132,6 @@ export const WrapperBottomMenuItem = styled.div`
     }
   }
 `
-
 export const DropDownWrapper = styled.div`
   display: flex;
   position: absolute;
@@ -133,7 +143,6 @@ export const DropDownWrapper = styled.div`
   top: ${props => `${props.top}px`};
   left: ${props => `${props.left}px`};
 `
-
 export const DropDownContainer = styled.div`
   width: ${props => `${props.width}px`};
   height: ${props => `${props.height}px`};
@@ -142,12 +151,10 @@ export const DropDownContainer = styled.div`
   overflow: auto;
   box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.1);
 `
-
 export const TriangleHolder = styled.div`
   margin-top: 5px;
   margin-right: 29px;
 `
-
 export const DropDownTriangle = styled.div`
   position: absolute;
   width: 24px;
@@ -155,7 +162,6 @@ export const DropDownTriangle = styled.div`
   background-color: #fff;
   transform: rotate(45deg);
 `
-
 export const Backdrop = styled.div`
   width: 100%;
   height: 100%;
@@ -165,7 +171,6 @@ export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0);
   z-index: 1;
 `
-
 export const ResponsiveTextWrapper = styled.div`
   display: flex;
   @media (max-width: 989px) {
@@ -185,8 +190,16 @@ export const ResponsiveWrapper = styled.div`
     display: none;
   }
 `
-
-/* Estilo dos tipos de texto */
+export const IconCircle = styled.div`
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${props => (props.color ? props.color : '#C7C7C7')};
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`
 export const LinkText = styled(NavLink)`
   padding: 7px 0px;
   margin: 0px 20px;
@@ -201,7 +214,6 @@ export const LinkText = styled(NavLink)`
   }
 `
 export const Text = styled.p`
-  display: flex;
   margin: ${props => (props.margin ? props.margin : '0px')};
   color: ${props => (props.color ? props.color : '#fff')};
   font-size: ${props => (props.size ? `${props.size}px` : '20px')};
@@ -212,12 +224,17 @@ export const Text = styled.p`
   line-height: ${props => `${props.lineHeight}px`};
   text-align: ${props => props.textAlign};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
-  align-self: ${props => props.alignSelf};
+`
+export const BottomMenuText = styled.p`
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 `
 export const BlueText = styled.p`
-  display: flex;
-  color: ${props => (props.color ? props.color : '#33beff')};
-  font-size: ${props => (props.size ? `${props.size}px` : '20px')};
+  color: #33beff;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-align: center;
@@ -225,8 +242,11 @@ export const BlueText = styled.p`
   line-height: 21px;
   cursor: pointer;
 `
-
-/* Estilo dos icones */
+export const SolutionsDropdownText = styled.p`
+  color: #1c1c1c;
+  font-size: 14px;
+  font-weight: 400;
+`
 export const AppsIcon = styled(ConquistaIcon).attrs({ name: 'apps' })`
   ${basicSvgStyle};
 `
@@ -272,7 +292,6 @@ export const PlaneIcon = styled(ConquistaIcon).attrs({ name: 'plane' })`
 export const TimeIcon = styled(ConquistaIcon).attrs({ name: 'time' })`
   ${bottomMenuDropdownSvgStyle}
 `
-
 export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
   && {
     fill: #fff;
@@ -322,8 +341,8 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
   name: 'arrowright'
 })`
   && {
-    width: 16px;
-    height: 16px;
+    width: ${props => props.size ? `${props.size}px` : '16px'};
+    height: ${props => props.size ? `${props.size}px` : '16px'};
     fill: #30c5ff;
     margin-right: 0px;
   }
