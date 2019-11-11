@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 import {
   AppsIcon,
@@ -18,120 +18,122 @@ import {
   TagText,
   TagWrapper,
   TargetIcon,
-  WhiteText,
-} from './styles';
-import { Wrapper, BlueText } from '../styles';
+  WhiteText
+} from './styles'
+import { Wrapper, BlueText } from '../styles'
 
 export default function ResponsiveHeader() {
-
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <Container>
-      <Wrapper
-        bgcolor={'#34373e'}
-        padding={'15px 15px'}
-        justify={'space-between'}>
-        <Wrapper justify={'flex-start'}>
+      <Wrapper bgcolor="#34373e" padding="15px 15px" justify="space-between">
+        <Wrapper justify="flex-start">
           <Logo />
         </Wrapper>
-        <Wrapper justify={'flex-end'}>
+        <Wrapper justify="flex-end">
           <IconCircle>
             <CloseIcon />
           </IconCircle>
         </Wrapper>
       </Wrapper>
       <Wrapper
-        bgcolor={'#555861'}
-        padding={'15px 15px'}
-        alignItems={'flex-start'}
-        flexDirection={'column'}
-        borderBottom={'1px solid #fff'}>
-        <WhiteText
-          size={22}>Olá, Julia.</WhiteText>
+        bgcolor="#555861"
+        padding="15px 15px"
+        alignItems="flex-start"
+        flexDirection="column"
+        borderBottom="1px solid #fff"
+      >
+        <WhiteText size={22}>Olá, Julia.</WhiteText>
         <BlueText size={11}>Perfil</BlueText>
       </Wrapper>
       <Wrapper
-        bgcolor={'#555861'}
-        padding={'15px 15px'}
-        alignItems={'flex-start'}
-        flexDirection={'column'}
-        borderBottom={'1px solid #fff'}>
-        <ItemContainer padding={'10px 0px 0px 0px'} disable={false}>
+        bgcolor="#555861"
+        padding="15px 15px"
+        alignItems="flex-start"
+        flexDirection="column"
+        borderBottom="1px solid #fff"
+      >
+        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
           <HomeIcon />
           <WhiteText size={21}>Início</WhiteText>
         </ItemContainer>
-        <ItemContainer padding={'10px 0px 0px 0px'} disable={false}>
+        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
           <TargetIcon />
           <WhiteText size={21}>Objetivos</WhiteText>
         </ItemContainer>
-        <ItemContainer justify={'center'} flexDirection={'column'} >
-          <ItemContainer justify={'center'} onClick={(e) => setIsOpen(!isOpen)} >
-            <ItemContainer padding={'10px 0px 0px 0px'} disable={false}>
+        <ItemContainer justify="center" flexDirection="column">
+          <ItemContainer justify="center" onClick={() => setIsOpen(!isOpen)}>
+            <ItemContainer padding="10px 0px 0px 0px" disable={false}>
               <AppsIcon />
               <WhiteText size={21}>Soluções</WhiteText>
             </ItemContainer>
-            <ItemContainer justify={'flex-end'} padding={'10px 0px 0px 0px'} disable={false}>
+            <ItemContainer
+              justify="flex-end"
+              padding="10px 0px 0px 0px"
+              disable={false}
+            >
               <IconCircle>
                 {isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
               </IconCircle>
             </ItemContainer>
           </ItemContainer>
-          <ContainerDropdown isOpen={isOpen} >
-            <ItemContainerDropdown isOpen={isOpen} disable={true}>
-              <ItemContainer padding={'5px 0px'} disable={false}>
+          <ContainerDropdown isOpen={isOpen}>
+            <ItemContainerDropdown isOpen={isOpen} disable>
+              <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Cartão de Crédito</WhiteText>
               </ItemContainer>
-              <ItemContainer padding={'5px 0px'} disable={false}>
+              <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Consórcio de Imóvel</WhiteText>
               </ItemContainer>
-              <ItemContainer padding={'5px 0px'} disable={false}>
+              <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Consórcio de Veículo</WhiteText>
               </ItemContainer>
-              <ItemContainer padding={'5px 0px'} disable={false}>
+              <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Financiamento de Veículo</WhiteText>
               </ItemContainer>
-              <ItemContainer padding={'5px 0px'} disable={false}>
+              <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Investimentos</WhiteText>
               </ItemContainer>
-              <ItemContainer padding={'5px 0px'} disable={true}>
+              <ItemContainer padding="5px 0px" disable>
                 <WhiteText size={14}>Previdência Privada</WhiteText>
                 <TagWrapper>
                   <TagText>Em Breve</TagText>
                 </TagWrapper>
               </ItemContainer>
-              <ItemContainer padding={'5px 0px'} disable={false}>
+              <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Seguro de Vida</WhiteText>
               </ItemContainer>
-              <ItemContainer padding={'5px 0px 0px 0px'} disable={false}>
+              <ItemContainer padding="5px 0px 0px 0px" disable={false}>
                 <WhiteText size={14}>Seguro Viagem</WhiteText>
               </ItemContainer>
             </ItemContainerDropdown>
           </ContainerDropdown>
         </ItemContainer>
-        <ItemContainer padding={'10px 0px 0px 0px'} disable={true}>
+        <ItemContainer padding="10px 0px 0px 0px" disable>
           <GearIcon />
           <WhiteText size={21}>Gerenciador</WhiteText>
           <TagWrapper>
             <TagText>Em Breve</TagText>
           </TagWrapper>
         </ItemContainer>
-        <ItemContainer padding={'10px 0px 0px 0px'} disable={false}>
+        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
           <DiamondIcon />
           <WhiteText size={21}>Pontos</WhiteText>
         </ItemContainer>
-        <ItemContainer padding={'10px 0px 0px 0px'} disable={false}>
+        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
           <IdeaIcon />
           <WhiteText size={21}>Recomendações</WhiteText>
         </ItemContainer>
       </Wrapper>
       <Wrapper
-        bgcolor={'#555861'}
-        padding={'15px 15px'}
-        alignItems={'flex-start'}
-        flexDirection={'column'}>
+        bgcolor="#555861"
+        padding="15px 15px"
+        alignItems="flex-start"
+        flexDirection="column"
+      >
         <BlueText size={11}>Sair</BlueText>
       </Wrapper>
     </Container>
-  );
+  )
 }
