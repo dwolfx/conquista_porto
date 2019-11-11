@@ -21,7 +21,7 @@ import {
 } from './styles'
 import { Wrapper, BlueText, IconCircle } from '../styles'
 
-export default function ResponsiveHeader({isOpen, setOpen}) {
+export default function ResponsiveHeader({ isOpen, setOpen }) {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
 
   return (
@@ -62,7 +62,10 @@ export default function ResponsiveHeader({isOpen, setOpen}) {
           <WhiteText size={21}>Objetivos</WhiteText>
         </ItemContainer>
         <ItemContainer justify="center" flexDirection="column">
-          <ItemContainer justify="center" onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}>
+          <ItemContainer
+            justify="center"
+            onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+          >
             <ItemContainer padding="10px 0px 0px 0px" disable={false}>
               <AppsIcon />
               <WhiteText size={21}>Soluções</WhiteText>
