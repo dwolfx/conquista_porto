@@ -1,15 +1,15 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const RelativeHolder = styled.div`
   position: relative;
-`;
+`
 
 export const Container = styled.div`
   background-color: #fff;
-  width: ${props => props.width ? `${props.width}` : 'auto' };
+  width: ${props => (props.width ? `${props.width}` : 'auto')};
   max-height: 400px;
   transform-origin: top center;
-  transform: ${props => props.isOpen ? 'scaleY(1)' : 'scaleY(0)' };
+  transform: ${props => (props.isOpen ? 'scaleY(1)' : 'scaleY(0)')};
   transition: all 0.25s ease-out;
   display: flex;
   align-items: center;
@@ -17,15 +17,15 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 0px;
   overflow: auto;
-  box-shadow: 2px 4px 5px 1px rgba(0,0,0,0.3);
+  box-shadow: 2px 4px 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   position: absolute;
   z-index: 2;
 
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 
 export const Backdrop = styled.div`
   width: 100%;
@@ -35,5 +35,5 @@ export const Backdrop = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0);
   z-index: 1;
-  display: ${props => props.isOpen ? 'block' : 'none'}
+  display: ${props => (props.isOpen ? 'block' : 'none')};
 `

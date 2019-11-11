@@ -57,7 +57,7 @@ export const SolutionsItem = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #C7C7C7;
+  border-bottom: 1px solid #c7c7c7;
   cursor: pointer;
 `
 export const SolutionsContainer = styled.div`
@@ -341,8 +341,8 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
   name: 'arrowright'
 })`
   && {
-    width: ${props => props.size ? `${props.size}px` : '16px'};
-    height: ${props => props.size ? `${props.size}px` : '16px'};
+    width: ${props => (props.size ? `${props.size}px` : '16px')};
+    height: ${props => (props.size ? `${props.size}px` : '16px')};
     fill: #30c5ff;
     margin-right: 0px;
   }
@@ -352,6 +352,7 @@ export const MenuIcon = styled(ConquistaIcon).attrs({ name: 'menu' })`
     width: 32px;
     height: 32px;
     fill: #fff;
+    cursor: pointer;
     @media (min-width: 990) {
       display: none;
     }

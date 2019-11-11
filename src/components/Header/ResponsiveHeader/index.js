@@ -21,18 +21,18 @@ import {
 } from './styles'
 import { Wrapper, BlueText, IconCircle } from '../styles'
 
-export default function ResponsiveHeader() {
-  const [isOpen, setIsOpen] = useState(false)
+export default function ResponsiveHeader({isOpen, setOpen}) {
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
 
   return (
-    <Container>
+    <Container isOpen={isOpen}>
       <Wrapper bgcolor="#34373e" padding="15px 15px" justify="space-between">
         <Wrapper justify="flex-start">
           <Logo />
         </Wrapper>
         <Wrapper justify="flex-end">
           <IconCircle color="#ff7433">
-            <CloseIcon />
+            <CloseIcon onClick={() => setOpen(false)} />
           </IconCircle>
         </Wrapper>
       </Wrapper>
@@ -62,7 +62,7 @@ export default function ResponsiveHeader() {
           <WhiteText size={21}>Objetivos</WhiteText>
         </ItemContainer>
         <ItemContainer justify="center" flexDirection="column">
-          <ItemContainer justify="center" onClick={() => setIsOpen(!isOpen)}>
+          <ItemContainer justify="center" onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}>
             <ItemContainer padding="10px 0px 0px 0px" disable={false}>
               <AppsIcon />
               <WhiteText size={21}>Soluções</WhiteText>
@@ -73,12 +73,12 @@ export default function ResponsiveHeader() {
               disable={false}
             >
               <IconCircle color="#ff7433">
-                {isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                {isSolutionsOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
               </IconCircle>
             </ItemContainer>
           </ItemContainer>
-          <ContainerDropdown isOpen={isOpen}>
-            <ItemContainerDropdown isOpen={isOpen} disable>
+          <ContainerDropdown isOpen={isSolutionsOpen}>
+            <ItemContainerDropdown isOpen={isSolutionsOpen} disable>
               <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Cartão de Crédito</WhiteText>
               </ItemContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import {
   Container,
@@ -47,7 +47,7 @@ import {
   PersonGroupIcon,
   PlaneIcon,
   SolutionsDropdownText,
-  BottomMenuText,
+  BottomMenuText
 } from './styles'
 import Button from '../Button'
 import ResponsiveHeader from './ResponsiveHeader'
@@ -55,10 +55,33 @@ import Dropdown from '../Dropdown'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isResponsiveOpen, setIsResponsiveOpen] = useState(false)
   const [isUp, setIsUp] = useState(false)
+  const [breakpoint, setBreakpoint] = useState('')
+
+  function checkResolution() {
+    const windowWidth = window.innerWidth;
+
+    if(windowWidth > 989){
+      setBreakpoint('lg');
+    } else if(windowWidth <= 989 ){
+      setBreakpoint('sm');
+    }
+  }
+
+  useEffect(() => {
+    checkResolution();
+    window.addEventListener('resize', checkResolution);
+
+    return function unMount(){
+      window.removeEventListener('resize', checkResolution);
+    };
+  }, [])
 
   return (
-    <Container>
+    <>
+    {breakpoint === 'sm' && <ResponsiveHeader isOpen={isResponsiveOpen} setOpen={setIsResponsiveOpen} />}
+    <Container isOpen={isResponsiveOpen}>
       <TopMenu>
         <WrapperMenuTop
           width="1200px"
@@ -66,7 +89,7 @@ export default function Header() {
           margin="0px 120px"
         >
           <ResponsiveWrapper>
-            <MenuIcon />
+            <MenuIcon onClick={() => setIsResponsiveOpen(!isResponsiveOpen)} />
           </ResponsiveWrapper>
           <Wrapper justify="flex-start">
             <ResponsiveLogoWrapper>
@@ -279,7 +302,10 @@ export default function Header() {
                   {10}
                 </Text>
               </NotificationCircle>
-              <BellIcon className="maneiro" onClick={() => setIsOpen(!isOpen)} />
+              <BellIcon
+                className="maneiro"
+                onClick={() => setIsOpen(!isOpen)}
+              />
             </RelativeParent>
             <ResponsiveTextWrapper>
               <Text
@@ -292,9 +318,7 @@ export default function Header() {
               >
                 Olá, Júlia.
               </Text>
-              <BlueText>
-                SAIR
-              </BlueText>
+              <BlueText>SAIR</BlueText>
             </ResponsiveTextWrapper>
           </Wrapper>
         </WrapperMenuTop>
@@ -303,101 +327,101 @@ export default function Header() {
         <Wrapper width="1200px" justify="space-between">
           <WrapperBottomMenuItem>
             <TargetIcon />
-            <BottomMenuText>
-              Objetivos
-            </BottomMenuText>
+            <BottomMenuText>Objetivos</BottomMenuText>
           </WrapperBottomMenuItem>
           <RelativeParent>
             <WrapperBottomMenuItem onClick={() => setIsUp(!isUp)}>
               <AppsIcon />
-              <BottomMenuText>
-                Soluções
-              </BottomMenuText>
+              <BottomMenuText>Soluções</BottomMenuText>
               {isUp ? <ArrowUpIcon /> : <ArrowDownIcon />}
-            </WrapperBottomMenuItem >
+            </WrapperBottomMenuItem>
             <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
               <SolutionsContainer>
                 <SolutionsItem>
                   <IconCircle>
                     <CreditCardIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Cartão de Crédito</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>
+                    Cartão de Crédito
+                  </SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
                 <SolutionsItem>
                   <IconCircle>
                     <HomeWithWindowIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Consórcio de Imóvel</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>
+                    Consórcio de Imóvel
+                  </SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
                 <SolutionsItem>
                   <IconCircle>
                     <CarIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Consórcio de Veículo</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>
+                    Consórcio de Veículo
+                  </SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
                 <SolutionsItem>
                   <IconCircle>
                     <MoneyIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Financiamento de Veículo</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>
+                    Financiamento de Veículo
+                  </SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
                 <SolutionsItem>
                   <IconCircle>
                     <BarChartIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
                 <SolutionsItem>
                   <IconCircle>
                     <TimeIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Previdência Privada</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>
+                    Previdência Privada
+                  </SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
                 <SolutionsItem>
                   <IconCircle>
                     <PersonGroupIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
                 <SolutionsItem>
                   <IconCircle>
                     <PlaneIcon />
                   </IconCircle>
-                    <SolutionsDropdownText>Seguro Viagem</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
+                  <SolutionsDropdownText>Seguro Viagem</SolutionsDropdownText>
+                  <ArrowRightIcon size={11} />
                 </SolutionsItem>
               </SolutionsContainer>
             </Dropdown>
           </RelativeParent>
           <WrapperBottomMenuItem>
             <GearIcon />
-            <BottomMenuText>
-              Gerenciador
-            </BottomMenuText>
+            <BottomMenuText>Gerenciador</BottomMenuText>
           </WrapperBottomMenuItem>
           <WrapperBottomMenuItem>
             <DiamondIcon />
-            <BottomMenuText>
-              Pontos
-            </BottomMenuText>
+            <BottomMenuText>Pontos</BottomMenuText>
           </WrapperBottomMenuItem>
           <WrapperBottomMenuItem>
             <IdeaIcon />
-            <BottomMenuText>
-              Recomendações
-            </BottomMenuText>
+            <BottomMenuText>Recomendações</BottomMenuText>
           </WrapperBottomMenuItem>
         </Wrapper>
       </BottomMenu>
       {isOpen && <Backdrop onClick={() => setIsOpen(!isOpen)} />}
-      <ResponsiveHeader />
     </Container>
+    </>
   )
 }

@@ -24,6 +24,12 @@ const disable = css`
 export const Container = styled.div`
   height: auto;
   background-color: #555861;
+  transition: transform 0.3s ease-out;
+  transform: ${props => props.isOpen ? 'translateX(0%)' : 'translateX(-100%)'};
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
 `
 export const Logo = styled.a`
   background-color: #fff;
@@ -72,7 +78,6 @@ export const WhiteText = styled.p`
   font-weight: 300;
   text-align: center;
   line-height: 39px;
-  cursor: pointer;
 `
 export const TagText = styled.p`
   color: ${props => (props.color ? props.color : '#fff')};
