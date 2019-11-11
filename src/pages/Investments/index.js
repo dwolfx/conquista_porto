@@ -41,6 +41,28 @@ const makeSenseSectionData = [
   }
 ]
 
+const makeSenseBenefitsSectionData = [
+  {
+    title: 'Gerente de conta',
+    description:
+      'Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.'
+  },
+  {
+    title: 'Programa de Relacionamento',
+    description:
+      'Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.'
+  },
+  {
+    title: 'Chat inteligente',
+    description: 'Para te ajudar com informações e dicas em qualquer momento.'
+  },
+  {
+    title: 'Facilidade',
+    description:
+      'A contratação é rápida e descomplicada, feita para facilitar sua vida.'
+  }
+]
+
 const downloadFileSectionData = [
   {
     title: 'quadro de rentabilidade',
@@ -76,7 +98,9 @@ export default function Investments() {
       />
       <MakeSenseSection
         title="Quando faz sentido investir?"
+        subtitle="Vantagens ao contratar aqui:"
         data={makeSenseSectionData}
+        benefitsData={makeSenseBenefitsSectionData}
       />
       <HighlightSection
         title="Facilidade para investir"

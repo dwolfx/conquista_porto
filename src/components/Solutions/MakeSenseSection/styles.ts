@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
+const darkGray = '#1C1C1C'
+
+export const Container = styled.section<IContainer>`
   padding-top: 28px;
-  padding-bottom: 28px;
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : 'white'};
 `
@@ -18,7 +19,7 @@ export const ItemsContainer = styled.div`
   display: flex;
   margin-top: 22px;
   width: 1200px;
-  margin: 22px auto 0 auto;
+  margin: 22px auto 56px;
   justify-content: space-evenly;
 
   @media (max-width: 1200px) {
@@ -62,7 +63,7 @@ export const Circle = styled.div`
   }
 `
 
-export const ItemDescription = styled.p`
+export const ItemDescription = styled.p<IItemDescription>`
   font-size: 14px;
   line-height: 19px;
   font-weight: 300;
@@ -77,3 +78,22 @@ export const ItemDescription = styled.p`
     flex: 2;
   }
 `
+
+export const Subtitle = styled.h2`
+  color: ${darkGray};
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 21px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1em;
+`
+
+interface IContainer {
+  backgroundColor: string
+}
+
+interface IItemDescription {
+  align: string
+}
