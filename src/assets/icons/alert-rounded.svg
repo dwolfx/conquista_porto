@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 36 36" style="enable-background:new 0 0 36 36;" xml:space="preserve">
+<title>alert-rounded</title>
+<g>
+	<g>
+		<polygon points="15.6,7.9 20.4,7.9 19.4,19.7 16.6,19.7 		"/>
+	</g>
+	<g>
+		<path d="M15.6,25.1c0-1.3,1.1-2.4,2.4-2.4c1.3,0,2.4,1.1,2.4,2.4c0,1.3-1.1,2.4-2.4,2.4C16.7,27.4,15.6,26.4,15.6,25.1z"/>
+	</g>
+	<path d="M18,2.4c8.6,0,15.6,7,15.6,15.6s-7,15.6-15.6,15.6S2.4,26.6,2.4,18S9.4,2.4,18,2.4 M18,0C8.1,0,0,8.1,0,18
+		c0,9.9,8.1,18,18,18c9.9,0,18-8.1,18-18C36,8.1,27.9,0,18,0L18,0z"/>
+</g>
+</svg>
