@@ -50,17 +50,16 @@ const IconComponent = ({ name, ...props }) => {
     remove,
     target,
     thumbsup,
-    time
+    time,
   }
-  let Icon
+  
   if (name.toLowerCase() in dict) {
-    Icon = dict[name.toLowerCase()]
-  } else {
-    console.warn(`${name} not found`)
-    return false
-  }
-
-  return <Icon {...props} />
+   const Icon = dict[name.toLowerCase()]
+   return <Icon {...props} />
+  } 
+  
+  console.warn(`${name} not found`)
+  return false
 }
 
 export default IconComponent

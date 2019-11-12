@@ -1,53 +1,53 @@
 import React, { useState, useEffect } from 'react'
 
 import {
-  Container,
-  TopMenu,
-  Text,
-  BlueText,
-  Wrapper,
-  WrapperMenuTop,
-  Logo,
-  RelativeParent,
-  NotificationCircle,
-  LinkText,
-  BottomMenu,
-  WrapperBottomMenuItem,
+  AddIcon,
   AlertRoundedIcon,
   AppsIcon,
   ArrowDownIcon,
   ArrowRightIcon,
   ArrowUpIcon,
-  BellIcon,
-  DiamondIcon,
-  GearIcon,
-  IdeaIcon,
-  MenuIcon,
-  RemoveIcon,
-  TargetIcon,
-  DropDownWrapper,
-  DropDownContainer,
-  TriangleHolder,
-  DropDownTriangle,
-  AddIcon,
-  Backdrop,
-  ResponsiveTextWrapper,
-  ResponsiveWrapper,
-  ResponsiveLogoWrapper,
-  ThumbsUpIcon,
-  IconCircle,
-  CreditCardIcon,
-  SolutionsItem,
-  SolutionsContainer,
-  HomeWithWindowIcon,
-  CarIcon,
-  MoneyIcon,
+  BottomMenuText,
   BarChartIcon,
-  TimeIcon,
+  BlueText,
+  Backdrop,
+  BellIcon,
+  BottomMenu,
+  CarIcon,
+  Container,
+  CreditCardIcon,
+  DiamondIcon,
+  DropDownContainer,
+  DropDownTriangle,
+  DropDownWrapper,
+  GearIcon,
+  HomeWithWindowIcon,
+  IconCircle,
+  IdeaIcon,
+  LinkText,
+  Logo,
+  MenuIcon,
+  MoneyIcon,
+  NotificationCircle,
   PersonGroupIcon,
   PlaneIcon,
+  RelativeParent,
+  RemoveIcon,
+  ResponsiveLogoWrapper,
+  ResponsiveTextWrapper,
+  ResponsiveWrapper,
+  SolutionsContainer,
   SolutionsDropdownText,
-  BottomMenuText
+  SolutionsItem,
+  TargetIcon,
+  Text,
+  ThumbsUpIcon,
+  TimeIcon,
+  TopMenu,
+  TriangleHolder,
+  Wrapper,
+  WrapperBottomMenuItem,
+  WrapperMenuTop,
 } from './styles'
 import Button from '../Button'
 import ResponsiveHeader from './ResponsiveHeader'
@@ -94,9 +94,7 @@ export default function Header() {
             margin="0px 120px"
           >
             <ResponsiveWrapper>
-              <MenuIcon
-                onClick={() => setIsResponsiveOpen(!isResponsiveOpen)}
-              />
+              <MenuIcon onClick={() => setIsResponsiveOpen(!isResponsiveOpen)}/>
             </ResponsiveWrapper>
             <Wrapper justify="flex-start">
               <ResponsiveLogoWrapper>
@@ -319,7 +317,6 @@ export default function Header() {
                     </Wrapper>
                   </DropDownContainer>
                 </DropDownWrapper>
-
                 <NotificationCircle>
                   <Text size={10} cursorPointer>
                     {10}

@@ -11,6 +11,7 @@ const basicSvgStyle = {
 }
 const arrowSvgStyle = {
   width: '15px',
+  height: '15px',
   marginRight: '0px',
   marginLeft: '10px'
 }
@@ -120,6 +121,7 @@ export const BottomMenu = styled.div`
 `
 export const WrapperBottomMenuItem = styled.div`
   display: flex;
+  align-items: center;
   cursor: pointer;
   &&:hover {
     svg {
