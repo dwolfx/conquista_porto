@@ -9,20 +9,9 @@ const basicSvgStyle = {
   height: '20px',
   marginRight: '10px'
 }
-const arrowSvgStyle = {
-  height: '20px',
-  width: '15px',
-  marginRight: '0px',
-  marginLeft: '10px'
-}
 const notificationDropdownSvgStyle = {
   fill: '#30C5FF',
   marginRight: '0px'
-}
-const bottomMenuDropdownSvgStyle = {
-  fill: '#fff',
-  width: '18px',
-  height: '18px'
 }
 
 export const Container = styled.header``
@@ -49,25 +38,6 @@ export const Wrapper = styled.div`
   align-self: ${props => props.alignSelf};
   border-bottom: ${props => props.borderBottom};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
-`
-export const SolutionsItem = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: auto;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #c7c7c7;
-  cursor: pointer;
-`
-export const SolutionsContainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  ${SolutionsItem}:last-child {
-    border-bottom: none;
-  }
 `
 export const WrapperMenuTop = styled.div`
   display: flex;
@@ -105,34 +75,6 @@ export const NotificationCircle = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-`
-export const BottomMenu = styled.div`
-  display: flex;
-  background-color: #fff;
-  width: 100%;
-  padding: 15px;
-  justify-content: space-around;
-  align-items: center;
-  box-shadow: 0px 2px 8px 0px rgba(130, 130, 130, 0.38);
-
-  @media (max-width: 989px) {
-    display: none;
-  }
-`
-export const WrapperBottomMenuItem = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  &&:hover {
-    svg {
-      transition: all 0.2s ease-in-out;
-      fill: #30c5ff;
-    }
-    p {
-      transition: all 0.2s ease-in-out;
-      color: #30c5ff;
-    }
-  }
 `
 export const DropDownWrapper = styled.div`
   display: flex;
@@ -192,16 +134,6 @@ export const ResponsiveWrapper = styled.div`
     display: none;
   }
 `
-export const IconCircle = styled.div`
-  display: flex;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: ${props => (props.color ? props.color : '#C7C7C7')};
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`
 export const LinkText = styled(NavLink)`
   padding: 7px 0px;
   margin: 0px 20px;
@@ -227,13 +159,6 @@ export const Text = styled.p`
   text-align: ${props => props.textAlign};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
 `
-export const BottomMenuText = styled.p`
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-`
 export const BlueText = styled.p`
   color: #33beff;
   font-size: 11px;
@@ -244,56 +169,7 @@ export const BlueText = styled.p`
   line-height: 21px;
   cursor: pointer;
 `
-export const SolutionsDropdownText = styled.p`
-  color: #1c1c1c;
-  font-size: 14px;
-  font-weight: 400;
-`
-export const AppsIcon = styled(ConquistaIcon).attrs({ name: 'apps' })`
-  ${basicSvgStyle};
-`
-export const DiamondIcon = styled(ConquistaIcon).attrs({ name: 'diamond' })`
-  ${basicSvgStyle};
-`
-export const GearIcon = styled(ConquistaIcon).attrs({ name: 'gear' })`
-  ${basicSvgStyle};
-`
-export const IdeaIcon = styled(ConquistaIcon).attrs({ name: 'idea' })`
-  ${basicSvgStyle};
-`
-export const TargetIcon = styled(ConquistaIcon).attrs({ name: 'target' })`
-  ${basicSvgStyle};
-`
-export const BarChartIcon = styled(ConquistaIcon).attrs({ name: 'barchart' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const CarIcon = styled(ConquistaIcon).attrs({ name: 'car' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const CreditCardIcon = styled(ConquistaIcon).attrs({
-  name: 'creditcard'
-})`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const HomeWithWindowIcon = styled(ConquistaIcon).attrs({
-  name: 'homewithwindow'
-})`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const MoneyIcon = styled(ConquistaIcon).attrs({ name: 'money' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const PersonGroupIcon = styled(ConquistaIcon).attrs({
-  name: 'persongroup'
-})`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const PlaneIcon = styled(ConquistaIcon).attrs({ name: 'plane' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const TimeIcon = styled(ConquistaIcon).attrs({ name: 'time' })`
-  ${bottomMenuDropdownSvgStyle}
-`
+
 export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
   && {
     fill: #fff;
@@ -301,16 +177,6 @@ export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
     height: 24px;
     margin-right: 0px;
     cursor: pointer;
-  }
-`
-export const ArrowDownIcon = styled(ConquistaIcon).attrs({ name: 'arrowdown' })`
-  && {
-    ${arrowSvgStyle};
-  }
-`
-export const ArrowUpIcon = styled(ConquistaIcon).attrs({ name: 'arrowup' })`
-  && {
-    ${arrowSvgStyle};
   }
 `
 export const RemoveIcon = styled(ConquistaIcon).attrs({ name: 'remove' })`

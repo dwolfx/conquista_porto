@@ -32,11 +32,35 @@ export const Container = styled.div`
   height: 100vh;
   z-index: 3;
 `
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: ${props =>
+    props.flexDirection ? props.flexDirection : 'row'};
+  width: ${props => (props.width ? props.width : '100%')};
+  height: ${props => (props.height ? props.height : 'auto')};
+  justify-content: ${props => (props.justify ? props.justify : 'center')};
+  align-items: ${props => (props.alignItems ? props.alignItems : 'center')};
+  padding: ${props => (props.padding ? props.padding : '0px')};
+  background-color: ${props => (props.bgcolor ? props.bgcolor : 'unset')};
+  align-self: ${props => props.alignSelf};
+  border-bottom: ${props => props.borderBottom};
+  cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
+`
 export const Logo = styled.a`
   background-color: #fff;
   width: 150px;
   height: 60px;
   margin-right: 20px;
+  cursor: pointer;
+`
+export const IconCircle = styled.div`
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${props => (props.color ? props.color : '#C7C7C7')};
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 `
 export const ItemContainer = styled.div`
@@ -79,6 +103,16 @@ export const WhiteText = styled.p`
   font-weight: 300;
   text-align: center;
   line-height: 39px;
+`
+export const BlueText = styled.p`
+  color: #33beff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 21px;
+  cursor: pointer;
 `
 export const TagText = styled.p`
   color: ${props => (props.color ? props.color : '#fff')};

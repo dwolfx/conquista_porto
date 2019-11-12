@@ -4,12 +4,14 @@ import {
   AppsIcon,
   ArrowDownIcon,
   ArrowUpIcon,
+  BlueText,
   Container,
   ContainerDropdown,
   CloseIcon,
   DiamondIcon,
   GearIcon,
   HomeIcon,
+  IconCircle,
   IdeaIcon,
   ItemContainer,
   ItemContainerDropdown,
@@ -17,9 +19,9 @@ import {
   TagText,
   TagWrapper,
   TargetIcon,
-  WhiteText
+  WhiteText,
+  Wrapper
 } from './styles'
-import { Wrapper, BlueText, IconCircle } from '../styles'
 
 export default function ResponsiveHeader({ isOpen, setOpen }) {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)

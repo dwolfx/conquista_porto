@@ -3,56 +3,34 @@ import React, { useState, useEffect } from 'react'
 import {
   AddIcon,
   AlertRoundedIcon,
-  AppsIcon,
-  ArrowDownIcon,
   ArrowRightIcon,
-  ArrowUpIcon,
-  BottomMenuText,
-  BarChartIcon,
   BlueText,
   Backdrop,
   BellIcon,
-  BottomMenu,
-  CarIcon,
   Container,
-  CreditCardIcon,
-  DiamondIcon,
   DropDownContainer,
   DropDownTriangle,
   DropDownWrapper,
-  GearIcon,
-  HomeWithWindowIcon,
-  IconCircle,
-  IdeaIcon,
   LinkText,
   Logo,
   MenuIcon,
-  MoneyIcon,
   NotificationCircle,
-  PersonGroupIcon,
-  PlaneIcon,
   RelativeParent,
   RemoveIcon,
   ResponsiveLogoWrapper,
   ResponsiveTextWrapper,
   ResponsiveWrapper,
-  SolutionsContainer,
-  SolutionsDropdownText,
-  SolutionsItem,
-  TargetIcon,
   Text,
   ThumbsUpIcon,
-  TimeIcon,
   TopMenu,
   TriangleHolder,
   Wrapper,
-  WrapperBottomMenuItem,
   WrapperMenuTop
 } from './styles'
 
 import Button from '../Button'
 import ResponsiveHeader from './ResponsiveHeader'
-import Dropdown from '../Dropdown'
+import BottomMenu from './BottomMenu'
 
 const DB = [
   {
@@ -115,7 +93,6 @@ const Icon = ({ name }) => {
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isResponsiveOpen, setIsResponsiveOpen] = useState(false)
-  const [isUp, setIsUp] = useState(false)
   const [breakpoint, setBreakpoint] = useState('')
 
   function checkResolution() {
@@ -254,105 +231,7 @@ export default function Header() {
             </Wrapper>
           </WrapperMenuTop>
         </TopMenu>
-        <BottomMenu>
-          <Wrapper width="1200px" justify="space-between">
-            <WrapperBottomMenuItem>
-              <TargetIcon />
-              <BottomMenuText>Objetivos</BottomMenuText>
-            </WrapperBottomMenuItem>
-            <RelativeParent>
-              <WrapperBottomMenuItem onClick={() => setIsUp(!isUp)}>
-                <AppsIcon />
-                <BottomMenuText>Soluções</BottomMenuText>
-                {isUp ? <ArrowUpIcon /> : <ArrowDownIcon />}
-              </WrapperBottomMenuItem>
-              <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
-                <SolutionsContainer>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <CreditCardIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>
-                      Cartão de Crédito
-                    </SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <HomeWithWindowIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>
-                      Consórcio de Imóvel
-                    </SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <CarIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>
-                      Consórcio de Veículo
-                    </SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <MoneyIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>
-                      Financiamento de Veículo
-                    </SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <BarChartIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <TimeIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>
-                      Previdência Privada
-                    </SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <PersonGroupIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>
-                      Seguro de Vida
-                    </SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                  <SolutionsItem>
-                    <IconCircle>
-                      <PlaneIcon />
-                    </IconCircle>
-                    <SolutionsDropdownText>Seguro Viagem</SolutionsDropdownText>
-                    <ArrowRightIcon size={11} />
-                  </SolutionsItem>
-                </SolutionsContainer>
-              </Dropdown>
-            </RelativeParent>
-            <WrapperBottomMenuItem>
-              <GearIcon />
-              <BottomMenuText>Gerenciador</BottomMenuText>
-            </WrapperBottomMenuItem>
-            <WrapperBottomMenuItem>
-              <DiamondIcon />
-              <BottomMenuText>Pontos</BottomMenuText>
-            </WrapperBottomMenuItem>
-            <WrapperBottomMenuItem>
-              <IdeaIcon />
-              <BottomMenuText>Recomendações</BottomMenuText>
-            </WrapperBottomMenuItem>
-          </Wrapper>
-        </BottomMenu>
+        <BottomMenu />
         {isOpen && <Backdrop onClick={() => setIsOpen(!isOpen)} />}
       </Container>
     </>
