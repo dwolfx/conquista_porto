@@ -5,12 +5,11 @@ import { ReactComponent as headset } from '../../assets/icons/call-center.svg'
 import { ReactComponent as arrowRight } from '../../assets/icons/arrow-right.svg'
 
 export const Container = styled.footer`
-  width: 100%;
-  background-color: #fff;
-  padding: 30px;
   display: flex;
+  flex-shrink: 0;
   margin: 0 auto;
-  max-width: 1200px;
+  padding: 30px 30px 0;
+  width: 100%;
 
   svg {
     width: 18px;

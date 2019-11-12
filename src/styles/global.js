@@ -15,4 +15,16 @@ export default createGlobalStyle`
     text-decoration: none;
     color: #000;
   }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
 `
