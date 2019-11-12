@@ -12,7 +12,9 @@ const App: React.FC = () => {
     <Router history={history}>
       <GlobalStyle />
       <Header />
-      <Routes />
+      <main className="main-content">
+        <Routes />
+      </main>
       <Footer />
     </Router>
   )
