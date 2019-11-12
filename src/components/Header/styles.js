@@ -10,6 +10,7 @@ const basicSvgStyle = {
   marginRight: '10px'
 }
 const arrowSvgStyle = {
+  height: '20px',
   width: '15px',
   marginRight: '0px',
   marginLeft: '10px'
