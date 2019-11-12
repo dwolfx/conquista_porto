@@ -1,20 +1,24 @@
 import React from 'react'
 import { Router } from 'react-router-dom'
+import { Provider } from 'react-redux';
 
+import store from './store';
 import GlobalStyle from './styles/global'
+import history from './services/history'
 import Routes from './routes'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import history from './services/history'
 
 const App: React.FC = () => {
   return (
-    <Router history={history}>
-      <GlobalStyle />
-      <Header />
-      <Routes />
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router history={history}>
+        <GlobalStyle />
+        <Header />
+        <Routes />
+        <Footer />
+      </Router>
+    </Provider>
   )
 }
 
