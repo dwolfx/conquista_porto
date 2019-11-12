@@ -22,11 +22,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-
 ## Commit Convention
 
 Our Commit Convetion is a lightweight convention on top of commit messages. It provides an easy set of rules for creating a commit. Following this commit convention is easy to read and understand commit before open it code.
-
 
 ### Why Use Commit Convetion
 
@@ -35,6 +33,7 @@ Communicating the nature of changes to teammates, the public, and other stakehol
 Making it easier for people to contribute to your projects, by allowing them to explore a more structured commit history.
 
 ### Commit Notation
+
 JiraId = TaskId | BugId
 CommitBody = String
 
@@ -70,7 +69,7 @@ bugfix/PCNE-01
 ## Pull Request Guidelines
 
 - It's OK to have multiple small commits as you work on the PR - GitHub will automatically squash it before merging.
-- Make sure npm test passes. 
+- Make sure npm test passes.
 - If adding a new feature:
   - Add accompanying test case.
 - If fixing bug:
