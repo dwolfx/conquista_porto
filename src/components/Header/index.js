@@ -176,61 +176,56 @@ export default function Header() {
                   </TriangleHolder>
                   <DropDownContainer width={500} height={400}>
                     {DB.map(item => (
+                      <Wrapper
+                        padding="15px"
+                        alignItems="flex-start"
+                        bgcolor="#fff"
+                        borderBottom="1px solid #c7c7c7"
+                        cursorPointer
+                        key={item.id}
+                      >
                         <Wrapper
-                          padding="15px"
+                          width="35px"
                           alignItems="flex-start"
-                          bgcolor="#fff"
-                          borderBottom="1px solid #c7c7c7"
                           cursorPointer
-                          key={item.id}
                         >
-                          <Wrapper
-                            width="35px"
-                            alignItems="flex-start"
-                            cursorPointer
-                          >
-                            <Icon name={item.identificationIcon} />
-                          </Wrapper>
-                          <Wrapper
-                            justify="flex-start"
-                            flexDirection="column"
-                            alignItems="flex-start"
-                            padding="0px 5px"
-                            cursorPointer
-                          >
-                            <Text
-                              color="#33beff"
-                              margin="0px 0px 14px 0px"
-                              size={11}
-                              fontWeight={600}
-                              lineHeight="21px"
-                              letterSpacing={1.5}
-                              upperCase
-                              cursorPointer
-                            >
-                              {item.title}
-                            </Text>
-                            <Text
-                              color="#1c1c1c"
-                              size={14}
-                              fontWeight={300}
-                              lineHeight="24px"
-                              textAlign="left"
-                              cursorPointer
-                            >
-                              {item.content}
-                            </Text>
-                          </Wrapper>
-                          <Wrapper
-                            width="35px"
-                            alignSelf="center"
-                            cursorPointer
-                          >
-                            <Icon name={item.actionIcon} />
-                          </Wrapper>
+                          <Icon name={item.identificationIcon} />
                         </Wrapper>
-                      )
-                    )}
+                        <Wrapper
+                          justify="flex-start"
+                          flexDirection="column"
+                          alignItems="flex-start"
+                          padding="0px 5px"
+                          cursorPointer
+                        >
+                          <Text
+                            color="#33beff"
+                            margin="0px 0px 14px 0px"
+                            size={11}
+                            fontWeight={600}
+                            lineHeight="21px"
+                            letterSpacing={1.5}
+                            upperCase
+                            cursorPointer
+                          >
+                            {item.title}
+                          </Text>
+                          <Text
+                            color="#1c1c1c"
+                            size={14}
+                            fontWeight={300}
+                            lineHeight="24px"
+                            textAlign="left"
+                            cursorPointer
+                          >
+                            {item.content}
+                          </Text>
+                        </Wrapper>
+                        <Wrapper width="35px" alignSelf="center" cursorPointer>
+                          <Icon name={item.actionIcon} />
+                        </Wrapper>
+                      </Wrapper>
+                    ))}
                     <Wrapper padding="15px">
                       <Button to="/notifications">Ver Todos</Button>
                     </Wrapper>
