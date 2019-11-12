@@ -32,8 +32,11 @@ export default createGlobalStyle`
   }
 
   .main-content {
+    display: flex;
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: auto;
+    justify-content: center;
+    flex-direction: column;
   }
 `

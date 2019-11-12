@@ -11,6 +11,7 @@ import Points from './pages/Points'
 import ConsortiumBuilding from './pages/ConsortiumBuilding'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
+import PointsStatement from './pages/Points/Statement'
 
 const DefaultRoute = ({ component, ...props }) => {
   const Component = component
@@ -18,9 +19,11 @@ const DefaultRoute = ({ component, ...props }) => {
   return (
     <>
       <Header />
-      <Route {...props}>
-        <Component />
-      </Route>
+      <main className="main-content">
+        <Route {...props}>
+          <Component />
+        </Route>
+      </main>
       <Footer />
     </>
   )
@@ -33,7 +36,12 @@ export default function Routes() {
       <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <DefaultRoute path="/pontos" exact component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
-      <DefaultRoute path="/consorcio-imovel" exact component={ConsortiumBuilding} />
+      <DefaultRoute
+        path="/consorcio-imovel"
+        exact
+        component={ConsortiumBuilding}
+      />
+      <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"
