@@ -17,7 +17,7 @@ import {
   TagText,
   TagWrapper,
   TargetIcon,
-  WhiteText,
+  WhiteText
 } from './styles'
 import { Wrapper, BlueText, IconCircle } from '../styles'
 

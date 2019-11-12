@@ -50,14 +50,14 @@ const IconComponent = ({ name, ...props }) => {
     remove,
     target,
     thumbsup,
-    time,
+    time
   }
-  
+
   if (name.toLowerCase() in dict) {
-   const Icon = dict[name.toLowerCase()]
-   return <Icon {...props} />
-  } 
-  
+    const Icon = dict[name.toLowerCase()]
+    return <Icon {...props} />
+  }
+
   console.warn(`${name} not found`)
   return false
 }
