@@ -24,7 +24,7 @@ import {
   ThumbsUpIcon,
   TopMenu,
   TriangleHolder,
-  Wrapper,
+  Wrapper
 } from './styles'
 
 import Button from '../Button'
@@ -119,9 +119,7 @@ export default function Header() {
       <Container isOpen={isResponsiveOpen}>
         <TopMenu>
           <ResponsiveWrapper>
-            <MenuIcon
-              onClick={() => setIsResponsiveOpen(!isResponsiveOpen)}
-            />
+            <MenuIcon onClick={() => setIsResponsiveOpen(!isResponsiveOpen)} />
           </ResponsiveWrapper>
           <Wrapper justify="flex-start">
             <ResponsiveLogoWrapper>
@@ -129,10 +127,10 @@ export default function Header() {
             </ResponsiveLogoWrapper>
             <LinkText to="/" exact size={20} margin="0px 20px">
               Início
-              </LinkText>
+            </LinkText>
             <LinkText to="/user" size={20} margin="0px 20px">
               Perfil
-              </LinkText>
+            </LinkText>
           </Wrapper>
           <Wrapper justify="flex-end">
             <RelativeParent>
@@ -214,7 +212,7 @@ export default function Header() {
                 lineHeight={21}
               >
                 Olá, Júlia.
-                </Text>
+              </Text>
               <BlueText>SAIR</BlueText>
             </ResponsiveTextWrapper>
           </Wrapper>
