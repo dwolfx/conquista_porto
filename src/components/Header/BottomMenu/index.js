@@ -35,7 +35,7 @@ export default function BottomMenu() {
 
   return (
     <Menu>
-      <Wrapper width="1200px" justify="space-between">
+      <Wrapper>
         <WrapperBottomMenuItem>
           <TargetIcon />
           <BottomMenuText>Objetivos</BottomMenuText>
@@ -46,7 +46,8 @@ export default function BottomMenu() {
             <BottomMenuText>Soluções</BottomMenuText>
             {isUp ? <ArrowUpIcon /> : <ArrowDownIcon />}
           </WrapperBottomMenuItem>
-          <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
+          {/* <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px"> */}
+          <Dropdown isOpen={1}  width="300px">
             <SolutionsContainer>
               <SolutionsItem>
                 <IconCircle>
