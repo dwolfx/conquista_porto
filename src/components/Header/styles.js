@@ -14,17 +14,24 @@ const notificationDropdownSvgStyle = {
   marginRight: '0px'
 }
 
-export const Container = styled.header``
-
+export const Container = styled.header`
+  width: 100%;
+  height: auto;
+  background-color: #34373e;
+`
 export const TopMenu = styled.div`
   display: flex;
-  background-color: #34373e;
   width: 100%;
-  padding: 15px;
-  justify-content: space-around;
+  height: auto;
+  background-color: #34373e;
+  justify-content: center;
   align-items: center;
-`
+  padding: 7px 22px;
 
+  @media (min-width: 768px) {
+    padding: 15px 135px;
+  }
+`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: ${props =>
@@ -38,16 +45,6 @@ export const Wrapper = styled.div`
   align-self: ${props => props.alignSelf};
   border-bottom: ${props => props.borderBottom};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
-`
-export const WrapperMenuTop = styled.div`
-  display: flex;
-  width: ${props => props.width};
-  height: auto;
-  justify-content: ${props => (props.justify ? props.justify : 'center')};
-  align-items: center;
-  @media (max-width: 989px) {
-    margin: ${props => (props.margin ? props.margin : '0px')};
-  }
 `
 export const Logo = styled.a`
   background-color: #fff;
@@ -130,6 +127,7 @@ export const ResponsiveLogoWrapper = styled.div`
 `
 export const ResponsiveWrapper = styled.div`
   width: 100%;
+  justify-content: center;
   @media (min-width: 990px) {
     display: none;
   }

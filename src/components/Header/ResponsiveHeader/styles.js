@@ -26,7 +26,7 @@ export const Container = styled.div`
   background-color: #555861;
   transition: transform 0.3s ease-out;
   transform: ${props =>
-    props.isOpen ? 'translateX(0%)' : 'translateX(-100%)'};
+    props.isOpen ? 'translateX(0%)' : 'translateX(-150%)'};
   position: absolute;
   width: 100%;
   height: 100vh;
