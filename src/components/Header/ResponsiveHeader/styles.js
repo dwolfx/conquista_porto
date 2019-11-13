@@ -31,6 +31,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 3;
+  top: 0;
 `
 export const Wrapper = styled.div`
   display: flex;
@@ -45,13 +46,6 @@ export const Wrapper = styled.div`
   align-self: ${props => props.alignSelf};
   border-bottom: ${props => props.borderBottom};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
-`
-export const Logo = styled.a`
-  background-color: #fff;
-  width: 150px;
-  height: 60px;
-  margin-right: 20px;
-  cursor: pointer;
 `
 export const IconCircle = styled.div`
   display: flex;

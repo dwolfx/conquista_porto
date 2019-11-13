@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import ConquistaIcon from '../../IconExporter'
 
@@ -60,7 +61,7 @@ export const SolutionsDropdownText = styled.p`
   font-size: 14px;
   font-weight: 400;
 `
-export const SolutionsItem = styled.div`
+export const SolutionsItem = styled(Link)`
   display: flex;
   width: auto;
   height: auto;

@@ -15,13 +15,14 @@ import {
   IdeaIcon,
   ItemContainer,
   ItemContainerDropdown,
-  Logo,
   TagText,
   TagWrapper,
   TargetIcon,
   WhiteText,
   Wrapper
 } from './styles'
+
+import Logo from '../Logo'
 
 export default function ResponsiveHeader({ isOpen, setOpen }) {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)

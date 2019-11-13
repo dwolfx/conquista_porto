@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import ConquistaIcon from '../IconExporter'
+import ConquistaIcon from '../../IconExporter'
 
 const basicSvgStyle = {
   fill: '#1c1c1c',
@@ -14,12 +14,7 @@ const notificationDropdownSvgStyle = {
   marginRight: '0px'
 }
 
-export const Container = styled.header`
-  width: 100%;
-  height: auto;
-  background-color: #34373e;
-`
-export const TopMenu = styled.div`
+export const Container = styled.div`
   display: flex;
   width: 100%;
   height: auto;
@@ -46,16 +41,6 @@ export const Wrapper = styled.div`
   border-bottom: ${props => props.borderBottom};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
 `
-export const Logo = styled.a`
-  background-color: #fff;
-  width: 150px;
-  height: 60px;
-  margin-right: 20px;
-  cursor: pointer;
-  @media (max-width: 989px) {
-    margin-right: 0px;
-  }
-`
 export const RelativeParent = styled.div`
   position: relative;
   z-index: 2;
@@ -72,6 +57,15 @@ export const NotificationCircle = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+`
+export const Backdrop = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
 `
 export const DropDownWrapper = styled.div`
   display: flex;
@@ -103,26 +97,10 @@ export const DropDownTriangle = styled.div`
   background-color: #fff;
   transform: rotate(45deg);
 `
-export const Backdrop = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0);
-  z-index: 1;
-`
 export const ResponsiveTextWrapper = styled.div`
   display: flex;
   @media (max-width: 989px) {
     display: none;
-  }
-`
-export const ResponsiveLogoWrapper = styled.div`
-  display: flex;
-  @media (max-width: 989px) {
-    width: 100%;
-    justify-content: center;
   }
 `
 export const ResponsiveWrapper = styled.div`

@@ -48,14 +48,14 @@ export default function BottomMenu() {
           </WrapperBottomMenuItem>
           <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
             <SolutionsContainer>
-              <SolutionsItem>
+              <SolutionsItem to="/credit-card">
                 <IconCircle>
                   <CreditCardIcon />
                 </IconCircle>
                 <SolutionsDropdownText>Cartão de Crédito</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem>
+              <SolutionsItem to="/">
                 <IconCircle>
                   <HomeWithWindowIcon />
                 </IconCircle>
@@ -64,7 +64,7 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem>
+              <SolutionsItem to="/">
                 <IconCircle>
                   <CarIcon />
                 </IconCircle>
@@ -73,7 +73,7 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem>
+              <SolutionsItem to="/">
                 <IconCircle>
                   <MoneyIcon />
                 </IconCircle>
@@ -82,14 +82,14 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem>
+              <SolutionsItem to="/">
                 <IconCircle>
                   <BarChartIcon />
                 </IconCircle>
                 <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem>
+              <SolutionsItem to="/">
                 <IconCircle>
                   <TimeIcon />
                 </IconCircle>
@@ -98,14 +98,14 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem>
+              <SolutionsItem to="/">
                 <IconCircle>
                   <PersonGroupIcon />
                 </IconCircle>
                 <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem>
+              <SolutionsItem to="/">
                 <IconCircle>
                   <PlaneIcon />
                 </IconCircle>
