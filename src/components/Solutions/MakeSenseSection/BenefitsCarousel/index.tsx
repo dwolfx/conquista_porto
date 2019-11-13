@@ -1,12 +1,10 @@
 import React from 'react'
-import { defaultSettings } from 'components/Carousel/index'
 import { Carousel } from './styles'
 import CarouselCard from './BenefitsCarouselCard/index'
 import { Settings } from 'react-slick'
 
 export default function({ benefitsData }: IProps) {
   const settings: Settings = {
-    ...defaultSettings,
     slidesToShow: 4,
     slidesToScroll: 4,
     responsive: [
