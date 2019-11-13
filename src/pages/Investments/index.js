@@ -85,6 +85,7 @@ export default function Investments() {
         buttonText="Lista de fundos"
         image={BannerInvestimentosImage}
         imageDescription="Homem pesquisando investimentos em um website em seu computador"
+        onClick={() => {}}
       />
       <BulletsSection
         title="Por que investir em Fundos?"

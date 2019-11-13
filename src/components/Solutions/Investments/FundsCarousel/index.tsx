@@ -1,13 +1,11 @@
 import React from 'react'
 import CarouselItem from './CarouselCard/index'
-import { defaultSettings } from 'components/Carousel/index'
 import mockData from './mock'
 import { InvestmentsCarouselWrapper, TitleHeader, Carousel } from './styles'
 import { Settings } from 'react-slick'
 
 const FundsCarouselSection = () => {
   const settings: Settings = {
-    ...defaultSettings,
     slidesToShow: 4,
     slidesToScroll: 4,
     responsive: [

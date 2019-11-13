@@ -18,7 +18,7 @@ export function PreviousArrow() {
   )
 }
 
-export const defaultSettings: Settings = {
+const defaultSettings: Settings = {
   dots: true,
   infinite: true,
   speed: 500,
@@ -33,7 +33,7 @@ export default function Carousel({
   settings,
   ...props
 }: IProps<JSX.Element>) {
-  const sliderSettings = settings ? { ...settings } : { ...defaultSettings }
+  const sliderSettings = { ...defaultSettings, ...settings }
   return (
     <Slider {...props} {...sliderSettings}>
       {children}
