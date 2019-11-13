@@ -32,7 +32,7 @@ import {
   BenefitsDescription,
   BenefitsItems,
   BenefitItem,
-  BenefitsSectionContent
+  BenefitsSectionContent,
 } from './styles'
 
 import BannerInvestimentosImage from '../../assets/images/banner_pontos.jpg'
@@ -46,10 +46,10 @@ const settings = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false
-      }
-    }
-  ]
+        arrows: false,
+      },
+    },
+  ],
 }
 
 export default function Points() {

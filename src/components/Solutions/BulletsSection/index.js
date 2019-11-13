@@ -6,7 +6,7 @@ export default function BulletsSection({
   imageURL,
   imageDescription,
   title,
-  data
+  data,
 }) {
   return (
     <Container backgroundColor="#f1f1f1">
