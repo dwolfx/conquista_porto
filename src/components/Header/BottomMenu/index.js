@@ -46,8 +46,7 @@ export default function BottomMenu() {
             <BottomMenuText>Soluções</BottomMenuText>
             {isUp ? <ArrowUpIcon /> : <ArrowDownIcon />}
           </WrapperBottomMenuItem>
-          {/* <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px"> */}
-          <Dropdown isOpen={1}  width="300px">
+          <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
             <SolutionsContainer>
               <SolutionsItem>
                 <IconCircle>

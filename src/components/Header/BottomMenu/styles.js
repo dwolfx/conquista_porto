@@ -90,7 +90,7 @@ export const WrapperBottomMenuItem = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  
+
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;
