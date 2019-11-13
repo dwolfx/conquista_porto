@@ -63,6 +63,10 @@ module.exports = {
     'newline-per-chained-call': 0,
     'no-confusing-arrow': 0,
     'no-console': 0,
+    "no-underscore-dangle": [2, { "allow": [
+      "__REDUX_DEVTOOLS_EXTENSION__",
+      "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"
+    ] }],
     'no-unused-vars': 2,
     'no-use-before-define': 0,
     'prefer-template': 2,
