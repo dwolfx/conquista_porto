@@ -11,18 +11,18 @@ const makeSenseSectionData = [
   {
     icon: <MaleFemaleIcon fill="white" height={30} />,
     description: `Quando você quiser uma gestão profissional para
-      buscar as melhores opções do mercado para seu dinheiro.`
+      buscar as melhores opções do mercado para seu dinheiro.`,
   },
   {
     icon: <BarChartIcon fill="white" height={30} />,
     description: `Quando você quiser buscar um rendimento melhor do que o da poupança,
-      sem correr, necessariamente, um risco maior.`
+      sem correr, necessariamente, um risco maior.`,
   },
   {
     icon: <SafeBoxIcon fill="white" height={30} />,
     description: `Quando você quiser se organizar para buscar seus sonhos,
-      economizando seu dinheiro e esperando rendimentos melhores.`
-  }
+      economizando seu dinheiro e esperando rendimentos melhores.`,
+  },
 ]
 
 it('MakeSenseSection renders correctly', () => {

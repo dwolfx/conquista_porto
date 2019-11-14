@@ -7,7 +7,7 @@ export default function HighlightSection({
   title,
   mainDescription,
   subDescription,
-  buttonText
+  buttonText,
 }) {
   return (
     <Container backgroundColor="#115FA5">

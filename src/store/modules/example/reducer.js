@@ -1,7 +1,7 @@
 import produce from 'immer'
 
 const INITIAL_STATE = {
-  dataExample: []
+  dataExample: [],
 }
 
 export default function example(state = INITIAL_STATE, action) {

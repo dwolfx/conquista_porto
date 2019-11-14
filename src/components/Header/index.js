@@ -47,7 +47,7 @@ import {
   PersonGroupIcon,
   PlaneIcon,
   SolutionsDropdownText,
-  BottomMenuText
+  BottomMenuText,
 } from './styles'
 import Button from '../Button'
 import ResponsiveHeader from './ResponsiveHeader'
