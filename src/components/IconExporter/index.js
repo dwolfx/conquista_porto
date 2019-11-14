@@ -21,6 +21,7 @@ import { ReactComponent as idea } from '../../assets/icons/idea.svg'
 import { ReactComponent as link } from '../../assets/icons/link.svg'
 import { ReactComponent as menu } from '../../assets/icons/menu.svg'
 import { ReactComponent as money } from '../../assets/icons/money.svg'
+import { ReactComponent as pdf } from '../../assets/icons/pdf.svg'
 import { ReactComponent as persongroup } from '../../assets/icons/person-group.svg'
 import { ReactComponent as plane } from '../../assets/icons/plane.svg'
 import { ReactComponent as remove } from '../../assets/icons/remove.svg'
@@ -52,6 +53,7 @@ const IconComponent = ({ name, ...props }) => {
     link,
     menu,
     money,
+    pdf,
     persongroup,
     plane,
     remove,
