@@ -93,6 +93,7 @@ export const RescuePointsTitle = styled.p`
   font-weight: 300;
   letter-spacing: 0;
   word-wrap: break-word;
+  padding: 0 30px;
 `
 
 export const RelationshipProgramSection = styled.section`
@@ -227,7 +228,7 @@ export const BenefitItem = styled.div`
   @media (max-width: 800px) {
     flex-direction: row;
     width: auto;
-    margin: 8px 14px;
+    margin: 8px 30px;
   }
 
   p {
