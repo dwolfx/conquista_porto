@@ -15,14 +15,14 @@ export default ({
   width,
   ...props
 }) => {
-  const renderOptions = option =>
-    option &&
-    option.map((item, index) => (
+  const renderOptions = () =>
+    options &&
+    options.map((item, index) => (
       <RadioLabel
         key={`#${props.name}-${item.value}-${index}`}
         disabled={item.disabled}
       >
-        <RadioInput value={item.value} {...props} />
+        <RadioInput value={item.value || item.name} {...props} />
         {item.name}
       </RadioLabel>
     ))
@@ -38,7 +38,7 @@ export default ({
       marginRight={marginRight}
     >
       {title && <RadioTitle>{title}</RadioTitle>}
-      {renderOptions(options)}
+      {renderOptions()}
     </RadioWrapper>
   )
 }
