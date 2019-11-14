@@ -1,0 +1,96 @@
+/* eslint-disable react/no-unescaped-entities */
+import React from 'react'
+import AddressFields from '../../../../../components/AddressInfos'
+import Button from '../../../../../components/Button'
+import Icon from '../../../../../components/IconExporter'
+import PhoneFields from '../../../../../components/PhoneInfos'
+import RadioInput from '../../../../../components/Inputs/Radio'
+import TextInput from '../../../../../components/Inputs/Text'
+import { fiscalAddressOptions, cotitularOptions } from '../mocks'
+import {
+  ButtonContainer,
+  Row,
+  Section,
+  SectionText,
+  SectionTitle,
+  Wrapper,
+} from '../../styles'
+import { ButtonAdd } from '../../../styles'
+import theme from '../../../../../styles/theme'
+
+export default ({ changeScreen }) => (
+  <>
+    <Section backgroundColor="#fff">
+      <Wrapper align="center">
+        <SectionTitle>Cadastro do Investidor</SectionTitle>
+      </Wrapper>
+    </Section>
+
+    <Section
+      backgroundColor={theme.colors.backgroundColor}
+      border="1px solid #fff"
+    >
+      <Wrapper>
+        <Row justify="center">
+          <SectionText fontSize={11} fontWeight={600} uppercase>
+            Descrição
+          </SectionText>
+        </Row>
+
+        <AddressFields index={0} />
+
+        <Row>
+          <SectionText fontSize={11}>
+            A Porto Seguro não costuma enviar documentação pelo correio. Mas,
+            caso seja necessário, enviará para o endereço principal.
+          </SectionText>
+        </Row>
+
+        <Row>
+          <ButtonAdd>
+            <Icon name="add" fill="currentColor" width={20} />
+            Adicionar endereço
+          </ButtonAdd>
+        </Row>
+
+        <PhoneFields index={0} />
+
+        <Row>
+          <ButtonAdd>
+            <Icon name="add" fill="currentColor" width={20} />
+            Adicionar telefone
+          </ButtonAdd>
+        </Row>
+
+        <Row>
+          <TextInput type="email" label="E-mail" name="email" width={50} />
+        </Row>
+        <Row>
+          <RadioInput
+            name="resid-fiscal-estrang"
+            title="Você tem residência fiscal estrangeira?"
+            options={fiscalAddressOptions}
+          />
+        </Row>
+        <Row direction="column">
+          <SectionText>
+            Você quer adicionar um cotitular ao seu cadastro como investidor?
+          </SectionText>
+          <SectionText fontSize={12}>
+            Se a resposta for "Sim", é preciso que você tenha uma conta conjunta
+            com essa pessoa em seu banco.
+          </SectionText>
+          <RadioInput name="cotitularRadio" options={cotitularOptions} />
+        </Row>
+      </Wrapper>
+    </Section>
+
+    <Section>
+      <ButtonContainer>
+        <Button color="primary" onClick={changeScreen}>
+          Continuar
+        </Button>
+      </ButtonContainer>
+    </Section>
+  </>
+)
