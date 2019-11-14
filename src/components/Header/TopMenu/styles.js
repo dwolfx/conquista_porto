@@ -14,7 +14,7 @@ const notificationDropdownSvgStyle = {
   marginRight: '0px'
 }
 
-export const Container = styled.div`
+export const Container = styled.header`
   display: flex;
   width: 100%;
   height: auto;
@@ -22,9 +22,12 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 7px 22px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 
   @media (min-width: 768px) {
-    padding: 15px 135px;
+    padding: 15px 25px;
   }
 `
 export const Wrapper = styled.div`

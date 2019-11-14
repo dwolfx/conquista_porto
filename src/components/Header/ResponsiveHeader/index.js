@@ -84,7 +84,7 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
             </ItemContainer>
           </ItemContainer>
           <ContainerDropdown isOpen={isSolutionsOpen}>
-            <ItemContainerDropdown isOpen={isSolutionsOpen} disable>
+            <ItemContainerDropdown isOpen={isSolutionsOpen} disable={false}>
               <ItemContainer padding="5px 0px" disable={false}>
                 <WhiteText size={14}>Cartão de Crédito</WhiteText>
               </ItemContainer>

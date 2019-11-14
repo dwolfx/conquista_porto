@@ -25,7 +25,8 @@ import {
   TargetIcon,
   TimeIcon,
   Wrapper,
-  WrapperBottomMenuItem
+  WrapperBottomMenuItem,
+  WrapperBottomMenuItemSolution
 } from './styles'
 
 import Dropdown from '../../Dropdown'
@@ -36,19 +37,19 @@ export default function BottomMenu() {
   return (
     <Menu>
       <Wrapper>
-        <WrapperBottomMenuItem>
+        <WrapperBottomMenuItem to="/">
           <TargetIcon />
           <BottomMenuText>Objetivos</BottomMenuText>
         </WrapperBottomMenuItem>
         <RelativeParent>
-          <WrapperBottomMenuItem onClick={() => setIsUp(!isUp)}>
+          <WrapperBottomMenuItemSolution onClick={() => setIsUp(!isUp)}>
             <AppsIcon />
             <BottomMenuText>Soluções</BottomMenuText>
             {isUp ? <ArrowUpIcon /> : <ArrowDownIcon />}
-          </WrapperBottomMenuItem>
+          </WrapperBottomMenuItemSolution>
           <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
             <SolutionsContainer>
-              <SolutionsItem to="/credit-card">
+              <SolutionsItem to="/cartao-credito">
                 <IconCircle>
                   <CreditCardIcon />
                 </IconCircle>
@@ -82,7 +83,7 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem to="/">
+              <SolutionsItem to="/investimentos">
                 <IconCircle>
                   <BarChartIcon />
                 </IconCircle>
@@ -115,15 +116,15 @@ export default function BottomMenu() {
             </SolutionsContainer>
           </Dropdown>
         </RelativeParent>
-        <WrapperBottomMenuItem>
+        <WrapperBottomMenuItem to="/">
           <GearIcon />
           <BottomMenuText>Gerenciador</BottomMenuText>
         </WrapperBottomMenuItem>
-        <WrapperBottomMenuItem>
+        <WrapperBottomMenuItem to="/pontos">
           <DiamondIcon />
           <BottomMenuText>Pontos</BottomMenuText>
         </WrapperBottomMenuItem>
-        <WrapperBottomMenuItem>
+        <WrapperBottomMenuItem to="/">
           <IdeaIcon />
           <BottomMenuText>Recomendações</BottomMenuText>
         </WrapperBottomMenuItem>

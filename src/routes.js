@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 import Investimentos from './pages/Investments'
-import CreditCard from './pages/CreditCard'
+import CartaoCredito from './pages/CreditCard'
 import Points from './pages/Points'
 
 export default function Routes() {
@@ -11,7 +11,7 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/investimentos" component={Investimentos} />
-      <Route path="/credit-card" component={CreditCard} />
+      <Route path="/cartao-credito" component={CartaoCredito} />
       <Route path="/pontos" exact component={Points} />
     </Switch>
   )

@@ -6,7 +6,7 @@ import LogoConquistaBeta from '../../../assets/images/logo-temp.png'
 
 export default function Logo() {
   return (
-    <ResponsiveLogoWrapper>
+    <ResponsiveLogoWrapper to="/">
       <Img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
       <Text
         size={14}

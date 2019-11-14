@@ -87,11 +87,27 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 `
-export const WrapperBottomMenuItem = styled.div`
+export const WrapperBottomMenuItem = styled(Link)`
   display: flex;
   align-items: center;
   cursor: pointer;
-
+  
+  &&:hover {
+    svg {
+      transition: all 0.2s ease-in-out;
+      fill: #30c5ff;
+    }
+    p {
+      transition: all 0.2s ease-in-out;
+      color: #30c5ff;
+    }
+  }
+`
+export const WrapperBottomMenuItemSolution = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;

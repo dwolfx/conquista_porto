@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export const ResponsiveLogoWrapper = styled.div`
+export const ResponsiveLogoWrapper = styled(Link)`
   display: flex;
   width: auto;
   flex-direction: column;

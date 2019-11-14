@@ -22,14 +22,13 @@ const disable = css`
   }
 `
 export const Container = styled.div`
-  height: auto;
   background-color: #555861;
   transition: transform 0.3s ease-out;
   transform: ${props =>
     props.isOpen ? 'translateX(0%)' : 'translateX(-150%)'};
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 3;
   top: 0;
 `
