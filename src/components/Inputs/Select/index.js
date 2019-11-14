@@ -9,9 +9,11 @@ export default ({
   paddingRight,
   ...props
 }) => {
-  const renderOptions = option =>
-    option &&
-    option.map(item => <option value={item.value}>{item.name}</option>)
+  const renderOptions = () =>
+    options &&
+    options.map(item => (
+      <option value={item.value || item.name}>{item.name}</option>
+    ))
 
   return (
     <SelectWrapper
@@ -22,7 +24,7 @@ export default ({
       {label && <SelectLabel>{label}</SelectLabel>}
       <SelectField {...props}>
         <option value="">Selecione</option>
-        {renderOptions(options)}
+        {renderOptions()}
       </SelectField>
     </SelectWrapper>
   )
