@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import CarouselGeneric from '../../Carousel';
+import CarouselGeneric from '../../Carousel'
 
 export const InvestmentsCarouselWrapper = styled.section`
   padding: 1.75em 0;
