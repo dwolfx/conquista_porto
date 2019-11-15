@@ -91,6 +91,18 @@ export default function Consortium() {
             imgTitle: 'Tente um lance',
             imgDescription:
               'Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.'
+          },
+          {
+            img: 'carousel-02',
+            imgTitle: 'FGTS para o lance',
+            imgDescription:
+              'O lance para tentar antecipar o valor do consórcio pode sair diretamente do seu bolso, mas você também pode utilizar seu FGTS (Fundo de Garantia por Tempo de Serviço). Ele rende pouco ao ficar parado e pode ser uma maneira para você ser contemplado antecipadamente.'
+          },
+          {
+            img: 'carousel-03',
+            imgTitle: 'Combine mais de um consórcio',
+            imgDescription:
+              'Os valores dos consórcios são sempre fixos e, nem sempre, o valor de um único consórcio é suficiente para realizar a compra de um bem mais caro, como uma casa, por exemplo. Mas você pode combinar mais de um consórcio para chegar no valor que precisa.'
           }
         ]}
       />

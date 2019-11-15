@@ -7,8 +7,8 @@ import { Settings } from 'react-slick'
 const MoreDetails = ({title, data}: any) => {
   const settings: Settings = {
     ...defaultSettings,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     responsive: [
       {
         breakpoint: 1200,
