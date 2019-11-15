@@ -57,6 +57,11 @@ export const Circle = styled.div`
   justify-content: center;
   align-items: center;
 
+  svg {
+    fill: #fff;
+    height: 30px;
+  }
+
   @media (max-width: 768px) {
     width: 52px;
     height: 52px;
