@@ -5,7 +5,7 @@ import BulletsSection from '../../components/Solutions/BulletsSection'
 import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
 import HighlightSection from '../../components/Solutions/HighlightSection'
 import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import FundsCarouselSection from '../../components/Carousel'
+import MoreDetails from '../../components/Solutions/MoreDetails'
 
 import BannerCartaoCreditoImage from '../../assets/images/banner_cartao_credito.jpg'
 import SeloCartaoCredito from '../../assets/images/selo-cartao-credito.svg'
@@ -65,6 +65,30 @@ const downloadFileSectionData = [
   }
 ]
 
+const moreDetailsData = [
+  {
+    img: 'carousel-01',
+    imgTitle: 'Parcelando as compras',
+    imgDescription:
+      'O Cartão de Crédito Porto Seguro permite parcelar as compras, dando a opção de usar seu limite para outras finalidades. Mas, apesar dessa vantagem, é preciso ficar atento ao limite, que será reduzido com o valor total das compras e não apenas com as parcelas referentes ao mês.',
+    imgPath: 'creditCard'
+  },
+  {
+    img: 'carousel-02',
+    imgTitle: 'Ferramenta de controle',
+    imgDescription:
+      'Com o Cartão de Crédito Porto Seguro, você pode ter suas despesas registradas na fatura para facilitar seu controle financeiro. E também pode parcelar compras para resolver problemas sem que eles comprometam seu orçamento, além de contar com o limite para não se exceder.',
+    imgPath: 'creditCard'
+  },
+  {
+    img: 'carousel-03',
+    imgTitle: 'Relacionamento',
+    imgDescription:
+      'Concentrando o pagamento das compras no Cartão de Crédito Porto Seguro, você pode acumular pontos para trocar por descontos em seguros e por serviços para a casa ou para o carro. Ou pode optar por trocar por produtos de lojas parceiras ou por milhas aéreas.',
+    imgPath: 'creditCard'
+  }
+]
+
 export default function CreditCard() {
   return (
     <>
@@ -101,7 +125,7 @@ export default function CreditCard() {
         buttonText="Simular e contratar"
       />
 
-      <FundsCarouselSection />
+      <MoreDetails title="Saiba mais:" data={moreDetailsData} />
 
       <FileDownloadSection data={downloadFileSectionData} />
     </>

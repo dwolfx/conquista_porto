@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Investimentos from './pages/Investments'
 import CartaoCredito from './pages/CreditCard'
 import Points from './pages/Points'
+import Consortium from './pages/Consortium'
 
 export default function Routes() {
   return (
@@ -13,6 +14,7 @@ export default function Routes() {
       <Route path="/investimentos" component={Investimentos} />
       <Route path="/cartao-credito" component={CartaoCredito} />
       <Route path="/pontos" exact component={Points} />
+      <Route path="/consorcio" component={Consortium} />
     </Switch>
   )
 }

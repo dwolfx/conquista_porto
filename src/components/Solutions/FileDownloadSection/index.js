@@ -20,7 +20,7 @@ export default function FileDownloadSection({ data }) {
           <div>
             <Title>{item.title}</Title>
             <Description align="left">{item.description}</Description>
-            <DownloadLink>Baixar Arquivo &gt; </DownloadLink>
+            <DownloadLink>{item.buttonText} &gt; </DownloadLink>
           </div>
         </Item>
       ))}

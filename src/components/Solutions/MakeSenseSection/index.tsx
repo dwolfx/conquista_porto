@@ -1,7 +1,7 @@
 import React from 'react'
 import BenefitsCarousel, { IBenefitsData } from './BenefitsCarousel'
 
-import IconComponent from '../../IconExporter'
+import ConquistaIcon from '../../IconExporter';
 
 import {
   Container,
@@ -25,7 +25,7 @@ export default function MakeSenseSection({
       <ItemsContainer>
         {data.map(item => (
           <Item key={item.description}>
-            <Circle><IconComponent name={item.icon} fill="white" height={30}/></Circle>
+            <Circle> <ConquistaIcon name={item.icon}/> </Circle>
             <ItemDescription align="center">{item.description}</ItemDescription>
           </Item>
         ))}
