@@ -91,7 +91,7 @@ export const WrapperBottomMenuItem = styled(Link)`
   display: flex;
   align-items: center;
   cursor: pointer;
-  
+
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;
@@ -107,7 +107,7 @@ export const WrapperBottomMenuItemSolution = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  
+
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;

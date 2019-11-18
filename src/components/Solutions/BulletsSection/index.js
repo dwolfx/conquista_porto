@@ -1,12 +1,19 @@
 import React from 'react'
 
-import { Container, Content, LeftContent, RightContent } from './styles'
+import {
+  Container,
+  Content,
+  LeftContent,
+  RightContent,
+  Observation
+} from './styles'
 
 export default function BulletsSection({
   imageURL,
   imageDescription,
   title,
-  data
+  data,
+  observation
 }) {
   return (
     <Container backgroundColor="#f1f1f1">
@@ -21,6 +28,7 @@ export default function BulletsSection({
               <li key={text}>{text}</li>
             ))}
           </ul>
+          <Observation>{observation}</Observation>
         </RightContent>
       </Content>
     </Container>
