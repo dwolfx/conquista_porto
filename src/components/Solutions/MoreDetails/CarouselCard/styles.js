@@ -17,7 +17,6 @@ export const CarouselItemWrapper = styled.div`
   }
 `
 export const IconWrapper = styled.div`
-  margin-top: 1em;
   height: 5em;
 `
 
@@ -45,5 +44,6 @@ export const TextWrapper = styled.div`
 `
 
 export const ImgDynamic = styled.img`
+  width: 100%;
   margin: 0 auto;
 `
