@@ -27,21 +27,25 @@ const makeSenseSectionData = [
 
 const makeSenseBenefitsSectionData = [
   {
+    icon: 'talkman',
     title: 'Gerente de conta',
     description:
       'De acordo com seu saldo investido, conte com a possibilidade de ter o apoio de um Gerente de Conta para auxiliar você em dúvidas e contratações.'
   },
   {
+    icon: 'diamond',
     title: 'Programa de Relacionamento',
     description:
       'Pontos do Conquista somados aos pontos do Cartão de Crédito Porto Seguro, que podem ser trocados por descontos, benefícios e vantagens.'
   },
   {
+    icon: 'callCenter',
     title: 'Chat inteligente',
     description:
       'Atendimento 24h para esclarecer suas dúvidas sobre o uso da plataforma e sobre as soluções Porto Seguro disponíveis no Conquista.'
   },
   {
+    icon: 'apps',
     title: 'Facilidade',
     description:
       'Ferramentas que simplificam seu dia a dia, permitindo que você controle sua vida financeira e contrate soluções da Porto Seguro pelo computador ou smartphone.'
@@ -51,17 +55,19 @@ const makeSenseBenefitsSectionData = [
 const downloadFileSectionData = [
   {
     title: 'Sistema de informações de crédito - SCR',
-    description: 'Informações legais sobre crédito.'
+    description: 'Informações legais sobre crédito.',
+    buttonText: 'Baixar Arquivo'
   },
   {
     title: 'Tabela de tarifas',
-    description:
-      'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.'
+    description: 'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
+    buttonText: 'Visualizar'
   },
   {
     title: 'Condições gerais',
     description:
-      'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.'
+      'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
+      buttonText: 'Baixar Arquivo'
   }
 ]
 

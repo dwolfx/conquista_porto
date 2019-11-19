@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import phone from 'assets/icons/phone.svg'
+// import phone from 'assets/icons/phone.svg'
 
 const gray = '#D2D2D2'
 const blackLight = '#1c1c1c'
@@ -16,6 +16,7 @@ export const CardWrapper = styled.div`
     height: 36px;
     margin: 0.5em 1em 0 0;
     width: 93px;
+    fill: #777;
   }
 
   @media (min-width: 1100px) {

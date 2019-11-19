@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   CarouselItemWrapper,
   IconWrapper,
@@ -9,7 +9,18 @@ import {
 } from './styles'
 
 const CarouselItem = ({ img, imgTitle, imgDescription, imgPath }) => {
-  const image = import(`assets/images/pages/solutions/${imgPath}/${img}.jpg`)
+  const [image, setImage] = useState(null)
+
+  useEffect(() => {
+    async function loadImg() {
+      const imgPromise = await import(
+        `assets/images/pages/solutions/${imgPath}/${img}.jpg`
+      )
+      setImage(imgPromise.default)
+    }
+    loadImg()
+  }, [img, imgPath])
+
   return (
     <CarouselItemWrapper>
       <IconWrapper>
