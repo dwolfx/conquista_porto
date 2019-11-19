@@ -9,11 +9,6 @@ import { telefoneOptions, radioOptions } from './values'
 export default ({ name, showAddButton = true }) => {
   const [phoneSection, setPhoneSection] = useState([
     {
-      ddi: '',
-      ddd: '',
-      phoneNumber: '',
-      type: '',
-      mainPhone: false,
       index: 0,
     },
   ])
@@ -25,7 +20,7 @@ export default ({ name, showAddButton = true }) => {
   }
 
   const renderPhoneSection = () =>
-    phoneSection.map(({ index, ddi, ddd, phoneNumber, type, mainPhone }) => (
+    phoneSection.map(({ index }) => (
       <Row
         id={`${name}-${index}`}
         name="phone-info"
@@ -38,15 +33,8 @@ export default ({ name, showAddButton = true }) => {
           width={10}
           paddingRight={15}
           marginRight={15}
-          value={ddi}
         />
-        <TextInput
-          label="DDD"
-          name="ddd"
-          width={10}
-          paddingRight={15}
-          value={ddd}
-        />
+        <TextInput label="DDD" name="ddd" width={10} paddingRight={15} />
         <TextInput
           label="Telefone"
           name="telefone"
@@ -54,7 +42,6 @@ export default ({ name, showAddButton = true }) => {
           width={35}
           paddingLeft={15}
           paddingRight={15}
-          value={phoneNumber}
         />
         <SelectInput
           width={35}
@@ -63,7 +50,6 @@ export default ({ name, showAddButton = true }) => {
           label="Tipo de telefone"
           name="tipoTelefone"
           options={telefoneOptions}
-          value={type}
         />
         <RadioInput
           name="telefonePrincipal"
@@ -71,9 +57,7 @@ export default ({ name, showAddButton = true }) => {
           paddingLeft={15}
           paddingRight={5}
           marginRight={5}
-          selected={mainPhone}
         />
-        {console.log(index)}
         {index !== 0 && (
           <RemoveButton
             onClick={() => {
@@ -88,7 +72,6 @@ export default ({ name, showAddButton = true }) => {
 
   const addPhoneSection = () => {
     const keyValue = phoneSection.length
-    // console.log(keyValue)
 
     const newPhone = [...phoneSection]
     newPhone.push({ index: keyValue })
