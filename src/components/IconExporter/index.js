@@ -35,6 +35,7 @@ import { ReactComponent as target } from '../../assets/icons/target.svg'
 import { ReactComponent as talkman } from '../../assets/icons/talk-man.svg'
 import { ReactComponent as thumbsup } from '../../assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from '../../assets/icons/time.svg'
+import { ReactComponent as trash } from '../../assets/icons/trashcan.svg'
 import { ReactComponent as user } from '../../assets/icons/user.svg'
 
 const IconComponent = ({ name, ...props }) => {
@@ -74,6 +75,7 @@ const IconComponent = ({ name, ...props }) => {
     target,
     thumbsup,
     time,
+    trash,
     user,
   }
   const Icon = dict[name.toLowerCase()]

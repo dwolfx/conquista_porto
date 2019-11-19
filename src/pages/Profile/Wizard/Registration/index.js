@@ -8,7 +8,7 @@ import SuccessStep from './Steps/SuccessStep'
 import { Container } from '../styles'
 
 export default () => {
-  const [step, setStep] = useState(4)
+  const [step, setStep] = useState(1)
   const options = {
     1: (
       <StepOne
