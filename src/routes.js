@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import Investimentos from './pages/Investments'
 import Profile from './pages/Profile'
 import Points from './pages/Points'
-import Consortium from './pages/Consortium'
+import ConsortiumBuilding from './pages/ConsortiumBuilding'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
 
@@ -33,7 +33,7 @@ export default function Routes() {
       <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <DefaultRoute path="/pontos" exact component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
-      <DefaultRoute path="/consorcio-imovel" exact component={Consortium} />
+      <DefaultRoute path="/consorcio-imovel" exact component={ConsortiumBuilding} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"
