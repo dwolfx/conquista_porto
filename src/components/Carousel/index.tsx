@@ -18,7 +18,7 @@ export function PreviousArrow() {
   )
 }
 
-const defaultSettings: Settings = {
+export const defaultSettings: Settings = {
   dots: true,
   infinite: true,
   speed: 500,

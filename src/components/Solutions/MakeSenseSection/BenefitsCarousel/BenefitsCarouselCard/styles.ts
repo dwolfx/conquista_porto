@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import phone from 'assets/icons/phone.svg'
+// import phone from 'assets/icons/phone.svg'
 
 const gray = '#D2D2D2'
 const blackLight = '#1c1c1c'
@@ -11,6 +11,12 @@ export const CardWrapper = styled.div`
   flex-direction: row;
   height: 10em;
   padding: 1em;
+
+  svg {
+    height: 36px;
+    margin: 0.5em 1em 0 0;
+    width: 93px;
+  }
 
   @media (min-width: 1100px) {
     padding: 2em;
@@ -30,12 +36,3 @@ export const Description = styled.p`
 `
 
 export const TextBox = styled.div``
-
-export const Phone = styled.div`
-  background-image: url(${phone});
-  background-repeat: no-repeat;
-  background-size: 36px;
-  height: 36px;
-  margin: 0.5em 1em 0 0;
-  width: 93px;
-`
