@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CarouselGeneric from '../../Carousel'
 
-export const InvestmentsCarouselWrapper = styled.section`
+export const CarouselWrapper = styled.section`
   padding: 1.75em 0;
   margin: 0 auto;
   max-width: 75em;
