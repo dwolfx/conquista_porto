@@ -33,20 +33,24 @@ export default function BottomMenu() {
           <WrapperBottomMenuItemSolution onClick={() => setIsUp(!isUp)}>
             <BasicIcon name="apps" />
             <BottomMenuText>Soluções</BottomMenuText>
-            {isUp ? <ArrowUpDownIcon name='arrowup' /> : <ArrowUpDownIcon name='arrowdown' />}
+            {isUp ? (
+              <ArrowUpDownIcon name="arrowup" />
+            ) : (
+              <ArrowUpDownIcon name="arrowdown" />
+            )}
           </WrapperBottomMenuItemSolution>
           <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
             <SolutionsContainer>
               <SolutionsItem to="/cartao-credito">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='creditcard' />
+                  <BottomMenuDropdownIcon name="creditcard" />
                 </IconCircle>
                 <SolutionsDropdownText>Cartão de Crédito</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='homewithwindow' />
+                  <BottomMenuDropdownIcon name="homewithwindow" />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Consórcio de Imóvel
@@ -55,7 +59,7 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='car' />
+                  <BottomMenuDropdownIcon name="car" />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Consórcio de Veículo
@@ -64,7 +68,7 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='money' />
+                  <BottomMenuDropdownIcon name="money" />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Financiamento de Veículo
@@ -73,14 +77,14 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/investimentos">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='barchart'/>
+                  <BottomMenuDropdownIcon name="barchart" />
                 </IconCircle>
                 <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='time' />
+                  <BottomMenuDropdownIcon name="time" />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Previdência Privada
@@ -89,14 +93,14 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='persongroup' />
+                  <BottomMenuDropdownIcon name="persongroup" />
                 </IconCircle>
                 <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <BottomMenuDropdownIcon name='plane' />
+                  <BottomMenuDropdownIcon name="plane" />
                 </IconCircle>
                 <SolutionsDropdownText>Seguro Viagem</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
@@ -105,15 +109,15 @@ export default function BottomMenu() {
           </Dropdown>
         </RelativeParent>
         <WrapperBottomMenuItem to="/">
-          <BasicIcon name='gear' />
+          <BasicIcon name="gear" />
           <BottomMenuText>Gerenciador</BottomMenuText>
         </WrapperBottomMenuItem>
         <WrapperBottomMenuItem to="/pontos">
-          <BasicIcon name='diamond' />
+          <BasicIcon name="diamond" />
           <BottomMenuText>Pontos</BottomMenuText>
         </WrapperBottomMenuItem>
         <WrapperBottomMenuItem to="/">
-          <BasicIcon name='idea' />
+          <BasicIcon name="idea" />
           <BottomMenuText>Recomendações</BottomMenuText>
         </WrapperBottomMenuItem>
       </Wrapper>

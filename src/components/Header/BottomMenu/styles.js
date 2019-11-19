@@ -19,15 +19,17 @@ export const BasicIcon = styled(ConquistaIcon)`
 
 export const BottomMenuDropdownIcon = styled(ConquistaIcon)`
   height: 18px;
-  width: 18px;;
+  width: 18px;
   fill: #fff;
 `
 
-export const ArrowRightIcon = styled(ConquistaIcon).attrs({ name: 'arrowright' })`
-    height: ${props => (props.size ? `${props.size}px` : '16px')};
-    width: ${props => (props.size ? `${props.size}px` : '16px')};
-    fill: #30c5ff;
-    margin-right: 0px;
+export const ArrowRightIcon = styled(ConquistaIcon).attrs({
+  name: 'arrowright',
+})`
+  height: ${props => (props.size ? `${props.size}px` : '16px')};
+  width: ${props => (props.size ? `${props.size}px` : '16px')};
+  fill: #30c5ff;
+  margin-right: 0px;
 `
 
 export const BottomMenuText = styled.p`
