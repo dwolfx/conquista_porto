@@ -7,22 +7,22 @@ const basicSvgStyle = {
   fill: '#1c1c1c',
   width: '20px',
   height: '20px',
-  marginRight: '10px'
+  marginRight: '10px',
 }
 const arrowSvgStyle = {
   height: '20px',
   width: '15px',
   marginRight: '0px',
-  marginLeft: '10px'
+  marginLeft: '10px',
 }
 const notificationDropdownSvgStyle = {
   fill: '#30C5FF',
-  marginRight: '0px'
+  marginRight: '0px',
 }
 const bottomMenuDropdownSvgStyle = {
   fill: '#fff',
   width: '18px',
-  height: '18px'
+  height: '18px',
 }
 
 export const Container = styled.header``
@@ -270,12 +270,12 @@ export const CarIcon = styled(ConquistaIcon).attrs({ name: 'car' })`
   ${bottomMenuDropdownSvgStyle}
 `
 export const CreditCardIcon = styled(ConquistaIcon).attrs({
-  name: 'creditcard'
+  name: 'creditcard',
 })`
   ${bottomMenuDropdownSvgStyle}
 `
 export const HomeWithWindowIcon = styled(ConquistaIcon).attrs({
-  name: 'homewithwindow'
+  name: 'homewithwindow',
 })`
   ${bottomMenuDropdownSvgStyle}
 `
@@ -283,7 +283,7 @@ export const MoneyIcon = styled(ConquistaIcon).attrs({ name: 'money' })`
   ${bottomMenuDropdownSvgStyle}
 `
 export const PersonGroupIcon = styled(ConquistaIcon).attrs({
-  name: 'persongroup'
+  name: 'persongroup',
 })`
   ${bottomMenuDropdownSvgStyle}
 `
@@ -331,7 +331,7 @@ export const AddIcon = styled(ConquistaIcon).attrs({ name: 'add' })`
   }
 `
 export const AlertRoundedIcon = styled(ConquistaIcon).attrs({
-  name: 'alertrounded'
+  name: 'alertrounded',
 })`
   ${basicSvgStyle};
   && {
@@ -339,7 +339,7 @@ export const AlertRoundedIcon = styled(ConquistaIcon).attrs({
   }
 `
 export const ArrowRightIcon = styled(ConquistaIcon).attrs({
-  name: 'arrowright'
+  name: 'arrowright',
 })`
   && {
     width: ${props => (props.size ? `${props.size}px` : '16px')};

@@ -8,7 +8,8 @@ export default function TopBanner({
   description,
   image,
   imageDescription,
-  buttonText
+  buttonText,
+  onClick,
 }) {
   return (
     <Container>
@@ -16,9 +17,15 @@ export default function TopBanner({
         <Title textColor="white">{title}</Title>
         <p>{description}</p>
         <br />
-        <Button color="secondary" className="button-with-right-icon">
-          {buttonText} <span>&gt;</span>
-        </Button>
+        {onClick && (
+          <Button
+            color="secondary"
+            className="button-with-right-icon"
+            onClick={onClick}
+          >
+            {buttonText} <span>&gt;</span>
+          </Button>
+        )}
       </Content>
       <ImageBackground src={image} alt={imageDescription} />
     </Container>

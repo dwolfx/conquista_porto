@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from './styles'
-import history from '../../services/history'
 
 /**
  *
@@ -14,17 +13,8 @@ import history from '../../services/history'
  *  - <Button color="primary" url="/perfil">Ir para perfil</Button>
  */
 
-const ConquistaButton = ({ children, onClickFunc, url, ...props }) => {
-  function click() {
-    if (onClickFunc) onClickFunc()
-    if (url) history.push(url)
-  }
-
-  return (
-    <Button onClick={click} {...props}>
-      {children}
-    </Button>
-  )
-}
+const ConquistaButton = ({ children, ...props }) => (
+  <Button {...props}>{children}</Button>
+)
 
 export default ConquistaButton

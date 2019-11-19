@@ -9,11 +9,11 @@ export const InvestmentsCarouselWrapper = styled.section`
 `
 
 export const TitleHeader = styled.h1`
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 28px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 21px;
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 14px;
 `
 
 export const Carousel = styled(CarouselGeneric)`

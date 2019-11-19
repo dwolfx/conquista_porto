@@ -40,7 +40,7 @@ export const TextLight = styled.p`
 `
 
 export const TextWrapper = styled.div`
-  padding: 2em;
+  padding: 30px;
 `
 
 export const ImgDynamic = styled.img`

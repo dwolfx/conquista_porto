@@ -10,7 +10,7 @@ import {
   Phone,
   Headset,
   ArrowRight,
-  ResponsiveLine
+  ResponsiveLine,
 } from './styles'
 
 export default function Footer() {

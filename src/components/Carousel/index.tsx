@@ -33,7 +33,7 @@ export default function Carousel({
   settings,
   ...props
 }: IProps<JSX.Element>) {
-  const sliderSettings = settings ? { ...settings } : { ...defaultSettings }
+  const sliderSettings = { ...defaultSettings, ...settings }
   return (
     <Slider {...props} {...sliderSettings}>
       {children}

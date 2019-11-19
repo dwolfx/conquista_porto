@@ -20,60 +20,60 @@ import {
   SectionCustomPicture,
   CustomContent,
   Picture,
-  DescriptionContent
+  DescriptionContent,
 } from './styles'
 
 const makeSenseSectionData = [
   {
     icon: <MaleFemaleIcon fill="white" height={30} />,
     description: `Quando você quiser uma gestão profissional para
-      buscar as melhores opções do mercado para seu dinheiro.`
+      buscar as melhores opções do mercado para seu dinheiro.`,
   },
   {
     icon: <BarChartIcon fill="white" height={30} />,
     description: `Quando você quiser buscar um rendimento melhor do que o da poupança,
-      sem correr, necessariamente, um risco maior.`
+      sem correr, necessariamente, um risco maior.`,
   },
   {
     icon: <SafeBoxIcon fill="white" height={30} />,
     description: `Quando você quiser se organizar para buscar seus sonhos,
-      economizando seu dinheiro e esperando rendimentos melhores.`
-  }
+      economizando seu dinheiro e esperando rendimentos melhores.`,
+  },
 ]
 
 const makeSenseBenefitsSectionData = [
   {
     title: 'Gerente de conta',
     description:
-      'Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.'
+      'Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.',
   },
   {
     title: 'Programa de Relacionamento',
     description:
-      'Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.'
+      'Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.',
   },
   {
     title: 'Chat inteligente',
-    description: 'Para te ajudar com informações e dicas em qualquer momento.'
+    description: 'Para te ajudar com informações e dicas em qualquer momento.',
   },
   {
     title: 'Facilidade',
     description:
-      'A contratação é rápida e descomplicada, feita para facilitar sua vida.'
-  }
+      'A contratação é rápida e descomplicada, feita para facilitar sua vida.',
+  },
 ]
 
 const downloadFileSectionData = [
   {
     title: 'quadro de rentabilidade',
     description:
-      'Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.'
+      'Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.',
   },
   {
     title: 'carta do gestor',
     description:
-      'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.'
-  }
+      'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
+  },
 ]
 
 export default function Investments() {
@@ -85,6 +85,7 @@ export default function Investments() {
         buttonText="Lista de fundos"
         image={BannerInvestimentosImage}
         imageDescription="Homem pesquisando investimentos em um website em seu computador"
+        onClick={() => {}}
       />
       <BulletsSection
         title="Por que investir em Fundos?"
@@ -93,7 +94,7 @@ export default function Investments() {
           'Você pode investir para construir e aumentar seu patrimônio, realizar os seus sonhos ou multiplicar seu dinheiro.',
           'Com opções de baixo a alto risco, os fundos têm tipos e retornos variados, atendendo a todos os perfis de investidores (conservador, moderado, arrojado e agressivo).',
           'Os fundos são aplicações que somam vários ativos. Gerenciados por especialistas, facilitam o dia a dia de quem quer diversificar sem precisar administrar ativamente.',
-          'Os fundos têm períodos variados de resgate, que é o tempo para reaver o dinheiro. Você pode usá-los para organizar metas a curto, médio ou longo prazo.'
+          'Os fundos têm períodos variados de resgate, que é o tempo para reaver o dinheiro. Você pode usá-los para organizar metas a curto, médio ou longo prazo.',
         ]}
       />
       <MakeSenseSection
