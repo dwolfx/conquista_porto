@@ -9,9 +9,9 @@ const sagaMiddleware = createSagaMiddleware()
 const enhancer =
   process.env.NODE_ENV === 'development'
     ? compose(
-        applyMiddleware(sagaMiddleware),
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
+        applyMiddleware(sagaMiddleware)
+        // window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        //   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
       )
     : applyMiddleware(sagaMiddleware)
 

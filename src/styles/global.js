@@ -11,11 +11,20 @@ export default createGlobalStyle`
 
   }
 
-  a{
+  a {
     text-decoration: none;
     color: #000;
   }
 
+  p {
+    font-weight: 300;
+  }
+
+  ::selection {
+    background: #018cb7;
+    color: #fff;
+  }
+  
   #root {
     display: flex;
     flex-direction: column;

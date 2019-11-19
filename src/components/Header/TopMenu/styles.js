@@ -7,11 +7,11 @@ const basicSvgStyle = {
   fill: '#1c1c1c',
   width: '20px',
   height: '20px',
-  marginRight: '10px'
+  marginRight: '10px',
 }
 const notificationDropdownSvgStyle = {
   fill: '#30C5FF',
-  marginRight: '0px'
+  marginRight: '0px',
 }
 
 export const Container = styled.header`
@@ -148,7 +148,6 @@ export const BlueText = styled.p`
   line-height: 21px;
   cursor: pointer;
 `
-
 export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
   && {
     fill: #fff;
@@ -177,7 +176,7 @@ export const AddIcon = styled(ConquistaIcon).attrs({ name: 'add' })`
   }
 `
 export const AlertRoundedIcon = styled(ConquistaIcon).attrs({
-  name: 'alertrounded'
+  name: 'alertrounded',
 })`
   ${basicSvgStyle};
   && {
@@ -185,7 +184,7 @@ export const AlertRoundedIcon = styled(ConquistaIcon).attrs({
   }
 `
 export const ArrowRightIcon = styled(ConquistaIcon).attrs({
-  name: 'arrowright'
+  name: 'arrowright',
 })`
   && {
     width: ${props => (props.size ? `${props.size}px` : '16px')};

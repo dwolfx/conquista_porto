@@ -6,12 +6,12 @@ const svgStyle = {
   fill: '#fff',
   width: '23px',
   height: '23px',
-  marginRight: '15px'
+  marginRight: '15px',
 }
 const arrowSvgStyle = {
   fill: '#fff',
   width: '14px',
-  height: '14px'
+  height: '14px',
 }
 const disable = css`
   svg {

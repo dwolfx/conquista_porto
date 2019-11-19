@@ -6,7 +6,7 @@ import {
   PDFIconStyled,
   Title,
   Description,
-  DownloadLink
+  DownloadLink,
 } from './styles'
 
 export default function FileDownloadSection({ data }) {

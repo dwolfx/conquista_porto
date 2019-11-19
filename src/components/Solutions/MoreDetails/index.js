@@ -1,7 +1,7 @@
 import React from 'react'
 import { defaultSettings } from '../../Carousel'
 import CarouselItem from './CarouselCard/index'
-import { InvestmentsCarouselWrapper, TitleHeader, Carousel } from './styles'
+import { CarouselWrapper, TitleHeader, Carousel } from './styles'
 // import { Settings } from 'react-slick'
 
 const MoreDetails = ({ title, data }) => {
@@ -15,29 +15,29 @@ const MoreDetails = ({ title, data }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          arrows: false
-        }
+          arrows: false,
+        },
       },
       {
         breakpoint: 800,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: false
-        }
+          arrows: false,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false
-        }
-      }
-    ]
+          arrows: false,
+        },
+      },
+    ],
   }
   return (
-    <InvestmentsCarouselWrapper>
+    <CarouselWrapper>
       <TitleHeader>{title}</TitleHeader>
       <Carousel settings={settings}>
         {data.map(({ img, imgTitle, imgDescription, imgPath }) => (
@@ -50,7 +50,7 @@ const MoreDetails = ({ title, data }) => {
           />
         ))}
       </Carousel>
-    </InvestmentsCarouselWrapper>
+    </CarouselWrapper>
   )
 }
 

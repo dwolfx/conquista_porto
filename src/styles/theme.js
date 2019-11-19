@@ -10,7 +10,7 @@ export default {
     lightSecondary: '#FF7433',
     mediumSecondary: '#FE5C00',
     lightDarkSecondary: '#F35600',
-    darkSecondary: '#F35600'
+    darkSecondary: '#F35600',
   },
-  fontFamily: 'Open Sans'
+  fontFamily: 'Open Sans',
 }

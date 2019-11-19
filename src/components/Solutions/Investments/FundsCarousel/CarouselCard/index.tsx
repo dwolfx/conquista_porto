@@ -1,27 +1,27 @@
 import React from 'react'
 import {
-  CarouselItemWrapper,
+  CarouselCardWrapper,
   IconWrapper,
   TextLight,
   TextWrapper,
   ImgDynamic
 } from './styles'
 
-const CarouselItem = ({ logoName, description }: IProps) => {
+const CarouselCard = ({ logoName, description }: IProps) => {
   const logo = require(`assets/images/pages/solutions/investments/${logoName}.jpg`)
   return (
-    <CarouselItemWrapper>
+    <CarouselCardWrapper>
       <IconWrapper>
         <ImgDynamic src={logo} />
       </IconWrapper>
       <TextWrapper>
         <TextLight>{description}</TextLight>
       </TextWrapper>
-    </CarouselItemWrapper>
+    </CarouselCardWrapper>
   )
 }
 
-export default CarouselItem
+export default CarouselCard
 
 interface IProps {
   logoName: string

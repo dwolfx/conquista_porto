@@ -12,8 +12,19 @@ export const PointsContainer = styled.section`
 
 export const PointsWrapper = styled(Carousel)`
   margin-top: 14px;
-  display: flex;
-  padding: 3em;
+  width: 740px;
+
+  @media (max-width: 768px) {
+    width: 490px;
+  }
+
+  @media (max-width: 600px) {
+    width: 240px;
+  }
+
+  .slick-dots {
+    position: relative;
+  }
 `
 
 export const PointText = styled.p`
@@ -27,14 +38,14 @@ export const PointText = styled.p`
 
 export const Point = styled.div`
   border: 1px solid #ccc;
-  width: 230px;
+  width: 230px !important;
   height: 200px;
   margin: 0 4px 35px 4px;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
   box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);
   background-color: #fff;
-  display: flex;
+  display: flex !important;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
@@ -82,6 +93,7 @@ export const RescuePointsTitle = styled.p`
   font-weight: 300;
   letter-spacing: 0;
   word-wrap: break-word;
+  padding: 0 30px;
 `
 
 export const RelationshipProgramSection = styled.section`
@@ -216,7 +228,7 @@ export const BenefitItem = styled.div`
   @media (max-width: 800px) {
     flex-direction: row;
     width: auto;
-    margin: 8px 14px;
+    margin: 8px 30px;
   }
 
   p {

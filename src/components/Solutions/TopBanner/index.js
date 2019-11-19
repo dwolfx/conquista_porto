@@ -9,7 +9,7 @@ export default function TopBanner({
   image,
   imageDescription,
   buttonText,
-  onClick
+  onClick,
 }) {
   return (
     <Container>

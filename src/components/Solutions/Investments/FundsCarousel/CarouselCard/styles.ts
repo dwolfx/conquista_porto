@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const gray = '#E6E6E6'
 
-export const CarouselItemWrapper = styled.div`
+export const CarouselCardWrapper = styled.div`
   border: 1px solid ${gray};
   border-radius: 0.5em;
   box-shadow: 0 45px 40px -50px rgba(0, 0, 0, 0.4);

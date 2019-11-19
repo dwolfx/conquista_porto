@@ -1,19 +1,19 @@
 export function exampleActionAddRequest(payload) {
   return {
     type: '@example/ADD_REQUEST',
-    payload
+    payload,
   }
 }
 
 export function exampleActionAddSuccess(payload) {
   return {
     type: '@example/ADD_SUCCESS',
-    payload
+    payload,
   }
 }
 
 export function exampleActionAddFailure() {
   return {
-    type: '@example/ADD_FAILURE'
+    type: '@example/ADD_FAILURE',
   }
 }

@@ -6,19 +6,15 @@ import store from './store';
 import GlobalStyle from './styles/global'
 import history from './services/history'
 import Routes from './routes'
-import Footer from './components/Footer'
-import Header from './components/Header'
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <Router history={history}>
         <GlobalStyle />
-        <Header />
         <main className="main-content">
           <Routes />
         </main>
-        <Footer />
       </Router>
     </Provider>
   )

@@ -32,7 +32,7 @@ import {
   BenefitsDescription,
   BenefitsItems,
   BenefitItem,
-  BenefitsSectionContent
+  BenefitsSectionContent,
 } from './styles'
 
 import BannerInvestimentosImage from '../../assets/images/banner_pontos.jpg'
@@ -42,14 +42,22 @@ const settings = {
   slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 800,
+      breakpoint: 770,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows: false,
+      },
+    },
+    {
+      breakpoint: 600,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false
-      }
-    }
-  ]
+        arrows: false,
+      },
+    },
+  ],
 }
 
 export default function Points() {
@@ -64,34 +72,32 @@ export default function Points() {
       />
       <PointsContainer>
         <PointText>PONTOS</PointText>
-        <div>
-          <PointsWrapper settings={settings}>
-            <Point>
-              <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
-              <PointHeadline fontSize={34} colorText="#33beff">
-                16.500
-              </PointHeadline>
-              <PointText>PONTOS</PointText>
-              <GoToLink>ver extrato &gt;</GoToLink>
-            </Point>
-            <Point>
-              <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
-              <PointHeadline fontSize={34} colorText="#33beff">
-                16.500
-              </PointHeadline>
-              <PointText>PONTOS</PointText>
-              <GoToLink>ver extrato &gt;</GoToLink>
-            </Point>
-            <Point>
-              <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
-              <PointHeadline fontSize={34} colorText="#33beff">
-                16.500
-              </PointHeadline>
-              <PointText>PONTOS</PointText>
-              <GoToLink>ver extrato &gt;</GoToLink>
-            </Point>
-          </PointsWrapper>
-        </div>
+        <PointsWrapper settings={settings}>
+          <Point>
+            <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
+            <PointHeadline fontSize={34} colorText="#33beff">
+              16.500
+            </PointHeadline>
+            <PointText>PONTOS</PointText>
+            <GoToLink>ver extrato &gt;</GoToLink>
+          </Point>
+          <Point>
+            <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
+            <PointHeadline fontSize={34} colorText="#33beff">
+              16.500
+            </PointHeadline>
+            <PointText>PONTOS</PointText>
+            <GoToLink>ver extrato &gt;</GoToLink>
+          </Point>
+          <Point>
+            <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
+            <PointHeadline fontSize={34} colorText="#33beff">
+              16.500
+            </PointHeadline>
+            <PointText>PONTOS</PointText>
+            <GoToLink>ver extrato &gt;</GoToLink>
+          </Point>
+        </PointsWrapper>
       </PointsContainer>
       <RescuePointsSection>
         <RescuePointsTitle>
