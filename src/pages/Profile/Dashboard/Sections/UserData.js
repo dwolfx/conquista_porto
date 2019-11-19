@@ -1,11 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import { ReactComponent as AddIcon } from '../../../../assets/icons/add.svg'
 import AddressFields from '../../../../components/AddressInfos'
 import PhoneFields from '../../../../components/PhoneInfos'
 import RadioInput from '../../../../components/Inputs/Radio'
 import TextInput from '../../../../components/Inputs/Text'
-import { Row, LabelText, ObsText, ButtonAdd } from '../../styles'
+import { Row, LabelText, ObsText } from '../../styles'
 
 export default () => {
   const fiscalAddressOptions = [
@@ -33,28 +32,7 @@ export default () => {
     <>
       <AddressFields index={0} />
 
-      <Row>
-        <ObsText>
-          A Porto Seguro não costuma enviar documentação pelo correio. Mas, caso
-          seja necessário, enviará para o endereço principal.
-        </ObsText>
-      </Row>
-
-      <Row>
-        <ButtonAdd>
-          <AddIcon fill="currentColor" width={20} />
-          Adicionar endereço
-        </ButtonAdd>
-      </Row>
-
-      <PhoneFields index={0} />
-
-      <Row>
-        <ButtonAdd>
-          <AddIcon fill="currentColor" width={20} />
-          Adicionar telefone
-        </ButtonAdd>
-      </Row>
+      <PhoneFields name="phone-info" numberOfFields={0} />
 
       <Row>
         <TextInput type="email" label="E-mail" name="email" width={50} />

@@ -1,9 +1,8 @@
 import React from 'react'
-import { ReactComponent as AddIcon } from '../../../../assets/icons/add.svg'
-import BankInfos from '../../../../components/BankInfos'
+import BankComponent from '../../../../components/BankInfos'
 import TextInput from '../../../../components/Inputs/Text'
 import RadioInput from '../../../../components/Inputs/Radio'
-import { Row, ButtonAdd, LabelText } from '../../styles'
+import { Row, LabelText } from '../../styles'
 
 export default () => {
   const qualifiedOptions = [
@@ -34,14 +33,8 @@ export default () => {
         <TextInput label="Patrimônio" name="patrimonio" />
       </Row>
 
-      <BankInfos name="bank-info" index={0} />
+      <BankComponent />
 
-      <Row>
-        <ButtonAdd>
-          <AddIcon fill="currentColor" width={20} />
-          Adicionar conta
-        </ButtonAdd>
-      </Row>
       <Row direction="column">
         <LabelText>Me declaro como:</LabelText>
         <RadioInput name="declaracaoQualificado" options={qualifiedOptions} />

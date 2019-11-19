@@ -37,21 +37,7 @@ export default ({ changeScreen }) => (
           </SectionText>
         </Row>
 
-        <AddressFields index={0} />
-
-        <Row>
-          <SectionText fontSize={11}>
-            A Porto Seguro não costuma enviar documentação pelo correio. Mas,
-            caso seja necessário, enviará para o endereço principal.
-          </SectionText>
-        </Row>
-
-        <Row>
-          <ButtonAdd>
-            <Icon name="add" fill="currentColor" width={20} />
-            Adicionar endereço
-          </ButtonAdd>
-        </Row>
+        <AddressFields />
 
         <PhoneFields index={0} />
 
