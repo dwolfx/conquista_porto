@@ -33,7 +33,7 @@ export default function Routes() {
       <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <DefaultRoute path="/pontos" exact component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
-      <DefaultRoute path="/consorcio" exact component={Consortium} />
+      <DefaultRoute path="/consorcio-imovel" exact component={Consortium} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"
