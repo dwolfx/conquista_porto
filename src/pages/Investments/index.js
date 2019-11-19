@@ -39,20 +39,24 @@ const makeSenseSectionData = [
 
 const makeSenseBenefitsSectionData = [
   {
+    icon: 'talkman',
     title: 'Gerente de conta',
     description:
       'Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.',
   },
   {
+    icon: 'diamond',
     title: 'Programa de Relacionamento',
     description:
       'Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.',
   },
   {
+    icon: 'callCenter',
     title: 'Chat inteligente',
     description: 'Para te ajudar com informações e dicas em qualquer momento.',
   },
   {
+    icon: 'apps',
     title: 'Facilidade',
     description:
       'A contratação é rápida e descomplicada, feita para facilitar sua vida.',

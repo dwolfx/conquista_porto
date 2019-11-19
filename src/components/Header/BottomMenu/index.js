@@ -26,7 +26,7 @@ import {
   TimeIcon,
   Wrapper,
   WrapperBottomMenuItem,
-  WrapperBottomMenuItemSolution
+  WrapperBottomMenuItemSolution,
 } from './styles'
 
 import Dropdown from '../../Dropdown'

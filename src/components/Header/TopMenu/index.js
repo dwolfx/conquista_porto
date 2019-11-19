@@ -21,7 +21,7 @@ import {
   ThumbsUpIcon,
   Text,
   TriangleHolder,
-  Wrapper
+  Wrapper,
 } from './styles'
 
 import ResponsiveHeader from '../ResponsiveHeader'
@@ -35,14 +35,14 @@ const DB = [
     title: 'Confirmação de Aporte',
     content: 'Está tudo certo com seu investimento no fundo [Nome do fundo].',
     identificationIcon: 'addFunds',
-    actionIcon: 'details'
+    actionIcon: 'details',
   },
   {
     id: 2,
     title: 'Confirmação de Resgate',
     content: 'Está tudo certo com seu resgate do fundo [Nome do fundo].',
     identificationIcon: 'withdrawFunds',
-    actionIcon: 'redirect'
+    actionIcon: 'redirect',
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ const DB = [
     content:
       'Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!',
     identificationIcon: 'notification',
-    actionIcon: 'details'
+    actionIcon: 'details',
   },
   {
     id: 4,
@@ -58,8 +58,8 @@ const DB = [
     content:
       'Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.',
     identificationIcon: 'warning',
-    actionIcon: 'redirect'
-  }
+    actionIcon: 'redirect',
+  },
 ]
 
 const Icon = ({ name }) => {

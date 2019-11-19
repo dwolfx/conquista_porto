@@ -5,7 +5,7 @@ import {
   Content,
   LeftContent,
   RightContent,
-  Observation
+  Observation,
 } from './styles'
 
 export default function BulletsSection({
@@ -13,7 +13,7 @@ export default function BulletsSection({
   imageDescription,
   title,
   data,
-  observation
+  observation,
 }) {
   return (
     <Container backgroundColor="#f1f1f1">

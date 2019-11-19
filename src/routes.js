@@ -35,8 +35,12 @@ export default function Routes() {
       <DefaultRoute path="/cartao-credito" component={CartaoCredito} />
       <DefaultRoute path="/pontos" component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
-      <DefaultRoute path="/perfil/cadastro" component={ProfileRegistration} />
-      <DefaultRoute path="/perfil/investidor-perfil" exact component={ProfileSuitability} />
+      <Route path="/perfil/cadastro" component={ProfileRegistration} />
+      <Route
+        path="/perfil/investidor-perfil"
+        exact
+        component={ProfileSuitability}
+      />
       <DefaultRoute path="/consorcio-imovel" component={ConsortiumBuilding} />
     </Switch>
   )

@@ -19,7 +19,7 @@ import {
   TagWrapper,
   TargetIcon,
   WhiteText,
-  Wrapper
+  Wrapper,
 } from './styles'
 
 import Logo from '../Logo'
