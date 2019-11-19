@@ -1,5 +1,5 @@
 import React from 'react'
-import CarouselItem from './CarouselCard/index'
+import CarouselCard from './CarouselCard/index'
 import mockData from './mock'
 import { CarouselWrapper, TitleHeader, Carousel } from './styles'
 import { Settings } from 'react-slick'
@@ -40,7 +40,7 @@ const FundsCarouselSection = () => {
       <TitleHeader>Conheça as gestoras disponíveis no Conquista:</TitleHeader>
       <Carousel settings={settings}>
         {mockData.map(({ key, logo, description }) => (
-          <CarouselItem key={key} logoName={logo} description={description} />
+          <CarouselCard key={key} logoName={logo} description={description} />
         ))}
       </Carousel>
     </CarouselWrapper>

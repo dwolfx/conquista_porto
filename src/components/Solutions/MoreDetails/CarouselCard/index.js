@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {
-  CarouselItemWrapper,
+  CarouselCardWrapper,
   IconWrapper,
   TextTitle,
   TextLight,
@@ -8,7 +8,7 @@ import {
   ImgDynamic,
 } from './styles'
 
-const CarouselItem = ({ img, imgTitle, imgDescription, imgPath }) => {
+const CarouselCard = ({ img, imgTitle, imgDescription, imgPath }) => {
   const [image, setImage] = useState(null)
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const CarouselItem = ({ img, imgTitle, imgDescription, imgPath }) => {
   }, [img, imgPath])
 
   return (
-    <CarouselItemWrapper>
+    <CarouselCardWrapper>
       <IconWrapper>
         <ImgDynamic src={image} />
       </IconWrapper>
@@ -30,8 +30,8 @@ const CarouselItem = ({ img, imgTitle, imgDescription, imgPath }) => {
         {imgTitle ? <TextTitle>{imgTitle}</TextTitle> : null}
         <TextLight>{imgDescription}</TextLight>
       </TextWrapper>
-    </CarouselItemWrapper>
+    </CarouselCardWrapper>
   )
 }
 
-export default CarouselItem
+export default CarouselCard
