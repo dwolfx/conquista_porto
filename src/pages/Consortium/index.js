@@ -26,7 +26,7 @@ export default function Consortium() {
           'O consórcio é uma opção para você comprar um imóvel sem juros. Além disso, o crédito pode ser usado para construir, reformar, adquirir um terreno ou pagar o cartório.',
           'São duas formas de receber o valor total solicitado: sorteios e lances, ambos mensais. Aliás, sobre o lance, você pode aumentar suas chances incluindo o FGTS.',
           'A carta de crédito do Consórcio de Imóvel equivale a dinheiro vivo, melhorando suas condições de negociação no momento da compra.',
-          'Há planos de até 200 meses, viabilizando parcelas acessíveis e fazendo o consórcio ser uma alternativa para quitar financiamentos com altos juros.'
+          'Há planos de até 200 meses, viabilizando parcelas acessíveis e fazendo o consórcio ser uma alternativa para quitar financiamentos com altos juros.',
         ]}
       />
       <MakeSenseSection
@@ -35,18 +35,18 @@ export default function Consortium() {
           {
             description:
               'Quando você quiser comprar o imóvel dos seus sonhos, mas sem uma data determinada.',
-            icon: 'homewithwindow'
+            icon: 'homewithwindow',
           },
           {
             description:
               'Quando você não tem o valor da entrada e busca uma forma disciplinada de juntar dinheiro para um imóvel.',
-            icon: 'barchart'
+            icon: 'barchart',
           },
           {
             description:
               'Quando você não quer um comprometimento de longo prazo com bancos e com pagamento de juros.',
-            icon: 'billing'
-          }
+            icon: 'billing',
+          },
         ]}
         subtitle="VANTAGENS AO CONTRATAR AQUI:"
         benefitsData={[
@@ -54,26 +54,26 @@ export default function Consortium() {
             title: 'Gerente de conta',
             description:
               'Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas',
-            icon: 'talkman'
+            icon: 'talkman',
           },
           {
             title: 'Programa de Relacionamento',
             description:
               'Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens',
-            icon: 'diamond'
+            icon: 'diamond',
           },
           {
             title: 'Chat inteligente',
             description:
               'Para te ajudar com informações e dicas em qualquer momento.',
-            icon: 'callcenter'
+            icon: 'callcenter',
           },
           {
             title: 'Facilidade',
             description:
               'A contratação é rápida e descomplicada, feita para facilitar sua vida.',
-            icon: 'apps'
-          }
+            icon: 'apps',
+          },
         ]}
       />
       <HighlightSection
@@ -91,22 +91,22 @@ export default function Consortium() {
             imgPath: 'consortium',
             imgTitle: 'Tente um lance',
             imgDescription:
-              'Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.'
+              'Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.',
           },
           {
             img: 'carousel-02',
             imgPath: 'consortium',
             imgTitle: 'FGTS para o lance',
             imgDescription:
-              'O lance para tentar antecipar o valor do consórcio pode sair diretamente do seu bolso, mas você também pode utilizar seu FGTS (Fundo de Garantia por Tempo de Serviço). Ele rende pouco ao ficar parado e pode ser uma maneira para você ser contemplado antecipadamente.'
+              'O lance para tentar antecipar o valor do consórcio pode sair diretamente do seu bolso, mas você também pode utilizar seu FGTS (Fundo de Garantia por Tempo de Serviço). Ele rende pouco ao ficar parado e pode ser uma maneira para você ser contemplado antecipadamente.',
           },
           {
             img: 'carousel-03',
             imgPath: 'consortium',
             imgTitle: 'Combine mais de um consórcio',
             imgDescription:
-              'Os valores dos consórcios são sempre fixos e, nem sempre, o valor de um único consórcio é suficiente para realizar a compra de um bem mais caro, como uma casa, por exemplo. Mas você pode combinar mais de um consórcio para chegar no valor que precisa.'
-          }
+              'Os valores dos consórcios são sempre fixos e, nem sempre, o valor de um único consórcio é suficiente para realizar a compra de um bem mais caro, como uma casa, por exemplo. Mas você pode combinar mais de um consórcio para chegar no valor que precisa.',
+          },
         ]}
       />
       <FileDownloadSection
@@ -115,20 +115,20 @@ export default function Consortium() {
             title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
             description:
               'Aqui, você tem mais informações legais sobre consórcio.',
-            buttonText: 'BAIXAR ARQUIVO'
+            buttonText: 'BAIXAR ARQUIVO',
           },
           {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
-            buttonText: 'BAIXAR ARQUIVO'
+            buttonText: 'BAIXAR ARQUIVO',
           },
           {
             title: 'TABELA DE TARIFAS',
             description:
               'Confira mais informações sobre tarifas envolvidas na contratação de consórcio.',
-            buttonText: 'BAIXAR ARQUIVO'
-          }
+            buttonText: 'BAIXAR ARQUIVO',
+          },
         ]}
       />
     </Container>

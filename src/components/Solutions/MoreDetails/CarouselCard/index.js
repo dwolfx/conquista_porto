@@ -5,7 +5,7 @@ import {
   TextTitle,
   TextLight,
   TextWrapper,
-  ImgDynamic
+  ImgDynamic,
 } from './styles'
 
 const CarouselItem = ({ img, imgTitle, imgDescription, imgPath }) => {

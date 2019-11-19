@@ -77,7 +77,7 @@ const IconComponent = ({ name, ...props }) => {
     user,
   }
   const Icon = dict[name.toLowerCase()]
-  return <Icon  {...props} />
+  return <Icon {...props} />
 }
 
 export default IconComponent

@@ -15,26 +15,26 @@ const MoreDetails = ({ title, data }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          arrows: false
-        }
+          arrows: false,
+        },
       },
       {
         breakpoint: 800,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: false
-        }
+          arrows: false,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false
-        }
-      }
-    ]
+          arrows: false,
+        },
+      },
+    ],
   }
   return (
     <InvestmentsCarouselWrapper>
