@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 36 36" style="enable-background:new 0 0 36 36;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+</style>
+<title>calendar</title>
+<g id="Styleguide">
+	<g transform="translate(-874.000000, -427.000000)">
+		<g id="Gray" transform="translate(154.000000, 107.000000)">
+			<g id="Group" transform="translate(720.000000, 0.000000)">
+				<g transform="translate(0.000000, 320.000000)">
+					<g>
+						<path id="Fill-1" class="st0" d="M33.6,28.8c0,2.6-2.2,4.8-4.8,4.8H7.2c-2.6,0-4.8-2.2-4.8-4.8V15h31.2V28.8z M33.6,12.6H2.4
+							V10c0-2.6,2.2-4.8,4.8-4.8h0.6V8h2.4V5.2h6.6V8h2.4V5.2h6.6V8h2.4V5.2h0.6c2.6,0,4.8,2.2,4.8,4.8V12.6z M28.8,2.8h-0.6V0h-2.4
+							v2.8h-6.6V0h-2.4v2.8h-6.6V0H7.8v2.8H7.2C3.2,2.8,0,6,0,10v2.6V15v13.8c0,4,3.2,7.2,7.2,7.2h21.6c4,0,7.2-3.2,7.2-7.2V15v-2.4
+							V10C36,6,32.8,2.8,28.8,2.8L28.8,2.8z"/>
+						<path id="Fill-3" class="st0" d="M9,22c1.3,0,2.4-1.1,2.4-2.4c0-1.3-1.1-2.4-2.4-2.4s-2.4,1.1-2.4,2.4C6.6,21,7.7,22,9,22"/>
+						<path id="Fill-5" class="st0" d="M17.9,22c1.3,0,2.4-1.1,2.4-2.4c0-1.3-1.1-2.4-2.4-2.4c-1.3,0-2.4,1.1-2.4,2.4
+							C15.5,21,16.6,22,17.9,22"/>
+						<path id="Fill-7" class="st0" d="M27,22c1.3,0,2.4-1.1,2.4-2.4c0-1.3-1.1-2.4-2.4-2.4s-2.4,1.1-2.4,2.4C24.6,21,25.7,22,27,22
+							"/>
+						<path id="Fill-9" class="st0" d="M9,30.3c1.3,0,2.4-1.1,2.4-2.4c0-1.3-1.1-2.4-2.4-2.4s-2.4,1.1-2.4,2.4
+							C6.6,29.3,7.7,30.3,9,30.3"/>
+						<path id="Fill-11" class="st0" d="M17.9,30.3c1.3,0,2.4-1.1,2.4-2.4c0-1.3-1.1-2.4-2.4-2.4c-1.3,0-2.4,1.1-2.4,2.4
+							C15.5,29.3,16.6,30.3,17.9,30.3"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

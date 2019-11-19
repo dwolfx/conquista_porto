@@ -10,14 +10,19 @@ import { ReactComponent as arrowup } from '../../assets/icons/arrow-up.svg'
 import { ReactComponent as awesome } from '../../assets/icons/awesome.svg'
 import { ReactComponent as barchart } from '../../assets/icons/bar-chart.svg'
 import { ReactComponent as bell } from '../../assets/icons/bell.svg'
+import { ReactComponent as billing } from '../../assets/icons/billing.svg'
 import { ReactComponent as car } from '../../assets/icons/car.svg'
+import { ReactComponent as callcenter } from '../../assets/icons/call-center.svg'
+import { ReactComponent as calendar } from '../../assets/icons/calendar.svg'
 import { ReactComponent as close } from '../../assets/icons/close.svg'
 import { ReactComponent as creditcard } from '../../assets/icons/credit-card.svg'
+import { ReactComponent as creditcard2 } from '../../assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from '../../assets/icons/diamond.svg'
 import { ReactComponent as gear } from '../../assets/icons/gear.svg'
 import { ReactComponent as homewithwindow } from '../../assets/icons/home-with-window.svg'
 import { ReactComponent as home } from '../../assets/icons/home.svg'
 import { ReactComponent as idea } from '../../assets/icons/idea.svg'
+import { ReactComponent as malefemale } from '../../assets/icons/male-female.svg'
 import { ReactComponent as link } from '../../assets/icons/link.svg'
 import { ReactComponent as menu } from '../../assets/icons/menu.svg'
 import { ReactComponent as money } from '../../assets/icons/money.svg'
@@ -25,7 +30,9 @@ import { ReactComponent as pdf } from '../../assets/icons/pdf.svg'
 import { ReactComponent as persongroup } from '../../assets/icons/person-group.svg'
 import { ReactComponent as plane } from '../../assets/icons/plane.svg'
 import { ReactComponent as remove } from '../../assets/icons/remove.svg'
+import { ReactComponent as safebox } from '../../assets/icons/safe-box.svg'
 import { ReactComponent as target } from '../../assets/icons/target.svg'
+import { ReactComponent as talkman } from '../../assets/icons/talk-man.svg'
 import { ReactComponent as thumbsup } from '../../assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from '../../assets/icons/time.svg'
 import { ReactComponent as trash } from '../../assets/icons/trashcan.svg'
@@ -43,14 +50,19 @@ const IconComponent = ({ name, ...props }) => {
     awesome,
     barchart,
     bell,
+    billing,
     car,
+    calendar,
+    callcenter,
     close,
     creditcard,
+    creditcard2,
     diamond,
     gear,
     homewithwindow,
     home,
     idea,
+    malefemale,
     link,
     menu,
     money,
@@ -58,20 +70,16 @@ const IconComponent = ({ name, ...props }) => {
     persongroup,
     plane,
     remove,
+    safebox,
+    talkman,
     target,
     thumbsup,
     time,
     trash,
     user,
   }
-
-  if (name.toLowerCase() in dict) {
-    const Icon = dict[name.toLowerCase()]
-    return <Icon {...props} />
-  }
-
-  console.warn(`${name} not found`)
-  return false
+  const Icon = dict[name.toLowerCase()]
+  return <Icon {...props} />
 }
 
 export default IconComponent
