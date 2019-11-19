@@ -24,7 +24,7 @@ export const Container = styled.header`
   padding: 7px 22px;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 
   @media (min-width: 768px) {
     padding: 15px 25px;

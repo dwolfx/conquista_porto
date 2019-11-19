@@ -60,14 +60,15 @@ const downloadFileSectionData = [
   },
   {
     title: 'Tabela de tarifas',
-    description: 'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
+    description:
+      'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
     buttonText: 'Visualizar'
   },
   {
     title: 'Condições gerais',
     description:
       'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
-      buttonText: 'Baixar Arquivo'
+    buttonText: 'Baixar Arquivo'
   }
 ]
 
