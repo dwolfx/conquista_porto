@@ -3,23 +3,32 @@ import { Link } from 'react-router-dom'
 
 import ConquistaIcon from '../../IconExporter'
 
-const arrowSvgStyle = {
-  height: '20px',
-  width: '15px',
-  marginRight: '0px',
-  marginLeft: '10px'
-}
-const basicSvgStyle = {
-  height: '20px',
-  width: '20px',
-  fill: '#1c1c1c',
-  marginRight: '10px'
-}
-const bottomMenuDropdownSvgStyle = {
-  height: '18px',
-  width: '18px',
-  fill: '#fff'
-}
+export const ArrowUpDownIcon = styled(ConquistaIcon)`
+  height: 20px;
+  width: 15px;
+  margin-right: 0px;
+  margin-left: 10px;
+`
+
+export const BasicIcon = styled(ConquistaIcon)`
+  height: 20px;
+  width: 20px;
+  fill: #1c1c1c;
+  margin-right: 10px;
+`
+
+export const BottomMenuDropdownIcon = styled(ConquistaIcon)`
+  height: 18px;
+  width: 18px;;
+  fill: #fff;
+`
+
+export const ArrowRightIcon = styled(ConquistaIcon).attrs({ name: 'arrowright' })`
+    height: ${props => (props.size ? `${props.size}px` : '16px')};
+    width: ${props => (props.size ? `${props.size}px` : '16px')};
+    fill: #30c5ff;
+    margin-right: 0px;
+`
 
 export const BottomMenuText = styled.p`
   color: #000;
@@ -118,72 +127,4 @@ export const WrapperBottomMenuItemSolution = styled.div`
       color: #30c5ff;
     }
   }
-`
-export const AppsIcon = styled(ConquistaIcon).attrs({ name: 'apps' })`
-  ${basicSvgStyle};
-`
-export const ArrowDownIcon = styled(ConquistaIcon).attrs({ name: 'arrowdown' })`
-  ${basicSvgStyle};
-  && {
-    ${arrowSvgStyle};
-  }
-`
-export const ArrowRightIcon = styled(ConquistaIcon).attrs({
-  name: 'arrowright'
-})`
-  ${basicSvgStyle};
-  && {
-    height: ${props => (props.size ? `${props.size}px` : '16px')};
-    width: ${props => (props.size ? `${props.size}px` : '16px')};
-    fill: #30c5ff;
-    margin-right: 0px;
-  }
-`
-export const ArrowUpIcon = styled(ConquistaIcon).attrs({ name: 'arrowup' })`
-  ${basicSvgStyle};
-  && {
-    ${arrowSvgStyle};
-  }
-`
-export const BarChartIcon = styled(ConquistaIcon).attrs({ name: 'barchart' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const CarIcon = styled(ConquistaIcon).attrs({ name: 'car' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const CreditCardIcon = styled(ConquistaIcon).attrs({
-  name: 'creditcard'
-})`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const DiamondIcon = styled(ConquistaIcon).attrs({ name: 'diamond' })`
-  ${basicSvgStyle};
-`
-export const GearIcon = styled(ConquistaIcon).attrs({ name: 'gear' })`
-  ${basicSvgStyle};
-`
-export const HomeWithWindowIcon = styled(ConquistaIcon).attrs({
-  name: 'homewithwindow'
-})`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const IdeaIcon = styled(ConquistaIcon).attrs({ name: 'idea' })`
-  ${basicSvgStyle};
-`
-export const MoneyIcon = styled(ConquistaIcon).attrs({ name: 'money' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const PersonGroupIcon = styled(ConquistaIcon).attrs({
-  name: 'persongroup'
-})`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const PlaneIcon = styled(ConquistaIcon).attrs({ name: 'plane' })`
-  ${bottomMenuDropdownSvgStyle}
-`
-export const TargetIcon = styled(ConquistaIcon).attrs({ name: 'target' })`
-  ${basicSvgStyle};
-`
-export const TimeIcon = styled(ConquistaIcon).attrs({ name: 'time' })`
-  ${bottomMenuDropdownSvgStyle}
 `

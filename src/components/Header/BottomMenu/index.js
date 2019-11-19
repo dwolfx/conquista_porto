@@ -1,29 +1,17 @@
 import React, { useState } from 'react'
 
 import {
-  AppsIcon,
-  ArrowDownIcon,
+  BasicIcon,
+  ArrowUpDownIcon,
   ArrowRightIcon,
-  ArrowUpIcon,
+  BottomMenuDropdownIcon,
   BottomMenuText,
-  BarChartIcon,
-  CarIcon,
-  CreditCardIcon,
-  DiamondIcon,
-  GearIcon,
-  HomeWithWindowIcon,
   IconCircle,
-  IdeaIcon,
   Menu,
-  MoneyIcon,
-  PersonGroupIcon,
-  PlaneIcon,
   RelativeParent,
   SolutionsContainer,
   SolutionsDropdownText,
   SolutionsItem,
-  TargetIcon,
-  TimeIcon,
   Wrapper,
   WrapperBottomMenuItem,
   WrapperBottomMenuItemSolution,
@@ -38,27 +26,27 @@ export default function BottomMenu() {
     <Menu>
       <Wrapper>
         <WrapperBottomMenuItem to="/">
-          <TargetIcon />
+          <BasicIcon name="target" />
           <BottomMenuText>Objetivos</BottomMenuText>
         </WrapperBottomMenuItem>
         <RelativeParent>
           <WrapperBottomMenuItemSolution onClick={() => setIsUp(!isUp)}>
-            <AppsIcon />
+            <BasicIcon name="apps" />
             <BottomMenuText>Soluções</BottomMenuText>
-            {isUp ? <ArrowUpIcon /> : <ArrowDownIcon />}
+            {isUp ? <ArrowUpDownIcon name='arrowup' /> : <ArrowUpDownIcon name='arrowdown' />}
           </WrapperBottomMenuItemSolution>
           <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
             <SolutionsContainer>
               <SolutionsItem to="/cartao-credito">
                 <IconCircle>
-                  <CreditCardIcon />
+                  <BottomMenuDropdownIcon name='creditcard' />
                 </IconCircle>
                 <SolutionsDropdownText>Cartão de Crédito</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <HomeWithWindowIcon />
+                  <BottomMenuDropdownIcon name='homewithwindow' />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Consórcio de Imóvel
@@ -67,7 +55,7 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <CarIcon />
+                  <BottomMenuDropdownIcon name='car' />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Consórcio de Veículo
@@ -76,7 +64,7 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <MoneyIcon />
+                  <BottomMenuDropdownIcon name='money' />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Financiamento de Veículo
@@ -85,14 +73,14 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/investimentos">
                 <IconCircle>
-                  <BarChartIcon />
+                  <BottomMenuDropdownIcon name='barchart'/>
                 </IconCircle>
                 <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <TimeIcon />
+                  <BottomMenuDropdownIcon name='time' />
                 </IconCircle>
                 <SolutionsDropdownText>
                   Previdência Privada
@@ -101,14 +89,14 @@ export default function BottomMenu() {
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <PersonGroupIcon />
+                  <BottomMenuDropdownIcon name='persongroup' />
                 </IconCircle>
                 <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
               <SolutionsItem to="/">
                 <IconCircle>
-                  <PlaneIcon />
+                  <BottomMenuDropdownIcon name='plane' />
                 </IconCircle>
                 <SolutionsDropdownText>Seguro Viagem</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
@@ -117,15 +105,15 @@ export default function BottomMenu() {
           </Dropdown>
         </RelativeParent>
         <WrapperBottomMenuItem to="/">
-          <GearIcon />
+          <BasicIcon name='gear' />
           <BottomMenuText>Gerenciador</BottomMenuText>
         </WrapperBottomMenuItem>
         <WrapperBottomMenuItem to="/pontos">
-          <DiamondIcon />
+          <BasicIcon name='diamond' />
           <BottomMenuText>Pontos</BottomMenuText>
         </WrapperBottomMenuItem>
         <WrapperBottomMenuItem to="/">
-          <IdeaIcon />
+          <BasicIcon name='idea' />
           <BottomMenuText>Recomendações</BottomMenuText>
         </WrapperBottomMenuItem>
       </Wrapper>
