@@ -66,7 +66,7 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem to="/">
+              <SolutionsItem to="/financiamento-veiculo">
                 <IconCircle>
                   <BottomMenuDropdownIcon name="money" />
                 </IconCircle>

@@ -63,7 +63,6 @@ export default function Routes() {
         exact
         component={ProfileSuitability}
       />
-      <DefaultRoute path="/consorcio-imovel" component={ConsortiumBuilding} />
     </Switch>
   )
 }
