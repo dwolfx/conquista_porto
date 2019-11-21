@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Investimentos from './pages/Investments'
 import CartaoCredito from './pages/CreditCard'
 import PrevidenciaPrivada from './pages/PrivateWelfare'
+import SeguroVida from './pages/LifeInsurance'
 import Points from './pages/Points'
 import Profile from './pages/Profile'
 import ConsortiumBuilding from './pages/ConsortiumBuilding'
@@ -38,6 +39,7 @@ export default function Routes() {
       <DefaultRoute path="/" exact component={Home} />
       <DefaultRoute path="/investimentos" component={Investimentos} />
       <DefaultRoute path="/cartao-credito" component={CartaoCredito} />
+      <DefaultRoute path="/seguro-vida" component={SeguroVida} />
       <DefaultRoute
         path="/previdencia-privada"
         component={PrevidenciaPrivada}
