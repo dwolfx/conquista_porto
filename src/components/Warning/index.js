@@ -27,7 +27,9 @@ export default ({ warnings }) =>
       </WarningContentWrapper>
 
       <WarningButtonWrapper>
-        <Button color="primary">{item.buttonText}</Button>
+        <Button color="primary" onClick={item.buttonAction}>
+          {item.buttonText}
+        </Button>
       </WarningButtonWrapper>
     </WarningWrapper>
   ))

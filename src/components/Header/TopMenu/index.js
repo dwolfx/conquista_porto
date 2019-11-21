@@ -123,7 +123,7 @@ export default function TopMenu() {
           <LinkText to="/" exact size={20} margin="0px 20px">
             Início
           </LinkText>
-          <LinkText to="/usuario" size={20} margin="0px 20px">
+          <LinkText to="/perfil" size={20} margin="0px 20px">
             Perfil
           </LinkText>
         </Wrapper>
