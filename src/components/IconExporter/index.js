@@ -19,6 +19,7 @@ import { ReactComponent as close } from '../../assets/icons/close.svg'
 import { ReactComponent as creditcard } from '../../assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from '../../assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from '../../assets/icons/diamond.svg'
+import { ReactComponent as financial } from '../../assets/icons/financial.svg'
 import { ReactComponent as gear } from '../../assets/icons/gear.svg'
 import { ReactComponent as homewithwindow } from '../../assets/icons/home-with-window.svg'
 import { ReactComponent as home } from '../../assets/icons/home.svg'
@@ -30,7 +31,9 @@ import { ReactComponent as money } from '../../assets/icons/money.svg'
 import { ReactComponent as pdf } from '../../assets/icons/pdf.svg'
 import { ReactComponent as persongroup } from '../../assets/icons/person-group.svg'
 import { ReactComponent as plane } from '../../assets/icons/plane.svg'
+import { ReactComponent as piechart } from '../../assets/icons/pie-chart.svg'
 import { ReactComponent as remove } from '../../assets/icons/remove.svg'
+import { ReactComponent as refresh } from '../../assets/icons/refresh.svg'
 import { ReactComponent as safebox } from '../../assets/icons/safe-box.svg'
 import { ReactComponent as target } from '../../assets/icons/target.svg'
 import { ReactComponent as talkman } from '../../assets/icons/talk-man.svg'
@@ -62,6 +65,7 @@ const IconComponent = ({ name, ...props }) => {
     creditcard,
     creditcard2,
     diamond,
+    financial,
     gear,
     homewithwindow,
     home,
@@ -72,8 +76,10 @@ const IconComponent = ({ name, ...props }) => {
     money,
     pdf,
     persongroup,
+    piechart,
     plane,
     remove,
+    refresh,
     safebox,
     talkman,
     target,
