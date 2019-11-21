@@ -16,6 +16,7 @@ export const CardWrapper = styled.div`
     height: 36px;
     margin: 0.5em 1em 0 0;
     width: 93px;
+    fill: #777;
   }
 
   @media (min-width: 1100px) {
