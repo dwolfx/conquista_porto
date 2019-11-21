@@ -7,8 +7,8 @@ import HighlightSection from '../../components/Solutions/HighlightSection'
 import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
 import MoreDetails from '../../components/Solutions/MoreDetails'
 
-import BannerCartaoCreditoImage from '../../assets/images/banner_cartao_credito.jpg'
-import SeloCartaoCredito from '../../assets/images/selo-cartao-credito.svg'
+import BannerCartaoCreditoImage from '../../assets/images/pages/solutions/creditCard/banner_cartao_credito.jpg'
+import SeloCartaoCredito from '../../assets/images/pages/solutions/creditCard/selo-cartao-credito.svg'
 
 const makeSenseSectionData = [
   {
