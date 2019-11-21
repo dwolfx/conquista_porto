@@ -14,7 +14,7 @@ const CarouselCard = ({ img, imgTitle, imgDescription, imgPath }) => {
   useEffect(() => {
     async function loadImg() {
       const imgPromise = await import(
-        `assets/images/pages/solutions/${imgPath}/${img}.jpg`
+        `../../../../assets/images/pages/solutions/${imgPath}/${img}.jpg`
       )
       setImage(imgPromise.default)
     }
