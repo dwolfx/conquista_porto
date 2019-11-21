@@ -25,6 +25,9 @@ exports[`BulletsSection renders correctly 1`] = `
           Apenas esse tá top!
         </li>
       </ul>
+      <p
+        className="sc-ifAKCX cIkCex"
+      />
     </div>
   </div>
 </section>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { IBenefitsData } from '../index'
 import { CardWrapper, Title, Description, TextBox } from './styles'
-import ConquistaIcon from '../../../../IconExporter';
+import ConquistaIcon from '../../../../IconExporter'
 
 export default function({ title, description, icon }: IProps) {
   return (
     <CardWrapper>
-      <ConquistaIcon name={icon}/>
+      <ConquistaIcon name={icon} fill="#777" />
       <TextBox>
         <Title>{title}</Title>
         <Description>{description}</Description>

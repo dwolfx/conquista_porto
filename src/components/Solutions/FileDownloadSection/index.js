@@ -1,21 +1,22 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {
   Container,
   Item,
-  PDFIconStyled,
+  IconStyled,
   Title,
   Description,
   DownloadLink,
 } from './styles'
 
-export default function FileDownloadSection({ data }) {
+export default function FileDownloadSection({ data, ...rest }) {
   return (
-    <Container>
+    <Container {...rest}>
       {data.map(item => (
         <Item key={item.title}>
           <div>
-            <PDFIconStyled fill="#777" height="24px" />
+            <IconStyled name={item.icon || 'pdf'} fill="#777" height="24px" />
           </div>
           <div>
             <Title>{item.title}</Title>
@@ -26,4 +27,15 @@ export default function FileDownloadSection({ data }) {
       ))}
     </Container>
   )
+}
+
+FileDownloadSection.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      iconName: PropTypes.string,
+      description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+      buttonText: PropTypes.string,
+    })
+  ).isRequired,
 }

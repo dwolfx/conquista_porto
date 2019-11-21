@@ -13,7 +13,7 @@ exports[`HighlightSection renders correctly 1`] = `
       Facilidade para investir
     </h1>
     <p
-      className="sc-ifAKCX fbqVSA"
+      className="sc-ifAKCX hzKKeu"
     >
       Com o Conquista, é prático e rápido investir.
       <br />
@@ -27,7 +27,6 @@ exports[`HighlightSection renders correctly 1`] = `
     <button
       className="sc-bdVaJa dRmwlZ"
       color="secondary"
-      onClick={[Function]}
     >
       lista de fundos
     </button>

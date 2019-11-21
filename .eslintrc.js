@@ -13,33 +13,36 @@ module.exports = {
     jest: true,
     browser: true,
     node: true,
-    es6: true
+    es6: true,
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
-      }
-    }
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+      },
+    },
   },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   rules: {
     'prettier/prettier': ['error', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,
-    'comma-dangle': ['error', {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "never",
-      "functions": "never"
-  }],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'never',
+        functions: 'never',
+      },
+    ],
     'import/imports-first': 0,
     'import/newline-after-import': 0,
     'import/no-dynamic-require': 0,
@@ -48,7 +51,7 @@ module.exports = {
     'import/no-unresolved': 2,
     'import/no-webpack-loader-syntax': 0,
     'import/prefer-default-export': 0,
-    'indent': 0,
+    indent: 0,
     'jsx-a11y/aria-props': 0,
     'jsx-a11y/heading-has-content': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
@@ -56,8 +59,8 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': [
       0,
       {
-        controlComponents: ['Input']
-      }
+        controlComponents: ['Input'],
+      },
     ],
     'jsx-a11y/label-has-for': 0,
     'jsx-a11y/mouse-events-have-key-events': 0,
@@ -69,13 +72,18 @@ module.exports = {
     'newline-per-chained-call': 0,
     'no-confusing-arrow': 0,
     'no-console': 0,
-    "no-underscore-dangle": [2, { "allow": [
-      "__REDUX_DEVTOOLS_EXTENSION__",
-      "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"
-    ] }],
+    'no-underscore-dangle': [
+      2,
+      {
+        allow: [
+          '__REDUX_DEVTOOLS_EXTENSION__',
+          '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__',
+        ],
+      },
+    ],
     'no-unused-vars': 2,
     'no-use-before-define': 0,
-    'no-plusplus': ["error", { "allowForLoopAfterthoughts": true }],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'prefer-template': 2,
     'react/destructuring-assignment': 0,
     'react/boolean-prop-naming': [
@@ -84,8 +92,8 @@ module.exports = {
         rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+',
         message:
           'Your prop ({{ propName }}) is Boolean, and need to start with "is" or "has"',
-        propTypeNames: ['fullContent', 'fullScreen']
-      }
+        propTypeNames: ['fullContent', 'fullScreen'],
+      },
     ],
     'react/jsx-closing-tag-location': 0,
     'react/forbid-prop-types': 0,
@@ -96,12 +104,12 @@ module.exports = {
     'react/jsx-uses-vars': 2,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/prop-types': 0,
+    'react/prop-types': 1,
     'react/require-default-props': 0,
     'react/require-extension': 0,
     'react/self-closing-comp': 0,
     'react/prefer-stateless-function': 0,
     'react/sort-comp': 0,
-    'require-yield': 0
-  }
+    'require-yield': 0,
+  },
 }

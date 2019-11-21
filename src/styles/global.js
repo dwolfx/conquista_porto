@@ -28,7 +28,7 @@ export default createGlobalStyle`
     background: #018cb7;
     color: #fff;
   }
-  
+
   #root {
     display: flex;
     flex-direction: column;
@@ -42,5 +42,6 @@ export default createGlobalStyle`
     flex-basis: auto;
     justify-content: center;
     flex-direction: column;
+    background-color: #F1F1F1;
   }
 `

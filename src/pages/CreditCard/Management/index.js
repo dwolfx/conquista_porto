@@ -1,0 +1,282 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import Breadcrumb from '../../../components/Breadcrumb'
+import MoreDetails from '../../../components/Solutions/MoreDetails'
+import HighlightSection from '../../../components/Solutions/HighlightSection'
+import FileDownloadSection from '../../../components/Solutions/FileDownloadSection'
+
+import Container from '../../../components/Management/Container'
+import ManageableItem from '../../../components/Management/ManageableItem'
+import PageContent from '../../../components/Management/PageContent'
+import LeftNav from '../../../components/Management/LeftNav'
+import RightContent from '../../../components/Management/RightContent'
+
+import Icon from '../../../components/IconExporter'
+import commonStyles from '../../../styles/theme'
+
+import {
+  BreadcrumbContainer,
+  AddBtnLink,
+  PageTitle,
+  Topics,
+  Topic,
+  TopicTitle,
+  TopicValue,
+  InvoiceContainer,
+  InvoiceHeader,
+  Invoice,
+  InvoiceItem,
+  ComplementaryInfo,
+  DateContent,
+  Text,
+} from './styles'
+
+const downloadFileSectionData = [
+  {
+    title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SCR',
+    description: 'Informações legais sobre crédito.',
+    buttonText: 'BAIXAR ARQUIVO',
+  },
+  {
+    title: 'TABELA DE TARIFAS',
+    description:
+      'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
+    buttonText: 'Visualizar',
+  },
+  {
+    title: 'CONDIÇÕES GERAIS',
+    description:
+      'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Cartão de Crédito da Porto Seguro.',
+    buttonText: 'BAIXAR ARQUIVO',
+  },
+]
+
+const complementaryInfo = [
+  {
+    title: 'Programa de relacionamento',
+    description: (
+      <span>
+        Com este produto você acumulou:
+        <br />{' '}
+        <Text lineHeight="32px" fontSize="22px">
+          50 pontos
+        </Text>
+      </span>
+    ),
+    buttonText: 'Ver extrato',
+    icon: 'diamond',
+  },
+  {
+    title: 'Informativo de desempenho',
+    description:
+      'Material técnico, com gráficos, informações e histórico do fundo.',
+    buttonText: 'BAIXAR ARQUIVO',
+  },
+]
+
+const moreDetailsData = [
+  {
+    img: 'carousel-01',
+    imgTitle: 'Parcelando as compras',
+    imgDescription:
+      'O Cartão de Crédito Porto Seguro permite parcelar as compras, dando a opção de usar seu limite para outras finalidades. Mas, apesar dessa vantagem, é preciso ficar atento ao limite, que será reduzido com o valor total das compras e não apenas com as parcelas referentes ao mês.',
+    imgPath: 'creditCard',
+  },
+  {
+    img: 'carousel-02',
+    imgTitle: 'Ferramenta de controle',
+    imgDescription:
+      'Com o Cartão de Crédito Porto Seguro, você pode ter suas despesas registradas na fatura para facilitar seu controle financeiro. E também pode parcelar compras para resolver problemas sem que eles comprometam seu orçamento, além de contar com o limite para não se exceder.',
+    imgPath: 'creditCard',
+  },
+  {
+    img: 'carousel-03',
+    imgTitle: 'Relacionamento',
+    imgDescription:
+      'Concentrando o pagamento das compras no Cartão de Crédito Porto Seguro, você pode acumular pontos para trocar por descontos em seguros e por serviços para a casa ou para o carro. Ou pode optar por trocar por produtos de lojas parceiras ou por milhas aéreas.',
+    imgPath: 'creditCard',
+  },
+]
+
+const settings = {
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 550,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows: false,
+      },
+    },
+    {
+      breakpoint: 370,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+      },
+    },
+  ],
+}
+
+export default function ManagementCreditCard({ history }) {
+  return (
+    <>
+      <Container>
+        <BreadcrumbContainer>
+          <Breadcrumb crumbs={['Soluções', 'cartão de crédito']} />
+        </BreadcrumbContainer>
+        <PageContent>
+          <LeftNav>
+            <AddBtnLink
+              onClick={() => {
+                history.push('/')
+              }}
+            >
+              <Icon width="48" fill="#ccc" name="add" />
+              <Text fontColor="#aaa" fontSize="14px">
+                Adicionar
+              </Text>
+            </AddBtnLink>
+
+            <ManageableItem>
+              <Text
+                fontSize="14px"
+                lineHeight="19px"
+                margin="0 0 14px 0"
+                textAlign="center"
+              >
+                Mundo 120 Prata
+              </Text>
+              <Text
+                fontSize="11px"
+                fontWeight={600}
+                letterSpacing="1.5px"
+                margin="0 0 7px 0"
+              >
+                BANDEIRA
+              </Text>
+              <Text fontSize="14px">Visa</Text>
+            </ManageableItem>
+          </LeftNav>
+          <RightContent>
+            <PageTitle>Mundo 120 Prata</PageTitle>
+            <Topics settings={settings}>
+              <Topic>
+                <Icon
+                  width="28"
+                  fill={commonStyles.colors.lightPrimary}
+                  name="creditcard"
+                />
+                <div>
+                  <TopicTitle>bandeira</TopicTitle>
+                  <TopicValue>Visa</TopicValue>
+                </div>
+              </Topic>
+              <Topic>
+                <Icon
+                  width="28"
+                  fill={commonStyles.colors.lightPrimary}
+                  name="creditcard"
+                />
+                <div>
+                  <TopicTitle>tipo</TopicTitle>
+                  <TopicValue>Gold</TopicValue>
+                </div>
+              </Topic>
+              <Topic>
+                <Icon
+                  width="28"
+                  fill={commonStyles.colors.lightPrimary}
+                  name="creditcard"
+                />
+                <div>
+                  <TopicTitle>4 últimos numeros</TopicTitle>
+                  <TopicValue>9999</TopicValue>
+                </div>
+              </Topic>
+            </Topics>
+            <InvoiceContainer>
+              <InvoiceHeader>
+                <DateContent>
+                  <Text
+                    fontSize="22px"
+                    margin="0 0 7px 0"
+                    lineHeight="32px"
+                    textAlign="center"
+                  >
+                    Vencimento da Fatura
+                  </Text>
+                  <Text>22</Text>
+                </DateContent>
+                <DateContent>
+                  <Text
+                    fontSize="22px"
+                    margin="0 0 7px 0"
+                    lineHeight="32px"
+                    textAlign="center"
+                  >
+                    Melhor dia para compra
+                  </Text>
+                  <Text>10</Text>
+                </DateContent>
+              </InvoiceHeader>
+              <Invoice>
+                <Text
+                  fontSize="18px"
+                  margin="0 0 14px 0"
+                  lineHeight="28px"
+                  textAlign="center"
+                >
+                  Fatura
+                </Text>
+                <InvoiceItem>
+                  <Text>Fechada</Text>
+                  <Text>R$ 50.000,00</Text>
+                </InvoiceItem>
+                <InvoiceItem>
+                  <Text>Aberta</Text>
+                  <Text>R$ 500.000,00</Text>
+                </InvoiceItem>
+              </Invoice>
+            </InvoiceContainer>
+            <ComplementaryInfo>
+              <Text
+                margin="22px 0"
+                lineHeight="21px"
+                letterSpacing="1.5px"
+                fontColor="#1c1c1c"
+                fontWeight="600"
+                fontSize="11px"
+              >
+                INFORMAÇÕES COMPLEMENTARES
+              </Text>
+              <FileDownloadSection
+                data={complementaryInfo}
+                backgroundColor="inherit"
+              />
+            </ComplementaryInfo>
+          </RightContent>
+        </PageContent>
+      </Container>
+      <HighlightSection
+        title="O cartão cheio de vantagens."
+        mainDescription="Descontos em seguros para você, para sua casa e para seu carro."
+        subDescription="Além das conveniências da Porto Seguro, o Cartão de Crédito tem bandeiras e limites para
+        vários perfis. Inclusive, na simulação, você pode verificar se há pré-aprovações para você."
+        buttonText="simular e contratar"
+      />
+      <MoreDetails title="Saiba mais:" data={moreDetailsData} />
+      <FileDownloadSection data={downloadFileSectionData} />
+    </>
+  )
+}
+
+ManagementCreditCard.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
+}

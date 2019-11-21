@@ -1,9 +1,10 @@
 import styled from 'styled-components'
-import { ReactComponent as PDFIcon } from '../../../assets/icons/pdf.svg'
+
+import IconExporter from '../../IconExporter'
 
 export const Container = styled.section`
   display: flex;
-  background-color: #f1f1f1;
+  background-color: ${props => props.backgroundColor || '#f1f1f1'};
   justify-content: center;
 
   @media (max-width: 800px) {
@@ -21,7 +22,7 @@ export const Item = styled.div`
   }
 
   @media (min-width: 1000px) {
-    width: 500px;
+    max-width: 500px;
   }
 
   @media (max-width: 800px) {
@@ -29,7 +30,7 @@ export const Item = styled.div`
   }
 `
 
-export const PDFIconStyled = styled(PDFIcon)`
+export const IconStyled = styled(IconExporter)`
   padding-right: 20px;
 `
 
@@ -62,6 +63,7 @@ export const DownloadLink = styled.p`
   text-overflow: ellipsis;
   color: #30c5ff;
   margin-top: 12px;
+  font-weight: 600;
 
   :hover {
     color: #2591bb;

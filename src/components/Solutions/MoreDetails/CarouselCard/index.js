@@ -13,10 +13,14 @@ const CarouselCard = ({ img, imgTitle, imgDescription, imgPath }) => {
 
   useEffect(() => {
     async function loadImg() {
-      const imgPromise = await import(
-        `../../../../assets/images/pages/solutions/${imgPath}/${img}.jpg`
-      )
-      setImage(imgPromise.default)
+      try {
+        const imgPromise = await import(
+          `../../../../assets/images/pages/solutions/${imgPath}/${img}.jpg`
+        )
+        setImage(imgPromise.default)
+      } catch (error) {
+        // supress error
+      }
     }
     loadImg()
   }, [img, imgPath])
