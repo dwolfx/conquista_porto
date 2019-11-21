@@ -19,6 +19,7 @@ export default ({
   marginRight,
   marginLeft,
   disabled,
+  error,
   ...props
 }) => {
   const [isActive, setIsActive] = useState(false)
@@ -38,6 +39,7 @@ export default ({
   return (
     <InputWrapper
       active={isActive}
+      error={error}
       width={width}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}

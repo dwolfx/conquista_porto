@@ -18,8 +18,9 @@ export const SidebarSection = styled.ul`
 export const SidebarItem = styled.li`
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : 'transparent'};
-  padding: 15px;
   border-bottom: 1px solid #c7c7c7;
+  cursor: pointer;
+  padding: 15px;
   position: relative;
 
   &:last-of-type {

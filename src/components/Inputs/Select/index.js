@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { SelectWrapper, SelectLabel, SelectField } from './styles'
 
@@ -11,8 +12,10 @@ export default ({
 }) => {
   const renderOptions = () =>
     options &&
-    options.map(item => (
-      <option value={item.value || item.name}>{item.name}</option>
+    options.map((item, index) => (
+      <option key={`${props.name}-${index}`} value={item.value || item.name}>
+        {item.name}
+      </option>
     ))
 
   return (

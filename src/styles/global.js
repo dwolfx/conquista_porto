@@ -11,6 +11,10 @@ export default createGlobalStyle`
 
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   a {
     text-decoration: none;
     color: #000;

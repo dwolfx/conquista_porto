@@ -6,11 +6,11 @@ import {
   AccordionBody,
 } from './styles'
 
-const Accordion = ({ title, children }) => {
+const Accordion = ({ title, children, id }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <AccordionWrapper isOpen={isOpen}>
+    <AccordionWrapper isOpen={isOpen} id={id}>
       <AccordionHeader onClick={() => setIsOpen(!isOpen)}>
         <AccordionTitle>{title}</AccordionTitle>
       </AccordionHeader>
