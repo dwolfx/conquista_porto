@@ -66,7 +66,7 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem to="/">
+              <SolutionsItem to="/financiamento-veiculo">
                 <IconCircle>
                   <BottomMenuDropdownIcon name="money" />
                 </IconCircle>
@@ -91,14 +91,14 @@ export default function BottomMenu() {
                 </SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem to="/">
+              <SolutionsItem to="/seguro-vida">
                 <IconCircle>
                   <BottomMenuDropdownIcon name="persongroup" />
                 </IconCircle>
                 <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem to="/">
+              <SolutionsItem to="/seguro-viagem">
                 <IconCircle>
                   <BottomMenuDropdownIcon name="plane" />
                 </IconCircle>

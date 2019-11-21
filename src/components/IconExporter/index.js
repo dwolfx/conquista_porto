@@ -23,12 +23,14 @@ import { ReactComponent as diamond } from '../../assets/icons/diamond.svg'
 import { ReactComponent as gear } from '../../assets/icons/gear.svg'
 import { ReactComponent as homewithwindow } from '../../assets/icons/home-with-window.svg'
 import { ReactComponent as home } from '../../assets/icons/home.svg'
+import { ReactComponent as hospital } from '../../assets/icons/hospital.svg'
 import { ReactComponent as idea } from '../../assets/icons/idea.svg'
 import { ReactComponent as malefemale } from '../../assets/icons/male-female.svg'
 import { ReactComponent as link } from '../../assets/icons/link.svg'
 import { ReactComponent as menu } from '../../assets/icons/menu.svg'
 import { ReactComponent as money } from '../../assets/icons/money.svg'
 import { ReactComponent as pdf } from '../../assets/icons/pdf.svg'
+import { ReactComponent as personaccident } from '../../assets/icons/person-accident.svg'
 import { ReactComponent as persongroup } from '../../assets/icons/person-group.svg'
 import { ReactComponent as plane } from '../../assets/icons/plane.svg'
 import { ReactComponent as remove } from '../../assets/icons/remove.svg'
@@ -67,12 +69,14 @@ const IconComponent = ({ name, ...props }) => {
     gear,
     homewithwindow,
     home,
+    hospital,
     idea,
     malefemale,
     link,
     menu,
     money,
     pdf,
+    personaccident,
     persongroup,
     plane,
     remove,
