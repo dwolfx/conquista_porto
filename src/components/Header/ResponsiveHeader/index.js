@@ -73,18 +73,14 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
               <AppsIcon />
               <WhiteText size={21}>Soluções</WhiteText>
             </ItemContainer>
-            <ItemContainer
-              justify="flex-end"
-              padding="10px 0px 0px 0px"
-            
-            >
+            <ItemContainer justify="flex-end" padding="10px 0px 0px 0px">
               <IconCircle color="#ff7433">
                 {isSolutionsOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
               </IconCircle>
             </ItemContainer>
           </ItemContainer>
           <ContainerDropdown isOpen={isSolutionsOpen}>
-            <ItemContainerDropdown isOpen={isSolutionsOpen} >
+            <ItemContainerDropdown isOpen={isSolutionsOpen}>
               <ItemContainer padding="5px 0px">
                 <WhiteText size={14}>Cartão de Crédito</WhiteText>
               </ItemContainer>

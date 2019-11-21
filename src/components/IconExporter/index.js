@@ -16,6 +16,7 @@ import { ReactComponent as car2 } from '../../assets/icons/car2.svg'
 import { ReactComponent as callcenter } from '../../assets/icons/call-center.svg'
 import { ReactComponent as calendar } from '../../assets/icons/calendar.svg'
 import { ReactComponent as close } from '../../assets/icons/close.svg'
+import { ReactComponent as coin } from '../../assets/icons/coin.svg'
 import { ReactComponent as creditcard } from '../../assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from '../../assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from '../../assets/icons/diamond.svg'
@@ -59,6 +60,7 @@ const IconComponent = ({ name, ...props }) => {
     calendar,
     callcenter,
     close,
+    coin,
     creditcard,
     creditcard2,
     diamond,

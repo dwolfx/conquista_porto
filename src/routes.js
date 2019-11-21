@@ -7,6 +7,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Investimentos from './pages/Investments'
 import CartaoCredito from './pages/CreditCard'
+import PrevidenciaPrivada from './pages/PrivateWelfare'
 import Points from './pages/Points'
 import Profile from './pages/Profile'
 import ConsortiumBuilding from './pages/ConsortiumBuilding'
@@ -37,6 +38,10 @@ export default function Routes() {
       <DefaultRoute path="/" exact component={Home} />
       <DefaultRoute path="/investimentos" component={Investimentos} />
       <DefaultRoute path="/cartao-credito" component={CartaoCredito} />
+      <DefaultRoute
+        path="/previdencia-privada"
+        component={PrevidenciaPrivada}
+      />
       <DefaultRoute path="/pontos" component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
       <DefaultRoute
