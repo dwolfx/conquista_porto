@@ -1,5 +1,5 @@
 import Slider from 'react-slick'
-import { ReactComponent as foward } from 'assets/icons/foward.svg'
+import { ReactComponent as forward } from 'assets/icons/forward.svg'
 import { ReactComponent as backward } from 'assets/icons/backward.svg'
 
 import 'slick-carousel/slick/slick.css'
@@ -10,7 +10,7 @@ const lightBlue = '#8BD2FF'
 
 export default Slider
 
-export const FowardIcon = styled(foward)`
+export const ForwardIcon = styled(forward)`
   height: 16px;
   width: 16px;
 `
@@ -20,13 +20,14 @@ export const BackwardIcon = styled(backward)`
   width: 16px;
 `
 
-export const NextButton = styled.button`
+export const ChangePageButton = styled.button`
   svg polyline {
     stroke-width: 9px;
     stroke: ${lightBlue};
   }
 
-  &.slick-next::before {
+  &.slick-next::before,
+  &.slick-prev::before {
     content: '';
   }
 `

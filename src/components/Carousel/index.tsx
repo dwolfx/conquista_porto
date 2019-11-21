@@ -1,20 +1,20 @@
 import React from 'react'
-import Slider, { NextButton, FowardIcon, BackwardIcon } from './styles'
+import Slider, { ChangePageButton, ForwardIcon, BackwardIcon } from './styles'
 import { Settings } from 'react-slick'
 
 export function NextArrow() {
   return (
-    <NextButton>
-      <FowardIcon />
-    </NextButton>
+    <ChangePageButton>
+      <ForwardIcon />
+    </ChangePageButton>
   )
 }
 
 export function PreviousArrow() {
   return (
-    <NextButton>
+    <ChangePageButton>
       <BackwardIcon />
-    </NextButton>
+    </ChangePageButton>
   )
 }
 
@@ -25,7 +25,7 @@ export const defaultSettings: Settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   nextArrow: NextArrow(),
-  prevArrow: PreviousArrow()
+  prevArrow: PreviousArrow(),
 }
 
 export default function Carousel({
