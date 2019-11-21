@@ -10,6 +10,7 @@ import CartaoCredito from './pages/CreditCard'
 import Points from './pages/Points'
 import Profile from './pages/Profile'
 import ConsortiumBuilding from './pages/ConsortiumBuilding'
+import ConsortiumVehicle from './pages/ConsortiumVehicle'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
 import PointsStatement from './pages/Points/Statement'
@@ -42,6 +43,11 @@ export default function Routes() {
         path="/consorcio-imovel"
         exact
         component={ConsortiumBuilding}
+      />
+      <DefaultRoute
+        path="/consorcio-veiculo"
+        exact
+        component={ConsortiumVehicle}
       />
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
