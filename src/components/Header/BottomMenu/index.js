@@ -82,7 +82,7 @@ export default function BottomMenu() {
                 <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
                 <ArrowRightIcon size={11} />
               </SolutionsItem>
-              <SolutionsItem to="/">
+              <SolutionsItem to="/previdencia-privada">
                 <IconCircle>
                   <BottomMenuDropdownIcon name="time" />
                 </IconCircle>
