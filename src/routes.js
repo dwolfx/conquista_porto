@@ -34,10 +34,22 @@ export default function Routes() {
       <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <DefaultRoute path="/pontos" exact component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
-      <DefaultRoute path="/consorcio-imovel" exact component={ConsortiumBuilding} />
-      <DefaultRoute path="/consorcio-veiculo" exact component={ConsortiumVehicle} />
+      <DefaultRoute
+        path="/consorcio-imovel"
+        exact
+        component={ConsortiumBuilding}
+      />
+      <DefaultRoute
+        path="/consorcio-veiculo"
+        exact
+        component={ConsortiumVehicle}
+      />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
-      <Route path="/perfil/investidor-perfil" exact component={ProfileSuitability} />
+      <Route
+        path="/perfil/investidor-perfil"
+        exact
+        component={ProfileSuitability}
+      />
     </Switch>
   )
 }

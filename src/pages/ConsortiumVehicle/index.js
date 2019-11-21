@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import TopBanner from '../../components/Solutions/TopBanner'
 import BulletsSection from '../../components/Solutions/BulletsSection'
@@ -6,7 +6,7 @@ import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
 import HighlightSection from '../../components/Solutions/HighlightSection'
 import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
 import MoreDetails from '../../components/Solutions/MoreDetails'
-import { Container } from './styles';
+import { Container } from './styles'
 import Banner from '../../assets/images/pages/solutions/consortium/vehicle/banner.jpg'
 import BulletImage from '../../assets/images/pages/solutions/consortium/vehicle/selo-consorcio-auto.svg'
 
@@ -132,5 +132,5 @@ export default function ConsortiumVehicle() {
         ]}
       />
     </Container>
-  );
+  )
 }
