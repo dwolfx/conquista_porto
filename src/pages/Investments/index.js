@@ -8,10 +8,6 @@ import HighlightSection from '../../components/Solutions/HighlightSection'
 import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
 import FundsCarouselSection from '../../components/Solutions/Investments/FundsCarousel/index'
 
-import { ReactComponent as MaleFemaleIcon } from '../../assets/icons/male-female.svg'
-import { ReactComponent as SafeBoxIcon } from '../../assets/icons/safe-box.svg'
-import { ReactComponent as BarChartIcon } from '../../assets/icons/bar-chart.svg'
-
 import RedHairGirlImage from '../../assets/images/red_hair_girl.jpg'
 import BannerInvestimentosImage from '../../assets/images/banner_investimentos.jpg'
 import SeloInvestimentoImage from '../../assets/images/selo_investimento.svg'
@@ -25,17 +21,17 @@ import {
 
 const makeSenseSectionData = [
   {
-    icon: <MaleFemaleIcon fill="white" height={30} />,
+    icon: 'malefemale',
     description: `Quando você quiser uma gestão profissional para
       buscar as melhores opções do mercado para seu dinheiro.`,
   },
   {
-    icon: <BarChartIcon fill="white" height={30} />,
+    icon: 'barchart',
     description: `Quando você quiser buscar um rendimento melhor do que o da poupança,
       sem correr, necessariamente, um risco maior.`,
   },
   {
-    icon: <SafeBoxIcon fill="white" height={30} />,
+    icon: 'safebox',
     description: `Quando você quiser se organizar para buscar seus sonhos,
       economizando seu dinheiro e esperando rendimentos melhores.`,
   },
@@ -43,20 +39,24 @@ const makeSenseSectionData = [
 
 const makeSenseBenefitsSectionData = [
   {
+    icon: 'talkman',
     title: 'Gerente de conta',
     description:
       'Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.',
   },
   {
+    icon: 'diamond',
     title: 'Programa de Relacionamento',
     description:
       'Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.',
   },
   {
+    icon: 'callCenter',
     title: 'Chat inteligente',
     description: 'Para te ajudar com informações e dicas em qualquer momento.',
   },
   {
+    icon: 'apps',
     title: 'Facilidade',
     description:
       'A contratação é rápida e descomplicada, feita para facilitar sua vida.',

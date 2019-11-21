@@ -4,22 +4,25 @@ import {
   AppsIcon,
   ArrowDownIcon,
   ArrowUpIcon,
+  BlueText,
   Container,
   ContainerDropdown,
   CloseIcon,
   DiamondIcon,
   GearIcon,
   HomeIcon,
+  IconCircle,
   IdeaIcon,
   ItemContainer,
   ItemContainerDropdown,
-  Logo,
   TagText,
   TagWrapper,
   TargetIcon,
   WhiteText,
+  Wrapper,
 } from './styles'
-import { Wrapper, BlueText, IconCircle } from '../styles'
+
+import Logo from '../Logo'
 
 export default function ResponsiveHeader({ isOpen, setOpen }) {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
@@ -53,11 +56,11 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
         flexDirection="column"
         borderBottom="1px solid #fff"
       >
-        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
+        <ItemContainer padding="10px 0px 0px 0px">
           <HomeIcon />
           <WhiteText size={21}>Início</WhiteText>
         </ItemContainer>
-        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
+        <ItemContainer padding="10px 0px 0px 0px">
           <TargetIcon />
           <WhiteText size={21}>Objetivos</WhiteText>
         </ItemContainer>
@@ -66,14 +69,14 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
             justify="center"
             onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
           >
-            <ItemContainer padding="10px 0px 0px 0px" disable={false}>
+            <ItemContainer padding="10px 0px 0px 0px">
               <AppsIcon />
               <WhiteText size={21}>Soluções</WhiteText>
             </ItemContainer>
             <ItemContainer
               justify="flex-end"
               padding="10px 0px 0px 0px"
-              disable={false}
+            
             >
               <IconCircle color="#ff7433">
                 {isSolutionsOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
@@ -81,20 +84,20 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
             </ItemContainer>
           </ItemContainer>
           <ContainerDropdown isOpen={isSolutionsOpen}>
-            <ItemContainerDropdown isOpen={isSolutionsOpen} disable>
-              <ItemContainer padding="5px 0px" disable={false}>
+            <ItemContainerDropdown isOpen={isSolutionsOpen} >
+              <ItemContainer padding="5px 0px">
                 <WhiteText size={14}>Cartão de Crédito</WhiteText>
               </ItemContainer>
-              <ItemContainer padding="5px 0px" disable={false}>
+              <ItemContainer padding="5px 0px">
                 <WhiteText size={14}>Consórcio de Imóvel</WhiteText>
               </ItemContainer>
-              <ItemContainer padding="5px 0px" disable={false}>
+              <ItemContainer padding="5px 0px">
                 <WhiteText size={14}>Consórcio de Veículo</WhiteText>
               </ItemContainer>
-              <ItemContainer padding="5px 0px" disable={false}>
+              <ItemContainer padding="5px 0px">
                 <WhiteText size={14}>Financiamento de Veículo</WhiteText>
               </ItemContainer>
-              <ItemContainer padding="5px 0px" disable={false}>
+              <ItemContainer padding="5px 0px">
                 <WhiteText size={14}>Investimentos</WhiteText>
               </ItemContainer>
               <ItemContainer padding="5px 0px" disable>
@@ -103,10 +106,10 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
                   <TagText>Em Breve</TagText>
                 </TagWrapper>
               </ItemContainer>
-              <ItemContainer padding="5px 0px" disable={false}>
+              <ItemContainer padding="5px 0px">
                 <WhiteText size={14}>Seguro de Vida</WhiteText>
               </ItemContainer>
-              <ItemContainer padding="5px 0px 0px 0px" disable={false}>
+              <ItemContainer padding="5px 0px 0px 0px">
                 <WhiteText size={14}>Seguro Viagem</WhiteText>
               </ItemContainer>
             </ItemContainerDropdown>
@@ -119,11 +122,11 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
             <TagText>Em Breve</TagText>
           </TagWrapper>
         </ItemContainer>
-        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
+        <ItemContainer padding="10px 0px 0px 0px">
           <DiamondIcon />
           <WhiteText size={21}>Pontos</WhiteText>
         </ItemContainer>
-        <ItemContainer padding="10px 0px 0px 0px" disable={false}>
+        <ItemContainer padding="10px 0px 0px 0px">
           <IdeaIcon />
           <WhiteText size={21}>Recomendações</WhiteText>
         </ItemContainer>

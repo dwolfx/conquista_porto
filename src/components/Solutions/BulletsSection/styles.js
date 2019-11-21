@@ -98,3 +98,9 @@ export const RightContent = styled.div`
     }
   }
 `
+export const Observation = styled.p`
+  margin-left: 50px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+`

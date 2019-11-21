@@ -6,8 +6,9 @@ import Header from './components/Header'
 
 import Home from './pages/Home'
 import Investimentos from './pages/Investments'
-import Profile from './pages/Profile'
+import CartaoCredito from './pages/CreditCard'
 import Points from './pages/Points'
+import Profile from './pages/Profile'
 import ConsortiumBuilding from './pages/ConsortiumBuilding'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
@@ -33,8 +34,9 @@ export default function Routes() {
   return (
     <Switch>
       <DefaultRoute path="/" exact component={Home} />
-      <DefaultRoute path="/investimentos" exact component={Investimentos} />
-      <DefaultRoute path="/pontos" exact component={Points} />
+      <DefaultRoute path="/investimentos" component={Investimentos} />
+      <DefaultRoute path="/cartao-credito" component={CartaoCredito} />
+      <DefaultRoute path="/pontos" component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
       <DefaultRoute
         path="/consorcio-imovel"
@@ -48,6 +50,7 @@ export default function Routes() {
         exact
         component={ProfileSuitability}
       />
+      <DefaultRoute path="/consorcio-imovel" component={ConsortiumBuilding} />
     </Switch>
   )
 }

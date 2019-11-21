@@ -82,6 +82,7 @@ const IconComponent = ({ name, ...props }) => {
     forward,
     backward,
   }
+
   const Icon = dict[name.toLowerCase()]
   return <Icon {...props} />
 }
