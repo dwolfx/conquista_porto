@@ -4,12 +4,18 @@ import { ReactComponent as phone } from '../../assets/icons/phone.svg'
 import { ReactComponent as headset } from '../../assets/icons/call-center.svg'
 import { ReactComponent as arrowRight } from '../../assets/icons/arrow-right.svg'
 
-export const Container = styled.footer`
+export const FooterWrapper = styled.footer`
+  width: 100%;
+  background-color: #fff;
+`
+
+export const Container = styled.div`
   display: flex;
   flex-shrink: 0;
   margin: 0 auto;
-  padding: 30px 30px 0;
+  padding: 30px 0 0;
   width: 100%;
+  max-width: 1200px;
 
   svg {
     width: 18px;

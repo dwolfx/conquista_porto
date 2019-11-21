@@ -11,23 +11,23 @@ import {
   PencilIcon,
 } from '../../styles'
 
-export default () => (
-  <CardWrapper>
+export default ({ id }) => (
+  <CardWrapper id={id}>
     <PhotoWrapper>
       <img src={Avatar} alt="user avatar" />
       <PencilIcon />
     </PhotoWrapper>
     <ContentWrapper>
       <Row marginTop="0">
-        <CardText title>Conta de Investimento</CardText>
+        <CardText title="true">Conta de Investimento</CardText>
       </Row>
       <Row>
         <CardBox>
-          <CardText title>Banco</CardText>
+          <CardText title="true">Banco</CardText>
           <CardText>306</CardText>
         </CardBox>
         <CardBox>
-          <CardText title>Agência</CardText>
+          <CardText title="true">Agência</CardText>
           <CardText>0001</CardText>
         </CardBox>
         <CardBox>
@@ -40,11 +40,11 @@ export default () => (
       </Row>
       <Row marginBottom="0">
         <CardBox>
-          <CardText title>Favorecido</CardText>
+          <CardText title="true">Favorecido</CardText>
           <CardText>Julia Francis Reyes</CardText>
         </CardBox>
         <CardBox>
-          <CardText title>CPF</CardText>
+          <CardText title="true">CPF</CardText>
           <CardText>000.000.000-00</CardText>
         </CardBox>
         <CardBox />

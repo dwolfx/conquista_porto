@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import Accordion from '../../../components/Accordion'
 import Button from '../../../components/Button'
 import FinancialData from './Sections/FinancialData'
@@ -20,7 +21,20 @@ import {
 } from '../styles'
 
 const ContentDash = () => {
+  const history = useHistory()
   // const [accordionOpened, setAccordionOpened] = useState(false)
+
+  const handleProfileRedirect = () => {
+    history.push('/perfil/investidor-perfil')
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }
+
+  const handleRegistrationRedirect = () => {
+    history.push('/perfil/cadastro')
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }
 
   const warnings = [
     {
@@ -28,12 +42,14 @@ const ContentDash = () => {
       message:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.',
       buttonText: 'Atualizar perfil',
+      buttonAction: handleProfileRedirect,
     },
     {
       title: 'Cadastro de investidor vencido.',
       message:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.',
       buttonText: 'Atualizar cadastro',
+      buttonAction: handleRegistrationRedirect,
     },
   ]
 
@@ -41,9 +57,9 @@ const ContentDash = () => {
     <Content>
       <WarningsComponent warnings={warnings} />
 
-      <UserInfos />
+      <UserInfos id="investment" />
 
-      <Accordion title="Perfil do investidor">
+      <Accordion title="Perfil do investidor" id="profile">
         <PerfilTitle>Conservador</PerfilTitle>
 
         <SectionSubtitle>Descrição</SectionSubtitle>
@@ -56,27 +72,29 @@ const ContentDash = () => {
         </SectionText>
 
         <ButtonContainer>
-          <Button>Refazer perfil do investidor</Button>
+          <Button onClick={handleProfileRedirect}>
+            Refazer perfil do investidor
+          </Button>
         </ButtonContainer>
       </Accordion>
 
-      <Accordion title="Dados pessoais">
+      <Accordion title="Dados pessoais" id="personal">
         <PersonalData />
       </Accordion>
 
-      <Accordion title="Dados cadastrais">
+      <Accordion title="Dados cadastrais" id="registration">
         <UserData />
       </Accordion>
 
-      <Accordion title="Dados profissionais">
+      <Accordion title="Dados profissionais" id="professional">
         <ProfessionalData />
       </Accordion>
 
-      <Accordion title="Dados financeiros">
+      <Accordion title="Dados financeiros" id="financial">
         <FinancialData />
       </Accordion>
 
-      <Accordion title="Informe de rendimentos">
+      <Accordion title="Informe de rendimentos" id="income">
         <IncomeInfo />
       </Accordion>
 

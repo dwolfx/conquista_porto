@@ -35,7 +35,10 @@ import { ReactComponent as target } from '../../assets/icons/target.svg'
 import { ReactComponent as talkman } from '../../assets/icons/talk-man.svg'
 import { ReactComponent as thumbsup } from '../../assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from '../../assets/icons/time.svg'
+import { ReactComponent as trash } from '../../assets/icons/trashcan.svg'
 import { ReactComponent as user } from '../../assets/icons/user.svg'
+import { ReactComponent as forward } from '../../assets/icons/forward.svg'
+import { ReactComponent as backward } from '../../assets/icons/backward.svg'
 
 const IconComponent = ({ name, ...props }) => {
   const dict = {
@@ -74,7 +77,10 @@ const IconComponent = ({ name, ...props }) => {
     target,
     thumbsup,
     time,
+    trash,
     user,
+    forward,
+    backward,
   }
 
   const Icon = dict[name.toLowerCase()]

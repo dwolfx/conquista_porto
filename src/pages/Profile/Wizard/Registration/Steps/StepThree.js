@@ -41,13 +41,16 @@ export default ({ changeScreen }) => (
             options={workingQuestionMark}
           />
         </Row>
+
         <AddressInfos />
+
         <Row>
           <ButtonAdd>
             <Icon name="add" fill="currentColor" width={20} />
             Adicionar telefone
           </ButtonAdd>
         </Row>
+
         <Row>
           <TextInput
             label="E-mail profissional"
