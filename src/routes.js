@@ -55,11 +55,7 @@ export default function Routes() {
         exact
         component={VehicleFinancing}
       />
-      <DefaultRoute
-        path="/seguro-viagem"
-        exact
-        component={TripInsurance}
-      />
+      <DefaultRoute path="/seguro-viagem" exact component={TripInsurance} />
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route

@@ -113,9 +113,10 @@ export default function TripInsurance() {
         data={[
           {
             title: 'CONDIÇÕES GERAIS',
-            description: 'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro Viagem da Porto Seguro.',
+            description:
+              'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro Viagem da Porto Seguro.',
             buttonText: 'BAIXAR ARQUIVO',
-          }
+          },
         ]}
       />
     </Container>
