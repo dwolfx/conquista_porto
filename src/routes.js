@@ -1,7 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -12,6 +11,7 @@ import Profile from './pages/Profile'
 import ConsortiumBuilding from './pages/ConsortiumBuilding'
 import ConsortiumVehicle from './pages/ConsortiumVehicle'
 import VehicleFinancing from './pages/VehicleFinancing'
+import TripInsurance from './pages/TripInsurance'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
 import PointsStatement from './pages/Points/Statement'
@@ -54,6 +54,11 @@ export default function Routes() {
         path="/financiamento-veiculo"
         exact
         component={VehicleFinancing}
+      />
+      <DefaultRoute
+        path="/seguro-viagem"
+        exact
+        component={TripInsurance}
       />
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />

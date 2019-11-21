@@ -11,6 +11,7 @@ import { ReactComponent as awesome } from '../../assets/icons/awesome.svg'
 import { ReactComponent as barchart } from '../../assets/icons/bar-chart.svg'
 import { ReactComponent as bell } from '../../assets/icons/bell.svg'
 import { ReactComponent as billing } from '../../assets/icons/billing.svg'
+import { ReactComponent as businesswoman } from '../../assets/icons/business-woman.svg'
 import { ReactComponent as car } from '../../assets/icons/car.svg'
 import { ReactComponent as car2 } from '../../assets/icons/car2.svg'
 import { ReactComponent as callcenter } from '../../assets/icons/call-center.svg'
@@ -57,6 +58,7 @@ const IconComponent = ({ name, ...props }) => {
     barchart,
     bell,
     billing,
+    businesswoman,
     car,
     car2,
     calendar,
