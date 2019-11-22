@@ -55,11 +55,10 @@ export const SelectLabel = styled.label`
 
 export const SelectWrapper = styled.div`
   display: flex;
-  padding-left: ${props => (props.paddingLeft ? `${props.paddingLeft}px` : 0)};
-  padding-right: ${props =>
-    props.paddingRight ? `${props.paddingRight}px` : 0};
+  padding-left: ${props => `${props.paddingLeft}px`};
+  padding-right: ${props => `${props.paddingRight}px`};
   position: relative;
-  width: ${props => (props.width ? `${props.width}%` : '100%')};
+  width: ${props => `${props.width}%`};
 
   @media ${breakpoints.mobile} {
     padding: 0;

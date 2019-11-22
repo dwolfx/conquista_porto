@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import {
   AppsIcon,
@@ -137,4 +138,9 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
       </Wrapper>
     </Container>
   )
+}
+
+ResponsiveHeader.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
 }

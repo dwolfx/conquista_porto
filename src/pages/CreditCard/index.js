@@ -39,7 +39,7 @@ const makeSenseBenefitsSectionData = [
       'Pontos do Conquista somados aos pontos do Cartão de Crédito Porto Seguro, que podem ser trocados por descontos, benefícios e vantagens.',
   },
   {
-    icon: 'callCenter',
+    icon: 'callcenter',
     title: 'Chat inteligente',
     description:
       'Atendimento 24h para esclarecer suas dúvidas sobre o uso da plataforma e sobre as soluções Porto Seguro disponíveis no Conquista.',

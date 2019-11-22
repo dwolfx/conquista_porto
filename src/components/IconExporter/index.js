@@ -30,6 +30,7 @@ import { ReactComponent as home } from '../../assets/icons/home.svg'
 import { ReactComponent as hospital } from '../../assets/icons/hospital.svg'
 import { ReactComponent as homewithwindow } from '../../assets/icons/home-with-window.svg'
 import { ReactComponent as idea } from '../../assets/icons/idea.svg'
+import { ReactComponent as information } from '../../assets/icons/information.svg'
 import { ReactComponent as link } from '../../assets/icons/link.svg'
 import { ReactComponent as lock } from '../../assets/icons/lock.svg'
 import { ReactComponent as malefemale } from '../../assets/icons/male-female.svg'
@@ -85,6 +86,7 @@ const IconComponent = ({ name, ...props }) => {
     home,
     hospital,
     idea,
+    information,
     malefemale,
     link,
     lock,
@@ -142,6 +144,7 @@ IconComponent.propTypes = {
     'home',
     'hospital',
     'idea',
+    'information',
     'malefemale',
     'link',
     'lock',

@@ -13,8 +13,9 @@ import {
 export default function FileDownloadSection({ data, ...rest }) {
   return (
     <Container {...rest}>
-      {data.map(item => (
-        <Item key={item.title}>
+      {data.map((item, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Item key={`${index}+${item.title}`}>
           <div>
             <IconStyled name={item.icon || 'pdf'} fill="#777" height="24px" />
           </div>

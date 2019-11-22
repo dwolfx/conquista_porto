@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+
 import {
   AccordionWrapper,
   AccordionHeader,
@@ -20,3 +22,12 @@ const Accordion = ({ title, children, id }) => {
 }
 
 export default Accordion
+
+Accordion.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  id: PropTypes.string,
+}
+Accordion.defaultProps = {
+  id: '',
+}

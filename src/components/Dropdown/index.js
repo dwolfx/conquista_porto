@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Container, RelativeHolder, Backdrop } from './styles'
 
@@ -11,4 +12,14 @@ export default function Dropdown({ isOpen, setOpen, children, width }) {
       </Container>
     </RelativeHolder>
   )
+}
+
+Dropdown.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
+  width: PropTypes.string,
+}
+Dropdown.defaultProps = {
+  width: 'auto',
 }

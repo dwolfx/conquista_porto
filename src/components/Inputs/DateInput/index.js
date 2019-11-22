@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import TextInput from 'components/Inputs/Text'
 
-const DateInput = ({ onKeyPress, ...props }) => {
+const DateInput = ({ onKeyUp, ...props }) => {
   const applyDateMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
     let newValue = strippedValue
@@ -17,8 +17,8 @@ const DateInput = ({ onKeyPress, ...props }) => {
 
     event.target.value = newValue
 
-    if (onKeyPress) {
-      onKeyPress()
+    if (onKeyUp) {
+      onKeyUp()
     }
   }
 
@@ -26,11 +26,11 @@ const DateInput = ({ onKeyPress, ...props }) => {
 }
 
 DateInput.defaultProps = {
-  onKeyPress: null,
+  onKeyUp: null,
 }
 
 DateInput.propTypes = {
-  onKeyPress: PropTypes.func,
+  onKeyUp: PropTypes.func,
 }
 
 export default DateInput

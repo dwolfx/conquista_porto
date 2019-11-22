@@ -6,7 +6,7 @@ export const RelativeHolder = styled.div`
 
 export const Container = styled.div`
   background-color: #fff;
-  width: ${props => (props.width ? `${props.width}` : 'auto')};
+  width: ${props => props.width};
   max-height: 400px;
   transform-origin: top center;
   transform: ${props => (props.isOpen ? 'scaleY(1)' : 'scaleY(0)')};
