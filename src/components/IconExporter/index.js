@@ -12,6 +12,7 @@ import { ReactComponent as awesome } from '../../assets/icons/awesome.svg'
 import { ReactComponent as barchart } from '../../assets/icons/bar-chart.svg'
 import { ReactComponent as bell } from '../../assets/icons/bell.svg'
 import { ReactComponent as billing } from '../../assets/icons/billing.svg'
+import { ReactComponent as boy } from '../../assets/icons/boy.svg'
 import { ReactComponent as businesswoman } from '../../assets/icons/business-woman.svg'
 import { ReactComponent as car } from '../../assets/icons/car.svg'
 import { ReactComponent as car2 } from '../../assets/icons/car2.svg'
@@ -29,6 +30,7 @@ import { ReactComponent as hospital } from '../../assets/icons/hospital.svg'
 import { ReactComponent as homewithwindow } from '../../assets/icons/home-with-window.svg'
 import { ReactComponent as idea } from '../../assets/icons/idea.svg'
 import { ReactComponent as link } from '../../assets/icons/link.svg'
+import { ReactComponent as lock } from '../../assets/icons/lock.svg'
 import { ReactComponent as malefemale } from '../../assets/icons/male-female.svg'
 import { ReactComponent as menu } from '../../assets/icons/menu.svg'
 import { ReactComponent as money } from '../../assets/icons/money.svg'
@@ -41,6 +43,7 @@ import { ReactComponent as remove } from '../../assets/icons/remove.svg'
 import { ReactComponent as refresh } from '../../assets/icons/refresh.svg'
 import { ReactComponent as safebox } from '../../assets/icons/safe-box.svg'
 import { ReactComponent as talkman } from '../../assets/icons/talk-man.svg'
+import { ReactComponent as tag } from '../../assets/icons/tag.svg'
 import { ReactComponent as target } from '../../assets/icons/target.svg'
 import { ReactComponent as thumbsup } from '../../assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from '../../assets/icons/time.svg'
@@ -62,6 +65,7 @@ const IconComponent = ({ name, ...props }) => {
     barchart,
     bell,
     billing,
+    boy,
     businesswoman,
     car,
     car2,
@@ -80,6 +84,7 @@ const IconComponent = ({ name, ...props }) => {
     idea,
     malefemale,
     link,
+    lock,
     menu,
     money,
     pdf,
@@ -91,6 +96,7 @@ const IconComponent = ({ name, ...props }) => {
     refresh,
     safebox,
     talkman,
+    tag,
     target,
     thumbsup,
     time,
@@ -117,6 +123,7 @@ IconComponent.propTypes = {
     'barchart',
     'bell',
     'billing',
+    'boy',
     'car',
     'calendar',
     'callcenter',
@@ -131,6 +138,7 @@ IconComponent.propTypes = {
     'idea',
     'malefemale',
     'link',
+    'lock',
     'menu',
     'money',
     'pdf',
@@ -139,6 +147,7 @@ IconComponent.propTypes = {
     'remove',
     'safebox',
     'talkman',
+    'tag',
     'target',
     'thumbsup',
     'time',

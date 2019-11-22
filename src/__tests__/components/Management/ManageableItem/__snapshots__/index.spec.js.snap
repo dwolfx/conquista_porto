@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageableItem renders correctly 1`] = `
+<div
+  className="sc-bdVaJa gvEgyi"
+>
+  <span>
+    testando
+  </span>
+</div>
+`;

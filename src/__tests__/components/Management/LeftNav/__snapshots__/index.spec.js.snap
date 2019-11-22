@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeftNav renders correctly 1`] = `
+<nav
+  className="sc-bdVaJa gBVYGC"
+>
+  <span>
+    testando
+  </span>
+</nav>
+`;
