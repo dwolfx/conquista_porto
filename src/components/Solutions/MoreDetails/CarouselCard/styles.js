@@ -10,11 +10,7 @@ export const CarouselCardWrapper = styled.div`
   flex-direction: column;
   height: 22.5em;
   margin: 0 auto;
-  width: 16em;
-
-  @media (min-width: 1200px) {
-    width: 18em;
-  }
+  width: 24em;
 `
 export const IconWrapper = styled.div`
   height: 5em;
