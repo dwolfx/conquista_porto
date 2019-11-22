@@ -29,4 +29,5 @@ export const Title = styled.h1`
 export const Text = styled.p`
   color: white;
   text-align: center;
+  font-size: 18px;
 `

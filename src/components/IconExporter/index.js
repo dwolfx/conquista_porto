@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { ReactComponent as add } from '../../assets/icons/add.svg'
 import { ReactComponent as alertrounded } from '../../assets/icons/alert-rounded.svg'
@@ -23,12 +24,12 @@ import { ReactComponent as creditcard2 } from '../../assets/icons/credit-card2.s
 import { ReactComponent as diamond } from '../../assets/icons/diamond.svg'
 import { ReactComponent as financial } from '../../assets/icons/financial.svg'
 import { ReactComponent as gear } from '../../assets/icons/gear.svg'
-import { ReactComponent as homewithwindow } from '../../assets/icons/home-with-window.svg'
 import { ReactComponent as home } from '../../assets/icons/home.svg'
 import { ReactComponent as hospital } from '../../assets/icons/hospital.svg'
+import { ReactComponent as homewithwindow } from '../../assets/icons/home-with-window.svg'
 import { ReactComponent as idea } from '../../assets/icons/idea.svg'
-import { ReactComponent as malefemale } from '../../assets/icons/male-female.svg'
 import { ReactComponent as link } from '../../assets/icons/link.svg'
+import { ReactComponent as malefemale } from '../../assets/icons/male-female.svg'
 import { ReactComponent as menu } from '../../assets/icons/menu.svg'
 import { ReactComponent as money } from '../../assets/icons/money.svg'
 import { ReactComponent as pdf } from '../../assets/icons/pdf.svg'
@@ -39,8 +40,8 @@ import { ReactComponent as piechart } from '../../assets/icons/pie-chart.svg'
 import { ReactComponent as remove } from '../../assets/icons/remove.svg'
 import { ReactComponent as refresh } from '../../assets/icons/refresh.svg'
 import { ReactComponent as safebox } from '../../assets/icons/safe-box.svg'
-import { ReactComponent as target } from '../../assets/icons/target.svg'
 import { ReactComponent as talkman } from '../../assets/icons/talk-man.svg'
+import { ReactComponent as target } from '../../assets/icons/target.svg'
 import { ReactComponent as thumbsup } from '../../assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from '../../assets/icons/time.svg'
 import { ReactComponent as trash } from '../../assets/icons/trashcan.svg'
@@ -101,6 +102,48 @@ const IconComponent = ({ name, ...props }) => {
 
   const Icon = dict[name.toLowerCase()]
   return <Icon {...props} />
+}
+
+IconComponent.propTypes = {
+  name: PropTypes.oneOf([
+    'add',
+    'alertrounded',
+    'apps',
+    'arrowdown',
+    'arrowleft',
+    'arrowright',
+    'arrowup',
+    'awesome',
+    'barchart',
+    'bell',
+    'billing',
+    'car',
+    'calendar',
+    'callcenter',
+    'close',
+    'creditcard',
+    'creditcard2',
+    'diamond',
+    'gear',
+    'homewithwindow',
+    'home',
+    'hospital',
+    'idea',
+    'malefemale',
+    'link',
+    'menu',
+    'money',
+    'pdf',
+    'persongroup',
+    'plane',
+    'remove',
+    'safebox',
+    'talkman',
+    'target',
+    'thumbsup',
+    'time',
+    'user',
+  ]).isRequired,
 }
 
 export default IconComponent

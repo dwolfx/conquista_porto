@@ -1,19 +1,18 @@
 import React from 'react'
-import { Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import store from './store'
 import GlobalStyle from './styles/global'
-import history from './services/history'
 import Routes from './routes'
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <Router history={history}>
+      <BrowserRouter>
         <GlobalStyle />
         <Routes />
-      </Router>
+      </BrowserRouter>
     </Provider>
   )
 }

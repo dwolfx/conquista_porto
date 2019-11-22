@@ -2,76 +2,257 @@
 
 exports[`MakeSenseSection renders correctly 1`] = `
 <section
-  className="sc-bdVaJa iFbFtt"
+  className="sc-htoDjs exOgNv"
 >
   <div
-    className="sc-bwzfXH hVdcUt"
+    className="sc-dnqmqq gzQJVH"
   >
     Quando faz sentido investir?
   </div>
   <div
-    className="sc-htpNat jJYBVA"
+    className="sc-iwsKbI cSFLES"
   >
     <div
-      className="sc-bxivhb iqyIjZ"
+      className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-ifAKCX gPsFEQ"
+        className="sc-gqjmRU lhHSde"
       >
-        <svg
-          fill="white"
-          height={30}
-        >
+        <svg>
           male-female.svg
         </svg>
+         
       </div>
       <p
-        className="sc-EHOje esAqNb"
+        className="sc-VigVT gpjQrB"
       >
         Quando você quiser uma gestão profissional para
       buscar as melhores opções do mercado para seu dinheiro.
       </p>
     </div>
     <div
-      className="sc-bxivhb iqyIjZ"
+      className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-ifAKCX gPsFEQ"
+        className="sc-gqjmRU lhHSde"
       >
-        <svg
-          fill="white"
-          height={30}
-        >
+        <svg>
           bar-chart.svg
         </svg>
+         
       </div>
       <p
-        className="sc-EHOje esAqNb"
+        className="sc-VigVT gpjQrB"
       >
         Quando você quiser buscar um rendimento melhor do que o da poupança,
       sem correr, necessariamente, um risco maior.
       </p>
     </div>
     <div
-      className="sc-bxivhb iqyIjZ"
+      className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-ifAKCX gPsFEQ"
+        className="sc-gqjmRU lhHSde"
       >
-        <svg
-          fill="white"
-          height={30}
-        >
+        <svg>
           safe-box.svg
         </svg>
+         
       </div>
       <p
-        className="sc-EHOje esAqNb"
+        className="sc-VigVT gpjQrB"
       >
         Quando você quiser se organizar para buscar seus sonhos,
       economizando seu dinheiro e esperando rendimentos melhores.
       </p>
     </div>
+  </div>
+  <h2
+    className="sc-jTzLTM fjfISf"
+  />
+  <div
+    className="slick-slider sc-bxivhb bBNSdY slick-initialized"
+  >
+    
+    <div
+      className="slick-list"
+    >
+      <div
+        className="slick-track"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        style={
+          Object {
+            "WebkitTransform": "translate3d(0px, 0px, 0px)",
+            "WebkitTransition": "",
+            "msTransform": "translateX(0px)",
+            "opacity": 1,
+            "transform": "translate3d(0px, 0px, 0px)",
+            "transition": "",
+          }
+        }
+      >
+        <div
+          aria-hidden={false}
+          className="slick-slide slick-active slick-current"
+          data-index={0}
+          onClick={[Function]}
+          style={
+            Object {
+              "outline": "none",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              className="sc-ifAKCX dUwkcQ"
+            >
+              <svg
+                fill="#777"
+              >
+                talk-man.svg
+              </svg>
+              <div
+                className="sc-gzVnrw ibZhkv"
+              >
+                <h1
+                  className="sc-EHOje jxqLV"
+                >
+                  Gerente de conta
+                </h1>
+                <p
+                  className="sc-bZQynM hegKDx"
+                >
+                  Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={false}
+          className="slick-slide slick-active"
+          data-index={1}
+          onClick={[Function]}
+          style={
+            Object {
+              "outline": "none",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              className="sc-ifAKCX dUwkcQ"
+            >
+              <svg
+                fill="#777"
+              >
+                diamond.svg
+              </svg>
+              <div
+                className="sc-gzVnrw ibZhkv"
+              >
+                <h1
+                  className="sc-EHOje jxqLV"
+                >
+                  Programa de Relacionamento
+                </h1>
+                <p
+                  className="sc-bZQynM hegKDx"
+                >
+                  Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={false}
+          className="slick-slide slick-active"
+          data-index={2}
+          onClick={[Function]}
+          style={
+            Object {
+              "outline": "none",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              className="sc-ifAKCX dUwkcQ"
+            >
+              <svg
+                fill="#777"
+              >
+                call-center.svg
+              </svg>
+              <div
+                className="sc-gzVnrw ibZhkv"
+              >
+                <h1
+                  className="sc-EHOje jxqLV"
+                >
+                  Chat inteligente
+                </h1>
+                <p
+                  className="sc-bZQynM hegKDx"
+                >
+                  Para te ajudar com informações e dicas em qualquer momento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={false}
+          className="slick-slide slick-active"
+          data-index={3}
+          onClick={[Function]}
+          style={
+            Object {
+              "outline": "none",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              className="sc-ifAKCX dUwkcQ"
+            >
+              <svg
+                fill="#777"
+              >
+                apps.svg
+              </svg>
+              <div
+                className="sc-gzVnrw ibZhkv"
+              >
+                <h1
+                  className="sc-EHOje jxqLV"
+                >
+                  Facilidade
+                </h1>
+                <p
+                  className="sc-bZQynM hegKDx"
+                >
+                  A contratação é rápida e descomplicada, feita para facilitar sua vida.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
   </div>
 </section>
 `;

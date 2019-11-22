@@ -51,7 +51,7 @@ const makeSenseBenefitsSectionData = [
       'Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.',
   },
   {
-    icon: 'callCenter',
+    icon: 'callcenter',
     title: 'Chat inteligente',
     description: 'Para te ajudar com informações e dicas em qualquer momento.',
   },
@@ -68,11 +68,13 @@ const downloadFileSectionData = [
     title: 'quadro de rentabilidade',
     description:
       'Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.',
+    buttonText: 'BAIXAR ARQUIVO',
   },
   {
     title: 'carta do gestor',
     description:
       'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
+    buttonText: 'BAIXAR ARQUIVO',
   },
 ]
 
