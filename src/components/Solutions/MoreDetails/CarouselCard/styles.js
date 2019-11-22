@@ -37,6 +37,7 @@ export const TextLight = styled.p`
 
 export const TextWrapper = styled.div`
   padding: 30px;
+  overflow: auto;
 `
 
 export const ImgDynamic = styled.img`
