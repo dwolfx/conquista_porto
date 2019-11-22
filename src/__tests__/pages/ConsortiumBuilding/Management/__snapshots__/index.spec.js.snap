@@ -8,17 +8,21 @@ Array [
     <div
       className="sc-cvbbAY hQVSQz"
     >
-      <small
-        className="sc-htpNat bNVkrq"
-      >
-        Soluções
-         »
-      </small>
-      <strong
-        className="sc-bxivhb cIoSxP"
-      >
-        consórcio de imóvel
-      </strong>
+      <div>
+        <small
+          className="sc-htpNat cuwYUx"
+        >
+          Soluções
+           »
+           
+        </small>
+        <strong
+          className="sc-bxivhb pEztr"
+        >
+          consórcio de imóvel
+           
+        </strong>
+      </div>
     </div>
     <div
       className="sc-iAyFgw eLoukc"
@@ -333,8 +337,7 @@ Array [
         O Conquista acompanha você na realização do sonho do imóvel próprio.
         <br />
         <br />
-        Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e
- crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses.
+        Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses.
       </p>
       <br />
       <br />

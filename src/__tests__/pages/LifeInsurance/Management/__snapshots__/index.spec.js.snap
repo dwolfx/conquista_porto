@@ -8,17 +8,21 @@ Array [
     <div
       className="sc-jAaTju jThdgH"
     >
-      <small
-        className="sc-bdVaJa gKHdTJ"
-      >
-        Soluções
-         »
-      </small>
-      <strong
-        className="sc-bwzfXH gzUbd"
-      >
-        cartão de crédito
-      </strong>
+      <div>
+        <small
+          className="sc-bdVaJa bJmPqf"
+        >
+          Soluções
+           »
+           
+        </small>
+        <strong
+          className="sc-bwzfXH jUXNIS"
+        >
+          cartão de crédito
+           
+        </strong>
+      </div>
     </div>
     <div
       className="sc-kEYyzF iefXGH"
@@ -346,8 +350,7 @@ Array [
         Com o Conquista, é fácil encontrar o plano ideal para você.
         <br />
         <br />
-        Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
- de Vida da Porto Seguro.
+        Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro de Vida da Porto Seguro.
       </p>
       <br />
       <br />
