@@ -4,12 +4,10 @@ import { Switch, Route } from 'react-router-dom'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+
 import Home from './pages/Home'
 import Investimentos from './pages/Investments'
-import CartaoCredito from './pages/CreditCard'
 import PrevidenciaPrivada from './pages/PrivateWelfare'
-import SeguroVida from './pages/LifeInsurance'
-import ManagementCreditCard from './pages/CreditCard/Management'
 import Points from './pages/Points'
 import Profile from './pages/Profile'
 import ConsortiumBuilding from './pages/ConsortiumBuilding'
@@ -19,6 +17,12 @@ import TripInsurance from './pages/TripInsurance'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
 import PointsStatement from './pages/Points/Statement'
+
+import CartaoCredito from './pages/CreditCard'
+import ManagementCreditCard from './pages/CreditCard/Management'
+
+import SeguroVida from './pages/LifeInsurance'
+import ManagementSeguroVida from './pages/LifeInsurance/Management'
 
 const DefaultRoute = ({ component, ...rest }) => {
   const Component = component
@@ -43,7 +47,11 @@ export default function Routes({ ...props }) {
       <DefaultRoute path="/" exact component={Home} />
       <DefaultRoute path="/investimentos" component={Investimentos} />
       <DefaultRoute path="/cartao-credito" exact component={CartaoCredito} />
-      <DefaultRoute path="/seguro-vida" component={SeguroVida} />
+      <DefaultRoute path="/seguro-vida" exact component={SeguroVida} />
+      <DefaultRoute
+        path="/seguro-vida/visualizar"
+        component={ManagementSeguroVida}
+      />
       <DefaultRoute
         path="/previdencia-privada"
         component={PrevidenciaPrivada}

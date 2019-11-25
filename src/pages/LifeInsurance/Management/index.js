@@ -1,0 +1,242 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import Breadcrumb from '../../../components/Breadcrumb'
+import MoreDetails from '../../../components/Solutions/MoreDetails'
+import HighlightSection from '../../../components/Solutions/HighlightSection'
+import FileDownloadSection from '../../../components/Solutions/FileDownloadSection'
+import Button from '../../../components/Button'
+
+import Container from '../../../components/Management/Container'
+import ManageableItem from '../../../components/Management/ManageableItem'
+import PageContent from '../../../components/Management/PageContent'
+import LeftNav from '../../../components/Management/LeftNav'
+import RightContent from '../../../components/Management/RightContent'
+
+import Icon from '../../../components/IconExporter'
+import commonStyles from '../../../styles/theme'
+
+import {
+  BreadcrumbContainer,
+  AddBtnLink,
+  PageTitle,
+  Topics,
+  Topic,
+  TopicTitle,
+  TopicValue,
+  Section,
+  Invoice,
+  InvoiceItem,
+  Table,
+  Text,
+  ClientAreaSection,
+} from './styles'
+
+const downloadFileSectionData = [
+  {
+    title: 'Condições Gerais',
+    description:
+      'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro de Vida da Porto Seguro.',
+    buttonText: 'Baixar Arquivo',
+  },
+]
+
+const moreDetailsData = [
+  {
+    img: 'carousel-01',
+    imgTitle: 'Seguro como renda proteção',
+    imgDescription:
+      'O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um estilo de vida de qualidade aos seus entes queridos, caso você falte um dia.',
+    imgPath: 'lifeInsurance',
+  },
+  {
+    img: 'carousel-02',
+    imgTitle: 'Coberturas não relacionadas à morte',
+    imgDescription:
+      'O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em alguns casos de doenças graves, incapacidade temporária total ou parcial por acidentes, entre outros.',
+    imgPath: 'lifeInsurance',
+  },
+  {
+    img: 'carousel-03',
+    imgTitle: 'Seguro para profissionais',
+    imgDescription:
+      'A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho e para cobrir despesas médicas hospitalares e odontológicas.',
+    imgPath: 'lifeInsurance',
+  },
+]
+
+const settings = {
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 550,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows: false,
+      },
+    },
+    {
+      breakpoint: 370,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+      },
+    },
+  ],
+}
+
+export default function ManagementCreditCard({ history }) {
+  return (
+    <>
+      <Container>
+        <BreadcrumbContainer>
+          <Breadcrumb crumbs={['Soluções', 'cartão de crédito']} />
+        </BreadcrumbContainer>
+        <PageContent>
+          <LeftNav>
+            <AddBtnLink
+              onClick={() => {
+                history.push('/')
+              }}
+            >
+              <Icon width="48" fill="#ccc" name="add" />
+              <Text fontColor="#aaa" fontSize="14px">
+                Adicionar
+              </Text>
+            </AddBtnLink>
+
+            <ManageableItem>
+              <Text
+                fontSize="14px"
+                lineHeight="19px"
+                margin="0 0 14px 0"
+                textAlign="center"
+              >
+                Seguro de Vida
+              </Text>
+              <Text
+                fontSize="11px"
+                fontWeight={600}
+                letterSpacing="1.5px"
+                margin="0 0 7px 0"
+              >
+                VIGENTE ATÉ:
+              </Text>
+              <Text fontSize="14px">04/08/2018</Text>
+            </ManageableItem>
+          </LeftNav>
+          <RightContent>
+            <PageTitle>Seguro de Vida</PageTitle>
+            <Topics settings={settings}>
+              <Topic>
+                <Icon
+                  width="28"
+                  fill={commonStyles.colors.lightPrimary}
+                  name="boy"
+                />
+                <div>
+                  <TopicTitle>segurado</TopicTitle>
+                  <TopicValue>Julia da Silva</TopicValue>
+                </div>
+              </Topic>
+              <Topic>
+                <Icon
+                  width="28"
+                  fill={commonStyles.colors.lightPrimary}
+                  name="billing"
+                />
+                <div>
+                  <TopicTitle>12 parcelas de:</TopicTitle>
+                  <TopicValue>R$ 310,00</TopicValue>
+                </div>
+              </Topic>
+              <Topic>
+                <Icon
+                  width="28"
+                  fill={commonStyles.colors.lightPrimary}
+                  name="persongroup"
+                />
+                <div>
+                  <TopicTitle>Coberturas adicionais</TopicTitle>
+                  <TopicValue>VER TODAS</TopicValue>
+                </div>
+              </Topic>
+            </Topics>
+            <Section>
+              <Invoice>
+                <Text
+                  fontSize="18px"
+                  margin="0 0 14px 0"
+                  lineHeight="28px"
+                  textAlign="center"
+                >
+                  Cobertura Principal
+                </Text>
+                <InvoiceItem>
+                  <Text>Morte Acidental</Text>
+                  <Text>R$ 35.000,00</Text>
+                </InvoiceItem>
+              </Invoice>
+            </Section>
+            <Section>
+              <Invoice>
+                <Text
+                  fontSize="18px"
+                  margin="0 0 14px 0"
+                  lineHeight="28px"
+                  textAlign="center"
+                >
+                  Beneficiários
+                </Text>
+
+                <Table tableWidth="70%">
+                  <thead>
+                    <tr>
+                      <th align="center">NOME</th>
+                      <th align="center">DIVISÃO PERCENTUAL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td align="center">João Mariano</td>
+                      <td align="center">35%</td>
+                    </tr>
+                    <tr>
+                      <td align="center">Maria Joana</td>
+                      <td align="center">65%</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Invoice>
+            </Section>
+          </RightContent>
+        </PageContent>
+      </Container>
+      <HighlightSection
+        title="Futuro protegido."
+        mainDescription="Com o Conquista, é fácil encontrar o plano ideal para você."
+        subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
+        de Vida da Porto Seguro."
+        buttonText="Simular e contratar"
+      />
+      <MoreDetails title="Saiba mais:" data={moreDetailsData} />
+      <FileDownloadSection data={downloadFileSectionData} />
+      <ClientAreaSection>
+        <Text>
+          Acesse a Área do Cliente para conferir todos os detalhes sobre os
+          produtos da Porto Seguro.
+        </Text>
+        <Button>ACeSSAR</Button>
+      </ClientAreaSection>
+    </>
+  )
+}
+
+ManagementCreditCard.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
+}

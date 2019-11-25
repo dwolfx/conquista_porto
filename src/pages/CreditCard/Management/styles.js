@@ -49,7 +49,7 @@ export const Topics = styled(Carousel)`
 `
 
 export const Topic = styled.div`
-  display: flex;
+  display: flex !important;
 
   svg {
     margin-right: 16px;
