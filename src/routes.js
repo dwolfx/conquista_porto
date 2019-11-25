@@ -10,13 +10,15 @@ import Investimentos from './pages/Investments'
 import PrevidenciaPrivada from './pages/PrivateWelfare'
 import Points from './pages/Points'
 import Profile from './pages/Profile'
-import ConsortiumBuilding from './pages/ConsortiumBuilding'
 import ConsortiumVehicle from './pages/ConsortiumVehicle'
 import VehicleFinancing from './pages/VehicleFinancing'
 import TripInsurance from './pages/TripInsurance'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
 import PointsStatement from './pages/Points/Statement'
+
+import ConsortiumBuilding from './pages/ConsortiumBuilding'
+import ManagementConsortiumBuilding from './pages/ConsortiumBuilding/Management'
 
 import CartaoCredito from './pages/CreditCard'
 import ManagementCreditCard from './pages/CreditCard/Management'
@@ -66,6 +68,10 @@ export default function Routes({ ...props }) {
         path="/consorcio-imovel"
         exact
         component={ConsortiumBuilding}
+      />
+      <DefaultRoute
+        path="/consorcio-imovel/visualizar"
+        component={ManagementConsortiumBuilding}
       />
       <DefaultRoute
         path="/consorcio-veiculo"

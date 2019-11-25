@@ -50,6 +50,7 @@ export const Topics = styled(Carousel)`
 
 export const Topic = styled.div`
   display: flex !important;
+  justify-content: center;
 
   svg {
     margin-right: 16px;
