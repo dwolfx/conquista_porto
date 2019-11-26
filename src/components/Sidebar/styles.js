@@ -46,3 +46,5 @@ export const IconWrapper = styled.div`
   right: 15px;
   top: calc(50% - 6px);
 `
+
+export const Wrapper = styled.div``

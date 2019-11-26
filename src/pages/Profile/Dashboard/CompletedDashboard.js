@@ -1,16 +1,18 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import Accordion from '../../../components/Accordion'
-import Button from '../../../components/Button'
+
+import Accordion from 'components/Accordion'
+import Button from 'components/Button'
+import Icon from 'components/IconExporter'
+import WarningsComponent from 'components/Warning'
+
 import FinancialData from './Sections/FinancialData'
-import Icon from '../../../components/IconExporter'
 import IncomeInfo from './Sections/IncomeInfo'
 import PersonalData from './Sections/PersonalData'
 import ProfessionalData from './Sections/ProfessionalData'
 import UserInfos from './Sections/AccountInfos'
 import UserData from './Sections/UserData'
-import WarningsComponent from '../../../components/Warning'
 import {
   Content,
   PerfilTitle,

@@ -22,6 +22,7 @@ import {
   Text,
   TriangleHolder,
   Wrapper,
+  MainContainer,
 } from './styles'
 
 import ResponsiveHeader from '../ResponsiveHeader'
@@ -107,7 +108,7 @@ export default function TopMenu() {
   }, [])
 
   return (
-    <>
+    <MainContainer>
       <Container>
         {breakpoint === 'sm' && (
           <ResponsiveHeader
@@ -209,6 +210,6 @@ export default function TopMenu() {
         </Wrapper>
       </Container>
       {isOpen && <Backdrop onClick={() => setIsOpen(!isOpen)} />}
-    </>
+    </MainContainer>
   )
 }

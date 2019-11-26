@@ -27,6 +27,16 @@ export const Button = styled.button`
             ${commonStyles.colors.darkSecondary} 100%
           )`
           : '#f4bea5'
+      case 'alternative':
+        return !props.disabled
+          ? `linear-gradient(
+              270deg,
+              #27c145 0,
+              #3cc127 50%,
+              #379f26 60%,
+              #379f26 100%
+            )`
+          : '#27c14545'
       default:
         return `linear-gradient(
           270deg,
@@ -74,6 +84,8 @@ export const Button = styled.button`
               return '#148dbb'
             case 'secondary':
               return '#F35600'
+            case 'alternative':
+              return '#379f26'
             default:
               return 'rgba(190,190,190,.2)'
           }

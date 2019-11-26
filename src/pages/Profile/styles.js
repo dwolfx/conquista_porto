@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import commonStyles from '../../styles/theme'
-import PencilSVG from '../../assets/icons/pencil.svg'
+import theme from 'styles/theme'
+import PencilSVG from 'assets/icons/pencil.svg'
 
 export const Wrapper = styled.div`
-  background-color: ${commonStyles.colors.backgroundColor};
+  background-color: ${theme.colors.backgroundColor};
   flex: 1;
   padding-top: 30px;
 `
@@ -24,7 +24,7 @@ export const Content = styled.div`
 `
 
 export const PerfilTitle = styled.p`
-  color: ${commonStyles.colors.lightPrimary};
+  color: ${theme.colors.lightPrimary};
   font-size: 18px;
   margin-bottom: 30px;
 `
@@ -210,4 +210,42 @@ export const DownloadLink = styled.a`
   svg {
     margin-right: 8px;
   }
+`
+
+export const GreySection = styled.section`
+  background-color: ${theme.colors.backgroundColor};
+  display: flex;
+  flex-direction: column;
+  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
+  padding: 30px;
+`
+
+export const ModalSectionTitle = styled.h4`
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 15px;
+  text-align: center;
+`
+
+export const ModalSectionText = styled.p`
+  font-size: ${props => (props.fontSize ? `${props.fontSize}px` : '14px')};
+  font-weight: 400;
+  padding: 0 90px;
+  text-align: center;
+`
+
+export const InputCode = styled.input.attrs({ type: 'number' })`
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d2d2d2;
+  color: ${theme.colors.lightPrimary};
+  font-size: 34px;
+  font-weight: 300;
+  margin: 0 auto;
+  text-align: center;
+  width: 330px;
+`
+
+export const DarkGreySection = styled.section`
+  background-color: #555861;
 `

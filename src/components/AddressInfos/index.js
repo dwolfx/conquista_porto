@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
-import Icon from '../IconExporter'
-import TextInput from '../Inputs/Text'
-import RadioInput from '../Inputs/Radio'
+import PropTypes from 'prop-types'
+
+import CEPInput from 'components/Inputs/CEPInput'
+import Icon from 'components/IconExporter'
+import TextInput from 'components/Inputs/Text'
+import RadioInput from 'components/Inputs/Radio'
+
 import { Row, ButtonAdd, ObsText, Wrapper, RemoveButton } from './styles'
 import { mainPhoneOption } from './values'
 
-export default ({ name, showAddButton = true }) => {
+const AddressFields = ({ name, showAddButton }) => {
   const [addressSection, setAddressSection] = useState([{ index: 0 }])
 
   const removeAddress = index => {
@@ -22,10 +26,10 @@ export default ({ name, showAddButton = true }) => {
         key={`address-section-${index}`}
       >
         <Row>
-          <TextInput label="CEP" width={15} name="cep" paddingRight={15} />
+          <CEPInput label="CEP" width={15} name="cep" paddingRight={15} />
           <TextInput
             label="Endereço residencial"
-            name="enderecoResidencial"
+            name={`enderecoResidencial-${index}`}
             paddingLeft={15}
             paddingRight={15}
             width={48}
@@ -33,14 +37,14 @@ export default ({ name, showAddButton = true }) => {
           />
           <TextInput
             label="Número"
-            name="numero"
+            name={`numero-${index}`}
             width={12}
             paddingLeft={15}
             paddingRight={15}
           />
           <TextInput
             label="Complemento"
-            name="complemento"
+            name={`complemento-${index}`}
             width={25}
             paddingLeft={15}
           />
@@ -49,14 +53,14 @@ export default ({ name, showAddButton = true }) => {
           <TextInput label="Bairro" name="bairro" paddingRight={15} disabled />
           <TextInput
             label="Estado"
-            name="estado"
+            name={`estado-${index}`}
             paddingLeft={15}
             paddingRight={15}
             disabled
           />
           <TextInput
             label="Cidade"
-            name="cidade"
+            name={`cidade-${index}`}
             paddingLeft={15}
             paddingRight={15}
             disabled
@@ -116,3 +120,14 @@ export default ({ name, showAddButton = true }) => {
     </>
   )
 }
+
+AddressFields.defaultProps = {
+  showAddButton: true,
+}
+
+AddressFields.propTypes = {
+  name: PropTypes.string,
+  showAddButton: PropTypes.bool,
+}
+
+export default AddressFields
