@@ -169,7 +169,7 @@ export default function ManagementCreditCard({ history }) {
                 <Icon
                   width="28"
                   fill={commonStyles.colors.lightPrimary}
-                  name="creditcard"
+                  name="tag"
                 />
                 <div>
                   <TopicTitle>bandeira</TopicTitle>
@@ -191,7 +191,7 @@ export default function ManagementCreditCard({ history }) {
                 <Icon
                   width="28"
                   fill={commonStyles.colors.lightPrimary}
-                  name="creditcard"
+                  name="lock"
                 />
                 <div>
                   <TopicTitle>4 últimos numeros</TopicTitle>

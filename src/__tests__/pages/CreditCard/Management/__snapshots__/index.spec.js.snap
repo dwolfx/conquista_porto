@@ -114,7 +114,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP jTKuJp"
+                    className="sc-jWBwVP dBefcy"
                     style={
                       Object {
                         "display": "inline-block",
@@ -127,7 +127,7 @@ Array [
                       fill="#3dacff"
                       width="28"
                     >
-                      credit-card.svg
+                      tag.svg
                     </svg>
                     <div>
                       <p
@@ -159,7 +159,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP jTKuJp"
+                    className="sc-jWBwVP dBefcy"
                     style={
                       Object {
                         "display": "inline-block",
@@ -204,7 +204,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP jTKuJp"
+                    className="sc-jWBwVP dBefcy"
                     style={
                       Object {
                         "display": "inline-block",
@@ -217,7 +217,7 @@ Array [
                       fill="#3dacff"
                       width="28"
                     >
-                      credit-card.svg
+                      lock.svg
                     </svg>
                     <div>
                       <p
