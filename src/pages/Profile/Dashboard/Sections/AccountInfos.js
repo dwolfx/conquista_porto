@@ -1,5 +1,8 @@
 import React from 'react'
-import Avatar from '../../../../assets/images/julia.jpg'
+import PropTypes from 'prop-types'
+
+import Avatar from 'assets/images/julia.jpg'
+
 import {
   Row,
   CardWrapper,
@@ -9,9 +12,9 @@ import {
   CardBox,
   LineBreaker,
   PencilIcon,
-} from '../../styles'
+} from 'pages/Profile/styles'
 
-export default ({ id }) => (
+const AccountInfos = ({ id }) => (
   <CardWrapper id={id}>
     <PhotoWrapper>
       <img src={Avatar} alt="user avatar" />
@@ -52,3 +55,9 @@ export default ({ id }) => (
     </ContentWrapper>
   </CardWrapper>
 )
+
+AccountInfos.propTypes = {
+  id: PropTypes.number,
+}
+
+export default AccountInfos

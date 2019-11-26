@@ -1,8 +1,11 @@
 import React from 'react'
-import CPFInput from '../../../../components/Inputs/CPFInput'
-import TextInput from '../../../../components/Inputs/Text'
-import SelectInput from '../../../../components/Inputs/Select'
-import RadioInput from '../../../../components/Inputs/Radio'
+
+import CPFInput from 'components/Inputs/CPFInput'
+import DateInput from 'components/Inputs/DateInput'
+import TextInput from 'components/Inputs/Text'
+import SelectInput from 'components/Inputs/Select'
+import RadioInput from 'components/Inputs/Radio'
+
 import { Row } from '../../styles'
 
 export default () => {
@@ -111,7 +114,7 @@ export default () => {
         />
       </Row>
       <Row>
-        <TextInput
+        <DateInput
           width={33.3}
           paddingRight={15}
           label="Data de nascimento"

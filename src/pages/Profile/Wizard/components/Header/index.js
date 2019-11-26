@@ -1,7 +1,9 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import Logo from '../../../../../assets/images/logo-temp.png'
-import Icon from '../../../../../components/IconExporter'
+
+import Logo from 'assets/images/logo-temp.png'
+import Icon from 'components/IconExporter'
+
 import { Container, CloseButton, IconWrapper, Content } from './styles'
 
 export default () => {

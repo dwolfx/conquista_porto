@@ -25,14 +25,7 @@ const CEPInput = ({ onKeyPress, ...props }) => {
     const strippedValue = event.target.value.replace(/\D/g, '')
     let newValue = strippedValue
 
-    console.log(strippedValue.length)
-    if (
-      (event.keyCode >= 48 && event.keyCode <= 57) || // only numbers
-      (event.keyCode >= 96 && event.keyCode <= 105) // only numbers (keypad)
-    ) {
-      // apply mask to cpf field (gradual mask, applying as the user enters the digits)
-      newValue = strippedValue.replace(/(\d{5})(\d{1})/g, '$1-$2')
-    }
+    newValue = strippedValue.replace(/(\d{5})(\d{1})/g, '$1-$2')
 
     event.target.value = newValue
 

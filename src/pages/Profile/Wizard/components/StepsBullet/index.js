@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import {
   Section,
   Wrapper,
@@ -8,7 +10,7 @@ import {
   BulletPoint,
 } from './styles'
 
-export default ({ numberSteps, currentStep }) => {
+const StepBullets = ({ numberSteps, currentStep }) => {
   const renderSteps = () => {
     const output = []
 
@@ -32,3 +34,10 @@ export default ({ numberSteps, currentStep }) => {
     </Section>
   )
 }
+
+StepBullets.propTypes = {
+  numberSteps: PropTypes.number,
+  currentStep: PropTypes.number,
+}
+
+export default StepBullets

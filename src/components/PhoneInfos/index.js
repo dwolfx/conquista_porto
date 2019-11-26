@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import Icon from '../IconExporter'
-import TextInput from '../Inputs/Text'
-import SelectInput from '../Inputs/Select'
-import RadioInput from '../Inputs/Radio'
+import PropTypes from 'prop-types'
+
+import Icon from 'components/IconExporter'
+import PhoneInput from 'components/Inputs/PhoneInput'
+import TextInput from 'components/Inputs/Text'
+import SelectInput from 'components/Inputs/Select'
+import RadioInput from 'components/Inputs/Radio'
+
 import { Row, ButtonAdd, RemoveButton } from './styles'
 import { telefoneOptions, radioOptions } from './values'
 
-export default ({ name, showAddButton = true }) => {
+const PhoneFields = ({ name, showAddButton }) => {
   const [phoneSection, setPhoneSection] = useState([
     {
       index: 0,
@@ -34,11 +38,16 @@ export default ({ name, showAddButton = true }) => {
           paddingRight={15}
           marginRight={15}
         />
-        <TextInput label="DDD" name="ddd" width={10} paddingRight={15} />
         <TextInput
+          label="DDD"
+          maxLength="3"
+          name="ddd"
+          width={10}
+          paddingRight={15}
+        />
+        <PhoneInput
           label="Telefone"
           name="telefone"
-          maxLength="3"
           width={35}
           paddingLeft={15}
           paddingRight={15}
@@ -98,3 +107,14 @@ export default ({ name, showAddButton = true }) => {
     </>
   )
 }
+
+PhoneFields.defaultProps = {
+  showAddButton: true,
+}
+
+PhoneFields.propTypes = {
+  name: PropTypes.string,
+  showAddButton: PropTypes.bool,
+}
+
+export default PhoneFields

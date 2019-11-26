@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import CloseIcon from '../../../../../assets/icons/close.svg'
-import theme from '../../../../../styles/theme'
+
+import CloseIcon from 'assets/icons/close.svg'
+import theme from 'styles/theme'
 
 export const Container = styled.div`
   align-items: center;
