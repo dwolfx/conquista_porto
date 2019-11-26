@@ -9,7 +9,7 @@ export const Container = styled.div`
     position: relative;
     background-color: #33beff;
     height: 28px;
-    width: ${props => `${(props.now * 100) / props.max}%` || '100%'};
+    width: ${props => props.progress || '100%'};
 
     span {
       position: absolute;

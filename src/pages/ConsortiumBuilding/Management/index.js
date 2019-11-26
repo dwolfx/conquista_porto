@@ -240,5 +240,5 @@ export default function ManagementConsortiumBuilding({ history }) {
 ManagementConsortiumBuilding.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  }),
+  }).isRequired,
 }
