@@ -20,6 +20,7 @@ import { ReactComponent as callcenter } from '../../assets/icons/call-center.svg
 import { ReactComponent as calendar } from '../../assets/icons/calendar.svg'
 import { ReactComponent as close } from '../../assets/icons/close.svg'
 import { ReactComponent as coin } from '../../assets/icons/coin.svg'
+import { ReactComponent as computersecure } from '../../assets/icons/computer-secure.svg'
 import { ReactComponent as creditcard } from '../../assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from '../../assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from '../../assets/icons/diamond.svg'
@@ -37,6 +38,7 @@ import { ReactComponent as money } from '../../assets/icons/money.svg'
 import { ReactComponent as pdf } from '../../assets/icons/pdf.svg'
 import { ReactComponent as personaccident } from '../../assets/icons/person-accident.svg'
 import { ReactComponent as persongroup } from '../../assets/icons/person-group.svg'
+import { ReactComponent as persongroup2 } from '../../assets/icons/person-group2.svg'
 import { ReactComponent as plane } from '../../assets/icons/plane.svg'
 import { ReactComponent as piechart } from '../../assets/icons/pie-chart.svg'
 import { ReactComponent as remove } from '../../assets/icons/remove.svg'
@@ -73,6 +75,7 @@ const IconComponent = ({ name, ...props }) => {
     callcenter,
     close,
     coin,
+    computersecure,
     creditcard,
     creditcard2,
     diamond,
@@ -90,6 +93,7 @@ const IconComponent = ({ name, ...props }) => {
     pdf,
     personaccident,
     persongroup,
+    persongroup2,
     piechart,
     plane,
     remove,
@@ -128,6 +132,8 @@ IconComponent.propTypes = {
     'calendar',
     'callcenter',
     'close',
+    'coin',
+    'computersecure',
     'creditcard',
     'creditcard2',
     'diamond',
@@ -143,6 +149,7 @@ IconComponent.propTypes = {
     'money',
     'pdf',
     'persongroup',
+    'persongroup2',
     'plane',
     'remove',
     'safebox',

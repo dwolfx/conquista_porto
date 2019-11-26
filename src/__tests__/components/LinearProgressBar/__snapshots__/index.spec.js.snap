@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinearProgressBar renders correctly (with subtitle) 1`] = `
+<div
+  className="sc-bdVaJa dqbMnW"
+  max={12}
+  min={0}
+  width="70%"
+>
+  <div>
+    <span>
+      83
+      %
+    </span>
+  </div>
+  <div>
+    <span>
+      0
+    </span>
+    <span>
+      12
+       
+      <span
+        className="sc-bwzfXH fxjqSh"
+      >
+        parcelas
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly (without subtitle) 1`] = `
+<div
+  className="sc-bdVaJa eeQDBM"
+  max={12}
+  min={0}
+  width="70%"
+>
+  <div>
+    <span>
+      33
+      %
+    </span>
+  </div>
+  <div>
+    <span>
+      0
+    </span>
+    <span>
+      12
+       
+      <span
+        className="sc-bwzfXH fxjqSh"
+      >
+        
+      </span>
+    </span>
+  </div>
+</div>
+`;
