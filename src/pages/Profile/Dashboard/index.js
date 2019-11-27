@@ -224,6 +224,10 @@ const Dashboard = ({ profileIsCompleted }) => {
   )
 }
 
+Dashboard.defaultProps = {
+  profileIsCompleted: false,
+}
+
 Dashboard.propTypes = {
   profileIsCompleted: PropTypes.bool,
 }

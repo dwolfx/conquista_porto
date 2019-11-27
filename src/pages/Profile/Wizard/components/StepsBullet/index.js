@@ -35,6 +35,11 @@ const StepBullets = ({ numberSteps, currentStep }) => {
   )
 }
 
+StepBullets.defaultProps = {
+  numberSteps: 0,
+  currentStep: 0,
+}
+
 StepBullets.propTypes = {
   numberSteps: PropTypes.number,
   currentStep: PropTypes.number,

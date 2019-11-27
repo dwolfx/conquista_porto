@@ -129,6 +129,10 @@ const StepOne = ({ changeScreen }) => (
   </>
 )
 
+StepOne.defaultProps = {
+  changeScreen: null,
+}
+
 StepOne.propTypes = {
   changeScreen: PropTypes.func,
 }

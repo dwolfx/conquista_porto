@@ -25,6 +25,10 @@ const DateInput = ({ onKeyPress, ...props }) => {
   return <TextInput maxLength="10" onKeyUp={applyDateMask} {...props} />
 }
 
+DateInput.defaultProps = {
+  onKeyPress: null,
+}
+
 DateInput.propTypes = {
   onKeyPress: PropTypes.func,
 }

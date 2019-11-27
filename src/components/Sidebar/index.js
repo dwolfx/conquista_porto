@@ -50,8 +50,23 @@ const SidebarComponent = ({ sidebarItems }) => {
   )
 }
 
+SidebarComponent.defaultProps = {
+  sidebarItems: [],
+}
+
 SidebarComponent.propTypes = {
-  sidebarItems: PropTypes.array,
+  sidebarItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      items: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          icon: PropTypes.string,
+          iconColor: PropTypes.string,
+          onItemClick: PropTypes.func,
+        })
+      ),
+    })
+  ),
 }
 
 export default SidebarComponent

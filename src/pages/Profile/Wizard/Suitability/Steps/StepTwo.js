@@ -1,5 +1,9 @@
 import React from 'react'
-import Button from '../../../../../components/Button'
+import PropTypes from 'prop-types'
+
+import Button from 'components/Button'
+import theme from 'styles/theme'
+
 import {
   Section,
   Wrapper,
@@ -7,9 +11,8 @@ import {
   SectionText,
   ButtonContainer,
 } from '../../styles'
-import theme from '../../../../../styles/theme'
 
-export default ({ backScreen }) => (
+const StepTwo = ({ backScreen }) => (
   <>
     <Section backgroundColor="#fff">
       <Wrapper align="center">
@@ -56,3 +59,13 @@ export default ({ backScreen }) => (
     </Section>
   </>
 )
+
+StepTwo.defaultProps = {
+  backScreen: null,
+}
+
+StepTwo.propTypes = {
+  backScreen: PropTypes.func,
+}
+
+export default StepTwo

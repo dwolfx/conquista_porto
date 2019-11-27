@@ -1,11 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import AddressFields from '../../../../../components/AddressInfos'
-import Button from '../../../../../components/Button'
-import Icon from '../../../../../components/IconExporter'
-import PhoneFields from '../../../../../components/PhoneInfos'
-import RadioInput from '../../../../../components/Inputs/Radio'
-import TextInput from '../../../../../components/Inputs/Text'
+import PropTypes from 'prop-types'
+
+import AddressFields from 'components/AddressInfos'
+import Button from 'components/Button'
+import Icon from 'components/IconExporter'
+import PhoneFields from 'components/PhoneInfos'
+import RadioInput from 'components/Inputs/Radio'
+import TextInput from 'components/Inputs/Text'
+import theme from 'styles/theme'
+import { ButtonAdd } from 'pages/Profile/styles'
+
 import { fiscalAddressOptions, cotitularOptions } from '../mocks'
 import {
   ButtonContainer,
@@ -15,10 +20,8 @@ import {
   SectionTitle,
   Wrapper,
 } from '../../styles'
-import { ButtonAdd } from '../../../styles'
-import theme from '../../../../../styles/theme'
 
-export default ({ changeScreen }) => (
+const StepTwo = ({ changeScreen }) => (
   <>
     <Section backgroundColor="#fff">
       <Wrapper align="center">
@@ -80,3 +83,13 @@ export default ({ changeScreen }) => (
     </Section>
   </>
 )
+
+StepTwo.defaultProps = {
+  changeScreen: null,
+}
+
+StepTwo.propTypes = {
+  changeScreen: PropTypes.func,
+}
+
+export default StepTwo

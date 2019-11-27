@@ -55,12 +55,17 @@ const Modal = ({
     : null
 }
 
+Modal.defaultProps = {
+  headerIcon: null,
+  size: 'md',
+}
+
 Modal.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   headerIcon: PropTypes.string,
-  handleClose: PropTypes.func,
-  isOpen: PropTypes.bool,
-  modalTitle: PropTypes.string,
+  handleClose: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  modalTitle: PropTypes.string.isRequired,
   size: PropTypes.string,
 }
 

@@ -109,6 +109,7 @@ const PhoneFields = ({ name, showAddButton }) => {
 }
 
 PhoneFields.defaultProps = {
+  name: '',
   showAddButton: true,
 }
 

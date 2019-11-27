@@ -24,7 +24,7 @@ const AccountInfos = ({ id }) => (
       <Row marginTop="0">
         <CardText title="true">Conta de Investimento</CardText>
       </Row>
-      <Row>
+      <Row bankInfos>
         <CardBox>
           <CardText title="true">Banco</CardText>
           <CardText>306</CardText>
@@ -56,8 +56,12 @@ const AccountInfos = ({ id }) => (
   </CardWrapper>
 )
 
+AccountInfos.defaultProps = {
+  id: '',
+}
+
 AccountInfos.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
 }
 
 export default AccountInfos

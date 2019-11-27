@@ -49,6 +49,10 @@ const CPFInput = ({ onKeyPress, ...props }) => {
   )
 }
 
+CPFInput.defaultProps = {
+  onKeyPress: null,
+}
+
 CPFInput.propTypes = {
   onKeyPress: PropTypes.func,
 }

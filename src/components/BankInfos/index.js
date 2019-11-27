@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import RadioInput from '../Inputs/Radio'
-import SelectInput from '../Inputs/Select'
-import TextInput from '../Inputs/Text'
-import Icon from '../IconExporter'
+import PropTypes from 'prop-types'
+
+import RadioInput from 'components/Inputs/Radio'
+import SelectInput from 'components/Inputs/Select'
+import TextInput from 'components/Inputs/Text'
+import Icon from 'components/IconExporter'
+
 import { Row, RemoveButton, Wrapper, ButtonAdd } from './styles'
 import { bankOptions, modalityOptions } from './values'
 
-export default ({ name, showAddButton = true }) => {
+const BankComponent = ({ name, showAddButton }) => {
   const [bankSection, setBankSection] = useState([{ index: 0 }])
 
   const removeBank = index => {
@@ -89,3 +92,15 @@ export default ({ name, showAddButton = true }) => {
     </>
   )
 }
+
+BankComponent.defaultProps = {
+  name: '',
+  showAddButton: true,
+}
+
+BankComponent.propTypes = {
+  name: PropTypes.string,
+  showAddButton: PropTypes.bool,
+}
+
+export default BankComponent

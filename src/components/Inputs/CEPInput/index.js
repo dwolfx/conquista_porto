@@ -43,6 +43,10 @@ const CEPInput = ({ onKeyPress, ...props }) => {
   )
 }
 
+CEPInput.defaultProps = {
+  onKeyPress: null,
+}
+
 CEPInput.propTypes = {
   onKeyPress: PropTypes.func,
 }
