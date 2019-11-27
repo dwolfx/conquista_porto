@@ -1,10 +1,16 @@
 import styled from 'styled-components'
-import commonStyles from '../../styles/theme'
+
+import breakpoints from 'styles/breakpoints'
+import commonStyles from 'styles/theme'
 
 export const Sidebar = styled.aside`
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  @media ${breakpoints.mobile} {
+    display: none;
+  }
 `
 
 export const SidebarSection = styled.ul`

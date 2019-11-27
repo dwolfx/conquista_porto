@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import commonStyles from '../../styles/theme'
+
+import theme from 'styles/theme'
 
 export const Button = styled.button`
   position: relative;
@@ -11,20 +12,20 @@ export const Button = styled.button`
         return !props.disabled
           ? `linear-gradient(
             270deg,
-            ${commonStyles.colors.lightPrimary} 0,
-            ${commonStyles.colors.mediumPrimary} 50%,
-            ${commonStyles.colors.lightDarkPrimary} 60%,
-            ${commonStyles.colors.darkPrimary} 100%
+            ${theme.colors.lightPrimary} 0,
+            ${theme.colors.mediumPrimary} 50%,
+            ${theme.colors.lightDarkPrimary} 60%,
+            ${theme.colors.darkPrimary} 100%
           )`
           : '#86c2d9'
       case 'secondary':
         return !props.disabled
           ? `linear-gradient(
             270deg,
-            ${commonStyles.colors.lightSecondary} 0,
-            ${commonStyles.colors.mediumSecondary} 50%,
-            ${commonStyles.colors.lightDarkSecondary} 60%,
-            ${commonStyles.colors.darkSecondary} 100%
+            ${theme.colors.lightSecondary} 0,
+            ${theme.colors.mediumSecondary} 50%,
+            ${theme.colors.lightDarkSecondary} 60%,
+            ${theme.colors.darkSecondary} 100%
           )`
           : '#f4bea5'
       case 'alternative':

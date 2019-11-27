@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import CloseIcon from '../../assets/icons/close.svg'
-import commonStyles from '../../styles/theme'
+
+import CloseIcon from 'assets/icons/close.svg'
+import breakpoints from 'styles/breakpoints'
+import theme from 'styles/theme'
 
 export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
@@ -28,6 +30,11 @@ export const ModalContainer = styled.div`
         return '900px'
     }
   }};
+
+  @media ${breakpoints.mobile} {
+    margin: 0 auto;
+    width: calc(100vw - 30px);
+  }
 `
 
 export const ModalHeader = styled.div`
@@ -42,7 +49,7 @@ export const ModalHeader = styled.div`
 `
 
 export const ModalTitle = styled.h3`
-  color: ${commonStyles.colors.lightPrimary};
+  color: ${theme.colors.lightPrimary};
   flex: 1;
   font-size: 22px;
   font-weight: 300;

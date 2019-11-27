@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import theme from 'styles/theme'
+
 import PencilSVG from 'assets/icons/pencil.svg'
+import breakpoints from 'styles/breakpoints'
+import theme from 'styles/theme'
 
 export const Wrapper = styled.div`
   background-color: ${theme.colors.backgroundColor};
@@ -15,12 +17,23 @@ export const Container = styled.div`
   margin: 0 auto;
   padding-bottom: 30px;
   min-height: 100vh;
+
+  @media ${breakpoints.mobile} {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
 `
 
 export const Content = styled.div`
   width: 75%;
   margin-left: 15px;
   padding-left: 15px;
+
+  @media ${breakpoints.mobile} {
+    margin: 0;
+    padding: 0 15px;
+    width: 100%;
+  }
 `
 
 export const PerfilTitle = styled.p`
@@ -58,6 +71,12 @@ export const Row = styled.div`
   margin-right: ${props => (props.marginRight ? `${props.marginRight}` : '0')};
   margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   width: ${props => (props.width ? `${props.width}%` : '100%')};
+
+  @media ${breakpoints.mobile} {
+    flex-direction: ${props => (props.bankInfos ? 'row' : 'column')};
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
 `
 
 export const ButtonAdd = styled.button`
@@ -98,6 +117,10 @@ export const CardWrapper = styled.div`
   display: flex;
   margin-bottom: 30px;
   padding: 15px 30px 30px;
+
+  @media ${breakpoints.mobile} {
+    flex-direction: column;
+  }
 `
 
 export const PhotoWrapper = styled.div`
@@ -109,12 +132,21 @@ export const PhotoWrapper = styled.div`
     border-radius: 50%;
     width: 100%;
   }
+
+  @media ${breakpoints.mobile} {
+    align-self: center;
+    margin-bottom: 15px;
+  }
 `
 
 export const ContentWrapper = styled.div`
   flex: 1;
   padding-left: 30px;
   padding-right: 7rem;
+
+  @media ${breakpoints.mobile} {
+    padding: 0;
+  }
 `
 
 export const CardText = styled.p`
