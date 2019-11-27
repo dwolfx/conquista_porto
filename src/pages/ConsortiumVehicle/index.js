@@ -113,14 +113,13 @@ export default function ConsortiumVehicle() {
         data={[
           {
             title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
-            description:
-              'Aqui, você tem mais informações legais sobre consórcio.',
+            description: 'Mais informações legais sobre consórcio.',
             buttonText: 'BAIXAR ARQUIVO',
           },
           {
             title: 'CONDIÇÕES GERAIS',
             description:
-              'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
+              'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Veículos da Porto Seguro.',
             buttonText: 'BAIXAR ARQUIVO',
           },
           {

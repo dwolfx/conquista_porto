@@ -238,5 +238,5 @@ export default function ManagementCreditCard({ history }) {
 ManagementCreditCard.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  }),
+  }).isRequired,
 }

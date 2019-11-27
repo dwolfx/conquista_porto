@@ -17,8 +17,7 @@ export default function LinearProgressBar({
       margin={margin}
       now={now}
       max={max}
-      min={min}
-      subtitle={subtitle}
+      progress={`${(now * 100) / max}%`}
     >
       <div>
         <span>{Math.floor((now * 100) / max)}%</span>
@@ -45,13 +44,6 @@ LinearProgressBar.propTypes = {
   margin: PropTypes.string,
   subtitle: PropTypes.string,
   now: PropTypes.number.isRequired,
-  max(props) {
-    if (props.max < props.now) {
-      return new Error(
-        'O valor da propriedade "max" deve ser igual ou maior ao valor da propriedade "now".'
-      )
-    }
-    return null
-  },
+  max: PropTypes.number.isRequired, // deve ser maior que o valor MIN e maior ou igual que o valor NOW
   min: PropTypes.number,
 }
