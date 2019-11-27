@@ -1,9 +1,11 @@
 import styled from 'styled-components'
-import commonStyles from '../../styles/theme'
-import PencilSVG from '../../assets/icons/pencil.svg'
+
+import PencilSVG from 'assets/icons/pencil.svg'
+import breakpoints from 'styles/breakpoints'
+import theme from 'styles/theme'
 
 export const Wrapper = styled.div`
-  background-color: ${commonStyles.colors.backgroundColor};
+  background-color: ${theme.colors.backgroundColor};
   flex: 1;
   padding-top: 30px;
 `
@@ -15,16 +17,27 @@ export const Container = styled.div`
   margin: 0 auto;
   padding-bottom: 30px;
   min-height: 100vh;
+
+  @media ${breakpoints.mobile} {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
 `
 
 export const Content = styled.div`
   width: 75%;
   margin-left: 15px;
   padding-left: 15px;
+
+  @media ${breakpoints.mobile} {
+    margin: 0;
+    padding: 0 15px;
+    width: 100%;
+  }
 `
 
 export const PerfilTitle = styled.p`
-  color: ${commonStyles.colors.lightPrimary};
+  color: ${theme.colors.lightPrimary};
   font-size: 18px;
   margin-bottom: 30px;
 `
@@ -58,6 +71,12 @@ export const Row = styled.div`
   margin-right: ${props => (props.marginRight ? `${props.marginRight}` : '0')};
   margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   width: ${props => (props.width ? `${props.width}%` : '100%')};
+
+  @media ${breakpoints.mobile} {
+    flex-direction: ${props => (props.bankInfos ? 'row' : 'column')};
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
 `
 
 export const ButtonAdd = styled.button`
@@ -98,6 +117,10 @@ export const CardWrapper = styled.div`
   display: flex;
   margin-bottom: 30px;
   padding: 15px 30px 30px;
+
+  @media ${breakpoints.mobile} {
+    flex-direction: column;
+  }
 `
 
 export const PhotoWrapper = styled.div`
@@ -109,12 +132,21 @@ export const PhotoWrapper = styled.div`
     border-radius: 50%;
     width: 100%;
   }
+
+  @media ${breakpoints.mobile} {
+    align-self: center;
+    margin-bottom: 15px;
+  }
 `
 
 export const ContentWrapper = styled.div`
   flex: 1;
   padding-left: 30px;
   padding-right: 7rem;
+
+  @media ${breakpoints.mobile} {
+    padding: 0;
+  }
 `
 
 export const CardText = styled.p`
@@ -210,4 +242,42 @@ export const DownloadLink = styled.a`
   svg {
     margin-right: 8px;
   }
+`
+
+export const GreySection = styled.section`
+  background-color: ${theme.colors.backgroundColor};
+  display: flex;
+  flex-direction: column;
+  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
+  padding: 30px;
+`
+
+export const ModalSectionTitle = styled.h4`
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 15px;
+  text-align: center;
+`
+
+export const ModalSectionText = styled.p`
+  font-size: ${props => (props.fontSize ? `${props.fontSize}px` : '14px')};
+  font-weight: 400;
+  padding: 0 90px;
+  text-align: center;
+`
+
+export const InputCode = styled.input.attrs({ type: 'number' })`
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d2d2d2;
+  color: ${theme.colors.lightPrimary};
+  font-size: 34px;
+  font-weight: 300;
+  margin: 0 auto;
+  text-align: center;
+  width: 330px;
+`
+
+export const DarkGreySection = styled.section`
+  background-color: #555861;
 `

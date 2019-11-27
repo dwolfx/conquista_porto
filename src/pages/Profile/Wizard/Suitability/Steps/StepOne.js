@@ -1,7 +1,11 @@
 import React from 'react'
-import Button from '../../../../../components/Button'
-import RadioInput from '../../../../../components/Inputs/Radio'
-import SelectInput from '../../../../../components/Inputs/Select'
+import PropTypes from 'prop-types'
+
+import Button from 'components/Button'
+import RadioInput from 'components/Inputs/Radio'
+import SelectInput from 'components/Inputs/Select'
+import theme from 'styles/theme'
+
 import {
   crisisOptions,
   frequencyOptions,
@@ -18,9 +22,8 @@ import {
   SectionText,
   ButtonContainer,
 } from '../../styles'
-import theme from '../../../../../styles/theme'
 
-export default ({ changeScreen }) => {
+const StepOne = ({ changeScreen }) => {
   const RadioSection = ({ title, options, name }) => (
     <Section
       backgroundColor={theme.colors.backgroundColor}
@@ -37,6 +40,23 @@ export default ({ changeScreen }) => {
       </Wrapper>
     </Section>
   )
+
+  RadioSection.defaultProps = {
+    title: '',
+    options: [],
+    name: '',
+  }
+
+  RadioSection.propTypes = {
+    title: PropTypes.string,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        value: PropTypes.string,
+      })
+    ),
+    name: PropTypes.string,
+  }
 
   return (
     <>
@@ -123,3 +143,13 @@ export default ({ changeScreen }) => {
     </>
   )
 }
+
+StepOne.defaultProps = {
+  changeScreen: null,
+}
+
+StepOne.propTypes = {
+  changeScreen: PropTypes.func,
+}
+
+export default StepOne

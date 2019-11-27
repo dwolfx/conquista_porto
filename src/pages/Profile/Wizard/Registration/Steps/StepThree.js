@@ -1,10 +1,15 @@
 import React from 'react'
-import AddressInfos from '../../../../../components/AddressInfos'
-import Button from '../../../../../components/Button'
-import Icon from '../../../../../components/IconExporter'
-import RadioInput from '../../../../../components/Inputs/Radio'
-import SelectInput from '../../../../../components/Inputs/Select'
-import TextInput from '../../../../../components/Inputs/Text'
+import PropTypes from 'prop-types'
+
+import AddressInfos from 'components/AddressInfos'
+import Button from 'components/Button'
+import Icon from 'components/IconExporter'
+import RadioInput from 'components/Inputs/Radio'
+import SelectInput from 'components/Inputs/Select'
+import TextInput from 'components/Inputs/Text'
+import theme from 'styles/theme'
+import { ButtonAdd } from 'pages/Profile/styles'
+
 import { workingQuestionMark } from '../mocks'
 import {
   ButtonContainer,
@@ -13,10 +18,8 @@ import {
   SectionTitle,
   Wrapper,
 } from '../../styles'
-import { ButtonAdd } from '../../../styles'
-import theme from '../../../../../styles/theme'
 
-export default ({ changeScreen }) => (
+const StepThree = ({ changeScreen }) => (
   <>
     <Section backgroundColor="#fff">
       <Wrapper align="center">
@@ -71,3 +74,13 @@ export default ({ changeScreen }) => (
     </Section>
   </>
 )
+
+StepThree.defaultProps = {
+  changeScreen: null,
+}
+
+StepThree.propTypes = {
+  changeScreen: PropTypes.func,
+}
+
+export default StepThree

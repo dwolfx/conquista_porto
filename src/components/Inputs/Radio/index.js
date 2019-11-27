@@ -1,8 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { RadioWrapper, RadioTitle, RadioLabel, RadioInput } from './styles'
 
-export default ({
+const RadioComponent = ({
   itemsDirection,
   itemsAlign,
   labelAlign,
@@ -42,3 +44,24 @@ export default ({
     </RadioWrapper>
   )
 }
+
+RadioComponent.propTypes = {
+  itemsDirection: PropTypes.string,
+  itemsAlign: PropTypes.string,
+  labelAlign: PropTypes.string,
+  marginLeft: PropTypes.number,
+  marginRight: PropTypes.number,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string,
+    })
+  ),
+  name: PropTypes.string,
+  paddingLeft: PropTypes.number,
+  paddingRight: PropTypes.number,
+  title: PropTypes.string,
+  width: PropTypes.number,
+}
+
+export default RadioComponent

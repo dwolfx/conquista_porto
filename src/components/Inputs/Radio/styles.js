@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-// import commonStyles from '../../../styles/theme'
+
+import breakpoints from 'styles/breakpoints'
 
 export const RadioTitle = styled.p`
   color: #1c1c1c;
@@ -73,4 +74,9 @@ export const RadioWrapper = styled.div`
   margin-left: ${props => (props.marginLeft ? `${props.marginLeft}px` : 0)};
   margin-right: ${props => (props.marginRight ? `${props.marginRight}px` : 0)};
   width: ${props => (props.width ? `${props.width}%` : 'auto')};
+
+  @media ${breakpoints.mobile} {
+    flex-direction: column;
+    margin: 15px 0;
+  }
 `

@@ -1,8 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import Button from '../../../../../components/Button'
-import Icon from '../../../../../components/IconExporter'
-import RadioInput from '../../../../../components/Inputs/Radio'
+import PropTypes from 'prop-types'
+
+import Button from 'components/Button'
+import Icon from 'components/IconExporter'
+import RadioInput from 'components/Inputs/Radio'
+import theme from 'styles/theme'
+
 import {
   ButtonContainer,
   Section,
@@ -10,9 +14,8 @@ import {
   SectionTitle,
   Wrapper,
 } from '../../styles'
-import theme from '../../../../../styles/theme'
 
-export default ({ changeScreen }) => (
+const SuccessStep = ({ changeScreen }) => (
   <>
     <Section backgroundColor="#fff">
       <Wrapper align="center">
@@ -48,3 +51,13 @@ export default ({ changeScreen }) => (
     </Section>
   </>
 )
+
+SuccessStep.defaultProps = {
+  changeScreen: null,
+}
+
+SuccessStep.propTypes = {
+  changeScreen: PropTypes.func,
+}
+
+export default SuccessStep

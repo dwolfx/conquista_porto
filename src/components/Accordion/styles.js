@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import ArrowIcon from '../../assets/icons/arrow-down.svg'
-import commonStyles from '../../styles/theme'
+
+import ArrowIcon from 'assets/icons/arrow-down.svg'
+import theme from 'styles/theme'
 
 export const AccordionHeader = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ export const AccordionHeader = styled.div`
     top: calc(50% - 11px);
     right: 30px;
     mask-image: url(${ArrowIcon});
-    background-color: ${commonStyles.colors.linkBlue};
+    background-color: ${theme.colors.linkBlue};
     width: 19px;
     height: 22px;
     transition: all ease 0.3s;

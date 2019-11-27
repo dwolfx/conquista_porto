@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import breakpoints from 'styles/breakpoints'
+
 export const Container = styled.div`
   position: absolute;
   top: 0;
@@ -24,6 +26,11 @@ export const Wrapper = styled.div`
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   margin: 0 auto;
   width: 900px;
+
+  @media ${breakpoints.mobile} {
+    width: 100%;
+    padding: 0 15px;
+  }
 `
 
 export const SectionTitle = styled.h3`
@@ -56,10 +63,14 @@ export const ButtonContainer = styled.div`
 
 export const Row = styled.div`
   display: flex;
+  flex-direction: ${props => (props.direction ? props.direction : 'row')};
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
-  margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   margin-bottom: ${props =>
     props.marginBottom ? `${props.marginBottom}px` : '30px'};
-  flex-direction: ${props => (props.direction ? props.direction : 'row')};
+  margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   width: 100%;
+
+  @media ${breakpoints.mobile} {
+    flex-direction: column;
+  }
 `

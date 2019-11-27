@@ -1,7 +1,39 @@
 import styled from 'styled-components'
-import commonStyles from '../../../styles/theme'
-import ArrowDown from '../../../assets/icons/arrow-down.svg'
 
+import ArrowDown from 'assets/icons/arrow-down.svg'
+import breakpoints from 'styles/breakpoints'
+import theme from 'styles/theme'
+
+export const SelectFieldWrapper = styled.div`
+  position: relative;
+  width: 100%;
+
+  &:before {
+    content: '';
+    background-color: ${theme.colors.lightSecondary};
+    border-radius: 50%;
+    display: block;
+    height: 20px;
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 0;
+    width: 20px;
+    z-index: 1;
+  }
+  &:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    mask-image: url(${ArrowDown});
+    background-color: yellow;
+    position: absolute;
+    display: block;
+    top: calc(50% - 5px);
+    right: 4px;
+    z-index: 1;
+    background-repeat: no-repeat;
+  }
+`
 export const SelectField = styled.select`
   background-color: transparent;
   border: none;
@@ -22,37 +54,16 @@ export const SelectLabel = styled.label`
 `
 
 export const SelectWrapper = styled.div`
-  position: relative;
   display: flex;
-  width: ${props => (props.width ? `${props.width}%` : '100%')};
+  padding-left: ${props => (props.paddingLeft ? `${props.paddingLeft}px` : 0)};
   padding-right: ${props =>
     props.paddingRight ? `${props.paddingRight}px` : 0};
-  padding-left: ${props => (props.paddingLeft ? `${props.paddingLeft}px` : 0)};
+  position: relative;
+  width: ${props => (props.width ? `${props.width}%` : '100%')};
 
-  &:before {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background-color: ${commonStyles.colors.lightSecondary};
-    border-radius: 50%;
-    display: block;
-    position: absolute;
-    top: calc(50% - 10px);
-    right: ${props => (props.paddingRight ? `${props.paddingRight}px` : '0')};
-    z-index: 1;
-  }
-  &:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    mask-image: url(${ArrowDown});
-    background-color: yellow;
-    position: absolute;
-    display: block;
-    top: calc(50% - 5px);
-    right: ${props =>
-      props.paddingRight ? `${props.paddingRight + 4}px` : '4px'};
-    z-index: 1;
-    background-repeat: no-repeat;
+  @media ${breakpoints.mobile} {
+    padding: 0;
+    margin: 15px 0;
+    width: 100%;
   }
 `

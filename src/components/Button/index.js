@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { Button } from './styles'
 
 /**
@@ -16,5 +18,9 @@ import { Button } from './styles'
 const ConquistaButton = ({ children, ...props }) => (
   <Button {...props}>{children}</Button>
 )
+
+ConquistaButton.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default ConquistaButton

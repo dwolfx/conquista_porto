@@ -1,8 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import { SelectWrapper, SelectLabel, SelectField } from './styles'
+import PropTypes from 'prop-types'
 
-export default ({
+import {
+  SelectWrapper,
+  SelectLabel,
+  SelectField,
+  SelectFieldWrapper,
+} from './styles'
+
+const SelectComponent = ({
   label,
   options,
   width,
@@ -25,10 +32,29 @@ export default ({
       paddingRight={paddingRight}
     >
       {label && <SelectLabel>{label}</SelectLabel>}
-      <SelectField {...props}>
-        <option value="">Selecione</option>
-        {renderOptions()}
-      </SelectField>
+      <SelectFieldWrapper>
+        <SelectField {...props}>
+          <option value="">Selecione</option>
+          {renderOptions()}
+        </SelectField>
+      </SelectFieldWrapper>
     </SelectWrapper>
   )
 }
+
+SelectComponent.propTypes = {
+  itemsDirection: PropTypes.string,
+  label: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string,
+    })
+  ),
+  name: PropTypes.string,
+  paddingLeft: PropTypes.number,
+  paddingRight: PropTypes.number,
+  width: PropTypes.number,
+}
+
+export default SelectComponent

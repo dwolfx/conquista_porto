@@ -1,15 +1,19 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import Icon from '../IconExporter'
+import PropTypes from 'prop-types'
+
+import Icon from 'components/IconExporter'
+
 import {
   Sidebar,
   SidebarItem,
   SidebarSection,
   SidebarItemText,
   IconWrapper,
+  Wrapper,
 } from './styles'
 
-export default ({ sidebarItems }) => {
+const SidebarComponent = ({ sidebarItems }) => {
   const renderItems = items =>
     items &&
     items.map(
@@ -39,5 +43,30 @@ export default ({ sidebarItems }) => {
       </SidebarSection>
     ))
 
-  return <Sidebar>{renderSection(sidebarItems)}</Sidebar>
+  return (
+    <Sidebar>
+      <Wrapper>{renderSection(sidebarItems)}</Wrapper>
+    </Sidebar>
+  )
 }
+
+SidebarComponent.defaultProps = {
+  sidebarItems: [],
+}
+
+SidebarComponent.propTypes = {
+  sidebarItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      items: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          icon: PropTypes.string,
+          iconColor: PropTypes.string,
+          onItemClick: PropTypes.func,
+        })
+      ),
+    })
+  ),
+}
+
+export default SidebarComponent
