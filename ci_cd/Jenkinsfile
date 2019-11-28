@@ -10,16 +10,16 @@ pipeline {
       stage('Install Packages') {
         steps {
           sh "node -v"
-            sh "npm install -g yarn"
-            sh 'yarn install'
+          sh "npm install -g yarn"
+          sh 'yarn install'
         }
       }
 
-      stage('Test and Build')
+      stage('Test and Build') {
         parallel {
           stage('Run Tests') {
             steps {
-            sh 'yarn run test'
+              sh 'yarn run test'
             }
           }
           stage('Create Build Artifacts') {
@@ -28,6 +28,7 @@ pipeline {
             }
           }
         }
+      }
 
       stage('Deployment') {
         parallel {
@@ -43,7 +44,8 @@ pipeline {
               mail(subject: 'Staging Build', body: 'New Deployment to Develop', to: 'matheus.brito@integrast.com.br')
             }
           }
+
         }
       }
-    }
+  }
 }
