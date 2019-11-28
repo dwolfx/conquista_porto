@@ -14,6 +14,7 @@ import {
   ModalSectionText,
   ButtonContainer,
   InputCode,
+  ModalBody,
 } from '../styles'
 
 const Dashboard = ({ profileIsCompleted }) => {
@@ -68,7 +69,7 @@ const Dashboard = ({ profileIsCompleted }) => {
           size={modalSize}
           handleClose={() => setModalIsOpen(!modalIsOpen)}
         >
-          {modalBody}
+          <ModalBody>{modalBody}</ModalBody>
         </Modal>
       </>
     )
@@ -218,7 +219,7 @@ const Dashboard = ({ profileIsCompleted }) => {
         size={modalSize}
         handleClose={() => setModalIsOpen(!modalIsOpen)}
       >
-        {modalBody}
+        <ModalBody>{modalBody}</ModalBody>
       </Modal>
     </>
   )

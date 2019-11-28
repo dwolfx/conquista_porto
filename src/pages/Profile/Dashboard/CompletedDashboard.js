@@ -14,6 +14,7 @@ import ProfessionalData from './Sections/ProfessionalData'
 import UserInfos from './Sections/AccountInfos'
 import UserData from './Sections/UserData'
 import {
+  AccordionTitle,
   Content,
   PerfilTitle,
   SectionSubtitle,
@@ -61,7 +62,10 @@ const ContentDash = () => {
 
       <UserInfos id="investment" />
 
-      <Accordion title="Perfil do investidor" id="profile">
+      <Accordion
+        titleNode={<AccordionTitle>Perfil do investidor</AccordionTitle>}
+        id="profile"
+      >
         <PerfilTitle>Conservador</PerfilTitle>
 
         <SectionSubtitle>Descrição</SectionSubtitle>
@@ -80,23 +84,38 @@ const ContentDash = () => {
         </ButtonContainer>
       </Accordion>
 
-      <Accordion title="Dados pessoais" id="personal">
+      <Accordion
+        titleNode={<AccordionTitle>Dados pessoais</AccordionTitle>}
+        id="personal"
+      >
         <PersonalData />
       </Accordion>
 
-      <Accordion title="Dados cadastrais" id="registration">
+      <Accordion
+        titleNode={<AccordionTitle>Dados cadastrais</AccordionTitle>}
+        id="registration"
+      >
         <UserData />
       </Accordion>
 
-      <Accordion title="Dados profissionais" id="professional">
+      <Accordion
+        titleNode={<AccordionTitle>Dados profissionais</AccordionTitle>}
+        id="professional"
+      >
         <ProfessionalData />
       </Accordion>
 
-      <Accordion title="Dados financeiros" id="financial">
+      <Accordion
+        titleNode={<AccordionTitle>Dados financeiros</AccordionTitle>}
+        id="financial"
+      >
         <FinancialData />
       </Accordion>
 
-      <Accordion title="Informe de rendimentos" id="income">
+      <Accordion
+        titleNode={<AccordionTitle>Informe de rendimentos</AccordionTitle>}
+        id="income"
+      >
         <IncomeInfo />
       </Accordion>
 

@@ -11,6 +11,7 @@ exports[`BulletsSection renders correctly 1`] = `
       className="sc-htpNat bHzOwE"
     >
       <img
+        alt=""
         src="selo_investimento.svg"
       />
     </div>
@@ -27,7 +28,9 @@ exports[`BulletsSection renders correctly 1`] = `
       </ul>
       <p
         className="sc-ifAKCX cIkCex"
-      />
+      >
+        
+      </p>
     </div>
   </div>
 </section>

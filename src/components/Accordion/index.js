@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import {
-  AccordionWrapper,
-  AccordionHeader,
-  AccordionTitle,
-  AccordionBody,
-} from './styles'
+import { AccordionWrapper, AccordionHeader, AccordionBody } from './styles'
 
-const Accordion = ({ title, children, id }) => {
+const Accordion = ({ titleNode, children, id, isOrangeArrow, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <AccordionWrapper isOpen={isOpen} id={id}>
-      <AccordionHeader onClick={() => setIsOpen(!isOpen)}>
-        <AccordionTitle>{title}</AccordionTitle>
+    <AccordionWrapper isOpen={isOpen} id={id} {...rest}>
+      <AccordionHeader
+        isOrangeArrow={isOrangeArrow}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {titleNode}
       </AccordionHeader>
       <AccordionBody>{children}</AccordionBody>
     </AccordionWrapper>
@@ -24,10 +22,12 @@ const Accordion = ({ title, children, id }) => {
 export default Accordion
 
 Accordion.propTypes = {
-  title: PropTypes.string.isRequired,
+  titleNode: PropTypes.node.isRequired,
+  isOrangeArrow: PropTypes.bool,
   children: PropTypes.element.isRequired,
   id: PropTypes.string,
 }
 Accordion.defaultProps = {
   id: '',
+  isOrangeArrow: false,
 }
