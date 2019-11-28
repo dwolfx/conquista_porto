@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import TextInput from 'components/Inputs/Text'
 
-const DateInput = ({ onKeyPress, ...props }) => {
+const PhoneInput = ({ onKeyUp, ...props }) => {
   const applyPhoneMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
     let newValue = strippedValue
@@ -17,16 +17,20 @@ const DateInput = ({ onKeyPress, ...props }) => {
 
     event.target.value = newValue
 
-    if (onKeyPress) {
-      onKeyPress()
+    if (onKeyUp) {
+      onKeyUp()
     }
   }
 
   return <TextInput maxLength="10" onKeyUp={applyPhoneMask} {...props} />
 }
 
-DateInput.propTypes = {
-  onKeyPress: PropTypes.func,
+PhoneInput.propTypes = {
+  onKeyUp: PropTypes.func,
 }
 
-export default DateInput
+PhoneInput.defaultProps = {
+  onKeyUp: null,
+}
+
+export default PhoneInput

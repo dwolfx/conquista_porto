@@ -6,6 +6,7 @@ export const Container = styled.section`
   display: flex;
   background-color: ${props => props.backgroundColor || '#f1f1f1'};
   justify-content: center;
+  width: 100%;
 
   @media (max-width: 800px) {
     flex-direction: column;

@@ -7,7 +7,6 @@ import { RadioWrapper, RadioTitle, RadioLabel, RadioInput } from './styles'
 const RadioComponent = ({
   itemsDirection,
   itemsAlign,
-  labelAlign,
   marginLeft,
   marginRight,
   options,
@@ -48,7 +47,6 @@ const RadioComponent = ({
 RadioComponent.propTypes = {
   itemsDirection: PropTypes.string,
   itemsAlign: PropTypes.string,
-  labelAlign: PropTypes.string,
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   options: PropTypes.arrayOf(
@@ -62,6 +60,18 @@ RadioComponent.propTypes = {
   paddingRight: PropTypes.number,
   title: PropTypes.string,
   width: PropTypes.number,
+}
+RadioComponent.defaultProps = {
+  itemsDirection: 'row',
+  itemsAlign: 'center',
+  marginLeft: 0,
+  marginRight: 0,
+  options: [],
+  name: '',
+  paddingLeft: 0,
+  paddingRight: 0,
+  title: '',
+  width: 'auto',
 }
 
 export default RadioComponent

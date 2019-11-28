@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import TextInput from 'components/Inputs/Text'
 
-const CEPInput = ({ onKeyPress, ...props }) => {
+const CEPInput = ({ onKeyUp, ...props }) => {
   const [error] = useState(false)
 
   const searchCEP = async cep => {
@@ -33,8 +33,8 @@ const CEPInput = ({ onKeyPress, ...props }) => {
       searchCEP(strippedValue).then(res => console.log(res))
     }
 
-    if (onKeyPress) {
-      onKeyPress()
+    if (onKeyUp) {
+      onKeyUp()
     }
   }
 
@@ -44,11 +44,11 @@ const CEPInput = ({ onKeyPress, ...props }) => {
 }
 
 CEPInput.defaultProps = {
-  onKeyPress: null,
+  onKeyUp: null,
 }
 
 CEPInput.propTypes = {
-  onKeyPress: PropTypes.func,
+  onKeyUp: PropTypes.func,
 }
 
 export default CEPInput

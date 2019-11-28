@@ -6,7 +6,7 @@ import TextInput from 'components/Inputs/Text'
 
 import ValidateCPF from './validate'
 
-const CPFInput = ({ onKeyPress, ...props }) => {
+const CPFInput = ({ onKeyUp, ...props }) => {
   const [error, setError] = useState(false)
 
   const applyCPFMask = event => {
@@ -39,8 +39,8 @@ const CPFInput = ({ onKeyPress, ...props }) => {
 
     event.target.value = newValue
 
-    if (onKeyPress) {
-      onKeyPress()
+    if (onKeyUp) {
+      onKeyUp()
     }
   }
 
@@ -50,11 +50,11 @@ const CPFInput = ({ onKeyPress, ...props }) => {
 }
 
 CPFInput.defaultProps = {
-  onKeyPress: null,
+  onKeyUp: null,
 }
 
 CPFInput.propTypes = {
-  onKeyPress: PropTypes.func,
+  onKeyUp: PropTypes.func,
 }
 
 export default CPFInput

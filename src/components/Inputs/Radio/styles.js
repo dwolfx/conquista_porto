@@ -64,16 +64,14 @@ export const RadioLabel = styled.label`
 `
 
 export const RadioWrapper = styled.div`
-  align-items: ${props => (props.itemsAlign ? props.itemsAlign : 'center')};
+  align-items: ${props => props.itemsAlign};
   display: flex;
-  flex-direction: ${props =>
-    props.itemsDirection ? props.itemsDirection : 'row'};
-  padding-left: ${props => (props.paddingLeft ? `${props.paddingLeft}px` : 0)};
-  padding-right: ${props =>
-    props.paddingRight ? `${props.paddingRight}px` : 0};
-  margin-left: ${props => (props.marginLeft ? `${props.marginLeft}px` : 0)};
-  margin-right: ${props => (props.marginRight ? `${props.marginRight}px` : 0)};
-  width: ${props => (props.width ? `${props.width}%` : 'auto')};
+  flex-direction: ${props => props.itemsDirection};
+  padding-left: ${props => `${props.paddingLeft}px`};
+  padding-right: ${props => `${props.paddingRight}px`};
+  margin-left: ${props => `${props.marginLeft}px`};
+  margin-right: ${props => `${props.marginRight}px`};
+  width: ${props => `${props.width}%`};
 
   @media ${breakpoints.mobile} {
     flex-direction: column;

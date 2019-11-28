@@ -43,7 +43,6 @@ const SelectComponent = ({
 }
 
 SelectComponent.propTypes = {
-  itemsDirection: PropTypes.string,
   label: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -55,6 +54,14 @@ SelectComponent.propTypes = {
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
   width: PropTypes.number,
+}
+SelectComponent.defaultProps = {
+  label: '',
+  options: [],
+  name: '',
+  paddingLeft: 0,
+  paddingRight: 0,
+  width: 100,
 }
 
 export default SelectComponent
