@@ -15,28 +15,25 @@ pipeline {
             }
         }
 
-        stage('Test and Build') {
-            parallel {
-                stage('Run Tests') {
-                    steps {
-                        sh 'yarn run test'
-                    }
-                }
-                stage('Create Build Artifacts') {
-                    steps {
-                        sh 'yarn run build'
-                    }
-                }
+        stage('Run Tests') {
+            steps {
+                sh 'yarn run test'
+            }
+        }
+
+        stage('Create Build Artifacts') {
+            steps {
+                sh 'yarn run build'
             }
         }
 
         stage('Deployment') {
             steps {
                 withAWS(region:'us-east-2>',credentials:'s3-conquista') {
-//                    s3Delete(bucket: 'conquista-sciensa', path:'**/*')
+                    s3Delete(bucket: 'conquista-sciensa', path:'**/*')
                     s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*');
                 }
-                mail(subject: 'Develop Build', body: 'New Deployment to Develop', to: 'matheus.brito@sciensa.com')
+//                mail(subject: 'Develop Build', body: 'New Deployment to Develop', to: 'matheus.brito@sciensa.com')
             }
         }
     }
