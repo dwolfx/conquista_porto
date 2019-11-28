@@ -1,40 +1,49 @@
 #!groovy
 
 pipeline {
-    agent any
+  agent any
 
     tools { nodejs "node"}
 
     stages {
 
-        stage('Install Packages') {
+      stage('Install Packages') {
+        steps {
+          sh "node -v"
+            sh "npm install -g yarn"
+            sh 'yarn install'
+        }
+      }
+
+      stage('Test and Build')
+        parallel {
+          stage('Run Tests') {
             steps {
-                sh "node -v"
-                sh "npm install -g yarn"
-                sh 'yarn install'
+            sh 'yarn run test'
             }
+          }
+          stage('Create Build Artifacts') {
+            steps {
+              sh 'yarn run build'
+            }
+          }
         }
 
-        stage('Run Tests') {
-            steps {
-                sh 'yarn run test'
+      stage('Deployment') {
+        parallel {
+          stage('Develop') {
+            when {
+              branch 'develop'
             }
-        }
-
-        stage('Create Build Artifacts') {
             steps {
-                sh 'yarn run build'
+              withAWS(region: 'us-east-2', credentials: 's3-conquista-sciensa') {
+                s3Delete(bucket: 'conquista-sciensa', path: '**/*')
+                s3Upload(bucket: 'conquista-sciensa', workingDir: 'build', includePathPattern: '**/*');
+              }
+              mail(subject: 'Staging Build', body: 'New Deployment to Develop', to: 'matheus.brito@integrast.com.br')
             }
+          }
         }
-
-        stage('Deployment') {
-            steps {
-                withAWS(region:'us-east-2>',credentials:'s3-conquista') {
-                    s3Delete(bucket: 'conquista-sciensa', path:'**/*')
-                    s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*');
-                }
-//                mail(subject: 'Develop Build', body: 'New Deployment to Develop', to: 'matheus.brito@sciensa.com')
-            }
-        }
+      }
     }
 }
