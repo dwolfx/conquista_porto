@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RightContent renders correctly 1`] = `
+<article
+  className="sc-bdVaJa cYZuOf"
+>
+  <span>
+    testando
+  </span>
+</article>
+`;

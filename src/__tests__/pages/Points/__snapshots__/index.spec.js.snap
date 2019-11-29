@@ -1,0 +1,436 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Points renders correctly 1`] = `
+Array [
+  <section
+    className="sc-bwzfXH kzcIJp"
+  >
+    <div
+      className="sc-htpNat cAkMrB"
+    >
+      <h1
+        className="sc-ifAKCX gunszn"
+      >
+        Pontos
+      </h1>
+      <p>
+        Acumule pontos ao investir e contratar com o Conquista. Confira sua pontuação no Programa de
+ Relacionamento e aproveite as diversas opções de trocas, descontos e benefícios.
+      </p>
+      <br />
+    </div>
+    <img
+      alt="Grupo de amigos sorrindo"
+      className="sc-bxivhb gCfZiE"
+      src="banner_pontos.jpg"
+    />
+  </section>,
+  <section
+    className="sc-htoDjs gDNwNT"
+  >
+    <p
+      className="sc-iwsKbI jjztbD"
+    >
+      PONTOS
+    </p>
+    <div
+      className="slick-slider sc-dnqmqq kufKWS slick-initialized"
+    >
+      
+      <div
+        className="slick-list"
+      >
+        <div
+          className="slick-track"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "WebkitTransform": "translate3d(0px, 0px, 0px)",
+              "WebkitTransition": "",
+              "msTransform": "translateX(0px)",
+              "opacity": 1,
+              "transform": "translate3d(0px, 0px, 0px)",
+              "transition": "",
+            }
+          }
+        >
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active slick-current"
+            data-index={0}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-gZMcBi kiWFjY"
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "width": "100%",
+                  }
+                }
+                tabIndex={-1}
+              >
+                <p
+                  className="sc-gqjmRU fcvsFk"
+                  fontSize={18}
+                >
+                  Saldo atual
+                </p>
+                <p
+                  className="sc-gqjmRU dXAsbO"
+                  fontSize={34}
+                >
+                  16.500
+                </p>
+                <p
+                  className="sc-iwsKbI jjztbD"
+                >
+                  PONTOS
+                </p>
+                <p
+                  className="sc-VigVT eQKHfE"
+                >
+                  ver extrato &gt;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active"
+            data-index={1}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-gZMcBi kiWFjY"
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "width": "100%",
+                  }
+                }
+                tabIndex={-1}
+              >
+                <p
+                  className="sc-gqjmRU fcvsFk"
+                  fontSize={18}
+                >
+                  Saldo atual
+                </p>
+                <p
+                  className="sc-gqjmRU dXAsbO"
+                  fontSize={34}
+                >
+                  16.500
+                </p>
+                <p
+                  className="sc-iwsKbI jjztbD"
+                >
+                  PONTOS
+                </p>
+                <p
+                  className="sc-VigVT eQKHfE"
+                >
+                  ver extrato &gt;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active"
+            data-index={2}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-gZMcBi kiWFjY"
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "width": "100%",
+                  }
+                }
+                tabIndex={-1}
+              >
+                <p
+                  className="sc-gqjmRU fcvsFk"
+                  fontSize={18}
+                >
+                  Saldo atual
+                </p>
+                <p
+                  className="sc-gqjmRU dXAsbO"
+                  fontSize={34}
+                >
+                  16.500
+                </p>
+                <p
+                  className="sc-iwsKbI jjztbD"
+                >
+                  PONTOS
+                </p>
+                <p
+                  className="sc-VigVT eQKHfE"
+                >
+                  ver extrato &gt;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>,
+  <section
+    className="sc-jTzLTM cHjqqS"
+  >
+    <p
+      className="sc-fjdhpX ljoLbf"
+    >
+      Conheça as ofertas e veja o que você pode resgatar com o seu saldo atual.
+    </p>
+    <button
+      className="sc-bdVaJa dRmwlZ button-with-right-icon"
+      color="secondary"
+    >
+      Resgatar Pontos 
+      <span>
+        &gt;
+      </span>
+    </button>
+  </section>,
+  <section
+    className="sc-jzJRlG dVSeZr"
+  >
+    <p
+      className="sc-cSHVUG hPaxfc"
+    >
+      COMO ACUMULAR PONTOS NO PROGRAMA DE RELACIONAMENTO DO CONQUISTA?
+    </p>
+    <div
+      className="sc-kAzzGY eCJWNC"
+    >
+      <div
+        className="sc-chPdSV cYoprV"
+      >
+        <div>
+          <svg
+            fill="#777"
+            height={36}
+          >
+            bar-chart.svg
+          </svg>
+        </div>
+        <p>
+          Invista e pontue todo mês com seu saldo em Fundos e Previdência Privada.
+        </p>
+      </div>
+      <div
+        className="sc-chPdSV cYoprV"
+      >
+        <div>
+          <svg
+            fill="#777"
+            height={36}
+          >
+            globe.svg
+          </svg>
+        </div>
+        <p>
+          Contrate soluções da Porto Seguro com o Conquista e acumule pontos.
+        </p>
+      </div>
+      <div
+        className="sc-chPdSV cYoprV"
+      >
+        <div>
+          <svg
+            fill="#777"
+            height={36}
+          >
+            credit-card2.svg
+          </svg>
+        </div>
+        <p>
+          Some o seu saldo com os pontos do Cartão de Crédito Porto Seguro.
+        </p>
+      </div>
+      <div
+        className="sc-chPdSV cYoprV"
+      >
+        <div>
+          <svg
+            fill="#777"
+            height={36}
+          >
+            financial.svg
+          </svg>
+        </div>
+        <p>
+          Ganhe a partir de 1 ponto a cada R$ 1.000,00 em investimentos.
+        </p>
+      </div>
+      <div
+        className="sc-chPdSV cYoprV"
+      >
+        <div>
+          <svg
+            fill="#777"
+            height={36}
+          >
+            financial.svg
+          </svg>
+        </div>
+        <p>
+          Ganhe 1 ponto a cada R$ 1,00 pago em Seguro Viagem e Seguro de Vida.
+        </p>
+      </div>
+      <div
+        className="sc-chPdSV cYoprV"
+      >
+        <div>
+          <svg
+            fill="#777"
+            height={36}
+          >
+            financial.svg
+          </svg>
+        </div>
+        <p>
+          Ganhe 1 ponto a cada R$ 50,00 de crédito no Financiamento de Veículo ou Consórcio.
+        </p>
+      </div>
+    </div>
+  </section>,
+  <section
+    className="sc-kgoBCf bVMfKO"
+  >
+    <div
+      className="sc-kGXeez jPuAsm"
+    >
+      <h5
+        className="sc-kpOJdX ZgEEr"
+      >
+        Benefícios do Programa de Relacionamento
+      </h5>
+      <p
+        className="sc-dxgOiQ iMrUoy"
+      >
+        Você pode trocar os seus pontos por produtos, descontos e diversas vantagens.
+      </p>
+      <div
+        className="sc-ckVGcZ jxivZt"
+      >
+        <div
+          className="sc-jKJlTe bzxXsb"
+        >
+          <img
+            alt="4 homens posando para foto"
+            src="card02.jpg"
+          />
+          <div>
+            <p>
+              Porto Seguro
+            </p>
+            <p>
+              Vouchers e descontos
+            </p>
+          </div>
+        </div>
+        <div
+          className="sc-jKJlTe bzxXsb"
+        >
+          <img
+            alt="Mulher feliz fazendo anotações"
+            src="card01.jpg"
+          />
+          <div>
+            <p>
+              Produtos
+            </p>
+            <p>
+              Várias categorias e utilidades
+            </p>
+          </div>
+        </div>
+        <div
+          className="sc-jKJlTe bzxXsb"
+        >
+          <img
+            alt="Por do Sol na praia"
+            src="card03.jpg"
+          />
+          <div>
+            <p>
+              Viagens
+            </p>
+            <p>
+              Passagens, hotéis e pacotes.
+            </p>
+          </div>
+        </div>
+        <div
+          className="sc-jKJlTe bzxXsb"
+        >
+          <img
+            alt="Mapa mundi em cima de uma mesa"
+            src="card04.jpg"
+          />
+          <div>
+            <p>
+              Experiências
+            </p>
+            <p>
+              Ingressos, passeios e bem-estar.
+            </p>
+          </div>
+        </div>
+        <div
+          className="sc-jKJlTe bzxXsb"
+        >
+          <img
+            alt="Rapaz posando para foto tomando café"
+            src="card05.jpg"
+          />
+          <div>
+            <p>
+              Moda
+            </p>
+            <p>
+              Feminino, masculino e kids.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+]
+`;

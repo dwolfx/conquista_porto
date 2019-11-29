@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileDownloadSection renders correctly 1`] = `
+<section
+  className="sc-bdVaJa hHuRVR"
+>
+  <div
+    className="sc-bwzfXH bkdjZE"
+  >
+    <div>
+      <svg
+        className="sc-htpNat brNezA"
+        fill="#777"
+        height="24px"
+      >
+        pdf.svg
+      </svg>
+    </div>
+    <div>
+      <p
+        className="sc-bxivhb cJSRCq"
+      >
+        quadro de rentabilidade
+      </p>
+      <p
+        className="sc-ifAKCX kkFMGn"
+      >
+        Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
+      </p>
+      <p
+        className="sc-EHOje fjZHwp"
+      >
+         &gt; 
+      </p>
+    </div>
+  </div>
+  <div
+    className="sc-bwzfXH bkdjZE"
+  >
+    <div>
+      <svg
+        className="sc-htpNat brNezA"
+        fill="#777"
+        height="24px"
+      >
+        pdf.svg
+      </svg>
+    </div>
+    <div>
+      <p
+        className="sc-bxivhb cJSRCq"
+      >
+        carta do gestor
+      </p>
+      <p
+        className="sc-ifAKCX kkFMGn"
+      >
+        Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
+      </p>
+      <p
+        className="sc-EHOje fjZHwp"
+      >
+         &gt; 
+      </p>
+    </div>
+  </div>
+</section>
+`;

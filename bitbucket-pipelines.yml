@@ -1,0 +1,49 @@
+image: node:12
+
+options:
+  max-time: 5 # 5 min timeout for all pipelines steps
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          name: Test
+          caches:
+            - node
+          script:
+            - yarn install
+#            - yarn run test-ci -- --coverage
+
+  branches:
+    develop:
+      - step:
+          name: Test
+          caches:
+            - node
+          script:
+            - yarn install
+#            - yarn test-ci -- --coverage
+      - step:
+          name: Build and Deploy to Test
+          deployment: test
+          caches:
+            - node
+          script:
+            - yarn run build
+            - pipe: atlassian/aws-s3-deploy:0.3.7
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_REGION
+                S3_BUCKET: $AWS_S3_BUCKET
+                LOCAL_PATH: 'build'
+                CONTENT_ENCODING: 'UTF-8'
+                ACL: 'public-read'
+                CACHE_CONTROL: 'no-cache'
+                DELETE_FLAG: 'true'
+                EXTRA_ARGS: '--follow-symlinks'
+                DEBUG: 'true'
+#            - pipe: atlassian/slack-notify:0.2.4
+#              variables:
+#                WEBHOOK_URL: $SLACK_WEBHOOK_URL
+#                MESSAGE: 'Site esta pronto em ${PUBLIC_URL}'

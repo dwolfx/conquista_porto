@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BulletsSection renders correctly 1`] = `
+<section
+  className="sc-bdVaJa hKfPPE"
+>
+  <div
+    className="sc-bwzfXH goVfva"
+  >
+    <div
+      className="sc-htpNat bHzOwE"
+    >
+      <img
+        src="selo_investimento.svg"
+      />
+    </div>
+    <div
+      className="sc-bxivhb lmNxJT"
+    >
+      <div>
+        Por que investir em Fundos?
+      </div>
+      <ul>
+        <li>
+          Apenas esse tá top!
+        </li>
+      </ul>
+      <p
+        className="sc-ifAKCX cIkCex"
+      />
+    </div>
+  </div>
+</section>
+`;

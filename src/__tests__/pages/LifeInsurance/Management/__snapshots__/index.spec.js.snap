@@ -1,0 +1,574 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LifeInsurance renders correctly 1`] = `
+Array [
+  <section
+    className="sc-jKJlTe fMSFIe"
+  >
+    <div
+      className="sc-iAyFgw etnWRw"
+    >
+      <small
+        className="sc-bdVaJa gKHdTJ"
+      >
+        Soluções
+         »
+      </small>
+      <strong
+        className="sc-bwzfXH gzUbd"
+      >
+        cartão de crédito
+      </strong>
+    </div>
+    <div
+      className="sc-hMqMXs eoReXE"
+    >
+      <nav
+        className="sc-kEYyzF efFqiR"
+      >
+        <div
+          className="sc-hSdWYo dIDeWS"
+          onClick={[Function]}
+        >
+          <svg
+            fill="#ccc"
+            width="48"
+          >
+            add.svg
+          </svg>
+          <span
+            className="sc-gPEVay adunL"
+            fontSize="14px"
+          >
+            Adicionar
+          </span>
+        </div>
+        <div
+          className="sc-eNQAEJ jdVvxi"
+        >
+          <span
+            className="sc-gPEVay jgXUZl"
+            fontSize="14px"
+          >
+            Seguro de Vida
+          </span>
+          <span
+            className="sc-gPEVay cKnvAC"
+            fontSize="11px"
+            fontWeight={600}
+            letterSpacing="1.5px"
+          >
+            VIGENTE ATÉ:
+          </span>
+          <span
+            className="sc-gPEVay eLCYJS"
+            fontSize="14px"
+          >
+            04/08/2018
+          </span>
+        </div>
+      </nav>
+      <article
+        className="sc-kkGfuU dDZNmi"
+      >
+        <h4
+          className="sc-eHgmQL jgXQjn"
+        >
+          Seguro de Vida
+        </h4>
+        <div
+          className="slick-slider sc-cvbbAY brYUEo slick-initialized"
+        >
+          
+          <div
+            className="slick-list"
+          >
+            <div
+              className="slick-track"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              style={
+                Object {
+                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                  "WebkitTransition": "",
+                  "msTransform": "translateX(0px)",
+                  "opacity": 1,
+                  "transform": "translate3d(0px, 0px, 0px)",
+                  "transition": "",
+                }
+              }
+            >
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active slick-current"
+                data-index={0}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="sc-jWBwVP broHKs"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
+                  >
+                    <svg
+                      fill="#3dacff"
+                      width="28"
+                    >
+                      boy.svg
+                    </svg>
+                    <div>
+                      <p
+                        className="sc-brqgnP bNUCXq"
+                      >
+                        segurado
+                      </p>
+                      <span
+                        className="sc-cMljjf jcupv"
+                      >
+                        Julia da Silva
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active"
+                data-index={1}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="sc-jWBwVP broHKs"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
+                  >
+                    <svg
+                      fill="#3dacff"
+                      width="28"
+                    >
+                      billing.svg
+                    </svg>
+                    <div>
+                      <p
+                        className="sc-brqgnP bNUCXq"
+                      >
+                        12 parcelas de:
+                      </p>
+                      <span
+                        className="sc-cMljjf jcupv"
+                      >
+                        R$ 310,00
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active"
+                data-index={2}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="sc-jWBwVP broHKs"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
+                  >
+                    <svg
+                      fill="#3dacff"
+                      width="28"
+                    >
+                      person-group.svg
+                    </svg>
+                    <div>
+                      <p
+                        className="sc-brqgnP bNUCXq"
+                      >
+                        Coberturas adicionais
+                      </p>
+                      <span
+                        className="sc-cMljjf jcupv"
+                      >
+                        VER TODAS
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <article
+          className="sc-jAaTju bHZhYL"
+        >
+          <div
+            className="sc-iRbamj gPDjvM"
+          >
+            <span
+              className="sc-gPEVay dyhBrB"
+              fontSize="18px"
+            >
+              Cobertura Principal
+            </span>
+            <div
+              className="sc-jlyJG kmZXzZ"
+            >
+              <span
+                className="sc-gPEVay DItvd"
+              >
+                Morte Acidental
+              </span>
+              <span
+                className="sc-gPEVay DItvd"
+              >
+                R$ 35.000,00
+              </span>
+            </div>
+          </div>
+        </article>
+        <article
+          className="sc-jAaTju bHZhYL"
+        >
+          <div
+            className="sc-iRbamj gPDjvM"
+          >
+            <span
+              className="sc-gPEVay dyhBrB"
+              fontSize="18px"
+            >
+              Beneficiários
+            </span>
+            <table
+              className="sc-jDwBTQ dYVnzO"
+            >
+              <thead>
+                <tr>
+                  <th
+                    align="center"
+                  >
+                    NOME
+                  </th>
+                  <th
+                    align="center"
+                  >
+                    DIVISÃO PERCENTUAL
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    align="center"
+                  >
+                    João Mariano
+                  </td>
+                  <td
+                    align="center"
+                  >
+                    35%
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    align="center"
+                  >
+                    Maria Joana
+                  </td>
+                  <td
+                    align="center"
+                  >
+                    65%
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </article>
+    </div>
+  </section>,
+  <section
+    className="sc-fjdhpX eWceTn"
+  >
+    <div
+      className="sc-jzJRlG hinpjZ"
+    >
+      <h1
+        className="sc-cSHVUG wHIpt"
+      >
+        Futuro protegido.
+      </h1>
+      <p
+        className="sc-kAzzGY gqyMro"
+      >
+        Com o Conquista, é fácil encontrar o plano ideal para você.
+        <br />
+        <br />
+        Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
+ de Vida da Porto Seguro.
+      </p>
+      <br />
+      <br />
+      <button
+        className="sc-jTzLTM jaGeYF"
+        color="secondary"
+      >
+        Simular e contratar
+      </button>
+    </div>
+  </section>,
+  <section
+    className="sc-gZMcBi gKyxfO"
+  >
+    <h1
+      className="sc-gqjmRU kMcdqL"
+    >
+      Saiba mais:
+    </h1>
+    <div
+      className="slick-slider sc-VigVT fViOIK slick-initialized"
+    >
+      
+      <div
+        className="slick-list"
+      >
+        <div
+          className="slick-track"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "WebkitTransform": "translate3d(0px, 0px, 0px)",
+              "WebkitTransition": "",
+              "msTransform": "translateX(0px)",
+              "opacity": 1,
+              "transform": "translate3d(0px, 0px, 0px)",
+              "transition": "",
+            }
+          }
+        >
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active slick-current"
+            data-index={0}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-EHOje lesLjw"
+              >
+                <div
+                  className="sc-bZQynM fkBOCF"
+                >
+                  <img
+                    className="sc-iwsKbI AGuCL"
+                    src={null}
+                  />
+                </div>
+                <div
+                  className="sc-dnqmqq jliBYR"
+                >
+                  <p
+                    className="sc-gzVnrw jmJbLu"
+                  >
+                    Seguro como renda proteção
+                  </p>
+                  <p
+                    className="sc-htoDjs kbOwZQ"
+                  >
+                    O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um estilo de vida de qualidade aos seus entes queridos, caso você falte um dia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active"
+            data-index={1}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-EHOje lesLjw"
+              >
+                <div
+                  className="sc-bZQynM fkBOCF"
+                >
+                  <img
+                    className="sc-iwsKbI AGuCL"
+                    src={null}
+                  />
+                </div>
+                <div
+                  className="sc-dnqmqq jliBYR"
+                >
+                  <p
+                    className="sc-gzVnrw jmJbLu"
+                  >
+                    Coberturas não relacionadas à morte
+                  </p>
+                  <p
+                    className="sc-htoDjs kbOwZQ"
+                  >
+                    O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em alguns casos de doenças graves, incapacidade temporária total ou parcial por acidentes, entre outros.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active"
+            data-index={2}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-EHOje lesLjw"
+              >
+                <div
+                  className="sc-bZQynM fkBOCF"
+                >
+                  <img
+                    className="sc-iwsKbI AGuCL"
+                    src={null}
+                  />
+                </div>
+                <div
+                  className="sc-dnqmqq jliBYR"
+                >
+                  <p
+                    className="sc-gzVnrw jmJbLu"
+                  >
+                    Seguro para profissionais
+                  </p>
+                  <p
+                    className="sc-htoDjs kbOwZQ"
+                  >
+                    A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho e para cobrir despesas médicas hospitalares e odontológicas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>,
+  <section
+    className="sc-chPdSV gVaQNK"
+  >
+    <div
+      className="sc-kgoBCf juJXRE"
+    >
+      <div>
+        <svg
+          className="sc-kGXeez laOOnE"
+          fill="#777"
+          height="24px"
+        >
+          pdf.svg
+        </svg>
+      </div>
+      <div>
+        <p
+          className="sc-kpOJdX fgntpB"
+        >
+          Condições Gerais
+        </p>
+        <p
+          className="sc-dxgOiQ eQbFOZ"
+        >
+          Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro de Vida da Porto Seguro.
+        </p>
+        <p
+          className="sc-ckVGcZ hCSLsb"
+        >
+          Baixar Arquivo
+           &gt; 
+        </p>
+      </div>
+    </div>
+  </section>,
+  <section
+    className="sc-gipzik ikxtpt"
+  >
+    <span
+      className="sc-gPEVay DItvd"
+    >
+      Acesse a Área do Cliente para conferir todos os detalhes sobre os produtos da Porto Seguro.
+    </span>
+    <button
+      className="sc-jTzLTM bVGfgx"
+    >
+      ACeSSAR
+    </button>
+  </section>,
+]
+`;
