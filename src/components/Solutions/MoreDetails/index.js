@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { defaultSettings } from '../../Carousel'
 import CarouselItem from './CarouselCard/index'
 import { CarouselWrapper, TitleHeader, Carousel } from './styles'
@@ -46,4 +48,15 @@ const MoreDetails = ({ title, data }) => {
   )
 }
 
+MoreDetails.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      img: PropTypes.string,
+      imgTitle: PropTypes.string,
+      imgDescription: PropTypes.string,
+      imgPath: PropTypes.string,
+    })
+  ).isRequired,
+}
 export default MoreDetails

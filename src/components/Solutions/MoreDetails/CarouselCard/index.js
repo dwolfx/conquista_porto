@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+
 import {
   CarouselCardWrapper,
   IconWrapper,
@@ -36,6 +38,13 @@ const CarouselCard = ({ img, imgTitle, imgDescription, imgPath }) => {
       </TextWrapper>
     </CarouselCardWrapper>
   )
+}
+
+CarouselCard.propTypes = {
+  img: PropTypes.string.isRequired,
+  imgTitle: PropTypes.string.isRequired,
+  imgDescription: PropTypes.string.isRequired,
+  imgPath: PropTypes.string.isRequired,
 }
 
 export default CarouselCard

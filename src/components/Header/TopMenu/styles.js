@@ -21,8 +21,8 @@ export const MainContainer = styled.header`
 
 export const Container = styled.div`
   display: flex;
-  width: 1200px;
-  margin: 0 auto;
+  /* width: 1200px; */
+  margin: 0 50px;
   height: auto;
   justify-content: center;
   align-items: center;
@@ -35,6 +35,7 @@ export const Container = styled.div`
     padding: 15px 0;
   }
   @media (max-width: 768px) {
+    margin: 0;
     width: 100%;
   }
 `
@@ -51,6 +52,10 @@ export const Wrapper = styled.div`
   align-self: ${props => props.alignSelf};
   border-bottom: ${props => props.borderBottom};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
+`
+export const LogoLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `
 export const RelativeParent = styled.div`
   position: relative;

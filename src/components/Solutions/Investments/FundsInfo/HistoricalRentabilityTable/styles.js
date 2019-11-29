@@ -17,6 +17,10 @@ export const Title = styled.h5`
   letter-spacing: 1.5px;
   padding-bottom: 15px;
 `
+export const TableWrapper = styled.div`
+  overflow: auto;
+  width: 100%;
+`
 export const Table = styled.table`
   display: table;
   table-layout: fixed;

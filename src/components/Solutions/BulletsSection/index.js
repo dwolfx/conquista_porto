@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {
   Container,
@@ -33,4 +34,16 @@ export default function BulletsSection({
       </Content>
     </Container>
   )
+}
+
+BulletsSection.propTypes = {
+  imageURL: PropTypes.string.isRequired,
+  imageDescription: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  observation: PropTypes.string,
+}
+BulletsSection.defaultProps = {
+  imageDescription: '',
+  observation: '',
 }
