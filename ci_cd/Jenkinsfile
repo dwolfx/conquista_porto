@@ -15,8 +15,8 @@ pipeline {
         }
       }
 
-      stage('Test and Build') {
-        parallel {
+//      stage('Test and Build') {
+//        parallel {
           stage('Run Tests') {
             steps {
               sh 'yarn run test'
@@ -27,8 +27,8 @@ pipeline {
               sh 'yarn run build'
             }
           }
-        }
-      }
+//        }
+//      }
 
       stage('Deployment') {
         parallel {
