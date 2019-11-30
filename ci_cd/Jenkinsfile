@@ -15,20 +15,20 @@ pipeline {
         }
       }
 
-      stage('Test and Build') {
+/*      stage('Test and Build') {
         parallel {
           stage('Run Tests') {
             steps {
               sh 'yarn run test'
             }
           }
-          stage('Create Build Artifacts') {
+*/          stage('Create Build Artifacts') {
             steps {
               sh 'yarn run build'
             }
           }
-        }
-      }
+//        }
+//      }
 
       stage('Deployment') {
         parallel {
