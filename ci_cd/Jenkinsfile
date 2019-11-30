@@ -33,9 +33,9 @@ pipeline {
     stage('Deployment') {
       parallel {
         stage('develop') {
-          when {
-            branch 'develop'
-          }
+//          when {
+//           branch 'develop'
+//         }
           steps {
             withAWS(region:'us-east-2',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-sciensa', path:'**/*')
