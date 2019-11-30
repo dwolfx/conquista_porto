@@ -41,7 +41,7 @@ pipeline {
               s3Delete(bucket: 'conquista-sciensa', path:'**/*')
               s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*');
             }
-            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+//            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
         }
 //        stage('Production') {
