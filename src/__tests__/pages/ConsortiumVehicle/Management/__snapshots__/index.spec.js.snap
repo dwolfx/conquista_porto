@@ -609,3 +609,611 @@ Array [
   </section>,
 ]
 `;
+
+exports[`ManagementConsortiumVehicle renders correctly 1`] = `
+Array [
+  <section
+    className="sc-hMqMXs bIAJsD"
+  >
+    <div
+      className="sc-eHgmQL NvZvz"
+    >
+      <small
+        className="sc-htpNat bNVkrq"
+      >
+        Soluções
+         »
+      </small>
+      <strong
+        className="sc-bxivhb cIoSxP"
+      >
+        consórcio de VEÍCULO
+      </strong>
+    </div>
+    <div
+      className="sc-kkGfuU bYmFUn"
+    >
+      <nav
+        className="sc-iAyFgw kFtLmU"
+      >
+        <div
+          className="sc-cvbbAY kNSsCG"
+          onClick={[Function]}
+        >
+          <svg
+            fill="#ccc"
+            width="48"
+          >
+            add.svg
+          </svg>
+          <span
+            className="sc-gipzik bgKkJw"
+            fontSize="14px"
+          >
+            Adicionar
+          </span>
+        </div>
+        <div
+          className="sc-kEYyzF kqtRGP"
+        >
+          <span
+            className="sc-gipzik gCxpjX"
+            fontSize="14px"
+          >
+            Contrato 1
+          </span>
+          <span
+            className="sc-gipzik iyzGYR"
+            fontSize="11px"
+            fontWeight={600}
+            letterSpacing="1.5px"
+          >
+            STATUS
+          </span>
+          <span
+            className="sc-gipzik hfUqHZ"
+            fontSize="14px"
+          >
+            Contemplado
+          </span>
+        </div>
+      </nav>
+      <article
+        className="sc-hSdWYo hShpdI"
+      >
+        <h4
+          className="sc-jWBwVP fCFswy"
+        >
+          Contrato 1
+        </h4>
+        <div
+          className="slick-slider sc-brqgnP gmtmTr slick-initialized"
+        >
+          
+          <div
+            className="slick-list"
+          >
+            <div
+              className="slick-track"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              style={
+                Object {
+                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                  "WebkitTransition": "",
+                  "msTransform": "translateX(0px)",
+                  "opacity": 1,
+                  "transform": "translate3d(0px, 0px, 0px)",
+                  "transition": "",
+                }
+              }
+            >
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active slick-current"
+                data-index={0}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="sc-cMljjf kFYGNO"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
+                  >
+                    <svg
+                      fill="#3dacff"
+                      width="28"
+                    >
+                      computer-secure.svg
+                    </svg>
+                    <div>
+                      <p
+                        className="sc-jAaTju hjDPJD"
+                      >
+                        Cota
+                      </p>
+                      <span
+                        className="sc-jDwBTQ cPrKVu"
+                      >
+                        999
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active"
+                data-index={1}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="sc-cMljjf kFYGNO"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
+                  >
+                    <svg
+                      fill="#3dacff"
+                      width="28"
+                    >
+                      person-group2.svg
+                    </svg>
+                    <div>
+                      <p
+                        className="sc-jAaTju hjDPJD"
+                      >
+                        grupo
+                      </p>
+                      <span
+                        className="sc-jDwBTQ cPrKVu"
+                      >
+                        x999
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active"
+                data-index={2}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="sc-cMljjf kFYGNO"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
+                  >
+                    <svg
+                      fill="#3dacff"
+                      width="28"
+                    >
+                      coin.svg
+                    </svg>
+                    <div>
+                      <p
+                        className="sc-jAaTju hjDPJD"
+                      >
+                        Crédito contratado
+                      </p>
+                      <span
+                        className="sc-jDwBTQ cPrKVu"
+                      >
+                        R$ 99.999,99
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <article
+          className="sc-gPEVay bFYWDJ"
+        >
+          <div
+            className="sc-iRbamj dUBhmT"
+          >
+            <div
+              className="sc-jlyJG dAgDnI"
+            >
+              <span
+                className="sc-gipzik huEeXk"
+                fontSize="22px"
+              >
+                Valor para quitação
+              </span>
+              <span
+                className="sc-gipzik kWEmxP"
+              >
+                R$ 99.999,95
+              </span>
+            </div>
+            <div
+              className="sc-jlyJG dAgDnI"
+            >
+              <span
+                className="sc-gipzik huEeXk"
+                fontSize="22px"
+              >
+                Valor da parcela atual
+              </span>
+              <span
+                className="sc-gipzik kWEmxP"
+              >
+                R$ 99.999,00
+              </span>
+            </div>
+          </div>
+          <div
+            className="sc-csuQGl csnbKR"
+          >
+            <span
+              className="sc-gipzik gpJUoF"
+              fontSize="18px"
+            >
+              Evolução do pagamento
+            </span>
+            <div
+              className="sc-bdVaJa hxhyXm"
+              max={12}
+              width="70%"
+            >
+              <div>
+                <span>
+                  75
+                  %
+                </span>
+              </div>
+              <div>
+                <span>
+                  0
+                </span>
+                <span>
+                  12
+                   
+                  <span
+                    className="sc-bwzfXH fxjqSh"
+                  >
+                    parcelas
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </article>
+    </div>
+  </section>,
+  <section
+    className="sc-cSHVUG wChhO"
+  >
+    <div
+      className="sc-kAzzGY bUKOwD"
+    >
+      <h1
+        className="sc-chPdSV eKdbAS"
+      >
+        Parcelas que cabem no seu bolso.
+      </h1>
+      <p
+        className="sc-kgoBCf gLOTaC"
+      >
+        Com o Conquista, você planeja a compra do seu carro novo ou seminovo.
+        <br />
+        <br />
+        Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses.
+      </p>
+      <br />
+      <br />
+      <button
+        className="sc-jzJRlG JTyhA"
+        color="secondary"
+      >
+        SIMULAR E CONTRATAR
+      </button>
+    </div>
+  </section>,
+  <section
+    className="sc-VigVT WiHLX"
+  >
+    <h1
+      className="sc-jTzLTM brvQrh"
+    >
+      SAIBA MAIS:
+    </h1>
+    <div
+      className="slick-slider sc-fjdhpX KpkRb slick-initialized"
+    >
+      
+      <div
+        className="slick-list"
+      >
+        <div
+          className="slick-track"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "WebkitTransform": "translate3d(0px, 0px, 0px)",
+              "WebkitTransition": "",
+              "msTransform": "translateX(0px)",
+              "opacity": 1,
+              "transform": "translate3d(0px, 0px, 0px)",
+              "transition": "",
+            }
+          }
+        >
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active slick-current"
+            data-index={0}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-gzVnrw huDMoQ"
+              >
+                <div
+                  className="sc-htoDjs kBCzBK"
+                >
+                  <img
+                    className="sc-gqjmRU gCphXb"
+                    src={null}
+                  />
+                </div>
+                <div
+                  className="sc-gZMcBi eFghLr"
+                >
+                  <p
+                    className="sc-dnqmqq hYDrOB"
+                  >
+                    Tente um lance
+                  </p>
+                  <p
+                    className="sc-iwsKbI iQJoQn"
+                  >
+                    Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active"
+            data-index={1}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-gzVnrw huDMoQ"
+              >
+                <div
+                  className="sc-htoDjs kBCzBK"
+                >
+                  <img
+                    className="sc-gqjmRU gCphXb"
+                    src={null}
+                  />
+                </div>
+                <div
+                  className="sc-gZMcBi eFghLr"
+                >
+                  <p
+                    className="sc-dnqmqq hYDrOB"
+                  >
+                    Valor do consórcio como parte do lance
+                  </p>
+                  <p
+                    className="sc-iwsKbI iQJoQn"
+                  >
+                    Para conseguir dar um lance mais alto e aumentar suas chances de ser contemplado, você pode usar parte do valor do consórcio como complemento ao que foi ofertado. Cada consórcio tem suas regras, basta se informar sobre a existência desse benefício.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active"
+            data-index={2}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="sc-gzVnrw huDMoQ"
+              >
+                <div
+                  className="sc-htoDjs kBCzBK"
+                >
+                  <img
+                    className="sc-gqjmRU gCphXb"
+                    src={null}
+                  />
+                </div>
+                <div
+                  className="sc-gZMcBi eFghLr"
+                >
+                  <p
+                    className="sc-dnqmqq hYDrOB"
+                  >
+                    Escolha qualquer veículo
+                  </p>
+                  <p
+                    className="sc-iwsKbI iQJoQn"
+                  >
+                    Ao fazer um consórcio, será utilizado um veículo específico como referência. No entanto, como o valor obtido com o consórcio é em dinheiro, você pode usá-lo para adquirir qualquer outro veículo sem restrição de modelo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>,
+  <section
+    className="sc-kGXeez kByNSW"
+  >
+    <div
+      className="sc-kpOJdX diAuDG"
+    >
+      <div>
+        <svg
+          className="sc-dxgOiQ kRAgnV"
+          fill="#777"
+          height="24px"
+        >
+          pdf.svg
+        </svg>
+      </div>
+      <div>
+        <p
+          className="sc-ckVGcZ jkroRm"
+        >
+          SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC
+        </p>
+        <p
+          className="sc-jKJlTe iMlBsI"
+        >
+          Aqui, você tem mais informações legais sobre consórcio.
+        </p>
+        <p
+          className="sc-eNQAEJ hgnWTp"
+        >
+          BAIXAR ARQUIVO
+           &gt; 
+        </p>
+      </div>
+    </div>
+    <div
+      className="sc-kpOJdX diAuDG"
+    >
+      <div>
+        <svg
+          className="sc-dxgOiQ kRAgnV"
+          fill="#777"
+          height="24px"
+        >
+          pdf.svg
+        </svg>
+      </div>
+      <div>
+        <p
+          className="sc-ckVGcZ jkroRm"
+        >
+          CONDIÇÕES GERAIS
+        </p>
+        <p
+          className="sc-jKJlTe iMlBsI"
+        >
+          Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
+        </p>
+        <p
+          className="sc-eNQAEJ hgnWTp"
+        >
+          BAIXAR ARQUIVO
+           &gt; 
+        </p>
+      </div>
+    </div>
+    <div
+      className="sc-kpOJdX diAuDG"
+    >
+      <div>
+        <svg
+          className="sc-dxgOiQ kRAgnV"
+          fill="#777"
+          height="24px"
+        >
+          pdf.svg
+        </svg>
+      </div>
+      <div>
+        <p
+          className="sc-ckVGcZ jkroRm"
+        >
+          TABELA DE TARIFAS
+        </p>
+        <p
+          className="sc-jKJlTe iMlBsI"
+        >
+          Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
+        </p>
+        <p
+          className="sc-eNQAEJ hgnWTp"
+        >
+          BAIXAR ARQUIVO
+           &gt; 
+        </p>
+      </div>
+    </div>
+  </section>,
+]
+`;

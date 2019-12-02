@@ -39,7 +39,7 @@ pipeline {
           steps {
             withAWS(region:'us-east-2',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-sciensa', path:'**/*')
-              s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*');
+              s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
