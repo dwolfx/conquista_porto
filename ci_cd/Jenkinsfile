@@ -15,37 +15,51 @@ pipeline {
         }
       }
 
-      stage('Test and Build') {
-        parallel {
-          stage('Run Tests') {
-            steps {
-              sh 'yarn run test'
-            }
-          }
+//      stage('Test and Build') {
+//       parallel {
+//          stage('Run Tests') {
+//            steps {
+//              sh 'yarn run test'
+//            }
+//          }
           stage('Create Build Artifacts') {
             steps {
               sh 'yarn run build'
             }
           }
-        }
-      }
+//        }
+//      }
 
-      stage('Deployment') {
-        parallel {
-          stage('Develop') {
-            when {
-              branch 'develop'
+    stage('Deployment') {
+      parallel {
+        stage('develop') {
+//          when {
+//           branch 'develop'
+//         }
+          steps {
+            withAWS(region:'us-east-2',credentials:'s3-conquista') {
+              s3Delete(bucket: 'conquista-sciensa', path:'**/*')
+              s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*');
             }
-            steps {
-              withAWS(region: 'us-east-2', credentials: 's3-conquista-sciensa') {
-                s3Delete(bucket: 'conquista-sciensa', path: '**/*')
-                s3Upload(bucket: 'conquista-sciensa', workingDir: 'build', includePathPattern: '**/*');
-              }
-              mail(subject: 'Staging Build', body: 'New Deployment to Develop', to: 'matheus.brito@integrast.com.br')
-            }
+//            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
-
         }
+//        stage('Production') {
+//          when {
+//            branch 'master'
+//          }
+//          steps {
+//            withAWS(region:'<your-bucket-region>',credentials:'<AWS-Production-Jenkins-Credential-ID>') {
+//              s3Delete(bucket: '<bucket-name>', path:'**/*')
+//              s3Upload(bucket: '<bucket-name>', workingDir:'build', includePathPattern:'**/*');
+//            }
+//            mail(subject: 'Production Build', body: 'New Deployment to Production', to: 'jenkins-mailing-list@mail.com')
+//          }
+//        }
       }
+
+
+
+    }
   }
 }
