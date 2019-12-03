@@ -94,7 +94,7 @@ pipeline {
               s3Delete(bucket: 'conquista-frontend-dev', path:'**/*')
               s3Upload(bucket: 'conquista-frontend-dev', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
-              slackSend (color: 'success', message: "[ SUCESSO ] Deploy aplicado com sucesso!\n\n ${BUILD_NUMBER} \n\n${BUILD_ID} \n\n${BUILD_URL} \n\n${JOB_NAME} \n\n${BUILD_TAG} \n\n${JENKINS_URL} \n\n${EXECUTOR_NUMBER}", tokenCredentialId: 'slack-token')
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
         }
@@ -108,6 +108,7 @@ pipeline {
               s3Delete(bucket: 'conquista-frontend-qa', path:'**/*')
               s3Upload(bucket: 'conquista-frontend-qa', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
         }
@@ -121,6 +122,7 @@ pipeline {
               s3Delete(bucket: 'conquista-frontend-prod', path:'**/*')
               s3Upload(bucket: 'conquista-frontend-prod', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
         }
