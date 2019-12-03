@@ -94,6 +94,7 @@ pipeline {
               s3Delete(bucket: 'conquista-frontend-dev', path:'**/*')
               s3Upload(bucket: 'conquista-frontend-dev', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
+              slackSend (color: 'success', message: "[ SUCESSO ] Deploy aplicado com sucesso no ambiente de Desenvolvimento!", tokenCredentialId: 'slack-token')
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
         }
