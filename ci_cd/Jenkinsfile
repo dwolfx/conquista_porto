@@ -21,7 +21,7 @@ pipeline {
                 sh "git config user.email 'devops@soaexpert.com.br'"
               }
             } catch (Exception e) {
-              slackSend (color: 'error', message: "[ FALHA ] Falha no checkout, rever credenciais! - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              slackSend (color: 'error', message: "[ FALHA ] Falha no checkout, rever parâmetros! - ${BUILD_URL}", tokenCredentialId: 'slack-token')
               sh "echo $e"
               currentBuild.result = 'ABORTED'
               error('Erro')
