@@ -57,19 +57,19 @@ pipeline {
             }
           }
         }
-      }
-*/
-      stage('Create Build Artifacts') {
-        steps {
-          script {
-            try {
-              sh 'yarn run build'
-            } catch (Exception e) {
-              slackSend (color: 'error', message: "[ FALHA ] Erro no build da aplicação!\n ${BUILD_URL}", tokenCredentialId: 'slack-token')
-              sh "echo $e"
-              currentBuild.result = 'ABORTED'
-              error('Erro')
-            }
+      }*/
+
+    stage('Create Build Artifacts') {
+      steps {
+        script {
+          try {
+            sh 'yarn run build'
+          } catch (Exception e) {
+            slackSend (color: 'error', message: "[ FALHA ] Erro no build da aplicação!\n ${BUILD_URL}", tokenCredentialId: 'slack-token')
+            sh "echo $e"
+            currentBuild.result = 'ABORTED'
+            error('Erro')
+          }
         }
       }
     }
