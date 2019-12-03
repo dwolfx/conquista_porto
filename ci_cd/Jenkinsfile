@@ -90,7 +90,7 @@ pipeline {
            branch 'develop'
          }
           steps {
-            withAWS(region:'us-east-2',credentials:'s3-conquista') {
+            withAWS(region:'us-east-1',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-frontend-dev', path:'**/*')
               s3Upload(bucket: 'conquista-frontend-dev', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
@@ -103,7 +103,7 @@ pipeline {
            branch 'qa'
          }
           steps {
-            withAWS(region:'us-east-2',credentials:'s3-conquista') {
+            withAWS(region:'us-east-1',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-frontend-qa', path:'**/*')
               s3Upload(bucket: 'conquista-frontend-qa', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
@@ -116,7 +116,7 @@ pipeline {
             branch 'master'
          }
           steps {
-            withAWS(region:'us-east-2',credentials:'s3-conquista') {
+            withAWS(region:'us-east-1',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-frontend-master', path:'**/*')
               s3Upload(bucket: 'conquista-frontend-master', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
