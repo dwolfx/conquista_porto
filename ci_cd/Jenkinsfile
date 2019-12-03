@@ -85,34 +85,45 @@ pipeline {
 
     stage('Deployment') {
       parallel {
-        stage('develop') {
+        stage('Develop') {
           when {
            branch 'develop'
          }
           steps {
             withAWS(region:'us-east-2',credentials:'s3-conquista') {
-              s3Delete(bucket: 'conquista-sciensa', path:'**/*')
-              s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+              s3Delete(bucket: 'conquista-frontend-dev', path:'**/*')
+              s3Upload(bucket: 'conquista-frontend-dev', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
         }
-//        stage('Production') {
-//          when {
-//            branch 'master'
-//          }
-//          steps {
-//            withAWS(region:'<your-bucket-region>',credentials:'<AWS-Production-Jenkins-Credential-ID>') {
-//              s3Delete(bucket: '<bucket-name>', path:'**/*')
-//              s3Upload(bucket: '<bucket-name>', workingDir:'build', includePathPattern:'**/*');
-//            }
-//            mail(subject: 'Production Build', body: 'New Deployment to Production', to: 'jenkins-mailing-list@mail.com')
-//          }
-//        }
+
+        stage('QA') {
+          when {
+           branch 'qa'
+         }
+          steps {
+            withAWS(region:'us-east-2',credentials:'s3-conquista') {
+              s3Delete(bucket: 'conquista-frontend-qa', path:'**/*')
+              s3Upload(bucket: 'conquista-frontend-qa', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+            }
+//            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+          }
+        }
+
+        stage('Production') {
+          when {
+            branch 'master'
+         }
+          steps {
+            withAWS(region:'us-east-2',credentials:'s3-conquista') {
+              s3Delete(bucket: 'conquista-frontend-master', path:'**/*')
+              s3Upload(bucket: 'conquista-frontend-master', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+            }
+//            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+          }
+        }
       }
-
-
-
     }
   }
 }
