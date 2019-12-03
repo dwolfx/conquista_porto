@@ -6,6 +6,20 @@ pipeline {
     tools { nodejs "node"}
 
     stages {
+      stage('Checkout') {
+        steps{
+            dir('app') {
+                retry(2) {
+                    git branch: "${BRANCH_NAME}",
+                      credentialsId: "devops",
+                      url: "${GIT_URL}"
+                }
+
+                sh "git config user.name  'Devops Jenkins'"
+                sh "git config user.email 'devops@soaexpert.com.br'"
+            }
+        }
+      }
 
       stage('Install Packages') {
         steps {
