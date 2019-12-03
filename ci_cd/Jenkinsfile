@@ -20,7 +20,7 @@ pipeline {
                 sh "git config user.name  'Devops Jenkins'"
                 sh "git config user.email 'devops@soaexpert.com.br1'"
               }
-            } catch {
+            } catch (Exception e) {
               slackSend (color: 'error', message: "[ FALHA ] Falha no checkout, rever credencial! - ${BUILD_URL}", tokenCredentialId: 'slack-token')
               sh "echo $e"
               currentBuild.result = 'ABORTED'
