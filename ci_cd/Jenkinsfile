@@ -35,7 +35,7 @@ pipeline {
                 try {
                   sh "node -v"
                   sh "npm install -g yarn"
-                  sh 'yarn install'
+                  sh 'yarn installl'
                 } catch (Exception e) {
                     slackSend (color: 'error', message: "[ FALHA ] Não foi possivel instalar as dependências - ${BUILD_URL}", tokenCredentialId: 'slack-token')
                     sh "echo $e"
