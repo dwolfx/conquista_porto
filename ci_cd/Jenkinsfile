@@ -8,16 +8,25 @@ pipeline {
     stages {
       stage('Checkout') {
         steps{
-            dir('app') {
+          script {
+            try {
+              dir('app') {
                 retry(2) {
-                    git branch: "${BRANCH_NAME}",
-                      credentialsId: "devops",
-                      url: "${GIT_URL}"
+                  git branch: "${BRANCH_NAME}",
+                    credentialsId: "devops",
+                    url: "${GIT_URL}"
                 }
 
                 sh "git config user.name  'Devops Jenkins'"
-                sh "git config user.email 'devops@soaexpert.com.br'"
+                sh "git config user.email 'devops@soaexpert.com.br1'"
+              }
+            } catch {
+              slackSend (color: 'error', message: "[ FALHA ] Falha no checkout, rever credencial! - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              sh "echo $e"
+              currentBuild.result = 'ABORTED'
+              error('Erro')
             }
+          }
         }
       }
 
@@ -77,9 +86,9 @@ pipeline {
     stage('Deployment') {
       parallel {
         stage('develop') {
-//          when {
-//           branch 'develop'
-//         }
+          when {
+           branch 'develop'
+         }
           steps {
             withAWS(region:'us-east-2',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-sciensa', path:'**/*')
