@@ -2,7 +2,7 @@
 
 exports[`FileDownloadSection renders correctly 1`] = `
 <section
-  className="sc-bdVaJa hHuRVR"
+  className="sc-bdVaJa bFDApJ"
 >
   <div
     className="sc-bwzfXH bkdjZE"

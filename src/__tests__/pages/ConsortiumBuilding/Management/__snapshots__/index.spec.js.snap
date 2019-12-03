@@ -288,7 +288,6 @@ Array [
             <div
               className="sc-bdVaJa dqbMnW"
               max={12}
-              min={0}
               width="70%"
             >
               <div>
@@ -334,8 +333,7 @@ Array [
         O Conquista acompanha você na realização do sonho do imóvel próprio.
         <br />
         <br />
-        Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e
- crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses.
+        Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses.
       </p>
       <br />
       <br />
@@ -511,7 +509,7 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-kGXeez ZQYjS"
+    className="sc-kGXeez kByNSW"
   >
     <div
       className="sc-kpOJdX diAuDG"
