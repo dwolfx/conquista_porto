@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import Header from '../components/Header'
-import StepsBullet from '../components/StepsBullet'
+import Header from 'components/Wizard/Header'
+import StepsBullet from 'components/Wizard/StepsBullet'
 import { Container } from '../styles'
 
 import StepOne from './Steps/StepOne'
