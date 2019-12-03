@@ -117,8 +117,8 @@ pipeline {
          }
           steps {
             withAWS(region:'us-east-1',credentials:'s3-conquista') {
-              s3Delete(bucket: 'conquista-frontend-master', path:'**/*')
-              s3Upload(bucket: 'conquista-frontend-master', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+              s3Delete(bucket: 'conquista-frontend-prod', path:'**/*')
+              s3Upload(bucket: 'conquista-frontend-prod', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
