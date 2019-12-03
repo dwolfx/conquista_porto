@@ -22,11 +22,46 @@ pipeline {
       }
 
       stage('Install Packages') {
+ //       steps {
+ //         sh "node -v"
+ //         sh "npm install -g yarn"
+ //         sh 'yarn install'
+ //       }
+
+
+
         steps {
-          sh "node -v"
-          sh "npm install -g yarn"
-          sh 'yarn install'
+            script {
+                try {
+                  sh "node -v"
+                  sh "npm install -g yarn"
+                  sh 'yarn install'
+                } catch (Exception e) {
+                    slackSend (color: 'error', message: "[ FALHA ] Não foi possivel instalar as dependências - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+                    sh "echo $e"
+                    currentBuild.result = 'ABORTED'
+                    error('Erro')
+                }
+            }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       }
 
 //      stage('Test and Build') {
