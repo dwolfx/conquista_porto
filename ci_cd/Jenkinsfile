@@ -87,7 +87,7 @@ pipeline {
       parallel {
         stage('Develop') {
           when {
-           branch 'develop'
+           branch 'feature/pipeline'
          }
           steps {
             withAWS(region:'us-east-1',credentials:'s3-conquista') {
