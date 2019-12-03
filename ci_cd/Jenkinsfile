@@ -23,47 +23,55 @@ pipeline {
 
       stage('Install Packages') {
         steps {
-            script {
-                try {
-                  sh "node -v"
-                  sh "npm install -g yarn"
-                  sh 'yarn install'
-                } catch (Exception e) {
-                    slackSend (color: 'error', message: "[ FALHA ] Não foi possivel instalar as dependências - ${BUILD_URL}", tokenCredentialId: 'slack-token')
-                    sh "echo $e"
-                    currentBuild.result = 'ABORTED'
-                    error('Erro')
-                }
+          script {
+            try {
+              sh "node -v"
+              sh "npm install -g yarn"
+              sh 'yarn install'
+            } catch (Exception e) {
+              slackSend (color: 'error', message: "[ FALHA ] Não foi possivel instalar as dependências - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              sh "echo $e"
+              currentBuild.result = 'ABORTED'
+              error('Erro')
             }
+          }
         }
       }
 
-      stage('Test and Build') {
+/*      stage('Test and Build') {
         steps {
           script {
-              try {
-                parallel {
-                  stage('Run Tests') {
-                    steps {
-                      sh 'yarn run test'
-                    }
+            try {
+              parallel {
+                stage('Run Tests') {
+                  steps {
+                    sh 'yarn run test'
                   }
                 }
-              } catch (Exception e) {
-                slackSend (color: 'error', message: "[ FALHA ] Teste com erro - ${BUILD_URL}", tokenCredentialId: 'slack-token')
-                sh "echo $e"
-                currentBuild.result = 'ABORTED'
-                error('Erro')
               }
+            } catch (Exception e) {
+              slackSend (color: 'error', message: "[ FALHA ] Testes com erro. Revisar a aplicação!\n ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              sh "echo $e"
+              currentBuild.result = 'ABORTED'
+              error('Erro')
+            }
           }
         }
       }
-
-          stage('Create Build Artifacts') {
-            steps {
+*/
+      stage('Create Build Artifacts') {
+        steps {
+          script {
+            try {
               sh 'yarn run build'
+            } catch (Exception e) {
+              slackSend (color: 'error', message: "[ FALHA ] Erro no build da aplicação!\n ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              sh "echo $e"
+              currentBuild.result = 'ABORTED'
+              error('Erro')
             }
-          }
+        }
+      }
 //        }
 //      }
 
