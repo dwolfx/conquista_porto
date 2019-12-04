@@ -117,13 +117,13 @@ pipeline {
           when {
             branch 'master'
           }
-          stage('Notification') {
+          steps('Notification') {
               steps {
                   slackSend (color: 'good', message: "[ SUCESSO ] O novo build esta disponível em: ${JENKINS_URL}", tokenCredentialId: 'slack-token')
               }
           }
 
-          stage ('Approve') {
+          steps ('Approve') {
             steps {
               script {
                 slackSend (color: 'warning', message: "Para aplicar a mudança em produção, acesse [Janela de 10 minutos]: ${JOB_URL}", tokenCredentialId: 'slack-token')
@@ -134,7 +134,7 @@ pipeline {
             }
           }
 
-          stage ('Merge qa with master') {
+          steps ('Merge qa with master') {
             steps {
               script {
                 try {
