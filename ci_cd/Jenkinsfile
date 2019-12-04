@@ -151,13 +151,15 @@ pipeline {
             }
           }
 
-          steps {
-            withAWS(region:'us-east-1',credentials:'s3-conquista') {
-              s3Delete(bucket: 'conquista-frontend-prod', path:'**/*')
-              s3Upload(bucket: 'conquista-frontend-prod', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
-            }
+          stage ('Upload to bucket') {
+            steps {
+              withAWS(region:'us-east-1',credentials:'s3-conquista') {
+                s3Delete(bucket: 'conquista-frontend-prod', path:'**/*')
+                s3Upload(bucket: 'conquista-frontend-prod', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+              }
               slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
-//            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+  //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+            }
           }
         }
       }
