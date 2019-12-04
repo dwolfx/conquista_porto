@@ -88,7 +88,7 @@ pipeline {
         stage('Develop') {
           when {
            branch 'develop'
-         }
+          }
           steps {
             withAWS(region:'us-east-1',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-frontend-dev', path:'**/*')
@@ -102,7 +102,7 @@ pipeline {
         stage('QA') {
           when {
            branch 'qa'
-         }
+          }
           steps {
             withAWS(region:'us-east-1',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-frontend-qa', path:'**/*')
@@ -116,7 +116,40 @@ pipeline {
         stage('Production') {
           when {
             branch 'master'
-         }
+          }
+          stage('Notification') {
+              steps {
+                  slackSend (color: 'good', message: "[ SUCESSO ] O novo build esta disponível em: ${JENKINS_URL}", tokenCredentialId: 'slack-token')
+              }
+          }
+
+          stage ('Approve') {
+            steps {
+              script {
+                slackSend (color: 'warning', message: "Para aplicar a mudança em produção, acesse [Janela de 10 minutos]: ${JOB_URL}", tokenCredentialId: 'slack-token')
+                  timeout(time: 10, unit: 'MINUTES') {
+                    input(id: "Deploy Gate", message: "Deploy em produção?", ok: 'Deploy')
+                  }
+              }
+            }
+          }
+
+          stage ('Merge qa with master') {
+            steps {
+              script {
+                try {
+                  sh "git merge qa"
+                  //build job: 'todo-list-producao', parameters: [[$class: 'StringParameterValue', name: 'image', value: dockerImage]]
+                } catch (Exception e) {
+                  slackSend (color: 'error', message: "[ FALHA ] Não foi possivel subir o container em produca - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+                  sh "echo $e"
+                  currentBuild.result = 'ABORTED'
+                  error('Erro')
+                }
+              }
+            }
+          }
+
           steps {
             withAWS(region:'us-east-1',credentials:'s3-conquista') {
               s3Delete(bucket: 'conquista-frontend-prod', path:'**/*')
