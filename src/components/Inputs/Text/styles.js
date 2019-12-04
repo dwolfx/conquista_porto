@@ -23,13 +23,12 @@ export const InputWrapper = styled.div`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'text')};
   display: flex;
   position: relative;
-  margin-right: ${props => (props.marginRight ? `${props.marginRight}px` : 0)};
-  margin-left: ${props => (props.marginLeft ? `${props.marginLeft}px` : 0)};
-  padding-right: ${props =>
-    props.paddingRight ? `${props.paddingRight}px` : 0};
-  padding-left: ${props => (props.paddingLeft ? `${props.paddingLeft}px` : 0)};
+  margin-right: ${props => `${props.marginRight}px`};
+  margin-left: ${props => `${props.marginLeft}px`};
+  padding-right: ${props => `${props.paddingRight}px`};
+  padding-left: ${props => `${props.paddingLeft}px`};
   pointer-events: ${props => (props.disabled ? 'none' : 'normal')};
-  width: ${props => (props.width ? `${props.width}%` : '100%')};
+  width: ${props => `${props.width}%`};
 
   @media ${breakpoints.mobile} {
     width: 100%;

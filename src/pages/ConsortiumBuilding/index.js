@@ -18,6 +18,7 @@ export default function ConsortiumBuilding() {
         description="O sonho da casa própria sem juros. Para sair do aluguel, quitar um financiamento, aumentar o patrimônio, construir ou reformar, simule e contrate um consórcio com a Porto Seguro."
         buttonText="SIMULAR E CONTRATAR"
         image={Banner}
+        imageDescription="Pai empurrando a filha em um balanço e uma casa ao fundo"
       />
       <BulletsSection
         title="Por que contratar o Consórcio de Imóvel?"

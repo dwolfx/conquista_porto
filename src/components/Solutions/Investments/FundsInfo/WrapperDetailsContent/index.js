@@ -10,7 +10,7 @@ import {
   Text,
 } from './styles'
 
-export default function WrapperDetails({ title, fundsDetail }) {
+export default function WrapperDetailsContent({ title, fundsDetail }) {
   return (
     <Container>
       <Title>{title}</Title>
@@ -58,7 +58,7 @@ export default function WrapperDetails({ title, fundsDetail }) {
   )
 }
 
-WrapperDetails.propTypes = {
+WrapperDetailsContent.propTypes = {
   title: PropTypes.string.isRequired,
   fundsDetail: PropTypes.shape({
     value1: PropTypes.string,
