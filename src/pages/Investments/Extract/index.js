@@ -41,11 +41,7 @@ const InvestmentExtract = () => {
   })
 
   const handleChangeSelect = e => {
-    if (e.target.value === 'other') {
-      setShowDateFilter(true)
-    } else {
-      setShowDateFilter(false)
-    }
+    setShowDateFilter(e.target.value === 'other')
   }
 
   return (

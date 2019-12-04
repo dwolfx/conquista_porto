@@ -11,6 +11,7 @@ export const themeColors = {
   lightDarkSecondary: '#F35600',
   darkSecondary: '#F35600',
   lightGray: '#e6e6e6',
+  white: '#fff',
 }
 
 export default {
