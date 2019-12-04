@@ -6,60 +6,164 @@ pipeline {
     tools { nodejs "node"}
 
     stages {
+      stage('Checkout') {
+        steps{
+          script {
+            try {
+              dir('app') {
+                retry(2) {
+                  git branch: "${BRANCH_NAME}",
+                    credentialsId: "devops",
+                    url: "${GIT_URL}"
+                }
+
+                sh "git config user.name  'Devops Jenkins'"
+                sh "git config user.email 'devops@soaexpert.com.br'"
+              }
+            } catch (Exception e) {
+              slackSend (color: 'error', message: "[ FALHA ] Falha no checkout, rever parâmetros! - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              sh "echo $e"
+              currentBuild.result = 'ABORTED'
+              error('Erro')
+            }
+          }
+        }
+      }
 
       stage('Install Packages') {
         steps {
-          sh "node -v"
-          sh "npm install -g yarn"
-          sh 'yarn install'
+          script {
+            try {
+              sh "node -v"
+              sh "npm install -g yarn"
+              sh 'yarn install'
+            } catch (Exception e) {
+              slackSend (color: 'error', message: "[ FALHA ] Não foi possivel instalar as dependências - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              sh "echo $e"
+              currentBuild.result = 'ABORTED'
+              error('Erro')
+            }
+          }
         }
       }
 
-//      stage('Test and Build') {
-//       parallel {
-//          stage('Run Tests') {
-//            steps {
-//              sh 'yarn run test'
-//            }
-//          }
-          stage('Create Build Artifacts') {
-            steps {
-              sh 'yarn run build'
+/*      stage('Test and Build') {
+        steps {
+          script {
+            try {
+              parallel {
+                stage('Run Tests') {
+                  steps {
+                    sh 'yarn run test'
+                  }
+                }
+              }
+            } catch (Exception e) {
+              slackSend (color: 'error', message: "[ FALHA ] Testes com erro. Revisar a aplicação!\n ${BUILD_URL}", tokenCredentialId: 'slack-token')
+              sh "echo $e"
+              currentBuild.result = 'ABORTED'
+              error('Erro')
             }
           }
-//        }
-//      }
+        }
+      }*/
+
+    stage('Create Build Artifacts') {
+      steps {
+        script {
+          try {
+            sh 'yarn run build'
+          } catch (Exception e) {
+            slackSend (color: 'error', message: "[ FALHA ] Erro no build da aplicação!\n ${BUILD_URL}", tokenCredentialId: 'slack-token')
+            sh "echo $e"
+            currentBuild.result = 'ABORTED'
+            error('Erro')
+          }
+        }
+      }
+    }
 
     stage('Deployment') {
       parallel {
-        stage('develop') {
-//          when {
-//           branch 'develop'
-//         }
+        stage('Develop') {
+          when {
+           branch 'develop'
+          }
           steps {
-            withAWS(region:'us-east-2',credentials:'s3-conquista') {
-              s3Delete(bucket: 'conquista-sciensa', path:'**/*')
-              s3Upload(bucket: 'conquista-sciensa', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+            withAWS(region:'us-east-1',credentials:'s3-conquista') {
+              s3Delete(bucket: 'conquista-frontend-dev', path:'**/*')
+              s3Upload(bucket: 'conquista-frontend-dev', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
             }
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
 //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
           }
         }
-//        stage('Production') {
-//          when {
-//            branch 'master'
-//          }
-//          steps {
-//            withAWS(region:'<your-bucket-region>',credentials:'<AWS-Production-Jenkins-Credential-ID>') {
-//              s3Delete(bucket: '<bucket-name>', path:'**/*')
-//              s3Upload(bucket: '<bucket-name>', workingDir:'build', includePathPattern:'**/*');
-//            }
-//            mail(subject: 'Production Build', body: 'New Deployment to Production', to: 'jenkins-mailing-list@mail.com')
-//          }
-//        }
+
+        stage('QA') {
+          when {
+           branch 'qa'
+          }
+          steps {
+            withAWS(region:'us-east-1',credentials:'s3-conquista') {
+              s3Delete(bucket: 'conquista-frontend-qa', path:'**/*')
+              s3Upload(bucket: 'conquista-frontend-qa', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+            }
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
+//            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+          }
+        }
+
+        stage('Production') {
+          when {
+            branch 'master'
+          }
+          stages {
+          stage('Notification') {
+              steps {
+                  slackSend (color: 'good', message: "[ SUCESSO ] O novo build esta disponível em: ${JENKINS_URL}", tokenCredentialId: 'slack-token')
+              }
+          }
+
+          stage ('Approve') {
+            steps {
+              script {
+                slackSend (color: 'warning', message: "Para aplicar a mudança em produção, acesse [Janela de 10 minutos]: ${JOB_URL}", tokenCredentialId: 'slack-token')
+                  timeout(time: 10, unit: 'MINUTES') {
+                    input(id: "Deploy Gate", message: "Deploy em produção?", ok: 'Deploy')
+                  }
+              }
+            }
+          }
+
+          stage ('Merge qa with master') {
+            steps {
+              script {
+                try {
+                  sh "git merge qa"
+                  //build job: 'todo-list-producao', parameters: [[$class: 'StringParameterValue', name: 'image', value: dockerImage]]
+                } catch (Exception e) {
+                  slackSend (color: 'error', message: "[ FALHA ] Não foi possivel subir o container em produca - ${BUILD_URL}", tokenCredentialId: 'slack-token')
+                  sh "echo $e"
+                  currentBuild.result = 'ABORTED'
+                  error('Erro')
+                }
+              }
+            }
+          }
+
+          stage ('Upload to bucket') {
+            steps {
+              withAWS(region:'us-east-1',credentials:'s3-conquista') {
+                s3Delete(bucket: 'conquista-frontend-prod', path:'**/*')
+                s3Upload(bucket: 'conquista-frontend-prod', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
+              }
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
+  //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+            }
+          }
+        }
       }
-
-
-
+    }
     }
   }
 }
