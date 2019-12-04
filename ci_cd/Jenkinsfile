@@ -129,7 +129,7 @@ pipeline {
               script {
                 slackSend (color: 'warning', message: "Para aplicar a mudança em produção, acesse [Janela de 10 minutos]: ${JOB_URL}", tokenCredentialId: 'slack-token')
                   timeout(time: 10, unit: 'MINUTES') {
-                    input(id: "Deploy Gate", message: "Deploy em produção?", ok: 'Deploy')
+                    input(id: "Deploy Approval", message: "Deploy em produção?", ok: 'Deploy')
                   }
               }
             }
@@ -139,6 +139,8 @@ pipeline {
             steps {
               script {
                 try {
+                  sh 'git checkout master'
+                  sh 'git pull'
                   sh "git merge qa"
                   //build job: 'todo-list-producao', parameters: [[$class: 'StringParameterValue', name: 'image', value: dockerImage]]
                 } catch (Exception e) {
@@ -158,7 +160,7 @@ pipeline {
                 s3Upload(bucket: 'conquista-frontend-prod', workingDir:'build', includePathPattern:'**/*', acl:'PublicRead');
               }
               slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso! \n\n ${BUILD_TAG}", tokenCredentialId: 'slack-token')
-  //            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
+  ////            mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'jenkins-mailing-list@mail.com')
             }
           }
         }
