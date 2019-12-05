@@ -33,7 +33,7 @@ HighlightSection.propTypes = {
   title: PropTypes.string,
   mainDescription: PropTypes.string,
   subDescription: PropTypes.string,
-  buttonText: PropTypes.string,
+  buttonText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 }
 HighlightSection.defaultProps = {
   title: '',

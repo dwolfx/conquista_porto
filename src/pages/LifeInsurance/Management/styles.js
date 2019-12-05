@@ -1,5 +1,8 @@
 import styled from 'styled-components'
-import Carousel from '../../../components/Carousel'
+
+import ModalDefault from 'components/Modal'
+import { ModalContainer } from 'components/Modal/styles'
+import Carousel from 'components/Carousel'
 
 export const BreadcrumbContainer = styled.div`
   @media (max-width: 1000px) {
@@ -157,4 +160,45 @@ export const ClientAreaSection = styled.section`
   justify-content: space-around;
   height: 220px;
   border-bottom: 1px solid #eee;
+`
+
+export const Modal = styled(ModalDefault)`
+  ${ModalContainer} {
+    width: 490px;
+
+    @media (max-width: 768px) {
+      width: calc(100vw - 30px);
+    }
+  }
+`
+
+export const ModalContent = styled.div`
+  padding: 30px 22px;
+`
+
+export const Divider = styled.div`
+  border-top: 1px solid #ddd;
+`
+
+export const ShowAll = styled.p`
+  font-size: 11px;
+  line-height: 21px;
+  letter-spacing: 1.5px;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #30c5ff;
+  font-weight: 600;
+
+  :hover {
+    color: #2591bb;
+  }
+`
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: ${props => props.margin || 'unset'};
 `

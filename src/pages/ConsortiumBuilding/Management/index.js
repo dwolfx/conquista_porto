@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+// eslint-disable-next-line no-unused-vars
+import { css } from 'styled-components/macro'
 
 import LinearProgressBar from '../../../components/LinearProgressBar'
 import Breadcrumb from '../../../components/Breadcrumb'
@@ -183,7 +185,21 @@ export default function ManagementConsortiumBuilding({ history }) {
         mainDescription="O Conquista acompanha você na realização do sonho do imóvel próprio."
         subDescription="Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e
         crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
-        buttonText="SIMULAR E CONTRATAR"
+        buttonText={
+          <span>
+            SIMULAR E CONTRATAR{' '}
+            <span
+              css={`
+                position: absolute;
+                top: 7px;
+                right: 12px;
+                font-size: 13px;
+              `}
+            >
+              &gt;
+            </span>
+          </span>
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"

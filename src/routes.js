@@ -6,7 +6,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 import Home from './pages/Home'
-import Investimentos from './pages/Investments'
 import PrevidenciaPrivada from './pages/PrivateWelfare'
 import Points from './pages/Points'
 import Profile from './pages/Profile'
@@ -15,6 +14,9 @@ import TripInsurance from './pages/TripInsurance'
 import ProfileRegistration from './pages/Profile/Wizard/Registration'
 import ProfileSuitability from './pages/Profile/Wizard/Suitability'
 import PointsStatement from './pages/Points/Statement'
+
+import Investimentos from './pages/Investments'
+import ManagementInvestimentos from './pages/Investments/Management'
 
 import ConsortiumVehicle from './pages/ConsortiumVehicle'
 import ManagementConsortiumVehicle from './pages/ConsortiumVehicle/Management'
@@ -49,9 +51,13 @@ export default function Routes({ ...props }) {
   return (
     <Switch {...props}>
       <DefaultRoute path="/" exact component={Home} />
-      <DefaultRoute path="/investimentos" component={Investimentos} />
       <DefaultRoute path="/cartao-credito" exact component={CartaoCredito} />
       <DefaultRoute path="/seguro-vida" exact component={SeguroVida} />
+      <DefaultRoute path="/investimentos" exact component={Investimentos} />
+      <DefaultRoute
+        path="/investimentos/visualizar"
+        component={ManagementInvestimentos}
+      />
       <DefaultRoute
         path="/seguro-vida/visualizar"
         component={ManagementSeguroVida}

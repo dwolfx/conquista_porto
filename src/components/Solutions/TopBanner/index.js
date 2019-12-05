@@ -39,10 +39,11 @@ TopBanner.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   imageDescription: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
   onClick: PropTypes.func,
 }
 
 TopBanner.defaultProps = {
   onClick: () => {},
+  buttonText: null,
 }

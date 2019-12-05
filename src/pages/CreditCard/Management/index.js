@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+// eslint-disable-next-line no-unused-vars
+import { css } from 'styled-components/macro'
 
 import Breadcrumb from '../../../components/Breadcrumb'
 import MoreDetails from '../../../components/Solutions/MoreDetails'
@@ -267,7 +269,21 @@ export default function ManagementCreditCard({ history }) {
         mainDescription="Descontos em seguros para você, para sua casa e para seu carro."
         subDescription="Além das conveniências da Porto Seguro, o Cartão de Crédito tem bandeiras e limites para
         vários perfis. Inclusive, na simulação, você pode verificar se há pré-aprovações para você."
-        buttonText="simular e contratar"
+        buttonText={
+          <span>
+            SIMULAR E CONTRATAR
+            <span
+              css={`
+                position: absolute;
+                top: 7px;
+                right: 12px;
+                font-size: 13px;
+              `}
+            >
+              &gt;
+            </span>
+          </span>
+        }
       />
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />
       <FileDownloadSection data={downloadFileSectionData} />
