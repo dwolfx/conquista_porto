@@ -1,16 +1,16 @@
 import React from 'react'
 
-import Button from '../../components/Button'
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import FundsCarouselSection from '../../components/Solutions/Investments/FundsCarousel/index'
+import Button from 'components/Button'
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import FundsCarouselSection from 'components/Solutions/Investments/FundsCarousel/index'
 
-import RedHairGirlImage from '../../assets/images/red_hair_girl.jpg'
-import BannerInvestimentosImage from '../../assets/images/banner_investimentos.jpg'
-import SeloInvestimentoImage from '../../assets/images/selo_investimento.svg'
+import RedHairGirlImage from 'assets/images/red_hair_girl.jpg'
+import BannerInvestimentosImage from 'assets/images/banner_investimentos.jpg'
+import SeloInvestimentoImage from 'assets/images/selo_investimento.svg'
 
 import {
   SectionCustomPicture,
@@ -133,9 +133,7 @@ export default function Investments() {
           </DescriptionContent>
         </CustomContent>
       </SectionCustomPicture>
-
       <FundsCarouselSection />
-
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )

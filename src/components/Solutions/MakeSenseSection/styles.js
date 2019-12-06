@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const darkGray = '#1C1C1C'
 
-export const Container = styled.section<IContainer>`
+export const Container = styled.section`
   padding-top: 28px;
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : 'white'};
@@ -68,7 +68,7 @@ export const Circle = styled.div`
   }
 `
 
-export const ItemDescription = styled.p<IItemDescription>`
+export const ItemDescription = styled.p`
   font-size: 14px;
   line-height: 19px;
   font-weight: 300;
@@ -94,11 +94,3 @@ export const Subtitle = styled.h2`
   text-align: center;
   margin-bottom: 1em;
 `
-
-interface IContainer {
-  backgroundColor: string
-}
-
-interface IItemDescription {
-  align: string
-}

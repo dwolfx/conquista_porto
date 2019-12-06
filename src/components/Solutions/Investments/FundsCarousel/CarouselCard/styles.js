@@ -4,12 +4,13 @@ const gray = '#E6E6E6'
 
 export const CarouselCardWrapper = styled.div`
   border: 1px solid ${gray};
+  background-color: ${props => props.theme.colors.white};
   border-radius: 0.5em;
-  box-shadow: 0 45px 40px -50px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   height: 22.5em;
-  margin: 0 auto;
+  margin: 46px auto;
   width: 16em;
 
   @media (min-width: 1200px) {

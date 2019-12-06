@@ -1,5 +1,5 @@
 import React from 'react'
-import BenefitsCarousel, { IBenefitsData } from './BenefitsCarousel'
+import BenefitsCarousel from './BenefitsCarousel'
 
 import ConquistaIcon from '../../IconExporter'
 
@@ -18,7 +18,7 @@ export default function MakeSenseSection({
   data,
   subtitle,
   benefitsData,
-}: IProps) {
+}) {
   return (
     <Container backgroundColor="white">
       <Title>{title}</Title>
@@ -36,16 +36,4 @@ export default function MakeSenseSection({
       <BenefitsCarousel benefitsData={benefitsData}></BenefitsCarousel>
     </Container>
   )
-}
-
-interface IProps extends JSX.Element {
-  title: string
-  data: IMakeSenseContent[]
-  subtitle: string
-  benefitsData: IBenefitsData[]
-}
-
-interface IMakeSenseContent {
-  description: string
-  icon: string
 }

@@ -3,10 +3,10 @@
 exports[`ManagementConsortiumVehicle renders correctly 1`] = `
 Array [
   <section
-    className="sc-hMqMXs bIAJsD"
+    className="sc-kEYyzF byOLky"
   >
     <div
-      className="sc-eHgmQL NvZvz"
+      className="sc-cvbbAY hQVSQz"
     >
       <small
         className="sc-bxivhb hpkEGR"
@@ -21,13 +21,13 @@ Array [
       </strong>
     </div>
     <div
-      className="sc-kkGfuU bYmFUn"
+      className="sc-iAyFgw eLoukc"
     >
       <nav
-        className="sc-iAyFgw kFtLmU"
+        className="sc-hSdWYo hAqokE"
       >
         <div
-          className="sc-cvbbAY kNSsCG"
+          className="sc-jWBwVP ekVfId"
           onClick={[Function]}
         >
           <svg
@@ -37,23 +37,23 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-gipzik bgKkJw"
+            className="sc-csuQGl cdGVzt"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-kEYyzF kqtRGP"
+          className="sc-kkGfuU jsUuSw"
         >
           <span
-            className="sc-gipzik gCxpjX"
+            className="sc-csuQGl kgVGUe"
             fontSize="14px"
           >
             Contrato 1
           </span>
           <span
-            className="sc-gipzik iyzGYR"
+            className="sc-csuQGl WxOJq"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -61,7 +61,7 @@ Array [
             STATUS
           </span>
           <span
-            className="sc-gipzik hfUqHZ"
+            className="sc-csuQGl cQdgbs"
             fontSize="14px"
           >
             Contemplado
@@ -69,15 +69,15 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-hSdWYo hShpdI"
+        className="sc-eHgmQL iOCRJS"
       >
         <h4
-          className="sc-jWBwVP fCFswy"
+          className="sc-brqgnP cAsrjv"
         >
           Contrato 1
         </h4>
         <div
-          className="slick-slider sc-brqgnP gmtmTr slick-initialized"
+          className="slick-slider sc-cMljjf rhWEG slick-initialized"
         >
           
           <div
@@ -114,7 +114,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-cMljjf kFYGNO"
+                    className="sc-jAaTju fzigHF"
                     style={
                       Object {
                         "display": "inline-block",
@@ -131,12 +131,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-jAaTju hjDPJD"
+                        className="sc-jDwBTQ idwjot"
                       >
                         Cota
                       </p>
                       <span
-                        className="sc-jDwBTQ cPrKVu"
+                        className="sc-gPEVay fAVSK"
                       >
                         999
                       </span>
@@ -159,7 +159,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-cMljjf kFYGNO"
+                    className="sc-jAaTju fzigHF"
                     style={
                       Object {
                         "display": "inline-block",
@@ -176,12 +176,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-jAaTju hjDPJD"
+                        className="sc-jDwBTQ idwjot"
                       >
                         grupo
                       </p>
                       <span
-                        className="sc-jDwBTQ cPrKVu"
+                        className="sc-gPEVay fAVSK"
                       >
                         x999
                       </span>
@@ -204,7 +204,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-cMljjf kFYGNO"
+                    className="sc-jAaTju fzigHF"
                     style={
                       Object {
                         "display": "inline-block",
@@ -221,12 +221,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-jAaTju hjDPJD"
+                        className="sc-jDwBTQ idwjot"
                       >
                         Crédito contratado
                       </p>
                       <span
-                        className="sc-jDwBTQ cPrKVu"
+                        className="sc-gPEVay fAVSK"
                       >
                         R$ 99.999,99
                       </span>
@@ -240,47 +240,47 @@ Array [
           
         </div>
         <article
-          className="sc-gPEVay bFYWDJ"
+          className="sc-iRbamj cHAnwh"
         >
           <div
-            className="sc-iRbamj dUBhmT"
+            className="sc-jlyJG iGCaGs"
           >
             <div
-              className="sc-jlyJG dAgDnI"
+              className="sc-gipzik kkHqhO"
             >
               <span
-                className="sc-gipzik huEeXk"
+                className="sc-csuQGl jLIXiX"
                 fontSize="22px"
               >
                 Valor para quitação
               </span>
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 R$ 99.999,95
               </span>
             </div>
             <div
-              className="sc-jlyJG dAgDnI"
+              className="sc-gipzik kkHqhO"
             >
               <span
-                className="sc-gipzik huEeXk"
+                className="sc-csuQGl jLIXiX"
                 fontSize="22px"
               >
                 Valor da parcela atual
               </span>
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 R$ 99.999,00
               </span>
             </div>
           </div>
           <div
-            className="sc-csuQGl cvSbvo"
+            className="sc-Rmtcm kCLfVq"
           >
             <span
-              className="sc-gipzik gpJUoF"
+              className="sc-csuQGl cZUcaw"
               fontSize="18px"
             >
               Evolução do pagamento
@@ -322,18 +322,18 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-cSHVUG wChhO"
+    className="sc-kAzzGY jPsdZK"
   >
     <div
-      className="sc-kAzzGY bUKOwD"
+      className="sc-chPdSV imaeDF"
     >
       <h1
-        className="sc-chPdSV eKdbAS"
+        className="sc-kgoBCf Bncrv"
       >
         Parcelas que cabem no seu bolso.
       </h1>
       <p
-        className="sc-kgoBCf gLOTaC"
+        className="sc-kGXeez gzVCxZ"
       >
         Com o Conquista, você planeja a compra do seu carro novo ou seminovo.
         <br />
@@ -359,177 +359,181 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-jTzLTM eWOzwu"
+    className="sc-jTzLTM eFuZtW"
   >
-    <h1
-      className="sc-fjdhpX bkPLld"
-    >
-      SAIBA MAIS:
-    </h1>
     <div
-      className="slick-slider sc-jzJRlG hsRcDu slick-initialized"
+      className="sc-fjdhpX kKfyEu"
     >
-      
-      <div
-        className="slick-list"
+      <h1
+        className="sc-jzJRlG dZIKFl"
       >
+        SAIBA MAIS:
+      </h1>
+      <div
+        className="slick-slider sc-cSHVUG iHeFoK slick-initialized"
+      >
+        
         <div
-          className="slick-track"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "WebkitTransform": "translate3d(0px, 0px, 0px)",
-              "WebkitTransition": "",
-              "msTransform": "translateX(0px)",
-              "opacity": 1,
-              "transform": "translate3d(0px, 0px, 0px)",
-              "transition": "",
-            }
-          }
+          className="slick-list"
         >
           <div
-            aria-hidden={false}
-            className="slick-slide slick-active slick-current"
-            data-index={0}
-            onClick={[Function]}
+            className="slick-track"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
             style={
               Object {
-                "outline": "none",
-                "width": 0,
+                "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                "WebkitTransition": "",
+                "msTransform": "translateX(0px)",
+                "opacity": 1,
+                "transform": "translate3d(0px, 0px, 0px)",
+                "transition": "",
               }
             }
-            tabIndex="-1"
           >
-            <div>
-              <div
-                className="sc-htoDjs ejFzav"
-              >
+            <div
+              aria-hidden={false}
+              className="slick-slide slick-active slick-current"
+              data-index={0}
+              onClick={[Function]}
+              style={
+                Object {
+                  "outline": "none",
+                  "width": 0,
+                }
+              }
+              tabIndex="-1"
+            >
+              <div>
                 <div
-                  className="sc-dnqmqq ggEcRB"
+                  className="sc-htoDjs fWkxez"
                 >
-                  <img
-                    className="sc-VigVT cmaKeV"
-                    src={null}
-                  />
-                </div>
-                <div
-                  className="sc-gqjmRU extPZH"
-                >
-                  <p
-                    className="sc-iwsKbI ejVoWm"
+                  <div
+                    className="sc-dnqmqq ggEcRB"
                   >
-                    Tente um lance
-                  </p>
-                  <p
-                    className="sc-gZMcBi enOckV"
+                    <img
+                      className="sc-VigVT cmaKeV"
+                      src={null}
+                    />
+                  </div>
+                  <div
+                    className="sc-gqjmRU jBHxhj"
                   >
-                    Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.
-                  </p>
+                    <p
+                      className="sc-iwsKbI ejVoWm"
+                    >
+                      Tente um lance
+                    </p>
+                    <p
+                      className="sc-gZMcBi enOckV"
+                    >
+                      Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={1}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
+            <div
+              aria-hidden={false}
+              className="slick-slide slick-active"
+              data-index={1}
+              onClick={[Function]}
+              style={
+                Object {
+                  "outline": "none",
+                  "width": 0,
+                }
               }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="sc-htoDjs ejFzav"
-              >
+              tabIndex="-1"
+            >
+              <div>
                 <div
-                  className="sc-dnqmqq ggEcRB"
+                  className="sc-htoDjs fWkxez"
                 >
-                  <img
-                    className="sc-VigVT cmaKeV"
-                    src={null}
-                  />
-                </div>
-                <div
-                  className="sc-gqjmRU extPZH"
-                >
-                  <p
-                    className="sc-iwsKbI ejVoWm"
+                  <div
+                    className="sc-dnqmqq ggEcRB"
                   >
-                    Valor do consórcio como parte do lance
-                  </p>
-                  <p
-                    className="sc-gZMcBi enOckV"
+                    <img
+                      className="sc-VigVT cmaKeV"
+                      src={null}
+                    />
+                  </div>
+                  <div
+                    className="sc-gqjmRU jBHxhj"
                   >
-                    Para conseguir dar um lance mais alto e aumentar suas chances de ser contemplado, você pode usar parte do valor do consórcio como complemento ao que foi ofertado. Cada consórcio tem suas regras, basta se informar sobre a existência desse benefício.
-                  </p>
+                    <p
+                      className="sc-iwsKbI ejVoWm"
+                    >
+                      Valor do consórcio como parte do lance
+                    </p>
+                    <p
+                      className="sc-gZMcBi enOckV"
+                    >
+                      Para conseguir dar um lance mais alto e aumentar suas chances de ser contemplado, você pode usar parte do valor do consórcio como complemento ao que foi ofertado. Cada consórcio tem suas regras, basta se informar sobre a existência desse benefício.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={2}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
+            <div
+              aria-hidden={false}
+              className="slick-slide slick-active"
+              data-index={2}
+              onClick={[Function]}
+              style={
+                Object {
+                  "outline": "none",
+                  "width": 0,
+                }
               }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="sc-htoDjs ejFzav"
-              >
+              tabIndex="-1"
+            >
+              <div>
                 <div
-                  className="sc-dnqmqq ggEcRB"
+                  className="sc-htoDjs fWkxez"
                 >
-                  <img
-                    className="sc-VigVT cmaKeV"
-                    src={null}
-                  />
-                </div>
-                <div
-                  className="sc-gqjmRU extPZH"
-                >
-                  <p
-                    className="sc-iwsKbI ejVoWm"
+                  <div
+                    className="sc-dnqmqq ggEcRB"
                   >
-                    Escolha qualquer veículo
-                  </p>
-                  <p
-                    className="sc-gZMcBi enOckV"
+                    <img
+                      className="sc-VigVT cmaKeV"
+                      src={null}
+                    />
+                  </div>
+                  <div
+                    className="sc-gqjmRU jBHxhj"
                   >
-                    Ao fazer um consórcio, será utilizado um veículo específico como referência. No entanto, como o valor obtido com o consórcio é em dinheiro, você pode usá-lo para adquirir qualquer outro veículo sem restrição de modelo.
-                  </p>
+                    <p
+                      className="sc-iwsKbI ejVoWm"
+                    >
+                      Escolha qualquer veículo
+                    </p>
+                    <p
+                      className="sc-gZMcBi enOckV"
+                    >
+                      Ao fazer um consórcio, será utilizado um veículo específico como referência. No entanto, como o valor obtido com o consórcio é em dinheiro, você pode usá-lo para adquirir qualquer outro veículo sem restrição de modelo.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
+        
       </div>
-      
-      
     </div>
   </section>,
   <section
-    className="sc-kGXeez kByNSW"
+    className="sc-kpOJdX jJiNdv"
   >
     <div
-      className="sc-kpOJdX ibOZxi"
+      className="sc-dxgOiQ gHgyZF"
     >
       <div>
         <svg
-          className="sc-dxgOiQ kRAgnV"
+          className="sc-ckVGcZ jIRUXF"
           fill="#777"
           height="24px"
         >
@@ -538,17 +542,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-ckVGcZ jkroRm"
+          className="sc-jKJlTe khHFmV"
         >
           SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC
         </p>
         <p
-          className="sc-jKJlTe iMlBsI"
+          className="sc-eNQAEJ eCAdwd"
         >
           Aqui, você tem mais informações legais sobre consórcio.
         </p>
         <p
-          className="sc-eNQAEJ hgnWTp"
+          className="sc-hMqMXs hhlElW"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -556,11 +560,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kpOJdX ibOZxi"
+      className="sc-dxgOiQ gHgyZF"
     >
       <div>
         <svg
-          className="sc-dxgOiQ kRAgnV"
+          className="sc-ckVGcZ jIRUXF"
           fill="#777"
           height="24px"
         >
@@ -569,17 +573,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-ckVGcZ jkroRm"
+          className="sc-jKJlTe khHFmV"
         >
           CONDIÇÕES GERAIS
         </p>
         <p
-          className="sc-jKJlTe iMlBsI"
+          className="sc-eNQAEJ eCAdwd"
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
         </p>
         <p
-          className="sc-eNQAEJ hgnWTp"
+          className="sc-hMqMXs hhlElW"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -587,11 +591,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kpOJdX ibOZxi"
+      className="sc-dxgOiQ gHgyZF"
     >
       <div>
         <svg
-          className="sc-dxgOiQ kRAgnV"
+          className="sc-ckVGcZ jIRUXF"
           fill="#777"
           height="24px"
         >
@@ -600,17 +604,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-ckVGcZ jkroRm"
+          className="sc-jKJlTe khHFmV"
         >
           TABELA DE TARIFAS
         </p>
         <p
-          className="sc-jKJlTe iMlBsI"
+          className="sc-eNQAEJ eCAdwd"
         >
           Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
         </p>
         <p
-          className="sc-eNQAEJ hgnWTp"
+          className="sc-hMqMXs hhlElW"
         >
           BAIXAR ARQUIVO
            &gt; 
