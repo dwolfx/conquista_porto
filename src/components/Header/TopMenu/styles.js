@@ -1,18 +1,19 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import ConquistaIcon from '../../IconExporter'
+import ConquistaIcon from 'components/IconExporter'
+import breakpoints from 'styles/breakpoints'
 
-const basicSvgStyle = {
-  fill: '#1c1c1c',
-  width: '20px',
-  height: '20px',
-  marginRight: '10px',
-}
-const notificationDropdownSvgStyle = {
-  fill: '#30C5FF',
-  marginRight: '0px',
-}
+const basicSvgStyle = css`
+  fill: #1c1c1c;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+`
+const notificationDropdownSvgStyle = css`
+  fill: ${props => props.theme.colors.linkBlue};
+  margin-right: 0px;
+`
 
 export const MainContainer = styled.header`
   background-color: #34373e;
@@ -31,12 +32,12 @@ export const Container = styled.div`
   top: 0;
   z-index: 3;
 
-  @media (min-width: 768px) {
-    padding: 15px 0;
-  }
-  @media (max-width: 768px) {
+  @media ${breakpoints.tablet} {
     margin: 0;
     width: 100%;
+  }
+  @media (min-width: 768px) {
+    padding: 15px 0;
   }
 `
 export const Wrapper = styled.div`
@@ -53,10 +54,12 @@ export const Wrapper = styled.div`
   border-bottom: ${props => props.borderBottom};
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
 `
+
 export const LogoLinkWrapper = styled.div`
   display: flex;
   align-items: center;
 `
+
 export const RelativeParent = styled.div`
   position: relative;
   z-index: 2;
@@ -68,7 +71,7 @@ export const NotificationCircle = styled.div`
   width: 20px;
   height: 20px;
   top: -10px;
-  right: -10px;
+  right: 0;
   border-radius: 15px;
   justify-content: center;
   align-items: center;
@@ -152,7 +155,7 @@ export const Text = styled.p`
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
 `
 export const BlueText = styled.p`
-  color: #33beff;
+  color: ${props => props.theme.colors.mediumPrimary};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -166,7 +169,7 @@ export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
     fill: #fff;
     width: 24px;
     height: 24px;
-    margin-right: 0px;
+    margin-right: 10px;
     cursor: pointer;
   }
 `
@@ -202,7 +205,7 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
   && {
     width: ${props => (props.size ? `${props.size}px` : '16px')};
     height: ${props => (props.size ? `${props.size}px` : '16px')};
-    fill: #30c5ff;
+    fill: ${props => props.theme.colors.lightPrimary};
     margin-right: 0px;
   }
 `

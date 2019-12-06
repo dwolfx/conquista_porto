@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import {
   BasicIcon,
@@ -13,114 +14,122 @@ import {
   SolutionsDropdownText,
   SolutionsItem,
   Wrapper,
-  WrapperBottomMenuItem,
-  WrapperBottomMenuItemSolution,
+  MenuItem,
+  Dropdown,
+  MenuLabelDropdown,
 } from './styles'
 
-import Dropdown from '../../Dropdown'
+const ItemContent = ({ to, iconName, itemText, setIsOpen }) => (
+  <SolutionsItem to={to} onClick={() => setIsOpen(false)}>
+    <IconCircle>
+      <BottomMenuDropdownIcon name={iconName} />
+    </IconCircle>
+    <SolutionsDropdownText>{itemText}</SolutionsDropdownText>
+    <ArrowRightIcon size={11} />
+  </SolutionsItem>
+)
+
+const SolutionsContent = ({ setIsOpen }) => (
+  <SolutionsContainer>
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/cartao-credito"
+      iconName="creditcard"
+      itemText="Cartão de Crédito"
+    />
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/consorcio-imovel"
+      iconName="homewithwindow"
+      itemText="Consórcio de Imóvel"
+    />
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/consorcio-veiculo"
+      iconName="car"
+      itemText="Consórcio de Veículo"
+    />
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/financiamento-veiculo"
+      iconName="money"
+      itemText="Financiamento de Veículo"
+    />
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/investimentos"
+      iconName="barchart"
+      itemText="Investimentos"
+    />
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/previdencia-privada"
+      iconName="time"
+      itemText="Previdência Privada"
+    />
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/seguro-vida"
+      iconName="persongroup"
+      itemText="Seguro de Vida"
+    />
+    <ItemContent
+      setIsOpen={setIsOpen}
+      to="/seguro-viagem"
+      iconName="plane"
+      itemText="Seguro Viagem"
+    />
+  </SolutionsContainer>
+)
 
 export default function BottomMenu() {
-  const [isUp, setIsUp] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <Menu>
       <Wrapper>
-        <WrapperBottomMenuItem to="/">
+        <MenuItem to="/">
           <BasicIcon name="target" />
           <BottomMenuText>Objetivos</BottomMenuText>
-        </WrapperBottomMenuItem>
+        </MenuItem>
         <RelativeParent>
-          <WrapperBottomMenuItemSolution onClick={() => setIsUp(!isUp)}>
+          <MenuLabelDropdown onClick={() => setIsOpen(!isOpen)}>
             <BasicIcon name="apps" />
             <BottomMenuText>Soluções</BottomMenuText>
-            {isUp ? (
+            {isOpen ? (
               <ArrowUpDownIcon name="arrowup" />
             ) : (
               <ArrowUpDownIcon name="arrowdown" />
             )}
-          </WrapperBottomMenuItemSolution>
-          <Dropdown isOpen={isUp} setOpen={setIsUp} width="300px">
-            <SolutionsContainer>
-              <SolutionsItem to="/cartao-credito">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="creditcard" />
-                </IconCircle>
-                <SolutionsDropdownText>Cartão de Crédito</SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-              <SolutionsItem to="/consorcio-imovel">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="homewithwindow" />
-                </IconCircle>
-                <SolutionsDropdownText>
-                  Consórcio de Imóvel
-                </SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-              <SolutionsItem to="/consorcio-veiculo">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="car" />
-                </IconCircle>
-                <SolutionsDropdownText>
-                  Consórcio de Veículo
-                </SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-              <SolutionsItem to="/financiamento-veiculo">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="money" />
-                </IconCircle>
-                <SolutionsDropdownText>
-                  Financiamento de Veículo
-                </SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-              <SolutionsItem to="/investimentos">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="barchart" />
-                </IconCircle>
-                <SolutionsDropdownText>Investimentos</SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-              <SolutionsItem to="/previdencia-privada">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="time" />
-                </IconCircle>
-                <SolutionsDropdownText>
-                  Previdência Privada
-                </SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-              <SolutionsItem to="/seguro-vida">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="persongroup" />
-                </IconCircle>
-                <SolutionsDropdownText>Seguro de Vida</SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-              <SolutionsItem to="/seguro-viagem">
-                <IconCircle>
-                  <BottomMenuDropdownIcon name="plane" />
-                </IconCircle>
-                <SolutionsDropdownText>Seguro Viagem</SolutionsDropdownText>
-                <ArrowRightIcon size={11} />
-              </SolutionsItem>
-            </SolutionsContainer>
+          </MenuLabelDropdown>
+          <Dropdown isOpen={isOpen} setOpen={setIsOpen} width="300px">
+            <SolutionsContent setIsOpen={setIsOpen} />
           </Dropdown>
         </RelativeParent>
-        <WrapperBottomMenuItem to="/">
+        <MenuItem to="/">
           <BasicIcon name="gear" />
           <BottomMenuText>Gerenciador</BottomMenuText>
-        </WrapperBottomMenuItem>
-        <WrapperBottomMenuItem to="/pontos">
+        </MenuItem>
+        <MenuItem to="/pontos">
           <BasicIcon name="diamond" />
           <BottomMenuText>Pontos</BottomMenuText>
-        </WrapperBottomMenuItem>
-        <WrapperBottomMenuItem to="/">
+        </MenuItem>
+        <MenuItem to="/">
           <BasicIcon name="idea" />
           <BottomMenuText>Recomendações</BottomMenuText>
-        </WrapperBottomMenuItem>
+        </MenuItem>
       </Wrapper>
     </Menu>
   )
+}
+
+ItemContent.propTypes = {
+  to: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
+  itemText: PropTypes.string.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+}
+
+SolutionsContent.propTypes = {
+  setIsOpen: PropTypes.func.isRequired,
 }

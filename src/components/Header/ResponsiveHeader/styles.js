@@ -1,19 +1,29 @@
 import styled, { css } from 'styled-components'
+import { NavLink } from 'react-router-dom'
+import ConquistaIcon from 'components/IconExporter'
 
-import ConquistaIcon from '../../IconExporter'
+const svgStyle = css`
+  fill: ${props => props.theme.colors.white};
+  width: 23px;
+  height: 23px;
+  margin-right: 15px;
+`
+const arrowSvgStyle = css`
+  fill: ${props => props.theme.colors.white};
+  width: 14px;
+  height: 14px;
+`
 
-const svgStyle = {
-  fill: '#fff',
-  width: '23px',
-  height: '23px',
-  marginRight: '15px',
-}
-const arrowSvgStyle = {
-  fill: '#fff',
-  width: '14px',
-  height: '14px',
-}
-const disable = css`
+const defaultWrapper = css`
+  align-items: flex-start;
+  background-color: #555861;
+  border-bottom: 1px solid ${props => props.theme.colors.white};
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+`
+
+const disabled = css`
   svg {
     fill: #a2a2a2;
   }
@@ -29,45 +39,23 @@ export const Container = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
+  max-height: 100vh;
+  overflow: auto;
   z-index: 3;
   top: 0;
 `
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: ${props =>
-    props.flexDirection ? props.flexDirection : 'row'};
-  width: ${props => (props.width ? props.width : '100%')};
-  height: ${props => (props.height ? props.height : 'auto')};
-  justify-content: ${props => (props.justify ? props.justify : 'center')};
-  align-items: ${props => (props.alignItems ? props.alignItems : 'center')};
-  padding: ${props => (props.padding ? props.padding : '0px')};
-  background-color: ${props => (props.bgcolor ? props.bgcolor : 'unset')};
-  align-self: ${props => props.alignSelf};
-  border-bottom: ${props => props.borderBottom};
-  cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
-`
+
 export const IconCircle = styled.div`
   display: flex;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${props => (props.color ? props.color : '#C7C7C7')};
+  background-color: ${props => props.theme.colors.lightSecondary};
   justify-content: center;
   align-items: center;
   cursor: pointer;
 `
-export const ItemContainer = styled.div`
-  ${props => props.disable && disable};
-  display: flex;
-  flex-direction: ${props =>
-    props.flexDirection ? props.flexDirection : 'row'};
-  width: 100%;
-  height: auto;
-  justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
-  align-items: center;
-  padding: ${props => (props.padding ? props.padding : '0px')};
-  cursor: pointer;
-`
+
 export const TagWrapper = styled.div`
   display: flex;
   padding: 0px 3px;
@@ -75,30 +63,16 @@ export const TagWrapper = styled.div`
   border-radius: 3px;
   margin-left: 15px;
 `
-export const ContainerDropdown = styled.div`
-  max-height: ${props => (props.isOpen ? '1000px' : '0px')};
-  transition: all 0.3s linear;
-  width: 100%;
-  overflow: hidden;
-`
-export const ItemContainerDropdown = styled.div`
-  ${props => props.disable && disable};
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  padding: 0px 35px 35px 35px;
-  cursor: pointer;
-`
+
 export const WhiteText = styled.p`
-  color: ${props => (props.color ? props.color : '#fff')};
+  color: ${props => (props.color ? props.color : props.theme.colors.white)};
   font-size: ${props => (props.size ? `${props.size}px` : '20px')};
   font-weight: 300;
   text-align: center;
   line-height: 39px;
 `
-export const BlueText = styled.p`
-  color: #33beff;
+export const BlueText = styled(NavLink)`
+  color: ${props => props.theme.colors.linkBlue};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -108,7 +82,7 @@ export const BlueText = styled.p`
   cursor: pointer;
 `
 export const TagText = styled.p`
-  color: ${props => (props.color ? props.color : '#fff')};
+  color: ${props => (props.color ? props.color : props.theme.colors.white)};
   line-height: 15px;
   font-size: 11px;
   font-weight: 600;
@@ -117,7 +91,7 @@ export const TagText = styled.p`
   cursor: pointer;
 `
 export const CloseIcon = styled(ConquistaIcon).attrs({ name: 'close' })`
-  fill: #fff;
+  fill: ${props => props.theme.colors.white};
   width: 24px;
   height: 24px;
 `
@@ -144,4 +118,80 @@ export const IdeaIcon = styled(ConquistaIcon).attrs({ name: 'idea' })`
 `
 export const TargetIcon = styled(ConquistaIcon).attrs({ name: 'target' })`
   ${svgStyle};
+`
+
+export const MenuHeader = styled.div`
+  background-color: #34373e;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+`
+
+export const ProfileWrapper = styled.div`
+  ${defaultWrapper}
+`
+
+export const MenuItensWrapper = styled.div`
+  ${defaultWrapper}
+`
+
+const MenuItemProps = css`
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  min-height: 50px;
+  padding: 10px 0 0;
+  width: 100%;
+
+  &:hover p {
+    color: ${props => props.theme.colors.linkBlue};
+  }
+`
+
+export const MenuItem = styled(NavLink)`
+  ${MenuItemProps}
+  ${props => props.disabled && disabled}
+`
+
+export const MenuItemExpand = styled.div`
+  display: flex;
+  padding: 10px 0 0;
+  flex-direction: column;
+  width: 100%;
+`
+
+export const MenuItemExpandLabel = styled.div`
+  ${MenuItemProps}
+  padding-top: 0;
+  ${IconCircle} {
+    margin-left: auto;
+  }
+`
+
+export const ContainerDropdown = styled.div`
+  max-height: ${props => (props.isOpen ? '1000px' : '0px')};
+  transition: all 0.3s linear;
+  overflow: hidden;
+  width: 100%;
+`
+export const ItemContainerDropdown = styled.div`
+  align-items: center;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 35px;
+  width: 100%;
+
+  ${MenuItem} {
+    padding: 5px 0;
+
+    &:last-of-type {
+      padding: 5px 0 0;
+    }
+  }
+`
+
+export const BottomWrapper = styled.div`
+  padding: 15px;
 `

@@ -4,9 +4,9 @@ import { ResponsiveLogoWrapper, Img, Text } from './styles'
 
 import LogoConquistaBeta from '../../../assets/images/logo-temp.png'
 
-export default function Logo() {
+export default function Logo({ ...props }) {
   return (
-    <ResponsiveLogoWrapper to="/">
+    <ResponsiveLogoWrapper to="/" {...props}>
       <Img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
       <Text
         size={14}

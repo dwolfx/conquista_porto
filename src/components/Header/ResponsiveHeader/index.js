@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import Logo from 'components/Header/Logo'
 
 import {
   AppsIcon,
@@ -14,133 +15,120 @@ import {
   HomeIcon,
   IconCircle,
   IdeaIcon,
-  ItemContainer,
   ItemContainerDropdown,
   TagText,
   TagWrapper,
   TargetIcon,
   WhiteText,
-  Wrapper,
+  MenuHeader,
+  ProfileWrapper,
+  MenuItensWrapper,
+  MenuItem,
+  MenuItemExpand,
+  MenuItemExpandLabel,
+  BottomWrapper,
 } from './styles'
 
-import Logo from '../Logo'
+const SolutionDropdown = ({ isOpen, setOpen }) => (
+  <ContainerDropdown isOpen={isOpen}>
+    <ItemContainerDropdown>
+      <MenuItem to="/cartao-credito" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Cartão de Crédito</WhiteText>
+      </MenuItem>
+      <MenuItem to="/consorcio-imovel" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Consórcio de Imóvel</WhiteText>
+      </MenuItem>
+      <MenuItem to="/consorcio-veiculo" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Consórcio de Veículo</WhiteText>
+      </MenuItem>
+      <MenuItem to="/financiamento-veiculo" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Financiamento de Veículo</WhiteText>
+      </MenuItem>
+      <MenuItem to="/investimentos" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Investimentos</WhiteText>
+      </MenuItem>
+      <MenuItem to="/previdencia-privada" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Previdência Privada</WhiteText>
+      </MenuItem>
+      <MenuItem to="/seguro-vida" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Seguro de Vida</WhiteText>
+      </MenuItem>
+      <MenuItem to="/seguro-viagem" onClick={() => setOpen(false)}>
+        <WhiteText size={14}>Seguro Viagem</WhiteText>
+      </MenuItem>
+    </ItemContainerDropdown>
+  </ContainerDropdown>
+)
 
 export default function ResponsiveHeader({ isOpen, setOpen }) {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
 
   return (
     <Container isOpen={isOpen}>
-      <Wrapper bgcolor="#34373e" padding="15px 15px" justify="space-between">
-        <Wrapper justify="flex-start">
-          <Logo />
-        </Wrapper>
-        <Wrapper justify="flex-end">
-          <IconCircle color="#ff7433">
-            <CloseIcon onClick={() => setOpen(false)} />
-          </IconCircle>
-        </Wrapper>
-      </Wrapper>
-      <Wrapper
-        bgcolor="#555861"
-        padding="15px 15px"
-        alignItems="flex-start"
-        flexDirection="column"
-        borderBottom="1px solid #fff"
-      >
+      <MenuHeader>
+        <Logo onClick={() => setOpen(false)} />
+        <IconCircle>
+          <CloseIcon onClick={() => setOpen(false)} />
+        </IconCircle>
+      </MenuHeader>
+      <ProfileWrapper>
         <WhiteText size={22}>Olá, Julia.</WhiteText>
-        <BlueText>Perfil</BlueText>
-      </Wrapper>
-      <Wrapper
-        bgcolor="#555861"
-        padding="15px 15px"
-        alignItems="flex-start"
-        flexDirection="column"
-        borderBottom="1px solid #fff"
-      >
-        <ItemContainer padding="10px 0px 0px 0px">
+        <BlueText to="/perfil" onClick={() => setOpen(false)}>
+          Perfil
+        </BlueText>
+      </ProfileWrapper>
+      <MenuItensWrapper>
+        <MenuItem to="/" onClick={() => setOpen(false)}>
           <HomeIcon />
           <WhiteText size={21}>Início</WhiteText>
-        </ItemContainer>
-        <ItemContainer padding="10px 0px 0px 0px">
+        </MenuItem>
+        <MenuItem to="/" onClick={() => setOpen(false)}>
           <TargetIcon />
           <WhiteText size={21}>Objetivos</WhiteText>
-        </ItemContainer>
-        <ItemContainer justify="center" flexDirection="column">
-          <ItemContainer
-            justify="center"
+        </MenuItem>
+        <MenuItemExpand>
+          <MenuItemExpandLabel
             onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
           >
-            <ItemContainer padding="10px 0px 0px 0px">
-              <AppsIcon />
-              <WhiteText size={21}>Soluções</WhiteText>
-            </ItemContainer>
-            <ItemContainer justify="flex-end" padding="10px 0px 0px 0px">
-              <IconCircle color="#ff7433">
-                {isSolutionsOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
-              </IconCircle>
-            </ItemContainer>
-          </ItemContainer>
-          <ContainerDropdown isOpen={isSolutionsOpen}>
-            <ItemContainerDropdown isOpen={isSolutionsOpen}>
-              <ItemContainer padding="5px 0px">
-                <WhiteText size={14}>Cartão de Crédito</WhiteText>
-              </ItemContainer>
-              <ItemContainer padding="5px 0px">
-                <WhiteText size={14}>Consórcio de Imóvel</WhiteText>
-              </ItemContainer>
-              <ItemContainer padding="5px 0px">
-                <WhiteText size={14}>Consórcio de Veículo</WhiteText>
-              </ItemContainer>
-              <ItemContainer padding="5px 0px">
-                <WhiteText size={14}>Financiamento de Veículo</WhiteText>
-              </ItemContainer>
-              <ItemContainer padding="5px 0px">
-                <WhiteText size={14}>Investimentos</WhiteText>
-              </ItemContainer>
-              <ItemContainer padding="5px 0px" disable>
-                <WhiteText size={14}>Previdência Privada</WhiteText>
-                <TagWrapper>
-                  <TagText>Em Breve</TagText>
-                </TagWrapper>
-              </ItemContainer>
-              <ItemContainer padding="5px 0px">
-                <WhiteText size={14}>Seguro de Vida</WhiteText>
-              </ItemContainer>
-              <ItemContainer padding="5px 0px 0px 0px">
-                <WhiteText size={14}>Seguro Viagem</WhiteText>
-              </ItemContainer>
-            </ItemContainerDropdown>
-          </ContainerDropdown>
-        </ItemContainer>
-        <ItemContainer padding="10px 0px 0px 0px" disable>
+            <AppsIcon />
+            <WhiteText size={21}>Soluções</WhiteText>
+            <IconCircle>
+              {isSolutionsOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
+            </IconCircle>
+          </MenuItemExpandLabel>
+          <SolutionDropdown isOpen={isSolutionsOpen} setOpen={setOpen} />
+        </MenuItemExpand>
+        <MenuItem to="/" disabled onClick={evt => evt.preventDefault()}>
           <GearIcon />
           <WhiteText size={21}>Gerenciador</WhiteText>
           <TagWrapper>
             <TagText>Em Breve</TagText>
           </TagWrapper>
-        </ItemContainer>
-        <ItemContainer padding="10px 0px 0px 0px">
+        </MenuItem>
+        <MenuItem to="/" onClick={() => setOpen(false)}>
           <DiamondIcon />
           <WhiteText size={21}>Pontos</WhiteText>
-        </ItemContainer>
-        <ItemContainer padding="10px 0px 0px 0px">
+        </MenuItem>
+        <MenuItem to="/" onClick={() => setOpen(false)}>
           <IdeaIcon />
           <WhiteText size={21}>Recomendações</WhiteText>
-        </ItemContainer>
-      </Wrapper>
-      <Wrapper
-        bgcolor="#555861"
-        padding="15px 15px"
-        alignItems="flex-start"
-        flexDirection="column"
-      >
-        <BlueText>Sair</BlueText>
-      </Wrapper>
+        </MenuItem>
+      </MenuItensWrapper>
+      <BottomWrapper>
+        <BlueText to="/" onClick={() => setOpen(false)}>
+          Sair
+        </BlueText>
+      </BottomWrapper>
     </Container>
   )
 }
 
 ResponsiveHeader.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+}
+
+SolutionDropdown.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
 }

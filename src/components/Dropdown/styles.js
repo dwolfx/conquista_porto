@@ -5,9 +5,8 @@ export const RelativeHolder = styled.div`
 `
 
 export const Container = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   width: ${props => props.width};
-  max-height: 400px;
   transform-origin: top center;
   transform: ${props => (props.isOpen ? 'scaleY(1)' : 'scaleY(0)')};
   transition: all 0.25s ease-out;

@@ -3,9 +3,15 @@ import PropTypes from 'prop-types'
 
 import { Container, RelativeHolder, Backdrop } from './styles'
 
-export default function Dropdown({ isOpen, setOpen, children, width }) {
+export default function Dropdown({
+  isOpen,
+  setOpen,
+  children,
+  width,
+  ...props
+}) {
   return (
-    <RelativeHolder>
+    <RelativeHolder {...props}>
       <Backdrop isOpen={isOpen} onClick={() => setOpen(!isOpen)} />
       <Container isOpen={isOpen} width={width && width}>
         {children}
