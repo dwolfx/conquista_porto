@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import PencilSVG from 'assets/icons/pencil.svg'
 import breakpoints from 'styles/breakpoints'
-import theme from 'styles/theme'
 
 export const AccordionTitle = styled.h4`
   font-size: 18px;
@@ -10,7 +9,7 @@ export const AccordionTitle = styled.h4`
 `
 
 export const Wrapper = styled.div`
-  background-color: ${theme.colors.backgroundColor};
+  background-color: ${props => props.theme.colors.backgroundColor};
   flex: 1;
   padding-top: 30px;
 `
@@ -42,7 +41,7 @@ export const Content = styled.div`
 `
 
 export const PerfilTitle = styled.p`
-  color: ${theme.colors.lightPrimary};
+  color: ${props => props.theme.colors.lightPrimary};
   font-size: 18px;
   margin-bottom: 30px;
 `
@@ -254,7 +253,7 @@ export const DownloadLink = styled.a`
 `
 
 export const GreySection = styled.section`
-  background-color: ${theme.colors.backgroundColor};
+  background-color: ${props => props.theme.colors.backgroundColor};
   display: flex;
   flex-direction: column;
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
@@ -279,7 +278,7 @@ export const InputCode = styled.input.attrs({ type: 'number' })`
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #d2d2d2;
-  color: ${theme.colors.lightPrimary};
+  color: ${props => props.theme.colors.lightPrimary};
   font-size: 34px;
   font-weight: 300;
   margin: 0 auto;
