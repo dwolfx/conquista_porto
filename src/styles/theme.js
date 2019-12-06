@@ -2,6 +2,9 @@ export const themeColors = {
   backgroundColor: '#f1f1f1',
   linkColor: '#1c1c1c',
   linkBlue: '#33BFFF',
+  lightGray: '#e6e6e6',
+  white: '#fff',
+  black: '#000',
 
   lightPrimary: '#30C5FF',
   mediumPrimary: '#3dacff',

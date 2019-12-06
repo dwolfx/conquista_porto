@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 import CloseIcon from 'assets/icons/close.svg'
 import theme from 'styles/theme'
@@ -17,9 +16,10 @@ export const IconWrapper = styled.div`
   width: 30px;
 `
 
-export const CloseButton = styled(Link)`
+export const CloseButton = styled.a`
   background-color: ${theme.colors.lightSecondary};
   border-radius: 50%;
+  cursor: pointer;
   height: 32px;
   position: relative;
   width: 32px;
