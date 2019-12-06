@@ -152,8 +152,9 @@ pipeline {
               }
             }
           }
-*/
+
           stage ('Upload to bucket') {
+*/
             steps {
               withAWS(region:'us-east-1',credentials:'s3-conquista') {
                 s3Delete(bucket: 'conquista-frontend-prod', path:'**/*')
