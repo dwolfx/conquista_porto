@@ -23,7 +23,8 @@ export const Item = styled.div`
   }
 
   @media (min-width: 1000px) {
-    max-width: 500px;
+    flex: 1;
+    justify-content: center;
   }
 
   @media (max-width: 800px) {

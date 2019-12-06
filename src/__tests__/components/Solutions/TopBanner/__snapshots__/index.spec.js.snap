@@ -16,6 +16,17 @@ exports[`TopBanner renders correctly 1`] = `
       Com o Conquista, você pode investir em Fundos de Investimento da Porto Seguro e de gestoras parceiras. Consulte a Lista de Fundos e conheça opções para diversos perfis.
     </p>
     <br />
+    <button
+      className="sc-bdVaJa gkKTs button-with-right-icon"
+      color="secondary"
+      onClick={[Function]}
+    >
+      Lista de fundos
+       
+      <span>
+        &gt;
+      </span>
+    </button>
   </div>
   <img
     alt="Homem pesquisando investimentos em um website em seu computador"

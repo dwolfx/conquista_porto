@@ -124,7 +124,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       computer-secure.svg
@@ -169,7 +169,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       person-group2.svg
@@ -214,7 +214,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       coin.svg
@@ -288,7 +288,6 @@ Array [
             <div
               className="sc-bdVaJa dqbMnW"
               max={12}
-              min={0}
               width="70%"
             >
               <div>
@@ -340,10 +339,18 @@ Array [
       <br />
       <br />
       <button
-        className="sc-jzJRlG JTyhA"
+        className="sc-jzJRlG iSEuzy"
         color="secondary"
       >
-        SIMULAR E CONTRATAR
+        <span>
+          SIMULAR E CONTRATAR
+           
+          <span
+            className="Management___StyledSpan-sc-1gebdez-0 inYVzv"
+          >
+            &gt;
+          </span>
+        </span>
       </button>
     </div>
   </section>,
@@ -511,10 +518,10 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-kGXeez ZQYjS"
+    className="sc-kGXeez kByNSW"
   >
     <div
-      className="sc-kpOJdX diAuDG"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
@@ -545,7 +552,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kpOJdX diAuDG"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
@@ -576,7 +583,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kpOJdX diAuDG"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
