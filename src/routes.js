@@ -7,7 +7,7 @@ import Footer from 'components/Footer'
 
 import Home from 'pages/Home'
 import Investimentos from 'pages/Investments'
-import ManagementInvestimentos from './pages/Investments/Management'
+import ManagementInvestimentos from 'pages/Investments/Management'
 import InvestimentosExtrato from 'pages/Investments/Extract'
 import PrevidenciaPrivada from 'pages/PrivateWelfare'
 import Points from 'pages/Points'

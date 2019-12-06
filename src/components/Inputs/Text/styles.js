@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import breakpoints from 'styles/breakpoints'
-import theme from 'styles/theme'
 
 export const InputLabel = styled.label`
   position: absolute;
@@ -36,7 +35,7 @@ export const InputWrapper = styled.div`
     margin: 15px 0;
   }
   ${InputLabel} {
-    color: ${props => (props.disabled ? '#a2a2a2' : '#000')};
+    color: ${props => (props.disabled ? '#a2a2a2' : props.theme.colors.black)};
     font-size: ${props => (props.active ? '12px' : '14px')};
     font-style: ${props => (props.disabled ? 'italic' : 'normal')};
     top: ${props => (props.active ? '-13px' : '9px')};
@@ -50,7 +49,7 @@ export const InputWrapper = styled.div`
         return '#D0011B'
       }
       if (props.active) {
-        return theme.colors.lightPrimary
+        return props.theme.colors.lightPrimary
       }
 
       return '#D2D2D2'

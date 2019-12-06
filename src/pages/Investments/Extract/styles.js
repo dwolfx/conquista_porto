@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 import breakpoints from 'styles/breakpoints'
-import { themeColors } from 'styles/theme'
 
 export const Section = styled.section`
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : themeColors.white};
+    props.backgroundColor ? props.backgroundColor : props.theme.colors.white};
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
@@ -78,7 +77,7 @@ export const TableTabs = styled.div`
 
 export const TableTab = styled.div`
   background-image: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
-  border: 1px solid ${themeColors.lightGray};
+  border: 1px solid ${props => props.theme.colors.lightGray};
   border-radius: 6px 6px 0 0;
   cursor: pointer;
   height: 3rem;
@@ -98,7 +97,7 @@ export const TableTab = styled.div`
     height: 3.75rem;
     margin-top: 0;
     padding-top: 2em;
-    border-bottom: 4px solid ${themeColors.lightPrimary};
+    border-bottom: 4px solid ${props => props.theme.colors.lightPrimary};
   }
 `
 
@@ -117,7 +116,7 @@ export const SelectWrapper = styled.div`
 export const FilterButton = styled.button`
   background-color: transparent;
   border: none;
-  color: ${themeColors.lightPrimary};
+  color: ${props => props.theme.colors.lightPrimary};
   font-size: 11px;
   font-weight: 600;
   line-height: 21px;
