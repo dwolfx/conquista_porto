@@ -24,7 +24,7 @@ export default Accordion
 Accordion.propTypes = {
   titleNode: PropTypes.node.isRequired,
   isOrangeArrow: PropTypes.bool,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   id: PropTypes.string,
 }
 Accordion.defaultProps = {
