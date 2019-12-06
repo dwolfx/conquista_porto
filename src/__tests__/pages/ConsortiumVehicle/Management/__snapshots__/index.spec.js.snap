@@ -9,13 +9,13 @@ Array [
       className="sc-eHgmQL NvZvz"
     >
       <small
-        className="sc-htpNat bNVkrq"
+        className="sc-bxivhb hpkEGR"
       >
         Soluções
          »
       </small>
       <strong
-        className="sc-bxivhb cIoSxP"
+        className="sc-ifAKCX dqKGw"
       >
         consórcio de VEÍCULO
       </strong>
@@ -124,7 +124,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       computer-secure.svg
@@ -169,7 +169,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       person-group2.svg
@@ -214,7 +214,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       coin.svg
@@ -277,7 +277,7 @@ Array [
             </div>
           </div>
           <div
-            className="sc-csuQGl csnbKR"
+            className="sc-csuQGl cvSbvo"
           >
             <span
               className="sc-gipzik gpJUoF"
@@ -311,6 +311,11 @@ Array [
                 </span>
               </div>
             </div>
+            <button
+              className="sc-htpNat kXcpqd"
+            >
+              acesse o app e faça seu lance
+            </button>
           </div>
         </article>
       </article>
@@ -338,23 +343,31 @@ Array [
       <br />
       <br />
       <button
-        className="sc-jzJRlG JTyhA"
+        className="sc-htpNat bBkqxO"
         color="secondary"
       >
-        SIMULAR E CONTRATAR
+        <span>
+          SIMULAR E CONTRATAR
+           
+          <span
+            className="Management___StyledSpan-sc-1e2f1dc-0 kchjjj"
+          >
+            &gt;
+          </span>
+        </span>
       </button>
     </div>
   </section>,
   <section
-    className="sc-VigVT WiHLX"
+    className="sc-jTzLTM eWOzwu"
   >
     <h1
-      className="sc-jTzLTM brvQrh"
+      className="sc-fjdhpX bkPLld"
     >
       SAIBA MAIS:
     </h1>
     <div
-      className="slick-slider sc-fjdhpX KpkRb slick-initialized"
+      className="slick-slider sc-jzJRlG hsRcDu slick-initialized"
     >
       
       <div
@@ -391,26 +404,26 @@ Array [
           >
             <div>
               <div
-                className="sc-gzVnrw huDMoQ"
+                className="sc-htoDjs ejFzav"
               >
                 <div
-                  className="sc-htoDjs kBCzBK"
+                  className="sc-dnqmqq ggEcRB"
                 >
                   <img
-                    className="sc-gqjmRU gCphXb"
+                    className="sc-VigVT cmaKeV"
                     src={null}
                   />
                 </div>
                 <div
-                  className="sc-gZMcBi eFghLr"
+                  className="sc-gqjmRU extPZH"
                 >
                   <p
-                    className="sc-dnqmqq hYDrOB"
+                    className="sc-iwsKbI ejVoWm"
                   >
                     Tente um lance
                   </p>
                   <p
-                    className="sc-iwsKbI iQJoQn"
+                    className="sc-gZMcBi enOckV"
                   >
                     Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.
                   </p>
@@ -433,26 +446,26 @@ Array [
           >
             <div>
               <div
-                className="sc-gzVnrw huDMoQ"
+                className="sc-htoDjs ejFzav"
               >
                 <div
-                  className="sc-htoDjs kBCzBK"
+                  className="sc-dnqmqq ggEcRB"
                 >
                   <img
-                    className="sc-gqjmRU gCphXb"
+                    className="sc-VigVT cmaKeV"
                     src={null}
                   />
                 </div>
                 <div
-                  className="sc-gZMcBi eFghLr"
+                  className="sc-gqjmRU extPZH"
                 >
                   <p
-                    className="sc-dnqmqq hYDrOB"
+                    className="sc-iwsKbI ejVoWm"
                   >
                     Valor do consórcio como parte do lance
                   </p>
                   <p
-                    className="sc-iwsKbI iQJoQn"
+                    className="sc-gZMcBi enOckV"
                   >
                     Para conseguir dar um lance mais alto e aumentar suas chances de ser contemplado, você pode usar parte do valor do consórcio como complemento ao que foi ofertado. Cada consórcio tem suas regras, basta se informar sobre a existência desse benefício.
                   </p>
@@ -475,26 +488,26 @@ Array [
           >
             <div>
               <div
-                className="sc-gzVnrw huDMoQ"
+                className="sc-htoDjs ejFzav"
               >
                 <div
-                  className="sc-htoDjs kBCzBK"
+                  className="sc-dnqmqq ggEcRB"
                 >
                   <img
-                    className="sc-gqjmRU gCphXb"
+                    className="sc-VigVT cmaKeV"
                     src={null}
                   />
                 </div>
                 <div
-                  className="sc-gZMcBi eFghLr"
+                  className="sc-gqjmRU extPZH"
                 >
                   <p
-                    className="sc-dnqmqq hYDrOB"
+                    className="sc-iwsKbI ejVoWm"
                   >
                     Escolha qualquer veículo
                   </p>
                   <p
-                    className="sc-iwsKbI iQJoQn"
+                    className="sc-gZMcBi enOckV"
                   >
                     Ao fazer um consórcio, será utilizado um veículo específico como referência. No entanto, como o valor obtido com o consórcio é em dinheiro, você pode usá-lo para adquirir qualquer outro veículo sem restrição de modelo.
                   </p>
@@ -512,7 +525,7 @@ Array [
     className="sc-kGXeez kByNSW"
   >
     <div
-      className="sc-kpOJdX diAuDG"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
@@ -543,7 +556,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kpOJdX diAuDG"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
@@ -574,7 +587,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kpOJdX diAuDG"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg

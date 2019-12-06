@@ -6,7 +6,7 @@ Array [
     className="sc-jKJlTe fMSFIe"
   >
     <div
-      className="sc-iAyFgw etnWRw"
+      className="sc-cMljjf hJdfBQ"
     >
       <small
         className="sc-bdVaJa gKHdTJ"
@@ -27,7 +27,7 @@ Array [
         className="sc-kEYyzF efFqiR"
       >
         <div
-          className="sc-hSdWYo dIDeWS"
+          className="sc-jAaTju JKdbo"
           onClick={[Function]}
         >
           <svg
@@ -37,7 +37,7 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-gPEVay adunL"
+            className="sc-bRBYWo hZFeHB"
             fontSize="14px"
           >
             Adicionar
@@ -47,13 +47,13 @@ Array [
           className="sc-eNQAEJ jdVvxi"
         >
           <span
-            className="sc-gPEVay jgXUZl"
+            className="sc-bRBYWo kjxPnx"
             fontSize="14px"
           >
             Seguro de Vida
           </span>
           <span
-            className="sc-gPEVay cKnvAC"
+            className="sc-bRBYWo GAMGY"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -61,7 +61,7 @@ Array [
             VIGENTE ATÉ:
           </span>
           <span
-            className="sc-gPEVay eLCYJS"
+            className="sc-bRBYWo ctYCzI"
             fontSize="14px"
           >
             04/08/2018
@@ -72,12 +72,12 @@ Array [
         className="sc-kkGfuU dDZNmi"
       >
         <h4
-          className="sc-eHgmQL jgXQjn"
+          className="sc-jDwBTQ kSEOPd"
         >
           Seguro de Vida
         </h4>
         <div
-          className="slick-slider sc-cvbbAY brYUEo slick-initialized"
+          className="slick-slider sc-gPEVay gCCoUt slick-initialized"
         >
           
           <div
@@ -114,7 +114,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP broHKs"
+                    className="sc-iRbamj gHKjqZ"
                     style={
                       Object {
                         "display": "inline-block",
@@ -124,19 +124,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       boy.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-brqgnP bNUCXq"
+                        className="sc-jlyJG jWPWJv"
                       >
                         segurado
                       </p>
                       <span
-                        className="sc-cMljjf jcupv"
+                        className="sc-gipzik lhQroz"
                       >
                         Julia da Silva
                       </span>
@@ -159,7 +159,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP broHKs"
+                    className="sc-iRbamj gHKjqZ"
                     style={
                       Object {
                         "display": "inline-block",
@@ -169,19 +169,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       billing.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-brqgnP bNUCXq"
+                        className="sc-jlyJG jWPWJv"
                       >
                         12 parcelas de:
                       </p>
                       <span
-                        className="sc-cMljjf jcupv"
+                        className="sc-gipzik lhQroz"
                       >
                         R$ 310,00
                       </span>
@@ -204,7 +204,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP broHKs"
+                    className="sc-iRbamj gHKjqZ"
                     style={
                       Object {
                         "display": "inline-block",
@@ -214,22 +214,23 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       person-group.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-brqgnP bNUCXq"
+                        className="sc-jlyJG jWPWJv"
                       >
                         Coberturas adicionais
                       </p>
-                      <span
-                        className="sc-cMljjf jcupv"
+                      <p
+                        className="sc-fAjcbJ eiIkZT"
+                        onClick={[Function]}
                       >
-                        VER TODAS
-                      </span>
+                        VER TODAS &gt;
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -240,27 +241,27 @@ Array [
           
         </div>
         <article
-          className="sc-jAaTju bHZhYL"
+          className="sc-csuQGl hWDAQf"
         >
           <div
-            className="sc-iRbamj gPDjvM"
+            className="sc-hzDkRC euqTRW"
           >
             <span
-              className="sc-gPEVay dyhBrB"
+              className="sc-bRBYWo hEqrbb"
               fontSize="18px"
             >
               Cobertura Principal
             </span>
             <div
-              className="sc-jlyJG kmZXzZ"
+              className="sc-jhAzac dekinX"
             >
               <span
-                className="sc-gPEVay DItvd"
+                className="sc-bRBYWo bwaQMB"
               >
                 Morte Acidental
               </span>
               <span
-                className="sc-gPEVay DItvd"
+                className="sc-bRBYWo bwaQMB"
               >
                 R$ 35.000,00
               </span>
@@ -268,19 +269,19 @@ Array [
           </div>
         </article>
         <article
-          className="sc-jAaTju bHZhYL"
+          className="sc-csuQGl hWDAQf"
         >
           <div
-            className="sc-iRbamj gPDjvM"
+            className="sc-hzDkRC euqTRW"
           >
             <span
-              className="sc-gPEVay dyhBrB"
+              className="sc-bRBYWo hEqrbb"
               fontSize="18px"
             >
               Beneficiários
             </span>
             <table
-              className="sc-jDwBTQ dYVnzO"
+              className="sc-Rmtcm eIfCgT"
             >
               <thead>
                 <tr>
@@ -350,10 +351,17 @@ Array [
       <br />
       <br />
       <button
-        className="sc-jTzLTM jaGeYF"
+        className="sc-jTzLTM lfirWZ"
         color="secondary"
       >
-        Simular e contratar
+        <span>
+          SIMULAR E CONTRATAR
+          <span
+            className="Management___StyledSpan-fo5o5n-0 iawLiF"
+          >
+            &gt;
+          </span>
+        </span>
       </button>
     </div>
   </section>,
@@ -524,7 +532,7 @@ Array [
     className="sc-chPdSV dIOpVq"
   >
     <div
-      className="sc-kgoBCf juJXRE"
+      className="sc-kgoBCf bmTcQi"
     >
       <div>
         <svg
@@ -556,10 +564,10 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-gipzik ikxtpt"
+    className="sc-fBuWsC dlxryg"
   >
     <span
-      className="sc-gPEVay DItvd"
+      className="sc-bRBYWo bwaQMB"
     >
       Acesse a Área do Cliente para conferir todos os detalhes sobre os produtos da Porto Seguro.
     </span>

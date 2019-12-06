@@ -8,6 +8,7 @@ import {
   SubTitleWrapper,
   ValueWrapper,
   Wrapper,
+  ResponsiveLine,
 } from './styles'
 
 export default function TransactionsSection({ title, articles }) {
@@ -15,40 +16,48 @@ export default function TransactionsSection({ title, articles }) {
     <Container>
       <Title>{title}</Title>
       <Wrapper>
-        <ArticleItem>
-          <SubTitleWrapper>Aplicação</SubTitleWrapper>
-          <ValueWrapper>{articles.value1}</ValueWrapper>
-        </ArticleItem>
-        <ArticleItem>
-          <SubTitleWrapper>Movimentação Mín.</SubTitleWrapper>
-          <ValueWrapper>{articles.value2}</ValueWrapper>
-        </ArticleItem>
-        <ArticleItem>
-          <SubTitleWrapper>Saldo Mín.</SubTitleWrapper>
-          <ValueWrapper>{articles.value3}</ValueWrapper>
-        </ArticleItem>
-        <ArticleItem>
-          <SubTitleWrapper>Horário Limite da Aplic.</SubTitleWrapper>
-          <ValueWrapper>{articles.value4}</ValueWrapper>
-        </ArticleItem>
+        <ResponsiveLine>
+          <ArticleItem>
+            <SubTitleWrapper>Aplicação</SubTitleWrapper>
+            <ValueWrapper>{articles.value1}</ValueWrapper>
+          </ArticleItem>
+          <ArticleItem>
+            <SubTitleWrapper>Movimentação Mín.</SubTitleWrapper>
+            <ValueWrapper>{articles.value2}</ValueWrapper>
+          </ArticleItem>
+        </ResponsiveLine>
+        <ResponsiveLine>
+          <ArticleItem>
+            <SubTitleWrapper>Saldo Mín.</SubTitleWrapper>
+            <ValueWrapper>{articles.value3}</ValueWrapper>
+          </ArticleItem>
+          <ArticleItem>
+            <SubTitleWrapper>Horário Limite da Aplic.</SubTitleWrapper>
+            <ValueWrapper>{articles.value4}</ValueWrapper>
+          </ArticleItem>
+        </ResponsiveLine>
       </Wrapper>
       <Wrapper>
-        <ArticleItem>
-          <SubTitleWrapper>Aplicação (Cotização)</SubTitleWrapper>
-          <ValueWrapper>{articles.value5}</ValueWrapper>
-        </ArticleItem>
-        <ArticleItem>
-          <SubTitleWrapper>Aplicação (Financeiro)</SubTitleWrapper>
-          <ValueWrapper>{articles.value6}</ValueWrapper>
-        </ArticleItem>
-        <ArticleItem>
-          <SubTitleWrapper>Resgate (Cotização)</SubTitleWrapper>
-          <ValueWrapper>{articles.value7}</ValueWrapper>
-        </ArticleItem>
-        <ArticleItem>
-          <SubTitleWrapper>Resgate (Financeiro)</SubTitleWrapper>
-          <ValueWrapper>{articles.value8}</ValueWrapper>
-        </ArticleItem>
+        <ResponsiveLine>
+          <ArticleItem>
+            <SubTitleWrapper>Aplicação (Cotização)</SubTitleWrapper>
+            <ValueWrapper>{articles.value5}</ValueWrapper>
+          </ArticleItem>
+          <ArticleItem>
+            <SubTitleWrapper>Aplicação (Financeiro)</SubTitleWrapper>
+            <ValueWrapper>{articles.value6}</ValueWrapper>
+          </ArticleItem>
+        </ResponsiveLine>
+        <ResponsiveLine>
+          <ArticleItem>
+            <SubTitleWrapper>Resgate (Cotização)</SubTitleWrapper>
+            <ValueWrapper>{articles.value7}</ValueWrapper>
+          </ArticleItem>
+          <ArticleItem>
+            <SubTitleWrapper>Resgate (Financeiro)</SubTitleWrapper>
+            <ValueWrapper>{articles.value8}</ValueWrapper>
+          </ArticleItem>
+        </ResponsiveLine>
       </Wrapper>
     </Container>
   )

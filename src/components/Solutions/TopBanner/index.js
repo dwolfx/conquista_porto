@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Button from '../../Button'
 
 import { Container, Content, Title, ImageBackground } from './styles'
@@ -30,4 +32,18 @@ export default function TopBanner({
       <ImageBackground src={image} alt={imageDescription} />
     </Container>
   )
+}
+
+TopBanner.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  imageDescription: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  onClick: PropTypes.func,
+}
+
+TopBanner.defaultProps = {
+  onClick: () => {},
+  buttonText: null,
 }

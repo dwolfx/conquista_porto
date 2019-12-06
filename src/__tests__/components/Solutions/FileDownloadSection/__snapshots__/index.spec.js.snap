@@ -5,7 +5,7 @@ exports[`FileDownloadSection renders correctly 1`] = `
   className="sc-bdVaJa bFDApJ"
 >
   <div
-    className="sc-bwzfXH bkdjZE"
+    className="sc-bwzfXH fmjwcP"
   >
     <div>
       <svg
@@ -35,7 +35,7 @@ exports[`FileDownloadSection renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-bwzfXH bkdjZE"
+    className="sc-bwzfXH fmjwcP"
   >
     <div>
       <svg

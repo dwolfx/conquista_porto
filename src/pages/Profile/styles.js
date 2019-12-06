@@ -4,6 +4,11 @@ import PencilSVG from 'assets/icons/pencil.svg'
 import breakpoints from 'styles/breakpoints'
 import theme from 'styles/theme'
 
+export const AccordionTitle = styled.h4`
+  font-size: 18px;
+  font-weight: 300;
+`
+
 export const Wrapper = styled.div`
   background-color: ${theme.colors.backgroundColor};
   flex: 1;
@@ -54,6 +59,10 @@ export const SectionSubtitle = styled.h4`
 export const ButtonContainer = styled.div`
   margin-top: 30px;
   text-align: center;
+`
+
+export const ModalBody = styled.div`
+  margin-bottom: 30px;
 `
 
 export const SectionText = styled.div`

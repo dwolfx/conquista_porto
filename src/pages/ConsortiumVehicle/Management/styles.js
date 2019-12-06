@@ -113,4 +113,8 @@ export const Invoice = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  button {
+    margin-top: 62px;
+  }
 `

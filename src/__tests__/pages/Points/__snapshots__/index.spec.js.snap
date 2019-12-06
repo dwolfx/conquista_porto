@@ -17,6 +17,16 @@ Array [
         Acumule pontos ao investir e contratar com o Conquista. Confira sua pontuação no Programa de Relacionamento e aproveite as diversas opções de trocas, descontos e benefícios.
       </p>
       <br />
+      <button
+        className="sc-bdVaJa gkKTs button-with-right-icon"
+        color="secondary"
+        onClick={[Function]}
+      >
+         
+        <span>
+          &gt;
+        </span>
+      </button>
     </div>
     <img
       alt="Grupo de amigos sorrindo"
@@ -217,7 +227,7 @@ Array [
       Conheça as ofertas e veja o que você pode resgatar com o seu saldo atual.
     </p>
     <button
-      className="sc-bdVaJa dRmwlZ button-with-right-icon"
+      className="sc-bdVaJa gkKTs button-with-right-icon"
       color="secondary"
     >
       Resgatar Pontos 

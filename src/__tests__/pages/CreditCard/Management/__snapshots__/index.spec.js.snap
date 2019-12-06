@@ -124,7 +124,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       tag.svg
@@ -169,7 +169,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       credit-card.svg
@@ -214,7 +214,7 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#3dacff"
+                      fill="#30C5FF"
                       width="28"
                     >
                       lock.svg
@@ -330,7 +330,7 @@ Array [
             className="sc-chPdSV dncOTi"
           >
             <div
-              className="sc-kgoBCf juJXRE"
+              className="sc-kgoBCf bmTcQi"
             >
               <div>
                 <svg
@@ -371,7 +371,7 @@ Array [
               </div>
             </div>
             <div
-              className="sc-kgoBCf juJXRE"
+              className="sc-kgoBCf bmTcQi"
             >
               <div>
                 <svg
@@ -428,10 +428,17 @@ Array [
       <br />
       <br />
       <button
-        className="sc-jTzLTM jaGeYF"
+        className="sc-jTzLTM lfirWZ"
         color="secondary"
       >
-        simular e contratar
+        <span>
+          SIMULAR E CONTRATAR
+          <span
+            className="Management___StyledSpan-sc-1a98eg7-0 cCrLci"
+          >
+            &gt;
+          </span>
+        </span>
       </button>
     </div>
   </section>,
@@ -602,7 +609,7 @@ Array [
     className="sc-chPdSV dIOpVq"
   >
     <div
-      className="sc-kgoBCf juJXRE"
+      className="sc-kgoBCf bmTcQi"
     >
       <div>
         <svg
@@ -633,7 +640,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kgoBCf juJXRE"
+      className="sc-kgoBCf bmTcQi"
     >
       <div>
         <svg
@@ -664,7 +671,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kgoBCf juJXRE"
+      className="sc-kgoBCf bmTcQi"
     >
       <div>
         <svg

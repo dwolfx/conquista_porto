@@ -11,7 +11,6 @@ import {
   CloseButton,
   ModalHeader,
   ModalTitle,
-  ModalBody,
   ModalWrapper,
 } from './styles'
 
@@ -21,7 +20,7 @@ const Modal = ({
   handleClose,
   isOpen,
   modalTitle,
-  size,
+  ...rest
 }) => {
   const handleEscClose = event => {
     if (isOpen && event.keyCode === 27) {
@@ -33,9 +32,9 @@ const Modal = ({
 
   return isOpen
     ? ReactDOM.createPortal(
-        <ModalWrapper isOpen={isOpen}>
-          <ModalOverlay />
-          <ModalContainer size={size}>
+        <ModalWrapper isOpen={isOpen} {...rest}>
+          <ModalOverlay onClick={handleClose} />
+          <ModalContainer>
             <ModalHeader>
               {headerIcon && (
                 <Icon
@@ -47,7 +46,7 @@ const Modal = ({
               <ModalTitle>{modalTitle}</ModalTitle>
               <CloseButton onClick={handleClose} />
             </ModalHeader>
-            <ModalBody>{children}</ModalBody>
+            {children}
           </ModalContainer>
         </ModalWrapper>,
         document.body
@@ -57,7 +56,6 @@ const Modal = ({
 
 Modal.defaultProps = {
   headerIcon: null,
-  size: 'md',
 }
 
 Modal.propTypes = {
@@ -66,7 +64,6 @@ Modal.propTypes = {
   handleClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   modalTitle: PropTypes.string.isRequired,
-  size: PropTypes.string,
 }
 
 export default Modal

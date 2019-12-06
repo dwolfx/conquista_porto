@@ -12,6 +12,7 @@ import {
   DropDownTriangle,
   DropDownWrapper,
   LinkText,
+  LogoLinkWrapper,
   MenuIcon,
   NotificationCircle,
   RelativeParent,
@@ -119,7 +120,7 @@ export default function TopMenu() {
         <ResponsiveWrapper>
           <MenuIcon onClick={() => setIsResponsiveOpen(!isResponsiveOpen)} />
         </ResponsiveWrapper>
-        <Wrapper justify="flex-start">
+        <LogoLinkWrapper>
           <Logo />
           <LinkText to="/" exact size={20} margin="0px 20px">
             Início
@@ -127,7 +128,7 @@ export default function TopMenu() {
           <LinkText to="/perfil" size={20} margin="0px 20px">
             Perfil
           </LinkText>
-        </Wrapper>
+        </LogoLinkWrapper>
         <Wrapper justify="flex-end">
           <RelativeParent>
             <DropDownWrapper isOpen={isOpen} top={30} left={-470}>

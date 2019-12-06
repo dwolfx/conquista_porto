@@ -2,7 +2,7 @@ import React from 'react'
 
 import HistoricalRentabilityTable from './HistoricalRentabilityTable'
 import TransactionsSection from './TransactionsSection'
-import WrapperDetails from './WrapperDetails'
+import WrapperDetailsContent from './WrapperDetailsContent'
 import Taxation from './Taxation'
 import FileDownloadSection from '../../FileDownloadSection'
 
@@ -11,6 +11,7 @@ import {
   ModalTitle,
   Icon,
   Wrapper,
+  WrapperDetails,
   Title,
   IconCircle,
   SubTitle,
@@ -131,18 +132,16 @@ export default function FundsInfo() {
         articles={articles}
       />
       <FundsDetailsSection>
-        <Wrapper
-          direction="column"
-          width="600px"
-          justify="space-between"
-          borderRight="true"
-        >
-          <WrapperDetails title="Detalhes do Fundo" fundsDetail={fundsDetail} />
+        <WrapperDetails>
+          <WrapperDetailsContent
+            title="Detalhes do Fundo"
+            fundsDetail={fundsDetail}
+          />
           <FileDownloadSection
             backgroundColor="#f9f9f9"
             data={downloadFileSectionData}
           />
-        </Wrapper>
+        </WrapperDetails>
         <Taxation title="Tributação (IR)" taxationData={taxationData} />
       </FundsDetailsSection>
       <Notification>
