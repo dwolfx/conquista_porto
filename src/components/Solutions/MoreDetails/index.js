@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import { defaultSettings } from '../../Carousel'
 import CarouselItem from './CarouselCard/index'
-import { CarouselWrapper, TitleHeader, Carousel } from './styles'
-// import { Settings } from 'react-slick'
+import { CarouselWrapper, TitleHeader, Carousel, Container } from './styles'
 
 const MoreDetails = ({ title, data }) => {
   const settings = {
@@ -31,20 +30,22 @@ const MoreDetails = ({ title, data }) => {
     ],
   }
   return (
-    <CarouselWrapper>
-      <TitleHeader>{title}</TitleHeader>
-      <Carousel settings={settings}>
-        {data.map(({ img, imgTitle, imgDescription, imgPath }) => (
-          <CarouselItem
-            key={imgTitle}
-            img={img}
-            imgTitle={imgTitle}
-            imgDescription={imgDescription}
-            imgPath={imgPath}
-          />
-        ))}
-      </Carousel>
-    </CarouselWrapper>
+    <Container>
+      <CarouselWrapper>
+        <TitleHeader>{title}</TitleHeader>
+        <Carousel settings={settings}>
+          {data.map(({ img, imgTitle, imgDescription, imgPath }) => (
+            <CarouselItem
+              key={imgTitle}
+              img={img}
+              imgTitle={imgTitle}
+              imgDescription={imgDescription}
+              imgPath={imgPath}
+            />
+          ))}
+        </Carousel>
+      </CarouselWrapper>
+    </Container>
   )
 }
 

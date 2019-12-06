@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-// import phone from 'assets/icons/phone.svg'
 
 const gray = '#D2D2D2'
 const blackLight = '#1c1c1c'

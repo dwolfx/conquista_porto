@@ -3,10 +3,10 @@
 exports[`ManagementCreditCard renders correctly 1`] = `
 Array [
   <section
-    className="sc-jKJlTe fMSFIe"
+    className="sc-eNQAEJ dkSLTr"
   >
     <div
-      className="sc-iAyFgw etnWRw"
+      className="sc-hSdWYo cMYEWz"
     >
       <small
         className="sc-bdVaJa gKHdTJ"
@@ -21,13 +21,13 @@ Array [
       </strong>
     </div>
     <div
-      className="sc-hMqMXs eoReXE"
+      className="sc-kEYyzF iefXGH"
     >
       <nav
-        className="sc-kEYyzF efFqiR"
+        className="sc-kkGfuU htkBDB"
       >
         <div
-          className="sc-hSdWYo dIDeWS"
+          className="sc-eHgmQL hjTyAJ"
           onClick={[Function]}
         >
           <svg
@@ -37,23 +37,23 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-jlyJG gxqhdx"
+            className="sc-gipzik bgKkJw"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-eNQAEJ jdVvxi"
+          className="sc-hMqMXs ubGeV"
         >
           <span
-            className="sc-jlyJG KsYdL"
+            className="sc-gipzik gCxpjX"
             fontSize="14px"
           >
             Mundo 120 Prata
           </span>
           <span
-            className="sc-jlyJG iAlvFj"
+            className="sc-gipzik iyzGYR"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -61,7 +61,7 @@ Array [
             BANDEIRA
           </span>
           <span
-            className="sc-jlyJG kaKHUI"
+            className="sc-gipzik hfUqHZ"
             fontSize="14px"
           >
             Visa
@@ -69,15 +69,15 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-kkGfuU dDZNmi"
+        className="sc-iAyFgw hYJVsP"
       >
         <h4
-          className="sc-eHgmQL jgXQjn"
+          className="sc-cvbbAY kqlsth"
         >
           Mundo 120 Prata
         </h4>
         <div
-          className="slick-slider sc-cvbbAY brYUEo slick-initialized"
+          className="slick-slider sc-jWBwVP kBrNob slick-initialized"
         >
           
           <div
@@ -114,7 +114,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP broHKs"
+                    className="sc-brqgnP buUVWz"
                     style={
                       Object {
                         "display": "inline-block",
@@ -131,12 +131,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-brqgnP bNUCXq"
+                        className="sc-cMljjf eWERG"
                       >
                         bandeira
                       </p>
                       <span
-                        className="sc-cMljjf jcupv"
+                        className="sc-jAaTju dUXKMU"
                       >
                         Visa
                       </span>
@@ -159,7 +159,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP broHKs"
+                    className="sc-brqgnP buUVWz"
                     style={
                       Object {
                         "display": "inline-block",
@@ -176,12 +176,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-brqgnP bNUCXq"
+                        className="sc-cMljjf eWERG"
                       >
                         tipo
                       </p>
                       <span
-                        className="sc-cMljjf jcupv"
+                        className="sc-jAaTju dUXKMU"
                       >
                         Gold
                       </span>
@@ -204,7 +204,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jWBwVP broHKs"
+                    className="sc-brqgnP buUVWz"
                     style={
                       Object {
                         "display": "inline-block",
@@ -221,12 +221,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-brqgnP bNUCXq"
+                        className="sc-cMljjf eWERG"
                       >
                         4 últimos numeros
                       </p>
                       <span
-                        className="sc-cMljjf jcupv"
+                        className="sc-jAaTju dUXKMU"
                       >
                         9999
                       </span>
@@ -240,75 +240,75 @@ Array [
           
         </div>
         <article
-          className="sc-jAaTju evxRjC"
+          className="sc-jDwBTQ eTeJkP"
         >
           <div
-            className="sc-jDwBTQ bwpeVt"
+            className="sc-gPEVay kxzkgx"
           >
             <div
-              className="sc-iRbamj bkvcMo"
+              className="sc-jlyJG dAgDnI"
             >
               <span
-                className="sc-jlyJG dBhOIp"
+                className="sc-gipzik huEeXk"
                 fontSize="22px"
               >
                 Vencimento da Fatura
               </span>
               <span
-                className="sc-jlyJG fsbDit"
+                className="sc-gipzik kWEmxP"
               >
                 22
               </span>
             </div>
             <div
-              className="sc-iRbamj bkvcMo"
+              className="sc-jlyJG dAgDnI"
             >
               <span
-                className="sc-jlyJG dBhOIp"
+                className="sc-gipzik huEeXk"
                 fontSize="22px"
               >
                 Melhor dia para compra
               </span>
               <span
-                className="sc-jlyJG fsbDit"
+                className="sc-gipzik kWEmxP"
               >
                 10
               </span>
             </div>
           </div>
           <div
-            className="sc-gipzik fgBQrk"
+            className="sc-csuQGl dBhIuf"
           >
             <span
-              className="sc-jlyJG fKbeam"
+              className="sc-gipzik gpJUoF"
               fontSize="18px"
             >
               Fatura
             </span>
             <div
-              className="sc-csuQGl exKYUE"
+              className="sc-Rmtcm cNFnod"
             >
               <span
-                className="sc-jlyJG fsbDit"
+                className="sc-gipzik kWEmxP"
               >
                 Fechada
               </span>
               <span
-                className="sc-jlyJG fsbDit"
+                className="sc-gipzik kWEmxP"
               >
                 R$ 50.000,00
               </span>
             </div>
             <div
-              className="sc-csuQGl exKYUE"
+              className="sc-Rmtcm cNFnod"
             >
               <span
-                className="sc-jlyJG fsbDit"
+                className="sc-gipzik kWEmxP"
               >
                 Aberta
               </span>
               <span
-                className="sc-jlyJG fsbDit"
+                className="sc-gipzik kWEmxP"
               >
                 R$ 500.000,00
               </span>
@@ -316,10 +316,10 @@ Array [
           </div>
         </article>
         <article
-          className="sc-gPEVay NQzBj"
+          className="sc-iRbamj iRMscS"
         >
           <span
-            className="sc-jlyJG gKbQcg"
+            className="sc-gipzik bcxLvt"
             fontSize="11px"
             fontWeight="600"
             letterSpacing="1.5px"
@@ -327,14 +327,14 @@ Array [
             INFORMAÇÕES COMPLEMENTARES
           </span>
           <section
-            className="sc-chPdSV dncOTi"
+            className="sc-kgoBCf kzJSkH"
           >
             <div
-              className="sc-kgoBCf bmTcQi"
+              className="sc-kGXeez hAFKlo"
             >
               <div>
                 <svg
-                  className="sc-kGXeez laOOnE"
+                  className="sc-kpOJdX iftNML"
                   fill="#777"
                   height="24px"
                 >
@@ -343,19 +343,19 @@ Array [
               </div>
               <div>
                 <p
-                  className="sc-kpOJdX fgntpB"
+                  className="sc-dxgOiQ kkDJal"
                 >
                   Programa de relacionamento
                 </p>
                 <p
-                  className="sc-dxgOiQ eQbFOZ"
+                  className="sc-ckVGcZ hnFLbJ"
                 >
                   <span>
                     Com este produto você acumulou:
                     <br />
                      
                     <span
-                      className="sc-jlyJG cEsmXh"
+                      className="sc-gipzik ksPSKl"
                       fontSize="22px"
                     >
                       50 pontos
@@ -363,7 +363,7 @@ Array [
                   </span>
                 </p>
                 <p
-                  className="sc-ckVGcZ hCSLsb"
+                  className="sc-jKJlTe eiqxWu"
                 >
                   Ver extrato
                    &gt; 
@@ -371,11 +371,11 @@ Array [
               </div>
             </div>
             <div
-              className="sc-kgoBCf bmTcQi"
+              className="sc-kGXeez hAFKlo"
             >
               <div>
                 <svg
-                  className="sc-kGXeez laOOnE"
+                  className="sc-kpOJdX iftNML"
                   fill="#777"
                   height="24px"
                 >
@@ -384,17 +384,17 @@ Array [
               </div>
               <div>
                 <p
-                  className="sc-kpOJdX fgntpB"
+                  className="sc-dxgOiQ kkDJal"
                 >
                   Informativo de desempenho
                 </p>
                 <p
-                  className="sc-dxgOiQ eQbFOZ"
+                  className="sc-ckVGcZ hnFLbJ"
                 >
                   Material técnico, com gráficos, informações e histórico do fundo.
                 </p>
                 <p
-                  className="sc-ckVGcZ hCSLsb"
+                  className="sc-jKJlTe eiqxWu"
                 >
                   BAIXAR ARQUIVO
                    &gt; 
@@ -407,18 +407,18 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-fjdhpX eWceTn"
+    className="sc-jzJRlG sdAqc"
   >
     <div
-      className="sc-jzJRlG hinpjZ"
+      className="sc-cSHVUG igqXNy"
     >
       <h1
-        className="sc-cSHVUG wHIpt"
+        className="sc-kAzzGY iZrSyd"
       >
         O cartão cheio de vantagens.
       </h1>
       <p
-        className="sc-kAzzGY gqyMro"
+        className="sc-chPdSV bfeiDG"
       >
         Descontos em seguros para você, para sua casa e para seu carro.
         <br />
@@ -428,7 +428,7 @@ Array [
       <br />
       <br />
       <button
-        className="sc-jTzLTM lfirWZ"
+        className="sc-fjdhpX eQLczf"
         color="secondary"
       >
         <span>
@@ -443,177 +443,181 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-gZMcBi gKyxfO"
+    className="sc-gZMcBi bKjxow"
   >
-    <h1
-      className="sc-gqjmRU kMcdqL"
-    >
-      Saiba mais:
-    </h1>
     <div
-      className="slick-slider sc-VigVT fViOIK slick-initialized"
+      className="sc-gqjmRU fFPjBw"
     >
-      
-      <div
-        className="slick-list"
+      <h1
+        className="sc-VigVT iFIGnJ"
       >
+        Saiba mais:
+      </h1>
+      <div
+        className="slick-slider sc-jTzLTM boRFAs slick-initialized"
+      >
+        
         <div
-          className="slick-track"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "WebkitTransform": "translate3d(0px, 0px, 0px)",
-              "WebkitTransition": "",
-              "msTransform": "translateX(0px)",
-              "opacity": 1,
-              "transform": "translate3d(0px, 0px, 0px)",
-              "transition": "",
-            }
-          }
+          className="slick-list"
         >
           <div
-            aria-hidden={false}
-            className="slick-slide slick-active slick-current"
-            data-index={0}
-            onClick={[Function]}
+            className="slick-track"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
             style={
               Object {
-                "outline": "none",
-                "width": 0,
+                "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                "WebkitTransition": "",
+                "msTransform": "translateX(0px)",
+                "opacity": 1,
+                "transform": "translate3d(0px, 0px, 0px)",
+                "transition": "",
               }
             }
-            tabIndex="-1"
           >
-            <div>
-              <div
-                className="sc-EHOje lesLjw"
-              >
+            <div
+              aria-hidden={false}
+              className="slick-slide slick-active slick-current"
+              data-index={0}
+              onClick={[Function]}
+              style={
+                Object {
+                  "outline": "none",
+                  "width": 0,
+                }
+              }
+              tabIndex="-1"
+            >
+              <div>
                 <div
-                  className="sc-bZQynM fkBOCF"
+                  className="sc-EHOje cdyUBk"
                 >
-                  <img
-                    className="sc-iwsKbI AGuCL"
-                    src={null}
-                  />
-                </div>
-                <div
-                  className="sc-dnqmqq jliBYR"
-                >
-                  <p
-                    className="sc-gzVnrw jmJbLu"
+                  <div
+                    className="sc-bZQynM fkBOCF"
                   >
-                    Parcelando as compras
-                  </p>
-                  <p
-                    className="sc-htoDjs kbOwZQ"
+                    <img
+                      className="sc-iwsKbI AGuCL"
+                      src={null}
+                    />
+                  </div>
+                  <div
+                    className="sc-dnqmqq daZKCg"
                   >
-                    O Cartão de Crédito Porto Seguro permite parcelar as compras, dando a opção de usar seu limite para outras finalidades. Mas, apesar dessa vantagem, é preciso ficar atento ao limite, que será reduzido com o valor total das compras e não apenas com as parcelas referentes ao mês.
-                  </p>
+                    <p
+                      className="sc-gzVnrw jmJbLu"
+                    >
+                      Parcelando as compras
+                    </p>
+                    <p
+                      className="sc-htoDjs kbOwZQ"
+                    >
+                      O Cartão de Crédito Porto Seguro permite parcelar as compras, dando a opção de usar seu limite para outras finalidades. Mas, apesar dessa vantagem, é preciso ficar atento ao limite, que será reduzido com o valor total das compras e não apenas com as parcelas referentes ao mês.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={1}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
+            <div
+              aria-hidden={false}
+              className="slick-slide slick-active"
+              data-index={1}
+              onClick={[Function]}
+              style={
+                Object {
+                  "outline": "none",
+                  "width": 0,
+                }
               }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="sc-EHOje lesLjw"
-              >
+              tabIndex="-1"
+            >
+              <div>
                 <div
-                  className="sc-bZQynM fkBOCF"
+                  className="sc-EHOje cdyUBk"
                 >
-                  <img
-                    className="sc-iwsKbI AGuCL"
-                    src={null}
-                  />
-                </div>
-                <div
-                  className="sc-dnqmqq jliBYR"
-                >
-                  <p
-                    className="sc-gzVnrw jmJbLu"
+                  <div
+                    className="sc-bZQynM fkBOCF"
                   >
-                    Ferramenta de controle
-                  </p>
-                  <p
-                    className="sc-htoDjs kbOwZQ"
+                    <img
+                      className="sc-iwsKbI AGuCL"
+                      src={null}
+                    />
+                  </div>
+                  <div
+                    className="sc-dnqmqq daZKCg"
                   >
-                    Com o Cartão de Crédito Porto Seguro, você pode ter suas despesas registradas na fatura para facilitar seu controle financeiro. E também pode parcelar compras para resolver problemas sem que eles comprometam seu orçamento, além de contar com o limite para não se exceder.
-                  </p>
+                    <p
+                      className="sc-gzVnrw jmJbLu"
+                    >
+                      Ferramenta de controle
+                    </p>
+                    <p
+                      className="sc-htoDjs kbOwZQ"
+                    >
+                      Com o Cartão de Crédito Porto Seguro, você pode ter suas despesas registradas na fatura para facilitar seu controle financeiro. E também pode parcelar compras para resolver problemas sem que eles comprometam seu orçamento, além de contar com o limite para não se exceder.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={2}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
+            <div
+              aria-hidden={false}
+              className="slick-slide slick-active"
+              data-index={2}
+              onClick={[Function]}
+              style={
+                Object {
+                  "outline": "none",
+                  "width": 0,
+                }
               }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="sc-EHOje lesLjw"
-              >
+              tabIndex="-1"
+            >
+              <div>
                 <div
-                  className="sc-bZQynM fkBOCF"
+                  className="sc-EHOje cdyUBk"
                 >
-                  <img
-                    className="sc-iwsKbI AGuCL"
-                    src={null}
-                  />
-                </div>
-                <div
-                  className="sc-dnqmqq jliBYR"
-                >
-                  <p
-                    className="sc-gzVnrw jmJbLu"
+                  <div
+                    className="sc-bZQynM fkBOCF"
                   >
-                    Relacionamento
-                  </p>
-                  <p
-                    className="sc-htoDjs kbOwZQ"
+                    <img
+                      className="sc-iwsKbI AGuCL"
+                      src={null}
+                    />
+                  </div>
+                  <div
+                    className="sc-dnqmqq daZKCg"
                   >
-                    Concentrando o pagamento das compras no Cartão de Crédito Porto Seguro, você pode acumular pontos para trocar por descontos em seguros e por serviços para a casa ou para o carro. Ou pode optar por trocar por produtos de lojas parceiras ou por milhas aéreas.
-                  </p>
+                    <p
+                      className="sc-gzVnrw jmJbLu"
+                    >
+                      Relacionamento
+                    </p>
+                    <p
+                      className="sc-htoDjs kbOwZQ"
+                    >
+                      Concentrando o pagamento das compras no Cartão de Crédito Porto Seguro, você pode acumular pontos para trocar por descontos em seguros e por serviços para a casa ou para o carro. Ou pode optar por trocar por produtos de lojas parceiras ou por milhas aéreas.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
+        
       </div>
-      
-      
     </div>
   </section>,
   <section
-    className="sc-chPdSV dIOpVq"
+    className="sc-kgoBCf jGzBDx"
   >
     <div
-      className="sc-kgoBCf bmTcQi"
+      className="sc-kGXeez hAFKlo"
     >
       <div>
         <svg
-          className="sc-kGXeez laOOnE"
+          className="sc-kpOJdX iftNML"
           fill="#777"
           height="24px"
         >
@@ -622,17 +626,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-kpOJdX fgntpB"
+          className="sc-dxgOiQ kkDJal"
         >
           SISTEMA DE INFORMAÇÕES DE CRÉDITO - SCR
         </p>
         <p
-          className="sc-dxgOiQ eQbFOZ"
+          className="sc-ckVGcZ hnFLbJ"
         >
           Informações legais sobre crédito.
         </p>
         <p
-          className="sc-ckVGcZ hCSLsb"
+          className="sc-jKJlTe eiqxWu"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -640,11 +644,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kgoBCf bmTcQi"
+      className="sc-kGXeez hAFKlo"
     >
       <div>
         <svg
-          className="sc-kGXeez laOOnE"
+          className="sc-kpOJdX iftNML"
           fill="#777"
           height="24px"
         >
@@ -653,17 +657,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-kpOJdX fgntpB"
+          className="sc-dxgOiQ kkDJal"
         >
           TABELA DE TARIFAS
         </p>
         <p
-          className="sc-dxgOiQ eQbFOZ"
+          className="sc-ckVGcZ hnFLbJ"
         >
           Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.
         </p>
         <p
-          className="sc-ckVGcZ hCSLsb"
+          className="sc-jKJlTe eiqxWu"
         >
           Visualizar
            &gt; 
@@ -671,11 +675,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kgoBCf bmTcQi"
+      className="sc-kGXeez hAFKlo"
     >
       <div>
         <svg
-          className="sc-kGXeez laOOnE"
+          className="sc-kpOJdX iftNML"
           fill="#777"
           height="24px"
         >
@@ -684,17 +688,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-kpOJdX fgntpB"
+          className="sc-dxgOiQ kkDJal"
         >
           CONDIÇÕES GERAIS
         </p>
         <p
-          className="sc-dxgOiQ eQbFOZ"
+          className="sc-ckVGcZ hnFLbJ"
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Cartão de Crédito da Porto Seguro.
         </p>
         <p
-          className="sc-ckVGcZ hCSLsb"
+          className="sc-jKJlTe eiqxWu"
         >
           BAIXAR ARQUIVO
            &gt; 

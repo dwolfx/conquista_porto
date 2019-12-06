@@ -1,9 +1,8 @@
 import React from 'react'
-import { IBenefitsData } from '../index'
+import ConquistaIcon from 'components/IconExporter'
 import { CardWrapper, Title, Description, TextBox } from './styles'
-import ConquistaIcon from '../../../../IconExporter'
 
-export default function({ title, description, icon }: IProps) {
+export default function({ title, description, icon }) {
   return (
     <CardWrapper>
       <ConquistaIcon name={icon} fill="#777" />
@@ -14,5 +13,3 @@ export default function({ title, description, icon }: IProps) {
     </CardWrapper>
   )
 }
-
-interface IProps extends IBenefitsData {}
