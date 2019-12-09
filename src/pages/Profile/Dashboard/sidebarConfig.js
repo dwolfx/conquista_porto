@@ -1,11 +1,9 @@
-import theme from 'styles/theme'
-
 const scrollTo = sectionId => {
   const el = document.getElementById(sectionId)
   el.scrollIntoView(true)
 }
 
-export const initialDashBoardSidebar = openDadosModal => [
+export const initialDashBoardSidebar = (openDadosModal, theme) => [
   {
     items: [
       {
@@ -44,7 +42,11 @@ export const initialDashBoardSidebar = openDadosModal => [
   },
 ]
 
-export const completedDashboardSidebar = (openPerfilModal, openDadosModal) => [
+export const completedDashboardSidebar = (
+  openPerfilModal,
+  openDadosModal,
+  theme
+) => [
   {
     items: [
       {

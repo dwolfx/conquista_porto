@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import Button from 'components/Button'
 import Modal from 'components/Modal'
@@ -21,6 +22,7 @@ import {
 } from '../styles'
 
 const Dashboard = ({ profileIsCompleted }) => {
+  const themeContext = useContext(ThemeContext)
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [modalTitle, setModalTitle] = useState('')
   const [modalIcon, setModalIcon] = useState('')
@@ -88,14 +90,17 @@ const Dashboard = ({ profileIsCompleted }) => {
       <Sidebar
         sidebarItems={completedDashboardSidebar(
           openPerfilModal,
-          openDadosModal
+          openDadosModal,
+          themeContext
         )}
       />
       <CompletedProfile />
     </>
   ) : (
     <>
-      <Sidebar sidebarItems={initialDashBoardSidebar(openDadosModal)} />
+      <Sidebar
+        sidebarItems={initialDashBoardSidebar(openDadosModal, themeContext)}
+      />
       <UncompleteProfile />
     </>
   )
