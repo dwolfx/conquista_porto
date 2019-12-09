@@ -22,7 +22,16 @@ export const themeColors = {
   disabledAlternative: '#27c14545',
 }
 
+const fundRiskColors = {
+  lowRisk: '#555861',
+  lowMediumRisk: '#33BFFF',
+  mediumRisk: '#3CC225',
+  mediumHighRisk: '#FDA529',
+  highRisk: '#D0011B',
+}
+
 export default {
   colors: themeColors,
+  fundRiskColors,
   fontFamily: 'Open Sans',
 }
