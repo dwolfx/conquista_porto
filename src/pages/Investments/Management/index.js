@@ -181,7 +181,7 @@ export default function ManagementInvestments({ history }) {
                 <Topic>
                   <Icon
                     width="28"
-                    fill={commonStyles.colors.lightPrimary}
+                    fill={commonStyles.colors.primary.light}
                     name="time"
                   />
                   <div>
@@ -192,7 +192,7 @@ export default function ManagementInvestments({ history }) {
                 <Topic>
                   <Icon
                     width="28"
-                    fill={commonStyles.colors.lightPrimary}
+                    fill={commonStyles.colors.primary.light}
                     name="coin"
                   />
                   <div>
@@ -203,7 +203,7 @@ export default function ManagementInvestments({ history }) {
                 <Topic>
                   <Icon
                     width="28"
-                    fill={commonStyles.colors.lightPrimary}
+                    fill={commonStyles.colors.primary.light}
                     name="monitoranalytics"
                   />
                   <div>
@@ -308,7 +308,7 @@ export default function ManagementInvestments({ history }) {
                       fontSize="15px"
                       lineHeight="25px"
                       fontWeight="bold"
-                      fontColor={theme.colors.lightPrimary}
+                      fontColor={theme.colors.primary.light}
                     >
                       Movimentações pendentes
                     </Text>
@@ -338,7 +338,7 @@ export default function ManagementInvestments({ history }) {
                   data={[
                     {
                       id: 'balance',
-                      color: theme.colors.lightPrimary,
+                      color: theme.colors.primary.light,
                       data: [
                         {
                           x: '01/10/2018',
@@ -514,7 +514,7 @@ export default function ManagementInvestments({ history }) {
             <Text
               fontSize="12px"
               lineHeight="22px"
-              fontColor={theme.colors.lightPrimary}
+              fontColor={theme.colors.primary.light}
               fontWeight="bold"
             >
               ACESSE AQUI.

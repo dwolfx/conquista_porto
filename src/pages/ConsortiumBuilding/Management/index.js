@@ -102,7 +102,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={commonStyles.colors.primary.light}
                   name="computersecure"
                 />
                 <div>
@@ -113,7 +113,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={commonStyles.colors.primary.light}
                   name="persongroup2"
                 />
                 <div>
@@ -124,7 +124,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={commonStyles.colors.primary.light}
                   name="coin"
                 />
                 <div>

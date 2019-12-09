@@ -26,7 +26,7 @@ const blueArrow = css`
     top: calc(50% - 11px);
     right: 30px;
     mask-image: url(${ArrowIcon});
-    background-color: ${props => props.theme.colors.lightPrimary};
+    background-color: ${props => props.theme.colors.primary.light};
     width: 19px;
     height: 22px;
     transition: all ease 0.3s;
@@ -42,7 +42,7 @@ export const AccordionHeader = styled.div`
   &:before {
     content: '';
     display: ${props => (props.isOrangeArrow ? 'block' : 'none')};
-    background-color: ${props => props.theme.colors.lightSecondary};
+    background-color: ${props => props.theme.colors.secondary.light};
     border-radius: 50%;
     height: 20px;
     position: absolute;

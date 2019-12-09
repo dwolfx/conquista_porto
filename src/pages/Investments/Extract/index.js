@@ -62,7 +62,7 @@ const InvestmentExtract = () => {
           <Row justify="space-around">
             <AccountInfoWrapper>
               <Icon
-                fill={theme.colors.lightPrimary}
+                fill={theme.colors.primary.light}
                 width={40}
                 name="building"
               />
@@ -73,7 +73,7 @@ const InvestmentExtract = () => {
             </AccountInfoWrapper>
             <AccountInfoWrapper>
               <Icon
-                fill={theme.colors.lightPrimary}
+                fill={theme.colors.primary.light}
                 width={40}
                 name="barcode"
               />
@@ -83,14 +83,18 @@ const InvestmentExtract = () => {
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
-              <Icon fill={theme.colors.lightPrimary} width={40} name="wallet" />
+              <Icon
+                fill={theme.colors.primary.light}
+                width={40}
+                name="wallet"
+              />
               <InfosWrapper>
                 <InfosLabel>Conta</InfosLabel>
                 <InfosData>999999-6</InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
-              <Icon fill={theme.colors.lightPrimary} width={40} name="boy" />
+              <Icon fill={theme.colors.primary.light} width={40} name="boy" />
               <InfosWrapper>
                 <InfosLabel>Favorecido</InfosLabel>
                 <InfosData>Julia Francis Reys</InfosData>
@@ -98,7 +102,7 @@ const InvestmentExtract = () => {
             </AccountInfoWrapper>
             <AccountInfoWrapper>
               <Icon
-                fill={theme.colors.lightPrimary}
+                fill={theme.colors.primary.light}
                 width={40}
                 name="fingerprint"
               />

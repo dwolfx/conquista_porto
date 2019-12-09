@@ -39,7 +39,7 @@ const Modal = ({
               {headerIcon && (
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={commonStyles.colors.primary.light}
                   name={headerIcon}
                 />
               )}

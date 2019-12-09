@@ -38,7 +38,7 @@ export const SidebarItemText = styled.a`
   color: ${props => {
     switch (props.color) {
       case 'primary':
-        return commonStyles.colors.lightPrimary
+        return commonStyles.colors.primary.light
       default:
         return commonStyles.colors.linkColor
     }

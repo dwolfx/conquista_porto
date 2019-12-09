@@ -41,7 +41,7 @@ export const Content = styled.div`
 `
 
 export const PerfilTitle = styled.p`
-  color: ${props => props.theme.colors.lightPrimary};
+  color: ${props => props.theme.colors.primary.light};
   font-size: 18px;
   margin-bottom: 30px;
 `
@@ -278,7 +278,7 @@ export const InputCode = styled.input.attrs({ type: 'number' })`
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #d2d2d2;
-  color: ${props => props.theme.colors.lightPrimary};
+  color: ${props => props.theme.colors.primary.light};
   font-size: 34px;
   font-weight: 300;
   margin: 0 auto;

@@ -154,7 +154,7 @@ export const Text = styled.p`
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
 `
 export const BlueText = styled.p`
-  color: ${props => props.theme.colors.mediumPrimary};
+  color: ${props => props.theme.colors.primary.medium};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -204,7 +204,7 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
   && {
     width: ${props => (props.size ? `${props.size}px` : '16px')};
     height: ${props => (props.size ? `${props.size}px` : '16px')};
-    fill: ${props => props.theme.colors.lightPrimary};
+    fill: ${props => props.theme.colors.primary.light};
     margin-right: 0px;
   }
 `

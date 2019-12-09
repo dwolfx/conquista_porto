@@ -97,7 +97,7 @@ export const TableTab = styled.div`
     height: 3.75rem;
     margin-top: 0;
     padding-top: 2em;
-    border-bottom: 4px solid ${props => props.theme.colors.lightPrimary};
+    border-bottom: 4px solid ${props => props.theme.colors.primary.light};
   }
 `
 
@@ -116,7 +116,7 @@ export const SelectWrapper = styled.div`
 export const FilterButton = styled.button`
   background-color: transparent;
   border: none;
-  color: ${props => props.theme.colors.lightPrimary};
+  color: ${props => props.theme.colors.primary.light};
   font-size: 11px;
   font-weight: 600;
   line-height: 21px;
