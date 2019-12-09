@@ -22,12 +22,11 @@ export const MainContainer = styled.header`
 
 export const Container = styled.div`
   display: flex;
-  /* width: 1200px; */
-  margin: 0 50px;
+  margin: 0 30px;
   height: auto;
   justify-content: center;
   align-items: center;
-  padding: 7px 22px;
+  padding: 7px 20px;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -37,7 +36,7 @@ export const Container = styled.div`
     width: 100%;
   }
   @media (min-width: 768px) {
-    padding: 15px 0;
+    padding: 15px 20px;
   }
 `
 export const Wrapper = styled.div`
