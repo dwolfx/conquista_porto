@@ -233,7 +233,6 @@ export const DescriptionContent = styled.div`
 
 export const Table = styled.table`
   border-collapse: collapse;
-  width: 100%;
 
   margin-top: 22px;
 
@@ -261,7 +260,6 @@ export const Table = styled.table`
         line-height: 14px;
         text-align: center;
         border: 1px solid #d2d2d2;
-        width: 150px;
         padding: 22px 20px;
         text-transform: uppercase;
         opacity: 0.9;

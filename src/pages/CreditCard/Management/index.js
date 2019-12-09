@@ -170,7 +170,7 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={commonStyles.colors.primary.light}
                   name="tag"
                 />
                 <div>
@@ -181,7 +181,7 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={commonStyles.colors.primary.light}
                   name="creditcard"
                 />
                 <div>
@@ -192,7 +192,7 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={commonStyles.colors.primary.light}
                   name="lock"
                 />
                 <div>

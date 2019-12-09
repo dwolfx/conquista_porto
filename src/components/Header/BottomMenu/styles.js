@@ -113,11 +113,11 @@ const menuItemProps = css`
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;
-      fill: ${props => props.theme.colors.lightPrimary};
+      fill: ${props => props.theme.colors.primary.light};
     }
     p {
       transition: all 0.2s ease-in-out;
-      color: ${props => props.theme.colors.lightPrimary};
+      color: ${props => props.theme.colors.primary.light};
     }
   }
 `
@@ -138,11 +138,11 @@ export const WrapperBottomMenuItem = styled(Link)`
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;
-      fill: ${props => props.theme.colors.lightPrimary};
+      fill: ${props => props.theme.colors.primary.light};
     }
     p {
       transition: all 0.2s ease-in-out;
-      color: ${props => props.theme.colors.lightPrimary};
+      color: ${props => props.theme.colors.primary.light};
     }
   }
 `

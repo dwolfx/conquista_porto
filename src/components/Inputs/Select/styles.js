@@ -10,7 +10,7 @@ export const SelectFieldWrapper = styled.div`
 
   &:before {
     content: '';
-    background-color: ${theme.colors.lightSecondary};
+    background-color: ${theme.colors.secondary.light};
     border-radius: 50%;
     display: block;
     height: 20px;

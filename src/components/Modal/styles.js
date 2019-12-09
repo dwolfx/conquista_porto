@@ -38,7 +38,7 @@ export const ModalHeader = styled.div`
 `
 
 export const ModalTitle = styled.h3`
-  color: ${theme.colors.lightPrimary};
+  color: ${theme.colors.primary.light};
   flex: 1;
   font-size: 22px;
   font-weight: 300;

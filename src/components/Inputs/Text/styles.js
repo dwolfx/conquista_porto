@@ -49,7 +49,7 @@ export const InputWrapper = styled.div`
         return '#D0011B'
       }
       if (props.active) {
-        return props.theme.colors.lightPrimary
+        return props.theme.colors.primary.light
       }
 
       return '#D2D2D2'

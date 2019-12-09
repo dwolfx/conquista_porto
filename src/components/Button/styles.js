@@ -10,29 +10,29 @@ export const Button = styled.button`
         return !props.disabled
           ? `linear-gradient(
             270deg,
-            ${props.theme.colors.lightPrimary} 0,
-            ${props.theme.colors.mediumPrimary} 50%,
-            ${props.theme.colors.darkPrimary} 60%
+            ${props.theme.colors.primary.light} 0,
+            ${props.theme.colors.primary.medium} 50%,
+            ${props.theme.colors.primary.dark} 60%
           )`
-          : props.theme.colors.disabledPrimary
+          : props.theme.colors.primary.disabled
       case 'secondary':
         return !props.disabled
           ? `linear-gradient(
             270deg,
-            ${props.theme.colors.lightSecondary} 0,
-            ${props.theme.colors.mediumSecondary} 50%,
-            ${props.theme.colors.darkSecondary} 60%
+            ${props.theme.colors.secondary.light} 0,
+            ${props.theme.colors.secondary.medium} 50%,
+            ${props.theme.colors.secondary.dark} 60%
           )`
-          : props.theme.colors.disabledSecondary
+          : props.theme.colors.secondary.disabled
       case 'alternative':
         return !props.disabled
           ? `linear-gradient(
               270deg,
-              ${props.theme.colors.lightAlternative} 0,
-              ${props.theme.colors.mediumAlternative} 50%,
-              ${props.theme.colors.darkAlternative} 60%
+              ${props.theme.colors.alternative.light} 0,
+              ${props.theme.colors.alternative.medium} 50%,
+              ${props.theme.colors.alternative.dark} 60%
             )`
-          : props.theme.colors.disabledAlternative
+          : props.theme.colors.alternative.disabled
       default:
         return `linear-gradient(
           270deg,
@@ -55,13 +55,13 @@ export const Button = styled.button`
       return '#fff'
     }
 
-    return props.theme.colors.lightPrimary
+    return props.theme.colors.primary.light
   }};
   cursor: ${props => (props.disabled ? 'disabled' : 'pointer')};
   pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   transition: all 0.3s ease-out 0s;
   border: ${props =>
-    props.color ? 'none' : `1px solid ${props.theme.colors.lightPrimary}`};
+    props.color ? 'none' : `1px solid ${props.theme.colors.primary.light}`};
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
@@ -78,11 +78,11 @@ export const Button = styled.button`
         background-color: ${props => {
           switch (props.color) {
             case 'primary':
-              return props.theme.colors.darkPrimary
+              return props.theme.colors.primary.dark
             case 'secondary':
-              return props.theme.colors.darkSecondary
+              return props.theme.colors.secondary.dark
             case 'alternative':
-              return props.theme.colors.darkAlternative
+              return props.theme.colors.alternative.dark
             default:
               return 'rgba(190,190,190,.2)'
           }

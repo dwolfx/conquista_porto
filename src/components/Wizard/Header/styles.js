@@ -17,7 +17,7 @@ export const IconWrapper = styled.div`
 `
 
 export const CloseButton = styled.a`
-  background-color: ${theme.colors.lightSecondary};
+  background-color: ${theme.colors.secondary.light};
   border-radius: 50%;
   cursor: pointer;
   height: 32px;

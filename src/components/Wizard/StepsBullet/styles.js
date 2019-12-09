@@ -40,7 +40,7 @@ export const Step = styled.div`
 
 export const BulletPoint = styled.div`
   background-color: ${props =>
-    props.filled ? theme.colors.lightPrimary : '#d7d7d7'};
+    props.filled ? theme.colors.primary.light : '#d7d7d7'};
   height: 15px;
   width: 15px;
   border-radius: 50%;

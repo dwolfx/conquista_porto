@@ -6,20 +6,26 @@ export const themeColors = {
   white: '#fff',
   black: '#000',
 
-  lightPrimary: '#30C5FF',
-  mediumPrimary: '#3dacff',
-  darkPrimary: '#148dbb',
-  disabledPrimary: '#86c2d9',
+  primary: {
+    light: '#30C5FF',
+    medium: '#3dacff',
+    dark: '#148dbb',
+    disabled: '#86c2d9',
+  },
 
-  lightSecondary: '#FF7433',
-  mediumSecondary: '#FE5C00',
-  darkSecondary: '#F35600',
-  disabledSecondary: '#f4bea5',
+  secondary: {
+    light: '#FF7433',
+    medium: '#FE5C00',
+    dark: '#F35600',
+    disabled: '#f4bea5',
+  },
 
-  lightAlternative: '#27c145',
-  mediumAlternative: '#3cc127',
-  darkAlternative: '#379f26',
-  disabledAlternative: '#27c14545',
+  alternative: {
+    light: '#27c145',
+    medium: '#3cc127',
+    dark: '#379f26',
+    disabled: '#27c14545',
+  },
 }
 
 export default {

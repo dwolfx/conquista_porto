@@ -50,7 +50,7 @@ export const IconCircle = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${props => props.theme.colors.lightSecondary};
+  background-color: ${props => props.theme.colors.secondary.light};
   justify-content: center;
   align-items: center;
   cursor: pointer;
