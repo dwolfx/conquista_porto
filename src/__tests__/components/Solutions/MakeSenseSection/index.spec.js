@@ -1,5 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { ThemeProvider } from 'styled-components'
+import theme from 'styles/theme'
 
 import MakeSenseSection from '../../../../components/Solutions/MakeSenseSection'
 
@@ -50,11 +52,13 @@ const makeSenseBenefitsSectionData = [
 it('MakeSenseSection renders correctly', () => {
   const tree = renderer
     .create(
-      <MakeSenseSection
-        title="Quando faz sentido investir?"
-        data={makeSenseSectionData}
-        benefitsData={makeSenseBenefitsSectionData}
-      />
+      <ThemeProvider theme={theme}>
+        <MakeSenseSection
+          title="Quando faz sentido investir?"
+          data={makeSenseSectionData}
+          benefitsData={makeSenseBenefitsSectionData}
+        />
+      </ThemeProvider>
     )
     .toJSON()
   expect(tree).toMatchSnapshot()

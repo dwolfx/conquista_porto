@@ -128,19 +128,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       computer-secure.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-jDwBTQ idwjot"
+                        className="sc-jDwBTQ fhYiPL"
                       >
                         Cota
                       </p>
                       <span
-                        className="sc-gPEVay fAVSK"
+                        className="sc-gPEVay kjaXOK"
                       >
                         999
                       </span>
@@ -173,19 +173,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       person-group2.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-jDwBTQ idwjot"
+                        className="sc-jDwBTQ fhYiPL"
                       >
                         grupo
                       </p>
                       <span
-                        className="sc-gPEVay fAVSK"
+                        className="sc-gPEVay kjaXOK"
                       >
                         x999
                       </span>
@@ -218,19 +218,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       coin.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-jDwBTQ idwjot"
+                        className="sc-jDwBTQ fhYiPL"
                       >
                         Crédito contratado
                       </p>
                       <span
-                        className="sc-gPEVay fAVSK"
+                        className="sc-gPEVay kjaXOK"
                       >
                         R$ 99.999,99
                       </span>
@@ -342,14 +342,19 @@ Array [
       <br />
       <br />
       <button
-        className="sc-cSHVUG kLMcpp"
+        className="sc-cSHVUG jHvpTr"
         color="secondary"
       >
         <span>
           SIMULAR E CONTRATAR
            
           <span
-            className="Management___StyledSpan-sc-1gebdez-0 inYVzv"
+            css="
+                position: absolute;
+                top: 7px;
+                right: 12px;
+                font-size: 13px;
+              "
           >
             &gt;
           </span>
@@ -358,7 +363,7 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-VigVT dDInGm"
+    className="sc-VigVT AEXGX"
   >
     <div
       className="sc-jTzLTM eWOzwu"
@@ -406,7 +411,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-gzVnrw dHYrFF"
+                  className="sc-gzVnrw jQWrNB"
                 >
                   <div
                     className="sc-htoDjs kBCzBK"
@@ -425,7 +430,7 @@ Array [
                       Tente um lance
                     </p>
                     <p
-                      className="sc-iwsKbI iQJoQn"
+                      className="sc-iwsKbI iKXghu"
                     >
                       Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.
                     </p>
@@ -448,7 +453,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-gzVnrw dHYrFF"
+                  className="sc-gzVnrw jQWrNB"
                 >
                   <div
                     className="sc-htoDjs kBCzBK"
@@ -467,7 +472,7 @@ Array [
                       FGTS para o lance
                     </p>
                     <p
-                      className="sc-iwsKbI iQJoQn"
+                      className="sc-iwsKbI iKXghu"
                     >
                       O lance para tentar antecipar o valor do consórcio pode sair diretamente do seu bolso, mas você também pode utilizar seu FGTS (Fundo de Garantia por Tempo de Serviço). Ele rende pouco ao ficar parado e pode ser uma maneira para você ser contemplado antecipadamente.
                     </p>
@@ -490,7 +495,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-gzVnrw dHYrFF"
+                  className="sc-gzVnrw jQWrNB"
                 >
                   <div
                     className="sc-htoDjs kBCzBK"
@@ -509,7 +514,7 @@ Array [
                       Combine mais de um consórcio
                     </p>
                     <p
-                      className="sc-iwsKbI iQJoQn"
+                      className="sc-iwsKbI iKXghu"
                     >
                       Os valores dos consórcios são sempre fixos e, nem sempre, o valor de um único consórcio é suficiente para realizar a compra de um bem mais caro, como uma casa, por exemplo. Mas você pode combinar mais de um consórcio para chegar no valor que precisa.
                     </p>
@@ -533,7 +538,7 @@ Array [
       <div>
         <svg
           className="sc-ckVGcZ jIRUXF"
-          fill="#777"
+          fill="#272727"
           height="24px"
         >
           pdf.svg
@@ -541,17 +546,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-jKJlTe khHFmV"
+          className="sc-jKJlTe eyUuPl"
         >
           SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC
         </p>
         <p
-          className="sc-eNQAEJ eCAdwd"
+          className="sc-eNQAEJ iiIhOD"
         >
           Aqui, você tem mais informações legais sobre consórcio.
         </p>
         <p
-          className="sc-hMqMXs hhlElW"
+          className="sc-hMqMXs bZqnUQ"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -564,7 +569,7 @@ Array [
       <div>
         <svg
           className="sc-ckVGcZ jIRUXF"
-          fill="#777"
+          fill="#272727"
           height="24px"
         >
           pdf.svg
@@ -572,17 +577,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-jKJlTe khHFmV"
+          className="sc-jKJlTe eyUuPl"
         >
           CONDIÇÕES GERAIS
         </p>
         <p
-          className="sc-eNQAEJ eCAdwd"
+          className="sc-eNQAEJ iiIhOD"
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
         </p>
         <p
-          className="sc-hMqMXs hhlElW"
+          className="sc-hMqMXs bZqnUQ"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -595,7 +600,7 @@ Array [
       <div>
         <svg
           className="sc-ckVGcZ jIRUXF"
-          fill="#777"
+          fill="#272727"
           height="24px"
         >
           pdf.svg
@@ -603,17 +608,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-jKJlTe khHFmV"
+          className="sc-jKJlTe eyUuPl"
         >
           TABELA DE TARIFAS
         </p>
         <p
-          className="sc-eNQAEJ eCAdwd"
+          className="sc-eNQAEJ iiIhOD"
         >
           Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
         </p>
         <p
-          className="sc-hMqMXs hhlElW"
+          className="sc-hMqMXs bZqnUQ"
         >
           BAIXAR ARQUIVO
            &gt; 

@@ -16,7 +16,7 @@ export const ArrowUpDownIcon = styled(ConquistaIcon)`
 export const BasicIcon = styled(ConquistaIcon)`
   height: 20px;
   width: 20px;
-  fill: #1c1c1c;
+  fill: ${props => props.theme.colors.gray6};
   margin-right: 10px;
 `
 
@@ -31,7 +31,7 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
 })`
   height: ${props => (props.size ? `${props.size}px` : '16px')};
   width: ${props => (props.size ? `${props.size}px` : '16px')};
-  fill: ${props => props.theme.colors.linkBlue};
+  fill: ${props => props.theme.colors.blue4};
   margin-right: 0px;
 `
 
@@ -71,7 +71,7 @@ export const RelativeParent = styled.div`
   z-index: 2;
 `
 export const SolutionsDropdownText = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   font-size: 14px;
   font-weight: 400;
 `
@@ -86,7 +86,7 @@ export const SolutionsItem = styled(Link)`
   cursor: pointer;
 
   &:hover p {
-    color: ${props => props.theme.colors.linkBlue};
+    color: ${props => props.theme.colors.blue4};
   }
 `
 export const SolutionsContainer = styled.div`
@@ -113,11 +113,11 @@ const menuItemProps = css`
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;
-      fill: ${props => props.theme.colors.primary.light};
+      fill: ${props => props.theme.colors.blue4};
     }
     p {
       transition: all 0.2s ease-in-out;
-      color: ${props => props.theme.colors.primary.light};
+      color: ${props => props.theme.colors.blue4};
     }
   }
 `
@@ -138,11 +138,11 @@ export const WrapperBottomMenuItem = styled(Link)`
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;
-      fill: ${props => props.theme.colors.primary.light};
+      fill: ${props => props.theme.colors.blue4};
     }
     p {
       transition: all 0.2s ease-in-out;
-      color: ${props => props.theme.colors.primary.light};
+      color: ${props => props.theme.colors.blue4};
     }
   }
 `

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-const darkGray = '#1C1C1C'
-
 export const Container = styled.section`
   padding-top: 28px;
   background-color: ${props =>
@@ -58,7 +56,7 @@ export const Circle = styled.div`
   align-items: center;
 
   svg {
-    fill: #fff;
+    fill: ${props => props.theme.colors.white};
     height: 30px;
   }
 
@@ -73,7 +71,7 @@ export const ItemDescription = styled.p`
   line-height: 19px;
   font-weight: 300;
   text-align: ${props => props.align};
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   margin-top: 12px;
 
   @media (max-width: 768px) {
@@ -85,7 +83,7 @@ export const ItemDescription = styled.p`
 `
 
 export const Subtitle = styled.h2`
-  color: ${darkGray};
+  color: ${props => props.theme.colors.gray6};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;

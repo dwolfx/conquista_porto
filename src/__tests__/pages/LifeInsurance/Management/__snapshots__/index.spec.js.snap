@@ -128,19 +128,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       boy.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-gipzik bsuNYN"
+                        className="sc-gipzik blIAxp"
                       >
                         segurado
                       </p>
                       <span
-                        className="sc-csuQGl hMGUqj"
+                        className="sc-csuQGl huvmgK"
                       >
                         Julia da Silva
                       </span>
@@ -173,19 +173,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       billing.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-gipzik bsuNYN"
+                        className="sc-gipzik blIAxp"
                       >
                         12 parcelas de:
                       </p>
                       <span
-                        className="sc-csuQGl hMGUqj"
+                        className="sc-csuQGl huvmgK"
                       >
                         R$ 310,00
                       </span>
@@ -218,19 +218,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       person-group.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-gipzik bsuNYN"
+                        className="sc-gipzik blIAxp"
                       >
                         Coberturas adicionais
                       </p>
                       <p
-                        className="sc-caSCKo eDxkNr"
+                        className="sc-caSCKo jKjZlS"
                         onClick={[Function]}
                       >
                         VER TODAS &gt;
@@ -285,7 +285,7 @@ Array [
               Beneficiários
             </span>
             <table
-              className="sc-bRBYWo fgGakf"
+              className="sc-bRBYWo CAOro"
             >
               <thead>
                 <tr>
@@ -355,7 +355,7 @@ Array [
       <br />
       <br />
       <button
-        className="sc-fjdhpX eQLczf"
+        className="sc-fjdhpX iXIgPO"
         color="secondary"
       >
         <span>
@@ -370,7 +370,7 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-gZMcBi bKjxow"
+    className="sc-gZMcBi jlFIQH"
   >
     <div
       className="sc-gqjmRU fFPjBw"
@@ -418,7 +418,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-EHOje cdyUBk"
+                  className="sc-EHOje lcnIIg"
                 >
                   <div
                     className="sc-bZQynM fkBOCF"
@@ -437,7 +437,7 @@ Array [
                       Seguro como renda proteção
                     </p>
                     <p
-                      className="sc-htoDjs kbOwZQ"
+                      className="sc-htoDjs ilZutI"
                     >
                       O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um estilo de vida de qualidade aos seus entes queridos, caso você falte um dia.
                     </p>
@@ -460,7 +460,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-EHOje cdyUBk"
+                  className="sc-EHOje lcnIIg"
                 >
                   <div
                     className="sc-bZQynM fkBOCF"
@@ -479,7 +479,7 @@ Array [
                       Coberturas não relacionadas à morte
                     </p>
                     <p
-                      className="sc-htoDjs kbOwZQ"
+                      className="sc-htoDjs ilZutI"
                     >
                       O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em alguns casos de doenças graves, incapacidade temporária total ou parcial por acidentes, entre outros.
                     </p>
@@ -502,7 +502,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-EHOje cdyUBk"
+                  className="sc-EHOje lcnIIg"
                 >
                   <div
                     className="sc-bZQynM fkBOCF"
@@ -521,7 +521,7 @@ Array [
                       Seguro para profissionais
                     </p>
                     <p
-                      className="sc-htoDjs kbOwZQ"
+                      className="sc-htoDjs ilZutI"
                     >
                       A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho e para cobrir despesas médicas hospitalares e odontológicas.
                     </p>
@@ -545,7 +545,7 @@ Array [
       <div>
         <svg
           className="sc-kpOJdX iftNML"
-          fill="#777"
+          fill="#272727"
           height="24px"
         >
           pdf.svg
@@ -553,17 +553,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ kkDJal"
+          className="sc-dxgOiQ leScWK"
         >
           Condições Gerais
         </p>
         <p
-          className="sc-ckVGcZ hnFLbJ"
+          className="sc-ckVGcZ gweNdt"
         >
           Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro de Vida da Porto Seguro.
         </p>
         <p
-          className="sc-jKJlTe eiqxWu"
+          className="sc-jKJlTe eqGAVA"
         >
           Baixar Arquivo
            &gt; 
@@ -580,7 +580,7 @@ Array [
       Acesse a Área do Cliente para conferir todos os detalhes sobre os produtos da Porto Seguro.
     </span>
     <button
-      className="sc-fjdhpX cidYVL"
+      className="sc-fjdhpX fNNDft"
     >
       ACeSSAR
     </button>

@@ -79,7 +79,7 @@ export const Topic = styled.div`
 export const TopicTitle = styled.p`
   font-size: 11px;
   font-weight: 600;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 21px;
@@ -87,7 +87,7 @@ export const TopicTitle = styled.p`
 
 export const TopicValue = styled.span`
   font-weight: 300;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 24px;
   word-break: break-word;
@@ -130,7 +130,7 @@ export const HeaderNodeAccordion = styled.div`
 
 export const CurrentBalance = styled.div`
   padding: 12px 40px;
-  background-color: #eeeeee90;
+  background-color: ${props => props.theme.colors.gray1};
 `
 
 export const GrossIncome = styled.div`
@@ -140,7 +140,7 @@ export const GrossIncome = styled.div`
   margin: 20px 30px;
   padding: 15px 21px;
   border-radius: 3px;
-  background-color: ${props => props.theme.colors.backgroundColor};
+  background-color: ${props => props.theme.colors.gray1};
 `
 
 export const ChartContainer = styled.div`
@@ -254,7 +254,7 @@ export const Table = styled.table`
   tbody {
     tr {
       td {
-        color: #1c1c1c;
+        color: ${props => props.theme.colors.gray6};
         font-size: 11px;
         letter-spacing: 1px;
         line-height: 14px;
@@ -291,7 +291,7 @@ export const CompleteExtract = styled.p`
   cursor: pointer;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   margin-top: 22px;
   font-weight: 600;
 

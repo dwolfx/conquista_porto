@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import breakpoints from 'styles/breakpoints'
-import commonStyles from 'styles/theme'
 
 export const Sidebar = styled.aside`
   display: flex;
@@ -38,9 +37,9 @@ export const SidebarItemText = styled.a`
   color: ${props => {
     switch (props.color) {
       case 'primary':
-        return commonStyles.colors.primary.light
+        return props.theme.colors.blue4
       default:
-        return commonStyles.colors.linkColor
+        return props.theme.colors.gray6
     }
   }};
   text-transform: ${props => (props.uppercase ? 'uppercase' : 'none')};

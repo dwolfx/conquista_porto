@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import breakpoints from 'styles/breakpoints'
 
 export const RadioTitle = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -26,7 +26,7 @@ export const RadioInput = styled.input.attrs({ type: 'radio' })`
     display: block;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: ${props => props.theme.colors.white};
     border-radius: 50%;
     border: 1px solid #c7c7c7;
   }
@@ -43,7 +43,7 @@ export const RadioInput = styled.input.attrs({ type: 'radio' })`
   }
   &:checked {
     &:after {
-      background-color: #30c5ff;
+      background-color: ${props => props.theme.colors.blue4};
     }
   }
 `

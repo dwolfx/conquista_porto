@@ -1,11 +1,12 @@
-import React, { useState, useReducer } from 'react'
+import React, { useState, useReducer, useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 import Icon from 'components/IconExporter'
 import DateInput from 'components/Inputs/DateInput'
 import Select from 'components/Inputs/Select'
 import Table from 'components/Table'
 import Header from 'components/Wizard/Header'
-import theme from 'styles/theme'
+import Tab from 'components/Tab'
 
 import { statementColumns, statementData, selectOptions } from './mocks'
 import {
@@ -18,7 +19,6 @@ import {
   InfosWrapper,
   InfosLabel,
   InfosData,
-  TableTab,
   TableTabs,
   SelectWrapper,
   FilterButton,
@@ -34,6 +34,7 @@ const reducerstateTab = (stateInner, activeKey) =>
   )
 
 const InvestmentExtract = () => {
+  const themeContext = useContext(ThemeContext)
   const [showDateFilter, setShowDateFilter] = useState(false)
   const [stateTab, setCurrentTab] = useReducer(reducerstateTab, {
     accumulatorClass: '',
@@ -62,7 +63,7 @@ const InvestmentExtract = () => {
           <Row justify="space-around">
             <AccountInfoWrapper>
               <Icon
-                fill={theme.colors.primary.light}
+                fill={themeContext.colors.blue4}
                 width={40}
                 name="building"
               />
@@ -73,7 +74,7 @@ const InvestmentExtract = () => {
             </AccountInfoWrapper>
             <AccountInfoWrapper>
               <Icon
-                fill={theme.colors.primary.light}
+                fill={themeContext.colors.blue4}
                 width={40}
                 name="barcode"
               />
@@ -83,18 +84,14 @@ const InvestmentExtract = () => {
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
-              <Icon
-                fill={theme.colors.primary.light}
-                width={40}
-                name="wallet"
-              />
+              <Icon fill={themeContext.colors.blue4} width={40} name="wallet" />
               <InfosWrapper>
                 <InfosLabel>Conta</InfosLabel>
                 <InfosData>999999-6</InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
-              <Icon fill={theme.colors.primary.light} width={40} name="boy" />
+              <Icon fill={themeContext.colors.blue4} width={40} name="boy" />
               <InfosWrapper>
                 <InfosLabel>Favorecido</InfosLabel>
                 <InfosData>Julia Francis Reys</InfosData>
@@ -102,7 +99,7 @@ const InvestmentExtract = () => {
             </AccountInfoWrapper>
             <AccountInfoWrapper>
               <Icon
-                fill={theme.colors.primary.light}
+                fill={themeContext.colors.blue4}
                 width={40}
                 name="fingerprint"
               />
@@ -114,21 +111,21 @@ const InvestmentExtract = () => {
           </Row>
         </Container>
       </Section>
-      <Section backgroundColor={theme.colors.backgroundColor}>
-        <Container backgroundColor={theme.colors.backgroundColor}>
+      <Section backgroundColor={themeContext.colors.gray1}>
+        <Container backgroundColor={themeContext.colors.gray1}>
           <TableTabs>
-            <TableTab
+            <Tab
               onClick={() => setCurrentTab('statementClass')}
               className={stateTab.statementClass}
             >
               Extrato
-            </TableTab>
-            <TableTab
+            </Tab>
+            <Tab
               onClick={() => setCurrentTab('accumulatorClass')}
               className={stateTab.accumulatorClass}
             >
               Lançamentos futuros
-            </TableTab>
+            </Tab>
           </TableTabs>
           {stateTab.statementClass === 'active' && (
             <SelectWrapper>

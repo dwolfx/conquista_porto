@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import Icon from '../IconExporter'
-import commonStyles from '../../styles/theme'
 
 import {
   ModalOverlay,
@@ -22,6 +22,7 @@ const Modal = ({
   modalTitle,
   ...rest
 }) => {
+  const themeContext = useContext(ThemeContext)
   const handleEscClose = event => {
     if (isOpen && event.keyCode === 27) {
       handleClose()
@@ -39,7 +40,7 @@ const Modal = ({
               {headerIcon && (
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.primary.light}
+                  fill={themeContext.colors.blue4}
                   name={headerIcon}
                 />
               )}

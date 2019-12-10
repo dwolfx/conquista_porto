@@ -5,13 +5,13 @@ import ConquistaIcon from 'components/IconExporter'
 import breakpoints from 'styles/breakpoints'
 
 const basicSvgStyle = css`
-  fill: #1c1c1c;
+  fill: ${props => props.theme.colors.gray6};
   width: 20px;
   height: 20px;
   margin-right: 10px;
 `
 const notificationDropdownSvgStyle = css`
-  fill: ${props => props.theme.colors.linkBlue};
+  fill: ${props => props.theme.colors.blue4};
   margin-right: 0px;
 `
 
@@ -99,7 +99,7 @@ export const DropDownWrapper = styled.div`
 export const DropDownContainer = styled.div`
   width: ${props => `${props.width}px`};
   height: ${props => `${props.height}px`};
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   margin-top: 5px;
   overflow: auto;
   box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.1);
@@ -112,7 +112,7 @@ export const DropDownTriangle = styled.div`
   position: absolute;
   width: 24px;
   height: 24px;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   transform: rotate(45deg);
 `
 export const ResponsiveTextWrapper = styled.div`
@@ -131,11 +131,11 @@ export const ResponsiveWrapper = styled.div`
 export const LinkText = styled(NavLink)`
   padding: 7px 0px;
   margin: 0px 20px;
-  color: #fff;
+  color: ${props => props.theme.colors.white};
   font-size: 20px;
   text-align: center;
   &&.active {
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid ${props => props.theme.colors.white};
   }
   @media (max-width: 989px) {
     display: none;
@@ -143,7 +143,7 @@ export const LinkText = styled(NavLink)`
 `
 export const Text = styled.p`
   margin: ${props => (props.margin ? props.margin : '0px')};
-  color: ${props => (props.color ? props.color : '#fff')};
+  color: ${props => (props.color ? props.color : props.theme.colors.white)};
   font-size: ${props => (props.size ? `${props.size}px` : '20px')};
   font-weight: ${props => (props.fontWeight ? props.fontWeight : 0)};
   letter-spacing: ${props =>
@@ -154,7 +154,7 @@ export const Text = styled.p`
   cursor: ${props => (props.cursorPointer ? 'pointer' : 'default')};
 `
 export const BlueText = styled.p`
-  color: ${props => props.theme.colors.primary.medium};
+  color: ${props => props.theme.colors.blue5};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -165,7 +165,7 @@ export const BlueText = styled.p`
 `
 export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
   && {
-    fill: #fff;
+    fill: ${props => props.theme.colors.white};
     width: 24px;
     height: 24px;
     margin-right: 10px;
@@ -204,7 +204,7 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
   && {
     width: ${props => (props.size ? `${props.size}px` : '16px')};
     height: ${props => (props.size ? `${props.size}px` : '16px')};
-    fill: ${props => props.theme.colors.primary.light};
+    fill: ${props => props.theme.colors.blue4};
     margin-right: 0px;
   }
 `
@@ -212,7 +212,7 @@ export const MenuIcon = styled(ConquistaIcon).attrs({ name: 'menu' })`
   && {
     width: 32px;
     height: 32px;
-    fill: #fff;
+    fill: ${props => props.theme.colors.white};
     cursor: pointer;
     @media (min-width: 990) {
       display: none;

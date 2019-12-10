@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
 `
 
 export const ButtonAdd = styled.button`
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -40,7 +40,7 @@ export const ButtonAdd = styled.button`
 
 export const ObsText = styled.small`
   font-weight: 300;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 18px;
   word-break: break-word;

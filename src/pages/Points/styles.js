@@ -30,7 +30,7 @@ export const PointsWrapper = styled(Carousel)`
 export const PointText = styled.p`
   font-size: 11px;
   font-weight: 600;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 21px;
@@ -44,7 +44,7 @@ export const Point = styled.div`
   border: 1px solid #e6e6e6;
   border-radius: 8px;
   box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   display: flex !important;
   align-items: center;
   flex-direction: column;
@@ -69,7 +69,7 @@ export const GoToLink = styled.p`
   cursor: pointer;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
 
   :hover {
     color: #2591bb;
@@ -106,7 +106,7 @@ export const RelationshipProgramSection = styled.section`
 export const RelationshipProgramTitle = styled.p`
   font-size: 11px;
   font-weight: 600;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 21px;
@@ -134,7 +134,7 @@ export const RelationshipProgramItem = styled.div`
   p {
     font-weight: 300;
     margin-left: 38px;
-    color: #1c1c1c;
+    color: ${props => props.theme.colors.gray6};
     letter-spacing: 0;
     line-height: 24px;
     word-break: break-word;

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import { ThemeContext } from 'styled-components'
 
 import Accordion from 'components/Accordion'
 import Button from 'components/Button'
@@ -24,6 +25,7 @@ import {
 } from '../styles'
 
 const ContentDash = () => {
+  const themeContext = useContext(ThemeContext)
   const history = useHistory()
   // const [accordionOpened, setAccordionOpened] = useState(false)
 
@@ -120,7 +122,7 @@ const ContentDash = () => {
       </Accordion>
 
       <DownloadLink>
-        <Icon name="pdf" fill="#1c1c1c99" width={20} />
+        <Icon name="pdf" fill={themeContext.colors.gray6} width={20} />
         Condições gerais e declarações adicionais do cotista
       </DownloadLink>
 

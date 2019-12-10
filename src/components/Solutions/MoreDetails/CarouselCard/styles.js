@@ -28,7 +28,7 @@ export const TextTitle = styled.p`
 `
 
 export const TextLight = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 24px;
   word-break: break-word;

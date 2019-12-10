@@ -12,7 +12,7 @@ import {
 const containerWidth = '1200px'
 
 export const Section = styled.section`
-  background-color: ${props => props.theme.colors.backgroundColor};
+  background-color: ${props => props.theme.colors.gray1};
   flex: 1 0 auto;
 `
 
@@ -81,7 +81,7 @@ export const Breadcrumb = styled(BreadcrumbCmp)`
 
   @media ${breakpoints.mobile} {
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid ${props => props.theme.colors.gray.light};
+    border-bottom: 1px solid ${props => props.theme.colors.gray3};
     max-width: none;
   }
 `
@@ -110,7 +110,7 @@ export const FooterWrapper = styled.div`
   }
 
   a {
-    color: ${props => props.theme.colors.linkBlue};
+    color: ${props => props.theme.colors.blue4};
     font-weight: bold;
     text-transform: uppercase;
   }

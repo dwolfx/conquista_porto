@@ -26,7 +26,7 @@ const blueArrow = css`
     top: calc(50% - 11px);
     right: 30px;
     mask-image: url(${ArrowIcon});
-    background-color: ${props => props.theme.colors.primary.light};
+    background-color: ${props => props.theme.colors.blue4};
     width: 19px;
     height: 22px;
     transition: all ease 0.3s;
@@ -61,7 +61,7 @@ export const AccordionBody = styled.div`
 `
 
 export const AccordionWrapper = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   max-height: ${props => (props.isOpen ? '5000px' : '54px')};
   transition: all ease-in-out 0.4s;
   overflow: hidden;
