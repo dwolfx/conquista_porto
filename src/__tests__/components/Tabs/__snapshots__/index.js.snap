@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs RiskDegree to render without any active colors 1`] = `
+<div
+  className="sc-bdVaJa dFHWeA"
+>
+  Primeira tab
+</div>
+`;
+
+exports[`Tabs Tabs to render 1`] = `
+<div
+  className="sc-bdVaJa dFHWeA"
+>
+  Primeira tab
+</div>
+`;

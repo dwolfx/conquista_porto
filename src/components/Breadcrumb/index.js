@@ -7,20 +7,20 @@ const isLastCrumb = length => currentIndex => length === currentIndex + 1
 
 const getCrumbTag = isLast => (isLast ? CrumbCurrentPage : CrumbText)
 
-export default function Breadcrumb({ crumbs }) {
+export default function Breadcrumb({ crumbs, ...props }) {
   return (
-    <>
+    <div {...props}>
       {crumbs.map((crumb, index) => {
         const isLast = isLastCrumb(crumbs.length)(index)
         const CrumbTag = getCrumbTag(isLast)
         return (
           <CrumbTag key={`crumbKey-${index}`}>
             {crumb}
-            {!isLast && ' »'}
+            {!isLast && ' »'}&nbsp;
           </CrumbTag>
         )
       })}
-    </>
+    </div>
   )
 }
 

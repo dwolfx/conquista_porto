@@ -7,6 +7,7 @@ import Footer from 'components/Footer'
 
 import Home from 'pages/Home'
 import Investimentos from 'pages/Investments'
+import InvestmentsFunds from 'pages/Investments/FundsList'
 import ManagementInvestimentos from 'pages/Investments/Management'
 import InvestimentosExtrato from 'pages/Investments/Extract'
 import PrevidenciaPrivada from 'pages/PrivateWelfare'
@@ -64,6 +65,11 @@ export default function Routes({ ...props }) {
         path="/seguro-vida/visualizar"
         exact
         component={ManagementSeguroVida}
+      />
+      <DefaultRoute path="/investimentos" exact component={Investimentos} />
+      <DefaultRoute
+        path="/investimentos/lista-fundos"
+        component={InvestmentsFunds}
       />
       <DefaultRoute
         path="/previdencia-privada"

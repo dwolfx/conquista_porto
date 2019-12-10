@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 const defaultTextStyle = css`
-  display: block;
   text-transform: uppercase;
   letter-spacing: 2px;
   letter-spacing: 1.5px;
@@ -15,6 +14,7 @@ export const CrumbText = styled.small`
 
 export const CrumbCurrentPage = styled.strong`
   ${defaultTextStyle}
+  display: block;
   font-size: 14px;
   font-weight: 600;
 `
