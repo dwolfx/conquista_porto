@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import IconExporter from 'components/IconExporter'
 import ConquistaButton from 'components/Button'
 import { fundRiskColors } from 'styles/theme'
-import TabsCmp from 'components/Tabs'
+import TabCmp from 'components/Tab'
 
 const riskColorsMap = {
   1: fundRiskColors.lowRisk,
@@ -146,4 +146,4 @@ export const WrapperContent = styled.div`
 export const TabsWrapper = styled.div`
   display: flex;
 `
-export const Tabs = styled(TabsCmp)``
+export const Tabs = styled(TabCmp)``
