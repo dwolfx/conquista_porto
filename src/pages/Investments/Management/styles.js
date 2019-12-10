@@ -2,6 +2,13 @@ import styled from 'styled-components'
 import AccordionDefault from 'components/Accordion'
 import { AccordionHeader, AccordionBody } from 'components/Accordion/styles'
 import Carousel from 'components/Carousel'
+import LeftNavDefault from 'components/Management/LeftNav'
+
+export const LeftNav = styled(LeftNavDefault)`
+  @media (max-width: 1000px) {
+    order: 2;
+  }
+`
 
 export const MiddleContent = styled.article`
   background-color: white;
@@ -10,6 +17,7 @@ export const MiddleContent = styled.article`
 
   @media (max-width: 1000px) {
     width: 100%;
+    order: 3;
   }
 `
 
@@ -18,6 +26,11 @@ export const GeneralInfo = styled.article`
   width: 25%;
   margin-left: 30px;
   height: fit-content;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    margin: 0;
+  }
 `
 
 export const BreadcrumbContainer = styled.div`
@@ -94,8 +107,15 @@ export const TopicValue = styled.span`
   font-size: 14px;
 `
 
-export const Accordion = styled(AccordionDefault)`
+export const BalanceAccordion = styled(AccordionDefault)`
   margin: 20px 30px;
+
+  @media (max-width: 720px) {
+    max-height: 100px;
+    flex-direction: column;
+    align-items: center;
+  }
+
   ${AccordionHeader} {
     background-color: #f1f1f1;
     &:hover {
@@ -105,6 +125,12 @@ export const Accordion = styled(AccordionDefault)`
 
   ${AccordionBody} {
     padding: 0;
+  }
+`
+
+export const AccordionGeneralInfo = styled(AccordionDefault)`
+  @media (max-width: 1000px) {
+    order: 1;
   }
 `
 
@@ -118,13 +144,14 @@ export const Section = styled.article`
   border-top: 1px solid #ccc;
 `
 
-export const HeaderNodeAccordion = styled.div`
+export const HeaderNodeBalanceAccordion = styled.div`
   display: flex;
   justify-content: space-between;
   width: 95%;
 
   @media (max-width: 720px) {
     flex-direction: column;
+    align-items: center;
   }
 `
 
@@ -141,6 +168,10 @@ export const GrossIncome = styled.div`
   padding: 15px 21px;
   border-radius: 3px;
   background-color: ${props => props.theme.colors.gray1};
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+  }
 `
 
 export const ChartContainer = styled.div`

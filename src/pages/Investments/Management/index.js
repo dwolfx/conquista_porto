@@ -14,7 +14,6 @@ import FundsCarouselSection from 'components/Solutions/Investments/FundsCarousel
 import Container from 'components/Management/Container'
 import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
-import LeftNav from 'components/Management/LeftNav'
 
 import Icon from 'components/IconExporter'
 
@@ -22,9 +21,11 @@ import { formatMoney } from 'helpers'
 
 import RedHairGirlImage from 'assets/images/red_hair_girl.jpg'
 import AnbimaImage from 'assets/images/logo-anbima.png'
+import useMedia from 'hooks/useMedia'
 import GeneralView from './GeneralView'
 
 import {
+  LeftNav,
   MiddleContent,
   GeneralInfo,
   BreadcrumbContainer,
@@ -34,9 +35,9 @@ import {
   Topic,
   TopicTitle,
   TopicValue,
-  Accordion,
+  BalanceAccordion,
   Section,
-  HeaderNodeAccordion,
+  HeaderNodeBalanceAccordion,
   CurrentBalance,
   GrossIncome,
   ChartContainer,
@@ -52,6 +53,7 @@ import {
   CompleteExtract,
   ComplementaryInfo,
   AnbimaContainer,
+  AccordionGeneralInfo,
 } from './styles'
 
 const downloadFileSectionData = [
@@ -136,6 +138,8 @@ const months = [
 
 export default function ManagementInvestments({ history }) {
   const theme = useContext(ThemeContext)
+  const isMobile = useMedia('mobile')
+
   return (
     <>
       <Container>
@@ -203,14 +207,14 @@ export default function ManagementInvestments({ history }) {
                   </div>
                 </Topic>
               </Topics>
-              <Accordion
+              <BalanceAccordion
                 isOrangeArrow
                 titleNode={
-                  <HeaderNodeAccordion>
+                  <HeaderNodeBalanceAccordion>
                     <Text>Saldo Bruto atual</Text>
                     <Text>R$ 50.000,00</Text>
                     <Text>01/03/2019</Text>
-                  </HeaderNodeAccordion>
+                  </HeaderNodeBalanceAccordion>
                 }
               >
                 <CurrentBalance>
@@ -315,7 +319,7 @@ export default function ManagementInvestments({ history }) {
                     <br />* Valores estimados
                   </Text>
                 </CurrentBalance>
-              </Accordion>
+              </BalanceAccordion>
               <GrossIncome>
                 <Text>Rendimento Bruto</Text>
                 <Text>R$ 99.999,00</Text>
@@ -485,9 +489,23 @@ export default function ManagementInvestments({ history }) {
               />
             </ComplementaryInfo>
           </MiddleContent>
-          <GeneralInfo>
+          {isMobile ? (
+            <AccordionGeneralInfo
+              isOrangeArrow
+              titleNode="Carteira de investimentos"
+            >
+              <GeneralInfo>
+                <GeneralView />
+              </GeneralInfo>
+            </AccordionGeneralInfo>
+          ) : (
+            <GeneralInfo>
+              <GeneralView />
+            </GeneralInfo>
+          )}
+          {/* <GeneralInfo>
             <GeneralView />
-          </GeneralInfo>
+          </GeneralInfo> */}
         </PageContent>
         <AnbimaContainer>
           <Text fontSize="12px" lineHeight="22px" margin="0 0 45px 0">

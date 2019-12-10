@@ -68,7 +68,6 @@ export default function GeneralView() {
               {
                 anchor: 'bottom',
                 direction: 'column',
-                // translateY: 56,
                 itemWidth: 100,
                 itemHeight: 18,
                 itemTextColor: '#000',

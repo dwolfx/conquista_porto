@@ -6,8 +6,8 @@ export const Container = styled.div`
 `
 
 export const GraphHolder = styled.div`
-  width: 100%;
-  height: 350px;
+  width: 320px;
+  height: 380px;
   margin-bottom: 40px;
   margin-top: -50px;
 `
