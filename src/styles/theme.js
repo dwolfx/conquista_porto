@@ -36,8 +36,35 @@ const fundRiskColors = {
   highRisk: '#D0011B',
 }
 
+export const gridConfig = {
+  breakpoints: {
+    xl: 1690,
+    lg: 1280,
+    md: 980,
+    sm: 736,
+    xs: 480,
+  },
+  row: {
+    padding: 7,
+  },
+  col: {
+    padding: 7,
+  },
+  container: {
+    padding: 0,
+    maxWidth: {
+      xl: 1690,
+      lg: 1280,
+      md: 980,
+      sm: 736,
+      xs: 480,
+    },
+  },
+}
+
 export default {
   colors: themeColors,
   fundRiskColors,
   fontFamily: 'Open Sans',
+  grid: gridConfig,
 }
