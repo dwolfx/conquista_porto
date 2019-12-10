@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Tab from 'components/Tabs'
+import Tab from 'components/Tab'
 
 export const TableWrapper = styled.div`
   padding-top: 1em;
