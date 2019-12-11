@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import CloseIcon from 'assets/icons/close.svg'
-import breakpoints from 'styles/breakpoints'
 
 export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
@@ -18,7 +17,7 @@ export const ModalContainer = styled.div`
   max-width: 900px;
   min-width: 400px;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     min-width: unset;
     margin: 0 auto;
     width: calc(100vw - 30px);

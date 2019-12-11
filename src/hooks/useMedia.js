@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
-import breakpoints from 'styles/breakpoints'
+import { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 export default function useMedia(size) {
-  const selectedProp = breakpoints[size]
+  const theme = useContext(ThemeContext)
+  const selectedProp = theme.mediaQueries[size]
 
   const [mediaMatch, setMedia] = useState(
     window.matchMedia(selectedProp).matches

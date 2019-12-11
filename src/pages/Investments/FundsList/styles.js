@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Select from 'components/Inputs/Select'
 import BreadcrumbCmp from 'components/Breadcrumb'
-import breakpoints from 'styles/breakpoints'
 import RiskDegreeComponent from 'components/RiskDegree'
 import {
   SelectWrapper,
@@ -23,7 +22,7 @@ export const TopWrapper = styled.div`
   max-width: ${containerWidth};
   padding: 0 0.5rem;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     margin-top: 1rem;
     flex-direction: column;
   }
@@ -40,11 +39,11 @@ export const SelectRow = styled.div`
     flex: 1 0 auto;
     max-width: 370px;
 
-    @media ${breakpoints.mobile} {
+    @media ${props => props.theme.mediaQueries.xs} {
       flex: unset;
     }
 
-    @media ${breakpoints.tablet} {
+    @media ${props => props.theme.mediaQueries.sm} {
       &:not(:last-of-type) {
         margin-right: 0.5rem;
       }
@@ -75,11 +74,11 @@ export const Breadcrumb = styled(BreadcrumbCmp)`
   flex: 1 0 auto;
   max-width: 195px;
 
-  @media ${breakpoints.tablet} {
+  @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 0.5rem;
   }
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid ${props => props.theme.colors.gray3};
     max-width: none;
@@ -90,7 +89,7 @@ export const ContentWrapper = styled.div`
   margin: 1rem auto;
   max-width: ${containerWidth};
 
-  @media ${breakpoints.tablet} {
+  @media ${props => props.theme.mediaQueries.sm} {
     padding: 0 0.5rem;
   }
 `
@@ -99,7 +98,7 @@ export const FooterWrapper = styled.div`
   margin: 1rem auto;
   max-width: ${containerWidth};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     padding: 0 0.5rem;
   }
 
@@ -121,7 +120,7 @@ export const FooterWrapper = styled.div`
 `
 
 export const ImgAnbima = styled.img`
-  @media ${breakpoints.tablet} {
+  @media ${props => props.theme.mediaQueries.sm} {
     padding: 0 1rem;
     max-width: 100%;
   }
@@ -131,7 +130,7 @@ export const BreadcrumbWrapper = styled.div``
 
 export const RiskDegree = styled(RiskDegreeComponent)`
   margin-left: 1rem;
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     display: none;
   }
 `

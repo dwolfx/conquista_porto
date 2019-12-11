@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-
 export const RadioTitle = styled.p`
   color: ${props => props.theme.colors.gray6};
   font-size: 14px;
@@ -73,7 +71,7 @@ export const RadioWrapper = styled.div`
   margin-right: ${props => `${props.marginRight}px`};
   width: ${props => `${props.width}%`};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;
     margin: 15px 0;
   }

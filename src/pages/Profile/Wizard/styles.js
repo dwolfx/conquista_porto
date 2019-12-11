@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-
 export const Container = styled.div`
   position: absolute;
   top: 0;
@@ -27,7 +25,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   width: 900px;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
     padding: 0 15px;
   }
@@ -70,7 +68,7 @@ export const Row = styled.div`
   margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   width: 100%;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;
   }
 `

@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 import ConquistaIcon from 'components/IconExporter'
-import breakpoints from 'styles/breakpoints'
 
 const basicSvgStyle = css`
   fill: ${props => props.theme.colors.gray6};
@@ -31,7 +30,7 @@ export const Container = styled.div`
   top: 0;
   z-index: 3;
 
-  @media ${breakpoints.tablet} {
+  @media ${props => props.theme.mediaQueries.sm} {
     margin: 0;
     width: 100%;
   }

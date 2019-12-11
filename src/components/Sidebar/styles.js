@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-
 export const Sidebar = styled.aside`
   display: flex;
   flex-direction: column;
   flex: 1;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     display: none;
   }
 `

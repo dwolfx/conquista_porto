@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import breakpoints from 'styles/breakpoints'
 
 export const Section = styled.section`
   background-color: ${props =>
@@ -13,7 +12,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 1200px;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
   }
 `
@@ -38,7 +37,7 @@ export const Row = styled.div`
   display: flex;
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-wrap: wrap;
   }
 `
