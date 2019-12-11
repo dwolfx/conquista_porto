@@ -31,7 +31,7 @@ const filterFundsByType = type => fundsArr =>
     : fundsArr.filter(fund => fund.tipo.valor === type)
 
 export default function FundsList() {
-  const isMobile = useMedia('mobile')
+  const isMobile = useMedia('xs')
   const [selectedRisk, setSelectedRisk] = useState(allOption)
   const [selectedType, setSelectedType] = useState(allOption)
 

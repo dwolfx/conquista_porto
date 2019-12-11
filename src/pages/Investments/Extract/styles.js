@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 1200px;
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
   }
 `
@@ -37,7 +37,7 @@ export const Row = styled.div`
   display: flex;
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-wrap: wrap;
   }
 `

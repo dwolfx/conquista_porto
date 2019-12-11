@@ -21,7 +21,7 @@ export const Container = styled.div`
   padding-bottom: 30px;
   min-height: 100vh;
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
     flex-direction: column-reverse;
   }
@@ -32,7 +32,7 @@ export const Content = styled.div`
   margin-left: 15px;
   padding-left: 15px;
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     margin: 0;
     padding: 0 15px;
     width: 100%;
@@ -79,7 +79,7 @@ export const Row = styled.div`
   margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   width: ${props => (props.width ? `${props.width}%` : '100%')};
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: ${props => (props.bankInfos ? 'row' : 'column')};
     margin-bottom: 15px;
     margin-top: 15px;
@@ -125,7 +125,7 @@ export const CardWrapper = styled.div`
   margin-bottom: 30px;
   padding: 15px 30px 30px;
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;
   }
 `
@@ -140,7 +140,7 @@ export const PhotoWrapper = styled.div`
     width: 100%;
   }
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     align-self: center;
     margin-bottom: 15px;
   }
@@ -151,7 +151,7 @@ export const ContentWrapper = styled.div`
   padding-left: 30px;
   padding-right: 7rem;
 
-  @media ${props => props.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.xs} {
     padding: 0;
   }
 `
