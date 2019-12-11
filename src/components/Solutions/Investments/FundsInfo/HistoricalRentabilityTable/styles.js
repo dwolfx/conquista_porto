@@ -18,13 +18,27 @@ export const Title = styled.h5`
   padding-bottom: 15px;
 `
 export const TableWrapper = styled.div`
+  display: flex;
   overflow: auto;
+  padding: 0 3px;
   width: 100%;
+  @media (max-width: 900px) {
+    display: block;
+  }
+  @media (max-width: 767px) {
+    display: flex;
+    padding: 0 15px;
+  }
+  @media (max-width: 490px) {
+    display: block;
+    padding: 0 3px;
+  }
 `
 export const Table = styled.table`
   display: table;
   table-layout: fixed;
-  width: 894px;
+  width: 900px;
+  height: 100%;
   border-collapse: collapse;
 `
 export const THead = styled.thead``

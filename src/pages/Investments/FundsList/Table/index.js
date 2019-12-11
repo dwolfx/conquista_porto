@@ -1,6 +1,8 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { useTable } from 'react-table'
 import PropTypes from 'prop-types'
+import Modal from 'components/Modal'
+import FundsInfo from 'components/Solutions/Investments/FundsInfo'
 import {
   Table,
   Thead,
@@ -56,11 +58,11 @@ const TheadWrapper = ({ header }) => {
     <SimpleHeader {...header.getHeaderProps()} header={header} />
   )
 }
-const FormatFundoCell = ({ cell }) => (
+const FormatFundoCell = ({ cell, column }) => (
   <FundoWrapper {...cell.getCellProps()}>
     <LogoImg alt="logo" src={cell.value.img} />
     <FundoNameWrapper>{cell.value.name}</FundoNameWrapper>
-    <AlertIcon />
+    <AlertIcon onClick={() => column.toggleModal(!column.isModalOpen)} />
   </FundoWrapper>
 )
 
@@ -73,9 +75,14 @@ const FormatEnabledCell = column =>
     <LockIcon />
   )
 
-const formatColumns = columns => {
+const formatColumns = (columns, toggleModal, isModalOpen) => {
   const formatters = {
-    fundo: column => ({ ...column, Cell: FormatFundoCell }),
+    fundo: column => ({
+      ...column,
+      Cell: FormatFundoCell,
+      toggleModal,
+      isModalOpen,
+    }),
     enabled: column => ({ ...column, Cell: FormatEnabledCell }),
   }
 
@@ -93,6 +100,7 @@ export default function TableFunds({
 }) {
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
+  const [isModalOpen, toggleModal] = useState(false)
 
   useLayoutEffect(() => {
     setTheadY(
@@ -124,12 +132,26 @@ export default function TableFunds({
     prepareRow,
     rows,
   } = useTable({
-    columns: formatColumns(columnsProps),
+    columns: formatColumns(columnsProps, toggleModal, isModalOpen),
     data,
   })
 
+  function handleClose(isOpen) {
+    return toggleModal(!isOpen)
+  }
   return (
     <>
+      {isModalOpen ? (
+        <Modal
+          headerIcon="information"
+          handleClose={handleClose}
+          isOpen={isModalOpen}
+          modalTitle="Informações do fundo"
+          alignItems="flex-start"
+        >
+          <FundsInfo />
+        </Modal>
+      ) : null}
       <TabsWrapper>
         {fundsType.map(fundType => (
           <Tabs

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 import HistoricalRentabilityTable from './HistoricalRentabilityTable'
 import TransactionsSection from './TransactionsSection'
@@ -8,18 +9,13 @@ import FileDownloadSection from '../../FileDownloadSection'
 
 import {
   Container,
-  ModalTitle,
-  Icon,
-  Wrapper,
-  WrapperDetails,
-  Title,
-  IconCircle,
-  SubTitle,
   FundsDetailsSection,
   Notification,
+  RiskDegree,
+  RiskDegreeTitle,
+  SubTitle,
+  WrapperDetails,
 } from './styles'
-
-import ConquistaIcon from '../../../IconExporter'
 
 const articles = {
   value1: 'R$ 20.000,00',
@@ -109,23 +105,12 @@ const tableRow = [
 ]
 
 export default function FundsInfo() {
+  const themeContext = useContext(ThemeContext)
   return (
     <Container>
-      <ModalTitle>
-        <Wrapper>
-          <Icon>
-            <ConquistaIcon name="information" />
-          </Icon>
-          <Wrapper>
-            <Title>Informações do fundo</Title>
-          </Wrapper>
-        </Wrapper>
-        <IconCircle>
-          <ConquistaIcon name="close" />
-        </IconCircle>
-      </ModalTitle>
       <SubTitle>Porto Seguro Soberano Referenciado DI Renda Fixa</SubTitle>
-      {/* componente do perfil de risco do pablito */}
+      <RiskDegreeTitle>Perfil de Risco</RiskDegreeTitle>
+      <RiskDegree actives={[2]} />
       <HistoricalRentabilityTable tableHead={tableHead} tableRow={tableRow} />
       <TransactionsSection
         title="Movimentações (Até 13:30)"
@@ -138,7 +123,7 @@ export default function FundsInfo() {
             fundsDetail={fundsDetail}
           />
           <FileDownloadSection
-            backgroundColor="#f9f9f9"
+            backgroundColor={themeContext.colors.gray1}
             data={downloadFileSectionData}
           />
         </WrapperDetails>
