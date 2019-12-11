@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 
 import Button from 'components/Button'
 import RadioInput from 'components/Inputs/Radio'
 import SelectInput from 'components/Inputs/Select'
-import theme from 'styles/theme'
+import { ThemeContext } from 'styled-components'
 
 import {
   crisisOptions,
@@ -24,10 +24,11 @@ import {
 } from '../../styles'
 
 const StepOne = ({ changeScreen }) => {
+  const themeContext = useContext(ThemeContext)
   const RadioSection = ({ title, options, name }) => (
     <Section
-      backgroundColor={theme.colors.backgroundColor}
-      border="1px solid #fff"
+      backgroundColor={themeContext.colors.gray1}
+      border={`1px solid ${themeContext.colors.white}`}
     >
       <Wrapper>
         <SectionText marginBottom={35}>{title}</SectionText>
@@ -60,7 +61,7 @@ const StepOne = ({ changeScreen }) => {
 
   return (
     <>
-      <Section backgroundColor="#fff">
+      <Section backgroundColor={themeContext.colors.white}>
         <Wrapper align="center">
           <SectionTitle>Definir perfil do investidor</SectionTitle>
           <SectionText align="center" marginBottom={40}>
@@ -112,8 +113,8 @@ const StepOne = ({ changeScreen }) => {
       />
 
       <Section
-        backgroundColor={theme.colors.backgroundColor}
-        border="1px solid #fff"
+        backgroundColor={themeContext.colors.gray1}
+        border={`1px solid ${themeContext.colors.white}`}
       >
         <Wrapper>
           <SectionText marginTop={40} marginBottom={5}>

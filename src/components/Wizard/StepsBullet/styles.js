@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import theme from 'styles/theme'
-
 export const Section = styled.section`
   padding: 60px 0 30px;
 `
@@ -40,7 +38,7 @@ export const Step = styled.div`
 
 export const BulletPoint = styled.div`
   background-color: ${props =>
-    props.filled ? theme.colors.primary.light : '#d7d7d7'};
+    props.filled ? props.theme.colors.blue4 : '#d7d7d7'};
   height: 15px;
   width: 15px;
   border-radius: 50%;

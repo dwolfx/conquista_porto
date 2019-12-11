@@ -23,7 +23,7 @@ exports[`HighlightSection renders correctly 1`] = `
     <br />
     <br />
     <button
-      className="sc-bdVaJa gkKTs"
+      className="sc-bdVaJa bXUMsN"
       color="secondary"
     >
       lista de fundos

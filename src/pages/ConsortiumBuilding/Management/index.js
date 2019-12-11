@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 // eslint-disable-next-line no-unused-vars
-import { css } from 'styled-components/macro'
 
 import LinearProgressBar from '../../../components/LinearProgressBar'
 import Breadcrumb from '../../../components/Breadcrumb'
@@ -16,7 +16,6 @@ import LeftNav from '../../../components/Management/LeftNav'
 import RightContent from '../../../components/Management/RightContent'
 
 import Icon from '../../../components/IconExporter'
-import commonStyles from '../../../styles/theme'
 
 import {
   BreadcrumbContainer,
@@ -57,6 +56,7 @@ const settings = {
 }
 
 export default function ManagementConsortiumBuilding({ history }) {
+  const themeContext = useContext(ThemeContext)
   return (
     <>
       <Container>
@@ -102,7 +102,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.primary.light}
+                  fill={themeContext.colors.blue4}
                   name="computersecure"
                 />
                 <div>
@@ -113,7 +113,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.primary.light}
+                  fill={themeContext.colors.blue4}
                   name="persongroup2"
                 />
                 <div>
@@ -122,11 +122,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                 </div>
               </Topic>
               <Topic>
-                <Icon
-                  width="28"
-                  fill={commonStyles.colors.primary.light}
-                  name="coin"
-                />
+                <Icon width="28" fill={themeContext.colors.blue4} name="coin" />
                 <div>
                   <TopicTitle>Crédito contratado</TopicTitle>
                   <TopicValue>R$ 99.999,99</TopicValue>

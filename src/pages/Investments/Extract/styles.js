@@ -26,7 +26,7 @@ export const SectionTitle = styled.h3`
 `
 
 export const SectionSubTitle = styled.h3`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -54,7 +54,7 @@ export const InfosWrapper = styled.div`
 `
 
 export const InfosLabel = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -63,7 +63,7 @@ export const InfosLabel = styled.p`
 `
 
 export const InfosData = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -75,34 +75,8 @@ export const TableTabs = styled.div`
   display: flex;
 `
 
-export const TableTab = styled.div`
-  background-image: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
-  border: 1px solid ${props => props.theme.colors.lightGray};
-  border-radius: 6px 6px 0 0;
-  cursor: pointer;
-  height: 3rem;
-  font-size: 10px;
-  font-weight: 700;
-  flex: 1 1 0;
-  letter-spacing: 2px;
-  letter-spacing: 1.5px;
-  margin-top: 0.75rem;
-  padding-top: 1.75em;
-  text-align: center;
-  text-transform: uppercase;
-  vertical-align: middle;
-
-  &.active {
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
-    height: 3.75rem;
-    margin-top: 0;
-    padding-top: 2em;
-    border-bottom: 4px solid ${props => props.theme.colors.primary.light};
-  }
-`
-
 export const SelectWrapper = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   display: flex;
   padding: 30px 60px;
 
@@ -116,7 +90,7 @@ export const SelectWrapper = styled.div`
 export const FilterButton = styled.button`
   background-color: transparent;
   border: none;
-  color: ${props => props.theme.colors.primary.light};
+  color: ${props => props.theme.colors.blue4};
   font-size: 11px;
   font-weight: 600;
   line-height: 21px;

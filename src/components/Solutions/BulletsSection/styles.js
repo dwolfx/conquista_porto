@@ -4,7 +4,7 @@ export const Container = styled.section`
   padding-top: 28px;
   padding-bottom: 28px;
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : 'white'};
+    props.backgroundColor ? props.backgroundColor : props.theme.colors.white};
 `
 
 export const Content = styled.div`
@@ -91,7 +91,7 @@ export const RightContent = styled.div`
 
     &:before {
       content: '■';
-      color: #ff7424;
+      color: ${props => props.theme.colors.secondary.light};
       position: absolute;
       right: calc(100% + 10px);
       font-size: 14px;

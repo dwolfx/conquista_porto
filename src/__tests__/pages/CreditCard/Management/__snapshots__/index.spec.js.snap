@@ -128,19 +128,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       tag.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-cMljjf eWERG"
+                        className="sc-cMljjf xaeSK"
                       >
                         bandeira
                       </p>
                       <span
-                        className="sc-jAaTju dUXKMU"
+                        className="sc-jAaTju fNkZVI"
                       >
                         Visa
                       </span>
@@ -173,19 +173,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       credit-card.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-cMljjf eWERG"
+                        className="sc-cMljjf xaeSK"
                       >
                         tipo
                       </p>
                       <span
-                        className="sc-jAaTju dUXKMU"
+                        className="sc-jAaTju fNkZVI"
                       >
                         Gold
                       </span>
@@ -218,19 +218,19 @@ Array [
                     tabIndex={-1}
                   >
                     <svg
-                      fill="#30C5FF"
+                      fill="#00ADEF"
                       width="28"
                     >
                       lock.svg
                     </svg>
                     <div>
                       <p
-                        className="sc-cMljjf eWERG"
+                        className="sc-cMljjf xaeSK"
                       >
                         4 últimos numeros
                       </p>
                       <span
-                        className="sc-jAaTju dUXKMU"
+                        className="sc-jAaTju fNkZVI"
                       >
                         9999
                       </span>
@@ -323,7 +323,7 @@ Array [
           className="sc-iRbamj iRMscS"
         >
           <span
-            className="sc-gipzik bcxLvt"
+            className="sc-gipzik fMxQsl"
             fontSize="11px"
             fontWeight="600"
             letterSpacing="1.5px"
@@ -339,7 +339,7 @@ Array [
               <div>
                 <svg
                   className="sc-kpOJdX iftNML"
-                  fill="#777"
+                  fill="#272727"
                   height="24px"
                 >
                   diamond.svg
@@ -347,12 +347,12 @@ Array [
               </div>
               <div>
                 <p
-                  className="sc-dxgOiQ kkDJal"
+                  className="sc-dxgOiQ leScWK"
                 >
                   Programa de relacionamento
                 </p>
                 <p
-                  className="sc-ckVGcZ hnFLbJ"
+                  className="sc-ckVGcZ gweNdt"
                 >
                   <span>
                     Com este produto você acumulou:
@@ -367,7 +367,7 @@ Array [
                   </span>
                 </p>
                 <p
-                  className="sc-jKJlTe eiqxWu"
+                  className="sc-jKJlTe eqGAVA"
                 >
                   Ver extrato
                    &gt; 
@@ -380,7 +380,7 @@ Array [
               <div>
                 <svg
                   className="sc-kpOJdX iftNML"
-                  fill="#777"
+                  fill="#272727"
                   height="24px"
                 >
                   pdf.svg
@@ -388,17 +388,17 @@ Array [
               </div>
               <div>
                 <p
-                  className="sc-dxgOiQ kkDJal"
+                  className="sc-dxgOiQ leScWK"
                 >
                   Informativo de desempenho
                 </p>
                 <p
-                  className="sc-ckVGcZ hnFLbJ"
+                  className="sc-ckVGcZ gweNdt"
                 >
                   Material técnico, com gráficos, informações e histórico do fundo.
                 </p>
                 <p
-                  className="sc-jKJlTe eiqxWu"
+                  className="sc-jKJlTe eqGAVA"
                 >
                   BAIXAR ARQUIVO
                    &gt; 
@@ -432,7 +432,7 @@ Array [
       <br />
       <br />
       <button
-        className="sc-fjdhpX eQLczf"
+        className="sc-fjdhpX iXIgPO"
         color="secondary"
       >
         <span>
@@ -447,7 +447,7 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-gZMcBi bKjxow"
+    className="sc-gZMcBi jlFIQH"
   >
     <div
       className="sc-gqjmRU fFPjBw"
@@ -495,7 +495,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-EHOje cdyUBk"
+                  className="sc-EHOje lcnIIg"
                 >
                   <div
                     className="sc-bZQynM fkBOCF"
@@ -514,7 +514,7 @@ Array [
                       Parcelando as compras
                     </p>
                     <p
-                      className="sc-htoDjs kbOwZQ"
+                      className="sc-htoDjs ilZutI"
                     >
                       O Cartão de Crédito Porto Seguro permite parcelar as compras, dando a opção de usar seu limite para outras finalidades. Mas, apesar dessa vantagem, é preciso ficar atento ao limite, que será reduzido com o valor total das compras e não apenas com as parcelas referentes ao mês.
                     </p>
@@ -537,7 +537,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-EHOje cdyUBk"
+                  className="sc-EHOje lcnIIg"
                 >
                   <div
                     className="sc-bZQynM fkBOCF"
@@ -556,7 +556,7 @@ Array [
                       Ferramenta de controle
                     </p>
                     <p
-                      className="sc-htoDjs kbOwZQ"
+                      className="sc-htoDjs ilZutI"
                     >
                       Com o Cartão de Crédito Porto Seguro, você pode ter suas despesas registradas na fatura para facilitar seu controle financeiro. E também pode parcelar compras para resolver problemas sem que eles comprometam seu orçamento, além de contar com o limite para não se exceder.
                     </p>
@@ -579,7 +579,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-EHOje cdyUBk"
+                  className="sc-EHOje lcnIIg"
                 >
                   <div
                     className="sc-bZQynM fkBOCF"
@@ -598,7 +598,7 @@ Array [
                       Relacionamento
                     </p>
                     <p
-                      className="sc-htoDjs kbOwZQ"
+                      className="sc-htoDjs ilZutI"
                     >
                       Concentrando o pagamento das compras no Cartão de Crédito Porto Seguro, você pode acumular pontos para trocar por descontos em seguros e por serviços para a casa ou para o carro. Ou pode optar por trocar por produtos de lojas parceiras ou por milhas aéreas.
                     </p>
@@ -622,7 +622,7 @@ Array [
       <div>
         <svg
           className="sc-kpOJdX iftNML"
-          fill="#777"
+          fill="#272727"
           height="24px"
         >
           pdf.svg
@@ -630,17 +630,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ kkDJal"
+          className="sc-dxgOiQ leScWK"
         >
           SISTEMA DE INFORMAÇÕES DE CRÉDITO - SCR
         </p>
         <p
-          className="sc-ckVGcZ hnFLbJ"
+          className="sc-ckVGcZ gweNdt"
         >
           Informações legais sobre crédito.
         </p>
         <p
-          className="sc-jKJlTe eiqxWu"
+          className="sc-jKJlTe eqGAVA"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -653,7 +653,7 @@ Array [
       <div>
         <svg
           className="sc-kpOJdX iftNML"
-          fill="#777"
+          fill="#272727"
           height="24px"
         >
           pdf.svg
@@ -661,17 +661,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ kkDJal"
+          className="sc-dxgOiQ leScWK"
         >
           TABELA DE TARIFAS
         </p>
         <p
-          className="sc-ckVGcZ hnFLbJ"
+          className="sc-ckVGcZ gweNdt"
         >
           Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.
         </p>
         <p
-          className="sc-jKJlTe eiqxWu"
+          className="sc-jKJlTe eqGAVA"
         >
           Visualizar
            &gt; 
@@ -684,7 +684,7 @@ Array [
       <div>
         <svg
           className="sc-kpOJdX iftNML"
-          fill="#777"
+          fill="#272727"
           height="24px"
         >
           pdf.svg
@@ -692,17 +692,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ kkDJal"
+          className="sc-dxgOiQ leScWK"
         >
           CONDIÇÕES GERAIS
         </p>
         <p
-          className="sc-ckVGcZ hnFLbJ"
+          className="sc-ckVGcZ gweNdt"
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Cartão de Crédito da Porto Seguro.
         </p>
         <p
-          className="sc-jKJlTe eiqxWu"
+          className="sc-jKJlTe eqGAVA"
         >
           BAIXAR ARQUIVO
            &gt; 

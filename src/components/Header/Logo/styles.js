@@ -21,7 +21,7 @@ export const Img = styled.img`
   }
 `
 export const Text = styled.p`
-  color: #fff;
+  color: ${props => props.theme.colors.white};
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 1.5px;

@@ -90,7 +90,7 @@ export const IconCircle = styled.div`
   justify-content: center;
 
   svg {
-    fill: #fff;
+    fill: ${props => props.theme.colors.white};
     height: 28px;
     width: 28px;
   }
@@ -100,7 +100,7 @@ export const IconCircle = styled.div`
     height: 30px;
 
     svg {
-      fill: #fff;
+      fill: ${props => props.theme.colors.white};
       height: 25px;
       width: 25px;
     }
@@ -110,7 +110,7 @@ export const IconCircle = styled.div`
     height: 25px;
 
     svg {
-      fill: #fff;
+      fill: ${props => props.theme.colors.white};
       height: 23px;
       width: 23px;
     }

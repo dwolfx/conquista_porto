@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 import {
   AddIcon,
@@ -90,6 +91,7 @@ const Icon = ({ name }) => {
 }
 
 export default function TopMenu() {
+  const themeContext = useContext(ThemeContext)
   const [isOpen, setIsOpen] = useState(false)
   const [isResponsiveOpen, setIsResponsiveOpen] = useState(false)
   const [breakpoint, setBreakpoint] = useState('')
@@ -140,7 +142,7 @@ export default function TopMenu() {
                   <Wrapper
                     padding="15px"
                     alignItems="flex-start"
-                    bgcolor="#fff"
+                    bgcolor={themeContext.colors.white}
                     borderBottom="1px solid #c7c7c7"
                     cursorPointer
                     key={item.id}
@@ -168,7 +170,7 @@ export default function TopMenu() {
                         {item.title}
                       </Text>
                       <Text
-                        color="#1c1c1c"
+                        color={themeContext.colors.gray6}
                         size={14}
                         fontWeight={300}
                         lineHeight="24px"

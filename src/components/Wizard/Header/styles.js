@@ -26,7 +26,7 @@ export const CloseButton = styled.a`
 
   &:after {
     content: '';
-    background-color: #fff;
+    background-color: ${props => props.theme.colors.white};
     height: 24px;
     left: calc(50% - 12px);
     mask-image: url(${CloseIcon});

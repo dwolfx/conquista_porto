@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import Icon from 'components/IconExporter'
 
@@ -14,12 +15,13 @@ import {
 } from './styles'
 
 const SidebarComponent = ({ sidebarItems }) => {
+  const themeContext = useContext(ThemeContext)
   const renderItems = items =>
     items &&
     items.map(
       ({ color, title, icon, uppercase, iconColor, onItemClick }, index) => (
         <SidebarItem
-          backgroundColor="#fff"
+          backgroundColor={themeContext.colors.white}
           key={`sidebar-item-${index}`}
           onClick={onItemClick}
         >

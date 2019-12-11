@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 // eslint-disable-next-line no-unused-vars
-import { css } from 'styled-components/macro'
+import { css, ThemeContext } from 'styled-components/macro'
 
 import Breadcrumb from '../../../components/Breadcrumb'
 import MoreDetails from '../../../components/Solutions/MoreDetails'
@@ -15,7 +15,6 @@ import LeftNav from '../../../components/Management/LeftNav'
 import RightContent from '../../../components/Management/RightContent'
 
 import Icon from '../../../components/IconExporter'
-import commonStyles from '../../../styles/theme'
 
 import {
   BreadcrumbContainer,
@@ -125,6 +124,7 @@ const settings = {
 }
 
 export default function ManagementCreditCard({ history }) {
+  const themeContext = useContext(ThemeContext)
   return (
     <>
       <Container>
@@ -168,11 +168,7 @@ export default function ManagementCreditCard({ history }) {
             <PageTitle>Mundo 120 Prata</PageTitle>
             <Topics settings={settings}>
               <Topic>
-                <Icon
-                  width="28"
-                  fill={commonStyles.colors.primary.light}
-                  name="tag"
-                />
+                <Icon width="28" fill={themeContext.colors.blue4} name="tag" />
                 <div>
                   <TopicTitle>bandeira</TopicTitle>
                   <TopicValue>Visa</TopicValue>
@@ -181,7 +177,7 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.primary.light}
+                  fill={themeContext.colors.blue4}
                   name="creditcard"
                 />
                 <div>
@@ -190,11 +186,7 @@ export default function ManagementCreditCard({ history }) {
                 </div>
               </Topic>
               <Topic>
-                <Icon
-                  width="28"
-                  fill={commonStyles.colors.primary.light}
-                  name="lock"
-                />
+                <Icon width="28" fill={themeContext.colors.blue4} name="lock" />
                 <div>
                   <TopicTitle>4 últimos numeros</TopicTitle>
                   <TopicValue>9999</TopicValue>
@@ -250,7 +242,7 @@ export default function ManagementCreditCard({ history }) {
                 margin="22px 0"
                 lineHeight="21px"
                 letterSpacing="1.5px"
-                fontColor="#1c1c1c"
+                fontColor={themeContext.colors.gray6}
                 fontWeight="600"
                 fontSize="11px"
               >

@@ -4,9 +4,9 @@ export const Tab = styled.div`
   background-image: linear-gradient(
     to bottom,
     ${props => props.theme.colors.white} 0%,
-    ${props => props.theme.colors.backgroundColor} 100%
+    ${props => props.theme.colors.gray1} 100%
   );
-  border: 1px solid ${props => props.theme.colors.gray.light};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: 6px 6px 0 0;
   cursor: pointer;
   height: 3rem;
@@ -30,6 +30,6 @@ export const Tab = styled.div`
     height: 3.75rem;
     margin-top: 0;
     padding-top: 2em;
-    border-bottom: 4px solid ${props => props.theme.colors.primary.light};
+    border-bottom: 4px solid ${props => props.theme.colors.blue4};
   }
 `

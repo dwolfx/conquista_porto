@@ -18,7 +18,7 @@ Array [
       </p>
       <br />
       <button
-        className="sc-bdVaJa gkKTs button-with-right-icon"
+        className="sc-bdVaJa bXUMsN button-with-right-icon"
         color="secondary"
         onClick={[Function]}
       >
@@ -38,7 +38,7 @@ Array [
     className="sc-htoDjs gDNwNT"
   >
     <p
-      className="sc-iwsKbI jjztbD"
+      className="sc-iwsKbI bPKZMH"
     >
       PONTOS
     </p>
@@ -80,7 +80,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gZMcBi kiWFjY"
+                className="sc-gZMcBi kPEtqd"
                 style={
                   Object {
                     "display": "inline-block",
@@ -102,12 +102,12 @@ Array [
                   16.500
                 </p>
                 <p
-                  className="sc-iwsKbI jjztbD"
+                  className="sc-iwsKbI bPKZMH"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-VigVT eQKHfE"
+                  className="sc-VigVT jODqRg"
                 >
                   ver extrato &gt;
                 </p>
@@ -129,7 +129,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gZMcBi kiWFjY"
+                className="sc-gZMcBi kPEtqd"
                 style={
                   Object {
                     "display": "inline-block",
@@ -151,12 +151,12 @@ Array [
                   16.500
                 </p>
                 <p
-                  className="sc-iwsKbI jjztbD"
+                  className="sc-iwsKbI bPKZMH"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-VigVT eQKHfE"
+                  className="sc-VigVT jODqRg"
                 >
                   ver extrato &gt;
                 </p>
@@ -178,7 +178,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gZMcBi kiWFjY"
+                className="sc-gZMcBi kPEtqd"
                 style={
                   Object {
                     "display": "inline-block",
@@ -200,12 +200,12 @@ Array [
                   16.500
                 </p>
                 <p
-                  className="sc-iwsKbI jjztbD"
+                  className="sc-iwsKbI bPKZMH"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-VigVT eQKHfE"
+                  className="sc-VigVT jODqRg"
                 >
                   ver extrato &gt;
                 </p>
@@ -227,7 +227,7 @@ Array [
       Conheça as ofertas e veja o que você pode resgatar com o seu saldo atual.
     </p>
     <button
-      className="sc-bdVaJa gkKTs button-with-right-icon"
+      className="sc-bdVaJa bXUMsN button-with-right-icon"
       color="secondary"
     >
       Resgatar Pontos 
@@ -240,7 +240,7 @@ Array [
     className="sc-jzJRlG dVSeZr"
   >
     <p
-      className="sc-cSHVUG hPaxfc"
+      className="sc-cSHVUG ideUEX"
     >
       COMO ACUMULAR PONTOS NO PROGRAMA DE RELACIONAMENTO DO CONQUISTA?
     </p>
@@ -248,7 +248,7 @@ Array [
       className="sc-kAzzGY eCJWNC"
     >
       <div
-        className="sc-chPdSV cYoprV"
+        className="sc-chPdSV fYvhJz"
       >
         <div>
           <svg
@@ -263,7 +263,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-chPdSV cYoprV"
+        className="sc-chPdSV fYvhJz"
       >
         <div>
           <svg
@@ -278,7 +278,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-chPdSV cYoprV"
+        className="sc-chPdSV fYvhJz"
       >
         <div>
           <svg
@@ -293,7 +293,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-chPdSV cYoprV"
+        className="sc-chPdSV fYvhJz"
       >
         <div>
           <svg
@@ -308,7 +308,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-chPdSV cYoprV"
+        className="sc-chPdSV fYvhJz"
       >
         <div>
           <svg
@@ -323,7 +323,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-chPdSV cYoprV"
+        className="sc-chPdSV fYvhJz"
       >
         <div>
           <svg

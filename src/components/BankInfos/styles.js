@@ -33,7 +33,7 @@ export const Row = styled.div`
 `
 
 export const ButtonAdd = styled.button`
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   display: flex;
   align-items: center;
   background-color: transparent;

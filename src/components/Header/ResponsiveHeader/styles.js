@@ -72,7 +72,7 @@ export const WhiteText = styled.p`
   line-height: 39px;
 `
 export const BlueText = styled(NavLink)`
-  color: ${props => props.theme.colors.linkBlue};
+  color: ${props => props.theme.colors.blue4};
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -145,7 +145,7 @@ const MenuItemProps = css`
   width: 100%;
 
   &:hover p {
-    color: ${props => props.theme.colors.linkBlue};
+    color: ${props => props.theme.colors.blue4};
   }
 `
 
