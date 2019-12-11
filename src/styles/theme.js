@@ -38,7 +38,7 @@ const fundRiskColors = {
 
 export const gridConfig = {
   breakpoints: {
-    xl: 1690,
+    xl: 1280,
     lg: 1280,
     md: 980,
     sm: 736,
@@ -51,9 +51,9 @@ export const gridConfig = {
     padding: 7,
   },
   container: {
-    padding: 0,
+    padding: 7,
     maxWidth: {
-      xl: 1690,
+      xl: 1280,
       lg: 1280,
       md: 980,
       sm: 736,
@@ -62,9 +62,22 @@ export const gridConfig = {
   },
 }
 
+export const defaultBreakpoints = {
+  xs: `(max-width: ${gridConfig.breakpoints.xs}px)`,
+  sm: `(max-width: ${gridConfig.breakpoints.sm}px)`,
+  md: `(max-width: ${gridConfig.breakpoints.md}px)`,
+  lg: `(max-width: ${gridConfig.breakpoints.lg}px)`,
+  xl: `(max-width: ${gridConfig.breakpoints.xl}px)`,
+  smUp: `(min-width: ${gridConfig.breakpoints.sm}px)`,
+  mdUp: `(min-width: ${gridConfig.breakpoints.md}px)`,
+  lgUp: `(min-width: ${gridConfig.breakpoints.lg}px)`,
+  xlUp: `(min-width: ${gridConfig.breakpoints.xl}px)`,
+}
+
 export default {
   colors: themeColors,
   fundRiskColors,
   fontFamily: 'Open Sans',
   grid: gridConfig,
+  mediaQueries: defaultBreakpoints,
 }

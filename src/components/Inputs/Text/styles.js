@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-
 export const InputLabel = styled.label`
   position: absolute;
   transition: all ease 0.3s;
@@ -29,7 +27,7 @@ export const InputWrapper = styled.div`
   pointer-events: ${props => (props.disabled ? 'none' : 'normal')};
   width: ${props => `${props.width}%`};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
     padding: 0;
     margin: 15px 0;

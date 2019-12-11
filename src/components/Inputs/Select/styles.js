@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import ArrowDown from 'assets/icons/arrow-down.svg'
-import breakpoints from 'styles/breakpoints'
 import theme from 'styles/theme'
 
 export const SelectFieldWrapper = styled.div`
@@ -60,7 +59,7 @@ export const SelectWrapper = styled.div`
   position: relative;
   width: ${props => `${props.width}%`};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     padding: 0;
     margin: 15px 0;
     width: 100%;
