@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { themeColors } from '../../../styles/theme'
 
 export const StatementSection = styled.section`
-  background-color: ${themeColors.backgroundColor};
+  background-color: ${props => props.theme.colors.gray1};
   flex-grow: 1;
   padding: 1em;
 `

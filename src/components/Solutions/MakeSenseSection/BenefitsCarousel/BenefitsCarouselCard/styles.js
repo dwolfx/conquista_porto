@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const gray = '#D2D2D2'
-const blackLight = '#1c1c1c'
 
 export const CardWrapper = styled.div`
   border: 1px solid ${gray};
@@ -30,7 +29,7 @@ export const Title = styled.h1`
 `
 
 export const Description = styled.p`
-  color: ${blackLight};
+  color: ${props => props.theme.colors.gray6};
   font-weight: 300;
   font-size: 14px;
 `

@@ -6,7 +6,7 @@ export const Container = styled.section`
   width: 100%;
   height: auto;
   background-color: #115fa5;
-  color: #fff;
+  color: ${props => props.theme.colors.white};
 `
 export const Title = styled.h5`
   width: 100%;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: auto;
   padding: 15px 30px 30px 30px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid ${props => props.theme.colors.white};
   justify-content: space-between;
   @media (max-width: 900px) {
     flex-direction: column;

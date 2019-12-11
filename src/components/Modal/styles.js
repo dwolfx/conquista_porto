@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import CloseIcon from 'assets/icons/close.svg'
-import theme from 'styles/theme'
 
 export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
@@ -12,7 +11,7 @@ export const ModalOverlay = styled.div`
 `
 
 export const ModalContainer = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   border-radius: 8px;
   position: relative;
   max-width: 900px;
@@ -37,7 +36,7 @@ export const ModalHeader = styled.div`
 `
 
 export const ModalTitle = styled.h3`
-  color: ${theme.colors.primary.light};
+  color: ${props => props.theme.colors.blue4};
   flex: 1;
   font-size: 22px;
   font-weight: 300;

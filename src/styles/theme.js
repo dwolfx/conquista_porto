@@ -1,18 +1,4 @@
 export const themeColors = {
-  backgroundColor: '#f1f1f1',
-  linkColor: '#1c1c1c',
-  linkBlue: '#33BFFF',
-  lightGray: '#e6e6e6',
-  white: '#fff',
-  black: '#000',
-
-  primary: {
-    light: '#30C5FF',
-    medium: '#3dacff',
-    dark: '#148dbb',
-    disabled: '#86c2d9',
-  },
-
   secondary: {
     light: '#FF7433',
     medium: '#FE5C00',
@@ -20,18 +6,29 @@ export const themeColors = {
     disabled: '#f4bea5',
   },
 
-  alternative: {
-    light: '#27c145',
-    medium: '#3cc127',
-    dark: '#379f26',
-    disabled: '#27c14545',
-  },
-
-  gray: {
-    light: '#d2d2d2',
-    medium: '#bababa',
-    dark: '#34373e',
-  },
+  black: '#000',
+  gray1: '#F9F9F9',
+  gray2: '#EBEBEB',
+  gray3: '#DDDDDD',
+  gray4: '#BABABA',
+  gray5: '#898989',
+  gray6: '#272727',
+  white: '#FFFFFF',
+  darkBlue1: '#E6F7FF',
+  darkBlue2: '#004E70',
+  blue1: '#EFFBFF',
+  blue2: '#C8F0FF',
+  blue3: '#A1E5FF',
+  blue4: '#00ADEF',
+  blue5: '#018CB7',
+  green1: '#CFE8D2',
+  green2: '#57B063',
+  green3: '#46A166',
+  green4: '#2F736B',
+  yellow1: '#FFF3C4',
+  yellow2: '#FFCD00',
+  magenta1: '#FAD2E3',
+  magenta2: '#E72176',
 }
 
 export const fundRiskColors = {

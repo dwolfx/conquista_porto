@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import CEPInput from 'components/Inputs/CEPInput'
 import Icon from 'components/IconExporter'
@@ -10,6 +11,7 @@ import { Row, ButtonAdd, ObsText, Wrapper, RemoveButton } from './styles'
 import { mainPhoneOption } from './values'
 
 const AddressFields = ({ name, showAddButton }) => {
+  const themeContext = useContext(ThemeContext)
   const [addressSection, setAddressSection] = useState([{ index: 0 }])
 
   const removeAddress = index => {
@@ -78,7 +80,7 @@ const AddressFields = ({ name, showAddButton }) => {
                 removeAddress(index)
               }}
             >
-              <Icon name="trash" fill="#30c5ff" width={15} />
+              <Icon name="trash" fill={themeContext.colors.blue4} width={15} />
             </RemoveButton>
           )}
         </Row>

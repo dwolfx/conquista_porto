@@ -14,7 +14,7 @@ const riskColorsMap = {
 
 export const FundBox = styled.div`
   background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${props => props.theme.colors.gray.light};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-left: 4px solid
     ${props => riskColorsMap[parseInt(props.borderRisk, 10)]};
   border-radius: 4px;
@@ -22,7 +22,7 @@ export const FundBox = styled.div`
 `
 
 export const Badge = styled.span`
-  background-color: ${props => props.theme.colors.gray.dark};
+  background-color: ${props => props.theme.colors.gray6};
   color: ${props => props.theme.colors.white};
   display: inline-block;
   font-size: 9px;
@@ -40,7 +40,7 @@ export const BadgeWrapper = styled.div`
 `
 
 export const FundName = styled.p`
-  color: ${props => props.theme.colors.gray.dark};
+  color: ${props => props.theme.colors.gray6};
   font-size: 14px;
   font-weight: 400;
   padding: 7px 0 0;
@@ -53,13 +53,13 @@ export const DetailItem = styled.dl`
   }
 
   dt {
-    color: ${props => props.theme.colors.gray.medium};
+    color: ${props => props.theme.colors.gray4};
     font-size: 10px;
     font-weight: 600;
   }
 
   dd {
-    color: ${props => props.theme.colors.gray.dark};
+    color: ${props => props.theme.colors.gray6};
     font-size: 14px;
     font-weight: 700;
   }
@@ -103,7 +103,7 @@ export const BoxHeader = styled.div`
 
 export const BoxMiddle = styled.div`
   ${box}
-  border-top: 1px solid ${props => props.theme.colors.gray.light};
+  border-top: 1px solid ${props => props.theme.colors.gray3};
   margin-top: 0.5rem;
   justify-content: flex-start;
 
@@ -127,7 +127,7 @@ const fadeInDown = keyframes`
 
 export const BoxBottom = styled.div`
   ${box}
-  border-top: 1px solid ${props => props.theme.colors.gray.light};
+  border-top: 1px solid ${props => props.theme.colors.gray3};
   height: 0%;
   transform: translatey(-10px);
   opacity:0;
@@ -157,7 +157,7 @@ export const BoxBottom = styled.div`
 
   hr {
     border: none;
-    border-top: 1px solid ${props => props.theme.colors.gray.light};
+    border-top: 1px solid ${props => props.theme.colors.gray3};
     margin: 1rem 0;
     width: 100%;
   }

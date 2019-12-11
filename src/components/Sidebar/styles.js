@@ -35,9 +35,9 @@ export const SidebarItemText = styled.a`
   color: ${props => {
     switch (props.color) {
       case 'primary':
-        return props.theme.colors.primary.light
+        return props.theme.colors.blue4
       default:
-        return props.theme.colors.linkColor
+        return props.theme.colors.gray6
     }
   }};
   text-transform: ${props => (props.uppercase ? 'uppercase' : 'none')};

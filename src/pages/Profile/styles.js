@@ -8,7 +8,7 @@ export const AccordionTitle = styled.h4`
 `
 
 export const Wrapper = styled.div`
-  background-color: ${props => props.theme.colors.backgroundColor};
+  background-color: ${props => props.theme.colors.gray1};
   flex: 1;
   padding-top: 30px;
 `
@@ -40,7 +40,7 @@ export const Content = styled.div`
 `
 
 export const PerfilTitle = styled.p`
-  color: ${props => props.theme.colors.primary.light};
+  color: ${props => props.theme.colors.blue4};
   font-size: 18px;
   margin-bottom: 30px;
 `
@@ -48,7 +48,7 @@ export const PerfilTitle = styled.p`
 export const SectionSubtitle = styled.h4`
   font-size: 11px;
   font-weight: 600;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 21px;
@@ -87,7 +87,7 @@ export const Row = styled.div`
 `
 
 export const ButtonAdd = styled.button`
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -102,7 +102,7 @@ export const ButtonAdd = styled.button`
 
 export const ObsText = styled.small`
   font-weight: 300;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 18px;
   word-break: break-word;
@@ -112,7 +112,7 @@ export const ObsText = styled.small`
 
 export const LabelText = styled.p`
   font-weight: 400;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 24px;
   word-break: break-word;
@@ -120,7 +120,7 @@ export const LabelText = styled.p`
   width: 100%;
 `
 export const CardWrapper = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   display: flex;
   margin-bottom: 30px;
   padding: 15px 30px 30px;
@@ -159,7 +159,7 @@ export const ContentWrapper = styled.div`
 export const CardText = styled.p`
   font-size: ${props => (props.title ? '11px' : '14px')};
   font-weight: ${props => (props.title ? '600' : '400')};
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: ${props => (props.title ? '1.5px' : 'normal')};
   text-transform: ${props => (props.title ? 'uppercase' : 'normal')};
   line-height: 21px;
@@ -192,12 +192,13 @@ export const PencilIcon = styled.div`
     top: calc(50% - 8px);
     left: calc(50% - 8px);
     mask-image: url(${PencilSVG});
-    background-color: #fff;
+    background-color: ${props => props.theme.colors.white};
   }
 `
 
 export const Box = styled.div`
-  background-color: ${props => (props.transparent ? 'transparent' : '#fff')};
+  background-color: ${props =>
+    props.transparent ? 'transparent' : props.theme.colors.white};
   margin-bottom: 30px;
   padding: ${props => (props.padding ? props.padding : '30px')};
 `
@@ -217,7 +218,7 @@ export const BoxTitle = styled.h4`
 `
 
 export const BoxText = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   font-size: ${props => (props.fontSize ? `${props.fontSize}px` : '14px')};
   font-weight: 300;
   letter-spacing: 0;
@@ -241,7 +242,7 @@ export const IconWrapper = styled.div`
 
 export const DownloadLink = styled.a`
   align-items: center;
-  color: #1c1c1c99;
+  color: ${props => props.theme.colors.gray6};
   cursor: pointer;
   display: flex;
   font-size: 14px;
@@ -252,7 +253,7 @@ export const DownloadLink = styled.a`
 `
 
 export const GreySection = styled.section`
-  background-color: ${props => props.theme.colors.backgroundColor};
+  background-color: ${props => props.theme.colors.gray1};
   display: flex;
   flex-direction: column;
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
@@ -277,7 +278,7 @@ export const InputCode = styled.input.attrs({ type: 'number' })`
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #d2d2d2;
-  color: ${props => props.theme.colors.primary.light};
+  color: ${props => props.theme.colors.blue4};
   font-size: 34px;
   font-weight: 300;
   margin: 0 auto;

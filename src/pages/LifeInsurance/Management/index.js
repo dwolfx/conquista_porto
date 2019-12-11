@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 // eslint-disable-next-line no-unused-vars
-import { css } from 'styled-components/macro'
+import { css, ThemeContext } from 'styled-components/macro'
 
 import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
@@ -16,7 +16,6 @@ import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 
 import Icon from 'components/IconExporter'
-import commonStyles from 'styles/theme'
 
 import {
   BreadcrumbContainer,
@@ -96,6 +95,7 @@ const settings = {
 }
 
 export default function ManagementCreditCard({ history }) {
+  const themeContext = useContext(ThemeContext)
   const [isOpenModal, setIsOpenModal] = useState(false)
   return (
     <>
@@ -140,11 +140,7 @@ export default function ManagementCreditCard({ history }) {
             <PageTitle>Seguro de Vida</PageTitle>
             <Topics settings={settings}>
               <Topic>
-                <Icon
-                  width="28"
-                  fill={commonStyles.colors.primary.light}
-                  name="boy"
-                />
+                <Icon width="28" fill={themeContext.colors.blue4} name="boy" />
                 <div>
                   <TopicTitle>segurado</TopicTitle>
                   <TopicValue>Julia da Silva</TopicValue>
@@ -153,7 +149,7 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.primary.light}
+                  fill={themeContext.colors.blue4}
                   name="billing"
                 />
                 <div>
@@ -164,7 +160,7 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.primary.light}
+                  fill={themeContext.colors.blue4}
                   name="persongroup"
                 />
                 <div>

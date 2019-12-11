@@ -17,7 +17,6 @@ import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 
 import Icon from 'components/IconExporter'
-import commonStyles from 'styles/theme'
 
 import { formatMoney } from 'helpers'
 
@@ -179,22 +178,14 @@ export default function ManagementInvestments({ history }) {
             <div>
               <Topics settings={settings}>
                 <Topic>
-                  <Icon
-                    width="28"
-                    fill={commonStyles.colors.primary.light}
-                    name="time"
-                  />
+                  <Icon width="28" fill={theme.colors.blue4} name="time" />
                   <div>
                     <TopicTitle>perfil de risco</TopicTitle>
                     <TopicValue>Médio</TopicValue>
                   </div>
                 </Topic>
                 <Topic>
-                  <Icon
-                    width="28"
-                    fill={commonStyles.colors.primary.light}
-                    name="coin"
-                  />
+                  <Icon width="28" fill={theme.colors.blue4} name="coin" />
                   <div>
                     <TopicTitle>Movimentações Mín.</TopicTitle>
                     <TopicValue>R$ 1.000,00</TopicValue>
@@ -203,7 +194,7 @@ export default function ManagementInvestments({ history }) {
                 <Topic>
                   <Icon
                     width="28"
-                    fill={commonStyles.colors.primary.light}
+                    fill={theme.colors.blue4}
                     name="monitoranalytics"
                   />
                   <div>
@@ -308,7 +299,7 @@ export default function ManagementInvestments({ history }) {
                       fontSize="15px"
                       lineHeight="25px"
                       fontWeight="bold"
-                      fontColor={theme.colors.primary.light}
+                      fontColor={theme.colors.blue4}
                     >
                       Movimentações pendentes
                     </Text>
@@ -338,7 +329,7 @@ export default function ManagementInvestments({ history }) {
                   data={[
                     {
                       id: 'balance',
-                      color: theme.colors.primary.light,
+                      color: theme.colors.blue4,
                       data: [
                         {
                           x: '01/10/2018',
@@ -482,7 +473,7 @@ export default function ManagementInvestments({ history }) {
                 margin="22px 0"
                 lineHeight="21px"
                 letterSpacing="1.5px"
-                fontColor="#1c1c1c"
+                fontColor={theme.colors.gray6}
                 fontWeight="600"
                 fontSize="11px"
               >
@@ -514,7 +505,7 @@ export default function ManagementInvestments({ history }) {
             <Text
               fontSize="12px"
               lineHeight="22px"
-              fontColor={theme.colors.primary.light}
+              fontColor={theme.colors.blue4}
               fontWeight="bold"
             >
               ACESSE AQUI.

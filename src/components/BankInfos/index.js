@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import RadioInput from 'components/Inputs/Radio'
 import SelectInput from 'components/Inputs/Select'
@@ -10,6 +11,7 @@ import { Row, RemoveButton, Wrapper, ButtonAdd } from './styles'
 import { bankOptions, modalityOptions } from './values'
 
 const BankComponent = ({ name, showAddButton }) => {
+  const themeContext = useContext(ThemeContext)
   const [bankSection, setBankSection] = useState([{ index: 0 }])
 
   const removeBank = index => {
@@ -57,7 +59,7 @@ const BankComponent = ({ name, showAddButton }) => {
                 removeBank(index)
               }}
             >
-              <Icon name="trash" fill="#30c5ff" width={15} />
+              <Icon name="trash" fill={themeContext.colors.blue4} width={15} />
             </RemoveButton>
           )}
         </Row>

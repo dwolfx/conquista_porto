@@ -52,7 +52,7 @@ export const LinkButton = styled.p`
   cursor: pointer;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   margin: 28px 0px 14px 0px;
   font-weight: 600;
 

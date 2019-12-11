@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import Icon from 'components/IconExporter'
 import PhoneInput from 'components/Inputs/PhoneInput'
@@ -11,6 +12,7 @@ import { Row, ButtonAdd, RemoveButton } from './styles'
 import { telefoneOptions, radioOptions } from './values'
 
 const PhoneFields = ({ name, showAddButton }) => {
+  const themeContext = useContext(ThemeContext)
   const [phoneSection, setPhoneSection] = useState([
     {
       index: 0,
@@ -73,7 +75,7 @@ const PhoneFields = ({ name, showAddButton }) => {
               removePhone(index)
             }}
           >
-            <Icon name="trash" fill="#30c5ff" width={15} />
+            <Icon name="trash" fill={themeContext.colors.blue4} width={15} />
           </RemoveButton>
         )}
       </Row>

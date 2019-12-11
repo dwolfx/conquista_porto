@@ -33,13 +33,13 @@ export const Thead = styled.thead`
 `
 
 export const TheadTr = styled.tr`
-  background-color: ${props => props.theme.colors.gray.medium};
+  background-color: ${props => props.theme.colors.gray4};
   display: block;
 `
 
 export const TheadTh = styled.th`
-  color: ${props => props.theme.colors.linkColor};
-  border: 1px solid ${props => props.theme.colors.gray.light};
+  color: ${props => props.theme.colors.gray6};
+  border: 1px solid ${props => props.theme.colors.gray3};
   display: inline-block;
   font-size: 11px;
   letter-spacing: 1px;
@@ -62,7 +62,7 @@ export const TheadTh = styled.th`
         right: 0;
         top: -33px;
         padding-top: 8px;
-        background: ${props.theme.colors.gray.medium};
+        background: ${props.theme.colors.gray4};
         border-top: 0px;
         border-right: 0px;
         border-top-right-radius: 6px;
@@ -89,7 +89,7 @@ export const TBodyTd = styled.td`
   text-align: center;
 
   &:not(:first-of-type) {
-    border-left: 1px solid ${props => props.theme.colors.gray.light};
+    border-left: 1px solid ${props => props.theme.colors.gray3};
   }
 
   :first-of-type {
@@ -114,7 +114,7 @@ export const LogoImg = styled.img`
 
 export const AlertIcon = styled(IconExporter).attrs({ name: 'alertrounded' })`
   height: 25px;
-  fill: ${props => props.theme.colors.linkBlue};
+  fill: ${props => props.theme.colors.blue4};
   margin-left: auto;
   min-width: 25px;
 `
@@ -133,7 +133,7 @@ export const InvestButton = styled(ConquistaButton)`
 `
 
 export const LockIcon = styled(IconExporter).attrs({ name: 'lock' })`
-  fill: ${props => props.theme.colors.gray.medium};
+  fill: ${props => props.theme.colors.gray4};
   width: 28px;
 `
 

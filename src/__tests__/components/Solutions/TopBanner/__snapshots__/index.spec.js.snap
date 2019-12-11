@@ -17,7 +17,7 @@ exports[`TopBanner renders correctly 1`] = `
     </p>
     <br />
     <button
-      className="sc-bdVaJa gkKTs button-with-right-icon"
+      className="sc-bdVaJa bXUMsN button-with-right-icon"
       color="secondary"
       onClick={[Function]}
     >
