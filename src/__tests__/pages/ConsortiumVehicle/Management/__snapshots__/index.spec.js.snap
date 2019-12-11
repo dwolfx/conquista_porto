@@ -8,17 +8,21 @@ Array [
     <div
       className="sc-cvbbAY hQVSQz"
     >
-      <small
-        className="sc-bxivhb hpkEGR"
-      >
-        Soluções
-         »
-      </small>
-      <strong
-        className="sc-ifAKCX dqKGw"
-      >
-        consórcio de VEÍCULO
-      </strong>
+      <div>
+        <small
+          className="sc-bxivhb cqUHgS"
+        >
+          Soluções
+           »
+           
+        </small>
+        <strong
+          className="sc-ifAKCX jMBADG"
+        >
+          consórcio de VEÍCULO
+           
+        </strong>
+      </div>
     </div>
     <div
       className="sc-iAyFgw eLoukc"

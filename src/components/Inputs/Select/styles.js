@@ -34,6 +34,7 @@ export const SelectFieldWrapper = styled.div`
   }
 `
 export const SelectField = styled.select`
+  appearance: none;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #d2d2d2;
@@ -42,6 +43,12 @@ export const SelectField = styled.select`
   padding-left: 0;
   position: relative;
   width: 100%;
+  -webkit-appearance: none;
+
+  /* remove the arrow of select element in IE */
+  &::-ms-expand {
+    display: none;
+  }
 `
 
 export const SelectLabel = styled.label`

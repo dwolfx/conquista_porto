@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Button from 'components/Button'
 import TopBanner from 'components/Solutions/TopBanner'
@@ -78,7 +79,7 @@ const downloadFileSectionData = [
   },
 ]
 
-export default function Investments() {
+export default function Investments({ history }) {
   return (
     <>
       <TopBanner
@@ -87,7 +88,7 @@ export default function Investments() {
         buttonText="Lista de fundos"
         image={BannerInvestimentosImage}
         imageDescription="Homem pesquisando investimentos em um website em seu computador"
-        onClick={() => {}}
+        onClick={() => history.push('/investimentos/lista-fundos')}
       />
       <BulletsSection
         title="Por que investir em Fundos?"
@@ -137,4 +138,10 @@ export default function Investments() {
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )
+}
+
+Investments.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
 }

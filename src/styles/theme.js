@@ -26,9 +26,15 @@ export const themeColors = {
     dark: '#379f26',
     disabled: '#27c14545',
   },
+
+  gray: {
+    light: '#d2d2d2',
+    medium: '#bababa',
+    dark: '#34373e',
+  },
 }
 
-const fundRiskColors = {
+export const fundRiskColors = {
   lowRisk: '#555861',
   lowMediumRisk: '#33BFFF',
   mediumRisk: '#3CC225',

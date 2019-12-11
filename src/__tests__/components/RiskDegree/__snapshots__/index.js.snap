@@ -1,33 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header to render 1`] = `
-<div
-  className="sc-bdVaJa hSInLL"
->
-  <label>
-    Menor risco
-  </label>
-  <div
-    className="sc-bwzfXH djCGqy"
-  />
-  <div
-    className="sc-bwzfXH cryNKO"
-  />
-  <div
-    className="sc-bwzfXH ilBlOd"
-  />
-  <div
-    className="sc-bwzfXH eYZvKI"
-  />
-  <div
-    className="sc-bwzfXH hEyowe"
-  />
-  <label>
-    Maior risco
-  </label>
-</div>
-`;
-
 exports[`RiskDegree RiskDegree to render with active colors 1`] = `
 <div
   className="sc-bdVaJa hSInLL"
