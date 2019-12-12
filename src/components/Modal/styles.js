@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
 import CloseIcon from 'assets/icons/close.svg'
-import breakpoints from 'styles/breakpoints'
-import theme from 'styles/theme'
 
 export const ModalOverlay = styled.div`
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   height: 100%;
   position: absolute;
   transition: all ease 0.3s;
@@ -13,25 +11,14 @@ export const ModalOverlay = styled.div`
 `
 
 export const ModalContainer = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   border-radius: 8px;
-  max-height: 600px;
-  padding-bottom: 30px;
   position: relative;
-  width: ${props => {
-    switch (props.size) {
-      case 'sm':
-        return '490px'
-      case 'md':
-        return '900px'
-      case 'lg':
-        return '1200px'
-      default:
-        return '900px'
-    }
-  }};
+  max-width: 900px;
+  min-width: 400px;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
+    min-width: unset;
     margin: 0 auto;
     width: calc(100vw - 30px);
   }
@@ -49,7 +36,7 @@ export const ModalHeader = styled.div`
 `
 
 export const ModalTitle = styled.h3`
-  color: ${theme.colors.lightPrimary};
+  color: ${props => props.theme.colors.blue4};
   flex: 1;
   font-size: 22px;
   font-weight: 300;
@@ -66,10 +53,6 @@ export const CloseButton = styled.div`
   &:hover {
     background-color: #33bfff;
   }
-`
-
-export const ModalBody = styled.div`
-  /* padding: 28px 35px; */
 `
 
 export const ModalWrapper = styled.div`

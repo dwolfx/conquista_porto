@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import CarouselGeneric from '../../Carousel'
 
-export const CarouselWrapper = styled.section`
+export const Container = styled.section`
+  background-color: ${props => props.theme.colors.white};
+`
+
+export const CarouselWrapper = styled.div`
   padding: 1.75em 0;
   margin: 0 auto;
   max-width: 75em;
@@ -13,7 +17,7 @@ export const TitleHeader = styled.h1`
   font-weight: 600;
   line-height: 21px;
   text-align: center;
-  margin-bottom: 14px;
+  text-transform: uppercase;
 `
 
 export const Carousel = styled(CarouselGeneric)`

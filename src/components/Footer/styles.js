@@ -6,7 +6,7 @@ import { ReactComponent as arrowRight } from '../../assets/icons/arrow-right.svg
 
 export const FooterWrapper = styled.footer`
   width: 100%;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
 `
 
 export const Container = styled.div`

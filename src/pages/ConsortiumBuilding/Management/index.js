@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
+// eslint-disable-next-line no-unused-vars
 
 import LinearProgressBar from '../../../components/LinearProgressBar'
 import Breadcrumb from '../../../components/Breadcrumb'
@@ -14,7 +16,6 @@ import LeftNav from '../../../components/Management/LeftNav'
 import RightContent from '../../../components/Management/RightContent'
 
 import Icon from '../../../components/IconExporter'
-import commonStyles from '../../../styles/theme'
 
 import {
   BreadcrumbContainer,
@@ -55,6 +56,7 @@ const settings = {
 }
 
 export default function ManagementConsortiumBuilding({ history }) {
+  const themeContext = useContext(ThemeContext)
   return (
     <>
       <Container>
@@ -100,7 +102,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={themeContext.colors.blue4}
                   name="computersecure"
                 />
                 <div>
@@ -111,7 +113,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={themeContext.colors.blue4}
                   name="persongroup2"
                 />
                 <div>
@@ -120,11 +122,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                 </div>
               </Topic>
               <Topic>
-                <Icon
-                  width="28"
-                  fill={commonStyles.colors.lightPrimary}
-                  name="coin"
-                />
+                <Icon width="28" fill={themeContext.colors.blue4} name="coin" />
                 <div>
                   <TopicTitle>Crédito contratado</TopicTitle>
                   <TopicValue>R$ 99.999,99</TopicValue>
@@ -183,7 +181,21 @@ export default function ManagementConsortiumBuilding({ history }) {
         mainDescription="O Conquista acompanha você na realização do sonho do imóvel próprio."
         subDescription="Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e
         crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
-        buttonText="SIMULAR E CONTRATAR"
+        buttonText={
+          <span>
+            SIMULAR E CONTRATAR{' '}
+            <span
+              css={`
+                position: absolute;
+                top: 7px;
+                right: 12px;
+                font-size: 13px;
+              `}
+            >
+              &gt;
+            </span>
+          </span>
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"

@@ -10,12 +10,16 @@ export const Container = styled.div`
   padding-bottom: 30px;
 `
 export const Title = styled.h5`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
   padding-bottom: 15px;
+`
+export const TableWrapper = styled.div`
+  overflow: auto;
+  width: 100%;
 `
 export const Table = styled.table`
   display: table;
@@ -30,7 +34,7 @@ export const TBody = styled.tbody`
   }
 `
 export const Tr = styled.tr`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   td:nth-child(1) {
     font-size: 14px;
     font-weight: 300;
@@ -44,7 +48,7 @@ export const Th = styled.th`
   background-color: #c0bfc0;
   padding: 20px;
   border: 1px solid #d2d2d2;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 600;
@@ -54,7 +58,7 @@ export const Td = styled.td`
   display: table-cell;
   padding: 8px;
   border: 1px solid #c0bfc0;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   text-align: center;
   font-size: 11px;
   font-weight: 300;

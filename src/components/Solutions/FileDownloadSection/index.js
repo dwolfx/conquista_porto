@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import {
   Container,
@@ -11,13 +12,18 @@ import {
 } from './styles'
 
 export default function FileDownloadSection({ data, ...rest }) {
+  const themeContext = useContext(ThemeContext)
   return (
     <Container {...rest}>
       {data.map((item, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Item key={`${index}+${item.title}`}>
           <div>
-            <IconStyled name={item.icon || 'pdf'} fill="#777" height="24px" />
+            <IconStyled
+              name={item.icon || 'pdf'}
+              fill={themeContext.colors.gray6}
+              height="24px"
+            />
           </div>
           <div>
             <Title>{item.title}</Title>

@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-import theme from 'styles/theme'
-
 export const InputLabel = styled.label`
   position: absolute;
   transition: all ease 0.3s;
@@ -23,21 +20,20 @@ export const InputWrapper = styled.div`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'text')};
   display: flex;
   position: relative;
-  margin-right: ${props => (props.marginRight ? `${props.marginRight}px` : 0)};
-  margin-left: ${props => (props.marginLeft ? `${props.marginLeft}px` : 0)};
-  padding-right: ${props =>
-    props.paddingRight ? `${props.paddingRight}px` : 0};
-  padding-left: ${props => (props.paddingLeft ? `${props.paddingLeft}px` : 0)};
+  margin-right: ${props => `${props.marginRight}px`};
+  margin-left: ${props => `${props.marginLeft}px`};
+  padding-right: ${props => `${props.paddingRight}px`};
+  padding-left: ${props => `${props.paddingLeft}px`};
   pointer-events: ${props => (props.disabled ? 'none' : 'normal')};
-  width: ${props => (props.width ? `${props.width}%` : '100%')};
+  width: ${props => `${props.width}%`};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
     padding: 0;
     margin: 15px 0;
   }
   ${InputLabel} {
-    color: ${props => (props.disabled ? '#a2a2a2' : '#000')};
+    color: ${props => (props.disabled ? '#a2a2a2' : props.theme.colors.black)};
     font-size: ${props => (props.active ? '12px' : '14px')};
     font-style: ${props => (props.disabled ? 'italic' : 'normal')};
     top: ${props => (props.active ? '-13px' : '9px')};
@@ -51,7 +47,7 @@ export const InputWrapper = styled.div`
         return '#D0011B'
       }
       if (props.active) {
-        return theme.colors.lightPrimary
+        return props.theme.colors.blue4
       }
 
       return '#D2D2D2'

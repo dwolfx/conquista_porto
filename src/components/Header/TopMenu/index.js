@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 import {
   AddIcon,
@@ -12,6 +13,7 @@ import {
   DropDownTriangle,
   DropDownWrapper,
   LinkText,
+  LogoLinkWrapper,
   MenuIcon,
   NotificationCircle,
   RelativeParent,
@@ -89,6 +91,7 @@ const Icon = ({ name }) => {
 }
 
 export default function TopMenu() {
+  const themeContext = useContext(ThemeContext)
   const [isOpen, setIsOpen] = useState(false)
   const [isResponsiveOpen, setIsResponsiveOpen] = useState(false)
   const [breakpoint, setBreakpoint] = useState('')
@@ -119,7 +122,7 @@ export default function TopMenu() {
         <ResponsiveWrapper>
           <MenuIcon onClick={() => setIsResponsiveOpen(!isResponsiveOpen)} />
         </ResponsiveWrapper>
-        <Wrapper justify="flex-start">
+        <LogoLinkWrapper>
           <Logo />
           <LinkText to="/" exact size={20} margin="0px 20px">
             Início
@@ -127,7 +130,7 @@ export default function TopMenu() {
           <LinkText to="/perfil" size={20} margin="0px 20px">
             Perfil
           </LinkText>
-        </Wrapper>
+        </LogoLinkWrapper>
         <Wrapper justify="flex-end">
           <RelativeParent>
             <DropDownWrapper isOpen={isOpen} top={30} left={-470}>
@@ -139,7 +142,7 @@ export default function TopMenu() {
                   <Wrapper
                     padding="15px"
                     alignItems="flex-start"
-                    bgcolor="#fff"
+                    bgcolor={themeContext.colors.white}
                     borderBottom="1px solid #c7c7c7"
                     cursorPointer
                     key={item.id}
@@ -167,7 +170,7 @@ export default function TopMenu() {
                         {item.title}
                       </Text>
                       <Text
-                        color="#1c1c1c"
+                        color={themeContext.colors.gray6}
                         size={14}
                         fontWeight={300}
                         lineHeight="24px"

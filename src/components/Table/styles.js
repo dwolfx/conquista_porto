@@ -15,13 +15,13 @@ export const TheadTr = styled.tr`
 
 export const TheadTh = styled.th.attrs({ width: '300px' })`
   border: 1px solid #d2d2d2;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   text-transform: uppercase;
   padding-top: 20px;
 `
 
 export const TbodyTr = styled.tr`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   &:nth-of-type(even) {
     background-color: #f1f1f1;
   }
@@ -73,12 +73,12 @@ export const PaginationButton = styled.button`
   min-width: 37px;
   visibility: ${props => (props.visibility ? props.visibility : 'visible')};
   &.active {
-    background-color: #fff;
+    background-color: ${props => props.theme.colors.white};
     color: #33bfff;
   }
 
   &:hover {
-    background-color: #fff;
+    background-color: ${props => props.theme.colors.white};
   }
 
   &:disabled polyline {

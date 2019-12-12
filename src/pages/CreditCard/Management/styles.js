@@ -60,7 +60,7 @@ export const Topic = styled.div`
 export const TopicTitle = styled.p`
   font-size: 11px;
   font-weight: 600;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 21px;
@@ -68,7 +68,7 @@ export const TopicTitle = styled.p`
 
 export const TopicValue = styled.span`
   font-weight: 300;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 24px;
   word-break: break-word;

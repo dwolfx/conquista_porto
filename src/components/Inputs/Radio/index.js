@@ -59,7 +59,7 @@ RadioComponent.propTypes = {
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
   title: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 RadioComponent.defaultProps = {
   itemsDirection: 'row',

@@ -1,16 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-import Button from '../../components/Button'
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import FundsCarouselSection from '../../components/Solutions/Investments/FundsCarousel/index'
+import Button from 'components/Button'
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import FundsCarouselSection from 'components/Solutions/Investments/FundsCarousel/index'
 
-import RedHairGirlImage from '../../assets/images/red_hair_girl.jpg'
-import BannerInvestimentosImage from '../../assets/images/banner_investimentos.jpg'
-import SeloInvestimentoImage from '../../assets/images/selo_investimento.svg'
+import RedHairGirlImage from 'assets/images/red_hair_girl.jpg'
+import BannerInvestimentosImage from 'assets/images/banner_investimentos.jpg'
+import SeloInvestimentoImage from 'assets/images/selo_investimento.svg'
 
 import {
   SectionCustomPicture,
@@ -78,7 +79,7 @@ const downloadFileSectionData = [
   },
 ]
 
-export default function Investments() {
+export default function Investments({ history }) {
   return (
     <>
       <TopBanner
@@ -87,7 +88,7 @@ export default function Investments() {
         buttonText="Lista de fundos"
         image={BannerInvestimentosImage}
         imageDescription="Homem pesquisando investimentos em um website em seu computador"
-        onClick={() => {}}
+        onClick={() => history.push('/investimentos/lista-fundos')}
       />
       <BulletsSection
         title="Por que investir em Fundos?"
@@ -133,10 +134,14 @@ export default function Investments() {
           </DescriptionContent>
         </CustomContent>
       </SectionCustomPicture>
-
       <FundsCarouselSection />
-
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )
+}
+
+Investments.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
 }

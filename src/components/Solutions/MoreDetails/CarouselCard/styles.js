@@ -5,11 +5,12 @@ const gray = '#E6E6E6'
 export const CarouselCardWrapper = styled.div`
   border: 1px solid ${gray};
   border-radius: 0.5em;
-  box-shadow: 0 45px 40px -50px rgba(0, 0, 0, 0.4);
+  background-color: ${props => props.theme.colors.white};
+  box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);
+  margin: 46px auto;
   display: flex;
   flex-direction: column;
   height: 22.5em;
-  margin: 0 auto;
   width: 24em;
 `
 export const IconWrapper = styled.div`
@@ -27,7 +28,7 @@ export const TextTitle = styled.p`
 `
 
 export const TextLight = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 24px;
   word-break: break-word;
@@ -37,7 +38,6 @@ export const TextLight = styled.p`
 
 export const TextWrapper = styled.div`
   padding: 30px;
-  overflow: auto;
 `
 
 export const ImgDynamic = styled.img`

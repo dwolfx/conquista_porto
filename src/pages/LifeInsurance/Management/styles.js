@@ -1,5 +1,8 @@
 import styled from 'styled-components'
-import Carousel from '../../../components/Carousel'
+
+import ModalDefault from 'components/Modal'
+import { ModalContainer } from 'components/Modal/styles'
+import Carousel from 'components/Carousel'
 
 export const BreadcrumbContainer = styled.div`
   @media (max-width: 1000px) {
@@ -60,7 +63,7 @@ export const Topic = styled.div`
 export const TopicTitle = styled.p`
   font-size: 11px;
   font-weight: 600;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 21px;
@@ -68,7 +71,7 @@ export const TopicTitle = styled.p`
 
 export const TopicValue = styled.span`
   font-weight: 300;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 0;
   line-height: 24px;
   word-break: break-word;
@@ -105,7 +108,7 @@ export const Table = styled.table`
         background-color: #f6f6f6;
       }
       td {
-        color: #1c1c1c;
+        color: ${props => props.theme.colors.gray6};
         font-size: 11px;
         letter-spacing: 1px;
         line-height: 14px;
@@ -157,4 +160,45 @@ export const ClientAreaSection = styled.section`
   justify-content: space-around;
   height: 220px;
   border-bottom: 1px solid #eee;
+`
+
+export const Modal = styled(ModalDefault)`
+  ${ModalContainer} {
+    width: 490px;
+
+    @media (max-width: 768px) {
+      width: calc(100vw - 30px);
+    }
+  }
+`
+
+export const ModalContent = styled.div`
+  padding: 30px 22px;
+`
+
+export const Divider = styled.div`
+  border-top: 1px solid #ddd;
+`
+
+export const ShowAll = styled.p`
+  font-size: 11px;
+  line-height: 21px;
+  letter-spacing: 1.5px;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: ${props => props.theme.colors.blue4};
+  font-weight: 600;
+
+  :hover {
+    color: #2591bb;
+  }
+`
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: ${props => props.margin || 'unset'};
 `

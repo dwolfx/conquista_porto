@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-
 export const RemoveButton = styled.button`
   background-color: transparent;
   border: none;
@@ -24,7 +22,7 @@ export const Row = styled.div`
   margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   width: ${props => (props.width ? `${props.width}%` : '100%')};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;
     margin-bottom: 15px;
     margin-top: 15px;
@@ -33,7 +31,7 @@ export const Row = styled.div`
 `
 
 export const ButtonAdd = styled.button`
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   display: flex;
   align-items: center;
   background-color: transparent;

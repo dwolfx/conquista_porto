@@ -23,7 +23,8 @@ export const Item = styled.div`
   }
 
   @media (min-width: 1000px) {
-    max-width: 500px;
+    flex: 1;
+    justify-content: center;
   }
 
   @media (max-width: 800px) {
@@ -38,7 +39,7 @@ export const IconStyled = styled(IconExporter)`
 export const Title = styled.p`
   font-size: 11px;
   font-weight: 600;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 21px;
@@ -49,7 +50,7 @@ export const Description = styled.p`
   line-height: 19px;
   font-weight: 300;
   text-align: left;
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   margin-top: 12px;
 `
 
@@ -62,7 +63,7 @@ export const DownloadLink = styled.p`
   cursor: pointer;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   margin-top: 12px;
   font-weight: 600;
 

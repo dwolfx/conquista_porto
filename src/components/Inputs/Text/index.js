@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+
 import { InputWrapper, InputLabel, InputText } from './styles'
 
 /**
@@ -9,7 +11,7 @@ import { InputWrapper, InputLabel, InputText } from './styles'
  * - other props
  */
 
-export default ({
+export default function Text({
   label,
   type,
   onChange,
@@ -21,7 +23,7 @@ export default ({
   disabled,
   error,
   ...props
-}) => {
+}) {
   const [isActive, setIsActive] = useState(false)
 
   const changeLabelPosition = event => {
@@ -55,4 +57,29 @@ export default ({
       />
     </InputWrapper>
   )
+}
+
+Text.propTypes = {
+  label: PropTypes.string,
+  type: PropTypes.string,
+  onChange: PropTypes.func,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  paddingRight: PropTypes.number,
+  paddingLeft: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginLeft: PropTypes.number,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+}
+Text.defaultProps = {
+  label: '',
+  type: 'text',
+  onChange: () => {},
+  width: '100%',
+  paddingRight: 0,
+  paddingLeft: 0,
+  marginRight: 0,
+  marginLeft: 0,
+  disabled: false,
+  error: false,
 }
