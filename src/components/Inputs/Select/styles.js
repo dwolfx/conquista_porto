@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import ArrowDown from 'assets/icons/arrow-down.svg'
-import breakpoints from 'styles/breakpoints'
 import theme from 'styles/theme'
 
 export const SelectFieldWrapper = styled.div`
@@ -10,7 +9,7 @@ export const SelectFieldWrapper = styled.div`
 
   &:before {
     content: '';
-    background-color: ${theme.colors.lightSecondary};
+    background-color: ${theme.colors.secondary.light};
     border-radius: 50%;
     display: block;
     height: 20px;
@@ -35,6 +34,7 @@ export const SelectFieldWrapper = styled.div`
   }
 `
 export const SelectField = styled.select`
+  appearance: none;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #d2d2d2;
@@ -43,6 +43,12 @@ export const SelectField = styled.select`
   padding-left: 0;
   position: relative;
   width: 100%;
+  -webkit-appearance: none;
+
+  /* remove the arrow of select element in IE */
+  &::-ms-expand {
+    display: none;
+  }
 `
 
 export const SelectLabel = styled.label`
@@ -60,7 +66,7 @@ export const SelectWrapper = styled.div`
   position: relative;
   width: ${props => `${props.width}%`};
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     padding: 0;
     margin: 15px 0;
     width: 100%;

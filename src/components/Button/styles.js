@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import theme from 'styles/theme'
-
 export const Button = styled.button`
   position: relative;
   box-sizing: border-box;
@@ -12,38 +10,35 @@ export const Button = styled.button`
         return !props.disabled
           ? `linear-gradient(
             270deg,
-            ${theme.colors.lightPrimary} 0,
-            ${theme.colors.mediumPrimary} 50%,
-            ${theme.colors.lightDarkPrimary} 60%,
-            ${theme.colors.darkPrimary} 100%
+            ${props.theme.colors.blue4} 0,
+            ${props.theme.colors.blue4} 50%,
+            ${props.theme.colors.blue5} 60%
           )`
-          : '#86c2d9'
+          : props.theme.colors.blue3
       case 'secondary':
         return !props.disabled
           ? `linear-gradient(
             270deg,
-            ${theme.colors.lightSecondary} 0,
-            ${theme.colors.mediumSecondary} 50%,
-            ${theme.colors.lightDarkSecondary} 60%,
-            ${theme.colors.darkSecondary} 100%
+            ${props.theme.colors.secondary.light} 0,
+            ${props.theme.colors.secondary.medium} 50%,
+            ${props.theme.colors.secondary.dark} 60%
           )`
-          : '#f4bea5'
+          : props.theme.colors.secondary.disabled
       case 'alternative':
         return !props.disabled
           ? `linear-gradient(
               270deg,
-              #27c145 0,
-              #3cc127 50%,
-              #379f26 60%,
-              #379f26 100%
+              ${props.theme.colors.green3} 0,
+              ${props.theme.colors.green3} 50%,
+              ${props.theme.colors.green4} 60%
             )`
-          : '#27c14545'
+          : props.theme.colors.green2
       default:
         return `linear-gradient(
           270deg,
           rgba(255,255,255,0),
           rgba(255,255,255,0) 50%,
-          rgba(190,199,190,.2) 60%,
+          rgba(190,190,190,.2) 60%,
           rgba(190,190,190,.2) 100%
         )`
     }
@@ -55,17 +50,13 @@ export const Button = styled.button`
   transform: translate3d(0, 0, 0);
   border-radius: 4px;
   padding: 9px 25px;
-  color: ${props => {
-    if (props.color) {
-      return '#fff'
-    }
-
-    return '#30C5FF'
-  }};
+  color: ${props =>
+    props.color ? props.theme.colors.white : props.theme.colors.blue4};
   cursor: ${props => (props.disabled ? 'disabled' : 'pointer')};
   pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   transition: all 0.3s ease-out 0s;
-  border: ${props => (props.color ? 'none' : '1px solid #30C5FF')};
+  border: ${props =>
+    props.color ? 'none' : `1px solid ${props.theme.colors.blue4}`};
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
@@ -82,13 +73,13 @@ export const Button = styled.button`
         background-color: ${props => {
           switch (props.color) {
             case 'primary':
-              return '#148dbb'
+              return props.theme.colors.blue5
             case 'secondary':
-              return '#F35600'
+              return props.theme.colors.secondary.dark
             case 'alternative':
-              return '#379f26'
+              return props.theme.colors.green3
             default:
-              return 'rgba(190,190,190,.2)'
+              return props.theme.colors.black
           }
         }};
         background-size: 100%;
@@ -104,7 +95,12 @@ export const Button = styled.button`
       top: 0;
       left: 0;
       pointer-events: none;
-      background: transparent radial-gradient(circle, #000 1%, transparent 1%)
+      background: transparent
+        radial-gradient(
+          circle,
+          ${props => props.theme.colors.black} 1%,
+          transparent 1%
+        )
         center/15000%;
       opacity: 0;
       background-position: center;

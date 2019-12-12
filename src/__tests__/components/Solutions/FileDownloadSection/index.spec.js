@@ -1,6 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
+import { ThemeProvider } from 'styled-components'
+import theme from 'styles/theme'
 import FileDownloadSection from '../../../../components/Solutions/FileDownloadSection'
 
 const downloadFileSectionData = [
@@ -18,7 +20,11 @@ const downloadFileSectionData = [
 
 it('FileDownloadSection renders correctly', () => {
   const tree = renderer
-    .create(<FileDownloadSection data={downloadFileSectionData} />)
+    .create(
+      <ThemeProvider theme={theme}>
+        <FileDownloadSection data={downloadFileSectionData} />
+      </ThemeProvider>
+    )
     .toJSON()
   expect(tree).toMatchSnapshot()
 })

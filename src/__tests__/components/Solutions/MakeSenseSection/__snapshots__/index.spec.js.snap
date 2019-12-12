@@ -16,7 +16,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
       className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-gqjmRU lhHSde"
+        className="sc-gqjmRU hkumEm"
       >
         <svg>
           male-female.svg
@@ -24,7 +24,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
          
       </div>
       <p
-        className="sc-VigVT gpjQrB"
+        className="sc-VigVT jUbhZV"
       >
         Quando você quiser uma gestão profissional para
       buscar as melhores opções do mercado para seu dinheiro.
@@ -34,7 +34,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
       className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-gqjmRU lhHSde"
+        className="sc-gqjmRU hkumEm"
       >
         <svg>
           bar-chart.svg
@@ -42,7 +42,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
          
       </div>
       <p
-        className="sc-VigVT gpjQrB"
+        className="sc-VigVT jUbhZV"
       >
         Quando você quiser buscar um rendimento melhor do que o da poupança,
       sem correr, necessariamente, um risco maior.
@@ -52,7 +52,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
       className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-gqjmRU lhHSde"
+        className="sc-gqjmRU hkumEm"
       >
         <svg>
           safe-box.svg
@@ -60,7 +60,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
          
       </div>
       <p
-        className="sc-VigVT gpjQrB"
+        className="sc-VigVT jUbhZV"
       >
         Quando você quiser se organizar para buscar seus sonhos,
       economizando seu dinheiro e esperando rendimentos melhores.
@@ -68,7 +68,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
     </div>
   </div>
   <h2
-    className="sc-jTzLTM fjfISf"
+    className="sc-jTzLTM iQLaPB"
   />
   <div
     className="slick-slider sc-bxivhb bBNSdY slick-initialized"
@@ -124,7 +124,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
                   Gerente de conta
                 </h1>
                 <p
-                  className="sc-bZQynM hegKDx"
+                  className="sc-bZQynM duloxe"
                 >
                   Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.
                 </p>
@@ -163,7 +163,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
                   Programa de Relacionamento
                 </h1>
                 <p
-                  className="sc-bZQynM hegKDx"
+                  className="sc-bZQynM duloxe"
                 >
                   Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.
                 </p>
@@ -202,7 +202,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
                   Chat inteligente
                 </h1>
                 <p
-                  className="sc-bZQynM hegKDx"
+                  className="sc-bZQynM duloxe"
                 >
                   Para te ajudar com informações e dicas em qualquer momento.
                 </p>
@@ -241,7 +241,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
                   Facilidade
                 </h1>
                 <p
-                  className="sc-bZQynM hegKDx"
+                  className="sc-bZQynM duloxe"
                 >
                   A contratação é rápida e descomplicada, feita para facilitar sua vida.
                 </p>

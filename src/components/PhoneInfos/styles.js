@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-
 export const Row = styled.div`
   display: flex;
   justify-content: ${props => (props.justify ? props.justify : 'flex-start')};
   margin: 30px 0;
   width: 100%;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;
   }
 `
@@ -25,7 +23,7 @@ export const Wrapper = styled.div`
 `
 
 export const ButtonAdd = styled.button`
-  color: #30c5ff;
+  color: ${props => props.theme.colors.blue4};
   display: flex;
   align-items: center;
   background-color: transparent;

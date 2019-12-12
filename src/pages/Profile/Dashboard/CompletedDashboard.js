@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import { ThemeContext } from 'styled-components'
 
 import Accordion from 'components/Accordion'
 import Button from 'components/Button'
@@ -14,6 +15,7 @@ import ProfessionalData from './Sections/ProfessionalData'
 import UserInfos from './Sections/AccountInfos'
 import UserData from './Sections/UserData'
 import {
+  AccordionTitle,
   Content,
   PerfilTitle,
   SectionSubtitle,
@@ -23,6 +25,7 @@ import {
 } from '../styles'
 
 const ContentDash = () => {
+  const themeContext = useContext(ThemeContext)
   const history = useHistory()
   // const [accordionOpened, setAccordionOpened] = useState(false)
 
@@ -61,7 +64,10 @@ const ContentDash = () => {
 
       <UserInfos id="investment" />
 
-      <Accordion title="Perfil do investidor" id="profile">
+      <Accordion
+        titleNode={<AccordionTitle>Perfil do investidor</AccordionTitle>}
+        id="profile"
+      >
         <PerfilTitle>Conservador</PerfilTitle>
 
         <SectionSubtitle>Descrição</SectionSubtitle>
@@ -80,28 +86,43 @@ const ContentDash = () => {
         </ButtonContainer>
       </Accordion>
 
-      <Accordion title="Dados pessoais" id="personal">
+      <Accordion
+        titleNode={<AccordionTitle>Dados pessoais</AccordionTitle>}
+        id="personal"
+      >
         <PersonalData />
       </Accordion>
 
-      <Accordion title="Dados cadastrais" id="registration">
+      <Accordion
+        titleNode={<AccordionTitle>Dados cadastrais</AccordionTitle>}
+        id="registration"
+      >
         <UserData />
       </Accordion>
 
-      <Accordion title="Dados profissionais" id="professional">
+      <Accordion
+        titleNode={<AccordionTitle>Dados profissionais</AccordionTitle>}
+        id="professional"
+      >
         <ProfessionalData />
       </Accordion>
 
-      <Accordion title="Dados financeiros" id="financial">
+      <Accordion
+        titleNode={<AccordionTitle>Dados financeiros</AccordionTitle>}
+        id="financial"
+      >
         <FinancialData />
       </Accordion>
 
-      <Accordion title="Informe de rendimentos" id="income">
+      <Accordion
+        titleNode={<AccordionTitle>Informe de rendimentos</AccordionTitle>}
+        id="income"
+      >
         <IncomeInfo />
       </Accordion>
 
       <DownloadLink>
-        <Icon name="pdf" fill="#1c1c1c99" width={20} />
+        <Icon name="pdf" fill={themeContext.colors.gray6} width={20} />
         Condições gerais e declarações adicionais do cotista
       </DownloadLink>
 

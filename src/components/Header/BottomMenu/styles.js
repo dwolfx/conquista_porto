@@ -1,7 +1,10 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
+import DropdownComponent from 'components/Dropdown'
+import { Container as DropdownContainer } from 'components/Dropdown/styles'
+import ConquistaIcon from 'components/IconExporter'
 
-import ConquistaIcon from '../../IconExporter'
+const paddingMenu = '15px'
 
 export const ArrowUpDownIcon = styled(ConquistaIcon)`
   height: 20px;
@@ -13,14 +16,14 @@ export const ArrowUpDownIcon = styled(ConquistaIcon)`
 export const BasicIcon = styled(ConquistaIcon)`
   height: 20px;
   width: 20px;
-  fill: #1c1c1c;
+  fill: ${props => props.theme.colors.gray6};
   margin-right: 10px;
 `
 
 export const BottomMenuDropdownIcon = styled(ConquistaIcon)`
   height: 18px;
   width: 18px;
-  fill: #fff;
+  fill: ${props => props.theme.colors.white};
 `
 
 export const ArrowRightIcon = styled(ConquistaIcon).attrs({
@@ -28,7 +31,7 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
 })`
   height: ${props => (props.size ? `${props.size}px` : '16px')};
   width: ${props => (props.size ? `${props.size}px` : '16px')};
-  fill: #30c5ff;
+  fill: ${props => props.theme.colors.blue4};
   margin-right: 0px;
 `
 
@@ -53,10 +56,10 @@ export const Menu = styled.div`
   display: flex;
   width: 100%;
   height: auto;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   align-items: center;
   justify-content: space-around;
-  padding: 15px;
+  padding: ${paddingMenu};
   box-shadow: 0px 2px 8px 0px rgba(130, 130, 130, 0.38);
 
   @media (max-width: 989px) {
@@ -68,7 +71,7 @@ export const RelativeParent = styled.div`
   z-index: 2;
 `
 export const SolutionsDropdownText = styled.p`
-  color: #1c1c1c;
+  color: ${props => props.theme.colors.gray6};
   font-size: 14px;
   font-weight: 400;
 `
@@ -81,6 +84,10 @@ export const SolutionsItem = styled(Link)`
   padding: 10px;
   border-bottom: 1px solid #c7c7c7;
   cursor: pointer;
+
+  &:hover p {
+    color: ${props => props.theme.colors.blue4};
+  }
 `
 export const SolutionsContainer = styled.div`
   display: flex;
@@ -98,6 +105,31 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 `
+const menuItemProps = css`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &&:hover {
+    svg {
+      transition: all 0.2s ease-in-out;
+      fill: ${props => props.theme.colors.blue4};
+    }
+    p {
+      transition: all 0.2s ease-in-out;
+      color: ${props => props.theme.colors.blue4};
+    }
+  }
+`
+
+export const MenuItem = styled(Link)`
+  ${menuItemProps}
+`
+
+export const MenuLabelDropdown = styled.div`
+  ${menuItemProps}
+`
+
 export const WrapperBottomMenuItem = styled(Link)`
   display: flex;
   align-items: center;
@@ -106,27 +138,17 @@ export const WrapperBottomMenuItem = styled(Link)`
   &&:hover {
     svg {
       transition: all 0.2s ease-in-out;
-      fill: #30c5ff;
+      fill: ${props => props.theme.colors.blue4};
     }
     p {
       transition: all 0.2s ease-in-out;
-      color: #30c5ff;
+      color: ${props => props.theme.colors.blue4};
     }
   }
 `
-export const WrapperBottomMenuItemSolution = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
 
-  &&:hover {
-    svg {
-      transition: all 0.2s ease-in-out;
-      fill: #30c5ff;
-    }
-    p {
-      transition: all 0.2s ease-in-out;
-      color: #30c5ff;
-    }
+export const Dropdown = styled(DropdownComponent)`
+  ${DropdownContainer} {
+    margin-top: ${paddingMenu};
   }
 `

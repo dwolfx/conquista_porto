@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import {
   Container,
@@ -15,8 +17,10 @@ export default function BulletsSection({
   data,
   observation,
 }) {
+  const themeContext = useContext(ThemeContext)
+
   return (
-    <Container backgroundColor="#f1f1f1">
+    <Container backgroundColor={themeContext.colors.gray1}>
       <Content>
         <LeftContent>
           <img src={imageURL} alt={imageDescription} />
@@ -33,4 +37,16 @@ export default function BulletsSection({
       </Content>
     </Container>
   )
+}
+
+BulletsSection.propTypes = {
+  imageURL: PropTypes.string.isRequired,
+  imageDescription: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  observation: PropTypes.string,
+}
+BulletsSection.defaultProps = {
+  imageDescription: '',
+  observation: '',
 }

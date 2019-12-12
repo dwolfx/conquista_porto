@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { defaultSettings } from '../../Carousel'
 import CarouselItem from './CarouselCard/index'
-import { CarouselWrapper, TitleHeader, Carousel } from './styles'
-// import { Settings } from 'react-slick'
+import { CarouselWrapper, TitleHeader, Carousel, Container } from './styles'
 
 const MoreDetails = ({ title, data }) => {
   const settings = {
@@ -29,21 +30,34 @@ const MoreDetails = ({ title, data }) => {
     ],
   }
   return (
-    <CarouselWrapper>
-      <TitleHeader>{title}</TitleHeader>
-      <Carousel settings={settings}>
-        {data.map(({ img, imgTitle, imgDescription, imgPath }) => (
-          <CarouselItem
-            key={imgTitle}
-            img={img}
-            imgTitle={imgTitle}
-            imgDescription={imgDescription}
-            imgPath={imgPath}
-          />
-        ))}
-      </Carousel>
-    </CarouselWrapper>
+    <Container>
+      <CarouselWrapper>
+        <TitleHeader>{title}</TitleHeader>
+        <Carousel settings={settings}>
+          {data.map(({ img, imgTitle, imgDescription, imgPath }) => (
+            <CarouselItem
+              key={imgTitle}
+              img={img}
+              imgTitle={imgTitle}
+              imgDescription={imgDescription}
+              imgPath={imgPath}
+            />
+          ))}
+        </Carousel>
+      </CarouselWrapper>
+    </Container>
   )
 }
 
+MoreDetails.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      img: PropTypes.string,
+      imgTitle: PropTypes.string,
+      imgDescription: PropTypes.string,
+      imgPath: PropTypes.string,
+    })
+  ).isRequired,
+}
 export default MoreDetails

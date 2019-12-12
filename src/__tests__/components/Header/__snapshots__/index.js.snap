@@ -1,0 +1,637 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header to render 1`] = `
+Array [
+  <header
+    className="sc-chPdSV eeeHOb"
+  >
+    <div
+      className="sc-kgoBCf fQqKPI"
+    >
+      <div
+        className="sc-hSdWYo ecRZYd"
+      >
+        <svg
+          className="sc-jlyJG bfwtku"
+          onClick={[Function]}
+        >
+          menu.svg
+        </svg>
+      </div>
+      <div
+        className="sc-kpOJdX caepzu"
+      >
+        <a
+          className="sc-gipzik dNVxiy"
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="Logo Conquista Beta"
+            className="sc-csuQGl cjcMBZ"
+            src="logo-temp.png"
+          />
+          <p
+            className="sc-Rmtcm jodYwz"
+            fontWeight={400}
+            letterSpacing={1.5}
+            size={14}
+          >
+            Beta
+          </p>
+        </a>
+        <a
+          aria-current="page"
+          className="sc-eHgmQL dMFOHn active"
+          href="/"
+          margin="0px 20px"
+          onClick={[Function]}
+          size={20}
+          style={Object {}}
+        >
+          Início
+        </a>
+        <a
+          aria-current={null}
+          className="sc-eHgmQL dMFOHn"
+          href="/perfil"
+          margin="0px 20px"
+          onClick={[Function]}
+          size={20}
+        >
+          Perfil
+        </a>
+      </div>
+      <div
+        className="sc-kGXeez gQDlqL"
+      >
+        <div
+          className="sc-dxgOiQ jJbhiK"
+        >
+          <div
+            className="sc-eNQAEJ fSQzpN"
+          >
+            <div
+              className="sc-kEYyzF fpPTyg"
+            >
+              <div
+                className="sc-kkGfuU eWFBVI"
+              />
+            </div>
+            <div
+              className="sc-hMqMXs ktxYHg"
+              height={400}
+              width={500}
+            >
+              <div
+                className="sc-kGXeez jTJNNF"
+              >
+                <div
+                  className="sc-kGXeez kTRqkY"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-jDwBTQ gDXjTh"
+                  >
+                    add.svg
+                  </svg>
+                </div>
+                <div
+                  className="sc-kGXeez cCOoRx"
+                >
+                  <p
+                    className="sc-cvbbAY iGnpYr"
+                    color="#33beff"
+                    fontWeight={600}
+                    letterSpacing={1.5}
+                    size={11}
+                  >
+                    Confirmação de Aporte
+                  </p>
+                  <p
+                    className="sc-cvbbAY jTMMJZ"
+                    color="#272727"
+                    fontWeight={300}
+                    size={14}
+                  >
+                    Está tudo certo com seu investimento no fundo [Nome do fundo].
+                  </p>
+                </div>
+                <div
+                  className="sc-kGXeez aGkJq"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-jDwBTQ gDXjTh"
+                  >
+                    add.svg
+                  </svg>
+                </div>
+              </div>
+              <div
+                className="sc-kGXeez jTJNNF"
+              >
+                <div
+                  className="sc-kGXeez kTRqkY"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-cMljjf ilbxun"
+                  >
+                    remove.svg
+                  </svg>
+                </div>
+                <div
+                  className="sc-kGXeez cCOoRx"
+                >
+                  <p
+                    className="sc-cvbbAY iGnpYr"
+                    color="#33beff"
+                    fontWeight={600}
+                    letterSpacing={1.5}
+                    size={11}
+                  >
+                    Confirmação de Resgate
+                  </p>
+                  <p
+                    className="sc-cvbbAY jTMMJZ"
+                    color="#272727"
+                    fontWeight={300}
+                    size={14}
+                  >
+                    Está tudo certo com seu resgate do fundo [Nome do fundo].
+                  </p>
+                </div>
+                <div
+                  className="sc-kGXeez aGkJq"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-iRbamj kAXZGa"
+                  >
+                    arrow-right.svg
+                  </svg>
+                </div>
+              </div>
+              <div
+                className="sc-kGXeez jTJNNF"
+              >
+                <div
+                  className="sc-kGXeez kTRqkY"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-jAaTju izNZTc"
+                  >
+                    thumbs-up.svg
+                  </svg>
+                </div>
+                <div
+                  className="sc-kGXeez cCOoRx"
+                >
+                  <p
+                    className="sc-cvbbAY iGnpYr"
+                    color="#33beff"
+                    fontWeight={600}
+                    letterSpacing={1.5}
+                    size={11}
+                  >
+                    Aviso de primeiro investimento no fundo
+                  </p>
+                  <p
+                    className="sc-cvbbAY jTMMJZ"
+                    color="#272727"
+                    fontWeight={300}
+                    size={14}
+                  >
+                    Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!
+                  </p>
+                </div>
+                <div
+                  className="sc-kGXeez aGkJq"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-jDwBTQ gDXjTh"
+                  >
+                    add.svg
+                  </svg>
+                </div>
+              </div>
+              <div
+                className="sc-kGXeez jTJNNF"
+              >
+                <div
+                  className="sc-kGXeez kTRqkY"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-gPEVay clOxMz"
+                  >
+                    alert-rounded.svg
+                  </svg>
+                </div>
+                <div
+                  className="sc-kGXeez cCOoRx"
+                >
+                  <p
+                    className="sc-cvbbAY iGnpYr"
+                    color="#33beff"
+                    fontWeight={600}
+                    letterSpacing={1.5}
+                    size={11}
+                  >
+                    Aviso de aplicação pendente de recurso
+                  </p>
+                  <p
+                    className="sc-cvbbAY jTMMJZ"
+                    color="#272727"
+                    fontWeight={300}
+                    size={14}
+                  >
+                    Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.
+                  </p>
+                </div>
+                <div
+                  className="sc-kGXeez aGkJq"
+                  width="35px"
+                >
+                  <svg
+                    className="sc-iRbamj kAXZGa"
+                  >
+                    arrow-right.svg
+                  </svg>
+                </div>
+              </div>
+              <div
+                className="sc-kGXeez hFgPLB"
+              >
+                <button
+                  className="sc-bbmXgH gGGnjS"
+                  to="/notifications"
+                >
+                  Ver Todos
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-ckVGcZ UwPXj"
+          >
+            <p
+              className="sc-cvbbAY jTEqwM"
+              size={10}
+            >
+              10
+            </p>
+          </div>
+          <svg
+            className="sc-brqgnP gnRqVl"
+            onClick={[Function]}
+          >
+            bell.svg
+          </svg>
+        </div>
+        <div
+          className="sc-iAyFgw evNiFi"
+        >
+          <p
+            className="sc-cvbbAY gsSjeM"
+            fontWeight={600}
+            letterSpacing={1.5}
+            size={11}
+          >
+            Olá, Júlia.
+          </p>
+          <p
+            className="sc-jWBwVP hYsQiJ"
+          >
+            SAIR
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>,
+  <div
+    className="sc-dnqmqq jDCxhD"
+  >
+    <div
+      className="sc-jTzLTM fHWjDA"
+    >
+      <a
+        className="sc-fjdhpX hdHfQQ"
+        href="/"
+        onClick={[Function]}
+      >
+        <svg
+          className="sc-ifAKCX cJgWXQ"
+        >
+          target.svg
+        </svg>
+        <p
+          className="sc-gzVnrw bBpTFh"
+        >
+          Objetivos
+        </p>
+      </a>
+      <div
+        className="sc-iwsKbI fExAuH"
+      >
+        <div
+          className="sc-jzJRlG iZLztz"
+          onClick={[Function]}
+        >
+          <svg
+            className="sc-ifAKCX cJgWXQ"
+          >
+            apps.svg
+          </svg>
+          <p
+            className="sc-gzVnrw bBpTFh"
+          >
+            Soluções
+          </p>
+          <svg
+            className="sc-bxivhb cnaRML"
+          >
+            arrow-down.svg
+          </svg>
+        </div>
+        <div
+          className="sc-bdVaJa EXKLM sc-kAzzGY eEYxSW"
+        >
+          <div
+            className="sc-htpNat fwFulr"
+            onClick={[Function]}
+          />
+          <div
+            className="sc-bwzfXH eXcrqi"
+            width="300px"
+          >
+            <div
+              className="sc-VigVT dzTYZV"
+            >
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/cartao-credito"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    credit-card.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Cartão de Crédito
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/consorcio-imovel"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    home-with-window.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Consórcio de Imóvel
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/consorcio-veiculo"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    car.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Consórcio de Veículo
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/financiamento-veiculo"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    money.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Financiamento de Veículo
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/investimentos"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    bar-chart.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Investimentos
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/previdencia-privada"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    time.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Previdência Privada
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/seguro-vida"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    person-group.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Seguro de Vida
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+              <a
+                className="sc-gqjmRU ikqnIw"
+                href="/seguro-viagem"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-htoDjs fUGYNQ"
+                >
+                  <svg
+                    className="sc-EHOje dzkomp"
+                  >
+                    plane.svg
+                  </svg>
+                </div>
+                <p
+                  className="sc-gZMcBi irRfsX"
+                >
+                  Seguro Viagem
+                </p>
+                <svg
+                  className="sc-bZQynM kDnRhT"
+                  size={11}
+                >
+                  arrow-right.svg
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        className="sc-fjdhpX hdHfQQ"
+        href="/"
+        onClick={[Function]}
+      >
+        <svg
+          className="sc-ifAKCX cJgWXQ"
+        >
+          gear.svg
+        </svg>
+        <p
+          className="sc-gzVnrw bBpTFh"
+        >
+          Gerenciador
+        </p>
+      </a>
+      <a
+        className="sc-fjdhpX hdHfQQ"
+        href="/pontos"
+        onClick={[Function]}
+      >
+        <svg
+          className="sc-ifAKCX cJgWXQ"
+        >
+          diamond.svg
+        </svg>
+        <p
+          className="sc-gzVnrw bBpTFh"
+        >
+          Pontos
+        </p>
+      </a>
+      <a
+        className="sc-fjdhpX hdHfQQ"
+        href="/"
+        onClick={[Function]}
+      >
+        <svg
+          className="sc-ifAKCX cJgWXQ"
+        >
+          idea.svg
+        </svg>
+        <p
+          className="sc-gzVnrw bBpTFh"
+        >
+          Recomendações
+        </p>
+      </a>
+    </div>
+  </div>,
+]
+`;

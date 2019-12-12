@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
+// eslint-disable-next-line no-unused-vars
+import { css, ThemeContext } from 'styled-components/macro'
 
-import Breadcrumb from '../../../components/Breadcrumb'
-import MoreDetails from '../../../components/Solutions/MoreDetails'
-import HighlightSection from '../../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../../components/Solutions/FileDownloadSection'
-import Button from '../../../components/Button'
+import Breadcrumb from 'components/Breadcrumb'
+import MoreDetails from 'components/Solutions/MoreDetails'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import Button from 'components/Button'
 
-import Container from '../../../components/Management/Container'
-import ManageableItem from '../../../components/Management/ManageableItem'
-import PageContent from '../../../components/Management/PageContent'
-import LeftNav from '../../../components/Management/LeftNav'
-import RightContent from '../../../components/Management/RightContent'
+import Container from 'components/Management/Container'
+import ManageableItem from 'components/Management/ManageableItem'
+import PageContent from 'components/Management/PageContent'
+import LeftNav from 'components/Management/LeftNav'
+import RightContent from 'components/Management/RightContent'
 
-import Icon from '../../../components/IconExporter'
-import commonStyles from '../../../styles/theme'
+import Icon from 'components/IconExporter'
 
 import {
   BreadcrumbContainer,
@@ -30,6 +31,11 @@ import {
   Table,
   Text,
   ClientAreaSection,
+  Modal,
+  ModalContent,
+  Divider,
+  ShowAll,
+  Row,
 } from './styles'
 
 const downloadFileSectionData = [
@@ -89,6 +95,8 @@ const settings = {
 }
 
 export default function ManagementCreditCard({ history }) {
+  const themeContext = useContext(ThemeContext)
+  const [isOpenModal, setIsOpenModal] = useState(false)
   return (
     <>
       <Container>
@@ -132,11 +140,7 @@ export default function ManagementCreditCard({ history }) {
             <PageTitle>Seguro de Vida</PageTitle>
             <Topics settings={settings}>
               <Topic>
-                <Icon
-                  width="28"
-                  fill={commonStyles.colors.lightPrimary}
-                  name="boy"
-                />
+                <Icon width="28" fill={themeContext.colors.blue4} name="boy" />
                 <div>
                   <TopicTitle>segurado</TopicTitle>
                   <TopicValue>Julia da Silva</TopicValue>
@@ -145,7 +149,7 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={themeContext.colors.blue4}
                   name="billing"
                 />
                 <div>
@@ -156,12 +160,18 @@ export default function ManagementCreditCard({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={themeContext.colors.blue4}
                   name="persongroup"
                 />
                 <div>
                   <TopicTitle>Coberturas adicionais</TopicTitle>
-                  <TopicValue>VER TODAS</TopicValue>
+                  <ShowAll
+                    onClick={() => {
+                      setIsOpenModal(true)
+                    }}
+                  >
+                    VER TODAS &gt;
+                  </ShowAll>
                 </div>
               </Topic>
             </Topics>
@@ -220,7 +230,21 @@ export default function ManagementCreditCard({ history }) {
         mainDescription="Com o Conquista, é fácil encontrar o plano ideal para você."
         subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
         de Vida da Porto Seguro."
-        buttonText="Simular e contratar"
+        buttonText={
+          <span>
+            SIMULAR E CONTRATAR
+            <span
+              css={`
+                position: absolute;
+                top: 7px;
+                right: 12px;
+                font-size: 13px;
+              `}
+            >
+              &gt;
+            </span>
+          </span>
+        }
       />
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />
       <FileDownloadSection data={downloadFileSectionData} />
@@ -231,6 +255,212 @@ export default function ManagementCreditCard({ history }) {
         </Text>
         <Button>ACeSSAR</Button>
       </ClientAreaSection>
+      <Modal
+        isOpen={isOpenModal}
+        modalTitle="Coberturas"
+        headerIcon="persongroup"
+        handleClose={() => setIsOpenModal(!isOpenModal)}
+      >
+        <ModalContent>
+          <Row margin="0 0 15px 0">
+            <Text
+              fontSize="11px"
+              lineHeight="21px"
+              fontWeight="600"
+              letterSpacing="1.5px"
+            >
+              EQUILÍBRIO FINANCEIRO
+            </Text>
+            <Text
+              fontSize="10px"
+              lineHeight="21px"
+              fontWeight="400"
+              letterSpacing="1.5px"
+            >
+              VALOR DE CAPITAL
+            </Text>
+          </Row>
+
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Morte
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 350.000,00
+            </Text>
+          </Row>
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Antecipação por Doença
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 350.000,00
+            </Text>
+          </Row>
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Funeral
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 5.000,00
+            </Text>
+          </Row>
+          <Row margin="0 0 15px 0">
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Compra de Jazigo
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 10.000,00
+            </Text>
+          </Row>
+
+          <Divider />
+
+          <Row margin="30px 0 15px 0">
+            <Text
+              fontSize="11px"
+              lineHeight="21px"
+              fontWeight="600"
+              letterSpacing="1.5px"
+            >
+              IMPREVISTOS
+            </Text>
+            <Text
+              fontSize="10px"
+              lineHeight="21px"
+              fontWeight="400"
+              letterSpacing="1.5px"
+            >
+              VALOR DE CAPITAL
+            </Text>
+          </Row>
+
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Morte Acidental
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 350.000,00
+            </Text>
+          </Row>
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Invalidez por Acidente
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 350.000,00
+            </Text>
+          </Row>
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              DMHO
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 10.000,00
+            </Text>
+          </Row>
+          <Row margin="0 0 15px 0">
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Majoração Invalidez
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 350.000,00
+            </Text>
+          </Row>
+
+          <Divider />
+
+          <Row margin="30px 0 15px 0">
+            <Text
+              fontSize="11px"
+              lineHeight="21px"
+              fontWeight="600"
+              letterSpacing="1.5px"
+            >
+              DOENÇAS
+            </Text>
+            <Text
+              fontSize="10px"
+              lineHeight="21px"
+              fontWeight="400"
+              letterSpacing="1.5px"
+            >
+              VALOR DE CAPITAL
+            </Text>
+          </Row>
+
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Diagnóstico de Câncer
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 50.000,00
+            </Text>
+          </Row>
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Doenças Graves 6 tipos
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 150.000,00
+            </Text>
+          </Row>
+          <Row margin="0 0 15px 0">
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Doenças Graves 10 tipos
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 200.000,00
+            </Text>
+          </Row>
+
+          <Divider />
+
+          <Row margin="30px 0 15px 0">
+            <Text
+              fontSize="11px"
+              lineHeight="21px"
+              fontWeight="600"
+              letterSpacing="1.5px"
+            >
+              RENDA
+            </Text>
+            <Text
+              fontSize="10px"
+              lineHeight="21px"
+              fontWeight="400"
+              letterSpacing="1.5px"
+            >
+              VALOR DE CAPITAL
+            </Text>
+          </Row>
+
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Incapacidade Temporária
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 200,00
+            </Text>
+          </Row>
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Diária por Incapacidade
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 200,00
+            </Text>
+          </Row>
+          <Row>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              Diária por Internação Hospitalar
+            </Text>
+            <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+              R$ 150,00
+            </Text>
+          </Row>
+        </ModalContent>
+      </Modal>
     </>
   )
 }

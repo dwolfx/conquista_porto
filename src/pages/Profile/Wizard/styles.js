@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-
 export const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.white};
   z-index: 2;
 `
 
@@ -27,7 +25,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   width: 900px;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     width: 100%;
     padding: 0 15px;
   }
@@ -70,7 +68,7 @@ export const Row = styled.div`
   margin-top: ${props => (props.marginTop ? `${props.marginTop}px` : '30px')};
   width: 100%;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;
   }
 `

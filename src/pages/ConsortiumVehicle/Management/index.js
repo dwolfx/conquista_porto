@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+// eslint-disable-next-line no-unused-vars
+import { ThemeContext } from 'styled-components/macro'
 
-import LinearProgressBar from '../../../components/LinearProgressBar'
-import Breadcrumb from '../../../components/Breadcrumb'
-import MoreDetails from '../../../components/Solutions/MoreDetails'
-import HighlightSection from '../../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../../components/Solutions/FileDownloadSection'
+import LinearProgressBar from 'components/LinearProgressBar'
+import Button from 'components/Button'
+import Breadcrumb from 'components/Breadcrumb'
+import MoreDetails from 'components/Solutions/MoreDetails'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 
-import Container from '../../../components/Management/Container'
-import ManageableItem from '../../../components/Management/ManageableItem'
-import PageContent from '../../../components/Management/PageContent'
-import LeftNav from '../../../components/Management/LeftNav'
-import RightContent from '../../../components/Management/RightContent'
+import Container from 'components/Management/Container'
+import ManageableItem from 'components/Management/ManageableItem'
+import PageContent from 'components/Management/PageContent'
+import LeftNav from 'components/Management/LeftNav'
+import RightContent from 'components/Management/RightContent'
 
-import Icon from '../../../components/IconExporter'
-import commonStyles from '../../../styles/theme'
+import Icon from 'components/IconExporter'
 
 import {
   BreadcrumbContainer,
@@ -55,6 +57,7 @@ const settings = {
 }
 
 export default function ManagementConsortiumBuilding({ history }) {
+  const themeContext = useContext(ThemeContext)
   return (
     <>
       <Container>
@@ -100,7 +103,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={themeContext.colors.blue4}
                   name="computersecure"
                 />
                 <div>
@@ -111,7 +114,7 @@ export default function ManagementConsortiumBuilding({ history }) {
               <Topic>
                 <Icon
                   width="28"
-                  fill={commonStyles.colors.lightPrimary}
+                  fill={themeContext.colors.blue4}
                   name="persongroup2"
                 />
                 <div>
@@ -120,11 +123,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                 </div>
               </Topic>
               <Topic>
-                <Icon
-                  width="28"
-                  fill={commonStyles.colors.lightPrimary}
-                  name="coin"
-                />
+                <Icon width="28" fill={themeContext.colors.blue4} name="coin" />
                 <div>
                   <TopicTitle>Crédito contratado</TopicTitle>
                   <TopicValue>R$ 99.999,99</TopicValue>
@@ -173,6 +172,8 @@ export default function ManagementConsortiumBuilding({ history }) {
                   max={12}
                   subtitle="parcelas"
                 />
+
+                <Button>acesse o app e faça seu lance</Button>
               </Invoice>
             </InvoiceContainer>
           </RightContent>
@@ -182,7 +183,21 @@ export default function ManagementConsortiumBuilding({ history }) {
         title="Parcelas que cabem no seu bolso."
         mainDescription="Com o Conquista, você planeja a compra do seu carro novo ou seminovo."
         subDescription="Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
-        buttonText="SIMULAR E CONTRATAR"
+        buttonText={
+          <span>
+            SIMULAR E CONTRATAR{' '}
+            <span
+              css={`
+                position: absolute;
+                top: 7px;
+                right: 12px;
+                font-size: 13px;
+              `}
+            >
+              &gt;
+            </span>
+          </span>
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"

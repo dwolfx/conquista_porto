@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
-import breakpoints from 'styles/breakpoints'
-import commonStyles from 'styles/theme'
-
 export const Sidebar = styled.aside`
   display: flex;
   flex-direction: column;
   flex: 1;
 
-  @media ${breakpoints.mobile} {
+  @media ${props => props.theme.mediaQueries.xs} {
     display: none;
   }
 `
@@ -38,9 +35,9 @@ export const SidebarItemText = styled.a`
   color: ${props => {
     switch (props.color) {
       case 'primary':
-        return commonStyles.colors.lightPrimary
+        return props.theme.colors.blue4
       default:
-        return commonStyles.colors.linkColor
+        return props.theme.colors.gray6
     }
   }};
   text-transform: ${props => (props.uppercase ? 'uppercase' : 'none')};
