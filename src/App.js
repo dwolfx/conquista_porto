@@ -9,17 +9,21 @@ import GlobalStyle from './styles/global'
 import theme from './styles/theme'
 import Routes from './routes'
 
-const App = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <GridThemeProvider gridTheme={theme.grid}>
-          <GlobalStyle />
-          <Routes />
-        </GridThemeProvider>
-      </ThemeProvider>
-    </BrowserRouter>
-  </Provider>
-)
+const App = () => {
+  const basename = '/conquista'
+
+  return (
+    <Provider store={store}>
+      <BrowserRouter basename={basename}>
+        <ThemeProvider theme={theme}>
+          <GridThemeProvider gridTheme={theme.grid}>
+            <GlobalStyle />
+            <Routes />
+          </GridThemeProvider>
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
+  )
+}
 
 export default App
