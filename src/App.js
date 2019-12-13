@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import { GridThemeProvider } from 'styled-bootstrap-grid'
 
 import store from './store'
 import GlobalStyle from './styles/global'
@@ -15,8 +16,10 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter basename={`${basename}`}>
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Routes />
+          <GridThemeProvider gridTheme={theme.grid}>
+            <GlobalStyle />
+            <Routes />
+          </GridThemeProvider>
         </ThemeProvider>
       </BrowserRouter>
     </Provider>
