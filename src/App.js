@@ -10,11 +10,11 @@ import theme from './styles/theme'
 import Routes from './routes'
 
 const App = () => {
-  const basename = window.location.pathname
+  const basename = '/conquista'
 
   return (
     <Provider store={store}>
-      <BrowserRouter basename={`${basename}`}>
+      <BrowserRouter basename={basename}>
         <ThemeProvider theme={theme}>
           <GridThemeProvider gridTheme={theme.grid}>
             <GlobalStyle />
