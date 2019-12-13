@@ -138,7 +138,7 @@ const months = [
 
 export default function ManagementInvestments({ history }) {
   const theme = useContext(ThemeContext)
-  const isMobile = useMedia('mobile')
+  const isMobile = useMedia('sm')
 
   return (
     <>
