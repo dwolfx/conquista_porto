@@ -65,7 +65,7 @@ export const gridConfig = {
   },
 }
 
-export const defaultBreakpoints = {
+export const mediaQueries = {
   xs: `(max-width: ${gridConfig.breakpoints.xs}px)`,
   sm: `(max-width: ${gridConfig.breakpoints.sm}px)`,
   md: `(max-width: ${gridConfig.breakpoints.md}px)`,
@@ -82,5 +82,5 @@ export default {
   fundRiskColors,
   fontFamily: 'Open Sans',
   grid: gridConfig,
-  mediaQueries: defaultBreakpoints,
+  mediaQueries,
 }
