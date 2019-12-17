@@ -34,17 +34,15 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 660px) {
     flex-direction: column;
+    align-items: center;
   }
 `
 export const ResponsiveLine = styled.div`
   display: flex;
-  width: 100%;
-  @media (max-width: 900px) {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 `
 export const ArticleItem = styled.div`
-  width: 100%;
+  width: 160px;
   justify-content: center;
   align-items: center;
   @media (max-width: 900px) {
