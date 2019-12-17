@@ -2,13 +2,13 @@
 
 exports[`TopBanner renders correctly 1`] = `
 <section
-  className="sc-bwzfXH kzcIJp"
+  className="sc-htpNat jlBPst"
 >
   <div
-    className="sc-htpNat cAkMrB"
+    className="sc-bxivhb eHGKbp"
   >
     <h1
-      className="sc-ifAKCX gunszn"
+      className="sc-EHOje nTaje"
     >
       Fundos de Investimentos
     </h1>
@@ -17,20 +17,26 @@ exports[`TopBanner renders correctly 1`] = `
     </p>
     <br />
     <button
-      className="sc-bdVaJa bXUMsN button-with-right-icon"
+      className="sc-bdVaJa iddXLC button-with-right-icon"
       color="secondary"
       onClick={[Function]}
     >
-      Lista de fundos
-       
-      <span>
-        &gt;
+      <span
+        className="sc-bwzfXH dKbbhI"
+      >
+        Lista de fundos
+         
+        <span
+          className="icon"
+        >
+          &gt;
+        </span>
       </span>
     </button>
   </div>
   <img
     alt="Homem pesquisando investimentos em um website em seu computador"
-    className="sc-bxivhb gCfZiE"
+    className="sc-ifAKCX gOTEnr"
     src="banner_investimentos.jpg"
   />
 </section>

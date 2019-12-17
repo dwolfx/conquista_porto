@@ -3,10 +3,10 @@
 exports[`LifeInsurance renders correctly 1`] = `
 Array [
   <section
-    className="sc-eNQAEJ dkSLTr"
+    className="sc-hMqMXs bIAJsD"
   >
     <div
-      className="sc-jAaTju jThdgH"
+      className="sc-jDwBTQ hZAXzY"
     >
       <div>
         <small
@@ -25,13 +25,13 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kEYyzF egOBQB"
+      className="sc-kkGfuU gKZgOA"
     >
       <nav
-        className="sc-kkGfuU htkBDB"
+        className="sc-iAyFgw kFtLmU"
       >
         <div
-          className="sc-jDwBTQ dLUNtl"
+          className="sc-gPEVay ehBQSb"
           onClick={[Function]}
         >
           <svg
@@ -41,23 +41,23 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-hzDkRC eirjSW"
+            className="sc-jhAzac WQpP"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-hMqMXs ubGeV"
+          className="sc-kEYyzF kqtRGP"
         >
           <span
-            className="sc-hzDkRC eKswkd"
+            className="sc-jhAzac hDroat"
             fontSize="14px"
           >
             Seguro de Vida
           </span>
           <span
-            className="sc-hzDkRC fTmYXd"
+            className="sc-jhAzac ctcEkb"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -65,7 +65,7 @@ Array [
             VIGENTE ATÉ:
           </span>
           <span
-            className="sc-hzDkRC dvaUsf"
+            className="sc-jhAzac iuyKOp"
             fontSize="14px"
           >
             04/08/2018
@@ -73,15 +73,15 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-iAyFgw hYJVsP"
+        className="sc-hSdWYo hShpdI"
       >
         <h4
-          className="sc-gPEVay kTXUkH"
+          className="sc-iRbamj OAaH"
         >
           Seguro de Vida
         </h4>
         <div
-          className="slick-slider sc-iRbamj jrKdxT slick-initialized"
+          className="slick-slider sc-jlyJG jedFjF slick-initialized"
         >
           
           <div
@@ -118,7 +118,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jlyJG cCGpzU"
+                    className="sc-gipzik cEmtEV"
                     style={
                       Object {
                         "display": "inline-block",
@@ -135,12 +135,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-gipzik blIAxp"
+                        className="sc-csuQGl hNfULV"
                       >
                         segurado
                       </p>
                       <span
-                        className="sc-csuQGl huvmgK"
+                        className="sc-Rmtcm jDjrXX"
                       >
                         Julia da Silva
                       </span>
@@ -163,7 +163,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jlyJG cCGpzU"
+                    className="sc-gipzik cEmtEV"
                     style={
                       Object {
                         "display": "inline-block",
@@ -180,12 +180,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-gipzik blIAxp"
+                        className="sc-csuQGl hNfULV"
                       >
                         12 parcelas de:
                       </p>
                       <span
-                        className="sc-csuQGl huvmgK"
+                        className="sc-Rmtcm jDjrXX"
                       >
                         R$ 310,00
                       </span>
@@ -208,7 +208,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-jlyJG cCGpzU"
+                    className="sc-gipzik cEmtEV"
                     style={
                       Object {
                         "display": "inline-block",
@@ -225,12 +225,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-gipzik blIAxp"
+                        className="sc-csuQGl hNfULV"
                       >
                         Coberturas adicionais
                       </p>
                       <p
-                        className="sc-caSCKo jKjZlS"
+                        className="sc-gisBJw hqvMHD"
                         onClick={[Function]}
                       >
                         VER TODAS &gt;
@@ -245,27 +245,27 @@ Array [
           
         </div>
         <article
-          className="sc-Rmtcm kcUMzw"
+          className="sc-bRBYWo bwmnXB"
         >
           <div
-            className="sc-jhAzac cJNBhj"
+            className="sc-fBuWsC fmTrAi"
           >
             <span
-              className="sc-hzDkRC gNhLUh"
+              className="sc-jhAzac fsxKCG"
               fontSize="18px"
             >
               Cobertura Principal
             </span>
             <div
-              className="sc-fBuWsC kpyhni"
+              className="sc-fMiknA fvHpfI"
             >
               <span
-                className="sc-hzDkRC fiqcoK"
+                className="sc-jhAzac kvPhkY"
               >
                 Morte Acidental
               </span>
               <span
-                className="sc-hzDkRC fiqcoK"
+                className="sc-jhAzac kvPhkY"
               >
                 R$ 35.000,00
               </span>
@@ -273,19 +273,19 @@ Array [
           </div>
         </article>
         <article
-          className="sc-Rmtcm kcUMzw"
+          className="sc-bRBYWo bwmnXB"
         >
           <div
-            className="sc-jhAzac cJNBhj"
+            className="sc-fBuWsC fmTrAi"
           >
             <span
-              className="sc-hzDkRC gNhLUh"
+              className="sc-jhAzac fsxKCG"
               fontSize="18px"
             >
               Beneficiários
             </span>
             <table
-              className="sc-bRBYWo CAOro"
+              className="sc-hzDkRC gIqfTw"
             >
               <thead>
                 <tr>
@@ -334,18 +334,18 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-jzJRlG sdAqc"
+    className="sc-cSHVUG wChhO"
   >
     <div
-      className="sc-cSHVUG igqXNy"
+      className="sc-kAzzGY bUKOwD"
     >
       <h1
-        className="sc-kAzzGY iZrSyd"
+        className="sc-chPdSV eKdbAS"
       >
         Futuro protegido.
       </h1>
       <p
-        className="sc-chPdSV bfeiDG"
+        className="sc-kgoBCf gLOTaC"
       >
         Com o Conquista, é fácil encontrar o plano ideal para você.
         <br />
@@ -355,15 +355,19 @@ Array [
       <br />
       <br />
       <button
-        className="sc-fjdhpX iXIgPO"
+        className="sc-fjdhpX dMegvX"
         color="secondary"
       >
-        <span>
-          SIMULAR E CONTRATAR
-          <span
-            className="Management___StyledSpan-fo5o5n-0 iawLiF"
-          >
-            &gt;
+        <span
+          className="sc-jzJRlG jLWXUc"
+        >
+          <span>
+            SIMULAR E CONTRATAR
+            <span
+              className="Management___StyledSpan-fo5o5n-0 iawLiF"
+            >
+              &gt;
+            </span>
           </span>
         </span>
       </button>
@@ -537,14 +541,14 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-kgoBCf jGzBDx"
+    className="sc-kGXeez kByNSW"
   >
     <div
-      className="sc-kGXeez hAFKlo"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
-          className="sc-kpOJdX iftNML"
+          className="sc-dxgOiQ kRAgnV"
           fill="#272727"
           height="24px"
         >
@@ -553,17 +557,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ leScWK"
+          className="sc-ckVGcZ fPyvjW"
         >
           Condições Gerais
         </p>
         <p
-          className="sc-ckVGcZ gweNdt"
+          className="sc-jKJlTe knbcRV"
         >
           Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro de Vida da Porto Seguro.
         </p>
         <p
-          className="sc-jKJlTe eqGAVA"
+          className="sc-eNQAEJ gclvlb"
         >
           Baixar Arquivo
            &gt; 
@@ -572,17 +576,22 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-fMiknA kFHiDi"
+    className="sc-dVhcbM cakhCx"
   >
     <span
-      className="sc-hzDkRC fiqcoK"
+      className="sc-jhAzac kvPhkY"
     >
       Acesse a Área do Cliente para conferir todos os detalhes sobre os produtos da Porto Seguro.
     </span>
     <button
-      className="sc-fjdhpX fNNDft"
+      className="sc-fjdhpX jLnxaA"
+      color="primary"
     >
-      ACeSSAR
+      <span
+        className="sc-jzJRlG jLWXUc"
+      >
+        ACeSSAR
+      </span>
     </button>
   </section>,
 ]
