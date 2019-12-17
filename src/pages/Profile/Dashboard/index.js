@@ -109,15 +109,17 @@ const Dashboard = ({ profileIsCompleted }) => {
     <>
       {mainContent}
 
-      <Modal
-        modalTitle={modalTitle}
-        headerIcon={modalIcon}
-        isOpen={modalIsOpen}
-        size={modalSize}
-        handleClose={() => setModalIsOpen(!modalIsOpen)}
-      >
-        <ModalBody>{modalBody}</ModalBody>
-      </Modal>
+      {modalIsOpen ? (
+        <Modal
+          modalTitle={modalTitle}
+          headerIcon={modalIcon}
+          isOpen={modalIsOpen}
+          size={modalSize}
+          handleClose={() => setModalIsOpen(!modalIsOpen)}
+        >
+          <ModalBody>{modalBody}</ModalBody>
+        </Modal>
+      ) : null}
     </>
   )
 }
