@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import { TextStyle } from './styles'
 
-export default function Text({ type, bold, uppercase, children, ...rest }) {
+export default function Text({ type, bold, children, ...rest }) {
   return (
-    <TextStyle type={type} bold={bold} uppercase={uppercase} {...rest}>
+    <TextStyle type={type} bold={bold} {...rest}>
       {children}
     </TextStyle>
   )
@@ -22,14 +22,11 @@ Text.propTypes = {
     'title5',
     'title6',
     'paragraph',
-    'subparagraph',
-    'button',
+    'caption',
   ]),
-  uppercase: PropTypes.bool,
 }
 
 Text.defaultProps = {
   bold: false,
   type: 'paragraph',
-  uppercase: false,
 }
