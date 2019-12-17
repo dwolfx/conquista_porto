@@ -16,7 +16,11 @@ export const CardHeader = styled.div`
 `
 
 export const CardIcon = styled.div`
-  background-image: linear-gradient(135deg, #018cb7, #00adef);
+  background-image: linear-gradient(
+    135deg,
+    ${props => props.theme.colors.blue5},
+    ${props => props.theme.colors.blue4}
+  );
   border-radius: 50%;
   height: 35px;
   margin-right: ${props => `${props.theme.gutter}px`};
