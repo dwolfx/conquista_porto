@@ -38,6 +38,7 @@ import ObjectivesMultiplyMoneyFlow from 'pages/Objectives/Registration/GoalStrea
 import ObjectivesEventFlow from 'pages/Objectives/Registration/GoalStreams/EventFlow'
 import ObjectivesBuyHouseFlow from 'pages/Objectives/Registration/GoalStreams/BuyHouseFlow'
 import ObjectivesSaveMoneyFlow from 'pages/Objectives/Registration/GoalStreams/SaveMoneyFlow'
+import Notifications from 'pages/Notifications'
 
 const DefaultRoute = ({ component, ...rest }) => {
   const Component = component
@@ -173,6 +174,7 @@ export default function Routes({ ...props }) {
         exact
         component={ProfileSuitability}
       />
+      <DefaultRoute path="/notificacoes" exact component={Notifications} />
     </Switch>
   )
 }

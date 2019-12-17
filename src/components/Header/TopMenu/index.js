@@ -1,28 +1,24 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 
+import NotificationItem from 'components/NotificationItem'
 import {
-  AddIcon,
-  AlertRoundedIcon,
-  ArrowRightIcon,
   Backdrop,
   BlueText,
   BellIcon,
   Container,
   DropDownContainer,
-  DropDownTriangle,
   DropDownWrapper,
   LinkText,
   LogoLinkWrapper,
   MenuIcon,
+  NewNotificationsNumber,
   NotificationCircle,
   RelativeParent,
   ResponsiveTextWrapper,
   ResponsiveWrapper,
-  RemoveIcon,
-  ThumbsUpIcon,
   Text,
-  TriangleHolder,
   Wrapper,
   MainContainer,
 } from './styles'
@@ -37,70 +33,56 @@ const DB = [
     id: 1,
     title: 'Confirmação de Aporte',
     content: 'Está tudo certo com seu investimento no fundo [Nome do fundo].',
-    identificationIcon: 'addFunds',
-    actionIcon: 'details',
+    identificationIcon: 'add',
+    actionIcon: 'add',
+    isRead: true,
   },
   {
     id: 2,
     title: 'Confirmação de Resgate',
     content: 'Está tudo certo com seu resgate do fundo [Nome do fundo].',
-    identificationIcon: 'withdrawFunds',
-    actionIcon: 'redirect',
+    identificationIcon: 'remove',
+    actionIcon: 'arrowright',
+    isRead: true,
   },
   {
     id: 3,
     title: 'Aviso de primeiro investimento no fundo',
     content:
       'Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!',
-    identificationIcon: 'notification',
-    actionIcon: 'details',
+    identificationIcon: 'thumbsup',
+    actionIcon: 'add',
+    isRead: false,
   },
   {
     id: 4,
     title: 'Aviso de aplicação pendente de recurso',
     content:
       'Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.',
-    identificationIcon: 'warning',
-    actionIcon: 'redirect',
+    identificationIcon: 'alertrounded',
+    actionIcon: 'arrowright',
+    isRead: false,
   },
 ]
 
-const Icon = ({ name }) => {
-  let CompIcon = null
-  switch (name) {
-    case 'addFunds':
-    case 'details':
-      CompIcon = <AddIcon />
-      break
-    case 'withdrawFunds':
-      CompIcon = <RemoveIcon />
-      break
-    case 'notification':
-      CompIcon = <ThumbsUpIcon />
-      break
-    case 'warning':
-      CompIcon = <AlertRoundedIcon />
-      break
-    case 'redirect':
-      CompIcon = <ArrowRightIcon />
-      break
-    default:
-      break
-  }
-  return CompIcon
-}
-
-export default function TopMenu() {
-  const themeContext = useContext(ThemeContext)
+function TopMenu() {
   const [isOpen, setIsOpen] = useState(false)
   const [isResponsiveOpen, setIsResponsiveOpen] = useState(false)
   const [breakpoint, setBreakpoint] = useState('')
+  const history = useHistory()
+  const theme = useContext(ThemeContext)
+
+  const handleNotificationsRedirect = () => {
+    setIsOpen()
+    history.push('/notificacoes')
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }
 
   function checkResolution() {
     const windowWidth = window.innerWidth
     setBreakpoint(windowWidth <= 989 ? 'sm' : 'lg')
   }
-
   useEffect(() => {
     checkResolution()
     window.addEventListener('resize', checkResolution)
@@ -134,80 +116,45 @@ export default function TopMenu() {
         <Wrapper justify="flex-end">
           <RelativeParent>
             <DropDownWrapper isOpen={isOpen} top={30} left={-470}>
-              <TriangleHolder>
-                <DropDownTriangle />
-              </TriangleHolder>
-              <DropDownContainer width={500} height={400}>
+              <DropDownContainer isRead={DB[0].isRead} width={500} height={350}>
                 {DB.map(item => (
-                  <Wrapper
-                    padding="15px"
-                    alignItems="flex-start"
-                    bgcolor={themeContext.colors.white}
-                    borderBottom={`1px solid ${themeContext.colors.gray4}`}
-                    cursorPointer
+                  <NotificationItem
                     key={item.id}
-                  >
-                    <Wrapper width="35px" alignItems="flex-start" cursorPointer>
-                      <Icon name={item.identificationIcon} />
-                    </Wrapper>
-                    <Wrapper
-                      justify="flex-start"
-                      flexDirection="column"
-                      alignItems="flex-start"
-                      padding="0px 5px"
-                      cursorPointer
-                    >
-                      <Text
-                        color={themeContext.colors.blue1}
-                        margin="0px 0px 14px 0px"
-                        size={11}
-                        fontWeight={600}
-                        lineHeight="21px"
-                        letterSpacing={1.5}
-                        upperCase
-                        cursorPointer
-                      >
-                        {item.title}
-                      </Text>
-                      <Text
-                        color={themeContext.colors.gray6}
-                        size={14}
-                        fontWeight={300}
-                        lineHeight="24px"
-                        textAlign="left"
-                        cursorPointer
-                      >
-                        {item.content}
-                      </Text>
-                    </Wrapper>
-                    <Wrapper width="35px" alignSelf="center" cursorPointer>
-                      <Icon name={item.actionIcon} />
-                    </Wrapper>
-                  </Wrapper>
+                    title={item.title}
+                    message={item.content}
+                    identificationIcon={item.identificationIcon}
+                    actionIcon={item.actionIcon}
+                    isRead={item.isRead}
+                  />
                 ))}
-                <Wrapper padding="15px">
-                  <Button to="/notifications">Ver Todos</Button>
-                </Wrapper>
+                {history.location.pathname !== '/notificacoes' && (
+                  <Wrapper padding="15px">
+                    <Button onClick={handleNotificationsRedirect} outline>
+                      Ver Todos
+                    </Button>
+                  </Wrapper>
+                )}
               </DropDownContainer>
             </DropDownWrapper>
-            <NotificationCircle>
-              <Text size={10} cursorPointer>
-                {10}
-              </Text>
-            </NotificationCircle>
-            <BellIcon onClick={() => setIsOpen(!isOpen)} />
+            {history.location.pathname === '/notificacoes' ? (
+              <BellIcon
+                onClick={() => setIsOpen(!isOpen)}
+                fill={theme.colors.blue4}
+              />
+            ) : (
+              <>
+                <NotificationCircle>
+                  <NewNotificationsNumber>{10}</NewNotificationsNumber>
+                </NotificationCircle>
+                <BellIcon
+                  onClick={() => setIsOpen(!isOpen)}
+                  fill={theme.colors.white}
+                />
+              </>
+            )}
           </RelativeParent>
           <ResponsiveTextWrapper>
-            <Text
-              size={11}
-              fontWeight={600}
-              letterSpacing={1.5}
-              upperCase
-              margin="0px 20px"
-              lineHeight={21}
-            >
-              Olá, Júlia.
-            </Text>
+            <Text>Olá, Júlia.</Text>
             <BlueText>SAIR</BlueText>
           </ResponsiveTextWrapper>
         </Wrapper>
@@ -216,3 +163,5 @@ export default function TopMenu() {
     </MainContainer>
   )
 }
+
+export default TopMenu
