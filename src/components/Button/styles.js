@@ -19,10 +19,10 @@ const handleBgGradient = (colors, type, isDisabled, isOutline) => {
       return !isDisabled
         ? `linear-gradient(
             to left,
-            ${colors.green4} -35%,
-            ${colors.green3}
+            ${colors.green5} -35%,
+            ${colors.green4}
           )`
-        : colors.green2
+        : colors.green3
     default:
       return colors.white
   }
@@ -33,7 +33,7 @@ const handleBgHover = (colors, type, isOutline) => {
     case 'primary':
       return isOutline ? colors.blue1 : colors.blue5
     case 'secondary':
-      return isOutline ? colors.green1 : colors.green4
+      return isOutline ? colors.green1 : colors.green5
     default:
       return colors.gray1
   }
@@ -49,7 +49,7 @@ const handleBorder = (colors, type, isDisabled, isOutline) => {
   if (type === 'primary') {
     borderColor = !isDisabled ? colors.blue4 : colors.gray3
   } else {
-    borderColor = !isDisabled ? colors.green3 : colors.gray3
+    borderColor = !isDisabled ? colors.green4 : colors.gray3
   }
 
   return `1px solid ${borderColor}`
@@ -64,7 +64,7 @@ const handleColor = (colors, type, isDisabled, isOutline) => {
     return !isDisabled ? colors.blue4 : colors.gray3
   }
 
-  return !isDisabled ? colors.green3 : colors.gray3
+  return !isDisabled ? colors.green4 : colors.gray3
 }
 
 // styles
