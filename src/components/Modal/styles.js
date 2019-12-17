@@ -5,9 +5,11 @@ import CloseIcon from 'assets/icons/close.svg'
 export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
   height: 100%;
-  position: absolute;
+  position: fixed;
   transition: all ease 0.3s;
   width: 100%;
+  visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
+  opacity: ${props => (props.isOpen ? '1' : '0')};
 `
 
 export const ModalContainer = styled.div`
@@ -16,6 +18,12 @@ export const ModalContainer = styled.div`
   position: relative;
   max-width: 900px;
   min-width: 400px;
+  margin: 30px 0;
+
+  @media (max-width: 767px) {
+    margin: 0px;
+    border-radius: 0px;
+  }
 
   @media ${props => props.theme.mediaQueries.xs} {
     min-width: unset;
@@ -56,9 +64,9 @@ export const CloseButton = styled.div`
 `
 
 export const ModalWrapper = styled.div`
-  align-items: center;
+  align-items: ${props => (props.alignItems ? props.alignItems : 'center')};
   display: flex;
-  height: ${props => (props.isOpen ? '100vh' : 0)};
+  height: ${props => (props.isOpen ? '100%' : 0)};
   justify-content: center;
   left: 0;
   opacity: ${props => (props.isOpen ? '1' : '0')};
@@ -68,9 +76,5 @@ export const ModalWrapper = styled.div`
   visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   width: 100vw;
   z-index: 4;
-
-  ${ModalOverlay} {
-    visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
-    opacity: ${props => (props.isOpen ? '1' : '0')};
-  }
+  overflow: auto;
 `
