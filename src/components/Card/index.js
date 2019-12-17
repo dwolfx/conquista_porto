@@ -27,11 +27,11 @@ export default function Card({
     <CardWrapper hasFooter={!!footer} {...rest}>
       {headerTitle && (
         <CardHeader>
-          <CardIcon>
-            {headerIcon && (
+          {headerIcon && (
+            <CardIcon>
               <Icon name={headerIcon} fill={themeContext.colors.white} />
-            )}
-          </CardIcon>
+            </CardIcon>
+          )}
           <CardTitle>{headerTitle}</CardTitle>
         </CardHeader>
       )}
@@ -49,7 +49,17 @@ Card.defaultProps = {
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
-  headerIcon: PropTypes.string,
+  headerIcon: (props, propName) => {
+    // if headerTitle exist, headerIcon is required AND it must be of type string
+    if (
+      !!props.headerTitle &&
+      (props[propName] === 'undefined' || typeof props[propName] !== 'string')
+    ) {
+      return new Error('headerIcon is required.')
+    }
+
+    return null
+  },
   headerTitle: PropTypes.string,
   footer: PropTypes.node,
 }
