@@ -355,11 +355,11 @@ Array [
       <br />
       <br />
       <button
-        className="sc-fjdhpX dMegvX"
+        className="sc-fjdhpX ixgKQc"
         color="secondary"
       >
         <span
-          className="sc-jzJRlG jLWXUc"
+          className="sc-jzJRlG bLaWVJ"
         >
           <span>
             SIMULAR E CONTRATAR
@@ -584,11 +584,11 @@ Array [
       Acesse a Área do Cliente para conferir todos os detalhes sobre os produtos da Porto Seguro.
     </span>
     <button
-      className="sc-fjdhpX jLnxaA"
+      className="sc-fjdhpX hvzSwK"
       color="primary"
     >
       <span
-        className="sc-jzJRlG jLWXUc"
+        className="sc-jzJRlG bLaWVJ"
       >
         ACeSSAR
       </span>

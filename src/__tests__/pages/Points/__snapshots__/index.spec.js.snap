@@ -18,12 +18,12 @@ Array [
       </p>
       <br />
       <button
-        className="sc-bdVaJa iddXLC button-with-right-icon"
+        className="sc-bdVaJa hhTFXP button-with-right-icon"
         color="secondary"
         onClick={[Function]}
       >
         <span
-          className="sc-bwzfXH dKbbhI"
+          className="sc-bwzfXH eubHTp"
         >
            
           <span
@@ -233,11 +233,11 @@ Array [
       Conheça as ofertas e veja o que você pode resgatar com o seu saldo atual.
     </p>
     <button
-      className="sc-bdVaJa iddXLC button-with-right-icon"
+      className="sc-bdVaJa hhTFXP button-with-right-icon"
       color="secondary"
     >
       <span
-        className="sc-bwzfXH dKbbhI"
+        className="sc-bwzfXH eubHTp"
       >
         Resgatar Pontos 
         <span>
