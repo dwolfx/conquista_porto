@@ -7,14 +7,8 @@ import Icon from 'components/IconExporter'
 
 import { Container, CloseButton, IconWrapper, Content } from './styles'
 
-const HeaderWizard = ({ showBackButton }) => {
+const HeaderWizard = ({ showBackButton, onClose }) => {
   const history = useHistory()
-
-  const handleClose = () => {
-    history.push('/perfil')
-    document.documentElement.scrollTop = 0
-    document.body.scrollTop = 0
-  }
 
   const handleBack = () => {
     history.goBack()
@@ -30,17 +24,19 @@ const HeaderWizard = ({ showBackButton }) => {
       <Content>
         <img src={Logo} alt="conquista logo png" />
       </Content>
-      <CloseButton onClick={handleClose} />
+      <CloseButton onClick={onClose} />
     </Container>
   )
 }
 
 HeaderWizard.defaultProps = {
   showBackButton: true,
+  onClose: null,
 }
 
 HeaderWizard.propTypes = {
   showBackButton: PropTypes.bool,
+  onClose: PropTypes.func,
 }
 
 export default HeaderWizard
