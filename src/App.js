@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
@@ -14,14 +14,14 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <BrowserRouter basename={basename}>
+      <HashRouter basename={basename}>
         <ThemeProvider theme={theme}>
           <GridThemeProvider gridTheme={theme.grid}>
             <GlobalStyle />
             <Routes />
           </GridThemeProvider>
         </ThemeProvider>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   )
 }
