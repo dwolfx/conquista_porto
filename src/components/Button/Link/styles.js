@@ -4,7 +4,7 @@ export const Link = styled.a`
   align-items: center;
   color: ${props => props.theme.colors.blue4};
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
 
   svg {
     fill: currentColor;

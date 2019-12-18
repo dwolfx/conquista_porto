@@ -94,17 +94,18 @@ export const Button = styled.button`
       props.disabled,
       props.outline
     )};
-  cursor: ${props => (props.disabled ? 'disabled' : 'pointer')};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   height: 35px;
   min-width: 230px;
   overflow: hidden;
-  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
   position: relative;
   text-decoration: none;
   transition: all 0.4s ease-out;
 
   &:hover {
     &:active {
+      pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
+
       &:after {
         background-color: ${props =>
           handleBgHover(props.theme.colors, props.color, props.outline)};
@@ -114,28 +115,33 @@ export const Button = styled.button`
       }
     }
 
-    &:before {
-      width: 100%;
-    }
-    &:after {
-      background: transparent
-        radial-gradient(
-          circle,
-          ${props => props.theme.colors.black} 1%,
-          transparent 1%
-        )
-        center/15000%;
-      background-position: center;
-      content: '';
-      height: 100%;
-      left: 0;
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      transition: all ease 0.8s;
-      width: 100%;
-    }
+    /* only render hover and ripple style if button is not disabled */
+    ${props =>
+      !props.disabled &&
+      `
+      &:before {
+        width: 100%;
+      }
+      &:after {
+        background: transparent
+          radial-gradient(
+            circle,
+            ${props.theme.colors.black} 1%,
+            transparent 1%
+          )
+          center/15000%;
+        background-position: center;
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition: all ease 0.8s;
+        width: 100%;
+      }
+    `}
   }
   &:before {
     background-color: ${props =>
@@ -153,12 +159,9 @@ export const Button = styled.button`
 export const Content = styled.span`
   align-items: center;
   display: flex;
-  font-size: 11px;
-  font-weight: 600;
   justify-content: center;
-  letter-spacing: 1.5px;
   padding: 9px 25px;
   position: relative;
-  text-transform: uppercase;
   width: 100%;
+  ${props => props.theme.fontTypes.button};
 `
