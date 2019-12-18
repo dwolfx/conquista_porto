@@ -126,6 +126,12 @@ export const fontTypes = {
     fontSize: 10,
     letterSpacing: 1.5,
   },
+  button: {
+    fontSize: 11,
+    fontWeight: 600,
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
+  },
 }
 
 export default {
