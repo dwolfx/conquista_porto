@@ -21,10 +21,11 @@ export const themeColors = {
   blue3: '#A1E5FF',
   blue4: '#00ADEF',
   blue5: '#018CB7',
-  green1: '#CFE8D2',
-  green2: '#57B063',
-  green3: '#46A166',
-  green4: '#2F736B',
+  green1: '#EEF8F2',
+  green2: '#CFE8D2',
+  green3: '#57B063',
+  green4: '#46A166',
+  green5: '#2F736B',
   yellow1: '#FFF3C4',
   yellow2: '#FFCD00',
   magenta1: '#FAD2E3',
@@ -124,6 +125,12 @@ export const fontTypes = {
     ...genericFontType,
     fontSize: 10,
     letterSpacing: 1.5,
+  },
+  button: {
+    fontSize: 11,
+    fontWeight: 600,
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
   },
 }
 
