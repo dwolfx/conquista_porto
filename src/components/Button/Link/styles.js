@@ -5,6 +5,7 @@ export const Link = styled.a`
   color: ${props => props.theme.colors.blue4};
   cursor: pointer;
   display: inline-flex;
+  ${props => props.theme.fontTypes.button}
 
   svg {
     fill: currentColor;
