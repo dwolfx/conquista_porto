@@ -92,12 +92,12 @@ export const fontTypes = {
   title2: {
     ...genericFontType,
     fontSize: 56,
-    letterSpacing: 1,
+    letterSpacing: 0,
   },
   title3: {
     ...genericFontType,
     fontSize: 34,
-    letterSpacing: -0.5,
+    letterSpacing: 0,
   },
   title4: {
     ...genericFontType,
@@ -109,7 +109,7 @@ export const fontTypes = {
   title5: {
     ...genericFontType,
     fontSize: 20,
-    letterSpacing: 1,
+    letterSpacing: 0,
   },
   title6: {
     fontSize: 14,
@@ -124,7 +124,7 @@ export const fontTypes = {
   caption: {
     ...genericFontType,
     fontSize: 10,
-    letterSpacing: 1.5,
+    letterSpacing: 0,
   },
   button: {
     fontSize: 11,
