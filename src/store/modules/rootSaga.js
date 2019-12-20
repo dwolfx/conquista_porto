@@ -1,7 +1,7 @@
 import { all } from 'redux-saga/effects'
 
-import creditCard from './CreditCard/sagas'
+import example from './example/sagas'
 
 export default function* rootSaga() {
-  return yield all([creditCard])
+  return yield all([example])
 }
