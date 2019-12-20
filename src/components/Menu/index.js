@@ -11,6 +11,8 @@ export default function Menu({ scrollFunc }) {
     if (window.scrollY < 240) {
       setSelectedOption('produtos')
     } else if (window.scrollY >= 240 && window.scrollY < 688) {
+      setSelectedOption('objetivos')
+    } else if (window.scrollY >= 688) {
       setSelectedOption('pontos')
     }
   }

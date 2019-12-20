@@ -31,7 +31,7 @@ export const Option = styled.div`
   background-color: ${props =>
     props.isSelected ? props.theme.colors.white : 'transparent'};
   margin-bottom: 35px;
-  transition: all 0.2s ease-in-out 0.1s;
+  transition: all 0.2s ease-in-out;
 
   &:last-child {
     margin-bottom: 0px;

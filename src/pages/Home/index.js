@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col } from 'styled-bootstrap-grid'
+import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 
 import Menu from '../../components/Menu'
 
@@ -8,6 +8,10 @@ const Home = () => {
     const el = document.querySelector(`#${id}`).getBoundingClientRect()
 
     const windowScroll = window.pageYOffset
+    /*
+      135 = distance between sticky elements and top of the page.
+      30 = to keep the margin top on the container while it scrolls.
+    */
     const amountToScroll = Math.round(el.top + windowScroll - 135 - 30)
 
     window.scroll({
@@ -18,63 +22,36 @@ const Home = () => {
   }
 
   return (
-    <Container id="scroll">
-      <div style={{ margin: '30px auto' }}>
-        <Row>
-          <Col
-            xl={1}
-            lg={1}
-            id="menu"
-            style={{ transition: 'all 0.35s ease-in-out' }}
-          >
+    <GridContainer id="scroll">
+      <Wrapper>
+        <GridRow>
+          <GridCol xl={1} lg={1} id="menu">
             <Menu scrollFunc={scrollPage} />
-          </Col>
-          <Col xl={11} lg={11} style={{}}>
-            <Row style={{ border: '1px solid red' }}>
-              <Col xl={12} lg={12}>
-                <Row
-                  style={{
-                    border: '1px solid black',
-                    height: '430px',
-                    margin: 0,
-                    marginBottom: '30px',
-                  }}
-                  id="t1"
-                >
-                  <Col xl={12} lg={12}>
+          </GridCol>
+          <GridCol xl={11} lg={11}>
+            <GridRow>
+              <GridCol xl={12} lg={12}>
+                <GridRow id="t1">
+                  <GridCol xl={12} lg={12}>
                     TESTE 1
-                  </Col>
-                </Row>
-                <Row
-                  style={{
-                    border: '1px solid black',
-                    height: '430px',
-                    margin: '30px 0',
-                  }}
-                  id="t2"
-                >
-                  <Col xl={12} lg={12}>
+                  </GridCol>
+                </GridRow>
+                <GridRow id="t2">
+                  <GridCol xl={12} lg={12}>
                     TESTE 2
-                  </Col>
-                </Row>
-                <Row
-                  style={{
-                    border: '1px solid black',
-                    height: '430px',
-                    margin: '30px 0',
-                  }}
-                  id="t3"
-                >
-                  <Col xl={12} lg={12}>
+                  </GridCol>
+                </GridRow>
+                <GridRow id="t3">
+                  <GridCol xl={12} lg={12}>
                     TESTE 3
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </div>
-    </Container>
+                  </GridCol>
+                </GridRow>
+              </GridCol>
+            </GridRow>
+          </GridCol>
+        </GridRow>
+      </Wrapper>
+    </GridContainer>
   )
 }
 export default Home
