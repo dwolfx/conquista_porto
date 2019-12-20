@@ -2,7 +2,6 @@ import React from 'react'
 import Menu from 'components/Menu'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 
-
 const Home = () => {
   function scrollPage(id) {
     const el = document.querySelector(`#${id}`).getBoundingClientRect()

@@ -41,7 +41,8 @@ export const Option = styled.div`
     width: 28px;
     height: 28px;
     flex-shrink: 0;
-    fill: ${props => (props.isSelected ? '#000' : '#fff')};
+    fill: ${props =>
+      props.isSelected ? props.theme.colors.black : props.theme.colors.white};
   }
 
   div {
@@ -68,7 +69,7 @@ export const Option = styled.div`
         }
 
         svg {
-          fill: #000;
+          fill: ${props.theme.colors.black};
         }
       }
     `}
