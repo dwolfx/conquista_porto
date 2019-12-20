@@ -1,20 +1,21 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+
 // eslint-disable-next-line no-unused-vars
 import { css, ThemeContext } from 'styled-components/macro'
 
-import Breadcrumb from '../../../components/Breadcrumb'
-import MoreDetails from '../../../components/Solutions/MoreDetails'
-import HighlightSection from '../../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../../components/Solutions/FileDownloadSection'
+import Breadcrumb from 'components/Breadcrumb'
+import MoreDetails from 'components/Solutions/MoreDetails'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 
-import Container from '../../../components/Management/Container'
-import ManageableItem from '../../../components/Management/ManageableItem'
-import PageContent from '../../../components/Management/PageContent'
-import LeftNav from '../../../components/Management/LeftNav'
-import RightContent from '../../../components/Management/RightContent'
+import Container from 'components/Management/Container'
+import ManageableItem from 'components/Management/ManageableItem'
+import PageContent from 'components/Management/PageContent'
+import LeftNav from 'components/Management/LeftNav'
+import RightContent from 'components/Management/RightContent'
 
-import Icon from '../../../components/IconExporter'
+import Icon from 'components/IconExporter'
 
 import {
   BreadcrumbContainer,
@@ -32,6 +33,7 @@ import {
   DateContent,
   Text,
 } from './styles'
+import useFetchApiHook from './fetchApiHook'
 
 const downloadFileSectionData = [
   {
@@ -124,7 +126,9 @@ const settings = {
 }
 
 export default function ManagementCreditCard({ history }) {
+  useFetchApiHook()
   const themeContext = useContext(ThemeContext)
+
   return (
     <>
       <Container>
