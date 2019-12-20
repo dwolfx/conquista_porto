@@ -3,10 +3,10 @@
 exports[`ManagementCreditCard renders correctly 1`] = `
 Array [
   <section
-    className="sc-eNQAEJ dkSLTr"
+    className="sc-hMqMXs bIAJsD"
   >
     <div
-      className="sc-hSdWYo cMYEWz"
+      className="sc-eHgmQL NvZvz"
     >
       <div>
         <small
@@ -25,13 +25,13 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kEYyzF egOBQB"
+      className="sc-kkGfuU gKZgOA"
     >
       <nav
-        className="sc-kkGfuU htkBDB"
+        className="sc-iAyFgw kFtLmU"
       >
         <div
-          className="sc-eHgmQL hjTyAJ"
+          className="sc-cvbbAY kNSsCG"
           onClick={[Function]}
         >
           <svg
@@ -41,23 +41,23 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-gipzik bgKkJw"
+            className="sc-csuQGl cdGVzt"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-hMqMXs ubGeV"
+          className="sc-kEYyzF kqtRGP"
         >
           <span
-            className="sc-gipzik gCxpjX"
+            className="sc-csuQGl kgVGUe"
             fontSize="14px"
           >
             Mundo 120 Prata
           </span>
           <span
-            className="sc-gipzik iyzGYR"
+            className="sc-csuQGl WxOJq"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -65,7 +65,7 @@ Array [
             BANDEIRA
           </span>
           <span
-            className="sc-gipzik hfUqHZ"
+            className="sc-csuQGl cQdgbs"
             fontSize="14px"
           >
             Visa
@@ -73,15 +73,15 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-iAyFgw hYJVsP"
+        className="sc-hSdWYo hShpdI"
       >
         <h4
-          className="sc-cvbbAY kqlsth"
+          className="sc-jWBwVP fCFswy"
         >
           Mundo 120 Prata
         </h4>
         <div
-          className="slick-slider sc-jWBwVP kBrNob slick-initialized"
+          className="slick-slider sc-brqgnP gmtmTr slick-initialized"
         >
           
           <div
@@ -118,7 +118,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-brqgnP buUVWz"
+                    className="sc-cMljjf HPxKB"
                     style={
                       Object {
                         "display": "inline-block",
@@ -135,12 +135,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-cMljjf xaeSK"
+                        className="sc-jAaTju kUPSQX"
                       >
                         bandeira
                       </p>
                       <span
-                        className="sc-jAaTju fNkZVI"
+                        className="sc-jDwBTQ kECMCU"
                       >
                         Visa
                       </span>
@@ -163,7 +163,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-brqgnP buUVWz"
+                    className="sc-cMljjf HPxKB"
                     style={
                       Object {
                         "display": "inline-block",
@@ -180,12 +180,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-cMljjf xaeSK"
+                        className="sc-jAaTju kUPSQX"
                       >
                         tipo
                       </p>
                       <span
-                        className="sc-jAaTju fNkZVI"
+                        className="sc-jDwBTQ kECMCU"
                       >
                         Gold
                       </span>
@@ -208,7 +208,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-brqgnP buUVWz"
+                    className="sc-cMljjf HPxKB"
                     style={
                       Object {
                         "display": "inline-block",
@@ -225,12 +225,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-cMljjf xaeSK"
+                        className="sc-jAaTju kUPSQX"
                       >
                         4 últimos numeros
                       </p>
                       <span
-                        className="sc-jAaTju fNkZVI"
+                        className="sc-jDwBTQ kECMCU"
                       >
                         9999
                       </span>
@@ -244,75 +244,75 @@ Array [
           
         </div>
         <article
-          className="sc-jDwBTQ eTeJkP"
+          className="sc-gPEVay bFYWDJ"
         >
           <div
-            className="sc-gPEVay kxzkgx"
+            className="sc-iRbamj dUBhmT"
           >
             <div
-              className="sc-jlyJG dAgDnI"
+              className="sc-gipzik kkHqhO"
             >
               <span
-                className="sc-gipzik huEeXk"
+                className="sc-csuQGl jLIXiX"
                 fontSize="22px"
               >
                 Vencimento da Fatura
               </span>
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 22
               </span>
             </div>
             <div
-              className="sc-jlyJG dAgDnI"
+              className="sc-gipzik kkHqhO"
             >
               <span
-                className="sc-gipzik huEeXk"
+                className="sc-csuQGl jLIXiX"
                 fontSize="22px"
               >
                 Melhor dia para compra
               </span>
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 10
               </span>
             </div>
           </div>
           <div
-            className="sc-csuQGl dBhIuf"
+            className="sc-Rmtcm bjnnQw"
           >
             <span
-              className="sc-gipzik gpJUoF"
+              className="sc-csuQGl cZUcaw"
               fontSize="18px"
             >
               Fatura
             </span>
             <div
-              className="sc-Rmtcm cNFnod"
+              className="sc-bRBYWo gIYydn"
             >
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 Fechada
               </span>
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 R$ 50.000,00
               </span>
             </div>
             <div
-              className="sc-Rmtcm cNFnod"
+              className="sc-bRBYWo gIYydn"
             >
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 Aberta
               </span>
               <span
-                className="sc-gipzik kWEmxP"
+                className="sc-csuQGl cAeqpc"
               >
                 R$ 500.000,00
               </span>
@@ -320,10 +320,10 @@ Array [
           </div>
         </article>
         <article
-          className="sc-iRbamj iRMscS"
+          className="sc-jlyJG lgDnpw"
         >
           <span
-            className="sc-gipzik fMxQsl"
+            className="sc-csuQGl lFwjt"
             fontSize="11px"
             fontWeight="600"
             letterSpacing="1.5px"
@@ -331,14 +331,14 @@ Array [
             INFORMAÇÕES COMPLEMENTARES
           </span>
           <section
-            className="sc-kgoBCf kzJSkH"
+            className="sc-kGXeez feLORa"
           >
             <div
-              className="sc-kGXeez hAFKlo"
+              className="sc-kpOJdX ibOZxi"
             >
               <div>
                 <svg
-                  className="sc-kpOJdX iftNML"
+                  className="sc-dxgOiQ kRAgnV"
                   fill="#272727"
                   height="24px"
                 >
@@ -347,19 +347,19 @@ Array [
               </div>
               <div>
                 <p
-                  className="sc-dxgOiQ leScWK"
+                  className="sc-ckVGcZ fPyvjW"
                 >
                   Programa de relacionamento
                 </p>
                 <p
-                  className="sc-ckVGcZ gweNdt"
+                  className="sc-jKJlTe knbcRV"
                 >
                   <span>
                     Com este produto você acumulou:
                     <br />
                      
                     <span
-                      className="sc-gipzik ksPSKl"
+                      className="sc-csuQGl ihFxSU"
                       fontSize="22px"
                     >
                       50 pontos
@@ -367,7 +367,7 @@ Array [
                   </span>
                 </p>
                 <p
-                  className="sc-jKJlTe eqGAVA"
+                  className="sc-eNQAEJ gclvlb"
                 >
                   Ver extrato
                    &gt; 
@@ -375,11 +375,11 @@ Array [
               </div>
             </div>
             <div
-              className="sc-kGXeez hAFKlo"
+              className="sc-kpOJdX ibOZxi"
             >
               <div>
                 <svg
-                  className="sc-kpOJdX iftNML"
+                  className="sc-dxgOiQ kRAgnV"
                   fill="#272727"
                   height="24px"
                 >
@@ -388,17 +388,17 @@ Array [
               </div>
               <div>
                 <p
-                  className="sc-dxgOiQ leScWK"
+                  className="sc-ckVGcZ fPyvjW"
                 >
                   Informativo de desempenho
                 </p>
                 <p
-                  className="sc-ckVGcZ gweNdt"
+                  className="sc-jKJlTe knbcRV"
                 >
                   Material técnico, com gráficos, informações e histórico do fundo.
                 </p>
                 <p
-                  className="sc-jKJlTe eqGAVA"
+                  className="sc-eNQAEJ gclvlb"
                 >
                   BAIXAR ARQUIVO
                    &gt; 
@@ -411,18 +411,18 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-jzJRlG sdAqc"
+    className="sc-cSHVUG wChhO"
   >
     <div
-      className="sc-cSHVUG igqXNy"
+      className="sc-kAzzGY bUKOwD"
     >
       <h1
-        className="sc-kAzzGY iZrSyd"
+        className="sc-chPdSV eKdbAS"
       >
         O cartão cheio de vantagens.
       </h1>
       <p
-        className="sc-chPdSV bfeiDG"
+        className="sc-kgoBCf gLOTaC"
       >
         Descontos em seguros para você, para sua casa e para seu carro.
         <br />
@@ -432,15 +432,19 @@ Array [
       <br />
       <br />
       <button
-        className="sc-fjdhpX iXIgPO"
+        className="sc-fjdhpX ixgKQc"
         color="secondary"
       >
-        <span>
-          SIMULAR E CONTRATAR
-          <span
-            className="Management___StyledSpan-sc-1a98eg7-0 cCrLci"
-          >
-            &gt;
+        <span
+          className="sc-jzJRlG bLaWVJ"
+        >
+          <span>
+            SIMULAR E CONTRATAR
+            <span
+              className="Management___StyledSpan-sc-1a98eg7-0 cCrLci"
+            >
+              &gt;
+            </span>
           </span>
         </span>
       </button>
@@ -614,14 +618,14 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-kgoBCf jGzBDx"
+    className="sc-kGXeez kByNSW"
   >
     <div
-      className="sc-kGXeez hAFKlo"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
-          className="sc-kpOJdX iftNML"
+          className="sc-dxgOiQ kRAgnV"
           fill="#272727"
           height="24px"
         >
@@ -630,17 +634,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ leScWK"
+          className="sc-ckVGcZ fPyvjW"
         >
           SISTEMA DE INFORMAÇÕES DE CRÉDITO - SCR
         </p>
         <p
-          className="sc-ckVGcZ gweNdt"
+          className="sc-jKJlTe knbcRV"
         >
           Informações legais sobre crédito.
         </p>
         <p
-          className="sc-jKJlTe eqGAVA"
+          className="sc-eNQAEJ gclvlb"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -648,11 +652,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kGXeez hAFKlo"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
-          className="sc-kpOJdX iftNML"
+          className="sc-dxgOiQ kRAgnV"
           fill="#272727"
           height="24px"
         >
@@ -661,17 +665,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ leScWK"
+          className="sc-ckVGcZ fPyvjW"
         >
           TABELA DE TARIFAS
         </p>
         <p
-          className="sc-ckVGcZ gweNdt"
+          className="sc-jKJlTe knbcRV"
         >
           Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.
         </p>
         <p
-          className="sc-jKJlTe eqGAVA"
+          className="sc-eNQAEJ gclvlb"
         >
           Visualizar
            &gt; 
@@ -679,11 +683,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kGXeez hAFKlo"
+      className="sc-kpOJdX ibOZxi"
     >
       <div>
         <svg
-          className="sc-kpOJdX iftNML"
+          className="sc-dxgOiQ kRAgnV"
           fill="#272727"
           height="24px"
         >
@@ -692,17 +696,17 @@ Array [
       </div>
       <div>
         <p
-          className="sc-dxgOiQ leScWK"
+          className="sc-ckVGcZ fPyvjW"
         >
           CONDIÇÕES GERAIS
         </p>
         <p
-          className="sc-ckVGcZ gweNdt"
+          className="sc-jKJlTe knbcRV"
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Cartão de Crédito da Porto Seguro.
         </p>
         <p
-          className="sc-jKJlTe eqGAVA"
+          className="sc-eNQAEJ gclvlb"
         >
           BAIXAR ARQUIVO
            &gt; 

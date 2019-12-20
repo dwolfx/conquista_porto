@@ -267,10 +267,15 @@ Array [
                 className="sc-kGXeez hFgPLB"
               >
                 <button
-                  className="sc-bbmXgH gGGnjS"
+                  className="sc-bbmXgH cjVFib"
+                  color="primary"
                   to="/notifications"
                 >
-                  Ver Todos
+                  <span
+                    className="sc-gGBfsJ gEVmPY"
+                  >
+                    Ver Todos
+                  </span>
                 </button>
               </div>
             </div>

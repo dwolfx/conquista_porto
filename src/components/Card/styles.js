@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import Text from 'components/Text'
+
 export const CardWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.gray2};
@@ -28,7 +30,7 @@ export const CardIcon = styled.div`
   width: 35px;
 `
 
-export const CardTitle = styled.div``
+export const CardTitle = styled(Text).attrs({ type: 'title5', bold: true })``
 
 export const CardBody = styled.div``
 
