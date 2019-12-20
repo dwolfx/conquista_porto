@@ -1,7 +1,7 @@
 import React from 'react'
+import Menu from 'components/Menu'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 
-import Menu from '../../components/Menu'
 
 const Home = () => {
   function scrollPage(id) {

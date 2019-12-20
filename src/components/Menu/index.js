@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-
 import PropTypes from 'prop-types'
+
+import Icon from 'components/IconExporter'
 import { Container, MenuContainer, Option, OptionName } from './styles'
-import Icon from '../IconExporter'
 
 export default function Menu({ scrollFunc }) {
   const [selectedOption, setSelectedOption] = useState('produtos')
