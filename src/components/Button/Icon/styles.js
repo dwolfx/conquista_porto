@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
+  align-items: center;
   background-color: ${props =>
     props.color === 'primary'
       ? props.theme.colors.green4
@@ -8,9 +9,10 @@ export const Button = styled.button`
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
   height: ${props => (props.size === 'small' ? '28px' : '35px')};
+  justify-content: center;
   outline: none;
-  padding: 7px;
   transition: all ease 0.3s;
   width: ${props => (props.size === 'small' ? '28px' : '35px')};
 
@@ -25,5 +27,6 @@ export const Button = styled.button`
       props.color === 'primary'
         ? props.theme.colors.white
         : props.theme.colors.gray6};
+    width: ${props => (props.size === 'small' ? '10px' : '12px')};
   }
 `

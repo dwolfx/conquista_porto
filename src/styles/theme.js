@@ -125,6 +125,7 @@ export const fontTypes = {
     ...genericFontType,
     fontSize: 10,
     letterSpacing: 0,
+    textTransform: 'uppercase',
   },
   button: {
     fontSize: 11,
