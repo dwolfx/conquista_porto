@@ -6,6 +6,8 @@ export const CardWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.gray2};
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   padding: 10px 14px ${props => (props.hasFooter ? '0' : '10px')};
 `
 
@@ -32,7 +34,9 @@ export const CardIcon = styled.div`
 
 export const CardTitle = styled(Text).attrs({ type: 'title5', bold: true })``
 
-export const CardBody = styled.div``
+export const CardBody = styled.div`
+  flex: 1;
+`
 
 export const CardFooter = styled.div`
   align-items: center;

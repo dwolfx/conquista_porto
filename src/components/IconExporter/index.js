@@ -54,6 +54,7 @@ import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
 import { ReactComponent as talkman } from 'assets/icons/talk-man.svg'
 import { ReactComponent as tag } from 'assets/icons/tag.svg'
 import { ReactComponent as target } from 'assets/icons/target.svg'
+import { ReactComponent as targetmarket } from 'assets/icons/target-market.svg'
 import { ReactComponent as thumbsup } from 'assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from 'assets/icons/time.svg'
 import { ReactComponent as trash } from 'assets/icons/trashcan.svg'
@@ -114,6 +115,7 @@ const dict = {
   tag,
   talkman,
   target,
+  targetmarket,
   thumbsup,
   time,
   trash,
