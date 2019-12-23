@@ -17,6 +17,8 @@ export default () => {
       <Header
         onClose={() => {
           history.push('/perfil')
+          document.documentElement.scrollTop = 0
+          document.body.scrollTop = 0
         }}
       />
 

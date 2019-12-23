@@ -31,7 +31,7 @@ const HeaderWizard = ({ showBackButton, onClose }) => {
 
 HeaderWizard.defaultProps = {
   showBackButton: true,
-  onClose: null,
+  onClose: () => {},
 }
 
 HeaderWizard.propTypes = {

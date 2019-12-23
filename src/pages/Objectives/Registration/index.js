@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import Header from 'components/Wizard/Header'
 import Board from './Board'
 
-import { Container } from './styles'
+import { Container, RegistrationWrapper, BoartTitle } from './styles'
 
 const Objectives = () => {
   const history = useHistory()
@@ -15,7 +15,10 @@ const Objectives = () => {
           history.push('/objetivos')
         }}
       />
-      <Board />
+      <RegistrationWrapper>
+        <BoartTitle>Criar objetivo</BoartTitle>
+        <Board />
+      </RegistrationWrapper>
     </Container>
   )
 }
