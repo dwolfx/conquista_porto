@@ -15,5 +15,5 @@ export default function ButtonLink({ children, ...rest }) {
 }
 
 ButtonLink.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 }

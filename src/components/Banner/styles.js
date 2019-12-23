@@ -10,6 +10,7 @@ export const BannerWrapper = styled.div`
   border-radius: 8px;
   display: flex;
   height: ${props => (props.size === 'sm' ? `208px` : `242px`)};
+  max-width: ${props => (props.size === 'sm' ? '632px' : '100%')};
   overflow: hidden;
   padding: ${props => (props.size === 'sm' ? `28px` : `50px 28px`)};
   position: relative;

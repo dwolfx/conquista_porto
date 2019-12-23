@@ -9,8 +9,7 @@ export default function Banner({ bgImage, children, label, size, ...rest }) {
     <BannerWrapper image={bgImage} size={size} {...rest}>
       <Container>
         <Row>
-          {size === 'lg' && <Col lg="6" />}
-          <Col lg={size === 'sm' ? 12 : 6}>
+          <Col lg={size === 'sm' ? 12 : 6} offset={size === 'lg' ? 6 : 0}>
             {!!label && <BannerLabel>{label}</BannerLabel>}
             <BannerContent>{children}</BannerContent>
           </Col>
