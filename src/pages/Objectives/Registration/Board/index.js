@@ -5,7 +5,7 @@ import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
-import { CardWrapper, CardTitle } from './styles'
+import { CardWrapper, CardTitle, IconWrapper } from './styles'
 
 const Board = () => {
   const boardData = [
@@ -59,11 +59,13 @@ const Board = () => {
         {boardData.map(card => (
           <Col lg={3} md={4} sm={6} xs={12}>
             <CardWrapper key={card.cardTitle}>
-              <Icon
-                name={card.cardIcon}
-                fill={themeContext.colors.blue4}
-                width="56px"
-              />
+              <IconWrapper>
+                <Icon
+                  name={card.cardIcon}
+                  fill={themeContext.colors.blue4}
+                  width="56px"
+                />
+              </IconWrapper>
               <CardTitle>{card.cardTitle}</CardTitle>
               {card.cardPath && (
                 <Button outline path={card.cardPath}>

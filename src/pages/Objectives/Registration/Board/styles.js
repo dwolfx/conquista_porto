@@ -13,3 +13,5 @@ export const CardWrapper = styled(Card)`
 export const CardTitle = styled(Text).attrs({ type: 'title5' })`
   margin: 30px 0;
 `
+
+export const IconWrapper = styled.div``
