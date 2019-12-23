@@ -44,14 +44,14 @@ export default function Menu({ scrollFunc }) {
           isSelected={selectedOption === 'objetivos'}
           onClick={() => handleClick('t2', 'objetivos')}
         >
-          <Icon name="apps" />
+          <Icon name="target" />
           <OptionName>Objetivos</OptionName>
         </Option>
         <Option
           isSelected={selectedOption === 'pontos'}
           onClick={() => handleClick('t3', 'pontos')}
         >
-          <Icon name="apps" />
+          <Icon name="diamond" />
           <OptionName>Pontos</OptionName>
         </Option>
       </MenuContainer>
