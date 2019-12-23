@@ -35,7 +35,10 @@ export const CardIcon = styled.div`
 export const CardTitle = styled(Text).attrs({ type: 'title5', bold: true })``
 
 export const CardBody = styled.div`
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  overflow: hidden;
 `
 
 export const CardFooter = styled.div`

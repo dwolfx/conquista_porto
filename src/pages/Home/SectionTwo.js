@@ -10,58 +10,69 @@ import {
   BannerTips,
   FullHeightCard,
   FullHeightCardObjectives,
+  OfferCardButton,
 } from './styles'
 
-const SectionTwo = () => (
-  <>
-    <GridCol lg="6">
-      <FullHeightCard headerIcon="target" headerTitle="Objetivos">
-        <Row>
-          <Col lg="6">
-            <Text type="title5">Saldo disponível</Text>
-          </Col>
-        </Row>
-      </FullHeightCard>
-    </GridCol>
+const SectionTwo = () => {
+  const renderObjectiveCardFooter = () => (
+    <OfferCardButton>Gerenciar objetivos</OfferCardButton>
+  )
 
-    <GridCol lg="6">
-      <GridRow style={{ height: '50%', paddingBottom: 7 }}>
-        <GridCol lg="4">
-          <FullHeightCardObjectives
-            icon="homewithwindow"
-            title="Comprar uma casa"
-            link="/"
-          />
-        </GridCol>
-        <GridCol lg="4">
-          <FullHeightCardObjectives
-            icon="car2"
-            title="Comprar um carro"
-            link="/"
-          />
-        </GridCol>
-        <GridCol lg="4">
-          <FullHeightCardObjectives
-            icon="add"
-            title="Criar um objetivo"
-            link="/"
-          />
-        </GridCol>
-      </GridRow>
+  return (
+    <>
+      <GridCol lg="6">
+        <FullHeightCard
+          headerIcon="target"
+          headerTitle="Objetivos"
+          footer={renderObjectiveCardFooter()}
+        >
+          <Row>
+            <Col lg="6">
+              <Text type="title5">Saldo disponível</Text>
+            </Col>
+          </Row>
+        </FullHeightCard>
+      </GridCol>
 
-      <GridRow style={{ height: '50%', paddingTop: 7 }}>
-        <GridCol lg="12">
-          <BannerTips label="Dicas para economizar" image={TipBannerImg}>
-            <Text type="title3">Registre todas as despesas</Text>
-            <Text>
-              Como você pretende controlar se não sabe onde ele está? Este é o
-              primeiro passo para começar a poupar
-            </Text>
-          </BannerTips>
-        </GridCol>
-      </GridRow>
-    </GridCol>
-  </>
-)
+      <GridCol lg="6">
+        <GridRow style={{ height: '50%', paddingBottom: 7 }}>
+          <GridCol lg="4">
+            <FullHeightCardObjectives
+              icon="homewithwindow"
+              title="Comprar uma casa"
+              link="/"
+            />
+          </GridCol>
+          <GridCol lg="4">
+            <FullHeightCardObjectives
+              icon="car2"
+              title="Comprar um carro"
+              link="/"
+            />
+          </GridCol>
+          <GridCol lg="4">
+            <FullHeightCardObjectives
+              icon="add"
+              title="Criar um objetivo"
+              link="/"
+            />
+          </GridCol>
+        </GridRow>
+
+        <GridRow style={{ height: '50%', paddingTop: 7 }}>
+          <GridCol lg="12">
+            <BannerTips label="Dicas para economizar" image={TipBannerImg}>
+              <Text type="title3">Registre todas as despesas</Text>
+              <Text>
+                Como você pretende controlar se não sabe onde ele está? Este é o
+                primeiro passo para começar a poupar
+              </Text>
+            </BannerTips>
+          </GridCol>
+        </GridRow>
+      </GridCol>
+    </>
+  )
+}
 
 export default SectionTwo

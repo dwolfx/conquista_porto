@@ -1,5 +1,5 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
-import { Row, Col } from 'styled-bootstrap-grid'
 
 import OfferCarImg from 'assets/images/pages/Home/car_offer.jpg'
 import OfferHomeImg from 'assets/images/pages/Home/home_offer.jpg'
@@ -7,44 +7,58 @@ import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
 
+import { PointsListArr } from './mock'
 import {
-  GridCol,
+  SectionCol,
   FullHeightCard,
   CardPontosFooter,
   OfferBox,
   OfferImageBox,
   OfferTextBox,
+  PointsItem,
+  PointsInfo,
+  PointDate,
+  PointName,
+  PointNumber,
+  PointsList,
 } from './styles'
 
 export default function SectionThree() {
-  const renderPontosFooter = () => (
+  const renderPointsFooter = () => (
     <CardPontosFooter>
       <ButtonLink>Regras e condições</ButtonLink>
       <ButtonLink>Ver extrato</ButtonLink>
     </CardPontosFooter>
   )
 
+  const renderPointsList = () =>
+    PointsListArr.map((item, index) => (
+      <PointsItem key={`point-${index}`}>
+        <PointDate>{item.date}</PointDate>
+        <PointName>{item.name}</PointName>
+        <PointNumber bold>{item.points}</PointNumber>
+      </PointsItem>
+    ))
+
   return (
     <>
-      <GridCol lg="6">
+      <SectionCol lg="6">
         <FullHeightCard
           headerIcon="diamond"
           headerTitle="Pontos"
-          footer={renderPontosFooter()}
+          footer={renderPointsFooter()}
         >
-          <Row>
-            <Col>
-              <Text>Saldo atual</Text>
-              <Text bold> 116.500 pontos</Text>
-              <Button color="secondary">Resgatar</Button>
-            </Col>
-          </Row>
-          <Row>
-            <Col></Col>
-          </Row>
+          <PointsInfo>
+            <Text type="title5">Saldo atual</Text>
+            <Text type="title5" bold>
+              116.500 pontos
+            </Text>
+            <Button color="secondary">Resgatar</Button>
+          </PointsInfo>
+          <PointsList>{renderPointsList()}</PointsList>
         </FullHeightCard>
-      </GridCol>
-      <GridCol lg="3">
+      </SectionCol>
+      <SectionCol lg="3">
         <FullHeightCard headerIcon="diamond" headerTitle="#OfertaCarro">
           <OfferBox>
             <OfferImageBox>
@@ -61,8 +75,8 @@ export default function SectionThree() {
             </OfferTextBox>
           </OfferBox>
         </FullHeightCard>
-      </GridCol>
-      <GridCol lg="3">
+      </SectionCol>
+      <SectionCol lg="3">
         <FullHeightCard headerIcon="diamond" headerTitle="#OfertaCasa">
           <OfferBox>
             <OfferImageBox>
@@ -78,7 +92,7 @@ export default function SectionThree() {
             </OfferTextBox>
           </OfferBox>
         </FullHeightCard>
-      </GridCol>
+      </SectionCol>
     </>
   )
 }
