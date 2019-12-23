@@ -28,6 +28,7 @@ import { ReactComponent as computersecure } from 'assets/icons/computer-secure.s
 import { ReactComponent as creditcard } from 'assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from 'assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
+import { ReactComponent as drink } from 'assets/icons/drink.svg'
 import { ReactComponent as financial } from 'assets/icons/financial.svg'
 import { ReactComponent as forward } from 'assets/icons/forward.svg'
 import { ReactComponent as gear } from 'assets/icons/gear.svg'
@@ -51,6 +52,7 @@ import { ReactComponent as piechart } from 'assets/icons/pie-chart.svg'
 import { ReactComponent as remove } from 'assets/icons/remove.svg'
 import { ReactComponent as refresh } from 'assets/icons/refresh.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
+import { ReactComponent as student } from 'assets/icons/student-male.svg'
 import { ReactComponent as talkman } from 'assets/icons/talk-man.svg'
 import { ReactComponent as tag } from 'assets/icons/tag.svg'
 import { ReactComponent as target } from 'assets/icons/target.svg'
@@ -88,6 +90,7 @@ const dict = {
   creditcard,
   creditcard2,
   diamond,
+  drink,
   financial,
   fingerprint,
   forward,
@@ -112,6 +115,7 @@ const dict = {
   refresh,
   remove,
   safebox,
+  student,
   tag,
   talkman,
   target,

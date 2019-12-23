@@ -26,6 +26,8 @@ import CartaoCredito from 'pages/CreditCard'
 import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
+import Objectives from 'pages/Objectives'
+import ObjectivesRegistration from 'pages/Objectives/Registration'
 
 const DefaultRoute = ({ component, ...rest }) => {
   const Component = component
@@ -111,6 +113,8 @@ export default function Routes({ ...props }) {
       />
       <DefaultRoute path="/seguro-viagem" exact component={TripInsurance} />
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
+      <DefaultRoute path="/objetivos" exact component={Objectives} />
+      <Route path="/objetivos/criar" exact component={ObjectivesRegistration} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"
