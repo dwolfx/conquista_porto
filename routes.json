@@ -1,5 +1,6 @@
 {
   "/investimento/*": "/$1",
   "/produtos/v1/cartaocredito": "/cartao_credito",
-  "/produtos/v1/cartaocredito/:id": "/cartao_credito/:id"
+  "/produtos/v1/cartaocredito/:id": "/cartao_credito/:id",
+  "/produto/v1/previdencia": "/previdencia_privada"
 }
