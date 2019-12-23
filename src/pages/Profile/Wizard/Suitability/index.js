@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import Header from 'components/Wizard/Header'
 import StepsBullet from 'components/Wizard/StepsBullet'
@@ -9,10 +10,17 @@ import { Container } from '../styles'
 
 export default () => {
   const [step, setStep] = useState(1)
+  const history = useHistory()
 
   return (
     <Container>
-      <Header />
+      <Header
+        onClose={() => {
+          history.push('/perfil')
+          document.documentElement.scrollTop = 0
+          document.body.scrollTop = 0
+        }}
+      />
 
       <StepsBullet numberSteps={2} currentStep={step} />
 
