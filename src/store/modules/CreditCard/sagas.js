@@ -13,4 +13,4 @@ function* getData() {
   }
 }
 
-export default all([takeLatest(Types.ADD_REQUEST, getData)])
+export default all([takeLatest(Types.GET_REQUEST, getData)])

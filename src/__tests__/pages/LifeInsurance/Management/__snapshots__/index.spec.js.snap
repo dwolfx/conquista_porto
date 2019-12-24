@@ -49,6 +49,7 @@ Array [
         </div>
         <div
           className="sc-kEYyzF kqtRGP"
+          onClick={null}
         >
           <span
             className="sc-jhAzac hDroat"
@@ -73,7 +74,7 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-hSdWYo hShpdI"
+        className="sc-hSdWYo issovg"
       >
         <h4
           className="sc-iRbamj OAaH"
