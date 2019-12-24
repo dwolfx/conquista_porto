@@ -23,7 +23,7 @@ export const Content = styled.div`
   }
 
   .button-with-right-icon {
-    span {
+    span.icon {
       position: absolute;
       top: 7px;
       right: 12px;

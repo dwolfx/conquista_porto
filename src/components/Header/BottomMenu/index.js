@@ -88,7 +88,7 @@ export default function BottomMenu() {
   return (
     <Menu>
       <Wrapper>
-        <MenuItem to="/">
+        <MenuItem to="/objetivos">
           <BasicIcon name="target" />
           <BottomMenuText>Objetivos</BottomMenuText>
         </MenuItem>

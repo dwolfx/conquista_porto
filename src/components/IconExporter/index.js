@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { ReactComponent as add } from 'assets/icons/add.svg'
 import { ReactComponent as alertrounded } from 'assets/icons/alert-rounded.svg'
 import { ReactComponent as apps } from 'assets/icons/apps.svg'
-import { ReactComponent as arrowdown } from 'assets/icons/arrow-down.svg'
+import { ReactComponent as arrowdown } from 'assets/icons/arrow-down2.svg'
 import { ReactComponent as arrowleft } from 'assets/icons/arrow-left.svg'
 import { ReactComponent as arrowright } from 'assets/icons/arrow-right.svg'
 import { ReactComponent as arrowup } from 'assets/icons/arrow-up.svg'
@@ -28,6 +28,7 @@ import { ReactComponent as computersecure } from 'assets/icons/computer-secure.s
 import { ReactComponent as creditcard } from 'assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from 'assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
+import { ReactComponent as drink } from 'assets/icons/drink.svg'
 import { ReactComponent as financial } from 'assets/icons/financial.svg'
 import { ReactComponent as forward } from 'assets/icons/forward.svg'
 import { ReactComponent as gear } from 'assets/icons/gear.svg'
@@ -51,9 +52,11 @@ import { ReactComponent as piechart } from 'assets/icons/pie-chart.svg'
 import { ReactComponent as remove } from 'assets/icons/remove.svg'
 import { ReactComponent as refresh } from 'assets/icons/refresh.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
+import { ReactComponent as student } from 'assets/icons/student-male.svg'
 import { ReactComponent as talkman } from 'assets/icons/talk-man.svg'
 import { ReactComponent as tag } from 'assets/icons/tag.svg'
 import { ReactComponent as target } from 'assets/icons/target.svg'
+import { ReactComponent as targetmarket } from 'assets/icons/target-market.svg'
 import { ReactComponent as thumbsup } from 'assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from 'assets/icons/time.svg'
 import { ReactComponent as trash } from 'assets/icons/trashcan.svg'
@@ -87,6 +90,7 @@ const dict = {
   creditcard,
   creditcard2,
   diamond,
+  drink,
   financial,
   fingerprint,
   forward,
@@ -111,9 +115,11 @@ const dict = {
   refresh,
   remove,
   safebox,
+  student,
   tag,
   talkman,
   target,
+  targetmarket,
   thumbsup,
   time,
   trash,

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import CarouselGeneric from 'components/Carousel/index'
+import CarouselGeneric from 'components/Carousel'
 
 export const Container = styled.section`
   background-color: ${props => props.theme.colors.white};

@@ -17,6 +17,9 @@ const notificationDropdownSvgStyle = css`
 export const MainContainer = styled.header`
   background-color: #34373e;
   width: 100%;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
 `
 
 export const Container = styled.div`

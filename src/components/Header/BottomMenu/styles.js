@@ -53,6 +53,9 @@ export const IconCircle = styled.div`
   cursor: pointer;
 `
 export const Menu = styled.div`
+  position: sticky;
+  top: 82px;
+  z-index: 10;
   display: flex;
   width: 100%;
   height: auto;

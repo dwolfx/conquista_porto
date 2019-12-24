@@ -3,7 +3,7 @@
 exports[`Header to render 1`] = `
 Array [
   <header
-    className="sc-chPdSV eeeHOb"
+    className="sc-chPdSV jCVgyW"
   >
     <div
       className="sc-kgoBCf fQqKPI"
@@ -267,10 +267,15 @@ Array [
                 className="sc-kGXeez hFgPLB"
               >
                 <button
-                  className="sc-bbmXgH gGGnjS"
+                  className="sc-bbmXgH cjVFib"
+                  color="primary"
                   to="/notifications"
                 >
-                  Ver Todos
+                  <span
+                    className="sc-gGBfsJ gEVmPY"
+                  >
+                    Ver Todos
+                  </span>
                 </button>
               </div>
             </div>
@@ -313,14 +318,14 @@ Array [
     </div>
   </header>,
   <div
-    className="sc-dnqmqq jDCxhD"
+    className="sc-dnqmqq gKZBit"
   >
     <div
       className="sc-jTzLTM fHWjDA"
     >
       <a
         className="sc-fjdhpX hdHfQQ"
-        href="/"
+        href="/objetivos"
         onClick={[Function]}
       >
         <svg
@@ -354,7 +359,7 @@ Array [
           <svg
             className="sc-bxivhb cnaRML"
           >
-            arrow-down.svg
+            arrow-down2.svg
           </svg>
         </div>
         <div

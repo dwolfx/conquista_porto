@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
-import example from './example/reducer'
+import creditCard from './CreditCard/reducer'
+import investmentsDetails from './Investment/Details/reducer'
 
 export default combineReducers({
-  example,
+  creditCard,
+  investmentsDetails,
 })
