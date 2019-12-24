@@ -52,4 +52,26 @@ export default createGlobalStyle`
     flex-direction: column;
     background-color: #F1F1F1;
   }
+
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    background-color: ${props => props.theme.colors.gray2};
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${props => props.theme.colors.gray5};
+  }
+
+  .with-custom-scroll {
+    &::-webkit-scrollbar {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${props => props.theme.colors.gray2};
+    }
+  }
 `

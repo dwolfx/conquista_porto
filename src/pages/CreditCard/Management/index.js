@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 // eslint-disable-next-line no-unused-vars
@@ -18,6 +18,10 @@ import RightContent from 'components/Management/RightContent'
 import Icon from 'components/IconExporter'
 
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
+
+import { formatMoney } from 'helpers'
+
+import { useSelector } from 'react-redux'
 
 import {
   BreadcrumbContainer,
@@ -128,164 +132,204 @@ const settings = {
 
 export default function ManagementCreditCard({ history }) {
   useFetchCreditCard()
+
+  const [selectedCreditCard, setSelectedCreditCard] = useState(null)
+
   const themeContext = useContext(ThemeContext)
+  const creditCard = useSelector(state => state.creditCard)
 
-  return (
-    <>
-      <Container>
-        <BreadcrumbContainer>
-          <Breadcrumb crumbs={['Soluções', 'cartão de crédito']} />
-        </BreadcrumbContainer>
-        <PageContent>
-          <LeftNav>
-            <AddBtnLink
-              onClick={() => {
-                history.push('/')
-              }}
-            >
-              <Icon width="48" fill="#ccc" name="add" />
-              <Text fontColor="#aaa" fontSize="14px">
-                Adicionar
-              </Text>
-            </AddBtnLink>
+  useEffect(() => {
+    if (creditCard.data.length) {
+      setSelectedCreditCard(creditCard.data[0].id)
+    }
+  }, [creditCard.data])
 
-            <ManageableItem>
-              <Text
-                fontSize="14px"
-                lineHeight="19px"
-                margin="0 0 14px 0"
-                textAlign="center"
+  function scrollPage() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
+
+  if (creditCard.data.length && selectedCreditCard) {
+    return (
+      <>
+        <Container>
+          <BreadcrumbContainer>
+            <Breadcrumb crumbs={['Soluções', 'cartão de crédito']} />
+          </BreadcrumbContainer>
+          <PageContent id="cc-top-page">
+            <LeftNav>
+              <AddBtnLink
+                onClick={() => {
+                  history.push('/')
+                }}
               >
-                Mundo 120 Prata
-              </Text>
-              <Text
-                fontSize="11px"
-                fontWeight={600}
-                letterSpacing="1.5px"
-                margin="0 0 7px 0"
-              >
-                BANDEIRA
-              </Text>
-              <Text fontSize="14px">Visa</Text>
-            </ManageableItem>
-          </LeftNav>
-          <RightContent>
-            <PageTitle>Mundo 120 Prata</PageTitle>
-            <Topics settings={settings}>
-              <Topic>
-                <Icon width="28" fill={themeContext.colors.blue4} name="tag" />
-                <div>
-                  <TopicTitle>bandeira</TopicTitle>
-                  <TopicValue>Visa</TopicValue>
-                </div>
-              </Topic>
-              <Topic>
-                <Icon
-                  width="28"
-                  fill={themeContext.colors.blue4}
-                  name="creditcard"
-                />
-                <div>
-                  <TopicTitle>tipo</TopicTitle>
-                  <TopicValue>Gold</TopicValue>
-                </div>
-              </Topic>
-              <Topic>
-                <Icon width="28" fill={themeContext.colors.blue4} name="lock" />
-                <div>
-                  <TopicTitle>4 últimos numeros</TopicTitle>
-                  <TopicValue>9999</TopicValue>
-                </div>
-              </Topic>
-            </Topics>
-            <InvoiceContainer>
-              <InvoiceHeader>
-                <DateContent>
-                  <Text
-                    fontSize="22px"
-                    margin="0 0 7px 0"
-                    lineHeight="32px"
-                    textAlign="center"
-                  >
-                    Vencimento da Fatura
-                  </Text>
-                  <Text>22</Text>
-                </DateContent>
-                <DateContent>
-                  <Text
-                    fontSize="22px"
-                    margin="0 0 7px 0"
-                    lineHeight="32px"
-                    textAlign="center"
-                  >
-                    Melhor dia para compra
-                  </Text>
-                  <Text>10</Text>
-                </DateContent>
-              </InvoiceHeader>
-              <Invoice>
-                <Text
-                  fontSize="18px"
-                  margin="0 0 14px 0"
-                  lineHeight="28px"
-                  textAlign="center"
-                >
-                  Fatura
+                <Icon width="48" fill="#ccc" name="add" />
+                <Text fontColor="#aaa" fontSize="14px">
+                  Adicionar
                 </Text>
-                <InvoiceItem>
-                  <Text>Fechada</Text>
-                  <Text>R$ 50.000,00</Text>
-                </InvoiceItem>
-                <InvoiceItem>
-                  <Text>Aberta</Text>
-                  <Text>R$ 500.000,00</Text>
-                </InvoiceItem>
-              </Invoice>
-            </InvoiceContainer>
-            <ComplementaryInfo>
-              <Text
-                margin="22px 0"
-                lineHeight="21px"
-                letterSpacing="1.5px"
-                fontColor={themeContext.colors.gray6}
-                fontWeight="600"
-                fontSize="11px"
+              </AddBtnLink>
+
+              {creditCard.data.map(item => (
+                <ManageableItem
+                  key={item.id}
+                  active={selectedCreditCard === item.id}
+                  onClick={() => {
+                    setSelectedCreditCard(item.id)
+                    scrollPage(`cc-top-page`)
+                  }}
+                >
+                  <Text
+                    fontSize="14px"
+                    lineHeight="19px"
+                    margin="0 0 14px 0"
+                    textAlign="center"
+                  >
+                    Mundo 120 Prata
+                  </Text>
+                  <Text
+                    fontSize="11px"
+                    fontWeight={600}
+                    letterSpacing="1.5px"
+                    margin="0 0 7px 0"
+                  >
+                    BANDEIRA
+                  </Text>
+                  <Text fontSize="14px">{item.bandeira}</Text>
+                </ManageableItem>
+              ))}
+            </LeftNav>
+            {creditCard.data.map(item => (
+              <RightContent
+                key={item.id}
+                isSelected={item.id === selectedCreditCard}
               >
-                INFORMAÇÕES COMPLEMENTARES
-              </Text>
-              <FileDownloadSection
-                data={complementaryInfo}
-                backgroundColor="inherit"
-              />
-            </ComplementaryInfo>
-          </RightContent>
-        </PageContent>
-      </Container>
-      <HighlightSection
-        title="O cartão cheio de vantagens."
-        mainDescription="Descontos em seguros para você, para sua casa e para seu carro."
-        subDescription="Além das conveniências da Porto Seguro, o Cartão de Crédito tem bandeiras e limites para
+                <PageTitle>Mundo 120 Prata</PageTitle>
+                <Topics settings={settings}>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="tag"
+                    />
+                    <div>
+                      <TopicTitle>bandeira</TopicTitle>
+                      <TopicValue>{item.bandeira}</TopicValue>
+                    </div>
+                  </Topic>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="creditcard"
+                    />
+                    <div>
+                      <TopicTitle>tipo</TopicTitle>
+                      <TopicValue>{item.tipo}</TopicValue>
+                    </div>
+                  </Topic>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="lock"
+                    />
+                    <div>
+                      <TopicTitle>4 últimos numeros</TopicTitle>
+                      <TopicValue>{item.ultimosDigitos}</TopicValue>
+                    </div>
+                  </Topic>
+                </Topics>
+                <InvoiceContainer>
+                  <InvoiceHeader>
+                    <DateContent>
+                      <Text
+                        fontSize="22px"
+                        margin="0 0 7px 0"
+                        lineHeight="32px"
+                        textAlign="center"
+                      >
+                        Vencimento da Fatura
+                      </Text>
+                      <Text>{item.fatura.vencimento}</Text>
+                    </DateContent>
+                    <DateContent>
+                      <Text
+                        fontSize="22px"
+                        margin="0 0 7px 0"
+                        lineHeight="32px"
+                        textAlign="center"
+                      >
+                        Melhor dia para compra
+                      </Text>
+                      <Text>{item.fatura.melhorDataCompra}</Text>
+                    </DateContent>
+                  </InvoiceHeader>
+                  <Invoice>
+                    <Text
+                      fontSize="18px"
+                      margin="0 0 14px 0"
+                      lineHeight="28px"
+                      textAlign="center"
+                    >
+                      Fatura
+                    </Text>
+                    <InvoiceItem>
+                      <Text>{item.fatura.status}</Text>
+                      <Text>{formatMoney(item.fatura.valor)}</Text>
+                    </InvoiceItem>
+                  </Invoice>
+                </InvoiceContainer>
+                <ComplementaryInfo>
+                  <Text
+                    margin="22px 0"
+                    lineHeight="21px"
+                    letterSpacing="1.5px"
+                    fontColor={themeContext.colors.gray6}
+                    fontWeight="600"
+                    fontSize="11px"
+                  >
+                    INFORMAÇÕES COMPLEMENTARES
+                  </Text>
+                  <FileDownloadSection
+                    data={complementaryInfo}
+                    backgroundColor="inherit"
+                  />
+                </ComplementaryInfo>
+              </RightContent>
+            ))}
+          </PageContent>
+        </Container>
+        <HighlightSection
+          title="O cartão cheio de vantagens."
+          mainDescription="Descontos em seguros para você, para sua casa e para seu carro."
+          subDescription="Além das conveniências da Porto Seguro, o Cartão de Crédito tem bandeiras e limites para
         vários perfis. Inclusive, na simulação, você pode verificar se há pré-aprovações para você."
-        buttonText={
-          <span>
-            SIMULAR E CONTRATAR
-            <span
-              css={`
-                position: absolute;
-                top: 7px;
-                right: 12px;
-                font-size: 13px;
-              `}
-            >
-              &gt;
+          buttonText={
+            <span>
+              SIMULAR E CONTRATAR
+              <span
+                css={`
+                  position: absolute;
+                  top: 7px;
+                  right: 12px;
+                  font-size: 13px;
+                `}
+              >
+                &gt;
+              </span>
             </span>
-          </span>
-        }
-      />
-      <MoreDetails title="Saiba mais:" data={moreDetailsData} />
-      <FileDownloadSection data={downloadFileSectionData} />
-    </>
-  )
+          }
+        />
+        <MoreDetails title="Saiba mais:" data={moreDetailsData} />
+        <FileDownloadSection data={downloadFileSectionData} />
+      </>
+    )
+  }
+
+  return <div />
 }
 
 ManagementCreditCard.propTypes = {
