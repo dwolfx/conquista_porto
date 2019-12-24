@@ -1,5 +1,6 @@
 {
   "/conquistaapi/investimento/v1/*": "/$1",
   "/cartoes\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/cartao_credito?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
+  "/previdencia\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/previdencia_privada?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
   "/produtos/v1/fundos/detalhe": "/fundos_detalhe"
 }
