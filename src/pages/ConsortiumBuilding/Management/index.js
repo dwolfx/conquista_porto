@@ -95,8 +95,8 @@ export default function ManagementConsortiumBuilding({ history }) {
                 history.push('/')
               }}
             >
-              <Icon width="48" fill="#ccc" name="add" />
-              <Text fontColor="#aaa" fontSize="14px">
+              <Icon width="48" fill={themeContext.colors.gray3} name="add" />
+              <Text fontColor={themeContext.colors.gray4} fontSize="14px">
                 Adicionar
               </Text>
             </AddBtnLink>

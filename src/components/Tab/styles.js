@@ -25,7 +25,7 @@ export const Tab = styled.div`
     background-image: linear-gradient(
       to bottom,
       ${props => props.theme.colors.white} 0%,
-      #f7f7f7 100%
+      ${props => props.theme.colors.gray1} 100%
     );
     height: 3.75rem;
     margin-top: 0;

@@ -16,7 +16,7 @@ const arrowSvgStyle = css`
 
 const defaultWrapper = css`
   align-items: flex-start;
-  background-color: #555861;
+  background-color: ${props => props.theme.colors.gray6};
   border-bottom: 1px solid ${props => props.theme.colors.white};
   display: flex;
   padding: 15px;
@@ -25,14 +25,14 @@ const defaultWrapper = css`
 
 const disabled = css`
   svg {
-    fill: #a2a2a2;
+    fill: ${props => props.theme.colors.gray4};
   }
   p {
-    color: #a2a2a2;
+    color: ${props => props.theme.colors.gray4};
   }
 `
 export const Container = styled.div`
-  background-color: #555861;
+  background-color: ${props => props.theme.colors.gray6};
   transition: transform 0.3s ease-out;
   transform: ${props =>
     props.isOpen ? 'translateX(0%)' : 'translateX(-150%)'};
@@ -59,7 +59,7 @@ export const IconCircle = styled.div`
 export const TagWrapper = styled.div`
   display: flex;
   padding: 0px 3px;
-  border: 1px solid #a2a2a2;
+  border: 1px solid ${props => props.theme.colors.gray4};
   border-radius: 3px;
   margin-left: 15px;
 `
@@ -121,7 +121,7 @@ export const TargetIcon = styled(ConquistaIcon).attrs({ name: 'target' })`
 `
 
 export const MenuHeader = styled.div`
-  background-color: #34373e;
+  background-color: ${props => props.theme.colors.gray6};
   display: flex;
   flex-direction: row;
   justify-content: space-between;

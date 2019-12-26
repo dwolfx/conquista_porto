@@ -153,8 +153,8 @@ export default function ManagementInvestments({ history }) {
                 history.push('/')
               }}
             >
-              <Icon width="48" fill="#ccc" name="add" />
-              <Text fontColor="#aaa" fontSize="14px">
+              <Icon width="48" fill={theme.colors.gray3} name="add" />
+              <Text fontColor={theme.colors.gray4} fontSize="14px">
                 Lista de Fundos
               </Text>
             </AddBtnLink>
@@ -220,7 +220,11 @@ export default function ManagementInvestments({ history }) {
                 <CurrentBalance>
                   <RowBankTransition>
                     <BankTransitionDateWrapper>
-                      <Icon name="add" fill="#87c74d" width="16px" />
+                      <Icon
+                        name="add"
+                        fill={theme.colors.green3}
+                        width="16px"
+                      />
                       <Text
                         fontSize="15px"
                         lineHeight="28px"
@@ -236,7 +240,11 @@ export default function ManagementInvestments({ history }) {
                   </RowBankTransition>
                   <RowBankTransition marginTop="4px">
                     <BankTransitionDateWrapper>
-                      <Icon name="remove" fill="#E75A5B" width="16px" />
+                      <Icon
+                        name="remove"
+                        fill={theme.colors.magenta2}
+                        width="16px"
+                      />
                       <Text
                         fontSize="15px"
                         lineHeight="28px"
@@ -250,7 +258,10 @@ export default function ManagementInvestments({ history }) {
                       R$ 9.990,00
                     </Text>
                   </RowBankTransition>
-                  <RowBankTransition marginTop="4px" borderTop="1px solid #ccc">
+                  <RowBankTransition
+                    marginTop="4px"
+                    borderTop={`1px solid ${theme.colors.gray3}`}
+                  >
                     <Text fontSize="15px" lineHeight="28px" fontWeight="bold">
                       Saldo disponível
                     </Text>
@@ -260,7 +271,11 @@ export default function ManagementInvestments({ history }) {
                   </RowBankTransition>
                   <RowBankTransition marginTop="14px">
                     <BankTransitionDateWrapper>
-                      <Icon name="remove" fill="#E75A5B" width="16px" />
+                      <Icon
+                        name="remove"
+                        fill={theme.colors.magenta2}
+                        width="16px"
+                      />
                       <Text
                         fontSize="15px"
                         lineHeight="28px"
@@ -276,7 +291,11 @@ export default function ManagementInvestments({ history }) {
                   </RowBankTransition>
                   <RowBankTransition marginTop="4px">
                     <BankTransitionDateWrapper>
-                      <Icon name="remove" fill="#E75A5B" width="16px" />
+                      <Icon
+                        name="remove"
+                        fill={theme.colors.magenta2}
+                        width="16px"
+                      />
                       <Text
                         fontSize="15px"
                         lineHeight="28px"
@@ -290,7 +309,10 @@ export default function ManagementInvestments({ history }) {
                       R$ 79.750,00
                     </Text>
                   </RowBankTransition>
-                  <RowBankTransition marginTop="4px" borderTop="1px solid #ccc">
+                  <RowBankTransition
+                    marginTop="4px"
+                    borderTop={`1px solid ${theme.colors.gray3}`}
+                  >
                     <Text fontSize="15px" lineHeight="28px" fontWeight="bold">
                       Saldo líquido
                     </Text>
@@ -311,7 +333,11 @@ export default function ManagementInvestments({ history }) {
                       R$ 12.000,00
                     </Text>
                   </RowBankTransition>
-                  <Text fontSize="12px" lineHeight="1.3" fontColor="#989898">
+                  <Text
+                    fontSize="12px"
+                    lineHeight="1.3"
+                    fontColor={theme.colors.gray5}
+                  >
                     O saldo refere-se ao valor na data de 01/03/2019 e será
                     atualizado no decorrer do dia. Resgastes realizados estarão
                     sujeitos à confirmação.
@@ -434,7 +460,7 @@ export default function ManagementInvestments({ history }) {
               <Text>Últimas Movimentações</Text>
               <RowBankTransition width="310px" marginTop="22px">
                 <BankTransitionDateWrapper>
-                  <Icon name="add" fill="#87c74d" width="14px" />
+                  <Icon name="add" fill={theme.colors.green3} width="14px" />
                   <Text
                     fontSize="12px"
                     lineHeight="22px"
@@ -453,7 +479,11 @@ export default function ManagementInvestments({ history }) {
               </RowBankTransition>
               <RowBankTransition width="310px" marginTop="22px">
                 <BankTransitionDateWrapper>
-                  <Icon name="remove" fill="#E75A5B" width="14px" />
+                  <Icon
+                    name="remove"
+                    fill={theme.colors.magenta2}
+                    width="14px"
+                  />
                   <Text
                     fontSize="12px"
                     lineHeight="22px"

@@ -19,7 +19,7 @@ export const StepContainer = styled.div`
 
   &:before {
     content: '';
-    background-color: #d7d7d7;
+    background-color: ${props => props.theme.colors.gray3};
     height: 1px;
     width: 100%;
     position: absolute;
@@ -38,7 +38,7 @@ export const Step = styled.div`
 
 export const BulletPoint = styled.div`
   background-color: ${props =>
-    props.filled ? props.theme.colors.blue4 : '#d7d7d7'};
+    props.filled ? props.theme.colors.blue4 : props.theme.colors.gray3};
   height: 15px;
   width: 15px;
   border-radius: 50%;

@@ -60,68 +60,68 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-bZQynM jYBJXz"
           >
             <th
-              className="sc-gzVnrw cMPntq"
+              className="sc-gzVnrw bAymCU"
             />
             <th
-              className="sc-gzVnrw cMPntq"
+              className="sc-gzVnrw bAymCU"
             >
               Mês Anterior
             </th>
             <th
-              className="sc-gzVnrw cMPntq"
+              className="sc-gzVnrw bAymCU"
             >
               Ano
             </th>
             <th
-              className="sc-gzVnrw cMPntq"
+              className="sc-gzVnrw bAymCU"
             >
               Últ 12m
             </th>
             <th
-              className="sc-gzVnrw cMPntq"
+              className="sc-gzVnrw bAymCU"
             >
               Últ 24m
             </th>
             <th
-              className="sc-gzVnrw cMPntq"
+              className="sc-gzVnrw bAymCU"
             >
               Últ 36m
             </th>
           </tr>
         </thead>
         <tbody
-          className="sc-EHOje cdJqGg"
+          className="sc-EHOje eCwkmD"
         >
           <tr
             className="sc-bZQynM jYBJXz"
           >
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               Fundo (%)
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               0,94
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               8,39
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               14,25
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               22,94
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               39,22
             </td>
@@ -130,32 +130,32 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-bZQynM jYBJXz"
           >
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               ima-b 5 (%)
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               0,97
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               8,54
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               14,57
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               22,20
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               39,19
             </td>
@@ -164,32 +164,32 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-bZQynM jYBJXz"
           >
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               Variação (P.P.)
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               ---
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               ---
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               ---
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               0,74
             </td>
             <td
-              className="sc-htoDjs lebmau"
+              className="sc-htoDjs cLdQOW"
             >
               0,03
             </td>
@@ -199,7 +199,7 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </div>
   <section
-    className="sc-dnqmqq ktOOyn"
+    className="sc-dnqmqq hcXERo"
   >
     <h5
       className="sc-iwsKbI fHhByn"
@@ -344,13 +344,13 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </section>
   <section
-    className="sc-jDwBTQ ebrkWB"
+    className="sc-jDwBTQ bAsluu"
   >
     <div
-      className="sc-jAaTju ccWToO"
+      className="sc-jAaTju dxmOXo"
     >
       <div
-        className="sc-jzJRlG fkFgxj"
+        className="sc-jzJRlG iBRSUF"
       >
         <h4
           className="sc-chPdSV fMerZq"
@@ -490,7 +490,7 @@ exports[`FundsInfo renders correctly 1`] = `
         className="sc-kEYyzF cPzDlO"
       >
         <div
-          className="sc-kkGfuU idtkPx"
+          className="sc-kkGfuU eVqEMm"
         >
           <div>
             <svg
@@ -511,7 +511,7 @@ exports[`FundsInfo renders correctly 1`] = `
               className="sc-eHgmQL kxVpoD"
             />
             <p
-              className="sc-cvbbAY kDhLJP"
+              className="sc-cvbbAY jPiInA"
             >
               Baixar Arquivo
                &gt; 
@@ -519,7 +519,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
         </div>
         <div
-          className="sc-kkGfuU idtkPx"
+          className="sc-kkGfuU eVqEMm"
         >
           <div>
             <svg
@@ -540,7 +540,7 @@ exports[`FundsInfo renders correctly 1`] = `
               className="sc-eHgmQL kxVpoD"
             />
             <p
-              className="sc-cvbbAY kDhLJP"
+              className="sc-cvbbAY jPiInA"
             >
               Baixar Arquivo
                &gt; 
@@ -550,7 +550,7 @@ exports[`FundsInfo renders correctly 1`] = `
       </section>
     </div>
     <div
-      className="sc-kpOJdX brLYZi"
+      className="sc-kpOJdX kTonmo"
     >
       <h4
         className="sc-jKJlTe hNiMVG"

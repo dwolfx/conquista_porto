@@ -5,7 +5,7 @@ import { CardWrapper, Title, Description, TextBox } from './styles'
 export default function({ title, description, icon }) {
   return (
     <CardWrapper>
-      <ConquistaIcon name={icon} fill="#777" />
+      <ConquistaIcon name={icon} />
       <TextBox>
         <Title>{title}</Title>
         <Description>{description}</Description>

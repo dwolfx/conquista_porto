@@ -16,7 +16,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
       className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-gqjmRU hkumEm"
+        className="sc-gqjmRU dcKzbe"
       >
         <svg>
           male-female.svg
@@ -34,7 +34,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
       className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-gqjmRU hkumEm"
+        className="sc-gqjmRU dcKzbe"
       >
         <svg>
           bar-chart.svg
@@ -52,7 +52,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
       className="sc-gZMcBi ljvEcB"
     >
       <div
-        className="sc-gqjmRU hkumEm"
+        className="sc-gqjmRU dcKzbe"
       >
         <svg>
           safe-box.svg
@@ -108,11 +108,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX dUwkcQ"
+              className="sc-ifAKCX bWFNap"
             >
-              <svg
-                fill="#777"
-              >
+              <svg>
                 talk-man.svg
               </svg>
               <div
@@ -147,11 +145,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX dUwkcQ"
+              className="sc-ifAKCX bWFNap"
             >
-              <svg
-                fill="#777"
-              >
+              <svg>
                 diamond.svg
               </svg>
               <div
@@ -186,11 +182,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX dUwkcQ"
+              className="sc-ifAKCX bWFNap"
             >
-              <svg
-                fill="#777"
-              >
+              <svg>
                 call-center.svg
               </svg>
               <div
@@ -225,11 +219,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX dUwkcQ"
+              className="sc-ifAKCX bWFNap"
             >
-              <svg
-                fill="#777"
-              >
+              <svg>
                 apps.svg
               </svg>
               <div

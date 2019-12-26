@@ -11,8 +11,8 @@ export const BreadcrumbContainer = styled.div`
 `
 
 export const AddBtnLink = styled.div`
-  border: 2px solid #d2d2d2;
-  background-color: #f1f1f1;
+  border: 2px solid ${props => props.theme.colors.gray3};
+  background-color: ${props => props.theme.colors.gray1};
   padding: 8px;
   margin-bottom: 30px;
   padding: 14px;
@@ -37,7 +37,7 @@ export const AddBtnLink = styled.div`
 
 export const PageTitle = styled.h4`
   font-weight: 300;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   letter-spacing: 0;
   word-wrap: break-word;
   font-size: 22px;
@@ -80,7 +80,7 @@ export const TopicValue = styled.span`
 
 export const Section = styled.article`
   padding: 22px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid ${props => props.theme.colors.gray3};
 `
 
 export const Table = styled.table`
@@ -88,13 +88,13 @@ export const Table = styled.table`
   width: ${props => props.tableWidth || '100%'};
 
   thead {
-    background-color: #d6d6d6;
+    background-color: ${props => props.theme.colors.gray3};
     tr {
       th {
         padding: 22px 0;
         font-size: 14px;
         font-weight: 600;
-        color: #000;
+        color: ${props => props.theme.colors.black};
         letter-spacing: 2px;
         text-transform: uppercase;
         line-height: 24px;
@@ -105,7 +105,7 @@ export const Table = styled.table`
   tbody {
     tr {
       :nth-child(odd) {
-        background-color: #f6f6f6;
+        background-color: ${props => props.theme.colors.gray1};
       }
       td {
         color: ${props => props.theme.colors.gray6};
@@ -113,7 +113,7 @@ export const Table = styled.table`
         letter-spacing: 1px;
         line-height: 14px;
         text-align: center;
-        border: 1px solid #d2d2d2;
+        border: 1px solid ${props => props.theme.colors.gray3};
         width: 150px;
         padding: 22px 20px;
         text-transform: uppercase;
@@ -126,7 +126,7 @@ export const Table = styled.table`
 export const Text = styled.span`
   text-align: ${props => props.textAlign || 'left'};
   font-weight: ${props => props.fontWeight || '300'};
-  color: ${props => props.fontColor || '#000'};
+  color: ${props => props.fontColor || props.theme.colors.black};
   line-height: ${props => props.lineHeight || '24px'};
   margin: ${props => props.margin || '0'};
   font-size: ${props => props.fontSize || '18px'};
@@ -145,7 +145,7 @@ export const InvoiceItem = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-around;
-  background-color: #f1f1f1;
+  background-color: ${props => props.theme.colors.gray1};
   padding: 14px 0;
   border-radius: 4px;
   margin-bottom: 14px;
@@ -159,7 +159,7 @@ export const ClientAreaSection = styled.section`
   align-items: center;
   justify-content: space-around;
   height: 220px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid ${props => props.theme.colors.gray2};
 `
 
 export const Modal = styled(ModalDefault)`
@@ -177,7 +177,7 @@ export const ModalContent = styled.div`
 `
 
 export const Divider = styled.div`
-  border-top: 1px solid #ddd;
+  border-top: 1px solid ${props => props.theme.colors.gray3};
 `
 
 export const ShowAll = styled.p`
@@ -193,7 +193,7 @@ export const ShowAll = styled.p`
   font-weight: 600;
 
   :hover {
-    color: #2591bb;
+    color: ${props => props.theme.colors.blue5};
   }
 `
 
