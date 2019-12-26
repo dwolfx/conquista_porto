@@ -13,7 +13,7 @@ const StepSix = ({ onChangeScreen }) => (
     <Container>
       <Row justifyContent="center">
         <Col lg="6" xs="12">
-          <Question fontSize="26" align="center">
+          <Question>
             Gostaria de ter uma renda mensal determinada na aposentadoria?
           </Question>
         </Col>

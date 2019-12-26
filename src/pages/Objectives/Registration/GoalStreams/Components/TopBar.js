@@ -12,7 +12,9 @@ const TopBar = ({ currentStep, numberSteps }) => (
           <TitleBar>Criar Objetivo</TitleBar>
         </Col>
         <Col lgAuto xs={12}>
-          <TitleBar>Etapa {currentStep} de {numberSteps}</TitleBar>
+          <TitleBar>
+            Etapa {currentStep} de {numberSteps}
+          </TitleBar>
         </Col>
       </Row>
     </Container>
