@@ -123,56 +123,81 @@
       "taxa_performance": 0
     }
   ],
-  "previdencia_privada": [{
-    "coberturas": [
+  "previdencia_privada": [
+    {
+      "coberturas": [
+        {
+          "capitalSegurado": 0,
+          "detalhe": "string",
+          "nome": "string"
+        }
+      ],
+      "codigoOrigem": 0,
+      "dataFimVigencia": "2019-12-24T13:10:48.998Z",
+      "dataInicioVigencia": "2019-12-24T13:10:48.998Z",
+      "dataValorSaldoAtual": "2019-12-24T13:10:48.998Z",
+      "fundos": [
+        {
+          "nome": "string",
+          "percentualDistribuicao": 0,
+          "urlPDF": "string",
+          "valor": 0,
+          "valorTotal": 0
+        }
+      ],
+      "idadeBeneficio": 0,
+      "idadePrevisao": 0,
+      "modalidade": "string",
+      "nomeInstituidor": "string",
+      "nomeParticipante": "string",
+      "nomePlano": "string",
+      "nomeProduto": "string",
+      "nomeStatusProposta": "ATIVA",
+      "numeroProposta": 0,
+      "pontosGanhos": 0,
+      "propostaComplementoAuto": 0,
+      "qtdAnosSaldoPrevisao": 0,
+      "regimeTributario": "string",
+      "rendimentoUltimoAno": 0,
+      "saldoAtual": 0,
+      "saldoPrevisao": 0,
+      "saldos": [
+        {
+          "mesAno": "string",
+          "valor": 0
+        }
+      ],
+      "statusPrevidencia": "string",
+      "taxaAnualRendimento": 0,
+      "tipo": "string",
+      "tipoCobertura": "string",
+      "tipoProduto": "string",
+      "valorCoberturaVida": 0
+    }
+  ],
+  "consorcios_imovel": {
+    "cliente": {
+      "cpf": "33244452809"
+    },
+    "consorcios": [
       {
-        "capitalSegurado": 0,
-        "detalhe": "string",
-        "nome": "string"
+        "id": 1,
+        "cota": 300,
+        "descricao": "string",
+        "descricaoBem": "string",
+        "grupo": "x398",
+        "pontosGanhos": 0,
+        "quantidadeParcelasContratadas": 12,
+        "quantidadeParcelasPagas": 9,
+        "statusConsorcio": "Contemplado",
+        "urlProposta": "string",
+        "valorContratado": 40000,
+        "valorPago": 0,
+        "valorParcelaAtual": 675,
+        "valorQuitacao": 27200
       }
-    ],
-    "codigoOrigem": 0,
-    "dataFimVigencia": "2019-12-24T13:10:48.998Z",
-    "dataInicioVigencia": "2019-12-24T13:10:48.998Z",
-    "dataValorSaldoAtual": "2019-12-24T13:10:48.998Z",
-    "fundos": [
-      {
-        "nome": "string",
-        "percentualDistribuicao": 0,
-        "urlPDF": "string",
-        "valor": 0,
-        "valorTotal": 0
-      }
-    ],
-    "idadeBeneficio": 0,
-    "idadePrevisao": 0,
-    "modalidade": "string",
-    "nomeInstituidor": "string",
-    "nomeParticipante": "string",
-    "nomePlano": "string",
-    "nomeProduto": "string",
-    "nomeStatusProposta": "ATIVA",
-    "numeroProposta": 0,
-    "pontosGanhos": 0,
-    "propostaComplementoAuto": 0,
-    "qtdAnosSaldoPrevisao": 0,
-    "regimeTributario": "string",
-    "rendimentoUltimoAno": 0,
-    "saldoAtual": 0,
-    "saldoPrevisao": 0,
-    "saldos": [
-      {
-        "mesAno": "string",
-        "valor": 0
-      }
-    ],
-    "statusPrevidencia": "string",
-    "taxaAnualRendimento": 0,
-    "tipo": "string",
-    "tipoCobertura": "string",
-    "tipoProduto": "string",
-    "valorCoberturaVida": 0
-  }],
+    ]
+  },
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }
