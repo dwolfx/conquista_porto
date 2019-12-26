@@ -173,6 +173,38 @@
     "tipoProduto": "string",
     "valorCoberturaVida": 0
   }],
+  "conta_porto": [{
+    "dadosContaPortoSeguro": {
+      "agencia": "string",
+      "cheque_especial": {
+        "data_vencimento": "2019-12-26T11:15:44.425Z",
+        "limite": 0
+      },
+      "codigo_banco": "string",
+      "conta": 0,
+      "cpf": "string",
+      "digito_conta": 0,
+      "encargos_acumulados": 0,
+      "id_conta": 0,
+      "nome_banco": "string",
+      "saldo_disponivel": 0,
+      "saldo_liquidar": 0,
+      "titular": "string",
+      "valores_bloqueados": {
+        "em_24horas": 0,
+        "em_48horas": 0,
+        "indeterminado": 0,
+        "judicial": 0
+      }
+    },
+    "ultimaOperacoes": [
+      {
+        "data": "2019-12-26T11:15:44.425Z",
+        "tipo": "string",
+        "valor": 0
+      }
+    ]
+  }],
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }
