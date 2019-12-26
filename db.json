@@ -198,6 +198,45 @@
       }
     ]
   },
+  "consorcios_auto": {
+    "cliente": {
+      "cpf": "33244452809"
+    },
+    "consorcios": [
+      {
+        "id": 1,
+        "cota": 500,
+        "descricao": "string",
+        "descricaoBem": "string",
+        "grupo": "x398",
+        "pontosGanhos": 0,
+        "quantidadeParcelasContratadas": 12,
+        "quantidadeParcelasPagas": 9,
+        "statusConsorcio": "Contemplado",
+        "urlProposta": "string",
+        "valorContratado": 40000,
+        "valorPago": 0,
+        "valorParcelaAtual": 675,
+        "valorQuitacao": 27200
+      },
+      {
+        "id": 2,
+        "cota": 700,
+        "descricao": "string",
+        "descricaoBem": "string",
+        "grupo": "x398",
+        "pontosGanhos": 0,
+        "quantidadeParcelasContratadas": 12,
+        "quantidadeParcelasPagas": 9,
+        "statusConsorcio": "Contemplado",
+        "urlProposta": "string",
+        "valorContratado": 40000,
+        "valorPago": 0,
+        "valorParcelaAtual": 675,
+        "valorQuitacao": 27200
+      }
+    ]
+  },
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }
