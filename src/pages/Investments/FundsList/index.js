@@ -1,7 +1,11 @@
 import React, { useMemo, useState } from 'react'
+import { useSelector } from 'react-redux'
+
 import logoAnbima from 'assets/images/logo-anbima.png'
+import useFetchInvestmentsDetails from 'hooks/Investments/useFetchInvestmentsDetails'
 import useMedia from 'hooks/useMedia'
-import { funds, columns, riskClassification, fundsType } from './mock'
+
+import { columns, riskClassification, fundsType } from './mock'
 import TableFunds from './Table'
 import ListFunds from './List'
 import {
@@ -18,28 +22,47 @@ import {
 
 const allOption = 'todos'
 
-const filterFundsByRisk = risk => fundsArr =>
-  risk === allOption
-    ? fundsArr
-    : fundsArr.filter(
-        fund => parseInt(fund.fundo.risco, 10) === parseInt(risk, 10)
-      )
-
-const filterFundsByType = type => fundsArr =>
-  type === allOption
-    ? fundsArr
-    : fundsArr.filter(fund => fund.tipo.valor === type)
-
 export default function FundsList() {
+  useFetchInvestmentsDetails()
+
   const isMobile = useMedia('xs')
   const [selectedRisk, setSelectedRisk] = useState(allOption)
   const [selectedType, setSelectedType] = useState(allOption)
+  const funds = useSelector(state => state.investmentsDetails)
+
+  const filterFundsByType = type => fundsArr => {
+    if (!fundsArr[0]) {
+      return []
+    }
+
+    if (type !== allOption) {
+      const fundFiltered = fundsArr[0].filter(
+        fund => fund.nome_categoria.toLowerCase().replace(' ', '') === type
+      )
+
+      return fundFiltered[0] ? fundFiltered[0].fundos : []
+    }
+
+    return fundsArr[0].flatMap(fund => fund.fundos)
+  }
+
+  const filterFundsByRisk = risk => fundsArr => {
+    if (!fundsArr) {
+      return []
+    }
+
+    return risk === allOption
+      ? fundsArr
+      : fundsArr.filter(
+          fund => parseInt(fund.perfil_risco_ordem, 10) === parseInt(risk, 10)
+        )
+  }
 
   const fundsMock = useMemo(() => {
-    const filterByRisk = filterFundsByRisk(selectedRisk)
     const filterByType = filterFundsByType(selectedType)
-    return filterByType(filterByRisk(funds))
-  }, [selectedRisk, selectedType])
+    const filterByRisk = filterFundsByRisk(selectedRisk)
+    return filterByRisk(filterByType(funds.data))
+  }, [funds.data, selectedRisk, selectedType])
 
   const columnsMock = useMemo(() => columns, [])
 

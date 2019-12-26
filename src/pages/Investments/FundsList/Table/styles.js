@@ -27,7 +27,7 @@ export const Table = styled.table`
 export const Thead = styled.thead`
   &.sticky {
     position: fixed;
-    top: 40px;
+    top: 170px;
     z-index: 1;
   }
 `
@@ -108,13 +108,13 @@ export const FundoWrapper = styled.div`
 export const LogoImg = styled.img`
   margin-right: 1rem;
   height: auto;
-  max-height: 33px;
-  max-width: 70px;
+  width: 70px;
 `
 
 export const AlertIcon = styled(IconExporter).attrs({ name: 'alertrounded' })`
-  height: 25px;
+  cursor: pointer;
   fill: ${props => props.theme.colors.blue4};
+  height: 25px;
   margin-left: auto;
   min-width: 25px;
 `

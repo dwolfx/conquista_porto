@@ -50,7 +50,6 @@ export default function Routes({ ...props }) {
   return (
     <Switch {...props}>
       <DefaultRoute path="/" exact component={Home} />
-      <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <Route
         path="/investimentos/extrato"
         exact
@@ -68,7 +67,6 @@ export default function Routes({ ...props }) {
         exact
         component={ManagementSeguroVida}
       />
-      <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <DefaultRoute
         path="/investimentos/lista-fundos"
         component={InvestmentsFunds}

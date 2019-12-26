@@ -70,11 +70,11 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   left: 0;
   opacity: ${props => (props.isOpen ? '1' : '0')};
+  overflow: auto;
   position: fixed;
   top: 0;
   transition: all ease 0.3s;
   visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   width: 100vw;
-  z-index: 4;
-  overflow: auto;
+  z-index: 13;
 `
