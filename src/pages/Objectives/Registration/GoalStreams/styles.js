@@ -5,12 +5,7 @@ export const Container = styled.div``
 
 export const SectionBar = styled.section`
   background-color: ${props => props.theme.fundRiskColors.lowRisk};
-  padding: 20px 0;
-`
-export const TitleBar = styled.p`
-  color: ${props => props.theme.colors.gray1};
-  font-size: ${props => (props.fontSize ? `${props.fontSize}px` : '34px')};
-  text-transform: ${props => (props.uppercase ? 'uppercase' : 'normal')};
+  padding: 1rem 0;
 `
 
 export const Section = styled.section`
@@ -30,4 +25,9 @@ export const Question = styled(Text).attrs({ type: 'title3' })`
 export const QuestionRule = styled(Text).attrs({ type: 'title5' })`
   margin-top: 15px;
   text-align: center;
+`
+
+export const TitleBar = styled(Text).attrs({ type: 'title6' })`
+  color: ${props => props.theme.colors.white};
+  text-transform: uppercase;
 `

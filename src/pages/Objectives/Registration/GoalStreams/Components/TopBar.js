@@ -9,14 +9,10 @@ const TopBar = ({ currentStep, numberSteps }) => (
     <Container>
       <Row justifyContent="between">
         <Col lgAuto xs={12}>
-          <TitleBar fontSize={14} uppercase>
-            Criar Objetivo
-          </TitleBar>
+          <TitleBar>Criar Objetivo</TitleBar>
         </Col>
         <Col lgAuto xs={12}>
-          <TitleBar fontSize={14} uppercase>
-            Etapa {currentStep} de {numberSteps}
-          </TitleBar>
+          <TitleBar>Etapa {currentStep} de {numberSteps}</TitleBar>
         </Col>
       </Row>
     </Container>

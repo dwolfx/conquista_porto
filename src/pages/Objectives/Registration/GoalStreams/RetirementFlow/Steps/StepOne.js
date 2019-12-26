@@ -30,6 +30,7 @@ const StepOne = ({ onChangeScreen }) => (
         </Col>
       </Row>
       <ButtonNext
+        isDisabled
         handleScreen={() => {
           onChangeScreen(2)
         }}
