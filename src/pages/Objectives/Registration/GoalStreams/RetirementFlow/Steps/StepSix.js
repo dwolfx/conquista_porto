@@ -6,41 +6,45 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import TextInput from 'components/Inputs/Text'
 import ButtonNext from '../../Components/ButtonNext'
 
-import { Section, Text, Wrapper } from '../../styles'
+import { Question, Section, Wrapper } from '../../styles'
 
-const StepSix = ({ changeScreen }) => (
+const StepSix = ({ onChangeScreen }) => (
   <Section>
     <Container>
       <Row justifyContent="center">
-        <Col lg="5" xs="12">
-          <Text fontSize="26" align="center">
-            Gostaria de ter uma renda mensal deerminada na aposentadoria?
-          </Text>
+        <Col lg="6" xs="12">
+          <Question fontSize="26" align="center">
+            Gostaria de ter uma renda mensal determinada na aposentadoria?
+          </Question>
         </Col>
       </Row>
       <Row justifyContent="center">
-        <Col lg="5" xs="12">
+        <Col lg="6" xs="12">
           <Wrapper>
             <TextInput
               width="100"
-              paddingLeft="15"
               label="R$"
               name="wouldLikeToReceiveMonthlyIncome"
             />
           </Wrapper>
         </Col>
       </Row>
-      <ButtonNext changeScreen={changeScreen} title="Continuar" />
+      <ButtonNext
+        handleScreen={() => {
+          onChangeScreen(7)
+        }}
+        title="Continuar"
+      />
     </Container>
   </Section>
 )
 
 StepSix.defaultProps = {
-  changeScreen: null,
+  onChangeScreen: null,
 }
 
 StepSix.propTypes = {
-  changeScreen: PropTypes.func,
+  onChangeScreen: PropTypes.func,
 }
 
 export default StepSix

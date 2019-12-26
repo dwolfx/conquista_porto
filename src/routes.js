@@ -116,7 +116,11 @@ export default function Routes({ ...props }) {
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <DefaultRoute path="/objetivos" exact component={Objectives} />
       <Route path="/objetivos/criar" exact component={ObjectivesRegistration} />
-      <Route path="/objetivos/aposentadoria" exact component={ObjectivesRetirementFlow} />
+      <Route
+        path="/objetivos/aposentar"
+        exact
+        component={ObjectivesRetirementFlow}
+      />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"

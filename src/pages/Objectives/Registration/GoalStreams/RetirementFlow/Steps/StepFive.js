@@ -6,48 +6,48 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import TextInput from 'components/Inputs/Text'
 import ButtonNext from '../../Components/ButtonNext'
 
-import { Section, Text, Wrapper } from '../../styles'
+import { Question, QuestionRule, Section, Wrapper } from '../../styles'
 
-const StepFive = ({ changeScreen }) => (
+const StepFive = ({ onChangeScreen }) => (
   <Section>
     <Container>
       <Row justifyContent="center">
-        <Col lg="5" xs="12">
-          <Text fontSize="26" align="center">
+        <Col lg="6" xs="12">
+          <Question fontSize="26" align="center">
             Quanto você pretende investir por mês?
-          </Text>
+          </Question>
         </Col>
       </Row>
       <Row justifyContent="center">
-        <Col lg="5" xs="12">
-          <Text fontSize="14" fontWeight="400" align="center" marginTop="20">
+        <Col lg="6" xs="12">
+          <QuestionRule>
             Para atingir seu objetivo, sugiro pelo menos R$ 00.000,00 por mês.
-          </Text>
+          </QuestionRule>
         </Col>
       </Row>
       <Row justifyContent="center">
-        <Col lg="5" xs="12">
+        <Col lg="6" xs="12">
           <Wrapper>
-            <TextInput
-              width="100"
-              paddingLeft="15"
-              label="R$"
-              name="monthlyValue"
-            />
+            <TextInput width="100" label="R$" name="monthlyValue" />
           </Wrapper>
         </Col>
       </Row>
-      <ButtonNext changeScreen={changeScreen} title="Continuar" />
+      <ButtonNext
+        handleScreen={() => {
+          onChangeScreen(6)
+        }}
+        title="Continuar"
+      />
     </Container>
   </Section>
 )
 
 StepFive.defaultProps = {
-  changeScreen: null,
+  onChangeScreen: null,
 }
 
 StepFive.propTypes = {
-  changeScreen: PropTypes.func,
+  onChangeScreen: PropTypes.func,
 }
 
 export default StepFive

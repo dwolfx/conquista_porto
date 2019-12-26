@@ -17,54 +17,22 @@ import TopBar from '../Components/TopBar'
 export default () => {
   const history = useHistory()
   const [step, setStep] = useState(1)
+
+  const handleChangeScreen = stepValue => {
+    setStep(stepValue)
+  }
+
   const options = {
-    1: (
-      <StepOne
-        changeScreen={() => {
-          setStep(2)
-        }}
-      />
-    ),
-    2: (
-      <StepTwo
-        changeScreen={() => {
-          setStep(3)
-        }}
-      />
-    ),
-    3: (
-      <StepThree
-        changeScreen={() => {
-          setStep(4)
-        }}
-      />
-    ),
-    4: (
-      <StepFour
-        changeScreen={() => {
-          setStep(5)
-        }}
-      />
-    ),
-    5: (
-      <StepFive
-        changeScreen={() => {
-          setStep(6)
-        }}
-      />
-    ),
-    6: (
-      <StepSix
-        changeScreen={() => {
-          setStep(7)
-        }}
-      />
-    ),
+    1: <StepOne onChangeScreen={handleChangeScreen} />,
+    2: <StepTwo onChangeScreen={handleChangeScreen} />,
+    3: <StepThree onChangeScreen={handleChangeScreen} />,
+    4: <StepFour onChangeScreen={handleChangeScreen} />,
+    5: <StepFive onChangeScreen={handleChangeScreen} />,
+    6: <StepSix onChangeScreen={handleChangeScreen} />,
     7: <SuccessStep />,
   }
 
   const Option = options[step]
-
   return (
     <Container>
       <Header

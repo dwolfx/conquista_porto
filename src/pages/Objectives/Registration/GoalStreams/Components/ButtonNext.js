@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import Button from 'components/Button'
 import { Row, Col } from 'styled-bootstrap-grid'
 
-const ButtonNext = ({ changeScreen, ...props }) => (
+const ButtonNext = ({ handleScreen, ...props }) => (
   <Row justifyContent="center">
     <Col lgAuto xs={12}>
-      <Button color="primary" onClick={changeScreen}>
+      <Button color="primary" onClick={handleScreen}>
         {props.title}
       </Button>
     </Col>
@@ -15,12 +15,12 @@ const ButtonNext = ({ changeScreen, ...props }) => (
 )
 
 ButtonNext.defaultProps = {
-  changeScreen: null,
+  handleScreen: null,
   title: 'Continuar',
 }
 
 ButtonNext.propTypes = {
-  changeScreen: PropTypes.func,
+  handleScreen: PropTypes.func,
   title: PropTypes.string,
 }
 

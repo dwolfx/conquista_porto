@@ -6,41 +6,41 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import TextInput from 'components/Inputs/Text'
 import ButtonNext from '../../Components/ButtonNext'
 
-import { Section, Text, Wrapper } from '../../styles'
+import { Question, Section, Wrapper } from '../../styles'
 
-const StepTwo = ({ changeScreen }) => (
+const StepTwo = ({ onChangeScreen }) => (
   <Section>
     <Container>
       <Row justifyContent="center">
-        <Col lg="5" xs="12">
-          <Text fontSize="26" align="center">
+        <Col lg="6" xs="12">
+          <Question fontSize="26" align="center">
             Quando você quer se aposentar?
-          </Text>
+          </Question>
         </Col>
       </Row>
       <Row justifyContent="center">
-        <Col lg="5" xs="12">
+        <Col lg="6" xs="12">
           <Wrapper>
-            <TextInput
-              width="100"
-              paddingLeft="15"
-              label="Anos"
-              name="targetDate"
-            />
+            <TextInput width="100" label="Anos" name="targetDate" />
           </Wrapper>
         </Col>
       </Row>
-      <ButtonNext changeScreen={changeScreen} title="Continuar" />
+      <ButtonNext
+        handleScreen={() => {
+          onChangeScreen(3)
+        }}
+        title="Continuar"
+      />
     </Container>
   </Section>
 )
 
 StepTwo.defaultProps = {
-  changeScreen: null,
+  onChangeScreen: null,
 }
 
 StepTwo.propTypes = {
-  changeScreen: PropTypes.func,
+  onChangeScreen: PropTypes.func,
 }
 
 export default StepTwo
