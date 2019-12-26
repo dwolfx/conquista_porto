@@ -16,7 +16,7 @@ const getHeadContent = getContentBetweenTags('<head>', '</head>')
 const getBodyContent = getContentBetweenTags('<body>', '</body>')
 
 const replaceUrls = (config, content) =>
-  content.replace(/\/conquista\/static/g, `${config.baseUrl}/conquista/static`)
+  content.replace(/\/conquista/g, `${config.baseUrl}/conquista`)
 
 const main = async (fs, indexPath, chunksPath, config) => {
   try {
