@@ -174,6 +174,7 @@ export default function ManagementCreditCard({ history }) {
 
               {creditCard.data.map(item => (
                 <ManageableItem
+                  key={item.id}
                   active={selectedCreditCard === item.id}
                   onClick={() => {
                     setSelectedCreditCard(item.id)
@@ -201,7 +202,10 @@ export default function ManagementCreditCard({ history }) {
               ))}
             </LeftNav>
             {creditCard.data.map(item => (
-              <RightContent isSelected={item.id === selectedCreditCard}>
+              <RightContent
+                key={item.id}
+                isSelected={item.id === selectedCreditCard}
+              >
                 <PageTitle>Mundo 120 Prata</PageTitle>
                 <Topics settings={settings}>
                   <Topic>

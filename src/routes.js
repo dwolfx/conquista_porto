@@ -28,6 +28,7 @@ import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import Objectives from 'pages/Objectives'
 import ObjectivesRegistration from 'pages/Objectives/Registration'
+import ObjectivesRetirementFlow from 'pages/Objectives/Registration/GoalStreams/RetirementFlow'
 
 const DefaultRoute = ({ component, ...rest }) => {
   const Component = component
@@ -113,6 +114,11 @@ export default function Routes({ ...props }) {
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <DefaultRoute path="/objetivos" exact component={Objectives} />
       <Route path="/objetivos/criar" exact component={ObjectivesRegistration} />
+      <Route
+        path="/objetivos/aposentar"
+        exact
+        component={ObjectivesRetirementFlow}
+      />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"

@@ -62,16 +62,13 @@ const TheadWrapper = ({ header }) => {
     <SimpleHeader {...header.getHeaderProps()} header={header} />
   )
 }
-const FormatFundoCell = ({ cell, column }) => {
-  console.log(cell)
-  return (
-    <FundoWrapper {...cell.getCellProps()}>
-      <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
-      <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-      <AlertIcon onClick={() => column.toggleModal(!column.isModalOpen)} />
-    </FundoWrapper>
-  )
-}
+const FormatFundoCell = ({ cell, column }) => (
+  <FundoWrapper {...cell.getCellProps()}>
+    <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
+    <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
+    <AlertIcon onClick={() => column.toggleModal(!column.isModalOpen)} />
+  </FundoWrapper>
+)
 
 const FormatEnabledCell = column =>
   column.cell.value ? (
@@ -238,10 +235,16 @@ HeaderWithColumns.propTypes = {
 FormatFundoCell.propTypes = {
   cell: PropTypes.shape({
     getCellProps: PropTypes.func.isRequired,
-    value: PropTypes.shape({
-      img: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    }).isRequired,
+    row: PropTypes.shape({
+      original: PropTypes.shape({
+        url_logo_gestor: PropTypes.string,
+        apelido: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
+  column: PropTypes.shape({
+    isModalOpen: PropTypes.bool,
+    toggleModal: PropTypes.func,
   }).isRequired,
 }
 

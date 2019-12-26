@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { baseURL } from './apiConfig'
+import { baseURL, responseInterceptor } from './apiConfig'
 
 export const axiosInstance = axios.create({
   baseURL,
@@ -7,6 +7,8 @@ export const axiosInstance = axios.create({
     'content-type': 'application/json',
   },
 })
+
+axiosInstance.interceptors.response.use(responseInterceptor)
 
 export const get = (path, params) => axiosInstance(path, params)
 

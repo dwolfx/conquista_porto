@@ -1,6 +1,8 @@
 {
-  "/investimento/*": "/$1",
-  "/produtos/v1/cartaocredito": "/cartao_credito",
-  "/produtos/v1/cartaocredito/:id": "/cartao_credito/:id",
-  "/produtos/v1/fundos": "/fundos_detalhe"
+  "/conquistaapi/investimento/v1/*": "/$1",
+  "/cartoes\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/cartao_credito?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
+  "/consorcios/imovel\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/consorcios_imovel?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
+  "/consorcios/auto\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/consorcios_auto?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
+  "/previdencia\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/previdencia_privada?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
+  "/fundos": "/fundos_detalhe"
 }
