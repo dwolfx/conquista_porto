@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.ADD_SUCCESS:
+    case Types.GET_SUCCESS:
       return {
         ...state,
         data: [...action.payload],

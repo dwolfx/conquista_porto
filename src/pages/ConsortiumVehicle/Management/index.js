@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 // eslint-disable-next-line no-unused-vars
 import { ThemeContext } from 'styled-components/macro'
+import { useSelector } from 'react-redux'
 
 import LinearProgressBar from 'components/LinearProgressBar'
 import Button from 'components/Button'
@@ -17,6 +18,9 @@ import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 
 import Icon from 'components/IconExporter'
+
+import useFetchConsortiumVehicle from 'hooks/ConsortiumVehicle/useFetchConsortiumVehicle'
+import { formatMoney } from 'helpers'
 
 import {
   BreadcrumbContainer,
@@ -56,15 +60,36 @@ const settings = {
   ],
 }
 
-export default function ManagementConsortiumBuilding({ history }) {
+export default function ManagementConsortiumVehicle({ history }) {
+  useFetchConsortiumVehicle()
+
+  const [selectedConsortiumVehicle, setSelectedConsortiumVehicle] = useState(
+    null
+  )
+
   const themeContext = useContext(ThemeContext)
+  const consortiumVehicle = useSelector(state => state.consortiumVehicle)
+
+  useEffect(() => {
+    if (consortiumVehicle.data.length) {
+      setSelectedConsortiumVehicle(consortiumVehicle.data[0].id)
+    }
+  }, [consortiumVehicle.data])
+
+  function scrollPage() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
   return (
     <>
       <Container>
         <BreadcrumbContainer>
           <Breadcrumb crumbs={['Soluções', 'consórcio de VEÍCULO']} />
         </BreadcrumbContainer>
-        <PageContent>
+        <PageContent id="consortium-vehicle-top-page">
           <LeftNav>
             <AddBtnLink
               onClick={() => {
@@ -77,106 +102,124 @@ export default function ManagementConsortiumBuilding({ history }) {
               </Text>
             </AddBtnLink>
 
-            <ManageableItem>
-              <Text
-                fontSize="14px"
-                lineHeight="19px"
-                margin="0 0 14px 0"
-                textAlign="center"
+            {consortiumVehicle.data.map(item => (
+              <ManageableItem
+                key={item.id}
+                active={selectedConsortiumVehicle === item.id}
+                onClick={() => {
+                  setSelectedConsortiumVehicle(item.id)
+                  scrollPage(`consortium-vehicle-top-page`)
+                }}
               >
-                Contrato 1
-              </Text>
-              <Text
-                fontSize="11px"
-                fontWeight={600}
-                letterSpacing="1.5px"
-                margin="0 0 7px 0"
-              >
-                STATUS
-              </Text>
-              <Text fontSize="14px">Contemplado</Text>
-            </ManageableItem>
-          </LeftNav>
-          <RightContent>
-            <PageTitle>Contrato 1</PageTitle>
-            <Topics settings={settings}>
-              <Topic>
-                <Icon
-                  width="28"
-                  fill={themeContext.colors.blue4}
-                  name="computersecure"
-                />
-                <div>
-                  <TopicTitle>Cota</TopicTitle>
-                  <TopicValue>999</TopicValue>
-                </div>
-              </Topic>
-              <Topic>
-                <Icon
-                  width="28"
-                  fill={themeContext.colors.blue4}
-                  name="persongroup2"
-                />
-                <div>
-                  <TopicTitle>grupo</TopicTitle>
-                  <TopicValue>x999</TopicValue>
-                </div>
-              </Topic>
-              <Topic>
-                <Icon width="28" fill={themeContext.colors.blue4} name="coin" />
-                <div>
-                  <TopicTitle>Crédito contratado</TopicTitle>
-                  <TopicValue>R$ 99.999,99</TopicValue>
-                </div>
-              </Topic>
-            </Topics>
-            <InvoiceContainer>
-              <InvoiceHeader>
-                <InstallmentContent>
-                  <Text
-                    fontSize="22px"
-                    margin="0 0 7px 0"
-                    lineHeight="32px"
-                    textAlign="center"
-                  >
-                    Valor para quitação
-                  </Text>
-                  <Text>R$ 99.999,95</Text>
-                </InstallmentContent>
-                <InstallmentContent>
-                  <Text
-                    fontSize="22px"
-                    margin="0 0 7px 0"
-                    lineHeight="32px"
-                    textAlign="center"
-                  >
-                    Valor da parcela atual
-                  </Text>
-                  <Text>R$ 99.999,00</Text>
-                </InstallmentContent>
-              </InvoiceHeader>
-              <Invoice>
                 <Text
-                  fontSize="18px"
+                  fontSize="14px"
+                  lineHeight="19px"
                   margin="0 0 14px 0"
-                  lineHeight="28px"
                   textAlign="center"
                 >
-                  Evolução do pagamento
+                  Contrato 1
                 </Text>
+                <Text
+                  fontSize="11px"
+                  fontWeight={600}
+                  letterSpacing="1.5px"
+                  margin="0 0 7px 0"
+                >
+                  STATUS
+                </Text>
+                <Text fontSize="14px">Contemplado</Text>
+              </ManageableItem>
+            ))}
+          </LeftNav>
+          {consortiumVehicle.data.map((item, index) => (
+            <RightContent
+              key={item.id}
+              isSelected={item.id === selectedConsortiumVehicle}
+            >
+              <PageTitle>Contrato {index + 1}</PageTitle>
+              <Topics settings={settings}>
+                <Topic>
+                  <Icon
+                    width="28"
+                    fill={themeContext.colors.blue4}
+                    name="computersecure"
+                  />
+                  <div>
+                    <TopicTitle>Cota</TopicTitle>
+                    <TopicValue>{item.cota}</TopicValue>
+                  </div>
+                </Topic>
+                <Topic>
+                  <Icon
+                    width="28"
+                    fill={themeContext.colors.blue4}
+                    name="persongroup2"
+                  />
+                  <div>
+                    <TopicTitle>grupo</TopicTitle>
+                    <TopicValue>{item.grupo}</TopicValue>
+                  </div>
+                </Topic>
+                <Topic>
+                  <Icon
+                    width="28"
+                    fill={themeContext.colors.blue4}
+                    name="coin"
+                  />
+                  <div>
+                    <TopicTitle>Crédito contratado</TopicTitle>
+                    <TopicValue>{formatMoney(item.valorContratado)}</TopicValue>
+                  </div>
+                </Topic>
+              </Topics>
+              <InvoiceContainer>
+                <InvoiceHeader>
+                  <InstallmentContent>
+                    <Text
+                      fontSize="22px"
+                      margin="0 0 7px 0"
+                      lineHeight="32px"
+                      textAlign="center"
+                    >
+                      Valor para quitação
+                    </Text>
+                    <Text>{formatMoney(item.valorQuitacao)}</Text>
+                  </InstallmentContent>
+                  <InstallmentContent>
+                    <Text
+                      fontSize="22px"
+                      margin="0 0 7px 0"
+                      lineHeight="32px"
+                      textAlign="center"
+                    >
+                      Valor da parcela atual
+                    </Text>
+                    <Text>{formatMoney(item.valorParcelaAtual)}</Text>
+                  </InstallmentContent>
+                </InvoiceHeader>
+                <Invoice>
+                  <Text
+                    fontSize="18px"
+                    margin="0 0 14px 0"
+                    lineHeight="28px"
+                    textAlign="center"
+                  >
+                    Evolução do pagamento
+                  </Text>
 
-                <LinearProgressBar
-                  width="70%"
-                  margin="70px 0 0 0"
-                  now={9}
-                  max={12}
-                  subtitle="parcelas"
-                />
+                  <LinearProgressBar
+                    width="70%"
+                    margin="70px 0 0 0"
+                    now={item.quantidadeParcelasPagas}
+                    max={item.quantidadeParcelasContratadas}
+                    subtitle="parcelas"
+                  />
 
-                <Button>acesse o app e faça seu lance</Button>
-              </Invoice>
-            </InvoiceContainer>
-          </RightContent>
+                  <Button>acesse o app e faça seu lance</Button>
+                </Invoice>
+              </InvoiceContainer>
+            </RightContent>
+          ))}
         </PageContent>
       </Container>
       <HighlightSection
@@ -251,7 +294,7 @@ export default function ManagementConsortiumBuilding({ history }) {
   )
 }
 
-ManagementConsortiumBuilding.propTypes = {
+ManagementConsortiumVehicle.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
