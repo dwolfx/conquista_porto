@@ -13,9 +13,7 @@ const StepTwo = ({ onChangeScreen }) => (
     <Container>
       <Row justifyContent="center">
         <Col lg="6" xs="12">
-          <Question>
-            Quando você quer se aposentar?
-          </Question>
+          <Question>Quando você quer se aposentar?</Question>
         </Col>
       </Row>
       <Row justifyContent="center">

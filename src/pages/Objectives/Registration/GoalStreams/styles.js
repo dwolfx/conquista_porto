@@ -10,7 +10,7 @@ export const SectionBar = styled.section`
 
 export const Section = styled.section`
   background-color: ${props =>
-  props.backgroundColor ? props.backgroundColor : 'transparent'};
+    props.backgroundColor ? props.backgroundColor : 'transparent'};
   padding: 5rem 0;
 `
 
