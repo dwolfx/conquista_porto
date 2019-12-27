@@ -12,29 +12,31 @@ const INITIAL_STATE = {
   creditCard: {
     data: [
       {
-        id: 1,
-        bandeira: 'Visa',
-        fatura: {
-          melhorDataCompra: 22,
-          status: 'Aberta',
-          valor: 25090,
-          vencimento: 16,
+        Id: 1,
+        CodigoCanal: 0,
+        CpfCnpj: '33244452809',
+        Bandeira: 'Visa',
+        Fatura: {
+          MelhorDataCompra: 22,
+          Status: 'Aberta',
+          Valor: 25090,
+          Vencimento: 16,
         },
-        limiteCartaoAdicional: {
-          limiteCredito: 0,
-          limiteDisponivel: 0,
-          limiteDisponivelOverlimitt: 0,
-          limiteSaque: 0,
+        LimiteCartaoAdicional: {
+          LimiteCredito: 0,
+          LimiteDisponivel: 0,
+          LimiteDisponivelOverlimitt: 0,
+          LimiteSaque: 0,
         },
-        limiteTitularCartao: {
-          limiteCredito: 0,
-          limiteDisponivel: 0,
-          limiteDisponivelOverlimitt: 0,
-          limiteSaque: 0,
+        LimiteTitularCartao: {
+          LimiteCredito: 0,
+          LimiteDisponivel: 0,
+          LimiteDisponivelOverlimitt: 0,
+          LimiteSaque: 0,
         },
-        link: 'string',
-        tipo: 'Gold',
-        ultimosDigitos: 3212,
+        Link: 'string',
+        Tipo: 'Gold',
+        UltimosDigitos: 3212,
       },
     ],
   },
