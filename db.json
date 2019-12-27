@@ -1511,8 +1511,46 @@
         "valorParcelaAtual": 675,
         "valorQuitacao": 27200
       }
-    ]
+    ],
+    "statusPrevidencia": "string",
+    "taxaAnualRendimento": 0,
+    "tipo": "string",
+    "tipoCobertura": "string",
+    "tipoProduto": "string",
+    "valorCoberturaVida": 0
   },
+  "conta_porto": [{
+    "dadosContaPortoSeguro": {
+      "agencia": "0001",
+      "cheque_especial": {
+        "data_vencimento": "2019-12-26T11:15:44.425Z",
+        "limite": 0
+      },
+      "codigo_banco": "0000",
+      "conta": 9999,
+      "cpf": "33244452809",
+      "digito_conta": 9,
+      "encargos_acumulados": 0,
+      "id_conta": 0,
+      "nome_banco": "Banco Porto",
+      "saldo_disponivel": 10000,
+      "saldo_liquidar": 0,
+      "titular": "Julia Francis Reyes",
+      "valores_bloqueados": {
+        "em_24horas": 0,
+        "em_48horas": 0,
+        "indeterminado": 0,
+        "judicial": 0
+      }
+    },
+    "ultimaOperacoes": [
+      {
+        "data": "2019-12-26T11:15:44.425Z",
+        "tipo": "string",
+        "valor": 0
+      }
+    ]
+  }],
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }
