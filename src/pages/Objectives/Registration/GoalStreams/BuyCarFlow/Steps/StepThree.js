@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import RadioInput from 'components/Inputs/Radio'
-import ButtonNext from '../../Components/ButtonNext'
+import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/ButtonNext'
 
 import { Question, Section, Wrapper } from '../../styles'
 
