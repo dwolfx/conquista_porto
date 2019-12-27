@@ -32,6 +32,9 @@ import ObjectivesRetirementFlow from 'pages/Objectives/Registration/GoalStreams/
 import ObjectivesTravelFlow from 'pages/Objectives/Registration/GoalStreams/TravelFlow'
 import ObjectivesBuyCarFlow from 'pages/Objectives/Registration/GoalStreams/BuyCarFlow'
 import ObjectivesStudyFlow from 'pages/Objectives/Registration/GoalStreams/StudyFlow'
+import ObjectivesMultiplyMoneyFlow from 'pages/Objectives/Registration/GoalStreams/MultiplyMoneyFlow'
+import ObjectivesEventFlow from 'pages/Objectives/Registration/GoalStreams/EventFlow'
+import ObjectivesBuyHouseFlow from 'pages/Objectives/Registration/GoalStreams/BuyHouseFlow'
 import ObjectivesSaveMoneyFlow from 'pages/Objectives/Registration/GoalStreams/SaveMoneyFlow'
 
 const DefaultRoute = ({ component, ...rest }) => {
@@ -137,6 +140,21 @@ export default function Routes({ ...props }) {
         path="/objetivos/realizar-curso"
         exact
         component={ObjectivesStudyFlow}
+      />
+      <Route
+        path="/objetivos/multiplicar-dinheiro"
+        exact
+        component={ObjectivesMultiplyMoneyFlow}
+      />
+      <Route
+        path="/objetivos/realizar-evento"
+        exact
+        component={ObjectivesEventFlow}
+      />
+      <Route
+        path="/objetivos/comprar-casa"
+        exact
+        component={ObjectivesBuyHouseFlow}
       />
       <Route
         path="/objetivos/reservar-dinheiro"
