@@ -3,35 +3,45 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import TextInput from 'components/Inputs/Text'
+import RadioInput from 'components/Inputs/Radio'
 import ButtonNext from '../../Components/ButtonNext'
 
 import { Question, Section, Wrapper } from '../../styles'
 
-const StepThree = ({ onChangeScreen }) => (
-  <Section>
-    <Container>
-      <Row justifyContent="center">
-        <Col lg="6" xs="12">
-          <Question>Essa data para você é:</Question>
-        </Col>
-      </Row>
-      <Row justifyContent="center">
-        <Col lg="6" xs="12">
+const StepThree = ({ onChangeScreen }) => {
+  const dateOptions = [
+    {
+      name: 'Flexível',
+      value: 'Flexível',
+    },
+    {
+      name: 'Definitiva',
+      value: 'Definitiva',
+    },
+  ]
+  return (
+    <Section>
+      <Container>
+        <Row justifyContent="center">
+          <Col lg="6" xs="12">
+            <Question>Essa data para você é:</Question>
+          </Col>
+        </Row>
+        <Row justifyContent="center">
           <Wrapper>
-            <TextInput width="100" label="RADIO" name="flexibeOrDefiniteDate" />
+            <RadioInput name="flexibeOrDefiniteDate" options={dateOptions} />
           </Wrapper>
-        </Col>
-      </Row>
-      <ButtonNext
-        handleScreen={() => {
-          onChangeScreen(4)
-        }}
-        title="Continuar"
-      />
-    </Container>
-  </Section>
-)
+        </Row>
+        <ButtonNext
+          handleScreen={() => {
+            onChangeScreen(4)
+          }}
+          title="Continuar"
+        />
+      </Container>
+    </Section>
+  )
+}
 
 StepThree.defaultProps = {
   onChangeScreen: () => {},

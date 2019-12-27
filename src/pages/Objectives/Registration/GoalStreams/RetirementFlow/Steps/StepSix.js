@@ -3,41 +3,50 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import TextInput from 'components/Inputs/Text'
+import RadioInput from 'components/Inputs/Radio'
 import ButtonNext from '../../Components/ButtonNext'
 
 import { Question, Section, Wrapper } from '../../styles'
 
-const StepSix = ({ onChangeScreen }) => (
-  <Section>
-    <Container>
-      <Row justifyContent="center">
-        <Col lg="6" xs="12">
-          <Question>
-            Gostaria de ter uma renda mensal determinada na aposentadoria?
-          </Question>
-        </Col>
-      </Row>
-      <Row justifyContent="center">
-        <Col lg="6" xs="12">
+const StepSix = ({ onChangeScreen }) => {
+  const receiveMonthlyOptions = [
+    {
+      name: 'Sim',
+      value: 'Sim',
+    },
+    {
+      name: 'Não',
+      value: 'Não',
+    },
+  ]
+  return (
+    <Section>
+      <Container>
+        <Row justifyContent="center">
+          <Col lg="6" xs="12">
+            <Question>
+              Gostaria de ter uma renda mensal determinada na aposentadoria?
+            </Question>
+          </Col>
+        </Row>
+        <Row justifyContent="center">
           <Wrapper>
-            <TextInput
-              width="100"
-              label="R$"
+            <RadioInput
               name="wouldLikeToReceiveMonthlyIncome"
+              options={receiveMonthlyOptions}
             />
           </Wrapper>
-        </Col>
-      </Row>
-      <ButtonNext
-        handleScreen={() => {
-          onChangeScreen(7)
-        }}
-        title="Continuar"
-      />
-    </Container>
-  </Section>
-)
+        </Row>
+        <ButtonNext
+          handleScreen={() => {
+            onChangeScreen(7)
+          }}
+          title="Continuar"
+        />
+      </Container>
+    </Section>
+  )
+}
 
 StepSix.defaultProps = {
   onChangeScreen: null,

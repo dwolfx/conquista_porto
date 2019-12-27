@@ -3,37 +3,47 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import TextInput from 'components/Inputs/Text'
+import RadioInput from 'components/Inputs/Radio'
 import ButtonNext from '../../Components/ButtonNext'
 
 import { Question, Section, Wrapper } from '../../styles'
 
-const StepSeven = ({ onChangeScreen }) => (
-  <Section>
-    <Container>
-      <Row justifyContent="center">
-        <Col lg="6" xs="12">
-          <Question>
-            Qual destes comportamentos você tem quando tenta guardar dinheiro?
-          </Question>
-        </Col>
-      </Row>
-      <Row justifyContent="center">
-        <Col lg="6" xs="12">
+const StepSeven = ({ onChangeScreen }) => {
+  const easeOfSavingMoney = [
+    {
+      name: 'Consigo guardar',
+      value: 'Consigo guardar',
+    },
+    {
+      name: 'Tenho dificuldade',
+      value: 'Tenho dificuldade',
+    },
+  ]
+  return (
+    <Section>
+      <Container>
+        <Row justifyContent="center">
+          <Col lg="6" xs="12">
+            <Question>
+              Qual destes comportamentos você tem quando tenta guardar dinheiro?
+            </Question>
+          </Col>
+        </Row>
+        <Row justifyContent="center">
           <Wrapper>
-            <TextInput width="100" label="RADIO" name="easeOfSavingMoney" />
+            <RadioInput name="easeOfSavingMoney" options={easeOfSavingMoney} />
           </Wrapper>
-        </Col>
-      </Row>
-      <ButtonNext
-        handleScreen={() => {
-          onChangeScreen(8)
-        }}
-        title="Continuar"
-      />
-    </Container>
-  </Section>
-)
+        </Row>
+        <ButtonNext
+          handleScreen={() => {
+            onChangeScreen(8)
+          }}
+          title="Continuar"
+        />
+      </Container>
+    </Section>
+  )
+}
 
 StepSeven.defaultProps = {
   onChangeScreen: () => {},
