@@ -1,7 +1,11 @@
 import React, { useMemo, useState } from 'react'
+import { useSelector } from 'react-redux'
+
 import logoAnbima from 'assets/images/logo-anbima.png'
+import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
-import { funds, columns, riskClassification, fundsType } from './mock'
+
+import { columns, riskClassification, fundsType } from './mock'
 import TableFunds from './Table'
 import ListFunds from './List'
 import {
@@ -18,28 +22,37 @@ import {
 
 const allOption = 'todos'
 
-const filterFundsByRisk = risk => fundsArr =>
-  risk === allOption
-    ? fundsArr
-    : fundsArr.filter(
-        fund => parseInt(fund.fundo.risco, 10) === parseInt(risk, 10)
-      )
-
-const filterFundsByType = type => fundsArr =>
-  type === allOption
-    ? fundsArr
-    : fundsArr.filter(fund => fund.tipo.valor === type)
-
 export default function FundsList() {
+  useFetchInvestmentsList()
+
   const isMobile = useMedia('xs')
   const [selectedRisk, setSelectedRisk] = useState(allOption)
   const [selectedType, setSelectedType] = useState(allOption)
+  const funds = useSelector(state => state.investmentsDetails)
 
-  const fundsMock = useMemo(() => {
-    const filterByRisk = filterFundsByRisk(selectedRisk)
+  const filterFundsByType = type => (fundsArr = []) => {
+    const newFunds =
+      type === allOption
+        ? fundsArr
+        : fundsArr.filter(
+            fund => fund.nome_categoria.toLowerCase().replace(' ', '') === type
+          )
+
+    return newFunds.flatMap(fund => fund.fundos)
+  }
+
+  const filterFundsByRisk = risk => (fundsArr = []) =>
+    risk === allOption
+      ? fundsArr
+      : fundsArr.filter(
+          fund => parseInt(fund.perfil_risco_ordem, 10) === parseInt(risk, 10)
+        )
+
+  const fundsFiltered = useMemo(() => {
     const filterByType = filterFundsByType(selectedType)
-    return filterByType(filterByRisk(funds))
-  }, [selectedRisk, selectedType])
+    const filterByRisk = filterFundsByRisk(selectedRisk)
+    return filterByRisk(filterByType(funds.data[0]))
+  }, [funds.data, selectedRisk, selectedType])
 
   const columnsMock = useMemo(() => columns, [])
 
@@ -76,11 +89,11 @@ export default function FundsList() {
       </TopWrapper>
       <ContentWrapper>
         {isMobile ? (
-          <ListFunds data={fundsMock} />
+          <ListFunds data={fundsFiltered} />
         ) : (
           <TableFunds
             columns={columnsMock}
-            data={fundsMock}
+            data={fundsFiltered}
             fundsType={fundsType}
             setSelectedType={setSelectedType}
             selectedType={selectedType}

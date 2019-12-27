@@ -1,8 +1,12 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { useTable } from 'react-table'
 import PropTypes from 'prop-types'
+
 import Modal from 'components/Modal'
 import FundsInfo from 'components/Solutions/Investments/FundsInfo'
+
+import { formatMoney } from 'helpers'
+
 import {
   Table,
   Thead,
@@ -60,8 +64,8 @@ const TheadWrapper = ({ header }) => {
 }
 const FormatFundoCell = ({ cell, column }) => (
   <FundoWrapper {...cell.getCellProps()}>
-    <LogoImg alt="logo" src={cell.value.img} />
-    <FundoNameWrapper>{cell.value.name}</FundoNameWrapper>
+    <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
+    <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
     <AlertIcon onClick={() => column.toggleModal(!column.isModalOpen)} />
   </FundoWrapper>
 )
@@ -75,6 +79,8 @@ const FormatEnabledCell = column =>
     <LockIcon />
   )
 
+const FormatMoneyCell = column => formatMoney(column.cell.value)
+
 const formatColumns = (columns, toggleModal, isModalOpen) => {
   const formatters = {
     fundo: column => ({
@@ -83,7 +89,11 @@ const formatColumns = (columns, toggleModal, isModalOpen) => {
       toggleModal,
       isModalOpen,
     }),
-    enabled: column => ({ ...column, Cell: FormatEnabledCell }),
+    is_fundo_ativo: column => ({ ...column, Cell: FormatEnabledCell }),
+    minimo_inicial: column => ({
+      ...column,
+      Cell: FormatMoneyCell,
+    }),
   }
 
   return columns.map(column =>
@@ -178,11 +188,12 @@ export default function TableFunds({
           <Tbody {...getTableBodyProps()}>
             {rows.map(row => {
               prepareRow(row)
+
               return (
                 <TbodyTr {...row.getRowProps()}>
                   {row.cells.map(cell => (
                     <TBodyTd
-                      borderRisk={cell.value.risco}
+                      borderRisk={cell.row.original.perfil_risco_ordem}
                       width={cell.column.width}
                       {...cell.getCellProps()}
                     >
@@ -224,10 +235,16 @@ HeaderWithColumns.propTypes = {
 FormatFundoCell.propTypes = {
   cell: PropTypes.shape({
     getCellProps: PropTypes.func.isRequired,
-    value: PropTypes.shape({
-      img: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    }).isRequired,
+    row: PropTypes.shape({
+      original: PropTypes.shape({
+        url_logo_gestor: PropTypes.string,
+        apelido: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
+  column: PropTypes.shape({
+    isModalOpen: PropTypes.bool,
+    toggleModal: PropTypes.func,
   }).isRequired,
 }
 
