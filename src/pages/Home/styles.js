@@ -231,6 +231,7 @@ export const InvestmentInfos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 
   p {
     color: ${props => props.theme.colors.gray5};

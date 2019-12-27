@@ -42,8 +42,15 @@ export default function SectionOne() {
               </PieChart>
             </SectionCol>
 
-            <SectionCol lg="6">
-              <SectionRow style={{ height: '50%', paddingBottom: 7 }}>
+            <SectionCol lg="6" style={{ paddingTop: 51, paddingBottom: 51 }}>
+              <SectionRow
+                style={{
+                  height: '50%',
+                  paddingBottom: 7,
+                  paddingLeft: 14,
+                  paddingRight: 14,
+                }}
+              >
                 <InvestmentInfos>
                   <Text type="title5">Saldo disponível</Text>
                   <Text type="title5" bold>
@@ -52,7 +59,14 @@ export default function SectionOne() {
                   <ButtonLink>Conta de Investimento</ButtonLink>
                 </InvestmentInfos>
               </SectionRow>
-              <SectionRow style={{ height: '50%', paddingTop: 7 }}>
+              <SectionRow
+                style={{
+                  height: '50%',
+                  paddingTop: 7,
+                  paddingLeft: 14,
+                  paddingRight: 14,
+                }}
+              >
                 <InvestmentInfos>
                   <Text type="title5">Saldo a liquidar</Text>
                   <Text type="title5" bold>
