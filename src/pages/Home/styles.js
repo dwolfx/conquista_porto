@@ -6,28 +6,7 @@ import Button from 'components/Button'
 import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
-
-const hexToRgb = hex => {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-  const newHex = hex.replace(
-    shorthandRegex,
-    (m, r, g, b) => r + r + g + g + b + b
-  )
-
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(newHex)
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
-    : null
-}
-
-const rgbah = (hex, alpha) => {
-  const color = hexToRgb(hex)
-  return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`
-}
+import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
 
@@ -202,7 +181,7 @@ export const SliderImageBox = styled.div`
 
 export const SliderCaption = styled.div`
   bottom: 0;
-  background-color: ${props => rgbah(props.theme.colors.gray6, 0.63)};
+  background-color: ${props => rgba(props.theme.colors.gray6, 0.63)};
   padding: 10px 14px;
   position: absolute;
   width: 100%;
@@ -235,5 +214,19 @@ export const InvestmentInfos = styled.div`
 
   p {
     color: ${props => props.theme.colors.gray5};
+  }
+`
+
+export const InvestmentInfosRow = styled(Row)`
+  height: 50%;
+  margin-left: 7px;
+  margin-right: 7px;
+
+  &:first-of-type {
+    padding-bottom: 7px;
+    border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  }
+  &:last-of-type {
+    padding-top: 7px;
   }
 `

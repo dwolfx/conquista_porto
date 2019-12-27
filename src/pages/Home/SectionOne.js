@@ -19,6 +19,7 @@ import {
   SliderTextBox,
   SliderBoxButton,
   InvestmentInfos,
+  InvestmentInfosRow,
 } from './styles'
 
 export default function SectionOne() {
@@ -43,14 +44,7 @@ export default function SectionOne() {
             </SectionCol>
 
             <SectionCol lg="6" style={{ paddingTop: 51, paddingBottom: 51 }}>
-              <SectionRow
-                style={{
-                  height: '50%',
-                  paddingBottom: 7,
-                  paddingLeft: 14,
-                  paddingRight: 14,
-                }}
-              >
+              <InvestmentInfosRow>
                 <InvestmentInfos>
                   <Text type="title5">Saldo disponível</Text>
                   <Text type="title5" bold>
@@ -58,15 +52,8 @@ export default function SectionOne() {
                   </Text>
                   <ButtonLink>Conta de Investimento</ButtonLink>
                 </InvestmentInfos>
-              </SectionRow>
-              <SectionRow
-                style={{
-                  height: '50%',
-                  paddingTop: 7,
-                  paddingLeft: 14,
-                  paddingRight: 14,
-                }}
-              >
+              </InvestmentInfosRow>
+              <InvestmentInfosRow>
                 <InvestmentInfos>
                   <Text type="title5">Saldo a liquidar</Text>
                   <Text type="title5" bold>
@@ -74,7 +61,7 @@ export default function SectionOne() {
                   </Text>
                   <ButtonLink>Ver extrato</ButtonLink>
                 </InvestmentInfos>
-              </SectionRow>
+              </InvestmentInfosRow>
             </SectionCol>
           </SectionRow>
         </FullHeightCard>
@@ -123,7 +110,7 @@ export default function SectionOne() {
                     Leve a tranquilidade na mala
                   </Text>
                   <Text>
-                    EEscolha hoje as coberturas mais adequadas aos seus planos e
+                    Escolha hoje as coberturas mais adequadas aos seus planos e
                     proteja-se contra imprevistos em viagens nacionais ou
                     internacionais.
                   </Text>
