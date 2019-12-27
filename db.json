@@ -175,21 +175,21 @@
   }],
   "conta_porto": [{
     "dadosContaPortoSeguro": {
-      "agencia": "string",
+      "agencia": "0001",
       "cheque_especial": {
         "data_vencimento": "2019-12-26T11:15:44.425Z",
         "limite": 0
       },
-      "codigo_banco": "string",
-      "conta": 0,
-      "cpf": "string",
-      "digito_conta": 0,
+      "codigo_banco": "0000",
+      "conta": 9999,
+      "cpf": "33244452809",
+      "digito_conta": 9,
       "encargos_acumulados": 0,
       "id_conta": 0,
-      "nome_banco": "string",
-      "saldo_disponivel": 0,
+      "nome_banco": "Banco Porto",
+      "saldo_disponivel": 10000,
       "saldo_liquidar": 0,
-      "titular": "string",
+      "titular": "Julia Francis Reyes",
       "valores_bloqueados": {
         "em_24horas": 0,
         "em_48horas": 0,
