@@ -30,33 +30,23 @@ export default function FundsList() {
   const [selectedType, setSelectedType] = useState(allOption)
   const funds = useSelector(state => state.investmentsDetails)
 
-  const filterFundsByType = type => fundsArr => {
-    if (!fundsArr) {
-      return []
-    }
+  const filterFundsByType = type => (fundsArr = []) => {
+    const newFunds =
+      type === allOption
+        ? fundsArr
+        : fundsArr.filter(
+            fund => fund.nome_categoria.toLowerCase().replace(' ', '') === type
+          )
 
-    if (type !== allOption) {
-      const fundFiltered = fundsArr.filter(
-        fund => fund.nome_categoria.toLowerCase().replace(' ', '') === type
-      )
-
-      return fundFiltered[0] ? fundFiltered[0].fundos : []
-    }
-
-    return fundsArr.flatMap(fund => fund.fundos)
+    return newFunds.flatMap(fund => fund.fundos)
   }
 
-  const filterFundsByRisk = risk => fundsArr => {
-    if (!fundsArr) {
-      return []
-    }
-
-    return risk === allOption
+  const filterFundsByRisk = risk => (fundsArr = []) =>
+    risk === allOption
       ? fundsArr
       : fundsArr.filter(
           fund => parseInt(fund.perfil_risco_ordem, 10) === parseInt(risk, 10)
         )
-  }
 
   const fundsFiltered = useMemo(() => {
     const filterByType = filterFundsByType(selectedType)
