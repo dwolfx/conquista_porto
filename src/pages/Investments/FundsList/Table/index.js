@@ -151,17 +151,15 @@ export default function TableFunds({
   }
   return (
     <>
-      {isModalOpen ? (
-        <Modal
-          headerIcon="information"
-          handleClose={handleClose}
-          isOpen={isModalOpen}
-          modalTitle="Informações do fundo"
-          alignItems="flex-start"
-        >
-          <FundsInfo />
-        </Modal>
-      ) : null}
+      <Modal
+        headerIcon="information"
+        handleClose={handleClose}
+        isOpen={isModalOpen}
+        modalTitle="Informações do fundo"
+        alignItems="flex-start"
+      >
+        <FundsInfo />
+      </Modal>
       <TabsWrapper>
         {fundsType.map(fundType => (
           <Tabs
