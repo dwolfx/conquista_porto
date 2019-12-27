@@ -35,6 +35,7 @@ import ObjectivesStudyFlow from 'pages/Objectives/Registration/GoalStreams/Study
 import ObjectivesMultiplyMoneyFlow from 'pages/Objectives/Registration/GoalStreams/MultiplyMoneyFlow'
 import ObjectivesEventFlow from 'pages/Objectives/Registration/GoalStreams/EventFlow'
 import ObjectivesBuyHouseFlow from 'pages/Objectives/Registration/GoalStreams/BuyHouseFlow'
+import ObjectivesSaveMoneyFlow from 'pages/Objectives/Registration/GoalStreams/SaveMoneyFlow'
 
 const DefaultRoute = ({ component, ...rest }) => {
   const Component = component
@@ -154,6 +155,11 @@ export default function Routes({ ...props }) {
         path="/objetivos/comprar-casa"
         exact
         component={ObjectivesBuyHouseFlow}
+      />
+      <Route
+        path="/objetivos/reservar-dinheiro"
+        exact
+        component={ObjectivesSaveMoneyFlow}
       />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
