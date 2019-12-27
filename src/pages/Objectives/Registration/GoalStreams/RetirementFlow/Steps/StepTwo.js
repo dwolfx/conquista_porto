@@ -4,18 +4,20 @@ import PropTypes from 'prop-types'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import TextInput from 'components/Inputs/Text'
-import ButtonNext from '../../Components/ButtonNext'
+import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/ButtonNext'
 
-import { Question, Section, Wrapper } from '../../styles'
+import {
+  Question,
+  Section,
+  Wrapper,
+} from 'pages/Objectives/Registration/GoalStreams/styles'
 
 const StepTwo = ({ onChangeScreen }) => (
   <Section>
     <Container>
       <Row justifyContent="center">
         <Col lg="6" xs="12">
-          <Question>
-            Quando você quer se aposentar?
-          </Question>
+          <Question>Quando você quer se aposentar?</Question>
         </Col>
       </Row>
       <Row justifyContent="center">

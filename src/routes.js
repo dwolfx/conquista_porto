@@ -29,6 +29,8 @@ import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import Objectives from 'pages/Objectives'
 import ObjectivesRegistration from 'pages/Objectives/Registration'
 import ObjectivesRetirementFlow from 'pages/Objectives/Registration/GoalStreams/RetirementFlow'
+import ObjectivesTravelFlow from 'pages/Objectives/Registration/GoalStreams/TravelFlow'
+import ObjectivesBuyCarFlow from 'pages/Objectives/Registration/GoalStreams/BuyCarFlow'
 
 const DefaultRoute = ({ component, ...rest }) => {
   const Component = component
@@ -118,6 +120,16 @@ export default function Routes({ ...props }) {
         path="/objetivos/aposentar"
         exact
         component={ObjectivesRetirementFlow}
+      />
+      <Route
+        path="/objetivos/realizar-viagem"
+        exact
+        component={ObjectivesTravelFlow}
+      />
+      <Route
+        path="/objetivos/comprar-carro"
+        exact
+        component={ObjectivesBuyCarFlow}
       />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route

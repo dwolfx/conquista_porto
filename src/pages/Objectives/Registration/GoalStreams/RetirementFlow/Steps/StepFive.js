@@ -4,18 +4,21 @@ import PropTypes from 'prop-types'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import TextInput from 'components/Inputs/Text'
-import ButtonNext from '../../Components/ButtonNext'
+import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/ButtonNext'
 
-import { Question, QuestionRule, Section, Wrapper } from '../../styles'
+import {
+  Question,
+  QuestionRule,
+  Section,
+  Wrapper,
+} from 'pages/Objectives/Registration/GoalStreams/styles'
 
 const StepFive = ({ onChangeScreen }) => (
   <Section>
     <Container>
       <Row justifyContent="center">
         <Col lg="6" xs="12">
-          <Question>
-            Quanto você pretende investir por mês?
-          </Question>
+          <Question>Quanto você pretende investir por mês?</Question>
         </Col>
       </Row>
       <Row justifyContent="center">
