@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
-import { Section } from '../../styles'
+import { Section } from 'pages/Objectives/Registration/GoalStreams/styles'
 
 const SuccessStep = () => (
   <Section>
