@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import logoAnbima from 'assets/images/logo-anbima.png'
-import useFetchInvestmentsDetails from 'hooks/Investments/useFetchInvestmentsDetails'
+import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 
 import { columns, riskClassification, fundsType } from './mock'
@@ -23,7 +23,7 @@ import {
 const allOption = 'todos'
 
 export default function FundsList() {
-  useFetchInvestmentsDetails()
+  useFetchInvestmentsList()
 
   const isMobile = useMedia('xs')
   const [selectedRisk, setSelectedRisk] = useState(allOption)
@@ -31,19 +31,19 @@ export default function FundsList() {
   const funds = useSelector(state => state.investmentsDetails)
 
   const filterFundsByType = type => fundsArr => {
-    if (!fundsArr[0]) {
+    if (!fundsArr) {
       return []
     }
 
     if (type !== allOption) {
-      const fundFiltered = fundsArr[0].filter(
+      const fundFiltered = fundsArr.filter(
         fund => fund.nome_categoria.toLowerCase().replace(' ', '') === type
       )
 
       return fundFiltered[0] ? fundFiltered[0].fundos : []
     }
 
-    return fundsArr[0].flatMap(fund => fund.fundos)
+    return fundsArr.flatMap(fund => fund.fundos)
   }
 
   const filterFundsByRisk = risk => fundsArr => {
@@ -58,10 +58,10 @@ export default function FundsList() {
         )
   }
 
-  const fundsMock = useMemo(() => {
+  const fundsFiltered = useMemo(() => {
     const filterByType = filterFundsByType(selectedType)
     const filterByRisk = filterFundsByRisk(selectedRisk)
-    return filterByRisk(filterByType(funds.data))
+    return filterByRisk(filterByType(funds.data[0]))
   }, [funds.data, selectedRisk, selectedType])
 
   const columnsMock = useMemo(() => columns, [])
@@ -99,11 +99,11 @@ export default function FundsList() {
       </TopWrapper>
       <ContentWrapper>
         {isMobile ? (
-          <ListFunds data={fundsMock} />
+          <ListFunds data={fundsFiltered} />
         ) : (
           <TableFunds
             columns={columnsMock}
-            data={fundsMock}
+            data={fundsFiltered}
             fundsType={fundsType}
             setSelectedType={setSelectedType}
             selectedType={selectedType}
