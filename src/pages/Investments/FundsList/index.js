@@ -26,7 +26,7 @@ export default function FundsList() {
   const isMobile = useMedia('xs')
   const [selectedRisk, setSelectedRisk] = useState(allOption)
   const [selectedType, setSelectedType] = useState(allOption)
-  const funds = useSelector(state => state.investmentsDetails)
+  const funds = useSelector(state => state.investmentsList)
 
   const filterFundsByType = type => (fundsArr = []) => {
     const newFunds =

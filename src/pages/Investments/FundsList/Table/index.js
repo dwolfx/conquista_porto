@@ -1,11 +1,12 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useState, useLayoutEffect, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTable } from 'react-table'
 import PropTypes from 'prop-types'
 
 import Modal from 'components/Modal'
 import FundsInfo from 'components/Solutions/Investments/FundsInfo'
-
 import { formatMoney } from 'helpers'
+import { GetDataRequest } from 'store/modules/Investment/Details/action'
 
 import {
   Table,
@@ -66,7 +67,12 @@ const FormatFundoCell = ({ cell, column }) => (
   <FundoWrapper {...cell.getCellProps()}>
     <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
     <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-    <AlertIcon onClick={() => column.toggleModal(!column.isModalOpen)} />
+    <AlertIcon
+      onClick={() => {
+        column.setInvestmentId(cell.row.original.id_fundo)
+        column.toggleModal(!column.isModalOpen)
+      }}
+    />
   </FundoWrapper>
 )
 
@@ -81,13 +87,14 @@ const FormatEnabledCell = column =>
 
 const FormatMoneyCell = column => formatMoney(column.cell.value)
 
-const formatColumns = (columns, toggleModal, isModalOpen) => {
+const formatColumns = (columns, toggleModal, isModalOpen, setInvestmentId) => {
   const formatters = {
     fundo: column => ({
       ...column,
       Cell: FormatFundoCell,
       toggleModal,
       isModalOpen,
+      setInvestmentId,
     }),
     is_fundo_ativo: column => ({ ...column, Cell: FormatEnabledCell }),
     minimo_inicial: column => ({
@@ -111,6 +118,13 @@ export default function TableFunds({
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
+  const [investmentId, setInvestmentId] = useState(0)
+  const fundDetails = useSelector(state => state.investmentDetails)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(GetDataRequest(investmentId))
+  }, [dispatch, investmentId])
 
   useLayoutEffect(() => {
     setTheadY(
@@ -142,7 +156,12 @@ export default function TableFunds({
     prepareRow,
     rows,
   } = useTable({
-    columns: formatColumns(columnsProps, toggleModal, isModalOpen),
+    columns: formatColumns(
+      columnsProps,
+      toggleModal,
+      isModalOpen,
+      setInvestmentId
+    ),
     data,
   })
 
@@ -158,7 +177,7 @@ export default function TableFunds({
         modalTitle="Informações do fundo"
         alignItems="flex-start"
       >
-        <FundsInfo />
+        <FundsInfo fund={fundDetails} />
       </Modal>
       <TabsWrapper>
         {fundsType.map(fundType => (

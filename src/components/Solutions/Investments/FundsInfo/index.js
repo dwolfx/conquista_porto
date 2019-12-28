@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
 import HistoricalRentabilityTable from './HistoricalRentabilityTable'
@@ -104,11 +105,12 @@ const tableRow = [
   },
 ]
 
-export default function FundsInfo() {
+export default function FundsInfo({ fund }) {
   const themeContext = useContext(ThemeContext)
+
   return (
     <Container>
-      <SubTitle>Porto Seguro Soberano Referenciado DI Renda Fixa</SubTitle>
+      <SubTitle>{fund.apelido}</SubTitle>
       <RiskDegreeTitle>Perfil de Risco</RiskDegreeTitle>
       <RiskDegree actives={[2]} />
       <HistoricalRentabilityTable tableHead={tableHead} tableRow={tableRow} />
@@ -135,4 +137,12 @@ export default function FundsInfo() {
       </Notification>
     </Container>
   )
+}
+
+FundsInfo.defaultProps = {
+  fund: {},
+}
+
+FundsInfo.propTypes = {
+  fund: PropTypes.object,
 }

@@ -14,4 +14,4 @@ function* getData() {
   }
 }
 
-export default all([takeLatest(Types.INVESTMENT_DETAILS_ADD_REQUEST, getData)])
+export default all([takeLatest(Types.INVESTMENT_LIST_ADD_REQUEST, getData)])
