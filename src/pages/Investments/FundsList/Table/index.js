@@ -13,6 +13,8 @@ import {
   Thead,
   TheadTr,
   TheadTh,
+  TheadThWithColumns,
+  TheadColumn,
   Tbody,
   TbodyTr,
   TBodyTd,
@@ -34,26 +36,21 @@ const SimpleHeader = ({ header }) => (
   </TheadTh>
 )
 
-const HeaderWithColumns = ({ header }) => {
-  const isLastItem = x => header.columns.length - 1 === x
-  return (
-    <>
-      {header.columns.map((headerColumn, idx) => (
-        <TheadTh
+const HeaderWithColumns = ({ header }) => (
+  <TheadThWithColumns width={header.width}>
+    {header.Header}
+    <WrapperContent>
+      {header.columns.map(headerColumn => (
+        <TheadColumn
           width={headerColumn.width}
-          hasBefore={isLastItem(idx)}
-          beforeContent={header.Header}
-          beforeWidth={header.width}
           key={`inner-header-${headerColumn.Header}`}
         >
-          <WrapperContent lineHeight="16px">
-            {headerColumn.render('Header')}
-          </WrapperContent>
-        </TheadTh>
+          {headerColumn.render('Header')}
+        </TheadColumn>
       ))}
-    </>
-  )
-}
+    </WrapperContent>
+  </TheadThWithColumns>
+)
 
 const TheadWrapper = ({ header }) => {
   const hasColumns = () => 'columns' in header
@@ -256,12 +253,14 @@ FormatFundoCell.propTypes = {
       original: PropTypes.shape({
         url_logo_gestor: PropTypes.string,
         apelido: PropTypes.string,
+        id_fundo: PropTypes.string,
       }),
     }),
   }).isRequired,
   column: PropTypes.shape({
     isModalOpen: PropTypes.bool,
     toggleModal: PropTypes.func,
+    setInvestmentId: PropTypes.func,
   }).isRequired,
 }
 

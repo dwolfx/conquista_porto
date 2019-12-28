@@ -113,6 +113,7 @@ export default function Investments({ history }) {
         informações detalhadas de cada um e realiza seus investimentos com a
         segurança de uma plataforma da Porto Seguro."
         buttonText="lista de fundos"
+        onClick={() => history.push('/investimentos/lista-fundos')}
       />
       <SectionCustomPicture backgroundColor="#d6dde5">
         <CustomContent>
@@ -144,4 +145,8 @@ Investments.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+}
+
+Investments.defaultProps = {
+  history: () => {},
 }

@@ -16,12 +16,12 @@ export const columns = [
       {
         Header: 'Cotização',
         accessor: 'resgate_cotizacao',
-        width: '120px',
+        width: '118px',
       },
       {
         Header: 'Liquidação',
         accessor: 'resgate_financeiro',
-        width: '120px',
+        width: '118px',
       },
     ],
   },
@@ -37,17 +37,17 @@ export const columns = [
       {
         Header: 'Mês',
         accessor: 'rentabil_fundo_mes',
-        width: '75px',
+        width: '73px',
       },
       {
         Header: 'Ano',
         accessor: 'rentabil_fundo_ano',
-        width: '75px',
+        width: '73px',
       },
       {
         Header: 'Últ. 12M',
         accessor: 'rentabil_fundo_12_meses',
-        width: '75px',
+        width: '73px',
       },
     ],
   },

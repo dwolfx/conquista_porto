@@ -6,9 +6,7 @@ exports[`FundsInfo renders correctly 1`] = `
 >
   <h2
     className="sc-gPEVay dLVclu"
-  >
-    Porto Seguro Soberano Referenciado DI Renda Fixa
-  </h2>
+  />
   <h5
     className="sc-gipzik iykDNk"
   >
