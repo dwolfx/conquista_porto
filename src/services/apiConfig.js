@@ -2,11 +2,18 @@
 let baseURL = ''
 
 if (process.env.REACT_APP_ENV === 'local') {
-  baseURL = 'http://localhost:5000/investimento'
-} else {
-  // a partir do momento que existir variáveis de ambiente nós devemos usar a REACT_APP_BASE_URL
-  // baseURL = process.env.REACT_APP_BASE_URL
-  baseURL = 'http://localhost:5000/investimento'
+  baseURL = 'http://localhost:5000/conquistaapi/investimento/v1'
 }
 
-export { baseURL }
+if (process.env.REACT_APP_ENV === 'development') {
+  baseURL = 'https://tst.portoseguro.com.br/conquistaapi/investimento/v1'
+}
+
+const responseInterceptor = response => {
+  if (response.data.TipoCritica) {
+    throw Error(response.data.Mensagem)
+  }
+  return response
+}
+
+export { baseURL, responseInterceptor }

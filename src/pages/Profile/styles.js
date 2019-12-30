@@ -171,11 +171,11 @@ export const CardBox = styled.div`
 
 export const LineBreaker = styled.div`
   flex: 1;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
 `
 
 export const PencilIcon = styled.div`
-  background-color: #d2d2d2;
+  background-color: ${props => props.theme.colors.gray3};
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -229,7 +229,7 @@ export const BoxText = styled.p`
 `
 
 export const IconWrapper = styled.div`
-  border: 4px solid #d2d2d2;
+  border: 4px solid ${props => props.theme.colors.gray3};
   border-radius: 50%;
   width: 98px;
   height: 98px;
@@ -277,15 +277,11 @@ export const ModalSectionText = styled.p`
 export const InputCode = styled.input.attrs({ type: 'number' })`
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   color: ${props => props.theme.colors.blue4};
   font-size: 34px;
   font-weight: 300;
   margin: 0 auto;
   text-align: center;
   width: 330px;
-`
-
-export const DarkGreySection = styled.section`
-  background-color: #555861;
 `

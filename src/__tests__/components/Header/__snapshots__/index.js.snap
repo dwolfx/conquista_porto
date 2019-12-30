@@ -3,7 +3,7 @@
 exports[`Header to render 1`] = `
 Array [
   <header
-    className="sc-chPdSV jCVgyW"
+    className="sc-chPdSV hXeYZM"
   >
     <div
       className="sc-kgoBCf fQqKPI"
@@ -84,7 +84,7 @@ Array [
               width={500}
             >
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kGXeez coXWTA"
               >
                 <div
                   className="sc-kGXeez kTRqkY"
@@ -100,8 +100,8 @@ Array [
                   className="sc-kGXeez cCOoRx"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
+                    className="sc-cvbbAY kdnpIU"
+                    color="#EFFBFF"
                     fontWeight={600}
                     letterSpacing={1.5}
                     size={11}
@@ -129,7 +129,7 @@ Array [
                 </div>
               </div>
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kGXeez coXWTA"
               >
                 <div
                   className="sc-kGXeez kTRqkY"
@@ -145,8 +145,8 @@ Array [
                   className="sc-kGXeez cCOoRx"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
+                    className="sc-cvbbAY kdnpIU"
+                    color="#EFFBFF"
                     fontWeight={600}
                     letterSpacing={1.5}
                     size={11}
@@ -174,7 +174,7 @@ Array [
                 </div>
               </div>
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kGXeez coXWTA"
               >
                 <div
                   className="sc-kGXeez kTRqkY"
@@ -190,8 +190,8 @@ Array [
                   className="sc-kGXeez cCOoRx"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
+                    className="sc-cvbbAY kdnpIU"
+                    color="#EFFBFF"
                     fontWeight={600}
                     letterSpacing={1.5}
                     size={11}
@@ -219,7 +219,7 @@ Array [
                 </div>
               </div>
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kGXeez coXWTA"
               >
                 <div
                   className="sc-kGXeez kTRqkY"
@@ -235,8 +235,8 @@ Array [
                   className="sc-kGXeez cCOoRx"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
+                    className="sc-cvbbAY kdnpIU"
+                    color="#EFFBFF"
                     fontWeight={600}
                     letterSpacing={1.5}
                     size={11}
@@ -281,7 +281,7 @@ Array [
             </div>
           </div>
           <div
-            className="sc-ckVGcZ UwPXj"
+            className="sc-ckVGcZ fBHard"
           >
             <p
               className="sc-cvbbAY jTEqwM"
@@ -377,12 +377,12 @@ Array [
               className="sc-VigVT dzTYZV"
             >
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/cartao-credito"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -403,12 +403,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/consorcio-imovel"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -429,12 +429,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/consorcio-veiculo"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -455,12 +455,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/financiamento-veiculo"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -481,12 +481,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/investimentos"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -507,12 +507,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/previdencia-privada"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -533,12 +533,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/seguro-vida"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -559,12 +559,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/seguro-viagem"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"

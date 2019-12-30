@@ -29,6 +29,14 @@ import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import Objectives from 'pages/Objectives'
 import ObjectivesRegistration from 'pages/Objectives/Registration'
+import ObjectivesRetirementFlow from 'pages/Objectives/Registration/GoalStreams/RetirementFlow'
+import ObjectivesTravelFlow from 'pages/Objectives/Registration/GoalStreams/TravelFlow'
+import ObjectivesBuyCarFlow from 'pages/Objectives/Registration/GoalStreams/BuyCarFlow'
+import ObjectivesStudyFlow from 'pages/Objectives/Registration/GoalStreams/StudyFlow'
+import ObjectivesMultiplyMoneyFlow from 'pages/Objectives/Registration/GoalStreams/MultiplyMoneyFlow'
+import ObjectivesEventFlow from 'pages/Objectives/Registration/GoalStreams/EventFlow'
+import ObjectivesBuyHouseFlow from 'pages/Objectives/Registration/GoalStreams/BuyHouseFlow'
+import ObjectivesSaveMoneyFlow from 'pages/Objectives/Registration/GoalStreams/SaveMoneyFlow'
 
 const DefaultRoute = ({ component, ...rest }) => {
   const Component = component
@@ -51,7 +59,6 @@ export default function Routes({ ...props }) {
   return (
     <Switch {...props}>
       <DefaultRoute path="/" exact component={Home} />
-      <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <Route
         path="/investimentos/extrato"
         exact
@@ -69,7 +76,6 @@ export default function Routes({ ...props }) {
         exact
         component={ManagementSeguroVida}
       />
-      <DefaultRoute path="/investimentos" exact component={Investimentos} />
       <DefaultRoute
         path="/investimentos/lista-fundos"
         component={InvestmentsFunds}
@@ -121,6 +127,46 @@ export default function Routes({ ...props }) {
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <DefaultRoute path="/objetivos" exact component={Objectives} />
       <Route path="/objetivos/criar" exact component={ObjectivesRegistration} />
+      <Route
+        path="/objetivos/aposentar"
+        exact
+        component={ObjectivesRetirementFlow}
+      />
+      <Route
+        path="/objetivos/realizar-viagem"
+        exact
+        component={ObjectivesTravelFlow}
+      />
+      <Route
+        path="/objetivos/comprar-carro"
+        exact
+        component={ObjectivesBuyCarFlow}
+      />
+      <Route
+        path="/objetivos/realizar-curso"
+        exact
+        component={ObjectivesStudyFlow}
+      />
+      <Route
+        path="/objetivos/multiplicar-dinheiro"
+        exact
+        component={ObjectivesMultiplyMoneyFlow}
+      />
+      <Route
+        path="/objetivos/realizar-evento"
+        exact
+        component={ObjectivesEventFlow}
+      />
+      <Route
+        path="/objetivos/comprar-casa"
+        exact
+        component={ObjectivesBuyHouseFlow}
+      />
+      <Route
+        path="/objetivos/reservar-dinheiro"
+        exact
+        component={ObjectivesSaveMoneyFlow}
+      />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"

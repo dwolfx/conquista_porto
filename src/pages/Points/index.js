@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 import TopBanner from '../../components/Solutions/TopBanner'
 import Button from '../../components/Button'
@@ -61,6 +62,7 @@ const settings = {
 }
 
 export default function Points() {
+  const themeContext = useContext(ThemeContext)
   return (
     <>
       <TopBanner
@@ -75,7 +77,7 @@ export default function Points() {
         <PointsWrapper settings={settings}>
           <Point>
             <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
-            <PointHeadline fontSize={34} colorText="#33beff">
+            <PointHeadline fontSize={34} colorText={themeContext.colors.blue4}>
               16.500
             </PointHeadline>
             <PointText>PONTOS</PointText>
@@ -83,7 +85,7 @@ export default function Points() {
           </Point>
           <Point>
             <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
-            <PointHeadline fontSize={34} colorText="#33beff">
+            <PointHeadline fontSize={34} colorText={themeContext.colors.blue4}>
               16.500
             </PointHeadline>
             <PointText>PONTOS</PointText>
@@ -91,7 +93,7 @@ export default function Points() {
           </Point>
           <Point>
             <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
-            <PointHeadline fontSize={34} colorText="#33beff">
+            <PointHeadline fontSize={34} colorText={themeContext.colors.blue4}>
               16.500
             </PointHeadline>
             <PointText>PONTOS</PointText>
@@ -115,7 +117,7 @@ export default function Points() {
         <RelationshipProgram>
           <RelationshipProgramItem>
             <div>
-              <BarChartIcon fill="#777" height={36} />
+              <BarChartIcon fill={themeContext.colors.gray5} height={36} />
             </div>
             <p>
               Invista e pontue todo mês com seu saldo em Fundos e Previdência
@@ -124,7 +126,7 @@ export default function Points() {
           </RelationshipProgramItem>
           <RelationshipProgramItem>
             <div>
-              <GlobeIcon fill="#777" height={36} />
+              <GlobeIcon fill={themeContext.colors.gray5} height={36} />
             </div>
             <p>
               Contrate soluções da Porto Seguro com o Conquista e acumule
@@ -133,7 +135,7 @@ export default function Points() {
           </RelationshipProgramItem>
           <RelationshipProgramItem>
             <div>
-              <CreditCard2 fill="#777" height={36} />
+              <CreditCard2 fill={themeContext.colors.gray5} height={36} />
             </div>
             <p>
               Some o seu saldo com os pontos do Cartão de Crédito Porto Seguro.
@@ -141,7 +143,7 @@ export default function Points() {
           </RelationshipProgramItem>
           <RelationshipProgramItem>
             <div>
-              <FinancialIcon fill="#777" height={36} />
+              <FinancialIcon fill={themeContext.colors.gray5} height={36} />
             </div>
             <p>
               Ganhe a partir de 1 ponto a cada R$ 1.000,00 em investimentos.
@@ -149,7 +151,7 @@ export default function Points() {
           </RelationshipProgramItem>
           <RelationshipProgramItem>
             <div>
-              <FinancialIcon fill="#777" height={36} />
+              <FinancialIcon fill={themeContext.colors.gray5} height={36} />
             </div>
             <p>
               Ganhe 1 ponto a cada R$ 1,00 pago em Seguro Viagem e Seguro de
@@ -158,7 +160,7 @@ export default function Points() {
           </RelationshipProgramItem>
           <RelationshipProgramItem>
             <div>
-              <FinancialIcon fill="#777" height={36} />
+              <FinancialIcon fill={themeContext.colors.gray5} height={36} />
             </div>
             <p>
               Ganhe 1 ponto a cada R$ 50,00 de crédito no Financiamento de

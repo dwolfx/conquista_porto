@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ResponsivePie } from '@nivo/pie'
+import { ThemeContext } from 'styled-components'
 
 import ConquistaButton from 'components/Button'
 import Accordion from 'components/Accordion'
@@ -38,6 +39,7 @@ const generalViewData = [
 ]
 
 export default function GeneralView() {
+  const themeContext = useContext(ThemeContext)
   return (
     <Container>
       <General>
@@ -58,7 +60,7 @@ export default function GeneralView() {
             borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
             enableRadialLabels={false}
             slicesLabelsSkipAngle={10}
-            slicesLabelsTextColor="#000000"
+            slicesLabelsTextColor={themeContext.colors.black}
             sliceLabel={e => `${e.value}%`}
             tooltipFormat={value => `${value}%`}
             animate
@@ -70,14 +72,14 @@ export default function GeneralView() {
                 direction: 'column',
                 itemWidth: 100,
                 itemHeight: 18,
-                itemTextColor: '#000',
+                itemTextColor: themeContext.colors.black,
                 symbolSize: 18,
                 symbolShape: 'square',
                 effects: [
                   {
                     on: 'hover',
                     style: {
-                      itemTextColor: '#000',
+                      itemTextColor: themeContext.colors.black,
                     },
                   },
                 ],

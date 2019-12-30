@@ -110,8 +110,8 @@ export default function ManagementCreditCard({ history }) {
                 history.push('/')
               }}
             >
-              <Icon width="48" fill="#ccc" name="add" />
-              <Text fontColor="#aaa" fontSize="14px">
+              <Icon width="48" fill={themeContext.colors.gray3} name="add" />
+              <Text fontColor={themeContext.colors.gray4} fontSize="14px">
                 Adicionar
               </Text>
             </AddBtnLink>
@@ -136,7 +136,7 @@ export default function ManagementCreditCard({ history }) {
               <Text fontSize="14px">04/08/2018</Text>
             </ManageableItem>
           </LeftNav>
-          <RightContent>
+          <RightContent isSelected>
             <PageTitle>Seguro de Vida</PageTitle>
             <Topics settings={settings}>
               <Topic>
