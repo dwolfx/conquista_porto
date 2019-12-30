@@ -143,7 +143,7 @@ export default function TopMenu() {
                     padding="15px"
                     alignItems="flex-start"
                     bgcolor={themeContext.colors.white}
-                    borderBottom="1px solid #c7c7c7"
+                    borderBottom={`1px solid ${themeContext.colors.gray4}`}
                     cursorPointer
                     key={item.id}
                   >
@@ -158,7 +158,7 @@ export default function TopMenu() {
                       cursorPointer
                     >
                       <Text
-                        color="#33beff"
+                        color={themeContext.colors.blue1}
                         margin="0px 0px 14px 0px"
                         size={11}
                         fontWeight={600}

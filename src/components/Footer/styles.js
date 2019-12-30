@@ -22,7 +22,7 @@ export const Container = styled.div`
     height: 18px;
     flex-shrink: 0;
     align-self: flex-start;
-    fill: #33beff;
+    fill: ${props => props.theme.colors.blue4};
     margin-right: 15px;
     margin-top: 4px;
   }
@@ -71,7 +71,7 @@ export const Wrapper = styled.div`
 export const Line = styled.div`
   width: ${props => (props.width ? `${props.width}%` : '100%')};
   height: 1px;
-  background-color: #d2d2d2;
+  background-color: ${props => props.theme.colors.gray3};
   margin: 20px 0px;
 
   @media (max-width: 989px) {
@@ -82,7 +82,7 @@ export const Line = styled.div`
 export const ResponsiveLine = styled.div`
   width: 100%;
   height: 1px;
-  background-color: #d2d2d2;
+  background-color: ${props => props.theme.colors.gray3};
   margin: 20px 0px;
 
   @media (min-width: 989px) {
@@ -94,7 +94,7 @@ export const Text = styled.p`
   font-size: ${props => (props.size ? `${props.size}px` : '12px')};
   font-weight: ${props => (props.weight ? props.weight : 'normal')};
   line-height: ${props => (props.lineHeight ? props.lineHeight : '24px')};
-  color: ${props => (props.color ? props.color : '#000')};
+  color: ${props => (props.color ? props.color : props.theme.colors.black)};
   letter-spacing: ${props => (props.spacing ? `${props.spacing}px` : 'normal')};
   margin: ${props => (props.margin ? props.margin : '0px')};
 `

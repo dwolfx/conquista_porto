@@ -24,7 +24,7 @@ export const WrapperDetails = styled.div`
   width: 600px;
   align-items: center;
   justify-content: space-between;
-  border-right: 2px solid #d2d2d2;
+  border-right: 2px solid ${props => props.theme.colors.gray3};
   @media (max-width: 900px) {
     width: 334px;
     section {
@@ -49,7 +49,7 @@ export const FundsDetailsSection = styled.section`
   display: flex;
   width: 100%;
   padding-top: 30px;
-  background-color: #f9f9f9;
+  background-color: ${props => props.theme.colors.gray1};
   @media (max-width: 900px) {
     width: 490px;
   }
@@ -65,7 +65,7 @@ export const SubTitle = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   font-size: 22px;
   font-weight: 300;
   letter-spacing: 0.5px;

@@ -7,7 +7,7 @@ export const PointsContainer = styled.section`
   align-items: center;
 
   padding: 28px 0;
-  background-color: #f1f1f1;
+  background-color: ${props => props.theme.colors.gray1};
 `
 
 export const PointsWrapper = styled(Carousel)`
@@ -37,11 +37,10 @@ export const PointText = styled.p`
 `
 
 export const Point = styled.div`
-  border: 1px solid #ccc;
   width: 230px !important;
   height: 200px;
   margin: 0 4px 35px 4px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid ${props => props.theme.colors.gray2};
   border-radius: 8px;
   box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);
   background-color: ${props => props.theme.colors.white};
@@ -55,7 +54,7 @@ export const PointHeadline = styled.p`
   font-size: ${props => `${props.fontSize}px`};
   line-height: 28px;
   font-weight: 300;
-  color: ${props => props.colorText || '#000'};
+  color: ${props => props.colorText || props.theme.colors.black};
   letter-spacing: 0;
   word-wrap: break-word;
 `
@@ -72,13 +71,13 @@ export const GoToLink = styled.p`
   color: ${props => props.theme.colors.blue4};
 
   :hover {
-    color: #2591bb;
+    color: ${props => props.theme.colors.blue5};
   }
 `
 
 export const RescuePointsSection = styled.section`
   padding: 28px 0;
-  background-color: #115fa5;
+  background-color: ${props => props.theme.colors.darkBlue2};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -127,7 +126,7 @@ export const RelationshipProgram = styled.div`
 export const RelationshipProgramItem = styled.div`
   display: flex;
   align-items: center;
-  border-color: #d2d2d2;
+  border-color: ${props => props.theme.colors.gray3};
   border-style: solid;
   padding: 30px;
 
@@ -165,7 +164,7 @@ export const RelationshipProgramItem = styled.div`
 
 export const BenefitsSection = styled.section`
   padding: 28px 0;
-  background-color: #f1f1f1;
+  background-color: ${props => props.theme.colors.gray1};
 `
 
 export const BenefitsSectionContent = styled.div`
@@ -181,7 +180,7 @@ export const BenefitsTitle = styled.h5`
   letter-spacing: 0.5px;
   line-height: 44px;
   font-weight: 300;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   letter-spacing: 0;
   word-wrap: break-word;
   margin-bottom: 14px;
@@ -198,7 +197,7 @@ export const BenefitsDescription = styled.p`
   font-size: 18px;
   line-height: 28px;
   font-weight: 300;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   letter-spacing: 0;
   word-wrap: break-word;
   margin-bottom: 14px;
@@ -237,7 +236,7 @@ export const BenefitItem = styled.div`
     font-size: 18px;
     line-height: 28px;
     font-weight: 300;
-    color: #000;
+    color: ${props => props.theme.colors.black};
     letter-spacing: 0;
     word-wrap: break-word;
 

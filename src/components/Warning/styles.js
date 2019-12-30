@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import theme from '../../styles/theme'
 
 export const WarningWrapper = styled.div`
-  border: 3px solid #d2d2d2;
+  border: 3px solid ${props => props.theme.colors.gray3};
   margin-bottom: 30px;
   padding: 30px 30px 23px;
 `
@@ -25,13 +25,13 @@ export const WarningIcon = styled.div`
 export const WarningTitle = styled.div`
   font-family: ${theme.fontFamily};
   font-size: 22px;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   margin-bottom: 15px;
 `
 
 export const WarningText = styled.div`
   font-family: ${theme.fontFamily};
-  color: #000;
+  color: ${props => props.theme.colors.black};
   font-size: 14px;
   margin-bottom: 0;
 `

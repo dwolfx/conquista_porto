@@ -7,7 +7,7 @@ export const Container = styled.section`
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background-color: #555861;
+  background-color: ${props => props.theme.colors.gray5};
 `
 
 export const Content = styled.div`

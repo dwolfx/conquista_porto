@@ -42,6 +42,6 @@ TopBanner.propTypes = {
 }
 
 TopBanner.defaultProps = {
-  onClick: () => {},
+  onClick: null,
   buttonText: null,
 }

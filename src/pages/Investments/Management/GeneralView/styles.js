@@ -57,7 +57,7 @@ export const LinkButton = styled.p`
   font-weight: 600;
 
   :hover {
-    color: #2591bb;
+    color: ${props => props.theme.colors.blue5};
   }
 `
 

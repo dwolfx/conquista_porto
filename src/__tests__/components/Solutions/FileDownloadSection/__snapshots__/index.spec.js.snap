@@ -2,10 +2,10 @@
 
 exports[`FileDownloadSection renders correctly 1`] = `
 <section
-  className="sc-bdVaJa bFDApJ"
+  className="sc-bdVaJa WUEDr"
 >
   <div
-    className="sc-bwzfXH fmjwcP"
+    className="sc-bwzfXH frRDcH"
   >
     <div>
       <svg
@@ -28,14 +28,14 @@ exports[`FileDownloadSection renders correctly 1`] = `
         Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
       </p>
       <p
-        className="sc-EHOje dKWcXT"
+        className="sc-EHOje hqABxm"
       >
          &gt; 
       </p>
     </div>
   </div>
   <div
-    className="sc-bwzfXH fmjwcP"
+    className="sc-bwzfXH frRDcH"
   >
     <div>
       <svg
@@ -58,7 +58,7 @@ exports[`FileDownloadSection renders correctly 1`] = `
         Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
       </p>
       <p
-        className="sc-EHOje dKWcXT"
+        className="sc-EHOje hqABxm"
       >
          &gt; 
       </p>
