@@ -72,7 +72,7 @@ export default function ManagementConsortiumVehicle({ history }) {
 
   useEffect(() => {
     if (consortiumVehicle.data.length) {
-      setSelectedConsortiumVehicle(consortiumVehicle.data[0].id)
+      setSelectedConsortiumVehicle(consortiumVehicle.data[0].Id)
     }
   }, [consortiumVehicle.data])
 
@@ -104,10 +104,10 @@ export default function ManagementConsortiumVehicle({ history }) {
 
             {consortiumVehicle.data.map(item => (
               <ManageableItem
-                key={item.id}
-                active={selectedConsortiumVehicle === item.id}
+                key={item.Id}
+                active={selectedConsortiumVehicle === item.Id}
                 onClick={() => {
-                  setSelectedConsortiumVehicle(item.id)
+                  setSelectedConsortiumVehicle(item.Id)
                   scrollPage(`consortium-vehicle-top-page`)
                 }}
               >
@@ -127,14 +127,14 @@ export default function ManagementConsortiumVehicle({ history }) {
                 >
                   STATUS
                 </Text>
-                <Text fontSize="14px">Contemplado</Text>
+                <Text fontSize="14px">{item.StatusConsorcio}</Text>
               </ManageableItem>
             ))}
           </LeftNav>
           {consortiumVehicle.data.map((item, index) => (
             <RightContent
-              key={item.id}
-              isSelected={item.id === selectedConsortiumVehicle}
+              key={item.Id}
+              isSelected={item.Id === selectedConsortiumVehicle}
             >
               <PageTitle>Contrato {index + 1}</PageTitle>
               <Topics settings={settings}>
@@ -146,7 +146,7 @@ export default function ManagementConsortiumVehicle({ history }) {
                   />
                   <div>
                     <TopicTitle>Cota</TopicTitle>
-                    <TopicValue>{item.cota}</TopicValue>
+                    <TopicValue>{item.Cota}</TopicValue>
                   </div>
                 </Topic>
                 <Topic>
@@ -157,7 +157,7 @@ export default function ManagementConsortiumVehicle({ history }) {
                   />
                   <div>
                     <TopicTitle>grupo</TopicTitle>
-                    <TopicValue>{item.grupo}</TopicValue>
+                    <TopicValue>{item.Grupo}</TopicValue>
                   </div>
                 </Topic>
                 <Topic>
@@ -168,7 +168,7 @@ export default function ManagementConsortiumVehicle({ history }) {
                   />
                   <div>
                     <TopicTitle>Crédito contratado</TopicTitle>
-                    <TopicValue>{formatMoney(item.valorContratado)}</TopicValue>
+                    <TopicValue>{formatMoney(item.ValorContratado)}</TopicValue>
                   </div>
                 </Topic>
               </Topics>
@@ -183,7 +183,7 @@ export default function ManagementConsortiumVehicle({ history }) {
                     >
                       Valor para quitação
                     </Text>
-                    <Text>{formatMoney(item.valorQuitacao)}</Text>
+                    <Text>{formatMoney(item.ValorQuitacao)}</Text>
                   </InstallmentContent>
                   <InstallmentContent>
                     <Text
@@ -194,7 +194,7 @@ export default function ManagementConsortiumVehicle({ history }) {
                     >
                       Valor da parcela atual
                     </Text>
-                    <Text>{formatMoney(item.valorParcelaAtual)}</Text>
+                    <Text>{formatMoney(item.ValorParcelaAtual)}</Text>
                   </InstallmentContent>
                 </InvoiceHeader>
                 <Invoice>
@@ -210,8 +210,8 @@ export default function ManagementConsortiumVehicle({ history }) {
                   <LinearProgressBar
                     width="70%"
                     margin="70px 0 0 0"
-                    now={item.quantidadeParcelasPagas}
-                    max={item.quantidadeParcelasContratadas}
+                    now={item.QuantidadeParcelasPagas}
+                    max={item.QuantidadeParcelasContratadas}
                     subtitle="parcelas"
                   />
 

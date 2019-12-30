@@ -145,7 +145,7 @@ export const InvoiceItem = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-around;
-  background-color: ${props => props.theme.colors.gray1};
+  background-color: ${props => props.theme.colors.gray2};
   padding: 14px 0;
   border-radius: 4px;
   margin-bottom: 14px;

@@ -6,12 +6,14 @@ import consortiumVehicle from './ConsortiumVehicle/reducer'
 import investmentsDetails from './Investment/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
 import bankData from './BankData/reducer'
+import lifeInsurance from './LifeInsurance/reducer'
 
 export default combineReducers({
   creditCard,
   investmentsDetails,
   privateWelfare,
   bankData,
+  lifeInsurance,
   consortiumBuilding,
   consortiumVehicle,
 })

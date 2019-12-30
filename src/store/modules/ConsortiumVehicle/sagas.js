@@ -10,7 +10,7 @@ function* getData() {
       get,
       '/consorcios/auto?cpfCnpj=33244452809&codigoCanal=0'
     )
-    yield put(GetDataSuccess(response.data.consorcios))
+    yield put(GetDataSuccess(response.data.Consorcios))
   } catch (err) {
     yield put(GetDataFailure())
   }

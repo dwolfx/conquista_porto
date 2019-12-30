@@ -145,7 +145,7 @@ Array [
                       <span
                         className="sc-iRbamj bFiGMH"
                       >
-                        650
+                        500
                       </span>
                     </div>
                   </div>
@@ -190,7 +190,7 @@ Array [
                       <span
                         className="sc-iRbamj bFiGMH"
                       >
-                        x381
+                        x398
                       </span>
                     </div>
                   </div>
@@ -235,7 +235,7 @@ Array [
                       <span
                         className="sc-iRbamj bFiGMH"
                       >
-                        R$40,000.00
+                        R$ 40,000.00
                       </span>
                     </div>
                   </div>
@@ -264,7 +264,7 @@ Array [
               <span
                 className="sc-Rmtcm evRTW"
               >
-                R$27,200.00
+                R$ 27,200.00
               </span>
             </div>
             <div
@@ -279,7 +279,7 @@ Array [
               <span
                 className="sc-Rmtcm evRTW"
               >
-                R$675.00
+                R$ 675.00
               </span>
             </div>
           </div>
@@ -293,13 +293,13 @@ Array [
               Evolução do pagamento
             </span>
             <div
-              className="sc-bdVaJa hNhJxg"
-              max={10}
+              className="sc-bdVaJa fhIBEE"
+              max={12}
               width="70%"
             >
               <div>
                 <span>
-                  20
+                  75
                   %
                 </span>
               </div>
@@ -308,7 +308,7 @@ Array [
                   0
                 </span>
                 <span>
-                  10
+                  12
                    
                   <span
                     className="sc-bwzfXH fxjqSh"
