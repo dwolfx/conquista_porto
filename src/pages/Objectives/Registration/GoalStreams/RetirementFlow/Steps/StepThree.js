@@ -13,9 +13,7 @@ const StepThree = ({ onChangeScreen }) => (
     <Container>
       <Row justifyContent="center">
         <Col lg="6" xs="12">
-          <Question>
-            Quanto você quer atingir ao final desse objetivo?
-          </Question>
+          <Question>Quanto você quer atingir ao final desse objetivo?</Question>
         </Col>
       </Row>
       <Row justifyContent="center">

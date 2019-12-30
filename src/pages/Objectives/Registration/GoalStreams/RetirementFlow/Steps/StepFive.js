@@ -13,9 +13,7 @@ const StepFive = ({ onChangeScreen }) => (
     <Container>
       <Row justifyContent="center">
         <Col lg="6" xs="12">
-          <Question>
-            Quanto você pretende investir por mês?
-          </Question>
+          <Question>Quanto você pretende investir por mês?</Question>
         </Col>
       </Row>
       <Row justifyContent="center">

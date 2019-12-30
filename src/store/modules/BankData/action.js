@@ -1,6 +1,6 @@
 import { Types } from './types'
 
-export function GetDataRequest() {
+export function GetBankDataRequest() {
   return {
     type: Types.BANK_DATA_GET_DATA_REQUEST,
   }
