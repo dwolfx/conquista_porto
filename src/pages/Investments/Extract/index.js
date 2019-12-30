@@ -1,4 +1,5 @@
-import React, { useState, useReducer, useContext } from 'react'
+import React, { useState, useEffect, useReducer, useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components'
 
 import Icon from 'components/IconExporter'
@@ -7,8 +8,9 @@ import Select from 'components/Inputs/Select'
 import Table from 'components/Table'
 import Header from 'components/Wizard/Header'
 import Tab from 'components/Tab'
+import { formatCpf } from 'helpers'
 
-import { statementColumns, statementData, selectOptions } from './mocks'
+import useExtract from './data'
 import {
   Section,
   Container,
@@ -35,11 +37,21 @@ const reducerstateTab = (stateInner, activeKey) =>
 
 const InvestmentExtract = () => {
   const themeContext = useContext(ThemeContext)
+  const [bankInfo, setBankInfo] = useState(null)
   const [showDateFilter, setShowDateFilter] = useState(false)
   const [stateTab, setCurrentTab] = useReducer(reducerstateTab, {
     accumulatorClass: '',
     statementClass: 'active',
   })
+
+  const bankData = useSelector(state => state.bankData.data)
+  const [statementColumns, statementData, selectOptions] = useExtract()
+
+  useEffect(() => {
+    if (bankData.length > 0) {
+      setBankInfo({ ...bankData[0].dadosContaPortoSeguro })
+    }
+  }, [bankData])
 
   const handleChangeSelect = e => {
     setShowDateFilter(e.target.value === 'other')
@@ -69,7 +81,7 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>Banco</InfosLabel>
-                <InfosData>306</InfosData>
+                <InfosData>{bankInfo && bankInfo.codigo_banco}</InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -80,21 +92,23 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>Agência</InfosLabel>
-                <InfosData>0001</InfosData>
+                <InfosData>{bankInfo && bankInfo.agencia}</InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
               <Icon fill={themeContext.colors.blue4} width={40} name="wallet" />
               <InfosWrapper>
                 <InfosLabel>Conta</InfosLabel>
-                <InfosData>999999-6</InfosData>
+                <InfosData>
+                  {bankInfo && `${bankInfo.conta}-${bankInfo.digito_conta}`}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
               <Icon fill={themeContext.colors.blue4} width={40} name="boy" />
               <InfosWrapper>
                 <InfosLabel>Favorecido</InfosLabel>
-                <InfosData>Julia Francis Reys</InfosData>
+                <InfosData>{bankInfo && bankInfo.titular}</InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -105,7 +119,7 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>CPF</InfosLabel>
-                <InfosData>000.000.000-00</InfosData>
+                <InfosData>{bankInfo && formatCpf(bankInfo.cpf)}</InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
           </Row>

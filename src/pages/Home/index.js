@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 import Menu from 'components/Menu'
+
+import { GetBankDataRequest } from 'store/modules/BankData/action'
 
 import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
@@ -8,6 +11,12 @@ import SectionThree from './SectionThree'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 
 const Home = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(GetBankDataRequest())
+  }, [])
+
   function scrollPage(id) {
     const el = document.querySelector(`#${id}`).getBoundingClientRect()
 
