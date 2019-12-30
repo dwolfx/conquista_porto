@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import Header from 'components/Wizard/Header'
-import { Container } from '../styles'
+import TopBar from 'pages/Objectives/Registration/GoalStreams/Components/TopBar'
+import { Container } from 'pages/Objectives/Registration/GoalStreams/styles'
 
 import StepOne from './Steps/StepOne'
 import StepTwo from './Steps/StepTwo'
@@ -11,8 +12,6 @@ import StepFour from './Steps/StepFour'
 import StepFive from './Steps/StepFive'
 import StepSix from './Steps/StepSix'
 import SuccessStep from './Steps/SuccessStep'
-
-import TopBar from '../Components/TopBar'
 
 export default () => {
   const history = useHistory()

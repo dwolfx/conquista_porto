@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 import Button from 'components/Button'
 import Icon from 'components/IconExporter'
@@ -12,44 +13,52 @@ const Board = () => {
     {
       cardIcon: 'plane',
       cardTitle: 'Fazer uma viagem',
-      cardPath: '/',
+      cardPath: '/objetivos/realizar-viagem',
     },
     {
       cardIcon: 'time',
       cardTitle: 'Aposentar',
-      cardPath: '/',
+      cardPath: '/objetivos/aposentar',
     },
     {
       cardIcon: 'car2',
       cardTitle: 'Comprar um carro',
-      cardPath: '/',
+      cardPath: '/objetivos/comprar-carro',
     },
     {
       cardIcon: 'student',
       cardTitle: 'Fazer um curso',
-      cardPath: '/',
+      cardPath: '/objetivos/realizar-curso',
     },
     {
       cardIcon: 'drink',
       cardTitle: 'Fazer um evento',
-      cardPath: '/',
+      cardPath: '/objetivos/realizar-evento',
     },
     {
       cardIcon: 'homewithwindow',
       cardTitle: 'Comprar uma casa',
-      cardPath: '/',
+      cardPath: '/objetivos/comprar-casa',
     },
     {
       cardIcon: 'financial',
       cardTitle: 'Multiplicar dinheiro',
-      cardPath: '/',
+      cardPath: '/objetivos/multiplicar-dinheiro',
     },
     {
       cardIcon: 'money',
       cardTitle: 'Reservar para emergências',
-      cardPath: '/',
+      cardPath: '/objetivos/reservar-dinheiro',
     },
   ]
+
+  const history = useHistory()
+
+  const handleFlowRedirect = path => {
+    history.push(path)
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }
 
   const themeContext = useContext(ThemeContext)
 
@@ -57,7 +66,7 @@ const Board = () => {
     <Container>
       <Row>
         {boardData.map(card => (
-          <Col lg={3} md={4} sm={6} xs={12}>
+          <Col key={card.cardTitle} lg={3} md={4} sm={6} xs={12}>
             <CardWrapper key={card.cardTitle}>
               <IconWrapper>
                 <Icon
@@ -68,7 +77,10 @@ const Board = () => {
               </IconWrapper>
               <CardTitle>{card.cardTitle}</CardTitle>
               {card.cardPath && (
-                <Button outline path={card.cardPath}>
+                <Button
+                  outline
+                  onClick={() => handleFlowRedirect(card.cardPath)}
+                >
                   escolher
                 </Button>
               )}

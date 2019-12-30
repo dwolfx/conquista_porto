@@ -136,7 +136,7 @@ export default function ManagementCreditCard({ history }) {
               <Text fontSize="14px">04/08/2018</Text>
             </ManageableItem>
           </LeftNav>
-          <RightContent>
+          <RightContent isSelected>
             <PageTitle>Seguro de Vida</PageTitle>
             <Topics settings={settings}>
               <Topic>
