@@ -406,7 +406,12 @@ const complementaryInfo = [
   },
 ]
 
-const ManageableItemWithStyle = ({ name, value, onClick, isActive }) => (
+const ManageableItemWithStyle = ({
+  name = '',
+  value = '',
+  onClick = () => {},
+  isActive = true,
+}) => (
   <ManageableItem onClick={onClick} active={isActive}>
     <Icon width="28" fill="#33beff" name="car2" />
     <Text
@@ -431,6 +436,19 @@ const ManageableItemWithStyle = ({ name, value, onClick, isActive }) => (
     </Text>
   </ManageableItem>
 )
+
+ManageableItemWithStyle.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  onClick: PropTypes.func,
+  isActive: PropTypes.bool,
+}
+
+ManagementVehicleFiancing.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+}
 
 const settings = {
   slidesToShow: 3,
