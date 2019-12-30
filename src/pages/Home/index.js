@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import Menu from 'components/Menu'
 
 import { GetBankDataRequest } from 'store/modules/BankData/action'
+import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
 
 import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
@@ -15,6 +16,8 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
+    dispatch(GetVehicleFinancingDataRequest())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function scrollPage(id) {

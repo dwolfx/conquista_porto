@@ -2,9 +2,12 @@ import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components/macro'
 
+import { useSelector } from 'react-redux'
+
 import LinearProgressBar from 'components/LinearProgressBar'
 import Breadcrumb from 'components/Breadcrumb'
 import Button from 'components/Button'
+import Icon from 'components/IconExporter'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
@@ -13,8 +16,6 @@ import Container from 'components/Management/Container'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import ManageableItem from 'components/Management/ManageableItem'
-
-import Icon from 'components/IconExporter'
 
 import { formatMoney } from 'helpers'
 
@@ -41,39 +42,6 @@ import {
   VantagesItem,
 } from './style'
 
-const mock = [
-  {
-    contrato: 'contrato1',
-    descricao: 'Este é contrato 1 de financiamento',
-    marca: 'Fiat',
-    modelo: 'Palio Weekend',
-    pontosGanhos: '50',
-    quantidadeParcelasContratadas: '32',
-    quantidadeParcelasPagas: 1,
-    saldoDevedor: '50000',
-    urlContrato: 'www.google.com.br',
-    valorContratado: '50000',
-    valorEntrada: '10000',
-    valorPago: '25000',
-    valorParcelaAtual: '2500',
-  },
-  {
-    contrato: 'contrato2',
-    descricao: 'Este é contrato 1 de financiamento',
-    marca: 'Renault',
-    modelo: 'Sandero',
-    pontosGanhos: '50',
-    quantidadeParcelasContratadas: '20',
-    quantidadeParcelasPagas: '5',
-    saldoDevedor: '25000',
-    urlContrato: 'www.google.com.br',
-    valorContratado: '50000',
-    valorEntrada: '10000',
-    valorPago: '25000',
-    valorParcelaAtual: '2500',
-  },
-]
-
 const ManagementVehicleFiancing = ({ history }) => {
   const theme = useContext(ThemeContext)
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -90,7 +58,9 @@ const ManagementVehicleFiancing = ({ history }) => {
       />
     ))
 
-  const selectedItem = mock[selectedIndex]
+  const vehiclesFinancings = useSelector(state => state.vehicleFinancing)
+
+  const selectedItem = vehiclesFinancings[selectedIndex]
 
   return (
     <>
@@ -110,7 +80,7 @@ const ManagementVehicleFiancing = ({ history }) => {
                 Adicionar
               </Text>
             </AddBtnLink>
-            {generateManageableItem(mock)}
+            {generateManageableItem(vehiclesFinancings)}
           </LeftNav>
           <MiddleContent>
             <PageTitle>{selectedItem.contrato}</PageTitle>

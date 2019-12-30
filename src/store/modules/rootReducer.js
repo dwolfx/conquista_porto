@@ -6,6 +6,7 @@ import consortiumVehicle from './ConsortiumVehicle/reducer'
 import investmentsDetails from './Investment/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
 import bankData from './BankData/reducer'
+import vehicleFinancing from './VehicleFinancing/reducer'
 
 export default combineReducers({
   creditCard,
@@ -14,4 +15,5 @@ export default combineReducers({
   bankData,
   consortiumBuilding,
   consortiumVehicle,
+  vehicleFinancing,
 })

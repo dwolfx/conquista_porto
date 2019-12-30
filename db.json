@@ -55,6 +55,44 @@
       "ultimosDigitos": 3901
     }
   ],
+  "financiamento_veiculo": [
+    {
+      "id": 1,
+      "contrato": "contrato1",
+      "descricao": "Este é contrato 1 de financiamento",
+      "marca": "Fiat",
+      "modelo": "Palio Weekend",
+      "pontosGanhos": "50",
+      "quantidadeParcelasContratadas": "32",
+      "quantidadeParcelasPagas": 1,
+      "saldoDevedor": "50000",
+      "urlContrato": "www.google.com.br",
+      "valorContratado": "50000",
+      "valorEntrada": "10000",
+      "valorPago": "25000",
+      "valorParcelaAtual": "2500",
+      "cpf": "33244452809",
+      "codigoCanal": 0
+    },
+    {
+      "id": 2,
+      "contrato": "contrato2",
+      "descricao": "Este é contrato 1 de financiamento",
+      "marca": "Renault",
+      "modelo": "Sandero",
+      "pontosGanhos": "50",
+      "quantidadeParcelasContratadas": "20",
+      "quantidadeParcelasPagas": "5",
+      "saldoDevedor": "25000",
+      "urlContrato": "www.google.com.br",
+      "valorContratado": "50000",
+      "valorEntrada": "10000",
+      "valorPago": "25000",
+      "valorParcelaAtual": "2500",
+      "cpf": "33244452809",
+      "codigoCanal": 0
+    }
+  ],
   "fundos_detalhe": [
     [
       {
@@ -1519,38 +1557,40 @@
     "tipoProduto": "string",
     "valorCoberturaVida": 0
   },
-  "conta_porto": [{
-    "dadosContaPortoSeguro": {
-      "agencia": "0001",
-      "cheque_especial": {
-        "data_vencimento": "2019-12-26T11:15:44.425Z",
-        "limite": 0
+  "conta_porto": [
+    {
+      "dadosContaPortoSeguro": {
+        "agencia": "0001",
+        "cheque_especial": {
+          "data_vencimento": "2019-12-26T11:15:44.425Z",
+          "limite": 0
+        },
+        "codigo_banco": "0000",
+        "conta": 9999,
+        "cpf": "33244452809",
+        "digito_conta": 9,
+        "encargos_acumulados": 0,
+        "id_conta": 0,
+        "nome_banco": "Banco Porto",
+        "saldo_disponivel": 10000,
+        "saldo_liquidar": 0,
+        "titular": "Julia Francis Reyes",
+        "valores_bloqueados": {
+          "em_24horas": 0,
+          "em_48horas": 0,
+          "indeterminado": 0,
+          "judicial": 0
+        }
       },
-      "codigo_banco": "0000",
-      "conta": 9999,
-      "cpf": "33244452809",
-      "digito_conta": 9,
-      "encargos_acumulados": 0,
-      "id_conta": 0,
-      "nome_banco": "Banco Porto",
-      "saldo_disponivel": 10000,
-      "saldo_liquidar": 0,
-      "titular": "Julia Francis Reyes",
-      "valores_bloqueados": {
-        "em_24horas": 0,
-        "em_48horas": 0,
-        "indeterminado": 0,
-        "judicial": 0
-      }
-    },
-    "ultimaOperacoes": [
-      {
-        "data": "2019-12-26T11:15:44.425Z",
-        "tipo": "string",
-        "valor": 0
-      }
-    ]
-  }],
+      "ultimaOperacoes": [
+        {
+          "data": "2019-12-26T11:15:44.425Z",
+          "tipo": "string",
+          "valor": 0
+        }
+      ]
+    }
+  ],
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }

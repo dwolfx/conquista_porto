@@ -6,6 +6,7 @@ import consortiumVehicle from './ConsortiumVehicle/sagas'
 import investmentsDetails from './Investment/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
 import bankData from './BankData/sagas'
+import vehicleFinancing from './VehicleFinancing/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -15,5 +16,6 @@ export default function* rootSaga() {
     investmentsDetails,
     privateWelfare,
     bankData,
+    vehicleFinancing,
   ])
 }
