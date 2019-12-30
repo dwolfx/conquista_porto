@@ -14,7 +14,6 @@ import PrevidenciaPrivada from 'pages/PrivateWelfare'
 import Points from 'pages/Points'
 import Profile from 'pages/Profile'
 import VehicleFinancing from 'pages/VehicleFinancing'
-import TripInsurance from 'pages/TripInsurance'
 import ProfileRegistration from 'pages/Profile/Wizard/Registration'
 import ProfileSuitability from 'pages/Profile/Wizard/Suitability'
 import PointsStatement from 'pages/Points/Statement'
@@ -26,6 +25,9 @@ import CartaoCredito from 'pages/CreditCard'
 import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
+import TripInsurance from 'pages/TripInsurance'
+import ManagementTripInsurance from 'pages/TripInsurance/Management'
+
 import Objectives from 'pages/Objectives'
 import ObjectivesRegistration from 'pages/Objectives/Registration'
 import ObjectivesRetirementFlow from 'pages/Objectives/Registration/GoalStreams/RetirementFlow'
@@ -118,6 +120,10 @@ export default function Routes({ ...props }) {
         component={VehicleFinancing}
       />
       <DefaultRoute path="/seguro-viagem" exact component={TripInsurance} />
+      <DefaultRoute
+        path="/seguro-viagem/visualizar"
+        component={ManagementTripInsurance}
+      />
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <DefaultRoute path="/objetivos" exact component={Objectives} />
       <Route path="/objetivos/criar" exact component={ObjectivesRegistration} />
