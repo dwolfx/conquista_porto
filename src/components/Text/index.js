@@ -15,18 +15,20 @@ Text.propTypes = {
   bold: PropTypes.bool,
   children: PropTypes.node.isRequired,
   type: PropTypes.oneOf([
-    'title1',
-    'title2',
-    'title3',
-    'title4',
-    'title5',
-    'title6',
-    'paragraph',
+    'heading1',
+    'heading2',
+    'heading3',
+    'heading4',
+    'headline',
+    'title',
+    'subheading',
+    'body',
     'caption',
+    'captionUppercase',
   ]),
 }
 
 Text.defaultProps = {
   bold: false,
-  type: 'paragraph',
+  type: 'body',
 }
