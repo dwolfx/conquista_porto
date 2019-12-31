@@ -4,7 +4,7 @@
   "/consorcios/imovel\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/consorcios_imovel?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
   "/consorcios/auto\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/consorcios_auto?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
   "/previdencia\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/previdencia_privada?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
+  "/conta/dados\\?cpf=:cpf&codigoCanal=:codigoCanal": "/conta_porto?cpf=:cpf&codigoCanal=:codigoCanal",
   "/produtos/vida\\?cpfCnpj=:cpf&codigoCanal=:codigoCanal&tipoSeguro=:tipoSeguro": "/seguros",
-  "/conta/dados\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/conta_porto?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
   "/fundos": "/fundos_detalhe"
 }

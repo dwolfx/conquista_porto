@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
-  }, [])
+  }, [dispatch])
 
   const onRedirect = link => {
     history.push(link)

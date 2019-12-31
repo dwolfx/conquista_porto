@@ -18,7 +18,7 @@ export default function useExtract() {
         },
       ])
     )
-  }, [data])
+  }, [data, statementData])
 
   const statementColumns = [
     {
