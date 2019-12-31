@@ -108,7 +108,7 @@ export const GearBtnLink = styled.div`
 export const Text = styled(ComponentText)`
   text-align: left;
   text-transform: ${props => (props.upperCase ? 'uppercase' : 'none')};
-  color: ${props => props.fontColor || '#000'};
+  color: ${props => props.fontColor || props.theme.colors.black};
   padding-bottom: ${props => props.paddingBottom || '0px'};
 `
 export const ManageableItem = styled.div`
@@ -148,7 +148,7 @@ export const ManageableItem = styled.div`
       left: 100%;
       border-top: 11px solid transparent;
       border-bottom: 11px solid transparent;
-      border-left: 12px solid white;
+      border-left: 12px solid ${props => props.theme.colors.white};
       border-right: none;
     }
   }
