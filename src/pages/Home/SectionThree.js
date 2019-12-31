@@ -71,8 +71,8 @@ export default function SectionThree({ points }) {
           footer={renderPointsFooter()}
         >
           <PointsInfo>
-            <Text type="title5">Saldo atual</Text>
-            <Text type="title5" bold>
+            <Text type="headline">Saldo atual</Text>
+            <Text type="headline" bold>
               {points ? 1160 : 0} pontos
             </Text>
             {points && <Button color="secondary">Resgatar</Button>}
@@ -96,7 +96,7 @@ export default function SectionThree({ points }) {
                   <img src={OfferCarImg} alt="car offer pic" />
                 </OfferImageBox>
                 <OfferTextBox>
-                  <Text type="title5" bold>
+                  <Text type="headline" bold>
                     Título
                   </Text>
                   <Text>
@@ -114,7 +114,7 @@ export default function SectionThree({ points }) {
                   <img src={OfferHomeImg} alt="home offer pic" />
                 </OfferImageBox>
                 <OfferTextBox>
-                  <Text type="title5" bold>
+                  <Text type="headline" bold>
                     Título
                   </Text>
                   <Text>

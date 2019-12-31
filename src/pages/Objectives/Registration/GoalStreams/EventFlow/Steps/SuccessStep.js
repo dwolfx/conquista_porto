@@ -17,12 +17,12 @@ const SuccessStep = () => (
       </Row>
       <Row justifyContent="center">
         <Col lg="auto" xs="12">
-          <Text type="title5">Tudo certo com seu cadastro</Text>
+          <Text type="headline">Tudo certo com seu cadastro</Text>
         </Col>
       </Row>
       <Row justifyContent="center">
         <Col lg="auto" xs="12">
-          <Text type="title5">
+          <Text type="headline">
             Logo, enviaremos uma mensagem de confirmação em seu e-mail.
           </Text>
         </Col>

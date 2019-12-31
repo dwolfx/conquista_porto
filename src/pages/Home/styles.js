@@ -127,13 +127,13 @@ export const PointDate = styled(Text)`
   color: ${props => props.theme.colors.gray5};
 `
 
-export const PointName = styled(Text).attrs({ type: 'title5' })`
+export const PointName = styled(Text).attrs({ type: 'headline' })`
   color: ${props => props.theme.colors.gray5};
   flex: 1%;
   padding: 0 14px;
 `
 
-export const PointNumber = styled(Text).attrs({ type: 'title5' })`
+export const PointNumber = styled(Text).attrs({ type: 'headline' })`
   margin-right: 14px;
 `
 

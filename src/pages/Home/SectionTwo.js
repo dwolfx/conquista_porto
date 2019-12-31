@@ -16,17 +16,23 @@ import {
   OfferCardButton,
 } from './styles'
 
-export default function SectionTwo({ objectives }) {
+export default function SectionTwo({ onRedirect, objectives }) {
   const renderObjectiveCardFooter = () =>
     objectives ? <OfferCardButton>Gerenciar objetivos</OfferCardButton> : null
 
   const renderEmptyState = () => (
     <EmptyBody>
       <EmptyText>
-        Ao criar objetivos você terá a chance de tornar possível a realização
-        dos seus objetivos. Inicie a sua jornada e crie o seu primeiro objetivo!
+        Você quer planejar a realização dos seus sonhos? Crie objetivos com o
+        Conquista. É só contar o que você deseja e a ferramenta apresentará um
+        plano personalizado de como alcançar suas metas. Experimente!
       </EmptyText>
-      <EmptyButton color="secondary">Criar objetivo</EmptyButton>
+      <EmptyButton
+        color="secondary"
+        onClick={() => onRedirect('/objetivos/criar')}
+      >
+        CRIAR OBJETIVO
+      </EmptyButton>
     </EmptyBody>
   )
 
@@ -70,7 +76,7 @@ export default function SectionTwo({ objectives }) {
         <GridRow style={{ height: '50%', paddingTop: 7 }}>
           <SectionCol lg="12">
             <BannerTips label="Dicas para economizar" image={TipBannerImg}>
-              <Text type="title3">Registre todas as despesas</Text>
+              <Text type="heading3">Registre todas as despesas</Text>
               <Text>
                 Como você pretende controlar se não sabe onde ele está? Este é o
                 primeiro passo para começar a poupar
@@ -89,4 +95,5 @@ SectionTwo.defaultProps = {
 
 SectionTwo.propTypes = {
   objectives: PropTypes.object,
+  onRedirect: PropTypes.func.isRequired,
 }

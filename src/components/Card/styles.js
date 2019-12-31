@@ -17,6 +17,7 @@ export const CardHeader = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   display: flex;
   height: 63px;
+  padding: 0 14px;
 `
 
 export const CardIcon = styled.div`
@@ -32,13 +33,14 @@ export const CardIcon = styled.div`
   width: 35px;
 `
 
-export const CardTitle = styled(Text).attrs({ type: 'title5', bold: true })``
+export const CardTitle = styled(Text).attrs({ type: 'headline', bold: true })``
 
 export const CardBody = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
   overflow: hidden;
+  /* padding: 0 14px; */
 `
 
 export const CardFooter = styled.div`

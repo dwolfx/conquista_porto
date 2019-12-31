@@ -18,16 +18,16 @@ export const Wrapper = styled.div`
   margin: 5rem auto;
 `
 
-export const Question = styled(Text).attrs({ type: 'title3' })`
+export const Question = styled(Text).attrs({ type: 'heading3' })`
   text-align: center;
 `
 
-export const QuestionRule = styled(Text).attrs({ type: 'title5' })`
+export const QuestionRule = styled(Text).attrs({ type: 'headline' })`
   margin-top: 15px;
   text-align: center;
 `
 
-export const TitleBar = styled(Text).attrs({ type: 'title6' })`
+export const TitleBar = styled(Text).attrs({ type: 'headline' })`
   color: ${props => props.theme.colors.white};
   text-transform: uppercase;
 `
