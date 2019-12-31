@@ -15,8 +15,10 @@ const ProductItemGenerator = (productList = [], type, history) => {
     <>
       {index > 0 ? <ItemDivisor /> : null}
       <ProductItem>
-        <Text type="title5">{atualItemDetail.title}</Text>
-        <Text type="title6">{atualItemDetail.subTitle(product)}</Text>
+        <Text type="headline">{atualItemDetail.title}</Text>
+        <Text type="captionUppercase" fontSize="12px">
+          {atualItemDetail.subTitle(product)}
+        </Text>
         {atualItemDetail.threeItemsLine(product, history)}
       </ProductItem>
     </>
@@ -36,11 +38,11 @@ const itemDetail = {
           />
         </ItemLine>
         <ItemLine>
-          <Text type="title5" bold>
+          <Text type="headline" bold>
             {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
           </Text>
         </ItemLine>
-        <ItemLine justifySelf="end" alignSelf="center">
+        <ItemLine justifySelf="end" alignSelf="center" height="85%">
           <ButtonLink
             onClick={() => {
               history.push('/financiamento-veiculo/visualizar')
@@ -56,20 +58,20 @@ const itemDetail = {
     title: 'Cartão de Crédito',
     subTitle: product => (
       <span style={{ marginLeft: '34px' }}>
-        {`Fatura ${product.fatura.status}`}
+        {`Fatura ${product.Fatura.Status}`}
       </span>
     ),
     threeItemsLine: (product, history) => (
       <ThreeItemsLine gridTemplateColumns="1fr 4fr 3fr">
-        <ItemLine padding="0 10px 0 0" alignSelf="end">
-          <Icon name={product.bandeira.toLowerCase()} />
+        <ItemLine padding="5px 10px 0 0">
+          <Icon name={product.Bandeira.toLowerCase()} />
         </ItemLine>
-        <ItemLine>
-          <Text type="title5" bold>
-            {formatMoney(product.fatura.valor)}
+        <ItemLine alignSelf="center">
+          <Text type="headline" bold>
+            {formatMoney(product.Fatura.Valor)}
           </Text>
         </ItemLine>
-        <ItemLine justifySelf="end" alignSelf="center">
+        <ItemLine justifySelf="end" alignSelf="center" height="85%">
           <ButtonLink
             onClick={() => {
               history.push('/cartao-credito/visualizar')

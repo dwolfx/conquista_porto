@@ -10,7 +10,7 @@ export const CardWrapper = styled(Card)`
   text-align: center;
 `
 
-export const CardTitle = styled(Text).attrs({ type: 'title5' })`
+export const CardTitle = styled(Text).attrs({ type: 'headline' })`
   margin: 30px 0;
 `
 

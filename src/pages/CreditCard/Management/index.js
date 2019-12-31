@@ -136,7 +136,7 @@ export default function ManagementCreditCard({ history }) {
 
   useEffect(() => {
     if (creditCard.data.length) {
-      setSelectedCreditCard(creditCard.data[0].id)
+      setSelectedCreditCard(creditCard.data[0].Id)
     }
   }, [creditCard.data])
 
@@ -170,10 +170,10 @@ export default function ManagementCreditCard({ history }) {
 
               {creditCard.data.map(item => (
                 <ManageableItem
-                  key={item.id}
-                  active={selectedCreditCard === item.id}
+                  key={item.Id}
+                  active={selectedCreditCard === item.Id}
                   onClick={() => {
-                    setSelectedCreditCard(item.id)
+                    setSelectedCreditCard(item.Id)
                     scrollPage(`cc-top-page`)
                   }}
                 >
@@ -193,14 +193,14 @@ export default function ManagementCreditCard({ history }) {
                   >
                     BANDEIRA
                   </Text>
-                  <Text fontSize="14px">{item.bandeira}</Text>
+                  <Text fontSize="14px">{item.Bandeira}</Text>
                 </ManageableItem>
               ))}
             </LeftNav>
             {creditCard.data.map(item => (
               <RightContent
-                key={item.id}
-                isSelected={item.id === selectedCreditCard}
+                key={item.Id}
+                isSelected={item.Id === selectedCreditCard}
               >
                 <PageTitle>Mundo 120 Prata</PageTitle>
                 <Topics settings={settings}>
@@ -212,7 +212,7 @@ export default function ManagementCreditCard({ history }) {
                     />
                     <div>
                       <TopicTitle>bandeira</TopicTitle>
-                      <TopicValue>{item.bandeira}</TopicValue>
+                      <TopicValue>{item.Bandeira}</TopicValue>
                     </div>
                   </Topic>
                   <Topic>
@@ -223,7 +223,7 @@ export default function ManagementCreditCard({ history }) {
                     />
                     <div>
                       <TopicTitle>tipo</TopicTitle>
-                      <TopicValue>{item.tipo}</TopicValue>
+                      <TopicValue>{item.Tipo}</TopicValue>
                     </div>
                   </Topic>
                   <Topic>
@@ -234,7 +234,7 @@ export default function ManagementCreditCard({ history }) {
                     />
                     <div>
                       <TopicTitle>4 últimos numeros</TopicTitle>
-                      <TopicValue>{item.ultimosDigitos}</TopicValue>
+                      <TopicValue>{item.UltimosDigitos}</TopicValue>
                     </div>
                   </Topic>
                 </Topics>
@@ -249,7 +249,7 @@ export default function ManagementCreditCard({ history }) {
                       >
                         Vencimento da Fatura
                       </Text>
-                      <Text>{item.fatura.vencimento}</Text>
+                      <Text>{item.Fatura.Vencimento}</Text>
                     </DateContent>
                     <DateContent>
                       <Text
@@ -260,7 +260,7 @@ export default function ManagementCreditCard({ history }) {
                       >
                         Melhor dia para compra
                       </Text>
-                      <Text>{item.fatura.melhorDataCompra}</Text>
+                      <Text>{item.Fatura.MelhorDataCompra}</Text>
                     </DateContent>
                   </InvoiceHeader>
                   <Invoice>
@@ -273,8 +273,8 @@ export default function ManagementCreditCard({ history }) {
                       Fatura
                     </Text>
                     <InvoiceItem>
-                      <Text>{item.fatura.status}</Text>
-                      <Text>{formatMoney(item.fatura.valor)}</Text>
+                      <Text>{item.Fatura.Status}</Text>
+                      <Text>{formatMoney(item.Fatura.Valor)}</Text>
                     </InvoiceItem>
                   </Invoice>
                 </InvoiceContainer>

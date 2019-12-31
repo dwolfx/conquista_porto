@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -30,15 +31,15 @@ import {
   ItemDivisor,
 } from './styles'
 
-const SectionOne = () => {
+const SectionOne = ({ onRedirect }) => {
   const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
   const creditCards = useSelector(state => state.creditCard.data)
   const history = useHistory()
 
   const renderEmptyState = () => (
     <EmptyBody>
-      <EmptyText type="caption">Total investido</EmptyText>
-      <EmptyText type="title5" bold>
+      <EmptyText type="captionUppercase">Total investido</EmptyText>
+      <EmptyText type="headline" bold>
         {formatMoney(0)}
       </EmptyText>
     </EmptyBody>
@@ -64,20 +65,25 @@ const SectionOne = () => {
         <SliderImageBox>
           <img src={CreditHomeImg} alt="home offer pic" />
           <SliderCaption>
-            <Text type="caption" bold>
+            <Text type="captionUppercase" bold>
               Cartão de crédito
             </Text>
           </SliderCaption>
         </SliderImageBox>
         <SliderTextBox>
-          <Text type="title5" bold>
+          <Text type="title" bold>
             O cartão com mais benefícios
           </Text>
           <Text>
-            Controle suas compras diretamente no aplicativo e acumule pontos
-            para trocar por em serviços e produtos Porto Seguro.
+            O Cartão de Crédito que resolve e ainda dá vantagens e benefícios da
+            Porto Seguro para você, sua casa e seu carro.
           </Text>
-          <SliderBoxButton color="secondary">Conheça</SliderBoxButton>
+          <SliderBoxButton
+            color="secondary"
+            onClick={() => onRedirect('/cartao-credito')}
+          >
+            CONHECER
+          </SliderBoxButton>
         </SliderTextBox>
       </SliderBox>
     )
@@ -97,8 +103,8 @@ const SectionOne = () => {
             <SectionCol lg="6" style={{ paddingTop: 51, paddingBottom: 51 }}>
               <InvestmentInfosRow>
                 <InvestmentInfos>
-                  <Text type="title5">Saldo disponível</Text>
-                  <Text type="title5" bold>
+                  <Text type="headline">Saldo disponível</Text>
+                  <Text type="headline" bold>
                     {formatMoney(0)}
                   </Text>
                   <ButtonLink>Conta de Investimento</ButtonLink>
@@ -106,8 +112,8 @@ const SectionOne = () => {
               </InvestmentInfosRow>
               <InvestmentInfosRow>
                 <InvestmentInfos>
-                  <Text type="title5">Saldo a liquidar</Text>
-                  <Text type="title5" bold>
+                  <Text type="headline">Saldo a liquidar</Text>
+                  <Text type="headline" bold>
                     {formatMoney(0)}
                   </Text>
                   <ButtonLink>Ver extrato</ButtonLink>
@@ -132,21 +138,26 @@ const SectionOne = () => {
                 <SliderImageBox>
                   <img src={InsuranceHomeImg} alt="home offer pic" />
                   <SliderCaption>
-                    <Text type="caption" bold>
-                      Seguro viagem
+                    <Text type="captionUppercase" bold>
+                      Seguro de vida
                     </Text>
                   </SliderCaption>
                 </SliderImageBox>
                 <SliderTextBox>
-                  <Text type="title5" bold>
-                    Leve a tranquilidade na mala
+                  <Text type="title" bold>
+                    Suporte em todos os momentos
                   </Text>
                   <Text>
-                    Escolha hoje as coberturas mais adequadas aos seus planos e
-                    proteja-se contra imprevistos em viagens nacionais ou
-                    internacionais.
+                    Planeje a sua proteção ou da sua família e tenha
+                    tranquilidade para enfrentar adversidades e ainda conte com
+                    muitos benefícios.
                   </Text>
-                  <SliderBoxButton color="secondary">Conheça</SliderBoxButton>
+                  <SliderBoxButton
+                    color="secondary"
+                    onClick={() => onRedirect('/seguro-vida')}
+                  >
+                    CONHECER
+                  </SliderBoxButton>
                 </SliderTextBox>
               </SliderBox>
             </FullHeightCard>
@@ -155,6 +166,10 @@ const SectionOne = () => {
       </SectionCol>
     </>
   )
+}
+
+SectionOne.propTypes = {
+  onRedirect: PropTypes.func.isRequired,
 }
 
 export default SectionOne

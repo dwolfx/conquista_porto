@@ -1,58 +1,58 @@
 {
   "cartao_credito": [
     {
-      "id": 1,
-      "codigoCanal": 0,
-      "cpfCnpj": "33244452809",
-      "bandeira": "Visa",
-      "fatura": {
-        "melhorDataCompra": 22,
-        "status": "Aberta",
-        "valor": 25090,
-        "vencimento": 16
+      "Id": 1,
+      "CodigoCanal": 0,
+      "CpfCnpj": "33244452809",
+      "Bandeira": "Visa",
+      "Fatura": {
+        "MelhorDataCompra": 22,
+        "Status": "Aberta",
+        "Valor": 25090,
+        "Vencimento": 16
       },
-      "limiteCartaoAdicional": {
-        "limiteCredito": 0,
-        "limiteDisponivel": 0,
-        "limiteDisponivelOverlimitt": 0,
-        "limiteSaque": 0
+      "LimiteCartaoAdicional": {
+        "LimiteCredito": 0,
+        "LimiteDisponivel": 0,
+        "LimiteDisponivelOverlimitt": 0,
+        "LimiteSaque": 0
       },
-      "limiteTitularCartao": {
-        "limiteCredito": 0,
-        "limiteDisponivel": 0,
-        "limiteDisponivelOverlimitt": 0,
-        "limiteSaque": 0
+      "LimiteTitularCartao": {
+        "LimiteCredito": 0,
+        "LimiteDisponivel": 0,
+        "LimiteDisponivelOverlimitt": 0,
+        "LimiteSaque": 0
       },
-      "link": "string",
-      "tipo": "Gold",
-      "ultimosDigitos": 3212
+      "Link": "string",
+      "Tipo": "Gold",
+      "UltimosDigitos": 3212
     },
     {
-      "id": 2,
-      "codigoCanal": 0,
-      "cpfCnpj": "33244452809",
-      "bandeira": "Master",
-      "fatura": {
-        "melhorDataCompra": 12,
-        "status": "Fechada",
-        "valor": 25,
-        "vencimento": 20
+      "Id": 2,
+      "CodigoCanal": 0,
+      "CpfCnpj": "33244452809",
+      "Bandeira": "Master",
+      "Fatura": {
+        "MelhorDataCompra": 12,
+        "Status": "Fechada",
+        "Valor": 25,
+        "Vencimento": 20
       },
       "limiteCartaoAdicional": {
-        "limiteCredito": 0,
-        "limiteDisponivel": 0,
-        "limiteDisponivelOverlimitt": 0,
-        "limiteSaque": 0
+        "LimiteCredito": 0,
+        "LimiteDisponivel": 0,
+        "LimiteDisponivelOverlimitt": 0,
+        "LimiteSaque": 0
       },
-      "limiteTitularCartao": {
-        "limiteCredito": 0,
-        "limiteDisponivel": 0,
-        "limiteDisponivelOverlimitt": 0,
-        "limiteSaque": 0
+      "LimiteTitularCartao": {
+        "LimiteCredito": 0,
+        "LimiteDisponivel": 0,
+        "LimiteDisponivelOverlimitt": 0,
+        "LimiteSaque": 0
       },
-      "link": "string",
-      "tipo": "Platinum",
-      "ultimosDigitos": 3901
+      "Link": "string",
+      "Tipo": "Platinum",
+      "UltimosDigitos": 3901
     }
   ],
   "financiamento_veiculo": [
@@ -1490,72 +1490,72 @@
     }
   ],
   "consorcios_imovel": {
-    "cliente": {
-      "cpf": "33244452809"
+    "Cliente": {
+      "Cpf": "33244452809"
     },
-    "consorcios": [
+    "Consorcios": [
       {
-        "id": 1,
-        "cota": 300,
-        "descricao": "string",
-        "descricaoBem": "string",
-        "grupo": "x398",
-        "pontosGanhos": 0,
-        "quantidadeParcelasContratadas": 12,
-        "quantidadeParcelasPagas": 9,
-        "statusConsorcio": "Contemplado",
-        "urlProposta": "string",
-        "valorContratado": 40000,
-        "valorPago": 0,
-        "valorParcelaAtual": 675,
-        "valorQuitacao": 27200
+        "Id": 1,
+        "Cota": 300,
+        "Descricao": "string",
+        "DescricaoBem": "string",
+        "Grupo": "x398",
+        "PontosGanhos": 0,
+        "QuantidadeParcelasContratadas": 12,
+        "QuantidadeParcelasPagas": 9,
+        "StatusConsorcio": "Contemplado",
+        "UrlProposta": "string",
+        "ValorContratado": 40000,
+        "ValorPago": 0,
+        "ValorParcelaAtual": 675,
+        "ValorQuitacao": 27200
       }
     ]
   },
   "consorcios_auto": {
-    "cliente": {
-      "cpf": "33244452809"
+    "Cliente": {
+      "Cpf": "33244452809"
     },
-    "consorcios": [
+    "Consorcios": [
       {
-        "id": 1,
-        "cota": 500,
-        "descricao": "string",
-        "descricaoBem": "string",
-        "grupo": "x398",
-        "pontosGanhos": 0,
-        "quantidadeParcelasContratadas": 12,
-        "quantidadeParcelasPagas": 9,
-        "statusConsorcio": "Contemplado",
-        "urlProposta": "string",
-        "valorContratado": 40000,
-        "valorPago": 0,
-        "valorParcelaAtual": 675,
-        "valorQuitacao": 27200
+        "Id": 1,
+        "Cota": 500,
+        "Descricao": "string",
+        "DescricaoBem": "string",
+        "Grupo": "x398",
+        "PontosGanhos": 0,
+        "QuantidadeParcelasContratadas": 12,
+        "QuantidadeParcelasPagas": 9,
+        "StatusConsorcio": "Contemplado",
+        "UrlProposta": "string",
+        "ValorContratado": 40000,
+        "ValorPago": 0,
+        "ValorParcelaAtual": 675,
+        "ValorQuitacao": 27200
       },
       {
-        "id": 2,
-        "cota": 700,
-        "descricao": "string",
-        "descricaoBem": "string",
-        "grupo": "x398",
-        "pontosGanhos": 0,
-        "quantidadeParcelasContratadas": 12,
-        "quantidadeParcelasPagas": 9,
-        "statusConsorcio": "Contemplado",
-        "urlProposta": "string",
-        "valorContratado": 40000,
-        "valorPago": 0,
-        "valorParcelaAtual": 675,
-        "valorQuitacao": 27200
+        "Id": 2,
+        "Cota": 700,
+        "Descricao": "string",
+        "DescricaoBem": "string",
+        "Grupo": "x398",
+        "PontosGanhos": 0,
+        "QuantidadeParcelasContratadas": 12,
+        "QuantidadeParcelasPagas": 9,
+        "StatusConsorcio": "Contemplado",
+        "UrlProposta": "string",
+        "ValorContratado": 40000,
+        "ValorPago": 0,
+        "ValorParcelaAtual": 675,
+        "ValorQuitacao": 27200
       }
     ],
-    "statusPrevidencia": "string",
-    "taxaAnualRendimento": 0,
-    "tipo": "string",
-    "tipoCobertura": "string",
-    "tipoProduto": "string",
-    "valorCoberturaVida": 0
+    "StatusPrevidencia": "string",
+    "TaxaAnualRendimento": 0,
+    "Tipo": "string",
+    "TipoCobertura": "string",
+    "TipoProduto": "string",
+    "ValorCoberturaVida": 0
   },
   "conta_porto": [
     {
@@ -1591,6 +1591,110 @@
       ]
     }
   ],
+  "seguros": {
+    "ProdutosViagem": [
+      {
+        "Apolice": {
+          "LinkDownload": "string",
+          "NumeroApolice": 0
+        },
+        "Beneficiarios": [
+          {
+            "Nome": "string",
+            "Percentual": 0
+          }
+        ],
+        "CoberturasBasicas": [
+          {
+            "CapitalSegurado": 0,
+            "Detalhe": "string",
+            "Nome": "string"
+          }
+        ],
+        "CoberturasRisco": ["string"],
+        "CodigoFormaPagamento": 0,
+        "DescricaoFormaPagamento": "string",
+        "DtFinalVigencia": "2019-12-27T19:07:39.819Z",
+        "DtInicioVigencia": "2019-12-27T19:07:39.819Z",
+        "FormaPagamento": {
+          "QtdParcelas": 8,
+          "ValorParcela": 254
+        },
+        "GruposCobertura": [
+          {
+            "CoberturasRisco": ["string"],
+            "Nome": "string"
+          }
+        ],
+        "Nome": "Mundo 120 Prata",
+        "NomeSegurado": "Paulo Peaga Santana",
+        "Parcelas": [
+          {
+            "Numero": 0,
+            "Valor": 0
+          }
+        ],
+        "PrgRelacionamento": ["string"],
+        "Ramo": 0,
+        "Sucursal": 0
+      }
+    ],
+    "ProdutosVidas": [
+      {
+        "Apolice": {
+          "LinkDownload": "string",
+          "NumeroApolice": 23123
+        },
+        "Beneficiarios": [
+          {
+            "Nome": "Paulo Santana",
+            "Percentual": 35
+          },
+          {
+            "Nome": "Pablito",
+            "Percentual": 45
+          },
+          {
+            "Nome": "Paré",
+            "Percentual": 20
+          }
+        ],
+        "CoberturasBasicas": [
+          {
+            "CapitalSegurado": 0,
+            "Detalhe": "string",
+            "Nome": "string"
+          }
+        ],
+        "CoberturasRisco": ["string"],
+        "CodigoFormaPagamento": 0,
+        "DescricaoFormaPagamento": "string",
+        "DtFinalVigencia": "2019-12-27T19:07:39.819Z",
+        "DtInicioVigencia": "2019-12-27T19:07:39.819Z",
+        "FormaPagamento": {
+          "QtdParcelas": 12,
+          "ValorParcela": 500
+        },
+        "GruposCobertura": [
+          {
+            "CoberturasRisco": ["string"],
+            "Nome": "string"
+          }
+        ],
+        "Nome": "string",
+        "NomeSegurado": "Paulo Santana",
+        "Parcelas": [
+          {
+            "Numero": 0,
+            "Valor": 0
+          }
+        ],
+        "PrgRelacionamento": ["string"],
+        "Ramo": 0,
+        "Sucursal": 0
+      }
+    ]
+  },
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import Menu from 'components/Menu'
@@ -14,6 +15,7 @@ import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 
 const Home = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
@@ -21,6 +23,10 @@ const Home = () => {
     dispatch(GetVehicleFinancingDataRequest())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const onRedirect = link => {
+    history.push(link)
+  }
 
   function scrollPage(id) {
     const el = document.querySelector(`#${id}`).getBoundingClientRect()
@@ -50,11 +56,11 @@ const Home = () => {
             <GridRow>
               <GridCol lg="12">
                 <GridRow id="t1">
-                  <SectionOne />
+                  <SectionOne onRedirect={onRedirect} />
                 </GridRow>
 
                 <GridRow id="t2">
-                  <SectionTwo />
+                  <SectionTwo onRedirect={onRedirect} />
                 </GridRow>
 
                 <GridRow id="t3">

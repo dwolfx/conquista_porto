@@ -7,13 +7,17 @@ import investmentsDetails from './Investment/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
 import bankData from './BankData/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
+import lifeInsurance from './LifeInsurance/reducer'
+import tripInsurance from './TripInsurance/reducer'
 
 export default combineReducers({
   creditCard,
   investmentsDetails,
   privateWelfare,
   bankData,
+  lifeInsurance,
   consortiumBuilding,
   consortiumVehicle,
   vehicleFinancing,
+  tripInsurance,
 })

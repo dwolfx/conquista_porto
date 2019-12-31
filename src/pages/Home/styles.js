@@ -127,13 +127,13 @@ export const PointDate = styled(Text)`
   color: ${props => props.theme.colors.gray5};
 `
 
-export const PointName = styled(Text).attrs({ type: 'title5' })`
+export const PointName = styled(Text).attrs({ type: 'headline' })`
   color: ${props => props.theme.colors.gray5};
   flex: 1%;
   padding: 0 14px;
 `
 
-export const PointNumber = styled(Text).attrs({ type: 'title5' })`
+export const PointNumber = styled(Text).attrs({ type: 'headline' })`
   margin-right: 14px;
 `
 
@@ -233,6 +233,7 @@ export const InvestmentInfosRow = styled(Row)`
 export const ProductItem = styled.div`
   padding: 10px 14px;
   width: 100%;
+  color: ${props => props.theme.colors.gray5};
 `
 export const ThreeItemsLine = styled.div`
   display: grid;
@@ -241,6 +242,7 @@ export const ThreeItemsLine = styled.div`
   grid-template-columns: ${props => props.gridTemplateColumns};
 `
 export const ItemLine = styled.div`
+  height: ${props => (props.height ? props.height : 'auto')};
   width: ${props => (props.width ? props.width : 'auto')};
   justify-self: ${props => (props.justifySelf ? props.justifySelf : 'start')};
   align-self: ${props => (props.alignSelf ? props.alignSelf : 'center')};
