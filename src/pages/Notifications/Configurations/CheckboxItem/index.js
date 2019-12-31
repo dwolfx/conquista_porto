@@ -9,7 +9,7 @@ const CheckboxItem = ({ checked, children }) => {
 
   return (
     <Label>
-      <Text type="paragraph">{children}</Text>
+      <Text type="body">{children}</Text>
       <Input
         type="checkbox"
         checked={isChecked}

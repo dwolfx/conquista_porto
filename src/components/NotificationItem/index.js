@@ -23,8 +23,8 @@ const NotificationItem = ({
       <Icon name={identificationIcon} />
     </IdentificationIcon>
     <TextWrapper>
-      <Title type="paragraph">{title}</Title>
-      <Message type="paragraph">{message}</Message>
+      <Title type="button">{title}</Title>
+      <Message type="body">{message}</Message>
     </TextWrapper>
     <ActionIcon>
       <Icon name={actionIcon} />

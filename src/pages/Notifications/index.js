@@ -158,7 +158,7 @@ export default function Notifications() {
           <LeftNav>
             <GearBtnLink onClick={() => scrollPage('configurationId')}>
               <GearIcon />
-              <Text type="paragraph" fontColor={theme.colors.gray5} upperCase>
+              <Text type="body" fontColor={theme.colors.gray5} upperCase>
                 Configurações
               </Text>
             </GearBtnLink>
@@ -167,7 +167,7 @@ export default function Notifications() {
               onClick={() => handleManageableItem('Gerais')}
             >
               <Icon name="gear" />
-              <Text type="paragraph" paddingBottom="15px">
+              <Text type="body" paddingBottom="15px">
                 Gerais
               </Text>
             </ManageableItem>
@@ -176,13 +176,13 @@ export default function Notifications() {
               onClick={() => handleManageableItem('Produto')}
             >
               <Icon name="apps" />
-              <Text type="paragraph" paddingBottom="15px">
+              <Text type="body" paddingBottom="15px">
                 Produto
               </Text>
             </ManageableItem>
           </LeftNav>
           <NotificationsArticle id="notificationId">
-            <PageTitle type="title3">{manageableItem}</PageTitle>
+            <PageTitle type="heading3">{manageableItem}</PageTitle>
             <NotificationsMessages>
               {manageableDB.map(item => (
                 <NotificationItem

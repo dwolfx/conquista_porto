@@ -3,15 +3,7 @@
 exports[`Header to render 1`] = `
 Array [
   <header
-<<<<<<< HEAD
-<<<<<<< HEAD
-    className="sc-chPdSV hXeYZM"
-=======
-    className="sc-eNQAEJ fgYEHb"
->>>>>>> 05e8c55... [PCNE-72] - BellIcon color change logic fix
-=======
-    className="sc-hMqMXs jLWsbB"
->>>>>>> 532f2f0... [PCNE-72] - Header snapshot test att
+    className="sc-hMqMXs cCmNJL"
   >
     <div
       className="sc-kEYyzF daNOsl"
@@ -100,14 +92,14 @@ Array [
                   className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-chPdSV bTBLDP sc-ckVGcZ dVwjgz"
-                    type="paragraph"
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Confirmação de Aporte
                   </p>
                   <p
-                    className="sc-chPdSV bTBLDP sc-jKJlTe kRwSnP"
-                    type="paragraph"
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Está tudo certo com seu investimento no fundo [Nome do fundo].
                   </p>
@@ -138,14 +130,14 @@ Array [
                   className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-chPdSV bTBLDP sc-ckVGcZ dVwjgz"
-                    type="paragraph"
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Confirmação de Resgate
                   </p>
                   <p
-                    className="sc-chPdSV bTBLDP sc-jKJlTe kRwSnP"
-                    type="paragraph"
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Está tudo certo com seu resgate do fundo [Nome do fundo].
                   </p>
@@ -176,14 +168,14 @@ Array [
                   className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-chPdSV bTBLDP sc-ckVGcZ dVwjgz"
-                    type="paragraph"
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Aviso de primeiro investimento no fundo
                   </p>
                   <p
-                    className="sc-chPdSV bTBLDP sc-jKJlTe kRwSnP"
-                    type="paragraph"
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!
                   </p>
@@ -214,14 +206,14 @@ Array [
                   className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-chPdSV bTBLDP sc-ckVGcZ dVwjgz"
-                    type="paragraph"
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Aviso de aplicação pendente de recurso
                   </p>
                   <p
-                    className="sc-chPdSV bTBLDP sc-jKJlTe kRwSnP"
-                    type="paragraph"
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.
                   </p>
@@ -254,7 +246,7 @@ Array [
             </div>
           </div>
           <div
-            className="sc-eHgmQL cmtfCK"
+            className="sc-eHgmQL hRGOmo"
           >
             <p
               className="sc-jlyJG ixdxSy"

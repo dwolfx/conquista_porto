@@ -12,7 +12,7 @@ import CheckboxItem from './CheckboxItem'
 const Configurations = ({ ...props }) => (
   <ConfigurationBody {...props}>
     <ConfigurationSection>
-      <Text type="title5">Configurações</Text>
+      <Text type="headline">Configurações</Text>
       <CheckboxWrapper>
         <CheckboxGroup>
           <CheckboxItem checked>Lorem ipsum dolor sit amet</CheckboxItem>
