@@ -2,14 +2,16 @@
 import React from 'react'
 
 import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 import ButtonLink from 'components/Button/Link'
-import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import CreditHomeImg from 'assets/images/pages/Home/credit1.jpg'
 import InsuranceHomeImg from 'assets/images/pages/Home/insurance1.jpg'
 import PieChart from 'components/PieChart'
 import Text from 'components/Text'
 import { formatMoney } from 'helpers'
+
+import ProductItemGenerator from './ProductItemGenerator'
 
 import {
   EmptyBody,
@@ -24,14 +26,14 @@ import {
   SliderBoxButton,
   InvestmentInfos,
   InvestmentInfosRow,
-  ProductItem,
-  ThreeItemsLine,
-  ItemLine,
+  OverflowCard,
   ItemDivisor,
 } from './styles'
 
-export default function SectionOne() {
+const SectionOne = () => {
   const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
+  const creditCards = useSelector(state => state.creditCard.data)
+  const history = useHistory()
 
   const renderEmptyState = () => (
     <EmptyBody>
@@ -45,34 +47,16 @@ export default function SectionOne() {
   const renderCreditProducts = () => {
     let result = []
 
-    result = result.concat(vehiclesFinancings)
+    result = result.concat(
+      ProductItemGenerator(creditCards, 'cartaoCredito', history)
+    )
+    result = result.concat(<ItemDivisor />)
+    result = result.concat(
+      ProductItemGenerator(vehiclesFinancings, 'financiamentoVeiculo', history)
+    )
 
     if (result.length > 0) {
-      return result.map((product, index) => (
-        <>
-          {index > 0 ? <ItemDivisor /> : null}
-          <ProductItem>
-            <Text type="title5">Financiamento de Veículo</Text>
-            <Text type="title6">{product.Contrato}</Text>
-            <ThreeItemsLine>
-              <ItemLine padding="0 14px 0 0" width="100%">
-                <MiniLinearProgressBar
-                  atual={parseInt(product.QuantidadeParcelasPagas, 10)}
-                  max={parseInt(product.QuantidadeParcelasContratadas, 10)}
-                />
-              </ItemLine>
-              <ItemLine>
-                <Text type="title5" bold>
-                  {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
-                </Text>
-              </ItemLine>
-              <ItemLine justifySelf="end" alignSelf="center">
-                <ButtonLink>GERENCIAR</ButtonLink>
-              </ItemLine>
-            </ThreeItemsLine>
-          </ProductItem>
-        </>
-      ))
+      return result
     }
 
     return (
@@ -138,7 +122,7 @@ export default function SectionOne() {
         <SectionRow style={{ height: '100%' }}>
           <SectionCol lg="6">
             <FullHeightCard headerIcon="creditcard" headerTitle="Crédito">
-              {renderCreditProducts()}
+              <OverflowCard>{renderCreditProducts()}</OverflowCard>
             </FullHeightCard>
           </SectionCol>
 
@@ -172,3 +156,5 @@ export default function SectionOne() {
     </>
   )
 }
+
+export default SectionOne

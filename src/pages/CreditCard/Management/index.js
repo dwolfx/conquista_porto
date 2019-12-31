@@ -17,8 +17,6 @@ import RightContent from 'components/Management/RightContent'
 
 import Icon from 'components/IconExporter'
 
-import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
-
 import { formatMoney } from 'helpers'
 
 import { useSelector } from 'react-redux'
@@ -131,8 +129,6 @@ const settings = {
 }
 
 export default function ManagementCreditCard({ history }) {
-  useFetchCreditCard()
-
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
 
   const themeContext = useContext(ThemeContext)

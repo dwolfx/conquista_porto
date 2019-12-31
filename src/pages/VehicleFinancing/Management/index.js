@@ -53,8 +53,8 @@ const ManagementVehicleFiancing = ({ history }) => {
         onClick={() => setSelectedIndex(index)}
         // eslint-disable-next-line react/no-array-index-key
         key={index}
-        name={item.contrato}
-        value={item.valorContratado}
+        name={item.Contrato}
+        value={item.ValorContratado}
         isActive={selectedIndex === index}
       />
     ))
@@ -111,7 +111,7 @@ const ManagementVehicleFiancing = ({ history }) => {
                   <div>
                     <TopicTitle>Entrada</TopicTitle>
                     <TopicValue>
-                      {formatMoney(selectedItem.valorEntrada)}
+                      {formatMoney(selectedItem.ValorEntrada)}
                     </TopicValue>
                   </div>
                 </Topic>
@@ -127,7 +127,7 @@ const ManagementVehicleFiancing = ({ history }) => {
                   <div>
                     <TopicTitle>Valor de Crédito</TopicTitle>
                     <TopicValue>
-                      {formatMoney(selectedItem.valorContratado)}
+                      {formatMoney(selectedItem.ValorContratado)}
                     </TopicValue>
                   </div>
                 </Topic>
@@ -138,7 +138,7 @@ const ManagementVehicleFiancing = ({ history }) => {
                   <div>
                     <TopicTitle>99 parcelas de</TopicTitle>
                     <TopicValue>
-                      {formatMoney(selectedItem.valorContratado)}
+                      {formatMoney(selectedItem.ValorContratado)}
                     </TopicValue>
                   </div>
                 </Topic>
@@ -153,7 +153,7 @@ const ManagementVehicleFiancing = ({ history }) => {
                   >
                     Marca
                   </Text>
-                  <Text>{selectedItem.marca}</Text>
+                  <Text>{selectedItem.Marca}</Text>
                 </ColumnWithLine>
                 <Column>
                   <Text
@@ -164,7 +164,7 @@ const ManagementVehicleFiancing = ({ history }) => {
                   >
                     Modelo
                   </Text>
-                  <Text>{selectedItem.modelo}</Text>
+                  <Text>{selectedItem.Modelo}</Text>
                 </Column>
               </RowContent>
               <RowContent>
@@ -177,7 +177,7 @@ const ManagementVehicleFiancing = ({ history }) => {
                   >
                     Saldo devedor
                   </Text>
-                  <Text>{selectedItem.saldoDevedor}</Text>
+                  <Text>{selectedItem.SaldoDevedor}</Text>
                 </Column>
               </RowContent>
               <RowContentColumnDir>
@@ -197,8 +197,8 @@ const ManagementVehicleFiancing = ({ history }) => {
                   <LinearProgressBar
                     width="70%"
                     margin="70px 0 0 0"
-                    now={selectedItem.quantidadeParcelasPagas}
-                    max={selectedItem.quantidadeParcelasContratadas}
+                    now={selectedItem.QuantidadeParcelasPagas}
+                    max={selectedItem.QuantidadeParcelasContratadas}
                     subtitle="parcelas"
                   />
                 </LinearProgressContent>

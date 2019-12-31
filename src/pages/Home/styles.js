@@ -237,8 +237,8 @@ export const ProductItem = styled.div`
 export const ThreeItemsLine = styled.div`
   display: grid;
   width: 100%;
-  margin: 18px 0;
-  grid-template-columns: 2fr 2fr 3fr;
+  margin: 14px 0;
+  grid-template-columns: ${props => props.gridTemplateColumns};
 `
 export const ItemLine = styled.div`
   width: ${props => (props.width ? props.width : 'auto')};
@@ -250,4 +250,8 @@ export const ItemLine = styled.div`
 export const ItemDivisor = styled.hr`
   border: 1px solid ${props => props.theme.colors.gray2};
   border-bottom: 0px;
+`
+
+export const OverflowCard = styled.div`
+  overflow: auto;
 `
