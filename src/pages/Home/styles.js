@@ -230,3 +230,24 @@ export const InvestmentInfosRow = styled(Row)`
     padding-top: 7px;
   }
 `
+export const ProductItem = styled.div`
+  padding: 10px 14px;
+  width: 100%;
+`
+export const ThreeItemsLine = styled.div`
+  display: grid;
+  width: 100%;
+  margin: 18px 0;
+  grid-template-columns: 2fr 2fr 3fr;
+`
+export const ItemLine = styled.div`
+  width: ${props => (props.width ? props.width : 'auto')};
+  justify-self: ${props => (props.justifySelf ? props.justifySelf : 'start')};
+  align-self: ${props => (props.alignSelf ? props.alignSelf : 'center')};
+  padding: ${props => (props.padding ? props.padding : '0')};
+`
+
+export const ItemDivisor = styled.hr`
+  border: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 0px;
+`

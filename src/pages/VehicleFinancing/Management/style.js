@@ -85,6 +85,19 @@ export const TopicTitle = styled.p`
   line-height: 21px;
 `
 
+export const EmptyContent = styled.article`
+  background-color: white;
+  padding-top: 22px;
+  width: 90%;
+  max-height: 120px;
+  text-align: center;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    order: 3;
+  }
+`
+
 export const TopicValue = styled.span`
   font-weight: 300;
   color: ${props => props.theme.colors.gray6};
