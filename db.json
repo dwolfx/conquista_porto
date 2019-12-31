@@ -1579,8 +1579,8 @@
         "DtFinalVigencia": "2019-12-27T19:07:39.819Z",
         "DtInicioVigencia": "2019-12-27T19:07:39.819Z",
         "FormaPagamento": {
-          "QtdParcelas": 0,
-          "ValorParcela": 0
+          "QtdParcelas": 8,
+          "ValorParcela": 254
         },
         "GruposCobertura": [
           {
@@ -1588,8 +1588,8 @@
             "Nome": "string"
           }
         ],
-        "Nome": "string",
-        "NomeSegurado": "string",
+        "Nome": "Mundo 120 Prata",
+        "NomeSegurado": "Paulo Peaga Santana",
         "Parcelas": [
           {
             "Numero": 0,
