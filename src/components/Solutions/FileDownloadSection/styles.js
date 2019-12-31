@@ -4,7 +4,8 @@ import IconExporter from '../../IconExporter'
 
 export const Container = styled.section`
   display: flex;
-  background-color: ${props => props.backgroundColor || '#f1f1f1'};
+  background-color: ${props =>
+    props.backgroundColor || props.theme.colors.gray1};
   justify-content: center;
   width: 100%;
 
@@ -16,7 +17,7 @@ export const Container = styled.section`
 export const Item = styled.div`
   display: flex;
   padding: 20px 20px;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid ${props => props.theme.colors.gray3};
 
   :last-child {
     border-right: none;
@@ -68,6 +69,6 @@ export const DownloadLink = styled.p`
   font-weight: 600;
 
   :hover {
-    color: #2591bb;
+    color: ${props => props.theme.colors.blue5};
   }
 `

@@ -46,7 +46,7 @@ export const Item = styled.div`
 `
 
 export const Circle = styled.div`
-  background-color: #33beff;
+  background-color: ${props => props.theme.colors.blue4};
   width: 72px;
   height: 72px;
   border-radius: 100%;

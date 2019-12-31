@@ -32,17 +32,17 @@ Array [
         className="sc-eHgmQL hfTVsd"
       >
         <div
-          className="sc-brqgnP kvCLIk"
+          className="sc-brqgnP hveAhn"
           onClick={[Function]}
         >
           <svg
-            fill="#ccc"
+            fill="#DDDDDD"
             width="48"
           >
             add.svg
           </svg>
           <span
-            className="sc-Rmtcm cGwTiK"
+            className="sc-Rmtcm eXgqsQ"
             fontSize="14px"
           >
             Adicionar
@@ -145,7 +145,7 @@ Array [
                       <span
                         className="sc-iRbamj bFiGMH"
                       >
-                        650
+                        500
                       </span>
                     </div>
                   </div>
@@ -190,7 +190,7 @@ Array [
                       <span
                         className="sc-iRbamj bFiGMH"
                       >
-                        x381
+                        x398
                       </span>
                     </div>
                   </div>
@@ -250,10 +250,10 @@ Array [
           className="sc-jlyJG gEAvvM"
         >
           <div
-            className="sc-gipzik gZKOAv"
+            className="sc-gipzik dgBTPf"
           >
             <div
-              className="sc-csuQGl cKwBFp"
+              className="sc-csuQGl fzZTCo"
             >
               <span
                 className="sc-Rmtcm eSNKyd"
@@ -268,7 +268,7 @@ Array [
               </span>
             </div>
             <div
-              className="sc-csuQGl cKwBFp"
+              className="sc-csuQGl fzZTCo"
             >
               <span
                 className="sc-Rmtcm eSNKyd"
@@ -293,13 +293,13 @@ Array [
               Evolução do pagamento
             </span>
             <div
-              className="sc-bdVaJa OlgeF"
-              max={10}
+              className="sc-bdVaJa fhIBEE"
+              max={12}
               width="70%"
             >
               <div>
                 <span>
-                  20
+                  75
                   %
                 </span>
               </div>
@@ -308,7 +308,7 @@ Array [
                   0
                 </span>
                 <span>
-                  10
+                  12
                    
                   <span
                     className="sc-bwzfXH fxjqSh"
@@ -334,7 +334,7 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-chPdSV kBfcuB"
+    className="sc-chPdSV hjlCqV"
   >
     <div
       className="sc-kgoBCf odTot"
@@ -423,7 +423,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-dnqmqq kzkqaf"
+                  className="sc-dnqmqq geXaql"
                 >
                   <div
                     className="sc-iwsKbI bYraUi"
@@ -465,7 +465,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-dnqmqq kzkqaf"
+                  className="sc-dnqmqq geXaql"
                 >
                   <div
                     className="sc-iwsKbI bYraUi"
@@ -507,7 +507,7 @@ Array [
             >
               <div>
                 <div
-                  className="sc-dnqmqq kzkqaf"
+                  className="sc-dnqmqq geXaql"
                 >
                   <div
                     className="sc-iwsKbI bYraUi"
@@ -542,10 +542,10 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-dxgOiQ cKDQny"
+    className="sc-dxgOiQ liathx"
   >
     <div
-      className="sc-ckVGcZ iRglKf"
+      className="sc-ckVGcZ WjkdZ"
     >
       <div>
         <svg
@@ -568,7 +568,7 @@ Array [
           Aqui, você tem mais informações legais sobre consórcio.
         </p>
         <p
-          className="sc-kEYyzF dNEJQU"
+          className="sc-kEYyzF deGOyW"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -576,7 +576,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-ckVGcZ iRglKf"
+      className="sc-ckVGcZ WjkdZ"
     >
       <div>
         <svg
@@ -599,7 +599,7 @@ Array [
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
         </p>
         <p
-          className="sc-kEYyzF dNEJQU"
+          className="sc-kEYyzF deGOyW"
         >
           BAIXAR ARQUIVO
            &gt; 
@@ -607,7 +607,7 @@ Array [
       </div>
     </div>
     <div
-      className="sc-ckVGcZ iRglKf"
+      className="sc-ckVGcZ WjkdZ"
     >
       <div>
         <svg
@@ -630,7 +630,7 @@ Array [
           Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
         </p>
         <p
-          className="sc-kEYyzF dNEJQU"
+          className="sc-kEYyzF deGOyW"
         >
           BAIXAR ARQUIVO
            &gt; 

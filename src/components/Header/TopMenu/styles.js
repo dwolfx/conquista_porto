@@ -15,7 +15,7 @@ const notificationDropdownSvgStyle = css`
 `
 
 export const MainContainer = styled.header`
-  background-color: #34373e;
+  background-color: ${props => props.theme.colors.gray6};
   width: 100%;
   position: sticky;
   top: 0px;
@@ -68,7 +68,7 @@ export const RelativeParent = styled.div`
 export const NotificationCircle = styled.div`
   display: flex;
   position: absolute;
-  background-color: #ff7433;
+  background-color: ${props => props.theme.colors.secondary.light};
   width: 20px;
   height: 20px;
   top: -10px;

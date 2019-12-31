@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from 'styled-components'
 
 import Button from '../../Button'
-
 import { Container, Content, Title, Text } from './styles'
 
 export default function HighlightSection({
@@ -11,8 +11,9 @@ export default function HighlightSection({
   subDescription,
   buttonText,
 }) {
+  const themeContext = useContext(ThemeContext)
   return (
-    <Container backgroundColor="#115FA5">
+    <Container backgroundColor={themeContext.colors.darkBlue2}>
       <Content>
         <Title textColor="white">{title}</Title>
         <Text>

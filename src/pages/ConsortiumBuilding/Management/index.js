@@ -70,7 +70,7 @@ export default function ManagementConsortiumBuilding({ history }) {
 
   useEffect(() => {
     if (consortiumBuilding.data.length) {
-      setSelectedConsortiumBuilding(consortiumBuilding.data[0].id)
+      setSelectedConsortiumBuilding(consortiumBuilding.data[0].Id)
     }
   }, [consortiumBuilding.data])
 
@@ -95,16 +95,16 @@ export default function ManagementConsortiumBuilding({ history }) {
                 history.push('/')
               }}
             >
-              <Icon width="48" fill="#ccc" name="add" />
-              <Text fontColor="#aaa" fontSize="14px">
+              <Icon width="48" fill={themeContext.colors.gray3} name="add" />
+              <Text fontColor={themeContext.colors.gray4} fontSize="14px">
                 Adicionar
               </Text>
             </AddBtnLink>
 
             {consortiumBuilding.data.map((item, index) => (
               <ManageableItem
-                key={item.id}
-                active={selectedConsortiumBuilding === item.id}
+                key={item.Id}
+                active={selectedConsortiumBuilding === item.Id}
                 onClick={() => {
                   setSelectedConsortiumBuilding(item.id)
                   scrollPage(`consortium-building-top-page`)
@@ -126,14 +126,14 @@ export default function ManagementConsortiumBuilding({ history }) {
                 >
                   STATUS
                 </Text>
-                <Text fontSize="14px">{item.statusConsorcio}</Text>
+                <Text fontSize="14px">{item.StatusConsorcio}</Text>
               </ManageableItem>
             ))}
           </LeftNav>
           {consortiumBuilding.data.map((item, index) => (
             <RightContent
-              key={item.id}
-              isSelected={item.id === selectedConsortiumBuilding}
+              key={item.Id}
+              isSelected={item.Id === selectedConsortiumBuilding}
             >
               <PageTitle>Contrato {index + 1}</PageTitle>
               <Topics settings={settings}>
@@ -145,7 +145,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                   />
                   <div>
                     <TopicTitle>Cota</TopicTitle>
-                    <TopicValue>{item.cota}</TopicValue>
+                    <TopicValue>{item.Cota}</TopicValue>
                   </div>
                 </Topic>
                 <Topic>
@@ -156,7 +156,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                   />
                   <div>
                     <TopicTitle>grupo</TopicTitle>
-                    <TopicValue>{item.grupo}</TopicValue>
+                    <TopicValue>{item.Grupo}</TopicValue>
                   </div>
                 </Topic>
                 <Topic>
@@ -167,7 +167,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                   />
                   <div>
                     <TopicTitle>Crédito contratado</TopicTitle>
-                    <TopicValue>{formatMoney(item.valorContratado)}</TopicValue>
+                    <TopicValue>{formatMoney(item.ValorContratado)}</TopicValue>
                   </div>
                 </Topic>
               </Topics>
@@ -182,7 +182,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                     >
                       Valor para quitação
                     </Text>
-                    <Text>{formatMoney(item.valorQuitacao)}</Text>
+                    <Text>{formatMoney(item.ValorQuitacao)}</Text>
                   </InstallmentContent>
                   <InstallmentContent>
                     <Text
@@ -193,7 +193,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                     >
                       Valor da parcela atual
                     </Text>
-                    <Text>{formatMoney(item.valorParcelaAtual)}</Text>
+                    <Text>{formatMoney(item.ValorParcelaAtual)}</Text>
                   </InstallmentContent>
                 </InvoiceHeader>
                 <Invoice>
@@ -209,8 +209,8 @@ export default function ManagementConsortiumBuilding({ history }) {
                   <LinearProgressBar
                     width="70%"
                     margin="70px 0 0 0"
-                    now={item.quantidadeParcelasPagas}
-                    max={item.quantidadeParcelasContratadas}
+                    now={item.QuantidadeParcelasPagas}
+                    max={item.QuantidadeParcelasContratadas}
                     subtitle="parcelas"
                   />
                 </Invoice>

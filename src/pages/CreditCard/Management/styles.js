@@ -8,8 +8,8 @@ export const BreadcrumbContainer = styled.div`
 `
 
 export const AddBtnLink = styled.div`
-  border: 2px solid #d2d2d2;
-  background-color: #f1f1f1;
+  border: 2px solid ${props => props.theme.colors.gray3};
+  background-color: ${props => props.theme.colors.gray1};
   padding: 8px;
   margin-bottom: 30px;
   padding: 14px;
@@ -34,7 +34,7 @@ export const AddBtnLink = styled.div`
 
 export const PageTitle = styled.h4`
   font-weight: 300;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   letter-spacing: 0;
   word-wrap: break-word;
   font-size: 22px;
@@ -80,14 +80,14 @@ export const InvoiceContainer = styled.article`
 `
 
 export const InvoiceHeader = styled.div`
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-top: 1px solid ${props => props.theme.colors.gray3};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
 
   display: flex;
 `
 
 export const ComplementaryInfo = styled.article`
-  background-color: #f9f9f9;
+  background-color: ${props => props.theme.colors.gray1};
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -102,14 +102,14 @@ export const DateContent = styled.div`
   align-items: center;
 
   &:first-child {
-    border-right: 1px solid #ccc;
+    border-right: 1px solid ${props => props.theme.colors.gray3};
   }
 `
 
 export const Text = styled.span`
   text-align: ${props => props.textAlign || 'left'};
   font-weight: ${props => props.fontWeight || '300'};
-  color: ${props => props.fontColor || '#000'};
+  color: ${props => props.fontColor || props.theme.colors.black};
   line-height: ${props => props.lineHeight || '24px'};
   margin: ${props => props.margin || '0'};
   font-size: ${props => props.fontSize || '18px'};
@@ -128,7 +128,7 @@ export const InvoiceItem = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-around;
-  background-color: #f1f1f1;
+  background-color: ${props => props.theme.colors.gray1};
   padding: 14px 0;
   border-radius: 4px;
   margin-bottom: 14px;
