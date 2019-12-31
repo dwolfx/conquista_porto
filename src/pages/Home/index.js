@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
-  }, [])
+  }, [dispatch])
 
   function scrollPage(id) {
     const el = document.querySelector(`#${id}`).getBoundingClientRect()
