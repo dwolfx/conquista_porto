@@ -27,6 +27,7 @@ import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import TripInsurance from 'pages/TripInsurance'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
+import Redirect from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesRegistration from 'pages/Objectives/Registration'
@@ -174,6 +175,7 @@ export default function Routes({ ...props }) {
         exact
         component={ProfileSuitability}
       />
+      <Route path="/redirect" exact component={Redirect} />
       <DefaultRoute path="/notificacoes" exact component={Notifications} />
     </Switch>
   )
