@@ -40,8 +40,8 @@ export const BreadcrumbContainer = styled.div`
 `
 
 export const AddBtnLink = styled.div`
-  border: 2px solid #d2d2d2;
-  background-color: #f1f1f1;
+  border: 2px solid ${props => props.theme.colors.gray3};
+  background-color: ${props => props.theme.colors.gray1};
   padding: 8px;
   margin-bottom: 30px;
   padding: 14px;
@@ -66,7 +66,7 @@ export const AddBtnLink = styled.div`
 
 export const PageTitle = styled.h4`
   font-weight: 300;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   letter-spacing: 0;
   word-wrap: break-word;
   font-size: 22px;
@@ -117,9 +117,9 @@ export const BalanceAccordion = styled(AccordionDefault)`
   }
 
   ${AccordionHeader} {
-    background-color: #f1f1f1;
+    background-color: ${props => props.theme.colors.gray1};
     &:hover {
-      background-color: #e4e4e4;
+      background-color: ${props => props.theme.colors.gray4};
     }
   }
 
@@ -141,7 +141,7 @@ export const Section = styled.article`
   align-items: center;
   justify-content: center;
 
-  border-top: 1px solid #ccc;
+  border-top: 1px solid ${props => props.theme.colors.gray3};
 `
 
 export const HeaderNodeBalanceAccordion = styled.div`
@@ -187,7 +187,7 @@ export const ChartTooltip = styled.div`
   background-color: black;
   opacity: 0.5;
   padding: 2px 6px;
-  border: 1px solid #ccc;
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: 3px;
 
   span {
@@ -198,7 +198,7 @@ export const ChartTooltip = styled.div`
 export const Text = styled.span`
   text-align: ${props => props.textAlign || 'left'};
   font-weight: ${props => props.fontWeight || '300'};
-  color: ${props => props.fontColor || '#000'};
+  color: ${props => props.fontColor || props.theme.colors.black};
   line-height: ${props => props.lineHeight || '24px'};
   margin: ${props => props.margin || '0'};
   font-size: ${props => props.fontSize || '18px'};
@@ -268,13 +268,13 @@ export const Table = styled.table`
   margin-top: 22px;
 
   thead {
-    background-color: #d6d6d6;
+    background-color: ${props => props.theme.colors.gray3};
     tr {
       th {
         padding: 22px 0;
         font-size: 11px;
         font-weight: 300;
-        color: #000;
+        color: ${props => props.theme.colors.black};
         letter-spacing: 1px;
         text-transform: uppercase;
         line-height: 14px;
@@ -290,7 +290,7 @@ export const Table = styled.table`
         letter-spacing: 1px;
         line-height: 14px;
         text-align: center;
-        border: 1px solid #d2d2d2;
+        border: 1px solid ${props => props.theme.colors.gray3};
         padding: 22px 20px;
         text-transform: uppercase;
         opacity: 0.9;
@@ -327,12 +327,12 @@ export const CompleteExtract = styled.p`
   font-weight: 600;
 
   :hover {
-    color: #2591bb;
+    color: ${props => props.theme.colors.blue5};
   }
 `
 
 export const ComplementaryInfo = styled.article`
-  background-color: #f9f9f9;
+  background-color: ${props => props.theme.colors.gray1};
   display: flex;
   align-items: center;
   flex-direction: column;

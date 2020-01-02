@@ -6,8 +6,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import styled from 'styled-components'
 
-const lightBlue = '#8BD2FF'
-
 export default Slider
 
 export const ForwardIcon = styled(forward)`
@@ -23,7 +21,7 @@ export const BackwardIcon = styled(backward)`
 export const ChangePageButton = styled.button`
   svg polyline {
     stroke-width: 9px;
-    stroke: ${lightBlue};
+    stroke: ${props => props.theme.colors.blue3};
   }
 
   &.slick-next::before,

@@ -21,7 +21,7 @@ const SuccessStep = ({ changeScreen }) => {
     <>
       <Section backgroundColor={themeContext.colors.white}>
         <Wrapper align="center">
-          <Icon name="awesome" width={50} fill="#777" />
+          <Icon name="awesome" width={50} fill={themeContext.colors.gray5} />
           <SectionTitle fontSize={22} marginTop={50}>
             Tudo certo com seu cadastro
           </SectionTitle>

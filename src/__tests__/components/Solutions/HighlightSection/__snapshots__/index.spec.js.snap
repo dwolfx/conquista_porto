@@ -2,18 +2,18 @@
 
 exports[`HighlightSection renders correctly 1`] = `
 <section
-  className="sc-bwzfXH bNxMLf"
+  className="sc-htpNat hNjWdq"
 >
   <div
-    className="sc-htpNat dbNJrl"
+    className="sc-bxivhb jSOFVZ"
   >
     <h1
-      className="sc-bxivhb iUdfzJ"
+      className="sc-ifAKCX gunszn"
     >
       Facilidade para investir
     </h1>
     <p
-      className="sc-ifAKCX hzKKeu"
+      className="sc-EHOje gkqjBq"
     >
       Com o Conquista, é prático e rápido investir.
       <br />
@@ -23,10 +23,14 @@ exports[`HighlightSection renders correctly 1`] = `
     <br />
     <br />
     <button
-      className="sc-bdVaJa bXUMsN"
+      className="sc-bdVaJa hhTFXP"
       color="secondary"
     >
-      lista de fundos
+      <span
+        className="sc-bwzfXH eubHTp"
+      >
+        lista de fundos
+      </span>
     </button>
   </div>
 </section>

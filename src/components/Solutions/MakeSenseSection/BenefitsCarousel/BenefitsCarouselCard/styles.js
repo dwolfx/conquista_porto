@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
-const gray = '#D2D2D2'
-
 export const CardWrapper = styled.div`
-  border: 1px solid ${gray};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-left: 0px;
   display: flex;
   flex-direction: row;
@@ -14,7 +12,7 @@ export const CardWrapper = styled.div`
     height: 36px;
     margin: 0.5em 1em 0 0;
     width: 93px;
-    fill: #777;
+    fill: ${props => props.theme.colors.gray5};
   }
 
   @media (min-width: 1100px) {

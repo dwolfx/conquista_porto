@@ -44,7 +44,7 @@ export const Table = styled.table`
 export const THead = styled.thead``
 export const TBody = styled.tbody`
   tr:nth-child(odd) {
-    background-color: #f6f5f6;
+    background-color: ${props => props.theme.colors.gray1};
   }
 `
 export const Tr = styled.tr`
@@ -59,9 +59,9 @@ export const Tr = styled.tr`
 `
 export const Th = styled.th`
   display: table-cell;
-  background-color: #c0bfc0;
+  background-color: ${props => props.theme.colors.gray4};
   padding: 20px;
-  border: 1px solid #d2d2d2;
+  border: 1px solid ${props => props.theme.colors.gray3};
   color: ${props => props.theme.colors.gray6};
   text-transform: uppercase;
   font-size: 11px;
@@ -71,7 +71,7 @@ export const Th = styled.th`
 export const Td = styled.td`
   display: table-cell;
   padding: 8px;
-  border: 1px solid #c0bfc0;
+  border: 1px solid ${props => props.theme.colors.gray4};
   color: ${props => props.theme.colors.gray6};
   text-align: center;
   font-size: 11px;

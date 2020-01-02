@@ -37,7 +37,7 @@ export const SelectField = styled.select`
   appearance: none;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   cursor: pointer;
   height: 42px;
   padding-left: 0;

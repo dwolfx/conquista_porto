@@ -23,7 +23,7 @@ export default function TopBanner({
             className="button-with-right-icon"
             onClick={onClick}
           >
-            {buttonText} <span>&gt;</span>
+            {buttonText} <span className="icon">&gt;</span>
           </Button>
         )}
       </Content>
@@ -42,6 +42,6 @@ TopBanner.propTypes = {
 }
 
 TopBanner.defaultProps = {
-  onClick: () => {},
+  onClick: null,
   buttonText: null,
 }

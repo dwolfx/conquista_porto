@@ -21,10 +21,11 @@ export const themeColors = {
   blue3: '#A1E5FF',
   blue4: '#00ADEF',
   blue5: '#018CB7',
-  green1: '#CFE8D2',
-  green2: '#57B063',
-  green3: '#46A166',
-  green4: '#2F736B',
+  green1: '#EEF8F2',
+  green2: '#CFE8D2',
+  green3: '#57B063',
+  green4: '#46A166',
+  green5: '#2F736B',
   yellow1: '#FFF3C4',
   yellow2: '#FFCD00',
   magenta1: '#FAD2E3',
@@ -83,47 +84,68 @@ const genericFontType = {
 }
 
 export const fontTypes = {
-  title1: {
+  heading1: {
     ...genericFontType,
     fontSize: 92,
     letterSpacing: 0,
   },
-  title2: {
+  heading2: {
     ...genericFontType,
     fontSize: 56,
     letterSpacing: 1,
   },
-  title3: {
+  heading3: {
     ...genericFontType,
     fontSize: 34,
-    letterSpacing: -0.5,
+    letterSpacing: 0.5,
   },
-  title4: {
+  heading4: {
     ...genericFontType,
     fontSize: 22,
     letterSpacing: 0,
     textTransform: 'uppercase',
+    fontWeight: 300,
+  },
+  headline: {
+    ...genericFontType,
+    fontSize: 18,
+    letterSpacing: 0,
     fontWeight: 400,
   },
-  title5: {
-    ...genericFontType,
-    fontSize: 20,
-    letterSpacing: 1,
-  },
-  title6: {
+  title: {
     fontSize: 14,
-    letterSpacing: 0,
+    letterSpacing: 0.25,
+    fontWeight: 600,
   },
-  paragraph: {
+  subheading: {
     ...genericFontType,
-    fontFamily: 'Arial',
+    fontSize: 11,
+    letterSpacing: 1.5,
+    fontWeight: 600,
+  },
+  body: {
+    ...genericFontType,
     fontSize: 14,
     letterSpacing: 0,
   },
   caption: {
     ...genericFontType,
-    fontSize: 10,
+    fontSize: 12,
+    letterSpacing: 0,
+    fontWeight: 400,
+  },
+  captionUppercase: {
+    ...genericFontType,
+    fontSize: 12,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+    fontWeight: 400,
+  },
+  button: {
+    fontSize: 11,
+    fontWeight: 600,
     letterSpacing: 1.5,
+    textTransform: 'uppercase',
   },
 }
 

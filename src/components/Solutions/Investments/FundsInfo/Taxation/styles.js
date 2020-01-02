@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 295px;
-  background-color: #f9f9f9;
+  background-color: ${props => props.theme.colors.gray1};
   @media (max-width: 900px) {
     width: 154px;
   }

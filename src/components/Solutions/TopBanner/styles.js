@@ -7,7 +7,7 @@ export const Container = styled.section`
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background-color: #555861;
+  background-color: ${props => props.theme.colors.gray5};
 `
 
 export const Content = styled.div`
@@ -23,7 +23,7 @@ export const Content = styled.div`
   }
 
   .button-with-right-icon {
-    span {
+    span.icon {
       position: absolute;
       top: 7px;
       right: 12px;

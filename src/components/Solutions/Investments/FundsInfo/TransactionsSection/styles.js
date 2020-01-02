@@ -5,7 +5,7 @@ export const Container = styled.section`
   flex-direction: column;
   width: 100%;
   height: auto;
-  background-color: #115fa5;
+  background-color: ${props => props.theme.colors.darkBlue2};
   color: ${props => props.theme.colors.white};
 `
 export const Title = styled.h5`
