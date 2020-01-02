@@ -2,9 +2,8 @@
   "name": "conquinsta-front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/conquista",
   "home": "http://conquista-sciensa.s3-website.us-east-2.amazonaws.com/",
-  "homepage": ".",
+  "homepage": "/conquista",
   "dependencies": {
     "@nivo/line": "^0.59.3",
     "@nivo/pie": "^0.59.1",

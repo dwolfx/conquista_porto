@@ -45,6 +45,7 @@ export const TextWrapper = styled.div`
 export const Title = styled(ComponentText)`
   color: ${props => props.theme.colors.blue4};
   text-transform: uppercase;
+  margin-bottom: 14px;
   cursor: pointer;
 `
 export const Message = styled(ComponentText)`

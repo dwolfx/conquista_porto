@@ -8,8 +8,8 @@ import {
   BlueText,
   BellIcon,
   Container,
+  Dropdown,
   DropDownContainer,
-  DropDownWrapper,
   LinkText,
   LogoLinkWrapper,
   MenuIcon,
@@ -73,7 +73,7 @@ function TopMenu() {
   const theme = useContext(ThemeContext)
 
   const handleNotificationsRedirect = () => {
-    setIsOpen()
+    setIsOpen(false)
     history.push('/notificacoes')
     document.documentElement.scrollTop = 0
     document.body.scrollTop = 0
@@ -115,8 +115,8 @@ function TopMenu() {
         </LogoLinkWrapper>
         <Wrapper justify="flex-end">
           <RelativeParent>
-            <DropDownWrapper isOpen={isOpen} top={30} left={-470}>
-              <DropDownContainer isRead={DB[0].isRead} width={500} height={350}>
+            <Dropdown isOpen={isOpen} setOpen={setIsOpen} width="500px">
+              <DropDownContainer isRead={DB[0].isRead}>
                 {DB.map(item => (
                   <NotificationItem
                     key={item.id}
@@ -135,7 +135,7 @@ function TopMenu() {
                   </Wrapper>
                 )}
               </DropDownContainer>
-            </DropDownWrapper>
+            </Dropdown>
             {history.location.pathname === '/notificacoes' ? (
               <BellIcon
                 onClick={() => setIsOpen(!isOpen)}
