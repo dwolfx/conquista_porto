@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header to render 1`] = `
+<div
+  className="sc-dnqmqq bijFdr"
+>
+  <div
+    className="sc-jTzLTM fHWjDA"
+  >
+    <a
+      className="sc-fjdhpX hdHfQQ"
+      href="/objetivos"
+      onClick={[Function]}
+    >
+      <svg
+        className="sc-ifAKCX cJgWXQ"
+      >
+        target.svg
+      </svg>
+      <p
+        className="sc-gzVnrw bBpTFh"
+      >
+        Objetivos
+      </p>
+    </a>
+    <div
+      className="sc-iwsKbI fExAuH"
+    >
+      <div
+        className="sc-jzJRlG iZLztz"
+        onClick={[Function]}
+      >
+        <svg
+          className="sc-ifAKCX cJgWXQ"
+        >
+          apps.svg
+        </svg>
+        <p
+          className="sc-gzVnrw bBpTFh"
+        >
+          Soluções
+        </p>
+        <svg
+          className="sc-bxivhb cnaRML"
+        >
+          arrow-down2.svg
+        </svg>
+      </div>
+      <div
+        className="sc-bdVaJa EXKLM sc-kAzzGY eEYxSW"
+      >
+        <div
+          className="sc-htpNat fwFulr"
+          onClick={[Function]}
+        />
+        <div
+          className="sc-bwzfXH eXcrqi"
+          width="300px"
+        >
+          <div
+            className="sc-VigVT dzTYZV"
+          >
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/cartao-credito"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  credit-card.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Cartão de Crédito
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/consorcio-imovel"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  home-with-window.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Consórcio de Imóvel
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/consorcio-veiculo"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  car.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Consórcio de Veículo
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/financiamento-veiculo"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  money.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Financiamento de Veículo
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/investimentos"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  bar-chart.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Investimentos
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/previdencia-privada"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  time.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Previdência Privada
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/seguro-vida"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  person-group.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Seguro de Vida
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+            <a
+              className="sc-gqjmRU cQJgac"
+              href="/seguro-viagem"
+              onClick={[Function]}
+            >
+              <div
+                className="sc-htoDjs fSWyTn"
+              >
+                <svg
+                  className="sc-EHOje dzkomp"
+                >
+                  plane.svg
+                </svg>
+              </div>
+              <p
+                className="sc-gZMcBi irRfsX"
+              >
+                Seguro Viagem
+              </p>
+              <svg
+                className="sc-bZQynM kDnRhT"
+                size={11}
+              >
+                arrow-right.svg
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a
+      className="sc-fjdhpX hdHfQQ"
+      href="/"
+      onClick={[Function]}
+    >
+      <svg
+        className="sc-ifAKCX cJgWXQ"
+      >
+        gear.svg
+      </svg>
+      <p
+        className="sc-gzVnrw bBpTFh"
+      >
+        Gerenciador
+      </p>
+    </a>
+    <a
+      className="sc-fjdhpX hdHfQQ"
+      href="/pontos"
+      onClick={[Function]}
+    >
+      <svg
+        className="sc-ifAKCX cJgWXQ"
+      >
+        diamond.svg
+      </svg>
+      <p
+        className="sc-gzVnrw bBpTFh"
+      >
+        Pontos
+      </p>
+    </a>
+    <a
+      className="sc-fjdhpX hdHfQQ"
+      href="/"
+      onClick={[Function]}
+    >
+      <svg
+        className="sc-ifAKCX cJgWXQ"
+      >
+        idea.svg
+      </svg>
+      <p
+        className="sc-gzVnrw bBpTFh"
+      >
+        Recomendações
+      </p>
+    </a>
+  </div>
+</div>
+`;
