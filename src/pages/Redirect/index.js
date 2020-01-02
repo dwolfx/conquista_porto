@@ -1,0 +1,67 @@
+import React, { useState, useEffect } from 'react'
+
+import Button from 'components/Button/Link'
+import {
+  Background,
+  LogoConquista,
+  Card,
+  Text,
+  LogoPorto,
+  Line,
+  GridContainer,
+  GridRow,
+  GridCol,
+} from './styles'
+
+
+/**
+ * ### HOW TO USE ###
+ * The button which will navigate to Redirect page must have the following 'to' param:
+ *  <Link to={{
+ *    pathname: "/redirect",
+ *    state: {url: "https://www.yourUrlToRedirect.com.br"}
+ *  }}>Click me</Link>
+ */
+
+export default function Redirect(props) {
+  const [counter, setCounter] = useState(5)
+
+  function navigate() {
+    if (props.history.location.state && props.history.location.state.url) {
+      window.location.replace(props.history.location.state.url)
+    } else {
+      window.location.replace('https://www.portoseguro.com.br')
+    }
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter(prevState => (prevState <= 0 ? 0 : prevState - 1))
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    if (counter <= 0) navigate()
+  }, [counter])
+
+  return (
+    <Background>
+      <GridContainer>
+        <GridRow>
+          <GridCol lg={4}></GridCol>
+          <GridCol lg={4}>
+            <LogoConquista />
+            <Card>
+              <Text>Em {counter} segundos você será redirecionado para:</Text>
+              <LogoPorto />
+              <Line />
+              <Button onClick={navigate}>Redirecionar Agora</Button>
+            </Card>
+          </GridCol>
+          <GridCol lg={4}></GridCol>
+        </GridRow>
+      </GridContainer>
+    </Background>
+  )
+}
