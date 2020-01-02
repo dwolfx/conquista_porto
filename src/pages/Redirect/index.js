@@ -49,17 +49,15 @@ export default function Redirect(props) {
     <Background>
       <GridContainer>
         <GridRow>
-          <GridCol lg={4}></GridCol>
-          <GridCol lg={4}>
+          <GridCol xl={12}>
             <LogoConquista />
             <Card>
-              <Text>Em {counter} segundos você será redirecionado para:</Text>
+              <Text>Em {counter} {counter > 1 ? 'segundos' : 'segundo'} você será redirecionado para:</Text>
               <LogoPorto />
               <Line />
               <Button onClick={navigate}>Redirecionar Agora</Button>
             </Card>
           </GridCol>
-          <GridCol lg={4}></GridCol>
         </GridRow>
       </GridContainer>
     </Background>
