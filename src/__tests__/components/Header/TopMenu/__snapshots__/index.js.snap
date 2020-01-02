@@ -9,10 +9,10 @@ Array [
       className="sc-kEYyzF daNOsl"
     >
       <div
-        className="sc-jDwBTQ kEvvHe"
+        className="sc-jAaTju iwwqKJ"
       >
         <svg
-          className="sc-Rmtcm dqSRJQ"
+          className="sc-csuQGl lbZnAk"
           onClick={[Function]}
         >
           menu.svg
@@ -42,7 +42,7 @@ Array [
         </a>
         <a
           aria-current="page"
-          className="sc-gPEVay gwYdDo active"
+          className="sc-jDwBTQ dmcUST active"
           href="/"
           margin="0px 20px"
           onClick={[Function]}
@@ -53,7 +53,7 @@ Array [
         </a>
         <a
           aria-current={null}
-          className="sc-gPEVay gwYdDo"
+          className="sc-jDwBTQ dmcUST"
           href="/perfil"
           margin="0px 20px"
           onClick={[Function]}
@@ -69,179 +69,186 @@ Array [
           className="sc-hSdWYo ziZNu"
         >
           <div
-            className="sc-jWBwVP hbVnXC"
+            className="sc-bdVaJa EXKLM sc-Rmtcm bzFGXC"
           >
             <div
-              className="sc-brqgnP bsxGgV"
-              height={350}
-              width={500}
+              className="sc-htpNat fwFulr"
+              onClick={[Function]}
+            />
+            <div
+              className="sc-bwzfXH jVtvaN"
+              width="500px"
             >
               <div
-                className="sc-kgoBCf ZAiht"
+                className="sc-jWBwVP fwnfGa"
               >
                 <div
-                  className="sc-kGXeez dHsSw"
+                  className="sc-kgoBCf ZAiht"
                 >
-                  <svg
-                    className="sc-eNQAEJ fSgNzu"
+                  <div
+                    className="sc-kGXeez dHsSw"
                   >
-                    add.svg
-                  </svg>
+                    <svg
+                      className="sc-eNQAEJ fSgNzu"
+                    >
+                      add.svg
+                    </svg>
+                  </div>
+                  <div
+                    className="sc-dxgOiQ bwnHdO"
+                  >
+                    <p
+                      className="sc-chPdSV gtrpid sc-ckVGcZ dWmgmJ"
+                      type="button"
+                    >
+                      Confirmação de Aporte
+                    </p>
+                    <p
+                      className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                      type="body"
+                    >
+                      Está tudo certo com seu investimento no fundo [Nome do fundo].
+                    </p>
+                  </div>
+                  <div
+                    className="sc-kpOJdX dztJhW"
+                  >
+                    <svg
+                      className="sc-eNQAEJ fSgNzu"
+                    >
+                      add.svg
+                    </svg>
+                  </div>
                 </div>
                 <div
-                  className="sc-dxgOiQ bwnHdO"
+                  className="sc-kgoBCf ZAiht"
                 >
-                  <p
-                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
-                    type="button"
+                  <div
+                    className="sc-kGXeez dHsSw"
                   >
-                    Confirmação de Aporte
-                  </p>
-                  <p
-                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
-                    type="body"
+                    <svg
+                      className="sc-eNQAEJ fSgNzu"
+                    >
+                      remove.svg
+                    </svg>
+                  </div>
+                  <div
+                    className="sc-dxgOiQ bwnHdO"
                   >
-                    Está tudo certo com seu investimento no fundo [Nome do fundo].
-                  </p>
+                    <p
+                      className="sc-chPdSV gtrpid sc-ckVGcZ dWmgmJ"
+                      type="button"
+                    >
+                      Confirmação de Resgate
+                    </p>
+                    <p
+                      className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                      type="body"
+                    >
+                      Está tudo certo com seu resgate do fundo [Nome do fundo].
+                    </p>
+                  </div>
+                  <div
+                    className="sc-kpOJdX dztJhW"
+                  >
+                    <svg
+                      className="sc-eNQAEJ dhDhlB"
+                    >
+                      arrow-right.svg
+                    </svg>
+                  </div>
                 </div>
                 <div
-                  className="sc-kpOJdX dztJhW"
+                  className="sc-kgoBCf cmxZTc"
                 >
-                  <svg
-                    className="sc-eNQAEJ fSgNzu"
+                  <div
+                    className="sc-kGXeez dHsSw"
                   >
-                    add.svg
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="sc-kgoBCf ZAiht"
-              >
-                <div
-                  className="sc-kGXeez dHsSw"
-                >
-                  <svg
-                    className="sc-eNQAEJ fSgNzu"
+                    <svg
+                      className="sc-eNQAEJ fSgNzu"
+                    >
+                      thumbs-up.svg
+                    </svg>
+                  </div>
+                  <div
+                    className="sc-dxgOiQ bwnHdO"
                   >
-                    remove.svg
-                  </svg>
-                </div>
-                <div
-                  className="sc-dxgOiQ bwnHdO"
-                >
-                  <p
-                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
-                    type="button"
+                    <p
+                      className="sc-chPdSV gtrpid sc-ckVGcZ dWmgmJ"
+                      type="button"
+                    >
+                      Aviso de primeiro investimento no fundo
+                    </p>
+                    <p
+                      className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                      type="body"
+                    >
+                      Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!
+                    </p>
+                  </div>
+                  <div
+                    className="sc-kpOJdX dztJhW"
                   >
-                    Confirmação de Resgate
-                  </p>
-                  <p
-                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
-                    type="body"
-                  >
-                    Está tudo certo com seu resgate do fundo [Nome do fundo].
-                  </p>
-                </div>
-                <div
-                  className="sc-kpOJdX dztJhW"
-                >
-                  <svg
-                    className="sc-eNQAEJ dhDhlB"
-                  >
-                    arrow-right.svg
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="sc-kgoBCf cmxZTc"
-              >
-                <div
-                  className="sc-kGXeez dHsSw"
-                >
-                  <svg
-                    className="sc-eNQAEJ fSgNzu"
-                  >
-                    thumbs-up.svg
-                  </svg>
+                    <svg
+                      className="sc-eNQAEJ fSgNzu"
+                    >
+                      add.svg
+                    </svg>
+                  </div>
                 </div>
                 <div
-                  className="sc-dxgOiQ bwnHdO"
+                  className="sc-kgoBCf cmxZTc"
                 >
-                  <p
-                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
-                    type="button"
+                  <div
+                    className="sc-kGXeez dHsSw"
                   >
-                    Aviso de primeiro investimento no fundo
-                  </p>
-                  <p
-                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
-                    type="body"
+                    <svg
+                      className="sc-eNQAEJ fSgNzu"
+                    >
+                      alert-rounded.svg
+                    </svg>
+                  </div>
+                  <div
+                    className="sc-dxgOiQ bwnHdO"
                   >
-                    Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!
-                  </p>
+                    <p
+                      className="sc-chPdSV gtrpid sc-ckVGcZ dWmgmJ"
+                      type="button"
+                    >
+                      Aviso de aplicação pendente de recurso
+                    </p>
+                    <p
+                      className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                      type="body"
+                    >
+                      Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.
+                    </p>
+                  </div>
+                  <div
+                    className="sc-kpOJdX dztJhW"
+                  >
+                    <svg
+                      className="sc-eNQAEJ dhDhlB"
+                    >
+                      arrow-right.svg
+                    </svg>
+                  </div>
                 </div>
                 <div
-                  className="sc-kpOJdX dztJhW"
+                  className="sc-kkGfuU bYeogH"
                 >
-                  <svg
-                    className="sc-eNQAEJ fSgNzu"
+                  <button
+                    className="sc-fYxtnH fXjNRv"
+                    color="primary"
+                    onClick={[Function]}
                   >
-                    add.svg
-                  </svg>
+                    <span
+                      className="sc-tilXH bAxWGE"
+                    >
+                      Ver Todos
+                    </span>
+                  </button>
                 </div>
-              </div>
-              <div
-                className="sc-kgoBCf cmxZTc"
-              >
-                <div
-                  className="sc-kGXeez dHsSw"
-                >
-                  <svg
-                    className="sc-eNQAEJ fSgNzu"
-                  >
-                    alert-rounded.svg
-                  </svg>
-                </div>
-                <div
-                  className="sc-dxgOiQ bwnHdO"
-                >
-                  <p
-                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
-                    type="button"
-                  >
-                    Aviso de aplicação pendente de recurso
-                  </p>
-                  <p
-                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
-                    type="body"
-                  >
-                    Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.
-                  </p>
-                </div>
-                <div
-                  className="sc-kpOJdX dztJhW"
-                >
-                  <svg
-                    className="sc-eNQAEJ dhDhlB"
-                  >
-                    arrow-right.svg
-                  </svg>
-                </div>
-              </div>
-              <div
-                className="sc-kkGfuU bYeogH"
-              >
-                <button
-                  className="sc-fYxtnH fXjNRv"
-                  color="primary"
-                  onClick={[Function]}
-                >
-                  <span
-                    className="sc-tilXH bAxWGE"
-                  >
-                    Ver Todos
-                  </span>
-                </button>
               </div>
             </div>
           </div>
@@ -249,13 +256,13 @@ Array [
             className="sc-eHgmQL hRGOmo"
           >
             <p
-              className="sc-jlyJG ixdxSy"
+              className="sc-iRbamj ewLrTd"
             >
               10
             </p>
           </div>
           <svg
-            className="sc-csuQGl imncKp"
+            className="sc-gipzik esyivk"
             fill="#FFFFFF"
             onClick={[Function]}
           >
@@ -263,15 +270,15 @@ Array [
           </svg>
         </div>
         <div
-          className="sc-jAaTju ebCJfG"
+          className="sc-cMljjf kuRaea"
         >
           <p
-            className="sc-iRbamj cXfDME"
+            className="sc-gPEVay eKlHod"
           >
             Olá, Júlia.
           </p>
           <p
-            className="sc-gipzik hnpYsk"
+            className="sc-jlyJG gEZvZy"
           >
             SAIR
           </p>
@@ -280,7 +287,7 @@ Array [
     </div>
   </header>,
   <div
-    className="sc-dnqmqq gKZBit"
+    className="sc-dnqmqq bijFdr"
   >
     <div
       className="sc-jTzLTM fHWjDA"
