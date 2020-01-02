@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import { ThemeContext } from 'styled-components'
 import Button from '../../../components/Button'
 import Icon from '../../../components/IconExporter'
 import PhoneBox from '../../../components/PhoneInfos'
@@ -17,6 +18,7 @@ import {
 } from '../styles'
 
 export default () => {
+  const themeContext = useContext(ThemeContext)
   const history = useHistory()
 
   const handleRegistration = () => {
@@ -54,7 +56,7 @@ export default () => {
       <Box>
         <BoxContent direction="row">
           <IconWrapper>
-            <Icon name="user" fill="#d2d2d2" width={90} />
+            <Icon name="user" fill={themeContext.colors.gray3} width={90} />
           </IconWrapper>
           <div>
             <BoxTitle>Descubra seu perfil de investidor</BoxTitle>

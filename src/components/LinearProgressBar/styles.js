@@ -3,11 +3,14 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: ${props => props.width || '100%'};
   margin: ${props => props.margin || '0'};
-  background-color: #ececec;
+  background-color: ${props => props.theme.colors.gray1};
 
   div:first-child {
     position: relative;
-    background-color: #33beff;
+    background-color: ${props =>
+      props.now === props.max
+        ? props.theme.colors.green3
+        : props.theme.colors.blue4};
     height: 28px;
     width: ${props => props.progress || '100%'};
 
@@ -24,10 +27,14 @@ export const Container = styled.div`
       line-height: 28px;
       bottom: calc(100% + 15px);
       background-color: ${props =>
-        props.now === props.max ? '#E2F6FF' : '#ffcdb8'};
+        props.now === props.max
+          ? props.theme.colors.green1
+          : props.theme.colors.blue1};
       border: 1px solid;
       border-color: ${props =>
-        props.now === props.max ? '#33BFFF' : '#ff7433'};
+        props.now === props.max
+          ? props.theme.colors.green3
+          : props.theme.colors.blue4};
       padding: 0 3px;
       border-radius: 3px;
 
@@ -36,7 +43,9 @@ export const Container = styled.div`
         border-left: 7px solid transparent;
         border-top: 7px solid;
         border-top-color: ${props =>
-          props.now === props.max ? '#33BFFF' : '#ff7433'};
+          props.now === props.max
+            ? props.theme.colors.green3
+            : props.theme.colors.blue4};
         border-right: 7px solid transparent;
         position: absolute;
         top: 100%;
@@ -49,7 +58,9 @@ export const Container = styled.div`
         border-left: 7px solid transparent;
         border-top: 7px solid;
         border-top-color: ${props =>
-          props.now === props.max ? '#33BFFF' : '#ff7433'};
+          props.now === props.max
+            ? props.theme.colors.green3
+            : props.theme.colors.blue4};
         border-right: 7px solid transparent;
         position: absolute;
         top: 100%;
@@ -59,7 +70,9 @@ export const Container = styled.div`
         border-left-width: 6px;
         border-top: 5px solid;
         border-top-color: ${props =>
-          props.now === props.max ? '#E2F6FF' : '#ffcdb8'};
+          props.now === props.max
+            ? props.theme.colors.green1
+            : props.theme.colors.blue1};
       }
     }
   }

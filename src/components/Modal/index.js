@@ -26,13 +26,15 @@ const Modal = ({
   const themeContext = useContext(ThemeContext)
   useEffect(() => {
     const body = document.querySelector('body')
-    body.style.overflow = 'hidden'
+    if (isOpen) {
+      body.style.overflow = 'hidden'
+    }
 
     function handleOverflow() {
       body.style.overflow = 'visible'
     }
     return () => handleOverflow()
-  }, [])
+  }, [isOpen])
 
   useEffect(() => {
     const handler = function handleEscClose(event) {
@@ -46,28 +48,26 @@ const Modal = ({
     return () => window.removeEventListener('keyup', handler)
   }, [handleClose, isOpen])
 
-  return isOpen
-    ? ReactDOM.createPortal(
-        <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
-          <ModalOverlay isOpen={isOpen} onClick={handleClose} />
-          <ModalContainer>
-            <ModalHeader>
-              {headerIcon && (
-                <Icon
-                  width="28"
-                  fill={themeContext.colors.blue4}
-                  name={headerIcon}
-                />
-              )}
-              <ModalTitle>{modalTitle}</ModalTitle>
-              <CloseButton onClick={handleClose} />
-            </ModalHeader>
-            {children}
-          </ModalContainer>
-        </ModalWrapper>,
-        document.querySelector('#root')
-      )
-    : null
+  return ReactDOM.createPortal(
+    <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
+      <ModalOverlay isOpen={isOpen} onClick={handleClose} />
+      <ModalContainer>
+        <ModalHeader>
+          {headerIcon && (
+            <Icon
+              width="28"
+              fill={themeContext.colors.blue4}
+              name={headerIcon}
+            />
+          )}
+          <ModalTitle>{modalTitle}</ModalTitle>
+          <CloseButton onClick={handleClose} />
+        </ModalHeader>
+        {children}
+      </ModalContainer>
+    </ModalWrapper>,
+    document.querySelector('#root')
+  )
 }
 
 Modal.defaultProps = {

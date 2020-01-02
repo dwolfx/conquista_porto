@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
-const gray = '#E6E6E6'
-
 export const CarouselCardWrapper = styled.div`
-  border: 1px solid ${gray};
+  border: 1px solid ${props => props.theme.colors.gray2};
   border-radius: 0.5em;
   background-color: ${props => props.theme.colors.white};
   box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);
@@ -18,7 +16,7 @@ export const IconWrapper = styled.div`
 `
 
 export const TextTitle = styled.p`
-  color: #000;
+  color: ${props => props.theme.colors.black};
   letter-spacing: 0;
   line-height: 32px;
   word-break: break-word;

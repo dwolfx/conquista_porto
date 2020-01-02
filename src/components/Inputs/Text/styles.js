@@ -33,7 +33,8 @@ export const InputWrapper = styled.div`
     margin: 15px 0;
   }
   ${InputLabel} {
-    color: ${props => (props.disabled ? '#a2a2a2' : props.theme.colors.black)};
+    color: ${props =>
+      props.disabled ? props.theme.colors.gray4 : props.theme.colors.black};
     font-size: ${props => (props.active ? '12px' : '14px')};
     font-style: ${props => (props.disabled ? 'italic' : 'normal')};
     top: ${props => (props.active ? '-13px' : '9px')};
@@ -44,13 +45,13 @@ export const InputWrapper = styled.div`
       props.disabled ? 'rgba(0, 0, 0, 0.05)' : 'transparent'};
     border-color: ${props => {
       if (props.error) {
-        return '#D0011B'
+        return props.theme.colors.magenta2
       }
       if (props.active) {
         return props.theme.colors.blue4
       }
 
-      return '#D2D2D2'
+      return props.theme.colors.gray3
     }};
   }
 `

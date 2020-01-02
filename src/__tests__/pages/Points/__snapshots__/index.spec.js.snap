@@ -3,7 +3,7 @@
 exports[`Points renders correctly 1`] = `
 Array [
   <section
-    className="sc-htpNat jlBPst"
+    className="sc-htpNat gkcgIn"
   >
     <div
       className="sc-bxivhb eHGKbp"
@@ -17,22 +17,6 @@ Array [
         Acumule pontos ao investir e contratar com o Conquista. Confira sua pontuação no Programa de Relacionamento e aproveite as diversas opções de trocas, descontos e benefícios.
       </p>
       <br />
-      <button
-        className="sc-bdVaJa hhTFXP button-with-right-icon"
-        color="secondary"
-        onClick={[Function]}
-      >
-        <span
-          className="sc-bwzfXH eubHTp"
-        >
-           
-          <span
-            className="icon"
-          >
-            &gt;
-          </span>
-        </span>
-      </button>
     </div>
     <img
       alt="Grupo de amigos sorrindo"
@@ -41,7 +25,7 @@ Array [
     />
   </section>,
   <section
-    className="sc-dnqmqq ecTrlG"
+    className="sc-dnqmqq hXZNjq"
   >
     <p
       className="sc-gZMcBi ckUSZX"
@@ -86,7 +70,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gqjmRU lmhNFS"
+                className="sc-gqjmRU brupaZ"
                 style={
                   Object {
                     "display": "inline-block",
@@ -102,7 +86,7 @@ Array [
                   Saldo atual
                 </p>
                 <p
-                  className="sc-VigVT cbVoPi"
+                  className="sc-VigVT djJnbD"
                   fontSize={34}
                 >
                   16.500
@@ -113,7 +97,7 @@ Array [
                   PONTOS
                 </p>
                 <p
-                  className="sc-jTzLTM gZuWkQ"
+                  className="sc-jTzLTM WSkXn"
                 >
                   ver extrato &gt;
                 </p>
@@ -135,7 +119,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gqjmRU lmhNFS"
+                className="sc-gqjmRU brupaZ"
                 style={
                   Object {
                     "display": "inline-block",
@@ -151,7 +135,7 @@ Array [
                   Saldo atual
                 </p>
                 <p
-                  className="sc-VigVT cbVoPi"
+                  className="sc-VigVT djJnbD"
                   fontSize={34}
                 >
                   16.500
@@ -162,7 +146,7 @@ Array [
                   PONTOS
                 </p>
                 <p
-                  className="sc-jTzLTM gZuWkQ"
+                  className="sc-jTzLTM WSkXn"
                 >
                   ver extrato &gt;
                 </p>
@@ -184,7 +168,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gqjmRU lmhNFS"
+                className="sc-gqjmRU brupaZ"
                 style={
                   Object {
                     "display": "inline-block",
@@ -200,7 +184,7 @@ Array [
                   Saldo atual
                 </p>
                 <p
-                  className="sc-VigVT cbVoPi"
+                  className="sc-VigVT djJnbD"
                   fontSize={34}
                 >
                   16.500
@@ -211,7 +195,7 @@ Array [
                   PONTOS
                 </p>
                 <p
-                  className="sc-jTzLTM gZuWkQ"
+                  className="sc-jTzLTM WSkXn"
                 >
                   ver extrato &gt;
                 </p>
@@ -225,7 +209,7 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-fjdhpX jfboys"
+    className="sc-fjdhpX fzAcGa"
   >
     <p
       className="sc-jzJRlG bbcaoM"
@@ -258,11 +242,11 @@ Array [
       className="sc-chPdSV hXVMIW"
     >
       <div
-        className="sc-kgoBCf lcILJR"
+        className="sc-kgoBCf hhSdto"
       >
         <div>
           <svg
-            fill="#777"
+            fill="#898989"
             height={36}
           >
             bar-chart.svg
@@ -273,11 +257,11 @@ Array [
         </p>
       </div>
       <div
-        className="sc-kgoBCf lcILJR"
+        className="sc-kgoBCf hhSdto"
       >
         <div>
           <svg
-            fill="#777"
+            fill="#898989"
             height={36}
           >
             globe.svg
@@ -288,11 +272,11 @@ Array [
         </p>
       </div>
       <div
-        className="sc-kgoBCf lcILJR"
+        className="sc-kgoBCf hhSdto"
       >
         <div>
           <svg
-            fill="#777"
+            fill="#898989"
             height={36}
           >
             credit-card2.svg
@@ -303,11 +287,11 @@ Array [
         </p>
       </div>
       <div
-        className="sc-kgoBCf lcILJR"
+        className="sc-kgoBCf hhSdto"
       >
         <div>
           <svg
-            fill="#777"
+            fill="#898989"
             height={36}
           >
             financial.svg
@@ -318,11 +302,11 @@ Array [
         </p>
       </div>
       <div
-        className="sc-kgoBCf lcILJR"
+        className="sc-kgoBCf hhSdto"
       >
         <div>
           <svg
-            fill="#777"
+            fill="#898989"
             height={36}
           >
             financial.svg
@@ -333,11 +317,11 @@ Array [
         </p>
       </div>
       <div
-        className="sc-kgoBCf lcILJR"
+        className="sc-kgoBCf hhSdto"
       >
         <div>
           <svg
-            fill="#777"
+            fill="#898989"
             height={36}
           >
             financial.svg
@@ -350,7 +334,7 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-kGXeez jzVwTL"
+    className="sc-kGXeez eXTZHT"
   >
     <div
       className="sc-kpOJdX iuvBBm"

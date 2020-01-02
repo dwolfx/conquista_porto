@@ -21,7 +21,7 @@ export const SidebarSection = styled.ul`
 export const SidebarItem = styled.li`
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : 'transparent'};
-  border-bottom: 1px solid #c7c7c7;
+  border-bottom: 1px solid ${props => props.theme.colors.gray4};
   cursor: pointer;
   padding: 15px;
   position: relative;

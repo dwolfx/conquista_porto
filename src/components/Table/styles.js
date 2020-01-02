@@ -3,18 +3,18 @@ import ConquistaIcon from '../IconExporter'
 
 export const Table = styled.table`
   text-transform: uppercase;
-  border: 1px solid #d2d2d2;
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-collapse: collapse;
   font-size: 11px;
   width: 100%;
 `
 
 export const TheadTr = styled.tr`
-  background-color: #d2d2d2;
+  background-color: ${props => props.theme.colors.gray3};
 `
 
 export const TheadTh = styled.th.attrs({ width: '300px' })`
-  border: 1px solid #d2d2d2;
+  border: 1px solid ${props => props.theme.colors.gray3};
   color: ${props => props.theme.colors.gray6};
   text-transform: uppercase;
   padding-top: 20px;
@@ -23,32 +23,32 @@ export const TheadTh = styled.th.attrs({ width: '300px' })`
 export const TbodyTr = styled.tr`
   background-color: ${props => props.theme.colors.white};
   &:nth-of-type(even) {
-    background-color: #f1f1f1;
+    background-color: ${props => props.theme.colors.gray1};
   }
 `
 
 export const TbodyTd = styled.td`
-  border: 1px solid #d2d2d2;
+  border: 1px solid ${props => props.theme.colors.gray3};
   text-align: center;
   padding: 20px;
 `
 export const InputFilter = styled.input`
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   height: 100%;
   width: 100%;
 `
 
 export const InputFilterWrapper = styled.div`
-  background-color: #f1f1f1;
+  background-color: ${props => props.theme.colors.gray1};
   height: 60px;
   margin-top: 20px;
   padding: 11px;
 `
 
 export const Tfoot = styled.tfoot`
-  background-color: #d2d2d2;
+  background-color: ${props => props.theme.colors.gray3};
   text-transform: none;
 `
 
@@ -63,7 +63,7 @@ export const PaginationButton = styled.button`
   background-color: transparent;
   border: none;
   border-radius: 2px;
-  color: #000;
+  color: ${props => props.theme.colors.black};
   cursor: pointer;
   margin: 1px;
   margin-left: ${props => (props.marginLeft ? `${props.marginLeft}px` : '1px')};
@@ -74,7 +74,7 @@ export const PaginationButton = styled.button`
   visibility: ${props => (props.visibility ? props.visibility : 'visible')};
   &.active {
     background-color: ${props => props.theme.colors.white};
-    color: #33bfff;
+    color: ${props => props.theme.colors.blue4};
   }
 
   &:hover {
@@ -82,11 +82,11 @@ export const PaginationButton = styled.button`
   }
 
   &:disabled polyline {
-    stroke: #676767;
+    stroke: ${props => props.theme.colors.gray5};
   }
 
   &:disabled:hover {
-    background-color: #e8e8e8;
+    background-color: ${props => props.theme.colors.gray2};
   }
 `
 
@@ -94,7 +94,7 @@ const defaultIconStyle = css`
   height: 10px;
   polyline {
     stroke-width: 9px;
-    stroke: #000;
+    stroke: ${props => props.theme.colors.black};
   }
 `
 
@@ -104,7 +104,7 @@ export const ForwardIcon = styled(ConquistaIcon).attrs({ name: 'forward' })`
   width: ${props => (props.width ? props.width : `10px`)};
   polyline {
     stroke-width: 9px;
-    stroke: #000;
+    stroke: ${props => props.theme.colors.black};
   }
 `
 

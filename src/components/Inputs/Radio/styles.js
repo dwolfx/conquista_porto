@@ -26,7 +26,7 @@ export const RadioInput = styled.input.attrs({ type: 'radio' })`
     left: 0;
     background-color: ${props => props.theme.colors.white};
     border-radius: 50%;
-    border: 1px solid #c7c7c7;
+    border: 1px solid ${props => props.theme.colors.gray4};
   }
   &:after {
     content: '';
@@ -48,7 +48,8 @@ export const RadioInput = styled.input.attrs({ type: 'radio' })`
 
 export const RadioLabel = styled.label`
   align-items: center;
-  color: ${props => (props.disabled ? '#9c9c9c' : '#000')};
+  color: ${props =>
+    props.disabled ? props.theme.colors.gray5 : props.theme.colors.black};
   cursor: pointer;
   display: flex;
   font-size: 14px;

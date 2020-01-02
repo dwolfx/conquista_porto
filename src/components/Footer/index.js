@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 import {
   FooterWrapper,
@@ -15,6 +16,7 @@ import {
 } from './styles'
 
 export default function Footer() {
+  const themeContext = useContext(ThemeContext)
   return (
     <FooterWrapper>
       <Container>
@@ -37,7 +39,11 @@ export default function Footer() {
                 <Wrapper direction="row">
                   <Phone />
                   <Wrapper>
-                    <Text weight="bold" color="#33beff" size={14}>
+                    <Text
+                      weight="bold"
+                      color={themeContext.colors.blue4}
+                      size={14}
+                    >
                       CENTRAL DE ATENDIMENTO
                     </Text>
                     <Text>(11) 3366 3370</Text>
@@ -46,7 +52,11 @@ export default function Footer() {
                 <Wrapper direction="row">
                   <Phone />
                   <Wrapper>
-                    <Text weight="bold" color="#33beff" size={14}>
+                    <Text
+                      weight="bold"
+                      color={themeContext.colors.blue4}
+                      size={14}
+                    >
                       ATENDIMENTO PARA DEFICIENTES AUDITIVOS
                     </Text>
                     <Text>0800 727 8736</Text>
@@ -55,7 +65,11 @@ export default function Footer() {
                 <Wrapper direction="row">
                   <Phone />
                   <Wrapper>
-                    <Text weight="bold" color="#33beff" size={14}>
+                    <Text
+                      weight="bold"
+                      color={themeContext.colors.blue4}
+                      size={14}
+                    >
                       SAC
                     </Text>
                     <Text>0800 727 2763</Text>
@@ -72,7 +86,7 @@ export default function Footer() {
                   <Wrapper align="flex-start">
                     <Text
                       weight="bold"
-                      color="#33beff"
+                      color={themeContext.colors.blue4}
                       size={14}
                       lineHeight="unset"
                     >
@@ -84,7 +98,11 @@ export default function Footer() {
                 <Wrapper direction="row">
                   <Headset />
                   <Wrapper>
-                    <Text weight="bold" color="#33beff" size={14}>
+                    <Text
+                      weight="bold"
+                      color={themeContext.colors.blue4}
+                      size={14}
+                    >
                       OUVIDORIA
                     </Text>
                     <Text>0800 727 1184</Text>
@@ -112,7 +130,12 @@ export default function Footer() {
                 reservados
               </Text>
               <Wrapper direction="row" align="center" pointer>
-                <Text weight="bold" size={11} color="#33beff" spacing={2}>
+                <Text
+                  weight="bold"
+                  size={11}
+                  color={themeContext.colors.blue4}
+                  spacing={2}
+                >
                   POLÍTICA DE PRIVACIDADE
                 </Text>
                 <ArrowRight />

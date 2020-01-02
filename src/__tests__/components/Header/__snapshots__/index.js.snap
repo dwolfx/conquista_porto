@@ -3,36 +3,36 @@
 exports[`Header to render 1`] = `
 Array [
   <header
-    className="sc-chPdSV jCVgyW"
+    className="sc-hMqMXs cCmNJL"
   >
     <div
-      className="sc-kgoBCf fQqKPI"
+      className="sc-kEYyzF daNOsl"
     >
       <div
-        className="sc-hSdWYo ecRZYd"
+        className="sc-jDwBTQ kEvvHe"
       >
         <svg
-          className="sc-jlyJG bfwtku"
+          className="sc-Rmtcm dqSRJQ"
           onClick={[Function]}
         >
           menu.svg
         </svg>
       </div>
       <div
-        className="sc-kpOJdX caepzu"
+        className="sc-iAyFgw fFnWGV"
       >
         <a
-          className="sc-gipzik dNVxiy"
+          className="sc-bRBYWo htXkxE"
           href="/"
           onClick={[Function]}
         >
           <img
             alt="Logo Conquista Beta"
-            className="sc-csuQGl cjcMBZ"
+            className="sc-hzDkRC hoeSTV"
             src="logo-temp.png"
           />
           <p
-            className="sc-Rmtcm jodYwz"
+            className="sc-jhAzac fIwqWC"
             fontWeight={400}
             letterSpacing={1.5}
             size={14}
@@ -42,7 +42,7 @@ Array [
         </a>
         <a
           aria-current="page"
-          className="sc-eHgmQL dMFOHn active"
+          className="sc-gPEVay gwYdDo active"
           href="/"
           margin="0px 20px"
           onClick={[Function]}
@@ -53,7 +53,7 @@ Array [
         </a>
         <a
           aria-current={null}
-          className="sc-eHgmQL dMFOHn"
+          className="sc-gPEVay gwYdDo"
           href="/perfil"
           margin="0px 20px"
           onClick={[Function]}
@@ -63,216 +63,181 @@ Array [
         </a>
       </div>
       <div
-        className="sc-kGXeez gQDlqL"
+        className="sc-kkGfuU iBDNAh"
       >
         <div
-          className="sc-dxgOiQ jJbhiK"
+          className="sc-hSdWYo ziZNu"
         >
           <div
-            className="sc-eNQAEJ fSQzpN"
+            className="sc-jWBwVP hbVnXC"
           >
             <div
-              className="sc-kEYyzF fpPTyg"
-            >
-              <div
-                className="sc-kkGfuU eWFBVI"
-              />
-            </div>
-            <div
-              className="sc-hMqMXs ktxYHg"
-              height={400}
+              className="sc-brqgnP bsxGgV"
+              height={350}
               width={500}
             >
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kgoBCf ZAiht"
               >
                 <div
-                  className="sc-kGXeez kTRqkY"
-                  width="35px"
+                  className="sc-kGXeez dHsSw"
                 >
                   <svg
-                    className="sc-jDwBTQ gDXjTh"
+                    className="sc-eNQAEJ fSgNzu"
                   >
                     add.svg
                   </svg>
                 </div>
                 <div
-                  className="sc-kGXeez cCOoRx"
+                  className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
-                    fontWeight={600}
-                    letterSpacing={1.5}
-                    size={11}
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Confirmação de Aporte
                   </p>
                   <p
-                    className="sc-cvbbAY jTMMJZ"
-                    color="#272727"
-                    fontWeight={300}
-                    size={14}
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Está tudo certo com seu investimento no fundo [Nome do fundo].
                   </p>
                 </div>
                 <div
-                  className="sc-kGXeez aGkJq"
-                  width="35px"
+                  className="sc-kpOJdX dztJhW"
                 >
                   <svg
-                    className="sc-jDwBTQ gDXjTh"
+                    className="sc-eNQAEJ fSgNzu"
                   >
                     add.svg
                   </svg>
                 </div>
               </div>
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kgoBCf ZAiht"
               >
                 <div
-                  className="sc-kGXeez kTRqkY"
-                  width="35px"
+                  className="sc-kGXeez dHsSw"
                 >
                   <svg
-                    className="sc-cMljjf ilbxun"
+                    className="sc-eNQAEJ fSgNzu"
                   >
                     remove.svg
                   </svg>
                 </div>
                 <div
-                  className="sc-kGXeez cCOoRx"
+                  className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
-                    fontWeight={600}
-                    letterSpacing={1.5}
-                    size={11}
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Confirmação de Resgate
                   </p>
                   <p
-                    className="sc-cvbbAY jTMMJZ"
-                    color="#272727"
-                    fontWeight={300}
-                    size={14}
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Está tudo certo com seu resgate do fundo [Nome do fundo].
                   </p>
                 </div>
                 <div
-                  className="sc-kGXeez aGkJq"
-                  width="35px"
+                  className="sc-kpOJdX dztJhW"
                 >
                   <svg
-                    className="sc-iRbamj kAXZGa"
+                    className="sc-eNQAEJ dhDhlB"
                   >
                     arrow-right.svg
                   </svg>
                 </div>
               </div>
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kgoBCf cmxZTc"
               >
                 <div
-                  className="sc-kGXeez kTRqkY"
-                  width="35px"
+                  className="sc-kGXeez dHsSw"
                 >
                   <svg
-                    className="sc-jAaTju izNZTc"
+                    className="sc-eNQAEJ fSgNzu"
                   >
                     thumbs-up.svg
                   </svg>
                 </div>
                 <div
-                  className="sc-kGXeez cCOoRx"
+                  className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
-                    fontWeight={600}
-                    letterSpacing={1.5}
-                    size={11}
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Aviso de primeiro investimento no fundo
                   </p>
                   <p
-                    className="sc-cvbbAY jTMMJZ"
-                    color="#272727"
-                    fontWeight={300}
-                    size={14}
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!
                   </p>
                 </div>
                 <div
-                  className="sc-kGXeez aGkJq"
-                  width="35px"
+                  className="sc-kpOJdX dztJhW"
                 >
                   <svg
-                    className="sc-jDwBTQ gDXjTh"
+                    className="sc-eNQAEJ fSgNzu"
                   >
                     add.svg
                   </svg>
                 </div>
               </div>
               <div
-                className="sc-kGXeez jTJNNF"
+                className="sc-kgoBCf cmxZTc"
               >
                 <div
-                  className="sc-kGXeez kTRqkY"
-                  width="35px"
+                  className="sc-kGXeez dHsSw"
                 >
                   <svg
-                    className="sc-gPEVay clOxMz"
+                    className="sc-eNQAEJ fSgNzu"
                   >
                     alert-rounded.svg
                   </svg>
                 </div>
                 <div
-                  className="sc-kGXeez cCOoRx"
+                  className="sc-dxgOiQ bwnHdO"
                 >
                   <p
-                    className="sc-cvbbAY iGnpYr"
-                    color="#33beff"
-                    fontWeight={600}
-                    letterSpacing={1.5}
-                    size={11}
+                    className="sc-chPdSV gtrpid sc-ckVGcZ dVwjgz"
+                    type="button"
                   >
                     Aviso de aplicação pendente de recurso
                   </p>
                   <p
-                    className="sc-cvbbAY jTMMJZ"
-                    color="#272727"
-                    fontWeight={300}
-                    size={14}
+                    className="sc-chPdSV gXwaOF sc-jKJlTe kRwSnP"
+                    type="body"
                   >
                     Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.
                   </p>
                 </div>
                 <div
-                  className="sc-kGXeez aGkJq"
-                  width="35px"
+                  className="sc-kpOJdX dztJhW"
                 >
                   <svg
-                    className="sc-iRbamj kAXZGa"
+                    className="sc-eNQAEJ dhDhlB"
                   >
                     arrow-right.svg
                   </svg>
                 </div>
               </div>
               <div
-                className="sc-kGXeez hFgPLB"
+                className="sc-kkGfuU bYeogH"
               >
                 <button
-                  className="sc-bbmXgH cjVFib"
+                  className="sc-fYxtnH fXjNRv"
                   color="primary"
-                  to="/notifications"
+                  onClick={[Function]}
                 >
                   <span
-                    className="sc-gGBfsJ gEVmPY"
+                    className="sc-tilXH bAxWGE"
                   >
                     Ver Todos
                   </span>
@@ -281,35 +246,32 @@ Array [
             </div>
           </div>
           <div
-            className="sc-ckVGcZ UwPXj"
+            className="sc-eHgmQL hRGOmo"
           >
             <p
-              className="sc-cvbbAY jTEqwM"
-              size={10}
+              className="sc-jlyJG ixdxSy"
             >
               10
             </p>
           </div>
           <svg
-            className="sc-brqgnP gnRqVl"
+            className="sc-csuQGl imncKp"
+            fill="#FFFFFF"
             onClick={[Function]}
           >
             bell.svg
           </svg>
         </div>
         <div
-          className="sc-iAyFgw evNiFi"
+          className="sc-jAaTju ebCJfG"
         >
           <p
-            className="sc-cvbbAY gsSjeM"
-            fontWeight={600}
-            letterSpacing={1.5}
-            size={11}
+            className="sc-iRbamj cXfDME"
           >
             Olá, Júlia.
           </p>
           <p
-            className="sc-jWBwVP hYsQiJ"
+            className="sc-gipzik hnpYsk"
           >
             SAIR
           </p>
@@ -377,12 +339,12 @@ Array [
               className="sc-VigVT dzTYZV"
             >
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/cartao-credito"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -403,12 +365,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/consorcio-imovel"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -429,12 +391,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/consorcio-veiculo"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -455,12 +417,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/financiamento-veiculo"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -481,12 +443,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/investimentos"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -507,12 +469,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/previdencia-privada"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -533,12 +495,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/seguro-vida"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"
@@ -559,12 +521,12 @@ Array [
                 </svg>
               </a>
               <a
-                className="sc-gqjmRU ikqnIw"
+                className="sc-gqjmRU cQJgac"
                 href="/seguro-viagem"
                 onClick={[Function]}
               >
                 <div
-                  className="sc-htoDjs fUGYNQ"
+                  className="sc-htoDjs fSWyTn"
                 >
                   <svg
                     className="sc-EHOje dzkomp"

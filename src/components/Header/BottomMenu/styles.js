@@ -36,7 +36,7 @@ export const ArrowRightIcon = styled(ConquistaIcon).attrs({
 `
 
 export const BottomMenuText = styled.p`
-  color: #000;
+  color: ${props => props.theme.colors.black};
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -46,7 +46,8 @@ export const IconCircle = styled.div`
   display: flex;
   height: 40px;
   width: 40px;
-  background-color: ${props => (props.color ? props.color : '#C7C7C7')};
+  background-color: ${props =>
+    props.color ? props.color : props.theme.colors.gray4};
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -85,7 +86,7 @@ export const SolutionsItem = styled(Link)`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #c7c7c7;
+  border-bottom: 1px solid ${props => props.theme.colors.gray4};
   cursor: pointer;
 
   &:hover p {
