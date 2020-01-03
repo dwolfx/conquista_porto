@@ -23,7 +23,11 @@ const StepThree = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <Input width="100" label="Digite o valor do curso" name="targetValue" />
+            <Input
+              width="100"
+              label="Digite o valor do curso"
+              name="targetValue"
+            />
           </Wrapper>
         </Col>
       </Row>

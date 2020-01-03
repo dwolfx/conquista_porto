@@ -23,7 +23,11 @@ const StepFive = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <Input width="100" label="Digite o valor inicial do investimento" name="initialValue" />
+            <Input
+              width="100"
+              label="Digite o valor inicial do investimento"
+              name="initialValue"
+            />
           </Wrapper>
         </Col>
       </Row>

@@ -23,7 +23,11 @@ const StepFour = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <Input width="100" label="Digite o valor do imóvel que deseja" name="targetValue" />
+            <Input
+              width="100"
+              label="Digite o valor do imóvel que deseja"
+              name="targetValue"
+            />
           </Wrapper>
         </Col>
       </Row>

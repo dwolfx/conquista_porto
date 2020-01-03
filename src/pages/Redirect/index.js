@@ -42,7 +42,7 @@ export default function Redirect(props) {
 
   useEffect(() => {
     if (counter <= 0) navigate()
-  }, [counter]) // eslint-disable-next-line
+  }, [counter])
 
   return (
     <Background>

@@ -23,7 +23,11 @@ const StepTwo = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <Input width="100" label="Digite a data em que deseja se aposentar" name="targetDate" />
+            <Input
+              width="100"
+              label="Digite a data em que deseja se aposentar"
+              name="targetDate"
+            />
           </Wrapper>
         </Col>
       </Row>

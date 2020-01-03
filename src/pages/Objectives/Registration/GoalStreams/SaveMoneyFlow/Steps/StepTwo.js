@@ -23,7 +23,11 @@ const StepTwo = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <Date width="100" label="Digite a data em que deseja resgatar" name="targetDate" />
+            <Date
+              width="100"
+              label="Digite a data em que deseja resgatar"
+              name="targetDate"
+            />
           </Wrapper>
         </Col>
       </Row>
