@@ -357,6 +357,7 @@ Array [
       <button
         className="sc-htpNat jqMADL"
         color="secondary"
+        onClick={[Function]}
       >
         <span
           className="sc-bxivhb etaiaS"

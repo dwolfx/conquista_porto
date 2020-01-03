@@ -25,6 +25,7 @@ Text.propTypes = {
     'body',
     'caption',
     'captionUppercase',
+    'button',
   ]),
 }
 

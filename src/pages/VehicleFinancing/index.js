@@ -14,7 +14,7 @@ export default function VehicleFinancing() {
   return (
     <Container>
       <TopBanner
-        title="Financiamneto de Veículos"
+        title="Financiamento de Veículos"
         description="Carro novo ou seminovo com entrada zero. Simule e contrate um financiamento de até 100% do valor do veículo. Com os planos flexíveis da Porto Seguro, você paga em até 60 meses."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() => console.log('clicked')}
