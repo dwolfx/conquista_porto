@@ -27,7 +27,7 @@ const StepOne = ({ onChangeScreen }) => (
           <Wrapper>
             <Input
               width="100"
-              label="Apelido para o seu objetivo"
+              label="Digite o apelido do seu objetivo"
               name="nickname"
             />
           </Wrapper>

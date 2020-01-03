@@ -23,7 +23,7 @@ const StepTwo = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <Date width="100" label="Data" name="targetDate" />
+            <Date width="100" label="Digite a data para chegar a esse valor" name="targetDate" />
           </Wrapper>
         </Col>
       </Row>
