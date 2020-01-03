@@ -10,6 +10,7 @@ export default function HighlightSection({
   mainDescription,
   subDescription,
   buttonText,
+  onClick,
 }) {
   const themeContext = useContext(ThemeContext)
   return (
@@ -24,7 +25,9 @@ export default function HighlightSection({
         </Text>
         <br />
         <br />
-        <Button color="secondary">{buttonText}</Button>
+        <Button color="secondary" onClick={onClick}>
+          {buttonText}
+        </Button>
       </Content>
     </Container>
   )
@@ -35,10 +38,12 @@ HighlightSection.propTypes = {
   mainDescription: PropTypes.string,
   subDescription: PropTypes.string,
   buttonText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  onClick: PropTypes.func,
 }
 HighlightSection.defaultProps = {
   title: '',
   mainDescription: '',
   subDescription: '',
   buttonText: '',
+  onClick: () => {},
 }
