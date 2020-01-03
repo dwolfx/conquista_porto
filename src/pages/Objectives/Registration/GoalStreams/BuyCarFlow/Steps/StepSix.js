@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import TextInput from 'components/Inputs/Text'
 import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/ButtonNext'
 
 import {
+  Input,
   Question,
   QuestionRule,
   Section,
@@ -31,7 +31,7 @@ const StepSix = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <TextInput width="100" label="R$" name="monthlyValue" />
+            <Input width="100" label="R$" name="monthlyValue" />
           </Wrapper>
         </Col>
       </Row>
