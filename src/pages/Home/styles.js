@@ -247,6 +247,7 @@ export const CloseButton = styled.div`
   border-radius: 50%;
   right: 28px;
   top: -18px;
+  cursor: pointer;
 `
 export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
   width: 16px;
