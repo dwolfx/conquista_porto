@@ -232,7 +232,7 @@ export const InvestmentInfosRow = styled(Row)`
   }
 `
 export const BannerButton = styled(Button).attrs({ color: 'secondary' })`
-  margin-top: 5px;
+  margin-top: 20px;
   min-width: unset;
 `
 export const CloseButton = styled.div`

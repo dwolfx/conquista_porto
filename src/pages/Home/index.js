@@ -55,7 +55,7 @@ const Home = () => {
                   <SectionOne onRedirect={onRedirect} />
                 </GridRow>
 
-                <AdvertisementBanner hasCloseButton />
+                <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
 
                 <GridRow id="t2">
                   <SectionTwo onRedirect={onRedirect} />

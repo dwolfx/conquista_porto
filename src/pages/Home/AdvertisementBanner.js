@@ -12,7 +12,7 @@ import {
   GridCol,
 } from './styles'
 
-const AdvertisementBanner = ({ hasCloseButton }) => {
+const AdvertisementBanner = ({ onRedirect, hasCloseButton }) => {
   const [isOpen, setIsOpen] = useState(true)
 
   return (
@@ -34,7 +34,9 @@ const AdvertisementBanner = ({ hasCloseButton }) => {
               segurança case você precise ficar afastado do trabalho e, na sua
               falta, garantir amparo financeiro a sua família.
             </Text>
-            <BannerButton>CONHEÇA</BannerButton>
+            <BannerButton onClick={() => onRedirect('/seguro-vida')}>
+              CONHEÇA
+            </BannerButton>
           </BannerTips>
         </GridCol>
       </GridRow>
