@@ -13,7 +13,7 @@ export const BannerWrapper = styled.div`
   height: ${props => (props.size === 'sm' ? `208px` : `242px`)};
   max-width: ${props => (props.size === 'sm' ? '665px' : '100%')};
   overflow: hidden;
-  padding: ${props => (props.size === 'sm' ? `28px` : `0px 28px`)};
+  padding: ${props => (props.size === 'sm' ? `28px` : `0 28px`)};
   position: relative;
 
   &:before {
@@ -32,6 +32,4 @@ export const BannerLabel = styled(Text).attrs({ type: 'captionUppercase' })`
   color: ${props => props.theme.colors.white};
 `
 
-export const BannerContent = styled.div`
-  margin: auto;
-`
+export const BannerContent = styled.div``

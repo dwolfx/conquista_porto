@@ -31,7 +31,7 @@ const AdvertisementBanner = ({ onRedirect, hasCloseButton }) => {
             </Text>
             <Text>
               O Seguro de Vida é uma maneira de proporcionar tranquilidade e
-              segurança case você precise ficar afastado do trabalho e, na sua
+              segurança caso você precise ficar afastado do trabalho e, na sua
               falta, garantir amparo financeiro a sua família.
             </Text>
             <BannerButton onClick={() => onRedirect('/seguro-vida')}>
