@@ -25,6 +25,7 @@ exports[`HighlightSection renders correctly 1`] = `
     <button
       className="sc-bdVaJa hhTFXP"
       color="secondary"
+      onClick={[Function]}
     >
       <span
         className="sc-bwzfXH eubHTp"

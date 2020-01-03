@@ -9,6 +9,7 @@ import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/a
 import { GetDataRequest } from 'store/modules/CreditCard/action'
 
 import SectionOne from './SectionOne'
+import AdvertisementBanner from './AdvertisementBanner'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
@@ -58,6 +59,8 @@ const Home = () => {
                 <GridRow id="t1">
                   <SectionOne />
                 </GridRow>
+
+                <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
 
                 <GridRow id="t2">
                   <SectionTwo onRedirect={onRedirect} />
