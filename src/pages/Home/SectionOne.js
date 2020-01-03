@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -31,7 +30,7 @@ import {
   ItemDivisor,
 } from './styles'
 
-const SectionOne = ({ onRedirect }) => {
+const SectionOne = () => {
   const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
   const creditCards = useSelector(state => state.creditCard.data)
   const history = useHistory()
@@ -48,13 +47,20 @@ const SectionOne = ({ onRedirect }) => {
   const renderCreditProducts = () => {
     let result = []
 
-    result = result.concat(
-      ProductItemGenerator(creditCards, 'cartaoCredito', history)
-    )
-    result = result.concat(<ItemDivisor />)
-    result = result.concat(
-      ProductItemGenerator(vehiclesFinancings, 'financiamentoVeiculo', history)
-    )
+    result = creditCards.length
+      ? [...ProductItemGenerator(creditCards, 'cartaoCredito', history)]
+      : result
+    result = vehiclesFinancings.length
+      ? [
+          ...result,
+          <ItemDivisor />,
+          ...ProductItemGenerator(
+            vehiclesFinancings,
+            'financiamentoVeiculo',
+            history
+          ),
+        ]
+      : result
 
     if (result.length > 0) {
       return result
@@ -80,7 +86,7 @@ const SectionOne = ({ onRedirect }) => {
           </Text>
           <SliderBoxButton
             color="secondary"
-            onClick={() => onRedirect('/cartao-credito')}
+            onClick={() => history.push('/cartao-credito')}
           >
             CONHECER
           </SliderBoxButton>
@@ -154,7 +160,7 @@ const SectionOne = ({ onRedirect }) => {
                   </Text>
                   <SliderBoxButton
                     color="secondary"
-                    onClick={() => onRedirect('/seguro-vida')}
+                    onClick={() => history.push('/seguro-vida')}
                   >
                     CONHECER
                   </SliderBoxButton>
@@ -166,10 +172,6 @@ const SectionOne = ({ onRedirect }) => {
       </SectionCol>
     </>
   )
-}
-
-SectionOne.propTypes = {
-  onRedirect: PropTypes.func.isRequired,
 }
 
 export default SectionOne

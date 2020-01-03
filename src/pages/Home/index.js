@@ -56,7 +56,7 @@ const Home = () => {
             <GridRow>
               <GridCol lg="12">
                 <GridRow id="t1">
-                  <SectionOne onRedirect={onRedirect} />
+                  <SectionOne />
                 </GridRow>
 
                 <GridRow id="t2">

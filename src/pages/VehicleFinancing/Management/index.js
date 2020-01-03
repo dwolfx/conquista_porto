@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components/macro'
-
-import { useSelector } from 'react-redux'
 
 import LinearProgressBar from 'components/LinearProgressBar'
 import Breadcrumb from 'components/Breadcrumb'
@@ -22,7 +21,14 @@ import { formatMoney } from 'helpers'
 import {
   BreadcrumbContainer,
   AddBtnLink,
-  Text,
+  TextBody,
+  TextHeading4,
+  TextHeadline,
+  TextCaptionUppercase,
+  TextSubheading,
+  TextButton,
+  TextTitle,
+  ArrowButton,
   PageTitle,
   MiddleContent,
   Topics,
@@ -43,7 +49,7 @@ import {
   EmptyContent,
 } from './style'
 
-const ManagementVehicleFiancing = ({ history }) => {
+const ManagementVehicleFinancing = ({ history }) => {
   const theme = useContext(ThemeContext)
   const [selectedIndex, setSelectedIndex] = useState(0)
 
@@ -51,8 +57,7 @@ const ManagementVehicleFiancing = ({ history }) => {
     arrayItems.map((item, index) => (
       <ManageableItemWithStyle
         onClick={() => setSelectedIndex(index)}
-        // eslint-disable-next-line react/no-array-index-key
-        key={index}
+        key={`${item.Contrato}-${new Date().getUTCMilliseconds()}`}
         name={item.Contrato}
         value={item.ValorContratado}
         isActive={selectedIndex === index}
@@ -61,17 +66,13 @@ const ManagementVehicleFiancing = ({ history }) => {
 
   const renderEmptyState = () => (
     <EmptyContent>
-      <PageTitle>Não há Financiamento</PageTitle>
-      <Text
-        lineHeight="40px"
-        letterSpacing="1.5px"
-        fontColor={theme.colors.gray6}
-        fontWeight="600"
-        fontSize="12px"
-      >
+      <PageTitle>
+        <TextHeading4>Não há Financiamento</TextHeading4>
+      </PageTitle>
+      <TextBody fontColor={theme.colors.gray6} fontSize="12px">
         Para o usuário logado não há o produto Financiamento de Veículo. Por
         favor retorne para a página inicial
-      </Text>
+      </TextBody>
     </EmptyContent>
   )
 
@@ -92,18 +93,18 @@ const ManagementVehicleFiancing = ({ history }) => {
                 history.push('/')
               }}
             >
-              <Icon width="48" fill="#ccc" name="add" />
-              <Text fontColor="#aaa" fontSize="14px">
-                Adicionar
-              </Text>
+              <Icon width="48" fill={theme.colors.gray3} name="add" />
+              <TextBody fontColor={theme.colors.gray4}>Adicionar</TextBody>
             </AddBtnLink>
             {generateManageableItem(vehiclesFinancings)}
           </LeftNav>
 
           {selectedItem ? (
             <MiddleContent>
-              <PageTitle>{selectedItem.contrato}</PageTitle>
-              <Topics settings={settings}>
+              <PageTitle>
+                <TextHeading4>{selectedItem.Contrato}</TextHeading4>
+              </PageTitle>
+              <Topics settings={settings} style={{ display: 'flex' }}>
                 <Topic>
                   <div>
                     <Icon width="28" fill={theme.colors.blue4} name="money" />
@@ -145,53 +146,27 @@ const ManagementVehicleFiancing = ({ history }) => {
               </Topics>
               <RowContent>
                 <ColumnWithLine>
-                  <Text
-                    fontSize="22px"
-                    margin="0 0 7px 0"
-                    lineHeight="32px"
-                    textAlign="center"
-                  >
-                    Marca
-                  </Text>
-                  <Text>{selectedItem.Marca}</Text>
+                  <TextHeading4>Marca</TextHeading4>
+                  <TextHeadline>{selectedItem.Marca}</TextHeadline>
                 </ColumnWithLine>
                 <Column>
-                  <Text
-                    fontSize="22px"
-                    margin="0 0 7px 0"
-                    lineHeight="32px"
-                    textAlign="center"
-                  >
-                    Modelo
-                  </Text>
-                  <Text>{selectedItem.Modelo}</Text>
+                  <TextHeading4>Modelo</TextHeading4>
+                  <TextHeadline>{selectedItem.Modelo}</TextHeadline>
                 </Column>
               </RowContent>
               <RowContent>
                 <Column>
-                  <Text
-                    fontSize="22px"
-                    margin="0 0 7px 0"
-                    lineHeight="32px"
-                    textAlign="center"
-                  >
-                    Saldo devedor
-                  </Text>
-                  <Text>{selectedItem.SaldoDevedor}</Text>
+                  <TextHeading4>Saldo devedor</TextHeading4>
+                  <TextHeadline>
+                    {formatMoney(selectedItem.SaldoDevedor)}
+                  </TextHeadline>
                 </Column>
               </RowContent>
               <RowContentColumnDir>
                 <LinearProgressTitleContent>
-                  <Text
-                    fontSize="11px"
-                    margin="0 0 14px 0"
-                    lineHeight="28px"
-                    textAlign="center"
-                    fontWeight="600"
-                    letterSpacing="1.5px"
-                  >
+                  <TextCaptionUppercase margin="0 0 14px 0" textAlign="center">
                     EVOLUÇÃO PAGAMENTO
-                  </Text>
+                  </TextCaptionUppercase>
                 </LinearProgressTitleContent>
                 <LinearProgressContent>
                   <LinearProgressBar
@@ -207,16 +182,9 @@ const ManagementVehicleFiancing = ({ history }) => {
                 </LinearProgressButtonContent>
               </RowContentColumnDir>
               <ComplementaryInfo>
-                <Text
-                  margin="22px 0"
-                  lineHeight="21px"
-                  letterSpacing="1.5px"
-                  fontColor={theme.colors.gray6}
-                  fontWeight="600"
-                  fontSize="11px"
-                >
+                <TextButton margin="22px 0" fontColor={theme.colors.gray6}>
                   INFORMAÇÕES COMPLEMENTARES
-                </Text>
+                </TextButton>
                 <FileDownloadSection
                   data={complementaryInfo}
                   backgroundColor="inherit"
@@ -231,31 +199,22 @@ const ManagementVehicleFiancing = ({ history }) => {
 
       <VantagesContent>
         <VantagesTitle>
-          <Text
-            margin="22px 0"
-            lineHeight="21px"
-            letterSpacing="1.5px"
-            fontColor={theme.colors.gray6}
-            fontWeight="600"
-            fontSize="11px"
-          >
+          <TextSubheading margin="22px 0" fontColor={theme.colors.gray6}>
             VANTAGENS AO CONTRATAR COM O CONQUISTA
-          </Text>
+          </TextSubheading>
         </VantagesTitle>
         <VantagesItem>
           <div>
             <Icon width="35" fill={theme.colors.gray7} name="talkman" />
           </div>
           <div>
-            <Text fontSize="18px" lineHeight="28px">
-              Gerente de Conta
-            </Text>
+            <TextHeadline>Gerente de Conta</TextHeadline>
             <br />
-            <Text fontSize="14px" lineHeight="24px">
+            <TextTitle>
               De acordo com seu saldo investido, conte com a possibilidade de
               ter o apoio de um Gerente de Conta para auxiliar você em dúvidas e
               contratações.
-            </Text>
+            </TextTitle>
           </div>
         </VantagesItem>
         <VantagesItem>
@@ -263,15 +222,13 @@ const ManagementVehicleFiancing = ({ history }) => {
             <Icon width="35" fill={theme.colors.gray7} name="diamond" />
           </div>
           <div>
-            <Text fontSize="18px" lineHeight="28px">
-              Programa de Relacionamento
-            </Text>
+            <TextHeadline>Programa de Relacionamento</TextHeadline>
             <br />
-            <Text fontSize="14px" lineHeight="24px">
+            <TextTitle>
               Pontos do Conquista somados aos pontos do Cartão de Crédito Porto
               Seguro, que podem ser trocados por descontos, benefícios e
               vantagens.
-            </Text>
+            </TextTitle>
           </div>
         </VantagesItem>
         <VantagesItem>
@@ -279,15 +236,13 @@ const ManagementVehicleFiancing = ({ history }) => {
             <Icon width="35" fill={theme.colors.gray7} name="callcenter" />
           </div>
           <div>
-            <Text fontSize="18px" lineHeight="28px">
-              Chat inteligente
-            </Text>
+            <TextHeadline>Chat inteligente</TextHeadline>
             <br />
-            <Text fontSize="14px" lineHeight="24px">
+            <TextTitle>
               Atendimento 24h para esclarecer suas dúvidas sobre o uso da
               plataforma e sobre as soluções Porto Seguro disponíveis no
               Conquista.
-            </Text>
+            </TextTitle>
           </div>
         </VantagesItem>
         <VantagesItem>
@@ -295,15 +250,13 @@ const ManagementVehicleFiancing = ({ history }) => {
             <Icon width="35" fill={theme.colors.gray7} name="apps" />
           </div>
           <div>
-            <Text fontSize="18px" lineHeight="28px">
-              Facilidade
-            </Text>
+            <TextHeadline>Facilidade</TextHeadline>
             <br />
-            <Text fontSize="14px" lineHeight="24px">
+            <TextTitle>
               Ferramentas que simplificam seu dia a dia, permitindo que você
               controle sua vida financeira e contrate soluções da Porto Seguro
               pelo computador ou smartphone.
-            </Text>
+            </TextTitle>
           </div>
         </VantagesItem>
       </VantagesContent>
@@ -314,17 +267,7 @@ const ManagementVehicleFiancing = ({ history }) => {
 				orçamento. Conheça os planos e contrate uma solução com a solidez da Porto Seguro."
         buttonText={
           <span>
-            SIMULAR E CONTRATAR{' '}
-            <span
-              css={`
-                position: absolute;
-                top: 7px;
-                right: 12px;
-                font-size: 13px;
-              `}
-            >
-              &gt;
-            </span>
+            SIMULAR E CONTRATAR <ArrowButton>&gt;</ArrowButton>
           </span>
         }
       />
@@ -385,10 +328,7 @@ const complementaryInfo = [
     description: (
       <span>
         Com este produto você acumulou:
-        <br />{' '}
-        <Text lineHeight="32px" fontSize="22px">
-          50 pontos
-        </Text>
+        <br /> <TextHeading4>50 pontos</TextHeading4>
       </span>
     ),
     buttonText: 'Ver extrato',
@@ -409,27 +349,12 @@ const ManageableItemWithStyle = ({
   isActive = false,
 }) => (
   <ManageableItem onClick={onClick} active={isActive}>
-    <Icon width="28" fill="#33beff" name="car2" />
-    <Text
-      fontSize="14px"
-      lineHeight="28px"
-      margin="0 0 7px 0"
-      textAlign="center"
-    >
+    <Icon width="28" fill="{theme.colors.blue4}" name="car2" />
+    <TextTitle margin="0 0 7px 0" textAlign="center">
       {name}
-    </Text>
-    <Text
-      fontSize="11px"
-      lineHeight="10px"
-      fontWeight={400}
-      letterSpacing="1.5px"
-      margin="0"
-    >
-      VALOR DO CRÉDITO
-    </Text>
-    <Text fontSize="14px" fontWeight={400} margin="0px">
-      {formatMoney(value)}
-    </Text>
+    </TextTitle>
+    <TextSubheading margin="0">VALOR DO CRÉDITO</TextSubheading>
+    <TextBody margin="0px">{formatMoney(value)}</TextBody>
   </ManageableItem>
 )
 
@@ -447,7 +372,7 @@ ManageableItemWithStyle.defaultProps = {
   isActive: false,
 }
 
-ManagementVehicleFiancing.propTypes = {
+ManagementVehicleFinancing.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
@@ -476,4 +401,4 @@ const settings = {
   ],
 }
 
-export default ManagementVehicleFiancing
+export default ManagementVehicleFinancing
