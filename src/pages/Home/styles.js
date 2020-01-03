@@ -6,6 +6,7 @@ import Button from 'components/Button'
 import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
+import Icon from 'components/IconExporter'
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -229,4 +230,25 @@ export const InvestmentInfosRow = styled(Row)`
   &:last-of-type {
     padding-top: 7px;
   }
+`
+export const BannerButton = styled(Button).attrs({ color: 'secondary' })`
+  margin-top: 5px;
+  min-width: unset;
+`
+export const CloseButton = styled.div`
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.colors.gray2};
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  right: 28px;
+  top: -18px;
+`
+export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
+  width: 16px;
+  height: 16px;
 `
