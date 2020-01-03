@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Container } from './styles'
 import Banner from '../../assets/images/pages/solutions/consortium/building/banner_consortium_building.jpg'
@@ -10,7 +11,7 @@ import HighlightSection from '../../components/Solutions/HighlightSection'
 import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
 import MoreDetails from '../../components/Solutions/MoreDetails'
 
-export default function ConsortiumBuilding() {
+export default function ConsortiumBuilding({ history }) {
   return (
     <Container>
       <TopBanner
@@ -19,6 +20,7 @@ export default function ConsortiumBuilding() {
         buttonText="SIMULAR E CONTRATAR"
         image={Banner}
         imageDescription="Pai empurrando a filha em um balanço e uma casa ao fundo"
+        onClick={() => history.push('/consorcio-imovel/visualizar')}
       />
       <BulletsSection
         title="Por que contratar o Consórcio de Imóvel?"
@@ -83,6 +85,7 @@ export default function ConsortiumBuilding() {
         subDescription="Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e
         crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
         buttonText="SIMULAR E CONTRATAR"
+        onClick={() => history.push('/consorcio-imovel/visualizar')}
       />
       <MoreDetails
         title="SAIBA MAIS:"
@@ -134,4 +137,10 @@ export default function ConsortiumBuilding() {
       />
     </Container>
   )
+}
+
+ConsortiumBuilding.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 }

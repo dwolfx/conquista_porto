@@ -235,7 +235,7 @@ Array [
                       <span
                         className="sc-iRbamj bFiGMH"
                       >
-                        R$ 40,000.00
+                        R$40,000.00
                       </span>
                     </div>
                   </div>
@@ -264,7 +264,7 @@ Array [
               <span
                 className="sc-Rmtcm evRTW"
               >
-                R$ 27,200.00
+                R$27,200.00
               </span>
             </div>
             <div
@@ -279,7 +279,7 @@ Array [
               <span
                 className="sc-Rmtcm evRTW"
               >
-                R$ 675.00
+                R$675.00
               </span>
             </div>
           </div>
@@ -357,6 +357,7 @@ Array [
       <button
         className="sc-htpNat jqMADL"
         color="secondary"
+        onClick={[Function]}
       >
         <span
           className="sc-bxivhb etaiaS"
