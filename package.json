@@ -57,7 +57,7 @@
     "raise-db": "json-server --watch db.json --routes routes.json",
     "start": "cross-env REACT_APP_ENV=development react-scripts start",
     "local": "cross-env REACT_APP_ENV=local react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env REACT_APP_ENV=development react-scripts build",
     "extract": "node extractBundle.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
