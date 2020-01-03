@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import TipBannerImg from 'assets/images/pages/Home/banner_objectives.jpg'
+import TipBannerImg from 'assets/images/pages/Home/img_banner_6.png'
 import Text from 'components/Text'
 
 import {
