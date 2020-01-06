@@ -342,12 +342,7 @@ const complementaryInfo = [
   },
 ]
 
-const ManageableItemWithStyle = ({
-  name = '',
-  value = '',
-  onClick = () => {},
-  isActive = false,
-}) => (
+const ManageableItemWithStyle = ({ name, value, onClick, isActive }) => (
   <ManageableItem onClick={onClick} active={isActive}>
     <Icon width="28" fill="{theme.colors.blue4}" name="car2" />
     <TextTitle margin="0 0 7px 0" textAlign="center">
