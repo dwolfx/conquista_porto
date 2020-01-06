@@ -1,204 +1,84 @@
-import React, { useState, useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import React, { useState } from 'react'
+import { Col } from 'styled-bootstrap-grid'
+import { useSelector, useDispatch } from 'react-redux'
 
 import NotificationItem from 'components/NotificationItem'
-import Breadcrumb from 'components/Breadcrumb'
-import Configurations from './Configurations'
+import Modal from 'components/Modal'
+import Text from 'components/Text'
+
+import useFetchNotifications from 'hooks/Notifications/useFetchNotifications'
+
+import { SendNotificationReadRequest } from 'store/modules/Notifications/action'
 
 import {
-  BreadcrumbContainer,
-  GearBtnLink,
-  GearIcon,
-  Icon,
-  LeftNav,
-  ManageableItem,
-  NotificationsBody,
+  GridContainer,
   NotificationsMessages,
-  NotificationsSection,
   NotificationsArticle,
   PageTitle,
-  Text,
+  ModalContent,
 } from './styles'
 
-const DBGerais = [
-  {
-    id: 1,
-    title: 'Confirmação de Aporte',
-    content: 'Está tudo certo com seu investimento no fundo [Nome do fundo].',
-    identificationIcon: 'add',
-    actionIcon: 'add',
-    isRead: true,
-  },
-  {
-    id: 2,
-    title: 'Confirmação de Resgate',
-    content: 'Está tudo certo com seu resgate do fundo [Nome do fundo].',
-    identificationIcon: 'remove',
-    actionIcon: 'arrowright',
-    isRead: true,
-  },
-  {
-    id: 3,
-    title: 'Aviso de primeiro investimento no fundo',
-    content:
-      'Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!',
-    identificationIcon: 'thumbsup',
-    actionIcon: 'add',
-    isRead: false,
-  },
-  {
-    id: 4,
-    title: 'Aviso de aplicação pendente de recurso',
-    content:
-      'Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.',
-    identificationIcon: 'alertrounded',
-    actionIcon: 'arrowright',
-    isRead: false,
-  },
-  {
-    id: 5,
-    title: 'Confirmação de Aporte',
-    content: 'Está tudo certo com seu investimento no fundo [Nome do fundo].',
-    identificationIcon: 'add',
-    actionIcon: 'add',
-    isRead: true,
-  },
-  {
-    id: 6,
-    title: 'Confirmação de Resgate',
-    content: 'Está tudo certo com seu resgate do fundo [Nome do fundo].',
-    identificationIcon: 'remove',
-    actionIcon: 'arrowright',
-    isRead: true,
-  },
-  {
-    id: 7,
-    title: 'Aviso de primeiro investimento no fundo',
-    content:
-      'Parabéns, seu primeiro investimento no fundo [Nome do fundo] está confirmado!',
-    identificationIcon: 'thumbsup',
-    actionIcon: 'add',
-    isRead: false,
-  },
-  {
-    id: 8,
-    title: 'Aviso de aplicação pendente de recurso',
-    content:
-      'Sua aplicação será feita assim que você depositar o valor em sua conta Porto Seguro. Caso a quantia não esteja disponível até as 15h, a aplicação será cancelada.',
-    identificationIcon: 'alertrounded',
-    actionIcon: 'arrowright',
-    isRead: false,
-  },
-]
-const DBProduto = [
-  {
-    id: 9,
-    title: 'Confirmação de Aporte',
-    content: 'Está tudo certo com seu investimento no fundo [Nome do fundo].',
-    identificationIcon: 'add',
-    actionIcon: 'add',
-    isRead: false,
-  },
-  {
-    id: 10,
-    title: 'Confirmação de Resgate',
-    content: 'Está tudo certo com seu resgate do fundo [Nome do fundo].',
-    identificationIcon: 'remove',
-    actionIcon: 'arrowright',
-    isRead: false,
-  },
-]
-
 export default function Notifications() {
-  const theme = useContext(ThemeContext)
-  const [manageableItem, setManageableItem] = useState('Gerais')
-  const [manageableDB, setManageableDB] = useState(DBGerais)
-  const [isActiveGerais, setIsActiveGerais] = useState(true)
-  const [isActiveProduto, setIsActiveProduto] = useState(false)
+  useFetchNotifications()
 
-  function scrollPage(id) {
-    const el = document.querySelector(`#${id}`).getBoundingClientRect()
+  const dispatch = useDispatch()
+  const [modalData, setModalData] = useState({
+    open: false,
+    selectedData: null,
+  })
 
-    const windowScroll = window.pageYOffset
-    /*
-      200 = distance between sticky elements and top of the page.
-    */
-    const amountToScroll = Math.round(el.top + windowScroll - 205)
-
-    window.scroll({
-      top: amountToScroll,
-      left: 0,
-      behavior: 'smooth',
-    })
-  }
-
-  function handleManageableItem(option) {
-    if (option === 'Gerais') {
-      setManageableItem('Gerais')
-      setManageableDB(DBGerais)
-      setIsActiveGerais(true)
-      setIsActiveProduto(false)
-      scrollPage('notificationId')
-    } else {
-      setManageableItem('Produto')
-      setManageableDB(DBProduto)
-      setIsActiveGerais(false)
-      setIsActiveProduto(true)
-      scrollPage('notificationId')
-    }
-  }
+  const notificationsData = useSelector(state => [
+    ...state.notifications.data.novas,
+    ...state.notifications.data.anteriores,
+  ])
 
   return (
     <>
-      <NotificationsBody>
-        <BreadcrumbContainer>
-          <Breadcrumb crumbs={['notificações']} />
-        </BreadcrumbContainer>
-        <NotificationsSection>
-          <LeftNav>
-            <GearBtnLink onClick={() => scrollPage('configurationId')}>
-              <GearIcon />
-              <Text type="body" fontColor={theme.colors.gray5} upperCase>
-                Configurações
-              </Text>
-            </GearBtnLink>
-            <ManageableItem
-              active={isActiveGerais}
-              onClick={() => handleManageableItem('Gerais')}
-            >
-              <Icon name="gear" />
-              <Text type="body" paddingBottom="15px">
-                Gerais
-              </Text>
-            </ManageableItem>
-            <ManageableItem
-              active={isActiveProduto}
-              onClick={() => handleManageableItem('Produto')}
-            >
-              <Icon name="apps" />
-              <Text type="body" paddingBottom="15px">
-                Produto
-              </Text>
-            </ManageableItem>
-          </LeftNav>
-          <NotificationsArticle id="notificationId">
-            <PageTitle type="heading3">{manageableItem}</PageTitle>
+      <GridContainer>
+        <Col>
+          <NotificationsArticle>
+            <PageTitle type="heading3">Notificações</PageTitle>
             <NotificationsMessages>
-              {manageableDB.map(item => (
+              {notificationsData.map(item => (
                 <NotificationItem
-                  key={item.id}
-                  title={item.title}
-                  message={item.content}
-                  identificationIcon={item.identificationIcon}
-                  actionIcon={item.actionIcon}
-                  isRead={item.isRead}
+                  key={item.idNotificacao}
+                  title={item.titulo}
+                  message={item.textoConteudo}
+                  identificationIcon={
+                    item.icon === 'ALERT' ? 'alertrounded' : 'add'
+                  }
+                  actionIcon={item.link ? 'arrowright' : 'add'}
+                  isRead={item.lida}
+                  onClick={() => {
+                    if (!item.lida) {
+                      dispatch(
+                        SendNotificationReadRequest(
+                          item.idNotificacao,
+                          '36275312807'
+                        )
+                      )
+                    }
+                    if (!item.link) {
+                      setModalData({ open: true, selectedData: item })
+                    }
+                  }}
                 />
               ))}
             </NotificationsMessages>
           </NotificationsArticle>
-        </NotificationsSection>
-      </NotificationsBody>
-      <Configurations id="configurationId" />
+        </Col>
+      </GridContainer>
+      <Modal
+        isOpen={modalData.open}
+        modalTitle={modalData.selectedData && modalData.selectedData.titulo}
+        handleClose={() => setModalData({ open: false, selectedData: null })}
+      >
+        <ModalContent>
+          <Text type="body">
+            {modalData.selectedData && modalData.selectedData.descricaoLonga}
+          </Text>
+        </ModalContent>
+      </Modal>
     </>
   )
 }
