@@ -8,7 +8,7 @@ function* getData() {
   try {
     const response = yield call(
       get,
-      '/cartoes?cpfCnpj=33244452809&codigoCanal=0'
+      '/cartoes?cpfCnpj=32036703801&codigoCanal=0'
     )
     yield put(GetDataSuccess(response.data))
   } catch (err) {
