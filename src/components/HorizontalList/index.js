@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Container, StartBlock, EndBlock } from './styles'
 
@@ -19,4 +20,9 @@ export default function HorizontalList({ startItems, endItems }) {
       </EndBlock>
     </Container>
   )
+}
+
+HorizontalList.propTypes = {
+  startItems: PropTypes.arrayOf(PropTypes.node),
+  endItems: PropTypes.arrayOf(PropTypes.node),
 }
