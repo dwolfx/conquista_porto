@@ -9,7 +9,7 @@ import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/But
 import {
   Question,
   Section,
-  Wrapper,
+  WrapperDefault,
 } from 'pages/Objectives/Registration/GoalStreams/styles'
 
 const StepThree = ({ onChangeScreen }) => {
@@ -32,9 +32,9 @@ const StepThree = ({ onChangeScreen }) => {
           </Col>
         </Row>
         <Row justifyContent="center">
-          <Wrapper>
+          <WrapperDefault>
             <RadioInput name="flexibeOrDefiniteDate" options={dateOptions} />
-          </Wrapper>
+          </WrapperDefault>
         </Row>
         <ButtonNext
           handleScreen={() => {
