@@ -13,7 +13,6 @@ import {
   GridCol,
 } from './styles'
 
-
 /**
  * ### HOW TO USE ###
  * The button which will navigate to Redirect page must have the following 'to' param:
@@ -52,7 +51,10 @@ export default function Redirect(props) {
           <GridCol xl={12}>
             <LogoConquista />
             <Card>
-              <Text>Em {counter} {counter > 1 ? 'segundos' : 'segundo'} você será redirecionado para:</Text>
+              <Text>
+                Em {counter} {counter > 1 ? 'segundos' : 'segundo'} você será
+                redirecionado para:
+              </Text>
               <LogoPorto />
               <Line />
               <Button onClick={navigate}>Redirecionar Agora</Button>

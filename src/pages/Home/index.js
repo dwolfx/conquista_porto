@@ -5,8 +5,11 @@ import { useDispatch } from 'react-redux'
 import Menu from 'components/Menu'
 
 import { GetBankDataRequest } from 'store/modules/BankData/action'
+import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
+import { GetDataRequest } from 'store/modules/CreditCard/action'
 
 import SectionOne from './SectionOne'
+import AdvertisementBanner from './AdvertisementBanner'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
@@ -17,7 +20,10 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
-  }, [dispatch])
+    dispatch(GetDataRequest())
+    dispatch(GetVehicleFinancingDataRequest())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const onRedirect = link => {
     history.push(link)
@@ -51,8 +57,10 @@ const Home = () => {
             <GridRow>
               <GridCol lg="12">
                 <GridRow id="t1">
-                  <SectionOne onRedirect={onRedirect} />
+                  <SectionOne />
                 </GridRow>
+
+                <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
 
                 <GridRow id="t2">
                   <SectionTwo onRedirect={onRedirect} />

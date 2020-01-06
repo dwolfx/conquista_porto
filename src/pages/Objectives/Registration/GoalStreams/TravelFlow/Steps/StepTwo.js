@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import DateInput from 'components/Inputs/DateInput'
 import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/ButtonNext'
 
 import {
+  Date,
   Question,
   Section,
   Wrapper,
@@ -23,7 +23,11 @@ const StepTwo = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <DateInput width="100" label="Data" name="targetDate" />
+            <Date
+              width="100"
+              label="Digite a data da sua viagem"
+              name="targetDate"
+            />
           </Wrapper>
         </Col>
       </Row>

@@ -6,6 +6,7 @@ import Button from 'components/Button'
 import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
+import Icon from 'components/IconExporter'
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -229,4 +230,54 @@ export const InvestmentInfosRow = styled(Row)`
   &:last-of-type {
     padding-top: 7px;
   }
+`
+export const ProductItem = styled.div`
+  padding: 10px 14px;
+  width: 100%;
+  color: ${props => props.theme.colors.gray5};
+`
+export const ThreeItemsLine = styled.div`
+  display: grid;
+  width: 100%;
+  margin: 14px 0;
+  grid-template-columns: ${props => props.gridTemplateColumns};
+`
+export const ItemLine = styled.div`
+  height: ${props => (props.height ? props.height : 'auto')};
+  width: ${props => (props.width ? props.width : 'auto')};
+  justify-self: ${props => (props.justifySelf ? props.justifySelf : 'start')};
+  align-self: ${props => (props.alignSelf ? props.alignSelf : 'center')};
+  padding: ${props => (props.padding ? props.padding : '0')};
+`
+
+export const ItemDivisor = styled.hr`
+  border: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 0px;
+`
+
+export const OverflowCard = styled.div`
+  overflow: auto;
+`
+
+export const BannerButton = styled(Button).attrs({ color: 'secondary' })`
+  margin-top: 20px;
+  min-width: unset;
+`
+export const CloseButton = styled.div`
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.colors.gray2};
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  right: 28px;
+  top: -18px;
+  cursor: pointer;
+`
+export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
+  width: 16px;
+  height: 16px;
 `

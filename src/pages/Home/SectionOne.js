@@ -1,5 +1,8 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
-import PropTypes from 'prop-types'
+
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 import ButtonLink from 'components/Button/Link'
 import CreditHomeImg from 'assets/images/pages/Home/credit1.jpg'
@@ -7,6 +10,8 @@ import InsuranceHomeImg from 'assets/images/pages/Home/insurance1.jpg'
 import PieChart from 'components/PieChart'
 import Text from 'components/Text'
 import { formatMoney } from 'helpers'
+
+import ProductItemGenerator from './ProductItemGenerator'
 
 import {
   EmptyBody,
@@ -21,9 +26,15 @@ import {
   SliderBoxButton,
   InvestmentInfos,
   InvestmentInfosRow,
+  OverflowCard,
+  ItemDivisor,
 } from './styles'
 
-export default function SectionOne({ onRedirect }) {
+const SectionOne = () => {
+  const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
+  const creditCards = useSelector(state => state.creditCard.data)
+  const history = useHistory()
+
   const renderEmptyState = () => (
     <EmptyBody>
       <EmptyText type="captionUppercase">Total investido</EmptyText>
@@ -32,6 +43,57 @@ export default function SectionOne({ onRedirect }) {
       </EmptyText>
     </EmptyBody>
   )
+
+  const renderCreditProducts = () => {
+    let result = []
+
+    result = creditCards.length
+      ? [...ProductItemGenerator(creditCards, 'cartaoCredito', history)]
+      : result
+    result = vehiclesFinancings.length
+      ? [
+          ...result,
+          <ItemDivisor />,
+          ...ProductItemGenerator(
+            vehiclesFinancings,
+            'financiamentoVeiculo',
+            history
+          ),
+        ]
+      : result
+
+    if (result.length > 0) {
+      return result
+    }
+
+    return (
+      <SliderBox>
+        <SliderImageBox>
+          <img src={CreditHomeImg} alt="home offer pic" />
+          <SliderCaption>
+            <Text type="captionUppercase" bold>
+              Cartão de crédito
+            </Text>
+          </SliderCaption>
+        </SliderImageBox>
+        <SliderTextBox>
+          <Text type="title" bold>
+            O cartão com mais benefícios
+          </Text>
+          <Text>
+            O Cartão de Crédito que resolve e ainda dá vantagens e benefícios da
+            Porto Seguro para você, sua casa e seu carro.
+          </Text>
+          <SliderBoxButton
+            color="secondary"
+            onClick={() => history.push('/cartao-credito')}
+          >
+            CONHECER
+          </SliderBoxButton>
+        </SliderTextBox>
+      </SliderBox>
+    )
+  }
 
   return (
     <>
@@ -72,31 +134,7 @@ export default function SectionOne({ onRedirect }) {
         <SectionRow style={{ height: '100%' }}>
           <SectionCol lg="6">
             <FullHeightCard headerIcon="creditcard" headerTitle="Crédito">
-              <SliderBox>
-                <SliderImageBox>
-                  <img src={CreditHomeImg} alt="home offer pic" />
-                  <SliderCaption>
-                    <Text type="captionUppercase" bold>
-                      Cartão de crédito
-                    </Text>
-                  </SliderCaption>
-                </SliderImageBox>
-                <SliderTextBox>
-                  <Text type="title" bold>
-                    O cartão com mais benefícios
-                  </Text>
-                  <Text>
-                    O Cartão de Crédito que resolve e ainda dá vantagens e
-                    benefícios da Porto Seguro para você, sua casa e seu carro.
-                  </Text>
-                  <SliderBoxButton
-                    color="secondary"
-                    onClick={() => onRedirect('/cartao-credito')}
-                  >
-                    CONHECER
-                  </SliderBoxButton>
-                </SliderTextBox>
-              </SliderBox>
+              <OverflowCard>{renderCreditProducts()}</OverflowCard>
             </FullHeightCard>
           </SectionCol>
 
@@ -122,7 +160,7 @@ export default function SectionOne({ onRedirect }) {
                   </Text>
                   <SliderBoxButton
                     color="secondary"
-                    onClick={() => onRedirect('/seguro-vida')}
+                    onClick={() => history.push('/seguro-vida')}
                   >
                     CONHECER
                   </SliderBoxButton>
@@ -136,6 +174,4 @@ export default function SectionOne({ onRedirect }) {
   )
 }
 
-SectionOne.propTypes = {
-  onRedirect: PropTypes.func.isRequired,
-}
+export default SectionOne
