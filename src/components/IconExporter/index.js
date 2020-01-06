@@ -63,6 +63,9 @@ import { ReactComponent as trash } from 'assets/icons/trashcan.svg'
 import { ReactComponent as user } from 'assets/icons/user.svg'
 import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
 
+import { ReactComponent as visa } from 'assets/images/visa.svg'
+import { ReactComponent as master } from 'assets/images/mastercard.svg'
+
 const dict = {
   add,
   alertrounded,
@@ -125,6 +128,8 @@ const dict = {
   trash,
   user,
   wallet,
+  visa,
+  master,
 }
 
 const IconComponent = ({ name, ...props }) => {

@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 import ConquistaIcon from 'components/IconExporter'
+import DropdownComponent from 'components/Dropdown'
+import { Container as DropdownContainer } from 'components/Dropdown/styles'
 
 export const MainContainer = styled.header`
   background-color: ${props => props.theme.colors.gray6};
@@ -74,22 +76,10 @@ export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0);
   z-index: 1;
 `
-export const DropDownWrapper = styled.div`
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  align-items: flex-end;
-  transition: transform 0.3s ease-out;
-  transform: ${props => (props.isOpen ? 'scaleY(1)' : 'scaleY(0)')};
-  transform-origin: top center;
-  top: ${props => `${props.top}px`};
-  left: ${props => `${props.left}px`};
-`
 export const DropDownContainer = styled.div`
-  width: ${props => `${props.width}px`};
-  height: ${props => `${props.height}px`};
+  width: 500px;
+  max-height: 400px;
   background-color: ${props => props.theme.colors.white};
-  margin-top: 5px;
   overflow: auto;
   box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.1);
   &:before {
@@ -100,7 +90,7 @@ export const DropDownContainer = styled.div`
     border-bottom: 15px solid
       ${props =>
         props.isRead ? props.theme.colors.gray2 : props.theme.colors.white};
-    top: -5px;
+    top: 0px;
     right: 3px;
     z-index: -1;
   }
@@ -179,5 +169,13 @@ export const MenuIcon = styled(ConquistaIcon).attrs({ name: 'menu' })`
     @media (min-width: 990) {
       display: none;
     }
+  }
+`
+export const Dropdown = styled(DropdownComponent)`
+  top: 25px;
+  left: -470px;
+  ${DropdownContainer} {
+    padding-top: 8px;
+    background-color: transparent;
   }
 `

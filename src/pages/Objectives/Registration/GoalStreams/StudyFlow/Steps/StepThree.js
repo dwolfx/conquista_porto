@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import TextInput from 'components/Inputs/Text'
 import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/ButtonNext'
 
 import {
+  Input,
   Question,
   Section,
   Wrapper,
@@ -23,7 +23,11 @@ const StepThree = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <TextInput width="100" label="R$" name="targetValue" />
+            <Input
+              width="100"
+              label="Digite o valor do curso"
+              name="targetValue"
+            />
           </Wrapper>
         </Col>
       </Row>

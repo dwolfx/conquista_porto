@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import TopBanner from '../../components/Solutions/TopBanner'
 import BulletsSection from '../../components/Solutions/BulletsSection'
@@ -96,7 +97,7 @@ const moreDetailsData = [
   },
 ]
 
-export default function CreditCard() {
+export default function CreditCard({ history }) {
   return (
     <>
       <TopBanner
@@ -105,7 +106,7 @@ export default function CreditCard() {
         buttonText="Simule e Contrate"
         image={BannerCartaoCreditoImage}
         imageDescription="Mulher segurando cartão de crédito em casa"
-        onClick={() => {}}
+        onClick={() => history.push('/cartao-credito/visualizar')}
       />
       <BulletsSection
         title="Por que contratar o Cartão de Crédito?"
@@ -137,4 +138,10 @@ export default function CreditCard() {
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )
+}
+
+CreditCard.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 }
