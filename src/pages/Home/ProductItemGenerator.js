@@ -83,6 +83,34 @@ const itemDetail = {
       </ThreeItemsLine>
     ),
   },
+  consorcioVeiculo: {
+    title: 'Financiamento de Veículo',
+    subTitle: product => product.Descricao,
+    threeItemsLine: (product, history) => (
+      <ThreeItemsLine gridTemplateColumns="2fr 2fr 3fr">
+        <ItemLine padding="0 14px 0 0" width="100%">
+          <MiniLinearProgressBar
+            atual={parseInt(product.QuantidadeParcelasPagas, 10)}
+            max={parseInt(product.QuantidadeParcelasContratadas, 10)}
+          />
+        </ItemLine>
+        <ItemLine>
+          <Text type="headline" bold>
+            {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
+          </Text>
+        </ItemLine>
+        <ItemLine justifySelf="end" alignSelf="center" height="85%">
+          <ButtonLink
+            onClick={() => {
+              history.push('/consorcio-veiculo/visualizar')
+            }}
+          >
+            GERENCIAR
+          </ButtonLink>
+        </ItemLine>
+      </ThreeItemsLine>
+    ),
+  },
 }
 
 export default ProductItemGenerator
