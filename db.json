@@ -1,9 +1,8 @@
 {
   "cartao_credito": [
     {
-      "Id": 1,
       "CodigoCanal": 0,
-      "CpfCnpj": "33244452809",
+      "CpfCnpj": "32036703801",
       "Bandeira": "Visa",
       "Fatura": {
         "MelhorDataCompra": 22,
@@ -28,7 +27,6 @@
       "UltimosDigitos": 3212
     },
     {
-      "Id": 2,
       "CodigoCanal": 0,
       "CpfCnpj": "33244452809",
       "Bandeira": "Master",
