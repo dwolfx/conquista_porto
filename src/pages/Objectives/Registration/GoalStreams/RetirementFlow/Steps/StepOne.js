@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import TextInput from 'components/Inputs/Text'
 import ButtonNext from 'pages/Objectives/Registration/GoalStreams/Components/ButtonNext'
 
 import {
+  Input,
   Question,
   Section,
   Wrapper,
@@ -25,9 +25,9 @@ const StepOne = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Wrapper>
-            <TextInput
+            <Input
               width="100"
-              label="Apelido para o seu objetivo"
+              label="Digite o apelido do seu objetivo"
               name="nickname"
             />
           </Wrapper>

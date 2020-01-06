@@ -16,7 +16,6 @@ import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 
 import Icon from 'components/IconExporter'
-
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
 import { formatMoney } from 'helpers'
@@ -132,7 +131,6 @@ const settings = {
 
 export default function ManagementCreditCard({ history }) {
   useFetchCreditCard()
-
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
 
   const themeContext = useContext(ThemeContext)

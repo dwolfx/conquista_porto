@@ -6,6 +6,7 @@ import consortiumVehicle from './ConsortiumVehicle/sagas'
 import investmentsDetails from './Investment/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
 import bankData from './BankData/sagas'
+import vehicleFinancing from './VehicleFinancing/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import tripInsurance from './TripInsurance/sagas'
 
@@ -17,6 +18,7 @@ export default function* rootSaga() {
     investmentsDetails,
     privateWelfare,
     bankData,
+    vehicleFinancing,
     lifeInsurance,
     tripInsurance,
   ])

@@ -231,6 +231,34 @@ export const InvestmentInfosRow = styled(Row)`
     padding-top: 7px;
   }
 `
+export const ProductItem = styled.div`
+  padding: 10px 14px;
+  width: 100%;
+  color: ${props => props.theme.colors.gray5};
+`
+export const ThreeItemsLine = styled.div`
+  display: grid;
+  width: 100%;
+  margin: 14px 0;
+  grid-template-columns: ${props => props.gridTemplateColumns};
+`
+export const ItemLine = styled.div`
+  height: ${props => (props.height ? props.height : 'auto')};
+  width: ${props => (props.width ? props.width : 'auto')};
+  justify-self: ${props => (props.justifySelf ? props.justifySelf : 'start')};
+  align-self: ${props => (props.alignSelf ? props.alignSelf : 'center')};
+  padding: ${props => (props.padding ? props.padding : '0')};
+`
+
+export const ItemDivisor = styled.hr`
+  border: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 0px;
+`
+
+export const OverflowCard = styled.div`
+  overflow: auto;
+`
+
 export const BannerButton = styled(Button).attrs({ color: 'secondary' })`
   margin-top: 20px;
   min-width: unset;
