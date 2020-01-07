@@ -3,18 +3,15 @@ import PropTypes from 'prop-types'
 
 import { Container, Text } from './styles'
 
-export default function Tag({ color }) {
+export default function Tag({ color, text }) {
   return (
     <Container color={color}>
-      <Text>TAG</Text>
+      <Text>{text}</Text>
     </Container>
   )
 }
 
 Tag.propTypes = {
-  color: PropTypes.string,
-}
-
-Tag.defaultProps = {
-  color: 'gray',
+  color: PropTypes.oneOf(['blue', 'gray', 'green']).isRequired,
+  text: PropTypes.string.isRequired,
 }
