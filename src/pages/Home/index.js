@@ -6,6 +6,7 @@ import Menu from 'components/Menu'
 
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
+import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
 import { GetDataRequest } from 'store/modules/CreditCard/action'
 
 import SectionOne from './SectionOne'
@@ -22,6 +23,7 @@ const Home = () => {
     dispatch(GetBankDataRequest())
     dispatch(GetDataRequest())
     dispatch(GetVehicleFinancingDataRequest())
+    dispatch(GetConsortiumVehicleDataRequest())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

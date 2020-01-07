@@ -2,17 +2,27 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get } from 'services/api'
 import { Types } from './types'
-import { GetDataSuccess, GetDataFailure } from './action'
+import {
+  GetConsortiumVehicleDataSuccess,
+  GetConsortiumVehicleDataFailure,
+} from './action'
+
+function addId(consorcios) {
+  return consorcios.map((consorcio = {}, index) => ({
+    ...consorcio,
+    Id: index,
+  }))
+}
 
 function* getData() {
   try {
     const response = yield call(
       get,
-      '/consorcios/auto?cpfCnpj=33244452809&codigoCanal=0'
+      '/consorcios/auto?cpf=33244452809&codigoCanal=1'
     )
-    yield put(GetDataSuccess(response.data.Consorcios))
+    yield put(GetConsortiumVehicleDataSuccess(addId(response.data.consorcios)))
   } catch (err) {
-    yield put(GetDataFailure())
+    yield put(GetConsortiumVehicleDataFailure())
   }
 }
 
