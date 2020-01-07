@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   height: 28px;
@@ -8,19 +8,22 @@ export const Container = styled.div`
   padding: 0 14px;
   background-color: ${props => props.theme.colors.white};
   border-radius: 4px;
-  border: 1px solid ${props => {
-    if (props.color === 'gray') {
-      return props.theme.colors.gray3
-    }
+  border: 1px solid
+    ${props => {
+      if (props.color === 'gray') {
+        return props.theme.colors.gray3
+      }
 
-    if (props.color === 'blue') {
-      return props.theme.colors.blue4
-    }
+      if (props.color === 'blue') {
+        return props.theme.colors.blue4
+      }
 
-    if (props.color === 'green') {
-      return props.theme.colors.green3
-    }
-  }};
+      if (props.color === 'green') {
+        return props.theme.colors.green3
+      }
+
+      return null
+    }};
 
   p {
     color: ${props => {
@@ -35,10 +38,12 @@ export const Container = styled.div`
       if (props.color === 'green') {
         return props.theme.colors.green3
       }
+
+      return null
     }};
   }
-`;
+`
 
 export const Text = styled.p`
   ${props => props.theme.fontTypes.button}
-`;
+`
