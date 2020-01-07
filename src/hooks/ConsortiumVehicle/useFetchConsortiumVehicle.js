@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
 
-import { GetDataRequest } from 'store/modules/ConsortiumVehicle/action'
-import { useDispatch } from 'react-redux'
+import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function useFetchConsortiumVehicle() {
   const dispatch = useDispatch()
+  const status = useSelector(state => state.consortiumVehicle.status)
 
   useEffect(() => {
-    dispatch(GetDataRequest())
-  }, [dispatch])
+    if (!status) {
+      dispatch(GetConsortiumVehicleDataRequest())
+    }
+  }, [dispatch, status])
 }

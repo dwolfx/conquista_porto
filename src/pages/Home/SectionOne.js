@@ -33,6 +33,8 @@ import {
 const SectionOne = () => {
   const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
   const creditCards = useSelector(state => state.creditCard.data)
+  const vehiclesConsortium = useSelector(state => state.consortiumVehicle.data)
+
   const history = useHistory()
 
   const renderEmptyState = () => (
@@ -50,6 +52,7 @@ const SectionOne = () => {
     result = creditCards.length
       ? [...ProductItemGenerator(creditCards, 'cartaoCredito', history)]
       : result
+
     result = vehiclesFinancings.length
       ? [
           ...result,
@@ -62,6 +65,17 @@ const SectionOne = () => {
         ]
       : result
 
+    result = vehiclesConsortium.length
+      ? [
+          ...result,
+          <ItemDivisor />,
+          ...ProductItemGenerator(
+            vehiclesConsortium,
+            'consorcioVeiculo',
+            history
+          ),
+        ]
+      : result
     if (result.length > 0) {
       return result
     }
