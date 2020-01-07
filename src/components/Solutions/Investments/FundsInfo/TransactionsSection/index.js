@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { formatMoney } from 'helpers'
+
 import {
   Container,
   Title,
@@ -19,43 +21,43 @@ export default function TransactionsSection({ title, articles }) {
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Aplicação</SubTitleWrapper>
-            <ValueWrapper>{articles.value1}</ValueWrapper>
+            <ValueWrapper>{formatMoney(articles.aplicao_minima)}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Movimentação Mín.</SubTitleWrapper>
-            <ValueWrapper>{articles.value2}</ValueWrapper>
+            <ValueWrapper>{articles.aplicao_minima}</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Saldo Mín.</SubTitleWrapper>
-            <ValueWrapper>{articles.value3}</ValueWrapper>
+            <ValueWrapper>{articles.aplicao_minima}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Horário Limite da Aplic.</SubTitleWrapper>
-            <ValueWrapper>{articles.value4}</ValueWrapper>
+            <ValueWrapper>{articles.hora_aplicacao}</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
       </Wrapper>
       <Wrapper>
         <ResponsiveLine>
-          <ArticleItem>
+          {/* <ArticleItem>
             <SubTitleWrapper>Aplicação (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.value5}</ValueWrapper>
-          </ArticleItem>
+            <ValueWrapper>{articles.aplicacao_cotizacao}</ValueWrapper>
+          </ArticleItem> */}
           <ArticleItem>
             <SubTitleWrapper>Aplicação (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.value6}</ValueWrapper>
+            <ValueWrapper>{articles.aplicacao_financeiro}</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.value7}</ValueWrapper>
+            <ValueWrapper>{articles.resgate_cotizacao}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.value8}</ValueWrapper>
+            <ValueWrapper>{articles.resgate_financeiro}</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
       </Wrapper>
@@ -66,13 +68,10 @@ export default function TransactionsSection({ title, articles }) {
 TransactionsSection.propTypes = {
   title: PropTypes.string.isRequired,
   articles: PropTypes.shape({
-    value1: PropTypes.string,
-    value2: PropTypes.string,
-    value3: PropTypes.string,
-    value4: PropTypes.string,
-    value5: PropTypes.string,
-    value6: PropTypes.string,
-    value7: PropTypes.string,
-    value8: PropTypes.string,
+    aplicao_minima: PropTypes.number,
+    aplicacao_financeiro: PropTypes.number,
+    resgate_cotizacao: PropTypes.number,
+    resgate_financeiro: PropTypes.number,
+    hora_aplicacao: PropTypes.string,
   }).isRequired,
 }

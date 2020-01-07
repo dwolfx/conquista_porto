@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTable } from 'react-table'
 import PropTypes from 'prop-types'
@@ -60,18 +60,22 @@ const TheadWrapper = ({ header }) => {
     <SimpleHeader {...header.getHeaderProps()} header={header} />
   )
 }
-const FormatFundoCell = ({ cell, column }) => (
-  <FundoWrapper {...cell.getCellProps()}>
-    <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
-    <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-    <AlertIcon
-      onClick={() => {
-        column.setInvestmentId(cell.row.original.id_fundo)
-        column.toggleModal(!column.isModalOpen)
-      }}
-    />
-  </FundoWrapper>
-)
+const FormatFundoCell = ({ cell, column }) => {
+  const dispatch = useDispatch()
+
+  return (
+    <FundoWrapper {...cell.getCellProps()}>
+      <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
+      <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
+      <AlertIcon
+        onClick={() => {
+          dispatch(GetDataRequest(cell.row.original.id_fundo))
+          column.toggleModal(!column.isModalOpen)
+        }}
+      />
+    </FundoWrapper>
+  )
+}
 
 const FormatEnabledCell = column =>
   column.cell.value ? (
@@ -84,14 +88,13 @@ const FormatEnabledCell = column =>
 
 const FormatMoneyCell = column => formatMoney(column.cell.value)
 
-const formatColumns = (columns, toggleModal, isModalOpen, setInvestmentId) => {
+const formatColumns = (columns, toggleModal, isModalOpen) => {
   const formatters = {
     fundo: column => ({
       ...column,
       Cell: FormatFundoCell,
       toggleModal,
       isModalOpen,
-      setInvestmentId,
     }),
     is_fundo_ativo: column => ({ ...column, Cell: FormatEnabledCell }),
     minimo_inicial: column => ({
@@ -115,13 +118,7 @@ export default function TableFunds({
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
-  const [investmentId, setInvestmentId] = useState(0)
-  const fundDetails = useSelector(state => state.investmentDetails)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(GetDataRequest(investmentId))
-  }, [dispatch, investmentId])
+  const fundDetails = useSelector(state => state.investmentDetails.data)
 
   useLayoutEffect(() => {
     setTheadY(
@@ -130,7 +127,7 @@ export default function TableFunds({
   }, [setTheadY])
 
   useLayoutEffect(() => {
-    const getScrollY = () => window.scrollY
+    const getScrollY = () => window.scrollY - 170
     const shouldSticky = scrollY => {
       const { offsetHeight } = document.querySelector('thead')
       const hasMinimumRows = data.length > 2
@@ -153,12 +150,7 @@ export default function TableFunds({
     prepareRow,
     rows,
   } = useTable({
-    columns: formatColumns(
-      columnsProps,
-      toggleModal,
-      isModalOpen,
-      setInvestmentId
-    ),
+    columns: formatColumns(columnsProps, toggleModal, isModalOpen),
     data,
   })
 
@@ -260,7 +252,6 @@ FormatFundoCell.propTypes = {
   column: PropTypes.shape({
     isModalOpen: PropTypes.bool,
     toggleModal: PropTypes.func,
-    setInvestmentId: PropTypes.func,
   }).isRequired,
 }
 

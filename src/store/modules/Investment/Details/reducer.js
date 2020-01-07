@@ -1,7 +1,7 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: [],
+  data: {},
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -9,7 +9,7 @@ export default function(state = INITIAL_STATE, action) {
     case Types.INVESTMENT_DETAILS_ADD_SUCCESS:
       return {
         ...state,
-        data: [...action.payload],
+        data: action.payload,
       }
     default:
       return state
