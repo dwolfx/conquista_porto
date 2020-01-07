@@ -8,7 +8,6 @@ export const Container = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   padding: 7px 14px;
-  background-color: pink;
 `
 
 export const ListElements = styled.div`
