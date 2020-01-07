@@ -7,13 +7,20 @@ import {
   GetConsortiumVehicleDataFailure,
 } from './action'
 
+function addId(consorcios) {
+  return consorcios.map((consorcio = {}, index) => ({
+    ...consorcio,
+    Id: index,
+  }))
+}
+
 function* getData() {
   try {
     const response = yield call(
       get,
       '/consorcios/auto?cpf=33244452809&codigoCanal=1'
     )
-    yield put(GetConsortiumVehicleDataSuccess(response.data.consorcios))
+    yield put(GetConsortiumVehicleDataSuccess(addId(response.data.consorcios)))
   } catch (err) {
     yield put(GetConsortiumVehicleDataFailure())
   }
