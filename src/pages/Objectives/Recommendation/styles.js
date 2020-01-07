@@ -10,23 +10,23 @@ export const GridRecommendation = styled.div``
 
 export const GridRow = styled(Row)`
   margin-bottom: 42px;
-  &:last-child {
-    margin-bottom: 0;
-  }
 `
 export const SectionsRecommendation = styled.div`
   background-color: ${props => props.theme.colors.gray1};
-  padding: 42px 0;
+  padding: 42px 0 55px;
 `
 
 export const SectionBar = styled.section`
   background-color: ${props => props.theme.colors.gray2};
-  padding: 1rem 0;
+  bottom: 0;
+  padding: 10px 0;
+  position: fixed;
   width: 100%;
 `
 
 export const ButtonBar = styled(Button)`
   margin-left: 14px;
+  min-width: auto;
 `
 
 export const FullHeightCard = styled(Card)`

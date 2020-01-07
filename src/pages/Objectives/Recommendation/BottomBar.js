@@ -2,13 +2,16 @@
 import React from 'react'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import { SectionBar } from './styles'
+import { ButtonBar, SectionBar } from './styles'
 
 const BottomBar = () => (
   <SectionBar>
     <Container>
       <Row justifyContent="end">
-        <Col lgAuto>Buttons</Col>
+        <Col lgAuto>
+          <ButtonBar color="primary">Resumo</ButtonBar>
+          <ButtonBar color="secondary">Continuar</ButtonBar>
+        </Col>
       </Row>
     </Container>
   </SectionBar>
