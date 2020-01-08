@@ -7,7 +7,7 @@ import { GridRow, FullHeightCard } from './styles'
 const SectionTwo = () => (
   <GridRow>
     <Col lg="9">
-      <FullHeightCard headerIcon="financial" headerTitle="Investmentos">
+      <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
         Investimentos
       </FullHeightCard>
     </Col>
