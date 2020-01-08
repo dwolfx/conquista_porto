@@ -34,7 +34,7 @@ export default function Text({
     }
 
     if (onChange) {
-      onChange(event.target.value)
+      onChange()
     }
   }
 
