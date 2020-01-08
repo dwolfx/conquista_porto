@@ -41,23 +41,23 @@ export default function TransactionsSection({ title, articles }) {
       </Wrapper>
       <Wrapper>
         <ResponsiveLine>
-          {/* <ArticleItem>
+          <ArticleItem>
             <SubTitleWrapper>Aplicação (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicacao_cotizacao}</ValueWrapper>
-          </ArticleItem> */}
+            <ValueWrapper>{articles.aplicacao_cotizacao} úteis</ValueWrapper>
+          </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Aplicação (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicacao_financeiro}</ValueWrapper>
+            <ValueWrapper>{articles.aplicacao_financeiro} úteis</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.resgate_cotizacao}</ValueWrapper>
+            <ValueWrapper>{articles.resgate_cotizacao} úteis</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.resgate_financeiro}</ValueWrapper>
+            <ValueWrapper>{articles.resgate_financeiro} úteis</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
       </Wrapper>
@@ -68,10 +68,11 @@ export default function TransactionsSection({ title, articles }) {
 TransactionsSection.propTypes = {
   title: PropTypes.string.isRequired,
   articles: PropTypes.shape({
-    aplicao_minima: PropTypes.number,
-    aplicacao_financeiro: PropTypes.number,
-    resgate_cotizacao: PropTypes.number,
-    resgate_financeiro: PropTypes.number,
+    aplicao_minima: PropTypes.string,
+    aplicacao_cotizacao: PropTypes.string,
+    aplicacao_financeiro: PropTypes.string,
+    resgate_cotizacao: PropTypes.string,
+    resgate_financeiro: PropTypes.string,
     hora_aplicacao: PropTypes.string,
   }).isRequired,
 }

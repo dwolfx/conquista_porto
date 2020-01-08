@@ -270,6 +270,7 @@ export const ItemDivisor = styled.hr`
 `
 
 export const OverflowCard = styled.div`
+  height: 100%;
   overflow: auto;
 `
 

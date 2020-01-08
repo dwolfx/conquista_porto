@@ -64,13 +64,11 @@ export default function WrapperDetailsContent({ title, fundsDetail }) {
 WrapperDetailsContent.propTypes = {
   title: PropTypes.string.isRequired,
   fundsDetail: PropTypes.shape({
-    value1: PropTypes.string,
-    value2: PropTypes.string,
-    value3: PropTypes.string,
-    value4: PropTypes.string,
-    value5: PropTypes.string,
-    value6: PropTypes.string,
-    value7: PropTypes.string,
-    value8: PropTypes.string,
+    data_inicio: PropTypes.string,
+    benchmark: PropTypes.shape({
+      nome: PropTypes.string,
+    }),
+    taxa_administracao: PropTypes.string,
+    taxa_performance: PropTypes.string,
   }).isRequired,
 }

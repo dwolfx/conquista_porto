@@ -20,7 +20,7 @@ import {
   TBodyTd,
   FundoWrapper,
   LogoImg,
-  AlertIcon,
+  InformationIcon,
   FundoNameWrapper,
   InvestButton,
   LockIcon,
@@ -67,7 +67,7 @@ const FormatFundoCell = ({ cell, column }) => {
     <FundoWrapper {...cell.getCellProps()}>
       <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
       <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-      <AlertIcon
+      <InformationIcon
         onClick={() => {
           dispatch(GetDataRequest(cell.row.original.id_fundo))
           column.toggleModal(!column.isModalOpen)

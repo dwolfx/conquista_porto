@@ -100,7 +100,9 @@ export const LogoImg = styled.img`
   width: 70px;
 `
 
-export const AlertIcon = styled(IconExporter).attrs({ name: 'alertrounded' })`
+export const InformationIcon = styled(IconExporter).attrs({
+  name: 'information',
+})`
   cursor: pointer;
   fill: ${props => props.theme.colors.blue4};
   height: 25px;

@@ -13,7 +13,27 @@ import {
   Td,
 } from './styles'
 
-export default function HistoricalRentabilityTable({ tableHead, tableRow }) {
+export default function HistoricalRentabilityTable({ data }) {
+  const tableHead = [
+    {
+      name: 'Mês Anterior',
+    },
+    {
+      name: 'Ano',
+    },
+    {
+      name: 'Últ 12m',
+    },
+    {
+      name: 'Últ 24m',
+    },
+    {
+      name: 'Últ 36m',
+    },
+  ]
+
+  const printFieldText = text => text || '---'
+
   return (
     <Container>
       <Title>Rentabilidade Histórica</Title>
@@ -29,17 +49,73 @@ export default function HistoricalRentabilityTable({ tableHead, tableRow }) {
             </Tr>
           </THead>
           <TBody>
-            {tableRow.map((cell, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Tr key={`${index}-${cell.name}`}>
-                <Td>{cell.name}</Td>
-                <Td>{cell.cell1}</Td>
-                <Td>{cell.cell2}</Td>
-                <Td>{cell.cell3}</Td>
-                <Td>{cell.cell4}</Td>
-                <Td>{cell.cell5}</Td>
-              </Tr>
-            ))}
+            <Tr>
+              <Td>Fundo (%)</Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_fundo.rentabil_mes_anteiror)}
+              </Td>
+              <Td>{printFieldText(data.hist_rentabil_fundo.rentabil_ano)}</Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_fundo.rentabil_12_meses)}
+              </Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_fundo.rentabil_24_meses)}
+              </Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_fundo.rentabil_36_meses)}
+              </Td>
+            </Tr>
+            <Tr>
+              <Td>
+                {printFieldText(data.hist_rentabil_benchmark.benchmark.nome)}{' '}
+                (%)
+              </Td>
+              <Td>
+                {printFieldText(
+                  data.hist_rentabil_benchmark.rentabil_mes_anteiror
+                )}
+              </Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_benchmark.rentabil_Ano)}
+              </Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_benchmark.rentabil_12_meses)}
+              </Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_benchmark.rentabil_24_meses)}
+              </Td>
+              <Td>
+                {printFieldText(data.hist_rentabil_benchmark.rentabil_36_meses)}
+              </Td>
+            </Tr>
+            <Tr>
+              <Td>Variação (P.P.)</Td>
+              <Td>
+                {printFieldText(
+                  data.hist_rentabil_fundo.rel_fundo_benchmark_mes_anteiror
+                )}
+              </Td>
+              <Td>
+                {printFieldText(
+                  data.hist_rentabil_fundo.rel_fundo_benchmark_ano
+                )}
+              </Td>
+              <Td>
+                {printFieldText(
+                  data.hist_rentabil_fundo.rel_fundo_benchmark_12_meses
+                )}
+              </Td>
+              <Td>
+                {printFieldText(
+                  data.hist_rentabil_fundo.rel_fundo_benchmark_24_meses
+                )}
+              </Td>
+              <Td>
+                {printFieldText(
+                  data.hist_rentabil_fundo.rel_fundo_benchmark_36_meses
+                )}
+              </Td>
+            </Tr>
           </TBody>
         </Table>
       </TableWrapper>
@@ -47,23 +123,56 @@ export default function HistoricalRentabilityTable({ tableHead, tableRow }) {
   )
 }
 
-HistoricalRentabilityTable.propTypes = {
-  tableHead: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  tableRow: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      cell1: PropTypes.string,
-      cell2: PropTypes.string,
-      cell3: PropTypes.string,
-      cell4: PropTypes.string,
-      cell5: PropTypes.string,
-    })
-  ),
-}
 HistoricalRentabilityTable.defaultProps = {
-  tableRow: [],
+  data: {
+    hist_rentabil_benchmark: {
+      benchmark: {
+        nome: '--',
+      },
+      rentabil_mes_anteiror: '--',
+      rentabil_Ano: '--',
+      rentabil_12_meses: '--',
+      rentabil_24_meses: '--',
+      rentabil_36_meses: '--',
+    },
+    hist_rentabil_fundo: {
+      rel_fundo_benchmark_mes_anteiror: '--',
+      rel_fundo_benchmark_ano: '--',
+      rel_fundo_benchmark_12_meses: '--',
+      rel_fundo_benchmark_24_meses: '--',
+      rel_fundo_benchmark_36_meses: '--',
+      rentabil_mes_anteiror: '--',
+      rentabil_ano: '--',
+      rentabil_12_meses: '--',
+      rentabil_24_meses: '--',
+      rentabil_36_meses: '--',
+    },
+  },
+}
+
+HistoricalRentabilityTable.propTypes = {
+  data: PropTypes.shape({
+    hist_rentabil_benchmark: PropTypes.shape({
+      benchmark: PropTypes.shape({
+        nome: PropTypes.string,
+      }),
+      rentabil_mes_anteiror: PropTypes.string,
+      rentabil_Ano: PropTypes.string,
+      rentabil_12_meses: PropTypes.string,
+      rentabil_24_meses: PropTypes.string,
+      rentabil_36_meses: PropTypes.string,
+    }),
+    hist_rentabil_fundo: PropTypes.shape({
+      rel_fundo_benchmark_mes_anteiror: PropTypes.string,
+      rel_fundo_benchmark_ano: PropTypes.string,
+      rel_fundo_benchmark_12_meses: PropTypes.string,
+      rel_fundo_benchmark_24_meses: PropTypes.string,
+      rel_fundo_benchmark_36_meses: PropTypes.string,
+      rentabil_mes_anteiror: PropTypes.string,
+      rentabil_ano: PropTypes.string,
+      rentabil_12_meses: PropTypes.string,
+      rentabil_24_meses: PropTypes.string,
+      rentabil_36_meses: PropTypes.string,
+    }),
+  }),
 }

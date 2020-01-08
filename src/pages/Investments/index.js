@@ -146,7 +146,3 @@ Investments.propTypes = {
     push: PropTypes.func.isRequired,
   }).isRequired,
 }
-
-Investments.defaultProps = {
-  history: () => {},
-}
