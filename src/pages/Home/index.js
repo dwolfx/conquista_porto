@@ -7,6 +7,9 @@ import Menu from 'components/Menu'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
 import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
+import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
+import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
+// import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetDataRequest } from 'store/modules/CreditCard/action'
 
 import SectionOne from './SectionOne'
@@ -23,7 +26,10 @@ const Home = () => {
     dispatch(GetBankDataRequest())
     dispatch(GetDataRequest())
     dispatch(GetVehicleFinancingDataRequest())
+    dispatch(GetConsortiumBuildingDataRequest())
     dispatch(GetConsortiumVehicleDataRequest())
+    dispatch(GetLifeInsuranceDataRequest())
+    // dispatch(GetTripInsuranceDataRequest())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

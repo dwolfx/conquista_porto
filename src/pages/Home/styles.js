@@ -24,6 +24,10 @@ export const GridRow = styled(Row)`
   }
 `
 
+export const ParagraphWithMargin = styled(Text)`
+  margin: ${props => props.margin};
+`
+
 export const GridCol = styled(Col)`
   #menu {
     transition: all 0.35s ease-in-out;
@@ -239,7 +243,7 @@ export const ProductItem = styled.div`
 export const ThreeItemsLine = styled.div`
   display: grid;
   width: 100%;
-  margin: 14px 0;
+  margin: 12px 0 0px 0;
   grid-template-columns: ${props => props.gridTemplateColumns};
 `
 export const ItemLine = styled.div`

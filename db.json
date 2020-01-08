@@ -1491,7 +1491,7 @@
     "Cliente": {
       "Cpf": "33244452809"
     },
-    "Consorcios": [
+    "consorcios": [
       {
         "Id": 1,
         "Cota": 300,
@@ -1514,7 +1514,7 @@
     "Cliente": {
       "Cpf": "33244452809"
     },
-    "Consorcios": [
+    "consorcios": [
       {
         "Id": 1,
         "Cota": 500,
