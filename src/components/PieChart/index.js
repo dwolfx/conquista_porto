@@ -29,7 +29,7 @@ export default function PieChart({
           ]
         }
         colors={data ? data.map(item => item.color) : [theme.colors.gray2]}
-        innerRadius={0.95}
+        innerRadius={0.94}
         padAngle={1}
         cornerRadius={3}
         enableRadialLabels={false}
