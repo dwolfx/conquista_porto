@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import Button from 'components/Button/Link'
 import {
@@ -42,6 +43,7 @@ export default function Redirect(props) {
 
   useEffect(() => {
     if (counter <= 0) navigate()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter])
 
   return (
@@ -64,4 +66,11 @@ export default function Redirect(props) {
       </GridContainer>
     </Background>
   )
+}
+
+Redirect.propTypes = {
+  history: PropTypes.object,
+}
+Redirect.defaultProps = {
+  history: {},
 }

@@ -27,10 +27,7 @@ export default function SectionTwo({ onRedirect, objectives }) {
         Conquista. É só contar o que você deseja e a ferramenta apresentará um
         plano personalizado de como alcançar suas metas. Experimente!
       </EmptyText>
-      <EmptyButton
-        color="secondary"
-        onClick={() => onRedirect('/objetivos/criar')}
-      >
+      <EmptyButton color="secondary" onClick={() => onRedirect('/objetivos/')}>
         CRIAR OBJETIVO
       </EmptyButton>
     </EmptyBody>

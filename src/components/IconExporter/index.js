@@ -20,6 +20,7 @@ import { ReactComponent as building } from 'assets/icons/building.svg'
 import { ReactComponent as fingerprint } from 'assets/icons/finger-print.svg'
 import { ReactComponent as car } from 'assets/icons/car.svg'
 import { ReactComponent as car2 } from 'assets/icons/car2.svg'
+import { ReactComponent as carnew } from 'assets/icons/car-new.svg'
 import { ReactComponent as callcenter } from 'assets/icons/call-center.svg'
 import { ReactComponent as calendar } from 'assets/icons/calendar.svg'
 import { ReactComponent as close } from 'assets/icons/close.svg'
@@ -37,6 +38,7 @@ import { ReactComponent as hospital } from 'assets/icons/hospital.svg'
 import { ReactComponent as homewithwindow } from 'assets/icons/home-with-window.svg'
 import { ReactComponent as idea } from 'assets/icons/idea.svg'
 import { ReactComponent as information } from 'assets/icons/information.svg'
+import { ReactComponent as linechart } from 'assets/icons/line-chart.svg'
 import { ReactComponent as link } from 'assets/icons/link.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
 import { ReactComponent as malefemale } from 'assets/icons/male-female.svg'
@@ -87,6 +89,7 @@ const dict = {
   callcenter,
   car,
   car2,
+  carnew,
   close,
   coin,
   computersecure,
@@ -103,6 +106,7 @@ const dict = {
   hospital,
   idea,
   information,
+  linechart,
   link,
   lock,
   malefemale,

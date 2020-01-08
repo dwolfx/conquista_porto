@@ -67,13 +67,12 @@ const Home = () => {
                 <GridRow id="t1">
                   <SectionOne />
                 </GridRow>
-
-                <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
-
+                <GridRow style={{ paddingRight: 7, paddingLeft: 7 }}>
+                  <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
+                </GridRow>
                 <GridRow id="t2">
                   <SectionTwo onRedirect={onRedirect} />
                 </GridRow>
-
                 <GridRow id="t3">
                   <SectionThree />
                 </GridRow>
