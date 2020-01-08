@@ -1,12 +1,12 @@
-import React, { useState, useLayoutEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useTable } from 'react-table'
+import React, { useState, useLayoutEffect, useMemo, useRef } from 'react'
+import { useSelector } from 'react-redux'
+import { useTable, useSortBy } from 'react-table'
 import PropTypes from 'prop-types'
 
 import Modal from 'components/Modal'
 import FundsInfo from 'components/Solutions/Investments/FundsInfo'
-import { formatMoney } from 'helpers'
-import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import FormatColumns from './formatters'
+import Tabs from './Tabs'
 
 import {
   Table,
@@ -17,24 +17,35 @@ import {
   TheadColumn,
   Tbody,
   TbodyTr,
-  TBodyTd,
-  FundoWrapper,
-  LogoImg,
-  InformationIcon,
-  FundoNameWrapper,
-  InvestButton,
-  LockIcon,
+  TbodyTd,
   WrapperContent,
-  Tabs,
-  TabsWrapper,
   TableWrapper,
+  TheadText,
 } from './styles'
 
-const SimpleHeader = ({ header }) => (
-  <TheadTh width={header.width}>
-    <WrapperContent lineHeight="16px">{header.render('Header')}</WrapperContent>
-  </TheadTh>
-)
+const SimpleHeader = ({ header }) => {
+  const headerContent = header.render('Header')
+  return (
+    <TheadTh
+      width={header.width}
+      canSort={header.canSort}
+      {...header.getHeaderProps(header.getSortByToggleProps())}
+    >
+      <WrapperContent lineHeight="16px" isThead>
+        {headerContent && (
+          <TheadText
+            isSorted={header.isSorted}
+            isSortedDesc={header.isSortedDesc}
+            top="28px"
+            right="5px"
+          >
+            {headerContent}
+          </TheadText>
+        )}
+      </WrapperContent>
+    </TheadTh>
+  )
+}
 
 const HeaderWithColumns = ({ header }) => (
   <TheadThWithColumns width={header.width}>
@@ -44,69 +55,28 @@ const HeaderWithColumns = ({ header }) => (
         <TheadColumn
           width={headerColumn.width}
           key={`inner-header-${headerColumn.Header}`}
+          {...headerColumn.getHeaderProps(headerColumn.getSortByToggleProps())}
         >
-          {headerColumn.render('Header')}
+          <TheadText
+            isSorted={headerColumn.isSorted}
+            isSortedDesc={headerColumn.isSortedDesc}
+            top="28px"
+            right="5px"
+          >
+            {headerColumn.render('Header')}
+          </TheadText>
         </TheadColumn>
       ))}
     </WrapperContent>
   </TheadThWithColumns>
 )
 
-const TheadWrapper = ({ header }) => {
-  const hasColumns = () => 'columns' in header
-  return hasColumns() ? (
+const TheadWrapper = ({ header }) =>
+  'columns' in header ? (
     <HeaderWithColumns header={header} />
   ) : (
-    <SimpleHeader {...header.getHeaderProps()} header={header} />
+    <SimpleHeader header={header} />
   )
-}
-const FormatFundoCell = ({ cell, column }) => {
-  const dispatch = useDispatch()
-
-  return (
-    <FundoWrapper {...cell.getCellProps()}>
-      <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
-      <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-      <InformationIcon
-        onClick={() => {
-          dispatch(GetInvestmentDetailsRequest(cell.row.original.id_fundo))
-          column.toggleModal(!column.isModalOpen)
-        }}
-      />
-    </FundoWrapper>
-  )
-}
-
-const FormatEnabledCell = column =>
-  column.cell.value ? (
-    <InvestButton type="button" color="secondary">
-      Investir
-    </InvestButton>
-  ) : (
-    <LockIcon />
-  )
-
-const FormatMoneyCell = column => formatMoney(column.cell.value)
-
-const formatColumns = (columns, toggleModal, isModalOpen) => {
-  const formatters = {
-    fundo: column => ({
-      ...column,
-      Cell: FormatFundoCell,
-      toggleModal,
-      isModalOpen,
-    }),
-    is_fundo_ativo: column => ({ ...column, Cell: FormatEnabledCell }),
-    minimo_inicial: column => ({
-      ...column,
-      Cell: FormatMoneyCell,
-    }),
-  }
-
-  return columns.map(column =>
-    column.accessor in formatters ? formatters[column.accessor](column) : column
-  )
-}
 
 export default function TableFunds({
   data,
@@ -119,21 +89,22 @@ export default function TableFunds({
   const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
   const fundDetails = useSelector(state => state.investmentDetails.data)
+  const tableWrapperRef = useRef(null)
+  const tableRef = useRef(null)
+  const theadRef = useRef(null)
 
   useLayoutEffect(() => {
-    setTheadY(
-      window.scrollY + document.querySelector('table').getBoundingClientRect().y
-    )
+    setTheadY(window.scrollY + tableRef.current.getBoundingClientRect().y)
   }, [setTheadY])
 
   useLayoutEffect(() => {
-    const getScrollY = () => window.scrollY - 170
+    const getScrollY = () => window.scrollY
     const shouldSticky = scrollY => {
-      const table = document.querySelector('table')
-      const thead = document.querySelector('thead')
+      const { current: table } = tableRef
+      const { current: thead } = theadRef
       const hasMinimumRows = data.length > 3
-      const isTheadInvisible = theadY - 30 - thead.offsetHeight < scrollY
-      const isEndOfTable = table.offsetHeight - 70 < scrollY
+      const isTheadInvisible = theadY - thead.offsetHeight < scrollY
+      const isEndOfTable = table.offsetHeight + 140 < scrollY
       return hasMinimumRows && isTheadInvisible && !isEndOfTable
     }
 
@@ -151,39 +122,43 @@ export default function TableFunds({
     getTableBodyProps,
     prepareRow,
     rows,
-  } = useTable({
-    columns: formatColumns(columnsProps, toggleModal, isModalOpen),
-    data,
-  })
+  } = useTable(
+    {
+      // to edit how each column should render see FormatColumns function
+      columns: useMemo(
+        () => FormatColumns(columnsProps, toggleModal, isModalOpen),
+        [isModalOpen, columnsProps]
+      ),
+      data,
+    },
+    useSortBy
+  )
 
-  function handleClose(isOpen) {
-    return toggleModal(!isOpen)
+  const handleTabsChange = selectedValue => {
+    setSelectedType(selectedValue)
+    const { current } = tableWrapperRef
+    current.scrollLeft = 0
   }
+
   return (
     <>
       <Modal
         headerIcon="information"
-        handleClose={handleClose}
+        handleClose={isOpen => toggleModal(!isOpen)}
         isOpen={isModalOpen}
         modalTitle="Informações do fundo"
         alignItems="flex-start"
       >
         <FundsInfo fund={fundDetails} />
       </Modal>
-      <TabsWrapper>
-        {fundsType.map(fundType => (
-          <Tabs
-            key={fundType.value}
-            onClick={() => setSelectedType(fundType.value)}
-            className={selectedType === fundType.value && 'active'}
-          >
-            {fundType.name}
-          </Tabs>
-        ))}
-      </TabsWrapper>
-      <TableWrapper>
-        <Table {...getTableProps()}>
-          <Thead className={stickyThead && `sticky`}>
+      <Tabs
+        options={fundsType}
+        onClick={handleTabsChange}
+        selectedTab={selectedType}
+      />
+      <TableWrapper ref={tableWrapperRef}>
+        <Table ref={tableRef} {...getTableProps()}>
+          <Thead ref={theadRef} className={stickyThead && `sticky`}>
             <TheadTr>
               {columns.map(header => (
                 <TheadWrapper
@@ -200,13 +175,13 @@ export default function TableFunds({
               return (
                 <TbodyTr {...row.getRowProps()}>
                   {row.cells.map(cell => (
-                    <TBodyTd
+                    <TbodyTd
                       borderRisk={cell.row.original.perfil_risco_ordem}
                       width={cell.column.width}
                       {...cell.getCellProps()}
                     >
-                      <WrapperContent>{cell.render('Cell')}</WrapperContent>
-                    </TBodyTd>
+                      {cell.render('Cell')}
+                    </TbodyTd>
                   ))}
                 </TbodyTr>
               )
@@ -227,9 +202,7 @@ TableFunds.propTypes = {
 }
 
 TheadWrapper.propTypes = {
-  header: PropTypes.shape({
-    getHeaderProps: PropTypes.func,
-  }).isRequired,
+  header: PropTypes.object.isRequired,
 }
 
 HeaderWithColumns.propTypes = {
@@ -240,26 +213,14 @@ HeaderWithColumns.propTypes = {
   }).isRequired,
 }
 
-FormatFundoCell.propTypes = {
-  cell: PropTypes.shape({
-    getCellProps: PropTypes.func.isRequired,
-    row: PropTypes.shape({
-      original: PropTypes.shape({
-        url_logo_gestor: PropTypes.string,
-        apelido: PropTypes.string,
-        id_fundo: PropTypes.string,
-      }),
-    }),
-  }).isRequired,
-  column: PropTypes.shape({
-    isModalOpen: PropTypes.bool,
-    toggleModal: PropTypes.func,
-  }).isRequired,
-}
-
 SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     render: PropTypes.func.isRequired,
+    isSorted: PropTypes.bool.isRequired,
+    isSortedDesc: PropTypes.bool,
+    getSortByToggleProps: PropTypes.func.isRequired,
+    getHeaderProps: PropTypes.func.isRequired,
+    canSort: PropTypes.bool.isRequired,
   }).isRequired,
 }

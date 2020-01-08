@@ -2,7 +2,7 @@
 
 exports[`RiskDegree RiskDegree to render with active colors 1`] = `
 <div
-  className="sc-bdVaJa hSInLL"
+  className="sc-bdVaJa gstNPg"
 >
   <label>
     Menor risco
@@ -30,7 +30,7 @@ exports[`RiskDegree RiskDegree to render with active colors 1`] = `
 
 exports[`RiskDegree RiskDegree to render without any active colors 1`] = `
 <div
-  className="sc-bdVaJa hSInLL"
+  className="sc-bdVaJa gstNPg"
 >
   <label>
     Menor risco

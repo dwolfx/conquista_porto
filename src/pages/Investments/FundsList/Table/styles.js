@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import IconExporter from 'components/IconExporter'
 import ConquistaButton from 'components/Button'
 import { fundRiskColors } from 'styles/theme'
-import TabCmp from 'components/Tab'
+import ArrowSortable from 'assets/icons/arrow-sortable.svg'
 
 const riskColorsMap = {
   1: fundRiskColors.lowRisk,
@@ -12,22 +12,41 @@ const riskColorsMap = {
   5: fundRiskColors.highRisk,
 }
 
+export const WrapperContent = styled.div`
+  line-height: ${props => (props.lineHeight ? props.lineHeight : '36px')};
+  white-space: pre-wrap;
+
+  ${props =>
+    props.isThead &&
+    css`
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    `}
+
+  ${props =>
+    props.isTbody &&
+    css`
+      height: 99px;
+      padding: 30px 0;
+    `}
+`
+
 export const TableWrapper = styled.div`
-  display: block;
   overflow-x: auto;
   white-space: nowrap;
 `
 
 export const Table = styled.table`
   border-collapse: collapse;
-  margin-top: 3rem;
-  width: 100%;
+  margin: 3rem auto 0;
 `
 
 export const Thead = styled.thead`
   &.sticky {
     position: fixed;
-    top: 170px;
+    top: 132px;
     z-index: 1;
   }
 `
@@ -37,23 +56,53 @@ export const TheadTr = styled.tr`
   display: block;
 `
 
+const getArrowPosition = isSortedDesc =>
+  isSortedDesc ? 'right -5px' : 'right 5px'
+
 export const TheadTh = styled.th`
-  color: ${props => props.theme.colors.gray6};
   border: 1px solid ${props => props.theme.colors.gray3};
+  color: ${props => props.theme.colors.gray6};
+  cursor: ${props => (props.canSort ? 'pointer' : 'default')};
   display: inline-block;
   font-size: 11px;
   letter-spacing: 1px;
   line-height: 14px;
-  padding: 20px 10px;
+  padding: 0 13px;
   height: 70px;
-  text-align: center;
   text-transform: uppercase;
   position: relative;
 `
 
 export const TheadThWithColumns = styled(TheadTh)`
-  padding-left: 0;
-  padding-right: 0;
+  padding: 18px 0 0;
+
+  ${WrapperContent} {
+    border-top: 1px solid ${props => props.theme.colors.gray3};
+    display: flex;
+    margin-top: 5px;
+
+    span::after {
+      top: 49px;
+      right: initial;
+    }
+  }
+`
+
+export const TheadText = styled.span`
+  user-select: none;
+
+  &::after {
+    content: '';
+    background-image: url(${ArrowSortable});
+    background-repeat: no-repeat;
+    background-position: ${props =>
+      props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
+    height: 12px;
+    position: absolute;
+    right: ${props => props.right};
+    top: ${props => props.top};
+    width: 12px;
+  }
 `
 
 export const TheadColumn = styled.div`
@@ -71,10 +120,10 @@ export const TbodyTr = styled.tr`
   width: 100%;
 `
 
-export const TBodyTd = styled.td`
+export const TbodyTd = styled.td`
   display: inline-block;
   font-size: 14px;
-  padding: 30px 0;
+  padding: 0;
   text-align: center;
 
   &:not(:first-of-type) {
@@ -91,13 +140,23 @@ export const TBodyTd = styled.td`
 export const FundoWrapper = styled.div`
   display: flex;
   line-height: 22px;
-  padding: 0 25px;
+  max-height: 99px;
+  padding: 37px 25px;
+  width: 100%;
 `
 
-export const LogoImg = styled.img`
-  margin-right: 1rem;
-  height: auto;
-  width: 70px;
+export const FundoOutterWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-left: 25px;
+`
+
+export const LogoImg = styled.div`
+  background-image: ${props => `url(${props.bg})`};
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left, left;
+  width: 75px;
 `
 
 export const InformationIcon = styled(IconExporter).attrs({
@@ -113,6 +172,7 @@ export const InformationIcon = styled(IconExporter).attrs({
 export const FundoNameWrapper = styled.p`
   text-align: left;
   max-width: 220px;
+  white-space: pre-wrap;
 `
 
 export const InvestButton = styled(ConquistaButton)`
@@ -127,14 +187,3 @@ export const LockIcon = styled(IconExporter).attrs({ name: 'lock' })`
   fill: ${props => props.theme.colors.gray4};
   width: 28px;
 `
-
-export const WrapperContent = styled.div`
-  line-height: ${props => (props.lineHeight ? props.lineHeight : '36px')};
-  height: 39px;
-  white-space: pre-wrap;
-`
-
-export const TabsWrapper = styled.div`
-  display: flex;
-`
-export const Tabs = styled(TabCmp)``

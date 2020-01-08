@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Select from 'components/Inputs/Select'
 import BreadcrumbCmp from 'components/Breadcrumb'
 import RiskDegreeComponent from 'components/RiskDegree'
 import {
@@ -46,8 +45,6 @@ export const TopWrapper = styled(Row)`
     padding-left: 0.5rem;
   }
 `
-
-export const SelectDropdown = styled(Select)``
 
 export const Breadcrumb = styled(BreadcrumbCmp)`
   flex: 1 0 auto;
