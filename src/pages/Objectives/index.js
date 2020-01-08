@@ -1,21 +1,26 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import Button from 'components/Button'
+import Header from 'components/Wizard/Header'
+import Board from './Board'
 
-import { Container } from './styles'
+import { Container, RegistrationWrapper, BoartTitle } from './styles'
 
 const Objectives = () => {
   const history = useHistory()
-  const handleRedirect = () => {
-    history.push('/objetivos/criar')
-  }
-
   return (
     <Container>
-      <Button color="primary" onClick={handleRedirect}>
-        criar objetivos
-      </Button>
+      <Header
+        onClose={() => {
+          history.push('/')
+          document.documentElement.scrollTop = 0
+          document.body.scrollTop = 0
+        }}
+      />
+      <RegistrationWrapper>
+        <BoartTitle>Criar objetivo</BoartTitle>
+        <Board />
+      </RegistrationWrapper>
     </Container>
   )
 }

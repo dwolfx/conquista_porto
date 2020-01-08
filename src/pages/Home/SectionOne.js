@@ -1,8 +1,9 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { ThemeContext } from 'styled-components'
 
 import ButtonLink from 'components/Button/Link'
 import CreditHomeImg from 'assets/images/pages/Home/credit1.jpg'
@@ -45,6 +46,40 @@ const SectionOne = () => {
       </EmptyText>
     </EmptyBody>
   )
+  const theme = useContext(ThemeContext)
+
+  const initialState = [
+    {
+      id: 'rendafixa',
+      label: 'Porto Seguro Renda Fixa',
+      value: 10,
+      color: theme.colors.magenta2,
+    },
+    {
+      id: 'multimercado',
+      label: 'Porto Seguro Multimercado',
+      value: 30,
+      color: theme.colors.blue4,
+    },
+    {
+      id: 'acoes',
+      label: 'Porto Seguro Ações',
+      value: 15,
+      color: theme.colors.yellow2,
+    },
+    {
+      id: 'creditocorporativo',
+      label: 'Porto Seguro Crédito Corporativo',
+      value: 25,
+      color: theme.colors.green4,
+    },
+    {
+      id: 'fundosimobiliarios',
+      label: 'Porto Seguro Fundos Imobiliários',
+      value: 20,
+      color: theme.colors.darkBlue2,
+    },
+  ]
 
   const renderCreditProducts = () => {
     let result = []
@@ -115,7 +150,7 @@ const SectionOne = () => {
         <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
           <SectionRow>
             <SectionCol lg="6">
-              <PieChart width="100%" height="100%">
+              <PieChart width="100%" height="100%" data={initialState}>
                 {renderEmptyState()}
               </PieChart>
             </SectionCol>

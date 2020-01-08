@@ -31,15 +31,14 @@ import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import Redirect from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
-import ObjectivesRegistration from 'pages/Objectives/Registration'
-import ObjectivesRetirementFlow from 'pages/Objectives/Registration/GoalStreams/RetirementFlow'
-import ObjectivesTravelFlow from 'pages/Objectives/Registration/GoalStreams/TravelFlow'
-import ObjectivesBuyCarFlow from 'pages/Objectives/Registration/GoalStreams/BuyCarFlow'
-import ObjectivesStudyFlow from 'pages/Objectives/Registration/GoalStreams/StudyFlow'
-import ObjectivesMultiplyMoneyFlow from 'pages/Objectives/Registration/GoalStreams/MultiplyMoneyFlow'
-import ObjectivesEventFlow from 'pages/Objectives/Registration/GoalStreams/EventFlow'
-import ObjectivesBuyHouseFlow from 'pages/Objectives/Registration/GoalStreams/BuyHouseFlow'
-import ObjectivesSaveMoneyFlow from 'pages/Objectives/Registration/GoalStreams/SaveMoneyFlow'
+import ObjectivesRetirementFlow from 'pages/Objectives/GoalStreams/RetirementFlow'
+import ObjectivesTravelFlow from 'pages/Objectives/GoalStreams/TravelFlow'
+import ObjectivesBuyCarFlow from 'pages/Objectives/GoalStreams/BuyCarFlow'
+import ObjectivesStudyFlow from 'pages/Objectives/GoalStreams/StudyFlow'
+import ObjectivesMultiplyMoneyFlow from 'pages/Objectives/GoalStreams/MultiplyMoneyFlow'
+import ObjectivesEventFlow from 'pages/Objectives/GoalStreams/EventFlow'
+import ObjectivesBuyHouseFlow from 'pages/Objectives/GoalStreams/BuyHouseFlow'
+import ObjectivesSaveMoneyFlow from 'pages/Objectives/GoalStreams/SaveMoneyFlow'
 import Notifications from 'pages/Notifications'
 
 const DefaultRoute = ({ component, ...rest }) => {
@@ -133,45 +132,24 @@ export default function Routes({ ...props }) {
         component={ManagementTripInsurance}
       />
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
-      <DefaultRoute path="/objetivos" exact component={Objectives} />
-      <Route path="/objetivos/criar" exact component={ObjectivesRegistration} />
+      <Route path="/objetivos" exact component={Objectives} />
       <Route
         path="/objetivos/aposentar"
         exact
         component={ObjectivesRetirementFlow}
       />
+      <Route path="/objetivos/viagem" exact component={ObjectivesTravelFlow} />
+      <Route path="/objetivos/carro" exact component={ObjectivesBuyCarFlow} />
+      <Route path="/objetivos/curso" exact component={ObjectivesStudyFlow} />
       <Route
-        path="/objetivos/realizar-viagem"
-        exact
-        component={ObjectivesTravelFlow}
-      />
-      <Route
-        path="/objetivos/comprar-carro"
-        exact
-        component={ObjectivesBuyCarFlow}
-      />
-      <Route
-        path="/objetivos/realizar-curso"
-        exact
-        component={ObjectivesStudyFlow}
-      />
-      <Route
-        path="/objetivos/multiplicar-dinheiro"
+        path="/objetivos/dinheiro"
         exact
         component={ObjectivesMultiplyMoneyFlow}
       />
+      <Route path="/objetivos/evento" exact component={ObjectivesEventFlow} />
+      <Route path="/objetivos/casa" exact component={ObjectivesBuyHouseFlow} />
       <Route
-        path="/objetivos/realizar-evento"
-        exact
-        component={ObjectivesEventFlow}
-      />
-      <Route
-        path="/objetivos/comprar-casa"
-        exact
-        component={ObjectivesBuyHouseFlow}
-      />
-      <Route
-        path="/objetivos/reservar-dinheiro"
+        path="/objetivos/reserva"
         exact
         component={ObjectivesSaveMoneyFlow}
       />
