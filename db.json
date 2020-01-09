@@ -1991,6 +1991,32 @@
       }
     ]
   },
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "conta_extrato": {
+    "transacoes": {
+      "transacao": [
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-09-03T00:00:00-03:00",
+          "valor": "-100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-07-03T00:00:00-03:00",
+          "valor": "-500"
+        },
+        { "tipo": "TED", "data": "2019-08-27T00:00:00-03:00", "valor": "100" }
+      ]
+    },
+    "conta": {
+      "xsi:type": "ns3:ContaPortoSeguroType",
+      "conta": "47",
+      "cpf": "030302151",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "digito_conta": "0",
+      "nome_titular": "Código Conquista",
+      "agencia": "0001",
+      "titular": "Código Conquista",
+      "codigo_banco": "420"
+    }
+  }
 }
