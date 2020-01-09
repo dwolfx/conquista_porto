@@ -105,7 +105,11 @@ const TfootWrapper = ({
   </Tfoot>
 )
 
-export default function TableRender({ columns: columnsProp, data: dataProp }) {
+export default function TableRender({
+  columns: columnsProp,
+  data: dataProp,
+  renderFilter,
+}) {
   const filterTypes = useMemo(
     () => ({
       text: filterText,
@@ -129,7 +133,7 @@ export default function TableRender({ columns: columnsProp, data: dataProp }) {
     canNextPage,
     canPreviousPage,
     pageCount,
-    pageIndex,
+    pageIndex = 0,
     nextPage,
     previousPage,
     gotoPage,
@@ -152,9 +156,13 @@ export default function TableRender({ columns: columnsProp, data: dataProp }) {
       <thead>
         <TheadTr>
           {flatColumns.map(column => (
-            <TheadTh {...column.getHeaderProps()}>
+            <TheadTh hasFilter={renderFilter} {...column.getHeaderProps()}>
               {column.render('Header')}
-              <div>{column.canFilter ? column.render('Filter') : null}</div>
+              <div>
+                {column.canFilter && renderFilter
+                  ? column.render('Filter')
+                  : null}
+              </div>
             </TheadTh>
           ))}
         </TheadTr>
@@ -197,4 +205,8 @@ export default function TableRender({ columns: columnsProp, data: dataProp }) {
       )}
     </Table>
   )
+}
+
+TableRender.defaultProps = {
+  renderFilter: true,
 }

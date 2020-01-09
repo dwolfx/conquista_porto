@@ -200,7 +200,13 @@ const SectionOne = () => {
                   <Text type="headline" bold>
                     {formatMoney(0)}
                   </Text>
-                  <ButtonLink>Conta de Investimento</ButtonLink>
+                  <ButtonLink
+                    onClick={() => {
+                      history.push('/investimentos/visualizar')
+                    }}
+                  >
+                    Conta de Investimento
+                  </ButtonLink>
                 </InvestmentInfos>
               </InvestmentInfosRow>
               <InvestmentInfosRow>
@@ -209,7 +215,11 @@ const SectionOne = () => {
                   <Text type="headline" bold>
                     {formatMoney(0)}
                   </Text>
-                  <ButtonLink>Ver extrato</ButtonLink>
+                  <ButtonLink
+                    onClick={() => history.push('/investimentos/extrato')}
+                  >
+                    Ver extrato
+                  </ButtonLink>
                 </InvestmentInfos>
               </InvestmentInfosRow>
             </SectionCol>

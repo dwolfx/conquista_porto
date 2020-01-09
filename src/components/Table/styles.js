@@ -18,6 +18,7 @@ export const TheadTh = styled.th.attrs({ width: '300px' })`
   color: ${props => props.theme.colors.gray6};
   text-transform: uppercase;
   padding-top: 20px;
+  padding-bottom: ${props => (props.hasFilter ? 0 : '20px')};
 `
 
 export const TbodyTr = styled.tr`

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useReducer, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 import { ThemeContext } from 'styled-components'
 
 import Icon from 'components/IconExporter'
@@ -8,9 +10,10 @@ import Select from 'components/Inputs/Select'
 import Table from 'components/Table'
 import Header from 'components/Wizard/Header'
 import Tab from 'components/Tab'
-import { formatCpf } from 'helpers'
+import { formatMoney, formatCpf } from 'helpers'
+import useFetchBankExtract from 'hooks/BankExtract/useFetchBankExtract'
 
-import useExtract from './data'
+import { selectOptions, statementColumns } from './data'
 import {
   Section,
   Container,
@@ -37,29 +40,69 @@ const reducerstateTab = (stateInner, activeKey) =>
 
 const InvestmentExtract = () => {
   const themeContext = useContext(ThemeContext)
-  const [bankInfo, setBankInfo] = useState(null)
+  const history = useHistory()
+
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+  const [requestData, setRequestData] = useState({
+    filter: 0,
+    startDate: '',
+    endDate: '',
+  })
+  const [extractData, setExtractData] = useState([])
   const [showDateFilter, setShowDateFilter] = useState(false)
   const [stateTab, setCurrentTab] = useReducer(reducerstateTab, {
     accumulatorClass: '',
     statementClass: 'active',
   })
 
-  const bankData = useSelector(state => state.bankData.data)
-  const [statementColumns, statementData, selectOptions] = useExtract()
+  useFetchBankExtract(requestData)
 
-  useEffect(() => {
-    if (bankData.length > 0) {
-      setBankInfo({ ...bankData[0].dadosContaPortoSeguro })
-    }
-  }, [bankData])
+  const bankExtract = useSelector(state => state.bankExtract.data)
 
   const handleChangeSelect = e => {
     setShowDateFilter(e.target.value === 'other')
+
+    if (e.target.value !== 'other') {
+      setRequestData({
+        ...requestData,
+        filter: e.target.value,
+      })
+    }
   }
+
+  const filterByDate = () => {
+    setRequestData({
+      ...requestData,
+      filter: 0,
+      startDate,
+      endDate,
+    })
+  }
+
+  useEffect(() => {
+    if (bankExtract.transacoes && bankExtract.transacoes.transacao) {
+      const newExtract = bankExtract.transacoes.transacao.map(item => ({
+        transactionDate: moment(item.data).format('DD/MM/YYYY'),
+        type: item.tipo,
+        value: formatMoney(Math.abs(item.valor)),
+        effectuationDate: moment(item.data).format('DD/MM/YYYY'),
+      }))
+
+      setExtractData(newExtract)
+    } else {
+      setExtractData([])
+    }
+  }, [bankExtract])
 
   return (
     <>
-      <Header showBackButton={false} />
+      <Header
+        showBackButton={false}
+        onClose={() => {
+          history.goBack()
+        }}
+      />
 
       <Section>
         <Container>
@@ -81,7 +124,9 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>Banco</InfosLabel>
-                <InfosData>{bankInfo && bankInfo.codigo_banco}</InfosData>
+                <InfosData>
+                  {bankExtract.conta && bankExtract.conta.codigo_banco}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -92,7 +137,9 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>Agência</InfosLabel>
-                <InfosData>{bankInfo && bankInfo.agencia}</InfosData>
+                <InfosData>
+                  {bankExtract.conta && bankExtract.conta.agencia}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -100,7 +147,8 @@ const InvestmentExtract = () => {
               <InfosWrapper>
                 <InfosLabel>Conta</InfosLabel>
                 <InfosData>
-                  {bankInfo && `${bankInfo.conta}-${bankInfo.digito_conta}`}
+                  {bankExtract.conta &&
+                    `${bankExtract.conta.conta}-${bankExtract.conta.digito_conta}`}
                 </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
@@ -108,7 +156,9 @@ const InvestmentExtract = () => {
               <Icon fill={themeContext.colors.blue4} width={40} name="boy" />
               <InfosWrapper>
                 <InfosLabel>Favorecido</InfosLabel>
-                <InfosData>{bankInfo && bankInfo.titular}</InfosData>
+                <InfosData>
+                  {bankExtract.conta && bankExtract.conta.titular}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -119,7 +169,9 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>CPF</InfosLabel>
-                <InfosData>{bankInfo && formatCpf(bankInfo.cpf)}</InfosData>
+                <InfosData>
+                  {bankExtract.conta && formatCpf(bankExtract.conta.cpf)}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
           </Row>
@@ -149,6 +201,7 @@ const InvestmentExtract = () => {
                 label="Filtrar por período"
                 options={selectOptions}
                 onChange={handleChangeSelect}
+                defaultValue={0}
               />
               {showDateFilter && (
                 <>
@@ -157,19 +210,39 @@ const InvestmentExtract = () => {
                     label="Data inicial"
                     paddingRight={15}
                     paddingLeft={15}
+                    onBlur={e => {
+                      setStartDate(
+                        moment(e.target.value, 'DD/MM/YYYY').format(
+                          'YYYY-MM-DD'
+                        )
+                      )
+                    }}
                   />
                   <DateInput
                     width={30}
                     label="Data final"
                     paddingRight={15}
                     paddingLeft={15}
+                    onBlur={e => {
+                      setEndDate(
+                        moment(e.target.value, 'DD/MM/YYYY').format(
+                          'YYYY-MM-DD'
+                        )
+                      )
+                    }}
                   />
-                  <FilterButton>Filtrar &gt;</FilterButton>
+                  <FilterButton onClick={() => filterByDate()}>
+                    Filtrar &gt;
+                  </FilterButton>
                 </>
               )}
             </SelectWrapper>
           )}
-          <Table columns={statementColumns} data={statementData} />
+          <Table
+            columns={statementColumns}
+            data={extractData}
+            renderFilter={false}
+          />
         </Container>
       </Section>
     </>

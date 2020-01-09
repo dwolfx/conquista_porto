@@ -90,6 +90,7 @@ export const FilterButton = styled.button`
   background-color: transparent;
   border: none;
   color: ${props => props.theme.colors.blue4};
+  cursor: pointer;
   font-size: 11px;
   font-weight: 600;
   line-height: 21px;
