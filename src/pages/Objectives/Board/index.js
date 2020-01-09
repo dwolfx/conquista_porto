@@ -12,43 +12,38 @@ const Board = () => {
   const boardData = [
     {
       cardIcon: 'plane',
-      cardTitle: 'Fazer uma viagem',
+      cardTitle: 'Viagem',
       cardPath: '/objetivos/viagem',
     },
     {
       cardIcon: 'time',
-      cardTitle: 'Aposentar',
-      cardPath: '/objetivos/aposentar',
+      cardTitle: 'Aposentadoria',
+      cardPath: '/objetivos/aposentadoria',
     },
     {
       cardIcon: 'car2',
-      cardTitle: 'Comprar um carro',
+      cardTitle: 'Carro',
       cardPath: '/objetivos/carro',
     },
     {
       cardIcon: 'student',
-      cardTitle: 'Fazer um curso',
+      cardTitle: 'Curso',
       cardPath: '/objetivos/curso',
     },
     {
       cardIcon: 'drink',
-      cardTitle: 'Fazer um evento',
+      cardTitle: 'Evento',
       cardPath: '/objetivos/evento',
     },
     {
       cardIcon: 'homewithwindow',
-      cardTitle: 'Comprar uma casa',
+      cardTitle: 'Casa',
       cardPath: '/objetivos/casa',
     },
     {
-      cardIcon: 'financial',
-      cardTitle: 'Multiplicar dinheiro',
-      cardPath: '/objetivos/dinheiro',
-    },
-    {
       cardIcon: 'money',
-      cardTitle: 'Reservar para emergências',
-      cardPath: '/objetivos/reserva',
+      cardTitle: 'Poupar',
+      cardPath: '/objetivos/poupar',
     },
   ]
 
@@ -64,7 +59,7 @@ const Board = () => {
 
   return (
     <Container>
-      <Row>
+      <Row justifyContent="center">
         {boardData.map(card => (
           <Col key={card.cardTitle} lg={3} md={4} sm={6} xs={12}>
             <CardWrapper key={card.cardTitle}>
