@@ -124,15 +124,6 @@ export const PointsList = styled.div`
   overflow-y: scroll;
 `
 
-export const PointsItem = styled.div`
-  align-items: center;
-  display: flex;
-
-  &:not(:last-of-type) {
-    margin-bottom: 22px;
-  }
-`
-
 export const PointDate = styled(Text)`
   color: ${props => props.theme.colors.gray5};
 `

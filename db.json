@@ -1832,6 +1832,101 @@
       ]
     }
   },
+  "pontos": {
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
+    "cadastroPessoaProgramaType": {
+      "segmento": "EXCLUSIVO",
+      "codigoFidelidade": "33244452809",
+      "nome": "Rafael Rodrigues",
+      "dataInicioVigencia": "21/09/2019"
+    },
+    "detalheExtratoOptemaisTypes": [
+      {
+        "pontoGanho": "304",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "205,14",
+        "taxaCon": "3,89",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "02/2019"
+      },
+      {
+        "pontoGanho": "263",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "16,50",
+        "taxaCon": "3,96",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "12/2018"
+      },
+      {
+        "pontoGanho": "16",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "36,07",
+        "taxaCon": "4,10",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "09/2018"
+      },
+      {
+        "pontoGanho": "32",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "69,90",
+        "taxaCon": "4,37",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "08/2018"
+      },
+      {
+        "pontoGanho": "34",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "69,90",
+        "taxaCon": "4,10",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "07/2018"
+      },
+      {
+        "pontoGanho": "34",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "69,90",
+        "taxaCon": "3,93",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "06/2018"
+      },
+      {
+        "pontoGanho": "34",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "69,90",
+        "taxaCon": "3,93",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "05/2018"
+      },
+      {
+        "pontoGanho": "38",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "69,90",
+        "taxaCon": "3,52",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "04/2018"
+      },
+      {
+        "pontoGanho": "36",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "66,03",
+        "taxaCon": "3,52",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "03/2018"
+      }
+    ]
+  },
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }
 }
