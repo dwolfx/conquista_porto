@@ -8,8 +8,8 @@ import OfferHomeImg from 'assets/images/pages/Home/home_offer.jpg'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
+import HorizontalList from 'components/HorizontalList'
 
-import { PointsListArr } from './mock'
 import {
   EmptyBody,
   EmptyText,
@@ -20,7 +20,6 @@ import {
   OfferBox,
   OfferImageBox,
   OfferTextBox,
-  PointsItem,
   PointsInfo,
   PointDate,
   PointName,
@@ -42,13 +41,17 @@ export default function SectionThree({ points }) {
     return null
   }
 
-  const renderPointsList = () =>
-    PointsListArr.map((item, index) => (
-      <PointsItem key={`point-${index}`}>
-        <PointDate>{item.date}</PointDate>
-        <PointName>{item.name}</PointName>
-        <PointNumber bold>{item.points}</PointNumber>
-      </PointsItem>
+  const renderPointsHorizontalList = () =>
+    points.detalheExtratoOptemaisTypes &&
+    points.detalheExtratoOptemaisTypes.map((item, index) => (
+      <HorizontalList
+        key={`point-${index}`}
+        startItems={[
+          <PointDate>{item.dataCompra}</PointDate>,
+          <PointName>{item.nomeTransacao}</PointName>,
+        ]}
+        endItems={[<PointNumber bold>{item.pontoGanho}</PointNumber>]}
+      />
     ))
 
   const renderEmptyState = () => (
@@ -62,6 +65,9 @@ export default function SectionThree({ points }) {
     </EmptyBody>
   )
 
+  const renderPointsAmountBalance = extrato =>
+    extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
+
   return (
     <>
       <SectionCol lg="5">
@@ -73,13 +79,16 @@ export default function SectionThree({ points }) {
           <PointsInfo>
             <Text type="headline">Saldo atual</Text>
             <Text type="headline" bold>
-              {points ? 1160 : 0} pontos
+              {points
+                ? renderPointsAmountBalance(points.detalheExtratoOptemaisTypes)
+                : 0}{' '}
+              pontos
             </Text>
             {points && <Button color="secondary">Resgatar</Button>}
           </PointsInfo>
-          {points ? (
+          {points && points.detalheExtratoOptemaisTypes.length > 0 ? (
             <>
-              <PointsList>{renderPointsList()}</PointsList>
+              <PointsList>{renderPointsHorizontalList()}</PointsList>
             </>
           ) : (
             renderEmptyState()
@@ -136,8 +145,12 @@ SectionThree.defaultProps = {
 
 SectionThree.propTypes = {
   points: PropTypes.shape({
-    date: PropTypes.string,
-    name: PropTypes.string,
-    points: PropTypes.string,
+    detalheExtratoOptemaisTypes: PropTypes.arrayOf(
+      PropTypes.shape({
+        dataCompra: PropTypes.string,
+        nomeTransacao: PropTypes.string,
+        pontoGanho: PropTypes.string,
+      })
+    ),
   }),
 }

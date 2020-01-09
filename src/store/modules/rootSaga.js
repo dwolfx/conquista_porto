@@ -9,6 +9,7 @@ import bankData from './BankData/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import tripInsurance from './TripInsurance/sagas'
+import points from './Points/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     vehicleFinancing,
     lifeInsurance,
     tripInsurance,
+    points,
   ])
 }

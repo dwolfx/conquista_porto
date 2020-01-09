@@ -7,5 +7,6 @@
   "/produtos/financiamento\\?cpf=:cpf&codigoCanal=:codigoCanal": "/financiamento_veiculo?cpf=:cpf&codigoCanal=:codigoCanal",
   "/conta/dados\\?cpf=:cpf&codigoCanal=:codigoCanal": "/conta_porto?cpf=:cpf&codigoCanal=:codigoCanal",
   "/produtos/vida\\?cpfCnpj=:cpf&codigoCanal=:codigoCanal&tipoSeguro=:tipoSeguro": "/seguros",
-  "/fundos": "/fundos_detalhe"
+  "/fundos": "/fundos_detalhe",
+  "/programa-pontos/extrato\\?cpf=:cpf": "/pontos?cpf=:cpf"
 }
