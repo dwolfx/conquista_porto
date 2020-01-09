@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useReducer, useState } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
@@ -9,18 +9,85 @@ export default function PieChart({
   children,
   data,
   height,
-  onLegendMouseEnter,
-  onLegendMouseLeave,
+  onMouseEnter,
+  onMouseLeave,
+  onSliceClick,
   width,
+  hideLegend,
   ...rest
 }) {
+  const chartReducer = (state = data, action) => {
+    const { payload, type } = action
+    switch (type) {
+      case 'click': {
+        if (payload.color.endsWith('33')) {
+          return [
+            ...data.map(item => {
+              if (item.id !== payload.id) {
+                return { ...item, color: `${item.color}33` }
+              }
+              return item
+            }),
+          ]
+        }
+        return [...state]
+      }
+      case 'mouseEnter': {
+        if (!payload) {
+          return state
+        }
+        return [
+          ...state.map(item => {
+            if (item.id !== payload.id) {
+              return { ...item, color: `${item.color}33` }
+            }
+            return item
+          }),
+        ]
+      }
+      case 'mouseLeave':
+        return [...data]
+      default:
+        return state
+    }
+  }
+
+  function handleMouseEnter(payload) {
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseEnter', payload })
+      if (onMouseEnter) {
+        onMouseEnter(payload)
+      }
+    }
+  }
+
+  function handleMouseLeave() {
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseLeave' })
+      if (onMouseLeave) {
+        onMouseLeave(null)
+      }
+    }
+  }
+
+  function handleClick(payload) {
+    setPreventOnMouse(payload.color.endsWith('33') ? true : !preventOnMouse)
+    dispatch({ type: 'click', payload })
+    if (onSliceClick) {
+      onSliceClick(payload.color.endsWith('33') ? payload : null)
+    }
+  }
+
   const theme = useContext(ThemeContext)
+  const [chartData, dispatch] = useReducer(chartReducer, data)
+  const [preventOnMouse, setPreventOnMouse] = useState(false)
+
   return (
     <ChartContainer width={width} height={height}>
       <ResponsivePie
         {...rest}
         data={
-          data || [
+          chartData || [
             {
               id: 'emptyvalue',
               value: 100,
@@ -28,27 +95,25 @@ export default function PieChart({
             },
           ]
         }
-        colors={data ? data.map(item => item.color) : [theme.colors.gray2]}
-        innerRadius={0.95}
+        colors={
+          chartData ? chartData.map(item => item.color) : [theme.colors.gray2]
+        }
+        innerRadius={0.94}
         padAngle={1}
         cornerRadius={3}
         enableRadialLabels={false}
         enableSlicesLabels={false}
         isInteractive={false}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
         legends={
-          data
+          !hideLegend && data
             ? [
                 {
-                  onMouseEnter: payload => {
-                    if (onLegendMouseEnter) {
-                      onLegendMouseEnter(payload)
-                    }
-                  },
-                  onMouseLeave: () => {
-                    if (onLegendMouseLeave) {
-                      onLegendMouseLeave()
-                    }
-                  },
+                  onMouseEnter: handleMouseEnter,
+                  onMouseLeave: handleMouseLeave,
+                  onClick: handleClick,
                   anchor: 'bottom',
                   direction: 'row',
                   symbolSize: 14,
@@ -77,8 +142,10 @@ export default function PieChart({
 PieChart.defaultProps = {
   children: null,
   data: null,
-  onLegendMouseEnter: null,
-  onLegendMouseLeave: null,
+  onMouseEnter: null,
+  onMouseLeave: null,
+  onSliceClick: null,
+  hideLegend: false,
 }
 
 PieChart.propTypes = {
@@ -91,7 +158,9 @@ PieChart.propTypes = {
     })
   ),
   height: PropTypes.string.isRequired,
-  onLegendMouseEnter: PropTypes.func,
-  onLegendMouseLeave: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  onSliceClick: PropTypes.func,
   width: PropTypes.string.isRequired,
+  hideLegend: PropTypes.bool,
 }
