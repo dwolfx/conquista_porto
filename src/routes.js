@@ -35,7 +35,6 @@ import ObjectivesRetirementFlow from 'pages/Objectives/GoalStreams/RetirementFlo
 import ObjectivesTravelFlow from 'pages/Objectives/GoalStreams/TravelFlow'
 import ObjectivesBuyCarFlow from 'pages/Objectives/GoalStreams/BuyCarFlow'
 import ObjectivesStudyFlow from 'pages/Objectives/GoalStreams/StudyFlow'
-import ObjectivesMultiplyMoneyFlow from 'pages/Objectives/GoalStreams/MultiplyMoneyFlow'
 import ObjectivesEventFlow from 'pages/Objectives/GoalStreams/EventFlow'
 import ObjectivesBuyHouseFlow from 'pages/Objectives/GoalStreams/BuyHouseFlow'
 import ObjectivesSaveMoneyFlow from 'pages/Objectives/GoalStreams/SaveMoneyFlow'
@@ -135,22 +134,17 @@ export default function Routes({ ...props }) {
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <Route path="/objetivos" exact component={Objectives} />
       <Route
-        path="/objetivos/aposentar"
+        path="/objetivos/aposentadoria"
         exact
         component={ObjectivesRetirementFlow}
       />
       <Route path="/objetivos/viagem" exact component={ObjectivesTravelFlow} />
       <Route path="/objetivos/carro" exact component={ObjectivesBuyCarFlow} />
       <Route path="/objetivos/curso" exact component={ObjectivesStudyFlow} />
-      <Route
-        path="/objetivos/dinheiro"
-        exact
-        component={ObjectivesMultiplyMoneyFlow}
-      />
       <Route path="/objetivos/evento" exact component={ObjectivesEventFlow} />
       <Route path="/objetivos/casa" exact component={ObjectivesBuyHouseFlow} />
       <Route
-        path="/objetivos/reserva"
+        path="/objetivos/poupar"
         exact
         component={ObjectivesSaveMoneyFlow}
       />
