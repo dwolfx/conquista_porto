@@ -36,7 +36,7 @@ const SectionOne = () => {
   const vehiclesConsortium = useSelector(state => state.consortiumVehicle.data)
   const buildingConsortium = useSelector(state => state.consortiumBuilding.data)
   const lifeInsurance = useSelector(state => state.lifeInsurance.data)
-  // const tripInsurance = useSelector(state => state.tripInsurance.data)
+  const tripInsurance = useSelector(state => state.tripInsurance.data)
 
   const history = useHistory()
 
@@ -146,6 +146,7 @@ const SectionOne = () => {
 
     result = [
       ...ProductItemGenerator(lifeInsurance, 'seguroVida', history, false),
+      ...ProductItemGenerator(tripInsurance, 'seguroViagem', history, true),
     ]
 
     if (result.length > 0) {
@@ -226,7 +227,7 @@ const SectionOne = () => {
 
           <SectionCol lg="6">
             <FullHeightCard headerIcon="targetmarket" headerTitle="Seguros">
-              {renderInsuranceProducts()}
+              <OverflowCard>{renderInsuranceProducts()}</OverflowCard>
             </FullHeightCard>
           </SectionCol>
         </SectionRow>

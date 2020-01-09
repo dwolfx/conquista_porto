@@ -1494,19 +1494,19 @@
     "consorcios": [
       {
         "Id": 1,
-        "Cota": 300,
-        "Descricao": "string",
-        "DescricaoBem": "string",
-        "Grupo": "x398",
-        "PontosGanhos": 0,
-        "QuantidadeParcelasContratadas": 12,
-        "QuantidadeParcelasPagas": 9,
+        "UrlProposta": "",
+        "DescricaoBem": "",
+        "ValorContratado": "137132.8",
+        "Descricao": "Contrato 889654",
+        "ValorParcelaAtual": "434.85",
         "StatusConsorcio": "Contemplado",
-        "UrlProposta": "string",
-        "ValorContratado": 40000,
-        "ValorPago": 0,
-        "ValorParcelaAtual": 675,
-        "ValorQuitacao": 27200
+        "QuantidadeParcelasContratadas": "191",
+        "ValorQuitacao": "30482.77",
+        "QuantidadeParcelasPagas": "121",
+        "Grupo": "I159",
+        "Cota": "180",
+        "ValorPago": "108246.07",
+        "PontosGanhos": "100"
       }
     ]
   },
@@ -1517,19 +1517,21 @@
     "consorcios": [
       {
         "Id": 1,
-        "Cota": 500,
-        "Descricao": "string",
-        "DescricaoBem": "string",
-        "Grupo": "x398",
-        "PontosGanhos": 0,
-        "QuantidadeParcelasContratadas": 12,
-        "QuantidadeParcelasPagas": 9,
+        "UrlProposta": "",
+        "DescricaoBem": "",
+        "ValorContratado": "25958",
+        "Descricao": "Contrato 321594",
+        "ValorParcelaAtual": "0",
         "StatusConsorcio": "Contemplado",
-        "UrlProposta": "string",
-        "ValorContratado": 40000,
-        "ValorPago": 0,
-        "ValorParcelaAtual": 675,
-        "ValorQuitacao": 27200
+        "QuantidadeParcelasContratadas": "80",
+        "ValorQuitacao": "0",
+        "QuantidadeParcelasPagas": "80",
+        "Marca": "FIAT",
+        "Modelo": "Uno Way",
+        "Grupo": "A104",
+        "Cota": "123",
+        "ValorPago": "31792.5",
+        "PontosGanhos": "100"
       },
       {
         "Id": 2,
@@ -1590,108 +1592,245 @@
     }
   ],
   "seguros": {
-    "ProdutosViagem": [
-      {
-        "Apolice": {
-          "LinkDownload": "string",
-          "NumeroApolice": 0
-        },
-        "Beneficiarios": [
-          {
-            "Nome": "string",
-            "Percentual": 0
-          }
-        ],
-        "CoberturasBasicas": [
-          {
-            "CapitalSegurado": 0,
-            "Detalhe": "string",
-            "Nome": "string"
-          }
-        ],
-        "CoberturasRisco": ["string"],
-        "CodigoFormaPagamento": 0,
-        "DescricaoFormaPagamento": "string",
-        "DtFinalVigencia": "2019-12-27T19:07:39.819Z",
-        "DtInicioVigencia": "2019-12-27T19:07:39.819Z",
-        "FormaPagamento": {
-          "QtdParcelas": 8,
-          "ValorParcela": 254
-        },
-        "GruposCobertura": [
-          {
-            "CoberturasRisco": ["string"],
-            "Nome": "string"
-          }
-        ],
-        "Nome": "Mundo 120 Prata",
-        "NomeSegurado": "Paulo Peaga Santana",
-        "Parcelas": [
-          {
-            "Numero": 0,
-            "Valor": 0
-          }
-        ],
-        "PrgRelacionamento": ["string"],
-        "Ramo": 0,
-        "Sucursal": 0
-      }
-    ],
-    "ProdutosVidas": [
-      {
-        "Apolice": {
-          "LinkDownload": "string",
-          "NumeroApolice": 23123
-        },
-        "Beneficiarios": [
-          {
-            "Nome": "Paulo Santana",
-            "Percentual": 35
+    "ProdutosViagem": {
+      "Viagem": [
+        {
+          "codigoFormaPagamento": "62",
+          "CoberturasBasicas": {
+            "CoberturaBasica": [
+              {
+                "CapitalSegurado": "30000.00",
+                "Nome": "DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"
+              },
+              {
+                "CapitalSegurado": "100000.00",
+                "Nome": "MORTE ACIDENTAL"
+              }
+            ]
           },
-          {
-            "Nome": "Pablito",
-            "Percentual": 45
+          "Beneficiarios": {
+            "Beneficiario": {
+              "Percentual": "100",
+              "Nome": "Herdeiros legais"
+            }
           },
-          {
-            "Nome": "Paré",
-            "Percentual": 20
-          }
-        ],
-        "CoberturasBasicas": [
-          {
-            "CapitalSegurado": 0,
-            "Detalhe": "string",
-            "Nome": "string"
-          }
-        ],
-        "CoberturasRisco": ["string"],
-        "CodigoFormaPagamento": 0,
-        "DescricaoFormaPagamento": "string",
-        "DtFinalVigencia": "2019-12-27T19:07:39.819Z",
-        "DtInicioVigencia": "2019-12-27T19:07:39.819Z",
-        "FormaPagamento": {
-          "QtdParcelas": 12,
-          "ValorParcela": 500
-        },
-        "GruposCobertura": [
-          {
-            "CoberturasRisco": ["string"],
-            "Nome": "string"
-          }
-        ],
-        "Nome": "string",
-        "NomeSegurado": "Paulo Santana",
-        "Parcelas": [
-          {
-            "Numero": 0,
-            "Valor": 0
-          }
-        ],
-        "PrgRelacionamento": ["string"],
-        "Ramo": 0,
-        "Sucursal": 0
-      }
-    ]
+          "DtFinalVigencia": "2020-09-08-03:00",
+          "GruposCobertura": {
+            "GrupoCobertura": [
+              {
+                "CoberturasRisco": {
+                  "CoberturaRisco": [
+                    {
+                      "CapitalSegurado": "200.00",
+                      "Nome": "Hospedagem Acompanhante- Hospitalização Prolongada"
+                    },
+                    {
+                      "CapitalSegurado": "5000.00",
+                      "Nome": "Acompanhamento de Menor"
+                    },
+                    {
+                      "CapitalSegurado": "5000.00",
+                      "Nome": "Assistência Funeral Viagem"
+                    },
+                    {
+                      "CapitalSegurado": "5000.00",
+                      "Nome": "Remarcação de Pas. para Reg. de Membros de Família"
+                    },
+                    {
+                      "CapitalSegurado": "200.00",
+                      "Nome": "Hospedagem após Alta Hospitalar"
+                    },
+                    {
+                      "CapitalSegurado": "20000.00",
+                      "Nome": "Traslado Médico"
+                    },
+                    {
+                      "CapitalSegurado": "5000.00",
+                      "Nome": "Acompanhante em caso de Hospitalização Prolongada"
+                    },
+                    {
+                      "CapitalSegurado": "500.00",
+                      "Nome": "Danos de Bagagem"
+                    },
+                    {
+                      "CapitalSegurado": "5000.00",
+                      "Nome": "Remarcação de passagem para Regresso"
+                    },
+                    {
+                      "CapitalSegurado": "20000.00",
+                      "Nome": "Traslado de Corpo"
+                    },
+                    {
+                      "CapitalSegurado": "20000.00",
+                      "Nome": "Regresso Sanitário"
+                    },
+                    {
+                      "CapitalSegurado": "1500.00",
+                      "Nome": "Extravio de Bagagem"
+                    }
+                  ]
+                },
+                "Nome": "Outros"
+              },
+              {
+                "CoberturasRisco": {
+                  "CoberturaRisco": [
+                    {
+                      "CapitalSegurado": "100000.00",
+                      "Nome": "Invalidez Permanente Total ou Parcial por Acidente"
+                    },
+                    {
+                      "CapitalSegurado": "100000.00",
+                      "Nome": "Morte Acidental"
+                    }
+                  ]
+                },
+                "Nome": "Imprevistos"
+              }
+            ]
+          },
+          "Sucursal": "1",
+          "parcelas": {
+            "parcela": {
+              "numero": "1",
+              "valor": "7.59"
+            }
+          },
+          "Ramo": "1369",
+          "DtInicioVigencia": "2020-09-08-03:00",
+          "Nome": "Plano Porto Brasil Ouro",
+          "NomeSegurado": "RAFAEL RODRIGUES",
+          "Apolice": {
+            "LinkDownload": "http://vidanova/servicosvida/obterApolice?param=MSwxMzY5LDYwMzI1LDcsNDgxNjQwOA=="
+          },
+          "descricaoFormaPagamento": "CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"
+        }
+      ]
+    },
+    "ProdutosVida": {
+      "SeguroVida": [
+        {
+          "codigoFormaPagamento": "52",
+          "CoberturasBasicas": {
+            "CoberturaBasica": {
+              "CapitalSegurado": "150000.00",
+              "Nome": "MORTE ACIDENTAL"
+            }
+          },
+          "Beneficiarios": {
+            "Beneficiario": {
+              "Percentual": "100",
+              "Nome": "Herdeiros legais"
+            }
+          },
+          "DtFinalVigencia": "2020-12-14-03:00",
+          "GruposCobertura": {
+            "GrupoCobertura": [
+              {
+                "CoberturasRisco": {
+                  "CoberturaRisco": [
+                    {
+                      "CapitalSegurado": "5000.00",
+                      "Nome": "Assistência Funeral - Titular"
+                    },
+                    {
+                      "CapitalSegurado": "150000.00",
+                      "Nome": "Morte"
+                    }
+                  ]
+                },
+                "Nome": "Equilíbrio Financeiro Familiar"
+              },
+              {
+                "CoberturasRisco": {
+                  "CoberturaRisco": [
+                    {
+                      "CapitalSegurado": "12000.00",
+                      "Nome": "Capitalização"
+                    },
+                    {
+                      "CapitalSegurado": "0.00",
+                      "Nome": "Assistência Vida 24 Horas"
+                    }
+                  ]
+                },
+                "Nome": "Outros"
+              },
+              {
+                "CoberturasRisco": {
+                  "CoberturaRisco": {
+                    "CapitalSegurado": "150000.00",
+                    "Nome": "Invalidez Permanente Total ou Parcial por Acidente"
+                  }
+                },
+                "Nome": "Imprevistos"
+              }
+            ]
+          },
+          "Sucursal": "1",
+          "parcelas": {
+            "parcela": [
+              {
+                "numero": "1",
+                "valor": "32.93"
+              },
+              {
+                "numero": "2",
+                "valor": "32.93"
+              },
+              {
+                "numero": "3",
+                "valor": "32.93"
+              },
+              {
+                "numero": "4",
+                "valor": "32.93"
+              },
+              {
+                "numero": "5",
+                "valor": "32.93"
+              },
+              {
+                "numero": "6",
+                "valor": "32.93"
+              },
+              {
+                "numero": "7",
+                "valor": "32.93"
+              },
+              {
+                "numero": "8",
+                "valor": "32.93"
+              },
+              {
+                "numero": "9",
+                "valor": "32.93"
+              },
+              {
+                "numero": "10",
+                "valor": "32.93"
+              },
+              {
+                "numero": "11",
+                "valor": "32.93"
+              },
+              {
+                "numero": "12",
+                "valor": "32.93"
+              }
+            ]
+          },
+          "Ramo": "1391",
+          "DtInicioVigencia": "2019-12-15-03:00",
+          "Nome": "Vida e Acidentes Pessoais Individual - Anual",
+          "NomeSegurado": "RAFAEL RODRIGUES",
+          "Apolice": {
+            "LinkDownload": "http://vidanova/servicosvida/obterApolice?param=MSwxMzkxLDEzNzU4OCw3LDEwNjI3NzA5"
+          },
+          "descricaoFormaPagamento": "ADC - TODAS PARCELAS"
+        }
+      ]
+    }
   },
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
   "profile": { "name": "typicode" }

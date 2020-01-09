@@ -9,7 +9,7 @@ import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/a
 import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
 import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
 import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
-// import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
+import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetDataRequest } from 'store/modules/CreditCard/action'
 
 import SectionOne from './SectionOne'
@@ -29,7 +29,7 @@ const Home = () => {
     dispatch(GetConsortiumBuildingDataRequest())
     dispatch(GetConsortiumVehicleDataRequest())
     dispatch(GetLifeInsuranceDataRequest())
-    // dispatch(GetTripInsuranceDataRequest())
+    dispatch(GetTripInsuranceDataRequest())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

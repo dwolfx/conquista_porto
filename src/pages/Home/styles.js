@@ -7,6 +7,7 @@ import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
+import HorizontalList from 'components/HorizontalList'
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -24,8 +25,12 @@ export const GridRow = styled(Row)`
   }
 `
 
-export const ParagraphWithMargin = styled(Text)`
-  margin: ${props => props.margin};
+export const HorizontalListWithMargin = styled(HorizontalList)`
+  margin: 7px 0;
+`
+
+export const TextBlack = styled(Text)`
+  color: ${props => props.theme.colors.black};
 `
 
 export const GridCol = styled(Col)`
@@ -236,16 +241,30 @@ export const InvestmentInfosRow = styled(Row)`
   }
 `
 export const ProductItem = styled.div`
-  padding: 10px 14px;
   width: 100%;
   color: ${props => props.theme.colors.gray5};
 `
+
+export const ProductItemRow = styled.div`
+  width: 100%;
+  padding: 14px 14px 0px 14px;
+`
+
+export const LinearProgressBarContent = styled.div`
+  width: 56px;
+`
+
+export const CreditCardItemRow = styled(ProductItemRow)`
+  padding: 14px 14px 0px 48px;
+`
+
 export const ThreeItemsLine = styled.div`
   display: grid;
   width: 100%;
   margin: 12px 0 0px 0;
   grid-template-columns: ${props => props.gridTemplateColumns};
 `
+
 export const ItemLine = styled.div`
   height: ${props => (props.height ? props.height : 'auto')};
   width: ${props => (props.width ? props.width : 'auto')};

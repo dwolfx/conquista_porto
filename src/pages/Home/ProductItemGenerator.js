@@ -8,10 +8,12 @@ import { formatMoney } from 'helpers'
 
 import {
   ProductItem,
-  ThreeItemsLine,
-  ItemLine,
   ItemDivisor,
-  ParagraphWithMargin,
+  ProductItemRow,
+  CreditCardItemRow,
+  LinearProgressBarContent,
+  TextBlack,
+  HorizontalListWithMargin,
 } from './styles'
 
 const ProductItemGenerator = (productList = [], type, history) => {
@@ -21,9 +23,11 @@ const ProductItemGenerator = (productList = [], type, history) => {
     <>
       {index > 0 || divisor ? <ItemDivisor /> : null}
       <ProductItem>
-        <Text type="headline">{atualItemDetail.title}</Text>
+        <ProductItemRow>
+          <Text type="headline">{atualItemDetail.title}</Text>
+        </ProductItemRow>
         {atualItemDetail.subTitle(product)}
-        {atualItemDetail.threeItemsLine(product, history)}
+        {atualItemDetail.bottomLine(product, history)}
       </ProductItem>
     </>
   ))
@@ -34,34 +38,32 @@ const itemDetail = {
     title: 'Cartão de Crédito',
     link: '/cartao-credito/visualizar',
     subTitle: product => (
-      <ParagraphWithMargin type="body" fontSize="12px" margin="14px 0 0 0">
-        <span style={{ marginLeft: '34px' }}>
-          {`FATURA ${product.Fatura.Status}`}
-        </span>
-      </ParagraphWithMargin>
+      <CreditCardItemRow>
+        <Text type="captionUppercase">{`FATURA ${product.Fatura.Status}`}</Text>
+      </CreditCardItemRow>
     ),
-    threeItemsLine(product, history) {
+    bottomLine(product, history) {
       const { link } = this
+
+      const startItems = [
+        <Icon width={20} name={product.Bandeira.toLowerCase()} />,
+        <TextBlack type="headline" bold>
+          {formatMoney(product.Fatura.Valor)}
+        </TextBlack>,
+      ]
+
+      const endItems = [
+        <ButtonLink
+          onClick={() => {
+            history.push(link)
+          }}
+        >
+          GERENCIAR
+        </ButtonLink>,
+      ]
+
       return (
-        <ThreeItemsLine gridTemplateColumns="1fr 4fr 3fr">
-          <ItemLine padding="5px 10px 0 0">
-            <Icon name={product.Bandeira.toLowerCase()} />
-          </ItemLine>
-          <ItemLine alignSelf="center">
-            <Text type="headline" bold>
-              {formatMoney(product.Fatura.Valor)}
-            </Text>
-          </ItemLine>
-          <ItemLine justifySelf="end" alignSelf="center" height="85%">
-            <ButtonLink
-              onClick={() => {
-                history.push(link)
-              }}
-            >
-              GERENCIAR
-            </ButtonLink>
-          </ItemLine>
-        </ThreeItemsLine>
+        <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
       )
     },
   },
@@ -69,33 +71,43 @@ const itemDetail = {
     title: 'Financiamento de Veículos',
     subTitle: () => '',
     link: '/financiamento-veiculo/visualizar',
-    threeItemsLine: genericThreeItemsLine,
+    bottomLine: genericBottomLine,
   },
   consorcioVeiculo: {
     title: 'Consórcio de Veículo',
     subTitle: () => '',
     link: '/consorcio-veiculo/visualizar',
-    threeItemsLine: genericThreeItemsLine,
+    bottomLine: genericBottomLine,
   },
   consorcioImovel: {
     title: 'Consórcio de Imóvel',
     subTitle: () => '',
     link: '/consorcio-imovel/visualizar',
-    threeItemsLine: genericThreeItemsLine,
+    bottomLine: genericBottomLine,
   },
   seguroVida: {
-    title: 'Seguro de vida',
+    title: 'Seguro de Vida',
     subTitle: () => (
-      <ParagraphWithMargin type="body" fontSize="12px" margin="14px 0 0 0">
-        Cobertura principal
-      </ParagraphWithMargin>
+      <ProductItemRow>
+        <Text type="captionUppercase">Cobertura principal</Text>
+      </ProductItemRow>
     ),
     link: '/seguro-vida/visualizar',
-    threeItemsLine: insuranceTwoItemsLine,
+    bottomLine: lifeInsuranceBottomLine,
+  },
+  seguroViagem: {
+    title: 'Seguro Viagem',
+    subTitle: () => (
+      <ProductItemRow>
+        <Text type="captionUppercase">Cobertura principal</Text>
+      </ProductItemRow>
+    ),
+    link: '/seguro-viagem/visualizar',
+    bottomLine: tripInsuranceBottomLine,
   },
 }
 
-function insuranceTwoItemsLine(product, history) {
+function lifeInsuranceBottomLine(product, history) {
   const { link } = this
 
   let value = ''
@@ -108,51 +120,90 @@ function insuranceTwoItemsLine(product, history) {
     value = ''
   }
 
+  const startItems = [
+    <TextBlack type="headline" bold>
+      {formatMoney(value)}
+    </TextBlack>,
+  ]
+
+  const endItems = [
+    <ButtonLink
+      onClick={() => {
+        history.push(link)
+      }}
+    >
+      GERENCIAR
+    </ButtonLink>,
+  ]
+
   return (
-    <ThreeItemsLine gridTemplateColumns="2fr 2fr">
-      <ItemLine padding="0 14px 0 0" width="100%">
-        <Text type="headline" bold>
-          {formatMoney(value)}
-        </Text>
-      </ItemLine>
-      <ItemLine justifySelf="end" alignSelf="center" height="85%">
-        <ButtonLink
-          onClick={() => {
-            history.push(link)
-          }}
-        >
-          GERENCIAR
-        </ButtonLink>
-      </ItemLine>
-    </ThreeItemsLine>
+    <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
   )
 }
 
-function genericThreeItemsLine(product, history) {
+function tripInsuranceBottomLine(product, history) {
   const { link } = this
+
+  let value
+
+  try {
+    value = product.CoberturasBasicas.CoberturaBasica.filter(
+      item => item.Nome === 'MORTE ACIDENTAL'
+    )
+
+    value = value.length ? value[0] : ''
+  } catch (error) {
+    value = ''
+  }
+
+  const startItems = [
+    <TextBlack type="headline" bold>
+      {formatMoney(value.CapitalSegurado)}
+    </TextBlack>,
+  ]
+
+  const endItems = [
+    <ButtonLink
+      onClick={() => {
+        history.push(link)
+      }}
+    >
+      GERENCIAR
+    </ButtonLink>,
+  ]
+
   return (
-    <ThreeItemsLine gridTemplateColumns="2fr 2fr 3fr">
-      <ItemLine padding="0 14px 0 0" width="100%">
-        <MiniLinearProgressBar
-          atual={parseInt(product.QuantidadeParcelasPagas, 10)}
-          max={parseInt(product.QuantidadeParcelasContratadas, 10)}
-        />
-      </ItemLine>
-      <ItemLine>
-        <Text type="headline" bold>
-          {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
-        </Text>
-      </ItemLine>
-      <ItemLine justifySelf="end" alignSelf="center" height="85%">
-        <ButtonLink
-          onClick={() => {
-            history.push(link)
-          }}
-        >
-          GERENCIAR
-        </ButtonLink>
-      </ItemLine>
-    </ThreeItemsLine>
+    <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
+  )
+}
+
+function genericBottomLine(product, history) {
+  const { link } = this
+
+  const startItems = [
+    <LinearProgressBarContent>
+      <MiniLinearProgressBar
+        atual={product.QuantidadeParcelasPagas}
+        max={product.QuantidadeParcelasContratadas}
+      />
+    </LinearProgressBarContent>,
+    <TextBlack type="headline" bold>
+      {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
+    </TextBlack>,
+  ]
+
+  const endItems = [
+    <ButtonLink
+      onClick={() => {
+        history.push(link)
+      }}
+    >
+      GERENCIAR
+    </ButtonLink>,
+  ]
+
+  return (
+    <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
   )
 }
 

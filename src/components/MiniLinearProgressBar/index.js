@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { BackgroundBar, ProgressBar } from './style'
 
 const MiniLinearProgressBar = ({ atual, max, color }) => {
-  const progress = Math.floor((atual * 100) / max)
+  const maxNum = parseInt(max, 10)
+  const atualNum = parseInt(atual, 10)
+  const progress = Math.floor((atualNum * 100) / maxNum)
 
   return (
     <BackgroundBar>
@@ -13,8 +15,8 @@ const MiniLinearProgressBar = ({ atual, max, color }) => {
 }
 
 MiniLinearProgressBar.propTypes = {
-  atual: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
+  atual: PropTypes.string.isRequired,
+  max: PropTypes.string.isRequired,
   color: PropTypes.string,
 }
 
