@@ -9,6 +9,7 @@ import bankData from './BankData/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
 import tripInsurance from './TripInsurance/reducer'
+import points from './Points/reducer'
 
 export default combineReducers({
   creditCard,
@@ -20,4 +21,5 @@ export default combineReducers({
   consortiumVehicle,
   vehicleFinancing,
   tripInsurance,
+  points,
 })
