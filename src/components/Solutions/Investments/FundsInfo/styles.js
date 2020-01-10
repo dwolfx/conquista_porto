@@ -109,24 +109,11 @@ export const DownloadSection = styled.div`
     props.backgroundColor || props.theme.colors.gray1};
   justify-content: center;
   width: 100%;
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
 `
 
 export const DownloadItem = styled.div`
   display: flex;
   padding: 20px 20px;
-
-  @media (min-width: 1000px) {
-    flex: 1;
-    justify-content: center;
-  }
-
-  @media (max-width: 800px) {
-    border-right: none;
-  }
 `
 
 export const DownloadIconWrapper = styled.div`
