@@ -94,38 +94,6 @@ export const ContentWrapper = styled.div`
   }
 `
 
-export const FooterWrapper = styled.div`
-  margin: 1rem auto;
-  max-width: ${containerWidth};
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    padding: 0 0.5rem;
-  }
-
-  p {
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 22px;
-  }
-
-  a {
-    color: ${props => props.theme.colors.blue4};
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  img {
-    margin-top: 2rem;
-  }
-`
-
-export const ImgAnbima = styled.img`
-  @media ${props => props.theme.mediaQueries.sm} {
-    padding: 0 1rem;
-    max-width: 100%;
-  }
-`
-
 export const BreadcrumbWrapper = styled.div``
 
 export const RiskDegree = styled(RiskDegreeComponent)`

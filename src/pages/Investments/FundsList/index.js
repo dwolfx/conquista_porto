@@ -1,21 +1,19 @@
 import React, { useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import logoAnbima from 'assets/images/logo-anbima.png'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 
 import { columns, riskClassification, fundsType } from './mock'
 import TableFunds from './Table'
 import ListFunds from './List'
+import AmbimaLegalInfo from './AmbimaLegalInfo'
 import {
   Section,
   TopWrapper,
   SelectRiskClassification,
   Breadcrumb,
   ContentWrapper,
-  FooterWrapper,
-  ImgAnbima,
   RiskDegree,
   SelectRow,
 } from './styles'
@@ -100,36 +98,7 @@ export default function FundsList() {
           />
         )}
       </ContentWrapper>
-      <FooterWrapper>
-        <p>
-          A Porto Seguro Investimentos informa os cotistas que o Distribuidor de
-          cotas dos Fundos poderá receber remuneração de distribuição
-          do(s)administrador(es) e/ou dos Fundos de Investimento em que seus
-          clientes aplicarem recursos, seja na forma de investimento direto,
-          seja por meio de conta e ordem; Esta remuneração poderá ser
-          diferenciada em função dos diversos Fundos de Investimento investidos.
-          Leia o formulário de informações complementares, a lâmina de
-          informações essenciais, se houver, e o regulamento antes de investir.
-          Confira a Lâmina de Informações Essenciais, o Demonstrativo de
-          Desempenho e o Formulário de Informações Complementares - INTRAG/CVM.
-          &nbsp;
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="http://www.intrag.com.br/intrag-pt/index.html"
-          >
-            ACESSE AQUI
-          </a>
-          . A Porto Seguro Investimentos pode receber eventuais serviços
-          adicionais fornecidos por Corretoras em razão de sua contratação e
-          relacionamento. A Portopar DTVM recebe remuneração de distribuição
-          do(s)Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus
-          clientes aplicam recursos, seja na forma de investimento direto, seja
-          por meio de conta e ordem e que esta remuneração pode ser diferenciada
-          em função dos diversos Fundos de Investimento investidos.
-        </p>
-        <ImgAnbima src={logoAnbima} alt="Logo anbima" />
-      </FooterWrapper>
+      <AmbimaLegalInfo />
     </Section>
   )
 }
