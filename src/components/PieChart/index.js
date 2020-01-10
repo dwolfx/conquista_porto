@@ -52,7 +52,9 @@ export default function PieChart({
     }
   }
 
-  function handleMouseEnter(payload) {
+  function handleMouseEnter(payload, event) {
+    // eslint-disable-next-line no-param-reassign
+    event.target.style.cursor = 'pointer'
     if (!preventOnMouse) {
       dispatch({ type: 'mouseEnter', payload })
       if (onMouseEnter) {
@@ -71,8 +73,8 @@ export default function PieChart({
   }
 
   function handleClick(payload) {
-    setPreventOnMouse(payload.color.endsWith('33') ? true : !preventOnMouse)
     dispatch({ type: 'click', payload })
+    setPreventOnMouse(payload.color.endsWith('33') ? true : !preventOnMouse)
     if (onSliceClick) {
       onSliceClick(payload.color.endsWith('33') ? payload : null)
     }
