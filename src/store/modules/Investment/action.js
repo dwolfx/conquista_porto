@@ -1,19 +1,19 @@
 import { Types } from './types'
 
-export function GetDataRequest() {
+export function GetInvestmentListRequest() {
   return {
     type: Types.INVESTMENT_LIST_ADD_REQUEST,
   }
 }
 
-export function GetDataSuccess(payload) {
+export function GetInvestmentListSuccess(payload) {
   return {
     type: Types.INVESTMENT_LIST_ADD_SUCCESS,
     payload,
   }
 }
 
-export function GetDataFailure() {
+export function GetInvestmentListFailure() {
   return {
     type: Types.INVESTMENT_LIST_ADD_FAILURE,
   }

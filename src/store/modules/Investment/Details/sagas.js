@@ -2,15 +2,18 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get } from 'services/api'
 
-import { GetDataSuccess, GetDataFailure } from './action'
+import {
+  GetInvestmentDetailsSuccess,
+  GetInvestmentDetailsFailure,
+} from './action'
 import { Types } from './types'
 
 function* getData(action) {
   try {
     const response = yield call(get, `/fundos/${action.fundId}?codigoCanal=0`)
-    yield put(GetDataSuccess(response.data))
+    yield put(GetInvestmentDetailsSuccess(response.data))
   } catch (err) {
-    yield put(GetDataFailure())
+    yield put(GetInvestmentDetailsFailure())
   }
 }
 

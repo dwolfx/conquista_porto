@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import Modal from 'components/Modal'
 import FundsInfo from 'components/Solutions/Investments/FundsInfo'
 import { formatMoney } from 'helpers'
-import { GetDataRequest } from 'store/modules/Investment/Details/action'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import {
   Table,
@@ -69,7 +69,7 @@ const FormatFundoCell = ({ cell, column }) => {
       <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
       <InformationIcon
         onClick={() => {
-          dispatch(GetDataRequest(cell.row.original.id_fundo))
+          dispatch(GetInvestmentDetailsRequest(cell.row.original.id_fundo))
           column.toggleModal(!column.isModalOpen)
         }}
       />
