@@ -43,21 +43,29 @@ export default function TransactionsSection({ title, articles }) {
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Aplicação (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicacao_cotizacao} úteis</ValueWrapper>
+            <ValueWrapper>
+              {articles.aplicacao_cotizacao} {articles.contagem_dias_resgate}
+            </ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Aplicação (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicacao_financeiro} úteis</ValueWrapper>
+            <ValueWrapper>
+              {articles.aplicacao_financeiro} {articles.contagem_dias_resgate}
+            </ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.resgate_cotizacao} úteis</ValueWrapper>
+            <ValueWrapper>
+              {articles.resgate_cotizacao} {articles.contagem_dias_resgate}
+            </ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.resgate_financeiro} úteis</ValueWrapper>
+            <ValueWrapper>
+              {articles.resgate_financeiro} {articles.contagem_dias_resgate}
+            </ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
       </Wrapper>
@@ -74,5 +82,6 @@ TransactionsSection.propTypes = {
     resgate_cotizacao: PropTypes.string,
     resgate_financeiro: PropTypes.string,
     hora_aplicacao: PropTypes.string,
+    contagem_dias_resgate: PropTypes.string,
   }).isRequired,
 }
