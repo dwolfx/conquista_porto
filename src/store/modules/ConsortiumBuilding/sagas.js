@@ -2,17 +2,20 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get } from 'services/api'
 import { Types } from './types'
-import { GetDataSuccess, GetDataFailure } from './action'
+import {
+  GetConsortiumBuildingDataSuccess,
+  GetConsortiumBuildingDataFailure,
+} from './action'
 
 function* getData() {
   try {
     const response = yield call(
       get,
-      '/consorcios/imovel?cpfCnpj=33244452809&codigoCanal=0'
+      '/consorcios/imovel?Cpf=36441112604&codigoCanal=1'
     )
-    yield put(GetDataSuccess(response.data.Consorcios))
+    yield put(GetConsortiumBuildingDataSuccess(response.data.consorcios))
   } catch (err) {
-    yield put(GetDataFailure())
+    yield put(GetConsortiumBuildingDataFailure())
   }
 }
 

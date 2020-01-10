@@ -1,8 +1,8 @@
 {
   "/conquistaapi/investimento/v1/*": "/$1",
   "/cartoes\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/cartao_credito?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
-  "/consorcios/imovel\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/consorcios_imovel?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
-  "/consorcios/auto\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/consorcios_auto?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
+  "/consorcios/imovel\\?Cpf=:Cpf&codigoCanal=:codigoCanal": "/consorcios_imovel?Cpf=:Cpf&codigoCanal=:codigoCanal",
+  "/consorcios/auto\\?Cpf=:Cpf&codigoCanal=:codigoCanal": "/consorcios_auto?Cpf=:Cpf&codigoCanal=:codigoCanal",
   "/previdencia\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/previdencia_privada?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
   "/produtos/financiamento\\?cpf=:cpf&codigoCanal=:codigoCanal": "/financiamento_veiculo?cpf=:cpf&codigoCanal=:codigoCanal",
   "/conta/dados\\?cpf=:cpf&codigoCanal=:codigoCanal": "/conta_porto?cpf=:cpf&codigoCanal=:codigoCanal",
