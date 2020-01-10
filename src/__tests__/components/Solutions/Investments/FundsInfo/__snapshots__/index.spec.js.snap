@@ -293,7 +293,8 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-             úteis
+             
+            Corridos
           </div>
         </div>
         <div
@@ -308,7 +309,8 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-jzJRlG kbWvCb"
           >
             D+0
-             úteis
+             
+            Corridos
           </div>
         </div>
       </div>
@@ -327,7 +329,8 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-jzJRlG kbWvCb"
           >
             D+30
-             úteis
+             
+            Corridos
           </div>
         </div>
         <div
@@ -342,7 +345,8 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-jzJRlG kbWvCb"
           >
             D+1
-             úteis
+             
+            Corridos
           </div>
         </div>
       </div>
@@ -438,10 +442,10 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-gPEVay cLdxcx"
+        className="sc-gPEVay jcerLG"
       >
         <div
-          className="sc-iRbamj fTHlSy"
+          className="sc-iRbamj cXdNXz"
         >
           <div
             className="sc-jlyJG bBpeHU"
@@ -473,7 +477,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
         </div>
         <div
-          className="sc-iRbamj fTHlSy"
+          className="sc-iRbamj cXdNXz"
         >
           <div
             className="sc-jlyJG bBpeHU"

@@ -144,9 +144,11 @@ export default function Investments({ history }) {
 Investments.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  }).isRequired,
+  }),
 }
 
 Investments.defaultProps = {
-  history: () => {},
+  history: {
+    push: () => {},
+  },
 }
