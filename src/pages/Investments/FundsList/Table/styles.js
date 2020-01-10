@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import IconExporter from 'components/IconExporter'
 import ConquistaButton from 'components/Button'
 import { fundRiskColors } from 'styles/theme'
@@ -49,27 +49,16 @@ export const TheadTh = styled.th`
   text-align: center;
   text-transform: uppercase;
   position: relative;
+`
 
-  ::before {
-    ${props =>
-      props.hasBefore &&
-      css`
-        content: '${props.beforeContent}';
-        text-align: center;
-        vertical-align: middle;
-        position: absolute;
-        height: 24px;
-        right: 0;
-        top: -33px;
-        padding-top: 8px;
-        background: ${props.theme.colors.gray4};
-        border-top: 0px;
-        border-right: 0px;
-        border-top-right-radius: 6px;
-        border-top-left-radius: 6px;
-        width: ${props.beforeWidth};
-      `}
-  }
+export const TheadThWithColumns = styled(TheadTh)`
+  padding-left: 0;
+  padding-right: 0;
+`
+
+export const TheadColumn = styled.div`
+  display: inline-block;
+  width: ${props => props.width};
 `
 
 export const Tbody = styled.tbody``
@@ -111,7 +100,9 @@ export const LogoImg = styled.img`
   width: 70px;
 `
 
-export const AlertIcon = styled(IconExporter).attrs({ name: 'alertrounded' })`
+export const InformationIcon = styled(IconExporter).attrs({
+  name: 'information',
+})`
   cursor: pointer;
   fill: ${props => props.theme.colors.blue4};
   height: 25px;

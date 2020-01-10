@@ -1,5 +1,7 @@
 import styled from 'styled-components'
+
 import RiskDegreeComponent from 'components/RiskDegree'
+import Text from 'components/Text'
 
 export const Container = styled.div`
   display: flex;
@@ -99,4 +101,25 @@ export const RiskDegreeTitle = styled.h5`
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
+`
+
+export const DownloadSection = styled.div`
+  display: flex;
+  background-color: ${props =>
+    props.backgroundColor || props.theme.colors.gray1};
+  justify-content: center;
+  width: 100%;
+`
+
+export const DownloadItem = styled.div`
+  display: flex;
+  padding: 20px 20px;
+`
+
+export const DownloadIconWrapper = styled.div`
+  margin-right: 20px;
+`
+
+export const DownloadTitle = styled(Text).attrs({ type: 'subheading' })`
+  text-transform: uppercase;
 `
