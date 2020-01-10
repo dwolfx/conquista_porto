@@ -129,10 +129,12 @@ export default function TableFunds({
   useLayoutEffect(() => {
     const getScrollY = () => window.scrollY - 170
     const shouldSticky = scrollY => {
-      const { offsetHeight } = document.querySelector('thead')
-      const hasMinimumRows = data.length > 2
-      const isTheadInvisible = theadY - 30 - offsetHeight < scrollY
-      return hasMinimumRows && isTheadInvisible
+      const table = document.querySelector('table')
+      const thead = document.querySelector('thead')
+      const hasMinimumRows = data.length > 3
+      const isTheadInvisible = theadY - 30 - thead.offsetHeight < scrollY
+      const isEndOfTable = table.offsetHeight - 70 < scrollY
+      return hasMinimumRows && isTheadInvisible && !isEndOfTable
     }
 
     const handleScroll = () => setStickyThead(shouldSticky(getScrollY()))
