@@ -6,15 +6,13 @@ const INITIAL_STATE = {
 }
 
 export default function(state = INITIAL_STATE, action) {
-  let newData = []
+  let newData
 
   switch (action.type) {
     case Types.GET_DATA_SUCCESS:
-      if (Array.isArray(action.payload.ProdutosViagem.Viagem)) {
-        newData = [...action.payload.ProdutosViagem.Viagem]
-      } else {
-        newData.push(...action.payload.ProdutosViagem.Viagem)
-      }
+      newData = [action.payload.ProdutosViagem.Viagem].flatMap(
+        product => product
+      )
 
       return {
         ...state,

@@ -1593,7 +1593,7 @@
   ],
   "seguros": {
     "ProdutosViagem": {
-      "Viagem": [
+      "Viagem": 
         {
           "codigoFormaPagamento": "62",
           "CoberturasBasicas": {
@@ -1705,7 +1705,6 @@
           },
           "descricaoFormaPagamento": "CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"
         }
-      ]
     },
     "ProdutosVida": {
       "SeguroVida": [
