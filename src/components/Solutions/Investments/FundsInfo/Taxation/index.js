@@ -12,15 +12,18 @@ import {
 } from './styles'
 
 export default function Taxation({ title, taxationData }) {
-  const renderAliquotas = aliquota =>
-    aliquota.map((item, index) => (
-      <LineWrapper key={`aliquota-${index}`}>
-        <DetailItem>
-          <SubTitle>{item.faixa}</SubTitle>
-          <Text>{item.valor}%</Text>
-        </DetailItem>
-      </LineWrapper>
-    ))
+  const renderAliquotas = aliquota => (
+    <>
+      {aliquota.map((item, index) => (
+        <LineWrapper key={`aliquota-${index}`}>
+          <DetailItem>
+            <SubTitle>{item.faixa}</SubTitle>
+            <Text>{item.valor}%</Text>
+          </DetailItem>
+        </LineWrapper>
+      ))}
+    </>
+  )
 
   return (
     <Container>

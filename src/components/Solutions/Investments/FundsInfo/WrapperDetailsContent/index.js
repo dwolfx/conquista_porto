@@ -12,8 +12,6 @@ import {
 } from './styles'
 
 export default function WrapperDetailsContent({ title, fundsDetail }) {
-  const startDate = new Date(fundsDetail.data_inicio)
-
   return (
     <Container>
       <Title>{title}</Title>
@@ -24,7 +22,7 @@ export default function WrapperDetailsContent({ title, fundsDetail }) {
         </DetailItem> */}
         <DetailItem>
           <SubTitle>Data de início</SubTitle>
-          <Text>{moment(startDate).format('DD/MM/YYYY')}</Text>
+          <Text>{moment(fundsDetail.data_inicio).format('DD/MM/YYYY')}</Text>
         </DetailItem>
       </LineWrapper>
       <LineWrapper>
