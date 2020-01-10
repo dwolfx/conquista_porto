@@ -6,7 +6,7 @@ import { GetPointsDataSuccess, GetPointsDataFailure } from './action'
 
 function* getData() {
   try {
-    const response = yield call(get, '/programa-pontos/extrato?cpf=32036703801')
+    const response = yield call(get, '/programa-pontos/extrato?cpf=33244452809')
     yield put(GetPointsDataSuccess(response.data))
   } catch (err) {
     yield put(GetPointsDataFailure())
