@@ -11,10 +11,6 @@ export const statementColumns = [
     Header: 'Valor',
     accessor: 'value',
   },
-  {
-    Header: 'Data de Efetivação',
-    accessor: 'effectuationDate',
-  },
 ]
 
 export const selectOptions = [
@@ -29,10 +25,6 @@ export const selectOptions = [
   {
     name: 'Últimos 60 dias',
     value: 60,
-  },
-  {
-    name: 'Últimos 90 dias',
-    value: 90,
   },
   {
     name: 'Período específico',

@@ -7,7 +7,6 @@ export default function useFetchBankExtract(filterData) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('ala')
     dispatch(GetDataRequest(filterData))
   }, [dispatch, filterData])
 }
