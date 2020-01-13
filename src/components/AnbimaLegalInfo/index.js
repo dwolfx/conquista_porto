@@ -12,7 +12,7 @@ import {
   Text,
 } from './styles'
 
-const AmbimaLegalInfo = () => (
+const AnbimaLegalInfo = () => (
   <GridContainer>
     <GridRow>
       <GridCol lg={12}>
@@ -56,4 +56,4 @@ const AmbimaLegalInfo = () => (
   </GridContainer>
 )
 
-export default AmbimaLegalInfo
+export default AnbimaLegalInfo

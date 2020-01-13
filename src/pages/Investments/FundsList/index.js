@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 
+import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
 import { columns, riskClassification, fundsType } from './mock'
 import TableFunds from './Table'
 import ListFunds from './List'
-import AmbimaLegalInfo from './AmbimaLegalInfo'
 import {
   Section,
   TopWrapper,
@@ -98,7 +98,7 @@ export default function FundsList() {
           />
         )}
       </ContentWrapper>
-      <AmbimaLegalInfo />
+      <AnbimaLegalInfo />
     </Section>
   )
 }
