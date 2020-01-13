@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: ${props => {
     switch (props.size) {
-      case 'lg':
+      case 'large':
         return '63px'
       case 'dynamic':
         return 'auto'
