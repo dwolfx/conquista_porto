@@ -37,6 +37,7 @@ const SectionOne = () => {
   const buildingConsortium = useSelector(state => state.consortiumBuilding.data)
   const lifeInsurance = useSelector(state => state.lifeInsurance.data)
   const tripInsurance = useSelector(state => state.tripInsurance.data)
+  const bankData = useSelector(state => state.bankData.data)
 
   const history = useHistory()
 
@@ -198,7 +199,11 @@ const SectionOne = () => {
                 <InvestmentInfos>
                   <Text type="headline">Saldo disponível</Text>
                   <Text type="headline" bold>
-                    {formatMoney(0)}
+                    {formatMoney(
+                      bankData.DadosContaPortoSeguro
+                        ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                        : 0
+                    )}
                   </Text>
                   <ButtonLink
                     onClick={() => {
@@ -213,7 +218,11 @@ const SectionOne = () => {
                 <InvestmentInfos>
                   <Text type="headline">Saldo a liquidar</Text>
                   <Text type="headline" bold>
-                    {formatMoney(0)}
+                    {formatMoney(
+                      bankData.DadosContaPortoSeguro
+                        ? bankData.DadosContaPortoSeguro.saldo_liquidar
+                        : 0
+                    )}
                   </Text>
                   <ButtonLink
                     onClick={() => history.push('/investimentos/extrato')}
