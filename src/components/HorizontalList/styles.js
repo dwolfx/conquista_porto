@@ -15,7 +15,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 14px;
+  padding: ${props => (props.noPadding ? '0' : '0 14px')};
 `
 
 export const StartBlock = styled.div`

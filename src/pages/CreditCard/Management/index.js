@@ -138,7 +138,7 @@ export default function ManagementCreditCard({ history }) {
 
   useEffect(() => {
     if (creditCard.data.length) {
-      setSelectedCreditCard(creditCard.data[0].Id)
+      setSelectedCreditCard(creditCard.data[0].UltimosDigitos)
     }
   }, [creditCard.data])
 
@@ -172,10 +172,10 @@ export default function ManagementCreditCard({ history }) {
 
               {creditCard.data.map(item => (
                 <ManageableItem
-                  key={item.Id}
-                  active={selectedCreditCard === item.Id}
+                  key={item.UltimosDigitos}
+                  active={selectedCreditCard === item.UltimosDigitos}
                   onClick={() => {
-                    setSelectedCreditCard(item.Id)
+                    setSelectedCreditCard(item.UltimosDigitos)
                     scrollPage(`cc-top-page`)
                   }}
                 >
@@ -201,8 +201,8 @@ export default function ManagementCreditCard({ history }) {
             </LeftNav>
             {creditCard.data.map(item => (
               <RightContent
-                key={item.Id}
-                isSelected={item.Id === selectedCreditCard}
+                key={item.UltimosDigitos}
+                isSelected={item.UltimosDigitos === selectedCreditCard}
               >
                 <PageTitle>Mundo 120 Prata</PageTitle>
                 <Topics settings={settings}>

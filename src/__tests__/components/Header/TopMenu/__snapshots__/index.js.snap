@@ -245,7 +245,7 @@ Array [
                     <span
                       className="sc-tilXH bAxWGE"
                     >
-                      Ver Todos
+                      Ver Todas
                     </span>
                   </button>
                 </div>
@@ -254,6 +254,7 @@ Array [
           </div>
           <div
             className="sc-eHgmQL hRGOmo"
+            onClick={[Function]}
           >
             <p
               className="sc-iRbamj ewLrTd"

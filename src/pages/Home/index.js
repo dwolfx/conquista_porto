@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Menu from 'components/Menu'
 
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
+import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
+import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
+import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
+import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetDataRequest } from 'store/modules/CreditCard/action'
+import { GetPointsDataRequest } from 'store/modules/Points/action'
 
 import SectionOne from './SectionOne'
 import AdvertisementBanner from './AdvertisementBanner'
@@ -17,11 +22,17 @@ import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 const Home = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const pointsData = useSelector(state => state.points.data)
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
     dispatch(GetDataRequest())
     dispatch(GetVehicleFinancingDataRequest())
+    dispatch(GetConsortiumBuildingDataRequest())
+    dispatch(GetConsortiumVehicleDataRequest())
+    dispatch(GetLifeInsuranceDataRequest())
+    dispatch(GetTripInsuranceDataRequest())
+    dispatch(GetPointsDataRequest())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -59,15 +70,14 @@ const Home = () => {
                 <GridRow id="t1">
                   <SectionOne />
                 </GridRow>
-
-                <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
-
+                <GridRow style={{ paddingRight: 7, paddingLeft: 7 }}>
+                  <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
+                </GridRow>
                 <GridRow id="t2">
                   <SectionTwo onRedirect={onRedirect} />
                 </GridRow>
-
                 <GridRow id="t3">
-                  <SectionThree />
+                  <SectionThree points={pointsData} />
                 </GridRow>
               </GridCol>
             </GridRow>

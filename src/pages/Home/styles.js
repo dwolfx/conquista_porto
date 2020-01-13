@@ -7,6 +7,7 @@ import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
+import HorizontalList from 'components/HorizontalList'
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -22,6 +23,14 @@ export const GridRow = styled(Row)`
   &#t3 {
     margin-bottom: 0;
   }
+`
+
+export const HorizontalListWithMargin = styled(HorizontalList)`
+  margin: 7px 0;
+`
+
+export const TextBlack = styled(Text)`
+  color: ${props => props.theme.colors.black};
 `
 
 export const GridCol = styled(Col)`
@@ -113,15 +122,6 @@ export const PointsList = styled.div`
   flex: 1;
   margin: 14px 0;
   overflow-y: scroll;
-`
-
-export const PointsItem = styled.div`
-  align-items: center;
-  display: flex;
-
-  &:not(:last-of-type) {
-    margin-bottom: 22px;
-  }
 `
 
 export const PointDate = styled(Text)`
@@ -232,16 +232,30 @@ export const InvestmentInfosRow = styled(Row)`
   }
 `
 export const ProductItem = styled.div`
-  padding: 10px 14px;
   width: 100%;
   color: ${props => props.theme.colors.gray5};
 `
+
+export const ProductItemRow = styled.div`
+  width: 100%;
+  padding: 14px 14px 0px 14px;
+`
+
+export const LinearProgressBarContent = styled.div`
+  width: 56px;
+`
+
+export const CreditCardItemRow = styled(ProductItemRow)`
+  padding: 14px 14px 0px 48px;
+`
+
 export const ThreeItemsLine = styled.div`
   display: grid;
   width: 100%;
-  margin: 14px 0;
+  margin: 12px 0 0px 0;
   grid-template-columns: ${props => props.gridTemplateColumns};
 `
+
 export const ItemLine = styled.div`
   height: ${props => (props.height ? props.height : 'auto')};
   width: ${props => (props.width ? props.width : 'auto')};
@@ -256,6 +270,7 @@ export const ItemDivisor = styled.hr`
 `
 
 export const OverflowCard = styled.div`
+  height: 100%;
   overflow: auto;
 `
 

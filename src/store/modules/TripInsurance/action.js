@@ -1,19 +1,19 @@
 import { Types } from './types'
 
-export function GetDataRequest() {
+export function GetTripInsuranceDataRequest() {
   return {
     type: Types.GET_DATA_REQUEST,
   }
 }
 
-export function GetDataSuccess(payload) {
+export function GetTripInsuranceDataSuccess(payload) {
   return {
     type: Types.GET_DATA_SUCCESS,
     payload,
   }
 }
 
-export function GetDataFailure() {
+export function GetTripInsuranceDataFailure() {
   return {
     type: Types.GET_DATA_FAILURE,
   }

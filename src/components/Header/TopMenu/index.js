@@ -24,6 +24,7 @@ import {
 } from './styles'
 
 import ResponsiveHeader from '../ResponsiveHeader'
+import ResponsiveNotifications from '../ResponsiveNotifications'
 
 import Button from '../../Button'
 import Logo from '../Logo'
@@ -68,6 +69,10 @@ const DB = [
 function TopMenu() {
   const [isOpen, setIsOpen] = useState(false)
   const [isResponsiveOpen, setIsResponsiveOpen] = useState(false)
+  const [
+    isResponsiveNotificationOpen,
+    setIsResponsiveNotificationOpen,
+  ] = useState(false)
   const [breakpoint, setBreakpoint] = useState('')
   const history = useHistory()
   const theme = useContext(ThemeContext)
@@ -79,6 +84,11 @@ function TopMenu() {
     document.body.scrollTop = 0
   }
 
+  function handleResponsiveNotifications() {
+    if (breakpoint === 'sm')
+      setIsResponsiveNotificationOpen(!isResponsiveNotificationOpen)
+    else setIsOpen(!isOpen)
+  }
   function checkResolution() {
     const windowWidth = window.innerWidth
     setBreakpoint(windowWidth <= 989 ? 'sm' : 'lg')
@@ -91,6 +101,17 @@ function TopMenu() {
       window.removeEventListener('resize', checkResolution)
     }
   }, [])
+  useEffect(() => {
+    const body = document.querySelector('body')
+    if (isResponsiveOpen || isResponsiveNotificationOpen) {
+      body.style.overflow = 'hidden'
+    }
+
+    function handleOverflow() {
+      body.style.overflow = 'visible'
+    }
+    return () => handleOverflow()
+  }, [isResponsiveOpen, isResponsiveNotificationOpen])
 
   return (
     <MainContainer>
@@ -99,6 +120,12 @@ function TopMenu() {
           <ResponsiveHeader
             isOpen={isResponsiveOpen}
             setOpen={setIsResponsiveOpen}
+          />
+        )}
+        {breakpoint === 'sm' && (
+          <ResponsiveNotifications
+            isOpen={isResponsiveNotificationOpen}
+            setOpen={setIsResponsiveNotificationOpen}
           />
         )}
         <ResponsiveWrapper>
@@ -130,7 +157,7 @@ function TopMenu() {
                 {history.location.pathname !== '/notificacoes' && (
                   <Wrapper padding="15px">
                     <Button onClick={handleNotificationsRedirect} outline>
-                      Ver Todos
+                      Ver Todas
                     </Button>
                   </Wrapper>
                 )}
@@ -138,16 +165,16 @@ function TopMenu() {
             </Dropdown>
             {history.location.pathname === '/notificacoes' ? (
               <BellIcon
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => handleResponsiveNotifications()}
                 fill={theme.colors.blue4}
               />
             ) : (
               <>
-                <NotificationCircle>
+                <NotificationCircle onClick={() => setIsOpen(!isOpen)}>
                   <NewNotificationsNumber>{10}</NewNotificationsNumber>
                 </NotificationCircle>
                 <BellIcon
-                  onClick={() => setIsOpen(!isOpen)}
+                  onClick={() => handleResponsiveNotifications()}
                   fill={theme.colors.white}
                 />
               </>

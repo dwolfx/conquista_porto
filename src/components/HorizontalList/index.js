@@ -31,3 +31,8 @@ HorizontalList.propTypes = {
   startItems: PropTypes.arrayOf(PropTypes.node),
   endItems: PropTypes.arrayOf(PropTypes.node),
 }
+
+HorizontalList.defaultProps = {
+  startItems: [],
+  endItems: [],
+}
