@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import { Container, StartBlock, EndBlock } from './styles'
 
-export default function HorizontalList({ startItems, endItems }) {
+export default function HorizontalList({ startItems, endItems, height, noPadding }) {
   return (
-    <Container>
+    <Container height={height} noPadding={noPadding}>
       <StartBlock>
         {startItems &&
           startItems.map((Item, index) => (
