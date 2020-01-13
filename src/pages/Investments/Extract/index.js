@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 import { ThemeContext } from 'styled-components'
 
@@ -11,8 +12,8 @@ import Table from 'components/Table'
 import Header from 'components/Wizard/Header'
 import Tab from 'components/Tab'
 import { formatMoney, formatCpf } from 'helpers'
-import useFetchBankExtract from 'hooks/BankExtract/useFetchBankExtract'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
+import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
 import { selectOptions, statementColumns } from './data'
 import {
@@ -33,16 +34,21 @@ import {
 const InvestmentExtract = () => {
   const themeContext = useContext(ThemeContext)
   const history = useHistory()
+  const dispatch = useDispatch()
+
+  const [showDateFilter, setShowDateFilter] = useState(false)
 
   const [requestData, setRequestData] = useState({
     filter: 0,
     startDate: '',
     endDate: '',
   })
-  const [showDateFilter, setShowDateFilter] = useState(false)
+
+  useEffect(() => {
+    dispatch(GetBankExtractRequest(requestData))
+  }, [])
 
   useFetchBankData()
-  useFetchBankExtract(requestData)
 
   const bankData = useSelector(state => state.bankData.data)
   const bankExtract = useSelector(state => {
@@ -78,23 +84,16 @@ const InvestmentExtract = () => {
       setRequestData({
         ...requestData,
         filter: e.target.value,
+        startDate: '',
+        endDate: '',
       })
+
+      dispatch(GetBankExtractRequest(requestData))
     }
   }
 
   const filterByDate = () => {
-    setRequestData({
-      ...requestData,
-      filter: 0,
-      startDate: moment(
-        document.getElementById('startDate').value,
-        'DD/MM/YYYY'
-      ).format('YYYY-MM-DD'),
-      endDate: moment(
-        document.getElementById('endDate').value,
-        'DD/MM/YYYY'
-      ).format('YYYY-MM-DD'),
-    })
+    dispatch(GetBankExtractRequest(requestData))
   }
 
   return (
@@ -200,18 +199,46 @@ const InvestmentExtract = () => {
             {showDateFilter && (
               <>
                 <DateInput
-                  id="startDate"
                   width={30}
                   label="Data inicial"
                   paddingRight={15}
                   paddingLeft={15}
+                  onBlur={e => {
+                    const startDate = moment(
+                      e.target.value,
+                      'DD/MM/YYYY'
+                    ).isValid()
+                      ? moment(e.target.value, 'DD/MM/YYYY').format(
+                          'YYYY-MM-DD'
+                        )
+                      : ''
+
+                    setRequestData({
+                      ...requestData,
+                      startDate,
+                    })
+                  }}
                 />
                 <DateInput
-                  id="endDate"
                   width={30}
                   label="Data final"
                   paddingRight={15}
                   paddingLeft={15}
+                  onBlur={e => {
+                    const endDate = moment(
+                      e.target.value,
+                      'DD/MM/YYYY'
+                    ).isValid()
+                      ? moment(e.target.value, 'DD/MM/YYYY').format(
+                          'YYYY-MM-DD'
+                        )
+                      : ''
+
+                    setRequestData({
+                      ...requestData,
+                      endDate,
+                    })
+                  }}
                 />
                 <FilterButton onClick={() => filterByDate()}>
                   Filtrar &gt;
