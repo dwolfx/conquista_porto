@@ -53,7 +53,6 @@ export default function GeneralView() {
       {data.length > 0 && (
         <>
           <General>
-            {console.log(data)}
             <Text fontSize={11} lineHeight={21} weight spacing={1.5}>
               VISÃO GERAL DOS INVESTIMENTOS
             </Text>

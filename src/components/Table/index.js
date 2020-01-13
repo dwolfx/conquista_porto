@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-
 import { useTable, useFilters, usePagination } from 'react-table'
+import PropTypes from 'prop-types'
 
 import {
   TheadTr,
@@ -105,11 +105,7 @@ const TfootWrapper = ({
   </Tfoot>
 )
 
-export default function TableRender({
-  columns: columnsProp,
-  data: dataProp,
-  renderFilter,
-}) {
+export default function TableRender({ columns, data, showFilter }) {
   const filterTypes = useMemo(
     () => ({
       text: filterText,
@@ -139,8 +135,8 @@ export default function TableRender({
     gotoPage,
   } = useTable(
     {
-      columns: columnsProp,
-      data: dataProp,
+      columns,
+      data,
       defaultColumn,
       filterTypes,
       state: {
@@ -156,10 +152,10 @@ export default function TableRender({
       <thead>
         <TheadTr>
           {flatColumns.map(column => (
-            <TheadTh hasFilter={renderFilter} {...column.getHeaderProps()}>
+            <TheadTh hasFilter={showFilter} {...column.getHeaderProps()}>
               {column.render('Header')}
               <div>
-                {column.canFilter && renderFilter
+                {column.canFilter && showFilter
                   ? column.render('Filter')
                   : null}
               </div>
@@ -185,7 +181,7 @@ export default function TableRender({
           </tbody>
           <TfootWrapper
             pageIndex={pageIndex}
-            dataProp={dataProp}
+            dataProp={data}
             canNextPage={canNextPage}
             canPreviousPage={canPreviousPage}
             pageCount={pageCount}
@@ -208,5 +204,9 @@ export default function TableRender({
 }
 
 TableRender.defaultProps = {
-  renderFilter: true,
+  showFilter: true,
+}
+
+TableRender.propTypes = {
+  showFilter: PropTypes.bool,
 }
