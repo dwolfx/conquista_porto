@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 100%;
   height: ${props => {
-    switch(props.size) {
+    switch (props.size) {
       case 'lg':
-        return '63px';
+        return '63px'
       case 'dynamic':
-        return 'auto';
+        return 'auto'
       default:
-        return '49px';
+        return '49px'
     }
   }};
   display: flex;
