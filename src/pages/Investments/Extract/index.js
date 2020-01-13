@@ -49,7 +49,6 @@ const InvestmentExtract = () => {
 
   const bankData = useSelector(state => state.bankData.data)
   const bankExtract = useSelector(state => state.bankExtract.data)
-  console.log(bankData)
 
   const handleChangeSelect = e => {
     setShowDateFilter(e.target.value === 'other')
