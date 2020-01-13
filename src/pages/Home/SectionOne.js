@@ -28,13 +28,15 @@ import {
   InvestmentInfos,
   InvestmentInfosRow,
   OverflowCard,
-  ItemDivisor,
 } from './styles'
 
 const SectionOne = () => {
   const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
   const creditCards = useSelector(state => state.creditCard.data)
   const vehiclesConsortium = useSelector(state => state.consortiumVehicle.data)
+  const buildingConsortium = useSelector(state => state.consortiumBuilding.data)
+  const lifeInsurance = useSelector(state => state.lifeInsurance.data)
+  const tripInsurance = useSelector(state => state.tripInsurance.data)
 
   const history = useHistory()
 
@@ -84,33 +86,28 @@ const SectionOne = () => {
   const renderCreditProducts = () => {
     let result = []
 
-    result = creditCards.length
-      ? [...ProductItemGenerator(creditCards, 'cartaoCredito', history)]
-      : result
+    result = [
+      ...ProductItemGenerator(creditCards, 'cartaoCredito', history, false),
+      ...ProductItemGenerator(
+        vehiclesFinancings,
+        'financiamentoVeiculo',
+        history,
+        true
+      ),
+      ...ProductItemGenerator(
+        vehiclesConsortium,
+        'consorcioVeiculo',
+        history,
+        true
+      ),
+      ...ProductItemGenerator(
+        buildingConsortium,
+        'consorcioImovel',
+        history,
+        true
+      ),
+    ]
 
-    result = vehiclesFinancings.length
-      ? [
-          ...result,
-          <ItemDivisor />,
-          ...ProductItemGenerator(
-            vehiclesFinancings,
-            'financiamentoVeiculo',
-            history
-          ),
-        ]
-      : result
-
-    result = vehiclesConsortium.length
-      ? [
-          ...result,
-          <ItemDivisor />,
-          ...ProductItemGenerator(
-            vehiclesConsortium,
-            'consorcioVeiculo',
-            history
-          ),
-        ]
-      : result
     if (result.length > 0) {
       return result
     }
@@ -136,6 +133,47 @@ const SectionOne = () => {
           <SliderBoxButton
             color="secondary"
             onClick={() => history.push('/cartao-credito')}
+          >
+            CONHECER
+          </SliderBoxButton>
+        </SliderTextBox>
+      </SliderBox>
+    )
+  }
+
+  const renderInsuranceProducts = () => {
+    let result = []
+
+    result = [
+      ...ProductItemGenerator(lifeInsurance, 'seguroVida', history, false),
+      ...ProductItemGenerator(tripInsurance, 'seguroViagem', history, true),
+    ]
+
+    if (result.length > 0) {
+      return result
+    }
+
+    return (
+      <SliderBox>
+        <SliderImageBox>
+          <img src={InsuranceHomeImg} alt="home offer pic" />
+          <SliderCaption>
+            <Text type="captionUppercase" bold>
+              Seguro de vida
+            </Text>
+          </SliderCaption>
+        </SliderImageBox>
+        <SliderTextBox>
+          <Text type="title" bold>
+            Suporte em todos os momentos
+          </Text>
+          <Text>
+            Planeje a sua proteção ou da sua família e tenha tranquilidade para
+            enfrentar adversidades e ainda conte com muitos benefícios.
+          </Text>
+          <SliderBoxButton
+            color="secondary"
+            onClick={() => history.push('/seguro-vida')}
           >
             CONHECER
           </SliderBoxButton>
@@ -189,32 +227,7 @@ const SectionOne = () => {
 
           <SectionCol lg="6">
             <FullHeightCard headerIcon="targetmarket" headerTitle="Seguros">
-              <SliderBox>
-                <SliderImageBox>
-                  <img src={InsuranceHomeImg} alt="home offer pic" />
-                  <SliderCaption>
-                    <Text type="captionUppercase" bold>
-                      Seguro de vida
-                    </Text>
-                  </SliderCaption>
-                </SliderImageBox>
-                <SliderTextBox>
-                  <Text type="title" bold>
-                    Suporte em todos os momentos
-                  </Text>
-                  <Text>
-                    Planeje a sua proteção ou da sua família e tenha
-                    tranquilidade para enfrentar adversidades e ainda conte com
-                    muitos benefícios.
-                  </Text>
-                  <SliderBoxButton
-                    color="secondary"
-                    onClick={() => history.push('/seguro-vida')}
-                  >
-                    CONHECER
-                  </SliderBoxButton>
-                </SliderTextBox>
-              </SliderBox>
+              <OverflowCard>{renderInsuranceProducts()}</OverflowCard>
             </FullHeightCard>
           </SectionCol>
         </SectionRow>

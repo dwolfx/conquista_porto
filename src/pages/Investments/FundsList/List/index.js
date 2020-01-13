@@ -1,8 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 import PropTypes from 'prop-types'
 
 import { formatMoney } from 'helpers'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import {
   FundBox,
@@ -20,20 +24,33 @@ import {
 } from './style'
 
 export default function List({ data }) {
+  const dispatch = useDispatch()
+
   const [expand, setExpand] = useState({})
+  const [fundDetailsLoaded, setFundDetailsLoaded] = useState({})
+  const fundDetails = useSelector(state => state.investmentDetails.data)
+
+  useEffect(() => {
+    if (fundDetails.id_fundo) {
+      const newData = { ...fundDetailsLoaded }
+      newData[fundDetails.id_fundo] = fundDetails
+      setFundDetailsLoaded(newData)
+    }
+  }, [fundDetails])
+
+  const expandDetails = (index, fundId) => {
+    setExpand({ ...expand, [index]: !expand[index] })
+    dispatch(GetInvestmentDetailsRequest(fundId))
+  }
 
   return (
     <>
       {data.map((obj, index) => (
         <FundBox borderRisk={obj.perfil_risco_ordem} key={`list-item-${index}`}>
-          <BadgeWrapper
-            onClick={() => setExpand({ ...expand, [index]: !expand[index] })}
-          >
+          <BadgeWrapper onClick={() => expandDetails(index, obj.id_fundo)}>
             <Badge>{obj.categoria_arena}</Badge>
           </BadgeWrapper>
-          <BoxHeader
-            onClick={() => setExpand({ ...expand, [index]: !expand[index] })}
-          >
+          <BoxHeader onClick={() => expandDetails(index, obj.id_fundo)}>
             <FundName>{obj.apelido}</FundName>
             {expand[index] ? <ArrowUp /> : <ArrowDown />}
           </BoxHeader>
@@ -72,45 +89,56 @@ export default function List({ data }) {
               <dt>HORÁRIO LIMITE DA APLIC.</dt>
               <dd>{obj.hora_aplicacao}</dd>
             </DetailItem>
-            <RiskDegree actives={[obj.perfil_risco_ordem]} />
+
+            {obj.id_fundo in fundDetailsLoaded &&
+            Object.entries(fundDetailsLoaded[obj.id_fundo]).length > 0 ? (
+              <>
+                <hr />
+                {/* <DetailItem>
+                  <dt>CNPJ</dt>
+                  <dd>{obj.cnpj}</dd>
+                </DetailItem> */}
+                <DetailItem>
+                  <dt>DATA DE INÍCIO</dt>
+                  <dd>
+                    {moment(fundDetailsLoaded[obj.id_fundo].data_inicio).format(
+                      'DD/MM/YYYY'
+                    )}
+                  </dd>
+                </DetailItem>
+                {/* <DetailItem>
+                  <dt>GESTOR</dt>
+                  <dd>{obj.gestor}</dd>
+                </DetailItem> */}
+                <DetailItem>
+                  <dt>BENCHMARK</dt>
+                  <dd>{fundDetailsLoaded[obj.id_fundo].benchmark.nome}</dd>
+                </DetailItem>
+                {/* <DetailItem>
+                  <dt>PL ATUAL</dt>
+                  <dd>{obj.plAtual}</dd>
+                </DetailItem> */}
+                <DetailItem>
+                  <dt>TAXA DE ADMINISTRAÇÃO</dt>
+                  <dd>{fundDetailsLoaded[obj.id_fundo].taxa_administracao}</dd>
+                </DetailItem>
+                {/* <DetailItem>
+                  <dt>PL MÉDIO 12M</dt>
+                  <dd>{obj.plMedio12m}</dd>
+                </DetailItem> */}
+                <DetailItem>
+                  <dt>TAXA DE PERFORMANCE</dt>
+                  <dd>{fundDetailsLoaded[obj.id_fundo].taxa_administracao}</dd>
+                </DetailItem>
+              </>
+            ) : null}
+
+            <RiskDegree actives={[parseInt(obj.perfil_risco_ordem, 10)]} />
             {obj.aplicao_liberada && (
               <InvestButton type="button" color="secondary">
                 Investir
               </InvestButton>
             )}
-            <hr />
-            {/* <DetailItem>
-                <dt>CNPJ</dt>
-                <dd>{obj.cnpj}</dd>
-              </DetailItem>
-              <DetailItem>
-                <dt>DATA DE INÍCIO</dt>
-                <dd>{obj.dtInicio}</dd>
-              </DetailItem>
-              <DetailItem>
-                <dt>GESTOR</dt>
-                <dd>{obj.gestor}</dd>
-              </DetailItem>
-              <DetailItem>
-                <dt>BENCHMARK</dt>
-                <dd>{obj.benchmark}</dd>
-              </DetailItem>
-              <DetailItem>
-                <dt>PL ATUAL</dt>
-                <dd>{obj.plAtual}</dd>
-              </DetailItem>
-              <DetailItem>
-                <dt>TAXA DE ADMINISTRAÇÃO</dt>
-                <dd>{obj.taxa_administracao}</dd>
-              </DetailItem>
-              <DetailItem>
-                <dt>PL MÉDIO 12M</dt>
-                <dd>{obj.plMedio12m}</dd>
-              </DetailItem>
-              <DetailItem>
-                <dt>TAXA DE PERFORMANCE</dt>
-                <dd>{obj.taxaPerformance}</dd>
-              </DetailItem> */}
           </BoxBottom>
         </FundBox>
       ))}

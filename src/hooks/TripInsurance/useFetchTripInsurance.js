@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { GetDataRequest } from 'store/modules/TripInsurance/action'
+import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 
 export default function useFetchTripInsurance() {
   const dispatch = useDispatch()
+  const status = useSelector(state => state.tripInsurance.status)
 
   useEffect(() => {
-    dispatch(GetDataRequest())
-  }, [dispatch])
+    if (!status) {
+      dispatch(GetTripInsuranceDataRequest())
+    }
+  }, [dispatch, status])
 }

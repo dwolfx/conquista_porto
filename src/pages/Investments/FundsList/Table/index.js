@@ -1,23 +1,26 @@
 import React, { useState, useLayoutEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useTable } from 'react-table'
 import PropTypes from 'prop-types'
 
 import Modal from 'components/Modal'
 import FundsInfo from 'components/Solutions/Investments/FundsInfo'
-
 import { formatMoney } from 'helpers'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import {
   Table,
   Thead,
   TheadTr,
   TheadTh,
+  TheadThWithColumns,
+  TheadColumn,
   Tbody,
   TbodyTr,
   TBodyTd,
   FundoWrapper,
   LogoImg,
-  AlertIcon,
+  InformationIcon,
   FundoNameWrapper,
   InvestButton,
   LockIcon,
@@ -33,26 +36,21 @@ const SimpleHeader = ({ header }) => (
   </TheadTh>
 )
 
-const HeaderWithColumns = ({ header }) => {
-  const isLastItem = x => header.columns.length - 1 === x
-  return (
-    <>
-      {header.columns.map((headerColumn, idx) => (
-        <TheadTh
+const HeaderWithColumns = ({ header }) => (
+  <TheadThWithColumns width={header.width}>
+    {header.Header}
+    <WrapperContent>
+      {header.columns.map(headerColumn => (
+        <TheadColumn
           width={headerColumn.width}
-          hasBefore={isLastItem(idx)}
-          beforeContent={header.Header}
-          beforeWidth={header.width}
           key={`inner-header-${headerColumn.Header}`}
         >
-          <WrapperContent lineHeight="16px">
-            {headerColumn.render('Header')}
-          </WrapperContent>
-        </TheadTh>
+          {headerColumn.render('Header')}
+        </TheadColumn>
       ))}
-    </>
-  )
-}
+    </WrapperContent>
+  </TheadThWithColumns>
+)
 
 const TheadWrapper = ({ header }) => {
   const hasColumns = () => 'columns' in header
@@ -62,13 +60,22 @@ const TheadWrapper = ({ header }) => {
     <SimpleHeader {...header.getHeaderProps()} header={header} />
   )
 }
-const FormatFundoCell = ({ cell, column }) => (
-  <FundoWrapper {...cell.getCellProps()}>
-    <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
-    <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-    <AlertIcon onClick={() => column.toggleModal(!column.isModalOpen)} />
-  </FundoWrapper>
-)
+const FormatFundoCell = ({ cell, column }) => {
+  const dispatch = useDispatch()
+
+  return (
+    <FundoWrapper {...cell.getCellProps()}>
+      <LogoImg alt="logo" src={cell.row.original.url_logo_gestor} />
+      <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
+      <InformationIcon
+        onClick={() => {
+          dispatch(GetInvestmentDetailsRequest(cell.row.original.id_fundo))
+          column.toggleModal(!column.isModalOpen)
+        }}
+      />
+    </FundoWrapper>
+  )
+}
 
 const FormatEnabledCell = column =>
   column.cell.value ? (
@@ -111,6 +118,7 @@ export default function TableFunds({
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
+  const fundDetails = useSelector(state => state.investmentDetails.data)
 
   useLayoutEffect(() => {
     setTheadY(
@@ -119,12 +127,14 @@ export default function TableFunds({
   }, [setTheadY])
 
   useLayoutEffect(() => {
-    const getScrollY = () => window.scrollY
+    const getScrollY = () => window.scrollY - 170
     const shouldSticky = scrollY => {
-      const { offsetHeight } = document.querySelector('thead')
-      const hasMinimumRows = data.length > 2
-      const isTheadInvisible = theadY - 30 - offsetHeight < scrollY
-      return hasMinimumRows && isTheadInvisible
+      const table = document.querySelector('table')
+      const thead = document.querySelector('thead')
+      const hasMinimumRows = data.length > 3
+      const isTheadInvisible = theadY - 30 - thead.offsetHeight < scrollY
+      const isEndOfTable = table.offsetHeight - 70 < scrollY
+      return hasMinimumRows && isTheadInvisible && !isEndOfTable
     }
 
     const handleScroll = () => setStickyThead(shouldSticky(getScrollY()))
@@ -158,7 +168,7 @@ export default function TableFunds({
         modalTitle="Informações do fundo"
         alignItems="flex-start"
       >
-        <FundsInfo />
+        <FundsInfo fund={fundDetails} />
       </Modal>
       <TabsWrapper>
         {fundsType.map(fundType => (
@@ -237,6 +247,7 @@ FormatFundoCell.propTypes = {
       original: PropTypes.shape({
         url_logo_gestor: PropTypes.string,
         apelido: PropTypes.string,
+        id_fundo: PropTypes.string,
       }),
     }),
   }).isRequired,

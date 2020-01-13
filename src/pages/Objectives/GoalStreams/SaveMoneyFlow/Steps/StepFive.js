@@ -8,7 +8,6 @@ import ButtonNext from 'pages/Objectives/GoalStreams/Components/ButtonNext'
 import {
   Input,
   Question,
-  QuestionRule,
   Section,
   Wrapper,
 } from 'pages/Objectives/GoalStreams/styles'
@@ -19,13 +18,6 @@ const StepFive = ({ onChangeScreen }) => (
       <Row justifyContent="center">
         <Col lg="6" xs="12">
           <Question>Quanto você pretende investir por mês?</Question>
-        </Col>
-      </Row>
-      <Row justifyContent="center">
-        <Col lg="6" xs="12">
-          <QuestionRule>
-            Para atingir seu objetivo, sugiro pelo menos R$ 00.000,00 por mês.
-          </QuestionRule>
         </Col>
       </Row>
       <Row justifyContent="center">
