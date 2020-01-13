@@ -20,8 +20,8 @@ import Icon from 'components/IconExporter'
 import { formatMoney } from 'helpers'
 
 import RedHairGirlImage from 'assets/images/red_hair_girl.jpg'
-import AnbimaImage from 'assets/images/logo-anbima.png'
 import useMedia from 'hooks/useMedia'
+import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
 import GeneralView from './GeneralView'
 
 import {
@@ -52,7 +52,6 @@ import {
   BankTransitionDateWrapper,
   CompleteExtract,
   ComplementaryInfo,
-  AnbimaContainer,
   AccordionGeneralInfo,
 } from './styles'
 
@@ -537,38 +536,7 @@ export default function ManagementInvestments({ history }) {
             <GeneralView />
           </GeneralInfo> */}
         </PageContent>
-        <AnbimaContainer>
-          <Text fontSize="12px" lineHeight="22px" margin="0 0 45px 0">
-            Porto Seguro Investimentos informa os cotistas que o Distribuidor de
-            cotas dos Fundos poderá receber remuneração de distribuição do(s)
-            administrador(es) e/ou dos Fundos de Investimento em que seus
-            clientes aplicarem recursos, seja na forma de investimento direto,
-            seja por meio de conta e ordem; Esta remuneração poderá ser
-            diferenciada em função dos diversos Fundos de Investimento
-            investidos. Leia o formulário de informações complementares, a
-            lâmina de informações essenciais, se houver, e o regulamento antes
-            de investir. Confira a Lâmina de Informações Essenciais, o
-            Demonstrativo de Desempenho e o Formulário de Informações
-            Complementares - INTRAG/CVM.
-            <Text
-              fontSize="12px"
-              lineHeight="22px"
-              fontColor={theme.colors.blue4}
-              fontWeight="bold"
-            >
-              ACESSE AQUI.
-            </Text>
-            A Porto Seguro Investimentos pode receber eventuais serviços
-            adicionais fornecidos por Corretoras em razão de sua contratação e
-            relacionamento. A Portopar DTVM recebe remuneração de distribuição
-            do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que
-            seus clientes aplicam recursos, seja na forma de investimento
-            direto, seja por meio de conta e ordem e que esta remuneração pode
-            ser diferenciada em função dos diversos Fundos de Investimento
-            investidos.
-          </Text>
-          <img src={AnbimaImage} width="486px" alt="Logo empresa Anbima" />
-        </AnbimaContainer>
+        <AnbimaLegalInfo />
       </Container>
       <HighlightSection
         title="Facilidade para investir"

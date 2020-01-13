@@ -338,16 +338,3 @@ export const ComplementaryInfo = styled.article`
   flex-direction: column;
   padding-bottom: 22px;
 `
-
-export const AnbimaContainer = styled.article`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 46px;
-  padding: 0 6px;
-
-  @media (max-width: 550px) {
-    img {
-      width: 320px;
-    }
-  }
-`
