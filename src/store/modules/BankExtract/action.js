@@ -1,20 +1,20 @@
 import { Types } from './types'
 
-export function GetDataRequest(payload) {
+export function GetBankExtractRequest(payload) {
   return {
     type: Types.GET_REQUEST,
     payload,
   }
 }
 
-export function GetDataSuccess(payload) {
+export function GetBankExtractSuccess(payload) {
   return {
     type: Types.GET_SUCCESS,
     payload,
   }
 }
 
-export function GetDataFailure() {
+export function GetBankExtractFailure() {
   return {
     type: Types.GET_FAILURE,
   }

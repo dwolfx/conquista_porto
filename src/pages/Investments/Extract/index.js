@@ -12,6 +12,7 @@ import Header from 'components/Wizard/Header'
 import Tab from 'components/Tab'
 import { formatMoney, formatCpf } from 'helpers'
 import useFetchBankExtract from 'hooks/BankExtract/useFetchBankExtract'
+import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
 import { selectOptions, statementColumns } from './data'
 import {
@@ -43,9 +44,12 @@ const InvestmentExtract = () => {
   const [extractData, setExtractData] = useState([])
   const [showDateFilter, setShowDateFilter] = useState(false)
 
+  useFetchBankData()
   useFetchBankExtract(requestData)
 
+  const bankData = useSelector(state => state.bankData.data)
   const bankExtract = useSelector(state => state.bankExtract.data)
+  console.log(bankData)
 
   const handleChangeSelect = e => {
     setShowDateFilter(e.target.value === 'other')
@@ -123,7 +127,8 @@ const InvestmentExtract = () => {
               <InfosWrapper>
                 <InfosLabel>Banco</InfosLabel>
                 <InfosData>
-                  {bankExtract.conta && bankExtract.conta.codigo_banco}
+                  {bankData.DadosContaPortoSeguro &&
+                    bankData.DadosContaPortoSeguro.codigo_banco}
                 </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
@@ -136,7 +141,8 @@ const InvestmentExtract = () => {
               <InfosWrapper>
                 <InfosLabel>Agência</InfosLabel>
                 <InfosData>
-                  {bankExtract.conta && bankExtract.conta.agencia}
+                  {bankData.DadosContaPortoSeguro &&
+                    bankData.DadosContaPortoSeguro.agencia}
                 </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
@@ -145,8 +151,8 @@ const InvestmentExtract = () => {
               <InfosWrapper>
                 <InfosLabel>Conta</InfosLabel>
                 <InfosData>
-                  {bankExtract.conta &&
-                    `${bankExtract.conta.conta}-${bankExtract.conta.digito_conta}`}
+                  {bankData.DadosContaPortoSeguro &&
+                    `${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
                 </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
@@ -155,7 +161,8 @@ const InvestmentExtract = () => {
               <InfosWrapper>
                 <InfosLabel>Favorecido</InfosLabel>
                 <InfosData>
-                  {bankExtract.conta && bankExtract.conta.titular}
+                  {bankData.DadosContaPortoSeguro &&
+                    bankData.DadosContaPortoSeguro.titular}
                 </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
@@ -168,7 +175,8 @@ const InvestmentExtract = () => {
               <InfosWrapper>
                 <InfosLabel>CPF</InfosLabel>
                 <InfosData>
-                  {bankExtract.conta && formatCpf(bankExtract.conta.cpf)}
+                  {bankData.DadosContaPortoSeguro &&
+                    formatCpf(bankData.DadosContaPortoSeguro.cpf)}
                 </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>

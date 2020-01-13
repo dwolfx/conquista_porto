@@ -13,7 +13,7 @@ function* getData() {
   try {
     const response = yield call(
       get,
-      '/conta/dados?cpf=33244452809&codigoCanal=0'
+      '/conta/dados?cpf=68826796220&codigoCanal=0'
     )
     yield put(GetDataSuccess(response.data))
   } catch (err) {
