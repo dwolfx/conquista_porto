@@ -81,14 +81,20 @@ const InvestmentExtract = () => {
     setShowDateFilter(e.target.value === 'other')
 
     if (e.target.value !== 'other') {
-      setRequestData({
+      const newRequestData = {
         ...requestData,
         filter: e.target.value,
         startDate: '',
         endDate: '',
-      })
+      }
+      setRequestData(newRequestData)
 
-      dispatch(GetBankExtractRequest(requestData))
+      dispatch(GetBankExtractRequest(newRequestData))
+    } else {
+      setRequestData({
+        ...requestData,
+        filter: 0,
+      })
     }
   }
 
