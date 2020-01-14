@@ -34,8 +34,8 @@ export const RadioInput = styled.input.attrs({ type: 'radio' })`
     height: 10px;
     display: block;
     position: absolute;
-    top: calc(50% - 4px);
-    left: calc(50% - 4px);
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
     border-radius: 50%;
     background-color: transparent;
   }
