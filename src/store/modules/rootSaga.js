@@ -1,6 +1,7 @@
 import { all } from 'redux-saga/effects'
 
 import creditCard from './CreditCard/sagas'
+import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import investmentsList from './Investment/sagas'
@@ -15,6 +16,7 @@ import points from './Points/sagas'
 export default function* rootSaga() {
   return yield all([
     creditCard,
+    consolidatedPosition,
     consortiumBuilding,
     consortiumVehicle,
     investmentsList,

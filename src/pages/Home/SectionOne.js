@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -11,12 +11,11 @@ import InsuranceHomeImg from 'assets/images/pages/Home/insurance1.jpg'
 import PieChart from 'components/PieChart'
 import Text from 'components/Text'
 import { formatMoney } from 'helpers'
+import ChartMiddleInfoContent from './ChartMiddleInfoContent'
 
 import ProductItemGenerator from './ProductItemGenerator'
 
 import {
-  EmptyBody,
-  EmptyText,
   FullHeightCard,
   SectionCol,
   SectionRow,
@@ -37,51 +36,52 @@ const SectionOne = () => {
   const buildingConsortium = useSelector(state => state.consortiumBuilding.data)
   const lifeInsurance = useSelector(state => state.lifeInsurance.data)
   const tripInsurance = useSelector(state => state.tripInsurance.data)
+  const consolidatedPosition = useSelector(
+    state => state.consolidatedPosition.data
+  )
 
   const history = useHistory()
+  const [pieChartInfo, setPieChartInfo] = useState({
+    id: -1,
+    label: '',
+    value: 0,
+    percent: 0,
+  })
 
-  const renderEmptyState = () => (
-    <EmptyBody>
-      <EmptyText type="captionUppercase">Total investido</EmptyText>
-      <EmptyText type="headline" bold>
-        {formatMoney(0)}
-      </EmptyText>
-    </EmptyBody>
-  )
+  useEffect(() => {
+    setPieChartInfo({
+      label: '',
+      value: consolidatedPosition.saldototal || 0,
+      percent: 0,
+    })
+  }, [consolidatedPosition])
+
   const theme = useContext(ThemeContext)
 
-  const initialState = [
-    {
-      id: 'rendafixa',
-      label: 'Porto Seguro Renda Fixa',
-      value: 10,
-      color: theme.colors.magenta2,
-    },
-    {
-      id: 'multimercado',
-      label: 'Porto Seguro Multimercado',
-      value: 30,
-      color: theme.colors.blue4,
-    },
-    {
-      id: 'acoes',
-      label: 'Porto Seguro Ações',
-      value: 15,
-      color: theme.colors.yellow2,
-    },
-    {
-      id: 'creditocorporativo',
-      label: 'Porto Seguro Crédito Corporativo',
-      value: 25,
-      color: theme.colors.green4,
-    },
-    {
-      id: 'fundosimobiliarios',
-      label: 'Porto Seguro Fundos Imobiliários',
-      value: 20,
-      color: theme.colors.darkBlue2,
-    },
-  ]
+  const graphValuesGenerator = data => {
+    const colorsPriority = [
+      theme.colors.magenta2,
+      theme.colors.blue4,
+      theme.colors.yellow2,
+      theme.colors.green3,
+      theme.colors.darkBlue2,
+    ]
+
+    let result = []
+
+    if (data.saldototal && data.categorias) {
+      result = data.categorias.sort((a, b) => b.valor - a.valor)
+      result = result.map((item, index) => ({
+        id: `${index}`,
+        label: item.nome,
+        value: item.valor,
+        color: colorsPriority[index],
+        percent: ((item.valor / data.saldototal) * 100).toFixed(2),
+      }))
+    }
+
+    return result
+  }
 
   const renderCreditProducts = () => {
     let result = []
@@ -188,8 +188,19 @@ const SectionOne = () => {
         <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
           <SectionRow>
             <SectionCol lg="6">
-              <PieChart width="100%" height="100%" data={initialState}>
-                {renderEmptyState()}
+              <PieChart
+                width="100%"
+                height="100%"
+                data={graphValuesGenerator(consolidatedPosition)}
+                onMouseEnter={setPieChartInfo}
+                onMouseLeave={() =>
+                  setPieChartInfo({
+                    id: -1,
+                    value: consolidatedPosition.saldototal || 0,
+                  })
+                }
+              >
+                <ChartMiddleInfoContent pieChartInfo={pieChartInfo} />
               </PieChart>
             </SectionCol>
 

@@ -10,6 +10,7 @@ import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle
 import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
 import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
+import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPosition/action'
 import { GetDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsDataRequest } from 'store/modules/Points/action'
 
@@ -27,6 +28,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(GetBankDataRequest())
     dispatch(GetDataRequest())
+    dispatch(GetConsolidatedPositionDataRequest())
     dispatch(GetVehicleFinancingDataRequest())
     dispatch(GetConsortiumBuildingDataRequest())
     dispatch(GetConsortiumVehicleDataRequest())
