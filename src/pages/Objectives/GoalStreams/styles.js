@@ -31,8 +31,10 @@ export const Wrapper = styled.div`
   padding: 0 15px;
 `
 
-export const Question = styled(Text).attrs({ type: 'heading3' })`
+export const Question = styled(Text).attrs({ type: 'heading4' })`
+  min-height: 66px;
   text-align: center;
+  text-transform: none;
 `
 
 export const QuestionRule = styled(Text).attrs({ type: 'headline' })`
