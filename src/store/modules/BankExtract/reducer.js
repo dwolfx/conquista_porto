@@ -9,7 +9,7 @@ export default function(state = INITIAL_STATE, action) {
     case Types.GET_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        data: { ...action.payload },
       }
     default:
       return state
