@@ -8,7 +8,7 @@ export const Container = styled.div``
 
 export const SectionBar = styled.section`
   background-color: ${props => props.theme.fundRiskColors.lowRisk};
-  padding: 1rem 0;
+  padding: 10px 0;
 `
 
 export const Section = styled.section`
@@ -40,8 +40,16 @@ export const QuestionRule = styled(Text).attrs({ type: 'headline' })`
   text-align: center;
 `
 
-export const TitleBar = styled(Text).attrs({ type: 'headline' })`
-  color: ${props => props.theme.colors.white};
+export const TitleBar = styled(Text).attrs({ type: 'heading4' })`
+  color: ${props => props.theme.colors.gray4};
+  text-transform: none;
+  span {
+    color: ${props => props.theme.colors.white};
+  }
+`
+
+export const PageBar = styled(Text).attrs({ type: 'title' })`
+  color: ${props => props.theme.colors.gray4};
   text-transform: uppercase;
 `
 
