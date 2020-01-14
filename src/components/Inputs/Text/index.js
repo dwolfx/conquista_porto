@@ -22,7 +22,7 @@ export default function Text({
   marginLeft,
   disabled,
   error,
-  ...props
+  ...rest
 }) {
   const [isActive, setIsActive] = useState(false)
 
@@ -53,7 +53,7 @@ export default function Text({
       <InputText
         type={type || 'text'}
         onChange={changeLabelPosition}
-        {...props}
+        {...rest}
       />
     </InputWrapper>
   )

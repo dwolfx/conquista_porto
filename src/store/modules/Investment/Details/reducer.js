@@ -9,7 +9,7 @@ export default function(state = INITIAL_STATE, action) {
     case Types.INVESTMENT_DETAILS_ADD_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        data: { ...action.payload },
       }
     default:
       return state
