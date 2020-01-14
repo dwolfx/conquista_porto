@@ -38,7 +38,7 @@ const SelectComponent = ({
       <SelectFieldWrapper>
         <SelectField {...props}>
           {showPlaceholder && (
-            <option value={defaultValue}>{placeholder || 'Selecione'}</option>
+            <option value={defaultValue}>{placeholder}</option>
           )}
           {renderOptions()}
         </SelectField>
@@ -71,7 +71,7 @@ SelectComponent.defaultProps = {
   paddingLeft: 0,
   paddingRight: 0,
   width: 100,
-  placeholder: '',
+  placeholder: 'Selecione',
   defaultValue: '',
   showPlaceholder: true,
 }
