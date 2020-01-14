@@ -22,6 +22,7 @@ export default function Text({
   marginLeft,
   disabled,
   error,
+  labelFixed,
   ...rest
 }) {
   const [isActive, setIsActive] = useState(false)
@@ -48,6 +49,7 @@ export default function Text({
       marginLeft={marginLeft}
       marginRight={marginRight}
       disabled={disabled}
+      labelFixed={labelFixed}
     >
       {label && <InputLabel>{label}</InputLabel>}
       <InputText
@@ -69,6 +71,7 @@ Text.propTypes = {
   marginRight: PropTypes.number,
   marginLeft: PropTypes.number,
   disabled: PropTypes.bool,
+  labelFixed: PropTypes.bool,
   error: PropTypes.bool,
 }
 Text.defaultProps = {
@@ -81,5 +84,6 @@ Text.defaultProps = {
   marginRight: 0,
   marginLeft: 0,
   disabled: false,
+  labelFixed: false,
   error: false,
 }
