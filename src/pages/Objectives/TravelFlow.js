@@ -1,7 +1,5 @@
 import React from 'react'
 import { WizardFlow } from 'pages/Objectives/Wizard'
-import WizardStep from 'pages/Objectives/Wizard/WizardStep'
-import QuestionFlow from 'pages/Objectives/Wizard/QuestionFlow'
 
 const GoalStreams = () => {
   const data = [
@@ -33,20 +31,7 @@ const GoalStreams = () => {
       type: 'number',
     },
   ]
-  return (
-    <WizardFlow>
-      {data.map(item => (
-        <WizardStep key={item.name}>
-          <QuestionFlow
-            question={item.question}
-            name={item.name}
-            type={item.type}
-            minimumValue={item.minimumValue}
-          />
-        </WizardStep>
-      ))}
-    </WizardFlow>
-  )
+  return <WizardFlow data={data} />
 }
 
 export default GoalStreams

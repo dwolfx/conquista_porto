@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import QuestionFlow from 'pages/Objectives/Wizard/QuestionFlow'
 
 import Button from 'components/Button'
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
-import { ScreenAlignment, Wizard, WizardButtom } from './styles'
+import { ScreenAlignment, Wizard, WizardButtom, WizardStep } from './styles'
 
-export const WizardFlow = ({ children }) => {
+export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
-  const incrementStep = () => setStepIndex(currentStep + 1)
-  const decrementStep = () => setStepIndex(currentStep - 1)
+  const increment = () => setStepIndex(currentStep + 1)
+  const decrement = () => setStepIndex(currentStep - 1)
   const computedState = {
     isFirstStep: currentStep === 0,
-    isLastStep: currentStep === children.length - 1,
+    isLastStep: currentStep === data.length - 1,
   }
   const { isFirstStep, isLastStep } = computedState
 
@@ -19,14 +20,25 @@ export const WizardFlow = ({ children }) => {
     alert('Requisição API')
   }
 
+  const WizardContainer = () => (
+    <WizardStep>
+      <QuestionFlow
+        question={data[currentStep].question}
+        name={data[currentStep].name}
+        type={data[currentStep].type}
+        minimumValue={data[currentStep].minimumValue}
+      />
+    </WizardStep>
+  )
+
   return (
     <Wizard>
-      <TopBar numberSteps={children.length} currentStep={currentStep + 1} />
+      <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
       <ScreenAlignment>
-        {children[currentStep]}
+        {WizardContainer(currentStep)}
         <WizardButtom>
-          {!isFirstStep && <Button onClick={decrementStep}>Anterior</Button>}
-          {!isLastStep && <Button onClick={incrementStep}>Próximo</Button>}
+          {!isFirstStep && <Button outline onClick={decrement}> Anterior</Button> }
+          {!isLastStep && <Button onClick={increment}>Próximo</Button>}
           {isLastStep && <Button onClick={postFlow}>POST</Button>}
         </WizardButtom>
       </ScreenAlignment>
@@ -35,9 +47,9 @@ export const WizardFlow = ({ children }) => {
 }
 
 WizardFlow.defaultProps = {
-  children: [],
+  data: [],
 }
 
 WizardFlow.propTypes = {
-  children: PropTypes.array,
+  data: PropTypes.array,
 }

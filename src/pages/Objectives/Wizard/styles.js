@@ -5,7 +5,7 @@ export const Wizard = styled.div``
 
 export const Container = styled.div``
 
-export const WizardContainer = styled.div`
+export const WizardStep = styled.div`
   padding: 0 1rem;
   width: 100%;
 `
