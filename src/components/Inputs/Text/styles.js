@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 const labelFixed = css`
   color: ${props => props.theme.colors.gray5};
   font-family: ${props => props.theme.fontTypes.subheading};
-  font-size: 14px;
   letter-spacing: 0.02px;
   text-transform: uppercase;
   top: -13px;
