@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
-import { PageBar, SectionBar, TitleBar } from '../styles'
+import {
+  PageBar,
+  SectionBar,
+  TitleBar,
+} from 'pages/Objectives/GoalStreams/Components/styles'
 
 const TopBar = ({ currentStep, numberSteps }) => (
   <SectionBar>

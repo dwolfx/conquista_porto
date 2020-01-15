@@ -1,5 +1,8 @@
 import React from 'react'
-import { WizardFlow } from 'pages/Objectives/Wizard'
+import { WizardFlow } from 'pages/Objectives/GoalStreams/Components/Wizard'
+import Header from 'pages/Objectives/GoalStreams/Components/Header'
+
+import { Container } from 'pages/Objectives/GoalStreams/Components/styles'
 
 const BuyHouseFlow = () => {
   const data = [
@@ -51,7 +54,12 @@ const BuyHouseFlow = () => {
       options: ['Sim', 'Não'],
     },
   ]
-  return <WizardFlow data={data} />
+  return (
+    <Container>
+      <Header />
+      <WizardFlow data={data} />
+    </Container>
+  )
 }
 
 export default BuyHouseFlow

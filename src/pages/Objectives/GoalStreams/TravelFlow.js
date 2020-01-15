@@ -1,7 +1,10 @@
 import React from 'react'
-import { WizardFlow } from 'pages/Objectives/Wizard'
+import { WizardFlow } from 'pages/Objectives/GoalStreams/Components/Wizard'
+import Header from 'pages/Objectives/GoalStreams/Components/Header'
 
-const SaveMoneyFlow = () => {
+import { Container } from 'pages/Objectives/GoalStreams/Components/styles'
+
+const TravelFlow = () => {
   const data = [
     {
       question:
@@ -10,12 +13,12 @@ const SaveMoneyFlow = () => {
       type: 'text',
     },
     {
-      question: 'Quando você quer resgatar se atingir o total?',
+      question: 'Qual a data da sua viagem?',
       name: 'targetDate',
       type: 'date',
     },
     {
-      question: 'Qual valor você pretente atingir?',
+      question: 'Quanto vai custar sua viagem?',
       name: 'targetValue',
       type: 'number',
     },
@@ -31,7 +34,12 @@ const SaveMoneyFlow = () => {
       type: 'number',
     },
   ]
-  return <WizardFlow data={data} />
+  return (
+    <Container>
+      <Header />
+      <WizardFlow data={data} />
+    </Container>
+  )
 }
 
-export default SaveMoneyFlow
+export default TravelFlow

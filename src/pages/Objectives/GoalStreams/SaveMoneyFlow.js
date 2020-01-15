@@ -1,7 +1,10 @@
 import React from 'react'
-import { WizardFlow } from 'pages/Objectives/Wizard'
+import { WizardFlow } from 'pages/Objectives/GoalStreams/Components/Wizard'
+import Header from 'pages/Objectives/GoalStreams/Components/Header'
 
-const StudyFlow = () => {
+import { Container } from 'pages/Objectives/GoalStreams/Components/styles'
+
+const SaveMoneyFlow = () => {
   const data = [
     {
       question:
@@ -10,12 +13,12 @@ const StudyFlow = () => {
       type: 'text',
     },
     {
-      question: 'Quando começa o curso que você quer fazer?',
+      question: 'Quando você quer resgatar se atingir o total?',
       name: 'targetDate',
       type: 'date',
     },
     {
-      question: 'Qual o valor do curso?',
+      question: 'Qual valor você pretente atingir?',
       name: 'targetValue',
       type: 'number',
     },
@@ -31,7 +34,12 @@ const StudyFlow = () => {
       type: 'number',
     },
   ]
-  return <WizardFlow data={data} />
+  return (
+    <Container>
+      <Header />
+      <WizardFlow data={data} />
+    </Container>
+  )
 }
 
-export default StudyFlow
+export default SaveMoneyFlow
