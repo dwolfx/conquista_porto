@@ -1,7 +1,7 @@
 import React from 'react'
 import { WizardFlow } from 'pages/Objectives/Wizard'
 
-const GoalStreams = () => {
+const TravelFlow = () => {
   const data = [
     {
       question:
@@ -34,4 +34,4 @@ const GoalStreams = () => {
   return <WizardFlow data={data} />
 }
 
-export default GoalStreams
+export default TravelFlow
