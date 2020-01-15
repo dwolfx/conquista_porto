@@ -14,7 +14,6 @@ export const WizardFlow = ({ data }) => {
     isFirstStep: currentStep === 0,
     isLastStep: currentStep === data.length - 1,
   }
-  const { isFirstStep, isLastStep } = computedState
 
   const postFlow = () => {
     alert('Requisição API')
@@ -37,9 +36,15 @@ export const WizardFlow = ({ data }) => {
       <ScreenAlignment>
         {WizardContainer(currentStep)}
         <WizardButtom>
-          {!isFirstStep && <Button outline onClick={decrement}> Anterior</Button> }
-          {!isLastStep && <Button onClick={increment}>Próximo</Button>}
-          {isLastStep && <Button onClick={postFlow}>POST</Button>}
+          {!computedState.isFirstStep && (
+            <Button outline onClick={decrement}>
+              Anterior
+            </Button>
+          )}
+          {!computedState.isLastStep && (
+            <Button onClick={increment}>Próximo</Button>
+          )}
+          {computedState.isLastStep && <Button onClick={postFlow}>POST</Button>}
         </WizardButtom>
       </ScreenAlignment>
     </Wizard>
