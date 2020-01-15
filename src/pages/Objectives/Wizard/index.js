@@ -32,7 +32,7 @@ export const WizardFlow = ({ data }) => {
     <Wizard>
       <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
       <ScreenAlignment>
-        {WizardContainer(currentStep)}
+        {WizardContainer()}
         <WizardButtom>
           {!computedState.isFirstStep && (
             <Button outline onClick={decrement}>
