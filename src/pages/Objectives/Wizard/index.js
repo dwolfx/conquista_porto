@@ -15,9 +15,7 @@ export const WizardFlow = ({ data }) => {
     isLastStep: currentStep === data.length - 1,
   }
 
-  const postFlow = () => {
-    alert('Requisição API')
-  }
+  const postFlow = () => {}
 
   const WizardContainer = () => (
     <WizardStep>
