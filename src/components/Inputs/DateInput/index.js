@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import TextInput from 'components/Inputs/Text'
 
-const DateInput = ({ onKeyUp, ...props }) => {
+const DateInput = ({ onKeyUp, ...rest }) => {
   const applyDateMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
     let newValue = strippedValue
@@ -22,7 +22,7 @@ const DateInput = ({ onKeyUp, ...props }) => {
     }
   }
 
-  return <TextInput maxLength="10" onKeyUp={applyDateMask} {...props} />
+  return <TextInput maxLength="10" onKeyUp={applyDateMask} {...rest} />
 }
 
 DateInput.defaultProps = {

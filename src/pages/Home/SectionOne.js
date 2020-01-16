@@ -39,6 +39,7 @@ const SectionOne = () => {
   const consolidatedPosition = useSelector(
     state => state.consolidatedPosition.data
   )
+  const bankData = useSelector(state => state.bankData.data)
 
   const history = useHistory()
   const [pieChartInfo, setPieChartInfo] = useState({
@@ -209,18 +210,36 @@ const SectionOne = () => {
                 <InvestmentInfos>
                   <Text type="headline">Saldo disponível</Text>
                   <Text type="headline" bold>
-                    {formatMoney(0)}
+                    {formatMoney(
+                      bankData.DadosContaPortoSeguro
+                        ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                        : 0
+                    )}
                   </Text>
-                  <ButtonLink>Conta de Investimento</ButtonLink>
+                  <ButtonLink
+                    onClick={() => {
+                      history.push('/investimentos/visualizar')
+                    }}
+                  >
+                    Conta de Investimento
+                  </ButtonLink>
                 </InvestmentInfos>
               </InvestmentInfosRow>
               <InvestmentInfosRow>
                 <InvestmentInfos>
                   <Text type="headline">Saldo a liquidar</Text>
                   <Text type="headline" bold>
-                    {formatMoney(0)}
+                    {formatMoney(
+                      bankData.DadosContaPortoSeguro
+                        ? bankData.DadosContaPortoSeguro.saldo_liquidar
+                        : 0
+                    )}
                   </Text>
-                  <ButtonLink>Ver extrato</ButtonLink>
+                  <ButtonLink
+                    onClick={() => history.push('/investimentos/extrato')}
+                  >
+                    Ver extrato
+                  </ButtonLink>
                 </InvestmentInfos>
               </InvestmentInfosRow>
             </SectionCol>
