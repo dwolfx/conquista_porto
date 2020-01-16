@@ -3,42 +3,46 @@ import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
 import Input from 'components/Inputs/Text'
 
-import { Container, Question, Wrapper } from './styles'
+import { Question, Wrapper } from './styles'
 
-const QuestionFlow = ({ question, name, type, minimumValue }) => (
-  <Container>
+const QuestionFlow = ({ minimumValue, name, options, question, type }) => (
+  <>
+    {console.log('options: ', options)}
     <Row justifyContent="center">
-      <Col lg="4" xs="12">
+      <Col lg="12" xs="12">
         <Question>{question}</Question>
       </Col>
     </Row>
     <Row justifyContent="center">
-      <Col lg="4" xs="12">
+      <Col lg="12" xs="12">
         <Wrapper>
           <Input
             width="100"
             label={type}
-            name={name}
             minimumValue={minimumValue}
+            name={name}
+            options={options}
           />
         </Wrapper>
       </Col>
     </Row>
-  </Container>
+  </>
 )
 
 QuestionFlow.defaultProps = {
-  question: '',
-  name: '',
-  type: '',
   minimumValue: '',
+  name: '',
+  options: [],
+  question: '',
+  type: '',
 }
 
 QuestionFlow.propTypes = {
-  question: PropTypes.string,
-  name: PropTypes.string,
-  type: PropTypes.string,
   minimumValue: PropTypes.string,
+  name: PropTypes.string,
+  options: PropTypes.array,
+  question: PropTypes.string,
+  type: PropTypes.string,
 }
 
 export default QuestionFlow

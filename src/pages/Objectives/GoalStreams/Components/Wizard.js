@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { Col } from 'styled-bootstrap-grid'
+
+import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
 import QuestionFlow from 'pages/Objectives/GoalStreams/Components/QuestionFlow'
 
-import Button from 'components/Button'
-import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
-import { ScreenAlignment, Wizard, WizardButtom, WizardStep } from './styles'
+import {
+  BodyWizard,
+  ButtonAction,
+  RowButton,
+  Wizard,
+  WizardStep,
+} from './styles'
 
 export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
@@ -14,37 +21,45 @@ export const WizardFlow = ({ data }) => {
     isFirstStep: currentStep === 0,
     isLastStep: currentStep === data.length - 1,
   }
+  const { isFirstStep, isLastStep } = computedState
 
   const postFlow = () => {}
 
   const WizardContainer = () => (
     <WizardStep>
-      <QuestionFlow
-        question={data[currentStep].question}
-        name={data[currentStep].name}
-        type={data[currentStep].type}
-        minimumValue={data[currentStep].minimumValue}
-      />
+      <QuestionFlow {...data[currentStep]} />
     </WizardStep>
+  )
+
+  const WizardButtom = () => (
+    <RowButton>
+      {!isFirstStep && (
+        <Col lg="6" xs="12">
+          <ButtonAction outline onClick={decrement}>
+            Anterior
+          </ButtonAction>
+        </Col>
+      )}
+      {!isLastStep && (
+        <Col lg={isFirstStep ? '12' : '6'} xs="12">
+          <ButtonAction onClick={increment}>Próximo</ButtonAction>
+        </Col>
+      )}
+      {isLastStep && (
+        <Col lg="6" xs="12">
+          <ButtonAction onClick={postFlow}>POST</ButtonAction>
+        </Col>
+      )}
+    </RowButton>
   )
 
   return (
     <Wizard>
       <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
-      <ScreenAlignment>
+      <BodyWizard>
         {WizardContainer()}
-        <WizardButtom>
-          {!computedState.isFirstStep && (
-            <Button outline onClick={decrement}>
-              Anterior
-            </Button>
-          )}
-          {!computedState.isLastStep && (
-            <Button onClick={increment}>Próximo</Button>
-          )}
-          {computedState.isLastStep && <Button onClick={postFlow}>POST</Button>}
-        </WizardButtom>
-      </ScreenAlignment>
+        {WizardButtom()}
+      </BodyWizard>
     </Wizard>
   )
 }
