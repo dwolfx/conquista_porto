@@ -9,13 +9,13 @@ const ChartEmptyState = ({ value }) => (
   <EmptyBody>
     <EmptyText type="captionUppercase">Total investido</EmptyText>
     <EmptyText type="heading4" bold>
-      {value ? formatMoney(value) : formatMoney(0)}
+      {formatMoney(value)}
     </EmptyText>
   </EmptyBody>
 )
 
 const ChartMiddleInfoContent = ({ pieChartInfo }) =>
-  pieChartInfo.value && pieChartInfo.label ? (
+  validPieChartInfo(pieChartInfo) ? (
     <EmptyBody>
       <Text type="heading4">{`${pieChartInfo.percent}%`}</Text>
       <EmptyText type="captionUppercase">{pieChartInfo.label}</EmptyText>
@@ -24,8 +24,15 @@ const ChartMiddleInfoContent = ({ pieChartInfo }) =>
       </Text>
     </EmptyBody>
   ) : (
-    <ChartEmptyState value={pieChartInfo.value} />
+    <ChartEmptyState
+      value={validPieChartEmptyState(pieChartInfo) ? pieChartInfo.value : 0}
+    />
   )
+
+const validPieChartInfo = info =>
+  info && info.id !== 'emptyvalue' && info.value && info.label
+
+const validPieChartEmptyState = info => info && info.id !== 'emptyvalue'
 
 ChartMiddleInfoContent.propTypes = {
   pieChartInfo: PropTypes.object.isRequired,

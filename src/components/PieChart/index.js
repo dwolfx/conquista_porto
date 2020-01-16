@@ -58,6 +58,8 @@ export default function PieChart({
     if (!preventOnMouse) {
       dispatch({ type: 'mouseEnter', payload })
       if (onMouseEnter) {
+        console.log(payload)
+
         onMouseEnter(payload)
       }
     }

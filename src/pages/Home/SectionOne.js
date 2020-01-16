@@ -51,7 +51,6 @@ const SectionOne = () => {
 
   useEffect(() => {
     setPieChartInfo({
-      label: '',
       value: consolidatedPosition.saldototal || 0,
       percent: 0,
     })
