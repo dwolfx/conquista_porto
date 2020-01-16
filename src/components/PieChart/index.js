@@ -132,7 +132,7 @@ export default function PieChart({
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         legends={
-          !hideLegend && chartData
+          !hideLegend && data
             ? [
                 {
                   onMouseEnter: handleLegendMouseEnter,
