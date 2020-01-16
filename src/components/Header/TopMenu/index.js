@@ -170,7 +170,9 @@ function TopMenu() {
               />
             ) : (
               <>
-                <NotificationCircle onClick={() => setIsOpen(!isOpen)}>
+                <NotificationCircle
+                  onClick={() => handleResponsiveNotifications()}
+                >
                   <NewNotificationsNumber>{10}</NewNotificationsNumber>
                 </NotificationCircle>
                 <BellIcon
