@@ -63,6 +63,20 @@ export default function PieChart({
     }
   }
 
+  function handleLegendMouseEnter(payload, event) {
+    // eslint-disable-next-line no-param-reassign
+    event.target.style.cursor = 'pointer'
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseEnter', payload })
+      if (onMouseEnter) {
+        const filterResult = chartData.find(
+          element => element.id === payload.id
+        )
+        onMouseEnter(filterResult)
+      }
+    }
+  }
+
   function handleMouseLeave() {
     if (!preventOnMouse) {
       dispatch({ type: 'mouseLeave' })
@@ -118,10 +132,10 @@ export default function PieChart({
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         legends={
-          !hideLegend && data
+          !hideLegend && chartData
             ? [
                 {
-                  onMouseEnter: handleMouseEnter,
+                  onMouseEnter: handleLegendMouseEnter,
                   onMouseLeave: handleMouseLeave,
                   onClick: handleClick,
                   anchor: 'bottom',
