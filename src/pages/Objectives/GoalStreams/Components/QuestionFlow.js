@@ -7,7 +7,6 @@ import { Question, Wrapper } from './styles'
 
 const QuestionFlow = ({ minimumValue, name, options, question, type }) => (
   <>
-    {console.log('options: ', options)}
     <Row justifyContent="center">
       <Col lg="12" xs="12">
         <Question>{question}</Question>
