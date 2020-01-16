@@ -1,4 +1,26 @@
 {
+  "posicao-consolidada": {
+    "cpf": "68826796220",
+    "saldototal": 402708.19,
+    "categorias": [
+      {
+        "nome": "Renda Variável",
+        "valor": 1995.78
+      },
+      {
+        "nome": "Renda Fixa",
+        "valor": 135734.02
+      },
+      {
+        "nome": "Multimercado",
+        "valor": 264978.39
+      },
+      {
+        "nome": "Conquista",
+        "valor": 0.0
+      }
+    ]
+  },
   "cartao_credito": [
     {
       "CodigoCanal": 0,
@@ -1437,7 +1459,7 @@
   ],
   "fundo_detalhe": [
     {
-      "id": 51380063, 
+      "id": 51380063,
       "data_inicio": "2016-02-15T00:00:00-03:00",
       "taxa_performance": "0.00",
       "apelido": "Occam FI Cambial",
@@ -1658,118 +1680,117 @@
   ],
   "seguros": {
     "ProdutosViagem": {
-      "Viagem": 
-        {
-          "codigoFormaPagamento": "62",
-          "CoberturasBasicas": {
-            "CoberturaBasica": [
-              {
-                "CapitalSegurado": "30000.00",
-                "Nome": "DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"
-              },
-              {
-                "CapitalSegurado": "100000.00",
-                "Nome": "MORTE ACIDENTAL"
-              }
-            ]
-          },
-          "Beneficiarios": {
-            "Beneficiario": {
-              "Percentual": "100",
-              "Nome": "Herdeiros legais"
+      "Viagem": {
+        "codigoFormaPagamento": "62",
+        "CoberturasBasicas": {
+          "CoberturaBasica": [
+            {
+              "CapitalSegurado": "30000.00",
+              "Nome": "DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"
+            },
+            {
+              "CapitalSegurado": "100000.00",
+              "Nome": "MORTE ACIDENTAL"
             }
-          },
-          "DtFinalVigencia": "2020-09-08-03:00",
-          "GruposCobertura": {
-            "GrupoCobertura": [
-              {
-                "CoberturasRisco": {
-                  "CoberturaRisco": [
-                    {
-                      "CapitalSegurado": "200.00",
-                      "Nome": "Hospedagem Acompanhante- Hospitalização Prolongada"
-                    },
-                    {
-                      "CapitalSegurado": "5000.00",
-                      "Nome": "Acompanhamento de Menor"
-                    },
-                    {
-                      "CapitalSegurado": "5000.00",
-                      "Nome": "Assistência Funeral Viagem"
-                    },
-                    {
-                      "CapitalSegurado": "5000.00",
-                      "Nome": "Remarcação de Pas. para Reg. de Membros de Família"
-                    },
-                    {
-                      "CapitalSegurado": "200.00",
-                      "Nome": "Hospedagem após Alta Hospitalar"
-                    },
-                    {
-                      "CapitalSegurado": "20000.00",
-                      "Nome": "Traslado Médico"
-                    },
-                    {
-                      "CapitalSegurado": "5000.00",
-                      "Nome": "Acompanhante em caso de Hospitalização Prolongada"
-                    },
-                    {
-                      "CapitalSegurado": "500.00",
-                      "Nome": "Danos de Bagagem"
-                    },
-                    {
-                      "CapitalSegurado": "5000.00",
-                      "Nome": "Remarcação de passagem para Regresso"
-                    },
-                    {
-                      "CapitalSegurado": "20000.00",
-                      "Nome": "Traslado de Corpo"
-                    },
-                    {
-                      "CapitalSegurado": "20000.00",
-                      "Nome": "Regresso Sanitário"
-                    },
-                    {
-                      "CapitalSegurado": "1500.00",
-                      "Nome": "Extravio de Bagagem"
-                    }
-                  ]
-                },
-                "Nome": "Outros"
+          ]
+        },
+        "Beneficiarios": {
+          "Beneficiario": {
+            "Percentual": "100",
+            "Nome": "Herdeiros legais"
+          }
+        },
+        "DtFinalVigencia": "2020-09-08-03:00",
+        "GruposCobertura": {
+          "GrupoCobertura": [
+            {
+              "CoberturasRisco": {
+                "CoberturaRisco": [
+                  {
+                    "CapitalSegurado": "200.00",
+                    "Nome": "Hospedagem Acompanhante- Hospitalização Prolongada"
+                  },
+                  {
+                    "CapitalSegurado": "5000.00",
+                    "Nome": "Acompanhamento de Menor"
+                  },
+                  {
+                    "CapitalSegurado": "5000.00",
+                    "Nome": "Assistência Funeral Viagem"
+                  },
+                  {
+                    "CapitalSegurado": "5000.00",
+                    "Nome": "Remarcação de Pas. para Reg. de Membros de Família"
+                  },
+                  {
+                    "CapitalSegurado": "200.00",
+                    "Nome": "Hospedagem após Alta Hospitalar"
+                  },
+                  {
+                    "CapitalSegurado": "20000.00",
+                    "Nome": "Traslado Médico"
+                  },
+                  {
+                    "CapitalSegurado": "5000.00",
+                    "Nome": "Acompanhante em caso de Hospitalização Prolongada"
+                  },
+                  {
+                    "CapitalSegurado": "500.00",
+                    "Nome": "Danos de Bagagem"
+                  },
+                  {
+                    "CapitalSegurado": "5000.00",
+                    "Nome": "Remarcação de passagem para Regresso"
+                  },
+                  {
+                    "CapitalSegurado": "20000.00",
+                    "Nome": "Traslado de Corpo"
+                  },
+                  {
+                    "CapitalSegurado": "20000.00",
+                    "Nome": "Regresso Sanitário"
+                  },
+                  {
+                    "CapitalSegurado": "1500.00",
+                    "Nome": "Extravio de Bagagem"
+                  }
+                ]
               },
-              {
-                "CoberturasRisco": {
-                  "CoberturaRisco": [
-                    {
-                      "CapitalSegurado": "100000.00",
-                      "Nome": "Invalidez Permanente Total ou Parcial por Acidente"
-                    },
-                    {
-                      "CapitalSegurado": "100000.00",
-                      "Nome": "Morte Acidental"
-                    }
-                  ]
-                },
-                "Nome": "Imprevistos"
-              }
-            ]
-          },
-          "Sucursal": "1",
-          "parcelas": {
-            "parcela": {
-              "numero": "1",
-              "valor": "7.59"
+              "Nome": "Outros"
+            },
+            {
+              "CoberturasRisco": {
+                "CoberturaRisco": [
+                  {
+                    "CapitalSegurado": "100000.00",
+                    "Nome": "Invalidez Permanente Total ou Parcial por Acidente"
+                  },
+                  {
+                    "CapitalSegurado": "100000.00",
+                    "Nome": "Morte Acidental"
+                  }
+                ]
+              },
+              "Nome": "Imprevistos"
             }
-          },
-          "Ramo": "1369",
-          "DtInicioVigencia": "2020-09-08-03:00",
-          "Nome": "Plano Porto Brasil Ouro",
-          "NomeSegurado": "RAFAEL RODRIGUES",
-          "Apolice": {
-            "LinkDownload": "http://vidanova/servicosvida/obterApolice?param=MSwxMzY5LDYwMzI1LDcsNDgxNjQwOA=="
-          },
-          "descricaoFormaPagamento": "CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"
-        }
+          ]
+        },
+        "Sucursal": "1",
+        "parcelas": {
+          "parcela": {
+            "numero": "1",
+            "valor": "7.59"
+          }
+        },
+        "Ramo": "1369",
+        "DtInicioVigencia": "2020-09-08-03:00",
+        "Nome": "Plano Porto Brasil Ouro",
+        "NomeSegurado": "RAFAEL RODRIGUES",
+        "Apolice": {
+          "LinkDownload": "http://vidanova/servicosvida/obterApolice?param=MSwxMzY5LDYwMzI1LDcsNDgxNjQwOA=="
+        },
+        "descricaoFormaPagamento": "CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"
+      }
     },
     "ProdutosVida": {
       "SeguroVida": [

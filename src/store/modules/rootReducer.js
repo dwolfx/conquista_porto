@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import bankData from './BankData/reducer'
 import bankExtract from './BankExtract/reducer'
 import creditCard from './CreditCard/reducer'
+import consolidatedPosition from './ConsolidatedPosition/reducer'
 import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import investmentsList from './Investment/reducer'
@@ -24,6 +25,7 @@ export default combineReducers({
   points,
   privateWelfare,
   lifeInsurance,
-  tripInsurance,
+  consolidatedPosition,
   vehicleFinancing,
+  tripInsurance,
 })

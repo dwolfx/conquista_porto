@@ -10,5 +10,6 @@
   "/fundos": "/fundos_lista",
   "/fundos/:fundId\\?codigoCanal=:codigoCanal": "/fundo_detalhe/:fundId?codigoCanal=:codigoCanal",
   "/programa-pontos/extrato\\?cpf=:cpf": "/pontos?cpf=:cpf",
+  "/cotistas/posicao-consolidada\\?cpf=:cpf": "/posicao-consolidada?cpf=:cpf",
   "/conta/extrato\\?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/conta_extrato?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal"
 }

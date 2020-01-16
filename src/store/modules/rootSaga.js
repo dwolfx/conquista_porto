@@ -3,6 +3,7 @@ import { all } from 'redux-saga/effects'
 import bankData from './BankData/sagas'
 import bankExtract from './BankExtract/sagas'
 import creditCard from './CreditCard/sagas'
+import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import investmentsList from './Investment/sagas'
@@ -18,6 +19,7 @@ export default function* rootSaga() {
     bankData,
     bankExtract,
     creditCard,
+    consolidatedPosition,
     consortiumBuilding,
     consortiumVehicle,
     investmentsList,

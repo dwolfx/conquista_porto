@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useState } from 'react'
+import React, { useContext, useReducer, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
@@ -63,6 +63,20 @@ export default function PieChart({
     }
   }
 
+  function handleLegendMouseEnter(payload, event) {
+    // eslint-disable-next-line no-param-reassign
+    event.target.style.cursor = 'pointer'
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseEnter', payload })
+      if (onMouseEnter) {
+        const filterResult = chartData.find(
+          element => element.id === payload.id
+        )
+        onMouseEnter(filterResult)
+      }
+    }
+  }
+
   function handleMouseLeave() {
     if (!preventOnMouse) {
       dispatch({ type: 'mouseLeave' })
@@ -84,21 +98,29 @@ export default function PieChart({
   const [chartData, dispatch] = useReducer(chartReducer, data)
   const [preventOnMouse, setPreventOnMouse] = useState(false)
 
+  useEffect(() => {
+    dispatch({ type: 'mouseLeave' })
+  }, [data.length])
+
   return (
     <ChartContainer width={width} height={height}>
       <ResponsivePie
         {...rest}
         data={
-          chartData || [
-            {
-              id: 'emptyvalue',
-              value: 100,
-              color: theme.colors.gray2,
-            },
-          ]
+          chartData && chartData.length > 0
+            ? chartData
+            : [
+                {
+                  id: 'emptyvalue',
+                  value: 100,
+                  color: theme.colors.gray2,
+                },
+              ]
         }
         colors={
-          chartData ? chartData.map(item => item.color) : [theme.colors.gray2]
+          chartData.length > 0
+            ? chartData.map(item => item.color)
+            : [theme.colors.gray2]
         }
         innerRadius={0.94}
         padAngle={1}
@@ -113,7 +135,7 @@ export default function PieChart({
           !hideLegend && data
             ? [
                 {
-                  onMouseEnter: handleMouseEnter,
+                  onMouseEnter: handleLegendMouseEnter,
                   onMouseLeave: handleMouseLeave,
                   onClick: handleClick,
                   anchor: 'bottom',
