@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 
-import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
-import QuestionFlow from 'pages/Objectives/GoalStreams/Components/QuestionFlow'
+import TopBar from './TopBar'
+import QuestionFlow from './QuestionFlow'
 
 import {
   BodyWizard,
