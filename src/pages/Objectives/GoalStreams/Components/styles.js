@@ -17,18 +17,37 @@ export const WizardButtom = styled.footer`
     margin-left: 7px;
   }
 `
-export const ScreenAlignment = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: calc(100vh - 100px);
+
+export const PageBar = styled(Text).attrs({ type: 'title' })`
+  color: ${props => props.theme.colors.gray4};
+  text-transform: uppercase;
 `
 
 export const Question = styled(Text).attrs({ type: 'heading4' })`
   min-height: 66px;
   text-align: center;
   text-transform: none;
+`
+
+export const ScreenAlignment = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 151px);
+`
+
+export const SectionBar = styled.section`
+  background-color: ${props => props.theme.fundRiskColors.lowRisk};
+  padding: 10px 0;
+`
+
+export const TitleBar = styled(Text).attrs({ type: 'heading4' })`
+  color: ${props => props.theme.colors.gray4};
+  text-transform: none;
+  span {
+    color: ${props => props.theme.colors.white};
+  }
 `
 
 export const Wrapper = styled.div`

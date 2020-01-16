@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
-import Inputs from 'components/Inputs/Text'
+import Input from 'components/Inputs/Text'
 
 import { Container, Question, Wrapper } from './styles'
 
@@ -15,7 +15,7 @@ const QuestionFlow = ({ question, name, type, minimumValue }) => (
     <Row justifyContent="center">
       <Col lg="4" xs="12">
         <Wrapper>
-          <Inputs
+          <Input
             width="100"
             label={type}
             name={name}

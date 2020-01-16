@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import QuestionFlow from 'pages/Objectives/Wizard/QuestionFlow'
+import QuestionFlow from 'pages/Objectives/GoalStreams/Components/QuestionFlow'
 
 import Button from 'components/Button'
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
