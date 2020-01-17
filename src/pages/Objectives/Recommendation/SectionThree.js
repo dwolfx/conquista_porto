@@ -1,5 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+
+import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 
 import Text from 'components/Text'
@@ -31,32 +33,34 @@ const SectionThree = ({ additionalProducts }) => {
     },
   }
 
-  const renderedProducts = Object.entries(additionalProducts).filter(
-    value => value[1] === true
-  )
-
-  const showProducts = renderedProducts.map(item => products[item[0]])
-  console.log('... show products:', showProducts)
+  const renderedProducts = Object.entries(additionalProducts)
+    .filter(value => value[1] === true)
+    .map(item => products[item[0]])
 
   return (
     <GridRow>
-      {showProducts.length.length === 2 && (
-        <Col lg="6">
-          <BannerTips image={products.travelSecurity.image}>
-            <Text type="heading3">{products.travelSecurity.title}</Text>
-            <Text>{products.travelSecurity.text}</Text>
+      {renderedProducts.map((product, index) => (
+        <Col
+          key={index}
+          lg={renderedProducts.length === 2 ? '6' : '12'}
+          xs={12}
+        >
+          <BannerTips size="lg" image={product.image}>
+            <Text type="heading3">{product.title}</Text>
+            <Text>{product.text}</Text>
           </BannerTips>
         </Col>
-      )}
-
-      <Col lg="6">
-        <BannerTips image={products.lifeSecurity.image}>
-          <Text type="heading3">{products.lifeSecurity.title}</Text>
-          <Text>{products.lifeSecurity.text}</Text>
-        </BannerTips>
-      </Col>
+      ))}
     </GridRow>
   )
+}
+
+SectionThree.propTypes = {
+  additionalProducts: PropTypes.object,
+}
+
+SectionThree.defaultProps = {
+  additionalProducts: {},
 }
 
 export default SectionThree
