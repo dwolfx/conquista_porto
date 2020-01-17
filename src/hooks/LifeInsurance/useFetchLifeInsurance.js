@@ -5,11 +5,11 @@ import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 
 export default function useFetchLifeInsurance() {
   const dispatch = useDispatch()
-  const status = useSelector(state => state.lifeInsurance.status)
+  const data = useSelector(state => state.lifeInsurance.data)
 
   useEffect(() => {
-    if (!status) {
+    if (!data) {
       dispatch(GetLifeInsuranceDataRequest())
     }
-  }, [dispatch, status])
+  }, [dispatch, data])
 }

@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
-import { useDispatch } from 'react-redux'
 
 export default function useFetchCreditCard() {
   const dispatch = useDispatch()
+  const data = useSelector(state => state.creditCard.data)
 
   useEffect(() => {
-    dispatch(GetCreditCardDataRequest())
-  }, [dispatch])
+    if (!data) {
+      dispatch(GetCreditCardDataRequest())
+    }
+  }, [dispatch, data])
 }

@@ -54,15 +54,17 @@ const ManagementVehicleFinancing = ({ history }) => {
   const [selectedIndex, setSelectedIndex] = useState(0)
 
   const generateManageableItem = arrayItems =>
-    arrayItems.map((item, index) => (
-      <ManageableItemWithStyle
-        onClick={() => setSelectedIndex(index)}
-        key={`${item.Contrato}-${new Date().getUTCMilliseconds()}`}
-        name={item.Contrato}
-        value={item.ValorContratado}
-        isActive={selectedIndex === index}
-      />
-    ))
+    arrayItems
+      ? arrayItems.map((item, index) => (
+          <ManageableItemWithStyle
+            onClick={() => setSelectedIndex(index)}
+            key={`${item.Contrato}-${new Date().getUTCMilliseconds()}`}
+            name={item.Contrato}
+            value={item.ValorContratado}
+            isActive={selectedIndex === index}
+          />
+        ))
+      : null
 
   const renderEmptyState = () => (
     <EmptyContent>
