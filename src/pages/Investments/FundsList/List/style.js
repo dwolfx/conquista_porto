@@ -67,7 +67,7 @@ export const DetailItem = styled.dl`
 
 export const ArrowDown = styled(IconComponent).attrs({ name: 'arrowup' })`
   border-radius: 24px;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   border-radius: 24px;
   height: 20px;
   fill: white;
@@ -79,7 +79,7 @@ export const ArrowDown = styled(IconComponent).attrs({ name: 'arrowup' })`
 
 export const ArrowUp = styled(IconComponent).attrs({ name: 'arrowup' })`
   border-radius: 24px;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   border-radius: 24px;
   height: 20px;
   fill: white;

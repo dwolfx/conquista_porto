@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import ArrowDown from 'assets/icons/arrow-down.svg'
-import theme from 'styles/theme'
 
 export const SelectFieldWrapper = styled.div`
   position: relative;
@@ -9,7 +8,7 @@ export const SelectFieldWrapper = styled.div`
 
   &:before {
     content: '';
-    background-color: ${theme.colors.secondary.light};
+    background-color: ${props => props.theme.colors.blue4};
     border-radius: 50%;
     display: block;
     height: 20px;

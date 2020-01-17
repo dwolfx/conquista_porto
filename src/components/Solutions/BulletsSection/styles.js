@@ -91,7 +91,7 @@ export const RightContent = styled.div`
 
     &:before {
       content: '■';
-      color: ${props => props.theme.colors.secondary.light};
+      color: ${props => props.theme.colors.blue4};
       position: absolute;
       right: calc(100% + 10px);
       font-size: 14px;

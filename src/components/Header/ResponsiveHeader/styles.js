@@ -50,7 +50,7 @@ export const IconCircle = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -81,8 +81,9 @@ export const CloseIcon = styled(ConquistaIcon).attrs({ name: 'close' })`
 export const AppsIcon = styled(ConquistaIcon).attrs({ name: 'apps' })`
   ${svgStyle};
 `
-export const ArrowDownIcon = styled(ConquistaIcon).attrs({ name: 'arrowdown' })`
+export const ArrowDownIcon = styled(ConquistaIcon).attrs({ name: 'arrowup' })`
   ${arrowSvgStyle};
+  transform: rotate(180deg);
 `
 export const ArrowUpIcon = styled(ConquistaIcon).attrs({ name: 'arrowup' })`
   ${arrowSvgStyle};
