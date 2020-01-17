@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useContext, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
-
 import {
   DropdownWrapper,
+  Label,
   OptionsWrapper,
   Option,
-  Label,
-  BoxColor,
-} from './styles'
+} from 'components/SelectDropdown/styles'
+
+import { BoxColor } from './styles'
 const getOptions = ({
   fundRiskColors: {
     lowRisk,

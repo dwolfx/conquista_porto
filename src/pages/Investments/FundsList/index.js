@@ -6,6 +6,7 @@ import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 import { Col } from 'styled-bootstrap-grid'
 import Text from 'components/Text'
+import SelectDropdown from 'components/SelectDropdown'
 
 import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
 import { columns, fundsType } from './mock'
@@ -14,7 +15,6 @@ import ListFunds from './List'
 import {
   GridContainer,
   TopWrapper,
-  SelectDropdown,
   Breadcrumb,
   ContentWrapper,
   RiskDegree,
