@@ -31,16 +31,23 @@ const SectionThree = ({ additionalProducts }) => {
     },
   }
 
-  console.log('... additional products:', additionalProducts)
+  const renderedProducts = Object.entries(additionalProducts).filter(
+    value => value[1] === true
+  )
+
+  const showProducts = renderedProducts.map(item => products[item[0]])
+  console.log('... show products:', showProducts)
 
   return (
     <GridRow>
-      <Col lg="6">
-        <BannerTips image={products.travelSecurity.image}>
-          <Text type="heading3">{products.travelSecurity.title}</Text>
-          <Text>{products.travelSecurity.text}</Text>
-        </BannerTips>
-      </Col>
+      {showProducts.length.length === 2 && (
+        <Col lg="6">
+          <BannerTips image={products.travelSecurity.image}>
+            <Text type="heading3">{products.travelSecurity.title}</Text>
+            <Text>{products.travelSecurity.text}</Text>
+          </BannerTips>
+        </Col>
+      )}
 
       <Col lg="6">
         <BannerTips image={products.lifeSecurity.image}>
