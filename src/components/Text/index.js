@@ -13,7 +13,7 @@ export default function Text({ type, bold, children, ...rest }) {
 
 Text.propTypes = {
   bold: PropTypes.bool,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   type: PropTypes.oneOf([
     'heading1',
     'heading2',
@@ -30,6 +30,7 @@ Text.propTypes = {
 }
 
 Text.defaultProps = {
+  children: null,
   bold: false,
   type: 'body',
 }

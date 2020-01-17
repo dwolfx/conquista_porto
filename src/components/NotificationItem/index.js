@@ -17,8 +17,9 @@ const NotificationItem = ({
   identificationIcon,
   actionIcon,
   isRead,
+  ...rest
 }) => (
-  <Notification isRead={isRead}>
+  <Notification isRead={isRead} {...rest}>
     <IdentificationIcon>
       <Icon name={identificationIcon} />
     </IdentificationIcon>
