@@ -24,17 +24,18 @@ export const DropdownWrapper = styled.div`
     z-index: 1;
   }
   &:after {
+    background-color: ${props => props.theme.colors.white};
+    background-repeat: no-repeat;
     content: '';
-    width: 12px;
+    display: block;
     height: 12px;
     mask-image: url(${ArrowDown});
     position: absolute;
-    display: block;
-    top: 31px;
     right: 18px;
+    top: 31px;
     z-index: 1;
-    background-repeat: no-repeat;
-    ${props => (props.isOpen ? 'transform: rotate(180deg);' : '')}
+    width: 12px;
+    ${props => (props.isOpen ? 'transform: rotate(180deg);' : '')};
   }
 `
 
