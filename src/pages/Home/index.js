@@ -11,7 +11,7 @@ import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuildi
 import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPosition/action'
-import { GetDataRequest } from 'store/modules/CreditCard/action'
+import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsDataRequest } from 'store/modules/Points/action'
 
 import SectionOne from './SectionOne'
@@ -25,13 +25,13 @@ const Home = () => {
   const history = useHistory()
   const pointsData = useSelector(state => state.points.data)
 
-  const row1 = useRef(null);
-  const row2 = useRef(null);
-  const row3 = useRef(null);
+  const row1 = useRef(null)
+  const row2 = useRef(null)
+  const row3 = useRef(null)
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
-    dispatch(GetDataRequest())
+    dispatch(GetCreditCardDataRequest())
     dispatch(GetConsolidatedPositionDataRequest())
     dispatch(GetVehicleFinancingDataRequest())
     dispatch(GetConsortiumBuildingDataRequest())
@@ -68,7 +68,7 @@ const Home = () => {
       <Wrapper>
         <GridRow>
           <GridCol lg="1" id="menu">
-            <Menu scrollFunc={scrollPage} ref1={row1} ref2={row2} ref3={row3}/>
+            <Menu scrollFunc={scrollPage} ref1={row1} ref2={row2} ref3={row3} />
           </GridCol>
           <GridCol lg="11">
             <GridRow>
