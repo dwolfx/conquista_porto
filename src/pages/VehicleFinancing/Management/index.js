@@ -18,6 +18,8 @@ import ManageableItem from 'components/Management/ManageableItem'
 
 import { formatMoney } from 'helpers'
 
+import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
+
 import {
   BreadcrumbContainer,
   AddBtnLink,
@@ -52,6 +54,8 @@ import {
 const ManagementVehicleFinancing = ({ history }) => {
   const theme = useContext(ThemeContext)
   const [selectedIndex, setSelectedIndex] = useState(0)
+
+  useFetchVehicleFinancing()
 
   const generateManageableItem = arrayItems =>
     arrayItems
