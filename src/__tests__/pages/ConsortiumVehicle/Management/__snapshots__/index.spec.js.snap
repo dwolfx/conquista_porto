@@ -568,12 +568,17 @@ Array [
         >
           Aqui, você tem mais informações legais sobre consórcio.
         </p>
-        <p
-          className="sc-kEYyzF deGOyW"
+        <a
+          href="/redirect"
+          onClick={[Function]}
         >
-          BAIXAR ARQUIVO
-           &gt; 
-        </p>
+          <p
+            className="sc-kEYyzF deGOyW"
+          >
+            BAIXAR ARQUIVO
+             &gt; 
+          </p>
+        </a>
       </div>
     </div>
     <div
@@ -599,12 +604,17 @@ Array [
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
         </p>
-        <p
-          className="sc-kEYyzF deGOyW"
+        <a
+          href="/redirect"
+          onClick={[Function]}
         >
-          BAIXAR ARQUIVO
-           &gt; 
-        </p>
+          <p
+            className="sc-kEYyzF deGOyW"
+          >
+            BAIXAR ARQUIVO
+             &gt; 
+          </p>
+        </a>
       </div>
     </div>
     <div
@@ -630,12 +640,17 @@ Array [
         >
           Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
         </p>
-        <p
-          className="sc-kEYyzF deGOyW"
+        <a
+          href="/redirect"
+          onClick={[Function]}
         >
-          BAIXAR ARQUIVO
-           &gt; 
-        </p>
+          <p
+            className="sc-kEYyzF deGOyW"
+          >
+            BAIXAR ARQUIVO
+             &gt; 
+          </p>
+        </a>
       </div>
     </div>
   </section>,

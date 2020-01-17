@@ -116,22 +116,12 @@ export default function ConsortiumBuilding({ history }) {
       <FileDownloadSection
         data={[
           {
-            title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
-            description:
-              'Aqui, você tem mais informações legais sobre consórcio.',
-            buttonText: 'BAIXAR ARQUIVO',
-          },
-          {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
-            buttonText: 'BAIXAR ARQUIVO',
-          },
-          {
-            title: 'TABELA DE TARIFAS',
-            description:
-              'Confira mais informações sobre tarifas envolvidas na contratação de consórcio.',
-            buttonText: 'BAIXAR ARQUIVO',
+            buttonText: 'Visualizar',
+            url:
+              'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-imoveis/consorcio-imoveis/regulamento_consorcio_de_imovel.pdf',
           },
         ]}
       />

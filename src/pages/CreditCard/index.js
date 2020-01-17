@@ -57,19 +57,24 @@ const downloadFileSectionData = [
   {
     title: 'Sistema de informações de crédito - SCR',
     description: 'Informações legais sobre crédito.',
-    buttonText: 'Baixar Arquivo',
+    buttonText: 'Visualizar',
+    url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
   {
     title: 'Tabela de tarifas',
     description:
       'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
     buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/cartao_de_credito/Tabela_Tarifas_Nov_19_CartaoPF.pdf',
   },
   {
     title: 'Condições gerais',
     description:
       'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
-    buttonText: 'Baixar Arquivo',
+    buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/cartao_de_credito/contrato_do_cartao_de_credito_porto_seguro.pdf',
   },
 ]
 

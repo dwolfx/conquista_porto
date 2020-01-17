@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import createStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
@@ -37,9 +38,11 @@ it('ManagementConsortiumVehicle renders correctly', () => {
   const tree = renderer
     .create(
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <ManagementConsortiumVehicle history={{ push: () => {} }} />
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <ManagementConsortiumVehicle history={{ push: () => {} }} />
+          </ThemeProvider>
+        </BrowserRouter>
       </Provider>
     )
     .toJSON()
