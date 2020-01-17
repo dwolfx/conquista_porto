@@ -14,6 +14,12 @@ import { GridRecommendation, SectionsRecommendation } from './styles'
 const Recommendation = () => {
   const history = useHistory()
 
+  const additionalProducts = {
+    travelSecurity: false,
+    lifeSecurity: true,
+    creditCard: true,
+  }
+
   return (
     <GridRecommendation>
       <Header
@@ -28,7 +34,7 @@ const Recommendation = () => {
         <Container>
           <SectionOne />
           <SectionTwo />
-          <SectionThree />
+          <SectionThree additionalProducts={additionalProducts} />
         </Container>
       </SectionsRecommendation>
 
