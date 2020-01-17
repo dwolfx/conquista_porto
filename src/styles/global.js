@@ -17,10 +17,11 @@ export default createGlobalStyle`
     box-sizing: inherit;
   }
 
-  html {
+  html, body {
     scroll-behavior: smooth;
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
+    background-color: ${props => props.theme.colors.gray1};
   }
 
   a {

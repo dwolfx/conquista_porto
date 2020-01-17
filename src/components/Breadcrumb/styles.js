@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const Icon = styled(ConquistaIcon)`
   width: 21px;
   height: 21px;
+  margin: 0 7px;
 `
 
 export const StyledText = styled(Text).attrs({

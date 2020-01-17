@@ -1,9 +1,9 @@
 import styled from 'styled-components'
+import { Container } from 'styled-bootstrap-grid'
 import ConquistaIcon from 'components/IconExporter'
-
 import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
 
-export const Container = styled.div`
+export const GridContainer = styled(Container)`
   background-color: ${props => props.theme.colors.gray1};
   width: 100%;
   height: 72px;
@@ -30,10 +30,11 @@ export const RightBlock = styled.div`
 `
 
 export const Icon = styled(ConquistaIcon).attrs({
-  name: 'arrowright',
+  name: props => props.name,
 })`
   width: 21px;
   height: 21px;
+  margin: 0 7px;
   flex-shrink: 0;
 `
 
@@ -46,9 +47,13 @@ export const ConquistaBeta = styled.img.attrs({
 
 export const Profile = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+
+  svg {
+    align-self: center;
+  }
 `
 
 export const Name = styled.p`
