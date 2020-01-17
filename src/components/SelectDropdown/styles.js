@@ -13,7 +13,7 @@ export const DropdownWrapper = styled.div`
 
   &:before {
     content: '';
-    background-color: ${props => props.theme.colors.secondary.light};
+    background-color: ${props => props.theme.colors.blue4};
     border-radius: 50%;
     display: block;
     height: 20px;
@@ -28,7 +28,6 @@ export const DropdownWrapper = styled.div`
     width: 12px;
     height: 12px;
     mask-image: url(${ArrowDown});
-    background-color: yellow;
     position: absolute;
     display: block;
     top: 31px;

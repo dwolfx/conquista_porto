@@ -9,7 +9,7 @@ const Backdrop = ({ children, onClick }) => {
 
   useLayoutEffect(() => {
     const callback = event => {
-      const container = ref.current
+      const { current: container } = ref
       const { target } = event
       if (container === target || (container && !container.contains(target))) {
         onClick()
