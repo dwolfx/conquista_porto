@@ -1,21 +1,29 @@
 import styled from 'styled-components'
+import Button from 'components/Button'
 import Text from 'components/Text'
+import { Row } from 'styled-bootstrap-grid'
 
 export const Wizard = styled.div``
 
 export const Container = styled.div``
 
 export const WizardStep = styled.div`
-  padding: 0 1rem;
+  padding: 0 7px;
   width: 100%;
 `
 
-export const WizardButtom = styled.footer`
+export const WizardButtom = styled.div`
   display: flex;
   justify-content: center;
   & > button:nth-child(2) {
     margin-left: 7px;
   }
+`
+export const RowButton = styled(Row)`
+  width: 100%;
+`
+export const ButtonAction = styled(Button)`
+  width: 100%;
 `
 
 export const PageBar = styled(Text).attrs({ type: 'title' })`
@@ -29,7 +37,7 @@ export const Question = styled(Text).attrs({ type: 'heading4' })`
   text-transform: none;
 `
 
-export const ScreenAlignment = styled.div`
+export const BodyWizard = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
