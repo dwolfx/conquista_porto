@@ -114,19 +114,24 @@ export default function VehicleFinancing() {
           {
             title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
             description: 'Informações legais sobre financiamento.',
-            buttonText: 'BAIXAR ARQUIVO',
+            buttonText: 'Visualizar',
+            url: 'https://www.portoseguro.com.br/financiamento',
           },
           {
             title: 'TABELA DE TARIFAS',
             description:
               'Mais informações sobre tarifas envolvidas na contratação de financiamento.',
-            buttonText: 'VISUALIZAR',
+            buttonText: 'Visualizar',
+            url:
+              'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/financiamentos/Tabela_Tarifas_Set17_CDC.pdf',
           },
           {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Financiamento de Veículos da Porto Seguro.',
-            buttonText: 'BAIXAR ARQUIVO',
+            buttonText: 'Visualizar',
+            url:
+              'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/financiamentos/condicoes_gerais-financiamento.pdf',
           },
         ]}
       />

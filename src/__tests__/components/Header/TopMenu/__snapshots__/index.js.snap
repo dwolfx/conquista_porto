@@ -238,12 +238,12 @@ Array [
                   className="sc-kkGfuU bYeogH"
                 >
                   <button
-                    className="sc-fYxtnH fXjNRv"
+                    className="sc-gGBfsJ gjZAvW"
                     color="primary"
                     onClick={[Function]}
                   >
                     <span
-                      className="sc-tilXH bAxWGE"
+                      className="sc-jnlKLf kabuGf"
                     >
                       Ver Todas
                     </span>
@@ -558,22 +558,6 @@ Array [
           </div>
         </div>
       </div>
-      <a
-        className="sc-fjdhpX hdHfQQ"
-        href="/"
-        onClick={[Function]}
-      >
-        <svg
-          className="sc-ifAKCX cJgWXQ"
-        >
-          gear.svg
-        </svg>
-        <p
-          className="sc-gzVnrw bBpTFh"
-        >
-          Gerenciador
-        </p>
-      </a>
       <a
         className="sc-fjdhpX hdHfQQ"
         href="/pontos"

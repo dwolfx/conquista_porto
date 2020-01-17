@@ -72,6 +72,7 @@ const Modal = ({
 
 Modal.defaultProps = {
   headerIcon: null,
+  modalTitle: '',
 }
 
 Modal.propTypes = {
@@ -79,7 +80,7 @@ Modal.propTypes = {
   headerIcon: PropTypes.string,
   handleClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  modalTitle: PropTypes.string.isRequired,
+  modalTitle: PropTypes.string,
   alignItems: PropTypes.string,
 }
 

@@ -4,7 +4,7 @@ export const RiskCaptionWrapper = styled.div`
   display: flex;
   line-height: 10px;
   height: 20px;
-  margin-top: 18px;
+  margin-top: 34px;
 
   label {
     font-size: 12px;

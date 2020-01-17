@@ -15,7 +15,7 @@ exports[`FundsInfo renders correctly 1`] = `
     Perfil de Risco
   </h5>
   <div
-    className="sc-kkGfuU eYHlIb sc-jAaTju btSbqf"
+    className="sc-kkGfuU dLHlpL sc-jAaTju btSbqf"
   >
     <label>
       Menor risco
@@ -225,7 +225,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-            R$ 5,000.00
+            R$5,000.00
           </div>
         </div>
         <div

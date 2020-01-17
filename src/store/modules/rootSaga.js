@@ -13,6 +13,7 @@ import points from './Points/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
 import tripInsurance from './TripInsurance/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
+import notifications from './Notifications/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     privateWelfare,
     tripInsurance,
     vehicleFinancing,
+    notifications,
   ])
 }

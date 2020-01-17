@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -24,6 +24,10 @@ const Home = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const pointsData = useSelector(state => state.points.data)
+
+  const row1 = useRef(null)
+  const row2 = useRef(null)
+  const row3 = useRef(null)
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
@@ -64,21 +68,21 @@ const Home = () => {
       <Wrapper>
         <GridRow>
           <GridCol lg="1" id="menu">
-            <Menu scrollFunc={scrollPage} />
+            <Menu scrollFunc={scrollPage} ref1={row1} ref2={row2} ref3={row3} />
           </GridCol>
           <GridCol lg="11">
             <GridRow>
               <GridCol lg="12">
-                <GridRow id="t1">
+                <GridRow id="t1" ref={row1}>
                   <SectionOne />
                 </GridRow>
                 <GridRow style={{ paddingRight: 7, paddingLeft: 7 }}>
                   <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
                 </GridRow>
-                <GridRow id="t2">
+                <GridRow id="t2" ref={row2}>
                   <SectionTwo onRedirect={onRedirect} />
                 </GridRow>
-                <GridRow id="t3">
+                <GridRow id="t3" ref={row3}>
                   <SectionThree points={pointsData} />
                 </GridRow>
               </GridCol>

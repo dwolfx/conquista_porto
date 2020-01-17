@@ -27,11 +27,16 @@ exports[`FileDownloadSection renders correctly 1`] = `
       >
         Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
       </p>
-      <p
-        className="sc-EHOje hqABxm"
+      <a
+        href="/redirect"
+        onClick={[Function]}
       >
-         &gt; 
-      </p>
+        <p
+          className="sc-EHOje hqABxm"
+        >
+           &gt; 
+        </p>
+      </a>
     </div>
   </div>
   <div
@@ -57,11 +62,16 @@ exports[`FileDownloadSection renders correctly 1`] = `
       >
         Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
       </p>
-      <p
-        className="sc-EHOje hqABxm"
+      <a
+        href="/redirect"
+        onClick={[Function]}
       >
-         &gt; 
-      </p>
+        <p
+          className="sc-EHOje hqABxm"
+        >
+           &gt; 
+        </p>
+      </a>
     </div>
   </div>
 </section>

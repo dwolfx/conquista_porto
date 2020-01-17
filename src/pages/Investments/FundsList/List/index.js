@@ -74,12 +74,12 @@ export default function List({ data }) {
               <dd>{obj.taxa_administracao}</dd>
             </DetailItem>
             <DetailItem>
-              <dt>RENTABILIDADE MÊS</dt>
-              <dd>{obj.rentabil_fundo_mes}</dd>
-            </DetailItem>
-            <DetailItem>
               <dt>RESGATE (COTIZAÇÃO)</dt>
               <dd>{obj.resgate_cotizacao}</dd>
+            </DetailItem>
+            <DetailItem>
+              <dt>RENTABILIDADE MÊS</dt>
+              <dd>{obj.rentabil_fundo_mes}</dd>
             </DetailItem>
             <DetailItem>
               <dt>RENTABILIDADE ANO</dt>
@@ -95,9 +95,9 @@ export default function List({ data }) {
               <>
                 <hr />
                 {/* <DetailItem>
-                  <dt>CNPJ</dt>
-                  <dd>{obj.cnpj}</dd>
-                </DetailItem> */}
+                    <dt>CNPJ</dt>
+                    <dd>{obj.cnpj}</dd>
+                  </DetailItem> */}
                 <DetailItem>
                   <dt>DATA DE INÍCIO</dt>
                   <dd>
@@ -107,25 +107,25 @@ export default function List({ data }) {
                   </dd>
                 </DetailItem>
                 {/* <DetailItem>
-                  <dt>GESTOR</dt>
-                  <dd>{obj.gestor}</dd>
-                </DetailItem> */}
+                    <dt>GESTOR</dt>
+                    <dd>{obj.gestor}</dd>
+                  </DetailItem> */}
                 <DetailItem>
                   <dt>BENCHMARK</dt>
                   <dd>{fundDetailsLoaded[obj.id_fundo].benchmark.nome}</dd>
                 </DetailItem>
                 {/* <DetailItem>
-                  <dt>PL ATUAL</dt>
-                  <dd>{obj.plAtual}</dd>
-                </DetailItem> */}
+                    <dt>PL ATUAL</dt>
+                    <dd>{obj.plAtual}</dd>
+                  </DetailItem> */}
                 <DetailItem>
                   <dt>TAXA DE ADMINISTRAÇÃO</dt>
                   <dd>{fundDetailsLoaded[obj.id_fundo].taxa_administracao}</dd>
                 </DetailItem>
                 {/* <DetailItem>
-                  <dt>PL MÉDIO 12M</dt>
-                  <dd>{obj.plMedio12m}</dd>
-                </DetailItem> */}
+                    <dt>PL MÉDIO 12M</dt>
+                    <dd>{obj.plMedio12m}</dd>
+                  </DetailItem> */}
                 <DetailItem>
                   <dt>TAXA DE PERFORMANCE</dt>
                   <dd>{fundDetailsLoaded[obj.id_fundo].taxa_administracao}</dd>

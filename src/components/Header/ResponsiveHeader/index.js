@@ -11,13 +11,10 @@ import {
   ContainerDropdown,
   CloseIcon,
   DiamondIcon,
-  GearIcon,
   HomeIcon,
   IconCircle,
   IdeaIcon,
   ItemContainerDropdown,
-  TagText,
-  TagWrapper,
   TargetIcon,
   WhiteText,
   MenuHeader,
@@ -98,13 +95,6 @@ export default function ResponsiveHeader({ isOpen, setOpen }) {
           </MenuItemExpandLabel>
           <SolutionDropdown isOpen={isSolutionsOpen} setOpen={setOpen} />
         </MenuItemExpand>
-        <MenuItem to="/" disabled onClick={evt => evt.preventDefault()}>
-          <GearIcon />
-          <WhiteText size={21}>Gerenciador</WhiteText>
-          <TagWrapper>
-            <TagText>Em Breve</TagText>
-          </TagWrapper>
-        </MenuItem>
         <MenuItem to="/" onClick={() => setOpen(false)}>
           <DiamondIcon />
           <WhiteText size={21}>Pontos</WhiteText>
