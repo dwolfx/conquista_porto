@@ -1,21 +1,24 @@
 import React, { useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 
+import Dropdown from 'pages/Investments/FundsList/DropdrownRisk'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
+import { Col } from 'styled-bootstrap-grid'
+import Text from 'components/Text'
 
 import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
-import { columns, riskClassification, fundsType } from './mock'
+import { columns, fundsType } from './mock'
 import TableFunds from './Table'
 import ListFunds from './List'
 import {
-  Section,
+  GridContainer,
   TopWrapper,
-  SelectRiskClassification,
+  SelectDropdown,
   Breadcrumb,
   ContentWrapper,
   RiskDegree,
-  SelectRow,
+  DropdownWrapper,
 } from './styles'
 
 const allOption = 'todos'
@@ -52,53 +55,46 @@ export default function FundsList() {
     return filterByRisk(filterByType(funds.data[0]))
   }, [funds.data, selectedRisk, selectedType])
 
-  const columnsMock = useMemo(() => columns, [])
-
   return (
-    <Section>
+    <GridContainer as="section">
       <TopWrapper>
-        <Breadcrumb crumbs={['SOLUÇÕES', 'INVESTIMENTOS', 'Lista de fundos']} />
-        <SelectRow>
-          <SelectRiskClassification
-            width={40}
-            label="Classificação de Risco"
-            showPlaceholder={false}
-            value={selectedRisk}
-            options={riskClassification}
-            onChange={event => {
-              setSelectedRisk(event.target.value)
-            }}
+        <Col xs="12" sm="12" md="4">
+          <Breadcrumb
+            crumbs={['SOLUÇÕES', 'INVESTIMENTOS', 'Lista de fundos']}
           />
-          {isMobile && (
-            <SelectRiskClassification
-              width={40}
-              label="Tipo"
-              showPlaceholder={false}
-              value={selectedType}
-              options={fundsType}
-              onChange={event => {
-                setSelectedType(event.target.value)
-              }}
-            />
-          )}
-        </SelectRow>
-
-        <RiskDegree actives={[1, 2, 3, 4, 5]} />
+        </Col>
+        <DropdownWrapper xs="6" sm="6" md="4">
+          <Text type="caption">Classificação de Risco</Text>
+          <Dropdown currentValue={selectedRisk} onChange={setSelectedRisk} />
+        </DropdownWrapper>
+        <DropdownWrapper hiddenSmUp xs="6">
+          <Text type="caption">Tipo</Text>
+          <SelectDropdown
+            options={fundsType}
+            onChange={setSelectedType}
+            currentValue={selectedType}
+          />
+        </DropdownWrapper>
+        <Col hiddenSmDown xs="12" sm="6" md="4">
+          <RiskDegree actives={[1, 2, 3, 4, 5]} />
+        </Col>
       </TopWrapper>
       <ContentWrapper>
-        {isMobile ? (
-          <ListFunds data={fundsFiltered} />
-        ) : (
-          <TableFunds
-            columns={columnsMock}
-            data={fundsFiltered}
-            fundsType={fundsType}
-            setSelectedType={setSelectedType}
-            selectedType={selectedType}
-          />
-        )}
+        <Col col="12">
+          {isMobile ? (
+            <ListFunds data={fundsFiltered} />
+          ) : (
+            <TableFunds
+              columns={columns}
+              data={fundsFiltered}
+              fundsType={fundsType}
+              setSelectedType={setSelectedType}
+              selectedType={selectedType}
+            />
+          )}
+        </Col>
       </ContentWrapper>
       <AnbimaLegalInfo />
-    </Section>
+    </GridContainer>
   )
 }
