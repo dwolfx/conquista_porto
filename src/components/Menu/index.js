@@ -5,18 +5,17 @@ import Icon from 'components/IconExporter'
 import { Container, MenuContainer, Option, OptionName } from './styles'
 
 export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
-  const [selectedOption, setSelectedOption] = useState('produtos');
+  const [selectedOption, setSelectedOption] = useState('produtos')
 
   function checkScroll() {
-
-    let row1Pos = null;
-    let row2Pos = null;
-    let row3Pos = null;
+    let row1Pos = null
+    let row2Pos = null
+    let row3Pos = null
 
     if (!!ref1.current && !!ref2.current && !!ref3.current) {
-      row1Pos =  ref1.current.getBoundingClientRect().top;
-      row2Pos =  ref2.current.getBoundingClientRect().top;
-      row3Pos =  ref3.current.getBoundingClientRect().top;
+      row1Pos = ref1.current.getBoundingClientRect().top
+      row2Pos = ref2.current.getBoundingClientRect().top
+      row3Pos = ref3.current.getBoundingClientRect().top
     }
 
     if (window.scrollY < row1Pos) {
