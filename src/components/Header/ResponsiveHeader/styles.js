@@ -56,14 +56,6 @@ export const IconCircle = styled.div`
   cursor: pointer;
 `
 
-export const TagWrapper = styled.div`
-  display: flex;
-  padding: 0px 3px;
-  border: 1px solid ${props => props.theme.colors.gray4};
-  border-radius: 3px;
-  margin-left: 15px;
-`
-
 export const WhiteText = styled.p`
   color: ${props => (props.color ? props.color : props.theme.colors.white)};
   font-size: ${props => (props.size ? `${props.size}px` : '20px')};
@@ -79,15 +71,6 @@ export const BlueText = styled(NavLink)`
   text-align: center;
   text-transform: uppercase;
   line-height: 21px;
-  cursor: pointer;
-`
-export const TagText = styled.p`
-  color: ${props => (props.color ? props.color : props.theme.colors.white)};
-  line-height: 15px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
   cursor: pointer;
 `
 export const CloseIcon = styled(ConquistaIcon).attrs({ name: 'close' })`
