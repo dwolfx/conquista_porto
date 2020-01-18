@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
-import { useDispatch } from 'react-redux'
 
 export default function useFetchConsortiumBuilding() {
   const dispatch = useDispatch()
+  const data = useSelector(state => state.consortiumBuilding.data)
 
   useEffect(() => {
-    dispatch(GetConsortiumBuildingDataRequest())
-  }, [dispatch])
+    if (!data) {
+      dispatch(GetConsortiumBuildingDataRequest())
+    }
+  }, [dispatch, data])
 }

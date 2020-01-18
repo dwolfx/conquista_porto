@@ -11,7 +11,7 @@ import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuildi
 import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPosition/action'
-import { GetDataRequest } from 'store/modules/CreditCard/action'
+import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsDataRequest } from 'store/modules/Points/action'
 
 import SectionOne from './SectionOne'
@@ -31,7 +31,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(GetBankDataRequest())
-    dispatch(GetDataRequest())
+    dispatch(GetCreditCardDataRequest())
     dispatch(GetConsolidatedPositionDataRequest())
     dispatch(GetVehicleFinancingDataRequest())
     dispatch(GetConsortiumBuildingDataRequest())

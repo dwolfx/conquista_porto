@@ -110,8 +110,9 @@ export default function ManagementLifeInsurance({ history }) {
   const themeContext = useContext(ThemeContext)
 
   const lifeInsurance = useSelector(state => state.lifeInsurance)
+
   useEffect(() => {
-    if (lifeInsurance.data.length) {
+    if (lifeInsurance.data) {
       setSelectedLifeInsurance(lifeInsurance.data[0])
     }
   }, [lifeInsurance.data])
@@ -124,7 +125,7 @@ export default function ManagementLifeInsurance({ history }) {
     })
   }
 
-  if (lifeInsurance.data.length && selectedLifeInsurance) {
+  if (lifeInsurance.data && selectedLifeInsurance) {
     return (
       <>
         <Container>

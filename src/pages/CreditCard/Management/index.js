@@ -1,26 +1,23 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-// eslint-disable-next-line no-unused-vars
-import { css, ThemeContext } from 'styled-components/macro'
+import { ThemeContext } from 'styled-components/macro'
 
 import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
-
 import Container from 'components/Management/Container'
 import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
-
 import Icon from 'components/IconExporter'
+
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
 import { formatMoney } from 'helpers'
-
-import { useSelector } from 'react-redux'
 
 import {
   BreadcrumbContainer,
@@ -130,14 +127,15 @@ const settings = {
 }
 
 export default function ManagementCreditCard({ history }) {
-  useFetchCreditCard()
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
 
   const themeContext = useContext(ThemeContext)
   const creditCard = useSelector(state => state.creditCard)
 
+  useFetchCreditCard()
+
   useEffect(() => {
-    if (creditCard.data.length) {
+    if (creditCard.data) {
       setSelectedCreditCard(creditCard.data[0].UltimosDigitos)
     }
   }, [creditCard.data])
@@ -150,7 +148,7 @@ export default function ManagementCreditCard({ history }) {
     })
   }
 
-  if (creditCard.data.length && selectedCreditCard) {
+  if (creditCard.data && selectedCreditCard) {
     return (
       <>
         <Container>
@@ -327,7 +325,7 @@ export default function ManagementCreditCard({ history }) {
     )
   }
 
-  return <div />
+  return null
 }
 
 ManagementCreditCard.propTypes = {
