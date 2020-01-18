@@ -57,11 +57,7 @@ export default function PieChart({
     event.target.style.cursor = 'pointer'
     if (!preventOnMouse) {
       dispatch({ type: 'mouseEnter', payload })
-      if (onMouseEnter) {
-        console.log(payload)
-
-        onMouseEnter(payload)
-      }
+      fireOnMouseEnter(payload.id)
     }
   }
 
@@ -70,12 +66,7 @@ export default function PieChart({
     event.target.style.cursor = 'pointer'
     if (!preventOnMouse) {
       dispatch({ type: 'mouseEnter', payload })
-      if (onMouseEnter) {
-        const filterResult = chartData.find(
-          element => element.id === payload.id
-        )
-        onMouseEnter(filterResult)
-      }
+      fireOnMouseEnter(payload.id)
     }
   }
 
@@ -88,11 +79,19 @@ export default function PieChart({
     }
   }
 
+  function fireOnMouseEnter(id) {
+    if (onMouseEnter) {
+      const filterResult = chartData.find(element => element.id === id)
+      onMouseEnter(filterResult)
+    }
+  }
+
   function handleClick(payload) {
     dispatch({ type: 'click', payload })
     setPreventOnMouse(payload.color.endsWith('33') ? true : !preventOnMouse)
     if (onSliceClick) {
-      onSliceClick(payload.color.endsWith('33') ? payload : null)
+      const filterResult = chartData.find(element => element.id === payload.id)
+      onSliceClick(filterResult)
     }
   }
 

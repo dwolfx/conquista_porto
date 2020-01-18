@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 import { formatMoney } from 'helpers'
 import Text from 'components/Text'
-import { EmptyBody, EmptyText } from './styles'
+import { EmptyBody, EmptyChartText } from './styles'
 
 const ChartEmptyState = ({ value }) => (
   <EmptyBody>
-    <EmptyText type="captionUppercase">Total investido</EmptyText>
-    <EmptyText type="heading4" bold>
+    <EmptyChartText type="captionUppercase">Total investido</EmptyChartText>
+    <EmptyChartText type="heading4" bold>
       {formatMoney(value)}
-    </EmptyText>
+    </EmptyChartText>
   </EmptyBody>
 )
 
@@ -18,7 +18,9 @@ const ChartMiddleInfoContent = ({ pieChartInfo }) =>
   validPieChartInfo(pieChartInfo) ? (
     <EmptyBody>
       <Text type="heading4">{`${pieChartInfo.percent}%`}</Text>
-      <EmptyText type="captionUppercase">{pieChartInfo.label}</EmptyText>
+      <EmptyChartText type="captionUppercase">
+        {pieChartInfo.label}
+      </EmptyChartText>
       <Text type="heading4" bold>
         {formatMoney(pieChartInfo.value)}
       </Text>
