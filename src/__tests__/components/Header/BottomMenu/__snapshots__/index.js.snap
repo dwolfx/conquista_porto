@@ -274,22 +274,6 @@ exports[`Header to render 1`] = `
     </div>
     <a
       className="sc-fjdhpX hdHfQQ"
-      href="/"
-      onClick={[Function]}
-    >
-      <svg
-        className="sc-ifAKCX cJgWXQ"
-      >
-        gear.svg
-      </svg>
-      <p
-        className="sc-gzVnrw bBpTFh"
-      >
-        Gerenciador
-      </p>
-    </a>
-    <a
-      className="sc-fjdhpX hdHfQQ"
       href="/pontos"
       onClick={[Function]}
     >

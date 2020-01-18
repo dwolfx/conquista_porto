@@ -15,7 +15,7 @@ exports[`FundsInfo renders correctly 1`] = `
     Perfil de Risco
   </h5>
   <div
-    className="sc-kkGfuU eYHlIb sc-jAaTju btSbqf"
+    className="sc-kkGfuU dLHlpL sc-jAaTju btSbqf"
   >
     <label>
       Menor risco

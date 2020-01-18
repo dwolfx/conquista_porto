@@ -179,3 +179,7 @@ export const Dropdown = styled(DropdownComponent)`
     background-color: transparent;
   }
 `
+
+export const ModalContent = styled.div`
+  margin: 30px;
+`

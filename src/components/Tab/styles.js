@@ -7,7 +7,6 @@ export const Tab = styled.div`
     ${props => props.theme.colors.gray1} 100%
   );
   border: 1px solid ${props => props.theme.colors.gray3};
-  border-radius: 6px 6px 0 0;
   cursor: pointer;
   height: 3rem;
   font-size: 10px;
@@ -21,7 +20,16 @@ export const Tab = styled.div`
   vertical-align: middle;
   transition: all 0.1s linear;
 
+  &:first-of-type {
+    border-radius: 6px 0 0 0;
+  }
+
+  &:last-of-type {
+    border-radius: 0 6px 0 0;
+  }
+
   &.active {
+    border-radius: 6px 6px 0 0;
     background-image: linear-gradient(
       to bottom,
       ${props => props.theme.colors.white} 0%,
