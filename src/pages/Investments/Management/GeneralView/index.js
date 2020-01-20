@@ -38,20 +38,14 @@ export default function GeneralView() {
       return []
     }
 
-    return Array.isArray(generalViewData[0].visao_geral.fundos.fundo)
-      ? generalViewData[0].visao_geral.fundos.fundo.map((item, index) => ({
-          id: item.apelido,
-          label: item.apelido,
-          value: parseFloat(item.percentual),
-          color: colorGuide[index],
-        }))
-      : [
-          {
-            id: generalViewData[0].visao_geral.fundos.fundo.apelido,
-            label: generalViewData[0].visao_geral.fundos.fundo.apelido,
-            value: generalViewData[0].visao_geral.fundos.fundo.percentual,
-          },
-        ]
+    return [generalViewData[0].visao_geral.fundos.fundo]
+      .flatMap(item => item)
+      .map((item, index) => ({
+        id: item.apelido,
+        label: item.apelido,
+        value: parseFloat(item.percentual),
+        color: colorGuide[index],
+      }))
   }
 
   useFetchBankData()
