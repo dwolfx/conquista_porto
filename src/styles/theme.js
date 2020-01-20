@@ -26,6 +26,14 @@ export const themeColors = {
   magenta2: '#E72176',
 }
 
+export const shadows = {
+  gray1: '0px 1px 2px rgba(39, 39, 39, 0.14)',
+  gray2: '0px 2px 4px rgba(39, 39, 39, 0.14)',
+  gray3: '0px 4px 8px rgba(39, 39, 39, 0.14)',
+  gray4: '0px 7px 21px rgba(39, 39, 39, 0.14)',
+  blue1: '0px 3px 6px rgba(0, 173, 239, 0.14)',
+}
+
 export const fundRiskColors = {
   lowRisk: '#555861',
   lowMediumRisk: '#33BFFF',
@@ -144,6 +152,7 @@ export const fontTypes = {
 }
 
 export default {
+  shadows,
   colors: themeColors,
   fundRiskColors,
   fontFamily: 'Open Sans',
