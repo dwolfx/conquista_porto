@@ -296,3 +296,22 @@ export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
   width: 16px;
   height: 16px;
 `
+
+export const ContainerHorizontalList = styled.div`
+  padding: 26px 21px;
+  margin-bottom: 28px;
+  background-color: ${props => props.theme.colors.gray1};
+  border-radius: 8px;
+`
+
+export const ModalContentWrapper = styled.div`
+  padding: 28px;
+`
+
+export const ModalTextWrapper = styled.div`
+  p:first-of-type {
+    margin-bottom: 7px;
+  }
+
+  margin-bottom: 28px;
+`
