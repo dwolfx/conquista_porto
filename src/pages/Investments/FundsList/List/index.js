@@ -106,18 +106,18 @@ export default function List({ data }) {
                     )}
                   </dd>
                 </DetailItem>
-                {/* <DetailItem>
-                    <dt>GESTOR</dt>
-                    <dd>{obj.gestor}</dd>
-                  </DetailItem> */}
+                <DetailItem>
+                  <dt>GESTOR</dt>
+                  <dd>{obj.nome_gestor}</dd>
+                </DetailItem>
                 <DetailItem>
                   <dt>BENCHMARK</dt>
                   <dd>{fundDetailsLoaded[obj.id_fundo].benchmark.nome}</dd>
                 </DetailItem>
-                {/* <DetailItem>
-                    <dt>PL ATUAL</dt>
-                    <dd>{obj.plAtual}</dd>
-                  </DetailItem> */}
+                <DetailItem>
+                  <dt>PL ATUAL</dt>
+                  <dd>{formatMoney(obj.valor_patrimonio_liq)}</dd>
+                </DetailItem>
                 <DetailItem>
                   <dt>TAXA DE ADMINISTRAÇÃO</dt>
                   <dd>{fundDetailsLoaded[obj.id_fundo].taxa_administracao}</dd>
