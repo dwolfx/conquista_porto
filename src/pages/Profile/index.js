@@ -3,7 +3,7 @@ import { Wrapper, Container } from './styles'
 import Dashboard from './Dashboard/index'
 
 const Profile = () => {
-  const isCompleted = false
+  const isCompleted = true
 
   return (
     <Wrapper>
