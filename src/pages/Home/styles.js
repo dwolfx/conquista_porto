@@ -264,11 +264,6 @@ export const ItemLine = styled.div`
   padding: ${props => (props.padding ? props.padding : '0')};
 `
 
-export const ItemDivisor = styled.hr`
-  border: 1px solid ${props => props.theme.colors.gray2};
-  border-bottom: 0px;
-`
-
 export const OverflowCard = styled.div`
   height: 100%;
   overflow: auto;
