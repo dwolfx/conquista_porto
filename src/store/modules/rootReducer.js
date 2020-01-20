@@ -8,6 +8,7 @@ import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
+import investmentPosition from './Investment/Position/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
@@ -23,6 +24,7 @@ export default combineReducers({
   creditCard,
   investmentsList,
   investmentDetails,
+  investmentPosition,
   privateWelfare,
   lifeInsurance,
   consolidatedPosition,

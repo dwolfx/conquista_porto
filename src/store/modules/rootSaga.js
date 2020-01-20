@@ -8,6 +8,7 @@ import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
+import investmentPosition from './Investment/Position/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import points from './Points/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
@@ -25,6 +26,7 @@ export default function* rootSaga() {
     consortiumVehicle,
     investmentsList,
     investmentDetails,
+    investmentPosition,
     lifeInsurance,
     points,
     privateWelfare,

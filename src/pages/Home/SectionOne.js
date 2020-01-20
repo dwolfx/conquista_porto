@@ -215,7 +215,7 @@ const SectionOne = () => {
                   <Text type="headline">Saldo disponível</Text>
                   <Text type="headline" bold>
                     {formatMoney(
-                      bankData.DadosContaPortoSeguro
+                      bankData && bankData.DadosContaPortoSeguro
                         ? bankData.DadosContaPortoSeguro.saldo_disponivel
                         : 0
                     )}
@@ -234,7 +234,7 @@ const SectionOne = () => {
                   <Text type="headline">Saldo a liquidar</Text>
                   <Text type="headline" bold>
                     {formatMoney(
-                      bankData.DadosContaPortoSeguro
+                      bankData && bankData.DadosContaPortoSeguro
                         ? bankData.DadosContaPortoSeguro.saldo_liquidar
                         : 0
                     )}
