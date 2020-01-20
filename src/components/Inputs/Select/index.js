@@ -23,7 +23,10 @@ const SelectComponent = ({
   const renderOptions = () =>
     options &&
     options.map((item, index) => (
-      <option key={`${props.name}-${index}`} value={item.value || item.name}>
+      <option
+        key={`${props.name}-${index}`}
+        value={Object.keys(item).indexOf('value') ? item.value : item.name}
+      >
         {item.name}
       </option>
     ))

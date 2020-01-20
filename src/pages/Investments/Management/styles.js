@@ -3,6 +3,8 @@ import AccordionDefault from 'components/Accordion'
 import { AccordionHeader, AccordionBody } from 'components/Accordion/styles'
 import Carousel from 'components/Carousel'
 import LeftNavDefault from 'components/Management/LeftNav'
+import RightContentDefault from 'components/Management/RightContent'
+import TextComponent from 'components/Text'
 
 export const LeftNav = styled(LeftNavDefault)`
   @media (max-width: 1000px) {
@@ -337,4 +339,17 @@ export const ComplementaryInfo = styled.article`
   align-items: center;
   flex-direction: column;
   padding-bottom: 22px;
+`
+
+export const FundCategoryText = styled(TextComponent).attrs({
+  type: 'subheading',
+  bold: true,
+})`
+  text-transform: uppercase;
+  margin: 0 0 14px 0;
+  text-align: center;
+`
+
+export const RightContent = styled(RightContentDefault)`
+  width: 100%;
 `
