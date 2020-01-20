@@ -5,11 +5,11 @@ import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 
 export default function useFetchTripInsurance() {
   const dispatch = useDispatch()
-  const status = useSelector(state => state.tripInsurance.status)
+  const data = useSelector(state => state.tripInsurance.data)
 
   useEffect(() => {
-    if (!status) {
+    if (!data) {
       dispatch(GetTripInsuranceDataRequest())
     }
-  }, [dispatch, status])
+  }, [dispatch, data])
 }

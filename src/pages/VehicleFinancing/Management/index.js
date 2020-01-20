@@ -18,6 +18,8 @@ import ManageableItem from 'components/Management/ManageableItem'
 
 import { formatMoney } from 'helpers'
 
+import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
+
 import {
   BreadcrumbContainer,
   AddBtnLink,
@@ -53,16 +55,20 @@ const ManagementVehicleFinancing = ({ history }) => {
   const theme = useContext(ThemeContext)
   const [selectedIndex, setSelectedIndex] = useState(0)
 
+  useFetchVehicleFinancing()
+
   const generateManageableItem = arrayItems =>
-    arrayItems.map((item, index) => (
-      <ManageableItemWithStyle
-        onClick={() => setSelectedIndex(index)}
-        key={`${item.Contrato}-${new Date().getUTCMilliseconds()}`}
-        name={item.Contrato}
-        value={item.ValorContratado}
-        isActive={selectedIndex === index}
-      />
-    ))
+    arrayItems
+      ? arrayItems.map((item, index) => (
+          <ManageableItemWithStyle
+            onClick={() => setSelectedIndex(index)}
+            key={`${item.Contrato}-${new Date().getUTCMilliseconds()}`}
+            name={item.Contrato}
+            value={item.ValorContratado}
+            isActive={selectedIndex === index}
+          />
+        ))
+      : null
 
   const renderEmptyState = () => (
     <EmptyContent>

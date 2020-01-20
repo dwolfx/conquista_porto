@@ -1,7 +1,7 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: [],
+  data: null,
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -10,6 +10,11 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         data: [...action.payload],
+      }
+    case Types.GET_FAILURE:
+      return {
+        ...state,
+        data: [],
       }
     default:
       return state

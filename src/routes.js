@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -28,7 +29,6 @@ import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
-import Redirect from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesRetirementFlow from 'pages/Objectives/GoalStreams/RetirementFlow'
@@ -42,13 +42,46 @@ import ObjectivesRecommendation from 'pages/Objectives/Recommendation'
 
 import Notifications from 'pages/Notifications'
 
-const DefaultRoute = ({ component, ...rest }) => {
+import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
+import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
+import useFetchConsortiumVehicle from 'hooks/ConsortiumVehicle/useFetchConsortiumVehicle'
+import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsortiumBuilding'
+import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
+import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
+
+const DefaultRoute = ({ component, data, hook, ...rest }) => {
   const Component = component
+  let dataLength = 0
+
+  try {
+    if (!data) {
+      hook()
+
+      // while the hook is being called, dont render anything (eliminates blink between screens)
+      return null
+    }
+
+    dataLength = Array.isArray(data) ? data.length : Object.entries(data).length
+  } catch (error) {
+    dataLength = 0
+  }
+
   return (
     <>
       <Header />
       <main className="main-content">
-        <Route {...rest} render={props => <Component {...props} />} />
+        <Route
+          {...rest}
+          render={props => {
+            // if dataLength !== 0, data exists therefore redirects to management screen
+            if (dataLength) {
+              return <Redirect to={{ pathname: `${rest.path}/visualizar` }} />
+            }
+
+            // otherwise, renders the component
+            return <Component {...props} />
+          }}
+        />
       </main>
       <Footer />
     </>
@@ -57,20 +90,104 @@ const DefaultRoute = ({ component, ...rest }) => {
 
 DefaultRoute.propTypes = {
   component: PropTypes.func.isRequired,
+  data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  hook: PropTypes.func,
+}
+
+DefaultRoute.defaultProps = {
+  data: [],
+  hook: () => {},
 }
 
 export default function Routes({ ...props }) {
+  const {
+    creditCardData,
+    tripInsuranceData,
+    vehicleFinancingData,
+    consortiumBuildingData,
+    consortiumVehicleData,
+    lifeInsuranceData,
+  } = useSelector(state => ({
+    creditCardData: state.creditCard.data,
+    tripInsuranceData: state.tripInsurance.data,
+    vehicleFinancingData: state.vehicleFinancing.data,
+    consortiumBuildingData: state.consortiumBuilding.data,
+    consortiumVehicleData: state.consortiumVehicle.data,
+    lifeInsuranceData: state.lifeInsurance.data,
+  }))
+
   return (
     <Switch {...props}>
       <DefaultRoute path="/" exact component={Home} />
-      <Route
-        path="/investimentos/extrato"
+
+      <DefaultRoute
+        path="/cartao-credito"
         exact
-        component={InvestimentosExtrato}
+        component={CartaoCredito}
+        data={creditCardData}
+        hook={useFetchCreditCard}
       />
-      <DefaultRoute path="/cartao-credito" exact component={CartaoCredito} />
-      <DefaultRoute path="/seguro-vida" exact component={SeguroVida} />
+      <DefaultRoute
+        path="/seguro-viagem"
+        exact
+        component={TripInsurance}
+        data={tripInsuranceData}
+        hook={useFetchTripInsurance}
+      />
+      <DefaultRoute
+        path="/financiamento-veiculo"
+        exact
+        component={VehicleFinancing}
+        data={vehicleFinancingData}
+        hook={useFetchVehicleFinancing}
+      />
+      <DefaultRoute
+        path="/consorcio-imovel"
+        exact
+        component={ConsortiumBuilding}
+        data={consortiumBuildingData}
+        hook={useFetchConsortiumBuilding}
+      />
+      <DefaultRoute
+        path="/consorcio-veiculo"
+        exact
+        component={ConsortiumVehicle}
+        data={consortiumVehicleData}
+        hook={useFetchConsortiumVehicle}
+      />
+      <DefaultRoute
+        path="/seguro-vida"
+        exact
+        component={SeguroVida}
+        data={lifeInsuranceData}
+        hook={useFetchLifeInsurance}
+      />
       <DefaultRoute path="/investimentos" exact component={Investimentos} />
+
+      <DefaultRoute
+        path="/cartao-credito/visualizar"
+        exact
+        component={ManagementCreditCard}
+      />
+      <DefaultRoute
+        path="/seguro-viagem/visualizar"
+        component={ManagementTripInsurance}
+      />
+      <DefaultRoute
+        path="/financiamento-veiculo/visualizar"
+        exact
+        component={ManagementVehicleFinancing}
+      />
+      <DefaultRoute
+        path="/consorcio-imovel/visualizar"
+        exact
+        component={ManagementConsortiumBuilding}
+      />
+      <DefaultRoute
+        path="/consorcio-veiculo/visualizar"
+        exact
+        component={ManagementConsortiumVehicle}
+      />
       <DefaultRoute
         path="/investimentos/visualizar"
         component={ManagementInvestimentos}
@@ -79,6 +196,12 @@ export default function Routes({ ...props }) {
         path="/seguro-vida/visualizar"
         exact
         component={ManagementSeguroVida}
+      />
+
+      <Route
+        path="/investimentos/extrato"
+        exact
+        component={InvestimentosExtrato}
       />
       <DefaultRoute
         path="/investimentos/lista-fundos"
@@ -89,49 +212,9 @@ export default function Routes({ ...props }) {
         exact
         component={PrevidenciaPrivada}
       />
-      <DefaultRoute
-        path="/cartao-credito/visualizar"
-        exact
-        component={ManagementCreditCard}
-      />
       <DefaultRoute path="/pontos" exact component={Points} />
       <DefaultRoute path="/perfil" exact component={Profile} />
-      <DefaultRoute
-        path="/consorcio-imovel"
-        exact
-        component={ConsortiumBuilding}
-      />
-      <DefaultRoute
-        path="/consorcio-imovel/visualizar"
-        exact
-        component={ManagementConsortiumBuilding}
-      />
-      <DefaultRoute
-        path="/consorcio-veiculo"
-        exact
-        component={ConsortiumVehicle}
-      />
 
-      <DefaultRoute
-        path="/consorcio-veiculo/visualizar"
-        exact
-        component={ManagementConsortiumVehicle}
-      />
-      <DefaultRoute
-        path="/financiamento-veiculo"
-        exact
-        component={VehicleFinancing}
-      />
-      <DefaultRoute
-        path="/financiamento-veiculo/visualizar"
-        exact
-        component={ManagementVehicleFinancing}
-      />
-      <DefaultRoute path="/seguro-viagem" exact component={TripInsurance} />
-      <DefaultRoute
-        path="/seguro-viagem/visualizar"
-        component={ManagementTripInsurance}
-      />
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
       <Route path="/objetivos" exact component={Objectives} />
       <Route

@@ -1,11 +1,4 @@
 export const themeColors = {
-  secondary: {
-    light: '#FF7433',
-    medium: '#FE5C00',
-    dark: '#F35600',
-    disabled: '#f4bea5',
-  },
-
   black: '#000',
   gray1: '#F9F9F9',
   gray2: '#EBEBEB',

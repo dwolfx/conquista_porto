@@ -77,7 +77,7 @@ export default function ManagementTripInsurance({ history }) {
 
   const tripInsurance = useSelector(state => state.tripInsurance)
   useEffect(() => {
-    if (tripInsurance.data.length) {
+    if (tripInsurance.data) {
       setSelectedTripInsurance(tripInsurance.data[0])
     }
   }, [tripInsurance.data])
@@ -90,7 +90,7 @@ export default function ManagementTripInsurance({ history }) {
     })
   }
 
-  if (tripInsurance.data.length && selectedTripInsurance) {
+  if (tripInsurance.data && selectedTripInsurance) {
     return (
       <>
         <Container>
