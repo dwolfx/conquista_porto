@@ -152,6 +152,11 @@ export const EmptyText = styled(Text)`
   width: 300px;
 `
 
+export const EmptyChartText = styled(Text)`
+  color: ${props => props.theme.colors.gray5};
+  text-align: center;
+`
+
 export const EmptyButton = styled(Button)`
   padding: 0;
   margin-top: 14px;

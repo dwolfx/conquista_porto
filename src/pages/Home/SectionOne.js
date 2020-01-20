@@ -51,7 +51,6 @@ const SectionOne = () => {
 
   useEffect(() => {
     setPieChartInfo({
-      label: '',
       value: consolidatedPosition.saldototal || 0,
       percent: 0,
     })
@@ -82,6 +81,15 @@ const SectionOne = () => {
     }
 
     return result
+  }
+
+  function settingPieChartInfo(payload) {
+    setPieChartInfo(
+      payload || {
+        value: consolidatedPosition.saldototal || 0,
+        percent: 0,
+      }
+    )
   }
 
   const renderCreditProducts = () => {
@@ -193,13 +201,9 @@ const SectionOne = () => {
                 width="100%"
                 height="100%"
                 data={graphValuesGenerator(consolidatedPosition)}
-                onMouseEnter={setPieChartInfo}
-                onMouseLeave={() =>
-                  setPieChartInfo({
-                    id: -1,
-                    value: consolidatedPosition.saldototal || 0,
-                  })
-                }
+                onMouseEnter={settingPieChartInfo}
+                onSliceClick={settingPieChartInfo}
+                onMouseLeave={settingPieChartInfo}
               >
                 <ChartMiddleInfoContent pieChartInfo={pieChartInfo} />
               </PieChart>

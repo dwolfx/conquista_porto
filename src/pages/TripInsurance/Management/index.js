@@ -174,14 +174,7 @@ export default function ManagementTripInsurance({ history }) {
                       fill={themeContext.colors.blue4}
                       name="billing"
                     />
-                    <div>
-                      <TopicTitle>{`${selectedTripInsurance.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
-                      <TopicValue>
-                        {formatMoney(
-                          selectedTripInsurance.FormaPagamento.ValorParcela
-                        )}
-                      </TopicValue>
-                    </div>
+                    <ParcelContainer data={selectedTripInsurance} />
                   </Topic>
                   <Topic>
                     <Icon
@@ -514,6 +507,23 @@ export default function ManagementTripInsurance({ history }) {
     )
   }
   return null
+}
+
+const ParcelContainer = ({ data }) =>
+  data.FormaPagamento ? (
+    <div>
+      <TopicTitle>{`${data.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
+      <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
+    </div>
+  ) : (
+    <div>
+      <TopicTitle>Forma de pagamento não descrita</TopicTitle>
+      <TopicValue>{formatMoney(0)}</TopicValue>
+    </div>
+  )
+
+ParcelContainer.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 ManagementTripInsurance.propTypes = {

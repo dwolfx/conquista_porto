@@ -19,20 +19,22 @@ import {
 const ProductItemGenerator = (productList = [], type, history, divisor) => {
   const atualItemDetail = itemDetail[type]
 
-  return productList
-    ? productList.map((product, index) => (
-        <>
-          {index > 0 || divisor ? <Divisor /> : null}
-          <ProductItem>
-            <ProductItemRow>
-              <Text type="headline">{atualItemDetail.title}</Text>
-            </ProductItemRow>
-            {atualItemDetail.subTitle(product)}
-            {atualItemDetail.bottomLine(product, history)}
-          </ProductItem>
-        </>
-      ))
-    : []
+  return productList.map((product, index) => {
+    const id = `${type}-${Date.now().toPrecision() + index}`
+
+    return (
+      <React.Fragment key={id}>
+        {index > 0 || divisor ? <Divisor /> : null}
+        <ProductItem>
+          <ProductItemRow>
+            <Text type="headline">{atualItemDetail.title}</Text>
+          </ProductItemRow>
+          {atualItemDetail.subTitle(product)}
+          {atualItemDetail.bottomLine(product, history)}
+        </ProductItem>
+      </React.Fragment>
+    )
+  })
 }
 
 const itemDetail = {
