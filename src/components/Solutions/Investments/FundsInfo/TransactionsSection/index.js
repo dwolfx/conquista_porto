@@ -21,17 +21,17 @@ export default function TransactionsSection({ title, articles }) {
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Aplicação</SubTitleWrapper>
-            <ValueWrapper>{formatMoney(articles.aplicao_minima)}</ValueWrapper>
+            <ValueWrapper>{formatMoney(articles.minimo_inicial)}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Movimentação Mín.</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicao_minima}</ValueWrapper>
+            <ValueWrapper>{formatMoney(articles.aplicao_minima)}</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Saldo Mín.</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicao_minima}</ValueWrapper>
+            <ValueWrapper>{formatMoney(articles.saldo_minimo)}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Horário Limite da Aplic.</SubTitleWrapper>
@@ -83,5 +83,7 @@ TransactionsSection.propTypes = {
     resgate_financeiro: PropTypes.string,
     hora_aplicacao: PropTypes.string,
     contagem_dias_resgate: PropTypes.string,
+    minimo_inicial: PropTypes.string,
+    saldo_minimo: PropTypes.string,
   }).isRequired,
 }

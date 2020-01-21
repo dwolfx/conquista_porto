@@ -70,6 +70,8 @@ const INITIAL_STATE = {
   classificacao: 'Longo Prazo',
   aplicao_minima: '5000.0',
   aplicacao_financeiro: 'D+0',
+  valor_patrimonio_liq: '121480174.47',
+  saldo_minimo: '1000.0',
 }
 
 it('FundsInfo renders correctly', () => {
