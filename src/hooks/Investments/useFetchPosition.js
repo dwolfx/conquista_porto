@@ -6,10 +6,11 @@ import { GetPositionDataRequest } from 'store/modules/Investment/Position/action
 export default function useFetchPosition() {
   const dispatch = useDispatch()
   const data = useSelector(state => state.investmentPosition.data)
+  const auth = useSelector(state => state.auth)
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetPositionDataRequest())
+      dispatch(GetPositionDataRequest(auth.cpf))
     }
-  }, [dispatch, data])
+  }, [dispatch, data, auth])
 }
