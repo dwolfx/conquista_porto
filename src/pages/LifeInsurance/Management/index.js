@@ -44,6 +44,7 @@ import {
   Divider,
   ShowAll,
   Row,
+  MiddleContent,
 } from './styles'
 
 const downloadFileSectionData = [
@@ -180,78 +181,80 @@ export default function ManagementLifeInsurance({ history }) {
                 </ManageableItem>
               ))}
             </LeftNav>
-            {lifeInsurance.data.map(item => (
-              <RightContent
-                key={item.Apolice.NumeroApolice}
-                isSelected={
-                  item.Apolice.NumeroApolice ===
-                  selectedLifeInsurance.Apolice.NumeroApolice
-                }
-              >
-                <PageTitle>Seguro de Vida</PageTitle>
-                <Topics settings={settings}>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="boy"
-                    />
-                    <div>
-                      <TopicTitle>segurado</TopicTitle>
-                      <TopicValue>
-                        {selectedLifeInsurance.NomeSegurado}
-                      </TopicValue>
-                    </div>
-                  </Topic>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="billing"
-                    />
-                    <ParcelContainer data={selectedLifeInsurance} />
-                  </Topic>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="persongroup"
-                    />
-                    <div>
-                      <TopicTitle>Coberturas adicionais</TopicTitle>
-                      <ShowAll
-                        onClick={() => {
-                          setIsOpenModal(true)
-                        }}
+            <MiddleContent>
+              {lifeInsurance.data.map(item => (
+                <RightContent
+                  key={item.Apolice.NumeroApolice}
+                  isSelected={
+                    item.Apolice.NumeroApolice ===
+                    selectedLifeInsurance.Apolice.NumeroApolice
+                  }
+                >
+                  <PageTitle>Seguro de Vida</PageTitle>
+                  <Topics settings={settings}>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="boy"
+                      />
+                      <div>
+                        <TopicTitle>segurado</TopicTitle>
+                        <TopicValue>
+                          {selectedLifeInsurance.NomeSegurado}
+                        </TopicValue>
+                      </div>
+                    </Topic>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="billing"
+                      />
+                      <ParcelContainer data={selectedLifeInsurance} />
+                    </Topic>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="persongroup"
+                      />
+                      <div>
+                        <TopicTitle>Coberturas adicionais</TopicTitle>
+                        <ShowAll
+                          onClick={() => {
+                            setIsOpenModal(true)
+                          }}
+                        >
+                          VER TODAS &gt;
+                        </ShowAll>
+                      </div>
+                    </Topic>
+                  </Topics>
+                  <Section>
+                    <Invoice>
+                      <Text
+                        fontSize="18px"
+                        margin="0 0 14px 0"
+                        lineHeight="28px"
+                        textAlign="center"
                       >
-                        VER TODAS &gt;
-                      </ShowAll>
-                    </div>
-                  </Topic>
-                </Topics>
-                <Section>
-                  <Invoice>
-                    <Text
-                      fontSize="18px"
-                      margin="0 0 14px 0"
-                      lineHeight="28px"
-                      textAlign="center"
-                    >
-                      Cobertura Principal
-                    </Text>
-                    <InvoiceItem>
-                      <Text>Morte Acidental</Text>
-                      <Text>R$ 35.000,00</Text>
-                    </InvoiceItem>
-                  </Invoice>
-                </Section>
-                <Section>
-                  <Invoice>
-                    <BeneficiarioContent data={selectedLifeInsurance} />
-                  </Invoice>
-                </Section>
-              </RightContent>
-            ))}
+                        Cobertura Principal
+                      </Text>
+                      <InvoiceItem>
+                        <Text>Morte Acidental</Text>
+                        <Text>R$ 35.000,00</Text>
+                      </InvoiceItem>
+                    </Invoice>
+                  </Section>
+                  <Section>
+                    <Invoice>
+                      <BeneficiarioContent data={selectedLifeInsurance} />
+                    </Invoice>
+                  </Section>
+                </RightContent>
+              ))}
+            </MiddleContent>
           </PageContent>
         </Container>
         <HighlightSection
