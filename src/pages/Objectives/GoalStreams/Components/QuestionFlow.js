@@ -13,12 +13,9 @@ const QuestionFlow = ({
   options,
   question,
   type,
-  state,
-  setState,
+  formData,
+  onChangeFormData,
 }) => {
-  const handleSingleValue = event => {
-    setState({ ...state, [event.target.name]: event.target.value })
-  }
   return (
     <>
       <Row justifyContent="center">
@@ -34,8 +31,8 @@ const QuestionFlow = ({
                 width="100"
                 name={name}
                 isDynamicStyle
-                onChange={handleSingleValue}
-                value={state[name] ? state[name] : ''}
+                onChange={onChangeFormData}
+                value={formData[name] ? formData[name] : ''}
                 inputType={type}
                 minimumValue={minimumValue}
               />
@@ -45,8 +42,8 @@ const QuestionFlow = ({
                 width="100"
                 name={name}
                 isDynamicStyle
-                onChange={handleSingleValue}
-                value={state[name] ? state[name] : ''}
+                onChange={onChangeFormData}
+                value={formData[name] ? formData[name] : ''}
                 inputType={type}
               />
             )}
@@ -55,15 +52,15 @@ const QuestionFlow = ({
                 width="100"
                 name={name}
                 isDynamicStyle
-                onChange={handleSingleValue}
-                value={state[name] ? state[name] : ''}
+                onChange={onChangeFormData}
+                value={formData[name] ? formData[name] : ''}
               />
             )}
             {type === 'bool' && (
               <RadioInput
                 name={name}
                 options={options}
-                onChange={handleSingleValue}
+                onChange={onChangeFormData}
               />
             )}
           </Wrapper>
@@ -78,8 +75,8 @@ QuestionFlow.defaultProps = {
   name: '',
   options: [],
   question: '',
-  setState: () => {},
-  state: {},
+  onChangeFormData: () => {},
+  formData: {},
   type: '',
 }
 
@@ -88,8 +85,8 @@ QuestionFlow.propTypes = {
   name: PropTypes.string,
   options: PropTypes.array,
   question: PropTypes.string,
-  setState: PropTypes.func,
-  state: PropTypes.object,
+  onChangeFormData: PropTypes.func,
+  formData: PropTypes.object,
   type: PropTypes.string,
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { RadioWrapper, RadioTitle, RadioLabel, RadioInput } from './styles'
@@ -18,12 +18,6 @@ const RadioComponent = ({
   width,
   ...props
 }) => {
-  const [isActive, setIsActive] = useState(value)
-
-  const radioButtonValue = event => {
-    setIsActive(event.target.value)
-    onChange(event)
-  }
   const renderOptions = () =>
     options &&
     options.map((item, index) => (
@@ -33,8 +27,7 @@ const RadioComponent = ({
       >
         <RadioInput
           value={item.value || item.name}
-          onChange={radioButtonValue}
-          active={isActive}
+          onChange={onChange}
           {...props}
         />
         {item.name}

@@ -17,24 +17,24 @@ export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
   const increment = () => setStepIndex(currentStep + 1)
   const decrement = () => setStepIndex(currentStep - 1)
-  const [inputValue, setInputValue] = useState({})
+  const [formData, setFormData] = useState({})
   const computedState = {
     isFirstStep: currentStep === 0,
     isLastStep: currentStep === data.length - 1,
   }
   const { isFirstStep, isLastStep } = computedState
 
-  const postFlow = () => console.log({ inputValue })
+  const postFlow = () => console.log({ formData })
 
-  const handleInputValue = value => {
-    setInputValue(value)
+  const handleSingleValue = event => {
+    setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
   const WizardContainer = () => (
     <WizardStep>
       <QuestionFlow
-        state={inputValue}
-        setState={handleInputValue}
+        formData={formData}
+        onChangeFormData={handleSingleValue}
         {...data[currentStep]}
       />
     </WizardStep>

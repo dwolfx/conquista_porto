@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { InputWrapper, InputLabel, InputText } from './styles'
@@ -26,16 +26,8 @@ export default function Text({
   isLabelFixed,
   ...rest
 }) {
-  const [isActive, setIsActive] = useState(value.toString().length)
-
-  const changeLabelPosition = event => {
-    setIsActive(event.target.value.length)
-    onChange(event)
-  }
-
   return (
     <InputWrapper
-      active={isActive}
       error={error}
       width={width}
       paddingLeft={paddingLeft}
@@ -49,7 +41,7 @@ export default function Text({
       <InputText
         type={type || 'text'}
         value={value}
-        onChange={changeLabelPosition}
+        onChange={onChange}
         {...rest}
       />
     </InputWrapper>
