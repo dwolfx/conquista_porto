@@ -15,60 +15,56 @@ const QuestionFlow = ({
   type,
   formData,
   onChangeFormData,
-}) => {
-  return (
-    <>
-      <Row justifyContent="center">
-        <Col lg="12" xs="12">
-          <Question>{question}</Question>
-        </Col>
-      </Row>
-      <Row justifyContent="center">
-        <Col lg="12" xs="12">
-          <Wrapper>
-            {type === 'number' && (
-              <Input
-                width="100"
-                name={name}
-                isDynamicStyle
-                onChange={onChangeFormData}
-                value={formData[name] ? formData[name] : ''}
-                inputType={type}
-                minimumValue={minimumValue}
-              />
-            )}
-            {type === 'text' && (
-              <Input
-                width="100"
-                name={name}
-                isDynamicStyle
-                onChange={onChangeFormData}
-                value={formData[name] ? formData[name] : ''}
-                inputType={type}
-              />
-            )}
-            {type === 'date' && (
-              <DateInput
-                width="100"
-                name={name}
-                isDynamicStyle
-                onChange={onChangeFormData}
-                value={formData[name] ? formData[name] : ''}
-              />
-            )}
-            {type === 'bool' && (
-              <RadioInput
-                name={name}
-                options={options}
-                onChange={onChangeFormData}
-              />
-            )}
-          </Wrapper>
-        </Col>
-      </Row>
-    </>
-  )
-}
+}) => (
+  <>
+    <Row justifyContent="center">
+      <Col lg="12" xs="12">
+        <Question>{question}</Question>
+      </Col>
+    </Row>
+    <Row justifyContent="center">
+      <Col lg="12" xs="12">
+        <Wrapper>
+          {type === 'number' && (
+            <Input
+              width="100"
+              name={name}
+              isDynamicStyle
+              onChange={onChangeFormData}
+              value={formData[name]}
+              minimumValue={minimumValue}
+            />
+          )}
+          {type === 'text' && (
+            <Input
+              width="100"
+              name={name}
+              isDynamicStyle
+              onChange={onChangeFormData}
+              value={formData[name]}
+            />
+          )}
+          {type === 'date' && (
+            <DateInput
+              width="100"
+              name={name}
+              isDynamicStyle
+              onChange={onChangeFormData}
+              value={formData[name]}
+            />
+          )}
+          {type === 'bool' && (
+            <RadioInput
+              name={name}
+              options={options}
+              onChange={onChangeFormData}
+            />
+          )}
+        </Wrapper>
+      </Col>
+    </Row>
+  </>
+)
 
 QuestionFlow.defaultProps = {
   minimumValue: '',

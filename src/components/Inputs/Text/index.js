@@ -28,6 +28,7 @@ export default function Text({
 }) {
   return (
     <InputWrapper
+      active={value.length}
       error={error}
       width={width}
       paddingLeft={paddingLeft}
