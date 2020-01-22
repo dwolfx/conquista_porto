@@ -11,6 +11,9 @@ export const GridContainer = styled(Container)`
   align-items: center;
   justify-content: space-between;
   padding: 0 14px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `
 
 export const LeftBlock = styled.div`

@@ -51,10 +51,10 @@ const Home = () => {
 
     const windowScroll = window.pageYOffset
     /*
-      135 = distance between sticky elements and top of the page.
+      72 = distance between sticky elements and top of the page.
       30 = to keep the margin top on the container while it scrolls.
     */
-    const amountToScroll = Math.round(el.top + windowScroll - 135 - 30)
+    const amountToScroll = Math.round(el.top + windowScroll - 72 - 30)
 
     window.scroll({
       top: amountToScroll,
