@@ -14,6 +14,7 @@ import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 import Icon from 'components/IconExporter'
+import TopicsIconContent from 'components/TopicsIconContent'
 
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
@@ -23,7 +24,6 @@ import {
   BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -103,29 +103,6 @@ const moreDetailsData = [
   },
 ]
 
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 550,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-}
-
 export default function ManagementCreditCard({ history }) {
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
 
@@ -203,7 +180,7 @@ export default function ManagementCreditCard({ history }) {
                 isSelected={item.UltimosDigitos === selectedCreditCard}
               >
                 <PageTitle>Mundo 120 Prata</PageTitle>
-                <Topics settings={settings}>
+                <TopicsIconContent>
                   <Topic>
                     <Icon
                       width="28"
@@ -237,7 +214,7 @@ export default function ManagementCreditCard({ history }) {
                       <TopicValue>{item.UltimosDigitos}</TopicValue>
                     </div>
                   </Topic>
-                </Topics>
+                </TopicsIconContent>
                 <InvoiceContainer>
                   <InvoiceHeader>
                     <DateContent>

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Carousel from '../../../components/Carousel'
 
 export const BreadcrumbContainer = styled.div`
   @media (max-width: 1000px) {
@@ -40,12 +39,6 @@ export const PageTitle = styled.h4`
   font-size: 22px;
   line-height: 32px;
   text-align: center;
-`
-
-export const Topics = styled(Carousel)`
-  display: flex;
-  justify-content: space-between;
-  margin: 28px 70px;
 `
 
 export const Topic = styled.div`
