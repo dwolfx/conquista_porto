@@ -23,9 +23,7 @@ export default function HeaderNew() {
   const [crumbs, setCrumbs] = useState([])
   const [isArrowDown, setIsArrowDown] = useState(false)
   const bankData = useSelector(
-    state =>
-      state.bankData.data.length > 0 &&
-      state.bankData.data[0].dadosContaPortoSeguro
+    state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
   )
 
   useEffect(() => {
@@ -40,19 +38,65 @@ export default function HeaderNew() {
 
   const items = [
     {
-      icon: 'arrowup',
-      text: 'teste',
-      hasChildren: true,
+      icon: 'apps',
+      text: 'Produtos',
+      children: [
+        {
+          icon: 'creditcard',
+          text: 'Cartão de Crédito',
+          path: '/cartao-credito',
+        },
+        {
+          icon: 'homewithwindow',
+          text: 'Consórcio de Imóvel',
+          path: '/consorcio-imovel',
+        },
+        {
+          icon: 'car2',
+          text: 'Consórcio de Veículo',
+          path: '/consorcio-veiculo',
+        },
+        {
+          icon: 'money',
+          text: 'Financiamento de Veículo',
+          path: '/financiamento-veiculo',
+        },
+        {
+          icon: 'barchart',
+          text: 'Investimentos',
+          path: '/investimentos',
+        },
+        {
+          icon: 'time',
+          text: 'Previdência Privada',
+          path: '/previdencia-privada',
+        },
+        {
+          icon: 'persongroup',
+          text: 'Seguro de Vida',
+          path: '/seguro-vida',
+        },
+        {
+          icon: 'plane',
+          text: 'Seguro Viagem',
+          path: '/seguro-viagem',
+        },
+      ],
     },
     {
-      icon: 'arrowdown',
-      text: 'teste2',
-      hasChildren: false,
+      icon: 'target',
+      text: 'Objetivos',
+      path: '/objetivos',
     },
     {
-      icon: 'arrowleft',
-      text: 'teste3',
-      hasChildren: false,
+      icon: 'diamond',
+      text: 'Pontos',
+      path: '/pontos',
+    },
+    {
+      icon: 'idea',
+      text: 'Recomendações',
+      path: '/',
     },
   ]
 
@@ -60,22 +104,22 @@ export default function HeaderNew() {
     <GridContainer>
       <LeftBlock>
         <ConquistaBeta />
-        <Tag color="blue" text="MENU" />
+        <DropDown items={items} controlIcon={setIsArrowDown}>
+          <Tag color="blue" text="MENU" />
+        </DropDown>
         {crumbs.length > 0 && <Icon name="arrowright" />}
         <BreadCrumb crumbs={[...crumbs]} version="new" />
       </LeftBlock>
       <RightBlock>
         <NotificationBell />
         <Avatar />
-        <DropDown items={items} controlIcon={setIsArrowDown}>
-          <Profile>
-            <div>
-              <Name>{bankData && bankData.titular}</Name>
-              <Points>4.200 pontos</Points>
-            </div>
-            <Icon name={isArrowDown ? 'arrowup' : 'arrowdown'} />
-          </Profile>
-        </DropDown>
+        <Profile>
+          <div>
+            <Name>{bankData && bankData.titular}</Name>
+            <Points>4.200 pontos</Points>
+          </div>
+          <Icon name={isArrowDown ? 'arrowup' : 'arrowdown'} />
+        </Profile>
       </RightBlock>
     </GridContainer>
   )

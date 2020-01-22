@@ -7,8 +7,8 @@ import { ReactComponent as apps } from 'assets/icons/apps.svg'
 import { ReactComponent as arrowdown } from 'assets/icons/arrow-down2.svg'
 import { ReactComponent as arrowleft } from 'assets/icons/arrow-left.svg'
 import { ReactComponent as arrowright } from 'assets/icons/arrow-right-new.svg'
-import { ReactComponent as arrowsortable } from 'assets/icons/arrow-sortable.svg'
 import { ReactComponent as arrowup } from 'assets/icons/arrow-up.svg'
+import { ReactComponent as arrowsortable } from 'assets/icons/arrow-sortable.svg'
 import { ReactComponent as awesome } from 'assets/icons/awesome.svg'
 import { ReactComponent as backward } from 'assets/icons/backward.svg'
 import { ReactComponent as barchart } from 'assets/icons/bar-chart.svg'
@@ -39,6 +39,7 @@ import { ReactComponent as hospital } from 'assets/icons/hospital.svg'
 import { ReactComponent as homewithwindow } from 'assets/icons/home-with-window.svg'
 import { ReactComponent as idea } from 'assets/icons/idea.svg'
 import { ReactComponent as information } from 'assets/icons/information.svg'
+import { ReactComponent as leave } from 'assets/icons/leave.svg'
 import { ReactComponent as linechart } from 'assets/icons/line-chart.svg'
 import { ReactComponent as link } from 'assets/icons/link.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
@@ -108,6 +109,7 @@ const dict = {
   hospital,
   idea,
   information,
+  leave,
   linechart,
   link,
   lock,
