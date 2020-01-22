@@ -41,7 +41,6 @@ export default function SectionThree({ points }) {
           <ButtonLink onClick={() => setIsModalOpen(!isModalOpen)}>
             Regras e condições
           </ButtonLink>
-          <ButtonLink>Ver extrato</ButtonLink>
         </CardPontosFooter>
       )
     }
