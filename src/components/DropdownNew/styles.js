@@ -65,6 +65,7 @@ export const ItemIcon = styled(ConquistaIcon).attrs({
   width: 21px;
   height: 21px;
   margin: ${props => (props.alignToEnd ? '0px 21px' : '0px 0px 0px 21px')};
+  fill: ${props => props.theme.colors.gray5};
 `
 
 export const ItemText = styled.div`
