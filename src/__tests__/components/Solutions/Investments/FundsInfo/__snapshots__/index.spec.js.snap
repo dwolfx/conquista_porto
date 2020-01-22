@@ -239,7 +239,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-            5000.0
+            R$ 5.000,00
           </div>
         </div>
       </div>
@@ -257,7 +257,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-            5000.0
+            R$ 1.000,00
           </div>
         </div>
         <div
@@ -393,6 +393,18 @@ exports[`FundsInfo renders correctly 1`] = `
             <h5
               className="sc-kGXeez hKshTX"
             >
+              Gestor
+            </h5>
+            <p
+              className="sc-kpOJdX jaPJmo"
+            />
+          </div>
+          <div
+            className="sc-chPdSV eohfTt"
+          >
+            <h5
+              className="sc-kGXeez hKshTX"
+            >
               Benchmark
             </h5>
             <p
@@ -405,6 +417,20 @@ exports[`FundsInfo renders correctly 1`] = `
         <div
           className="sc-kAzzGY blPhns"
         >
+          <div
+            className="sc-chPdSV eohfTt"
+          >
+            <h5
+              className="sc-kGXeez hKshTX"
+            >
+              PL atual
+            </h5>
+            <p
+              className="sc-kpOJdX jaPJmo"
+            >
+              R$ 121.480.174,47
+            </p>
+          </div>
           <div
             className="sc-chPdSV eohfTt"
           >

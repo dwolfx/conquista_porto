@@ -47,7 +47,7 @@ export const TextBody = styled(Text)`
 
 export const TextHeading4 = styled(Text)`
   margin: 0 0 7px 0;
-  textalign: center;
+  text-align: center;
   ${props => props.theme.fontTypes.heading4};
 `
 
