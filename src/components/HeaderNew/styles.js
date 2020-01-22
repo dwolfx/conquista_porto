@@ -1,14 +1,7 @@
 import styled from 'styled-components'
-// import styled, { css } from 'styled-components'
 import { Container } from 'styled-bootstrap-grid'
 import ConquistaIcon from 'components/IconExporter'
 import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
-
-// const ResponsiveHide = css`
-//   @media ${props => props.theme.mediaQueries.sm} {
-//     display: none;
-//   }
-// `
 
 export const GridContainer = styled(Container)`
   background-color: ${props => props.theme.colors.gray1};
@@ -71,4 +64,17 @@ export const Name = styled.p`
 export const Points = styled.p`
   ${props => props.theme.fontTypes.caption};
   color: ${props => props.theme.colors.blue4};
+`
+export const ResponsiveMenu = styled.div`
+  width: 28px;
+  height: 28px;
+  background-color: ${props => props.theme.colors.blue4};
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: ${props => props.theme.colors.white};
+  }
 `

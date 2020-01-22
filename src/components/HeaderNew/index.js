@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
+import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
 import Tag from 'components/Tag'
 import Divisor from 'components/Divisor'
@@ -18,14 +19,18 @@ import {
   Profile,
   Name,
   Points,
+  ResponsiveMenu,
 } from './styles'
 
 export default function HeaderNew() {
   const history = useHistory()
+  const [isMobile] = useState(useMedia('sm'))
   const [crumbs, setCrumbs] = useState([])
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
   )
+
+  useEffect(() => console.log(isMobile), [isMobile])
 
   useEffect(() => {
     if (history && !crumbs) {
@@ -36,6 +41,44 @@ export default function HeaderNew() {
   useEffect(() => {
     setCrumbs(history.location.pathname.split('/').filter(el => el !== ''))
   }, [history.location.pathname])
+
+  const renderResponsideHeader = () => (
+    <GridContainer>
+      <LeftBlock>
+        <ConquistaBeta />
+      </LeftBlock>
+      <RightBlock>
+        <ResponsiveMenu>
+          <Icon name="menu" color="white" />
+        </ResponsiveMenu>
+      </RightBlock>
+    </GridContainer>
+  )
+
+  const renderFullHeader = () => (
+    <GridContainer>
+      <LeftBlock>
+        <ConquistaBeta />
+        <DropDown items={items}>
+          <Tag color="blue" text="MENU" />
+        </DropDown>
+        {crumbs.length > 0 && <Icon name="arrowright" />}
+        <BreadCrumb crumbs={[...crumbs]} version="new" />
+      </LeftBlock>
+      <RightBlock>
+        <NotificationBell />
+        <Avatar />
+        <Profile>
+          <div>
+            <Name>{bankData && bankData.titular}</Name>
+            <Points>4.200 pontos</Points>
+          </div>
+        </Profile>
+        <Divisor vertical />
+        <Button iconName="leave">SAIR</Button>
+      </RightBlock>
+    </GridContainer>
+  )
 
   const items = [
     {
@@ -101,28 +144,5 @@ export default function HeaderNew() {
     },
   ]
 
-  return (
-    <GridContainer>
-      <LeftBlock>
-        <ConquistaBeta />
-        <DropDown items={items}>
-          <Tag color="blue" text="MENU" />
-        </DropDown>
-        {crumbs.length > 0 && <Icon name="arrowright" />}
-        <BreadCrumb crumbs={[...crumbs]} version="new" />
-      </LeftBlock>
-      <RightBlock>
-        <NotificationBell />
-        <Avatar />
-        <Profile>
-          <div>
-            <Name>{bankData && bankData.titular}</Name>
-            <Points>4.200 pontos</Points>
-          </div>
-        </Profile>
-        <Divisor vertical />
-        <Button iconName="leave">SAIR</Button>
-      </RightBlock>
-    </GridContainer>
-  )
+  return <>{isMobile ? renderResponsideHeader() : renderFullHeader()}</>
 }
