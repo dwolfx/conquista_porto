@@ -1,17 +1,16 @@
 import styled from 'styled-components'
 
-export const InputGroupContainer = styled.div`
+export const InputGroupWrapper = styled.div`
   display: flex;
-  width: 100%;
-  align-items: center;
+  align-items: flex-end;
 `
 
-export const InputGroupAddon = styled.div`
+export const InputAddon = styled.div`
   height: 42px;
   border-bottom: ${props => `1px solid ${props.theme.colors.gray3}`};
 `
 
-export const InputGroupText = styled.div`
+export const InputAddonText = styled.div`
   border: none;
   padding: 10px;
 `

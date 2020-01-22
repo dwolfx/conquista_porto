@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
-import Input from 'components/Inputs/Text'
+import InputText from 'components/InputGroup/Text'
 import InputGroup from 'components/InputGroup'
 
 import { Question, Wrapper } from './styles'
 
-const QuestionFlow = ({ minimumValue, name, options, question, type }) => (
+const QuestionFlow = ({ options, question, type }) => (
   <>
     <Row justifyContent="center">
       <Col lg="12" xs="12">
@@ -17,16 +17,10 @@ const QuestionFlow = ({ minimumValue, name, options, question, type }) => (
       <Col lg="12" xs="12">
         <Wrapper>
           <InputGroup
-            iconPosition="left"
+            addonPosition="left"
             content={(type === 'text' && '#') || (type === 'number' && 'R$')}
           >
-            <Input
-              width="100"
-              label={type}
-              minimumValue={minimumValue}
-              name={name}
-              options={options}
-            />
+            <InputText width="100" label={type} options={options} />
           </InputGroup>
         </Wrapper>
       </Col>
@@ -35,16 +29,12 @@ const QuestionFlow = ({ minimumValue, name, options, question, type }) => (
 )
 
 QuestionFlow.defaultProps = {
-  minimumValue: '',
-  name: '',
   options: [],
   question: '',
   type: '',
 }
 
 QuestionFlow.propTypes = {
-  minimumValue: PropTypes.string,
-  name: PropTypes.string,
   options: PropTypes.array,
   question: PropTypes.string,
   type: PropTypes.string,

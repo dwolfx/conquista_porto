@@ -1,35 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { InputGroupContainer, InputGroupAddon, InputGroupText } from './styles'
+import { InputGroupWrapper, InputAddon, InputAddonText } from './styles'
 
-const InputGroup = ({ iconPosition, content, children }) => (
-  <InputGroupContainer iconPosition={iconPosition}>
-    {iconPosition === 'left' && (
+const InputGroup = ({ addonPosition, content, children }) => (
+  <InputGroupWrapper addonPosition={addonPosition}>
+    {addonPosition === 'left' && (
       <>
         {content && (
-          <InputGroupAddon>
-            <InputGroupText>{content}</InputGroupText>
-          </InputGroupAddon>
+          <InputAddon>
+            <InputAddonText>{content}</InputAddonText>
+          </InputAddon>
         )}
         {children}
       </>
     )}
-    {iconPosition === 'right' && (
+    {addonPosition === 'right' && (
       <>
         {children}
         {content && (
-          <InputGroupAddon>
-            <InputGroupText>{content}</InputGroupText>
-          </InputGroupAddon>
+          <InputAddon>
+            <InputAddonText>{content}</InputAddonText>
+          </InputAddon>
         )}
       </>
     )}
-  </InputGroupContainer>
+  </InputGroupWrapper>
 )
 
 InputGroup.propTypes = {
-  iconPosition: PropTypes.oneOf(['left', 'right']).isRequired,
+  addonPosition: PropTypes.oneOf(['left', 'right']).isRequired,
   content: PropTypes.any,
   children: PropTypes.node.isRequired,
 }
