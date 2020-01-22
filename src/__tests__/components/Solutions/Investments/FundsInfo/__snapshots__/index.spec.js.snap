@@ -225,7 +225,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-            R$ 5.000,00
+            R$ 5,000.00
           </div>
         </div>
         <div
@@ -239,7 +239,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-            R$ 5.000,00
+            R$ 5,000.00
           </div>
         </div>
       </div>
@@ -257,7 +257,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-            R$ 1.000,00
+            R$ 1,000.00
           </div>
         </div>
         <div
@@ -428,7 +428,7 @@ exports[`FundsInfo renders correctly 1`] = `
             <p
               className="sc-kpOJdX jaPJmo"
             >
-              R$ 121.480.174,47
+              R$ 121,480,174.47
             </p>
           </div>
           <div
@@ -485,7 +485,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo fcBzOR sc-gipzik bHOClg"
+              className="sc-hSdWYo iDDvTv sc-gipzik bHOClg"
               type="subheading"
             >
               Informativo de desempenho
@@ -517,7 +517,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo fcBzOR sc-gipzik bHOClg"
+              className="sc-hSdWYo iDDvTv sc-gipzik bHOClg"
               type="subheading"
             >
               Informativo de desempenho
