@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 
 import BreadCrumb from 'components/Breadcrumb'
 import Tag from 'components/Tag'
+import Divisor from 'components/Divisor'
+import Button from 'components/Button/IconButton'
 import NotificationBell from 'components/NotificationBell'
 import Avatar from 'components/Avatar'
 import DropDown from 'components/DropdownNew'
@@ -21,7 +23,6 @@ import {
 export default function HeaderNew() {
   const history = useHistory()
   const [crumbs, setCrumbs] = useState([])
-  const [isArrowDown, setIsArrowDown] = useState(false)
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
   )
@@ -104,7 +105,7 @@ export default function HeaderNew() {
     <GridContainer>
       <LeftBlock>
         <ConquistaBeta />
-        <DropDown items={items} controlIcon={setIsArrowDown}>
+        <DropDown items={items}>
           <Tag color="blue" text="MENU" />
         </DropDown>
         {crumbs.length > 0 && <Icon name="arrowright" />}
@@ -118,8 +119,9 @@ export default function HeaderNew() {
             <Name>{bankData && bankData.titular}</Name>
             <Points>4.200 pontos</Points>
           </div>
-          <Icon name={isArrowDown ? 'arrowup' : 'arrowdown'} />
         </Profile>
+        <Divisor vertical />
+        <Button iconName="leave">SAIR</Button>
       </RightBlock>
     </GridContainer>
   )

@@ -1,7 +1,14 @@
 import styled from 'styled-components'
+// import styled, { css } from 'styled-components'
 import { Container } from 'styled-bootstrap-grid'
 import ConquistaIcon from 'components/IconExporter'
 import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
+
+// const ResponsiveHide = css`
+//   @media ${props => props.theme.mediaQueries.sm} {
+//     display: none;
+//   }
+// `
 
 export const GridContainer = styled(Container)`
   background-color: ${props => props.theme.colors.gray1};
