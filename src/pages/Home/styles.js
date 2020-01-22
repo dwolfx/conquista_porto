@@ -65,7 +65,7 @@ export const BannerTips = styled(Banner)`
 
 export const CardPontosFooter = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 `
 
