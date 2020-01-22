@@ -168,3 +168,14 @@ export const Row = styled.div`
   justify-content: space-between;
   margin: ${props => props.margin || 'unset'};
 `
+
+export const MiddleContent = styled.article`
+  background-color: ${props => props.theme.colors.white};
+  padding-top: 22px;
+  width: 90%;
+
+  @media ${props => props.theme.mediaQueries.md} {
+    width: 100%;
+    order: 3;
+  }
+`
