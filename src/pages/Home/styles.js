@@ -38,6 +38,9 @@ export const GridCol = styled(Col)`
     transition: all 0.35s ease-in-out;
   }
 `
+export const PieItemMargin = styled.div`
+  margin: 5px 0px;
+`
 
 export const SectionRow = styled(Row)`
   height: 100%;
