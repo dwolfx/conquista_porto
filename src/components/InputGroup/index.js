@@ -1,11 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { InputGroupWrapper, InputAddon, InputAddonText } from './styles'
+import {
+  InputGroupWrapper,
+  InputWrapper,
+  InputLabel,
+  InputAddon,
+  InputAddonText,
+} from './styles'
 
-const InputGroup = ({ prefix, suffix, children }) => (
-  <InputGroupWrapper prefix={prefix} sufix={suffix}>
-    <>
+const InputGroup = ({ prefix, suffix, children, label }) => (
+  <InputGroupWrapper>
+    {label && <InputLabel>{label}</InputLabel>}
+    <InputWrapper>
       {prefix && (
         <InputAddon>
           <InputAddonText>{prefix}</InputAddonText>
@@ -17,7 +24,7 @@ const InputGroup = ({ prefix, suffix, children }) => (
           <InputAddonText>{suffix}</InputAddonText>
         </InputAddon>
       )}
-    </>
+    </InputWrapper>
   </InputGroupWrapper>
 )
 
@@ -25,11 +32,13 @@ InputGroup.propTypes = {
   prefix: PropTypes.any,
   suffix: PropTypes.any,
   children: PropTypes.node.isRequired,
+  label: PropTypes.string,
 }
 
 InputGroup.defaultProps = {
   prefix: false,
   suffix: false,
+  label: '',
 }
 
 export default InputGroup

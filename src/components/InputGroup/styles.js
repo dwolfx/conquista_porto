@@ -1,16 +1,33 @@
 import styled from 'styled-components'
 
 export const InputGroupWrapper = styled.div`
+  border-bottom: ${props => `1px solid ${props.theme.colors.gray3}`};
+  border-radius: 8px 8px 0px 0px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 14px;
+  position: relative;
 `
 
-export const InputAddon = styled.div`
-  height: 42px;
-  border-bottom: ${props => `1px solid ${props.theme.colors.gray3}`};
+export const InputWrapper = styled.div`
+  align-items: center;
+  display: flex;
 `
+
+export const InputLabel = styled.div`
+  color: ${props => props.theme.colors.gray5};
+  font-family: ${props => props.theme.fontTypes.subheading};
+  letter-spacing: 0.02px;
+  padding: 7px 14px 0 0;
+  text-transform: uppercase;
+  top: 0;
+`
+
+export const InputAddon = styled.div``
 
 export const InputAddonText = styled.div`
   border: none;
-  padding: 10px;
+  color: ${props => props.theme.colors.gray4};
+  font-family: ${props => props.theme.fontTypes.headline};
 `

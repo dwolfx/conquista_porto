@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
-import InputText from 'components/InputGroup/Text'
+import InputText from 'components/NewInputs/Text'
 import InputGroup from 'components/InputGroup'
 
 import { Question, Wrapper } from './styles'
