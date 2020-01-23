@@ -1,13 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { InputWrapper, InputText } from './styles'
+import { InputText } from './styles'
 
-const Text = ({ width }) => (
-  <InputWrapper width={width}>
-    <InputText></InputText>
-  </InputWrapper>
-)
+const Text = ({ width, ...rest }) => <InputText width={width} {...rest} />
 
 Text.propTypes = {
   width: PropTypes.string,
