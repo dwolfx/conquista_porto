@@ -103,7 +103,7 @@ export default function Dropdown({ items, children }) {
               >
                 <ItemIcon name={item.icon} />
                 <ItemText>{item.text}</ItemText>
-                {item.children && <ItemIcon name="arrowright" alignToEnd />}
+                {item.children && <ItemIcon name="arrowright2" alignToEnd />}
               </ItemWrapper>
             ))}
           </Wrapper>

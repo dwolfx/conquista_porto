@@ -26,7 +26,7 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
               ) : (
                 crumb
               )}
-              {!isLast && <Icon name="arrowright" />}
+              {!isLast && <Icon name="arrowright2" />}
             </React.Fragment>
           )
         })}
