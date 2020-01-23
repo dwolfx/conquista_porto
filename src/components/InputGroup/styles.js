@@ -17,11 +17,8 @@ export const InputWrapper = styled.div`
 
 export const InputLabel = styled.div`
   color: ${props => props.theme.colors.gray5};
-  font-family: ${props => props.theme.fontTypes.subheading};
-  letter-spacing: 0.02px;
+  font-family: ${props => props.theme.fontTypes.captionUppercase};
   padding: 7px 14px 0 0;
-  text-transform: uppercase;
-  top: 0;
 `
 
 export const InputAddon = styled.div``
