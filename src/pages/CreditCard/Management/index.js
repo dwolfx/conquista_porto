@@ -14,6 +14,7 @@ import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 import Icon from 'components/IconExporter'
+import TopicsIconContent from 'components/TopicsIconContent'
 
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
@@ -23,7 +24,6 @@ import {
   BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -34,7 +34,6 @@ import {
   ComplementaryInfo,
   DateContent,
   Text,
-  MiddleContent,
 } from './styles'
 
 const downloadFileSectionData = [
@@ -103,29 +102,6 @@ const moreDetailsData = [
     imgPath: 'creditCard',
   },
 ]
-
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 550,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-}
 
 export default function ManagementCreditCard({ history }) {
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
@@ -198,74 +174,61 @@ export default function ManagementCreditCard({ history }) {
                 </ManageableItem>
               ))}
             </LeftNav>
-            <MiddleContent>
-              {creditCard.data.map(item => (
-                <RightContent
-                  key={item.UltimosDigitos}
-                  isSelected={item.UltimosDigitos === selectedCreditCard}
-                >
-                  <PageTitle>Mundo 120 Prata</PageTitle>
-                  <Topics settings={settings}>
-                    <Topic>
-                      <Icon
-                        width="28"
-                        fill={themeContext.colors.blue4}
-                        name="tag"
-                      />
-                      <div>
-                        <TopicTitle>bandeira</TopicTitle>
-                        <TopicValue>{item.Bandeira}</TopicValue>
-                      </div>
-                    </Topic>
-                    <Topic>
-                      <Icon
-                        width="28"
-                        fill={themeContext.colors.blue4}
-                        name="creditcard"
-                      />
-                      <div>
-                        <TopicTitle>tipo</TopicTitle>
-                        <TopicValue>{item.Tipo}</TopicValue>
-                      </div>
-                    </Topic>
-                    <Topic>
-                      <Icon
-                        width="28"
-                        fill={themeContext.colors.blue4}
-                        name="lock"
-                      />
-                      <div>
-                        <TopicTitle>4 últimos numeros</TopicTitle>
-                        <TopicValue>{item.UltimosDigitos}</TopicValue>
-                      </div>
-                    </Topic>
-                  </Topics>
-                  <InvoiceContainer>
-                    <InvoiceHeader>
-                      <DateContent>
-                        <Text
-                          fontSize="22px"
-                          margin="0 0 7px 0"
-                          lineHeight="32px"
-                          textAlign="center"
-                        >
-                          Vencimento da Fatura
-                        </Text>
-                        <Text>{item.Fatura.Vencimento}</Text>
-                      </DateContent>
-                      <DateContent>
-                        <Text
-                          fontSize="22px"
-                          margin="0 0 7px 0"
-                          lineHeight="32px"
-                          textAlign="center"
-                        >
-                          Melhor dia para compra
-                        </Text>
-                        <Text>{item.Fatura.MelhorDataCompra}</Text>
-                      </DateContent>
-                    </InvoiceHeader>
-                    <Invoice>
+            {creditCard.data.map(item => (
+              <RightContent
+                key={item.UltimosDigitos}
+                isSelected={item.UltimosDigitos === selectedCreditCard}
+              >
+                <PageTitle>Mundo 120 Prata</PageTitle>
+                <TopicsIconContent>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="tag"
+                    />
+                    <div>
+                      <TopicTitle>bandeira</TopicTitle>
+                      <TopicValue>{item.Bandeira}</TopicValue>
+                    </div>
+                  </Topic>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="creditcard"
+                    />
+                    <div>
+                      <TopicTitle>tipo</TopicTitle>
+                      <TopicValue>{item.Tipo}</TopicValue>
+                    </div>
+                  </Topic>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="lock"
+                    />
+                    <div>
+                      <TopicTitle>4 últimos numeros</TopicTitle>
+                      <TopicValue>{item.UltimosDigitos}</TopicValue>
+                    </div>
+                  </Topic>
+                </TopicsIconContent>
+                <InvoiceContainer>
+                  <InvoiceHeader>
+                    <DateContent>
+                      <Text
+                        fontSize="22px"
+                        margin="0 0 7px 0"
+                        lineHeight="32px"
+                        textAlign="center"
+                      >
+                        Vencimento da Fatura
+                      </Text>
+                      <Text>{item.Fatura.Vencimento}</Text>
+                    </DateContent>
+                    <DateContent>
                       <Text
                         fontSize="18px"
                         margin="0 0 14px 0"
@@ -278,27 +241,41 @@ export default function ManagementCreditCard({ history }) {
                         <Text>{item.Fatura.Status}</Text>
                         <Text>{formatMoney(item.Fatura.Valor)}</Text>
                       </InvoiceItem>
-                    </Invoice>
-                  </InvoiceContainer>
-                  <ComplementaryInfo>
+                    </DateContent>
+                  </InvoiceHeader>
+                  <Invoice>
                     <Text
-                      margin="22px 0"
-                      lineHeight="21px"
-                      letterSpacing="1.5px"
-                      fontColor={themeContext.colors.gray6}
-                      fontWeight="600"
-                      fontSize="11px"
+                      fontSize="18px"
+                      margin="0 0 14px 0"
+                      lineHeight="28px"
+                      textAlign="center"
                     >
-                      INFORMAÇÕES COMPLEMENTARES
+                      Fatura
                     </Text>
-                    <FileDownloadSection
-                      data={complementaryInfo}
-                      backgroundColor="inherit"
-                    />
-                  </ComplementaryInfo>
-                </RightContent>
-              ))}
-            </MiddleContent>
+                    <InvoiceItem>
+                      <Text>{item.Fatura.Status}</Text>
+                      <Text>{formatMoney(item.Fatura.Valor)}</Text>
+                    </InvoiceItem>
+                  </Invoice>
+                </InvoiceContainer>
+                <ComplementaryInfo>
+                  <Text
+                    margin="22px 0"
+                    lineHeight="21px"
+                    letterSpacing="1.5px"
+                    fontColor={themeContext.colors.gray6}
+                    fontWeight="600"
+                    fontSize="11px"
+                  >
+                    INFORMAÇÕES COMPLEMENTARES
+                  </Text>
+                  <FileDownloadSection
+                    data={complementaryInfo}
+                    backgroundColor="inherit"
+                  />
+                </ComplementaryInfo>
+              </RightContent>
+            ))}
           </PageContent>
         </Container>
         <HighlightSection

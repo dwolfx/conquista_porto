@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components/macro'
@@ -10,11 +10,13 @@ import Icon from 'components/IconExporter'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
+import RightContent from 'components/Management/RightContent'
 
 import Container from 'components/Management/Container'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import ManageableItem from 'components/Management/ManageableItem'
+import TopicsIconContent from 'components/TopicsIconContent'
 
 import { formatMoney } from 'helpers'
 
@@ -32,8 +34,6 @@ import {
   TextTitle,
   ArrowButton,
   PageTitle,
-  MiddleContent,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -53,19 +53,26 @@ import {
 
 const ManagementVehicleFinancing = ({ history }) => {
   const theme = useContext(ThemeContext)
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [selectedContract, setSelectedContract] = useState(0)
+  const vehiclesFinancings = useSelector(state => state.vehicleFinancing)
 
   useFetchVehicleFinancing()
 
+  useEffect(() => {
+    if (vehiclesFinancings.data) {
+      setSelectedContract(vehiclesFinancings.data[0].Contrato)
+    }
+  }, [vehiclesFinancings.data])
+
   const generateManageableItem = arrayItems =>
     arrayItems
-      ? arrayItems.map((item, index) => (
+      ? arrayItems.map(item => (
           <ManageableItemWithStyle
-            onClick={() => setSelectedIndex(index)}
+            onClick={() => setSelectedContract(item.Contrato)}
             key={`${item.Contrato}-${new Date().getUTCMilliseconds()}`}
             name={item.Contrato}
             value={item.ValorContratado}
-            isActive={selectedIndex === index}
+            isActive={selectedContract === item.Contrato}
           />
         ))
       : null
@@ -81,10 +88,6 @@ const ManagementVehicleFinancing = ({ history }) => {
       </TextBody>
     </EmptyContent>
   )
-
-  const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
-
-  const selectedItem = vehiclesFinancings[selectedIndex]
 
   return (
     <>
@@ -102,104 +105,118 @@ const ManagementVehicleFinancing = ({ history }) => {
               <Icon width="48" fill={theme.colors.gray3} name="add" />
               <TextBody fontColor={theme.colors.gray4}>Adicionar</TextBody>
             </AddBtnLink>
-            {generateManageableItem(vehiclesFinancings)}
+            {generateManageableItem(vehiclesFinancings.data)}
           </LeftNav>
 
-          {selectedItem ? (
-            <MiddleContent>
-              <PageTitle>
-                <TextHeading4>{selectedItem.Contrato}</TextHeading4>
-              </PageTitle>
-              <Topics settings={settings} style={{ display: 'flex' }}>
-                <Topic>
-                  <div>
-                    <Icon width="28" fill={theme.colors.blue4} name="money" />
-                  </div>
-                  <div>
-                    <TopicTitle>Entrada</TopicTitle>
-                    <TopicValue>
-                      {formatMoney(selectedItem.ValorEntrada)}
-                    </TopicValue>
-                  </div>
-                </Topic>
-                <Topic>
-                  <div>
-                    <Icon
-                      width="28"
-                      fill={theme.colors.blue4}
-                      name="financial"
-                    />
-                  </div>
+          {vehiclesFinancings.data
+            ? vehiclesFinancings.data.map(item => (
+                <RightContent
+                  key={item.Contrato}
+                  isSelected={item.Contrato === selectedContract}
+                >
+                  <PageTitle>
+                    <TextHeading4>{item.Contrato}</TextHeading4>
+                  </PageTitle>
+                  <TopicsIconContent>
+                    <Topic>
+                      <div>
+                        <Icon
+                          width="28"
+                          fill={theme.colors.blue4}
+                          name="money"
+                        />
+                      </div>
+                      <div>
+                        <TopicTitle>Entrada</TopicTitle>
+                        <TopicValue>
+                          {formatMoney(item.ValorEntrada)}
+                        </TopicValue>
+                      </div>
+                    </Topic>
+                    <Topic>
+                      <div>
+                        <Icon
+                          width="28"
+                          fill={theme.colors.blue4}
+                          name="financial"
+                        />
+                      </div>
 
-                  <div>
-                    <TopicTitle>Valor de Crédito</TopicTitle>
-                    <TopicValue>
-                      {formatMoney(selectedItem.ValorContratado)}
-                    </TopicValue>
-                  </div>
-                </Topic>
-                <Topic>
-                  <div>
-                    <Icon width="28" fill={theme.colors.blue4} name="billing" />
-                  </div>
-                  <div>
-                    <TopicTitle>99 parcelas de</TopicTitle>
-                    <TopicValue>
-                      {formatMoney(selectedItem.ValorContratado)}
-                    </TopicValue>
-                  </div>
-                </Topic>
-              </Topics>
-              <RowContent>
-                <ColumnWithLine>
-                  <TextHeading4>Marca</TextHeading4>
-                  <TextHeadline>{selectedItem.Marca}</TextHeadline>
-                </ColumnWithLine>
-                <Column>
-                  <TextHeading4>Modelo</TextHeading4>
-                  <TextHeadline>{selectedItem.Modelo}</TextHeadline>
-                </Column>
-              </RowContent>
-              <RowContent>
-                <Column>
-                  <TextHeading4>Saldo devedor</TextHeading4>
-                  <TextHeadline>
-                    {formatMoney(selectedItem.SaldoDevedor)}
-                  </TextHeadline>
-                </Column>
-              </RowContent>
-              <RowContentColumnDir>
-                <LinearProgressTitleContent>
-                  <TextCaptionUppercase margin="0 0 14px 0" textAlign="center">
-                    EVOLUÇÃO PAGAMENTO
-                  </TextCaptionUppercase>
-                </LinearProgressTitleContent>
-                <LinearProgressContent>
-                  <LinearProgressBar
-                    width="70%"
-                    margin="70px 0 0 0"
-                    now={selectedItem.QuantidadeParcelasPagas}
-                    max={selectedItem.QuantidadeParcelasContratadas}
-                    subtitle="parcelas"
-                  />
-                </LinearProgressContent>
-                <LinearProgressButtonContent>
-                  <Button>Segunda via do boleto</Button>
-                </LinearProgressButtonContent>
-              </RowContentColumnDir>
-              <ComplementaryInfo>
-                <TextButton margin="22px 0" fontColor={theme.colors.gray6}>
-                  INFORMAÇÕES COMPLEMENTARES
-                </TextButton>
-                <FileDownloadSection
-                  data={complementaryInfo}
-                  backgroundColor="inherit"
-                />
-              </ComplementaryInfo>
-            </MiddleContent>
-          ) : (
-            renderEmptyState()
-          )}
+                      <div>
+                        <TopicTitle>Valor de Crédito</TopicTitle>
+                        <TopicValue>
+                          {formatMoney(item.ValorContratado)}
+                        </TopicValue>
+                      </div>
+                    </Topic>
+                    <Topic>
+                      <div>
+                        <Icon
+                          width="28"
+                          fill={theme.colors.blue4}
+                          name="billing"
+                        />
+                      </div>
+                      <div>
+                        <TopicTitle>99 parcelas de</TopicTitle>
+                        <TopicValue>
+                          {formatMoney(item.ValorContratado)}
+                        </TopicValue>
+                      </div>
+                    </Topic>
+                  </TopicsIconContent>
+                  <RowContent>
+                    <ColumnWithLine>
+                      <TextHeading4>Marca</TextHeading4>
+                      <TextHeadline>{item.Marca}</TextHeadline>
+                    </ColumnWithLine>
+                    <Column>
+                      <TextHeading4>Modelo</TextHeading4>
+                      <TextHeadline>{item.Modelo}</TextHeadline>
+                    </Column>
+                  </RowContent>
+                  <RowContent>
+                    <Column>
+                      <TextHeading4>Saldo devedor</TextHeading4>
+                      <TextHeadline>
+                        {formatMoney(item.SaldoDevedor)}
+                      </TextHeadline>
+                    </Column>
+                  </RowContent>
+                  <RowContentColumnDir>
+                    <LinearProgressTitleContent>
+                      <TextCaptionUppercase
+                        margin="0 0 14px 0"
+                        textAlign="center"
+                      >
+                        EVOLUÇÃO PAGAMENTO
+                      </TextCaptionUppercase>
+                    </LinearProgressTitleContent>
+                    <LinearProgressContent>
+                      <LinearProgressBar
+                        width="70%"
+                        margin="70px 0 0 0"
+                        now={item.QuantidadeParcelasPagas}
+                        max={item.QuantidadeParcelasContratadas}
+                        subtitle="parcelas"
+                      />
+                    </LinearProgressContent>
+                    <LinearProgressButtonContent>
+                      <Button>Segunda via do boleto</Button>
+                    </LinearProgressButtonContent>
+                  </RowContentColumnDir>
+                  <ComplementaryInfo>
+                    <TextButton margin="22px 0" fontColor={theme.colors.gray6}>
+                      INFORMAÇÕES COMPLEMENTARES
+                    </TextButton>
+                    <FileDownloadSection
+                      data={complementaryInfo}
+                      backgroundColor="inherit"
+                    />
+                  </ComplementaryInfo>
+                </RightContent>
+              ))
+            : renderEmptyState()}
         </PageContent>
       </Container>
 
@@ -377,29 +394,6 @@ ManagementVehicleFinancing.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
-}
-
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 550,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
 }
 
 export default ManagementVehicleFinancing
