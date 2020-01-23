@@ -17,8 +17,7 @@ const QuestionFlow = ({ options, question, type }) => (
       <Col lg="12" xs="12">
         <Wrapper>
           <InputGroup
-            addonPosition="left"
-            content={(type === 'text' && '#') || (type === 'number' && 'R$')}
+            prefix={(type === 'text' && '#') || (type === 'number' && 'R$')}
           >
             <InputText width="100" label={type} options={options} />
           </InputGroup>

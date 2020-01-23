@@ -3,39 +3,33 @@ import PropTypes from 'prop-types'
 
 import { InputGroupWrapper, InputAddon, InputAddonText } from './styles'
 
-const InputGroup = ({ addonPosition, content, children }) => (
-  <InputGroupWrapper addonPosition={addonPosition}>
-    {addonPosition === 'left' && (
-      <>
-        {content && (
-          <InputAddon>
-            <InputAddonText>{content}</InputAddonText>
-          </InputAddon>
-        )}
-        {children}
-      </>
-    )}
-    {addonPosition === 'right' && (
-      <>
-        {children}
-        {content && (
-          <InputAddon>
-            <InputAddonText>{content}</InputAddonText>
-          </InputAddon>
-        )}
-      </>
-    )}
+const InputGroup = ({ prefix, suffix, children }) => (
+  <InputGroupWrapper prefix={prefix} sufix={suffix}>
+    <>
+      {prefix && (
+        <InputAddon>
+          <InputAddonText>{prefix}</InputAddonText>
+        </InputAddon>
+      )}
+      {children}
+      {suffix && (
+        <InputAddon>
+          <InputAddonText>{suffix}</InputAddonText>
+        </InputAddon>
+      )}
+    </>
   </InputGroupWrapper>
 )
 
 InputGroup.propTypes = {
-  addonPosition: PropTypes.oneOf(['left', 'right']).isRequired,
-  content: PropTypes.any,
+  prefix: PropTypes.any,
+  suffix: PropTypes.any,
   children: PropTypes.node.isRequired,
 }
 
 InputGroup.defaultProps = {
-  content: false,
+  prefix: false,
+  suffix: false,
 }
 
 export default InputGroup
