@@ -41,8 +41,8 @@ export default function Text({
       {label && <InputLabel>{label}</InputLabel>}
       <InputText
         type={type || 'text'}
-        value={value}
         onChange={onChange}
+        value={value}
         {...rest}
       />
     </InputWrapper>
@@ -61,7 +61,7 @@ Text.propTypes = {
   disabled: PropTypes.bool,
   isLabelFixed: PropTypes.bool,
   error: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 Text.defaultProps = {
   label: '',
