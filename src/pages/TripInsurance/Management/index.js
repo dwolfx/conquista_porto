@@ -43,6 +43,7 @@ import {
   Divider,
   ShowAll,
   Row,
+  MiddleContent,
 } from './styles'
 
 const settings = {
@@ -77,7 +78,7 @@ export default function ManagementTripInsurance({ history }) {
 
   const tripInsurance = useSelector(state => state.tripInsurance)
   useEffect(() => {
-    if (tripInsurance.data.length) {
+    if (tripInsurance.data) {
       setSelectedTripInsurance(tripInsurance.data[0])
     }
   }, [tripInsurance.data])
@@ -90,7 +91,7 @@ export default function ManagementTripInsurance({ history }) {
     })
   }
 
-  if (tripInsurance.data.length && selectedTripInsurance) {
+  if (tripInsurance.data && selectedTripInsurance) {
     return (
       <>
         <Container>
@@ -145,107 +146,102 @@ export default function ManagementTripInsurance({ history }) {
                 </ManageableItem>
               ))}
             </LeftNav>
-            {tripInsurance.data.map(item => (
-              <RightContent
-                key={item.Apolice.NumeroApolice}
-                isSelected={
-                  item.Apolice.NumeroApolice ===
-                  selectedTripInsurance.Apolice.NumeroApolice
-                }
-              >
-                <PageTitle>{item.Nome}</PageTitle>
-                <Topics settings={settings}>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="boy"
-                    />
-                    <div>
-                      <TopicTitle>segurado</TopicTitle>
-                      <TopicValue>
-                        {selectedTripInsurance.NomeSegurado}
-                      </TopicValue>
-                    </div>
-                  </Topic>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="billing"
-                    />
-                    <div>
-                      <TopicTitle>{`${selectedTripInsurance.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
-                      <TopicValue>
-                        {formatMoney(
-                          selectedTripInsurance.FormaPagamento.ValorParcela
-                        )}
-                      </TopicValue>
-                    </div>
-                  </Topic>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="persongroup"
-                    />
-                    <div>
-                      <TopicTitle>Coberturas adicionais</TopicTitle>
-                      <ShowAll
-                        onClick={() => {
-                          setIsOpenModal(true)
-                        }}
+            <MiddleContent>
+              {tripInsurance.data.map(item => (
+                <RightContent
+                  key={item.Apolice.NumeroApolice}
+                  isSelected={
+                    item.Apolice.NumeroApolice ===
+                    selectedTripInsurance.Apolice.NumeroApolice
+                  }
+                >
+                  <PageTitle>{item.Nome}</PageTitle>
+                  <Topics settings={settings}>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="boy"
+                      />
+                      <div>
+                        <TopicTitle>segurado</TopicTitle>
+                        <TopicValue>
+                          {selectedTripInsurance.NomeSegurado}
+                        </TopicValue>
+                      </div>
+                    </Topic>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="billing"
+                      />
+                      <ParcelContainer data={selectedTripInsurance} />
+                    </Topic>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="persongroup"
+                      />
+                      <div>
+                        <TopicTitle>Coberturas adicionais</TopicTitle>
+                        <ShowAll
+                          onClick={() => {
+                            setIsOpenModal(true)
+                          }}
+                        >
+                          VER TODAS &gt;
+                        </ShowAll>
+                      </div>
+                    </Topic>
+                  </Topics>
+                  <PeriodContainer>
+                    <Period>
+                      <Text
+                        fontSize="22px"
+                        margin="0 0 7px 0"
+                        lineHeight="32px"
+                        textAlign="center"
                       >
-                        VER TODAS &gt;
-                      </ShowAll>
-                    </div>
-                  </Topic>
-                </Topics>
-                <PeriodContainer>
-                  <Period>
-                    <Text
-                      fontSize="22px"
-                      margin="0 0 7px 0"
-                      lineHeight="32px"
-                      textAlign="center"
-                    >
-                      Destino
-                    </Text>
-                    {/* <Text>{item.Fatura.Vencimento}</Text> */}
-                  </Period>
-                  <Period>
-                    <Text
-                      fontSize="22px"
-                      margin="0 0 7px 0"
-                      lineHeight="32px"
-                      textAlign="center"
-                    >
-                      Período
-                    </Text>
-                    <Text>
-                      {moment(item.DtInicioVigencia).format('DD/MM/YYYY')} até{' '}
-                      {moment(item.DtFinalVigencia).format('DD/MM/YYYY')}
-                    </Text>
-                  </Period>
-                </PeriodContainer>
-                <Section>
-                  <Invoice>
-                    <Text
-                      fontSize="18px"
-                      margin="0 0 14px 0"
-                      lineHeight="28px"
-                      textAlign="center"
-                    >
-                      Cobertura Principal
-                    </Text>
-                    <InvoiceItem>
-                      <Text>Morte Acidental</Text>
-                      <Text>R$ 35.000,00</Text>
-                    </InvoiceItem>
-                  </Invoice>
-                </Section>
-              </RightContent>
-            ))}
+                        Destino
+                      </Text>
+                      {/* <Text>{item.Fatura.Vencimento}</Text> */}
+                    </Period>
+                    <Period>
+                      <Text
+                        fontSize="22px"
+                        margin="0 0 7px 0"
+                        lineHeight="32px"
+                        textAlign="center"
+                      >
+                        Período
+                      </Text>
+                      <Text>
+                        {moment(item.DtInicioVigencia).format('DD/MM/YYYY')} até{' '}
+                        {moment(item.DtFinalVigencia).format('DD/MM/YYYY')}
+                      </Text>
+                    </Period>
+                  </PeriodContainer>
+                  <Section>
+                    <Invoice>
+                      <Text
+                        fontSize="18px"
+                        margin="0 0 14px 0"
+                        lineHeight="28px"
+                        textAlign="center"
+                      >
+                        Cobertura Principal
+                      </Text>
+                      <InvoiceItem>
+                        <Text>Morte Acidental</Text>
+                        <Text>R$ 35.000,00</Text>
+                      </InvoiceItem>
+                    </Invoice>
+                  </Section>
+                </RightContent>
+              ))}
+            </MiddleContent>
           </PageContent>
         </Container>
         <HighlightSection
@@ -514,6 +510,23 @@ export default function ManagementTripInsurance({ history }) {
     )
   }
   return null
+}
+
+const ParcelContainer = ({ data }) =>
+  data.FormaPagamento ? (
+    <div>
+      <TopicTitle>{`${data.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
+      <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
+    </div>
+  ) : (
+    <div>
+      <TopicTitle>Forma de pagamento não descrita</TopicTitle>
+      <TopicValue>{formatMoney(0)}</TopicValue>
+    </div>
+  )
+
+ParcelContainer.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 ManagementTripInsurance.propTypes = {

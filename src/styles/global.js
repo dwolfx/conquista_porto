@@ -50,7 +50,7 @@ export default createGlobalStyle`
     flex-basis: auto;
     justify-content: center;
     flex-direction: column;
-    background-color: #F1F1F1;
+    background-color: ${props => props.theme.colors.gray1};
   }
 
   &::-webkit-scrollbar {

@@ -16,13 +16,17 @@ const SelectComponent = ({
   paddingLeft,
   paddingRight,
   placeholder,
+  defaultValue,
   showPlaceholder,
   ...props
 }) => {
   const renderOptions = () =>
     options &&
     options.map((item, index) => (
-      <option key={`${props.name}-${index}`} value={item.value || item.name}>
+      <option
+        key={`${props.name}-${index}`}
+        value={Object.keys(item).indexOf('value') ? item.value : item.name}
+      >
         {item.name}
       </option>
     ))
@@ -37,7 +41,7 @@ const SelectComponent = ({
       <SelectFieldWrapper>
         <SelectField {...props}>
           {showPlaceholder && (
-            <option value="default">{placeholder || 'Selecione'}</option>
+            <option value={defaultValue}>{placeholder}</option>
           )}
           {renderOptions()}
         </SelectField>
@@ -59,8 +63,10 @@ SelectComponent.propTypes = {
   paddingRight: PropTypes.number,
   width: PropTypes.number,
   placeholder: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   showPlaceholder: PropTypes.bool,
 }
+
 SelectComponent.defaultProps = {
   label: '',
   options: [],
@@ -68,7 +74,8 @@ SelectComponent.defaultProps = {
   paddingLeft: 0,
   paddingRight: 0,
   width: 100,
-  placeholder: '',
+  placeholder: 'Selecione',
+  defaultValue: '',
   showPlaceholder: true,
 }
 

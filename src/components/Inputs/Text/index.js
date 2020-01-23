@@ -22,20 +22,15 @@ export default function Text({
   marginLeft,
   disabled,
   error,
-  ...props
+  isLabelFixed,
+  value,
+  ...rest
 }) {
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(!!value.length)
 
-  const changeLabelPosition = event => {
-    if (event.target.value.length) {
-      setIsActive(true)
-    } else {
-      setIsActive(false)
-    }
-
-    if (onChange) {
-      onChange()
-    }
+  const handleOnChange = ({ target: { value: newValue } }) => {
+    setIsActive(!!newValue.length)
+    onChange(newValue)
   }
 
   return (
@@ -48,12 +43,14 @@ export default function Text({
       marginLeft={marginLeft}
       marginRight={marginRight}
       disabled={disabled}
+      isLabelFixed={isLabelFixed}
     >
       {label && <InputLabel>{label}</InputLabel>}
       <InputText
         type={type || 'text'}
-        onChange={changeLabelPosition}
-        {...props}
+        onChange={handleOnChange}
+        value={value}
+        {...rest}
       />
     </InputWrapper>
   )
@@ -69,7 +66,9 @@ Text.propTypes = {
   marginRight: PropTypes.number,
   marginLeft: PropTypes.number,
   disabled: PropTypes.bool,
+  isLabelFixed: PropTypes.bool,
   error: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 Text.defaultProps = {
   label: '',
@@ -81,5 +80,7 @@ Text.defaultProps = {
   marginRight: 0,
   marginLeft: 0,
   disabled: false,
+  isLabelFixed: false,
   error: false,
+  value: '',
 }

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Row } from 'styled-bootstrap-grid'
 
@@ -8,7 +8,9 @@ import OfferHomeImg from 'assets/images/pages/Home/home_offer.jpg'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
+import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
+import Modal from 'components/Modal/modalNew'
 
 import {
   EmptyBody,
@@ -25,15 +27,20 @@ import {
   PointName,
   PointNumber,
   PointsList,
+  ContainerHorizontalList,
+  ModalTextWrapper,
 } from './styles'
 
 export default function SectionThree({ points }) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const renderPointsFooter = () => {
     if (points) {
       return (
         <CardPontosFooter>
-          <ButtonLink>Regras e condições</ButtonLink>
-          <ButtonLink>Ver extrato</ButtonLink>
+          <ButtonLink onClick={() => setIsModalOpen(!isModalOpen)}>
+            Regras e condições
+          </ButtonLink>
         </CardPontosFooter>
       )
     }
@@ -61,15 +68,114 @@ export default function SectionThree({ points }) {
         contratar produtos Porto Seguro você terá acesso a ofertas e descontos
         exclusivos!
       </EmptyText>
-      <EmptyButton color="secondary">Ver regras e condições</EmptyButton>
+      <EmptyButton
+        color="secondary"
+        onClick={() => setIsModalOpen(!isModalOpen)}
+      >
+        Ver regras e condições
+      </EmptyButton>
     </EmptyBody>
   )
+
+  const renderModalContent = () => {
+    const customText = (type, color, text) => (
+      <Text type={type} color={color} bold>
+        {text}
+      </Text>
+    )
+    const tag = (color, text) => <Tag color={color} text={text} />
+
+    return (
+      <>
+        <ModalTextWrapper>
+          <Text type="headline" color="gray6" bold>
+            Como acumular pontos?
+          </Text>
+          <Text type="headline" color="gray5">
+            Confira as condições exclusivas para os colaboradores da Porto
+            Seguro. Essas condições são válidas até 01/02/2019.
+          </Text>
+        </ModalTextWrapper>
+        <ContainerHorizontalList>
+          <HorizontalList
+            noPadding
+            startItems={[
+              customText('headline', 'gray6', 'Cadastro no Conquista'),
+            ]}
+            endItems={[tag('gray', '250 pontos')]}
+          />
+          <HorizontalList
+            noPadding
+            startItems={[
+              customText('headline', 'gray6', 'Cadastro de investidor'),
+            ]}
+            endItems={[tag('gray', '200 pontos')]}
+          />
+          <HorizontalList
+            noPadding
+            startItems={[
+              customText('headline', 'gray6', 'Primeiro objetivo salvo'),
+            ]}
+            endItems={[tag('gray', '100 pontos')]}
+          />
+          <HorizontalList
+            noPadding
+            startItems={[
+              customText(
+                'headline',
+                'gray6',
+                'Primeiro investimento realizado'
+              ),
+            ]}
+            endItems={[tag('gray', '200 pontos')]}
+          />
+        </ContainerHorizontalList>
+        <ModalTextWrapper>
+          <Text type="headline" color="gray6" bold>
+            Quem pode pontuar?
+          </Text>
+          <Text type="headline" color="gray5">
+            Todos as pessoas que acessam o Conquista têm acesso ao programa e
+            podem pontuar. Aqueles que já forem investidores na Portopar, têm os
+            pontos de cadastro e cadastro de investidor contabilizados ao
+            realizarem o 1° acesso à plataforma.
+          </Text>
+        </ModalTextWrapper>
+        <ModalTextWrapper>
+          <Text type="headline" color="gray6" bold>
+            Depois de quanto tempo os pontos expiram?
+          </Text>
+          <Text type="headline" color="gray5">
+            O pontos têm duração de 24 meses a partir da emissão.
+          </Text>
+        </ModalTextWrapper>
+        <ModalTextWrapper>
+          <Text type="headline" color="gray6" bold>
+            Como somar pontos com o Cartão de Crédito Porto Seguro?
+          </Text>
+          <Text type="headline" color="gray5">
+            Os pontos do Programa de Relacionamento do Conquista são
+            automaticamente somados aos pontos do titular do Cartão de Crédito
+            Porto Seguro.
+          </Text>
+        </ModalTextWrapper>
+      </>
+    )
+  }
 
   const renderPointsAmountBalance = extrato =>
     extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
 
   return (
     <>
+      <Modal
+        modalTitle="Regras de condições"
+        alignItems="flex-start"
+        isOpen={isModalOpen}
+        handleClose={() => setIsModalOpen(false)}
+      >
+        {renderModalContent()}
+      </Modal>
       <SectionCol lg="5">
         <FullHeightCard
           headerIcon="diamond"

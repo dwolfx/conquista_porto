@@ -7,6 +7,7 @@ import { ReactComponent as apps } from 'assets/icons/apps.svg'
 import { ReactComponent as arrowdown } from 'assets/icons/arrow-down2.svg'
 import { ReactComponent as arrowleft } from 'assets/icons/arrow-left.svg'
 import { ReactComponent as arrowright } from 'assets/icons/arrow-right.svg'
+import { ReactComponent as arrowsortable } from 'assets/icons/arrow-sortable.svg'
 import { ReactComponent as arrowup } from 'assets/icons/arrow-up.svg'
 import { ReactComponent as awesome } from 'assets/icons/awesome.svg'
 import { ReactComponent as backward } from 'assets/icons/backward.svg'
@@ -75,6 +76,7 @@ const dict = {
   arrowdown,
   arrowleft,
   arrowright,
+  arrowsortable,
   arrowup,
   awesome,
   backward,

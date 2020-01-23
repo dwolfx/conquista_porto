@@ -47,7 +47,7 @@ export const TextBody = styled(Text)`
 
 export const TextHeading4 = styled(Text)`
   margin: 0 0 7px 0;
-  textalign: center;
+  text-align: center;
   ${props => props.theme.fontTypes.heading4};
 `
 
@@ -83,23 +83,6 @@ export const PageTitle = styled.div`
   text-align: center;
   word-wrap: break-word;
 `
-
-export const MiddleContent = styled.article`
-  background-color: ${props => props.theme.colors.white};
-  padding-top: 22px;
-  width: 90%;
-
-  @media ${props => props.theme.mediaQueries.md} {
-    width: 100%;
-    order: 3;
-  }
-`
-export const Topics = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 28px 20px;
-`
-
 export const Topic = styled.div`
   width: 90%;
   display: flex;

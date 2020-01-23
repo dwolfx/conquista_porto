@@ -1,32 +1,29 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-// eslint-disable-next-line no-unused-vars
-import { css, ThemeContext } from 'styled-components/macro'
+import { ThemeContext } from 'styled-components/macro'
 
 import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
-
 import Container from 'components/Management/Container'
 import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
-
 import Icon from 'components/IconExporter'
+import TopicsIconContent from 'components/TopicsIconContent'
+
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
 import { formatMoney } from 'helpers'
-
-import { useSelector } from 'react-redux'
 
 import {
   BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -106,38 +103,16 @@ const moreDetailsData = [
   },
 ]
 
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 550,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-}
-
 export default function ManagementCreditCard({ history }) {
-  useFetchCreditCard()
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
 
   const themeContext = useContext(ThemeContext)
   const creditCard = useSelector(state => state.creditCard)
 
+  useFetchCreditCard()
+
   useEffect(() => {
-    if (creditCard.data.length) {
+    if (creditCard.data) {
       setSelectedCreditCard(creditCard.data[0].UltimosDigitos)
     }
   }, [creditCard.data])
@@ -150,7 +125,7 @@ export default function ManagementCreditCard({ history }) {
     })
   }
 
-  if (creditCard.data.length && selectedCreditCard) {
+  if (creditCard.data && selectedCreditCard) {
     return (
       <>
         <Container>
@@ -205,7 +180,7 @@ export default function ManagementCreditCard({ history }) {
                 isSelected={item.UltimosDigitos === selectedCreditCard}
               >
                 <PageTitle>Mundo 120 Prata</PageTitle>
-                <Topics settings={settings}>
+                <TopicsIconContent>
                   <Topic>
                     <Icon
                       width="28"
@@ -239,7 +214,7 @@ export default function ManagementCreditCard({ history }) {
                       <TopicValue>{item.UltimosDigitos}</TopicValue>
                     </div>
                   </Topic>
-                </Topics>
+                </TopicsIconContent>
                 <InvoiceContainer>
                   <InvoiceHeader>
                     <DateContent>
@@ -255,14 +230,17 @@ export default function ManagementCreditCard({ history }) {
                     </DateContent>
                     <DateContent>
                       <Text
-                        fontSize="22px"
-                        margin="0 0 7px 0"
-                        lineHeight="32px"
+                        fontSize="18px"
+                        margin="0 0 14px 0"
+                        lineHeight="28px"
                         textAlign="center"
                       >
-                        Melhor dia para compra
+                        Fatura
                       </Text>
-                      <Text>{item.Fatura.MelhorDataCompra}</Text>
+                      <InvoiceItem>
+                        <Text>{item.Fatura.Status}</Text>
+                        <Text>{formatMoney(item.Fatura.Valor)}</Text>
+                      </InvoiceItem>
                     </DateContent>
                   </InvoiceHeader>
                   <Invoice>
@@ -327,7 +305,7 @@ export default function ManagementCreditCard({ history }) {
     )
   }
 
-  return <div />
+  return null
 }
 
 ManagementCreditCard.propTypes = {

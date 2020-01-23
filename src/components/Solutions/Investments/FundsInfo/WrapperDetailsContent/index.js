@@ -2,6 +2,8 @@ import React from 'react'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 
+import { formatMoney } from 'helpers'
+
 import {
   Container,
   LineWrapper,
@@ -26,20 +28,20 @@ export default function WrapperDetailsContent({ title, fundsDetail }) {
         </DetailItem>
       </LineWrapper>
       <LineWrapper>
-        {/* <DetailItem>
+        <DetailItem>
           <SubTitle>Gestor</SubTitle>
-          <Text>{fundsDetail.value3}</Text>
-        </DetailItem> */}
+          <Text>{fundsDetail.nome_gestor}</Text>
+        </DetailItem>
         <DetailItem>
           <SubTitle>Benchmark</SubTitle>
           <Text>{fundsDetail.benchmark.nome}</Text>
         </DetailItem>
       </LineWrapper>
       <LineWrapper>
-        {/* <DetailItem>
+        <DetailItem>
           <SubTitle>PL atual</SubTitle>
-          <Text>{fundsDetail.value5}</Text>
-        </DetailItem> */}
+          <Text>{formatMoney(fundsDetail.valor_patrimonio_liq)}</Text>
+        </DetailItem>
         <DetailItem>
           <SubTitle>Taxa de administração</SubTitle>
           <Text>{fundsDetail.taxa_administracao}% a.a</Text>
@@ -68,5 +70,7 @@ WrapperDetailsContent.propTypes = {
     }),
     taxa_administracao: PropTypes.string,
     taxa_performance: PropTypes.string,
+    nome_gestor: PropTypes.string,
+    valor_patrimonio_liq: PropTypes.string,
   }).isRequired,
 }

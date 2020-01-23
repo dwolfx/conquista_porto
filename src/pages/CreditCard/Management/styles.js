@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Carousel from '../../../components/Carousel'
 
 export const BreadcrumbContainer = styled.div`
   @media (max-width: 1000px) {
@@ -40,12 +39,6 @@ export const PageTitle = styled.h4`
   font-size: 22px;
   line-height: 32px;
   text-align: center;
-`
-
-export const Topics = styled(Carousel)`
-  display: flex;
-  justify-content: space-between;
-  margin: 28px 70px;
 `
 
 export const Topic = styled.div`
@@ -132,4 +125,15 @@ export const InvoiceItem = styled.div`
   padding: 14px 0;
   border-radius: 4px;
   margin-bottom: 14px;
+`
+
+export const MiddleContent = styled.article`
+  background-color: ${props => props.theme.colors.white};
+  padding-top: 22px;
+  width: 90%;
+
+  @media ${props => props.theme.mediaQueries.md} {
+    width: 100%;
+    order: 3;
+  }
 `

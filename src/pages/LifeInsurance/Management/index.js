@@ -44,6 +44,7 @@ import {
   Divider,
   ShowAll,
   Row,
+  MiddleContent,
 } from './styles'
 
 const downloadFileSectionData = [
@@ -110,8 +111,9 @@ export default function ManagementLifeInsurance({ history }) {
   const themeContext = useContext(ThemeContext)
 
   const lifeInsurance = useSelector(state => state.lifeInsurance)
+
   useEffect(() => {
-    if (lifeInsurance.data.length) {
+    if (lifeInsurance.data) {
       setSelectedLifeInsurance(lifeInsurance.data[0])
     }
   }, [lifeInsurance.data])
@@ -124,7 +126,7 @@ export default function ManagementLifeInsurance({ history }) {
     })
   }
 
-  if (lifeInsurance.data.length && selectedLifeInsurance) {
+  if (lifeInsurance.data && selectedLifeInsurance) {
     return (
       <>
         <Container>
@@ -179,110 +181,80 @@ export default function ManagementLifeInsurance({ history }) {
                 </ManageableItem>
               ))}
             </LeftNav>
-            {lifeInsurance.data.map(item => (
-              <RightContent
-                key={item.Apolice.NumeroApolice}
-                isSelected={
-                  item.Apolice.NumeroApolice ===
-                  selectedLifeInsurance.Apolice.NumeroApolice
-                }
-              >
-                <PageTitle>Seguro de Vida</PageTitle>
-                <Topics settings={settings}>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="boy"
-                    />
-                    <div>
-                      <TopicTitle>segurado</TopicTitle>
-                      <TopicValue>
-                        {selectedLifeInsurance.NomeSegurado}
-                      </TopicValue>
-                    </div>
-                  </Topic>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="billing"
-                    />
-                    <div>
-                      <TopicTitle>{`${selectedLifeInsurance.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
-                      <TopicValue>
-                        {formatMoney(
-                          selectedLifeInsurance.FormaPagamento.ValorParcela
-                        )}
-                      </TopicValue>
-                    </div>
-                  </Topic>
-                  <Topic>
-                    <Icon
-                      width="28"
-                      fill={themeContext.colors.blue4}
-                      name="persongroup"
-                    />
-                    <div>
-                      <TopicTitle>Coberturas adicionais</TopicTitle>
-                      <ShowAll
-                        onClick={() => {
-                          setIsOpenModal(true)
-                        }}
+            <MiddleContent>
+              {lifeInsurance.data.map(item => (
+                <RightContent
+                  key={item.Apolice.NumeroApolice}
+                  isSelected={
+                    item.Apolice.NumeroApolice ===
+                    selectedLifeInsurance.Apolice.NumeroApolice
+                  }
+                >
+                  <PageTitle>Seguro de Vida</PageTitle>
+                  <Topics settings={settings}>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="boy"
+                      />
+                      <div>
+                        <TopicTitle>segurado</TopicTitle>
+                        <TopicValue>
+                          {selectedLifeInsurance.NomeSegurado}
+                        </TopicValue>
+                      </div>
+                    </Topic>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="billing"
+                      />
+                      <ParcelContainer data={selectedLifeInsurance} />
+                    </Topic>
+                    <Topic>
+                      <Icon
+                        width="28"
+                        fill={themeContext.colors.blue4}
+                        name="persongroup"
+                      />
+                      <div>
+                        <TopicTitle>Coberturas adicionais</TopicTitle>
+                        <ShowAll
+                          onClick={() => {
+                            setIsOpenModal(true)
+                          }}
+                        >
+                          VER TODAS &gt;
+                        </ShowAll>
+                      </div>
+                    </Topic>
+                  </Topics>
+                  <Section>
+                    <Invoice>
+                      <Text
+                        fontSize="18px"
+                        margin="0 0 14px 0"
+                        lineHeight="28px"
+                        textAlign="center"
                       >
-                        VER TODAS &gt;
-                      </ShowAll>
-                    </div>
-                  </Topic>
-                </Topics>
-                <Section>
-                  <Invoice>
-                    <Text
-                      fontSize="18px"
-                      margin="0 0 14px 0"
-                      lineHeight="28px"
-                      textAlign="center"
-                    >
-                      Cobertura Principal
-                    </Text>
-                    <InvoiceItem>
-                      <Text>Morte Acidental</Text>
-                      <Text>R$ 35.000,00</Text>
-                    </InvoiceItem>
-                  </Invoice>
-                </Section>
-                <Section>
-                  <Invoice>
-                    <Text
-                      fontSize="18px"
-                      margin="0 0 14px 0"
-                      lineHeight="28px"
-                      textAlign="center"
-                    >
-                      Beneficiários
-                    </Text>
-                    <Table tableWidth="70%">
-                      <thead>
-                        <tr>
-                          <th align="center">NOME</th>
-                          <th align="center">DIVISÃO PERCENTUAL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {selectedLifeInsurance.Beneficiarios.map(
-                          beneficiario => (
-                            <tr key={beneficiario.Nome}>
-                              <td align="center">{beneficiario.Nome}</td>
-                              <td align="center">{beneficiario.Percentual}%</td>
-                            </tr>
-                          )
-                        )}
-                      </tbody>
-                    </Table>
-                  </Invoice>
-                </Section>
-              </RightContent>
-            ))}
+                        Cobertura Principal
+                      </Text>
+                      <InvoiceItem>
+                        <Text>Morte Acidental</Text>
+                        <Text>R$ 35.000,00</Text>
+                      </InvoiceItem>
+                    </Invoice>
+                  </Section>
+                  <Section>
+                    <Invoice>
+                      <BeneficiarioContent data={selectedLifeInsurance} />
+                    </Invoice>
+                  </Section>
+                </RightContent>
+              ))}
+            </MiddleContent>
           </PageContent>
         </Container>
         <HighlightSection
@@ -525,6 +497,60 @@ export default function ManagementLifeInsurance({ history }) {
     )
   }
   return null
+}
+
+const BeneficiarioContent = ({ data }) => {
+  const beneficiaries = [data.Beneficiarios].flatMap(product => product)
+
+  return (
+    <>
+      <Text
+        fontSize="18px"
+        margin="0 0 14px 0"
+        lineHeight="28px"
+        textAlign="center"
+      >
+        Beneficiários
+      </Text>
+      <Table tableWidth="70%">
+        <thead>
+          <tr>
+            <th align="center">NOME</th>
+            <th align="center">DIVISÃO PERCENTUAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {beneficiaries.map(element => (
+            <tr key={element.Beneficiario.Nome}>
+              <td align="center">{element.Beneficiario.Nome}</td>
+              <td align="center">{element.Beneficiario.Percentual}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </>
+  )
+}
+
+const ParcelContainer = ({ data }) =>
+  data.FormaPagamento ? (
+    <div>
+      <TopicTitle>{`${data.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
+      <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
+    </div>
+  ) : (
+    <div>
+      <TopicTitle>Forma de pagamento não descrita</TopicTitle>
+      <TopicValue>{formatMoney(0)}</TopicValue>
+    </div>
+  )
+
+BeneficiarioContent.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
+ParcelContainer.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 ManagementLifeInsurance.propTypes = {

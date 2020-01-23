@@ -57,7 +57,7 @@ export const RelativeParent = styled.div`
 export const NotificationCircle = styled.div`
   display: flex;
   position: absolute;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   width: 20px;
   height: 20px;
   top: -10px;
@@ -178,4 +178,8 @@ export const Dropdown = styled(DropdownComponent)`
     padding-top: 8px;
     background-color: transparent;
   }
+`
+
+export const ModalContent = styled.div`
+  margin: 30px;
 `

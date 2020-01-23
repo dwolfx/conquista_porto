@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useState } from 'react'
+import React, { useContext, useReducer, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
@@ -57,9 +57,16 @@ export default function PieChart({
     event.target.style.cursor = 'pointer'
     if (!preventOnMouse) {
       dispatch({ type: 'mouseEnter', payload })
-      if (onMouseEnter) {
-        onMouseEnter(payload)
-      }
+      fireOnMouseEnter(payload.id)
+    }
+  }
+
+  function handleLegendMouseEnter(payload, event) {
+    // eslint-disable-next-line no-param-reassign
+    event.target.style.cursor = 'pointer'
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseEnter', payload })
+      fireOnMouseEnter(payload.id)
     }
   }
 
@@ -72,11 +79,19 @@ export default function PieChart({
     }
   }
 
+  function fireOnMouseEnter(id) {
+    if (onMouseEnter) {
+      const filterResult = chartData.find(element => element.id === id)
+      onMouseEnter(filterResult)
+    }
+  }
+
   function handleClick(payload) {
     dispatch({ type: 'click', payload })
     setPreventOnMouse(payload.color.endsWith('33') ? true : !preventOnMouse)
     if (onSliceClick) {
-      onSliceClick(payload.color.endsWith('33') ? payload : null)
+      const filterResult = chartData.find(element => element.id === payload.id)
+      onSliceClick(filterResult)
     }
   }
 
@@ -84,21 +99,29 @@ export default function PieChart({
   const [chartData, dispatch] = useReducer(chartReducer, data)
   const [preventOnMouse, setPreventOnMouse] = useState(false)
 
+  useEffect(() => {
+    dispatch({ type: 'mouseLeave' })
+  }, [data.length])
+
   return (
     <ChartContainer width={width} height={height}>
       <ResponsivePie
         {...rest}
         data={
-          chartData || [
-            {
-              id: 'emptyvalue',
-              value: 100,
-              color: theme.colors.gray2,
-            },
-          ]
+          chartData && chartData.length > 0
+            ? chartData
+            : [
+                {
+                  id: 'emptyvalue',
+                  value: 100,
+                  color: theme.colors.gray2,
+                },
+              ]
         }
         colors={
-          chartData ? chartData.map(item => item.color) : [theme.colors.gray2]
+          chartData.length > 0
+            ? chartData.map(item => item.color)
+            : [theme.colors.gray2]
         }
         innerRadius={0.94}
         padAngle={1}
@@ -113,7 +136,7 @@ export default function PieChart({
           !hideLegend && data
             ? [
                 {
-                  onMouseEnter: handleMouseEnter,
+                  onMouseEnter: handleLegendMouseEnter,
                   onMouseLeave: handleMouseLeave,
                   onClick: handleClick,
                   anchor: 'bottom',

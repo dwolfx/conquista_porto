@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useReducer, useContext } from 'react'
-import { useSelector } from 'react-redux'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 import { ThemeContext } from 'styled-components'
 
 import Icon from 'components/IconExporter'
@@ -8,9 +11,11 @@ import Select from 'components/Inputs/Select'
 import Table from 'components/Table'
 import Header from 'components/Wizard/Header'
 import Tab from 'components/Tab'
-import { formatCpf } from 'helpers'
+import { formatMoney, formatCpf } from 'helpers'
+import useFetchBankData from 'hooks/BankData/useFetchBankData'
+import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
-import useExtract from './data'
+import { selectOptions, statementColumns } from './data'
 import {
   Section,
   Container,
@@ -26,40 +31,85 @@ import {
   FilterButton,
 } from './styles'
 
-const reducerstateTab = (stateInner, activeKey) =>
-  Object.keys(stateInner).reduce(
-    (cur, key) => ({
-      ...cur,
-      [key]: key === activeKey ? 'active' : '',
-    }),
-    {}
-  )
-
 const InvestmentExtract = () => {
   const themeContext = useContext(ThemeContext)
-  const [bankInfo, setBankInfo] = useState(null)
+  const history = useHistory()
+  const dispatch = useDispatch()
+
   const [showDateFilter, setShowDateFilter] = useState(false)
-  const [stateTab, setCurrentTab] = useReducer(reducerstateTab, {
-    accumulatorClass: '',
-    statementClass: 'active',
+
+  const [requestData, setRequestData] = useState({
+    filter: 0,
+    startDate: '',
+    endDate: '',
   })
 
-  const bankData = useSelector(state => state.bankData.data)
-  const [statementColumns, statementData, selectOptions] = useExtract()
-
   useEffect(() => {
-    if (bankData.length > 0) {
-      setBankInfo({ ...bankData[0].dadosContaPortoSeguro })
+    dispatch(GetBankExtractRequest(requestData))
+  }, [])
+
+  useFetchBankData()
+
+  const bankData = useSelector(state => state.bankData.data)
+  const bankExtract = useSelector(state => {
+    // formating bankExtract to build table data (must be an array)
+    // if no data exists, return an empty array
+    try {
+      return Array.isArray(state.bankExtract.data.transacoes.transacao)
+        ? state.bankExtract.data.transacoes.transacao.map(item => ({
+            transactionDate: moment(item.data).format('DD/MM/YYYY'),
+            type: item.tipo,
+            value: formatMoney(Math.abs(item.valor)),
+          }))
+        : [
+            {
+              transactionDate: moment(
+                state.bankExtract.data.transacoes.transacao.data
+              ).format('DD/MM/YYYY'),
+              type: state.bankExtract.data.transacoes.transacao.tipo,
+              value: formatMoney(
+                Math.abs(state.bankExtract.data.transacoes.transacao.valor)
+              ),
+            },
+          ]
+    } catch {
+      return []
     }
-  }, [bankData])
+  })
 
   const handleChangeSelect = e => {
     setShowDateFilter(e.target.value === 'other')
+
+    if (e.target.value !== 'other') {
+      const newRequestData = {
+        ...requestData,
+        filter: e.target.value,
+        startDate: '',
+        endDate: '',
+      }
+      setRequestData(newRequestData)
+
+      dispatch(GetBankExtractRequest(newRequestData))
+    } else {
+      setRequestData({
+        ...requestData,
+        filter: 0,
+      })
+    }
+  }
+
+  const filterByDate = () => {
+    dispatch(GetBankExtractRequest(requestData))
   }
 
   return (
     <>
-      <Header showBackButton={false} />
+      <Header
+        showBackButton={false}
+        onClose={() => {
+          history.goBack()
+        }}
+      />
 
       <Section>
         <Container>
@@ -81,7 +131,10 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>Banco</InfosLabel>
-                <InfosData>{bankInfo && bankInfo.codigo_banco}</InfosData>
+                <InfosData>
+                  {bankData.DadosContaPortoSeguro &&
+                    bankData.DadosContaPortoSeguro.codigo_banco}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -92,7 +145,10 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>Agência</InfosLabel>
-                <InfosData>{bankInfo && bankInfo.agencia}</InfosData>
+                <InfosData>
+                  {bankData.DadosContaPortoSeguro &&
+                    bankData.DadosContaPortoSeguro.agencia}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -100,7 +156,8 @@ const InvestmentExtract = () => {
               <InfosWrapper>
                 <InfosLabel>Conta</InfosLabel>
                 <InfosData>
-                  {bankInfo && `${bankInfo.conta}-${bankInfo.digito_conta}`}
+                  {bankData.DadosContaPortoSeguro &&
+                    `${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
                 </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
@@ -108,7 +165,10 @@ const InvestmentExtract = () => {
               <Icon fill={themeContext.colors.blue4} width={40} name="boy" />
               <InfosWrapper>
                 <InfosLabel>Favorecido</InfosLabel>
-                <InfosData>{bankInfo && bankInfo.titular}</InfosData>
+                <InfosData>
+                  {bankData.DadosContaPortoSeguro &&
+                    bankData.DadosContaPortoSeguro.titular}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
             <AccountInfoWrapper>
@@ -119,7 +179,10 @@ const InvestmentExtract = () => {
               />
               <InfosWrapper>
                 <InfosLabel>CPF</InfosLabel>
-                <InfosData>{bankInfo && formatCpf(bankInfo.cpf)}</InfosData>
+                <InfosData>
+                  {bankData.DadosContaPortoSeguro &&
+                    formatCpf(bankData.DadosContaPortoSeguro.cpf)}
+                </InfosData>
               </InfosWrapper>
             </AccountInfoWrapper>
           </Row>
@@ -128,48 +191,72 @@ const InvestmentExtract = () => {
       <Section backgroundColor={themeContext.colors.gray1}>
         <Container backgroundColor={themeContext.colors.gray1}>
           <TableTabs>
-            <Tab
-              onClick={() => setCurrentTab('statementClass')}
-              className={stateTab.statementClass}
-            >
-              Extrato
-            </Tab>
-            <Tab
-              onClick={() => setCurrentTab('accumulatorClass')}
-              className={stateTab.accumulatorClass}
-            >
-              Lançamentos futuros
-            </Tab>
+            <Tab className="active">Extrato</Tab>
           </TableTabs>
-          {stateTab.statementClass === 'active' && (
-            <SelectWrapper>
-              <Select
-                width={30}
-                paddingRight={15}
-                label="Filtrar por período"
-                options={selectOptions}
-                onChange={handleChangeSelect}
-              />
-              {showDateFilter && (
-                <>
-                  <DateInput
-                    width={30}
-                    label="Data inicial"
-                    paddingRight={15}
-                    paddingLeft={15}
-                  />
-                  <DateInput
-                    width={30}
-                    label="Data final"
-                    paddingRight={15}
-                    paddingLeft={15}
-                  />
-                  <FilterButton>Filtrar &gt;</FilterButton>
-                </>
-              )}
-            </SelectWrapper>
-          )}
-          <Table columns={statementColumns} data={statementData} />
+          <SelectWrapper>
+            <Select
+              width={30}
+              paddingRight={15}
+              label="Filtrar por período"
+              options={selectOptions}
+              onChange={handleChangeSelect}
+              defaultValue={0}
+            />
+            {showDateFilter && (
+              <>
+                <DateInput
+                  width={30}
+                  label="Data inicial"
+                  paddingRight={15}
+                  paddingLeft={15}
+                  onBlur={e => {
+                    const startDate = moment(
+                      e.target.value,
+                      'DD/MM/YYYY'
+                    ).isValid()
+                      ? moment(e.target.value, 'DD/MM/YYYY').format(
+                          'YYYY-MM-DD'
+                        )
+                      : ''
+
+                    setRequestData({
+                      ...requestData,
+                      startDate,
+                    })
+                  }}
+                />
+                <DateInput
+                  width={30}
+                  label="Data final"
+                  paddingRight={15}
+                  paddingLeft={15}
+                  onBlur={e => {
+                    const endDate = moment(
+                      e.target.value,
+                      'DD/MM/YYYY'
+                    ).isValid()
+                      ? moment(e.target.value, 'DD/MM/YYYY').format(
+                          'YYYY-MM-DD'
+                        )
+                      : ''
+
+                    setRequestData({
+                      ...requestData,
+                      endDate,
+                    })
+                  }}
+                />
+                <FilterButton onClick={() => filterByDate()}>
+                  Filtrar &gt;
+                </FilterButton>
+              </>
+            )}
+          </SelectWrapper>
+          <Table
+            columns={statementColumns}
+            data={bankExtract}
+            showFilter={false}
+          />
         </Container>
       </Section>
     </>

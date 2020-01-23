@@ -65,7 +65,7 @@ export const BannerTips = styled(Banner)`
 
 export const CardPontosFooter = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 `
 
@@ -150,6 +150,11 @@ export const EmptyText = styled(Text)`
   color: ${props => props.theme.colors.gray5};
   text-align: center;
   width: 300px;
+`
+
+export const EmptyChartText = styled(Text)`
+  color: ${props => props.theme.colors.gray5};
+  text-align: center;
 `
 
 export const EmptyButton = styled(Button)`
@@ -264,11 +269,6 @@ export const ItemLine = styled.div`
   padding: ${props => (props.padding ? props.padding : '0')};
 `
 
-export const ItemDivisor = styled.hr`
-  border: 1px solid ${props => props.theme.colors.gray2};
-  border-bottom: 0px;
-`
-
 export const OverflowCard = styled.div`
   height: 100%;
   overflow: auto;
@@ -295,4 +295,23 @@ export const CloseButton = styled.div`
 export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
   width: 16px;
   height: 16px;
+`
+
+export const ContainerHorizontalList = styled.div`
+  padding: 26px 21px;
+  margin-bottom: 28px;
+  background-color: ${props => props.theme.colors.gray1};
+  border-radius: 8px;
+`
+
+export const ModalContentWrapper = styled.div`
+  padding: 28px;
+`
+
+export const ModalTextWrapper = styled.div`
+  p:first-of-type {
+    margin-bottom: 7px;
+  }
+
+  margin-bottom: 28px;
 `

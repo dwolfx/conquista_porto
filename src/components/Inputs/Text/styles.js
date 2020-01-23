@@ -1,4 +1,12 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const labelFixed = css`
+  color: ${props => props.theme.colors.gray5};
+  font-family: ${props => props.theme.fontTypes.subheading};
+  letter-spacing: 0.02px;
+  text-transform: uppercase;
+  top: -13px;
+`
 
 export const InputLabel = styled.label`
   position: absolute;
@@ -38,6 +46,7 @@ export const InputWrapper = styled.div`
     font-size: ${props => (props.active ? '12px' : '14px')};
     font-style: ${props => (props.disabled ? 'italic' : 'normal')};
     top: ${props => (props.active ? '-13px' : '9px')};
+    ${props => props.isLabelFixed && labelFixed}
   }
 
   ${InputText} {

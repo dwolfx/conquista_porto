@@ -2,19 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
-import { SectionBar, TitleBar } from '../styles'
+import {
+  PageBar,
+  SectionBar,
+  TitleBar,
+} from 'pages/Objectives/GoalStreams/Components/styles'
 
 const TopBar = ({ currentStep, numberSteps }) => (
   <SectionBar>
     <Container>
-      <Row justifyContent="between">
-        <Col lgAuto xs={12}>
-          <TitleBar>Criar Objetivo</TitleBar>
-        </Col>
+      <Row justifyContent="between" alignItems="center">
         <Col lgAuto xs={12}>
           <TitleBar>
-            Etapa {currentStep} de {numberSteps}
+            Criar <span>Objetivo</span>
           </TitleBar>
+        </Col>
+        <Col lgAuto xs={12}>
+          <PageBar>
+            Etapa {currentStep} de {numberSteps}
+          </PageBar>
         </Col>
       </Row>
     </Container>

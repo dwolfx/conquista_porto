@@ -3,9 +3,14 @@ import PropTypes from 'prop-types'
 
 import { Container, StartBlock, EndBlock } from './styles'
 
-export default function HorizontalList({ startItems, endItems, ...rest }) {
+export default function HorizontalList({
+  startItems,
+  endItems,
+  heightSize,
+  noPadding,
+}) {
   return (
-    <Container {...rest}>
+    <Container heightSize={heightSize} noPadding={noPadding}>
       <StartBlock>
         {startItems &&
           startItems.map((Item, index) => (
@@ -25,6 +30,8 @@ export default function HorizontalList({ startItems, endItems, ...rest }) {
 HorizontalList.propTypes = {
   startItems: PropTypes.arrayOf(PropTypes.node),
   endItems: PropTypes.arrayOf(PropTypes.node),
+  heightSize: PropTypes.oneOf(['large', 'dynamic']),
+  noPadding: PropTypes.bool,
 }
 
 HorizontalList.defaultProps = {

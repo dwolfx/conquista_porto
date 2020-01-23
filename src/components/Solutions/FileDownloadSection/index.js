@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
@@ -28,7 +29,14 @@ export default function FileDownloadSection({ data, ...rest }) {
           <div>
             <Title>{item.title}</Title>
             <Description align="left">{item.description}</Description>
-            <DownloadLink>{item.buttonText} &gt; </DownloadLink>
+            <Link
+              to={{
+                pathname: '/redirect',
+                state: { url: item.url },
+              }}
+            >
+              <DownloadLink>{item.buttonText} &gt; </DownloadLink>
+            </Link>
           </div>
         </Item>
       ))}
@@ -43,6 +51,7 @@ FileDownloadSection.propTypes = {
       iconName: PropTypes.string,
       description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
       buttonText: PropTypes.string,
+      url: PropTypes.string,
     })
   ).isRequired,
 }

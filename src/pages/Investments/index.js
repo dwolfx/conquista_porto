@@ -66,16 +66,20 @@ const makeSenseBenefitsSectionData = [
 
 const downloadFileSectionData = [
   {
-    title: 'quadro de rentabilidade',
-    description:
-      'Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.',
-    buttonText: 'BAIXAR ARQUIVO',
-  },
-  {
-    title: 'carta do gestor',
+    title: 'Cenário Econômico',
     description:
       'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
-    buttonText: 'BAIXAR ARQUIVO',
+    buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/relatorio%20economico/Relatorio_Economico_Mensal.pdf',
+  },
+  {
+    title: 'Tabela de Rentabilizade Mensal',
+    description:
+      'Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.',
+    buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Tabela-Mensal/TABELAMENSALDEFUNDOS.pdf',
   },
 ]
 

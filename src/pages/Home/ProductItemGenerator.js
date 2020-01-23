@@ -3,12 +3,12 @@ import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 import Icon from 'components/IconExporter'
+import Divisor from 'components/Divisor'
 
 import { formatMoney } from 'helpers'
 
 import {
   ProductItem,
-  ItemDivisor,
   ProductItemRow,
   CreditCardItemRow,
   LinearProgressBarContent,
@@ -16,21 +16,27 @@ import {
   HorizontalListWithMargin,
 } from './styles'
 
-const ProductItemGenerator = (productList = [], type, history) => {
+const ProductItemGenerator = (productList = [], type, history, divisor) => {
   const atualItemDetail = itemDetail[type]
 
-  return productList.map((product, index, divisor) => (
-    <>
-      {index > 0 || divisor ? <ItemDivisor /> : null}
-      <ProductItem>
-        <ProductItemRow>
-          <Text type="headline">{atualItemDetail.title}</Text>
-        </ProductItemRow>
-        {atualItemDetail.subTitle(product)}
-        {atualItemDetail.bottomLine(product, history)}
-      </ProductItem>
-    </>
-  ))
+  return productList
+    ? productList.map((product, index) => {
+        const id = `${type}-${Date.now().toPrecision() + index}`
+
+        return (
+          <React.Fragment key={id}>
+            {index > 0 || divisor ? <Divisor /> : null}
+            <ProductItem>
+              <ProductItemRow>
+                <Text type="headline">{atualItemDetail.title}</Text>
+              </ProductItemRow>
+              {atualItemDetail.subTitle(product)}
+              {atualItemDetail.bottomLine(product, history)}
+            </ProductItem>
+          </React.Fragment>
+        )
+      })
+    : []
 }
 
 const itemDetail = {

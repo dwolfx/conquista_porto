@@ -106,10 +106,6 @@ export default function BottomMenu() {
             <SolutionsContent setIsOpen={setIsOpen} />
           </Dropdown>
         </RelativeParent>
-        <MenuItem to="/">
-          <BasicIcon name="gear" />
-          <BottomMenuText>Gerenciador</BottomMenuText>
-        </MenuItem>
         <MenuItem to="/pontos">
           <BasicIcon name="diamond" />
           <BottomMenuText>Pontos</BottomMenuText>

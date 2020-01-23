@@ -44,7 +44,7 @@ export const FundName = styled.p`
   font-size: 14px;
   font-weight: 400;
   padding: 7px 0 0;
-  max-width: 220px;
+  flex: 1 0 90%;
 `
 
 export const DetailItem = styled.dl`
@@ -65,26 +65,27 @@ export const DetailItem = styled.dl`
   }
 `
 
-export const ArrowDown = styled(IconComponent).attrs({ name: 'arrowdown' })`
+export const ArrowDown = styled(IconComponent).attrs({ name: 'arrowup' })`
   border-radius: 24px;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   border-radius: 24px;
   height: 20px;
   fill: white;
-  margin: 0.5rem 0 0 auto;
+  margin: 0.5rem 0 0;
   padding: 4px;
-  width: 20px;
+  flex: 0 0 20px;
+  transform: rotate(180deg);
 `
 
 export const ArrowUp = styled(IconComponent).attrs({ name: 'arrowup' })`
   border-radius: 24px;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   border-radius: 24px;
   height: 20px;
   fill: white;
-  margin: 0.5rem 0 0 auto;
+  margin: 0.5rem 0 0;
   padding: 4px;
-  width: 20px;
+  flex: 0 0 20px;
 `
 
 const box = css`
@@ -151,7 +152,7 @@ export const BoxBottom = styled.div`
   ${DetailItem} {
     flex: 0 0 50%;
     &:not(:first-of-type):not(:nth-of-type(2)) {
-      margin-top: 0.5rem;
+      margin-top: 1rem;
     }
   }
 

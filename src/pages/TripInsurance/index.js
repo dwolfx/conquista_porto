@@ -115,7 +115,8 @@ export default function TripInsurance() {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro Viagem da Porto Seguro.',
-            buttonText: 'BAIXAR ARQUIVO',
+            buttonText: 'Visualizar',
+            url: 'https://www.portoseguro.com.br/seguro-viagem',
           },
         ]}
       />
