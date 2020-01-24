@@ -9,16 +9,22 @@ import ButtonLink from 'components/Button/Link'
 
 import { EmptyBody, EmptyChartText, PieItemMargin } from './styles'
 
-const ChartEmptyState = ({ value }) => (
-  <EmptyBody>
-    <EmptyChartText type="captionUppercase">Total investido</EmptyChartText>
-    <PieItemMargin>
-      <EmptyChartText type="heading4" bold>
-        {formatMoney(value)}
-      </EmptyChartText>
-    </PieItemMargin>
-  </EmptyBody>
-)
+const ChartEmptyState = ({ value }) => {
+  const history = useHistory()
+  return (
+    <EmptyBody>
+      <EmptyChartText type="captionUppercase">Total investido</EmptyChartText>
+      <PieItemMargin>
+        <EmptyChartText type="heading4" bold>
+          {formatMoney(value)}
+        </EmptyChartText>
+      </PieItemMargin>
+      <ButtonLink onClick={() => history.push('/investimentos/visualizar')}>
+        Gerenciar
+      </ButtonLink>
+    </EmptyBody>
+  )
+}
 
 const ChartMiddleInfoContent = ({ pieChartInfo }) => {
   const history = useHistory()
