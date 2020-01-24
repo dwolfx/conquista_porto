@@ -10,7 +10,7 @@ import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
 import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
-import Modal from 'components/Modal/modalNew'
+import Modal from 'components/Modal/ModalNew'
 
 import {
   EmptyBody,
@@ -27,7 +27,7 @@ import {
   PointName,
   PointNumber,
   PointsList,
-  ContainerHorizontalList,
+  ContainerBox,
   ModalTextWrapper,
 } from './styles'
 
@@ -96,7 +96,7 @@ export default function SectionThree({ points }) {
             Seguro. Essas condições são válidas até 01/02/2019.
           </Text>
         </ModalTextWrapper>
-        <ContainerHorizontalList>
+        <ContainerBox>
           <HorizontalList
             noPadding
             startItems={[
@@ -129,7 +129,7 @@ export default function SectionThree({ points }) {
             ]}
             endItems={[tag('gray', '200 pontos')]}
           />
-        </ContainerHorizontalList>
+        </ContainerBox>
         <ModalTextWrapper>
           <Text type="headline" color="gray6" bold>
             Quem pode pontuar?
