@@ -109,7 +109,7 @@ export const OfferBox = styled.div`
 
 export const OfferImageBox = styled.div`
   border-radius: 8px;
-  height: 181px;
+  height: 230px;
   margin-top: 14px;
   margin-bottom: 21px;
   overflow: hidden;

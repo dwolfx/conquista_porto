@@ -114,7 +114,6 @@ export default function SectionThree({ points }) {
             {formatMoney(offer.exchangeValue)} no {offer.exchangeProduct}
           </OfferText>
         </OfferTextBox>
-        <Button color="secondary">Resgatar</Button>
       </OfferBox>
     </FullHeightCard>
   )
