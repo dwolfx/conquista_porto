@@ -21,7 +21,13 @@ const BuyHouseFlow = () => {
       question: 'Essa data para você é:',
       name: 'flexibeOrDefiniteDate',
       type: 'bool',
-      options: ['Flexível', 'Definitiva'],
+      options: [
+        {
+          name: 'Flexível',
+          value: 'Flexível',
+        },
+        { name: 'Definitiva', value: 'Definitiva' },
+      ],
     },
     {
       question: 'Qual o valor do imóvel que você quer?',
@@ -44,14 +50,20 @@ const BuyHouseFlow = () => {
         'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
       name: 'easeOfSavingMoney',
       type: 'bool',
-      options: ['Consigo guardar', 'Tenho dificuldade'],
+      options: [
+        { name: 'Consigo guardar', value: 'Consigo guardar' },
+        { name: 'Tenho dificuldade', value: 'Tenho dificuldade' },
+      ],
     },
     {
       question:
         'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
       name: 'wouldLikeToReceiptEarly',
       type: 'bool',
-      options: ['Sim', 'Não'],
+      options: [
+        { name: 'Sim', value: 'Sim' },
+        { name: 'Não', value: 'Não' },
+      ],
     },
   ]
   return (
