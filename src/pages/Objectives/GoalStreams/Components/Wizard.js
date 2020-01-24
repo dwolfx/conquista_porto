@@ -5,13 +5,7 @@ import { Col } from 'styled-bootstrap-grid'
 import TopBar from './TopBar'
 import QuestionFlow from './QuestionFlow'
 
-import {
-  BodyWizard,
-  ButtonAction,
-  RowButton,
-  Wizard,
-  WizardStep,
-} from './styles'
+import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
 export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
@@ -41,7 +35,7 @@ export const WizardFlow = ({ data }) => {
   )
 
   const WizardButtom = () => (
-    <RowButton>
+    <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
           <ButtonAction outline onClick={decrement}>
@@ -59,15 +53,19 @@ export const WizardFlow = ({ data }) => {
           <ButtonAction onClick={postFlow}>POST</ButtonAction>
         </Col>
       )}
-    </RowButton>
+    </RowFull>
   )
 
   return (
     <Wizard>
       <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
       <BodyWizard>
-        {WizardContainer()}
-        {WizardButtom()}
+        <RowFull>
+          <Col lg="4" xs="12">
+            {WizardContainer()}
+            {WizardButtom()}
+          </Col>
+        </RowFull>
       </BodyWizard>
     </Wizard>
   )
