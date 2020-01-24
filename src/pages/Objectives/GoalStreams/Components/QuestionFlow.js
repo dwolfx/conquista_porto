@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
 import InputText from 'components/NewInputs/Text'
 import InputGroup from 'components/InputGroup'
-import DateInput from 'components/Inputs/DateInput'
+import DateInput from 'components/NewInputs/Date'
 import RadioInput from 'components/Inputs/Radio'
 
 import { Question, Wrapper } from './styles'
