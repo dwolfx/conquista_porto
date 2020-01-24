@@ -19,9 +19,11 @@ export const WizardButtom = styled.div`
     margin-left: 7px;
   }
 `
-export const RowButton = styled(Row)`
+export const RowFull = styled(Row)`
+  justify-content: center;
   width: 100%;
 `
+
 export const ButtonAction = styled(Button)`
   width: 100%;
 `
