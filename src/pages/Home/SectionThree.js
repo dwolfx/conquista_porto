@@ -10,7 +10,7 @@ import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
 import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
-import Modal from 'components/Modal/modalNew'
+import Modal from 'components/Modal/ModalNew'
 
 import {
   EmptyBody,
