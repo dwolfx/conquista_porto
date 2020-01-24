@@ -27,6 +27,7 @@ export default function HeaderNew() {
   const history = useHistory()
   const [isMobile] = useState(useMedia('sm'))
   const [crumbs, setCrumbs] = useState([])
+  const [isScrolled, setIsScrolled] = useState(false)
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
   )
@@ -41,22 +42,40 @@ export default function HeaderNew() {
     setCrumbs(history.location.pathname.split('/').filter(el => el !== ''))
   }, [history.location.pathname])
 
+  function checkScroll() {
+    if (window.scrollY > 0) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', checkScroll)
+
+    return () => {
+      window.removeEventListener('scroll', checkScroll)
+    }
+  }, [])
+
   const renderResponsideHeader = () => (
-    <GridContainer>
-      <LeftBlock>
-        <ConquistaBeta />
-      </LeftBlock>
-      <RightBlock>
-        <ResponsiveMenu>
-          <Icon name="menu" color="white" />
-        </ResponsiveMenu>
-      </RightBlock>
-    </GridContainer>
+    <BgWrapper>
+      <GridContainer isScrolled={isScrolled}>
+        <LeftBlock>
+          <ConquistaBeta />
+        </LeftBlock>
+        <RightBlock>
+          <ResponsiveMenu>
+            <Icon name="menu" color="white" />
+          </ResponsiveMenu>
+        </RightBlock>
+      </GridContainer>
+    </BgWrapper>
   )
 
   const renderFullHeader = () => (
     <BgWrapper>
-      <GridContainer>
+      <GridContainer isScrolled={isScrolled}>
         <LeftBlock>
           <ConquistaBeta onClick={() => history.push('/')} />
           <DropDown items={items}>
@@ -74,7 +93,7 @@ export default function HeaderNew() {
               <Points>4.200 pontos</Points>
             </div>
           </Profile>
-          <Divisor vertical />
+          <Divisor vertical customSize="35px" />
           <Button iconName="leave">SAIR</Button>
         </RightBlock>
       </GridContainer>

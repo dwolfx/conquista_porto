@@ -6,6 +6,9 @@ import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
 export const BgWrapper = styled.div`
   background-color: ${props => props.theme.colors.gray1};
   width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `
 
 export const GridContainer = styled(Container)`
@@ -15,9 +18,8 @@ export const GridContainer = styled(Container)`
   align-items: center;
   justify-content: space-between;
   padding: 0 14px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  border-bottom: ${props =>
+    props.isScrolled ? `1px solid ${props.theme.colors.gray2}` : 'none'};
 `
 
 export const LeftBlock = styled.div`

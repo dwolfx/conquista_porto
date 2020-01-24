@@ -5,6 +5,8 @@ export const StyledDivisor = styled.div`
     props.vertical
       ? `border-left: 1px solid ${props.theme.colors.gray2}`
       : `border-bottom: 1px solid ${props.theme.colors.gray2}`};
-  width: ${props => (props.vertical ? '0%' : '100%')}
-  height: ${props => (props.vertical ? '100%' : '0%')}
+  width: ${props =>
+    props.vertical ? '0%' : props.customSize ? props.customSize : '100%'};
+  height: ${props =>
+    props.vertical ? (props.customSize ? props.customSize : '100%') : '0%'};
 `
