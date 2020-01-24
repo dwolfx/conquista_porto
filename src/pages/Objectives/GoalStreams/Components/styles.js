@@ -47,6 +47,12 @@ export const BodyWizard = styled.div`
   height: calc(100vh - 151px);
 `
 
+export const Nickname = styled(Text).attrs({ type: 'heading4' })`
+  color: ${props => props.theme.colors.white};
+  font-weight: normal;
+  text-transform: none;
+`
+
 export const SectionBar = styled.section`
   background-color: ${props => props.theme.fundRiskColors.lowRisk};
   padding: 10px 0;
