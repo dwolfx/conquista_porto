@@ -99,7 +99,7 @@ export default function Dropdown({ items, children }) {
                 onMouseEnter={() =>
                   handleMountChildren(item.children && item.children)
                 }
-                onClick={event => item.path && handleClick(item.path, event)}
+                onClick={() => item.path && handleClick(item.path)}
               >
                 <ItemIcon name={item.icon} />
                 <ItemText>{item.text}</ItemText>

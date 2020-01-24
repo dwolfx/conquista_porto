@@ -3,8 +3,12 @@ import { Container } from 'styled-bootstrap-grid'
 import ConquistaIcon from 'components/IconExporter'
 import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
 
-export const GridContainer = styled(Container)`
+export const BgWrapper = styled.div`
   background-color: ${props => props.theme.colors.gray1};
+  width: 100vw;
+`
+
+export const GridContainer = styled(Container)`
   width: 100%;
   height: 72px;
   display: flex;
@@ -46,6 +50,7 @@ export const ConquistaBeta = styled.img.attrs({
 })`
   margin-top: 20px;
   margin-right: 28px;
+  cursor: pointer;
 `
 
 export const Profile = styled.div`

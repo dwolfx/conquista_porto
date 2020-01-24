@@ -11,6 +11,7 @@ import NotificationBell from 'components/NotificationBell'
 import Avatar from 'components/Avatar'
 import DropDown from 'components/DropdownNew'
 import {
+  BgWrapper,
   GridContainer,
   LeftBlock,
   RightBlock,
@@ -30,10 +31,8 @@ export default function HeaderNew() {
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
   )
 
-  useEffect(() => console.log(isMobile), [isMobile])
-
   useEffect(() => {
-    if (history && !crumbs) {
+    if (!crumbs) {
       setCrumbs(history.location.pathname.split('/').filter(el => el !== ''))
     }
   }, [history, crumbs])
@@ -56,31 +55,38 @@ export default function HeaderNew() {
   )
 
   const renderFullHeader = () => (
-    <GridContainer>
-      <LeftBlock>
-        <ConquistaBeta />
-        <DropDown items={items}>
-          <Tag color="blue" text="MENU" />
-        </DropDown>
-        {crumbs.length > 0 && <Icon name="arrowright" />}
-        <BreadCrumb crumbs={[...crumbs]} version="new" />
-      </LeftBlock>
-      <RightBlock>
-        <NotificationBell />
-        <Avatar />
-        <Profile>
-          <div>
-            <Name>{bankData && bankData.titular}</Name>
-            <Points>4.200 pontos</Points>
-          </div>
-        </Profile>
-        <Divisor vertical />
-        <Button iconName="leave">SAIR</Button>
-      </RightBlock>
-    </GridContainer>
+    <BgWrapper>
+      <GridContainer>
+        <LeftBlock>
+          <ConquistaBeta onClick={() => history.push('/')} />
+          <DropDown items={items}>
+            <Tag color="blue" text="MENU" />
+          </DropDown>
+          {crumbs.length > 0 && <Icon name="arrowright2" />}
+          <BreadCrumb crumbs={[...crumbs]} version="new" />
+        </LeftBlock>
+        <RightBlock>
+          <NotificationBell />
+          <Avatar />
+          <Profile>
+            <div>
+              <Name>{bankData && bankData.titular}</Name>
+              <Points>4.200 pontos</Points>
+            </div>
+          </Profile>
+          <Divisor vertical />
+          <Button iconName="leave">SAIR</Button>
+        </RightBlock>
+      </GridContainer>
+    </BgWrapper>
   )
 
   const items = [
+    {
+      icon: 'home',
+      text: 'Início',
+      path: '/',
+    },
     {
       icon: 'apps',
       text: 'Produtos',
