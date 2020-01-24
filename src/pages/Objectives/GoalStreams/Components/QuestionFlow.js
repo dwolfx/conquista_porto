@@ -33,7 +33,7 @@ const QuestionFlow = ({
               <InputText
                 name={name}
                 onChange={onChangeFormData}
-                value={formData[name]}
+                value={formData[name] || ''}
                 width="100"
               />
             )}
@@ -42,7 +42,7 @@ const QuestionFlow = ({
                 minimumValue={minimumValue}
                 name={name}
                 onChange={onChangeFormData}
-                value={formData[name]}
+                value={formData[name] || ''}
                 width="100"
               />
             )}
@@ -50,7 +50,7 @@ const QuestionFlow = ({
               <DateInput
                 name={name}
                 onChange={onChangeFormData}
-                value={formData[name]}
+                value={formData[name] || ''}
                 width="100"
               />
             )}
