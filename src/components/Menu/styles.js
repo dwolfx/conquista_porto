@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import { rgba } from 'helpers'
+
 export const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -18,6 +20,15 @@ export const MenuContainer = styled.div`
   border-radius: 14px;
   background-color: ${props => props.theme.colors.blue4};
   padding-left: 14px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
 `
 
 export const Option = styled.div`
@@ -73,6 +84,18 @@ export const Option = styled.div`
         }
       }
     `}
+
+  @media ${props => props.theme.mediaQueries.sm} {
+  margin-bottom: 0;
+  background-color: transparent;
+
+  svg {
+    fill: ${props =>
+      props.isSelected
+        ? props.theme.colors.white
+        : rgba(props.theme.colors.white, 0.5)};
+  }
+}
 `
 
 export const OptionName = styled.p`

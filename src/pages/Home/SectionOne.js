@@ -32,6 +32,8 @@ import {
   ContainerAccountInfo,
   ContainerBox,
   TableBox,
+  PieChartContainer,
+  ProductsCol,
 } from './styles'
 
 const SectionOne = () => {
@@ -298,23 +300,25 @@ const SectionOne = () => {
       >
         {renderModalContent()}
       </Modal>
-      <SectionCol lg="5">
+      <SectionCol md="5">
         <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
           <SectionRow>
-            <SectionCol lg="6">
-              <PieChart
-                width="100%"
-                height="100%"
-                data={graphValuesGenerator(consolidatedPosition)}
-                onMouseEnter={settingPieChartInfo}
-                onSliceClick={settingPieChartInfo}
-                onMouseLeave={settingPieChartInfo}
-              >
-                <ChartMiddleInfoContent pieChartInfo={pieChartInfo} />
-              </PieChart>
+            <SectionCol md="6">
+              <PieChartContainer>
+                <PieChart
+                  width="100%"
+                  height="100%"
+                  data={graphValuesGenerator(consolidatedPosition)}
+                  onMouseEnter={settingPieChartInfo}
+                  onSliceClick={settingPieChartInfo}
+                  onMouseLeave={settingPieChartInfo}
+                >
+                  <ChartMiddleInfoContent pieChartInfo={pieChartInfo} />
+                </PieChart>
+              </PieChartContainer>
             </SectionCol>
 
-            <SectionCol lg="6" style={{ paddingTop: 51, paddingBottom: 51 }}>
+            <SectionCol md="6" style={{ paddingTop: 51, paddingBottom: 51 }}>
               <InvestmentInfosRow>
                 <InvestmentInfos>
                   <Text type="headline">Saldo disponível</Text>
@@ -352,19 +356,19 @@ const SectionOne = () => {
         </FullHeightCard>
       </SectionCol>
 
-      <SectionCol lg="7">
+      <SectionCol md="7">
         <SectionRow style={{ height: '100%' }}>
-          <SectionCol lg="6">
+          <ProductsCol md="6">
             <FullHeightCard headerIcon="creditcard" headerTitle="Crédito">
               <OverflowCard>{renderCreditProducts()}</OverflowCard>
             </FullHeightCard>
-          </SectionCol>
+          </ProductsCol>
 
-          <SectionCol lg="6">
+          <ProductsCol md="6">
             <FullHeightCard headerIcon="targetmarket" headerTitle="Seguros">
               <OverflowCard>{renderInsuranceProducts()}</OverflowCard>
             </FullHeightCard>
-          </SectionCol>
+          </ProductsCol>
         </SectionRow>
       </SectionCol>
     </>

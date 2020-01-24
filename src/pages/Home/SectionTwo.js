@@ -2,21 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import TipBannerImg from 'assets/images/pages/Home/img_banner_6.png'
+
+import objectiveTypes from 'components/Card/Objectives/types'
 import Text from 'components/Text'
+
+import useMedia from 'hooks/useMedia'
 
 import {
   EmptyBody,
   EmptyText,
   EmptyButton,
-  GridRow,
   SectionCol,
   BannerTips,
   FullHeightCard,
   FullHeightCardObjectives,
   OfferCardButton,
+  TipBannerContainer,
+  ObjectivesContainer,
+  BannerTipTitle,
 } from './styles'
 
 export default function SectionTwo({ onRedirect, objectives }) {
+  const isMobile = useMedia('sm')
+  const maxObjectiveCards = isMobile ? 3 : 2
+
   const renderObjectiveCardFooter = () =>
     objectives ? <OfferCardButton>Gerenciar objetivos</OfferCardButton> : null
 
@@ -33,9 +42,20 @@ export default function SectionTwo({ onRedirect, objectives }) {
     </EmptyBody>
   )
 
+  const renderObjectiveCards = () =>
+    objectiveTypes.slice(0, maxObjectiveCards).map(item => (
+      <SectionCol md="4" xs="6" key={`type-${item.icon}`}>
+        <FullHeightCardObjectives
+          icon={item.icon}
+          title={item.title}
+          link={item.link}
+        />
+      </SectionCol>
+    ))
+
   return (
     <>
-      <SectionCol lg="5">
+      <SectionCol md="5">
         <FullHeightCard
           headerIcon="target"
           headerTitle="Objetivos"
@@ -45,42 +65,29 @@ export default function SectionTwo({ onRedirect, objectives }) {
         </FullHeightCard>
       </SectionCol>
 
-      <SectionCol lg="7">
-        <GridRow style={{ height: '50%', paddingBottom: 7 }}>
-          <SectionCol lg="4">
-            <FullHeightCardObjectives
-              icon="homewithwindow"
-              title="Comprar uma casa"
-              link="/"
-            />
-          </SectionCol>
-          <SectionCol lg="4">
-            <FullHeightCardObjectives
-              icon="car2"
-              title="Comprar um carro"
-              link="/"
-            />
-          </SectionCol>
-          <SectionCol lg="4">
+      <SectionCol md="7">
+        <ObjectivesContainer>
+          {renderObjectiveCards()}
+          <SectionCol md="4" xs="6">
             <FullHeightCardObjectives
               icon="add"
               title="Criar um objetivo"
-              link="/"
+              link="/objetivo"
             />
           </SectionCol>
-        </GridRow>
+        </ObjectivesContainer>
 
-        <GridRow style={{ height: '50%', paddingTop: 7 }}>
-          <SectionCol lg="12">
+        <TipBannerContainer>
+          <SectionCol md="12">
             <BannerTips label="Dicas para economizar" image={TipBannerImg}>
-              <Text type="heading3">Registre todas as despesas</Text>
+              <BannerTipTitle bold>Registre todas as despesas</BannerTipTitle>
               <Text>
                 Como você pretende controlar se não sabe onde ele está? Este é o
                 primeiro passo para começar a poupar
               </Text>
             </BannerTips>
           </SectionCol>
-        </GridRow>
+        </TipBannerContainer>
       </SectionCol>
     </>
   )

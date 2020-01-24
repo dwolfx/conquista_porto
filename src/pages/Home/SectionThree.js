@@ -29,6 +29,7 @@ import {
   PointsList,
   ContainerBox,
   ModalTextWrapper,
+  PointsExtractListWrapper,
 } from './styles'
 
 export default function SectionThree({ points }) {
@@ -55,9 +56,13 @@ export default function SectionThree({ points }) {
         key={`point-${index}`}
         startItems={[
           <PointDate>{item.dataCompra}</PointDate>,
-          <PointName>{item.nomeTransacao}</PointName>,
+          <PointName type="headline">{item.nomeTransacao}</PointName>,
         ]}
-        endItems={[<PointNumber bold>{item.pontoGanho}</PointNumber>]}
+        endItems={[
+          <PointNumber type="headline" bold>
+            {item.pontoGanho}
+          </PointNumber>,
+        ]}
       />
     ))
 
@@ -176,35 +181,39 @@ export default function SectionThree({ points }) {
       >
         {renderModalContent()}
       </Modal>
-      <SectionCol lg="5">
-        <FullHeightCard
-          headerIcon="diamond"
-          headerTitle="Pontos"
-          footer={renderPointsFooter()}
-        >
-          <PointsInfo>
-            <Text type="headline">Saldo atual</Text>
-            <Text type="headline" bold>
-              {points
-                ? renderPointsAmountBalance(points.detalheExtratoOptemaisTypes)
-                : 0}{' '}
-              pontos
-            </Text>
-            {points && <Button color="secondary">Resgatar</Button>}
-          </PointsInfo>
-          {points && points.detalheExtratoOptemaisTypes.length > 0 ? (
-            <>
-              <PointsList>{renderPointsHorizontalList()}</PointsList>
-            </>
-          ) : (
-            renderEmptyState()
-          )}
-        </FullHeightCard>
+      <SectionCol md="5">
+        <PointsExtractListWrapper>
+          <FullHeightCard
+            headerIcon="diamond"
+            headerTitle="Pontos"
+            footer={renderPointsFooter()}
+          >
+            <PointsInfo>
+              <Text type="headline">Saldo atual</Text>
+              <Text type="headline" bold>
+                {points
+                  ? renderPointsAmountBalance(
+                      points.detalheExtratoOptemaisTypes
+                    )
+                  : 0}{' '}
+                pontos
+              </Text>
+              {points && <Button color="secondary">Resgatar</Button>}
+            </PointsInfo>
+            {points && points.detalheExtratoOptemaisTypes.length > 0 ? (
+              <>
+                <PointsList>{renderPointsHorizontalList()}</PointsList>
+              </>
+            ) : (
+              renderEmptyState()
+            )}
+          </FullHeightCard>
+        </PointsExtractListWrapper>
       </SectionCol>
 
-      <SectionCol lg="7">
+      <SectionCol md="7">
         <Row style={{ height: '100%' }}>
-          <SectionCol lg="6">
+          <SectionCol md="6">
             <FullHeightCard headerIcon="diamond" headerTitle="#OfertaCarro">
               <OfferBox>
                 <OfferImageBox>
@@ -222,7 +231,7 @@ export default function SectionThree({ points }) {
               </OfferBox>
             </FullHeightCard>
           </SectionCol>
-          <SectionCol lg="6">
+          <SectionCol md="6">
             <FullHeightCard headerIcon="diamond" headerTitle="#OfertaCasa">
               <OfferBox>
                 <OfferImageBox>

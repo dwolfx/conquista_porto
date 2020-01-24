@@ -15,7 +15,7 @@ import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsDataRequest } from 'store/modules/Points/action'
 
 import SectionOne from './SectionOne'
-import AdvertisementBanner from './AdvertisementBanner'
+// import AdvertisementBanner from './AdvertisementBanner'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
@@ -67,18 +67,18 @@ const Home = () => {
     <GridContainer id="scroll">
       <Wrapper>
         <GridRow>
-          <GridCol lg="1" id="menu">
+          <GridCol md="1" id="menu">
             <Menu scrollFunc={scrollPage} ref1={row1} ref2={row2} ref3={row3} />
           </GridCol>
-          <GridCol lg="11">
+          <GridCol md="11">
             <GridRow>
-              <GridCol lg="12">
+              <GridCol md="12">
                 <GridRow id="t1" ref={row1}>
                   <SectionOne />
                 </GridRow>
-                <GridRow style={{ paddingRight: 7, paddingLeft: 7 }}>
+                {/* <GridRow style={{ paddingRight: 7, paddingLeft: 7 }}>
                   <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
-                </GridRow>
+                </GridRow> */}
                 <GridRow id="t2" ref={row2}>
                   <SectionTwo onRedirect={onRedirect} />
                 </GridRow>
