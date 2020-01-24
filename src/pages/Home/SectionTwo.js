@@ -72,7 +72,7 @@ export default function SectionTwo({ onRedirect, objectives }) {
             <FullHeightCardObjectives
               icon="add"
               title="Criar um objetivo"
-              link="/objetivo"
+              link="/objetivos"
             />
           </SectionCol>
         </ObjectivesContainer>
