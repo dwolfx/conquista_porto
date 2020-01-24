@@ -58,7 +58,11 @@ export const WizardFlow = ({ data }) => {
 
   return (
     <Wizard>
-      <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
+      <TopBar
+        currentStep={currentStep + 1}
+        numberSteps={data.length}
+        nickname={formData.nickname}
+      />
       <BodyWizard>
         <RowFull>
           <Col lg="4" xs="12">
