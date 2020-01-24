@@ -61,6 +61,5 @@ export const TitleBar = styled(Text).attrs({ type: 'heading4' })`
 `
 
 export const Wrapper = styled.div`
-  background-color: ${props => props.theme.colors.gray1};
   margin: 4rem auto;
 `

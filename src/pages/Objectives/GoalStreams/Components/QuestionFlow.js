@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
-import Input from 'components/Inputs/Text'
+import InputText from 'components/NewInputs/Text'
+import InputGroup from 'components/InputGroup'
 import DateInput from 'components/Inputs/DateInput'
 import RadioInput from 'components/Inputs/Radio'
 
@@ -25,41 +26,42 @@ const QuestionFlow = ({
     <Row justifyContent="center">
       <Col lg="12" xs="12">
         <Wrapper>
-          {type === 'number' && (
-            <Input
-              width="100"
-              name={name}
-              isDynamicStyle
-              onChange={onChangeFormData}
-              value={formData[name]}
-              minimumValue={minimumValue}
-            />
-          )}
-          {type === 'text' && (
-            <Input
-              width="100"
-              name={name}
-              isDynamicStyle
-              onChange={onChangeFormData}
-              value={formData[name]}
-            />
-          )}
-          {type === 'date' && (
-            <DateInput
-              width="100"
-              name={name}
-              isDynamicStyle
-              onChange={onChangeFormData}
-              value={formData[name]}
-            />
-          )}
-          {type === 'bool' && (
-            <RadioInput
-              name={name}
-              options={options}
-              onChange={onChangeFormData}
-            />
-          )}
+          <InputGroup
+            prefix={(type === 'text' && '#') || (type === 'number' && 'R$')}
+          >
+            {type === 'text' && (
+              <InputText
+                name={name}
+                onChange={onChangeFormData}
+                value={formData[name]}
+                width="100"
+              />
+            )}
+            {type === 'number' && (
+              <InputText
+                minimumValue={minimumValue}
+                name={name}
+                onChange={onChangeFormData}
+                value={formData[name]}
+                width="100"
+              />
+            )}
+            {type === 'date' && (
+              <DateInput
+                name={name}
+                onChange={onChangeFormData}
+                value={formData[name]}
+                width="100"
+              />
+            )}
+            {type === 'bool' && (
+              <RadioInput
+                name={name}
+                onChange={onChangeFormData}
+                options={options}
+              />
+            )}
+          </InputGroup>
         </Wrapper>
       </Col>
     </Row>
@@ -67,22 +69,22 @@ const QuestionFlow = ({
 )
 
 QuestionFlow.defaultProps = {
+  formData: {},
   minimumValue: '',
   name: '',
+  onChangeFormData: () => {},
   options: [],
   question: '',
-  onChangeFormData: () => {},
-  formData: {},
   type: '',
 }
 
 QuestionFlow.propTypes = {
+  formData: PropTypes.object,
   minimumValue: PropTypes.string,
   name: PropTypes.string,
+  onChangeFormData: PropTypes.func,
   options: PropTypes.array,
   question: PropTypes.string,
-  onChangeFormData: PropTypes.func,
-  formData: PropTypes.object,
   type: PropTypes.string,
 }
 
