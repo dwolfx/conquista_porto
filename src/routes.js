@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import Header from 'components/Header'
+import HeaderNew from 'components/HeaderNew'
+// import Header from 'components/Header'
 import Footer from 'components/Footer'
 
 import Home from 'pages/Home'
@@ -68,7 +69,7 @@ const DefaultRoute = ({ component, data, hook, ...rest }) => {
 
   return (
     <>
-      <Header />
+      <HeaderNew />
       <main className="main-content">
         <Route
           {...rest}

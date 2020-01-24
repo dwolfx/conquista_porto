@@ -9,9 +9,13 @@ import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
 export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
-  const increment = () => setStepIndex(currentStep + 1)
+  const increment = () => {
+    setStepIndex(currentStep + 1)
+    setIsActive(isActive > 3)
+  }
   const decrement = () => setStepIndex(currentStep - 1)
   const [formData, setFormData] = useState({})
+  const [isActive, setIsActive] = useState(false)
   const computedState = {
     isFirstStep: currentStep === 0,
     isLastStep: currentStep === data.length - 1,
@@ -22,6 +26,7 @@ export const WizardFlow = ({ data }) => {
 
   const handleSingleValue = event => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
+    setIsActive(event.target.value.length > 3)
   }
 
   const WizardContainer = () => (
@@ -45,12 +50,16 @@ export const WizardFlow = ({ data }) => {
       )}
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs="12">
-          <ButtonAction onClick={increment}>Próximo</ButtonAction>
+          <ButtonAction onClick={increment} disabled={!isActive}>
+            Próximo
+          </ButtonAction>
         </Col>
       )}
       {isLastStep && (
         <Col lg="6" xs="12">
-          <ButtonAction onClick={postFlow}>POST</ButtonAction>
+          <ButtonAction onClick={postFlow} disabled={!isActive}>
+            POST
+          </ButtonAction>
         </Col>
       )}
     </RowFull>
@@ -58,7 +67,11 @@ export const WizardFlow = ({ data }) => {
 
   return (
     <Wizard>
-      <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
+      <TopBar
+        currentStep={currentStep + 1}
+        numberSteps={data.length}
+        nickname={formData.nickname}
+      />
       <BodyWizard>
         <RowFull>
           <Col lg="4" xs="12">

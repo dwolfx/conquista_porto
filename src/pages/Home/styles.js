@@ -38,6 +38,9 @@ export const GridCol = styled(Col)`
     transition: all 0.35s ease-in-out;
   }
 `
+export const PieItemMargin = styled.div`
+  margin: 5px 0px;
+`
 
 export const SectionRow = styled(Row)`
   height: 100%;
@@ -297,11 +300,29 @@ export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
   height: 16px;
 `
 
-export const ContainerHorizontalList = styled.div`
-  padding: 26px 21px;
+export const ContainerBox = styled.div`
+  padding: 28px 21px;
   margin-bottom: 28px;
   background-color: ${props => props.theme.colors.gray1};
   border-radius: 8px;
+`
+
+export const TableBox = styled.div`
+  min-width: 33%;
+  margin-bottom: 14px;
+
+  p:first-of-type {
+    margin-bottom: 7px;
+  }
+`
+
+export const ContainerAccountInfo = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 `
 
 export const ModalContentWrapper = styled.div`
@@ -313,5 +334,5 @@ export const ModalTextWrapper = styled.div`
     margin-bottom: 7px;
   }
 
-  margin-bottom: 28px;
+  margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
 `

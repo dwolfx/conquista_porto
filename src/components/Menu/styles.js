@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const MenuContainer = styled.div`
   position: sticky;
   z-index: 8;
-  top: 165px;
+  top: 102px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
