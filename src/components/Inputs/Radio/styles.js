@@ -71,6 +71,7 @@ export const RadioWrapper = styled.div`
   margin-left: ${props => `${props.marginLeft}px`};
   margin-right: ${props => `${props.marginRight}px`};
   width: ${props => `${props.width}%`};
+  justify-content: center;
 
   @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;

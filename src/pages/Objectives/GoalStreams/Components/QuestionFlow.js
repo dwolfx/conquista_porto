@@ -26,42 +26,43 @@ const QuestionFlow = ({
     <Row justifyContent="center">
       <Col lg="12" xs="12">
         <Wrapper>
-          <InputGroup
-            prefix={(type === 'text' && '#') || (type === 'number' && 'R$')}
-          >
-            {type === 'text' && (
-              <InputText
-                name={name}
-                onChange={onChangeFormData}
-                value={formData[name] || ''}
-                width="100"
-              />
-            )}
-            {type === 'number' && (
-              <InputText
-                minimumValue={minimumValue}
-                name={name}
-                onChange={onChangeFormData}
-                value={formData[name] || ''}
-                width="100"
-              />
-            )}
-            {type === 'date' && (
-              <DateInput
-                name={name}
-                onChange={onChangeFormData}
-                value={formData[name] || ''}
-                width="100"
-              />
-            )}
-            {type === 'bool' && (
-              <RadioInput
-                name={name}
-                onChange={onChangeFormData}
-                options={options}
-              />
-            )}
-          </InputGroup>
+          {type === 'bool' ? (
+            <RadioInput
+              name={name}
+              onChange={onChangeFormData}
+              options={options}
+            />
+          ) : (
+            <InputGroup
+              prefix={(type === 'text' && '#') || (type === 'number' && 'R$')}
+            >
+              {type === 'text' && (
+                <InputText
+                  name={name}
+                  onChange={onChangeFormData}
+                  value={formData[name] || ''}
+                  width="100"
+                />
+              )}
+              {type === 'number' && (
+                <InputText
+                  minimumValue={minimumValue}
+                  name={name}
+                  onChange={onChangeFormData}
+                  value={formData[name] || ''}
+                  width="100"
+                />
+              )}
+              {type === 'date' && (
+                <DateInput
+                  name={name}
+                  onChange={onChangeFormData}
+                  value={formData[name] || ''}
+                  width="100"
+                />
+              )}
+            </InputGroup>
+          )}
         </Wrapper>
       </Col>
     </Row>
