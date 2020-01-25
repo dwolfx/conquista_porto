@@ -1,4 +1,23 @@
-import OfferCarImg from 'assets/images/pages/Home/car_offer.jpg'
+import InsuranceOfferImg from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_1.jpg'
+import InsuranceOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_2.jpg'
+import InsuranceOfferImg3 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_3.jpg'
+import InsuranceOfferImg4 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_4.jpg'
+import InsuranceOfferImg5 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_5.jpg'
+import InsuranceOfferImg6 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_6.jpg'
+import InsuranceOfferImg7 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_7.jpg'
+import InsuranceOfferImg8 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_8.jpg'
+import InsuranceOfferImg9 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_9.jpg'
+import InsuranceOfferImg10 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_10.jpg'
+import NoGroupOfferImg1 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_1.jpg'
+import NoGroupOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_2.jpg'
+import NoGroupOfferImg3 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_3.jpg'
+import NoGroupOfferImg4 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_4.jpg'
+import NoGroupOfferImg5 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_5.jpg'
+import NoGroupOfferImg6 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_6.jpg'
+import RepairsOfferImg1 from 'assets/images/pages/Home/PointsCards/img_offer_points_repairs_1.jpg'
+import RepairsOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_repairs_2.jpg'
+import SofaOfferImg1 from 'assets/images/pages/Home/PointsCards/img_offer_points_sofa_1.jpg'
+import SofaOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_sofa_2.jpg'
 
 export default [
   {
@@ -8,7 +27,7 @@ export default [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 150,
     icon: 'car2',
-    image: OfferCarImg,
+    image: InsuranceOfferImg,
   },
   {
     group: 1,
@@ -17,7 +36,7 @@ export default [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 169,
     icon: 'homewithwindow',
-    image: OfferCarImg,
+    image: InsuranceOfferImg2,
   },
   {
     group: 1,
@@ -26,7 +45,7 @@ export default [
     exchangeProduct: 'Porto Faz',
     exchangeValue: 360,
     icon: 'couch',
-    image: OfferCarImg,
+    image: SofaOfferImg1,
   },
   {
     group: 1,
@@ -35,7 +54,7 @@ export default [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 600,
     icon: 'car2',
-    image: OfferCarImg,
+    image: InsuranceOfferImg3,
   },
   {
     group: 2,
@@ -44,7 +63,7 @@ export default [
     exchangeProduct: 'Centro automotivo Porto Seguro',
     exchangeValue: 600,
     icon: 'tools',
-    image: OfferCarImg,
+    image: NoGroupOfferImg1,
   },
   {
     group: 2,
@@ -53,7 +72,7 @@ export default [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 507,
     icon: 'homewithwindow',
-    image: OfferCarImg,
+    image: InsuranceOfferImg4,
   },
   {
     group: 2,
@@ -62,7 +81,7 @@ export default [
     exchangeProduct: 'Azul Seguros Auto',
     exchangeValue: 700,
     icon: 'car2',
-    image: OfferCarImg,
+    image: InsuranceOfferImg5,
   },
   {
     group: 2,
@@ -71,7 +90,7 @@ export default [
     exchangeProduct: 'Porto Faz',
     exchangeValue: 960,
     icon: 'tool',
-    image: OfferCarImg,
+    image: RepairsOfferImg1,
   },
   {
     group: 3,
@@ -80,7 +99,7 @@ export default [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 1350,
     icon: 'car2',
-    image: OfferCarImg,
+    image: NoGroupOfferImg2,
   },
   {
     group: 3,
@@ -89,7 +108,7 @@ export default [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 845,
     icon: 'homewithwindow',
-    image: OfferCarImg,
+    image: InsuranceOfferImg6,
   },
   {
     group: 3,
@@ -98,7 +117,7 @@ export default [
     exchangeProduct: 'Porto Faz',
     exchangeValue: 1320,
     icon: '',
-    image: OfferCarImg,
+    image: SofaOfferImg2,
   },
   {
     group: 3,
@@ -107,7 +126,7 @@ export default [
     exchangeProduct: 'Financiamento de veículos Porto Seguro',
     exchangeValue: 1440,
     icon: 'money',
-    image: OfferCarImg,
+    image: NoGroupOfferImg3,
   },
   {
     group: 4,
@@ -116,7 +135,7 @@ export default [
     exchangeProduct: 'Azul Seguros Auto',
     exchangeValue: 1300,
     icon: 'car2',
-    image: OfferCarImg,
+    image: InsuranceOfferImg7,
   },
   {
     group: 4,
@@ -125,7 +144,7 @@ export default [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 2100,
     icon: 'car2',
-    image: OfferCarImg,
+    image: InsuranceOfferImg8,
   },
   {
     group: 4,
@@ -134,7 +153,7 @@ export default [
     exchangeProduct: 'Centro automotivo Porto Seguro',
     exchangeValue: 1800,
     icon: 'tools',
-    image: OfferCarImg,
+    image: NoGroupOfferImg4,
   },
   {
     group: 4,
@@ -143,7 +162,7 @@ export default [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 1352,
     icon: 'homewithwindow',
-    image: OfferCarImg,
+    image: InsuranceOfferImg9,
   },
   {
     group: 5,
@@ -152,7 +171,7 @@ export default [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 2550,
     icon: 'car2',
-    image: OfferCarImg,
+    image: InsuranceOfferImg10,
   },
   {
     group: 5,
@@ -161,7 +180,7 @@ export default [
     exchangeProduct: 'Porto Faz',
     exchangeValue: 2160,
     icon: 'tool',
-    image: OfferCarImg,
+    image: RepairsOfferImg2,
   },
   {
     group: 5,
@@ -170,7 +189,7 @@ export default [
     exchangeProduct: 'Centro automotivo Porto Seguro',
     exchangeValue: 2280,
     icon: 'tools',
-    image: OfferCarImg,
+    image: NoGroupOfferImg5,
   },
   {
     group: 5,
@@ -179,6 +198,6 @@ export default [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 1690,
     icon: 'homewithwindow',
-    image: OfferCarImg,
+    image: NoGroupOfferImg6,
   },
 ]
