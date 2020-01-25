@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { Container } from 'styled-bootstrap-grid'
-import ConquistaIcon from 'components/IconExporter'
+
 import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
+import ConquistaIcon from 'components/IconExporter'
+import Tag from 'components/Tag'
 
 export const BgWrapper = styled.div`
   background-color: ${props => props.theme.colors.gray1};
@@ -87,4 +89,8 @@ export const ResponsiveMenu = styled.div`
   svg {
     fill: ${props => props.theme.colors.white};
   }
+`
+
+export const MenuTag = styled(Tag)`
+  cursor: pointer;
 `

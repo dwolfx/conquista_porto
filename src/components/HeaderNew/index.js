@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 
 import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
-import Tag from 'components/Tag'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
 import NotificationBell from 'components/NotificationBell'
@@ -21,6 +20,7 @@ import {
   Name,
   Points,
   ResponsiveMenu,
+  MenuTag,
 } from './styles'
 
 export default function HeaderNew() {
@@ -79,7 +79,7 @@ export default function HeaderNew() {
         <LeftBlock>
           <ConquistaBeta onClick={() => history.push('/')} />
           <DropDown items={items}>
-            <Tag color="blue" text="MENU" />
+            <MenuTag color="blue" text="MENU" />
           </DropDown>
           {crumbs.length > 0 && <Icon name="arrowright2" />}
           <BreadCrumb crumbs={[...crumbs]} version="new" />

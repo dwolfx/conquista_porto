@@ -22,6 +22,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
     background-color: ${props => props.theme.colors.gray1};
+    overflow-x: hidden;
   }
 
   a {

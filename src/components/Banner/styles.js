@@ -26,6 +26,11 @@ export const BannerWrapper = styled.div`
     top: 0%;
     width: 100%;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    align-items: center;
+    padding: 0 21px;
+  }
 `
 
 export const BannerLabel = styled(Text).attrs({ type: 'captionUppercase' })`
