@@ -52,6 +52,8 @@ export const Icon = styled(ConquistaIcon).attrs({
 export const ConquistaBeta = styled.img.attrs({
   src: ConquistaBetaIcon,
 })`
+  width: 144px;
+  height: 51px;
   margin-top: 20px;
   margin-right: 28px;
   cursor: pointer;

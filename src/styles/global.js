@@ -25,6 +25,10 @@ export default createGlobalStyle`
     overflow-x: hidden;
   }
 
+  html.noOverflow {
+    overflow: hidden;
+  }
+
   a {
     text-decoration: none;
     color: #000;

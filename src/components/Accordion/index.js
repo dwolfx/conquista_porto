@@ -3,18 +3,28 @@ import PropTypes from 'prop-types'
 
 import { AccordionWrapper, AccordionHeader, AccordionBody } from './styles'
 
-const Accordion = ({ titleNode, children, id, isOrangeArrow, ...rest }) => {
+const Accordion = ({
+  titleNode,
+  children,
+  id,
+  isGrayArrow,
+  padding,
+  noBodyPadding,
+  noBackground,
+  ...rest
+}) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <AccordionWrapper isOpen={isOpen} id={id} {...rest}>
+    <AccordionWrapper isOpen={isOpen} id={id} padding={padding} {...rest}>
       <AccordionHeader
-        isOrangeArrow={isOrangeArrow}
+        padding={padding}
+        isGrayArrow={isGrayArrow}
         onClick={() => setIsOpen(!isOpen)}
       >
         {titleNode}
       </AccordionHeader>
-      <AccordionBody>{children}</AccordionBody>
+      <AccordionBody noBodyPadding={noBodyPadding}>{children}</AccordionBody>
     </AccordionWrapper>
   )
 }
@@ -23,11 +33,14 @@ export default Accordion
 
 Accordion.propTypes = {
   titleNode: PropTypes.node.isRequired,
-  isOrangeArrow: PropTypes.bool,
+  isGrayArrow: PropTypes.bool,
   children: PropTypes.node.isRequired,
   id: PropTypes.string,
+  padding: PropTypes.string,
+  noBodyPadding: PropTypes.bool,
+  noBackground: PropTypes.bool,
 }
 Accordion.defaultProps = {
   id: '',
-  isOrangeArrow: false,
+  isGrayArrow: false,
 }

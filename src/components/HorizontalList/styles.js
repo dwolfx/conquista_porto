@@ -22,7 +22,10 @@ export const StartBlock = styled.div`
   display: flex;
   align-items: center;
   && > * {
-    margin-right: 14px;
+    margin-right: ${props =>
+      props.marginBetweenElements
+        ? `${props.marginBetweenElements}px`
+        : '14px'};
   }
 `
 
@@ -30,6 +33,9 @@ export const EndBlock = styled.div`
   display: flex;
   align-items: center;
   && > * {
-    margin-left: 14px;
+    margin-left: ${props =>
+      props.marginBetweenElements
+        ? `${props.marginBetweenElements}px`
+        : '14px'};
   }
 `
