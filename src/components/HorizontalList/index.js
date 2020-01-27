@@ -39,4 +39,5 @@ HorizontalList.propTypes = {
 HorizontalList.defaultProps = {
   startItems: [],
   endItems: [],
+  marginBetweenElements: '14px',
 }
