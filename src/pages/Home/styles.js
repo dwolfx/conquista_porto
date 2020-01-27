@@ -62,6 +62,11 @@ export const SectionRow = styled(Row)`
 export const SectionCol = styled(Col)`
   height: 100%;
 
+  &.custom-padding {
+    padding-top: 51px;
+    padding-bottom: 51px;
+  }
+
   @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 14px;
   }
@@ -199,6 +204,11 @@ export const PointName = styled(Text)`
 
 export const PointNumber = styled(Text)`
   margin-right: 14px;
+`
+
+export const EmptyProductItemRow = styled.div`
+  width: 100%;
+  padding: 14px 0px;
 `
 
 export const EmptyBody = styled.div`

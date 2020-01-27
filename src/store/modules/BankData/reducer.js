@@ -11,7 +11,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         status: 'loaded',
-        data: [...action.payload],
+        data: action.payload,
       }
     case Types.BANK_DATA_GET_DATA_FAILURE:
       return {

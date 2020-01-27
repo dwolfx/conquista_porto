@@ -60,4 +60,5 @@ Text.defaultProps = {
   children: null,
   bold: false,
   type: 'body',
+  color: 'unset',
 }

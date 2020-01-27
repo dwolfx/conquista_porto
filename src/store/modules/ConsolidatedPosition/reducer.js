@@ -1,7 +1,7 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: {},
+  data: null,
 }
 
 export default function(state = INITIAL_STATE, action) {

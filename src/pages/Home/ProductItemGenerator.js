@@ -1,31 +1,40 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
+import Button from 'components/Button'
 import Icon from 'components/IconExporter'
-import Divisor from 'components/Divisor'
+
+import { useHistory } from 'react-router-dom'
 
 import { formatMoney } from 'helpers'
 
 import {
   ProductItem,
   ProductItemRow,
+  EmptyProductItemRow,
   CreditCardItemRow,
   LinearProgressBarContent,
   TextBlack,
   HorizontalListWithMargin,
 } from './styles'
 
-const ProductItemGenerator = (productList = [], type, history, divisor) => {
+const ProductItemGenerator = (
+  productList = [],
+  type = 'notImplemented',
+  history = () => {}
+) => {
+  if (type === 'notImplemented') return []
+
   const atualItemDetail = itemDetail[type]
 
-  return productList
+  return productList && productList.length > 0
     ? productList.map((product, index) => {
         const id = `${type}-${Date.now().toPrecision() + index}`
 
         return (
           <React.Fragment key={id}>
-            {index > 0 || divisor ? <Divisor /> : null}
             <ProductItem>
               <ProductItemRow>
                 <Text type="headline">{atualItemDetail.title}</Text>
@@ -36,13 +45,18 @@ const ProductItemGenerator = (productList = [], type, history, divisor) => {
           </React.Fragment>
         )
       })
-    : []
+    : [
+        <React.Fragment key={`empty-${Math.random()}`}>
+          <EmptyProductItem atualItemDetail={atualItemDetail} />
+        </React.Fragment>,
+      ]
 }
 
 const itemDetail = {
   cartaoCredito: {
     title: 'Cartão de Crédito',
     link: '/cartao-credito/visualizar',
+    linkEmpty: '/cartao-credito',
     subTitle: product => (
       <CreditCardItemRow>
         <Text type="captionUppercase">{`FATURA ${product.Fatura.Status}`}</Text>
@@ -77,18 +91,21 @@ const itemDetail = {
     title: 'Financiamento de Veículos',
     subTitle: () => '',
     link: '/financiamento-veiculo/visualizar',
+    linkEmpty: '/financiamento-veiculo',
     bottomLine: genericBottomLine,
   },
   consorcioVeiculo: {
     title: 'Consórcio de Veículo',
     subTitle: () => '',
     link: '/consorcio-veiculo/visualizar',
+    linkEmpty: '/consorcio-veiculo',
     bottomLine: genericBottomLine,
   },
   consorcioImovel: {
     title: 'Consórcio de Imóvel',
     subTitle: () => '',
     link: '/consorcio-imovel/visualizar',
+    linkEmpty: '/consorcio-imovel',
     bottomLine: genericBottomLine,
   },
   seguroVida: {
@@ -99,6 +116,7 @@ const itemDetail = {
       </ProductItemRow>
     ),
     link: '/seguro-vida/visualizar',
+    linkEmpty: '/seguro-vida',
     bottomLine: lifeInsuranceBottomLine,
   },
   seguroViagem: {
@@ -109,6 +127,7 @@ const itemDetail = {
       </ProductItemRow>
     ),
     link: '/seguro-viagem/visualizar',
+    linkEmpty: '/seguro-viagem',
     bottomLine: tripInsuranceBottomLine,
   },
 }
@@ -211,6 +230,34 @@ function genericBottomLine(product, history) {
   return (
     <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
   )
+}
+
+const EmptyProductItem = ({ atualItemDetail }) => {
+  const history = useHistory()
+
+  return (
+    <EmptyProductItemRow>
+      <HorizontalListWithMargin
+        startItems={[
+          <Text type="headline" color="gray5">
+            {atualItemDetail.title}
+          </Text>,
+        ]}
+        endItems={[
+          <Button
+            color="secondary"
+            onClick={() => history.push(atualItemDetail.linkEmpty)}
+          >
+            CONHEÇA
+          </Button>,
+        ]}
+      />
+    </EmptyProductItemRow>
+  )
+}
+
+EmptyProductItem.propTypes = {
+  atualItemDetail: PropTypes.object.isRequired,
 }
 
 export default ProductItemGenerator
