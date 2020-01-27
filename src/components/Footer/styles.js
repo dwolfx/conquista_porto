@@ -5,7 +5,7 @@ import ComponentText from 'components/Text'
 import LogoPortoSeguro from 'assets/images/logo-institucional.svg'
 
 export const FooterWrapper = styled.div`
-  background-color: white;
+  background-color: ${props => props.theme.colors.white};
   width: 100%;
 `
 
