@@ -1,21 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
-import InputText from 'components/NewInputs/Text'
-import InputGroup from 'components/InputGroup'
-import DateInput from 'components/NewInputs/Date'
+import InputText from 'components/NewInput'
 import RadioInput from 'components/Inputs/Radio'
 
 import { Question, Wrapper } from './styles'
 
 const QuestionFlow = ({
+  formData,
   minimumValue,
   name,
+  onChangeFormData,
   options,
   question,
   type,
-  formData,
-  onChangeFormData,
 }) => (
   <>
     <Row justifyContent="center">
@@ -26,42 +24,39 @@ const QuestionFlow = ({
     <Row justifyContent="center">
       <Col lg="12" xs="12">
         <Wrapper>
-          {type === 'bool' ? (
+          {type === 'text' && (
+            <InputText
+              name={name}
+              onChange={onChangeFormData}
+              prefix="#"
+              value={formData[name] || ''}
+              questionType={type}
+            />
+          )}
+          {type === 'number' && (
+            <InputText
+              minimumValue={minimumValue}
+              name={name}
+              onChange={onChangeFormData}
+              prefix="R$"
+              value={formData[name] || ''}
+              questionType={type}
+            />
+          )}
+          {type === 'date' && (
+            <InputText
+              minimumValue={minimumValue}
+              name={name}
+              onChange={onChangeFormData}
+              value={formData[name] || ''}
+            />
+          )}
+          {type === 'bool' && (
             <RadioInput
               name={name}
               onChange={onChangeFormData}
               options={options}
             />
-          ) : (
-            <InputGroup
-              prefix={(type === 'text' && '#') || (type === 'number' && 'R$')}
-            >
-              {type === 'text' && (
-                <InputText
-                  name={name}
-                  onChange={onChangeFormData}
-                  value={formData[name] || ''}
-                  width="100"
-                />
-              )}
-              {type === 'number' && (
-                <InputText
-                  minimumValue={minimumValue}
-                  name={name}
-                  onChange={onChangeFormData}
-                  value={formData[name] || ''}
-                  width="100"
-                />
-              )}
-              {type === 'date' && (
-                <DateInput
-                  name={name}
-                  onChange={onChangeFormData}
-                  value={formData[name] || ''}
-                  width="100"
-                />
-              )}
-            </InputGroup>
           )}
         </Wrapper>
       </Col>

@@ -22,6 +22,7 @@ export const WizardButtom = styled.div`
 export const RowFull = styled(Row)`
   justify-content: center;
   width: 100%;
+  margin: 0;
 `
 
 export const ButtonAction = styled(Button)`
