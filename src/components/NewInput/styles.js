@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const InputGroupWrapper = styled.div`
+  background-color: ${props => props.theme.colors.gray1};
   border-bottom: ${props => `1px solid ${props.theme.colors.gray3}`};
   border-radius: 8px 8px 0px 0px;
 `

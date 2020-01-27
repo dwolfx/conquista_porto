@@ -3,7 +3,9 @@ import Button from 'components/Button'
 import Text from 'components/Text'
 import { Row } from 'styled-bootstrap-grid'
 
-export const Wizard = styled.div``
+export const Wizard = styled.div`
+  background-color: ${props => props.theme.colors.white};
+`
 
 export const Container = styled.div``
 
