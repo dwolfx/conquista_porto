@@ -1,14 +1,16 @@
 import React from 'react'
 
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
+import BannerSeguroVidaImage from 'assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
+import SeloSeguroVida from 'assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
 
-import BannerSeguroVidaImage from '../../assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
-import SeloSeguroVida from '../../assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleExternalLink } from 'helpers'
 
 const makeSenseSectionData = [
   {
@@ -96,7 +98,11 @@ export default function LifeInsurance() {
         buttonText="Simular e Contratar"
         image={BannerSeguroVidaImage}
         imageDescription="Família andando na beira do mar"
-        onClick={() => {}}
+        onClick={() =>
+          handleExternalLink(
+            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/seguro-de-vida/simular'
+          )
+        }
       />
       <BulletsSection
         title="Por que contratar o Seguro de Vida?"
@@ -120,6 +126,11 @@ export default function LifeInsurance() {
         subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
         de Vida da Porto Seguro."
         buttonText="Simular e contratar"
+        onClick={() =>
+          handleExternalLink(
+            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/seguro-de-vida/simular'
+          )
+        }
       />
 
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />

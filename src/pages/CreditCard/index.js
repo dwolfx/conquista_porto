@@ -1,15 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
+import BannerCartaoCreditoImage from 'assets/images/pages/solutions/creditCard/banner_cartao_credito.jpg'
+import SeloCartaoCredito from 'assets/images/pages/solutions/creditCard/selo-cartao-credito.svg'
 
-import BannerCartaoCreditoImage from '../../assets/images/pages/solutions/creditCard/banner_cartao_credito.jpg'
-import SeloCartaoCredito from '../../assets/images/pages/solutions/creditCard/selo-cartao-credito.svg'
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleExternalLink } from 'helpers'
 
 const makeSenseSectionData = [
   {
@@ -102,7 +103,7 @@ const moreDetailsData = [
   },
 ]
 
-export default function CreditCard({ history }) {
+export default function CreditCard() {
   return (
     <>
       <TopBanner
@@ -111,7 +112,11 @@ export default function CreditCard({ history }) {
         buttonText="Simule e Contrate"
         image={BannerCartaoCreditoImage}
         imageDescription="Mulher segurando cartão de crédito em casa"
-        onClick={() => history.push('/cartao-credito/visualizar')}
+        onClick={() =>
+          handleExternalLink(
+            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/cartao-de-credito/simular'
+          )
+        }
       />
       <BulletsSection
         title="Por que contratar o Cartão de Crédito?"
@@ -143,10 +148,4 @@ export default function CreditCard({ history }) {
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )
-}
-
-CreditCard.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }
