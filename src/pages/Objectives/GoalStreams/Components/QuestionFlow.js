@@ -30,7 +30,7 @@ const QuestionFlow = ({
               onChange={onChangeFormData}
               prefix="#"
               value={formData[name] || ''}
-              type={type}
+              questionType={type}
             />
           )}
           {type === 'number' && (
@@ -40,6 +40,7 @@ const QuestionFlow = ({
               onChange={onChangeFormData}
               prefix="R$"
               value={formData[name] || ''}
+              questionType={type}
             />
           )}
           {type === 'date' && (

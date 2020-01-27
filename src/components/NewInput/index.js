@@ -9,12 +9,12 @@ import {
   InputWrapper,
 } from './styles'
 
-const NewInput = ({ prefix, suffix, label, type, width, ...rest }) => (
+const NewInput = ({ prefix, suffix, label, questionType, width, ...rest }) => (
   <InputGroupWrapper>
     {label && <InputLabel>{label}</InputLabel>}
     <InputWrapper prefix={prefix} suffix={suffix}>
       {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-      <Input width={width} {...rest} type={type} />
+      <Input width={width} {...rest} questionType={questionType} />
       {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
     </InputWrapper>
   </InputGroupWrapper>
@@ -24,7 +24,7 @@ NewInput.propTypes = {
   label: PropTypes.string,
   prefix: PropTypes.any,
   suffix: PropTypes.any,
-  type: PropTypes.string,
+  questionType: PropTypes.string,
   width: PropTypes.string,
 }
 
@@ -32,7 +32,7 @@ NewInput.defaultProps = {
   label: '',
   prefix: false,
   suffix: false,
-  type: '',
+  questionType: '',
   width: '100',
 }
 

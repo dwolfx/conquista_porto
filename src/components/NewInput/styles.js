@@ -45,7 +45,15 @@ export const Input = styled.input`
   border: none;
   font-family: ${props => props.theme.fontTypes.headline};
   height: 48px;
-  padding-left: ${props => (props.type === 'text' ? '33px' : '40px')};
+  padding-left: ${props => {
+    if (props.questionType === 'text') {
+      return '33px'
+    }
+    if (props.questionType === 'number') {
+      return '40px'
+    }
+    return '14px'
+  }};
   width: ${props => `${props.width}%`};
   :focus {
     border-bottom: ${props => `2px solid ${props.theme.colors.blue4}`};
