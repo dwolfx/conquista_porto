@@ -38,7 +38,10 @@ const RetirementFlow = () => {
         'Gostaria de ter uma renda mensal determinada na aposentadoria?',
       name: 'wouldLikeToReceiveMonthlyIncome',
       type: 'bool',
-      options: ['Sim', 'Não'],
+      options: [
+        { name: 'Sim', value: 'Sim' },
+        { name: 'Não', value: 'Não' },
+      ],
     },
   ]
   return (

@@ -19,6 +19,11 @@ export const GridRow = styled(Row)`
     height: 430px;
     margin: 0;
     margin-bottom: 30px;
+
+    @media ${props => props.theme.mediaQueries.sm} {
+      height: auto;
+      margin-bottom: 14px;
+    }
   }
   &#t3 {
     margin-bottom: 0;
@@ -34,8 +39,16 @@ export const TextBlack = styled(Text)`
 `
 
 export const GridCol = styled(Col)`
-  #menu {
+  &#menu {
     transition: all 0.35s ease-in-out;
+
+    @media ${props => props.theme.mediaQueries.sm} {
+      position: fixed;
+      z-index: 1;
+      width: calc(100% - 14px);
+      bottom: 14px;
+      height: 63px;
+    }
   }
 `
 export const PieItemMargin = styled.div`
@@ -48,6 +61,10 @@ export const SectionRow = styled(Row)`
 
 export const SectionCol = styled(Col)`
   height: 100%;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-bottom: 14px;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -64,6 +81,18 @@ export const FullHeightCardObjectives = styled(CardObjectives)`
 
 export const BannerTips = styled(Banner)`
   color: ${props => props.theme.colors.white};
+`
+
+export const BannerTipTitle = styled(Text)`
+  ${props => props.theme.fontTypes.heading};
+  font-weight: normal;
+  margin-bottom: 7px;
+  margin-top: 7px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    ${props => props.theme.fontTypes.heading4};
+    text-transform: none;
+  }
 `
 
 export const CardPontosFooter = styled.div`
@@ -131,13 +160,20 @@ export const PointDate = styled(Text)`
   color: ${props => props.theme.colors.gray5};
 `
 
-export const PointName = styled(Text).attrs({ type: 'headline' })`
+export const PointName = styled(Text)`
   color: ${props => props.theme.colors.gray5};
   flex: 1%;
   padding: 0 14px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 170px;
+    overflow: hidden;
+  }
 `
 
-export const PointNumber = styled(Text).attrs({ type: 'headline' })`
+export const PointNumber = styled(Text)`
   margin-right: 14px;
 `
 
@@ -293,7 +329,7 @@ export const OverflowCard = styled.div`
   overflow: auto;
 `
 
-export const BannerButton = styled(Button).attrs({ color: 'secondary' })`
+export const BannerButton = styled(Button)`
   margin-top: 20px;
   min-width: unset;
 `
@@ -311,16 +347,34 @@ export const CloseButton = styled.div`
   top: -18px;
   cursor: pointer;
 `
-export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
+export const CloseIcon = styled(Icon)`
   width: 16px;
   height: 16px;
 `
 
-export const ContainerHorizontalList = styled.div`
-  padding: 26px 21px;
+export const ContainerBox = styled.div`
+  padding: 28px 21px;
   margin-bottom: 28px;
   background-color: ${props => props.theme.colors.gray1};
   border-radius: 8px;
+`
+
+export const TableBox = styled.div`
+  min-width: 33%;
+  margin-bottom: 14px;
+
+  p:first-of-type {
+    margin-bottom: 7px;
+  }
+`
+
+export const ContainerAccountInfo = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 `
 
 export const ModalContentWrapper = styled.div`
@@ -332,5 +386,50 @@ export const ModalTextWrapper = styled.div`
     margin-bottom: 7px;
   }
 
-  margin-bottom: 28px;
+  margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
+`
+
+export const PieChartContainer = styled.div`
+  height: 100%;
+  width: 100%;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 305px;
+    width: 236px;
+    margin: 0 auto;
+  }
+`
+
+export const ProductsCol = styled(SectionCol)`
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 430px;
+  }
+`
+
+export const PointsExtractListWrapper = styled.div`
+  height: 100%;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 551px;
+  }
+`
+
+export const AdRow = styled(GridRow)`
+  padding-right: 7;
+  padding-left: 7;
+  /* margin-bottom: 30; */
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-bottom: 0;
+  }
+`
+
+export const TipBannerContainer = styled(Row)`
+  height: 50%;
+  padding-top: 7px;
+`
+
+export const ObjectivesContainer = styled(Row)`
+  height: 50%;
+  padding-bottom: 7px;
 `

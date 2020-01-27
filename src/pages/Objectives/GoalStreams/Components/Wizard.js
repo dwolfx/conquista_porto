@@ -5,18 +5,17 @@ import { Col } from 'styled-bootstrap-grid'
 import TopBar from './TopBar'
 import QuestionFlow from './QuestionFlow'
 
-import {
-  BodyWizard,
-  ButtonAction,
-  RowButton,
-  Wizard,
-  WizardStep,
-} from './styles'
+import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
 export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
-  const increment = () => setStepIndex(currentStep + 1)
+  const increment = () => {
+    setStepIndex(currentStep + 1)
+    setIsActive(isActive > 3)
+  }
   const decrement = () => setStepIndex(currentStep - 1)
+  const [formData, setFormData] = useState({})
+  const [isActive, setIsActive] = useState(false)
   const computedState = {
     isFirstStep: currentStep === 0,
     isLastStep: currentStep === data.length - 1,
@@ -25,14 +24,23 @@ export const WizardFlow = ({ data }) => {
 
   const postFlow = () => {}
 
+  const handleSingleValue = event => {
+    setFormData({ ...formData, [event.target.name]: event.target.value })
+    setIsActive(event.target.value.length > 3)
+  }
+
   const WizardContainer = () => (
     <WizardStep>
-      <QuestionFlow {...data[currentStep]} />
+      <QuestionFlow
+        formData={formData}
+        onChangeFormData={handleSingleValue}
+        {...data[currentStep]}
+      />
     </WizardStep>
   )
 
   const WizardButtom = () => (
-    <RowButton>
+    <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
           <ButtonAction outline onClick={decrement}>
@@ -42,23 +50,35 @@ export const WizardFlow = ({ data }) => {
       )}
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs="12">
-          <ButtonAction onClick={increment}>Próximo</ButtonAction>
+          <ButtonAction onClick={increment} disabled={!isActive}>
+            Próximo
+          </ButtonAction>
         </Col>
       )}
       {isLastStep && (
         <Col lg="6" xs="12">
-          <ButtonAction onClick={postFlow}>POST</ButtonAction>
+          <ButtonAction onClick={postFlow} disabled={!isActive}>
+            POST
+          </ButtonAction>
         </Col>
       )}
-    </RowButton>
+    </RowFull>
   )
 
   return (
     <Wizard>
-      <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
+      <TopBar
+        currentStep={currentStep + 1}
+        numberSteps={data.length}
+        nickname={formData.nickname}
+      />
       <BodyWizard>
-        {WizardContainer()}
-        {WizardButtom()}
+        <RowFull>
+          <Col lg="4" xs="12">
+            {WizardContainer()}
+            {WizardButtom()}
+          </Col>
+        </RowFull>
       </BodyWizard>
     </Wizard>
   )

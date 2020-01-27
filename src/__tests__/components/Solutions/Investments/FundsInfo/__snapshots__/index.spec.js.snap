@@ -485,7 +485,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo iDDvTv sc-gipzik bHOClg"
+              className="sc-hSdWYo fKHtWa sc-gipzik bHOClg"
               type="subheading"
             >
               Informativo de desempenho
@@ -517,7 +517,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo iDDvTv sc-gipzik bHOClg"
+              className="sc-hSdWYo fKHtWa sc-gipzik bHOClg"
               type="subheading"
             >
               Informativo de desempenho

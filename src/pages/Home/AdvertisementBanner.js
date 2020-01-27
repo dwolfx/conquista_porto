@@ -8,8 +8,8 @@ import {
   BannerTips,
   CloseButton,
   CloseIcon,
-  GridRow,
   GridCol,
+  AdRow,
 } from './styles'
 
 const AdvertisementBanner = ({ onRedirect, hasCloseButton }) => {
@@ -17,7 +17,7 @@ const AdvertisementBanner = ({ onRedirect, hasCloseButton }) => {
 
   return (
     isOpen && (
-      <GridRow style={{ paddingRight: 7, paddingLeft: 7, marginBottom: 30 }}>
+      <AdRow>
         <GridCol lg="12">
           {hasCloseButton && (
             <CloseButton onClick={() => setIsOpen(false)}>
@@ -34,12 +34,15 @@ const AdvertisementBanner = ({ onRedirect, hasCloseButton }) => {
               segurança caso você precise ficar afastado do trabalho e, na sua
               falta, garantir amparo financeiro a sua família.
             </Text>
-            <BannerButton onClick={() => onRedirect('/seguro-vida')}>
+            <BannerButton
+              color="secondary"
+              onClick={() => onRedirect('/seguro-vida')}
+            >
               CONHEÇA
             </BannerButton>
           </BannerTips>
         </GridCol>
-      </GridRow>
+      </AdRow>
     )
   )
 }
