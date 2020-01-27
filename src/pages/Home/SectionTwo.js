@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-
-import TipBannerImg from 'assets/images/pages/Home/img_banner_6.png'
 
 import objectiveTypes from 'components/Card/Objectives/types'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
 
+import { tipsBanner } from './bannerData'
 import {
   EmptyBody,
   EmptyText,
@@ -24,7 +23,16 @@ import {
 
 export default function SectionTwo({ onRedirect, objectives }) {
   const isMobile = useMedia('sm')
+  const [tipBannerIndex, setTipBannerIndex] = useState(0)
+  const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
   const maxObjectiveCards = isMobile ? 3 : 2
+
+  useEffect(() => {
+    setTipBannerIndex(Math.floor(Math.random() * (tipsBanner.length - 1)))
+    setObjectiveCardIndex(
+      Math.floor(Math.random() * (objectiveTypes.length - 1))
+    )
+  }, [])
 
   const renderObjectiveCardFooter = () =>
     objectives ? <OfferCardButton>Gerenciar objetivos</OfferCardButton> : null
@@ -43,15 +51,17 @@ export default function SectionTwo({ onRedirect, objectives }) {
   )
 
   const renderObjectiveCards = () =>
-    objectiveTypes.slice(0, maxObjectiveCards).map(item => (
-      <SectionCol md="4" xs="6" key={`type-${item.icon}`}>
-        <FullHeightCardObjectives
-          icon={item.icon}
-          title={item.title}
-          link={item.link}
-        />
-      </SectionCol>
-    ))
+    objectiveTypes
+      .slice(objectiveCardIndex, objectiveCardIndex + maxObjectiveCards)
+      .map(item => (
+        <SectionCol md="4" xs="6" key={`type-${item.icon}`}>
+          <FullHeightCardObjectives
+            icon={item.icon}
+            title={item.title}
+            link={item.link}
+          />
+        </SectionCol>
+      ))
 
   return (
     <>
@@ -79,12 +89,14 @@ export default function SectionTwo({ onRedirect, objectives }) {
 
         <TipBannerContainer>
           <SectionCol md="12">
-            <BannerTips label="Dicas para economizar" image={TipBannerImg}>
-              <BannerTipTitle bold>Registre todas as despesas</BannerTipTitle>
-              <Text>
-                Como você pretende controlar se não sabe onde ele está? Este é o
-                primeiro passo para começar a poupar
-              </Text>
+            <BannerTips
+              label={tipsBanner[tipBannerIndex].caption}
+              image={tipsBanner[tipBannerIndex].image}
+            >
+              <BannerTipTitle bold>
+                {tipsBanner[tipBannerIndex].title}
+              </BannerTipTitle>
+              <Text>{tipsBanner[tipBannerIndex].text}</Text>
             </BannerTips>
           </SectionCol>
         </TipBannerContainer>
