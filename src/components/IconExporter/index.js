@@ -27,6 +27,7 @@ import { ReactComponent as callcenter } from 'assets/icons/call-center.svg'
 import { ReactComponent as calendar } from 'assets/icons/calendar.svg'
 import { ReactComponent as close } from 'assets/icons/close.svg'
 import { ReactComponent as coin } from 'assets/icons/coin.svg'
+import { ReactComponent as couch } from 'assets/icons/couch.svg'
 import { ReactComponent as computersecure } from 'assets/icons/computer-secure.svg'
 import { ReactComponent as creditcard } from 'assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from 'assets/icons/credit-card2.svg'
@@ -64,10 +65,11 @@ import { ReactComponent as target } from 'assets/icons/target.svg'
 import { ReactComponent as targetmarket } from 'assets/icons/target-market.svg'
 import { ReactComponent as thumbsup } from 'assets/icons/thumbs-up.svg'
 import { ReactComponent as time } from 'assets/icons/time.svg'
+import { ReactComponent as tool } from 'assets/icons/tool.svg'
+import { ReactComponent as tools } from 'assets/icons/tools.svg'
 import { ReactComponent as trash } from 'assets/icons/trashcan.svg'
 import { ReactComponent as user } from 'assets/icons/user.svg'
 import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
-
 import { ReactComponent as visa } from 'assets/images/visa.svg'
 import { ReactComponent as master } from 'assets/images/mastercard.svg'
 
@@ -97,6 +99,7 @@ const dict = {
   carnew,
   close,
   coin,
+  couch,
   computersecure,
   creditcard,
   creditcard2,
@@ -135,6 +138,8 @@ const dict = {
   targetmarket,
   thumbsup,
   time,
+  tool,
+  tools,
   trash,
   user,
   wallet,
