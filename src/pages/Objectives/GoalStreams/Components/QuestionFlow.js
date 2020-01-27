@@ -30,6 +30,7 @@ const QuestionFlow = ({
               onChange={onChangeFormData}
               prefix="#"
               value={formData[name] || ''}
+              type={type}
             />
           )}
           {type === 'number' && (
