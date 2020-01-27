@@ -25,7 +25,7 @@ export default function SectionTwo({ onRedirect, objectives }) {
   const isMobile = useMedia('sm')
   const [tipBannerIndex, setTipBannerIndex] = useState(0)
   const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
-  const maxObjectiveCards = isMobile ? 3 : 2
+  const [maxObjectiveCards, setMaxObjectiveCards] = useState(2)
 
   useEffect(() => {
     setTipBannerIndex(Math.floor(Math.random() * (tipsBanner.length - 1)))
@@ -33,6 +33,10 @@ export default function SectionTwo({ onRedirect, objectives }) {
       Math.floor(Math.random() * (objectiveTypes.length - 1))
     )
   }, [])
+
+  useEffect(() => {
+    setMaxObjectiveCards(isMobile ? 3 : 2)
+  }, [isMobile])
 
   const renderObjectiveCardFooter = () =>
     objectives ? <OfferCardButton>Gerenciar objetivos</OfferCardButton> : null
