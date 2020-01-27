@@ -34,6 +34,8 @@ import {
   ContainerAccountInfo,
   ContainerBox,
   TableBox,
+  ProductsCol,
+  PieChartContainer,
 } from './styles'
 
 const SectionOne = () => {
@@ -63,27 +65,27 @@ const SectionOne = () => {
 
   return (
     <>
-      <SectionCol lg="5">
+      <SectionCol md="5">
         <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
           <InvestmentCard />
         </FullHeightCard>
       </SectionCol>
 
-      <SectionCol lg="7">
-        <SectionRow style={{ height: '100%' }}>
-          <SectionCol lg="6">
+      <SectionCol md="7">
+        <SectionRow>
+          <ProductsCol md="6">
             <FullHeightCard headerIcon="creditcard" headerTitle="Crédito">
               <OverflowCard>{renderCreditProducts()}</OverflowCard>
             </FullHeightCard>
-          </SectionCol>
+          </ProductsCol>
 
-          <SectionCol lg="6">
+          <ProductsCol md="6">
             <FullHeightCard headerIcon="targetmarket" headerTitle="Seguros">
               <OverflowCard>
                 <InsuranceCard />
               </OverflowCard>
             </FullHeightCard>
-          </SectionCol>
+          </ProductsCol>
         </SectionRow>
       </SectionCol>
     </>
@@ -251,20 +253,22 @@ const InvestmentCard = () => {
         {renderModalContent()}
       </Modal>
       <SectionRow>
-        <SectionCol lg="6">
-          <PieChart
-            width="100%"
-            height="100%"
-            data={graphValuesGenerator(consolidatedPosition, theme)}
-            onMouseEnter={settingPieChartInfo}
-            onSliceClick={settingPieChartInfo}
-            onMouseLeave={settingPieChartInfo}
-          >
-            <ChartMiddleInfoContent pieChartInfo={pieChartInfo} />
-          </PieChart>
+        <SectionCol md="6">
+          <PieChartContainer>
+            <PieChart
+              width="100%"
+              height="100%"
+              data={graphValuesGenerator(consolidatedPosition, theme)}
+              onMouseEnter={settingPieChartInfo}
+              onSliceClick={settingPieChartInfo}
+              onMouseLeave={settingPieChartInfo}
+            >
+              <ChartMiddleInfoContent pieChartInfo={pieChartInfo} />
+            </PieChart>
+          </PieChartContainer>
         </SectionCol>
 
-        <SectionCol lg="6" style={{ paddingTop: 51, paddingBottom: 51 }}>
+        <SectionCol md="6" className="custom-padding">
           <InvestmentInfosRow>
             <InvestmentInfos>
               <Text type="headline">Saldo disponível</Text>
@@ -351,17 +355,10 @@ const formatResult = (func1, func2) =>
     return func1(func2(array))
   }
 
-const insertDivisor = array => {
-  const result = [...array]
-  let spliceControl = 1
-
-  for (let i = 1; i < array.length; i++) {
-    result.splice(spliceControl, 0, <Divisor />)
-    spliceControl += 2
-  }
-
-  return result
-}
+const insertDivisor = array =>
+  array
+    .map((x, i) => (i < array.length - 1 ? [x, <Divisor />] : x))
+    .flatMap(x => x)
 
 const sortArray = array =>
   array.sort((a, b) => {

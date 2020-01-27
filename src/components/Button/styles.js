@@ -96,7 +96,6 @@ export const Button = styled.button`
     )};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   height: 35px;
-  min-width: 230px;
   overflow: hidden;
   position: relative;
   text-decoration: none;

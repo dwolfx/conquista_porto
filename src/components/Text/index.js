@@ -46,10 +46,6 @@ Text.propTypes = {
     'blue5',
     'green1',
     'green2',
-    'green3',
-    'green4',
-    'green5',
-    'yellow1',
     'yellow2',
     'magenta1',
     'magenta2',
@@ -60,4 +56,5 @@ Text.defaultProps = {
   children: null,
   bold: false,
   type: 'body',
+  color: 'unset',
 }

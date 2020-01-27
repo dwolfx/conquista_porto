@@ -62,6 +62,11 @@ export const SectionRow = styled(Row)`
 export const SectionCol = styled(Col)`
   height: 100%;
 
+  &.custom-padding {
+    padding-top: 51px;
+    padding-bottom: 51px;
+  }
+
   @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 14px;
   }
@@ -288,17 +293,6 @@ export const ProductItem = styled.div`
 export const ProductItemRow = styled.div`
   width: 100%;
   padding: 14px 14px 0px 14px;
-`
-
-export const ProductItemButton = styled(Button)`
-  min-width: 100%;
-  & > span {
-    padding: 9px 20px;
-  }
-`
-
-export const ProductItemText = styled(Text)`
-  font-weight: 300;
 `
 
 export const LinearProgressBarContent = styled.div`

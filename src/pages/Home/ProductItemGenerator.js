@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
+import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 
 import { useHistory } from 'react-router-dom'
@@ -16,11 +18,15 @@ import {
   LinearProgressBarContent,
   TextBlack,
   HorizontalListWithMargin,
-  ProductItemButton,
-  ProductItemText,
 } from './styles'
 
-const ProductItemGenerator = (productList, type, history) => {
+const ProductItemGenerator = (
+  productList = [],
+  type = 'notImplemented',
+  history = () => {}
+) => {
+  if (type === 'notImplemented') return []
+
   const atualItemDetail = itemDetail[type]
 
   return productList && productList.length > 0
@@ -233,21 +239,25 @@ const EmptyProductItem = ({ atualItemDetail }) => {
     <EmptyProductItemRow>
       <HorizontalListWithMargin
         startItems={[
-          <ProductItemText type="headline" color="gray5">
+          <Text type="headline" color="gray5">
             {atualItemDetail.title}
-          </ProductItemText>,
+          </Text>,
         ]}
         endItems={[
-          <ProductItemButton
+          <Button
             color="secondary"
             onClick={() => history.push(atualItemDetail.linkEmpty)}
           >
             CONHEÇA
-          </ProductItemButton>,
+          </Button>,
         ]}
       />
     </EmptyProductItemRow>
   )
+}
+
+EmptyProductItem.propTypes = {
+  atualItemDetail: PropTypes.object.isRequired,
 }
 
 export default ProductItemGenerator
