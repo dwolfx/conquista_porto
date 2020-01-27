@@ -3,6 +3,21 @@ export const formatMoney = number =>
     number
   )
 
+const UNICODE_NON_BREAKING_SPACE = String.fromCharCode(160)
+const USUAL_SPACE = String.fromCharCode(32)
+
+export const formatMoneyDecimal = (value = 0) => {
+  const options = {
+    currency: 'BRL',
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+    style: 'decimal',
+  }
+  return String(
+    new Intl.NumberFormat('pt-BR', options).format(+value / 100)
+  ).replace(UNICODE_NON_BREAKING_SPACE, USUAL_SPACE)
+}
+
 export const formatCpf = value => {
   const numbers = value.toString().replace(/\D/g, '')
 
