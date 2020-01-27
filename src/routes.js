@@ -30,6 +30,7 @@ import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
+import RedirectComponent from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesRetirementFlow from 'pages/Objectives/GoalStreams/RetirementFlow'
@@ -244,7 +245,7 @@ export default function Routes({ ...props }) {
         exact
         component={ProfileSuitability}
       />
-      <Route path="/redirect" exact component={Redirect} />
+      <Route path="/redirect" exact component={RedirectComponent} />
       <DefaultRoute path="/notificacoes" exact component={Notifications} />
     </Switch>
   )
