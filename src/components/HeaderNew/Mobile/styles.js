@@ -58,6 +58,10 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0 14px;
+  }
 `
 
 export const ConquistaBeta = styled.img.attrs({
@@ -65,6 +69,10 @@ export const ConquistaBeta = styled.img.attrs({
 })`
   margin-top: 20px;
   cursor: pointer;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-top: 21px;
+  }
 `
 
 export const ResponsiveMenu = styled.div`

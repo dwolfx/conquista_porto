@@ -15,6 +15,7 @@ import {
   Text,
   Title,
   UppercaseBlueText,
+  FooterWrapper,
 } from './styles'
 
 const content1 = [
@@ -80,7 +81,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <>
+    <FooterWrapper>
       <BorderTop />
       <GridContainer>
         <GridRow>
@@ -121,7 +122,7 @@ const Footer = () => {
           </GridCol>
         </GridRow>
       </GridContainer>
-    </>
+    </FooterWrapper>
   )
 }
 

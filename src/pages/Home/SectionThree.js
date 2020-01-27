@@ -263,7 +263,7 @@ export default function SectionThree({ points }) {
   }
 
   const calculatePointsAmountBalance = extrato =>
-    extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
+    extrato ? extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0) : 0
 
   return (
     <>

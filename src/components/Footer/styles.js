@@ -4,6 +4,11 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import ComponentText from 'components/Text'
 import LogoPortoSeguro from 'assets/images/logo-institucional.svg'
 
+export const FooterWrapper = styled.div`
+  background-color: ${props => props.theme.colors.white};
+  width: 100%;
+`
+
 export const GridContainer = styled(Container)`
   padding-top: 14px;
   @media ${props => props.theme.mediaQueries.lgUp} {

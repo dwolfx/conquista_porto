@@ -86,16 +86,34 @@ export const Option = styled.div`
     `}
 
   @media ${props => props.theme.mediaQueries.sm} {
-  margin-bottom: 0;
-  background-color: transparent;
+    margin-bottom: 0;
+    background-color: transparent;
 
-  svg {
-    fill: ${props =>
-      props.isSelected
-        ? props.theme.colors.white
-        : rgba(props.theme.colors.white, 0.5)};
+    ${props =>
+      !props.isSelected &&
+      css`
+        &:hover:not(:active) {
+          width: 100%;
+          padding: 0;
+          border-radius: 0;
+          background-color: transparent;
+          border: none;
+
+          svg {
+            fill: ${props.theme.colors.white};
+          }
+          p {
+            display: none;
+          }
+        }
+      `}
+    svg {
+      fill: ${props =>
+        props.isSelected
+          ? props.theme.colors.white
+          : rgba(props.theme.colors.white, 0.5)};
+    }
   }
-}
 `
 
 export const OptionName = styled.p`

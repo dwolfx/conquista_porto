@@ -29,11 +29,11 @@ export default [
     title: 'Fazer um curso',
     link: '/objetivos/curso',
   },
-  {
-    icon: 'financial',
-    title: 'Multiplicar dinheiro',
-    link: '/',
-  },
+  // {
+  //   icon: 'financial',
+  //   title: 'Multiplicar dinheiro',
+  //   link: '/',
+  // },
   {
     icon: 'money',
     title: 'Reserva de emergência',
