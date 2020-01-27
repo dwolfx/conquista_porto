@@ -141,6 +141,11 @@ export const PointNumber = styled(Text).attrs({ type: 'headline' })`
   margin-right: 14px;
 `
 
+export const EmptyProductItemRow = styled.div`
+  width: 100%;
+  padding: 14px 0px;
+`
+
 export const EmptyBody = styled.div`
   align-items: center;
   display: flex;
@@ -247,6 +252,17 @@ export const ProductItem = styled.div`
 export const ProductItemRow = styled.div`
   width: 100%;
   padding: 14px 14px 0px 14px;
+`
+
+export const ProductItemButton = styled(Button)`
+  min-width: 100%;
+  & > span {
+    padding: 9px 20px;
+  }
+`
+
+export const ProductItemText = styled(Text)`
+  font-weight: 300;
 `
 
 export const LinearProgressBarContent = styled.div`

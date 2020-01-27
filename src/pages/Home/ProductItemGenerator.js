@@ -3,29 +3,32 @@ import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 import Icon from 'components/IconExporter'
-import Divisor from 'components/Divisor'
+
+import { useHistory } from 'react-router-dom'
 
 import { formatMoney } from 'helpers'
 
 import {
   ProductItem,
   ProductItemRow,
+  EmptyProductItemRow,
   CreditCardItemRow,
   LinearProgressBarContent,
   TextBlack,
   HorizontalListWithMargin,
+  ProductItemButton,
+  ProductItemText,
 } from './styles'
 
-const ProductItemGenerator = (productList = [], type, history, divisor) => {
+const ProductItemGenerator = (productList, type, history) => {
   const atualItemDetail = itemDetail[type]
 
-  return productList
+  return productList && productList.length > 0
     ? productList.map((product, index) => {
         const id = `${type}-${Date.now().toPrecision() + index}`
 
         return (
           <React.Fragment key={id}>
-            {index > 0 || divisor ? <Divisor /> : null}
             <ProductItem>
               <ProductItemRow>
                 <Text type="headline">{atualItemDetail.title}</Text>
@@ -36,13 +39,18 @@ const ProductItemGenerator = (productList = [], type, history, divisor) => {
           </React.Fragment>
         )
       })
-    : []
+    : [
+        <React.Fragment key={`empty-${Math.random()}`}>
+          <EmptyProductItem atualItemDetail={atualItemDetail} />
+        </React.Fragment>,
+      ]
 }
 
 const itemDetail = {
   cartaoCredito: {
     title: 'Cartão de Crédito',
     link: '/cartao-credito/visualizar',
+    linkEmpty: '/cartao-credito',
     subTitle: product => (
       <CreditCardItemRow>
         <Text type="captionUppercase">{`FATURA ${product.Fatura.Status}`}</Text>
@@ -99,6 +107,7 @@ const itemDetail = {
       </ProductItemRow>
     ),
     link: '/seguro-vida/visualizar',
+    linkEmpty: '/seguro-vida',
     bottomLine: lifeInsuranceBottomLine,
   },
   seguroViagem: {
@@ -109,6 +118,7 @@ const itemDetail = {
       </ProductItemRow>
     ),
     link: '/seguro-viagem/visualizar',
+    inkEmpty: '/seguro-viagem',
     bottomLine: tripInsuranceBottomLine,
   },
 }
@@ -210,6 +220,30 @@ function genericBottomLine(product, history) {
 
   return (
     <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
+  )
+}
+
+const EmptyProductItem = ({ atualItemDetail }) => {
+  const history = useHistory()
+
+  return (
+    <EmptyProductItemRow>
+      <HorizontalListWithMargin
+        startItems={[
+          <ProductItemText type="headline" color="gray5">
+            {atualItemDetail.title}
+          </ProductItemText>,
+        ]}
+        endItems={[
+          <ProductItemButton
+            color="secondary"
+            onClick={() => history.push(atualItemDetail.linkEmpty)}
+          >
+            CONHEÇA
+          </ProductItemButton>,
+        ]}
+      />
+    </EmptyProductItemRow>
   )
 }
 
