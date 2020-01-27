@@ -12,7 +12,7 @@ import {
 const NewInput = ({ prefix, suffix, label, questionType, width, ...rest }) => (
   <InputGroupWrapper>
     {label && <InputLabel>{label}</InputLabel>}
-    <InputWrapper prefix={prefix} suffix={suffix}>
+    <InputWrapper>
       {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
       <Input width={width} {...rest} questionType={questionType} />
       {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
