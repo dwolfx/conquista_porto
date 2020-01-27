@@ -1,0 +1,100 @@
+import styled from 'styled-components'
+import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
+import Avatar from 'components/Avatar'
+import NotificationBell from 'components/NotificationBell'
+import IconConquista from 'components/IconExporter'
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: ${props => props.theme.colors.white};
+`
+
+export const Content = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+`
+
+export const ProfileContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  padding: 14px 21px;
+`
+
+export const AvatarIcon = styled(Avatar)``
+
+export const NotificationContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  padding: 14px 21px;
+`
+
+export const NotificationBellIcon = styled(NotificationBell)``
+
+export const ProductsContainer = styled.div`
+  padding: 14px 21px;
+  overflow: auto;
+`
+
+export const Header = styled.div`
+  width: 100%;
+  padding: 7px 21px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+`
+
+export const ConquistaBeta = styled.img.attrs({
+  src: ConquistaBetaIcon,
+})`
+  margin-top: 20px;
+  cursor: pointer;
+`
+
+export const ResponsiveMenu = styled.div`
+  width: 28px;
+  height: 28px;
+  background-color: ${props => props.theme.colors.blue4};
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: ${props => props.theme.colors.white};
+  }
+`
+
+export const Icon = styled(IconConquista).attrs({
+  name: props => props.name,
+})`
+  width: 21px;
+  height: 21px;
+  fill: ${props => props.color && props.theme.colors[props.color]};
+`
+
+export const Footer = styled.div`
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  border-top: 1px solid ${props => props.theme.colors.gray2};
+`

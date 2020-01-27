@@ -27,6 +27,10 @@ export default createGlobalStyle`
     background-color: ${props => props.theme.colors.gray1};
   }
 
+  html.noOverflow {
+    overflow: hidden;
+  }
+
   a {
     text-decoration: none;
     color: #000;

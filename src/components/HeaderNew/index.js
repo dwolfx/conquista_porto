@@ -9,9 +9,11 @@ import Button from 'components/Button/IconText'
 import NotificationBell from 'components/NotificationBell'
 import Avatar from 'components/Avatar'
 import DropDown from 'components/DropdownNew'
+import MobileHeader from './Mobile'
 import {
   BgWrapper,
   GridContainer,
+  // MobileContainer,
   LeftBlock,
   RightBlock,
   Icon,
@@ -26,6 +28,7 @@ import {
 export default function HeaderNew() {
   const history = useHistory()
   const [isMobile] = useState(useMedia('sm'))
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [crumbs, setCrumbs] = useState([])
   const [isScrolled, setIsScrolled] = useState(false)
   const bankData = useSelector(
@@ -59,18 +62,23 @@ export default function HeaderNew() {
   }, [])
 
   const renderResponsideHeader = () => (
-    <BgWrapper>
-      <GridContainer isScrolled={isScrolled}>
-        <LeftBlock>
-          <ConquistaBeta />
-        </LeftBlock>
-        <RightBlock>
-          <ResponsiveMenu>
-            <Icon name="menu" color="white" />
-          </ResponsiveMenu>
-        </RightBlock>
-      </GridContainer>
-    </BgWrapper>
+    <>
+      {isMobileOpen && (
+        <MobileHeader items={items} setIsOpen={setIsMobileOpen} />
+      )}
+      <BgWrapper>
+        <GridContainer isScrolled={isMobile}>
+          <LeftBlock>
+            <ConquistaBeta onClick={() => history.push('/')} />
+          </LeftBlock>
+          <RightBlock>
+            <ResponsiveMenu onClick={() => setIsMobileOpen(!isMobileOpen)}>
+              <Icon name="menu" color="white" />
+            </ResponsiveMenu>
+          </RightBlock>
+        </GridContainer>
+      </BgWrapper>
+    </>
   )
 
   const renderFullHeader = () => (
@@ -85,8 +93,8 @@ export default function HeaderNew() {
           <BreadCrumb crumbs={[...crumbs]} version="new" />
         </LeftBlock>
         <RightBlock>
-          <NotificationBell />
-          <Avatar />
+          <NotificationBell onClick={() => history.push('/notificacoes')} />
+          <Avatar onClick={() => history.push('/perfil')} />
           <Profile>
             <div>
               <Name>{bankData && bankData.titular}</Name>

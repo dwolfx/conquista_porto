@@ -9,8 +9,8 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${props => props.theme.colors.gray4}
-    ${props => props.theme.fontTypes.button};
+  color: ${props => props.theme.colors.gray4};
+  ${props => props.theme.fontTypes.button};
 `
 
 export const Icon = styled(ConquistaIcon).attrs({
