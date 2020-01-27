@@ -85,18 +85,21 @@ const itemDetail = {
     title: 'Financiamento de Veículos',
     subTitle: () => '',
     link: '/financiamento-veiculo/visualizar',
+    linkEmpty: '/financiamento-veiculo',
     bottomLine: genericBottomLine,
   },
   consorcioVeiculo: {
     title: 'Consórcio de Veículo',
     subTitle: () => '',
     link: '/consorcio-veiculo/visualizar',
+    linkEmpty: '/consorcio-veiculo',
     bottomLine: genericBottomLine,
   },
   consorcioImovel: {
     title: 'Consórcio de Imóvel',
     subTitle: () => '',
     link: '/consorcio-imovel/visualizar',
+    linkEmpty: '/consorcio-imovel',
     bottomLine: genericBottomLine,
   },
   seguroVida: {
@@ -118,7 +121,7 @@ const itemDetail = {
       </ProductItemRow>
     ),
     link: '/seguro-viagem/visualizar',
-    inkEmpty: '/seguro-viagem',
+    linkEmpty: '/seguro-viagem',
     bottomLine: tripInsuranceBottomLine,
   },
 }
