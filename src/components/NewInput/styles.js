@@ -21,6 +21,15 @@ export const InputLabel = styled.div`
   padding: 7px 14px 0 0;
 `
 
+export const Input = styled.input`
+  background-color: transparent;
+  border: none;
+  font-family: ${props => props.theme.fontTypes.headline};
+  height: 48px;
+  padding: 10px 0;
+  width: ${props => `${props.width}%`};
+`
+
 export const InputAddon = styled.div``
 
 export const InputAddonText = styled.div`
