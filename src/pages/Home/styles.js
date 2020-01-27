@@ -43,11 +43,12 @@ export const GridCol = styled(Col)`
     transition: all 0.35s ease-in-out;
 
     @media ${props => props.theme.mediaQueries.sm} {
-      position: fixed;
-      z-index: 1;
-      width: calc(100% - 14px);
       bottom: 14px;
       height: 63px;
+      margin-left: 7px;
+      position: fixed;
+      width: calc(100% - 14px);
+      z-index: 1;
     }
   }
 `
@@ -84,7 +85,7 @@ export const BannerTips = styled(Banner)`
 `
 
 export const BannerTipTitle = styled(Text)`
-  ${props => props.theme.fontTypes.heading};
+  ${props => props.theme.fontTypes.heading3};
   font-weight: normal;
   margin-bottom: 7px;
   margin-top: 7px;
