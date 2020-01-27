@@ -10,7 +10,7 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import { handleExternalLink } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 
 import { Container } from './styles'
 
@@ -22,9 +22,7 @@ export default function TripInsurance() {
         description="Viaje com tranquilidade e tenha assistência 24h da Porto Seguro em qualquer lugar do mundo. Faça uma simulação informando os detalhes da viagem e contrate em alguns cliques."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/seguro-viagem/simular'
-          )
+          handleGiwRedirect('portaldecliente/conquista/seguro-viagem/simular')
         }
         image={Banner}
       />
@@ -91,9 +89,7 @@ export default function TripInsurance() {
         subDescription="Informando detalhes como local e data, você pode simular coberturas e assistências nacionais e internacionais. Na sequência, basta escolher um plano e contratar."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/seguro-viagem/simular'
-          )
+          handleGiwRedirect('portaldecliente/conquista/seguro-viagem/simular')
         }
       />
       <MoreDetails

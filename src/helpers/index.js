@@ -39,6 +39,6 @@ export const rgba = (hex, alpha) => {
   return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`
 }
 
-export function handleExternalLink(link) {
-  window.location.href = link
+export function handleGiwRedirect(link) {
+  window.location.pathname = link
 }

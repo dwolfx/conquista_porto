@@ -10,7 +10,7 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import { handleExternalLink } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 
 import { Container } from './styles'
 
@@ -22,8 +22,8 @@ export default function ConsortiumVehicle() {
         description="Seu carro novo ou seminovo sem juros. Informando o valor do crédito ou das parcelas que você deseja, simule e contrate um consórcio com a credibilidade da Porto Seguro."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/consorcio-de-veiculos/simular'
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-veiculos/simular'
           )
         }
         image={Banner}
@@ -91,8 +91,8 @@ export default function ConsortiumVehicle() {
         subDescription="Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/consorcio-de-veiculos/simular'
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-veiculos/simular'
           )
         }
       />

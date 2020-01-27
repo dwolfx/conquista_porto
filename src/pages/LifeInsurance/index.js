@@ -10,7 +10,7 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import { handleExternalLink } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 
 const makeSenseSectionData = [
   {
@@ -99,9 +99,7 @@ export default function LifeInsurance() {
         image={BannerSeguroVidaImage}
         imageDescription="Família andando na beira do mar"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/seguro-de-vida/simular'
-          )
+          handleGiwRedirect('portaldecliente/conquista/seguro-de-vida/simular')
         }
       />
       <BulletsSection
@@ -127,9 +125,7 @@ export default function LifeInsurance() {
         de Vida da Porto Seguro."
         buttonText="Simular e contratar"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/seguro-de-vida/simular'
-          )
+          handleGiwRedirect('portaldecliente/conquista/seguro-de-vida/simular')
         }
       />
 

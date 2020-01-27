@@ -10,7 +10,7 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import { handleExternalLink } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 
 import { Container } from './styles'
 
@@ -22,8 +22,8 @@ export default function VehicleFinancing() {
         description="Carro novo ou seminovo com entrada zero. Simule e contrate um financiamento de até 100% do valor do veículo. Com os planos flexíveis da Porto Seguro, você paga em até 60 meses."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/financiamento-de-veiculos/simular'
+          handleGiwRedirect(
+            'portaldecliente/conquista/financiamento-de-veiculos/simular'
           )
         }
         image={Banner}
@@ -91,8 +91,8 @@ export default function VehicleFinancing() {
         subDescription="Você pode fazer quantas simulações quiser, escolhendo parcelas mensais adequadas ao seu orçamento. Conheça os planos e contrate uma solução com a solidez da Porto Seguro."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/financiamento-de-veiculos/simular'
+          handleGiwRedirect(
+            'portaldecliente/conquista/financiamento-de-veiculos/simular'
           )
         }
       />

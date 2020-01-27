@@ -10,7 +10,7 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import { handleExternalLink } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 
 const makeSenseSectionData = [
   {
@@ -113,8 +113,8 @@ export default function CreditCard() {
         image={BannerCartaoCreditoImage}
         imageDescription="Mulher segurando cartão de crédito em casa"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/cartao-de-credito/simular'
+          handleGiwRedirect(
+            'portaldecliente/conquista/cartao-de-credito/simular'
           )
         }
       />

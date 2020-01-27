@@ -10,7 +10,7 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import { handleExternalLink } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 
 import { Container } from './styles'
 
@@ -24,8 +24,8 @@ export default function ConsortiumBuilding() {
         image={Banner}
         imageDescription="Pai empurrando a filha em um balanço e uma casa ao fundo"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/consorcio-de-imoveis/simular'
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-imoveis/simular'
           )
         }
       />
@@ -93,8 +93,8 @@ export default function ConsortiumBuilding() {
         crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleExternalLink(
-            'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/consorcio-de-imoveis/simular'
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-imoveis/simular'
           )
         }
       />
