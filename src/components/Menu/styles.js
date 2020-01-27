@@ -89,6 +89,24 @@ export const Option = styled.div`
     margin-bottom: 0;
     background-color: transparent;
 
+    ${props =>
+      !props.isSelected &&
+      css`
+        &:hover:not(:active) {
+          width: 100%;
+          padding: 0;
+          border-radius: 0;
+          background-color: transparent;
+          border: none;
+
+          svg {
+            fill: ${props.theme.colors.white};
+          }
+          p {
+            display: none;
+          }
+        }
+      `}
     svg {
       fill: ${props =>
         props.isSelected
