@@ -66,8 +66,8 @@ export default function HeaderNew() {
       {isMobileOpen && (
         <MobileHeader items={items} setIsOpen={setIsMobileOpen} />
       )}
-      <BgWrapper>
-        <GridContainer isScrolled={isMobile}>
+      <BgWrapper isScrolled={isMobile}>
+        <GridContainer>
           <LeftBlock>
             <ConquistaBeta onClick={() => history.push('/')} />
           </LeftBlock>
@@ -82,8 +82,8 @@ export default function HeaderNew() {
   )
 
   const renderFullHeader = () => (
-    <BgWrapper>
-      <GridContainer isScrolled={isScrolled}>
+    <BgWrapper isScrolled={isScrolled}>
+      <GridContainer>
         <LeftBlock>
           <ConquistaBeta onClick={() => history.push('/')} />
           <DropDown items={items}>
