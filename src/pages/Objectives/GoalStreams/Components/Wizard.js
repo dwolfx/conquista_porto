@@ -22,7 +22,7 @@ export const WizardFlow = ({ data }) => {
   }
   const { isFirstStep, isLastStep } = computedState
 
-  const postFlow = () => console.log({ formData })
+  const postFlow = () => {}
 
   const handleSingleValue = event => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
