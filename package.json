@@ -34,9 +34,11 @@
     "typescript": "^3.7.2"
   },
   "devDependencies": {
+    "body-parser": "^1.19.0",
     "@types/styled-components": "^4.1.20",
     "babel-eslint": "^10.0.3",
     "babel-plugin-styled-components": "^1.10.6",
+    "cors": "^2.8.5",
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
@@ -47,6 +49,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
+    "express": "^4.17.1",
     "husky": "^3.0.9",
     "json-server": "^0.15.1",
     "nodemon": "^2.0.2",
@@ -63,7 +66,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js, css, html, json}\"",
-    "lint": "eslint \"src/**/*.{js, css, html, json}\""
+    "lint": "eslint \"src/**/*.{js, css, html, json}\"",
+    "localAPI": "node localAPI"
   },
   "eslintConfig": {
     "extends": "react-app"
