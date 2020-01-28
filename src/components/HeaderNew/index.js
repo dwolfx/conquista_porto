@@ -115,7 +115,7 @@ export default function HeaderNew() {
           <Avatar onClick={() => history.push('/perfil')} />
           <Profile onClick={() => history.push('/perfil')}>
             <div>
-              <Name>teste{bankData && bankData.titular}</Name>
+              <Name>{bankData && bankData.titular}</Name>
               <Points>
                 {points &&
                   Intl.NumberFormat().format(
