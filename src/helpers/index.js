@@ -38,3 +38,7 @@ export const rgba = (hex, alpha) => {
   const color = hexToRgb(hex)
   return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`
 }
+
+export function handleGiwRedirect(link) {
+  window.location.pathname = link
+}
