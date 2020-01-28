@@ -14,14 +14,16 @@ import {
 export default function Taxation({ title, taxationData }) {
   const renderAliquotas = aliquota =>
     aliquota
-      ? aliquota.map((item, index) => (
-          <LineWrapper key={`aliquota-${index}`}>
-            <DetailItem>
-              <SubTitle>{item.faixa}</SubTitle>
-              <Text>{item.valor}%</Text>
-            </DetailItem>
-          </LineWrapper>
-        ))
+      ? [aliquota]
+          .flatMap(item => item)
+          .map((item, index) => (
+            <LineWrapper key={`aliquota-${index}`}>
+              <DetailItem>
+                <SubTitle>{item.faixa}</SubTitle>
+                <Text>{item.valor}%</Text>
+              </DetailItem>
+            </LineWrapper>
+          ))
       : null
 
   return (
