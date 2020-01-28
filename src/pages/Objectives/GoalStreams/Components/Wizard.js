@@ -11,7 +11,7 @@ import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState({})
-  const [isActive, setIsActive] = useState('')
+  const [isActive, setIsActive] = useState(false)
   const computedState = {
     isFirstStep: currentStep === 0,
     isLastStep: currentStep === data.length - 1,
