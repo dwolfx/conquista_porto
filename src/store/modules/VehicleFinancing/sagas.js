@@ -7,10 +7,12 @@ import {
   GetVehicleFinancingFailure,
 } from './action'
 
-function* getData() {
+// eslint-disable-next-line no-unused-vars
+function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
+      // `/produtos/financiamento?cpf=${cpf}&codigoCanal=0`,
       '/produtos/financiamento?cpf=33244452809&codigoCanal=0'
     )
     if (

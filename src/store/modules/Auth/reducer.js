@@ -24,6 +24,7 @@ export default function(state = INITIAL_STATE(), action) {
     case Types.AUTH_REQUEST_LOGIN_FAILURE:
       return {
         ...state,
+        error: action.error,
       }
     default:
       return state
