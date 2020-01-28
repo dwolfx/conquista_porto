@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -17,21 +17,25 @@ const NewInput = ({
   width,
   error,
   ...rest
-}) => (
-  <InputGroupWrapper>
-    {label && <InputLabel>{label}</InputLabel>}
-    <InputWrapper>
-      {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-      <Input
+}) => {
+  const inputRef = useRef()
+  return (
+    <InputGroupWrapper>
+      {label && <InputLabel>{label}</InputLabel>}
+      <InputWrapper
+        onClick={() => {
+          inputRef.current.focus()
+        }}
         width={width}
-        questionType={questionType}
         error={error}
-        {...rest}
-      />
-      {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
-    </InputWrapper>
-  </InputGroupWrapper>
-)
+      >
+        {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
+        <Input ref={inputRef} questionType={questionType} {...rest} />
+        {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
+      </InputWrapper>
+    </InputGroupWrapper>
+  )
+}
 
 NewInput.propTypes = {
   label: PropTypes.string,
