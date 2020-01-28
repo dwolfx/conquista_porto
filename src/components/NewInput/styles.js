@@ -30,6 +30,7 @@ export const InputLabel = styled.div`
   color: ${props => props.theme.colors.gray5};
   font-family: ${props => props.theme.fontTypes.captionUppercase};
   padding-top: 7px;
+  padding-left: 14px;
 `
 
 export const InputAddon = styled.div`
