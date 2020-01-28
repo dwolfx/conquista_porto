@@ -38,6 +38,7 @@ const QuestionFlow = ({
                 prefix="#"
                 value={formData[name] || ''}
                 questionType={type}
+                error
               />
             )}
             {type === 'number' && (
