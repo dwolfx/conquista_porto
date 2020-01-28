@@ -1,11 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import Button from 'components/Button'
-
 import {
   Container,
   Content,
+  Button,
   Footer,
   ItemWrapper,
   ItemIcon,
@@ -22,7 +21,7 @@ export function NotificationsContent(redirectAndCloseFunc) {
       <Content>
         {notificationsData.novas &&
           notificationsData.novas.map(notification => (
-            <ItemWrapper padding="21px 14px">
+            <ItemWrapper padding="14px 14px 21px 14px">
               <ItemHeader>
                 <ItemIcon name="information" color="blue4" />
                 <ItemText type="headline" color="blue4" margin="0 0 0 14px">

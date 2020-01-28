@@ -102,14 +102,14 @@ export default function HeaderNew() {
       <GridContainer>
         <LeftBlock>
           <ConquistaBeta onClick={() => history.push('/')} />
-          <DropDown items={items}>
+          <DropDown items={items} containerPadding="14px 0">
             <MenuTag color="blue" text="MENU" />
           </DropDown>
           {crumbs.length > 0 && <Icon name="arrowright2" />}
           <BreadCrumb crumbs={[...crumbs]} version="new" />
         </LeftBlock>
         <RightBlock>
-          <DropDown nodes={nodes}>
+          <DropDown nodes={nodes} containerPadding="14px 14px 0 14px">
             <NotificationBell />
           </DropDown>
           <Avatar onClick={() => history.push('/perfil')} />

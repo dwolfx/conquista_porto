@@ -45,7 +45,7 @@ import {
  *  ]
  */
 
-export default function Dropdown({ items, children, nodes }) {
+export default function Dropdown({ items, children, nodes, containerPadding }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [childrenElements, setChildrenElements] = useState(null)
@@ -96,7 +96,7 @@ export default function Dropdown({ items, children, nodes }) {
             {children}
           </div>
           <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
-            <Wrapper padding="0">
+            <Wrapper containerPadding={containerPadding}>
               {nodes &&
                 nodes.map(node => {
                   if (typeof node === 'function')
@@ -128,7 +128,7 @@ export default function Dropdown({ items, children, nodes }) {
             {children}
           </div>
           <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
-            <Wrapper>
+            <Wrapper containerPadding={containerPadding}>
               {items.map(item => (
                 <ItemWrapper
                   key={item.text}
@@ -165,4 +165,5 @@ export default function Dropdown({ items, children, nodes }) {
 Dropdown.propTypes = {
   items: PropTypes.arrayOf(PropTypes.element).isRequired,
   children: PropTypes.element.isRequired,
+  containerPadding: PropTypes.string,
 }

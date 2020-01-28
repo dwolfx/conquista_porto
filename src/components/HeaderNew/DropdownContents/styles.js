@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import ConquistaIcon from 'components/IconExporter'
 import TextComponent from 'components/Text'
+import ButtonComponent from 'components/Button'
 
 export const Container = styled.div`
   display: flex;
@@ -16,7 +17,6 @@ export const Content = styled.div`
   width: 100%;
   flex: 1;
   overflow: auto;
-  /* padding: 21px 0; */
 `
 
 export const Footer = styled.div`
@@ -24,7 +24,7 @@ export const Footer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 14px 0;
+  padding: 14px;
   border-top: 1px solid ${props => props.theme.colors.gray2};
 `
 
@@ -66,4 +66,7 @@ export const ItemText = styled(TextComponent).attrs({
 })`
   fill: ${props => props.theme.colors[props.color]};
   margin: ${props => props.margin && props.margin};
+`
+export const Button = styled(ButtonComponent)`
+  width: 100%;
 `
