@@ -14,11 +14,13 @@ function addId(consorcios) {
   }))
 }
 
-function* getData() {
+// eslint-disable-next-line no-unused-vars
+function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      '/consorcios/auto?cpf=33244452809&codigoCanal=1'
+      // `/consorcios/auto?cpf=${cpf}&codigoCanal=1`
+      `/consorcios/auto?cpf=68826796220&codigoCanal=1`
     )
     yield put(GetConsortiumVehicleDataSuccess(addId(response.data.consorcios)))
   } catch (err) {

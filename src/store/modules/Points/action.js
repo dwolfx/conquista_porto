@@ -1,9 +1,9 @@
 import { Types } from './types'
 
-export function GetPointsDataRequest(payload) {
+export function GetPointsDataRequest(cpf) {
   return {
     type: Types.GET_REQUEST,
-    payload,
+    cpf,
   }
 }
 

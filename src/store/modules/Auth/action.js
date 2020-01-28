@@ -7,9 +7,10 @@ export function AuthRequestLoginSuccess(payload) {
   }
 }
 
-export function AuthRequestLoginFailure() {
+export function AuthRequestLoginFailure(error) {
   return {
     type: Types.AUTH_REQUEST_LOGIN_FAILURE,
+    error,
   }
 }
 

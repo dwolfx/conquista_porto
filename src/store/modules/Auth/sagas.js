@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 function* postLogin({ credentials }) {
   try {
     const {
-      data: { access_token: accessToken },
+      data: { access_token: accessToken, erro },
     } = yield call(
       axiosInstance.post,
       'http://localhost:8080/localAPI-auth/login',
@@ -22,6 +22,8 @@ function* postLogin({ credentials }) {
       }
     )
 
+    if (erro) throw erro.mensagemErro
+
     const response = {
       accessToken,
       cpf: credentials.username,
@@ -30,7 +32,7 @@ function* postLogin({ credentials }) {
     yield put(AuthRequestLoginSuccess(response))
     saveAuthLocalStorage(response)
   } catch (error) {
-    yield put(AuthRequestLoginFailure())
+    yield put(AuthRequestLoginFailure(error))
   }
 }
 
