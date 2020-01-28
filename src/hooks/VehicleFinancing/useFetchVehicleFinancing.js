@@ -6,10 +6,11 @@ import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/a
 export default function useFetchVehicleFinancing() {
   const dispatch = useDispatch()
   const data = useSelector(state => state.vehicleFinancing.data)
+  const auth = useSelector(state => state.auth)
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetVehicleFinancingDataRequest())
+      dispatch(GetVehicleFinancingDataRequest(auth.cpf))
     }
-  }, [dispatch, data])
+  }, [dispatch, data, auth])
 }

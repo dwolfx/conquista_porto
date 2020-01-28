@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import useMedia from 'hooks/useMedia'
@@ -9,7 +9,9 @@ import Button from 'components/Button/IconText'
 import NotificationBell from 'components/NotificationBell'
 import Avatar from 'components/Avatar'
 import DropDown from 'components/DropdownNew'
+import { AuthRequestLogout } from 'store/modules/Auth/action'
 import MobileHeader from './Mobile'
+
 import {
   BgWrapper,
   GridContainer,
@@ -26,6 +28,7 @@ import {
 } from './styles'
 
 export default function HeaderNew() {
+  const dispatch = useDispatch()
   const history = useHistory()
   const [isMobile] = useState(useMedia('sm'))
   const [isMobileOpen, setIsMobileOpen] = useState(false)
@@ -34,7 +37,7 @@ export default function HeaderNew() {
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
   )
-
+  const userData = useSelector(state => state.auth)
   useEffect(() => {
     if (!crumbs) {
       setCrumbs(history.location.pathname.split('/').filter(el => el !== ''))
@@ -102,7 +105,14 @@ export default function HeaderNew() {
             </div>
           </Profile>
           <Divisor vertical customSize="35px" />
-          <Button iconName="leave">SAIR</Button>
+          <Button
+            iconName="leave"
+            onClick={() => {
+              dispatch(AuthRequestLogout(userData.accessToken))
+            }}
+          >
+            SAIR
+          </Button>
         </RightBlock>
       </GridContainer>
     </BgWrapper>
