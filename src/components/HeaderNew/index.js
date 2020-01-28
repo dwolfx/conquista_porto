@@ -6,10 +6,10 @@ import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
-import NotificationBell from 'components/NotificationBell'
-import Avatar from 'components/Avatar'
 import DropDown from 'components/DropdownNew'
 import MobileHeader from './Mobile'
+import { NotificationsContent } from './DropdownContents'
+
 import {
   BgWrapper,
   GridContainer,
@@ -23,6 +23,8 @@ import {
   Points,
   ResponsiveMenu,
   MenuTag,
+  NotificationBell,
+  Avatar,
 } from './styles'
 
 export default function HeaderNew() {
@@ -34,6 +36,13 @@ export default function HeaderNew() {
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
   )
+
+  const points = useSelector(
+    state => state.points.data && state.points.data.detalheExtratoOptemaisTypes
+  )
+
+  const calculatePointsAmountBalance = extrato =>
+    extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
 
   useEffect(() => {
     if (!crumbs) {
@@ -64,7 +73,14 @@ export default function HeaderNew() {
   const renderResponsideHeader = () => (
     <>
       {isMobileOpen && (
-        <MobileHeader items={items} setIsOpen={setIsMobileOpen} />
+        <MobileHeader
+          items={items}
+          setIsOpen={setIsMobileOpen}
+          totalPoints={
+            points &&
+            Intl.NumberFormat().format(calculatePointsAmountBalance(points))
+          }
+        />
       )}
       <BgWrapper isScrolled={isMobile}>
         <GridContainer>
@@ -93,12 +109,20 @@ export default function HeaderNew() {
           <BreadCrumb crumbs={[...crumbs]} version="new" />
         </LeftBlock>
         <RightBlock>
-          <NotificationBell onClick={() => history.push('/notificacoes')} />
+          <DropDown nodes={nodes}>
+            <NotificationBell />
+          </DropDown>
           <Avatar onClick={() => history.push('/perfil')} />
-          <Profile>
+          <Profile onClick={() => history.push('/perfil')}>
             <div>
-              <Name>{bankData && bankData.titular}</Name>
-              <Points>4.200 pontos</Points>
+              <Name>teste{bankData && bankData.titular}</Name>
+              <Points>
+                {points &&
+                  Intl.NumberFormat().format(
+                    calculatePointsAmountBalance(points)
+                  )}{' '}
+                pontos
+              </Points>
             </div>
           </Profile>
           <Divisor vertical customSize="35px" />
@@ -176,6 +200,8 @@ export default function HeaderNew() {
       path: '/',
     },
   ]
+
+  const nodes = [NotificationsContent]
 
   return <>{isMobile ? renderResponsideHeader() : renderFullHeader()}</>
 }

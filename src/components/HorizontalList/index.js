@@ -40,4 +40,6 @@ HorizontalList.defaultProps = {
   startItems: [],
   endItems: [],
   marginBetweenElements: '14px',
+  heightSize: null,
+  noPadding: false,
 }

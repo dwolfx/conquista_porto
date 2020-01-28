@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   flex-shrink: 0;
-  padding: 14px 0;
+  padding: ${props => (props.padding ? props.padding : '14px 0')};
   box-shadow: ${props => props.theme.shadows.gray2};
   background-color: ${props => props.theme.colors.white};
 `
@@ -59,12 +59,15 @@ export const ItemWrapper = styled.div`
   }
 `
 
+export const AlignToEndIcon = styled.div`
+  margin: ${props => (props.alignToEnd ? '0px 21px' : '0px 0px 0px 21px')};
+`
+
 export const ItemIcon = styled(ConquistaIcon).attrs({
   name: props => props.name,
 })`
   width: 21px;
   height: 21px;
-  margin: ${props => (props.alignToEnd ? '0px 21px' : '0px 0px 0px 21px')};
   fill: ${props => props.theme.colors.gray5};
 `
 

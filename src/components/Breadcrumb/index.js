@@ -56,4 +56,5 @@ Breadcrumb.defaultProps = {
 
 Breadcrumb.propTypes = {
   crumbs: PropTypes.array,
+  version: PropTypes.string,
 }
