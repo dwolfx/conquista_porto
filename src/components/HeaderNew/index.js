@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import useMedia from 'hooks/useMedia'
@@ -7,6 +7,7 @@ import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
 import DropDown from 'components/DropdownNew'
+import { AuthRequestLogout } from 'store/modules/Auth/action'
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
 
@@ -28,6 +29,7 @@ import {
 } from './styles'
 
 export default function HeaderNew() {
+  const dispatch = useDispatch()
   const history = useHistory()
   const [isMobile] = useState(useMedia('sm'))
   const [isMobileOpen, setIsMobileOpen] = useState(false)
@@ -44,6 +46,7 @@ export default function HeaderNew() {
   const calculatePointsAmountBalance = extrato =>
     extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
 
+  const userData = useSelector(state => state.auth)
   useEffect(() => {
     if (!crumbs) {
       setCrumbs(history.location.pathname.split('/').filter(el => el !== ''))
@@ -126,7 +129,14 @@ export default function HeaderNew() {
             </div>
           </Profile>
           <Divisor vertical customSize="35px" />
-          <Button iconName="leave">SAIR</Button>
+          <Button
+            iconName="leave"
+            onClick={() => {
+              dispatch(AuthRequestLogout(userData.accessToken))
+            }}
+          >
+            SAIR
+          </Button>
         </RightBlock>
       </GridContainer>
     </BgWrapper>

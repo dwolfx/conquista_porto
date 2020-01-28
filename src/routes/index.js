@@ -43,6 +43,7 @@ import ObjectivesSaveMoneyFlow from 'pages/Objectives/GoalStreams/SaveMoneyFlow'
 import ObjectivesRecommendation from 'pages/Objectives/Recommendation'
 
 import Notifications from 'pages/Notifications'
+import Login from 'pages/Login'
 
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
@@ -51,8 +52,9 @@ import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsort
 import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 
-const DefaultRoute = ({ component, data, hook, ...rest }) => {
-  const Component = component
+import useAuth from './auth'
+
+const DefaultRoute = ({ component: Component, data, hook, ...rest }) => {
   let dataLength = 0
 
   try {
@@ -118,7 +120,11 @@ export default function Routes({ ...props }) {
     lifeInsuranceData: state.lifeInsurance.data,
   }))
 
-  return (
+  const isAuth = useAuth()
+
+  return !isAuth ? (
+    <Login />
+  ) : (
     <Switch {...props}>
       <DefaultRoute path="/" exact component={Home} />
 
