@@ -13,7 +13,7 @@ const inputDefaultStyle = css`
   }};
   width: ${props => `${props.width}%`};
   :focus {
-    border-bottom: 1px solid ${props => props.theme.colors.blue4};
+    border-bottom: 2px solid ${props => props.theme.colors.blue4};
   }
 `
 
