@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
+import { formatMoneyDecimal } from 'helpers'
 import InputText from 'components/NewInput'
 import RadioInput from 'components/Inputs/Radio'
 
@@ -14,55 +15,63 @@ const QuestionFlow = ({
   options,
   question,
   type,
-}) => (
-  <>
-    <Row justifyContent="center">
-      <Col lg="12" xs="12">
-        <Question>{question}</Question>
-      </Col>
-    </Row>
-    <Row justifyContent="center">
-      <Col lg="12" xs="12">
-        <Wrapper>
-          {type === 'text' && (
-            <InputText
-              name={name}
-              onChange={onChangeFormData}
-              prefix="#"
-              value={formData[name] || ''}
-              questionType={type}
-            />
-          )}
-          {type === 'number' && (
-            <InputText
-              minimumValue={minimumValue}
-              name={name}
-              onChange={onChangeFormData}
-              prefix="R$"
-              value={formData[name] || ''}
-              questionType={type}
-            />
-          )}
-          {type === 'date' && (
-            <InputText
-              minimumValue={minimumValue}
-              name={name}
-              onChange={onChangeFormData}
-              value={formData[name] || ''}
-            />
-          )}
-          {type === 'bool' && (
-            <RadioInput
-              name={name}
-              onChange={onChangeFormData}
-              options={options}
-            />
-          )}
-        </Wrapper>
-      </Col>
-    </Row>
-  </>
-)
+}) => {
+  const applyMoneyMask = event => {
+    const strippedValue = event.target.value.replace(/\D/g, '')
+    event.target.value = formatMoneyDecimal(strippedValue) // eslint-disable-line no-param-reassign
+  }
+
+  return (
+    <>
+      <Row justifyContent="center">
+        <Col lg="12" xs="12">
+          <Question>{question}</Question>
+        </Col>
+      </Row>
+      <Row justifyContent="center">
+        <Col lg="12" xs="12">
+          <Wrapper>
+            {type === 'text' && (
+              <InputText
+                name={name}
+                onChange={onChangeFormData}
+                prefix="#"
+                value={formData[name] || ''}
+                questionType={type}
+              />
+            )}
+            {type === 'number' && (
+              <InputText
+                minimumValue={minimumValue}
+                name={name}
+                onChange={onChangeFormData}
+                prefix="R$"
+                value={formData[name] || ''}
+                questionType={type}
+                onKeyUp={applyMoneyMask}
+              />
+            )}
+            {type === 'date' && (
+              <InputText
+                minimumValue={minimumValue}
+                name={name}
+                onChange={onChangeFormData}
+                value={formData[name] || ''}
+              />
+            )}
+            {type === 'bool' && (
+              <RadioInput
+                name={name}
+                onChange={onChangeFormData}
+                options={options}
+              />
+            )}
+          </Wrapper>
+        </Col>
+      </Row>
+    </>
+  )
+}
 
 QuestionFlow.defaultProps = {
   formData: {},
