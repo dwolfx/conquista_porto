@@ -8,7 +8,6 @@ import { Question, Wrapper } from './styles'
 
 const QuestionFlow = ({
   formData,
-  minimumValue,
   name,
   onChangeFormData,
   options,
@@ -30,22 +29,18 @@ const QuestionFlow = ({
               onChange={onChangeFormData}
               prefix="#"
               value={formData[name] || ''}
-              questionType={type}
             />
           )}
           {type === 'number' && (
             <InputText
-              minimumValue={minimumValue}
               name={name}
               onChange={onChangeFormData}
               prefix="R$"
               value={formData[name] || ''}
-              questionType={type}
             />
           )}
           {type === 'date' && (
             <InputText
-              minimumValue={minimumValue}
               name={name}
               onChange={onChangeFormData}
               value={formData[name] || ''}
@@ -66,7 +61,6 @@ const QuestionFlow = ({
 
 QuestionFlow.defaultProps = {
   formData: {},
-  minimumValue: '',
   name: '',
   onChangeFormData: () => {},
   options: [],
@@ -76,7 +70,6 @@ QuestionFlow.defaultProps = {
 
 QuestionFlow.propTypes = {
   formData: PropTypes.object,
-  minimumValue: PropTypes.string,
   name: PropTypes.string,
   onChangeFormData: PropTypes.func,
   options: PropTypes.array,

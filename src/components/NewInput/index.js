@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -9,31 +9,40 @@ import {
   InputWrapper,
 } from './styles'
 
-const NewInput = ({ prefix, suffix, label, questionType, width, ...rest }) => (
-  <InputGroupWrapper>
-    {label && <InputLabel>{label}</InputLabel>}
-    <InputWrapper>
-      {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-      <Input width={width} {...rest} questionType={questionType} />
-      {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
-    </InputWrapper>
-  </InputGroupWrapper>
-)
+const NewInput = ({ prefix, suffix, label, width, error, ...rest }) => {
+  const inputRef = useRef()
+  return (
+    <InputGroupWrapper>
+      {label && <InputLabel>{label}</InputLabel>}
+      <InputWrapper
+        onClick={() => {
+          inputRef.current.focus()
+        }}
+        width={width}
+        error={error}
+      >
+        {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
+        <Input ref={inputRef} {...rest} />
+        {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
+      </InputWrapper>
+    </InputGroupWrapper>
+  )
+}
 
 NewInput.propTypes = {
   label: PropTypes.string,
   prefix: PropTypes.any,
   suffix: PropTypes.any,
-  questionType: PropTypes.string,
   width: PropTypes.string,
+  error: PropTypes.bool,
 }
 
 NewInput.defaultProps = {
   label: '',
   prefix: false,
   suffix: false,
-  questionType: '',
   width: '100',
+  error: false,
 }
 
 export default NewInput

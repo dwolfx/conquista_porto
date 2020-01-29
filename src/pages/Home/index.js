@@ -22,6 +22,7 @@ import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 
 const Home = () => {
   const dispatch = useDispatch()
+  const auth = useSelector(state => state.auth)
   const history = useHistory()
   const pointsData = useSelector(state => state.points.data)
 
@@ -30,17 +31,17 @@ const Home = () => {
   const row3 = useRef(null)
 
   useEffect(() => {
-    dispatch(GetBankDataRequest())
+    dispatch(GetBankDataRequest(auth.cpf))
     dispatch(GetCreditCardDataRequest())
-    dispatch(GetConsolidatedPositionDataRequest())
-    dispatch(GetVehicleFinancingDataRequest())
-    dispatch(GetConsortiumBuildingDataRequest())
-    dispatch(GetConsortiumVehicleDataRequest())
+    dispatch(GetConsolidatedPositionDataRequest(auth.cpf))
+    dispatch(GetVehicleFinancingDataRequest(auth.cpf))
+    dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
+    dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
     dispatch(GetLifeInsuranceDataRequest())
     dispatch(GetTripInsuranceDataRequest())
-    dispatch(GetPointsDataRequest())
+    dispatch(GetPointsDataRequest(auth.cpf))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [auth])
 
   const onRedirect = link => {
     history.push(link)

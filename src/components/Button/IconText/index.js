@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Icon } from './styles'
 
-export default function IconText({ iconName, children }) {
+export default function IconText({ iconName, children, ...rest }) {
   return (
-    <Button>
+    <Button {...rest}>
       <Icon name={iconName} />
       {children}
     </Button>
