@@ -97,12 +97,11 @@ export default function Dropdown({ items, children, nodes, containerPadding }) {
           </div>
           <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
             <Wrapper containerPadding={containerPadding}>
-              {nodes &&
-                nodes.map(node => {
-                  if (typeof node === 'function')
-                    return node(() => handleClick('notificacoes'))
-                  return node
-                })}
+              {nodes.map(node => {
+                if (typeof node === 'function')
+                  return node(() => handleClick('notificacoes'))
+                return node
+              })}
             </Wrapper>
           </Container>
         </RelativeHolder>

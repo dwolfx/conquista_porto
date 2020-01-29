@@ -73,75 +73,6 @@ export default function HeaderNew() {
     }
   }, [])
 
-  const renderResponsideHeader = () => (
-    <>
-      {isMobileOpen && (
-        <MobileHeader
-          items={items}
-          setIsOpen={setIsMobileOpen}
-          totalPoints={
-            points &&
-            Intl.NumberFormat().format(calculatePointsAmountBalance(points))
-          }
-        />
-      )}
-      <BgWrapper isScrolled={isMobile}>
-        <GridContainer>
-          <LeftBlock>
-            <ConquistaBeta onClick={() => history.push('/')} />
-          </LeftBlock>
-          <RightBlock>
-            <ResponsiveMenu onClick={() => setIsMobileOpen(!isMobileOpen)}>
-              <Icon name="menu" color="white" />
-            </ResponsiveMenu>
-          </RightBlock>
-        </GridContainer>
-      </BgWrapper>
-    </>
-  )
-
-  const renderFullHeader = () => (
-    <BgWrapper isScrolled={isScrolled}>
-      <GridContainer>
-        <LeftBlock>
-          <ConquistaBeta onClick={() => history.push('/')} />
-          <DropDown items={items} containerPadding="14px 0">
-            <MenuTag color="blue" text="MENU" />
-          </DropDown>
-          {crumbs.length > 0 && <Icon name="arrowright2" />}
-          <BreadCrumb crumbs={[...crumbs]} version="new" />
-        </LeftBlock>
-        <RightBlock>
-          <DropDown nodes={nodes} containerPadding="14px 14px 0 14px">
-            <NotificationBell />
-          </DropDown>
-          <Avatar onClick={() => history.push('/perfil')} />
-          <Profile onClick={() => history.push('/perfil')}>
-            <div>
-              <Name>{bankData && bankData.titular}</Name>
-              <Points>
-                {points &&
-                  Intl.NumberFormat().format(
-                    calculatePointsAmountBalance(points)
-                  )}{' '}
-                pontos
-              </Points>
-            </div>
-          </Profile>
-          <Divisor vertical customSize="35px" />
-          <Button
-            iconName="leave"
-            onClick={() => {
-              dispatch(AuthRequestLogout(userData.accessToken))
-            }}
-          >
-            SAIR
-          </Button>
-        </RightBlock>
-      </GridContainer>
-    </BgWrapper>
-  )
-
   const items = [
     {
       icon: 'home',
@@ -212,6 +143,75 @@ export default function HeaderNew() {
   ]
 
   const nodes = [NotificationsContent]
+
+  const renderResponsideHeader = () => (
+    <>
+      {isMobileOpen && (
+        <MobileHeader
+          items={items}
+          setIsOpen={setIsMobileOpen}
+          totalPoints={
+            points &&
+            Intl.NumberFormat().format(calculatePointsAmountBalance(points))
+          }
+        />
+      )}
+      <BgWrapper isScrolled={isMobile}>
+        <GridContainer>
+          <LeftBlock>
+            <ConquistaBeta onClick={() => history.push('/')} />
+          </LeftBlock>
+          <RightBlock>
+            <ResponsiveMenu onClick={() => setIsMobileOpen(!isMobileOpen)}>
+              <Icon name="menu" color="white" />
+            </ResponsiveMenu>
+          </RightBlock>
+        </GridContainer>
+      </BgWrapper>
+    </>
+  )
+
+  const renderFullHeader = () => (
+    <BgWrapper isScrolled={isScrolled}>
+      <GridContainer>
+        <LeftBlock>
+          <ConquistaBeta onClick={() => history.push('/')} />
+          <DropDown items={items} containerPadding="14px 0">
+            <MenuTag color="blue" text="MENU" />
+          </DropDown>
+          {crumbs.length > 0 && <Icon name="arrowright2" />}
+          <BreadCrumb crumbs={[...crumbs]} version="new" />
+        </LeftBlock>
+        <RightBlock>
+          <DropDown nodes={nodes} containerPadding="14px 14px 0 14px">
+            <NotificationBell />
+          </DropDown>
+          <Avatar onClick={() => history.push('/perfil')} />
+          <Profile onClick={() => history.push('/perfil')}>
+            <div>
+              <Name>{bankData && bankData.titular}</Name>
+              <Points>
+                {points &&
+                  Intl.NumberFormat().format(
+                    calculatePointsAmountBalance(points)
+                  )}{' '}
+                pontos
+              </Points>
+            </div>
+          </Profile>
+          <Divisor vertical customSize="35px" />
+          <Button
+            iconName="leave"
+            onClick={() => {
+              dispatch(AuthRequestLogout(userData.accessToken))
+            }}
+          >
+            SAIR
+          </Button>
+        </RightBlock>
+      </GridContainer>
+    </BgWrapper>
+  )
 
   return <>{isMobile ? renderResponsideHeader() : renderFullHeader()}</>
 }
