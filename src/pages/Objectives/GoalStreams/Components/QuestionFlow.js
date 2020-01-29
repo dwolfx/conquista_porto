@@ -44,6 +44,7 @@ const QuestionFlow = ({
               name={name}
               onChange={onChangeFormData}
               value={formData[name] || ''}
+              maxLength="10"
             />
           )}
           {type === 'bool' && (

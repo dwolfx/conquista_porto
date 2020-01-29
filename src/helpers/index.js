@@ -57,3 +57,15 @@ export const rgba = (hex, alpha) => {
 export function handleGiwRedirect(link) {
   window.location.pathname = link
 }
+
+export const formatDateMask = event => {
+  const strippedValue = event.target.value.replace(/\D/g, '')
+  let newValue = strippedValue
+  if (strippedValue.length < 5) {
+    newValue = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
+  } else {
+    newValue = strippedValue.replace(/(\d{2})(\d{2})(\d{1})/g, '$1/$2/$3')
+  }
+  // eslint-disable-next-line no-param-reassign
+  event.target.value = newValue
+}

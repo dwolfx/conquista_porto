@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
-import { formatMoneyDecimal } from 'helpers'
+import { formatMoneyDecimal, formatDateMask } from 'helpers'
 
 import TopBar from './TopBar'
 import QuestionFlow from './QuestionFlow'
@@ -33,6 +33,7 @@ export const WizardFlow = ({ data }) => {
 
   const handleSingleValue = event => {
     if (data[currentStep].type === 'number') moneyMask(event)
+    if (data[currentStep].type === 'date') formatDateMask(event)
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
