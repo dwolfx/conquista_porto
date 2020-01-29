@@ -1,26 +1,31 @@
 import styled, { css } from 'styled-components'
 
 const inputDefaultStyle = css`
-  background-color: transparent;
-  border: none;
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
-  font-family: ${props => props.theme.fontTypes.headline};
-  height: 48px;
-  padding-left: ${props => {
-    if (props.questionType === 'text') return '33px'
-    if (props.questionType === 'number') return '40px'
-    return '14px'
-  }};
+  height: 56px;
   width: ${props => `${props.width}%`};
-  :focus {
+  align-items: center;
+  display: flex;
+  padding: 0 7px;
+  #prefix {
+    padding-left: 7px;
+  }
+  #suffix {
+    padding-right: 7px;
+  }
+  :focus-within {
     border-bottom: 2px solid ${props => props.theme.colors.blue4};
+    #prefix,
+    #suffix {
+      color: ${props => props.theme.colors.gray6};
+    }
   }
 `
 
 const inputErrorStyle = css`
   border-bottom: 2px solid ${props => props.theme.colors.magenta2};
   color: ${props => props.theme.colors.magenta2};
-  :focus {
+  :focus-within {
     border-bottom: 2px solid ${props => props.theme.colors.magenta2};
   }
 `
@@ -31,23 +36,8 @@ export const InputGroupWrapper = styled.div`
 `
 
 export const InputWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  position: relative;
-  #prefix {
-    left: 0;
-    padding-left: 14px;
-  }
-  #suffix {
-    padding-right: 14px;
-    right: 0;
-  }
-  :focus-within {
-    #prefix,
-    #suffix {
-      color: ${props => props.theme.colors.gray6};
-    }
-  }
+  ${inputDefaultStyle}
+  ${props => props.error && inputErrorStyle}
 `
 
 export const InputLabel = styled.div`
@@ -63,10 +53,14 @@ export const InputAddon = styled.div`
   display: flex;
   font-family: ${props => props.theme.fontTypes.headline};
   height: 100%;
-  position: absolute;
 `
 
 export const Input = styled.input`
-  ${inputDefaultStyle}
-  ${props => props.error && inputErrorStyle}
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  font-family: ${props => props.theme.fontTypes.headline};
+  height: inherit;
+  padding: 0 7px;
+  width: inherit;
 `

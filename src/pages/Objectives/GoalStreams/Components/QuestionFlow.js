@@ -37,7 +37,6 @@ const QuestionFlow = ({
                 onChange={onChangeFormData}
                 prefix="#"
                 value={formData[name] || ''}
-                questionType={type}
               />
             )}
             {type === 'number' && (
@@ -47,7 +46,6 @@ const QuestionFlow = ({
                 onChange={onChangeFormData}
                 prefix="R$"
                 value={formData[name] || ''}
-                questionType={type}
                 onKeyUp={applyMoneyMask}
               />
             )}
