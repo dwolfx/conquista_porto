@@ -45,7 +45,13 @@ import {
  *  ]
  */
 
-export default function Dropdown({ items, children, nodes, containerPadding }) {
+export default function Dropdown({
+  items,
+  children,
+  nodes,
+  containerPadding,
+  handleClickParam,
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [childrenElements, setChildrenElements] = useState(null)
@@ -99,7 +105,11 @@ export default function Dropdown({ items, children, nodes, containerPadding }) {
             <Wrapper containerPadding={containerPadding}>
               {nodes.map(node => {
                 if (typeof node === 'function')
-                  return node(() => handleClick('notificacoes'))
+                  return node(() =>
+                    handleClickParam
+                      ? handleClick(handleClickParam)
+                      : handleClick()
+                  )
                 return node
               })}
             </Wrapper>
@@ -165,4 +175,10 @@ Dropdown.propTypes = {
   items: PropTypes.arrayOf(PropTypes.element).isRequired,
   children: PropTypes.element.isRequired,
   containerPadding: PropTypes.string,
+  handleClickParam: PropTypes.string,
+}
+
+Dropdown.defaultProps = {
+  containerPadding: '14px',
+  handleClickParam: null,
 }

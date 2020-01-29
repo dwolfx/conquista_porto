@@ -183,7 +183,11 @@ export default function HeaderNew() {
           <BreadCrumb crumbs={[...crumbs]} version="new" />
         </LeftBlock>
         <RightBlock>
-          <DropDown nodes={nodes} containerPadding="14px 14px 0 14px">
+          <DropDown
+            nodes={nodes}
+            containerPadding="14px 14px 0 14px"
+            handleClickParam="/notificacoes"
+          >
             <NotificationBell />
           </DropDown>
           <Avatar onClick={() => history.push('/perfil')} />

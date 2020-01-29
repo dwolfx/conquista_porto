@@ -33,7 +33,7 @@ HorizontalList.propTypes = {
   endItems: PropTypes.arrayOf(PropTypes.node),
   heightSize: PropTypes.oneOf(['large', 'dynamic']),
   noPadding: PropTypes.bool,
-  marginBetweenElements: PropTypes.number,
+  marginBetweenElements: PropTypes.string,
 }
 
 HorizontalList.defaultProps = {

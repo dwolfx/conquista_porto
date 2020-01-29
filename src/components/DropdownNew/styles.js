@@ -30,8 +30,7 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   flex-shrink: 0;
-  padding: ${props =>
-    props.containerPadding ? props.containerPadding : '14px'};
+  padding: ${props => props.containerPadding && props.containerPadding};
   box-shadow: ${props => props.theme.shadows.gray2};
   background-color: ${props => props.theme.colors.white};
 `
