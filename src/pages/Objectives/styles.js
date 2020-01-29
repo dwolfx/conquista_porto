@@ -17,6 +17,6 @@ export const RegistrationWrapper = styled.div`
   justify-content: center;
 `
 
-export const BoartTitle = styled(Text).attrs({ type: 'heading3' })`
+export const BoartTitle = styled(Text).attrs(() => ({ type: 'heading3' }))`
   padding: 30px 15px;
 `

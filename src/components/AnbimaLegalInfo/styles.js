@@ -15,7 +15,9 @@ export const TextWrapper = styled.div`
     padding: 0 0.5rem;
   }
 `
-export const Text = styled(TextComponent).attrs({ type: 'caption' })``
+export const Text = styled(TextComponent).attrs(() => ({
+  type: 'caption',
+}))``
 
 export const Link = styled.a`
   color: ${props => props.theme.colors.blue4};

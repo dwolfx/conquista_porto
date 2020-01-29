@@ -21,9 +21,9 @@ export const Icon = styled(ConquistaIcon)`
   margin: 0 7px;
 `
 
-export const StyledText = styled(Text).attrs({
+export const StyledText = styled(Text).attrs(() => ({
   type: 'button',
-})``
+}))``
 
 export const CrumbText = styled.small`
   ${defaultTextStyle}

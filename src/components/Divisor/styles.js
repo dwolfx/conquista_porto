@@ -14,7 +14,7 @@ export const StyledDivisor = styled.div`
 
   height: ${props => {
     if (props.vertical) {
-      return props.customSize ? props.customSize : '100%'
+      return props.customSize && props.customSize
     }
     return '0%'
   }};

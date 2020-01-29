@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { mobileItemsPropTypes } from 'components/HeaderNew/Mobile'
 
 import {
   Container,
@@ -10,7 +11,7 @@ import {
   ItemIcon,
   ItemText,
   Wrapper,
-  AlignToEndIcon,
+  ItemIconContainer,
 } from './styles'
 
 /**
@@ -75,9 +76,9 @@ export default function Dropdown({
           key={element.text}
           onClick={() => element.path && handleClick(element.path)}
         >
-          <AlignToEndIcon>
+          <ItemIconContainer>
             <ItemIcon name={element.icon} />
-          </AlignToEndIcon>
+          </ItemIconContainer>
           <ItemText>{element.text}</ItemText>
         </ItemWrapper>
       ))
@@ -147,14 +148,14 @@ export default function Dropdown({
                   }
                   onClick={() => item.path && handleClick(item.path)}
                 >
-                  <AlignToEndIcon>
+                  <ItemIconContainer>
                     <ItemIcon name={item.icon} />
-                  </AlignToEndIcon>
+                  </ItemIconContainer>
                   <ItemText>{item.text}</ItemText>
                   {item.children && (
-                    <AlignToEndIcon alignToEnd>
-                      <ItemIcon name="arrowright2" alignToEnd />
-                    </AlignToEndIcon>
+                    <ItemIconContainer alignToEnd>
+                      <ItemIcon name="arrowright2" />
+                    </ItemIconContainer>
                   )}
                 </ItemWrapper>
               ))}
@@ -173,7 +174,7 @@ export default function Dropdown({
 }
 
 Dropdown.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.element).isRequired,
+  items: mobileItemsPropTypes,
   children: PropTypes.element.isRequired,
   containerPadding: PropTypes.string,
   redirectPath: PropTypes.string,

@@ -159,9 +159,9 @@ export const LogoImg = styled.div`
   width: 75px;
 `
 
-export const InformationIcon = styled(IconExporter).attrs({
+export const InformationIcon = styled(IconExporter).attrs(() => ({
   name: 'information',
-})`
+}))`
   cursor: pointer;
   fill: ${props => props.theme.colors.blue4};
   height: 25px;
@@ -183,7 +183,7 @@ export const InvestButton = styled(ConquistaButton)`
   height: 40px;
 `
 
-export const LockIcon = styled(IconExporter).attrs({ name: 'lock' })`
+export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock' }))`
   fill: ${props => props.theme.colors.gray4};
   width: 28px;
 `

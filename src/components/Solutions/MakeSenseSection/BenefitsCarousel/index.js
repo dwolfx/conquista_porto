@@ -48,14 +48,16 @@ const BenefitsCarousel = ({ benefitsData }) => {
   )
 }
 
+export const propTypes = PropTypes.arrayOf(
+  PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    icon: PropTypes.string,
+  })
+)
+
 BenefitsCarousel.propTypes = {
-  benefitsData: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string,
-      icon: PropTypes.string,
-    })
-  ).isRequired,
+  benefitsData: propTypes.isRequired,
 }
 
 export default BenefitsCarousel

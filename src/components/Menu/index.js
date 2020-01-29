@@ -81,7 +81,7 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
 
 Menu.propTypes = {
   scrollFunc: PropTypes.func.isRequired,
-  ref1: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ref2: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ref3: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ref1: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  ref2: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  ref3: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
 }

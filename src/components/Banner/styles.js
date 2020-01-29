@@ -33,7 +33,9 @@ export const BannerWrapper = styled.div`
   }
 `
 
-export const BannerLabel = styled(Text).attrs({ type: 'captionUppercase' })`
+export const BannerLabel = styled(Text).attrs(() => ({
+  type: 'captionUppercase',
+}))`
   color: ${props => props.theme.colors.white};
 `
 

@@ -350,10 +350,7 @@ const InsuranceCard = () => {
   return formatResult(insertDivisor, sortArray)(result)
 }
 
-const formatResult = (func1, func2) =>
-  function(array) {
-    return func1(func2(array))
-  }
+const formatResult = (func1, func2) => array => func1(func2(array))
 
 const insertDivisor = array =>
   array

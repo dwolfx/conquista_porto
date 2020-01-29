@@ -341,10 +341,10 @@ export const ComplementaryInfo = styled.article`
   padding-bottom: 22px;
 `
 
-export const FundCategoryText = styled(TextComponent).attrs({
+export const FundCategoryText = styled(TextComponent).attrs(() => ({
   type: 'subheading',
   bold: true,
-})`
+}))`
   text-transform: uppercase;
   margin: 0 0 14px 0;
   text-align: center;

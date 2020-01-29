@@ -30,7 +30,7 @@ export const ButtonWrapper = styled.div`
   padding: 15px;
   border-top: 1px solid ${props => props.theme.colors.gray4};
 `
-export const CloseIcon = styled(ConquistaIcon).attrs({ name: 'close' })`
+export const CloseIcon = styled(ConquistaIcon).attrs(() => ({ name: 'close' }))`
   fill: ${props => props.theme.colors.gray5};
   width: 24px;
   height: 24px;

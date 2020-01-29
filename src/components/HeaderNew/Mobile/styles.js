@@ -64,9 +64,9 @@ export const Header = styled.div`
   }
 `
 
-export const ConquistaBeta = styled.img.attrs({
+export const ConquistaBeta = styled.img.attrs(() => ({
   src: ConquistaBetaIcon,
-})`
+}))`
   margin-top: 20px;
   cursor: pointer;
 
@@ -89,9 +89,9 @@ export const ResponsiveMenu = styled.div`
   }
 `
 
-export const Icon = styled(IconConquista).attrs({
-  name: props => props.name,
-})`
+export const Icon = styled(IconConquista).attrs(props => ({
+  name: props.name,
+}))`
   width: 21px;
   height: 21px;
   fill: ${props => props.color && props.theme.colors[props.color]};

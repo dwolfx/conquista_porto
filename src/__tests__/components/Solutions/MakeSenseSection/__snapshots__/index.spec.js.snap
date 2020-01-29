@@ -69,7 +69,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
   </div>
   <h2
     className="sc-jTzLTM iQLaPB"
-  />
+  >
+    
+  </h2>
   <div
     className="slick-slider sc-bxivhb bBNSdY slick-initialized"
   >

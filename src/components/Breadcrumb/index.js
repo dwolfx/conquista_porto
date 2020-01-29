@@ -52,9 +52,10 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
 
 Breadcrumb.defaultProps = {
   crumbs: [],
+  version: '',
 }
 
 Breadcrumb.propTypes = {
-  crumbs: PropTypes.array,
+  crumbs: PropTypes.arrayOf(PropTypes.string),
   version: PropTypes.string,
 }
