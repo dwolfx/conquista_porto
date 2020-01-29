@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
+import { formatMoneyDecimal } from 'helpers'
 
 import TopBar from './TopBar'
 import QuestionFlow from './QuestionFlow'
@@ -9,11 +10,6 @@ import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
 export const WizardFlow = ({ data }) => {
   const [currentStep, setStepIndex] = useState(0)
-  const increment = () => {
-    setStepIndex(currentStep + 1)
-    setIsActive(isActive > 3)
-  }
-  const decrement = () => setStepIndex(currentStep - 1)
   const [formData, setFormData] = useState({})
   const [isActive, setIsActive] = useState(false)
   const computedState = {
@@ -21,12 +17,23 @@ export const WizardFlow = ({ data }) => {
     isLastStep: currentStep === data.length - 1,
   }
   const { isFirstStep, isLastStep } = computedState
+  const increment = () => setStepIndex(currentStep + 1)
+  const decrement = () => setStepIndex(currentStep - 1)
+
+  useEffect(() => {
+    setIsActive(!!formData[data[currentStep].name])
+  }, [formData, data, currentStep])
 
   const postFlow = () => {}
 
+  const moneyMask = event => {
+    const strippedValue = event.target.value.replace(/\D/g, '')
+    event.target.value = formatMoneyDecimal(strippedValue) // eslint-disable-line no-param-reassign
+  }
+
   const handleSingleValue = event => {
+    if (data[currentStep].type === 'number') moneyMask(event)
     setFormData({ ...formData, [event.target.name]: event.target.value })
-    setIsActive(event.target.value.length > 3)
   }
 
   const WizardContainer = () => (
