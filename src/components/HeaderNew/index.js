@@ -186,7 +186,7 @@ export default function HeaderNew() {
           <DropDown
             nodes={nodes}
             containerPadding="14px 14px 0 14px"
-            handleClickParam="/notificacoes"
+            redirectPath="/notificacoes"
           >
             <NotificationBell />
           </DropDown>

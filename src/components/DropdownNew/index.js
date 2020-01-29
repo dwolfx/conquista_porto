@@ -50,7 +50,7 @@ export default function Dropdown({
   children,
   nodes,
   containerPadding,
-  handleClickParam,
+  redirectPath,
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
@@ -85,8 +85,11 @@ export default function Dropdown({
   }
 
   function handleClick(path) {
-    handleDropDown(false)
-    return history.push(path)
+    if (path) {
+      handleDropDown(false)
+      history.push(path)
+    }
+    return handleDropDown(false)
   }
 
   if (nodes) {
@@ -106,9 +109,7 @@ export default function Dropdown({
               {nodes.map(node => {
                 if (typeof node === 'function')
                   return node(() =>
-                    handleClickParam
-                      ? handleClick(handleClickParam)
-                      : handleClick()
+                    redirectPath ? handleClick(redirectPath) : handleClick()
                   )
                 return node
               })}
@@ -175,10 +176,10 @@ Dropdown.propTypes = {
   items: PropTypes.arrayOf(PropTypes.element).isRequired,
   children: PropTypes.element.isRequired,
   containerPadding: PropTypes.string,
-  handleClickParam: PropTypes.string,
+  redirectPath: PropTypes.string,
 }
 
 Dropdown.defaultProps = {
   containerPadding: '14px',
-  handleClickParam: null,
+  redirectPath: null,
 }
