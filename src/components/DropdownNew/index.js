@@ -10,6 +10,7 @@ import {
   ItemIcon,
   ItemText,
   Wrapper,
+  AlignToEndIcon,
 } from './styles'
 
 /**
@@ -44,7 +45,13 @@ import {
  *  ]
  */
 
-export default function Dropdown({ items, children }) {
+export default function Dropdown({
+  items,
+  children,
+  nodes,
+  containerPadding,
+  redirectPath,
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [childrenElements, setChildrenElements] = useState(null)
@@ -68,7 +75,9 @@ export default function Dropdown({ items, children }) {
           key={element.text}
           onClick={() => element.path && handleClick(element.path)}
         >
-          <ItemIcon name={element.icon} />
+          <AlignToEndIcon>
+            <ItemIcon name={element.icon} />
+          </AlignToEndIcon>
           <ItemText>{element.text}</ItemText>
         </ItemWrapper>
       ))
@@ -76,50 +85,101 @@ export default function Dropdown({ items, children }) {
   }
 
   function handleClick(path) {
-    handleDropDown(false)
-    return history.push(path)
+    if (path) {
+      handleDropDown(false)
+      history.push(path)
+    }
+    return handleDropDown(false)
   }
 
-  return (
-    <>
-      <RelativeHolder>
-        <div
-          role="button"
-          onClick={() => {
-            handleDropDown(true)
-          }}
-        >
-          {children}
-        </div>
-        <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
-          <Wrapper>
-            {items.map(item => (
-              <ItemWrapper
-                key={item.text}
-                onMouseEnter={() =>
-                  handleMountChildren(item.children && item.children)
-                }
-                onClick={() => item.path && handleClick(item.path)}
-              >
-                <ItemIcon name={item.icon} />
-                <ItemText>{item.text}</ItemText>
-                {item.children && <ItemIcon name="arrowright2" alignToEnd />}
-              </ItemWrapper>
-            ))}
-          </Wrapper>
-          {isHovering && <Wrapper>{childrenElements}</Wrapper>}
-        </Container>
-      </RelativeHolder>
-      <Backdrop
-        isOpen={isOpen}
-        id="backdrop"
-        onClick={() => handleDropDown(false)}
-      />
-    </>
-  )
+  if (nodes) {
+    return (
+      <>
+        <RelativeHolder>
+          <div
+            role="button"
+            onClick={() => {
+              handleDropDown(true)
+            }}
+          >
+            {children}
+          </div>
+          <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
+            <Wrapper containerPadding={containerPadding}>
+              {nodes.map(node => {
+                if (typeof node === 'function')
+                  return node(() =>
+                    redirectPath ? handleClick(redirectPath) : handleClick()
+                  )
+                return node
+              })}
+            </Wrapper>
+          </Container>
+        </RelativeHolder>
+        <Backdrop
+          isOpen={isOpen}
+          id="backdrop"
+          onClick={() => handleDropDown(false)}
+        />
+      </>
+    )
+  }
+
+  if (items) {
+    return (
+      <>
+        <RelativeHolder>
+          <div
+            role="button"
+            onClick={() => {
+              handleDropDown(true)
+            }}
+          >
+            {children}
+          </div>
+          <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
+            <Wrapper containerPadding={containerPadding}>
+              {items.map(item => (
+                <ItemWrapper
+                  key={item.text}
+                  onMouseEnter={() =>
+                    handleMountChildren(item.children && item.children)
+                  }
+                  onClick={() => item.path && handleClick(item.path)}
+                >
+                  <AlignToEndIcon>
+                    <ItemIcon name={item.icon} />
+                  </AlignToEndIcon>
+                  <ItemText>{item.text}</ItemText>
+                  {item.children && (
+                    <AlignToEndIcon alignToEnd>
+                      <ItemIcon name="arrowright2" alignToEnd />
+                    </AlignToEndIcon>
+                  )}
+                </ItemWrapper>
+              ))}
+            </Wrapper>
+            {isHovering && <Wrapper>{childrenElements}</Wrapper>}
+          </Container>
+        </RelativeHolder>
+        <Backdrop
+          isOpen={isOpen}
+          id="backdrop"
+          onClick={() => handleDropDown(false)}
+        />
+      </>
+    )
+  }
 }
 
 Dropdown.propTypes = {
   items: PropTypes.arrayOf(PropTypes.element).isRequired,
   children: PropTypes.element.isRequired,
+  containerPadding: PropTypes.string,
+  redirectPath: PropTypes.string,
+}
+
+Dropdown.defaultProps = {
+  containerPadding: '14px',
+  redirectPath: null,
 }

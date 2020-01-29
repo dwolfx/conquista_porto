@@ -21,7 +21,7 @@ import {
   Icon,
 } from './styles'
 
-export default function Mobile({ items, setIsOpen }) {
+export default function Mobile({ items, setIsOpen, totalPoints }) {
   const history = useHistory()
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
@@ -62,7 +62,7 @@ export default function Mobile({ items, setIsOpen }) {
               {
                 type: 'caption',
                 color: 'blue4',
-                content: '4.200 pontos',
+                content: `${totalPoints} pontos`,
               },
             ]}
             path="/perfil"
@@ -162,6 +162,7 @@ Mobile.propTypes = {
         })
       ),
     })
-  ),
-  setIsOpen: PropTypes.func,
+  ).isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  totalPoints: PropTypes.string.isRequired,
 }

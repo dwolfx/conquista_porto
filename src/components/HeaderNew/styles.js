@@ -3,6 +3,8 @@ import { Container } from 'styled-bootstrap-grid'
 
 import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
 import ConquistaIcon from 'components/IconExporter'
+import NotificationBellComponent from 'components/NotificationBell'
+import AvatarComponent from 'components/Avatar'
 import Tag from 'components/Tag'
 
 export const BgWrapper = styled.div`
@@ -35,7 +37,7 @@ export const RightBlock = styled.div`
   align-items: center;
   justify-content: flex-end;
 
-  && div:not(:last-child) {
+  && > div:not(:last-child) {
     margin-right: 14px;
   }
 `
@@ -64,6 +66,7 @@ export const Profile = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  cursor: pointer;
 
   svg {
     align-self: center;
@@ -94,5 +97,13 @@ export const ResponsiveMenu = styled.div`
 `
 
 export const MenuTag = styled(Tag)`
+  cursor: pointer;
+`
+
+export const NotificationBell = styled(NotificationBellComponent)`
+  cursor: pointer;
+`
+
+export const Avatar = styled(AvatarComponent)`
   cursor: pointer;
 `
