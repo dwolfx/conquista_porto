@@ -9,15 +9,7 @@ import {
   InputWrapper,
 } from './styles'
 
-const NewInput = ({
-  prefix,
-  suffix,
-  label,
-  questionType,
-  width,
-  error,
-  ...rest
-}) => {
+const NewInput = ({ prefix, suffix, label, width, error, ...rest }) => {
   const inputRef = useRef()
   return (
     <InputGroupWrapper>
@@ -30,7 +22,7 @@ const NewInput = ({
         error={error}
       >
         {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-        <Input ref={inputRef} questionType={questionType} {...rest} />
+        <Input ref={inputRef} {...rest} />
         {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
       </InputWrapper>
     </InputGroupWrapper>
@@ -41,7 +33,6 @@ NewInput.propTypes = {
   label: PropTypes.string,
   prefix: PropTypes.any,
   suffix: PropTypes.any,
-  questionType: PropTypes.string,
   width: PropTypes.string,
   error: PropTypes.bool,
 }
@@ -50,7 +41,6 @@ NewInput.defaultProps = {
   label: '',
   prefix: false,
   suffix: false,
-  questionType: '',
   width: '100',
   error: false,
 }
