@@ -53,6 +53,7 @@ Text.propTypes = {
     'yellow2',
     'magenta1',
     'magenta2',
+    'unset',
   ]),
 }
 

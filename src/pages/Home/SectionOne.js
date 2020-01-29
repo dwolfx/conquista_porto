@@ -357,7 +357,11 @@ const formatResult = (func1, func2) =>
 
 const insertDivisor = array =>
   array
-    .map((x, i) => (i < array.length - 1 ? [x, <Divisor />] : x))
+    .map((x, i) =>
+      i < array.length - 1
+        ? [x, <Divisor key={`divisor-${Math.random()}`} />]
+        : x
+    )
     .flatMap(x => x)
 
 const sortArray = array =>
