@@ -59,7 +59,9 @@ const itemDetail = {
     linkEmpty: '/cartao-credito',
     subTitle: product => (
       <CreditCardItemRow>
-        <Text type="captionUppercase">{`FATURA ${product.Fatura.Status}`}</Text>
+        <Text type="captionUppercase">{`FATURA ${
+          product.Fatura.Status ? product.Fatura.Status : ''
+        }`}</Text>
       </CreditCardItemRow>
     ),
     bottomLine(product, history) {
