@@ -296,7 +296,9 @@ export default function SectionThree({ points }) {
               </Text>
               {points && <Button color="secondary">Resgatar</Button>}
             </PointsInfo>
-            {points && points.detalheExtratoOptemaisTypes.length > 0 ? (
+            {points &&
+            points.detalheExtratoOptemaisTypes &&
+            points.detalheExtratoOptemaisTypes.length > 0 ? (
               <>
                 <PointsList>{renderPointsHorizontalList()}</PointsList>
               </>

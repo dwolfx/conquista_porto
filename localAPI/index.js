@@ -19,13 +19,12 @@ const social = '13213'
 app.use(bodyParser.json())
 app.use(cors())
 
-app.post('/localAPI-auth/login', (req, res) => {
+app.post('/api/auth/login', (req, res) => {
   request
     .post({
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Hint: 'login_cliente',
-        'X-USER-ID': '00779903072',
         Accept: '*/*',
       },
       url: `${host}${pathLogin}`,
@@ -34,7 +33,7 @@ app.post('/localAPI-auth/login', (req, res) => {
     .pipe(res)
 })
 
-app.post('/localAPI-auth/logout', (req, res) => {
+app.post('/api/auth/logout', (req, res) => {
   request
     .post({
       headers: {

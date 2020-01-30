@@ -7,13 +7,13 @@ import Input from 'components/Inputs/Text'
 import CPFInput from 'components/Inputs/CPFInput'
 import { AuthRequestLogin } from 'store/modules/Auth/action'
 import { useDispatch, useSelector } from 'react-redux'
-import { handleGiwRedirect } from 'helpers'
+// import { handleGiwRedirect } from 'helpers'
 import { FormWrapper } from './styles'
 
 export default function Login() {
-  if (process.env.NODE_ENV !== 'development') {
-    handleGiwRedirect('/portal/site/portaldecliente/template.LOGOUT/')
-  }
+  // if (process.env.REACT_APP_ENV !== 'development') {
+  // handleGiwRedirect('/portal/site/portaldecliente/template.LOGOUT/')
+  // }
 
   const error = useSelector(state => state.auth.error)
   const dispatch = useDispatch()
@@ -23,8 +23,8 @@ export default function Login() {
     password: 'senha123',
   })
 
-  const handleInputOnChange = key => value => {
-    setCredentials({ ...credentials, [key]: value })
+  const handleInputOnChange = key => event => {
+    setCredentials({ ...credentials, [key]: event.target.value })
   }
 
   const handleSubmit = event => {

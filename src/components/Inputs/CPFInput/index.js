@@ -10,21 +10,16 @@ const getStrippedValue = value => value.replace(/\D/g, '')
 
 const applyCPFMask = inputValue => {
   const strippedValue = getStrippedValue(inputValue)
-  let newValue = strippedValue
 
   // apply mask to cpf field (gradual mask, applying as the user enters the digits)
   if (strippedValue.length > 9) {
-    newValue = strippedValue.replace(
-      /(\d{3})(\d{3})(\d{3})(\d{1})/g,
-      '$1.$2.$3-$4'
-    )
-  } else if (strippedValue.length > 6) {
-    newValue = strippedValue.replace(/(\d{3})(\d{3})(\d{1})/g, '$1.$2.$3')
-  } else {
-    newValue = strippedValue.replace(/(\d{3})(\d{1})/g, '$1.$2')
+    return strippedValue.replace(/(\d{3})(\d{3})(\d{3})(\d{1})/g, '$1.$2.$3-$4')
+  }
+  if (strippedValue.length > 6) {
+    return strippedValue.replace(/(\d{3})(\d{3})(\d{1})/g, '$1.$2.$3')
   }
 
-  return newValue
+  return strippedValue.replace(/(\d{3})(\d{1})/g, '$1.$2')
 }
 
 const CPFInput = ({ value, onChange, ...props }) => {
