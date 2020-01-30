@@ -16,6 +16,7 @@ import tripInsurance from './TripInsurance/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
 import notifications from './Notifications/sagas'
 import auth from './Auth/sagas'
+import objective from './Objective/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -35,5 +36,6 @@ export default function* rootSaga() {
     vehicleFinancing,
     notifications,
     auth,
+    objective,
   ])
 }

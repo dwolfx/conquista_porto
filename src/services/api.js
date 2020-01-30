@@ -1,23 +1,26 @@
 import axios from 'axios'
 import { baseURL, responseInterceptor } from './apiConfig'
 
-export const axiosInstance = axios.create({
-  baseURL,
-  headers: {
-    'content-type': 'application/json',
-  },
-})
+export const axiosInstance = (url = baseURL) =>
+  axios.create({
+    baseURL: url,
+    headers: {
+      'content-type': 'application/json',
+    },
+  })
 
-axiosInstance.interceptors.response.use(responseInterceptor)
+axiosInstance().interceptors.response.use(responseInterceptor)
 
-export const get = (path, params) => axiosInstance(path, params)
+export const get = (path, params, url) => axiosInstance(url)(path, params)
 
-export const post = (path, data) =>
-  axiosInstance(path, { method: 'POST', data })
+export const post = (path, data, url) =>
+  axiosInstance(url)(path, { method: 'POST', data })
 
-export const put = (path, data) => axiosInstance(path, { method: 'PUT', data })
+export const put = (path, data, url) =>
+  axiosInstance(url)(path, { method: 'PUT', data })
 
-export const patch = (path, data) =>
-  axiosInstance(path, { method: 'PATCH', data })
+export const patch = (path, data, url) =>
+  axiosInstance(url)(path, { method: 'PATCH', data })
 
-export const remove = path => axiosInstance(path, { method: 'DELETE' })
+export const remove = (path, url) =>
+  axiosInstance(url)(path, { method: 'DELETE' })

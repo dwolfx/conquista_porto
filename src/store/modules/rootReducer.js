@@ -16,6 +16,7 @@ import tripInsurance from './TripInsurance/reducer'
 import points from './Points/reducer'
 import notifications from './Notifications/reducer'
 import auth from './Auth/reducer'
+import objective from './Objective/reducer'
 
 export default combineReducers({
   bankData,
@@ -34,4 +35,5 @@ export default combineReducers({
   notifications,
   points,
   auth,
+  objective,
 })

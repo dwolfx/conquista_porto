@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 import { formatMoneyDecimal, formatDateMask } from 'helpers'
-
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import TopBar from './TopBar'
 import QuestionFlow from './QuestionFlow'
 
 import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
 export const WizardFlow = ({ data }) => {
+  const dispatch = useDispatch()
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState({})
   const [isActive, setIsActive] = useState(false)
@@ -24,7 +26,8 @@ export const WizardFlow = ({ data }) => {
     setIsActive(!!formData[data[currentStep].name])
   }, [formData, data, currentStep])
 
-  const postFlow = () => {}
+  const postFlow = () =>
+    dispatch(PostObjectiveDataRequest(JSON.stringify(formData)))
 
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
