@@ -51,6 +51,7 @@ import useFetchConsortiumVehicle from 'hooks/ConsortiumVehicle/useFetchConsortiu
 import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsortiumBuilding'
 import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
+import useFetchPosition from 'hooks/Investments/useFetchPosition'
 
 import useAuth from './auth'
 
@@ -111,6 +112,7 @@ export default function Routes({ ...props }) {
     consortiumBuildingData,
     consortiumVehicleData,
     lifeInsuranceData,
+    positionData,
   } = useSelector(state => ({
     creditCardData: state.creditCard.data,
     tripInsuranceData: state.tripInsurance.data,
@@ -118,6 +120,7 @@ export default function Routes({ ...props }) {
     consortiumBuildingData: state.consortiumBuilding.data,
     consortiumVehicleData: state.consortiumVehicle.data,
     lifeInsuranceData: state.lifeInsurance.data,
+    positionData: state.investmentPosition.data,
   }))
 
   const isAuth = useAuth()
@@ -170,7 +173,13 @@ export default function Routes({ ...props }) {
         data={lifeInsuranceData}
         hook={useFetchLifeInsurance}
       />
-      <DefaultRoute path="/investimentos" exact component={Investimentos} />
+      <DefaultRoute
+        path="/investimentos"
+        exact
+        component={Investimentos}
+        data={positionData}
+        hook={useFetchPosition}
+      />
 
       <DefaultRoute
         path="/cartao-credito/visualizar"

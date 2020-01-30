@@ -194,12 +194,14 @@ export default function HeaderNew() {
           <Profile onClick={() => history.push('/perfil')}>
             <div>
               <Name>{bankData && bankData.titular}</Name>
-              <Points>
-                {points &&
-                  `${Intl.NumberFormat().format(
+              {points && (
+                <Points>
+                  {Intl.NumberFormat().format(
                     calculatePointsAmountBalance(points)
-                  )} pontos`}
-              </Points>
+                  )}{' '}
+                  pontos
+                </Points>
+              )}
             </div>
           </Profile>
           <Divisor vertical customSize="35px" />

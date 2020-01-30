@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
-import { formatCpf } from 'helpers'
 import Avatar from 'assets/images/julia.jpg'
+import { formatCpf } from 'helpers'
+import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
 import {
   Row,
@@ -18,17 +19,19 @@ import {
 
 const AccountInfos = ({ id }) => {
   const reduxData = useSelector(state => state.bankData.data)
-  const [bankInfo, setBankInfo] = useState({})
+  const [bankInfo, setBankInfo] = useState(null)
+
+  useFetchBankData()
 
   useEffect(() => {
-    if (reduxData.length > 0) {
-      setBankInfo({ ...reduxData[0].dadosContaPortoSeguro })
+    if (reduxData) {
+      setBankInfo(reduxData.DadosContaPortoSeguro || null)
     }
   }, [reduxData])
 
   return (
     <>
-      {bankInfo && bankInfo.cpf && (
+      {bankInfo && (
         <CardWrapper id={id}>
           <PhotoWrapper>
             <img src={Avatar} alt="user avatar" />
