@@ -13,6 +13,16 @@ const isLastCrumb = length => currentIndex => length === currentIndex + 1
 
 const getCrumbTag = isLast => (isLast ? CrumbCurrentPage : CrumbText)
 
+const crumbList = {
+  'cartao-credito': 'Cartão de Crédito',
+  'seguro-viagem': 'Seguro de viagem',
+  'financiamento-veiculo': 'Financiamento de veículo',
+  'consorcio-imovel': 'Consórcio de imóvel',
+  'consorcio-veiculo': 'Consórcio de veículo',
+  'seguro-vida': 'Seguro de vida',
+  'previdencia-privada': 'Previdência privada',
+}
+
 export default function Breadcrumb({ crumbs, version, ...props }) {
   if (version === 'new') {
     return (
@@ -22,7 +32,9 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
           return (
             <React.Fragment key={`crumbKey-${index}`}>
               {typeof crumb === 'string' ? (
-                <StyledText>{crumb}</StyledText>
+                <StyledText>
+                  {crumb in crumbList ? crumbList[crumb] : crumb}
+                </StyledText>
               ) : (
                 crumb
               )}

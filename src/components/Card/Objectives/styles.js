@@ -33,5 +33,6 @@ export const OfferTitle = styled(Text).attrs(() => ({
 }))`
   color: ${props => props.theme.colors.gray5};
   flex: 1;
-  margin-right: 18px;
+  padding-right: 10px;
+  margin-right: 20px;
 `

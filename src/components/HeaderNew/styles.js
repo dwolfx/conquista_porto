@@ -81,6 +81,7 @@ export const Name = styled.p`
 export const Points = styled.p`
   ${props => props.theme.fontTypes.caption};
   color: ${props => props.theme.colors.blue4};
+  margin-top: 4px;
 `
 export const ResponsiveMenu = styled.div`
   width: 28px;
