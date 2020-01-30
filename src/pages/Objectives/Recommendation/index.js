@@ -16,7 +16,7 @@ const Recommendation = () => {
 
   const additionalProducts = {
     travelSecurity: false,
-    lifeSecurity: false,
+    lifeSecurity: true,
     creditCard: true,
   }
 
