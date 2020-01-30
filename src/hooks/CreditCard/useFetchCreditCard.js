@@ -12,5 +12,5 @@ export default function useFetchCreditCard() {
     if (!data) {
       dispatch(GetCreditCardDataRequest(auth.cpf, auth.accessToken))
     }
-  }, [dispatch, data])
+  }, [dispatch, data, auth])
 }
