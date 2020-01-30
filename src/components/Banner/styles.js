@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Row as RowSBG } from 'styled-bootstrap-grid'
 
 import Text from 'components/Text'
 
@@ -40,3 +41,7 @@ export const BannerLabel = styled(Text).attrs(() => ({
 `
 
 export const BannerContent = styled.div``
+
+export const Row = styled(RowSBG)`
+  justify-content: ${props => props.justify};
+`

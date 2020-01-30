@@ -6,7 +6,6 @@ import Button from 'components/Button'
 import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
-import Icon from 'components/IconExporter'
 import HorizontalList from 'components/HorizontalList'
 import { rgba } from 'helpers'
 
@@ -226,11 +225,6 @@ export const EmptyText = styled(Text)`
   width: 300px;
 `
 
-export const EmptyChartText = styled(Text)`
-  color: ${props => props.theme.colors.gray5};
-  text-align: center;
-`
-
 export const EmptyButton = styled(Button)`
   padding: 0;
   margin-top: 14px;
@@ -351,24 +345,6 @@ export const OverflowCard = styled.div`
 export const BannerButton = styled(Button)`
   margin-top: 20px;
   min-width: unset;
-`
-export const CloseButton = styled.div`
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.theme.colors.gray2};
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  right: 28px;
-  top: -18px;
-  cursor: pointer;
-`
-export const CloseIcon = styled(Icon)`
-  width: 16px;
-  height: 16px;
 `
 
 export const ContainerBox = styled.div`

@@ -19,6 +19,7 @@
     "localAPI": "node localAPI"
   },
   "dependencies": {
+    "@nivo/bar": "^0.61.1",
     "@nivo/line": "^0.59.3",
     "@nivo/pie": "^0.59.1",
     "@types/jest": "24.0.20",

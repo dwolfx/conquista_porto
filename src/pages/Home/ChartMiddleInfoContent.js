@@ -7,17 +7,19 @@ import { useHistory } from 'react-router-dom'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 
-import { EmptyBody, EmptyChartText, PieItemMargin } from './styles'
+import { EmptyBody, PieItemMargin } from './styles'
 
 const ChartEmptyState = ({ value }) => {
   const history = useHistory()
   return (
     <EmptyBody>
-      <EmptyChartText type="captionUppercase">Total investido</EmptyChartText>
+      <Text color="gray5" type="captionUppercase">
+        Total investido
+      </Text>
       <PieItemMargin>
-        <EmptyChartText type="heading4" bold>
+        <Text color="gray5" type="heading4" bold>
           {formatMoney(value)}
-        </EmptyChartText>
+        </Text>
       </PieItemMargin>
       <ButtonLink onClick={() => history.push('/investimentos/visualizar')}>
         Gerenciar
@@ -32,9 +34,9 @@ const ChartMiddleInfoContent = ({ pieChartInfo }) => {
     <EmptyBody>
       <Text type="heading4">{`${pieChartInfo.percent}%`}</Text>
       <PieItemMargin>
-        <EmptyChartText type="captionUppercase">
+        <Text color="gray5" type="captionUppercase">
           {pieChartInfo.label}
-        </EmptyChartText>
+        </Text>
       </PieItemMargin>
       <Text type="heading4" bold>
         {formatMoney(pieChartInfo.value)}

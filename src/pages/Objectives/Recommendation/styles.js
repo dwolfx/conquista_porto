@@ -3,13 +3,23 @@ import styled from 'styled-components'
 import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
-import { rgba } from 'helpers'
-import { Row } from 'styled-bootstrap-grid'
+import Text from 'components/Text'
+import { Row, Col } from 'styled-bootstrap-grid'
+
+export const SpacedText = styled(Text)`
+  display: flex;
+  margin: 7px 0;
+
+  svg {
+    margin-left: 14px;
+  }
+`
 
 export const GridRecommendation = styled.div``
 
 export const GridRow = styled(Row)`
   margin-bottom: 42px;
+  height: ${props => props.height};
 `
 export const SectionsRecommendation = styled.div`
   background-color: ${props => props.theme.colors.gray1};
@@ -54,18 +64,6 @@ export const SliderImageBox = styled.div`
   }
 `
 
-export const SliderCaption = styled.div`
-  bottom: 0;
-  background-color: ${props => rgba(props.theme.colors.gray6, 0.63)};
-  padding: 10px 14px;
-  position: absolute;
-  width: 100%;
-
-  p {
-    color: ${props => props.theme.colors.white};
-  }
-`
-
 export const SliderTextBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -79,4 +77,57 @@ export const SliderTextBox = styled.div`
 
 export const BannerTips = styled(Banner)`
   color: ${props => props.theme.colors.white};
+`
+
+export const PieChartContainer = styled.div`
+  height: 100%;
+  width: 100%;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 305px;
+    width: 236px;
+    margin: 0 auto;
+  }
+`
+
+export const PieChartChildrenContainer = styled.div`
+  text-align: center;
+`
+
+export const SectionRow = styled(Row)`
+  height: 100%;
+  padding: ${props => props.padding};
+`
+
+export const SectionCol = styled(Col)`
+  height: 100%;
+  display: ${props => props.display};
+  justify-content: center;
+  flex-direction: column;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-bottom: 14px;
+  }
+`
+
+export const SuggestedProduct = styled.div`
+  width: 100%;
+  &:nth-child(2) {
+    border-top: 1px solid;
+    border-color: ${props => props.theme.colors.gray2};
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+`
+
+export const CardContainer = styled.div`
+  margin: 28px 14px;
+`
+
+export const InfoContent = styled.div`
+  margin: 22px 0;
+`
+
+export const ButtonContainer = styled.div`
+  margin-top: 14px;
 `
