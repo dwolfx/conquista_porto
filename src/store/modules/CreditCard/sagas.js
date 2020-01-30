@@ -4,11 +4,13 @@ import { get } from 'services/api'
 import { Types } from './types'
 import { GetCreditCardDataSuccess, GetCreditCardDataFailure } from './action'
 
-function* getData() {
+function* getData({ cpf, token }) {
   try {
     const response = yield call(
       get,
-      '/cartoes?cpfCnpj=32036703801&codigoCanal=0'
+      `/cartoes?cpfCnpj=${cpf}&codigoCanal=0`,
+      null,
+      token
     )
     yield put(GetCreditCardDataSuccess(response.data))
   } catch (err) {

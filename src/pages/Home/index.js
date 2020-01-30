@@ -32,7 +32,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(GetBankDataRequest(auth.cpf, auth.accessToken))
-    dispatch(GetCreditCardDataRequest())
+    dispatch(GetCreditCardDataRequest(auth.cpf, auth.accessToken))
     dispatch(GetConsolidatedPositionDataRequest(auth.cpf, auth.accessToken))
     dispatch(GetVehicleFinancingDataRequest(auth.cpf, auth.accessToken))
     dispatch(GetConsortiumBuildingDataRequest(auth.cpf, auth.accessToken))

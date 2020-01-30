@@ -1,9 +1,10 @@
 import { Types } from './types'
 
-export function GetCreditCardDataRequest(payload) {
+export function GetCreditCardDataRequest(cpf, token) {
   return {
     type: Types.GET_REQUEST,
-    payload,
+    cpf,
+    token,
   }
 }
 
