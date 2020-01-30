@@ -283,20 +283,22 @@ export default function SectionThree({ points }) {
             headerTitle="Pontos"
             footer={renderPointsFooter()}
           >
-            <PointsInfo>
-              <Text type="headline">Saldo atual</Text>
-              <Text type="headline" bold>
-                {points
-                  ? Intl.NumberFormat().format(
-                      calculatePointsAmountBalance(
-                        points.detalheExtratoOptemaisTypes
+            {points && points.detalheExtratoOptemaisTypes && (
+              <PointsInfo>
+                <Text type="headline">Saldo atual</Text>
+                <Text type="headline" bold>
+                  {points
+                    ? Intl.NumberFormat().format(
+                        calculatePointsAmountBalance(
+                          points.detalheExtratoOptemaisTypes
+                        )
                       )
-                    )
-                  : 0}{' '}
-                pontos
-              </Text>
-              {points && <Button color="secondary">Resgatar</Button>}
-            </PointsInfo>
+                    : 0}{' '}
+                  pontos
+                </Text>
+                {points && <Button color="secondary">Resgatar</Button>}
+              </PointsInfo>
+            )}
             {points &&
             points.detalheExtratoOptemaisTypes &&
             points.detalheExtratoOptemaisTypes.length > 0 ? (
