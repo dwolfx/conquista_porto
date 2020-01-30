@@ -196,10 +196,9 @@ export default function HeaderNew() {
               <Name>{bankData && bankData.titular}</Name>
               <Points>
                 {points &&
-                  Intl.NumberFormat().format(
+                  `${Intl.NumberFormat().format(
                     calculatePointsAmountBalance(points)
-                  )}{' '}
-                pontos
+                  )} pontos`}
               </Points>
             </div>
           </Profile>

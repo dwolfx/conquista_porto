@@ -70,3 +70,11 @@ export const ItemText = styled(TextComponent).attrs({
 export const Button = styled(ButtonComponent)`
   width: 100%;
 `
+
+export const NotFoundContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
