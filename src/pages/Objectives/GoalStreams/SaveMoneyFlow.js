@@ -5,6 +5,7 @@ import Header from 'pages/Objectives/GoalStreams/Components/Header'
 import { Container } from 'pages/Objectives/GoalStreams/Components/styles'
 
 const SaveMoneyFlow = () => {
+  const goalType = '7'
   const data = [
     {
       question:
@@ -44,7 +45,7 @@ const SaveMoneyFlow = () => {
   return (
     <Container>
       <Header />
-      <WizardFlow data={data} />
+      <WizardFlow data={data} objective={goalType} />
     </Container>
   )
 }

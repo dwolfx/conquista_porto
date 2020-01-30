@@ -5,6 +5,7 @@ import Header from 'pages/Objectives/GoalStreams/Components/Header'
 import { Container } from 'pages/Objectives/GoalStreams/Components/styles'
 
 const EventFlow = () => {
+  const goalType = '5'
   const data = [
     {
       question:
@@ -44,7 +45,7 @@ const EventFlow = () => {
   return (
     <Container>
       <Header />
-      <WizardFlow data={data} />
+      <WizardFlow data={data} objective={goalType} />
     </Container>
   )
 }

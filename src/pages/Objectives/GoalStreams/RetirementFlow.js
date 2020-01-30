@@ -5,6 +5,7 @@ import Header from 'pages/Objectives/GoalStreams/Components/Header'
 import { Container } from 'pages/Objectives/GoalStreams/Components/styles'
 
 const RetirementFlow = () => {
+  const goalType = '2'
   const data = [
     {
       question:
@@ -46,15 +47,15 @@ const RetirementFlow = () => {
       name: 'wouldLikeToReceiveMonthlyIncome',
       type: 'bool',
       options: [
-        { name: 'Sim', value: 'Sim' },
-        { name: 'Não', value: 'Não' },
+        { name: 'Sim', value: 'true' },
+        { name: 'Não', value: 'false' },
       ],
     },
   ]
   return (
     <Container>
       <Header />
-      <WizardFlow data={data} />
+      <WizardFlow data={data} objective={goalType} />
     </Container>
   )
 }

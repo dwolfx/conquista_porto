@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 import { formatMoneyDecimal, formatDateMask } from 'helpers'
-
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import TopBar from './TopBar'
 import QuestionFlow from './QuestionFlow'
 
 import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
-export const WizardFlow = ({ data }) => {
+export const WizardFlow = ({ data, objective }) => {
+  const dispatch = useDispatch()
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState({})
   const [isActive, setIsActive] = useState(false)
@@ -24,7 +26,7 @@ export const WizardFlow = ({ data }) => {
     setIsActive(!!formData[data[currentStep].name])
   }, [formData, data, currentStep])
 
-  const postFlow = () => {}
+  const postFlow = () => dispatch(PostObjectiveDataRequest(objectiveData))
 
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
@@ -35,6 +37,11 @@ export const WizardFlow = ({ data }) => {
     if (data[currentStep].type === 'number') moneyMask(event)
     if (data[currentStep].type === 'date') formatDateMask(event)
     setFormData({ ...formData, [event.target.name]: event.target.value })
+  }
+
+  const objectiveData = {
+    goalType: objective,
+    ...formData,
   }
 
   const WizardContainer = () => (
@@ -94,8 +101,10 @@ export const WizardFlow = ({ data }) => {
 
 WizardFlow.defaultProps = {
   data: [],
+  objective: '',
 }
 
 WizardFlow.propTypes = {
   data: PropTypes.array,
+  objective: PropTypes.string,
 }
