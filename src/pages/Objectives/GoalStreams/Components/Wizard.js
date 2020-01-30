@@ -9,7 +9,7 @@ import QuestionFlow from './QuestionFlow'
 
 import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
-export const WizardFlow = ({ data }) => {
+export const WizardFlow = ({ data,objective }) => {
   const dispatch = useDispatch()
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState({})
@@ -27,7 +27,7 @@ export const WizardFlow = ({ data }) => {
   }, [formData, data, currentStep])
 
   const postFlow = () =>
-    dispatch(PostObjectiveDataRequest(JSON.stringify(formData)))
+    dispatch(PostObjectiveDataRequest(JSON.stringify(objectiveData)))
 
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
@@ -38,6 +38,11 @@ export const WizardFlow = ({ data }) => {
     if (data[currentStep].type === 'number') moneyMask(event)
     if (data[currentStep].type === 'date') formatDateMask(event)
     setFormData({ ...formData, [event.target.name]: event.target.value })
+  }
+
+  const objectiveData = {
+    goalType: objective,
+    ...formData,
   }
 
   const WizardContainer = () => (
@@ -97,8 +102,10 @@ export const WizardFlow = ({ data }) => {
 
 WizardFlow.defaultProps = {
   data: [],
+  objective: '',
 }
 
 WizardFlow.propTypes = {
   data: PropTypes.array,
+  objective: PropTypes.string,
 }

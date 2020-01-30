@@ -5,6 +5,7 @@ import Header from 'pages/Objectives/GoalStreams/Components/Header'
 import { Container } from 'pages/Objectives/GoalStreams/Components/styles'
 
 const BuyHouseFlow = () => {
+  const goalType = '6'
   const data = [
     {
       question:
@@ -19,14 +20,11 @@ const BuyHouseFlow = () => {
     },
     {
       question: 'Essa data para você é:',
-      name: 'flexibeOrDefiniteDate',
+      name: 'targetDateFlexible',
       type: 'bool',
       options: [
-        {
-          name: 'Flexível',
-          value: 'Flexível',
-        },
-        { name: 'Definitiva', value: 'Definitiva' },
+        { name: 'Flexível', value: 'true' },
+        { name: 'Definitiva', value: 'false' },
       ],
     },
     {
@@ -48,28 +46,28 @@ const BuyHouseFlow = () => {
     {
       question:
         'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-      name: 'easeOfSavingMoney',
+      name: 'easyToSavePlannedAmount',
       type: 'bool',
       options: [
-        { name: 'Consigo guardar', value: 'Consigo guardar' },
-        { name: 'Tenho dificuldade', value: 'Tenho dificuldade' },
+        { name: 'Consigo guardar', value: 'true' },
+        { name: 'Tenho dificuldade', value: 'false' },
       ],
     },
     {
       question:
         'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-      name: 'wouldLikeToReceiptEarly',
+      name: 'wouldLikeToReceiveBeforeFinalDate',
       type: 'bool',
       options: [
-        { name: 'Sim', value: 'Sim' },
-        { name: 'Não', value: 'Não' },
+        { name: 'Sim', value: 'true' },
+        { name: 'Não', value: 'false' },
       ],
     },
   ]
   return (
     <Container>
       <Header />
-      <WizardFlow data={data} />
+      <WizardFlow data={data} objective={goalType} />
     </Container>
   )
 }
