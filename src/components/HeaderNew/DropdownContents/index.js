@@ -11,6 +11,7 @@ import {
   ItemText,
   ItemHeader,
   ItemContent,
+  NotFoundContainer,
 } from './styles'
 
 export function NotificationsContent(redirectAndCloseFunc) {
@@ -19,6 +20,16 @@ export function NotificationsContent(redirectAndCloseFunc) {
   return (
     <Container key={`nodeDropDownKey-${Math.random()}`}>
       <Content>
+        {notificationsData.novas.length === 0 && notificationsData.anteriores.length === 0 &&
+          (
+            <NotFoundContainer>
+              <ItemText type="headline" color="gray4">
+                Você não possui notificações.
+              </ItemText>
+            </NotFoundContainer>
+          )
+        }
+
         {notificationsData.novas &&
           notificationsData.novas.map((notification, index) => (
             <ItemWrapper
