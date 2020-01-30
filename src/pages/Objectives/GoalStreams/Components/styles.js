@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
 import Text from 'components/Text'
-import { Row } from 'styled-bootstrap-grid'
+import { Col, Row } from 'styled-bootstrap-grid'
 
 export const Wizard = styled.div`
   background-color: ${props => props.theme.colors.white};
@@ -37,9 +37,15 @@ export const PageBar = styled(Text).attrs({ type: 'title' })`
 `
 
 export const Question = styled(Text).attrs({ type: 'heading4' })`
-  min-height: 66px;
   text-align: center;
   text-transform: none;
+`
+
+export const RuleText = styled(Text).attrs({ type: 'body' })`
+  text-align: center;
+`
+export const ColQuestion = styled(Col)`
+  min-height: 90px;
 `
 
 export const BodyWizard = styled.div`

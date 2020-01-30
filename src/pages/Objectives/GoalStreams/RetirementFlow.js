@@ -11,27 +11,34 @@ const RetirementFlow = () => {
         'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
       name: 'nickname',
       type: 'text',
+      ruleText: 'Máximo de 20 caracteres',
     },
     {
       question: 'Quando você quer se aposentar?',
       name: 'targetDate',
       type: 'date',
+      ruleText: 'Mínimo de 6 meses',
     },
     {
       question: 'Quanto você quer atingir ao final desse objetivo?',
       name: 'targetValue',
       type: 'number',
+      minimumValue: '1000',
+      ruleText: 'Mínimo de R$ 1.000,00',
     },
     {
       question: 'Quanto você quer investir inicialmente?',
       name: 'initialValue',
       type: 'number',
-      minimumValue: '500',
+      minimumValue: '1000',
+      ruleText: 'Mínimo de R$ 1.000,00',
     },
     {
       question: 'Quanto você pretende investir por mês?',
       name: 'monthlyValue',
       type: 'number',
+      minimumValue: '100',
+      ruleText: 'Mínimo de R$ 100,00',
     },
     {
       question:
