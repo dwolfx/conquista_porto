@@ -10,10 +10,8 @@ export const FooterWrapper = styled.div`
 `
 
 export const GridContainer = styled(Container)`
-  padding-top: 14px;
-  @media ${props => props.theme.mediaQueries.lgUp} {
-    height: 345px;
-  }
+  padding-top: 35px;
+  padding-bottom: 42px;
   @media ${props => props.theme.mediaQueries.xs} {
     padding-top: 7px;
   }
@@ -75,7 +73,7 @@ export const Text = styled(ComponentText).attrs(() => ({
   bold: true,
 }))`
   color: ${props => props.theme.colors.gray5};
-  margin: 21px 14px;
+  margin: 21px 14px 0;
   @media ${props => props.theme.mediaQueries.xs} {
     margin: 7px 14px;
   }
