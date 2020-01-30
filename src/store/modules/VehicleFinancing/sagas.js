@@ -7,13 +7,13 @@ import {
   GetVehicleFinancingFailure,
 } from './action'
 
-// eslint-disable-next-line no-unused-vars
-function* getData({ cpf }) {
+function* getData({ cpf, token }) {
   try {
     const response = yield call(
       get,
-      // `/produtos/financiamento?cpf=${cpf}&codigoCanal=0`,
-      '/produtos/financiamento?cpf=33244452809&codigoCanal=0'
+      `/produtos/financiamento?cpf=${cpf}&codigoCanal=0`,
+      null,
+      token
     )
     if (
       response.data.TipoCritica ||

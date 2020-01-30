@@ -10,7 +10,7 @@ export default function useFetchConsortiumVehicle() {
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
+      dispatch(GetConsortiumVehicleDataRequest(auth.cpf, auth.accessToken))
     }
   }, [dispatch, data, auth])
 }

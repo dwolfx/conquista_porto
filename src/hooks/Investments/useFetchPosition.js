@@ -10,7 +10,7 @@ export default function useFetchPosition() {
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetPositionDataRequest(auth.cpf))
+      dispatch(GetPositionDataRequest(auth.cpf, auth.accessToken))
     }
   }, [dispatch, data, auth])
 }

@@ -7,13 +7,13 @@ import {
   GetConsolidatedPositionDataFailure,
 } from './action'
 
-// eslint-disable-next-line no-unused-vars
-function* getData({ cpf }) {
+function* getData({ cpf, token }) {
   try {
-    // const response = yield call(get, `/cotistas/posicao-consolidada?cpf=${cpf}`)
     const response = yield call(
       get,
-      '/cotistas/posicao-consolidada?cpf=33244452809'
+      `/cotistas/posicao-consolidada?cpf=${cpf}`,
+      null,
+      token
     )
     yield put(GetConsolidatedPositionDataSuccess(response.data))
   } catch (err) {

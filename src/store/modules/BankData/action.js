@@ -1,9 +1,10 @@
 import { Types } from './types'
 
-export function GetBankDataRequest(cpf) {
+export function GetBankDataRequest(cpf, token) {
   return {
     type: Types.BANK_DATA_GET_DATA_REQUEST,
     cpf,
+    token,
   }
 }
 
