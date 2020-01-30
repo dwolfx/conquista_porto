@@ -4,7 +4,7 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import InputText from 'components/NewInput'
 import RadioInput from 'components/Inputs/Radio'
 
-import { Question, Wrapper } from './styles'
+import { ColQuestion, Question, RuleText, Wrapper } from './styles'
 
 const QuestionFlow = ({
   formData,
@@ -12,13 +12,15 @@ const QuestionFlow = ({
   onChangeFormData,
   options,
   question,
+  ruleText,
   type,
 }) => (
   <>
     <Row justifyContent="center">
-      <Col lg="12" xs="12">
+      <ColQuestion lg="12" xs="12">
         <Question>{question}</Question>
-      </Col>
+        {ruleText && <RuleText>{ruleText}</RuleText>}
+      </ColQuestion>
     </Row>
     <Row justifyContent="center">
       <Col lg="12" xs="12">
@@ -66,6 +68,7 @@ QuestionFlow.defaultProps = {
   onChangeFormData: () => {},
   options: [],
   question: '',
+  ruleText: '',
   type: '',
 }
 
@@ -75,6 +78,7 @@ QuestionFlow.propTypes = {
   onChangeFormData: PropTypes.func,
   options: PropTypes.array,
   question: PropTypes.string,
+  ruleText: PropTypes.string,
   type: PropTypes.string,
 }
 
