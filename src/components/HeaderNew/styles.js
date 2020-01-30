@@ -42,18 +42,18 @@ export const RightBlock = styled.div`
   }
 `
 
-export const Icon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-})`
+export const Icon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+}))`
   width: 21px;
   height: 21px;
   margin: 0 7px;
   flex-shrink: 0;
 `
 
-export const ConquistaBeta = styled.img.attrs({
+export const ConquistaBeta = styled.img.attrs(() => ({
   src: ConquistaBetaIcon,
-})`
+}))`
   width: 144px;
   height: 51px;
   margin-top: 20px;

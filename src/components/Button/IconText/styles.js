@@ -13,9 +13,9 @@ export const Button = styled.button`
   ${props => props.theme.fontTypes.button};
 `
 
-export const Icon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-})`
+export const Icon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+}))`
   width: 21px;
   height: 21px;
   margin-right: 14px;

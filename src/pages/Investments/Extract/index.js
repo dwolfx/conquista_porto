@@ -102,6 +102,10 @@ const InvestmentExtract = () => {
     dispatch(GetBankExtractRequest(requestData))
   }
 
+  if (!bankData) {
+    return <div></div>
+  }
+
   return (
     <>
       <Header
@@ -122,70 +126,76 @@ const InvestmentExtract = () => {
           <Row justify="center">
             <SectionSubTitle>Conta de investimentos</SectionSubTitle>
           </Row>
-          <Row justify="space-around">
-            <AccountInfoWrapper>
-              <Icon
-                fill={themeContext.colors.blue4}
-                width={40}
-                name="building"
-              />
-              <InfosWrapper>
-                <InfosLabel>Banco</InfosLabel>
-                <InfosData>
-                  {bankData.DadosContaPortoSeguro &&
-                    bankData.DadosContaPortoSeguro.codigo_banco}
-                </InfosData>
-              </InfosWrapper>
-            </AccountInfoWrapper>
-            <AccountInfoWrapper>
-              <Icon
-                fill={themeContext.colors.blue4}
-                width={40}
-                name="barcode"
-              />
-              <InfosWrapper>
-                <InfosLabel>Agência</InfosLabel>
-                <InfosData>
-                  {bankData.DadosContaPortoSeguro &&
-                    bankData.DadosContaPortoSeguro.agencia}
-                </InfosData>
-              </InfosWrapper>
-            </AccountInfoWrapper>
-            <AccountInfoWrapper>
-              <Icon fill={themeContext.colors.blue4} width={40} name="wallet" />
-              <InfosWrapper>
-                <InfosLabel>Conta</InfosLabel>
-                <InfosData>
-                  {bankData.DadosContaPortoSeguro &&
-                    `${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
-                </InfosData>
-              </InfosWrapper>
-            </AccountInfoWrapper>
-            <AccountInfoWrapper>
-              <Icon fill={themeContext.colors.blue4} width={40} name="boy" />
-              <InfosWrapper>
-                <InfosLabel>Favorecido</InfosLabel>
-                <InfosData>
-                  {bankData.DadosContaPortoSeguro &&
-                    bankData.DadosContaPortoSeguro.titular}
-                </InfosData>
-              </InfosWrapper>
-            </AccountInfoWrapper>
-            <AccountInfoWrapper>
-              <Icon
-                fill={themeContext.colors.blue4}
-                width={40}
-                name="fingerprint"
-              />
-              <InfosWrapper>
-                <InfosLabel>CPF</InfosLabel>
-                <InfosData>
-                  {bankData.DadosContaPortoSeguro &&
-                    formatCpf(bankData.DadosContaPortoSeguro.cpf)}
-                </InfosData>
-              </InfosWrapper>
-            </AccountInfoWrapper>
-          </Row>
+          {bankData && (
+            <Row justify="space-around">
+              <AccountInfoWrapper>
+                <Icon
+                  fill={themeContext.colors.blue4}
+                  width={40}
+                  name="building"
+                />
+                <InfosWrapper>
+                  <InfosLabel>Banco</InfosLabel>
+                  <InfosData>
+                    {bankData.DadosContaPortoSeguro &&
+                      bankData.DadosContaPortoSeguro.codigo_banco}
+                  </InfosData>
+                </InfosWrapper>
+              </AccountInfoWrapper>
+              <AccountInfoWrapper>
+                <Icon
+                  fill={themeContext.colors.blue4}
+                  width={40}
+                  name="barcode"
+                />
+                <InfosWrapper>
+                  <InfosLabel>Agência</InfosLabel>
+                  <InfosData>
+                    {bankData.DadosContaPortoSeguro &&
+                      bankData.DadosContaPortoSeguro.agencia}
+                  </InfosData>
+                </InfosWrapper>
+              </AccountInfoWrapper>
+              <AccountInfoWrapper>
+                <Icon
+                  fill={themeContext.colors.blue4}
+                  width={40}
+                  name="wallet"
+                />
+                <InfosWrapper>
+                  <InfosLabel>Conta</InfosLabel>
+                  <InfosData>
+                    {bankData.DadosContaPortoSeguro &&
+                      `${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
+                  </InfosData>
+                </InfosWrapper>
+              </AccountInfoWrapper>
+              <AccountInfoWrapper>
+                <Icon fill={themeContext.colors.blue4} width={40} name="boy" />
+                <InfosWrapper>
+                  <InfosLabel>Favorecido</InfosLabel>
+                  <InfosData>
+                    {bankData.DadosContaPortoSeguro &&
+                      bankData.DadosContaPortoSeguro.titular}
+                  </InfosData>
+                </InfosWrapper>
+              </AccountInfoWrapper>
+              <AccountInfoWrapper>
+                <Icon
+                  fill={themeContext.colors.blue4}
+                  width={40}
+                  name="fingerprint"
+                />
+                <InfosWrapper>
+                  <InfosLabel>CPF</InfosLabel>
+                  <InfosData>
+                    {bankData.DadosContaPortoSeguro &&
+                      formatCpf(bankData.DadosContaPortoSeguro.cpf)}
+                  </InfosData>
+                </InfosWrapper>
+              </AccountInfoWrapper>
+            </Row>
+          )}
         </Container>
       </Section>
       <Section backgroundColor={themeContext.colors.gray1}>

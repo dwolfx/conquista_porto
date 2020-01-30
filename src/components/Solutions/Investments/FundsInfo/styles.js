@@ -120,6 +120,6 @@ export const DownloadIconWrapper = styled.div`
   margin-right: 20px;
 `
 
-export const DownloadTitle = styled(Text).attrs({ type: 'subheading' })`
+export const DownloadTitle = styled(Text).attrs(() => ({ type: 'subheading' }))`
   text-transform: uppercase;
 `

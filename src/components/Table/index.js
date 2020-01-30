@@ -203,10 +203,38 @@ export default function TableRender({ columns, data, showFilter }) {
   )
 }
 
-TableRender.defaultProps = {
-  showFilter: true,
+DefaultColumnFilter.propTypes = {
+  column: PropTypes.object,
+}
+
+DefaultColumnFilter.defaultProps = {
+  column: {},
+}
+
+TfootWrapper.propTypes = {
+  pageIndex: PropTypes.number.isRequired,
+  dataProp: PropTypes.array.isRequired,
+  canNextPage: PropTypes.bool,
+  canPreviousPage: PropTypes.bool,
+  pageCount: PropTypes.number.isRequired,
+  nextPage: PropTypes.func.isRequired,
+  gotoPage: PropTypes.func.isRequired,
+  previousPage: PropTypes.func.isRequired,
+}
+
+TfootWrapper.defaultProps = {
+  canNextPage: false,
+  canPreviousPage: false,
 }
 
 TableRender.propTypes = {
   showFilter: PropTypes.bool,
+  columns: PropTypes.array,
+  data: PropTypes.array,
+}
+
+TableRender.defaultProps = {
+  showFilter: true,
+  columns: [],
+  data: [],
 }

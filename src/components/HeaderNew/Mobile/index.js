@@ -148,21 +148,23 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
   )
 }
 
+export const mobileItemsPropTypes = PropTypes.arrayOf(
+  PropTypes.shape({
+    icon: PropTypes.string,
+    text: PropTypes.string,
+    path: PropTypes.string,
+    children: PropTypes.arrayOf(
+      PropTypes.shape({
+        icon: PropTypes.string,
+        text: PropTypes.string,
+        path: PropTypes.string,
+      })
+    ),
+  })
+)
+
 Mobile.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.string,
-      text: PropTypes.string,
-      path: PropTypes.string,
-      children: PropTypes.arrayOf(
-        PropTypes.shape({
-          icon: PropTypes.string,
-          text: PropTypes.string,
-          path: PropTypes.string,
-        })
-      ),
-    })
-  ).isRequired,
+  items: mobileItemsPropTypes.isRequired,
   setIsOpen: PropTypes.func.isRequired,
   totalPoints: PropTypes.string.isRequired,
 }

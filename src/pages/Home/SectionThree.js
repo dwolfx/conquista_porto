@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Row } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
@@ -310,7 +311,11 @@ export default function SectionThree({ points }) {
       </SectionCol>
 
       <SectionCol md="7">
-        <Row style={{ height: '100%' }}>
+        <Row
+          css={`
+            height: '100%';
+          `}
+        >
           <SectionCol md="6">
             <PointsOfferCard offer={belowOffer} />
           </SectionCol>

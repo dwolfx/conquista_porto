@@ -35,12 +35,15 @@ Accordion.propTypes = {
   titleNode: PropTypes.node.isRequired,
   isGrayArrow: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   padding: PropTypes.string,
   noBodyPadding: PropTypes.bool,
   noBackground: PropTypes.bool,
 }
+
 Accordion.defaultProps = {
-  id: '',
   isGrayArrow: false,
+  padding: '30px',
+  noBodyPadding: false,
+  noBackground: false,
 }

@@ -17,11 +17,15 @@ export function NotificationsContent(redirectAndCloseFunc) {
   const notificationsData = useSelector(state => state.notifications.data)
 
   return (
-    <Container>
+    <Container key={`nodeDropDownKey-${Math.random()}`}>
       <Content>
         {notificationsData.novas &&
-          notificationsData.novas.map(notification => (
-            <ItemWrapper padding="14px 14px 21px 14px">
+          notificationsData.novas.map((notification, index) => (
+            <ItemWrapper
+              // eslint-disable-next-line react/no-array-index-key
+              key={`notificationNewKey-${index}`}
+              padding="14px 14px 21px 14px"
+            >
               <ItemHeader>
                 <ItemIcon name="information" color="blue4" />
                 <ItemText type="headline" color="blue4" margin="0 0 0 14px">
@@ -36,8 +40,12 @@ export function NotificationsContent(redirectAndCloseFunc) {
             </ItemWrapper>
           ))}
         {notificationsData.anteriores &&
-          notificationsData.anteriores.map(notification => (
-            <ItemWrapper padding="21px 14px">
+          notificationsData.anteriores.map((notification, index) => (
+            <ItemWrapper
+              // eslint-disable-next-line react/no-array-index-key
+              key={`notificationOldKey-${index}`}
+              padding="21px 14px"
+            >
               <ItemHeader>
                 <ItemIcon name="information" color="blue4" />
                 <ItemText type="headline" color="blue4" margin="0 0 0 14px">

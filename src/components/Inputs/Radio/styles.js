@@ -10,7 +10,7 @@ export const RadioTitle = styled.p`
   word-break: break-word;
 `
 
-export const RadioInput = styled.input.attrs({ type: 'radio' })`
+export const RadioInput = styled.input.attrs(() => ({ type: 'radio' }))`
   height: 20px;
   margin-right: 10px;
   position: relative;

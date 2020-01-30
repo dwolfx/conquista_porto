@@ -14,6 +14,7 @@ Divisor.propTypes = {
 
 Divisor.defaultProps = {
   vertical: false,
+  customSize: '100%',
 }
 
 export default Divisor

@@ -59,13 +59,13 @@ export const ItemWrapper = styled.div`
   }
 `
 
-export const AlignToEndIcon = styled.div`
+export const ItemIconContainer = styled.div`
   margin: ${props => (props.alignToEnd ? '0px 21px' : '0px 0px 0px 21px')};
 `
 
-export const ItemIcon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-})`
+export const ItemIcon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+}))`
   width: 21px;
   height: 21px;
   fill: ${props => props.theme.colors.gray5};

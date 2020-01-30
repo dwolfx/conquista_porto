@@ -1,5 +1,8 @@
 import React from 'react'
-import BenefitsCarousel from './BenefitsCarousel'
+import PropTypes from 'prop-types'
+import BenefitsCarousel, {
+  propTypes as propTypesBenefits,
+} from './BenefitsCarousel'
 
 import ConquistaIcon from '../../IconExporter'
 
@@ -36,4 +39,23 @@ export default function MakeSenseSection({
       <BenefitsCarousel benefitsData={benefitsData}></BenefitsCarousel>
     </Container>
   )
+}
+
+MakeSenseSection.propTypes = {
+  title: PropTypes.string,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      icon: PropTypes.string,
+    })
+  ),
+  subtitle: PropTypes.string,
+  benefitsData: propTypesBenefits,
+}
+
+MakeSenseSection.defaultProps = {
+  title: '',
+  data: [],
+  subtitle: '',
+  benefitsData: [],
 }
