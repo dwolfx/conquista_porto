@@ -26,8 +26,7 @@ export const WizardFlow = ({ data, objective }) => {
     setIsActive(!!formData[data[currentStep].name])
   }, [formData, data, currentStep])
 
-  const postFlow = () =>
-    dispatch(PostObjectiveDataRequest(JSON.stringify(objectiveData)))
+  const postFlow = () => dispatch(PostObjectiveDataRequest(objectiveData))
 
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')

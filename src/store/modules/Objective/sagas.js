@@ -1,14 +1,17 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { post } from 'services/api'
-import { baseUrlObjectives } from 'services/apiConfig'
+import axios from 'axios'
 import { Types } from './types'
 import { PostObjectiveDataSuccess, PostObjectiveDataFailure } from './action'
 
 function* postData(data) {
   const { payload } = data
   try {
-    const response = yield call(post, baseUrlObjectives, payload)
+    const response = yield call(
+      axios.post,
+      'http://192.168.11.4:5000/v1/recommendation',
+      payload
+    )
     yield put(PostObjectiveDataSuccess(response.data))
   } catch (err) {
     yield put(PostObjectiveDataFailure())
