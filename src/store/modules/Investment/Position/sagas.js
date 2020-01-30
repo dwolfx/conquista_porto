@@ -5,10 +5,14 @@ import { get } from 'services/api'
 import { GetPositionDataSuccess, GetPositionDataFailure } from './action'
 import { Types } from './types'
 
-// eslint-disable-next-line no-unused-vars
-function* getData({ cpf }) {
+function* getData({ cpf, token }) {
   try {
-    const response = yield call(get, '/cotistas/posicao?cpf=33244452809')
+    const response = yield call(
+      get,
+      `/cotistas/posicao?cpf=${cpf}`,
+      null,
+      token
+    )
     yield put(GetPositionDataSuccess(response.data))
   } catch (err) {
     yield put(GetPositionDataFailure())

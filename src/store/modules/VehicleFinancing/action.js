@@ -1,9 +1,10 @@
 import { Types } from './types'
 
-export function GetVehicleFinancingDataRequest(cpf) {
+export function GetVehicleFinancingDataRequest(cpf, token) {
   return {
     type: Types.GET_REQUEST,
     cpf,
+    token,
   }
 }
 

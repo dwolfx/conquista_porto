@@ -7,13 +7,13 @@ import {
   GetConsortiumBuildingDataFailure,
 } from './action'
 
-// eslint-disable-next-line no-unused-vars
-function* getData({ cpf }) {
+function* getData({ cpf, token }) {
   try {
     const response = yield call(
       get,
-      '/consorcios/imovel?Cpf=36441112604&codigoCanal=1'
-      // `'/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`
+      `'/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`,
+      null,
+      token
     )
     yield put(GetConsortiumBuildingDataSuccess(response.data.consorcios))
   } catch (err) {

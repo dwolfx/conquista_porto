@@ -4,14 +4,14 @@ import { get } from 'services/api'
 import { Types } from './types'
 import { GetDataSuccess, GetDataFailure } from './action'
 
-// eslint-disable-next-line no-unused-vars
-function* getData({ cpf }) {
+function* getData({ cpf, token }) {
   try {
     const response = yield call(
       get,
-      `/conta/dados?cpf=33244452809&codigoCanal=0`
+      `/conta/dados?cpf=${cpf}&codigoCanal=0`,
+      null,
+      token
     )
-    // const response = yield call(get, `/conta/dados?cpf=${cpf}&codigoCanal=0`)
     yield put(GetDataSuccess(response.data))
   } catch (err) {
     yield put(GetDataFailure())

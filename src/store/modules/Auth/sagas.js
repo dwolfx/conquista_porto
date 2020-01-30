@@ -6,17 +6,23 @@ import { Types } from './types'
 const axiosInstance = axios.create({
   headers: {
     Accept: '*/*',
-    'content-type': 'application/json',
+    'content-type': 'application/x-www-form-urlencoded',
     Hint: 'login_cliente',
   },
 })
 
 function* postLogin({ credentials: { username, password } }) {
   try {
-    const loginUrl =
-      'http://api-proxy.conquista.sciensa.click:8080/api/auth/login'
+    const loginUrl = process.env.REACT_APP_BASE_URL_LOGIN
+    const clientId = process.env.REACT_APP_CLIENT_ID
+    const clientSecret = process.env.REACT_APP_SECRET_ID
 
-    const data = `username=${username}&password=${password}&grant_type=password&client_id=4867ef4e-9f57-4524-ba92-e018daba0de2&client_secret=44b61d86-077e-4ec9-a75e-68b6afe4540a&social=13213`
+    const data = `username=${username
+      .toString()
+      .replace(
+        /\D/g,
+        ''
+      )}&password=${password}&grant_type=password&client_id=${clientId}&client_secret=${clientSecret}&social=13213`
     const {
       data: { access_token: accessToken, erro },
     } = yield call(axiosInstance.post, loginUrl, data)
@@ -25,7 +31,7 @@ function* postLogin({ credentials: { username, password } }) {
 
     const response = {
       accessToken,
-      cpf: username,
+      cpf: username.toString().replace(/\D/g, ''),
     }
 
     yield put(AuthRequestLoginSuccess(response))
@@ -35,15 +41,11 @@ function* postLogin({ credentials: { username, password } }) {
   }
 }
 
-function* postLogout({ accessToken }) {
+function* postLogout() {
   removeAuthLocalStorage()
-  const logoutUrl =
-    process.env.REACT_APP_ENV === 'development'
-      ? '/api/auth/logout'
-      : '/client-ext-templating/portalcliente/views/commons/ajaxKillSessionParam.jsp'
-  yield call(axiosInstance.post, logoutUrl, {
-    token: accessToken,
-  })
+  // const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
+  // yield call(axiosInstance.post, logoutUrl, `token=${accessToken}`)
+  yield true
 }
 
 function saveAuthLocalStorage({ cpf, accessToken }) {

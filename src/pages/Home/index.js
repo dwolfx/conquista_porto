@@ -31,12 +31,12 @@ const Home = () => {
   const row3 = useRef(null)
 
   useEffect(() => {
-    dispatch(GetBankDataRequest(auth.cpf))
+    dispatch(GetBankDataRequest(auth.cpf, auth.accessToken))
     dispatch(GetCreditCardDataRequest())
-    dispatch(GetConsolidatedPositionDataRequest(auth.cpf))
-    dispatch(GetVehicleFinancingDataRequest(auth.cpf))
-    dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
-    dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
+    dispatch(GetConsolidatedPositionDataRequest(auth.cpf, auth.accessToken))
+    dispatch(GetVehicleFinancingDataRequest(auth.cpf, auth.accessToken))
+    dispatch(GetConsortiumBuildingDataRequest(auth.cpf, auth.accessToken))
+    dispatch(GetConsortiumVehicleDataRequest(auth.cpf, auth.accessToken))
     dispatch(GetLifeInsuranceDataRequest())
     dispatch(GetTripInsuranceDataRequest())
     dispatch(GetPointsDataRequest(auth.cpf))
