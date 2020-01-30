@@ -236,5 +236,5 @@ TableRender.propTypes = {
 TableRender.defaultProps = {
   showFilter: true,
   columns: [],
-  data: () => {},
+  data: [],
 }
