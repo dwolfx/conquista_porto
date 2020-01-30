@@ -9,7 +9,7 @@ import QuestionFlow from './QuestionFlow'
 
 import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
-export const WizardFlow = ({ data,objective }) => {
+export const WizardFlow = ({ data, objective }) => {
   const dispatch = useDispatch()
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState({})
