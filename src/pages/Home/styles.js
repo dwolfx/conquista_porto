@@ -222,14 +222,13 @@ export const EmptyBody = styled.div`
 export const EmptyText = styled(Text)`
   color: ${props => props.theme.colors.gray5};
   text-align: center;
-  width: 300px;
+  width: 314px;
 `
 
 export const EmptyButton = styled(Button)`
   padding: 0;
   margin-top: 14px;
   min-width: 0;
-  width: 230px;
 `
 
 export const SliderBox = styled.div`
@@ -240,7 +239,7 @@ export const SliderBox = styled.div`
 
 export const SliderImageBox = styled.div`
   border-radius: 8px;
-  height: 155px;
+  height: 100%;
   margin-top: 14px;
   margin-bottom: 21px;
   overflow: hidden;
@@ -269,6 +268,7 @@ export const SliderTextBox = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding: 0 14px 14px;
 
   p:last-of-type {
     color: ${props => props.theme.colors.gray5};
@@ -412,7 +412,6 @@ export const PointsExtractListWrapper = styled.div`
 export const AdRow = styled(GridRow)`
   padding-right: 7;
   padding-left: 7;
-  /* margin-bottom: 30; */
 
   @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 0;

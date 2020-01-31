@@ -163,7 +163,7 @@ export default function SectionThree({ points }) {
 
   const renderEmptyState = () => (
     <EmptyBody>
-      <EmptyText>
+      <EmptyText bold>
         Ao investir na nossa plataforma, fazer compras no cartão de crédito e ao
         contratar produtos Porto Seguro você terá acesso a ofertas e descontos
         exclusivos!
