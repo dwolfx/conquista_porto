@@ -59,7 +59,10 @@ const SectionOne = ({ goal, combo }) => {
   return (
     <GridRow height="430px">
       <Col lg="6">
-        <FullHeightCard headerIcon="piechart" headerTitle="Combo">
+        <FullHeightCard
+          headerIcon="piechart"
+          headerTitle={combo[1] ? 'Combo sugerido' : 'Produto sugerido'}
+        >
           <SectionRow padding="30px 21px">
             <SectionCol md="5">
               <PieChartContainer>
