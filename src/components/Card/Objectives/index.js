@@ -6,18 +6,12 @@ import ButtonIcon from 'components/Button/Icon'
 import Icon from 'components/IconExporter'
 
 import { CardObjective, IconWrapper, InfosBox, OfferTitle } from './styles'
-import 'styled-components/macro'
 
 export default function ObjectivesCard({ icon, title, link, ...rest }) {
   const history = useHistory()
 
   return (
-    <CardObjective
-      {...rest}
-      css={`
-        padding: 0px 21px;
-      `}
-    >
+    <CardObjective {...rest}>
       <IconWrapper>
         <Icon name={icon} />
       </IconWrapper>
