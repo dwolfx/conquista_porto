@@ -5,6 +5,7 @@ import { CardBody } from 'components/Card/styles'
 import Text from 'components/Text'
 
 export const CardObjective = styled(Card)`
+  padding: 0 21px;
   ${CardBody} {
     display: flex;
     justify-content: center;
@@ -25,6 +26,7 @@ export const IconWrapper = styled.div`
 export const InfosBox = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const OfferTitle = styled(Text).attrs(() => ({

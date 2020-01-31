@@ -326,6 +326,7 @@ const InvestmentCard = () => {
           Diversificando com menos riscos
         </Text>
         <Text
+          bold
           css={`
             padding-bottom: 14px;
           `}

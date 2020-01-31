@@ -315,7 +315,7 @@ export default function SectionThree({ points }) {
       <SectionCol md="7">
         <Row
           css={`
-            height: '100%';
+            height: 100%;
           `}
         >
           <SectionCol md="6">

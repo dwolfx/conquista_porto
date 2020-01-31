@@ -144,7 +144,7 @@ export const OfferCategoryText = styled(Text)`
 `
 
 export const OfferTextBox = styled.div`
-  margin-bottom: 14px;
+  margin: 0 14px 14px;
 `
 
 export const OfferTitle = styled(Text)`
@@ -152,7 +152,9 @@ export const OfferTitle = styled(Text)`
   margin-bottom: 7px;
 `
 
-export const OfferText = styled(Text)`
+export const OfferText = styled(Text).attrs(() => ({
+  bold: true,
+}))`
   color: ${props => props.theme.colors.gray5};
 `
 
