@@ -73,7 +73,7 @@ export const WizardFlow = ({ data, objective }) => {
       {isLastStep && (
         <Col lg="6" xs="12">
           <ButtonAction onClick={postFlow} disabled={!isActive}>
-            POST
+            Concluir
           </ButtonAction>
         </Col>
       )}
