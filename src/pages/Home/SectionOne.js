@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useContext, useState, useEffect } from 'react'
+import 'styled-components/macro'
 
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -309,16 +310,26 @@ const InvestmentCard = () => {
       <SliderImageBox>
         <img src={InvestmentEmptyImg} alt="home offer pic" />
         <SliderCaption>
-          <Text type="captionUppercase" bold>
+          <Text type="button" bold>
             Fundos de Investimento
           </Text>
         </SliderCaption>
       </SliderImageBox>
       <SliderTextBox>
-        <Text type="title" bold>
+        <Text
+          type="title"
+          bold
+          css={`
+            padding-bottom: 7px;
+          `}
+        >
           Diversificando com menos riscos
         </Text>
-        <Text>
+        <Text
+          css={`
+            padding-bottom: 14px;
+          `}
+        >
           Uma carteira de investimento com diferentes ativos é a chave para bons
           rendimentos. Na Lista de Fundos, você pode selecionar o que mais
           combina com seu perfil.
