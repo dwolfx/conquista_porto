@@ -73,6 +73,7 @@ import { ReactComponent as trash } from 'assets/icons/trashcan.svg'
 import { ReactComponent as user } from 'assets/icons/user.svg'
 import { ReactComponent as visa } from 'assets/images/visa.svg'
 import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
+import { ReactComponent as loading } from 'assets/icons/loading.svg'
 
 const dict = {
   add,
@@ -120,6 +121,7 @@ const dict = {
   linechart,
   link,
   lock,
+  loading,
   malefemale,
   master,
   menu,
