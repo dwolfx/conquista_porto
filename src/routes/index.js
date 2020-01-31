@@ -51,7 +51,7 @@ import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsort
 import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
-
+import IconComponent from 'components/IconExporter'
 import useAuth from './auth'
 
 const DefaultRoute = ({ component: Component, data, hook, ...rest }) => {
@@ -62,7 +62,11 @@ const DefaultRoute = ({ component: Component, data, hook, ...rest }) => {
       hook()
 
       // while the hook is being called, dont render anything (eliminates blink between screens)
-      return null
+      return (
+        <>
+          <IconComponent name="loading" />
+        </>
+      )
     }
 
     dataLength = Array.isArray(data) ? data.length : Object.entries(data).length

@@ -1,9 +1,13 @@
 // eslint-disable-next-line import/no-cycle
 import store from 'store'
+import { AuthRequestLogout } from 'store/modules/Auth/action'
 /* eslint-disable import/no-mutable-exports */
 const baseURL = process.env.REACT_APP_BASE_URL
 
 const responseInterceptor = response => {
+  if (response.status === 401) {
+    store.dispatch(AuthRequestLogout())
+  }
   if (response.data.TipoCritica) {
     throw Error(response.data.Mensagem)
   }
