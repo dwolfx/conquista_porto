@@ -1,9 +1,8 @@
 import { Types } from './types'
 
-export function GetInvestmentListRequest(token) {
+export function GetInvestmentListRequest() {
   return {
     type: Types.INVESTMENT_LIST_ADD_REQUEST,
-    token,
   }
 }
 

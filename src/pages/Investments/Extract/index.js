@@ -35,6 +35,7 @@ const InvestmentExtract = () => {
   const themeContext = useContext(ThemeContext)
   const history = useHistory()
   const dispatch = useDispatch()
+  const auth = useSelector(state => state.auth)
 
   const [showDateFilter, setShowDateFilter] = useState(false)
 
@@ -45,7 +46,7 @@ const InvestmentExtract = () => {
   })
 
   useEffect(() => {
-    dispatch(GetBankExtractRequest(requestData))
+    dispatch(GetBankExtractRequest(requestData, auth.cpf))
   }, [])
 
   useFetchBankData()
@@ -89,7 +90,7 @@ const InvestmentExtract = () => {
       }
       setRequestData(newRequestData)
 
-      dispatch(GetBankExtractRequest(newRequestData))
+      dispatch(GetBankExtractRequest(newRequestData, auth.cpf))
     } else {
       setRequestData({
         ...requestData,
@@ -99,7 +100,7 @@ const InvestmentExtract = () => {
   }
 
   const filterByDate = () => {
-    dispatch(GetBankExtractRequest(requestData))
+    dispatch(GetBankExtractRequest(requestData, auth.cpf))
   }
 
   if (!bankData) {

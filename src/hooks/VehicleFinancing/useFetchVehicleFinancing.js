@@ -10,7 +10,7 @@ export default function useFetchVehicleFinancing() {
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetVehicleFinancingDataRequest(auth.cpf, auth.accessToken))
+      dispatch(GetVehicleFinancingDataRequest(auth.cpf))
     }
   }, [dispatch, data, auth])
 }

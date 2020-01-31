@@ -1,10 +1,9 @@
 import { Types } from './types'
 
-export function GetConsortiumBuildingDataRequest(cpf, token) {
+export function GetConsortiumBuildingDataRequest(cpf) {
   return {
     type: Types.GET_REQUEST,
     cpf,
-    token,
   }
 }
 

@@ -1,16 +1,15 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+// eslint-disable-next-line import/no-cycle
 import { get } from 'services/api'
 import { Types } from './types'
 import { GetBankExtractSuccess, GetBankExtractFailure } from './action'
 
-function* getData(action) {
-  const { filter, startDate, endDate } = action.payload
-
+function* getData({ payload: { filter, startDate, endDate }, cpf }) {
   try {
     const response = yield call(
       get,
-      `/conta/extrato?cpfCnpj=68826796220&tipoFiltro=${filter}&dataInicial=${startDate}&dataFinal=${endDate}`
+      `/conta/extrato?cpfCnpj=${cpf}&tipoFiltro=${filter}&dataInicial=${startDate}&dataFinal=${endDate}`
     )
     yield put(GetBankExtractSuccess(response.data))
   } catch (err) {

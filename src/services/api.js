@@ -1,27 +1,26 @@
+// eslint-disable-next-line
 import axios from 'axios'
-import { baseURL, responseInterceptor } from './apiConfig'
+// eslint-disable-next-line import/no-cycle
+import { baseURL, responseInterceptor, requestInterceptor } from './apiConfig'
 
-export const axiosInstance = (token = '') =>
-  axios.create({
-    baseURL,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'content-type': 'application/json',
-    },
-  })
+export const axiosInstance = axios.create({
+  baseURL,
+  headers: {
+    'content-type': 'application/json',
+  },
+})
 
-axiosInstance().interceptors.response.use(responseInterceptor)
+axiosInstance.interceptors.request.use(requestInterceptor)
+axiosInstance.interceptors.response.use(responseInterceptor)
 
-export const get = (path, params, token) => axiosInstance(token)(path, params)
+export const get = (path, params) => axiosInstance(path, params)
 
-export const post = (path, data, token) =>
-  axiosInstance(token)(path, { method: 'POST', data })
+export const post = (path, data) =>
+  axiosInstance(path, { method: 'POST', data })
 
-export const put = (path, data, token) =>
-  axiosInstance(token)(path, { method: 'PUT', data })
+export const put = (path, data) => axiosInstance(path, { method: 'PUT', data })
 
-export const patch = (path, data, token) =>
-  axiosInstance(token)(path, { method: 'PATCH', data })
+export const patch = (path, data) =>
+  axiosInstance(path, { method: 'PATCH', data })
 
-export const remove = (path, token) =>
-  axiosInstance(token)(path, { method: 'DELETE' })
+export const remove = path => axiosInstance(path, { method: 'DELETE' })
