@@ -26,7 +26,7 @@ const Objectives = () => {
           <Board />
         </RegistrationWrapper>
       ) : (
-        <Recommendation objectiveData={objectiveData} />
+        <Recommendation goalData={objectiveData} />
       )}
     </Container>
   )

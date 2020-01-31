@@ -9,22 +9,23 @@ import SectionThree from './SectionThree'
 
 import { GridRecommendation, SectionsRecommendation } from './styles'
 
-const Recommendation = () => {
-  const additionalProducts = {
-    travelSecurity: false,
-    lifeSecurity: true,
-    creditCard: true,
-  }
-
+const Recommendation = goalData => {
+  const {
+    goal,
+    combo,
+    income,
+    funds,
+    creditProduct,
+    additional,
+  } = goalData.goalData
   return (
     <GridRecommendation>
-      <TopBar />
-
+      <TopBar goal={goal} />
       <SectionsRecommendation>
         <Container>
-          <SectionOne />
-          <SectionTwo />
-          <SectionThree additionalProducts={additionalProducts} />
+          <SectionOne combo={combo} income={income} />
+          <SectionTwo funds={funds} creditProduct={creditProduct} />
+          <SectionThree additional={additional} />
         </Container>
       </SectionsRecommendation>
 

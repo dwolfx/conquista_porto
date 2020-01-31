@@ -1,6 +1,5 @@
 /* eslint-disable import/no-mutable-exports */
 const baseURL = process.env.REACT_APP_BASE_URL
-const baseUrlObjectives = 'http://192.168.11.4:5000/v1/recommendation'
 
 const responseInterceptor = response => {
   if (response.data.TipoCritica) {
@@ -9,4 +8,4 @@ const responseInterceptor = response => {
   return response
 }
 
-export { baseURL, responseInterceptor, baseUrlObjectives }
+export { baseURL, responseInterceptor }
