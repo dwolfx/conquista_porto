@@ -1,20 +1,20 @@
 import { Types } from './types'
 
-export function GetDataRequest(payload) {
+export function GetCreditCardDataRequest(cpf) {
   return {
     type: Types.GET_REQUEST,
-    payload,
+    cpf,
   }
 }
 
-export function GetDataSuccess(payload) {
+export function GetCreditCardDataSuccess(payload) {
   return {
     type: Types.GET_SUCCESS,
     payload,
   }
 }
 
-export function GetDataFailure() {
+export function GetCreditCardDataFailure() {
   return {
     type: Types.GET_FAILURE,
   }

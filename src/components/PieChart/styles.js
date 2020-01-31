@@ -7,6 +7,7 @@ export const ChartContainer = styled.div`
 `
 
 export const MiddleContent = styled.div`
+  width: 85%;
   position: absolute;
   top: 50%;
   left: 50%;

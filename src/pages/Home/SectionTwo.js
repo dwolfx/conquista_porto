@@ -1,44 +1,74 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import TipBannerImg from 'assets/images/pages/Home/img_banner_6.png'
+import objectiveTypes from 'components/Card/Objectives/types'
 import Text from 'components/Text'
 
+import useMedia from 'hooks/useMedia'
+
+import { tipsBanner } from './bannerData'
 import {
   EmptyBody,
   EmptyText,
   EmptyButton,
-  GridRow,
   SectionCol,
   BannerTips,
   FullHeightCard,
   FullHeightCardObjectives,
   OfferCardButton,
+  TipBannerContainer,
+  ObjectivesContainer,
+  BannerTipTitle,
 } from './styles'
 
 export default function SectionTwo({ onRedirect, objectives }) {
+  const isMobile = useMedia('sm')
+  const [tipBannerIndex, setTipBannerIndex] = useState(0)
+  const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
+  const [maxObjectiveCards, setMaxObjectiveCards] = useState(2)
+
+  useEffect(() => {
+    setTipBannerIndex(Math.floor(Math.random() * (tipsBanner.length - 1)))
+    setObjectiveCardIndex(
+      Math.floor(Math.random() * (objectiveTypes.length - 1))
+    )
+  }, [])
+
+  useEffect(() => {
+    setMaxObjectiveCards(isMobile ? 3 : 2)
+  }, [isMobile])
+
   const renderObjectiveCardFooter = () =>
     objectives ? <OfferCardButton>Gerenciar objetivos</OfferCardButton> : null
 
   const renderEmptyState = () => (
     <EmptyBody>
-      <EmptyText>
-        Você quer planejar a realização dos seus sonhos? Crie objetivos com o
-        Conquista. É só contar o que você deseja e a ferramenta apresentará um
-        plano personalizado de como alcançar suas metas. Experimente!
+      <EmptyText bold>
+        Com os Objetivos, fica mais fácil alcançar suas metas. Definindo-os,
+        você receberá planos de investimentos personalizados.
       </EmptyText>
-      <EmptyButton
-        color="secondary"
-        onClick={() => onRedirect('/objetivos/criar')}
-      >
+      <EmptyButton color="secondary" onClick={() => onRedirect('/objetivos/')}>
         CRIAR OBJETIVO
       </EmptyButton>
     </EmptyBody>
   )
 
+  const renderObjectiveCards = () =>
+    objectiveTypes
+      .slice(objectiveCardIndex, objectiveCardIndex + maxObjectiveCards)
+      .map(item => (
+        <SectionCol md="4" xs="6" key={`type-${item.icon}`}>
+          <FullHeightCardObjectives
+            icon={item.icon}
+            title={item.title}
+            link={item.link}
+          />
+        </SectionCol>
+      ))
+
   return (
     <>
-      <SectionCol lg="5">
+      <SectionCol md="5">
         <FullHeightCard
           headerIcon="target"
           headerTitle="Objetivos"
@@ -48,42 +78,31 @@ export default function SectionTwo({ onRedirect, objectives }) {
         </FullHeightCard>
       </SectionCol>
 
-      <SectionCol lg="7">
-        <GridRow style={{ height: '50%', paddingBottom: 7 }}>
-          <SectionCol lg="4">
-            <FullHeightCardObjectives
-              icon="homewithwindow"
-              title="Comprar uma casa"
-              link="/"
-            />
-          </SectionCol>
-          <SectionCol lg="4">
-            <FullHeightCardObjectives
-              icon="car2"
-              title="Comprar um carro"
-              link="/"
-            />
-          </SectionCol>
-          <SectionCol lg="4">
+      <SectionCol md="7">
+        <ObjectivesContainer>
+          {renderObjectiveCards()}
+          <SectionCol md="4" xs="6">
             <FullHeightCardObjectives
               icon="add"
               title="Criar um objetivo"
-              link="/"
+              link="/objetivos"
             />
           </SectionCol>
-        </GridRow>
+        </ObjectivesContainer>
 
-        <GridRow style={{ height: '50%', paddingTop: 7 }}>
-          <SectionCol lg="12">
-            <BannerTips label="Dicas para economizar" image={TipBannerImg}>
-              <Text type="heading3">Registre todas as despesas</Text>
-              <Text>
-                Como você pretende controlar se não sabe onde ele está? Este é o
-                primeiro passo para começar a poupar
-              </Text>
+        <TipBannerContainer>
+          <SectionCol md="12">
+            <BannerTips
+              label={tipsBanner[tipBannerIndex].caption}
+              image={tipsBanner[tipBannerIndex].image}
+            >
+              <BannerTipTitle bold>
+                {tipsBanner[tipBannerIndex].title}
+              </BannerTipTitle>
+              <Text>{tipsBanner[tipBannerIndex].text}</Text>
             </BannerTips>
           </SectionCol>
-        </GridRow>
+        </TipBannerContainer>
       </SectionCol>
     </>
   )

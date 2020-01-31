@@ -2,196 +2,198 @@
 
 exports[`FundsInfo renders correctly 1`] = `
 <div
-  className="sc-cMljjf kHTvvP"
+  className="sc-eHgmQL klMpUT"
 >
   <h2
-    className="sc-gPEVay dLVclu"
+    className="sc-brqgnP fopwoI"
   >
-    Porto Seguro Soberano Referenciado DI Renda Fixa
+    Polo Macro FIM
   </h2>
   <h5
-    className="sc-gipzik iykDNk"
+    className="sc-jDwBTQ gQSKIz"
   >
     Perfil de Risco
   </h5>
   <div
-    className="sc-jWBwVP kVCNqL sc-jlyJG jLCwjO"
+    className="sc-kkGfuU dLHlpL sc-jAaTju btSbqf"
   >
     <label>
       Menor risco
     </label>
     <div
-      className="sc-brqgnP dZYYQW"
+      className="sc-iAyFgw cBGHIw"
     />
     <div
-      className="sc-brqgnP faJWyZ active"
+      className="sc-iAyFgw clkcll"
     />
     <div
-      className="sc-brqgnP cNAKmT"
+      className="sc-iAyFgw dEJOjS"
     />
     <div
-      className="sc-brqgnP enPATG"
+      className="sc-iAyFgw hsAdED"
     />
     <div
-      className="sc-brqgnP gmLvAi"
+      className="sc-iAyFgw fIfQpt active"
     />
     <label>
       Maior risco
     </label>
   </div>
   <div
-    className="sc-bdVaJa cDHuVD"
+    className="sc-bwzfXH ediySX"
   >
     <h5
-      className="sc-bwzfXH fMpzGc"
+      className="sc-htpNat fJUrPj"
     >
       Rentabilidade Histórica
     </h5>
     <div
-      className="sc-htpNat bfqNbc"
+      className="sc-bxivhb iRQiUv"
     >
       <table
-        className="sc-bxivhb bqOLNY"
+        className="sc-ifAKCX dvNqwh"
       >
         <thead
-          className="sc-ifAKCX cFlEyZ"
+          className="sc-EHOje jvzENE"
         >
           <tr
-            className="sc-bZQynM jYBJXz"
+            className="sc-gzVnrw bTzsuO"
           >
             <th
-              className="sc-gzVnrw bAymCU"
+              className="sc-htoDjs ellCDq"
             />
             <th
-              className="sc-gzVnrw bAymCU"
+              className="sc-htoDjs ellCDq"
             >
               Mês Anterior
             </th>
             <th
-              className="sc-gzVnrw bAymCU"
+              className="sc-htoDjs ellCDq"
             >
               Ano
             </th>
             <th
-              className="sc-gzVnrw bAymCU"
+              className="sc-htoDjs ellCDq"
             >
               Últ 12m
             </th>
             <th
-              className="sc-gzVnrw bAymCU"
+              className="sc-htoDjs ellCDq"
             >
               Últ 24m
             </th>
             <th
-              className="sc-gzVnrw bAymCU"
+              className="sc-htoDjs ellCDq"
             >
               Últ 36m
             </th>
           </tr>
         </thead>
         <tbody
-          className="sc-EHOje eCwkmD"
+          className="sc-bZQynM fDIwx"
         >
           <tr
-            className="sc-bZQynM jYBJXz"
+            className="sc-gzVnrw bTzsuO"
           >
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
               Fundo (%)
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              0,94
+              -3.78
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              8,39
+              7.81
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              14,25
+              16.80
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              22,94
+              24.05
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              39,22
-            </td>
-          </tr>
-          <tr
-            className="sc-bZQynM jYBJXz"
-          >
-            <td
-              className="sc-htoDjs cLdQOW"
-            >
-              ima-b 5 (%)
-            </td>
-            <td
-              className="sc-htoDjs cLdQOW"
-            >
-              0,97
-            </td>
-            <td
-              className="sc-htoDjs cLdQOW"
-            >
-              8,54
-            </td>
-            <td
-              className="sc-htoDjs cLdQOW"
-            >
-              14,57
-            </td>
-            <td
-              className="sc-htoDjs cLdQOW"
-            >
-              22,20
-            </td>
-            <td
-              className="sc-htoDjs cLdQOW"
-            >
-              39,19
+              48.49
             </td>
           </tr>
           <tr
-            className="sc-bZQynM jYBJXz"
+            className="sc-gzVnrw bTzsuO"
           >
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
+            >
+              CDI
+               
+              (%)
+            </td>
+            <td
+              className="sc-dnqmqq cyytZL"
+            >
+              0.50
+            </td>
+            <td
+              className="sc-dnqmqq cyytZL"
+            >
+              4.67
+            </td>
+            <td
+              className="sc-dnqmqq cyytZL"
+            >
+              6.28
+            </td>
+            <td
+              className="sc-dnqmqq cyytZL"
+            >
+              13.35
+            </td>
+            <td
+              className="sc-dnqmqq cyytZL"
+            >
+              26.45
+            </td>
+          </tr>
+          <tr
+            className="sc-gzVnrw bTzsuO"
+          >
+            <td
+              className="sc-dnqmqq cyytZL"
             >
               Variação (P.P.)
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
               ---
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              ---
+              167.41
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              ---
+              267.64
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              0,74
+              180.12
             </td>
             <td
-              className="sc-htoDjs cLdQOW"
+              className="sc-dnqmqq cyytZL"
             >
-              0,03
+              183.33
             </td>
           </tr>
         </tbody>
@@ -199,302 +201,282 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </div>
   <section
-    className="sc-dnqmqq hcXERo"
+    className="sc-iwsKbI ijEENZ"
   >
     <h5
-      className="sc-iwsKbI fHhByn"
+      className="sc-gZMcBi kDRtIi"
     >
-      Movimentações (Até 13:30)
+      Movimentações
     </h5>
     <div
-      className="sc-gZMcBi koLZle"
+      className="sc-gqjmRU ghfDRA"
     >
       <div
-        className="sc-gqjmRU dgXNLS"
+        className="sc-VigVT eMNzRy"
       >
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Aplicação
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            R$ 20.000,00
+            R$ 5.000,00
           </div>
         </div>
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Movimentação Mín.
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            R$ 20.000,00
+            R$ 5.000,00
           </div>
         </div>
       </div>
       <div
-        className="sc-gqjmRU dgXNLS"
+        className="sc-VigVT eMNzRy"
       >
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Saldo Mín.
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            R$ 20.000,00
+            R$ 1.000,00
           </div>
         </div>
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Horário Limite da Aplic.
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            R$ 20.000,00
+            23:53
           </div>
         </div>
       </div>
     </div>
     <div
-      className="sc-gZMcBi koLZle"
+      className="sc-gqjmRU ghfDRA"
     >
       <div
-        className="sc-gqjmRU dgXNLS"
+        className="sc-VigVT eMNzRy"
       >
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Aplicação (Cotização)
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            D+0 úteis
+             
+            Corridos
           </div>
         </div>
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Aplicação (Financeiro)
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            D+0 úteis
+            D+0
+             
+            Corridos
           </div>
         </div>
       </div>
       <div
-        className="sc-gqjmRU dgXNLS"
+        className="sc-VigVT eMNzRy"
       >
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Resgate (Cotização)
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            D+0 úteis
+            D+30
+             
+            Corridos
           </div>
         </div>
         <div
-          className="sc-VigVT dnQTTy"
+          className="sc-jTzLTM iNoDyK"
         >
           <div
-            className="sc-jTzLTM ctIKJt"
+            className="sc-fjdhpX fXdPGc"
           >
             Resgate (Financeiro)
           </div>
           <div
-            className="sc-fjdhpX eQuahv"
+            className="sc-jzJRlG kbWvCb"
           >
-            D+0 úteis
+            D+1
+             
+            Corridos
           </div>
         </div>
       </div>
     </div>
   </section>
   <section
-    className="sc-jDwBTQ bAsluu"
+    className="sc-jWBwVP cLmclV"
   >
     <div
-      className="sc-jAaTju dxmOXo"
+      className="sc-cvbbAY bKzjwJ"
     >
       <div
-        className="sc-jzJRlG iBRSUF"
+        className="sc-cSHVUG hRSvtj"
       >
         <h4
-          className="sc-chPdSV fMerZq"
+          className="sc-kgoBCf cvKmzQ"
         >
           Detalhes do Fundo
         </h4>
         <div
-          className="sc-cSHVUG dEwMEo"
+          className="sc-kAzzGY blPhns"
         >
           <div
-            className="sc-kAzzGY jjnOKs"
+            className="sc-chPdSV eohfTt"
           >
             <h5
-              className="sc-kgoBCf dMEPLK"
-            >
-              CNPJ
-            </h5>
-            <p
-              className="sc-kGXeez dvvjEx"
-            >
-              00.000.000/0000-00
-            </p>
-          </div>
-          <div
-            className="sc-kAzzGY jjnOKs"
-          >
-            <h5
-              className="sc-kgoBCf dMEPLK"
+              className="sc-kGXeez hKshTX"
             >
               Data de início
             </h5>
             <p
-              className="sc-kGXeez dvvjEx"
+              className="sc-kpOJdX jaPJmo"
             >
-              00/00/0000
+              29/12/2009
             </p>
           </div>
         </div>
         <div
-          className="sc-cSHVUG dEwMEo"
+          className="sc-kAzzGY blPhns"
         >
           <div
-            className="sc-kAzzGY jjnOKs"
+            className="sc-chPdSV eohfTt"
           >
             <h5
-              className="sc-kgoBCf dMEPLK"
+              className="sc-kGXeez hKshTX"
             >
               Gestor
             </h5>
             <p
-              className="sc-kGXeez dvvjEx"
-            >
-              Lorem ipsum
-            </p>
+              className="sc-kpOJdX jaPJmo"
+            />
           </div>
           <div
-            className="sc-kAzzGY jjnOKs"
+            className="sc-chPdSV eohfTt"
           >
             <h5
-              className="sc-kgoBCf dMEPLK"
+              className="sc-kGXeez hKshTX"
             >
               Benchmark
             </h5>
             <p
-              className="sc-kGXeez dvvjEx"
+              className="sc-kpOJdX jaPJmo"
             >
               CDI
             </p>
           </div>
         </div>
         <div
-          className="sc-cSHVUG dEwMEo"
+          className="sc-kAzzGY blPhns"
         >
           <div
-            className="sc-kAzzGY jjnOKs"
+            className="sc-chPdSV eohfTt"
           >
             <h5
-              className="sc-kgoBCf dMEPLK"
+              className="sc-kGXeez hKshTX"
             >
               PL atual
             </h5>
             <p
-              className="sc-kGXeez dvvjEx"
+              className="sc-kpOJdX jaPJmo"
             >
-              R$ 0,00
+              R$ 121.480.174,47
             </p>
           </div>
           <div
-            className="sc-kAzzGY jjnOKs"
+            className="sc-chPdSV eohfTt"
           >
             <h5
-              className="sc-kgoBCf dMEPLK"
+              className="sc-kGXeez hKshTX"
             >
               Taxa de administração
             </h5>
             <p
-              className="sc-kGXeez dvvjEx"
+              className="sc-kpOJdX jaPJmo"
             >
-              0,50% a.a.
+              2.00
+              % a.a
             </p>
           </div>
         </div>
         <div
-          className="sc-cSHVUG dEwMEo"
+          className="sc-kAzzGY blPhns"
         >
           <div
-            className="sc-kAzzGY jjnOKs"
+            className="sc-chPdSV eohfTt"
           >
             <h5
-              className="sc-kgoBCf dMEPLK"
-            >
-              PL Médio 12M
-            </h5>
-            <p
-              className="sc-kGXeez dvvjEx"
-            >
-              R$ 0,00
-            </p>
-          </div>
-          <div
-            className="sc-kAzzGY jjnOKs"
-          >
-            <h5
-              className="sc-kgoBCf dMEPLK"
+              className="sc-kGXeez hKshTX"
             >
               Taxa de performance
             </h5>
             <p
-              className="sc-kGXeez dvvjEx"
+              className="sc-kpOJdX jaPJmo"
             >
-              20% sobre o que exceder
+              20.00
+              % sobre o que exceder
             </p>
           </div>
         </div>
       </div>
-      <section
-        className="sc-kEYyzF cPzDlO"
+      <div
+        className="sc-gPEVay jcerLG"
       >
         <div
-          className="sc-kkGfuU eVqEMm"
+          className="sc-iRbamj cXdNXz"
         >
-          <div>
+          <div
+            className="sc-jlyJG bBpeHU"
+          >
             <svg
-              className="sc-iAyFgw cNifeH"
               fill="#272727"
               height="24px"
             >
@@ -503,27 +485,31 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo gBqxUN"
+              className="sc-hSdWYo clRGtC sc-gipzik bHOClg"
+              color="unset"
+              type="subheading"
             >
-              Informativo de Desempenho
+              Informativo de desempenho
             </p>
-            <p
-              className="sc-eHgmQL kxVpoD"
-            />
-            <p
-              className="sc-cvbbAY jPiInA"
+            <a
+              className="sc-bdVaJa jcJyHx"
+              href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_POLOMACROFIM.pdf"
+              target="_blank"
             >
-              Baixar Arquivo
-               &gt; 
-            </p>
+              Baixar arquivo
+              <svg>
+                arrow-right.svg
+              </svg>
+            </a>
           </div>
         </div>
         <div
-          className="sc-kkGfuU eVqEMm"
+          className="sc-iRbamj cXdNXz"
         >
-          <div>
+          <div
+            className="sc-jlyJG bBpeHU"
+          >
             <svg
-              className="sc-iAyFgw cNifeH"
               fill="#272727"
               height="24px"
             >
@@ -532,134 +518,141 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo gBqxUN"
+              className="sc-hSdWYo clRGtC sc-gipzik bHOClg"
+              color="unset"
+              type="subheading"
             >
-              Regulamento do fundo
+              Informativo de desempenho
             </p>
-            <p
-              className="sc-eHgmQL kxVpoD"
-            />
-            <p
-              className="sc-cvbbAY jPiInA"
+            <a
+              className="sc-bdVaJa jcJyHx"
+              href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_POLOMACROFIM.pdf"
+              target="_blank"
             >
-              Baixar Arquivo
-               &gt; 
-            </p>
+              Baixar arquivo
+              <svg>
+                arrow-right.svg
+              </svg>
+            </a>
           </div>
         </div>
-      </section>
+      </div>
     </div>
     <div
-      className="sc-kpOJdX kTonmo"
+      className="sc-dxgOiQ lflzBH"
     >
       <h4
-        className="sc-jKJlTe hNiMVG"
+        className="sc-eNQAEJ kHTHNS"
       >
         Tributação (IR)
       </h4>
       <div
-        className="sc-dxgOiQ epJTUD"
+        className="sc-ckVGcZ kswxoz"
       >
         <div
-          className="sc-ckVGcZ gQiaWE"
+          className="sc-jKJlTe jGWoXo"
         >
           <h5
-            className="sc-eNQAEJ laTOBj"
+            className="sc-hMqMXs eZMZgm"
           >
             Classificação
           </h5>
           <p
-            className="sc-hMqMXs ldcbeE"
+            className="sc-kEYyzF iUaoUt"
           >
             Longo Prazo
           </p>
         </div>
       </div>
       <div
-        className="sc-dxgOiQ epJTUD"
+        className="sc-ckVGcZ kswxoz"
       >
         <div
-          className="sc-ckVGcZ gQiaWE"
+          className="sc-jKJlTe jGWoXo"
         >
           <h5
-            className="sc-eNQAEJ laTOBj"
+            className="sc-hMqMXs eZMZgm"
           >
             Até 180 dias
           </h5>
           <p
-            className="sc-hMqMXs ldcbeE"
+            className="sc-kEYyzF iUaoUt"
           >
-            22,5%
+            22.5
+            %
           </p>
         </div>
       </div>
       <div
-        className="sc-dxgOiQ epJTUD"
+        className="sc-ckVGcZ kswxoz"
       >
         <div
-          className="sc-ckVGcZ gQiaWE"
+          className="sc-jKJlTe jGWoXo"
         >
           <h5
-            className="sc-eNQAEJ laTOBj"
+            className="sc-hMqMXs eZMZgm"
           >
-            De 181 a 360 dias
+            De 181 dias a 360 dias
           </h5>
           <p
-            className="sc-hMqMXs ldcbeE"
+            className="sc-kEYyzF iUaoUt"
           >
-            20%
+            20
+            %
           </p>
         </div>
       </div>
       <div
-        className="sc-dxgOiQ epJTUD"
+        className="sc-ckVGcZ kswxoz"
       >
         <div
-          className="sc-ckVGcZ gQiaWE"
+          className="sc-jKJlTe jGWoXo"
         >
           <h5
-            className="sc-eNQAEJ laTOBj"
+            className="sc-hMqMXs eZMZgm"
           >
-            De 361 a 720 dias
+            De 361 dias a 720 dias
           </h5>
           <p
-            className="sc-hMqMXs ldcbeE"
+            className="sc-kEYyzF iUaoUt"
           >
-            17,5%
+            17.5
+            %
           </p>
         </div>
       </div>
       <div
-        className="sc-dxgOiQ epJTUD"
+        className="sc-ckVGcZ kswxoz"
       >
         <div
-          className="sc-ckVGcZ gQiaWE"
+          className="sc-jKJlTe jGWoXo"
         >
           <h5
-            className="sc-eNQAEJ laTOBj"
+            className="sc-hMqMXs eZMZgm"
           >
             Acima de 720 dias
           </h5>
           <p
-            className="sc-hMqMXs ldcbeE"
+            className="sc-kEYyzF iUaoUt"
           >
-            15%
+            15
+            %
           </p>
         </div>
       </div>
       <div
-        className="sc-dxgOiQ epJTUD"
+        className="sc-ckVGcZ kswxoz"
       >
         <div
-          className="sc-ckVGcZ gQiaWE"
+          className="sc-jKJlTe jGWoXo"
         >
           <h5
-            className="sc-eNQAEJ laTOBj"
+            className="sc-hMqMXs eZMZgm"
           >
             IOF
           </h5>
           <p
-            className="sc-hMqMXs ldcbeE"
+            className="sc-kEYyzF iUaoUt"
           >
             Regime Regressivo
           </p>
@@ -668,7 +661,7 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </section>
   <p
-    className="sc-iRbamj jPhvkb"
+    className="sc-cMljjf kVWeaw"
   >
     HAVERÁ INCIDÊNCIA DE IOF REGRESSIVO CASO OCORRAM RESGATES ANTES DE 30 DIAS CORRIDOS DA DATA DA APLICAÇÃO.
   </p>

@@ -1,17 +1,18 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+// eslint-disable-next-line import/no-cycle
 import { get } from 'services/api'
 
-import { GetDataSuccess, GetDataFailure } from './action'
+import { GetInvestmentListSuccess, GetInvestmentListFailure } from './action'
 import { Types } from './types'
 
 function* getData() {
   try {
     const response = yield call(get, '/fundos')
-    yield put(GetDataSuccess(response.data))
+    yield put(GetInvestmentListSuccess(response.data))
   } catch (err) {
-    yield put(GetDataFailure())
+    yield put(GetInvestmentListFailure())
   }
 }
 
-export default all([takeLatest(Types.INVESTMENT_DETAILS_ADD_REQUEST, getData)])
+export default all([takeLatest(Types.INVESTMENT_LIST_ADD_REQUEST, getData)])

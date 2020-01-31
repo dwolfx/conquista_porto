@@ -2,23 +2,34 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 49px;
+  height: ${props => {
+    switch (props.heightSize) {
+      case 'large':
+        return '63px'
+      case 'dynamic':
+        return 'auto'
+      default:
+        return '49px'
+    }
+  }};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 14px;
+  padding: ${props => (props.noPadding ? '0' : '0 14px')};
 `
 
 export const StartBlock = styled.div`
   display: flex;
+  align-items: center;
   && > * {
-    margin-right: 14px;
+    margin-right: ${props => props.marginBetweenElements};
   }
 `
 
 export const EndBlock = styled.div`
   display: flex;
+  align-items: center;
   && > * {
-    margin-left: 14px;
+    margin-left: ${props => props.marginBetweenElements};
   }
 `

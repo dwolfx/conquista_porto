@@ -13,11 +13,12 @@ export const TheadTr = styled.tr`
   background-color: ${props => props.theme.colors.gray3};
 `
 
-export const TheadTh = styled.th.attrs({ width: '300px' })`
+export const TheadTh = styled.th.attrs(() => ({ width: '300px' }))`
   border: 1px solid ${props => props.theme.colors.gray3};
   color: ${props => props.theme.colors.gray6};
   text-transform: uppercase;
   padding-top: 20px;
+  padding-bottom: ${props => (props.hasFilter ? 0 : '20px')};
 `
 
 export const TbodyTr = styled.tr`
@@ -98,7 +99,9 @@ const defaultIconStyle = css`
   }
 `
 
-export const ForwardIcon = styled(ConquistaIcon).attrs({ name: 'forward' })`
+export const ForwardIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'forward',
+}))`
   height: 10px;
   margin-left: ${props => (props.marginLeft ? `${props.marginLeft}px` : 0)};
   width: ${props => (props.width ? props.width : `10px`)};
@@ -108,7 +111,9 @@ export const ForwardIcon = styled(ConquistaIcon).attrs({ name: 'forward' })`
   }
 `
 
-export const BackwardIcon = styled(ConquistaIcon).attrs({ name: 'backward' })`
+export const BackwardIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'backward',
+}))`
   ${defaultIconStyle}
   width: 10px;
 `

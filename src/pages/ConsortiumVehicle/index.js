@@ -1,24 +1,31 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
+import Banner from 'assets/images/pages/solutions/consortium/vehicle/banner.jpg'
+import BulletImage from 'assets/images/pages/solutions/consortium/vehicle/selo-consorcio-auto.svg'
+
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleGiwRedirect } from 'helpers'
+
 import { Container } from './styles'
-import Banner from '../../assets/images/pages/solutions/consortium/vehicle/banner.jpg'
-import BulletImage from '../../assets/images/pages/solutions/consortium/vehicle/selo-consorcio-auto.svg'
 
-export default function ConsortiumVehicle({ history }) {
+export default function ConsortiumVehicle() {
   return (
     <Container>
       <TopBanner
         title="Consórcio de Veículos"
         description="Seu carro novo ou seminovo sem juros. Informando o valor do crédito ou das parcelas que você deseja, simule e contrate um consórcio com a credibilidade da Porto Seguro."
         buttonText="SIMULAR E CONTRATAR"
-        onClick={() => history.push('/consorcio-veiculo/visualizar')}
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-veiculos/simular'
+          )
+        }
         image={Banner}
       />
       <BulletsSection
@@ -83,7 +90,11 @@ export default function ConsortiumVehicle({ history }) {
         mainDescription="Com o Conquista, você planeja a compra do seu carro novo ou seminovo."
         subDescription="Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
         buttonText="SIMULAR E CONTRATAR"
-        onClick={() => history.push('/consorcio-veiculo/visualizar')}
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-veiculos/simular'
+          )
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"
@@ -114,30 +125,15 @@ export default function ConsortiumVehicle({ history }) {
       <FileDownloadSection
         data={[
           {
-            title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
-            description: 'Mais informações legais sobre consórcio.',
-            buttonText: 'BAIXAR ARQUIVO',
-          },
-          {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Veículos da Porto Seguro.',
-            buttonText: 'BAIXAR ARQUIVO',
-          },
-          {
-            title: 'TABELA DE TARIFAS',
-            description:
-              'Confira mais informações sobre tarifas envolvidas na contratação de consórcio.',
-            buttonText: 'VISUALIZAR',
+            buttonText: 'Visualizar',
+            url:
+              'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/consorcio-veiculos/regulamento_consorcio_de_automovel.pdf',
           },
         ]}
       />
     </Container>
   )
-}
-
-ConsortiumVehicle.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }

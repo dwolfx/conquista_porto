@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { ResponsivePie } from '@nivo/pie'
+import { ThemeContext } from 'styled-components'
 
-import { GetBankDataRequest } from 'store/modules/BankData/action'
+import useFetchBankData from 'hooks/BankData/useFetchBankData'
+
 import { formatMoney, formatCpf } from 'helpers'
 import ConquistaButton from 'components/Button'
 import Accordion from 'components/Accordion'
@@ -19,54 +21,56 @@ import {
   LineDivider,
 } from './styles'
 
-const generalViewData = [
-  {
-    id: 'fundo1',
-    label: 'Porto Seguro Crédito Privado',
-    value: 33,
-    color: '#FA1',
-  },
-  {
-    id: 'fundo2',
-    label: 'Porto Seguro Crédito Privado',
-    value: 33,
-    color: '#FAA',
-  },
-  {
-    id: 'fundo3',
-    label: 'Porto Seguro Crédito Privado',
-    value: 33,
-    color: '#F01',
-  },
-]
-
 export default function GeneralView() {
-  const data = useSelector(state => state.bankData.data)
-  const dispatch = useDispatch()
+  const bankData = useSelector(state => state.bankData.data)
+  const generalViewData = useSelector(state => state.investmentPosition.data)
+  const theme = useContext(ThemeContext)
 
-  useEffect(() => {
-    dispatch(GetBankDataRequest())
-  }, [dispatch])
+  const colorGuide = [
+    theme.colors.yellow2,
+    theme.colors.magenta2,
+    theme.colors.green4,
+    theme.colors.blue4,
+  ]
+
+  const generalViewChartData = () => {
+    if (!generalViewData) {
+      return []
+    }
+
+    return [generalViewData[0].visao_geral.fundos.fundo]
+      .flatMap(item => item)
+      .map((item, index) => ({
+        id: item.apelido,
+        label: item.apelido,
+        value: parseFloat(item.percentual),
+        color: colorGuide[index],
+      }))
+  }
+
+  useFetchBankData()
 
   return (
     <Container>
-      {data.length > 0 && (
+      {bankData && generalViewData ? (
         <>
           <General>
-            {console.log(data)}
             <Text fontSize={11} lineHeight={21} weight spacing={1.5}>
               VISÃO GERAL DOS INVESTIMENTOS
             </Text>
             <Text fontSize={14} lineHeight={24}>
-              Total: R$ 150.000,00
+              Total:{' '}
+              {formatMoney(
+                generalViewData ? generalViewData[0].visao_geral.total : 0
+              )}
             </Text>
             <GraphHolder>
               <ResponsivePie
-                data={generalViewData}
+                data={generalViewChartData()}
                 margin={{ top: 0, right: 50, bottom: 0, left: 50 }}
                 innerRadius={0.45}
                 padAngle={2}
-                colors={{ scheme: 'nivo' }}
+                colors={colorGuide}
                 borderWidth={1}
                 borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
                 enableRadialLabels={false}
@@ -79,7 +83,7 @@ export default function GeneralView() {
                 motionDamping={15}
                 legends={[
                   {
-                    anchor: 'bottom',
+                    anchor: 'bottom-left',
                     direction: 'column',
                     itemWidth: 100,
                     itemHeight: 18,
@@ -105,7 +109,11 @@ export default function GeneralView() {
               Saldo Disponível
             </Text>
             <Text fontSize={18} lineHeight={28} margin="0px 0px 14px 0px">
-              {formatMoney(data[0].dadosContaPortoSeguro.saldo_disponivel)}
+              {formatMoney(
+                bankData.DadosContaPortoSeguro
+                  ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                  : 0
+              )}
             </Text>
             <LinkButton> ver extrato &gt; </LinkButton>
             <ConquistaButton>RETIRAR</ConquistaButton>
@@ -116,68 +124,74 @@ export default function GeneralView() {
               Saldo a Liquidar
             </Text>
             <Text fontSize={18} lineHeight={28}>
-              {formatMoney(data[0].dadosContaPortoSeguro.saldo_liquidar)}
+              {formatMoney(
+                bankData.DadosContaPortoSeguro
+                  ? bankData.DadosContaPortoSeguro.saldo_liquidar
+                  : 0
+              )}
             </Text>
-            <Accordion titleNode="Dados da conta">
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  BANCO
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {data[0].dadosContaPortoSeguro.codigo_banco}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  AGÊNCIA
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {data[0].dadosContaPortoSeguro.agencia}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  CONTA
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {`${data[0].dadosContaPortoSeguro.conta}-${data[0].dadosContaPortoSeguro.digito_conta}`}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  FAVORECIDO
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {data[0].dadosContaPortoSeguro.titular}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  CPF
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {formatCpf(data[0].dadosContaPortoSeguro.cpf)}
-                </Text>
-              </Wrapper>
-              <LineDivider />
-              <InfoList>
-                <InfoItem>
-                  Essa conta é para a recursos relacionados a investimentos
-                  apenas
-                </InfoItem>
-                <InfoItem>
-                  As transferências dever ser de contas de mesma titularidade do
-                  favorecido
-                </InfoItem>
-                <InfoItem>
-                  A Porto Seguro faz a identificação e direcionamento dos
-                  recursos
-                </InfoItem>
-              </InfoList>
-            </Accordion>
+            {bankData.DadosContaPortoSeguro && (
+              <Accordion titleNode="Dados da conta">
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    BANCO
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {bankData.DadosContaPortoSeguro.codigo_banco}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    AGÊNCIA
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {bankData.DadosContaPortoSeguro.agencia}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    CONTA
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {`${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    FAVORECIDO
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {bankData.DadosContaPortoSeguro.titular}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    CPF
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {formatCpf(bankData.DadosContaPortoSeguro.cpf)}
+                  </Text>
+                </Wrapper>
+                <LineDivider />
+                <InfoList>
+                  <InfoItem>
+                    Essa conta é para a recursos relacionados a investimentos
+                    apenas
+                  </InfoItem>
+                  <InfoItem>
+                    As transferências dever ser de contas de mesma titularidade
+                    do favorecido
+                  </InfoItem>
+                  <InfoItem>
+                    A Porto Seguro faz a identificação e direcionamento dos
+                    recursos
+                  </InfoItem>
+                </InfoList>
+              </Accordion>
+            )}
           </AccountInfo>
         </>
-      )}
+      ) : null}
     </Container>
   )
 }

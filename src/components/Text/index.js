@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { themeColors, fontTypes } from 'styles/theme'
+
 import { TextStyle } from './styles'
 
-export default function Text({ type, bold, children, ...rest }) {
+export default function Text({ type, bold, color, children, ...rest }) {
   return (
-    <TextStyle type={type} bold={bold} {...rest}>
+    <TextStyle type={type} bold={bold} color={color} {...rest}>
       {children}
     </TextStyle>
   )
@@ -13,23 +15,14 @@ export default function Text({ type, bold, children, ...rest }) {
 
 Text.propTypes = {
   bold: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf([
-    'heading1',
-    'heading2',
-    'heading3',
-    'heading4',
-    'headline',
-    'title',
-    'subheading',
-    'body',
-    'caption',
-    'captionUppercase',
-    'button',
-  ]),
+  children: PropTypes.node,
+  type: PropTypes.oneOf(Object.keys(fontTypes)),
+  color: PropTypes.oneOf([...Object.keys(themeColors), 'unset']),
 }
 
 Text.defaultProps = {
+  children: null,
   bold: false,
   type: 'body',
+  color: 'unset',
 }

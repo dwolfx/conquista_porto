@@ -1,18 +1,16 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+// eslint-disable-next-line import/no-cycle
 import { get } from 'services/api'
 import { Types } from './types'
-import { GetDataSuccess, GetDataFailure } from './action'
+import { GetCreditCardDataSuccess, GetCreditCardDataFailure } from './action'
 
-function* getData() {
+function* getData({ cpf }) {
   try {
-    const response = yield call(
-      get,
-      '/cartoes?cpfCnpj=32036703801&codigoCanal=0'
-    )
-    yield put(GetDataSuccess(response.data))
+    const response = yield call(get, `/cartoes?cpfCnpj=${cpf}&codigoCanal=0`)
+    yield put(GetCreditCardDataSuccess(response.data))
   } catch (err) {
-    yield put(GetDataFailure())
+    yield put(GetCreditCardDataFailure())
   }
 }
 

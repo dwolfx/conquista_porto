@@ -1,116 +1,265 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
+import Button from 'components/Button'
 import Icon from 'components/IconExporter'
+
+import { useHistory } from 'react-router-dom'
 
 import { formatMoney } from 'helpers'
 
-import { ProductItem, ThreeItemsLine, ItemLine, ItemDivisor } from './styles'
+import {
+  ProductItem,
+  ProductItemRow,
+  EmptyProductItemRow,
+  CreditCardItemRow,
+  LinearProgressBarContent,
+  TextBlack,
+  HorizontalListWithMargin,
+} from './styles'
 
-const ProductItemGenerator = (productList = [], type, history) => {
+const ProductItemGenerator = (
+  productList = [],
+  type = 'notImplemented',
+  history = () => {}
+) => {
+  if (type === 'notImplemented') return []
+
   const atualItemDetail = itemDetail[type]
 
-  return productList.map((product, index) => (
-    <>
-      {index > 0 ? <ItemDivisor /> : null}
-      <ProductItem>
-        <Text type="headline">{atualItemDetail.title}</Text>
-        <Text type="captionUppercase" fontSize="12px">
-          {atualItemDetail.subTitle(product)}
-        </Text>
-        {atualItemDetail.threeItemsLine(product, history)}
-      </ProductItem>
-    </>
-  ))
+  return productList && productList.length > 0
+    ? productList.map((product, index) => {
+        const id = `${type}-${Date.now().toPrecision() + index}`
+
+        return (
+          <React.Fragment key={id}>
+            <ProductItem>
+              <ProductItemRow>
+                <Text type="headline">{atualItemDetail.title}</Text>
+              </ProductItemRow>
+              {atualItemDetail.subTitle(product)}
+              {atualItemDetail.bottomLine(product, history)}
+            </ProductItem>
+          </React.Fragment>
+        )
+      })
+    : [
+        <React.Fragment key={`empty-${Math.random()}`}>
+          <EmptyProductItem atualItemDetail={atualItemDetail} />
+        </React.Fragment>,
+      ]
 }
 
 const itemDetail = {
-  financiamentoVeiculo: {
-    title: 'Financiamento de Veículos',
-    subTitle: product => product.Contrato,
-    threeItemsLine: (product, history) => (
-      <ThreeItemsLine gridTemplateColumns="2fr 2fr 3fr">
-        <ItemLine padding="0 14px 0 0" width="100%">
-          <MiniLinearProgressBar
-            atual={parseInt(product.QuantidadeParcelasPagas, 10)}
-            max={parseInt(product.QuantidadeParcelasContratadas, 10)}
-          />
-        </ItemLine>
-        <ItemLine>
-          <Text type="headline" bold>
-            {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
-          </Text>
-        </ItemLine>
-        <ItemLine justifySelf="end" alignSelf="center" height="85%">
-          <ButtonLink
-            onClick={() => {
-              history.push('/financiamento-veiculo/visualizar')
-            }}
-          >
-            GERENCIAR
-          </ButtonLink>
-        </ItemLine>
-      </ThreeItemsLine>
-    ),
-  },
   cartaoCredito: {
     title: 'Cartão de Crédito',
+    link: '/cartao-credito/visualizar',
+    linkEmpty: '/cartao-credito',
     subTitle: product => (
-      <span style={{ marginLeft: '34px' }}>
-        {`Fatura ${product.Fatura.Status}`}
-      </span>
+      <CreditCardItemRow>
+        <Text type="captionUppercase">{`FATURA ${
+          product.Fatura.Status ? product.Fatura.Status : ''
+        }`}</Text>
+      </CreditCardItemRow>
     ),
-    threeItemsLine: (product, history) => (
-      <ThreeItemsLine gridTemplateColumns="1fr 4fr 3fr">
-        <ItemLine padding="5px 10px 0 0">
-          <Icon name={product.Bandeira.toLowerCase()} />
-        </ItemLine>
-        <ItemLine alignSelf="center">
-          <Text type="headline" bold>
-            {formatMoney(product.Fatura.Valor)}
-          </Text>
-        </ItemLine>
-        <ItemLine justifySelf="end" alignSelf="center" height="85%">
-          <ButtonLink
-            onClick={() => {
-              history.push('/cartao-credito/visualizar')
-            }}
-          >
-            GERENCIAR
-          </ButtonLink>
-        </ItemLine>
-      </ThreeItemsLine>
-    ),
+    bottomLine(product, history) {
+      const { link } = this
+
+      const startItems = [
+        <Icon width={20} name={product.Bandeira.toLowerCase()} />,
+        <TextBlack type="headline" bold>
+          {formatMoney(product.Fatura.Valor)}
+        </TextBlack>,
+      ]
+
+      const endItems = [
+        <ButtonLink
+          onClick={() => {
+            history.push(link)
+          }}
+        >
+          GERENCIAR
+        </ButtonLink>,
+      ]
+
+      return (
+        <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
+      )
+    },
+  },
+  financiamentoVeiculo: {
+    title: 'Financiamento de Veículos',
+    subTitle: () => '',
+    link: '/financiamento-veiculo/visualizar',
+    linkEmpty: '/financiamento-veiculo',
+    bottomLine: genericBottomLine,
   },
   consorcioVeiculo: {
-    title: 'Financiamento de Veículo',
-    subTitle: product => product.Descricao,
-    threeItemsLine: (product, history) => (
-      <ThreeItemsLine gridTemplateColumns="2fr 2fr 3fr">
-        <ItemLine padding="0 14px 0 0" width="100%">
-          <MiniLinearProgressBar
-            atual={parseInt(product.QuantidadeParcelasPagas, 10)}
-            max={parseInt(product.QuantidadeParcelasContratadas, 10)}
-          />
-        </ItemLine>
-        <ItemLine>
-          <Text type="headline" bold>
-            {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
-          </Text>
-        </ItemLine>
-        <ItemLine justifySelf="end" alignSelf="center" height="85%">
-          <ButtonLink
-            onClick={() => {
-              history.push('/consorcio-veiculo/visualizar')
-            }}
-          >
-            GERENCIAR
-          </ButtonLink>
-        </ItemLine>
-      </ThreeItemsLine>
-    ),
+    title: 'Consórcio de Veículo',
+    subTitle: () => '',
+    link: '/consorcio-veiculo/visualizar',
+    linkEmpty: '/consorcio-veiculo',
+    bottomLine: genericBottomLine,
   },
+  consorcioImovel: {
+    title: 'Consórcio de Imóvel',
+    subTitle: () => '',
+    link: '/consorcio-imovel/visualizar',
+    linkEmpty: '/consorcio-imovel',
+    bottomLine: genericBottomLine,
+  },
+  seguroVida: {
+    title: 'Seguro de Vida',
+    subTitle: () => (
+      <ProductItemRow>
+        <Text type="captionUppercase">Cobertura principal</Text>
+      </ProductItemRow>
+    ),
+    link: '/seguro-vida/visualizar',
+    linkEmpty: '/seguro-vida',
+    bottomLine: lifeInsuranceBottomLine,
+  },
+  seguroViagem: {
+    title: 'Seguro Viagem',
+    subTitle: () => (
+      <ProductItemRow>
+        <Text type="captionUppercase">Cobertura principal</Text>
+      </ProductItemRow>
+    ),
+    link: '/seguro-viagem/visualizar',
+    linkEmpty: '/seguro-viagem',
+    bottomLine: tripInsuranceBottomLine,
+  },
+}
+
+function lifeInsuranceBottomLine(product, history) {
+  const { link } = this
+
+  let value = ''
+
+  try {
+    value =
+      product.GruposCobertura.GrupoCobertura[0].CoberturasRisco
+        .CoberturaRisco[1].CapitalSegurado
+  } catch (error) {
+    value = ''
+  }
+
+  const startItems = [
+    <TextBlack type="headline" bold>
+      {formatMoney(value)}
+    </TextBlack>,
+  ]
+
+  const endItems = [
+    <ButtonLink
+      onClick={() => {
+        history.push(link)
+      }}
+    >
+      GERENCIAR
+    </ButtonLink>,
+  ]
+
+  return (
+    <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
+  )
+}
+
+function tripInsuranceBottomLine(product, history) {
+  const { link } = this
+
+  let value
+
+  try {
+    value = product.CoberturasBasicas.CoberturaBasica.filter(
+      item => item.Nome === 'MORTE ACIDENTAL'
+    )
+
+    value = value.length ? value[0] : ''
+  } catch (error) {
+    value = ''
+  }
+
+  const startItems = [
+    <TextBlack type="headline" bold>
+      {formatMoney(value.CapitalSegurado)}
+    </TextBlack>,
+  ]
+
+  const endItems = [
+    <ButtonLink
+      onClick={() => {
+        history.push(link)
+      }}
+    >
+      GERENCIAR
+    </ButtonLink>,
+  ]
+
+  return (
+    <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
+  )
+}
+
+function genericBottomLine(product, history) {
+  const { link } = this
+
+  const startItems = [
+    <LinearProgressBarContent>
+      <MiniLinearProgressBar
+        atual={product.QuantidadeParcelasPagas}
+        max={product.QuantidadeParcelasContratadas}
+      />
+    </LinearProgressBarContent>,
+    <TextBlack type="headline" bold>
+      {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
+    </TextBlack>,
+  ]
+
+  const endItems = [
+    <ButtonLink
+      onClick={() => {
+        history.push(link)
+      }}
+    >
+      GERENCIAR
+    </ButtonLink>,
+  ]
+
+  return (
+    <HorizontalListWithMargin startItems={startItems} endItems={endItems} />
+  )
+}
+
+const EmptyProductItem = ({ atualItemDetail }) => {
+  const history = useHistory()
+
+  return (
+    <EmptyProductItemRow>
+      <HorizontalListWithMargin
+        startItems={[
+          <Text type="headline" color="gray5">
+            {atualItemDetail.title}
+          </Text>,
+        ]}
+        endItems={[
+          <Button
+            color="secondary"
+            onClick={() => history.push(atualItemDetail.linkEmpty)}
+          >
+            CONHEÇA
+          </Button>,
+        ]}
+      />
+    </EmptyProductItemRow>
+  )
+}
+
+EmptyProductItem.propTypes = {
+  atualItemDetail: PropTypes.object.isRequired,
 }
 
 export default ProductItemGenerator

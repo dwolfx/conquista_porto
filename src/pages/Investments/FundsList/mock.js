@@ -11,17 +11,17 @@ export const columns = [
   },
   {
     Header: 'Resgate',
-    width: '240px',
+    width: '236px',
     columns: [
       {
         Header: 'Cotização',
         accessor: 'resgate_cotizacao',
-        width: '120px',
+        width: '118px',
       },
       {
         Header: 'Liquidação',
         accessor: 'resgate_financeiro',
-        width: '120px',
+        width: '118px',
       },
     ],
   },
@@ -32,56 +32,29 @@ export const columns = [
   },
   {
     Header: 'Rentabilidade',
-    width: '225px',
+    width: '273px',
     columns: [
       {
         Header: 'Mês',
         accessor: 'rentabil_fundo_mes',
-        width: '75px',
+        width: '91px',
       },
       {
         Header: 'Ano',
         accessor: 'rentabil_fundo_ano',
-        width: '75px',
+        width: '91px',
       },
       {
         Header: 'Últ. 12M',
         accessor: 'rentabil_fundo_12_meses',
-        width: '75px',
+        width: '91px',
       },
     ],
   },
   {
     Header: '',
     accessor: 'is_fundo_ativo',
-    width: '115px',
-  },
-]
-
-export const riskClassification = [
-  {
-    name: 'Todos os fundos',
-    value: 'todos',
-  },
-  {
-    name: 'Baixo',
-    value: 1,
-  },
-  {
-    name: 'Médio-Baixo',
-    value: 2,
-  },
-  {
-    name: 'Médio',
-    value: 3,
-  },
-  {
-    name: 'Médio-Alto',
-    value: 4,
-  },
-  {
-    name: 'Alto',
-    value: 5,
+    width: '120px',
   },
 ]
 

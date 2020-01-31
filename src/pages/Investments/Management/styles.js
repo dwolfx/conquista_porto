@@ -3,9 +3,11 @@ import AccordionDefault from 'components/Accordion'
 import { AccordionHeader, AccordionBody } from 'components/Accordion/styles'
 import Carousel from 'components/Carousel'
 import LeftNavDefault from 'components/Management/LeftNav'
+import RightContentDefault from 'components/Management/RightContent'
+import TextComponent from 'components/Text'
 
 export const LeftNav = styled(LeftNavDefault)`
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     order: 2;
   }
 `
@@ -15,7 +17,7 @@ export const MiddleContent = styled.article`
   padding-top: 22px;
   width: 55%;
 
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     width: 100%;
     order: 3;
   }
@@ -27,14 +29,14 @@ export const GeneralInfo = styled.article`
   margin-left: 30px;
   height: fit-content;
 
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     width: 100%;
     margin: 0;
   }
 `
 
 export const BreadcrumbContainer = styled.div`
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     padding-left: 30px;
   }
 `
@@ -59,7 +61,7 @@ export const AddBtnLink = styled.div`
     transition: all ease 0.2s;
   }
 
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     width: 150px;
   }
 `
@@ -129,7 +131,7 @@ export const BalanceAccordion = styled(AccordionDefault)`
 `
 
 export const AccordionGeneralInfo = styled(AccordionDefault)`
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     order: 1;
   }
 `
@@ -178,7 +180,7 @@ export const ChartContainer = styled.div`
   height: 400px;
   width: 570px;
 
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     width: 100vw;
   }
 `
@@ -220,7 +222,7 @@ export const CustomContent = styled.div`
     width: 1200px;
   }
 
-  @media (max-width: 1000px) {
+  @media ${props => props.theme.mediaQueries.md} {
     text-align: center;
     padding: 0 8px 22px 8px;
   }
@@ -233,7 +235,7 @@ export const Picture = styled.picture`
     margin-left: -350px;
     height: 100%;
 
-    @media (max-width: 1000px) {
+    @media ${props => props.theme.mediaQueries.md} {
       display: none;
     }
   }
@@ -339,15 +341,15 @@ export const ComplementaryInfo = styled.article`
   padding-bottom: 22px;
 `
 
-export const AnbimaContainer = styled.article`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 46px;
-  padding: 0 6px;
+export const FundCategoryText = styled(TextComponent).attrs(() => ({
+  type: 'subheading',
+  bold: true,
+}))`
+  text-transform: uppercase;
+  margin: 0 0 14px 0;
+  text-align: center;
+`
 
-  @media (max-width: 550px) {
-    img {
-      width: 320px;
-    }
-  }
+export const RightContent = styled(RightContentDefault)`
+  width: 100%;
 `

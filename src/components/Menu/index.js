@@ -2,17 +2,36 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from 'components/IconExporter'
+import useMedia from 'hooks/useMedia'
+
 import { Container, MenuContainer, Option, OptionName } from './styles'
 
-export default function Menu({ scrollFunc }) {
+export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
   const [selectedOption, setSelectedOption] = useState('produtos')
+  const isMobile = useMedia('sm')
 
   function checkScroll() {
-    if (window.scrollY < 240) {
+    let row1Pos = null
+    let row2Pos = null
+    let row3Pos = null
+
+    if (!!ref1.current && !!ref2.current && !!ref3.current) {
+      if (isMobile) {
+        row1Pos = ref1.current.getBoundingClientRect().bottom
+        row2Pos = ref2.current.getBoundingClientRect().bottom
+        row3Pos = ref3.current.getBoundingClientRect().bottom
+      } else {
+        row1Pos = ref1.current.getBoundingClientRect().top
+        row2Pos = ref2.current.getBoundingClientRect().top
+        row3Pos = ref3.current.getBoundingClientRect().top
+      }
+    }
+
+    if (window.scrollY < row1Pos) {
       setSelectedOption('produtos')
-    } else if (window.scrollY >= 240 && window.scrollY < 688) {
+    } else if (window.scrollY >= row2Pos && window.scrollY < row3Pos) {
       setSelectedOption('objetivos')
-    } else if (window.scrollY >= 688) {
+    } else if (window.scrollY >= row3Pos) {
       setSelectedOption('pontos')
     }
   }
@@ -23,6 +42,7 @@ export default function Menu({ scrollFunc }) {
     return () => {
       window.removeEventListener('scroll', checkScroll)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function handleClick(id, type) {
@@ -61,4 +81,7 @@ export default function Menu({ scrollFunc }) {
 
 Menu.propTypes = {
   scrollFunc: PropTypes.func.isRequired,
+  ref1: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  ref2: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  ref3: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
 }

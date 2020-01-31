@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import rootReducer from './modules/rootReducer'
+// eslint-disable-next-line import/no-cycle
 import rootSaga from './modules/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()

@@ -1,5 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+// eslint-disable-next-line import/no-cycle
 import { get } from 'services/api'
 import { Types } from './types'
 import {
@@ -14,11 +15,11 @@ function addId(consorcios) {
   }))
 }
 
-function* getData() {
+function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      '/consorcios/auto?cpf=33244452809&codigoCanal=1'
+      `/consorcios/auto?cpf=${cpf}&codigoCanal=1`
     )
     yield put(GetConsortiumVehicleDataSuccess(addId(response.data.consorcios)))
   } catch (err) {

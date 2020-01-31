@@ -3,6 +3,21 @@ export const formatMoney = number =>
     number
   )
 
+const UNICODE_NON_BREAKING_SPACE = String.fromCharCode(160)
+const USUAL_SPACE = String.fromCharCode(32)
+
+export const formatMoneyDecimal = (value = 0) => {
+  const options = {
+    currency: 'BRL',
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+    style: 'decimal',
+  }
+  return String(
+    new Intl.NumberFormat('pt-BR', options).format(+value / 100)
+  ).replace(UNICODE_NON_BREAKING_SPACE, USUAL_SPACE)
+}
+
 export const formatCpf = value => {
   const numbers = value.toString().replace(/\D/g, '')
 
@@ -37,4 +52,20 @@ const hexToRgb = hex => {
 export const rgba = (hex, alpha) => {
   const color = hexToRgb(hex)
   return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`
+}
+
+export function handleGiwRedirect(link) {
+  window.location.pathname = link
+}
+
+export const formatDateMask = event => {
+  const strippedValue = event.target.value.replace(/\D/g, '')
+  let newValue = strippedValue
+  if (strippedValue.length < 5) {
+    newValue = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
+  } else {
+    newValue = strippedValue.replace(/(\d{2})(\d{2})(\d{1})/g, '$1/$2/$3')
+  }
+  // eslint-disable-next-line no-param-reassign
+  event.target.value = newValue
 }

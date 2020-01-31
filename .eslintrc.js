@@ -19,7 +19,7 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-        moduleDirectory: ["node_modules", "src/"]
+        moduleDirectory: ['node_modules', 'src/'],
       },
     },
   },
@@ -105,7 +105,7 @@ module.exports = {
     'react/jsx-uses-vars': 2,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/prop-types': 1,
+    'react/prop-types': 2,
     'react/require-default-props': 1,
     'react/require-extension': 0,
     'react/self-closing-comp': 0,

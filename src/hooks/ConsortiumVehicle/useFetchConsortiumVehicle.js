@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 export default function useFetchConsortiumVehicle() {
   const dispatch = useDispatch()
-  const status = useSelector(state => state.consortiumVehicle.status)
+  const data = useSelector(state => state.consortiumVehicle.data)
+  const auth = useSelector(state => state.auth)
 
   useEffect(() => {
-    if (!status) {
-      dispatch(GetConsortiumVehicleDataRequest())
+    if (!data) {
+      dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
     }
-  }, [dispatch, status])
+  }, [dispatch, data, auth])
 }

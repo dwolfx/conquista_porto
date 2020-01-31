@@ -10,7 +10,7 @@ export const RadioTitle = styled.p`
   word-break: break-word;
 `
 
-export const RadioInput = styled.input.attrs({ type: 'radio' })`
+export const RadioInput = styled.input.attrs(() => ({ type: 'radio' }))`
   height: 20px;
   margin-right: 10px;
   position: relative;
@@ -34,8 +34,8 @@ export const RadioInput = styled.input.attrs({ type: 'radio' })`
     height: 10px;
     display: block;
     position: absolute;
-    top: calc(50% - 4px);
-    left: calc(50% - 4px);
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
     border-radius: 50%;
     background-color: transparent;
   }
@@ -71,6 +71,7 @@ export const RadioWrapper = styled.div`
   margin-left: ${props => `${props.marginLeft}px`};
   margin-right: ${props => `${props.marginRight}px`};
   width: ${props => `${props.width}%`};
+  justify-content: center;
 
   @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;

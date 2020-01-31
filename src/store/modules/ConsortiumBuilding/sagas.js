@@ -1,18 +1,22 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+// eslint-disable-next-line import/no-cycle
 import { get } from 'services/api'
 import { Types } from './types'
-import { GetDataSuccess, GetDataFailure } from './action'
+import {
+  GetConsortiumBuildingDataSuccess,
+  GetConsortiumBuildingDataFailure,
+} from './action'
 
-function* getData() {
+function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      '/consorcios/imovel?cpfCnpj=33244452809&codigoCanal=0'
+      `/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`
     )
-    yield put(GetDataSuccess(response.data.Consorcios))
+    yield put(GetConsortiumBuildingDataSuccess(response.data.consorcios))
   } catch (err) {
-    yield put(GetDataFailure())
+    yield put(GetConsortiumBuildingDataFailure())
   }
 }
 

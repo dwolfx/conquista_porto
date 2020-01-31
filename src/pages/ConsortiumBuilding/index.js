@@ -1,17 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
+import Banner from 'assets/images/pages/solutions/consortium/building/banner_consortium_building.jpg'
+import BulletImage from 'assets/images/pages/solutions/consortium/building/bulletSectionIcon.svg'
+
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleGiwRedirect } from 'helpers'
 
 import { Container } from './styles'
-import Banner from '../../assets/images/pages/solutions/consortium/building/banner_consortium_building.jpg'
-import BulletImage from '../../assets/images/pages/solutions/consortium/building/bulletSectionIcon.svg'
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
 
-export default function ConsortiumBuilding({ history }) {
+export default function ConsortiumBuilding() {
   return (
     <Container>
       <TopBanner
@@ -20,7 +23,11 @@ export default function ConsortiumBuilding({ history }) {
         buttonText="SIMULAR E CONTRATAR"
         image={Banner}
         imageDescription="Pai empurrando a filha em um balanço e uma casa ao fundo"
-        onClick={() => history.push('/consorcio-imovel/visualizar')}
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-imoveis/simular'
+          )
+        }
       />
       <BulletsSection
         title="Por que contratar o Consórcio de Imóvel?"
@@ -85,7 +92,11 @@ export default function ConsortiumBuilding({ history }) {
         subDescription="Você pode fazer quantas simulações quiser, escolhendo entre as opções parcela mensal e
         crédito total. Assim, conhece os planos disponíveis e contrata de acordo com seus interesses."
         buttonText="SIMULAR E CONTRATAR"
-        onClick={() => history.push('/consorcio-imovel/visualizar')}
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-imoveis/simular'
+          )
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"
@@ -116,31 +127,15 @@ export default function ConsortiumBuilding({ history }) {
       <FileDownloadSection
         data={[
           {
-            title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
-            description:
-              'Aqui, você tem mais informações legais sobre consórcio.',
-            buttonText: 'BAIXAR ARQUIVO',
-          },
-          {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
-            buttonText: 'BAIXAR ARQUIVO',
-          },
-          {
-            title: 'TABELA DE TARIFAS',
-            description:
-              'Confira mais informações sobre tarifas envolvidas na contratação de consórcio.',
-            buttonText: 'BAIXAR ARQUIVO',
+            buttonText: 'Visualizar',
+            url:
+              'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-imoveis/consorcio-imoveis/regulamento_consorcio_de_imovel.pdf',
           },
         ]}
       />
     </Container>
   )
-}
-
-ConsortiumBuilding.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }

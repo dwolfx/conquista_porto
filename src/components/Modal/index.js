@@ -26,12 +26,15 @@ const Modal = ({
   const themeContext = useContext(ThemeContext)
   useEffect(() => {
     const body = document.querySelector('body')
+    const html = document.querySelector('html')
     if (isOpen) {
       body.style.overflow = 'hidden'
+      html.style.overflowY = 'hidden'
     }
 
     function handleOverflow() {
       body.style.overflow = 'visible'
+      html.style.overflowY = 'visible'
     }
     return () => handleOverflow()
   }, [isOpen])
@@ -72,6 +75,7 @@ const Modal = ({
 
 Modal.defaultProps = {
   headerIcon: null,
+  modalTitle: '',
 }
 
 Modal.propTypes = {
@@ -79,7 +83,7 @@ Modal.propTypes = {
   headerIcon: PropTypes.string,
   handleClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  modalTitle: PropTypes.string.isRequired,
+  modalTitle: PropTypes.string,
   alignItems: PropTypes.string,
 }
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useReducer, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
@@ -9,46 +9,136 @@ export default function PieChart({
   children,
   data,
   height,
-  onLegendMouseEnter,
-  onLegendMouseLeave,
+  onMouseEnter,
+  onMouseLeave,
+  onSliceClick,
   width,
+  hideLegend,
   ...rest
 }) {
+  const chartReducer = (state = data, action) => {
+    const { payload, type } = action
+    switch (type) {
+      case 'click': {
+        if (payload.color.endsWith('33')) {
+          return [
+            ...data.map(item => {
+              if (item.id !== payload.id) {
+                return { ...item, color: `${item.color}33` }
+              }
+              return item
+            }),
+          ]
+        }
+        return [...state]
+      }
+      case 'mouseEnter': {
+        if (!payload) {
+          return state
+        }
+        return [
+          ...state.map(item => {
+            if (item.id !== payload.id) {
+              return { ...item, color: `${item.color}33` }
+            }
+            return item
+          }),
+        ]
+      }
+      case 'mouseLeave':
+        return [...data]
+      default:
+        return state
+    }
+  }
+
+  function handleMouseEnter(payload, event) {
+    // eslint-disable-next-line no-param-reassign
+    event.target.style.cursor = 'pointer'
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseEnter', payload })
+      fireOnMouseEnter(payload.id)
+    }
+  }
+
+  function handleLegendMouseEnter(payload, event) {
+    // eslint-disable-next-line no-param-reassign
+    event.target.style.cursor = 'pointer'
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseEnter', payload })
+      fireOnMouseEnter(payload.id)
+    }
+  }
+
+  function handleMouseLeave() {
+    if (!preventOnMouse) {
+      dispatch({ type: 'mouseLeave' })
+      if (onMouseLeave) {
+        onMouseLeave(null)
+      }
+    }
+  }
+
+  function fireOnMouseEnter(id) {
+    if (onMouseEnter) {
+      const filterResult = chartData.find(element => element.id === id)
+      onMouseEnter(filterResult)
+    }
+  }
+
+  function handleClick(payload) {
+    dispatch({ type: 'click', payload })
+    setPreventOnMouse(payload.color.endsWith('33') ? true : !preventOnMouse)
+    if (onSliceClick) {
+      const filterResult = chartData.find(element => element.id === payload.id)
+      onSliceClick(filterResult)
+    }
+  }
+
   const theme = useContext(ThemeContext)
+  const [chartData, dispatch] = useReducer(chartReducer, data)
+  const [preventOnMouse, setPreventOnMouse] = useState(false)
+
+  useEffect(() => {
+    dispatch({ type: 'mouseLeave' })
+  }, [data.length])
+
   return (
     <ChartContainer width={width} height={height}>
       <ResponsivePie
         {...rest}
         data={
-          data || [
-            {
-              id: 'emptyvalue',
-              value: 100,
-              color: theme.colors.gray2,
-            },
-          ]
+          chartData && chartData.length > 0
+            ? chartData
+            : [
+                {
+                  id: 'emptyvalue',
+                  value: 100,
+                  color: theme.colors.gray2,
+                },
+              ]
         }
-        colors={data ? data.map(item => item.color) : [theme.colors.gray2]}
-        innerRadius={0.95}
+        colors={
+          chartData.length > 0
+            ? chartData.map(item => item.color)
+            : [theme.colors.gray2]
+        }
+        innerRadius={0.94}
         padAngle={1}
         cornerRadius={3}
         enableRadialLabels={false}
         enableSlicesLabels={false}
         isInteractive={false}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
         legends={
-          data
+          !hideLegend && data
             ? [
                 {
-                  onMouseEnter: payload => {
-                    if (onLegendMouseEnter) {
-                      onLegendMouseEnter(payload)
-                    }
-                  },
-                  onMouseLeave: () => {
-                    if (onLegendMouseLeave) {
-                      onLegendMouseLeave()
-                    }
-                  },
+                  onMouseEnter: handleLegendMouseEnter,
+                  onMouseLeave: handleMouseLeave,
+                  onClick: handleClick,
                   anchor: 'bottom',
                   direction: 'row',
                   symbolSize: 14,
@@ -77,8 +167,10 @@ export default function PieChart({
 PieChart.defaultProps = {
   children: null,
   data: null,
-  onLegendMouseEnter: null,
-  onLegendMouseLeave: null,
+  onMouseEnter: null,
+  onMouseLeave: null,
+  onSliceClick: null,
+  hideLegend: false,
 }
 
 PieChart.propTypes = {
@@ -91,7 +183,9 @@ PieChart.propTypes = {
     })
   ),
   height: PropTypes.string.isRequired,
-  onLegendMouseEnter: PropTypes.func,
-  onLegendMouseLeave: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  onSliceClick: PropTypes.func,
   width: PropTypes.string.isRequired,
+  hideLegend: PropTypes.bool,
 }

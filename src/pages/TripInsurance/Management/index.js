@@ -77,7 +77,7 @@ export default function ManagementTripInsurance({ history }) {
 
   const tripInsurance = useSelector(state => state.tripInsurance)
   useEffect(() => {
-    if (tripInsurance.data.length) {
+    if (tripInsurance.data) {
       setSelectedTripInsurance(tripInsurance.data[0])
     }
   }, [tripInsurance.data])
@@ -90,7 +90,7 @@ export default function ManagementTripInsurance({ history }) {
     })
   }
 
-  if (tripInsurance.data.length && selectedTripInsurance) {
+  if (tripInsurance.data && selectedTripInsurance) {
     return (
       <>
         <Container>
@@ -111,10 +111,10 @@ export default function ManagementTripInsurance({ history }) {
               </AddBtnLink>
               {tripInsurance.data.map(item => (
                 <ManageableItem
-                  key={item.Apolice.NumeroApolice}
+                  key={item.Apolice.LinkDownload}
                   active={
-                    selectedTripInsurance.Apolice.NumeroApolice ===
-                    item.Apolice.NumeroApolice
+                    selectedTripInsurance.Apolice.LinkDownload ===
+                    item.Apolice.LinkDownload
                   }
                   onClick={() => {
                     setSelectedTripInsurance(item)
@@ -138,8 +138,8 @@ export default function ManagementTripInsurance({ history }) {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(selectedTripInsurance.DtFinalVigencia).format(
-                      'DD/MM/YYYY'
+                    {moment(item.DtFinalVigencia, 'YYYY-MM-DD-HH-mm').format(
+                      'DD-MM-YYYY'
                     )}
                   </Text>
                 </ManageableItem>
@@ -147,10 +147,10 @@ export default function ManagementTripInsurance({ history }) {
             </LeftNav>
             {tripInsurance.data.map(item => (
               <RightContent
-                key={item.Apolice.NumeroApolice}
+                key={item.Apolice.LinkDownload}
                 isSelected={
-                  item.Apolice.NumeroApolice ===
-                  selectedTripInsurance.Apolice.NumeroApolice
+                  item.Apolice.LinkDownload ===
+                  selectedTripInsurance.Apolice.LinkDownload
                 }
               >
                 <PageTitle>{item.Nome}</PageTitle>
@@ -174,14 +174,7 @@ export default function ManagementTripInsurance({ history }) {
                       fill={themeContext.colors.blue4}
                       name="billing"
                     />
-                    <div>
-                      <TopicTitle>{`${selectedTripInsurance.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
-                      <TopicValue>
-                        {formatMoney(
-                          selectedTripInsurance.FormaPagamento.ValorParcela
-                        )}
-                      </TopicValue>
-                    </div>
+                    <ParcelContainer data={selectedTripInsurance} />
                   </Topic>
                   <Topic>
                     <Icon
@@ -514,6 +507,23 @@ export default function ManagementTripInsurance({ history }) {
     )
   }
   return null
+}
+
+const ParcelContainer = ({ data }) =>
+  data.FormaPagamento ? (
+    <div>
+      <TopicTitle>{`${data.FormaPagamento.QtdParcelas} parcelas de:`}</TopicTitle>
+      <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
+    </div>
+  ) : (
+    <div>
+      <TopicTitle>Forma de pagamento não descrita</TopicTitle>
+      <TopicValue>{formatMoney(0)}</TopicValue>
+    </div>
+  )
+
+ParcelContainer.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 ManagementTripInsurance.propTypes = {

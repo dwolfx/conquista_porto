@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { InputWrapper, InputLabel, InputText } from './styles'
@@ -22,25 +22,13 @@ export default function Text({
   marginLeft,
   disabled,
   error,
-  ...props
+  value,
+  isLabelFixed,
+  ...rest
 }) {
-  const [isActive, setIsActive] = useState(false)
-
-  const changeLabelPosition = event => {
-    if (event.target.value.length) {
-      setIsActive(true)
-    } else {
-      setIsActive(false)
-    }
-
-    if (onChange) {
-      onChange()
-    }
-  }
-
   return (
     <InputWrapper
-      active={isActive}
+      active={value.length}
       error={error}
       width={width}
       paddingLeft={paddingLeft}
@@ -48,12 +36,14 @@ export default function Text({
       marginLeft={marginLeft}
       marginRight={marginRight}
       disabled={disabled}
+      isLabelFixed={isLabelFixed}
     >
       {label && <InputLabel>{label}</InputLabel>}
       <InputText
         type={type || 'text'}
-        onChange={changeLabelPosition}
-        {...props}
+        onChange={onChange}
+        value={value}
+        {...rest}
       />
     </InputWrapper>
   )
@@ -69,7 +59,9 @@ Text.propTypes = {
   marginRight: PropTypes.number,
   marginLeft: PropTypes.number,
   disabled: PropTypes.bool,
+  isLabelFixed: PropTypes.bool,
   error: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 Text.defaultProps = {
   label: '',
@@ -81,5 +73,7 @@ Text.defaultProps = {
   marginRight: 0,
   marginLeft: 0,
   disabled: false,
+  isLabelFixed: false,
   error: false,
+  value: '',
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
+import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
 

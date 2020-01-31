@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-
 import { useTable, useFilters, usePagination } from 'react-table'
+import PropTypes from 'prop-types'
 
 import {
   TheadTr,
@@ -105,7 +105,7 @@ const TfootWrapper = ({
   </Tfoot>
 )
 
-export default function TableRender({ columns: columnsProp, data: dataProp }) {
+export default function TableRender({ columns, data, showFilter }) {
   const filterTypes = useMemo(
     () => ({
       text: filterText,
@@ -129,14 +129,14 @@ export default function TableRender({ columns: columnsProp, data: dataProp }) {
     canNextPage,
     canPreviousPage,
     pageCount,
-    pageIndex,
+    pageIndex = 0,
     nextPage,
     previousPage,
     gotoPage,
   } = useTable(
     {
-      columns: columnsProp,
-      data: dataProp,
+      columns,
+      data,
       defaultColumn,
       filterTypes,
       state: {
@@ -152,9 +152,13 @@ export default function TableRender({ columns: columnsProp, data: dataProp }) {
       <thead>
         <TheadTr>
           {flatColumns.map(column => (
-            <TheadTh {...column.getHeaderProps()}>
+            <TheadTh hasFilter={showFilter} {...column.getHeaderProps()}>
               {column.render('Header')}
-              <div>{column.canFilter ? column.render('Filter') : null}</div>
+              <div>
+                {column.canFilter && showFilter
+                  ? column.render('Filter')
+                  : null}
+              </div>
             </TheadTh>
           ))}
         </TheadTr>
@@ -177,7 +181,7 @@ export default function TableRender({ columns: columnsProp, data: dataProp }) {
           </tbody>
           <TfootWrapper
             pageIndex={pageIndex}
-            dataProp={dataProp}
+            dataProp={data}
             canNextPage={canNextPage}
             canPreviousPage={canPreviousPage}
             pageCount={pageCount}
@@ -197,4 +201,40 @@ export default function TableRender({ columns: columnsProp, data: dataProp }) {
       )}
     </Table>
   )
+}
+
+DefaultColumnFilter.propTypes = {
+  column: PropTypes.object,
+}
+
+DefaultColumnFilter.defaultProps = {
+  column: {},
+}
+
+TfootWrapper.propTypes = {
+  pageIndex: PropTypes.number.isRequired,
+  dataProp: PropTypes.array.isRequired,
+  canNextPage: PropTypes.bool,
+  canPreviousPage: PropTypes.bool,
+  pageCount: PropTypes.number.isRequired,
+  nextPage: PropTypes.func.isRequired,
+  gotoPage: PropTypes.func.isRequired,
+  previousPage: PropTypes.func.isRequired,
+}
+
+TfootWrapper.defaultProps = {
+  canNextPage: false,
+  canPreviousPage: false,
+}
+
+TableRender.propTypes = {
+  showFilter: PropTypes.bool,
+  columns: PropTypes.array,
+  data: PropTypes.array,
+}
+
+TableRender.defaultProps = {
+  showFilter: true,
+  columns: [],
+  data: [],
 }

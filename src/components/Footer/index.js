@@ -1,149 +1,129 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
-
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import VerticalList from 'components/VerticalList'
+import HorizontalList from 'components/HorizontalList'
+import LinkText from './LinkText'
 import {
-  FooterWrapper,
-  Container,
-  Wrapper,
+  BorderTop,
+  GridContainer,
+  GridRow,
+  GridCol,
+  ListWrapper,
+  Logo,
+  LogoText,
+  LogoTitle,
   Text,
-  Line,
-  Image,
-  Mail,
-  Phone,
-  Headset,
-  ArrowRight,
-  ResponsiveLine,
+  Title,
+  UppercaseBlueText,
+  FooterWrapper,
 } from './styles'
 
-export default function Footer() {
-  const themeContext = useContext(ThemeContext)
+const content1 = [
+  <Title bold>CENTRAL DE ATENDIMENTO</Title>,
+  <LinkText hrefValue="tel:(11) 3366 3370">(11) 3366 3370</LinkText>,
+]
+const content2 = [
+  <Title>ATENDIMENTO PARA DEFICIENTES AUDITIVOS</Title>,
+  <LinkText hrefValue="tel:0800 727 8736">0800 727 8736</LinkText>,
+]
+const content3 = [
+  <Title>SAC</Title>,
+  <LinkText hrefValue="tel:0800 727 2763">0800 727 2763</LinkText>,
+]
+const content4 = [
+  <Title>MENSAGENS</Title>,
+  <LinkText hrefValue="mailto:porto.investimentos@portoseguro.com.br">
+    porto.investimentos@portoseguro.com.br
+  </LinkText>,
+]
+const content5 = [
+  <Title>OUVIDORIA</Title>,
+  <HorizontalList
+    heightSize="dynamic"
+    noPadding
+    startItems={[
+      <LinkText hrefValue="tel:0800 727 1184">0800 727 1184</LinkText>,
+      <LinkText hrefValue="tel:(11) 3366 3184">(11) 3366 3184</LinkText>,
+    ]}
+  />,
+  <LinkText hrefValue="mailto:ouvidoria@portoseguro.com.br">
+    ouvidoria@portoseguro.com.br
+  </LinkText>,
+]
+const content6 = [
+  <LogoTitle>UMA PLATAFORMA</LogoTitle>,
+  <Logo />,
+  <Link to="/">
+    <UppercaseBlueText>POLÍTICA DE PRIVACIDADE</UppercaseBlueText>
+  </Link>,
+]
+const content7 = [
+  <LogoText>
+    Atendimento de segunda a sexta,
+    <br />
+    das 8h15 às 18h30, exceto feriados.
+  </LogoText>,
+]
+
+const Footer = () => {
+  const [breakpoint, setBreakpoint] = useState('')
+  function checkResolution() {
+    const windowWidth = window.innerWidth
+    setBreakpoint(windowWidth <= 480 ? 'sm' : 'lg')
+  }
+  useEffect(() => {
+    checkResolution()
+    window.addEventListener('resize', checkResolution)
+
+    return function unMount() {
+      window.removeEventListener('resize', checkResolution)
+    }
+  }, [])
+
   return (
     <FooterWrapper>
-      <Container>
-        <Wrapper align="flex-start">
-          <Text size={14} spacing={2}>
-            CONTATO
-          </Text>
-          <Line width={60} />
-          <Wrapper direction="row" className="responsiveContainer">
-            <Wrapper
-              width={65}
-              direction="row"
-              className="responsiveMainBlock1"
-            >
-              <Wrapper
-                width={50}
-                margin="0px 15px 0px 0px"
-                className="responsiveBlock1"
-              >
-                <Wrapper direction="row">
-                  <Phone />
-                  <Wrapper>
-                    <Text
-                      weight="bold"
-                      color={themeContext.colors.blue4}
-                      size={14}
-                    >
-                      CENTRAL DE ATENDIMENTO
-                    </Text>
-                    <Text>(11) 3366 3370</Text>
-                  </Wrapper>
-                </Wrapper>
-                <Wrapper direction="row">
-                  <Phone />
-                  <Wrapper>
-                    <Text
-                      weight="bold"
-                      color={themeContext.colors.blue4}
-                      size={14}
-                    >
-                      ATENDIMENTO PARA DEFICIENTES AUDITIVOS
-                    </Text>
-                    <Text>0800 727 8736</Text>
-                  </Wrapper>
-                </Wrapper>
-                <Wrapper direction="row">
-                  <Phone />
-                  <Wrapper>
-                    <Text
-                      weight="bold"
-                      color={themeContext.colors.blue4}
-                      size={14}
-                    >
-                      SAC
-                    </Text>
-                    <Text>0800 727 2763</Text>
-                  </Wrapper>
-                </Wrapper>
-              </Wrapper>
-              <Wrapper
-                width={50}
-                margin="0px 15px"
-                className="responsiveBlock2"
-              >
-                <Wrapper direction="row">
-                  <Mail />
-                  <Wrapper align="flex-start">
-                    <Text
-                      weight="bold"
-                      color={themeContext.colors.blue4}
-                      size={14}
-                      lineHeight="unset"
-                    >
-                      MENSAGENS
-                    </Text>
-                    <Text>porto.investimentos@portoseguro.com.br</Text>
-                  </Wrapper>
-                </Wrapper>
-                <Wrapper direction="row">
-                  <Headset />
-                  <Wrapper>
-                    <Text
-                      weight="bold"
-                      color={themeContext.colors.blue4}
-                      size={14}
-                    >
-                      OUVIDORIA
-                    </Text>
-                    <Text>0800 727 1184</Text>
-                    <Text>(11) 3366 3184</Text>
-                    <Text>ouvidoria@portoseguro.com.br</Text>
-                    <Text>
-                      De segunda a sexta, das 8h15 às 18h30, exceto feriados
-                    </Text>
-                  </Wrapper>
-                </Wrapper>
-              </Wrapper>
-            </Wrapper>
-            <Wrapper
-              width={35}
-              margin="0px 0px 0px 100px"
-              className="responsiveMainBlock2"
-            >
-              <ResponsiveLine />
-              <Text size={10} margin="0px 0px 15px 0px">
-                UMA PLATAFORMA
-              </Text>
-              <Image />
+      <BorderTop />
+      <GridContainer>
+        <GridRow>
+          <GridCol lg="4">
+            <ListWrapper>
+              <VerticalList elements={content1} />
+              <VerticalList elements={content2} />
+              <VerticalList elements={content3} />
+            </ListWrapper>
+          </GridCol>
+          <GridCol lg="4">
+            <ListWrapper>
+              <VerticalList elements={content4} />
+              <VerticalList elements={content5} />
+            </ListWrapper>
+          </GridCol>
+          <GridCol lg="4">
+            <VerticalList elements={content6} />
+            <VerticalList elements={content7} />
+          </GridCol>
+        </GridRow>
+        <GridRow>
+          <GridCol lg="12">
+            {breakpoint === 'sm' ? (
+              <>
+                <Text>
+                  &copy; 2020 Porto Seguro Cia. de Seguros
+                  <br />
+                  Todos os direitos reservados
+                </Text>
+              </>
+            ) : (
               <Text>
-                © 2018 Porto Seguro Cia. de Seguros - Todos os direitos
+                &copy; 2020 Porto Seguro Cia. de Seguros - Todos os direitos
                 reservados
               </Text>
-              <Wrapper direction="row" align="center" pointer>
-                <Text
-                  weight="bold"
-                  size={11}
-                  color={themeContext.colors.blue4}
-                  spacing={2}
-                >
-                  POLÍTICA DE PRIVACIDADE
-                </Text>
-                <ArrowRight />
-              </Wrapper>
-            </Wrapper>
-          </Wrapper>
-        </Wrapper>
-      </Container>
+            )}
+          </GridCol>
+        </GridRow>
+      </GridContainer>
     </FooterWrapper>
   )
 }
+
+export default Footer

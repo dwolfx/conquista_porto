@@ -1,11 +1,4 @@
 export const themeColors = {
-  secondary: {
-    light: '#FF7433',
-    medium: '#FE5C00',
-    dark: '#F35600',
-    disabled: '#f4bea5',
-  },
-
   black: '#000',
   gray1: '#F9F9F9',
   gray2: '#EBEBEB',
@@ -31,6 +24,14 @@ export const themeColors = {
   yellow2: '#FFCD00',
   magenta1: '#FAD2E3',
   magenta2: '#E72176',
+}
+
+export const shadows = {
+  gray1: '0px 1px 2px rgba(39, 39, 39, 0.14)',
+  gray2: '0px 2px 4px rgba(39, 39, 39, 0.14)',
+  gray3: '0px 4px 8px rgba(39, 39, 39, 0.14)',
+  gray4: '0px 7px 21px rgba(39, 39, 39, 0.14)',
+  blue1: '0px 3px 6px rgba(0, 173, 239, 0.14)',
 }
 
 export const fundRiskColors = {
@@ -111,7 +112,6 @@ export const fontTypes = {
     ...genericFontType,
     fontSize: 18,
     letterSpacing: 0,
-    fontWeight: 400,
   },
   title: {
     fontSize: 14,
@@ -151,6 +151,7 @@ export const fontTypes = {
 }
 
 export default {
+  shadows,
   colors: themeColors,
   fundRiskColors,
   fontFamily: 'Open Sans',

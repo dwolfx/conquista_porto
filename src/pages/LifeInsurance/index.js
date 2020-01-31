@@ -1,14 +1,16 @@
 import React from 'react'
 
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
+import BannerSeguroVidaImage from 'assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
+import SeloSeguroVida from 'assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
 
-import BannerSeguroVidaImage from '../../assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
-import SeloSeguroVida from '../../assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleGiwRedirect } from 'helpers'
 
 const makeSenseSectionData = [
   {
@@ -57,7 +59,9 @@ const downloadFileSectionData = [
     title: 'Condições Gerais',
     description:
       'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro de Vida da Porto Seguro.',
-    buttonText: 'Baixar Arquivo',
+    buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/vida_individual_/vida_e_acidentes_pessoais%20_individual_anual.pdf',
   },
 ]
 
@@ -94,7 +98,9 @@ export default function LifeInsurance() {
         buttonText="Simular e Contratar"
         image={BannerSeguroVidaImage}
         imageDescription="Família andando na beira do mar"
-        onClick={() => {}}
+        onClick={() =>
+          handleGiwRedirect('portaldecliente/conquista/seguro-de-vida/simular')
+        }
       />
       <BulletsSection
         title="Por que contratar o Seguro de Vida?"
@@ -118,6 +124,9 @@ export default function LifeInsurance() {
         subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
         de Vida da Porto Seguro."
         buttonText="Simular e contratar"
+        onClick={() =>
+          handleGiwRedirect('portaldecliente/conquista/seguro-de-vida/simular')
+        }
       />
 
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />

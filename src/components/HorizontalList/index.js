@@ -3,16 +3,22 @@ import PropTypes from 'prop-types'
 
 import { Container, StartBlock, EndBlock } from './styles'
 
-export default function HorizontalList({ startItems, endItems }) {
+export default function HorizontalList({
+  startItems,
+  endItems,
+  heightSize,
+  noPadding,
+  marginBetweenElements,
+}) {
   return (
-    <Container>
-      <StartBlock>
+    <Container heightSize={heightSize} noPadding={noPadding}>
+      <StartBlock marginBetweenElements={marginBetweenElements}>
         {startItems &&
           startItems.map((Item, index) => (
             <React.Fragment key={index.toString()}>{Item}</React.Fragment>
           ))}
       </StartBlock>
-      <EndBlock>
+      <EndBlock marginBetweenElements={marginBetweenElements}>
         {endItems &&
           endItems.map((Item, index) => (
             <React.Fragment key={index.toString()}>{Item}</React.Fragment>
@@ -25,4 +31,15 @@ export default function HorizontalList({ startItems, endItems }) {
 HorizontalList.propTypes = {
   startItems: PropTypes.arrayOf(PropTypes.node),
   endItems: PropTypes.arrayOf(PropTypes.node),
+  heightSize: PropTypes.oneOf(['large', 'dynamic']),
+  noPadding: PropTypes.bool,
+  marginBetweenElements: PropTypes.string,
+}
+
+HorizontalList.defaultProps = {
+  startItems: null,
+  endItems: null,
+  heightSize: null,
+  noPadding: false,
+  marginBetweenElements: '14px',
 }

@@ -1,12 +1,16 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { GetDataRequest } from 'store/modules/LifeInsurance/action'
+import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 
 export default function useFetchLifeInsurance() {
   const dispatch = useDispatch()
+  const data = useSelector(state => state.lifeInsurance.data)
+  const auth = useSelector(state => state.auth)
 
   useEffect(() => {
-    dispatch(GetDataRequest())
-  }, [dispatch])
+    if (!data) {
+      dispatch(GetLifeInsuranceDataRequest(auth.cpf))
+    }
+  }, [dispatch, data, auth])
 }

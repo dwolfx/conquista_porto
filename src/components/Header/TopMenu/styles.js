@@ -57,7 +57,7 @@ export const RelativeParent = styled.div`
 export const NotificationCircle = styled.div`
   display: flex;
   position: absolute;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   width: 20px;
   height: 20px;
   top: -10px;
@@ -152,7 +152,7 @@ export const BlueText = styled.p`
   line-height: 21px;
   cursor: pointer;
 `
-export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
+export const BellIcon = styled(ConquistaIcon).attrs(() => ({ name: 'bell' }))`
   && {
     width: 24px;
     height: 24px;
@@ -160,7 +160,7 @@ export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
     cursor: pointer;
   }
 `
-export const MenuIcon = styled(ConquistaIcon).attrs({ name: 'menu' })`
+export const MenuIcon = styled(ConquistaIcon).attrs(() => ({ name: 'menu' }))`
   && {
     width: 32px;
     height: 32px;
@@ -178,4 +178,8 @@ export const Dropdown = styled(DropdownComponent)`
     padding-top: 8px;
     background-color: transparent;
   }
+`
+
+export const ModalContent = styled.div`
+  margin: 30px;
 `

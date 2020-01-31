@@ -1,15 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
+import BannerCartaoCreditoImage from 'assets/images/pages/solutions/creditCard/banner_cartao_credito.jpg'
+import SeloCartaoCredito from 'assets/images/pages/solutions/creditCard/selo-cartao-credito.svg'
 
-import BannerCartaoCreditoImage from '../../assets/images/pages/solutions/creditCard/banner_cartao_credito.jpg'
-import SeloCartaoCredito from '../../assets/images/pages/solutions/creditCard/selo-cartao-credito.svg'
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleGiwRedirect } from 'helpers'
 
 const makeSenseSectionData = [
   {
@@ -57,19 +58,24 @@ const downloadFileSectionData = [
   {
     title: 'Sistema de informações de crédito - SCR',
     description: 'Informações legais sobre crédito.',
-    buttonText: 'Baixar Arquivo',
+    buttonText: 'Visualizar',
+    url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
   {
     title: 'Tabela de tarifas',
     description:
       'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
     buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/cartao_de_credito/Tabela_Tarifas_Nov_19_CartaoPF.pdf',
   },
   {
     title: 'Condições gerais',
     description:
       'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
-    buttonText: 'Baixar Arquivo',
+    buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/cartao_de_credito/contrato_do_cartao_de_credito_porto_seguro.pdf',
   },
 ]
 
@@ -97,7 +103,7 @@ const moreDetailsData = [
   },
 ]
 
-export default function CreditCard({ history }) {
+export default function CreditCard() {
   return (
     <>
       <TopBanner
@@ -106,7 +112,11 @@ export default function CreditCard({ history }) {
         buttonText="Simule e Contrate"
         image={BannerCartaoCreditoImage}
         imageDescription="Mulher segurando cartão de crédito em casa"
-        onClick={() => history.push('/cartao-credito/visualizar')}
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/cartao-de-credito/simular'
+          )
+        }
       />
       <BulletsSection
         title="Por que contratar o Cartão de Crédito?"
@@ -138,10 +148,4 @@ export default function CreditCard({ history }) {
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )
-}
-
-CreditCard.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }

@@ -6,7 +6,7 @@ import Button from 'components/Button'
 import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
-import Icon from 'components/IconExporter'
+import HorizontalList from 'components/HorizontalList'
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -18,16 +18,41 @@ export const GridRow = styled(Row)`
     height: 430px;
     margin: 0;
     margin-bottom: 30px;
+
+    @media ${props => props.theme.mediaQueries.sm} {
+      height: auto;
+      margin-bottom: 14px;
+    }
   }
   &#t3 {
     margin-bottom: 0;
   }
 `
 
+export const HorizontalListWithMargin = styled(HorizontalList)`
+  margin: 7px 0;
+`
+
+export const TextBlack = styled(Text)`
+  color: ${props => props.theme.colors.black};
+`
+
 export const GridCol = styled(Col)`
-  #menu {
+  &#menu {
     transition: all 0.35s ease-in-out;
+
+    @media ${props => props.theme.mediaQueries.sm} {
+      bottom: 14px;
+      height: 63px;
+      margin-left: 7px;
+      position: fixed;
+      width: calc(100% - 14px);
+      z-index: 1;
+    }
   }
+`
+export const PieItemMargin = styled.div`
+  margin: 5px 0px;
 `
 
 export const SectionRow = styled(Row)`
@@ -36,6 +61,15 @@ export const SectionRow = styled(Row)`
 
 export const SectionCol = styled(Col)`
   height: 100%;
+
+  &.custom-padding {
+    padding-top: 51px;
+    padding-bottom: 51px;
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-bottom: 14px;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -54,9 +88,21 @@ export const BannerTips = styled(Banner)`
   color: ${props => props.theme.colors.white};
 `
 
+export const BannerTipTitle = styled(Text)`
+  ${props => props.theme.fontTypes.heading3};
+  font-weight: normal;
+  margin-bottom: 7px;
+  margin-top: 7px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    ${props => props.theme.fontTypes.heading4};
+    text-transform: none;
+  }
+`
+
 export const CardPontosFooter = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 `
 
@@ -68,10 +114,11 @@ export const OfferBox = styled.div`
 
 export const OfferImageBox = styled.div`
   border-radius: 8px;
-  height: 213px;
+  height: 230px;
   margin-top: 14px;
-  margin-bottom: 28px;
+  margin-bottom: 21px;
   overflow: hidden;
+  position: relative;
 
   img {
     object-fit: cover;
@@ -80,10 +127,35 @@ export const OfferImageBox = styled.div`
   }
 `
 
+export const OfferCategoryBox = styled.div`
+  align-items: center;
+  background-color: ${props => rgba(props.theme.colors.gray6, 0.63)};
+  bottom: 0;
+  display: flex;
+  height: 35px;
+  padding: 0 14px;
+  position: absolute;
+  width: 100%;
+`
+
+export const OfferCategoryText = styled(Text)`
+  color: ${props => props.theme.colors.white};
+  text-transform: uppercase;
+`
+
 export const OfferTextBox = styled.div`
-  p:last-of-type {
-    color: ${props => props.theme.colors.gray5};
-  }
+  margin: 0 14px 14px;
+`
+
+export const OfferTitle = styled(Text)`
+  color: ${props => props.theme.colors.gray6};
+  margin-bottom: 7px;
+`
+
+export const OfferText = styled(Text).attrs(() => ({
+  bold: true,
+}))`
+  color: ${props => props.theme.colors.gray5};
 `
 
 export const OfferCardButton = styled(Button)`
@@ -115,27 +187,30 @@ export const PointsList = styled.div`
   overflow-y: scroll;
 `
 
-export const PointsItem = styled.div`
-  align-items: center;
-  display: flex;
-
-  &:not(:last-of-type) {
-    margin-bottom: 22px;
-  }
-`
-
 export const PointDate = styled(Text)`
   color: ${props => props.theme.colors.gray5};
 `
 
-export const PointName = styled(Text).attrs({ type: 'headline' })`
+export const PointName = styled(Text)`
   color: ${props => props.theme.colors.gray5};
   flex: 1%;
   padding: 0 14px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 170px;
+    overflow: hidden;
+  }
 `
 
-export const PointNumber = styled(Text).attrs({ type: 'headline' })`
+export const PointNumber = styled(Text)`
   margin-right: 14px;
+`
+
+export const EmptyProductItemRow = styled.div`
+  width: 100%;
+  padding: 14px 0px;
 `
 
 export const EmptyBody = styled.div`
@@ -149,14 +224,13 @@ export const EmptyBody = styled.div`
 export const EmptyText = styled(Text)`
   color: ${props => props.theme.colors.gray5};
   text-align: center;
-  width: 300px;
+  width: 314px;
 `
 
 export const EmptyButton = styled(Button)`
   padding: 0;
   margin-top: 14px;
   min-width: 0;
-  width: 230px;
 `
 
 export const SliderBox = styled.div`
@@ -167,7 +241,7 @@ export const SliderBox = styled.div`
 
 export const SliderImageBox = styled.div`
   border-radius: 8px;
-  height: 155px;
+  height: 100%;
   margin-top: 14px;
   margin-bottom: 21px;
   overflow: hidden;
@@ -196,6 +270,7 @@ export const SliderTextBox = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding: 0 14px 14px;
 
   p:last-of-type {
     color: ${props => props.theme.colors.gray5};
@@ -232,16 +307,30 @@ export const InvestmentInfosRow = styled(Row)`
   }
 `
 export const ProductItem = styled.div`
-  padding: 10px 14px;
   width: 100%;
   color: ${props => props.theme.colors.gray5};
 `
+
+export const ProductItemRow = styled.div`
+  width: 100%;
+  padding: 14px 14px 0px 14px;
+`
+
+export const LinearProgressBarContent = styled.div`
+  width: 56px;
+`
+
+export const CreditCardItemRow = styled(ProductItemRow)`
+  padding: 14px 14px 0px 48px;
+`
+
 export const ThreeItemsLine = styled.div`
   display: grid;
   width: 100%;
-  margin: 14px 0;
+  margin: 12px 0 0px 0;
   grid-template-columns: ${props => props.gridTemplateColumns};
 `
+
 export const ItemLine = styled.div`
   height: ${props => (props.height ? props.height : 'auto')};
   width: ${props => (props.width ? props.width : 'auto')};
@@ -250,34 +339,93 @@ export const ItemLine = styled.div`
   padding: ${props => (props.padding ? props.padding : '0')};
 `
 
-export const ItemDivisor = styled.hr`
-  border: 1px solid ${props => props.theme.colors.gray2};
-  border-bottom: 0px;
-`
-
 export const OverflowCard = styled.div`
+  height: 100%;
   overflow: auto;
 `
 
-export const BannerButton = styled(Button).attrs({ color: 'secondary' })`
+export const BannerButton = styled(Button)`
   margin-top: 20px;
   min-width: unset;
 `
-export const CloseButton = styled.div`
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.theme.colors.gray2};
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  right: 28px;
-  top: -18px;
-  cursor: pointer;
+
+export const ContainerBox = styled.div`
+  padding: 28px 21px;
+  margin-bottom: 28px;
+  background-color: ${props => props.theme.colors.gray1};
+  border-radius: 8px;
 `
-export const CloseIcon = styled(Icon).attrs({ name: 'close' })`
-  width: 16px;
-  height: 16px;
+
+export const TableBox = styled.div`
+  min-width: 33%;
+  margin-bottom: 14px;
+
+  p:first-of-type {
+    margin-bottom: 7px;
+  }
+`
+
+export const ContainerAccountInfo = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`
+
+export const ModalContentWrapper = styled.div`
+  padding: 28px;
+`
+
+export const ModalTextWrapper = styled.div`
+  p:first-of-type {
+    margin-bottom: 7px;
+  }
+
+  margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
+`
+
+export const PieChartContainer = styled.div`
+  height: 100%;
+  width: 100%;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 305px;
+    width: 236px;
+    margin: 0 auto;
+  }
+`
+
+export const ProductsCol = styled(SectionCol)`
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 430px;
+  }
+`
+
+export const PointsExtractListWrapper = styled.div`
+  height: 100%;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 551px;
+  }
+`
+
+export const AdRow = styled(GridRow)`
+  padding-right: 7;
+  padding-left: 7;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-bottom: 0;
+  }
+`
+
+export const TipBannerContainer = styled(Row)`
+  height: 50%;
+  padding-top: 7px;
+`
+
+export const ObjectivesContainer = styled(Row)`
+  height: 50%;
+  padding-bottom: 7px;
 `

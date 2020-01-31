@@ -50,18 +50,10 @@ export const IconCircle = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${props => props.theme.colors.secondary.light};
+  background-color: ${props => props.theme.colors.blue4};
   justify-content: center;
   align-items: center;
   cursor: pointer;
-`
-
-export const TagWrapper = styled.div`
-  display: flex;
-  padding: 0px 3px;
-  border: 1px solid ${props => props.theme.colors.gray4};
-  border-radius: 3px;
-  margin-left: 15px;
 `
 
 export const WhiteText = styled.p`
@@ -81,42 +73,42 @@ export const BlueText = styled(NavLink)`
   line-height: 21px;
   cursor: pointer;
 `
-export const TagText = styled.p`
-  color: ${props => (props.color ? props.color : props.theme.colors.white)};
-  line-height: 15px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-`
-export const CloseIcon = styled(ConquistaIcon).attrs({ name: 'close' })`
+export const CloseIcon = styled(ConquistaIcon).attrs(() => ({ name: 'close' }))`
   fill: ${props => props.theme.colors.white};
   width: 24px;
   height: 24px;
 `
-export const AppsIcon = styled(ConquistaIcon).attrs({ name: 'apps' })`
+export const AppsIcon = styled(ConquistaIcon).attrs(() => ({ name: 'apps' }))`
   ${svgStyle};
 `
-export const ArrowDownIcon = styled(ConquistaIcon).attrs({ name: 'arrowdown' })`
+export const ArrowDownIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'arrowup',
+}))`
+  ${arrowSvgStyle};
+  transform: rotate(180deg);
+`
+export const ArrowUpIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'arrowup',
+}))`
   ${arrowSvgStyle};
 `
-export const ArrowUpIcon = styled(ConquistaIcon).attrs({ name: 'arrowup' })`
-  ${arrowSvgStyle};
-`
-export const DiamondIcon = styled(ConquistaIcon).attrs({ name: 'diamond' })`
+export const DiamondIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'diamond',
+}))`
   ${svgStyle};
 `
-export const GearIcon = styled(ConquistaIcon).attrs({ name: 'gear' })`
+export const GearIcon = styled(ConquistaIcon).attrs(() => ({ name: 'gear' }))`
   ${svgStyle};
 `
-export const HomeIcon = styled(ConquistaIcon).attrs({ name: 'home' })`
+export const HomeIcon = styled(ConquistaIcon).attrs(() => ({ name: 'home' }))`
   ${svgStyle};
 `
-export const IdeaIcon = styled(ConquistaIcon).attrs({ name: 'idea' })`
+export const IdeaIcon = styled(ConquistaIcon).attrs(() => ({ name: 'idea' }))`
   ${svgStyle};
 `
-export const TargetIcon = styled(ConquistaIcon).attrs({ name: 'target' })`
+export const TargetIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'target',
+}))`
   ${svgStyle};
 `
 

@@ -18,9 +18,20 @@ export default createGlobalStyle`
   }
 
   html {
+    overflow-x: hidden;
+  }
+  body {
     scroll-behavior: smooth;
+
+  }
+  html, body {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
+    background-color: ${props => props.theme.colors.gray1};
+  }
+
+  html.noOverflow {
+    overflow: hidden;
   }
 
   a {
@@ -50,7 +61,7 @@ export default createGlobalStyle`
     flex-basis: auto;
     justify-content: center;
     flex-direction: column;
-    background-color: #F1F1F1;
+    background-color: ${props => props.theme.colors.gray1};
   }
 
   &::-webkit-scrollbar {

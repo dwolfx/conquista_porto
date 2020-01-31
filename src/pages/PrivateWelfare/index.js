@@ -57,13 +57,17 @@ const downloadFileSectionData = [
     title: 'Carta do Gestor',
     description:
       'Comentários sobre a estratégia dos fundos de Previdência Privada e, também, um pouco da visão do cenário econômico atual.',
-    buttonText: 'Baixar Arquivo',
+    buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/previdencia-privada/CartaGestor_PREV.pdf',
   },
   {
     title: 'Quadro de Rentabilidade',
     description:
       'Acompanhe o rendimento mais atualizado de todos os fundos de Previdência Privada da Porto Seguro.',
-    buttonText: 'Baixar Arquivo',
+    buttonText: 'Visualizar',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/previdencia-privada/Rentabilidade_Prev_2018.pdf',
   },
 ]
 

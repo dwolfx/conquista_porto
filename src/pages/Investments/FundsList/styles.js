@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Select from 'components/Inputs/Select'
 import BreadcrumbCmp from 'components/Breadcrumb'
 import RiskDegreeComponent from 'components/RiskDegree'
 import {
@@ -7,47 +6,24 @@ import {
   SelectFieldWrapper,
   SelectField,
 } from 'components/Inputs/Select/styles'
+import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-const containerWidth = '1200px'
-
-export const Section = styled.section`
+export const GridContainer = styled(Container)`
   background-color: ${props => props.theme.colors.gray1};
   flex: 1 0 auto;
 `
 
-export const TopWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem auto 1rem;
-  max-width: ${containerWidth};
-  padding: 0 0.5rem;
+export const TopWrapper = styled(Row)`
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 
   @media ${props => props.theme.mediaQueries.xs} {
     margin-top: 1rem;
-    flex-direction: column;
   }
-`
-
-export const SelectRiskClassification = styled(Select)``
-
-export const SelectRow = styled.div`
-  display: flex;
-  flex: 1 0 auto;
 
   ${SelectWrapper} {
-    margin: 1rem 0 0 auto;
-    flex: 1 0 auto;
-    max-width: 370px;
-
-    @media ${props => props.theme.mediaQueries.xs} {
-      flex: unset;
-    }
-
-    @media ${props => props.theme.mediaQueries.sm} {
-      &:not(:last-of-type) {
-        margin-right: 0.5rem;
-      }
-    }
+    margin-top: 1rem;
+    width: 100%;
   }
 
   ${SelectFieldWrapper} {
@@ -72,65 +48,26 @@ export const SelectRow = styled.div`
 
 export const Breadcrumb = styled(BreadcrumbCmp)`
   flex: 1 0 auto;
-  max-width: 195px;
 
   @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 0.5rem;
   }
 
-  @media ${props => props.theme.mediaQueries.xs} {
+  @media ${props => props.theme.mediaQueries.md} {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid ${props => props.theme.colors.gray3};
-    max-width: none;
   }
 `
 
-export const ContentWrapper = styled.div`
-  margin: 1rem auto;
-  max-width: ${containerWidth};
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    padding: 0 0.5rem;
-  }
-`
-
-export const FooterWrapper = styled.div`
-  margin: 1rem auto;
-  max-width: ${containerWidth};
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    padding: 0 0.5rem;
-  }
-
-  p {
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 22px;
-  }
-
-  a {
-    color: ${props => props.theme.colors.blue4};
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  img {
-    margin-top: 2rem;
-  }
-`
-
-export const ImgAnbima = styled.img`
-  @media ${props => props.theme.mediaQueries.sm} {
-    padding: 0 1rem;
-    max-width: 100%;
-  }
-`
+export const ContentWrapper = styled(Row)``
 
 export const BreadcrumbWrapper = styled.div``
 
 export const RiskDegree = styled(RiskDegreeComponent)`
-  margin-left: 1rem;
-  @media ${props => props.theme.mediaQueries.xs} {
-    display: none;
-  }
+  margin-left: auto;
+  max-width: 300px;
+`
+
+export const DropdownWrapper = styled(Col)`
+  z-index: 1;
 `
