@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import PropTypes from 'prop-types'
 import { ResponsiveBar } from '@nivo/bar'
 
 import { Col } from 'styled-bootstrap-grid'
@@ -22,129 +23,13 @@ import {
   PieChartChildrenContainer,
 } from './styles'
 
-const SectionOne = () => {
+const SectionOne = ({ goal, combo }) => {
   const theme = useContext(ThemeContext)
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
 
-  const apiResponse = {
-    goal: {
-      nickname: 'Disney',
-      targetDate: '2019-12-30',
-      targetValue: 1,
-      initialValue: 0,
-      monthlyValue: 0,
-      wouldLikeToReceiveBeforeFinalDate: false,
-      wouldLikeToReceiveMonthlyIncome: false,
-      goalType: 1,
-      easyToSavePlannedAmount: false,
-      targetDateFlexible: false,
-    },
-    combo: [
-      {
-        title: 'Investimentos',
-        values: {
-          'Investimento Mensal': 'R$ 80.000,00',
-          'Investimento Inicial': 'R$ 920.000,00',
-        },
-        totalValue: 70000,
-      },
-      {
-        title: 'Financiamento de Veículo',
-        values: {
-          'Valor a Contratar': 'R$ 69.999,00',
-        },
-        totalValue: 69999,
-      },
-    ],
-    income: {
-      pessimistic: 66500,
-      medium: 70000,
-      optimistic: 73500,
-    },
-    funds: [
-      {
-        name: 'Kapitalo Kappa FIN FIQ FIM',
-        profitability: {
-          '12': 8.13,
-        },
-        quotationApplyDays: 0,
-        financialApplyDays: 0,
-        quotationRescueDays: 0,
-        financialRescueDays: 0,
-        initialValue: 450000,
-        monthlyValue: 30000,
-      },
-      {
-        name: 'Porto Seguro DI Crédito Privado',
-        profitability: {
-          '12': 7.7,
-        },
-        quotationApplyDays: 0,
-        financialApplyDays: 0,
-        quotationRescueDays: 0,
-        financialRescueDays: 0,
-        initialValue: 222500,
-        monthlyValue: 20000,
-      },
-      {
-        name: 'Porto Seguro Soberano Referenciado DI',
-        profitability: {
-          '12': 7.13,
-        },
-        quotationApplyDays: 0,
-        financialApplyDays: 0,
-        quotationRescueDays: 0,
-        financialRescueDays: 0,
-        initialValue: 127500,
-        monthlyValue: 15000,
-      },
-      {
-        name: 'BTG Pactual Tesouro IPCA Longo FI RF REF',
-        profitability: {
-          '12': 6.11,
-        },
-        quotationApplyDays: 0,
-        financialApplyDays: 0,
-        quotationRescueDays: 0,
-        financialRescueDays: 0,
-        initialValue: 80000,
-        monthlyValue: 10000,
-      },
-      {
-        name: 'Capitânia Top Crédito Privado FIC FIRF',
-        profitability: {
-          '12': 5.12,
-        },
-        quotationApplyDays: 0,
-        financialApplyDays: 0,
-        quotationRescueDays: 0,
-        financialRescueDays: 0,
-        initialValue: 40000,
-        monthlyValue: 5000,
-      },
-    ],
-    creditProduct: {
-      name: 'Financiamento de Veículo',
-      values: [
-        {
-          name: 'Valor a Contratar',
-          value: 'R$ 69.999,00',
-          checked: false,
-        },
-      ],
-    },
-    additional: {
-      travelSecurity: true,
-      lifeSecurity: false,
-      creditCard: false,
-    },
-  }
-
   const graphValuesGenerator = () => {
     const colorsPriority = [theme.colors.magenta2, theme.colors.blue4].reverse()
-    const sortedData = [...apiResponse.combo].sort(
-      (a, b) => a.totalValue - b.totalValue
-    )
+    const sortedData = [...combo].sort((a, b) => a.totalValue - b.totalValue)
 
     return sortedData.map((item, index) => ({
       id: item.title,
@@ -162,7 +47,7 @@ const SectionOne = () => {
       <Text type="headline">
         {pieChartInfoChildren
           ? formatMoney(pieChartInfoChildren.value)
-          : formatMoney(apiResponse.goal.targetValue)}
+          : formatMoney(goal.targetValue)}
       </Text>
     </>
   )
@@ -174,7 +59,10 @@ const SectionOne = () => {
   return (
     <GridRow height="430px">
       <Col lg="6">
-        <FullHeightCard headerIcon="piechart" headerTitle="Combo">
+        <FullHeightCard
+          headerIcon="piechart"
+          headerTitle={combo[1] ? 'Combo sugerido' : 'Produto sugerido'}
+        >
           <SectionRow padding="30px 21px">
             <SectionCol md="5">
               <PieChartContainer>
@@ -193,7 +81,7 @@ const SectionOne = () => {
               </PieChartContainer>
             </SectionCol>
             <SectionCol md="7" display="flex">
-              {apiResponse.combo.map(item => (
+              {combo.map(item => (
                 <SuggestedProduct key={item.title}>
                   <HorizontalList
                     startItems={[
@@ -275,6 +163,16 @@ const SectionOne = () => {
       </Col>
     </GridRow>
   )
+}
+
+SectionOne.propTypes = {
+  goal: PropTypes.object,
+  combo: PropTypes.array,
+}
+
+SectionOne.defaultProps = {
+  goal: {},
+  combo: [],
 }
 
 export default SectionOne
