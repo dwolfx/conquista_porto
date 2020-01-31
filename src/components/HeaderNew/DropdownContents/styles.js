@@ -53,17 +53,17 @@ export const ItemContent = styled.div`
   display: flex;
 `
 
-export const ItemIcon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-})`
+export const ItemIcon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+}))`
   width: 21px;
   height: 21px;
   fill: ${props => props.theme.colors[props.color]};
 `
 
-export const ItemText = styled(TextComponent).attrs({
-  type: props => props.name,
-})`
+export const ItemText = styled(TextComponent).attrs(props => ({
+  type: props.name,
+}))`
   fill: ${props => props.theme.colors[props.color]};
   margin: ${props => props.margin && props.margin};
 `

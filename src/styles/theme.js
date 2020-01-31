@@ -112,7 +112,6 @@ export const fontTypes = {
     ...genericFontType,
     fontSize: 18,
     letterSpacing: 0,
-    fontWeight: 300,
   },
   title: {
     fontSize: 14,
