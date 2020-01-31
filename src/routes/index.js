@@ -40,7 +40,6 @@ import ObjectivesStudyFlow from 'pages/Objectives/GoalStreams/StudyFlow'
 import ObjectivesEventFlow from 'pages/Objectives/GoalStreams/EventFlow'
 import ObjectivesBuyHouseFlow from 'pages/Objectives/GoalStreams/BuyHouseFlow'
 import ObjectivesSaveMoneyFlow from 'pages/Objectives/GoalStreams/SaveMoneyFlow'
-import ObjectivesRecommendation from 'pages/Objectives/Recommendation'
 
 import Notifications from 'pages/Notifications'
 import Login from 'pages/Login'
@@ -248,11 +247,6 @@ export default function Routes({ ...props }) {
         path="/objetivos/poupar"
         exact
         component={ObjectivesSaveMoneyFlow}
-      />
-      <Route
-        path="/objetivos/recomendacao"
-        exact
-        component={ObjectivesRecommendation}
       />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route

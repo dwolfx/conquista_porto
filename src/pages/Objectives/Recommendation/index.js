@@ -1,8 +1,6 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import { Container } from 'styled-bootstrap-grid'
 
-import Header from 'components/Wizard/Header'
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
 import BottomBar from './BottomBar'
 import SectionOne from './SectionOne'
@@ -11,30 +9,23 @@ import SectionThree from './SectionThree'
 
 import { GridRecommendation, SectionsRecommendation } from './styles'
 
-const Recommendation = () => {
-  const history = useHistory()
-
-  const additionalProducts = {
-    travelSecurity: false,
-    lifeSecurity: true,
-    creditCard: true,
-  }
-
+const Recommendation = goalData => {
+  const {
+    goal,
+    combo,
+    income,
+    funds,
+    creditProduct,
+    additional,
+  } = goalData.goalData
   return (
     <GridRecommendation>
-      <Header
-        onClose={() => {
-          history.push('/objetivos')
-        }}
-      />
-
-      <TopBar />
-
+      <TopBar goal={goal} />
       <SectionsRecommendation>
         <Container>
-          <SectionOne />
-          <SectionTwo />
-          <SectionThree additionalProducts={additionalProducts} />
+          <SectionOne combo={combo} income={income} />
+          <SectionTwo funds={funds} creditProduct={creditProduct} />
+          <SectionThree additional={additional} />
         </Container>
       </SectionsRecommendation>
 

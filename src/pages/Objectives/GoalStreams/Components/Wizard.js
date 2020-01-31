@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 import { formatMoneyDecimal, formatDateMask } from 'helpers'
@@ -10,7 +11,9 @@ import QuestionFlow from './QuestionFlow'
 import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
 export const WizardFlow = ({ data, objective }) => {
+  const history = useHistory()
   const dispatch = useDispatch()
+  const goalRequisition = useSelector(state => state.objective.data)
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState({})
   const [isActive, setIsActive] = useState(false)
@@ -24,7 +27,8 @@ export const WizardFlow = ({ data, objective }) => {
 
   useEffect(() => {
     setIsActive(!!formData[data[currentStep].name])
-  }, [formData, data, currentStep])
+    if (goalRequisition) history.push('/objetivos')
+  }, [formData, data, currentStep, goalRequisition, history])
 
   const postFlow = () => dispatch(PostObjectiveDataRequest(objectiveData))
 
@@ -73,7 +77,7 @@ export const WizardFlow = ({ data, objective }) => {
       {isLastStep && (
         <Col lg="6" xs="12">
           <ButtonAction onClick={postFlow} disabled={!isActive}>
-            POST
+            Concluir
           </ButtonAction>
         </Col>
       )}
