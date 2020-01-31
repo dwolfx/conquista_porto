@@ -10,7 +10,7 @@ export default function useFetchConsortiumBuilding() {
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetConsortiumBuildingDataRequest(auth.token))
+      dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
     }
   }, [dispatch, data, auth])
 }

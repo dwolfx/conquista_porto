@@ -10,7 +10,7 @@ export default function useFetchCreditCard() {
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetCreditCardDataRequest(auth.cpf, auth.accessToken))
+      dispatch(GetCreditCardDataRequest(auth.cpf))
     }
   }, [dispatch, data, auth])
 }

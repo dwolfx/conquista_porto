@@ -31,14 +31,14 @@ const Home = () => {
   const row3 = useRef(null)
 
   useEffect(() => {
-    dispatch(GetBankDataRequest(auth.cpf, auth.accessToken))
-    dispatch(GetCreditCardDataRequest(auth.cpf, auth.accessToken))
-    dispatch(GetConsolidatedPositionDataRequest(auth.cpf, auth.accessToken))
-    dispatch(GetVehicleFinancingDataRequest(auth.cpf, auth.accessToken))
-    dispatch(GetConsortiumBuildingDataRequest(auth.cpf, auth.accessToken))
-    dispatch(GetConsortiumVehicleDataRequest(auth.cpf, auth.accessToken))
-    dispatch(GetLifeInsuranceDataRequest())
-    dispatch(GetTripInsuranceDataRequest())
+    dispatch(GetBankDataRequest(auth.cpf))
+    dispatch(GetCreditCardDataRequest(auth.cpf))
+    dispatch(GetConsolidatedPositionDataRequest(auth.cpf))
+    dispatch(GetVehicleFinancingDataRequest(auth.cpf))
+    dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
+    dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
+    dispatch(GetLifeInsuranceDataRequest(auth.cpf))
+    dispatch(GetTripInsuranceDataRequest(auth.cpf))
     dispatch(GetPointsDataRequest(auth.cpf))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth])
