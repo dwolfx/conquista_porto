@@ -43,10 +43,9 @@ export default function SectionTwo({ onRedirect, objectives }) {
 
   const renderEmptyState = () => (
     <EmptyBody>
-      <EmptyText>
-        Você quer planejar a realização dos seus sonhos? Crie objetivos com o
-        Conquista. É só contar o que você deseja e a ferramenta apresentará um
-        plano personalizado de como alcançar suas metas. Experimente!
+      <EmptyText bold>
+        Com os Objetivos, fica mais fácil alcançar suas metas. Definindo-os,
+        você receberá planos de investimentos personalizados.
       </EmptyText>
       <EmptyButton color="secondary" onClick={() => onRedirect('/objetivos/')}>
         CRIAR OBJETIVO
