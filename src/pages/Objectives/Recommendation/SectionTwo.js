@@ -14,60 +14,62 @@ import {
   SpacedText,
 } from './styles'
 
-const SectionTwo = ({ creditProduct }) => {
+const SectionTwo = ({ creditProduct, combo }) => {
   const theme = useContext(ThemeContext)
-  const { values } = creditProduct
-
   return (
     <GridRow>
-      <Col lg="9">
+      <Col lg={combo.length > 1 ? '9' : '12'}>
         <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
           Investimentos
         </FullHeightCard>
       </Col>
 
-      <Col lg="3">
-        <FullHeightCard headerIcon="carnew" headerTitle="Financiamento">
-          <CardContainer>
-            {values.map((item, index) => (
-              <InfoContent key={index}>
-                <SpacedText type="captionUppercase" color="gray5">
-                  {item.name}
-                </SpacedText>
-                <SpacedText
-                  type="headline"
-                  color={item.checked ? 'green3' : 'gray6'}
-                >
-                  {item.value}
-                  {item.checked && (
+      {combo.length > 1 && (
+        <Col lg="3">
+          <FullHeightCard headerIcon="carnew" headerTitle="Financiamento">
+            <CardContainer>
+              {creditProduct.values.map((item, index) => (
+                <InfoContent key={index}>
+                  <SpacedText type="captionUppercase" color="gray5">
+                    {item.name}
+                  </SpacedText>
+                  <SpacedText
+                    type="headline"
+                    color={item.checked ? 'green3' : 'gray6'}
+                  >
+                    {item.value}
+                    {item.checked && (
+                      <Icon
+                        name="check"
+                        width="21px"
+                        fill={theme.colors.green3}
+                      />
+                    )}
+                  </SpacedText>
+                  {item.info && (
                     <Icon
-                      name="check"
+                      name="information"
                       width="21px"
-                      fill={theme.colors.green3}
+                      fill={theme.colors.gray5}
                     />
                   )}
-                </SpacedText>
-                {item.info && (
-                  <Icon
-                    name="information"
-                    width="21px"
-                    fill={theme.colors.gray5}
-                  />
-                )}
-              </InfoContent>
-            ))}
-          </CardContainer>
-        </FullHeightCard>
-      </Col>
+                </InfoContent>
+              ))}
+            </CardContainer>
+          </FullHeightCard>
+        </Col>
+      )}
     </GridRow>
   )
 }
 
 SectionTwo.propTypes = {
+  combo: PropTypes.array,
   creditProduct: PropTypes.object,
 }
 
 SectionTwo.defaultProps = {
+  combo: [],
   creditProduct: {},
 }
 
