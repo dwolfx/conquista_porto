@@ -18,7 +18,11 @@ const Recommendation = props => {
       <SectionsRecommendation>
         <Container>
           <SectionOne goal={goal} combo={combo} income={income} />
-          <SectionTwo combo={combo} funds={funds} creditProduct={creditProduct} />
+          <SectionTwo
+            combo={combo}
+            funds={funds}
+            creditProduct={creditProduct}
+          />
           <SectionThree additional={additional} />
         </Container>
       </SectionsRecommendation>
