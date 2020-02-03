@@ -5,13 +5,17 @@ import { AuthRequestLogout } from 'store/modules/Auth/action'
 const baseURL = process.env.REACT_APP_BASE_URL
 
 const responseInterceptor = response => {
-  if (response.status === 401) {
-    store.dispatch(AuthRequestLogout())
-  }
   if (response.data.TipoCritica) {
     throw Error(response.data.Mensagem)
   }
   return response
+}
+
+const responseErrorInterceptor = error => {
+  if (error.response.status === 401) {
+    store.dispatch(AuthRequestLogout())
+  }
+  return error
 }
 
 const requestInterceptor = request => {
@@ -19,4 +23,9 @@ const requestInterceptor = request => {
   return request
 }
 
-export { baseURL, responseInterceptor, requestInterceptor }
+export {
+  baseURL,
+  responseInterceptor,
+  responseErrorInterceptor,
+  requestInterceptor,
+}
