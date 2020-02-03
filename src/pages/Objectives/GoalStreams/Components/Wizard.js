@@ -109,6 +109,19 @@ WizardFlow.defaultProps = {
 }
 
 WizardFlow.propTypes = {
-  data: PropTypes.array,
-  objective: PropTypes.string,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      question: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      options: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+            .isRequired,
+        })
+      ),
+    })
+  ),
+  objective: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
