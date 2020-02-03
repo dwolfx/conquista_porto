@@ -40,7 +40,7 @@ module.exports = {
         arrays: 'always-multiline',
         objects: 'always-multiline',
         imports: 'always-multiline',
-        exports: 'never',
+        exports: 'always-multiline',
         functions: 'never',
       },
     ],
