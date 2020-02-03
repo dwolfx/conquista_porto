@@ -1,5 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+// eslint-disable-next-line import/no-cycle
 import { get } from 'services/api'
 import { Types } from './types'
 import {
@@ -7,11 +8,11 @@ import {
   GetLifeInsuranceDataFailure,
 } from './action'
 
-function* getData() {
+function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      '/produtos/vida?cpfCnpj=33244452809&codigoCanal=1&tipoSeguro=VIDA'
+      `/produtos/vida?cpfCnpj=${cpf}&codigoCanal=1&tipoSeguro=VIDA`
     )
     yield put(GetLifeInsuranceDataSuccess(response.data))
   } catch (err) {

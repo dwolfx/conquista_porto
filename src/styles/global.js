@@ -18,9 +18,20 @@ export default createGlobalStyle`
   }
 
   html {
+    overflow-x: hidden;
+  }
+  body {
     scroll-behavior: smooth;
+
+  }
+  html, body {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
+    background-color: ${props => props.theme.colors.gray1};
+  }
+
+  html.noOverflow {
+    overflow: hidden;
   }
 
   a {

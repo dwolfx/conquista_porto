@@ -33,7 +33,10 @@ export const CardIcon = styled.div`
   width: 35px;
 `
 
-export const CardTitle = styled(Text).attrs({ type: 'headline', bold: true })``
+export const CardTitle = styled(Text).attrs(() => ({
+  type: 'headline',
+  bold: true,
+}))``
 
 export const CardBody = styled.div`
   display: flex;

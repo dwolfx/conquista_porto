@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { all } from 'redux-saga/effects'
 
 import bankData from './BankData/sagas'
@@ -15,6 +16,8 @@ import privateWelfare from './PrivateWelfare/sagas'
 import tripInsurance from './TripInsurance/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
 import notifications from './Notifications/sagas'
+import auth from './Auth/sagas'
+import objective from './Objective/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -33,5 +36,7 @@ export default function* rootSaga() {
     tripInsurance,
     vehicleFinancing,
     notifications,
+    auth,
+    objective,
   ])
 }

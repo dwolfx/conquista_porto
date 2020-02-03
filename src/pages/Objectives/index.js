@@ -1,13 +1,16 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import Header from 'components/Wizard/Header'
 import Board from './Board'
+import Recommendation from './Recommendation'
 
 import { Container, RegistrationWrapper, BoartTitle } from './styles'
 
 const Objectives = () => {
   const history = useHistory()
+  const objectiveData = useSelector(state => state.objective.data)
   return (
     <Container>
       <Header
@@ -17,10 +20,14 @@ const Objectives = () => {
           document.body.scrollTop = 0
         }}
       />
-      <RegistrationWrapper>
-        <BoartTitle>Criar objetivo</BoartTitle>
-        <Board />
-      </RegistrationWrapper>
+      {!objectiveData ? (
+        <RegistrationWrapper>
+          <BoartTitle>Criar objetivo</BoartTitle>
+          <Board />
+        </RegistrationWrapper>
+      ) : (
+        <Recommendation {...objectiveData} />
+      )}
     </Container>
   )
 }

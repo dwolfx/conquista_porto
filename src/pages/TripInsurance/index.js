@@ -1,14 +1,18 @@
 import React from 'react'
 
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
+import Banner from 'assets/images/pages/solutions/tripInsurance/banner.jpg'
+import BulletImage from 'assets/images/pages/solutions/tripInsurance/selo-seguro-viagem.svg'
+
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleGiwRedirect } from 'helpers'
+
 import { Container } from './styles'
-import Banner from '../../assets/images/pages/solutions/tripInsurance/banner.jpg'
-import BulletImage from '../../assets/images/pages/solutions/tripInsurance/selo-seguro-viagem.svg'
 
 export default function TripInsurance() {
   return (
@@ -17,7 +21,9 @@ export default function TripInsurance() {
         title="Seguro Viagem"
         description="Viaje com tranquilidade e tenha assistência 24h da Porto Seguro em qualquer lugar do mundo. Faça uma simulação informando os detalhes da viagem e contrate em alguns cliques."
         buttonText="SIMULAR E CONTRATAR"
-        onClick={() => console.log('clicked')}
+        onClick={() =>
+          handleGiwRedirect('portaldecliente/conquista/seguro-viagem/simular')
+        }
         image={Banner}
       />
       <BulletsSection
@@ -82,6 +88,9 @@ export default function TripInsurance() {
         mainDescription="O Conquista acompanha você do planejamento da viagem à realização."
         subDescription="Informando detalhes como local e data, você pode simular coberturas e assistências nacionais e internacionais. Na sequência, basta escolher um plano e contratar."
         buttonText="SIMULAR E CONTRATAR"
+        onClick={() =>
+          handleGiwRedirect('portaldecliente/conquista/seguro-viagem/simular')
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"

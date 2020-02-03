@@ -10,7 +10,7 @@ export const RadioTitle = styled.p`
   word-break: break-word;
 `
 
-export const RadioInput = styled.input.attrs({ type: 'radio' })`
+export const RadioInput = styled.input.attrs(() => ({ type: 'radio' }))`
   height: 20px;
   margin-right: 10px;
   position: relative;
@@ -71,6 +71,7 @@ export const RadioWrapper = styled.div`
   margin-left: ${props => `${props.marginLeft}px`};
   margin-right: ${props => `${props.marginRight}px`};
   width: ${props => `${props.width}%`};
+  justify-content: center;
 
   @media ${props => props.theme.mediaQueries.xs} {
     flex-direction: column;

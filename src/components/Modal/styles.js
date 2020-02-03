@@ -10,6 +10,8 @@ export const ModalOverlay = styled.div`
   width: 100%;
   visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   opacity: ${props => (props.isOpen ? '1' : '0')};
+  left: 0;
+  top: 0;
 `
 
 export const ModalContainer = styled.div`

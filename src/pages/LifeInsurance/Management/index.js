@@ -44,7 +44,6 @@ import {
   Divider,
   ShowAll,
   Row,
-  MiddleContent,
 } from './styles'
 
 const downloadFileSectionData = [
@@ -147,10 +146,10 @@ export default function ManagementLifeInsurance({ history }) {
               </AddBtnLink>
               {lifeInsurance.data.map(item => (
                 <ManageableItem
-                  key={item.Apolice.NumeroApolice}
+                  key={item.Apolice.LinkDownload}
                   active={
-                    selectedLifeInsurance.Apolice.NumeroApolice ===
-                    item.Apolice.NumeroApolice
+                    selectedLifeInsurance.Apolice.LinkDownload ===
+                    item.Apolice.LinkDownload
                   }
                   onClick={() => {
                     setSelectedLifeInsurance(item)
@@ -174,87 +173,85 @@ export default function ManagementLifeInsurance({ history }) {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(selectedLifeInsurance.DtFinalVigencia).format(
-                      'DD/MM/YYYY'
+                    {moment(item.DtFinalVigencia, 'YYYY-MM-DD-HH-mm').format(
+                      'DD-MM-YYYY'
                     )}
                   </Text>
                 </ManageableItem>
               ))}
             </LeftNav>
-            <MiddleContent>
-              {lifeInsurance.data.map(item => (
-                <RightContent
-                  key={item.Apolice.NumeroApolice}
-                  isSelected={
-                    item.Apolice.NumeroApolice ===
-                    selectedLifeInsurance.Apolice.NumeroApolice
-                  }
-                >
-                  <PageTitle>Seguro de Vida</PageTitle>
-                  <Topics settings={settings}>
-                    <Topic>
-                      <Icon
-                        width="28"
-                        fill={themeContext.colors.blue4}
-                        name="boy"
-                      />
-                      <div>
-                        <TopicTitle>segurado</TopicTitle>
-                        <TopicValue>
-                          {selectedLifeInsurance.NomeSegurado}
-                        </TopicValue>
-                      </div>
-                    </Topic>
-                    <Topic>
-                      <Icon
-                        width="28"
-                        fill={themeContext.colors.blue4}
-                        name="billing"
-                      />
-                      <ParcelContainer data={selectedLifeInsurance} />
-                    </Topic>
-                    <Topic>
-                      <Icon
-                        width="28"
-                        fill={themeContext.colors.blue4}
-                        name="persongroup"
-                      />
-                      <div>
-                        <TopicTitle>Coberturas adicionais</TopicTitle>
-                        <ShowAll
-                          onClick={() => {
-                            setIsOpenModal(true)
-                          }}
-                        >
-                          VER TODAS &gt;
-                        </ShowAll>
-                      </div>
-                    </Topic>
-                  </Topics>
-                  <Section>
-                    <Invoice>
-                      <Text
-                        fontSize="18px"
-                        margin="0 0 14px 0"
-                        lineHeight="28px"
-                        textAlign="center"
+            {lifeInsurance.data.map(item => (
+              <RightContent
+                key={item.Apolice.LinkDownload}
+                isSelected={
+                  item.Apolice.LinkDownload ===
+                  selectedLifeInsurance.Apolice.LinkDownload
+                }
+              >
+                <PageTitle>Seguro de Vida</PageTitle>
+                <Topics settings={settings}>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="boy"
+                    />
+                    <div>
+                      <TopicTitle>segurado</TopicTitle>
+                      <TopicValue>
+                        {selectedLifeInsurance.NomeSegurado}
+                      </TopicValue>
+                    </div>
+                  </Topic>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="billing"
+                    />
+                    <ParcelContainer data={selectedLifeInsurance} />
+                  </Topic>
+                  <Topic>
+                    <Icon
+                      width="28"
+                      fill={themeContext.colors.blue4}
+                      name="persongroup"
+                    />
+                    <div>
+                      <TopicTitle>Coberturas adicionais</TopicTitle>
+                      <ShowAll
+                        onClick={() => {
+                          setIsOpenModal(true)
+                        }}
                       >
-                        Cobertura Principal
-                      </Text>
-                      <InvoiceItem>
-                        <Text>Morte Acidental</Text>
-                        <Text>R$ 35.000,00</Text>
-                      </InvoiceItem>
-                    </Invoice>
-                  </Section>
-                  <Section>
-                    <Invoice>
-                      <BeneficiarioContent data={selectedLifeInsurance} />
-                    </Invoice>
-                  </Section>
-                </RightContent>
-              ))}
-            </MiddleContent>
+                        VER TODAS &gt;
+                      </ShowAll>
+                    </div>
+                  </Topic>
+                </Topics>
+                <Section>
+                  <Invoice>
+                    <Text
+                      fontSize="18px"
+                      margin="0 0 14px 0"
+                      lineHeight="28px"
+                      textAlign="center"
+                    >
+                      Cobertura Principal
+                    </Text>
+                    <InvoiceItem>
+                      <Text>Morte Acidental</Text>
+                      <Text>R$ 35.000,00</Text>
+                    </InvoiceItem>
+                  </Invoice>
+                </Section>
+                <Section>
+                  <Invoice>
+                    <BeneficiarioContent data={selectedLifeInsurance} />
+                  </Invoice>
+                </Section>
+              </RightContent>
+            ))}
           </PageContent>
         </Container>
         <HighlightSection

@@ -1,14 +1,18 @@
 import React from 'react'
 
-import TopBanner from '../../components/Solutions/TopBanner'
-import BulletsSection from '../../components/Solutions/BulletsSection'
-import MakeSenseSection from '../../components/Solutions/MakeSenseSection'
-import HighlightSection from '../../components/Solutions/HighlightSection'
-import FileDownloadSection from '../../components/Solutions/FileDownloadSection'
-import MoreDetails from '../../components/Solutions/MoreDetails'
+import Banner from 'assets/images/pages/solutions/vehicleFinancing/banner.jpg'
+import BulletImage from 'assets/images/pages/solutions/vehicleFinancing/selo-financiamento.svg'
+
+import TopBanner from 'components/Solutions/TopBanner'
+import BulletsSection from 'components/Solutions/BulletsSection'
+import MakeSenseSection from 'components/Solutions/MakeSenseSection'
+import HighlightSection from 'components/Solutions/HighlightSection'
+import FileDownloadSection from 'components/Solutions/FileDownloadSection'
+import MoreDetails from 'components/Solutions/MoreDetails'
+
+import { handleGiwRedirect } from 'helpers'
+
 import { Container } from './styles'
-import Banner from '../../assets/images/pages/solutions/vehicleFinancing/banner.jpg'
-import BulletImage from '../../assets/images/pages/solutions/vehicleFinancing/selo-financiamento.svg'
 
 export default function VehicleFinancing() {
   return (
@@ -17,7 +21,11 @@ export default function VehicleFinancing() {
         title="Financiamento de Veículos"
         description="Carro novo ou seminovo com entrada zero. Simule e contrate um financiamento de até 100% do valor do veículo. Com os planos flexíveis da Porto Seguro, você paga em até 60 meses."
         buttonText="SIMULAR E CONTRATAR"
-        onClick={() => console.log('clicked')}
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/financiamento-de-veiculos/simular'
+          )
+        }
         image={Banner}
       />
       <BulletsSection
@@ -82,6 +90,11 @@ export default function VehicleFinancing() {
         mainDescription="Com o Conquista, você planeja a compra do seu carro novo ou seminovo."
         subDescription="Você pode fazer quantas simulações quiser, escolhendo parcelas mensais adequadas ao seu orçamento. Conheça os planos e contrate uma solução com a solidez da Porto Seguro."
         buttonText="SIMULAR E CONTRATAR"
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/financiamento-de-veiculos/simular'
+          )
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import { Container, Text } from './styles'
 
-export default function Tag({ color, text }) {
+export default function Tag({ color, text, ...rest }) {
   return (
-    <Container color={color}>
+    <Container color={color} {...rest}>
       <Text>{text}</Text>
     </Container>
   )

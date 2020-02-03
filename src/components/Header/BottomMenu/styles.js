@@ -26,9 +26,9 @@ export const BottomMenuDropdownIcon = styled(ConquistaIcon)`
   fill: ${props => props.theme.colors.white};
 `
 
-export const ArrowRightIcon = styled(ConquistaIcon).attrs({
+export const ArrowRightIcon = styled(ConquistaIcon).attrs(() => ({
   name: 'arrowright',
-})`
+}))`
   height: ${props => (props.size ? `${props.size}px` : '16px')};
   width: ${props => (props.size ? `${props.size}px` : '16px')};
   fill: ${props => props.theme.colors.blue4};

@@ -1,17 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Row } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
-import OfferCarImg from 'assets/images/pages/Home/car_offer.jpg'
-import OfferHomeImg from 'assets/images/pages/Home/home_offer.jpg'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
 import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
-import Modal from 'components/Modal/modalNew'
+import Modal from 'components/Modal/ModalNew'
 
+import { formatMoney } from 'helpers'
+
+import pointsCardsData from './pointsCardsData'
 import {
   EmptyBody,
   EmptyText,
@@ -22,17 +25,110 @@ import {
   OfferBox,
   OfferImageBox,
   OfferTextBox,
+  OfferTitle,
+  OfferCategoryBox,
+  OfferCategoryText,
+  OfferText,
   PointsInfo,
   PointDate,
   PointName,
   PointNumber,
   PointsList,
-  ContainerHorizontalList,
+  ContainerBox,
   ModalTextWrapper,
+  PointsExtractListWrapper,
 } from './styles'
 
 export default function SectionThree({ points }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [belowOffer, setBelowOffer] = useState(pointsCardsData[0])
+  const [aboveOffer, setAboveOffer] = useState(pointsCardsData[1])
+
+  useEffect(() => {
+    if (points) {
+      const pointsAmount = calculatePointsAmountBalance(
+        points.detalheExtratoOptemaisTypes
+      )
+
+      if (pointsAmount) {
+        const maxPoints = pointsCardsData.slice(-1)[0].points
+        let newBelowOffer
+        let newAboveOffer
+
+        if (pointsAmount > maxPoints) {
+          // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
+          // aboveOffer must be higher than belowOffer
+          const higherGroupData = pointsCardsData.filter(
+            item => item.group === 5
+          )
+
+          newBelowOffer = higherGroupData[Math.floor(Math.random() * 3)]
+          newAboveOffer = higherGroupData
+            .reverse()
+            .reduce(
+              (acc, cur) => (cur.points > newBelowOffer.points ? cur : acc),
+              aboveOffer
+            )
+        } else {
+          // if current points are below the maximum offer, get the offer below the current points and one above the current
+          newBelowOffer = pointsCardsData.reduce(
+            (acc, cur) => (cur.points <= pointsAmount ? cur : acc),
+            belowOffer
+          )
+          newAboveOffer = pointsCardsData
+            .reverse()
+            .reduce(
+              (acc, cur) =>
+                cur.points > pointsAmount && belowOffer.points !== cur.points
+                  ? cur
+                  : acc,
+              aboveOffer
+            )
+        }
+
+        setBelowOffer(newBelowOffer)
+        setAboveOffer(newAboveOffer)
+      }
+    }
+  }, [points])
+
+  const PointsOfferCard = ({ offer }) => (
+    <FullHeightCard
+      headerIcon={offer.icon || 'tag'}
+      headerTitle="Troque seus pontos"
+    >
+      <OfferBox>
+        <OfferImageBox>
+          <img src={offer.image} alt={`${offer.exchangeProduct} pic`} />
+          {offer.type && (
+            <OfferCategoryBox>
+              <OfferCategoryText type="subheading">
+                {offer.type}
+              </OfferCategoryText>
+            </OfferCategoryBox>
+          )}
+        </OfferImageBox>
+        <OfferTextBox>
+          <OfferTitle bold>{offer.exchangeProduct}</OfferTitle>
+          <OfferText>
+            {Intl.NumberFormat().format(offer.points)} pontos você troca por{' '}
+            {formatMoney(offer.exchangeValue)} no {offer.exchangeProduct}
+          </OfferText>
+        </OfferTextBox>
+      </OfferBox>
+    </FullHeightCard>
+  )
+
+  PointsOfferCard.propTypes = {
+    offer: PropTypes.shape({
+      points: PropTypes.number,
+      exchangeValue: PropTypes.number,
+      exchangeProduct: PropTypes.string,
+      icon: PropTypes.string,
+      type: PropTypes.string,
+      image: PropTypes.string,
+    }).isRequired,
+  }
 
   const renderPointsFooter = () => {
     if (points) {
@@ -55,15 +151,19 @@ export default function SectionThree({ points }) {
         key={`point-${index}`}
         startItems={[
           <PointDate>{item.dataCompra}</PointDate>,
-          <PointName>{item.nomeTransacao}</PointName>,
+          <PointName type="headline">{item.nomeTransacao}</PointName>,
         ]}
-        endItems={[<PointNumber bold>{item.pontoGanho}</PointNumber>]}
+        endItems={[
+          <PointNumber type="headline" bold>
+            {Intl.NumberFormat().format(item.pontoGanho)}
+          </PointNumber>,
+        ]}
       />
     ))
 
   const renderEmptyState = () => (
     <EmptyBody>
-      <EmptyText>
+      <EmptyText bold>
         Ao investir na nossa plataforma, fazer compras no cartão de crédito e ao
         contratar produtos Porto Seguro você terá acesso a ofertas e descontos
         exclusivos!
@@ -96,7 +196,7 @@ export default function SectionThree({ points }) {
             Seguro. Essas condições são válidas até 01/02/2019.
           </Text>
         </ModalTextWrapper>
-        <ContainerHorizontalList>
+        <ContainerBox>
           <HorizontalList
             noPadding
             startItems={[
@@ -129,7 +229,7 @@ export default function SectionThree({ points }) {
             ]}
             endItems={[tag('gray', '200 pontos')]}
           />
-        </ContainerHorizontalList>
+        </ContainerBox>
         <ModalTextWrapper>
           <Text type="headline" color="gray6" bold>
             Quem pode pontuar?
@@ -163,8 +263,8 @@ export default function SectionThree({ points }) {
     )
   }
 
-  const renderPointsAmountBalance = extrato =>
-    extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
+  const calculatePointsAmountBalance = extrato =>
+    extrato ? extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0) : 0
 
   return (
     <>
@@ -176,68 +276,53 @@ export default function SectionThree({ points }) {
       >
         {renderModalContent()}
       </Modal>
-      <SectionCol lg="5">
-        <FullHeightCard
-          headerIcon="diamond"
-          headerTitle="Pontos"
-          footer={renderPointsFooter()}
-        >
-          <PointsInfo>
-            <Text type="headline">Saldo atual</Text>
-            <Text type="headline" bold>
-              {points
-                ? renderPointsAmountBalance(points.detalheExtratoOptemaisTypes)
-                : 0}{' '}
-              pontos
-            </Text>
-            {points && <Button color="secondary">Resgatar</Button>}
-          </PointsInfo>
-          {points && points.detalheExtratoOptemaisTypes.length > 0 ? (
-            <>
-              <PointsList>{renderPointsHorizontalList()}</PointsList>
-            </>
-          ) : (
-            renderEmptyState()
-          )}
-        </FullHeightCard>
+      <SectionCol md="5">
+        <PointsExtractListWrapper>
+          <FullHeightCard
+            headerIcon="diamond"
+            headerTitle="Pontos"
+            footer={renderPointsFooter()}
+          >
+            {points && points.detalheExtratoOptemaisTypes && (
+              <PointsInfo>
+                <Text type="headline">Saldo atual</Text>
+                <Text type="headline" bold>
+                  {points
+                    ? Intl.NumberFormat().format(
+                        calculatePointsAmountBalance(
+                          points.detalheExtratoOptemaisTypes
+                        )
+                      )
+                    : 0}{' '}
+                  pontos
+                </Text>
+                {points && <Button color="secondary">Resgatar</Button>}
+              </PointsInfo>
+            )}
+            {points &&
+            points.detalheExtratoOptemaisTypes &&
+            points.detalheExtratoOptemaisTypes.length > 0 ? (
+              <>
+                <PointsList>{renderPointsHorizontalList()}</PointsList>
+              </>
+            ) : (
+              renderEmptyState()
+            )}
+          </FullHeightCard>
+        </PointsExtractListWrapper>
       </SectionCol>
 
-      <SectionCol lg="7">
-        <Row style={{ height: '100%' }}>
-          <SectionCol lg="6">
-            <FullHeightCard headerIcon="diamond" headerTitle="#OfertaCarro">
-              <OfferBox>
-                <OfferImageBox>
-                  <img src={OfferCarImg} alt="car offer pic" />
-                </OfferImageBox>
-                <OfferTextBox>
-                  <Text type="headline" bold>
-                    Título
-                  </Text>
-                  <Text>
-                    6.000 pontos equivalem a R$ 300,00 de desconto no seguro do
-                    seu automóvel
-                  </Text>
-                </OfferTextBox>
-              </OfferBox>
-            </FullHeightCard>
+      <SectionCol md="7">
+        <Row
+          css={`
+            height: 100%;
+          `}
+        >
+          <SectionCol md="6">
+            <PointsOfferCard offer={belowOffer} />
           </SectionCol>
-          <SectionCol lg="6">
-            <FullHeightCard headerIcon="diamond" headerTitle="#OfertaCasa">
-              <OfferBox>
-                <OfferImageBox>
-                  <img src={OfferHomeImg} alt="home offer pic" />
-                </OfferImageBox>
-                <OfferTextBox>
-                  <Text type="headline" bold>
-                    Título
-                  </Text>
-                  <Text>
-                    4.000 pontos equivalem a R$ 360,00 na lavagem do seu sofá
-                  </Text>
-                </OfferTextBox>
-              </OfferBox>
-            </FullHeightCard>
+          <SectionCol md="6">
+            <PointsOfferCard offer={aboveOffer} />
           </SectionCol>
         </Row>
       </SectionCol>

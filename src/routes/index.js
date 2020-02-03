@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import Header from 'components/Header'
+import HeaderNew from 'components/HeaderNew'
+// import Header from 'components/Header'
 import Footer from 'components/Footer'
 
 import Home from 'pages/Home'
@@ -29,6 +30,7 @@ import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
+import RedirectComponent from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesRetirementFlow from 'pages/Objectives/GoalStreams/RetirementFlow'
@@ -38,9 +40,9 @@ import ObjectivesStudyFlow from 'pages/Objectives/GoalStreams/StudyFlow'
 import ObjectivesEventFlow from 'pages/Objectives/GoalStreams/EventFlow'
 import ObjectivesBuyHouseFlow from 'pages/Objectives/GoalStreams/BuyHouseFlow'
 import ObjectivesSaveMoneyFlow from 'pages/Objectives/GoalStreams/SaveMoneyFlow'
-import ObjectivesRecommendation from 'pages/Objectives/Recommendation'
 
 import Notifications from 'pages/Notifications'
+import Login from 'pages/Login'
 
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
@@ -48,9 +50,11 @@ import useFetchConsortiumVehicle from 'hooks/ConsortiumVehicle/useFetchConsortiu
 import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsortiumBuilding'
 import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
+import useFetchPosition from 'hooks/Investments/useFetchPosition'
+import IconComponent from 'components/IconExporter'
+import useAuth from './auth'
 
-const DefaultRoute = ({ component, data, hook, ...rest }) => {
-  const Component = component
+const DefaultRoute = ({ component: Component, data, hook, ...rest }) => {
   let dataLength = 0
 
   try {
@@ -58,7 +62,11 @@ const DefaultRoute = ({ component, data, hook, ...rest }) => {
       hook()
 
       // while the hook is being called, dont render anything (eliminates blink between screens)
-      return null
+      return (
+        <>
+          <IconComponent name="loading" />
+        </>
+      )
     }
 
     dataLength = Array.isArray(data) ? data.length : Object.entries(data).length
@@ -68,7 +76,7 @@ const DefaultRoute = ({ component, data, hook, ...rest }) => {
 
   return (
     <>
-      <Header />
+      <HeaderNew />
       <main className="main-content">
         <Route
           {...rest}
@@ -107,6 +115,7 @@ export default function Routes({ ...props }) {
     consortiumBuildingData,
     consortiumVehicleData,
     lifeInsuranceData,
+    positionData,
   } = useSelector(state => ({
     creditCardData: state.creditCard.data,
     tripInsuranceData: state.tripInsurance.data,
@@ -114,9 +123,14 @@ export default function Routes({ ...props }) {
     consortiumBuildingData: state.consortiumBuilding.data,
     consortiumVehicleData: state.consortiumVehicle.data,
     lifeInsuranceData: state.lifeInsurance.data,
+    positionData: state.investmentPosition.data,
   }))
 
-  return (
+  const isAuth = useAuth()
+
+  return !isAuth ? (
+    <Login />
+  ) : (
     <Switch {...props}>
       <DefaultRoute path="/" exact component={Home} />
 
@@ -162,7 +176,13 @@ export default function Routes({ ...props }) {
         data={lifeInsuranceData}
         hook={useFetchLifeInsurance}
       />
-      <DefaultRoute path="/investimentos" exact component={Investimentos} />
+      <DefaultRoute
+        path="/investimentos"
+        exact
+        component={Investimentos}
+        data={positionData}
+        hook={useFetchPosition}
+      />
 
       <DefaultRoute
         path="/cartao-credito/visualizar"
@@ -232,18 +252,13 @@ export default function Routes({ ...props }) {
         exact
         component={ObjectivesSaveMoneyFlow}
       />
-      <Route
-        path="/objetivos/recomendacao"
-        exact
-        component={ObjectivesRecommendation}
-      />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"
         exact
         component={ProfileSuitability}
       />
-      <Route path="/redirect" exact component={Redirect} />
+      <Route path="/redirect" exact component={RedirectComponent} />
       <DefaultRoute path="/notificacoes" exact component={Notifications} />
     </Switch>
   )

@@ -109,7 +109,11 @@ export default function GeneralView() {
               Saldo Disponível
             </Text>
             <Text fontSize={18} lineHeight={28} margin="0px 0px 14px 0px">
-              {formatMoney(bankData.DadosContaPortoSeguro.saldo_disponivel)}
+              {formatMoney(
+                bankData.DadosContaPortoSeguro
+                  ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                  : 0
+              )}
             </Text>
             <LinkButton> ver extrato &gt; </LinkButton>
             <ConquistaButton>RETIRAR</ConquistaButton>
@@ -120,65 +124,71 @@ export default function GeneralView() {
               Saldo a Liquidar
             </Text>
             <Text fontSize={18} lineHeight={28}>
-              {formatMoney(bankData.DadosContaPortoSeguro.saldo_liquidar)}
+              {formatMoney(
+                bankData.DadosContaPortoSeguro
+                  ? bankData.DadosContaPortoSeguro.saldo_liquidar
+                  : 0
+              )}
             </Text>
-            <Accordion titleNode="Dados da conta">
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  BANCO
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {bankData.DadosContaPortoSeguro.codigo_banco}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  AGÊNCIA
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {bankData.DadosContaPortoSeguro.agencia}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  CONTA
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {`${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  FAVORECIDO
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {bankData.DadosContaPortoSeguro.titular}
-                </Text>
-              </Wrapper>
-              <Wrapper margin="0px 0px 10px 0px">
-                <Text fontSize={10} spacing={1.5} lineHeight={22}>
-                  CPF
-                </Text>
-                <Text fontSize={14} lineHeight={24}>
-                  {formatCpf(bankData.DadosContaPortoSeguro.cpf)}
-                </Text>
-              </Wrapper>
-              <LineDivider />
-              <InfoList>
-                <InfoItem>
-                  Essa conta é para a recursos relacionados a investimentos
-                  apenas
-                </InfoItem>
-                <InfoItem>
-                  As transferências dever ser de contas de mesma titularidade do
-                  favorecido
-                </InfoItem>
-                <InfoItem>
-                  A Porto Seguro faz a identificação e direcionamento dos
-                  recursos
-                </InfoItem>
-              </InfoList>
-            </Accordion>
+            {bankData.DadosContaPortoSeguro && (
+              <Accordion titleNode="Dados da conta">
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    BANCO
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {bankData.DadosContaPortoSeguro.codigo_banco}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    AGÊNCIA
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {bankData.DadosContaPortoSeguro.agencia}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    CONTA
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {`${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    FAVORECIDO
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {bankData.DadosContaPortoSeguro.titular}
+                  </Text>
+                </Wrapper>
+                <Wrapper margin="0px 0px 10px 0px">
+                  <Text fontSize={10} spacing={1.5} lineHeight={22}>
+                    CPF
+                  </Text>
+                  <Text fontSize={14} lineHeight={24}>
+                    {formatCpf(bankData.DadosContaPortoSeguro.cpf)}
+                  </Text>
+                </Wrapper>
+                <LineDivider />
+                <InfoList>
+                  <InfoItem>
+                    Essa conta é para a recursos relacionados a investimentos
+                    apenas
+                  </InfoItem>
+                  <InfoItem>
+                    As transferências dever ser de contas de mesma titularidade
+                    do favorecido
+                  </InfoItem>
+                  <InfoItem>
+                    A Porto Seguro faz a identificação e direcionamento dos
+                    recursos
+                  </InfoItem>
+                </InfoList>
+              </Accordion>
+            )}
           </AccountInfo>
         </>
       ) : null}

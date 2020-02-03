@@ -1,8 +1,9 @@
 import { Types } from './types'
 
-export function GetPositionDataRequest() {
+export function GetPositionDataRequest(cpf) {
   return {
     type: Types.ADD_REQUEST,
+    cpf,
   }
 }
 

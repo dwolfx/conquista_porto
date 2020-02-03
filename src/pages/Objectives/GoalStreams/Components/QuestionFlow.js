@@ -1,27 +1,61 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
-import Input from 'components/Inputs/Text'
+import InputText from 'components/NewInput'
+import RadioInput from 'components/Inputs/Radio'
 
-import { Question, Wrapper } from './styles'
+import { ColQuestion, Question, RuleText, Wrapper } from './styles'
 
-const QuestionFlow = ({ minimumValue, name, options, question, type }) => (
+const QuestionFlow = ({
+  formData,
+  name,
+  onChangeFormData,
+  options,
+  question,
+  ruleText,
+  type,
+}) => (
   <>
     <Row justifyContent="center">
-      <Col lg="12" xs="12">
+      <ColQuestion lg="12" xs="12">
         <Question>{question}</Question>
-      </Col>
+        {ruleText && <RuleText>{ruleText}</RuleText>}
+      </ColQuestion>
     </Row>
     <Row justifyContent="center">
       <Col lg="12" xs="12">
         <Wrapper>
-          <Input
-            width="100"
-            label={type}
-            minimumValue={minimumValue}
-            name={name}
-            options={options}
-          />
+          {type === 'text' && (
+            <InputText
+              name={name}
+              onChange={onChangeFormData}
+              prefix="#"
+              value={formData[name] || ''}
+            />
+          )}
+          {type === 'number' && (
+            <InputText
+              name={name}
+              onChange={onChangeFormData}
+              prefix="R$"
+              value={formData[name] || ''}
+            />
+          )}
+          {type === 'date' && (
+            <InputText
+              name={name}
+              onChange={onChangeFormData}
+              value={formData[name] || ''}
+              maxLength="10"
+            />
+          )}
+          {type === 'bool' && (
+            <RadioInput
+              name={name}
+              onChange={onChangeFormData}
+              options={options}
+            />
+          )}
         </Wrapper>
       </Col>
     </Row>
@@ -29,18 +63,22 @@ const QuestionFlow = ({ minimumValue, name, options, question, type }) => (
 )
 
 QuestionFlow.defaultProps = {
-  minimumValue: '',
+  formData: {},
   name: '',
+  onChangeFormData: () => {},
   options: [],
   question: '',
+  ruleText: '',
   type: '',
 }
 
 QuestionFlow.propTypes = {
-  minimumValue: PropTypes.string,
+  formData: PropTypes.object,
   name: PropTypes.string,
+  onChangeFormData: PropTypes.func,
   options: PropTypes.array,
   question: PropTypes.string,
+  ruleText: PropTypes.string,
   type: PropTypes.string,
 }
 

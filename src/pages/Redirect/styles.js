@@ -25,15 +25,15 @@ export const Background = styled.div`
   background-color: ${props => props.theme.colors.gray1};
 `
 
-export const LogoConquista = styled.img.attrs({
+export const LogoConquista = styled.img.attrs(() => ({
   src: logoConquistaBeta,
-})`
+}))`
   margin-bottom: 53px;
 `
 
-export const LogoPorto = styled.img.attrs({
+export const LogoPorto = styled.img.attrs(() => ({
   src: logoSeguroViagem,
-})`
+}))`
   margin: 53px 0px;
 `
 

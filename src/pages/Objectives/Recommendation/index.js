@@ -1,8 +1,7 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { Container } from 'styled-bootstrap-grid'
 
-import Header from 'components/Wizard/Header'
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
 import BottomBar from './BottomBar'
 import SectionOne from './SectionOne'
@@ -11,36 +10,44 @@ import SectionThree from './SectionThree'
 
 import { GridRecommendation, SectionsRecommendation } from './styles'
 
-const Recommendation = () => {
-  const history = useHistory()
-
-  const additionalProducts = {
-    travelSecurity: false,
-    lifeSecurity: false,
-    creditCard: true,
-  }
-
+const Recommendation = props => {
+  const { goal, combo, income, funds, creditProduct, additional } = props
   return (
     <GridRecommendation>
-      <Header
-        onClose={() => {
-          history.push('/objetivos')
-        }}
-      />
-
-      <TopBar />
-
+      <TopBar goal={goal} />
       <SectionsRecommendation>
         <Container>
-          <SectionOne />
-          <SectionTwo />
-          <SectionThree additionalProducts={additionalProducts} />
+          <SectionOne goal={goal} combo={combo} income={income} />
+          <SectionTwo
+            combo={combo}
+            funds={funds}
+            creditProduct={creditProduct}
+          />
+          <SectionThree additional={additional} />
         </Container>
       </SectionsRecommendation>
 
       <BottomBar />
     </GridRecommendation>
   )
+}
+
+Recommendation.propTypes = {
+  goal: PropTypes.object,
+  combo: PropTypes.array,
+  income: PropTypes.object,
+  funds: PropTypes.array,
+  creditProduct: PropTypes.object,
+  additional: PropTypes.object,
+}
+
+Recommendation.defaultProps = {
+  goal: {},
+  combo: [],
+  income: {},
+  funds: [],
+  creditProduct: {},
+  additional: {},
 }
 
 export default Recommendation

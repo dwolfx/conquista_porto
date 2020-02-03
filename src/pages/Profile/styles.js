@@ -274,7 +274,7 @@ export const ModalSectionText = styled.p`
   text-align: center;
 `
 
-export const InputCode = styled.input.attrs({ type: 'number' })`
+export const InputCode = styled.input.attrs(() => ({ type: 'number' }))`
   background-color: transparent;
   border: none;
   border-bottom: 1px solid ${props => props.theme.colors.gray3};

@@ -1,9 +1,9 @@
 import { Types } from './types'
 
-export function GetConsolidatedPositionDataRequest(payload) {
+export function GetConsolidatedPositionDataRequest(cpf) {
   return {
     type: Types.GET_REQUEST,
-    payload,
+    cpf,
   }
 }
 

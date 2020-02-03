@@ -73,34 +73,42 @@ export const BlueText = styled(NavLink)`
   line-height: 21px;
   cursor: pointer;
 `
-export const CloseIcon = styled(ConquistaIcon).attrs({ name: 'close' })`
+export const CloseIcon = styled(ConquistaIcon).attrs(() => ({ name: 'close' }))`
   fill: ${props => props.theme.colors.white};
   width: 24px;
   height: 24px;
 `
-export const AppsIcon = styled(ConquistaIcon).attrs({ name: 'apps' })`
+export const AppsIcon = styled(ConquistaIcon).attrs(() => ({ name: 'apps' }))`
   ${svgStyle};
 `
-export const ArrowDownIcon = styled(ConquistaIcon).attrs({ name: 'arrowup' })`
+export const ArrowDownIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'arrowup',
+}))`
   ${arrowSvgStyle};
   transform: rotate(180deg);
 `
-export const ArrowUpIcon = styled(ConquistaIcon).attrs({ name: 'arrowup' })`
+export const ArrowUpIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'arrowup',
+}))`
   ${arrowSvgStyle};
 `
-export const DiamondIcon = styled(ConquistaIcon).attrs({ name: 'diamond' })`
+export const DiamondIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'diamond',
+}))`
   ${svgStyle};
 `
-export const GearIcon = styled(ConquistaIcon).attrs({ name: 'gear' })`
+export const GearIcon = styled(ConquistaIcon).attrs(() => ({ name: 'gear' }))`
   ${svgStyle};
 `
-export const HomeIcon = styled(ConquistaIcon).attrs({ name: 'home' })`
+export const HomeIcon = styled(ConquistaIcon).attrs(() => ({ name: 'home' }))`
   ${svgStyle};
 `
-export const IdeaIcon = styled(ConquistaIcon).attrs({ name: 'idea' })`
+export const IdeaIcon = styled(ConquistaIcon).attrs(() => ({ name: 'idea' }))`
   ${svgStyle};
 `
-export const TargetIcon = styled(ConquistaIcon).attrs({ name: 'target' })`
+export const TargetIcon = styled(ConquistaIcon).attrs(() => ({
+  name: 'target',
+}))`
   ${svgStyle};
 `
 

@@ -1,9 +1,9 @@
 import { Types } from './types'
 
-export function GetConsortiumVehicleDataRequest(payload) {
+export function GetConsortiumVehicleDataRequest(cpf) {
   return {
     type: Types.GET_REQUEST,
-    payload,
+    cpf,
   }
 }
 

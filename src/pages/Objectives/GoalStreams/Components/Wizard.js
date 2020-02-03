@@ -1,38 +1,65 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
-
+import { formatMoneyDecimal, formatDateMask } from 'helpers'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import TopBar from './TopBar'
 import QuestionFlow from './QuestionFlow'
 
-import {
-  BodyWizard,
-  ButtonAction,
-  RowButton,
-  Wizard,
-  WizardStep,
-} from './styles'
+import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
 
-export const WizardFlow = ({ data }) => {
+export const WizardFlow = ({ data, objective }) => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const goalRequisition = useSelector(state => state.objective.data)
   const [currentStep, setStepIndex] = useState(0)
-  const increment = () => setStepIndex(currentStep + 1)
-  const decrement = () => setStepIndex(currentStep - 1)
+  const [formData, setFormData] = useState({})
+  const [isActive, setIsActive] = useState(false)
   const computedState = {
     isFirstStep: currentStep === 0,
     isLastStep: currentStep === data.length - 1,
   }
   const { isFirstStep, isLastStep } = computedState
+  const increment = () => setStepIndex(currentStep + 1)
+  const decrement = () => setStepIndex(currentStep - 1)
 
-  const postFlow = () => {}
+  useEffect(() => {
+    setIsActive(!!formData[data[currentStep].name])
+    if (goalRequisition) history.push('/objetivos')
+  }, [formData, data, currentStep, goalRequisition, history])
+
+  const postFlow = () => dispatch(PostObjectiveDataRequest(objectiveData))
+
+  const moneyMask = event => {
+    const strippedValue = event.target.value.replace(/\D/g, '')
+    event.target.value = formatMoneyDecimal(strippedValue) // eslint-disable-line no-param-reassign
+  }
+
+  const handleSingleValue = event => {
+    if (data[currentStep].type === 'number') moneyMask(event)
+    if (data[currentStep].type === 'date') formatDateMask(event)
+    setFormData({ ...formData, [event.target.name]: event.target.value })
+  }
+
+  const objectiveData = {
+    goalType: objective,
+    ...formData,
+  }
 
   const WizardContainer = () => (
     <WizardStep>
-      <QuestionFlow {...data[currentStep]} />
+      <QuestionFlow
+        formData={formData}
+        onChangeFormData={handleSingleValue}
+        {...data[currentStep]}
+      />
     </WizardStep>
   )
 
   const WizardButtom = () => (
-    <RowButton>
+    <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
           <ButtonAction outline onClick={decrement}>
@@ -42,23 +69,35 @@ export const WizardFlow = ({ data }) => {
       )}
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs="12">
-          <ButtonAction onClick={increment}>Próximo</ButtonAction>
+          <ButtonAction onClick={increment} disabled={!isActive}>
+            Próximo
+          </ButtonAction>
         </Col>
       )}
       {isLastStep && (
         <Col lg="6" xs="12">
-          <ButtonAction onClick={postFlow}>POST</ButtonAction>
+          <ButtonAction onClick={postFlow} disabled={!isActive}>
+            Concluir
+          </ButtonAction>
         </Col>
       )}
-    </RowButton>
+    </RowFull>
   )
 
   return (
     <Wizard>
-      <TopBar numberSteps={data.length} currentStep={currentStep + 1} />
+      <TopBar
+        currentStep={currentStep + 1}
+        numberSteps={data.length}
+        nickname={formData.nickname}
+      />
       <BodyWizard>
-        {WizardContainer()}
-        {WizardButtom()}
+        <RowFull>
+          <Col lg="4" xs="12">
+            {WizardContainer()}
+            {WizardButtom()}
+          </Col>
+        </RowFull>
       </BodyWizard>
     </Wizard>
   )
@@ -66,8 +105,10 @@ export const WizardFlow = ({ data }) => {
 
 WizardFlow.defaultProps = {
   data: [],
+  objective: '',
 }
 
 WizardFlow.propTypes = {
   data: PropTypes.array,
+  objective: PropTypes.string,
 }

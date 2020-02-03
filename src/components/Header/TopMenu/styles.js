@@ -152,7 +152,7 @@ export const BlueText = styled.p`
   line-height: 21px;
   cursor: pointer;
 `
-export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
+export const BellIcon = styled(ConquistaIcon).attrs(() => ({ name: 'bell' }))`
   && {
     width: 24px;
     height: 24px;
@@ -160,7 +160,7 @@ export const BellIcon = styled(ConquistaIcon).attrs({ name: 'bell' })`
     cursor: pointer;
   }
 `
-export const MenuIcon = styled(ConquistaIcon).attrs({ name: 'menu' })`
+export const MenuIcon = styled(ConquistaIcon).attrs(() => ({ name: 'menu' }))`
   && {
     width: 32px;
     height: 32px;

@@ -27,12 +27,15 @@ const Modal = ({
   const themeContext = useContext(ThemeContext)
   useEffect(() => {
     const body = document.querySelector('body')
+    const html = document.querySelector('html')
     if (isOpen) {
       body.style.overflow = 'hidden'
+      html.style.overflowY = 'hidden'
     }
 
     function handleOverflow() {
       body.style.overflow = 'visible'
+      html.style.overflowY = 'visible'
     }
     return () => handleOverflow()
   }, [isOpen])
