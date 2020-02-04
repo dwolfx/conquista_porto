@@ -131,7 +131,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   return (
     <GridRow>
       <Col lg={combo.length > 1 ? '9' : '12'}>
-        <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
+        <FullHeightCard headerIcon="financial" headerTitle="Fundos Sugeridos">
           <ContainerFunds>
             <Col lg="3">
               <div>
