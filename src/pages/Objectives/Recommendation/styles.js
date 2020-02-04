@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import { Row, Col } from 'styled-bootstrap-grid'
 
 import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
+import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
-import { Row, Col } from 'styled-bootstrap-grid'
 
 export const SpacedText = styled(Text)`
   display: flex;
@@ -79,6 +80,10 @@ export const SliderTextBox = styled.div`
 
 export const BannerTips = styled(Banner)`
   color: ${props => props.theme.colors.white};
+
+  &:before {
+    opacity: 0.65;
+  }
 `
 
 export const PieChartContainer = styled.div`
@@ -224,4 +229,32 @@ export const DivisorContainer = styled.div`
 export const SimulateButton = styled(Button)`
   width: 100%;
   margin-top: 21px;
+`
+
+export const ProductBannerModal = styled(Modal)`
+  margin: 0;
+`
+
+export const ProductBannerContent = styled.div`
+  width: 700px;
+`
+
+export const ProductBannerItemsContainer = styled(Row)`
+  flex-wrap: wrap;
+`
+
+export const ProductBannerItem = styled(Col)`
+  display: flex;
+  align-items: center;
+  border-right: 1px solid ${props => props.theme.colors.gray2};
+  flex-direction: column;
+  height: 150px;
+  margin: 17.5px 0;
+  padding: 0 37px;
+  text-align: center;
+
+  &:nth-child(3n),
+  &:last-child {
+    border-right: none;
+  }
 `
