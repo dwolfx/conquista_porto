@@ -1,7 +1,7 @@
-import { Types } from './types'
+import { Types, TOKEN_NAME } from './types'
 
 const INITIAL_STATE = () => {
-  const accessToken = localStorage.getItem('accessToken')
+  const accessToken = localStorage.getItem(TOKEN_NAME)
   const cpf = localStorage.getItem('cpf')
 
   return {
