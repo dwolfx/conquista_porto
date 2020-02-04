@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/no-cycle
 import store from 'store'
+import { TOKEN_NAME } from 'store/modules/Auth/types'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
-/* eslint-disable import/no-mutable-exports */
 const baseURL = process.env.REACT_APP_BASE_URL
 
 const responseInterceptor = response => {
@@ -19,7 +18,7 @@ const responseErrorInterceptor = error => {
 }
 
 const requestInterceptor = request => {
-  request.headers.Authorization = `Bearer ${store.getState().auth.accessToken}`
+  request.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN_NAME)}`
   return request
 }
 

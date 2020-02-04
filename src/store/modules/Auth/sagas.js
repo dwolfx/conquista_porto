@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
 import { AuthRequestLoginSuccess, AuthRequestLoginFailure } from './action'
-import { Types } from './types'
+import { Types, TOKEN_NAME } from './types'
 
 const axiosInstance = axios.create({
   headers: {
@@ -50,12 +50,12 @@ function* postLogout() {
 
 function saveAuthLocalStorage({ cpf, accessToken }) {
   localStorage.setItem('cpf', cpf)
-  localStorage.setItem('accessToken', accessToken)
+  localStorage.setItem(TOKEN_NAME, accessToken)
 }
 
 function removeAuthLocalStorage() {
   localStorage.removeItem('cpf')
-  localStorage.removeItem('accessToken')
+  localStorage.removeItem(TOKEN_NAME)
 }
 
 export default all([
