@@ -20,6 +20,7 @@ export const GridRecommendation = styled.div``
 export const GridRow = styled(Row)`
   margin-bottom: 42px;
   height: ${props => props.height};
+  justify-content: ${props => props.justifyContent};
 `
 export const SectionsRecommendation = styled.div`
   background-color: ${props => props.theme.colors.gray1};
@@ -130,4 +131,45 @@ export const InfoContent = styled.div`
 
 export const ButtonContainer = styled.div`
   margin-top: 14px;
+`
+
+export const FundsTable = styled.table`
+  width: 100%;
+  border-spacing: 0px 7px;
+`
+
+export const TableHeader = styled.th`
+  text-align: ${props => props.textAlign && props.textAlign};
+`
+
+export const TableRow = styled.tr`
+  opacity: ${props => (props.shouldOppacity ? 0.3 : 1)};
+  color: ${props => props.theme.colors.gray6};
+  vertical-align: baseline;
+`
+
+export const TableData = styled.td`
+  text-align: ${props => props.textAlign && props.textAlign};
+  width: ${props => (props.width ? props.width : 'unset')};
+`
+
+export const ContainerFunds = styled.div`
+  display: flex;
+  height: 100%;
+  align-items: center;
+`
+
+export const Square = styled.div`
+  width: 7px;
+  height: 7px;
+  background-color: ${props => props.color};
+  border-radius: 2px;
+`
+
+export const PieChartChildrenContent = styled.div`
+  margin: 0 auto;
+  width: 80%;
+  * {
+    margin: 7px 0;
+  }
 `
