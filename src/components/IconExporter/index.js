@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { themeColors } from 'styles/theme'
+
 import { ReactComponent as add } from 'assets/icons/add.svg'
 import { ReactComponent as alertrounded } from 'assets/icons/alert-rounded.svg'
 import { ReactComponent as apps } from 'assets/icons/apps.svg'
@@ -12,6 +14,7 @@ import { ReactComponent as arrowsortable } from 'assets/icons/arrow-sortable.svg
 import { ReactComponent as arrowup } from 'assets/icons/arrow-up.svg'
 import { ReactComponent as awesome } from 'assets/icons/awesome.svg'
 import { ReactComponent as backward } from 'assets/icons/backward.svg'
+import { ReactComponent as baggage } from 'assets/icons/baggage.svg'
 import { ReactComponent as barchart } from 'assets/icons/bar-chart.svg'
 import { ReactComponent as barcode } from 'assets/icons/bar-code.svg'
 import { ReactComponent as bell } from 'assets/icons/bell.svg'
@@ -32,11 +35,13 @@ import { ReactComponent as couch } from 'assets/icons/couch.svg'
 import { ReactComponent as creditcard } from 'assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from 'assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
+import { ReactComponent as dollarsign } from 'assets/icons/dollar-sign.svg'
 import { ReactComponent as drink } from 'assets/icons/drink.svg'
 import { ReactComponent as financial } from 'assets/icons/financial.svg'
 import { ReactComponent as fingerprint } from 'assets/icons/finger-print.svg'
 import { ReactComponent as forward } from 'assets/icons/forward.svg'
 import { ReactComponent as gear } from 'assets/icons/gear.svg'
+import { ReactComponent as globe } from 'assets/icons/globe.svg'
 import { ReactComponent as home } from 'assets/icons/home.svg'
 import { ReactComponent as homewithwindow } from 'assets/icons/home-with-window.svg'
 import { ReactComponent as hospital } from 'assets/icons/hospital.svg'
@@ -52,14 +57,17 @@ import { ReactComponent as menu } from 'assets/icons/menu.svg'
 import { ReactComponent as money } from 'assets/icons/money.svg'
 import { ReactComponent as monitoranalytics } from 'assets/icons/monitor-analytics.svg'
 import { ReactComponent as pdf } from 'assets/icons/pdf.svg'
+import { ReactComponent as phone } from 'assets/icons/phone.svg'
 import { ReactComponent as personaccident } from 'assets/icons/person-accident.svg'
 import { ReactComponent as persongroup } from 'assets/icons/person-group.svg'
 import { ReactComponent as persongroup2 } from 'assets/icons/person-group2.svg'
+import { ReactComponent as petpaw } from 'assets/icons/pet-paw.svg'
 import { ReactComponent as piechart } from 'assets/icons/pie-chart.svg'
 import { ReactComponent as plane } from 'assets/icons/plane.svg'
 import { ReactComponent as refresh } from 'assets/icons/refresh.svg'
 import { ReactComponent as remove } from 'assets/icons/remove.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
+import { ReactComponent as smartphone } from 'assets/icons/smartphone.svg'
 import { ReactComponent as student } from 'assets/icons/student-male.svg'
 import { ReactComponent as tag } from 'assets/icons/tag.svg'
 import { ReactComponent as talkman } from 'assets/icons/talk-man.svg'
@@ -71,6 +79,7 @@ import { ReactComponent as tool } from 'assets/icons/tool.svg'
 import { ReactComponent as tools } from 'assets/icons/tools.svg'
 import { ReactComponent as trash } from 'assets/icons/trashcan.svg'
 import { ReactComponent as user } from 'assets/icons/user.svg'
+import { ReactComponent as usermedic } from 'assets/icons/user-medic.svg'
 import { ReactComponent as visa } from 'assets/images/visa.svg'
 import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
 import { ReactComponent as loading } from 'assets/icons/loading.svg'
@@ -87,6 +96,7 @@ const dict = {
   arrowup,
   awesome,
   backward,
+  baggage,
   barchart,
   barcode,
   bell,
@@ -107,11 +117,13 @@ const dict = {
   creditcard,
   creditcard2,
   diamond,
+  dollarsign,
   drink,
   financial,
   fingerprint,
   forward,
   gear,
+  globe,
   home,
   homewithwindow,
   hospital,
@@ -128,14 +140,17 @@ const dict = {
   money,
   monitoranalytics,
   pdf,
+  phone,
   personaccident,
   persongroup,
   persongroup2,
+  petpaw,
   piechart,
   plane,
   refresh,
   remove,
   safebox,
+  smartphone,
   student,
   tag,
   talkman,
@@ -147,17 +162,29 @@ const dict = {
   tools,
   trash,
   user,
+  usermedic,
   visa,
   wallet,
 }
 
-const IconComponent = ({ name, ...props }) => {
+const IconComponent = ({ name, color, ...rest }) => {
   const Icon = dict[name.toLowerCase()]
-  return <Icon {...props} />
+
+  if (color) {
+    // eslint-disable-next-line no-param-reassign
+    rest.fill = themeColors[color]
+  }
+
+  return <Icon {...rest} />
 }
 
 IconComponent.propTypes = {
   name: PropTypes.oneOf(Object.keys(dict)).isRequired,
+  color: PropTypes.oneOf([...Object.keys(themeColors), '']),
+}
+
+IconComponent.defaultProps = {
+  color: '',
 }
 
 export default IconComponent
