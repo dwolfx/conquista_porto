@@ -61,7 +61,7 @@ const SectionOne = ({ goal, combo }) => {
       <Col lg="6">
         <FullHeightCard
           headerIcon="piechart"
-          headerTitle={combo[1] ? 'Combo sugerido' : 'Produto sugerido'}
+          headerTitle={combo.length > 1 ? 'Combinação sugerida' : 'Produto sugerido'}
         >
           <SectionRow padding="30px 21px">
             <SectionCol md="5">
