@@ -168,6 +168,10 @@ const dict = {
 }
 
 const IconComponent = ({ name, color, ...rest }) => {
+  if (!name) {
+    return null
+  }
+
   const Icon = dict[name.toLowerCase()]
 
   if (color) {

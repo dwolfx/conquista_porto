@@ -22,7 +22,7 @@ const Board = () => {
           <Col key={card.goalType} lg={3} md={4} sm={6} xs={12}>
             <CardWrapper key={card.goalType}>
               <IconWrapper>
-                <Icon name={card.cardIcon} color="blue4" width="56px" />
+                <Icon name={card.icon} color="blue4" width="56px" />
               </IconWrapper>
               <CardTitle>{card.label}</CardTitle>
               {card.route && (
