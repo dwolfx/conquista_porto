@@ -36,6 +36,7 @@ export const DrawerHeader = styled.div`
 export const DrawerTitle = styled.h3`
   ${props => props.theme.fontTypes.heading4}
   color: ${props => props.theme.colors.gray6};
+  font-weight: bold;
 `
 
 export const DrawerWrapper = styled.div`
