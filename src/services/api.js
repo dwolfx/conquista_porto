@@ -1,7 +1,12 @@
 // eslint-disable-next-line
 import axios from 'axios'
 // eslint-disable-next-line import/no-cycle
-import { baseURL, responseInterceptor, requestInterceptor } from './apiConfig'
+import {
+  baseURL,
+  responseInterceptor,
+  responseErrorInterceptor,
+  requestInterceptor,
+} from './apiConfig'
 
 export const axiosInstance = axios.create({
   baseURL,
@@ -11,7 +16,10 @@ export const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use(requestInterceptor)
-axiosInstance.interceptors.response.use(responseInterceptor)
+axiosInstance.interceptors.response.use(
+  responseInterceptor,
+  responseErrorInterceptor
+)
 
 export const get = (path, params) => axiosInstance(path, params)
 

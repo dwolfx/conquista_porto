@@ -33,13 +33,6 @@ import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
-import ObjectivesRetirementFlow from 'pages/Objectives/GoalStreams/RetirementFlow'
-import ObjectivesTravelFlow from 'pages/Objectives/GoalStreams/TravelFlow'
-import ObjectivesBuyCarFlow from 'pages/Objectives/GoalStreams/BuyCarFlow'
-import ObjectivesStudyFlow from 'pages/Objectives/GoalStreams/StudyFlow'
-import ObjectivesEventFlow from 'pages/Objectives/GoalStreams/EventFlow'
-import ObjectivesBuyHouseFlow from 'pages/Objectives/GoalStreams/BuyHouseFlow'
-import ObjectivesSaveMoneyFlow from 'pages/Objectives/GoalStreams/SaveMoneyFlow'
 
 import Notifications from 'pages/Notifications'
 import Login from 'pages/Login'
@@ -236,22 +229,7 @@ export default function Routes({ ...props }) {
       <DefaultRoute path="/perfil" exact component={Profile} />
 
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
-      <Route path="/objetivos" exact component={Objectives} />
-      <Route
-        path="/objetivos/aposentadoria"
-        exact
-        component={ObjectivesRetirementFlow}
-      />
-      <Route path="/objetivos/viagem" exact component={ObjectivesTravelFlow} />
-      <Route path="/objetivos/carro" exact component={ObjectivesBuyCarFlow} />
-      <Route path="/objetivos/curso" exact component={ObjectivesStudyFlow} />
-      <Route path="/objetivos/evento" exact component={ObjectivesEventFlow} />
-      <Route path="/objetivos/casa" exact component={ObjectivesBuyHouseFlow} />
-      <Route
-        path="/objetivos/poupar"
-        exact
-        component={ObjectivesSaveMoneyFlow}
-      />
+      <Route path="/objetivos" component={Objectives} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route
         path="/perfil/investidor-perfil"

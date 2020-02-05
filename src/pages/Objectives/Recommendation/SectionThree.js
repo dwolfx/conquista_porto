@@ -10,7 +10,7 @@ import creditCardImg from 'assets/images/pages/Objectives/creditCard.png'
 
 import { BannerTips, GridRow, ButtonContainer } from './styles'
 
-const SectionThree = ({ additionalProducts }) => {
+const SectionThree = ({ additional }) => {
   const products = {
     travelSecurity: {
       title: 'Leve a tranquilidade na mala',
@@ -32,7 +32,7 @@ const SectionThree = ({ additionalProducts }) => {
     },
   }
 
-  const renderedProducts = Object.entries(additionalProducts)
+  const renderedProducts = Object.entries(additional)
     .filter(value => value[1] === true)
     .map(item => products[item[0]])
 
@@ -58,11 +58,11 @@ const SectionThree = ({ additionalProducts }) => {
 }
 
 SectionThree.propTypes = {
-  additionalProducts: PropTypes.object,
+  additional: PropTypes.object,
 }
 
 SectionThree.defaultProps = {
-  additionalProducts: {},
+  additional: {},
 }
 
 export default SectionThree
