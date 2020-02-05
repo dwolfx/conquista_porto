@@ -336,6 +336,8 @@ Array [
   >
     <div
       className="sc-ckVGcZ iIFymU"
+      data-gtm-name="Parcelas que cabem no seu bolso."
+      data-gtm-type="container"
     >
       <h1
         className="sc-jKJlTe cqnkVN"
@@ -355,6 +357,17 @@ Array [
       <button
         className="sc-htpNat knqqDf"
         color="secondary"
+        data-gtm-clicktype="link"
+        data-gtm-name={
+          <span>
+            SIMULAR E CONTRATAR
+             
+            <ForwardRef(Management___StyledSpan)>
+              &gt;
+            </ForwardRef(Management___StyledSpan)>
+          </span>
+        }
+        data-gtm-type="click"
         onClick={[Function]}
       >
         <span
@@ -545,6 +558,8 @@ Array [
   >
     <div
       className="sc-kEYyzF ytSZC"
+      data-gtm-name="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
+      data-gtm-type="container"
     >
       <div>
         <svg
@@ -567,6 +582,9 @@ Array [
           Aqui, você tem mais informações legais sobre consórcio.
         </p>
         <a
+          data-gtm-clicktype="link"
+          data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
         >
@@ -581,6 +599,8 @@ Array [
     </div>
     <div
       className="sc-kEYyzF ytSZC"
+      data-gtm-name="CONDIÇÕES GERAIS"
+      data-gtm-type="container"
     >
       <div>
         <svg
@@ -603,6 +623,9 @@ Array [
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
         </p>
         <a
+          data-gtm-clicktype="link"
+          data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
         >
@@ -617,6 +640,8 @@ Array [
     </div>
     <div
       className="sc-kEYyzF ytSZC"
+      data-gtm-name="TABELA DE TARIFAS"
+      data-gtm-type="container"
     >
       <div>
         <svg
@@ -639,6 +664,9 @@ Array [
           Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
         </p>
         <a
+          data-gtm-clicktype="link"
+          data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
         >

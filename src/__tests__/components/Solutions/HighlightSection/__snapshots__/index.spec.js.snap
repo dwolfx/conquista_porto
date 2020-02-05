@@ -6,6 +6,8 @@ exports[`HighlightSection renders correctly 1`] = `
 >
   <div
     className="sc-bxivhb jSOFVZ"
+    data-gtm-name="Facilidade para investir"
+    data-gtm-type="container"
   >
     <h1
       className="sc-ifAKCX gunszn"
@@ -25,6 +27,9 @@ exports[`HighlightSection renders correctly 1`] = `
     <button
       className="sc-bdVaJa ciCnRE"
       color="secondary"
+      data-gtm-clicktype="link"
+      data-gtm-name="lista de fundos"
+      data-gtm-type="click"
       onClick={[Function]}
     >
       <span

@@ -73,6 +73,7 @@ export default function HeaderNew() {
     }
   }, [])
 
+  const dropdownItemsTitle = 'Dropdown menu header'
   const items = [
     {
       icon: 'home',
@@ -142,6 +143,7 @@ export default function HeaderNew() {
     },
   ]
 
+  const dropdownNodesTitle = 'Dropdown notificações header'
   const nodes = [NotificationsContent]
 
   const renderResponsideHeader = () => (
@@ -159,10 +161,20 @@ export default function HeaderNew() {
       <BgWrapper isScrolled={isMobile}>
         <GridContainer>
           <LeftBlock>
-            <ConquistaBeta onClick={() => history.push('/')} />
+            <ConquistaBeta
+              data-gtm-type="click"
+              data-gtm-clicktype="Link"
+              data-gtm-name="Responsive Header - Conquista Logo"
+              onClick={() => history.push('/')}
+            />
           </LeftBlock>
           <RightBlock>
-            <ResponsiveMenu onClick={() => setIsMobileOpen(!isMobileOpen)}>
+            <ResponsiveMenu
+              data-gtm-type="click"
+              data-gtm-clicktype="Button"
+              data-gtm-name="Responsive Header - Open Menu"
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+            >
               <Icon name="menu" color="white" />
             </ResponsiveMenu>
           </RightBlock>
@@ -172,12 +184,31 @@ export default function HeaderNew() {
   )
 
   const renderFullHeader = () => (
-    <BgWrapper isScrolled={isScrolled}>
+    <BgWrapper
+      isScrolled={isScrolled}
+      data-gtm-type="container"
+      data-gtm-name="Header"
+    >
       <GridContainer>
         <LeftBlock>
-          <ConquistaBeta onClick={() => history.push('/')} />
-          <DropDown items={items} containerPadding="14px 0">
-            <MenuTag color="blue" text="MENU" />
+          <ConquistaBeta
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            data-gtm-name="Conquista Logo"
+            onClick={() => history.push('/')}
+          />
+          <DropDown
+            items={items}
+            title={dropdownItemsTitle}
+            containerPadding="14px 0"
+          >
+            <MenuTag
+              color="blue"
+              text="MENU"
+              data-gtm-type="click"
+              data-gtm-clicktype="menu"
+              data-gtm-name="Header Menu"
+            />
           </DropDown>
           {crumbs.length > 0 && <Icon name="arrowright2" />}
           <BreadCrumb crumbs={[...crumbs]} version="new" />
@@ -185,6 +216,7 @@ export default function HeaderNew() {
         <RightBlock>
           <DropDown
             nodes={nodes}
+            title={dropdownNodesTitle}
             containerPadding="14px 14px 0 14px"
             redirectPath="/notificacoes"
           >
@@ -193,9 +225,19 @@ export default function HeaderNew() {
           <Avatar onClick={() => history.push('/perfil')} />
           <Profile onClick={() => history.push('/perfil')}>
             <div>
-              <Name>{bankData && bankData.titular}</Name>
+              <Name
+                data-gtm-type="click"
+                data-gtm-clicktype="link"
+                data-gtm-name="Header - Nome do Usuário"
+              >
+                {bankData && bankData.titular}
+              </Name>
               {points && (
-                <Points>
+                <Points
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-name="Header - Quantidade de Pontos"
+                >
                   {Intl.NumberFormat().format(
                     calculatePointsAmountBalance(points)
                   )}{' '}
@@ -206,6 +248,9 @@ export default function HeaderNew() {
           </Profile>
           <Divisor vertical customSize="35px" />
           <Button
+            data-gtm-type="click"
+            data-gtm-clicktype="Button"
+            data-gtm-name="Header - SAIR"
             iconName="leave"
             onClick={() => {
               dispatch(AuthRequestLogout(userData.accessToken))

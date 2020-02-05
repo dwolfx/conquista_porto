@@ -13,7 +13,7 @@ export default function TopBanner({
 }) {
   return (
     <Container>
-      <Content>
+      <Content data-gtm-type="container" data-gtm-name={title}>
         <Title textColor="white">{title}</Title>
         <p>{description}</p>
         <br />
@@ -22,6 +22,9 @@ export default function TopBanner({
             color="secondary"
             className="button-with-right-icon"
             onClick={onClick}
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-name={`${title} - ${buttonText}`}
           >
             {buttonText} <span className="icon">&gt;</span>
           </Button>

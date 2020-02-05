@@ -47,6 +47,7 @@ import {
  */
 
 export default function Dropdown({
+  title,
   items,
   children,
   nodes,
@@ -100,7 +101,7 @@ export default function Dropdown({
     setIsOpen(value)
   }
 
-  function handleMountChildren(elements) {
+  function handleMountChildren(elements, subMenuTitle) {
     if (!elements) {
       setIsHovering(false)
       return
@@ -110,6 +111,9 @@ export default function Dropdown({
     setChildrenElements(
       elements.map(element => (
         <ItemWrapper
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          data-gtm-name={`${title} - ${subMenuTitle} - ${element.text}`}
           key={element.text}
           onClick={() => element.path && handleClick(element.path)}
         >
@@ -187,9 +191,15 @@ export default function Dropdown({
             <Wrapper containerPadding={containerPadding}>
               {items.map(item => (
                 <ItemWrapper
+                  data-gtm-type="click"
+                  data-gtm-clicktype={item.children ? 'sub-menu' : 'link'}
+                  data-gtm-name={`${title} - ${item.text}`}
                   key={item.text}
                   onMouseEnter={() =>
-                    handleMountChildren(item.children && item.children)
+                    handleMountChildren(
+                      item.children && item.children,
+                      item.text
+                    )
                   }
                   onClick={() => item.path && handleClick(item.path)}
                 >
@@ -219,6 +229,7 @@ export default function Dropdown({
 }
 
 Dropdown.propTypes = {
+  title: PropTypes.string.isRequired,
   items: mobileItemsPropTypes,
   children: PropTypes.element.isRequired,
   containerPadding: PropTypes.string,

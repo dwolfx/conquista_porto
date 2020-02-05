@@ -32,6 +32,9 @@ export function NotificationsContent(redirectAndCloseFunc) {
         {notificationsData.novas &&
           notificationsData.novas.map((notification, index) => (
             <ItemWrapper
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-name={`Dropdown notificacoes header - notificacao - ${notification.titulo}`}
               // eslint-disable-next-line react/no-array-index-key
               key={`notificationNewKey-${index}`}
               padding="14px 14px 21px 14px"
@@ -52,6 +55,9 @@ export function NotificationsContent(redirectAndCloseFunc) {
         {notificationsData.anteriores &&
           notificationsData.anteriores.map((notification, index) => (
             <ItemWrapper
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-name={`Dropdown notificacoes header - notificacao - ${notification.titulo}`}
               // eslint-disable-next-line react/no-array-index-key
               key={`notificationOldKey-${index}`}
               padding="21px 14px"
@@ -71,7 +77,12 @@ export function NotificationsContent(redirectAndCloseFunc) {
           ))}
       </Content>
       <Footer>
-        <Button onClick={() => redirectAndCloseFunc('/notificacoes')}>
+        <Button
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-name="Dropdown notificacoes header - VER MAIS"
+          onClick={() => redirectAndCloseFunc('/notificacoes')}
+        >
           VER MAIS
         </Button>
       </Footer>
