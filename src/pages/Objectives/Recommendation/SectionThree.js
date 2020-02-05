@@ -32,7 +32,7 @@ const ModalContent = ({ items, text }) => (
     <ProductBannerItemsContainer>
       {items &&
         items.map(item => (
-          <ProductBannerItem md="4">
+          <ProductBannerItem md="4" key={`product-item-${item.icon}`}>
             <Icon
               name={item.icon}
               color="blue4"
@@ -59,10 +59,12 @@ const SectionThree = ({ additional }) => {
     .filter(value => value[1] === true)
     .map(item => products[item[0]])
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [modalTitle, setModalTitle] = useState('')
-  const [modalText, setModalText] = useState('')
-  const [modalItems, setModalItems] = useState([])
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    title: '',
+    text: '',
+    items: [],
+  })
 
   return (
     <>
@@ -70,10 +72,13 @@ const SectionThree = ({ additional }) => {
         {renderedProducts.map(product => (
           <Col
             key={product.title}
-            lg={renderedProducts.length === 2 ? '6' : '12'}
+            lg={renderedProducts.length > 1 ? '6' : '12'}
             xs={12}
           >
-            <BannerTips lg={12} image={product.image}>
+            <BannerTips
+              size={renderedProducts.length > 1 ? 'sm' : 'lg'}
+              image={product.image}
+            >
               <Text type="captionUppercase">{product.category}</Text>
               <Text type="heading3">{product.title}</Text>
               <Text
@@ -87,10 +92,12 @@ const SectionThree = ({ additional }) => {
                 <Button
                   color="primary"
                   onClick={() => {
-                    setModalTitle(product.modalInfos.title)
-                    setModalText(product.modalInfos.text)
-                    setModalItems(product.modalInfos.items)
-                    setIsModalOpen(true)
+                    setModalState({
+                      isOpen: true,
+                      title: product.modalInfos.title,
+                      text: product.modalInfos.text,
+                      items: product.modalInfos.items,
+                    })
                   }}
                 >
                   Saiba mais
@@ -101,12 +108,17 @@ const SectionThree = ({ additional }) => {
         ))}
       </GridRow>
       <ProductBannerModal
-        modalTitle={modalTitle}
+        modalTitle={modalState.title}
         alignItems="center"
-        isOpen={isModalOpen}
-        handleClose={() => setIsModalOpen(false)}
+        isOpen={modalState.isOpen}
+        handleClose={() =>
+          setModalState({
+            ...modalState,
+            isOpen: false,
+          })
+        }
       >
-        <ModalContent items={modalItems} text={modalText} />
+        <ModalContent items={modalState.items} text={modalState.text} />
       </ProductBannerModal>
     </>
   )

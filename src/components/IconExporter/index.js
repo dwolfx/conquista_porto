@@ -173,13 +173,16 @@ const IconComponent = ({ name, color, ...rest }) => {
   }
 
   const Icon = dict[name.toLowerCase()]
+  let otherProps = { ...rest }
 
   if (color) {
-    // eslint-disable-next-line no-param-reassign
-    rest.fill = themeColors[color]
+    otherProps = {
+      ...rest,
+      fill: themeColors[color],
+    }
   }
 
-  return <Icon {...rest} />
+  return <Icon {...otherProps} />
 }
 
 IconComponent.propTypes = {
