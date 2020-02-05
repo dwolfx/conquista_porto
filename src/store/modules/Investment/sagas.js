@@ -1,6 +1,5 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-// eslint-disable-next-line import/no-cycle
 import { get } from 'services/api'
 
 import { GetInvestmentListSuccess, GetInvestmentListFailure } from './action'

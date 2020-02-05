@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 import moment from 'moment'
 import PropTypes from 'prop-types'
@@ -17,6 +18,7 @@ import {
 
 export default function LastTransactions({ lastOperations }) {
   const theme = useContext(ThemeContext)
+  const history = useHistory()
 
   const renderLastTransactions = () =>
     lastOperations
@@ -57,7 +59,13 @@ export default function LastTransactions({ lastOperations }) {
     <Section>
       <Text>Últimas Movimentações</Text>
       {renderLastTransactions()}
-      <CompleteExtract>Extrato Completo &gt;</CompleteExtract>
+      <CompleteExtract
+        onClick={() => {
+          history.push('/investimentos/extrato')
+        }}
+      >
+        Extrato Completo &gt;
+      </CompleteExtract>
     </Section>
   )
 }

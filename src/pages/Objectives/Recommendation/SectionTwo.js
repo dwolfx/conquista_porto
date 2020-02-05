@@ -286,19 +286,21 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
 SectionTwo.propTypes = {
   combo: PropTypes.array,
   creditProduct: PropTypes.object,
-  funds: PropTypes.arrayOf({
-    name: PropTypes.string,
-    profitability: PropTypes.shape({
-      '12': PropTypes.number,
-    }),
-    quotationApplyDays: PropTypes.number,
-    financialApplyDays: PropTypes.number,
-    quotationRescueDays: PropTypes.number,
-    financialRescueDays: PropTypes.number,
-    initialValue: PropTypes.number,
-    monthlyValue: PropTypes.number,
-    categoryName: PropTypes.string,
-  }).isRequired,
+  funds: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      profitability: PropTypes.shape({
+        '12': PropTypes.number,
+      }),
+      quotationApplyDays: PropTypes.number,
+      financialApplyDays: PropTypes.number,
+      quotationRescueDays: PropTypes.number,
+      financialRescueDays: PropTypes.number,
+      initialValue: PropTypes.number,
+      monthlyValue: PropTypes.number,
+      categoryName: PropTypes.string,
+    })
+  ).isRequired,
 }
 
 SectionTwo.defaultProps = {

@@ -12,6 +12,7 @@ import { GridRecommendation, SectionsRecommendation } from './styles'
 
 const Recommendation = props => {
   const { goal, combo, income, funds, creditProduct, additional } = props
+
   return (
     <GridRecommendation>
       <TopBar goal={goal} />
