@@ -15,8 +15,8 @@ const MiniLinearProgressBar = ({ atual, max, color }) => {
 }
 
 MiniLinearProgressBar.propTypes = {
-  atual: PropTypes.string.isRequired,
-  max: PropTypes.string.isRequired,
+  atual: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   color: PropTypes.string,
 }
 

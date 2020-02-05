@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { ResponsivePie } from '@nivo/pie'
 import { ThemeContext } from 'styled-components'
 
@@ -25,6 +26,7 @@ export default function GeneralView() {
   const bankData = useSelector(state => state.bankData.data)
   const generalViewData = useSelector(state => state.investmentPosition.data)
   const theme = useContext(ThemeContext)
+  const history = useHistory()
 
   const colorGuide = [
     theme.colors.yellow2,
@@ -115,7 +117,14 @@ export default function GeneralView() {
                   : 0
               )}
             </Text>
-            <LinkButton> ver extrato &gt; </LinkButton>
+            <LinkButton
+              onClick={() => {
+                history.push('/investimentos/extrato')
+              }}
+            >
+              {' '}
+              ver extrato &gt;{' '}
+            </LinkButton>
             <ConquistaButton>RETIRAR</ConquistaButton>
           </General>
           <AccountInfo>
