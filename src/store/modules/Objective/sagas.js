@@ -9,7 +9,7 @@ function* postData(data) {
   try {
     const response = yield call(
       axios.post,
-      'http://97f768f9.ngrok.io/v1/recommendation',
+      'http://107cb531.ngrok.io/v1/recommendation',
       payload
     )
     yield put(PostObjectiveDataSuccess(response.data))
