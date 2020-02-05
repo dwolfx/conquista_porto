@@ -5,7 +5,7 @@ import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import dataObjective from '../GoalStreams/dataObjective'
+import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'
 import { CardWrapper, CardTitle, IconWrapper } from './styles'
 
 const Board = () => {
