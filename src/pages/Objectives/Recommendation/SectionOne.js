@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
-import { ResponsiveBar } from '@nivo/bar'
+import { ResponsiveBar } from '@nivo/line'
 
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
@@ -61,7 +61,9 @@ const SectionOne = ({ goal, combo }) => {
       <Col lg="6">
         <FullHeightCard
           headerIcon="piechart"
-          headerTitle={combo.length > 1 ? 'Combinação sugerida' : 'Produto sugerido'}
+          headerTitle={
+            combo.length > 1 ? 'Combinação sugerida' : 'Produto sugerido'
+          }
         >
           <SectionRow padding="30px 21px">
             <SectionCol md="5">
