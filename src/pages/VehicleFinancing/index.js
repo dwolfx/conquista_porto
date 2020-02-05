@@ -27,7 +27,7 @@ export default function VehicleFinancing() {
           )
         }
         image={Banner}
-        imageDescription="Financimento de veículos banner simular"
+        imageDescription="Financiamento de veículos banner simular"
       />
       <BulletsSection
         title="Por que contratar o Financiamento?"
