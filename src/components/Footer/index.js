@@ -39,7 +39,6 @@ const content4 = [
 const content5 = [
   <Title>OUVIDORIA</Title>,
   <HorizontalList
-    heightSize="dynamic"
     noPadding
     startItems={[
       <LinkText hrefValue="tel:0800 727 1184">0800 727 1184</LinkText>,
