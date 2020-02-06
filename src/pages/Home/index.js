@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Menu from 'components/Menu'
-import LineChart from 'components/LineChart'
 
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
@@ -65,131 +64,8 @@ const Home = () => {
     })
   }
 
-  const dataLine = {
-    financialGoal: 1600,
-    data: [
-      {
-        id: 'otimista',
-        color: '#E72176',
-        data: [
-          {
-            x: 'Jan/01',
-            y: 1000,
-          },
-          {
-            x: 'Jan/02',
-            y: 1200,
-          },
-          {
-            x: 'Jan/03',
-            y: 1300,
-          },
-          {
-            x: 'Jan/04',
-            y: 1400,
-          },
-          {
-            x: 'Jan/05',
-            y: 1500,
-          },
-          {
-            x: 'Jan/06',
-            y: 1600,
-          },
-          {
-            x: 'Jan/07',
-            y: 1700,
-          },
-          {
-            x: 'Jan/09',
-            y: 2000,
-          },
-        ],
-      },
-      {
-        id: 'bom',
-        color: '#00ADEF',
-        data: [
-          {
-            x: 'Jan/01',
-            y: 1000,
-          },
-          {
-            x: 'Jan/02',
-            y: 1150,
-          },
-          {
-            x: 'Jan/03',
-            y: 1200,
-          },
-          {
-            x: 'Jan/04',
-            y: 1280,
-          },
-          {
-            x: 'Jan/05',
-            y: 1360,
-          },
-          {
-            x: 'Jan/06',
-            y: 1420,
-          },
-          {
-            x: 'Jan/07',
-            y: 1590,
-          },
-          {
-            x: 'Jan/09',
-            y: 1700,
-          },
-        ],
-      },
-      {
-        id: 'fraco',
-        color: 'hsl(2, 70%, 50%)',
-        data: [
-          {
-            x: 'Jan/01',
-            y: 1000,
-          },
-          {
-            x: 'Jan/02',
-            y: 1100,
-          },
-          {
-            x: 'Jan/03',
-            y: 1150,
-          },
-          {
-            x: 'Jan/04',
-            y: 1220,
-          },
-          {
-            x: 'Jan/05',
-            y: 1280,
-          },
-          {
-            x: 'Jan/06',
-            y: 1350,
-          },
-          {
-            x: 'Jan/07',
-            y: 1420,
-          },
-          {
-            x: 'Jan/09',
-            y: 1500,
-          },
-        ],
-      },
-    ],
-  }
-
   return (
     <GridContainer id="scroll">
-      <div style={{ width: '800px', height: '300px', backgroundColor: '#fff' }}>
-        <LineChart data={dataLine} />
-      </div>
       <Wrapper>
         <GridRow>
           <GridCol md="1" id="menu">
