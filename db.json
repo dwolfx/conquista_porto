@@ -2376,11 +2376,11 @@
     }
   ],
   "recommendation": {
-    "goalType": "1",
-    "nickname": "sasa",
-    "targetDate": "12/21",
-    "targetValue": "12,22",
-    "initialValue": "2,22",
-    "monthlyValue": "22,22"
+    "nickname": "JulianaSousa",
+    "targetDate": "30/10/2020",
+    "targetValue": "58.000,00",
+    "initialValue": "3.000,00",
+    "monthlyValue": "1.000,00",
+    "goalType": "1"
   }
 }

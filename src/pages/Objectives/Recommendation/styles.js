@@ -42,6 +42,10 @@ export const ButtonBar = styled(Button)`
   min-width: auto;
 `
 
+export const ButtonSubmit = styled(Button)`
+  width: 100%;
+`
+
 export const FullHeightCard = styled(Card)`
   height: 100%;
 `
@@ -177,6 +181,14 @@ export const PieChartChildrenContent = styled.div`
   width: 80%;
   * {
     margin: 7px 0;
+  }
+`
+
+export const FormWrapper = styled.div``
+
+export const ColInput = styled(Col)`
+  & + & {
+    margin-top: 23px;
   }
 `
 

@@ -272,7 +272,7 @@ const Recommendation = ({
         </Container>
       </SectionsRecommendation>
 
-      <BottomBar />
+      <BottomBar {...goal} />
     </GridRecommendation>
   )
 }
