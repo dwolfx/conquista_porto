@@ -129,7 +129,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   }
 
   let { name: productName } = creditProduct
-  productName = productName.toLowerCase()
+  productName = (productName || '').toLowerCase()
 
   return (
     <GridRow>

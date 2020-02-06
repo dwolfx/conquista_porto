@@ -5,7 +5,7 @@ import { Button, Icon } from './styles'
 export default function IconText({ iconName, children, ...rest }) {
   return (
     <Button {...rest}>
-      <Icon name={iconName} />
+      <Icon name={iconName} color="gray4" />
       {children}
     </Button>
   )
