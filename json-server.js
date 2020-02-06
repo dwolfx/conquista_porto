@@ -34,6 +34,7 @@ router.render = (req, res) => {
       goal: {
         nickname: 'Disney',
         targetDate: '2019-12-30',
+        totalSteps: 5,
         targetValue: 1,
         initialValue: 0,
         monthlyValue: 0,

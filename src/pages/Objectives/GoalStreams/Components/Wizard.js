@@ -45,6 +45,7 @@ export const WizardFlow = ({ data, objective }) => {
 
   const objectiveData = {
     goalType: objective,
+    totalSteps: data.length,
     ...formData,
   }
 
@@ -88,7 +89,7 @@ export const WizardFlow = ({ data, objective }) => {
     <Wizard>
       <TopBar
         currentStep={currentStep + 1}
-        numberSteps={data.length}
+        numberSteps={data.length + 1}
         nickname={formData.nickname}
       />
       <BodyWizard>

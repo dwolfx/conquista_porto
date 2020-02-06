@@ -67,7 +67,12 @@ const Recommendation = ({
 
   return (
     <GridRecommendation>
-      <TopBar goal={goal} nickname={goal.nickname} />
+      <TopBar
+        goal={goal}
+        nickname={goal.nickname}
+        currentStep={goal.totalSteps + 1}
+        numberSteps={goal.totalSteps + 1}
+      />
       <SectionsRecommendation>
         <Container>
           {showUnmetGoalBanner && (
