@@ -58,7 +58,7 @@ export const ModalHeader = styled.div`
 export const ModalTitle = styled.h3`
   ${props => props.theme.fontTypes.heading4}
   color: ${props => props.theme.colors.gray6};
-  font-weight: bold;
+  font-weight: normal;
   flex: 1;
 `
 
