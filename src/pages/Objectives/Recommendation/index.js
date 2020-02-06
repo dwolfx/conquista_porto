@@ -15,7 +15,7 @@ const Recommendation = props => {
 
   return (
     <GridRecommendation>
-      <TopBar goal={goal} />
+      <TopBar goal={goal} nickname={goal.nickname} />
       <SectionsRecommendation>
         <Container>
           <SectionOne goal={goal} combo={combo} income={income} />
