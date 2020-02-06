@@ -197,7 +197,8 @@ export const IconLoading = styled.div`
   display: inline-block;
   width: 21px;
   height: 21px;
-  background: url('https://parati.ag/guide.parati.ag/last-version/img/spin-white.png') center center no-repeat;
+  background: url('https://parati.ag/guide.parati.ag/last-version/img/spin-white.png')
+    center center no-repeat;
   background-size: contain;
   animation: spin 1s linear infinite;
 `
