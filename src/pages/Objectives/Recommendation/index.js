@@ -253,10 +253,9 @@ const Recommendation = ({
                       padding-top: 21px;
                     `}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                    lacus lectus, sollicitudin sit amet maximus a, consectetur
-                    semper sem. Integer elit diam, egestas euismod finibus
-                    elementum, bibendum vel orci.
+                    Nesta opção, você indicará novas condições dentro do seu
+                    objetivo. Lembre-se de que não é preciso mudar todos os
+                    valores para atingi-lo.
                   </Text>
                   <SimulateButton outline>alterar</SimulateButton>
                 </UnmetGoalCard>
