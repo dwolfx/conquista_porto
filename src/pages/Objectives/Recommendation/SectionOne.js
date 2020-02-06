@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
-import { ResponsiveBar } from '@nivo/line'
+import { ResponsiveBar } from '@nivo/bar'
 
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
