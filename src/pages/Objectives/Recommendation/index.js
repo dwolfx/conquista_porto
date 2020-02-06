@@ -46,14 +46,8 @@ const MacroDivisor = () => (
   </DivisorContainer>
 )
 
-const Recommendation = ({
-  goal,
-  combo,
-  income,
-  funds,
-  creditProduct,
-  additional,
-}) => {
+const Recommendation = ({ data, isLoading }) => {
+  const { goal, combo, income, funds, creditProduct, additional } = data
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
 
@@ -272,27 +266,44 @@ const Recommendation = ({
         </Container>
       </SectionsRecommendation>
 
-      <BottomBar {...goal} />
+      <BottomBar goal={goal} isLoading={isLoading} />
     </GridRecommendation>
   )
 }
 
-Recommendation.propTypes = {
-  goal: PropTypes.object,
-  combo: PropTypes.array,
-  income: PropTypes.object,
-  funds: PropTypes.array,
-  creditProduct: PropTypes.object,
-  additional: PropTypes.object,
+Recommendation.defaultProps = {
+  data: {
+    goal: {
+      suggestionGoal: false,
+      targetDate: '',
+      targetValue: 0,
+      initialValue: 0,
+      monthlyValue: 0,
+    },
+    combo: [],
+    income: {},
+    funds: [],
+    creditProduct: {},
+    additional: {},
+  },
 }
 
-Recommendation.defaultProps = {
-  goal: {},
-  combo: [],
-  income: {},
-  funds: [],
-  creditProduct: {},
-  additional: {},
+Recommendation.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  data: PropTypes.shape({
+    goal: PropTypes.shape({
+      suggestionGoal: PropTypes.bool,
+      targetDate: PropTypes.string,
+      targetValue: PropTypes.number,
+      initialValue: PropTypes.number,
+      monthlyValue: PropTypes.number,
+    }),
+    combo: PropTypes.array,
+    income: PropTypes.object,
+    funds: PropTypes.array,
+    creditProduct: PropTypes.object,
+    additional: PropTypes.object,
+  }),
 }
 
 export default Recommendation

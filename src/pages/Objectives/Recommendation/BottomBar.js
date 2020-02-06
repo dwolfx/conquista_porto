@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { formatMoneyDecimal, formatDateMask } from 'helpers'
 import Drawer from 'components/Drawer'
-import Icon from 'components/IconExporter'
 import InputText from 'components/NewInput'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import {
@@ -13,17 +12,19 @@ import {
   ButtonSubmit,
   ColInput,
   FormWrapper,
+  IconLoading,
   SectionBar,
 } from './styles'
 
-const BottomBar = ({
-  nickname,
-  targetDate,
-  targetValue,
-  initialValue,
-  monthlyValue,
-  goalType,
-}) => {
+const BottomBar = ({ goal, isLoading }) => {
+  const {
+    nickname,
+    targetDate,
+    targetValue,
+    initialValue,
+    monthlyValue,
+    goalType,
+  } = goal
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
@@ -54,8 +55,11 @@ const BottomBar = ({
   }
 
   const postDrawer = () => (
-    <ButtonSubmit onClick={() => dispatch(PostObjectiveDataRequest(formData))}>
-      Confirmar e recalcular
+    <ButtonSubmit
+      onClick={() => dispatch(PostObjectiveDataRequest(formData))}
+      disabled={isLoading}
+    >
+      Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
 
@@ -108,7 +112,6 @@ const BottomBar = ({
             <InputText
               name="targetDate"
               label="Data-alvo"
-              suffix={<Icon name="calendar" color="gray6" width="20px" />}
               onChange={handleSingleValue}
               value={formData.targetDate}
             />
@@ -132,13 +135,20 @@ const BottomBar = ({
   )
 }
 
+BottomBar.defaultProps = {
+  goal: {},
+}
+
 BottomBar.propTypes = {
-  nickname: PropTypes.string.isRequired,
-  targetDate: PropTypes.string.isRequired,
-  targetValue: PropTypes.number.isRequired,
-  initialValue: PropTypes.number.isRequired,
-  monthlyValue: PropTypes.number.isRequired,
-  goalType: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  goal: PropTypes.shape({
+    nickname: PropTypes.string.isRequired,
+    targetDate: PropTypes.string.isRequired,
+    targetValue: PropTypes.number.isRequired,
+    initialValue: PropTypes.number.isRequired,
+    monthlyValue: PropTypes.number.isRequired,
+    goalType: PropTypes.string.isRequired,
+  }),
 }
 
 export default BottomBar

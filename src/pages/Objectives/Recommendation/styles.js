@@ -188,8 +188,18 @@ export const FormWrapper = styled.div``
 
 export const ColInput = styled(Col)`
   & + & {
-    margin-top: 23px;
+    margin-top: 28px;
   }
+`
+
+export const IconLoading = styled.div`
+  position: relative;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background: url('https://parati.ag/guide.parati.ag/last-version/img/spin-white.png') center center no-repeat;
+  background-size: contain;
+  animation: spin 1s linear infinite;
 `
 
 export const CardWithCloseButton = styled(Card)`

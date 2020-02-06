@@ -1,5 +1,5 @@
 import CloseIcon from 'assets/icons/close.svg'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export const CloseButton = styled.div`
   background-color: ${props => props.theme.colors.gray4};
@@ -65,8 +65,8 @@ export const DrawerOverlay = styled.div`
   z-index: 1;
 
   ${DrawerWrapper} {
-    ${props => css`
-      ${props.positionDrawer}: ${props.isOpen ? '0' : '-100%'}
-    `}
+    ${props => ({
+      [props.positionDrawer]: props.isOpen ? '1' : '0',
+    })}
   }
 `
