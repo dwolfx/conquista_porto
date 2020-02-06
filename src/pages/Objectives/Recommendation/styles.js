@@ -4,6 +4,7 @@ import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
 import Text from 'components/Text'
+import Icon from 'components/IconExporter'
 import { Row, Col } from 'styled-bootstrap-grid'
 
 export const SpacedText = styled(Text)`
@@ -172,4 +173,55 @@ export const PieChartChildrenContent = styled.div`
   * {
     margin: 7px 0;
   }
+`
+
+export const CardWithCloseButton = styled(Card)`
+  position: relative;
+  margin-bottom: 42px;
+  padding-bottom: 21px;
+`
+
+export const CloseButton = styled.div`
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.colors.gray2};
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  right: 28px;
+  top: -18px;
+  cursor: pointer;
+`
+export const CloseIcon = styled(Icon)`
+  width: 16px;
+  height: 16px;
+`
+
+export const UnmetGoalCards = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 28px;
+`
+
+export const UnmetGoalCard = styled.div`
+  width: 100%;
+  padding: 0 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
+export const DivisorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+`
+
+export const SimulateButton = styled(Button)`
+  width: 100%;
+  margin-top: 21px;
 `

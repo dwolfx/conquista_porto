@@ -3,11 +3,11 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 100%;
   height: ${props => {
-    switch (props.heightSize) {
+    switch (props.size) {
       case 'large':
         return '63px'
-      case 'dynamic':
-        return 'auto'
+      case 'small':
+        return '35px'
       default:
         return '49px'
     }
