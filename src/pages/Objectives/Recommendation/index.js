@@ -10,28 +10,26 @@ import SectionThree from './SectionThree'
 
 import { GridRecommendation, SectionsRecommendation } from './styles'
 
-const Recommendation = props => {
-  const { goal, combo, income, funds, creditProduct, additional } = props
-
-  return (
-    <GridRecommendation>
-      <TopBar goal={goal} />
-      <SectionsRecommendation>
-        <Container>
-          <SectionOne goal={goal} combo={combo} income={income} />
-          <SectionTwo
-            combo={combo}
-            funds={funds}
-            creditProduct={creditProduct}
-          />
-          <SectionThree additional={additional} />
-        </Container>
-      </SectionsRecommendation>
-
-      <BottomBar />
-    </GridRecommendation>
-  )
-}
+const Recommendation = ({
+  goal,
+  combo,
+  income,
+  funds,
+  creditProduct,
+  additional,
+}) => (
+  <GridRecommendation>
+    <TopBar goal={goal} />
+    <SectionsRecommendation>
+      <Container>
+        <SectionOne goal={goal} combo={combo} income={income} />
+        <SectionTwo combo={combo} funds={funds} creditProduct={creditProduct} />
+        <SectionThree additional={additional} />
+      </Container>
+    </SectionsRecommendation>
+    <BottomBar {...goal} />
+  </GridRecommendation>
+)
 
 Recommendation.propTypes = {
   goal: PropTypes.object,

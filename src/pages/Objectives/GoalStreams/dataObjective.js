@@ -1,6 +1,6 @@
 export default [
   {
-    goalType: 1,
+    goalType: '1',
     enable: false,
     icon: 'plane',
     label: 'Viagem',
@@ -43,7 +43,7 @@ export default [
     ],
   },
   {
-    goalType: 2,
+    goalType: '2',
     enable: false,
     icon: 'time',
     label: 'Aposentadoria',
@@ -96,7 +96,7 @@ export default [
     ],
   },
   {
-    goalType: 3,
+    goalType: '3',
     enable: false,
     icon: 'car2',
     label: 'Carro',
@@ -168,7 +168,7 @@ export default [
     ],
   },
   {
-    goalType: 4,
+    goalType: '4',
     enable: false,
     icon: 'student',
     label: 'Curso',
@@ -211,7 +211,7 @@ export default [
     ],
   },
   {
-    goalType: 5,
+    goalType: '5',
     enable: false,
     icon: 'drink',
     label: 'Evento',
@@ -254,7 +254,7 @@ export default [
     ],
   },
   {
-    goalType: 6,
+    goalType: '6',
     enable: false,
     icon: 'homewithwindow',
     label: 'Casa',
@@ -326,7 +326,7 @@ export default [
     ],
   },
   {
-    goalType: 7,
+    goalType: '7',
     enable: false,
     icon: 'money',
     label: 'Poupar',
