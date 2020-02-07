@@ -7,6 +7,7 @@ import Card from 'components/Card'
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
+import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 
 export const SpacedText = styled(Text)`
   display: flex;
@@ -187,9 +188,20 @@ export const PieChartChildrenContent = styled.div`
 export const FormWrapper = styled.div``
 
 export const ColInput = styled(Col)`
-  & + & {
-    margin-top: 23px;
+  &:not(:first-of-type) {
+    margin-top: 28px;
   }
+`
+
+export const IconLoading = styled.div`
+  animation: spin 1s linear infinite;
+  background: url(${SpinWhite}) center center no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 21px;
+  margin-left: 15px;
+  position: relative;
+  width: 21px;
 `
 
 export const CardWithCloseButton = styled(Card)`
