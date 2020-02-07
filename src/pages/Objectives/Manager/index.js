@@ -6,8 +6,8 @@ import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import { formatMoney } from 'helpers'
 
-import creditImg from 'assets/images/pages/Objectives/Manager/credito-100.png'
-import planeImg from 'assets/images/pages/Objectives/Manager/viagem-50.png'
+import creditImg from 'assets/images/pages/Objectives/creditCard.png'
+import planeImg from 'assets/images/pages/Objectives/travelSecurity.png'
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
 import {
@@ -21,12 +21,12 @@ import {
 } from './styles'
 
 export default function Manager() {
-  const hlTitle = (
+  const horizontalListTitle = (
     <Text type="heading3" color="gray6">
       #MeuCarroZero
     </Text>
   )
-  const hlGoalMoney = (
+  const horizontalListGoalMoney = (
     <ColumnWrapper>
       <Text type="body" color="gray5">
         META (R$)
@@ -36,7 +36,7 @@ export default function Manager() {
       </Text>
     </ColumnWrapper>
   )
-  const hlGoalDate = (
+  const horizontalListGoalDate = (
     <ColumnWrapper>
       <Text type="body" color="gray5">
         META (DATA)
@@ -46,8 +46,10 @@ export default function Manager() {
       </Text>
     </ColumnWrapper>
   )
-  const hlBtnEdit = <ButtonLink noIcon>EDITAR OBJETIVO</ButtonLink>
-  const hlBtnChangeObjective = <ButtonLink noIcon>OUTROS OBJETIVOS</ButtonLink>
+  const horizontalListBtnEdit = <ButtonLink noIcon>EDITAR OBJETIVO</ButtonLink>
+  const horizontalListBtnChangeObjective = (
+    <ButtonLink noIcon>OUTROS OBJETIVOS</ButtonLink>
+  )
 
   return (
     <GridContainer>
@@ -63,8 +65,13 @@ export default function Manager() {
       <ColumnWrapper>
         <ObjectiveHeader>
           <HorizontalList
-            startItems={[hlTitle, hlGoalMoney, hlGoalDate, hlBtnEdit]}
-            endItems={[hlBtnChangeObjective]}
+            startItems={[
+              horizontalListTitle,
+              horizontalListGoalMoney,
+              horizontalListGoalDate,
+              horizontalListBtnEdit,
+            ]}
+            endItems={[horizontalListBtnChangeObjective]}
             noPadding
             marginBetweenElements="28px"
           />
