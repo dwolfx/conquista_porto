@@ -2376,11 +2376,11 @@
     }
   ],
   "recommendation": {
-    "nickname": "Disney",
+    "nickname": "Juliana",
     "targetDate": "2019-12-30",
-    "targetValue": 1,
-    "initialValue": 0,
-    "monthlyValue": 0,
+    "targetValue": "300.000,00",
+    "initialValue": "15.000,00",
+    "monthlyValue": "2.500,00",
     "goalType": "1"
   }
 }
