@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components'
-
 import CloseIcon from 'assets/icons/close.svg'
+import styled from 'styled-components'
 
 export const CloseButton = styled.div`
   background-color: ${props => props.theme.colors.gray4};
@@ -18,7 +17,7 @@ export const CloseButton = styled.div`
 export const DrawerBody = styled.div`
   height: 100%;
   overflow-y: auto;
-  padding: 20px 14px;
+  padding: 20px 8px;
 `
 
 export const DrawerFooter = styled.div`
@@ -66,13 +65,8 @@ export const DrawerOverlay = styled.div`
   z-index: 1;
 
   ${DrawerWrapper} {
-    ${props =>
-      props.positionDrawer === 'left'
-        ? css`
-            left: ${props.isOpen ? '0' : '-100%'};
-          `
-        : css`
-            right: ${props.isOpen ? '0' : '-100%'};
-          `};
+    ${props => ({
+      [props.positionDrawer]: props.isOpen ? '0' : '-100%',
+    })}
   }
 `

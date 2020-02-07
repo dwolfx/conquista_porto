@@ -60,7 +60,11 @@ export const Input = styled.input`
   border: none;
   color: inherit;
   font-family: ${props => props.theme.fontTypes.headline};
-  height: inherit;
   padding: 0 7px;
   width: inherit;
+
+  &:-webkit-autofill {
+    box-shadow: none;
+    -webkit-box-shadow: 0 0 0 30px ${props => props.theme.colors.gray1} inset;
+  }
 `
