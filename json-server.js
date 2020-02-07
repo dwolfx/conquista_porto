@@ -39,7 +39,7 @@ router.render = (req, res) => {
         monthlyValue: 0,
         wouldLikeToReceiveBeforeFinalDate: false,
         wouldLikeToReceiveMonthlyIncome: false,
-        goalType: 1,
+        goalType: '1',
         easyToSavePlannedAmount: false,
         targetDateFlexible: false,
       },

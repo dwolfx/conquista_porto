@@ -12,7 +12,9 @@ import GoalStreams from './GoalStreams'
 const Objectives = () => {
   const match = useRouteMatch()
   const history = useHistory()
-  const objectiveData = useSelector(state => state.objective.data)
+  const { data: objectiveData, isLoading } = useSelector(
+    state => state.objective
+  )
 
   // Use only for tests with recomendation
   // const dispatch = useDispatch()
@@ -40,7 +42,7 @@ const Objectives = () => {
               <Board />
             </RegistrationWrapper>
           ) : (
-            <Recommendation {...objectiveData} />
+            <Recommendation data={objectiveData} isLoading={isLoading} />
           )}
         </Container>
       </Route>

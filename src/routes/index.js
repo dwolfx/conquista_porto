@@ -33,6 +33,7 @@ import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
+import ObjectivesManager from 'pages/Objectives/Manager'
 
 import Notifications from 'pages/Notifications'
 import Login from 'pages/Login'
@@ -229,6 +230,11 @@ export default function Routes({ ...props }) {
       <DefaultRoute path="/perfil" exact component={Profile} />
 
       <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
+      <DefaultRoute
+        path="/objetivos/gerenciar"
+        exact
+        component={ObjectivesManager}
+      />
       <Route path="/objetivos" component={Objectives} />
       <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
       <Route

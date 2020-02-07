@@ -39,7 +39,6 @@ const content4 = [
 const content5 = [
   <Title>OUVIDORIA</Title>,
   <HorizontalList
-    heightSize="dynamic"
     noPadding
     startItems={[
       <LinkText hrefValue="tel:0800 727 1184">0800 727 1184</LinkText>,
@@ -96,11 +95,11 @@ const Footer = () => {
             <ListWrapper>
               <VerticalList elements={content4} />
               <VerticalList elements={content5} />
+              <VerticalList elements={content7} />
             </ListWrapper>
           </GridCol>
           <GridCol lg="4">
             <VerticalList elements={content6} />
-            <VerticalList elements={content7} />
           </GridCol>
         </GridRow>
         <GridRow>

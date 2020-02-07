@@ -1,10 +1,13 @@
 import styled from 'styled-components'
+import { Row, Col } from 'styled-bootstrap-grid'
 
 import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
+import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
-import { Row, Col } from 'styled-bootstrap-grid'
+import Icon from 'components/IconExporter'
+import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 
 export const SpacedText = styled(Text)`
   display: flex;
@@ -38,6 +41,10 @@ export const SectionBar = styled.section`
 export const ButtonBar = styled(Button)`
   margin-left: 14px;
   min-width: auto;
+`
+
+export const ButtonSubmit = styled(Button)`
+  width: 100%;
 `
 
 export const FullHeightCard = styled(Card)`
@@ -78,6 +85,10 @@ export const SliderTextBox = styled.div`
 
 export const BannerTips = styled(Banner)`
   color: ${props => props.theme.colors.white};
+
+  &:before {
+    opacity: 0.65;
+  }
 `
 
 export const PieChartContainer = styled.div`
@@ -171,5 +182,103 @@ export const PieChartChildrenContent = styled.div`
   width: 80%;
   * {
     margin: 7px 0;
+  }
+`
+
+export const FormWrapper = styled.div``
+
+export const ColInput = styled(Col)`
+  &:not(:first-of-type) {
+    margin-top: 28px;
+  }
+`
+
+export const IconLoading = styled.div`
+  animation: spin 1s linear infinite;
+  background: url(${SpinWhite}) center center no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 21px;
+  margin-left: 15px;
+  position: relative;
+  width: 21px;
+`
+
+export const CardWithCloseButton = styled(Card)`
+  position: relative;
+  margin-bottom: 42px;
+  padding-bottom: 21px;
+`
+
+export const CloseButton = styled.div`
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.colors.gray2};
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  right: 28px;
+  top: -18px;
+  cursor: pointer;
+`
+export const CloseIcon = styled(Icon)`
+  width: 16px;
+  height: 16px;
+`
+
+export const UnmetGoalCards = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 28px;
+`
+
+export const UnmetGoalCard = styled.div`
+  width: 100%;
+  padding: 0 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
+export const DivisorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+`
+
+export const SimulateButton = styled(Button)`
+  width: 100%;
+  margin-top: 21px;
+`
+
+export const ProductBannerModal = styled(Modal)`
+  margin: 0;
+`
+
+export const ProductBannerContent = styled.div`
+  width: 700px;
+`
+
+export const ProductBannerItemsContainer = styled(Row)`
+  flex-wrap: wrap;
+`
+
+export const ProductBannerItem = styled(Col)`
+  display: flex;
+  align-items: center;
+  border-right: 1px solid ${props => props.theme.colors.gray2};
+  flex-direction: column;
+  height: 150px;
+  margin: 17.5px 0;
+  padding: 0 37px;
+  text-align: center;
+
+  &:nth-child(3n),
+  &:last-child {
+    border-right: none;
   }
 `

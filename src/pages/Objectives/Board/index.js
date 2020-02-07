@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
+
 import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import dataObjective from '../GoalStreams/dataObjective'
+import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'
 import { CardWrapper, CardTitle, IconWrapper } from './styles'
 
 const Board = () => {
@@ -15,8 +15,6 @@ const Board = () => {
     history.push(path)
   }
 
-  const themeContext = useContext(ThemeContext)
-
   return (
     <Container>
       <Row justifyContent="center">
@@ -24,11 +22,7 @@ const Board = () => {
           <Col key={card.goalType} lg={3} md={4} sm={6} xs={12}>
             <CardWrapper key={card.goalType}>
               <IconWrapper>
-                <Icon
-                  name={card.icon}
-                  fill={themeContext.colors.blue4}
-                  width="56px"
-                />
+                <Icon name={card.icon} color="blue4" width="56px" />
               </IconWrapper>
               <CardTitle>{card.label}</CardTitle>
               {card.route && (

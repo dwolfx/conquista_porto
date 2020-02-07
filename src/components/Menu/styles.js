@@ -40,7 +40,7 @@ export const Option = styled.div`
   border-top-left-radius: 28px;
   border-bottom-left-radius: 28px;
   background-color: ${props =>
-    props.isSelected ? props.theme.colors.white : 'transparent'};
+    props.isSelected ? props.theme.colors.gray1 : 'transparent'};
   margin-bottom: 35px;
   transition: all 0.2s ease-in-out;
 
