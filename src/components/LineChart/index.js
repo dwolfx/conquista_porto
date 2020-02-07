@@ -54,8 +54,9 @@ const MyResponsiveLine = ({ data }) => {
         <div
           style={{
             background: 'white',
-            padding: '9px 12px',
             border: '1px solid #ccc',
+            borderRadius: '4px',
+            padding: '14px',
           }}
         >
           <div
@@ -67,8 +68,9 @@ const MyResponsiveLine = ({ data }) => {
           >
             <div
               style={{
-                width: '15px',
-                height: '15px',
+                width: '14px',
+                height: '14px',
+                borderRadius: '2px',
                 marginRight: '10px',
                 backgroundColor: themeContext.colors.gray6,
               }}
