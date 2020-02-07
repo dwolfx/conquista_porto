@@ -105,7 +105,6 @@ export const fontTypes = {
     ...genericFontType,
     fontSize: 22,
     letterSpacing: 0,
-    textTransform: 'uppercase',
     fontWeight: 300,
   },
   headline: {
