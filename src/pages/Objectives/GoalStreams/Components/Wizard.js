@@ -45,7 +45,6 @@ export const WizardFlow = ({ data, objective }) => {
 
   const objectiveData = {
     goalType: objective,
-    totalSteps: data.length,
     ...formData,
   }
 
