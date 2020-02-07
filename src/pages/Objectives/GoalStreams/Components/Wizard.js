@@ -48,6 +48,8 @@ export const WizardFlow = ({ data, objective }) => {
     ...formData,
   }
 
+  console.log('.../', Object.entries(objectiveData).length)
+
   const WizardContainer = () => (
     <WizardStep>
       <QuestionFlow
