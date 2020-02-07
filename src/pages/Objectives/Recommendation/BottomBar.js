@@ -54,11 +54,13 @@ const BottomBar = ({ goal, isLoading }) => {
     setFormData({ ...formData, [name]: event.target.value })
   }
 
-  const postDrawer = () => (
-    <ButtonSubmit
-      onClick={() => dispatch(PostObjectiveDataRequest(formData))}
-      disabled={isLoading}
-    >
+  const submitDrawer = () => {
+    dispatch(PostObjectiveDataRequest(formData))
+    setIsDrawerOpen(!isDrawerOpen)
+  }
+
+  const footerDrawer = () => (
+    <ButtonSubmit onClick={() => submitDrawer()} disabled={isLoading}>
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
@@ -69,7 +71,7 @@ const BottomBar = ({ goal, isLoading }) => {
         drawerTitle="Resumo"
         isOpen={isDrawerOpen}
         handleClose={() => setIsDrawerOpen(false)}
-        footer={postDrawer()}
+        footer={footerDrawer()}
       >
         <FormWrapper>
           <ColInput>

@@ -66,7 +66,7 @@ export const DrawerOverlay = styled.div`
 
   ${DrawerWrapper} {
     ${props => ({
-      [props.positionDrawer]: props.isOpen ? '1' : '0',
+      [props.positionDrawer]: props.isOpen ? '0' : '-100%',
     })}
   }
 `

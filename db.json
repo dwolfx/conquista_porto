@@ -2376,11 +2376,11 @@
     }
   ],
   "recommendation": {
-    "goalType": "1",
-    "nickname": "sdasdsadsad",
-    "targetDate": "10/10/2020",
-    "targetValue": "70.000.000,00",
-    "initialValue": "303.032.123,13",
-    "monthlyValue": "3.000,00"
+    "nickname": "Disney",
+    "targetDate": "2019-12-30",
+    "targetValue": 1,
+    "initialValue": 0,
+    "monthlyValue": 0,
+    "goalType": "1"
   }
 }
