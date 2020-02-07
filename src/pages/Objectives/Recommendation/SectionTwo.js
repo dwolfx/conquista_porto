@@ -128,6 +128,9 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
     return true
   }
 
+  let { name: productName } = creditProduct
+  productName = (productName || '').toLowerCase()
+
   return (
     <GridRow>
       <Col lg={combo.length > 1 ? '9' : '12'}>
@@ -246,7 +249,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
 
       {combo.length > 1 && (
         <Col lg="3">
-          <FullHeightCard headerIcon="carnew" headerTitle="Financiamento">
+          <FullHeightCard
+            headerIcon={
+              (productName.includes('financiamento') && 'money') ||
+              (productName.includes('consórcio de casa') && 'homewithwindow') ||
+              (productName.includes('consórcio de veículo') && 'car2')
+            }
+            headerTitle={creditProduct.name.split(' ')[0]}
+          >
             <CardContainer>
               {creditProduct.values.map((item, index) => (
                 <InfoContent key={index}>
