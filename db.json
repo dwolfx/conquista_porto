@@ -2376,11 +2376,11 @@
     }
   ],
   "recommendation": {
-    "nickname": "Juliana",
-    "targetDate": "2019-12-30",
-    "targetValue": "300.000,00",
-    "initialValue": "15.000,00",
-    "monthlyValue": "2.500,00",
+    "nickname": "PartiuGrécia",
+    "targetDate": "02/12/2021",
+    "targetValue": "40.000,00",
+    "initialValue": "6.000,00",
+    "monthlyValue": "1.500,00",
     "goalType": "1"
   }
 }

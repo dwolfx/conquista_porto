@@ -188,7 +188,7 @@ export const PieChartChildrenContent = styled.div`
 export const FormWrapper = styled.div``
 
 export const ColInput = styled(Col)`
-  & + & {
+  &:not(:first-of-type) {
     margin-top: 28px;
   }
 `
