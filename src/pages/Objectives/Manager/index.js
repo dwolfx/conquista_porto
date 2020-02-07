@@ -1,0 +1,105 @@
+import React from 'react'
+
+import Text from 'components/Text'
+import HorizontalList from 'components/HorizontalList'
+import Button from 'components/Button'
+import ButtonLink from 'components/Button/Link'
+import { formatMoney } from 'helpers'
+
+import creditImg from 'assets/images/pages/Objectives/Manager/credito-100.png'
+import planeImg from 'assets/images/pages/Objectives/Manager/viagem-50.png'
+import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
+
+import {
+  GridContainer,
+  Banner,
+  ObjectiveDetails,
+  ObjectiveHeader,
+  Wallet,
+  Recommendations,
+  ColumnWrapper,
+} from './styles'
+
+export default function Manager() {
+  const hlTitle = (
+    <Text type="heading3" color="gray6">
+      #MeuCarroZero
+    </Text>
+  )
+  const hlGoalMoney = (
+    <ColumnWrapper>
+      <Text type="body" color="gray5">
+        META (R$)
+      </Text>
+      <Text type="body" color="black">
+        {formatMoney(90000)}
+      </Text>
+    </ColumnWrapper>
+  )
+  const hlGoalDate = (
+    <ColumnWrapper>
+      <Text type="body" color="gray5">
+        META (DATA)
+      </Text>
+      <Text type="body" color="black">
+        Set 2025
+      </Text>
+    </ColumnWrapper>
+  )
+  const hlBtnEdit = <ButtonLink noIcon>EDITAR OBJETIVO</ButtonLink>
+  const hlBtnChangeObjective = <ButtonLink noIcon>OUTROS OBJETIVOS</ButtonLink>
+
+  return (
+    <GridContainer>
+      <Banner bgImage={targetImg} hasCloseButton size="lg">
+        <Text type="heading3" color="white">
+          Objetivo criado com sucesso!
+        </Text>
+        <Text type="body" color="white">
+          Aqui, você acompanha o progresso e contrata produtos que ajudam no seu
+          objetivo.
+        </Text>
+      </Banner>
+      <ColumnWrapper>
+        <ObjectiveHeader>
+          <HorizontalList
+            startItems={[hlTitle, hlGoalMoney, hlGoalDate, hlBtnEdit]}
+            endItems={[hlBtnChangeObjective]}
+            noPadding
+            marginBetweenElements="28px"
+          />
+        </ObjectiveHeader>
+        <ObjectiveDetails></ObjectiveDetails>
+        {/* <ObjectiveCard></ObjectiveCard> */}
+      </ColumnWrapper>
+      <Wallet></Wallet>
+
+      <ColumnWrapper>
+        <Text type="heading3" color="gray6">
+          Combine com o seu objetivo
+        </Text>
+        <Recommendations>
+          <Banner bgImage={creditImg}>
+            <Text type="heading4" color="white">
+              Cartão de Crédito
+            </Text>
+            <Text type="body" color="white">
+              O Cartão de Crédito que resolve e ainda dá vantagens e benefícios
+              da Porto Seguro para você, sua casa e seu carro.
+            </Text>
+            <Button color="secondary">CONHECER</Button>
+          </Banner>
+          <Banner bgImage={planeImg}>
+            <Text type="headline " color="white">
+              Seguro Viagem
+            </Text>
+            <Text type="captionUppercase" color="white">
+              COBERTURA PRINCIPAL
+            </Text>
+            {/* <Button color="secondary">CONHECER</Button> */}
+          </Banner>
+        </Recommendations>
+      </ColumnWrapper>
+    </GridContainer>
+  )
+}
