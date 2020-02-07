@@ -95,11 +95,11 @@ const Footer = () => {
             <ListWrapper>
               <VerticalList elements={content4} />
               <VerticalList elements={content5} />
+              <VerticalList elements={content7} />
             </ListWrapper>
           </GridCol>
           <GridCol lg="4">
             <VerticalList elements={content6} />
-            <VerticalList elements={content7} />
           </GridCol>
         </GridRow>
         <GridRow>
