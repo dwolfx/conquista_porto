@@ -2375,12 +2375,5 @@
       }
     }
   ],
-  "recommendation": {
-    "goalType": "1",
-    "nickname": "sasa",
-    "targetDate": "12/21",
-    "targetValue": "12,22",
-    "initialValue": "2,22",
-    "monthlyValue": "22,22"
-  }
+  "recommendation": {}
 }

@@ -14,6 +14,12 @@ const Objectives = () => {
   const history = useHistory()
   const objectiveData = useSelector(state => state.objective.data)
 
+  // Use only for tests with recomendation
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(PostObjectiveDataRequest({}))
+  // }, [dispatch])
+
   return (
     <Switch>
       <Route path={`${match.path}/:objectiveId`}>

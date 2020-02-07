@@ -4,23 +4,33 @@ import { ThemeContext } from 'styled-components'
 
 import { ResponsiveLine } from '@nivo/line'
 
-import { LineChartContainer } from './styles'
+import Text from 'components/Text'
+import HorizontalList from 'components/HorizontalList'
 
-const MyResponsiveLine = ({ data, width, height }) => {
+import { LineChartContainer, ToolTipContainer, ReactInfoColor } from './styles'
+
+const MyResponsiveLine = ({
+  data,
+  width,
+  height,
+  colors,
+  customToolTip,
+  marker,
+}) => {
   const themeContext = useContext(ThemeContext)
 
   return (
     <LineChartContainer width={width} height={height}>
       <ResponsiveLine
-        data={data.data}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        data={parseData(data)}
+        margin={{ top: 10, right: 55, bottom: 30, left: 40 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
         curve="linear"
         markers={[
           {
             axis: 'y',
-            value: data.financialGoal,
+            value: marker,
             lineStyle: { stroke: themeContext.colors.gray6, strokeWidth: 1 },
           },
         ]}
@@ -37,78 +47,93 @@ const MyResponsiveLine = ({ data, width, height }) => {
         }}
         axisLeft={null}
         gridYValues={5}
-        colors={['#E72176', '#00ADEF', '#FFCD00']}
+        colors={colors}
         pointSize={5}
         pointColor={{ from: 'color', modifiers: [] }}
         pointBorderWidth={2}
         pointBorderColor={{ from: 'color', modifiers: [] }}
         pointLabel="y"
-        pointLabelYOffset={-12}
-        enableCrosshair={false}
+        pointLabelYOffset={12}
         useMesh
-        legends={[]}
-        yFormat={value =>
-          `R$ ${Number(value).toLocaleString('pt-BR', {
-            minimumFractionDigits: 2,
-          })}`
-        }
+        enableCrosshair
+        crosshairType="cross"
+        yFormat={formatNumberCurrency}
         enableSlices="x"
-        sliceTooltip={({ slice }) => (
-          <div
-            style={{
-              background: 'white',
-              border: '1px solid #ccc',
-              borderRadius: '4px',
-              padding: '14px',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '14px',
-              }}
-            >
-              <div
-                style={{
-                  width: '15px',
-                  height: '15px',
-                  marginRight: '10px',
-                  backgroundColor: themeContext.colors.gray6,
-                }}
-              ></div>
-              <div>{data.financialGoal}</div>
-            </div>
-            {slice.points.map(point => (
-              <div
-                key={point.id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    width: '15px',
-                    height: '15px',
-                    marginRight: '10px',
-                    backgroundColor: point.serieColor,
-                  }}
-                ></div>
-                <div>{point.data.yFormatted}</div>
-              </div>
-            ))}
-          </div>
-        )}
+        sliceTooltip={
+          customToolTip ||
+          (({ slice }) => (
+            <ToolTipContainer key={slice.id}>
+              <HorizontalList
+                key="metaId"
+                noPadding
+                heightSize="dynamic"
+                startItems={[
+                  <ReactInfoColor color={themeContext.colors.gray6} />,
+                  <Text type="caption" bold color="gray5">
+                    Meta Financeira
+                  </Text>,
+                ]}
+                endItems={[
+                  <Text type="caption" bold>
+                    {formatNumberCurrency(marker)}
+                  </Text>,
+                ]}
+              />
+              {slice.points.map(point => (
+                <HorizontalList
+                  key={point.id}
+                  noPadding
+                  heightSize="dynamic"
+                  startItems={[
+                    <ReactInfoColor color={point.serieColor} />,
+                    <Text type="caption" bold color="gray5">
+                      {nameMap[point.serieId]}
+                    </Text>,
+                  ]}
+                  endItems={[
+                    <Text type="caption" bold>
+                      {point.data.yFormatted}
+                    </Text>,
+                  ]}
+                />
+              ))}
+            </ToolTipContainer>
+          ))
+        }
       />
     </LineChartContainer>
   )
+}
+
+const parseData = oldData =>
+  Object.keys(oldData).map(incomeItem => ({
+    id: incomeItem,
+    data: oldData[incomeItem].map(item => ({ x: item.month, y: item.value })),
+  }))
+
+const formatNumberCurrency = value =>
+  `R$ ${Number(value).toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+  })}`
+
+const nameMap = {
+  optimistic: 'Otimista',
+  median: 'Mediano',
+  pessimistic: 'Pessimista',
 }
 
 MyResponsiveLine.propTypes = {
   data: PropTypes.object.isRequired,
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
+  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  customToolTip: PropTypes.element,
+  marker: PropTypes.number,
+}
+
+MyResponsiveLine.defaultProps = {
+  customToolTip: null,
+  marker: 0,
 }
 
 export default MyResponsiveLine

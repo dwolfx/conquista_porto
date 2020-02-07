@@ -34,7 +34,7 @@ router.render = (req, res) => {
       goal: {
         nickname: 'Disney',
         targetDate: '2019-12-30',
-        targetValue: 1,
+        targetValue: 1700,
         initialValue: 0,
         monthlyValue: 0,
         wouldLikeToReceiveBeforeFinalDate: false,
@@ -61,9 +61,108 @@ router.render = (req, res) => {
         },
       ],
       income: {
-        pessimistic: 66500,
-        medium: 70000,
-        optimistic: 73500,
+        pessimistic: [
+          {
+            month: 'Jan/01',
+            value: 1000,
+          },
+          {
+            month: 'Jan/02',
+            value: 1100,
+          },
+          {
+            month: 'Jan/03',
+            value: 1150,
+          },
+          {
+            month: 'Jan/04',
+            value: 1220,
+          },
+          {
+            month: 'Jan/05',
+            value: 1280,
+          },
+          {
+            month: 'Jan/06',
+            value: 1350,
+          },
+          {
+            month: 'Jan/07',
+            value: 1420,
+          },
+          {
+            month: 'Jan/09',
+            value: 1500,
+          },
+        ],
+        median: [
+          {
+            month: 'Jan/01',
+            value: 1000,
+          },
+          {
+            month: 'Jan/02',
+            value: 1150,
+          },
+          {
+            month: 'Jan/03',
+            value: 1200,
+          },
+          {
+            month: 'Jan/04',
+            value: 1280,
+          },
+          {
+            month: 'Jan/05',
+            value: 1360,
+          },
+          {
+            month: 'Jan/06',
+            value: 1420,
+          },
+          {
+            month: 'Jan/07',
+            value: 1590,
+          },
+          {
+            month: 'Jan/09',
+            value: 1700,
+          },
+        ],
+        optimistic: [
+          {
+            month: 'Jan/01',
+            value: 1000,
+          },
+          {
+            month: 'Jan/02',
+            value: 1200,
+          },
+          {
+            month: 'Jan/03',
+            value: 1300,
+          },
+          {
+            month: 'Jan/04',
+            value: 1400,
+          },
+          {
+            month: 'Jan/05',
+            value: 1500,
+          },
+          {
+            month: 'Jan/06',
+            value: 1600,
+          },
+          {
+            month: 'Jan/07',
+            value: 1700,
+          },
+          {
+            month: 'Jan/09',
+            value: 2000,
+          },
+        ],
       },
       funds: [
         {

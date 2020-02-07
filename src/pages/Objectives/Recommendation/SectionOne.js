@@ -18,129 +18,14 @@ import {
   PieChartChildrenContainer,
 } from './styles'
 
-const dataLine = {
-  financialGoal: 1600,
-  data: [
-    {
-      id: 'otimista',
-      color: '#E72176',
-      data: [
-        {
-          x: 'Jan/01',
-          y: 1000,
-        },
-        {
-          x: 'Jan/02',
-          y: 1200,
-        },
-        {
-          x: 'Jan/03',
-          y: 1300,
-        },
-        {
-          x: 'Jan/04',
-          y: 1400,
-        },
-        {
-          x: 'Jan/05',
-          y: 1500,
-        },
-        {
-          x: 'Jan/06',
-          y: 1600,
-        },
-        {
-          x: 'Jan/07',
-          y: 1700,
-        },
-        {
-          x: 'Jan/09',
-          y: 2000,
-        },
-      ],
-    },
-    {
-      id: 'bom',
-      color: '#00ADEF',
-      data: [
-        {
-          x: 'Jan/01',
-          y: 1000,
-        },
-        {
-          x: 'Jan/02',
-          y: 1150,
-        },
-        {
-          x: 'Jan/03',
-          y: 1200,
-        },
-        {
-          x: 'Jan/04',
-          y: 1280,
-        },
-        {
-          x: 'Jan/05',
-          y: 1360,
-        },
-        {
-          x: 'Jan/06',
-          y: 1420,
-        },
-        {
-          x: 'Jan/07',
-          y: 1590,
-        },
-        {
-          x: 'Jan/09',
-          y: 1700,
-        },
-      ],
-    },
-    {
-      id: 'fraco',
-      color: 'hsl(2, 70%, 50%)',
-      data: [
-        {
-          x: 'Jan/01',
-          y: 1000,
-        },
-        {
-          x: 'Jan/02',
-          y: 1100,
-        },
-        {
-          x: 'Jan/03',
-          y: 1150,
-        },
-        {
-          x: 'Jan/04',
-          y: 1220,
-        },
-        {
-          x: 'Jan/05',
-          y: 1280,
-        },
-        {
-          x: 'Jan/06',
-          y: 1350,
-        },
-        {
-          x: 'Jan/07',
-          y: 1420,
-        },
-        {
-          x: 'Jan/09',
-          y: 1500,
-        },
-      ],
-    },
-  ],
-}
-
-const SectionOne = ({ goal, combo }) => {
+const SectionOne = ({ goal, combo, income }) => {
   const theme = useContext(ThemeContext)
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
+  const colorsLineChart = [
+    theme.colors.magenta2,
+    theme.colors.blue4,
+    theme.colors.yellow2,
+  ]
 
   const graphValuesGenerator = () => {
     const colorsPriority = [theme.colors.magenta2, theme.colors.blue4].reverse()
@@ -231,7 +116,20 @@ const SectionOne = ({ goal, combo }) => {
 
       <Col lg="6">
         <FullHeightCard headerIcon="linechart" headerTitle="Rendimentos">
-          <LineChart data={dataLine} width="100%" height="300px" />
+          <SectionRow padding="28px 49px">
+            <Text type="headline">
+              Com base nos rendimentos históricos dos fundos que sugerimos, o
+              gráfico apresenta uma estimativa de como seu dinheiro poderá
+              evoluir até sua meta.
+            </Text>
+          </SectionRow>
+          <LineChart
+            data={income}
+            width="100%"
+            height="220px"
+            colors={colorsLineChart}
+            marker={goal.targetValue}
+          />
         </FullHeightCard>
       </Col>
     </GridRow>
@@ -241,11 +139,13 @@ const SectionOne = ({ goal, combo }) => {
 SectionOne.propTypes = {
   goal: PropTypes.object,
   combo: PropTypes.array,
+  income: PropTypes.object,
 }
 
 SectionOne.defaultProps = {
   goal: {},
   combo: [],
+  income: {},
 }
 
 export default SectionOne
