@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory, useRouteMatch, Switch, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -10,16 +10,21 @@ import { Container, RegistrationWrapper, BoartTitle } from './styles'
 import GoalStreams from './GoalStreams'
 
 const Objectives = () => {
+  const [totalSteps, setTotalSteps] = useState(0)
   const match = useRouteMatch()
   const history = useHistory()
   const { data: objectiveData, isLoading } = useSelector(
     state => state.objective
   )
 
+  const handleSteps = data => {
+    setTotalSteps(data.length)
+  }
+
   return (
     <Switch>
       <Route path={`${match.path}/:objectiveId`}>
-        <GoalStreams />
+        <GoalStreams handleSteps={handleSteps} />
       </Route>
       <Route path={match.path}>
         <Container>
@@ -36,7 +41,11 @@ const Objectives = () => {
               <Board />
             </RegistrationWrapper>
           ) : (
-            <Recommendation data={objectiveData} isLoading={isLoading} />
+            <Recommendation
+              data={objectiveData}
+              isLoading={isLoading}
+              totalSteps={totalSteps + 1}
+            />
           )}
         </Container>
       </Route>

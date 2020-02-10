@@ -46,7 +46,7 @@ const MacroDivisor = () => (
   </DivisorContainer>
 )
 
-const Recommendation = ({ data, isLoading }) => {
+const Recommendation = ({ data, isLoading, totalSteps }) => {
   const { goal, combo, income, funds, creditProduct, additional } = data
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
@@ -61,7 +61,12 @@ const Recommendation = ({ data, isLoading }) => {
 
   return (
     <GridRecommendation>
-      <TopBar goal={goal} />
+      <TopBar
+        goal={goal}
+        nickname={goal.nickname}
+        currentStep={totalSteps}
+        numberSteps={totalSteps}
+      />
       <SectionsRecommendation>
         <Container>
           {showUnmetGoalBanner && (
@@ -279,6 +284,7 @@ Recommendation.defaultProps = {
       targetValue: 0,
       initialValue: 0,
       monthlyValue: 0,
+      nickname: '',
     },
     combo: [],
     income: {},
@@ -297,6 +303,7 @@ Recommendation.propTypes = {
       targetValue: PropTypes.number,
       initialValue: PropTypes.number,
       monthlyValue: PropTypes.number,
+      nickname: PropTypes.string,
     }),
     combo: PropTypes.array,
     income: PropTypes.object,
@@ -304,6 +311,7 @@ Recommendation.propTypes = {
     creditProduct: PropTypes.object,
     additional: PropTypes.object,
   }),
+  totalSteps: PropTypes.number.isRequired,
 }
 
 export default Recommendation
