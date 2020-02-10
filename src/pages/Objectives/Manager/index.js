@@ -20,7 +20,9 @@ import {
   ColumnWrapper,
 } from './styles'
 
-export default function Manager() {
+export default function Manager(location) {
+  const { pageRecommendation } = location.store || ''
+
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
       #MeuCarroZero
@@ -53,15 +55,17 @@ export default function Manager() {
 
   return (
     <GridContainer>
-      <Banner bgImage={targetImg} hasCloseButton size="lg">
-        <Text type="heading3" color="white">
-          Objetivo criado com sucesso!
-        </Text>
-        <Text type="body" color="white">
-          Aqui, você acompanha o progresso e contrata produtos que ajudam no seu
-          objetivo.
-        </Text>
-      </Banner>
+      {pageRecommendation && (
+        <Banner bgImage={targetImg} hasCloseButton size="lg">
+          <Text type="heading3" color="white">
+            Objetivo criado com sucesso!
+          </Text>
+          <Text type="body" color="white">
+            Aqui, você acompanha o progresso e contrata produtos que ajudam no
+            seu objetivo.
+          </Text>
+        </Banner>
+      )}
       <ColumnWrapper>
         <ObjectiveHeader>
           <HorizontalList

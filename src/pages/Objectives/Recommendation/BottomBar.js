@@ -66,7 +66,7 @@ const BottomBar = ({ goal, isLoading }) => {
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
-
+  
   return (
     <SectionBar>
       <Drawer
@@ -134,8 +134,9 @@ const BottomBar = ({ goal, isLoading }) => {
             <ButtonBar
               color="secondary"
               onClick={() =>
-                history.push('/objetivos/gerenciar', {
-                  detail: 'pageRecommendation',
+                history.push({
+                  pathname: 'objetivos/gerenciar',
+                  store: { pageRecommendation: true },
                 })
               }
             >
