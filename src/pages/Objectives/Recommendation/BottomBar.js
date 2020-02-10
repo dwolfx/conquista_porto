@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
@@ -25,6 +26,7 @@ const BottomBar = ({ goal, isLoading }) => {
     monthlyValue,
     goalType,
   } = goal
+  const history = useHistory()
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
@@ -129,7 +131,16 @@ const BottomBar = ({ goal, isLoading }) => {
             >
               Resumo
             </ButtonBar>
-            <ButtonBar color="secondary">Continuar</ButtonBar>
+            <ButtonBar
+              color="secondary"
+              onClick={() =>
+                history.push('/objetivos/gerenciar', {
+                  detail: 'pageRecommendation',
+                })
+              }
+            >
+              Continuar
+            </ButtonBar>
           </Col>
         </Row>
       </Container>
