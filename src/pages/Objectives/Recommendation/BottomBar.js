@@ -66,7 +66,7 @@ const BottomBar = ({ goal, isLoading }) => {
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
-  
+
   return (
     <SectionBar>
       <Drawer
