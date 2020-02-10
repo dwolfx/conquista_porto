@@ -2376,11 +2376,11 @@
     }
   ],
   "recommendation": {
-    "nickname": "PartiuGrécia",
-    "targetDate": "02/12/2021",
-    "targetValue": "40.000,00",
-    "initialValue": "6.000,00",
-    "monthlyValue": "1.500,00",
-    "goalType": "1"
+    "goalType": "1",
+    "nickname": "sdasdsadsad",
+    "targetDate": "10/10/2020",
+    "targetValue": "70.000.000,00",
+    "initialValue": "5.000,00",
+    "monthlyValue": "1.000,00"
   }
 }
