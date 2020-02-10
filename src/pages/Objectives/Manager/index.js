@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 export default function Manager(location) {
-  const { pageRecommendation } = location.store || ''
+  const { pageRecommendation } = location.store || false
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
