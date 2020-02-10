@@ -174,7 +174,6 @@ export default function ManagementInvestments({ history }) {
             <GeneralView />
           </GeneralInfo> */}
         </PageContent>
-        <AnbimaLegalInfo />
       </Container>
       <HighlightSection
         title="Facilidade para investir"
@@ -208,6 +207,7 @@ export default function ManagementInvestments({ history }) {
         </CustomContent>
       </SectionCustomPicture>
       <FundsCarouselSection />
+      <AnbimaLegalInfo />
       <FileDownloadSection data={downloadFileSectionData} />
     </>
   )
