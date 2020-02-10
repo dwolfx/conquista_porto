@@ -1,16 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Header from 'components/Wizard/Header'
 import { useParams, Redirect, useHistory } from 'react-router'
 import { Container } from './Components/styles'
 import { WizardFlow } from './Components/Wizard'
 import dataObjective from './dataObjective'
 
-export default function() {
+export default function GoalStreams({ handleSteps }) {
   const { objectiveId } = useParams()
   const history = useHistory()
   const data = dataObjective.find(
     objective => objective.route === `/${objectiveId}`
   )
+  handleSteps(data.flow)
 
   return data ? (
     <Container>
@@ -24,4 +26,8 @@ export default function() {
   ) : (
     <Redirect to="/objetivos" />
   )
+}
+
+GoalStreams.propTypes = {
+  handleSteps: PropTypes.func.isRequired,
 }
