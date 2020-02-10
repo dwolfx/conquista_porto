@@ -51,8 +51,6 @@ const Recommendation = ({ data, isLoading }) => {
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
 
-  console.log('--- goal: ', goal)
-
   useEffect(() => {
     if (goal.suggestionGoal) {
       setShowUnmetGoalBanner(true)
