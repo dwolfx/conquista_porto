@@ -93,7 +93,7 @@ export default function Dropdown({
   }
 
   useEffect(() => {
-    checkElementOut()
+    if (isOpen) checkElementOut()
   }, [isOpen])
 
   function handleDropDown(value) {
