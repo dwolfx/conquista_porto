@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { mobileItemsPropTypes } from 'components/HeaderNew/Mobile'
@@ -58,6 +58,43 @@ export default function Dropdown({
   const [childrenElements, setChildrenElements] = useState(null)
 
   const history = useHistory()
+  const containerRef = useRef(null)
+
+  function checkElementOut() {
+    const elementBounding = containerRef.current.getBoundingClientRect()
+
+    if (elementBounding.top < 0) {
+      containerRef.current.style.top = '0px'
+    }
+
+    if (elementBounding.left < 0) {
+      containerRef.current.style.left = '0px'
+    }
+
+    if (
+      elementBounding.bottom >
+      (window.innerHeight || document.documentElement.clientHeight)
+    ) {
+      const offsetDifference =
+        elementBounding.bottom -
+        (window.innerHeight || document.documentElement.clientHeight)
+      containerRef.current.style.top = `-${offsetDifference}px`
+    }
+
+    if (
+      elementBounding.right >
+      (window.innerWidth || document.documentElement.clientWidth)
+    ) {
+      const offsetDifference =
+        elementBounding.right -
+        (window.innerWidth || document.documentElement.clientWidth)
+      containerRef.current.style.left = `-${offsetDifference}px`
+    }
+  }
+
+  useEffect(() => {
+    checkElementOut()
+  }, [isOpen])
 
   function handleDropDown(value) {
     setIsOpen(value)
@@ -105,7 +142,11 @@ export default function Dropdown({
           >
             {children}
           </div>
-          <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
+          <Container
+            ref={containerRef}
+            isOpen={isOpen}
+            onMouseLeave={() => handleMountChildren()}
+          >
             <Wrapper containerPadding={containerPadding}>
               {nodes.map(node => {
                 if (typeof node === 'function')
@@ -138,7 +179,11 @@ export default function Dropdown({
           >
             {children}
           </div>
-          <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
+          <Container
+            ref={containerRef}
+            isOpen={isOpen}
+            onMouseLeave={() => handleMountChildren()}
+          >
             <Wrapper containerPadding={containerPadding}>
               {items.map(item => (
                 <ItemWrapper
