@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const LineChartContainer = styled.div`
   width: ${props => props.width};
   height: ${props => props.height};
+  overflow: visible;
+  bottom: 20px;
 `
 
 export const ToolTipContainer = styled.div`

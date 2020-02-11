@@ -7,6 +7,8 @@ import { ResponsiveLine } from '@nivo/line'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 
+import { formatMoney } from 'helpers'
+
 import { LineChartContainer, ToolTipContainer, ReactInfoColor } from './styles'
 
 const MyResponsiveLine = ({
@@ -57,7 +59,7 @@ const MyResponsiveLine = ({
         useMesh
         enableCrosshair
         crosshairType="cross"
-        yFormat={formatNumberCurrency}
+        yFormat={formatMoney}
         enableSlices="x"
         sliceTooltip={
           customToolTip ||
@@ -66,7 +68,7 @@ const MyResponsiveLine = ({
               <HorizontalList
                 key="metaId"
                 noPadding
-                heightSize="dynamic"
+                size="small"
                 startItems={[
                   <ReactInfoColor color={themeContext.colors.gray6} />,
                   <Text type="caption" bold color="gray5">
@@ -75,7 +77,7 @@ const MyResponsiveLine = ({
                 ]}
                 endItems={[
                   <Text type="caption" bold>
-                    {formatNumberCurrency(marker)}
+                    {formatMoney(marker)}
                   </Text>,
                 ]}
               />
@@ -83,7 +85,7 @@ const MyResponsiveLine = ({
                 <HorizontalList
                   key={point.id}
                   noPadding
-                  heightSize="dynamic"
+                  size="small"
                   startItems={[
                     <ReactInfoColor color={point.serieColor} />,
                     <Text type="caption" bold color="gray5">
@@ -110,11 +112,6 @@ const parseData = oldData =>
     id: incomeItem,
     data: oldData[incomeItem].map(item => ({ x: item.month, y: item.value })),
   }))
-
-const formatNumberCurrency = value =>
-  `R$ ${Number(value).toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  })}`
 
 const nameMap = {
   optimistic: 'Otimista',

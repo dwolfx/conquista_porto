@@ -2375,12 +2375,5 @@
       }
     }
   ],
-  "recommendation": {
-    "nickname": "PartiuGrécia",
-    "targetDate": "02/12/2021",
-    "targetValue": "40.000,00",
-    "initialValue": "6.000,00",
-    "monthlyValue": "1.500,00",
-    "goalType": "1"
-  }
+  "recommendation": {}
 }
