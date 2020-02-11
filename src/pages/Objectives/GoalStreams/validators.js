@@ -14,17 +14,10 @@ export const validateMinLength = (value, minLength) => {
   return schema.isValid(value)
 }
 
-export const minDate = (value, expectedDiffDay) => {
-  const [vDay, vMonth, vYear] = value.split('/')
-  const receivedDate = moment([
-    parseInt(vYear, 10),
-    parseInt(vMonth, 10) - 1,
-    parseInt(vDay, 10),
-  ])
-
-  const diff = receivedDate.diff(moment(), 'day')
-  return diff >= expectedDiffDay
-}
+export const minDate = (value, expectedDiffDay) =>
+  moment(value, 'DD/MM/YYYY').isSameOrAfter(
+    moment().add(expectedDiffDay, 'day')
+  )
 
 export const minValue = (value, minimum) => {
   const schema = number().min(removeNonDigit(minimum))
