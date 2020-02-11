@@ -7,7 +7,7 @@ export const Container = styled.div`
       case 'large':
         return '63px'
       case 'small':
-        return '35px'
+        return '28px'
       default:
         return '49px'
     }

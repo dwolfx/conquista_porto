@@ -8,6 +8,7 @@ import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
+import { CardBody } from 'components/Card/styles'
 
 export const SpacedText = styled(Text)`
   display: flex;
@@ -49,6 +50,9 @@ export const ButtonSubmit = styled(Button)`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
+  & ${CardBody} {
+    overflow: visible;
+  }
 `
 
 export const SliderBox = styled.div`

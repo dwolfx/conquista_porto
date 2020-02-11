@@ -1,20 +1,15 @@
 import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
-import { ResponsiveBar } from '@nivo/bar'
 
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
-import InsuranceHomeImg from 'assets/images/pages/Home/insurance1.jpg'
 import Text from 'components/Text'
 import PieChart from 'components/PieChart'
 import HorizontalList from 'components/HorizontalList'
 import { formatMoney } from 'helpers'
-
+import LineChart from 'components/Charts/LineChart'
 import {
   GridRow,
-  SliderBox,
-  SliderImageBox,
-  SliderTextBox,
   FullHeightCard,
   SectionRow,
   SectionCol,
@@ -23,9 +18,14 @@ import {
   PieChartChildrenContainer,
 } from './styles'
 
-const SectionOne = ({ goal, combo }) => {
+const SectionOne = ({ goal, combo, income }) => {
   const theme = useContext(ThemeContext)
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
+  const colorsLineChart = [
+    theme.colors.magenta2,
+    theme.colors.blue4,
+    theme.colors.yellow2,
+  ]
 
   const graphValuesGenerator = () => {
     const colorsPriority = [theme.colors.magenta2, theme.colors.blue4].reverse()
@@ -114,53 +114,22 @@ const SectionOne = ({ goal, combo }) => {
         </FullHeightCard>
       </Col>
 
-      <Col lg="3">
+      <Col lg="6">
         <FullHeightCard headerIcon="linechart" headerTitle="Rendimentos">
-          <div style={{ width: 300, height: 300 }}>
-            <ResponsiveBar
-              data={graphValuesGenerator()}
-              colors={({ data }) => data.color}
-              padding={0.9}
-              axisTop={null}
-              axisRight={null}
-              axisBottom={null}
-              axisLeft={null}
-              enableLabel={false}
-              legends={[
-                {
-                  dataFrom: 'keys',
-                  anchor: 'right',
-                  direction: 'column',
-                  justify: false,
-                  translateX: 113,
-                  translateY: 4,
-                  itemWidth: 95,
-                  itemHeight: 42,
-                  itemsSpacing: 0,
-                  symbolSize: 17,
-                  itemDirection: 'left-to-right',
-                },
-              ]}
-              isInteractive={false}
-              animate={false}
-            />
-          </div>
-        </FullHeightCard>
-      </Col>
-
-      <Col lg="3">
-        <FullHeightCard headerIcon="information" headerTitle="Por que?">
-          <SliderBox>
-            <SliderImageBox>
-              <img src={InsuranceHomeImg} alt="home offer pic" />
-            </SliderImageBox>
-            <SliderTextBox>
-              <Text color="gray5">
-                Planeje a sua proteção ou da sua família e tenha tranquilidade
-                para enfrentar adversidades e ainda conte com muitos benefícios.
-              </Text>
-            </SliderTextBox>
-          </SliderBox>
+          <SectionRow padding="28px 49px">
+            <Text type="headline">
+              Com base nos rendimentos históricos dos fundos que sugerimos, o
+              gráfico apresenta uma estimativa de como seu dinheiro poderá
+              evoluir até sua meta.
+            </Text>
+          </SectionRow>
+          <LineChart
+            data={income}
+            width="100%"
+            height="220px"
+            colors={colorsLineChart}
+            marker={goal.targetValue}
+          />
         </FullHeightCard>
       </Col>
     </GridRow>
@@ -170,11 +139,13 @@ const SectionOne = ({ goal, combo }) => {
 SectionOne.propTypes = {
   goal: PropTypes.object,
   combo: PropTypes.array,
+  income: PropTypes.object,
 }
 
 SectionOne.defaultProps = {
   goal: {},
   combo: [],
+  income: {},
 }
 
 export default SectionOne

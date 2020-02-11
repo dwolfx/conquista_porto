@@ -2375,12 +2375,5 @@
       }
     }
   ],
-  "recommendation": {
-    "goalType": "1",
-    "nickname": "Disney",
-    "targetDate": "10/10/2020",
-    "targetValue": "70.000.000,00",
-    "initialValue": "5.000,00",
-    "monthlyValue": "1.232.132,13"
-  }
+  "recommendation": {}
 }

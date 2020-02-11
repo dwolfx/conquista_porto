@@ -17,6 +17,12 @@ const Objectives = () => {
     state => state.objective
   )
 
+  // Use only for tests with recomendation
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(PostObjectiveDataRequest({}))
+  // }, [dispatch])
+
   const handleSteps = data => {
     setTotalSteps(data.length)
   }
