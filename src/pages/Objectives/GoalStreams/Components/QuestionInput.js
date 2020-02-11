@@ -108,7 +108,7 @@ QuestionInput.defaultProps = {
   question: '',
   ruleText: '',
   type: '',
-  error: undefined,
+  error: null,
   prefix: null,
 }
 
@@ -120,13 +120,10 @@ QuestionInput.propTypes = {
   question: PropTypes.string,
   ruleText: PropTypes.string,
   type: PropTypes.string,
-  error: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.shape({
-      icon: PropTypes.string.isRequired,
-      message: PropTypes.string.isRequired,
-    }),
-  ]),
+  error: PropTypes.shape({
+    icon: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+  }),
   prefix: PropTypes.string,
 }
 

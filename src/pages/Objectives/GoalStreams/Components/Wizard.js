@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
-import useValidator from 'hooks/useValidator'
+import useValidator from 'pages/Objectives/GoalStreams/useValidator'
 
 import TopBar from './TopBar'
 import QuestionInput from './QuestionInput'
