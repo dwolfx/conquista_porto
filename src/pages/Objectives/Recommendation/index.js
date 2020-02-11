@@ -47,8 +47,6 @@ const MacroDivisor = () => (
 )
 
 const Recommendation = ({ data = {}, isLoading, totalSteps }) => {
-  console.log('data: ', data)
-
   const { goal, combo, income, funds, creditProduct, additional } = data
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
