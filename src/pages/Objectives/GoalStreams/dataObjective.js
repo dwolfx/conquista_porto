@@ -4,8 +4,8 @@ const firstStep = {
   question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
   name: 'nickname',
   type: 'text',
-  async validate(value) {
-    const isBetweenLength = await betweenLength(3, 20, value)
+  validate(value) {
+    const isBetweenLength = betweenLength(3, 20, value)
     if (!isBetweenLength.min) {
       return 'Mínimo 3 caracteres'
     }
@@ -31,8 +31,8 @@ export default [
         name: 'targetDate',
         type: 'date',
         ruleText: 'Mínimo de 6 meses',
-        async validate(value) {
-          const isValid = await minDate(value, 180)
+        validate(value) {
+          const isValid = minDate(value, 180)
           return isValid ? undefined : 'Mínimo de 6 meses'
         },
       },
@@ -41,8 +41,8 @@ export default [
         name: 'targetValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -51,8 +51,8 @@ export default [
         name: 'initialValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -61,8 +61,8 @@ export default [
         name: 'monthlyValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
-        async validate(value) {
-          const isValid = await minValue(value, '100,00')
+        validate(value) {
+          const isValid = minValue(value, '100,00')
           return isValid ? undefined : 'Mínimo de R$ 100,00'
         },
       },
@@ -82,8 +82,8 @@ export default [
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
-        async validate(value) {
-          const isValid = await minDate(value, 180)
+        validate(value) {
+          const isValid = minDate(value, 180)
           return isValid ? undefined : 'Mínimo de 6 meses'
         },
       },
@@ -92,8 +92,8 @@ export default [
         name: 'targetValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -102,8 +102,8 @@ export default [
         name: 'initialValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -112,8 +112,8 @@ export default [
         name: 'monthlyValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
-        async validate(value) {
-          const isValid = await minValue(value, '100,00')
+        validate(value) {
+          const isValid = minValue(value, '100,00')
           return isValid ? undefined : 'Mínimo de R$ 100,00'
         },
       },
@@ -143,8 +143,8 @@ export default [
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
-        async validate(value) {
-          const isValid = await minDate(value, 180)
+        validate(value) {
+          const isValid = minDate(value, 180)
           return isValid ? undefined : 'Mínimo de 6 meses'
         },
       },
@@ -162,8 +162,8 @@ export default [
         name: 'targetValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -172,8 +172,8 @@ export default [
         name: 'initialValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -182,8 +182,8 @@ export default [
         name: 'monthlyValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
-        async validate(value) {
-          const isValid = await minValue(value, '100,00')
+        validate(value) {
+          const isValid = minValue(value, '100,00')
           return isValid ? undefined : 'Mínimo de R$ 100,00'
         },
       },
@@ -223,8 +223,8 @@ export default [
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
-        async validate(value) {
-          const isValid = await minDate(value, 180)
+        validate(value) {
+          const isValid = minDate(value, 180)
           return isValid ? undefined : 'Mínimo de 6 meses'
         },
       },
@@ -233,8 +233,8 @@ export default [
         name: 'targetValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -243,8 +243,8 @@ export default [
         name: 'initialValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -253,8 +253,8 @@ export default [
         name: 'monthlyValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
-        async validate(value) {
-          const isValid = await minValue(value, '100,00')
+        validate(value) {
+          const isValid = minValue(value, '100,00')
           return isValid ? undefined : 'Mínimo de R$ 100,00'
         },
       },
@@ -274,8 +274,8 @@ export default [
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
-        async validate(value) {
-          const isValid = await minDate(value, 180)
+        validate(value) {
+          const isValid = minDate(value, 180)
           return isValid ? undefined : 'Mínimo de 6 meses'
         },
       },
@@ -284,8 +284,8 @@ export default [
         name: 'targetValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -294,8 +294,8 @@ export default [
         name: 'initialValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -304,8 +304,8 @@ export default [
         name: 'monthlyValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
-        async validate(value) {
-          const isValid = await minValue(value, '100,00')
+        validate(value) {
+          const isValid = minValue(value, '100,00')
           return isValid ? undefined : 'Mínimo de R$ 100,00'
         },
       },
@@ -325,8 +325,8 @@ export default [
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
-        async validate(value) {
-          const isValid = await minDate(value, 180)
+        validate(value) {
+          const isValid = minDate(value, 180)
           return isValid ? undefined : 'Mínimo de 6 meses'
         },
       },
@@ -344,8 +344,8 @@ export default [
         name: 'targetValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -354,8 +354,8 @@ export default [
         name: 'initialValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -364,8 +364,8 @@ export default [
         name: 'monthlyValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
-        async validate(value) {
-          const isValid = await minValue(value, '100,00')
+        validate(value) {
+          const isValid = minValue(value, '100,00')
           return isValid ? undefined : 'Mínimo de R$ 100,00'
         },
       },
@@ -405,8 +405,8 @@ export default [
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
-        async validate(value) {
-          const isValid = await minDate(value, 180)
+        validate(value) {
+          const isValid = minDate(value, 180)
           return isValid ? undefined : 'Mínimo de 6 meses'
         },
       },
@@ -415,8 +415,8 @@ export default [
         name: 'targetValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -425,8 +425,8 @@ export default [
         name: 'initialValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
-        async validate(value) {
-          const isValid = await minValue(value, '1.000,00')
+        validate(value) {
+          const isValid = minValue(value, '1.000,00')
           return isValid ? undefined : 'Mínimo de R$ 1.000,00'
         },
       },
@@ -435,8 +435,8 @@ export default [
         name: 'monthlyValue',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
-        async validate(value) {
-          const isValid = await minValue(value, '100,00')
+        validate(value) {
+          const isValid = minValue(value, '100,00')
           return isValid ? undefined : 'Mínimo de R$ 100,00'
         },
       },
