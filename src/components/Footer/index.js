@@ -18,16 +18,16 @@ import {
   FooterWrapper,
 } from './styles'
 
-const type = 'click'
-const clickType = 'rodape'
-const footer = 'footer'
+const gtmType = 'click'
+const gtmClickType = 'rodape'
+const gtmName = 'footer'
 
 const content1 = [
   <Title bold>CENTRAL DE ATENDIMENTO</Title>,
   <LinkText
-    gtmType={type}
-    gtmClickType={clickType}
-    gtmName={`${footer} - CENTRAL DE ATENDIMENTO - (11) 3366 3370`}
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-name={`${gtmName} - CENTRAL DE ATENDIMENTO - (11) 3366 3370`}
     hrefValue="tel:(11) 3366 3370"
   >
     (11) 3366 3370
@@ -36,9 +36,9 @@ const content1 = [
 const content2 = [
   <Title>ATENDIMENTO PARA DEFICIENTES AUDITIVOS</Title>,
   <LinkText
-    gtmType={type}
-    gtmClickType={clickType}
-    gtmName={`${footer} - ATENDIMENTO PARA DEFICIENTES AUDITIVOS - 0800 727 8736`}
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-name={`${gtmName} - ATENDIMENTO PARA DEFICIENTES AUDITIVOS - 0800 727 8736`}
     hrefValue="tel:0800 727 8736"
   >
     0800 727 8736
@@ -47,9 +47,9 @@ const content2 = [
 const content3 = [
   <Title>SAC</Title>,
   <LinkText
-    gtmType={type}
-    gtmClickType={clickType}
-    gtmName={`${footer} - SAC - 0800 727 2763`}
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-name={`${gtmName} - SAC - 0800 727 2763`}
     hrefValue="tel:0800 727 2763"
   >
     0800 727 2763
@@ -58,9 +58,9 @@ const content3 = [
 const content4 = [
   <Title>MENSAGENS</Title>,
   <LinkText
-    gtmType={type}
-    gtmClickType={clickType}
-    gtmName={`${footer} - MENSAGENS - porto.investimentos@portoseguro.com.br`}
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-name={`${gtmName} - MENSAGENS - porto.investimentos@portoseguro.com.br`}
     hrefValue="mailto:porto.investimentos@portoseguro.com.br"
   >
     porto.investimentos@portoseguro.com.br
@@ -72,17 +72,17 @@ const content5 = [
     noPadding
     startItems={[
       <LinkText
-        gtmType={type}
-        gtmClickType={clickType}
-        gtmName={`${footer} - OUVIDORIA - 0800 727 1184`}
+        data-gtm-type={gtmType}
+        data-gtm-clicktype={gtmClickType}
+        data-gtm-name={`${gtmName} - OUVIDORIA - 0800 727 1184`}
         hrefValue="tel:0800 727 1184"
       >
         0800 727 1184
       </LinkText>,
       <LinkText
-        gtmType={type}
-        gtmClickType={clickType}
-        gtmName={`${footer} - OUVIDORIA - (11) 3366 3184`}
+        data-gtm-type={gtmType}
+        data-gtm-clicktype={gtmClickType}
+        data-gtm-name={`${gtmName} - OUVIDORIA - (11) 3366 3184`}
         hrefValue="tel:(11) 3366 3184"
       >
         (11) 3366 3184
@@ -90,9 +90,9 @@ const content5 = [
     ]}
   />,
   <LinkText
-    gtmType={type}
-    gtmClickType={clickType}
-    gtmName={`${footer} - OUVIDORIA - ouvidoria@portoseguro.com.br`}
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-name={`${gtmName} - OUVIDORIA - ouvidoria@portoseguro.com.br`}
     hrefValue="mailto:ouvidoria@portoseguro.com.br"
   >
     ouvidoria@portoseguro.com.br
@@ -101,14 +101,14 @@ const content5 = [
 const content6 = [
   <LogoTitle>UMA PLATAFORMA</LogoTitle>,
   <Logo
-    data-gtm-type={type}
-    data-gtm-clicktype={clickType}
-    data-gtm-name={`${footer} - UMA PLATAFORMA - Logo Porto-Seguro`}
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-name={`${gtmName} - UMA PLATAFORMA - Logo Porto-Seguro`}
   />,
   <Link
-    data-gtm-type={type}
-    data-gtm-clicktype={clickType}
-    data-gtm-name={`${footer} - UMA PLATAFORMA - POLÍTICA DE PRIVACIDADE`}
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-name={`${gtmName} - UMA PLATAFORMA - POLÍTICA DE PRIVACIDADE`}
     to="/"
   >
     <UppercaseBlueText>POLÍTICA DE PRIVACIDADE</UppercaseBlueText>
@@ -138,7 +138,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <FooterWrapper data-gtm-type="container" data-gtm-name={footer}>
+    <FooterWrapper data-gtm-type="container" data-gtm-name={gtmName}>
       <BorderTop />
       <GridContainer>
         <GridRow>
