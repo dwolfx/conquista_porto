@@ -60,7 +60,7 @@ export default function Manager(location) {
           <Text type="heading3" color="white">
             Objetivo criado com sucesso!
           </Text>
-          <Text type="body" color="white">
+          <Text color="white">
             Aqui, você acompanha o progresso e contrata produtos que ajudam no
             seu objetivo.
           </Text>
@@ -101,7 +101,7 @@ export default function Manager(location) {
             <Button color="secondary">CONHECER</Button>
           </Banner>
           <Banner bgImage={planeImg}>
-            <Text type="headline " color="white">
+            <Text type="headline" color="white">
               Seguro Viagem
             </Text>
             <Text type="captionUppercase" color="white">
