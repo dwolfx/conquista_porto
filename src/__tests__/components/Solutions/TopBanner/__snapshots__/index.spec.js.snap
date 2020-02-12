@@ -6,6 +6,8 @@ exports[`TopBanner renders correctly 1`] = `
 >
   <div
     className="sc-bxivhb eHGKbp"
+    data-gtm-name="Fundos de Investimentos"
+    data-gtm-type="container"
   >
     <h1
       className="sc-EHOje nTaje"

@@ -36,7 +36,10 @@ const FundsCarouselSection = () => {
   }
   return (
     <Container>
-      <CarouselWrapper>
+      <CarouselWrapper
+        data-gtm-type="container"
+        data-gtm-name="Conheça as gestoras disponíveis no Conquista:"
+      >
         <TitleHeader>Conheça as gestoras disponíveis no Conquista:</TitleHeader>
         <Carousel settings={settings}>
           {mockData.map(({ key, logo, description }) => (

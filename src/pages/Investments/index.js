@@ -120,7 +120,10 @@ export default function Investments({ history }) {
         onClick={() => history.push('/investimentos/lista-fundos')}
       />
       <SectionCustomPicture backgroundColor="#d6dde5">
-        <CustomContent>
+        <CustomContent
+          data-gtm-type="container"
+          data-gtm-name="Investindo em objetivos"
+        >
           <Picture>
             <img src={RedHairGirlImage} alt="Mulher feliz" />
           </Picture>
@@ -135,7 +138,14 @@ export default function Investments({ history }) {
               Crie objetivos e aproveite os planos personalizados que a
               ferramenta apresenta para investir com mais facilidade.
             </p>
-            <Button color="primary">Criar Objetivo</Button>
+            <Button
+              color="primary"
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-name="Investindo em objetivos - Criar Objetivo"
+            >
+              Criar Objetivo
+            </Button>
           </DescriptionContent>
         </CustomContent>
       </SectionCustomPicture>

@@ -6,6 +6,8 @@ exports[`FileDownloadSection renders correctly 1`] = `
 >
   <div
     className="sc-bwzfXH frRDcH"
+    data-gtm-name="quadro de rentabilidade"
+    data-gtm-type="container"
   >
     <div>
       <svg
@@ -28,6 +30,8 @@ exports[`FileDownloadSection renders correctly 1`] = `
         Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
       </p>
       <a
+        data-gtm-clicktype="link"
+        data-gtm-type="click"
         href="/redirect"
         onClick={[Function]}
       >
@@ -41,6 +45,8 @@ exports[`FileDownloadSection renders correctly 1`] = `
   </div>
   <div
     className="sc-bwzfXH frRDcH"
+    data-gtm-name="carta do gestor"
+    data-gtm-type="container"
   >
     <div>
       <svg
@@ -63,6 +69,8 @@ exports[`FileDownloadSection renders correctly 1`] = `
         Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
       </p>
       <a
+        data-gtm-clicktype="link"
+        data-gtm-type="click"
         href="/redirect"
         onClick={[Function]}
       >

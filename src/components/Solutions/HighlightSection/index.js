@@ -15,7 +15,7 @@ export default function HighlightSection({
   const themeContext = useContext(ThemeContext)
   return (
     <Container backgroundColor={themeContext.colors.darkBlue2}>
-      <Content>
+      <Content data-gtm-type="container" data-gtm-name={title}>
         <Title textColor="white">{title}</Title>
         <Text>
           {mainDescription}
@@ -25,7 +25,13 @@ export default function HighlightSection({
         </Text>
         <br />
         <br />
-        <Button color="secondary" onClick={onClick}>
+        <Button
+          color="secondary"
+          onClick={onClick}
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-name={`${title} - ${buttonText}`}
+        >
           {buttonText}
         </Button>
       </Content>
