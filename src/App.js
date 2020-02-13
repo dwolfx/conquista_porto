@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
 
+import TagManager from 'react-gtm-module'
 import store from './store'
 import GlobalStyle from './styles/global'
 import theme from './styles/theme'
@@ -18,6 +19,12 @@ function ScrollToTopOnMount() {
 
   return null
 }
+
+const tagManagerArgs = {
+  gtmId: 'GTM-P6KJKN7',
+}
+
+TagManager.initialize(tagManagerArgs)
 
 const App = () => (
   <Provider store={store}>
