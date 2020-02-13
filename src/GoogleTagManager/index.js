@@ -1,13 +1,85 @@
+import TagManager from 'react-gtm-module'
 import sha256 from 'crypto-js/sha256'
 import packageJson from '../../package.json'
 
-// Google Tag Manager
-const dataLayer = window.dataLayer || []
+export const dataLayerServiceSolicitation = (
+  id,
+  name,
+  product,
+  status,
+  returnType,
+  description
+) => {
+  const serviceSolicitation = {
+    dataLayer: {
+      event: 'solicitacao_servico',
+      id_solicitacao: id,
+      nome_servico: name,
+      produto: product,
+      status,
+      retorno: returnType,
+      descricao: description,
+    },
+  }
+  TagManager.dataLayer(serviceSolicitation)
+}
 
-const calculatePointsAmountBalance = extrato =>
-  extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
+export const dataLayerSearchInfo = (
+  name,
+  type,
+  product,
+  status,
+  returnType,
+  description
+) => {
+  const SearchInfo = {
+    dataLayer: {
+      event: 'resultado_consulta',
+      nome_servico: name,
+      tipo_busca: type,
+      produto: product,
+      status,
+      retorno: returnType,
+      descricao: description,
+    },
+  }
+  TagManager.dataLayer(SearchInfo)
+}
 
-export default function googleTagManagerHandler(path, title, auth, points) {
+export const dataLayerErrorInfo = description => {
+  const SearchInfo = {
+    dataLayer: {
+      event: 'erro',
+      descricao: description,
+    },
+  }
+  TagManager.dataLayer(SearchInfo)
+}
+
+export const dataLayerProductSuggestion = (
+  products,
+  returnType,
+  description
+) => {
+  const productList = products.map(product => ({
+    id: product.id,
+    name: product.name,
+    category: product.category,
+    position: product.position,
+  }))
+
+  const ProductSuggestion = {
+    dataLayer: {
+      event: 'lista_sugestao',
+      products: productList,
+      retorno: returnType,
+      descricao: description,
+    },
+  }
+  TagManager.dataLayer(ProductSuggestion)
+}
+
+const setCustomData = (auth, points, title) => {
   const hash = sha256(auth.cpf)
   const productList = [
     'Cartão de Crédito',
@@ -19,12 +91,6 @@ export default function googleTagManagerHandler(path, title, auth, points) {
     'Seguro de Vida',
     'Seguro Viagem',
   ]
-
-  dataLayer.push({
-    event: 'step_change',
-    pg_path: path,
-    pg_title: title,
-  })
 
   window.customData.page.name = title
 
@@ -39,6 +105,22 @@ export default function googleTagManagerHandler(path, title, auth, points) {
       ? calculatePointsAmountBalance(points)
       : 0
   window.customData.user.products = productList
+
   window.customData.user.logged = auth.accessToken ? 'true' : 'false'
   window.customData.user.loginType = 'Padrão'
+}
+
+const calculatePointsAmountBalance = extrato =>
+  extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
+
+export default function googleTagManagerHandler(path, title, auth, points) {
+  const tagManagerArgs = {
+    dataLayer: {
+      event: 'step_change',
+      pg_path: path,
+      pg_title: title,
+    },
+  }
+  TagManager.dataLayer(tagManagerArgs)
+  setCustomData(auth, points)
 }

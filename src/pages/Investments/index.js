@@ -122,7 +122,7 @@ export default function Investments({ history }) {
       <SectionCustomPicture backgroundColor="#d6dde5">
         <CustomContent
           data-gtm-type="container"
-          data-gtm-name="Investindo em objetivos"
+          data-gtm-name="banner - investindo em objetivos"
         >
           <Picture>
             <img src={RedHairGirlImage} alt="Mulher feliz" />
@@ -141,8 +141,9 @@ export default function Investments({ history }) {
             <Button
               color="primary"
               data-gtm-type="click"
-              data-gtm-clicktype="link"
-              data-gtm-name="Investindo em objetivos - Criar Objetivo"
+              data-gtm-clicktype="button"
+              data-gtm-subname="banner - investindo em objetivos"
+              data-gtm-name="criar objetivo"
             >
               Criar Objetivo
             </Button>

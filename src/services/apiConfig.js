@@ -1,6 +1,7 @@
 import store from 'store'
 import { TOKEN_NAME } from 'store/modules/Auth/types'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
+import { dataLayerErrorInfo } from 'GoogleTagManager'
 const baseURL = process.env.REACT_APP_BASE_URL
 
 const responseInterceptor = response => {
@@ -11,6 +12,7 @@ const responseInterceptor = response => {
 }
 
 const responseErrorInterceptor = error => {
+  dataLayerErrorInfo(error.response.data)
   if (error.response.status === 401) {
     store.dispatch(AuthRequestLogout())
   }

@@ -13,9 +13,7 @@ export default function ListItem({
   height,
   path,
   callbackClickFn,
-  gtmType,
-  gtmClickType,
-  gtmName,
+  ...rest
 }) {
   const history = useHistory()
 
@@ -26,9 +24,7 @@ export default function ListItem({
 
   return (
     <Container
-      data-gtm-type={gtmType}
-      data-gtm-clicktype={gtmClickType}
-      data-gtm-name={gtmName}
+      {...rest}
       margin={margin}
       height={height}
       onClick={() => !!path && handleClick(path)}
@@ -62,9 +58,6 @@ ListItem.propTypes = {
   height: PropTypes.string,
   path: PropTypes.string,
   callbackClickFn: PropTypes.func,
-  gtmType: PropTypes.string,
-  gtmClickType: PropTypes.string,
-  gtmName: PropTypes.string,
 }
 
 ListItem.defaultProps = {
@@ -74,7 +67,4 @@ ListItem.defaultProps = {
   height: null,
   path: null,
   callbackClickFn: PropTypes.func,
-  gtmType: '',
-  gtmClickType: '',
-  gtmName: '',
 }

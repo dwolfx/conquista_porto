@@ -327,7 +327,7 @@ Array [
   >
     <div
       className="sc-ckVGcZ iIFymU"
-      data-gtm-name="Parcelas que cabem no seu bolso."
+      data-gtm-name="highlight section - Parcelas que cabem no seu bolso."
       data-gtm-type="container"
     >
       <h1
@@ -348,7 +348,7 @@ Array [
       <button
         className="sc-kGXeez kSVnZQ"
         color="secondary"
-        data-gtm-clicktype="link"
+        data-gtm-clicktype="button"
         data-gtm-name={
           <span>
             SIMULAR E CONTRATAR
@@ -365,6 +365,7 @@ Array [
             </span>
           </span>
         }
+        data-gtm-subname="highlight section - Parcelas que cabem no seu bolso."
         data-gtm-type="click"
         onClick={[Function]}
       >
@@ -587,6 +588,7 @@ Array [
         <a
           data-gtm-clicktype="link"
           data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-subname="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
           data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
@@ -628,6 +630,7 @@ Array [
         <a
           data-gtm-clicktype="link"
           data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-subname="CONDIÇÕES GERAIS"
           data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
@@ -669,6 +672,7 @@ Array [
         <a
           data-gtm-clicktype="link"
           data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-subname="TABELA DE TARIFAS"
           data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}

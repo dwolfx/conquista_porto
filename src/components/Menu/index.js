@@ -52,8 +52,11 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
 
   return (
     <Container>
-      <MenuContainer>
+      <MenuContainer data-gtm-type="container" data-gtm-name="left menu">
         <Option
+          data-gtm-type="click"
+          data-gtm-clicktype="menu"
+          data-gtm-name="left menu - Produtos"
           isSelected={selectedOption === 'produtos'}
           onClick={() => handleClick('t1', 'produtos')}
         >
@@ -61,6 +64,9 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
           <OptionName>Produtos</OptionName>
         </Option>
         <Option
+          data-gtm-type="click"
+          data-gtm-clicktype="menu"
+          data-gtm-name="left menu - Objetivos"
           isSelected={selectedOption === 'objetivos'}
           onClick={() => handleClick('t2', 'objetivos')}
         >
@@ -68,6 +74,9 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
           <OptionName>Objetivos</OptionName>
         </Option>
         <Option
+          data-gtm-type="click"
+          data-gtm-clicktype="menu"
+          data-gtm-name="left menu - Pontos"
           isSelected={selectedOption === 'pontos'}
           onClick={() => handleClick('t3', 'pontos')}
         >
