@@ -3,8 +3,9 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
-import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+
 import useValidator from 'pages/Objectives/GoalStreams/useValidator'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 
 import TopBar from './TopBar'
 import QuestionInput from './QuestionInput'
@@ -91,7 +92,11 @@ export const WizardFlow = ({ data, objective }) => {
       )}
       {isLastStep && (
         <Col lg="6" xs="12">
-          <ButtonAction onClick={postFlow} disabled={!isActive}>
+          <ButtonAction
+            onClick={postFlow}
+            disabled={!isActive || isLoading}
+            loading={isLoading}
+          >
             Concluir
           </ButtonAction>
         </Col>
