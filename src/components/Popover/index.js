@@ -6,16 +6,16 @@ import 'styled-components/macro'
 
 import Text from 'components/Text'
 
-import { TooltipContainer, Arrow } from './styles'
+import { PopoverContainer, Arrow } from './styles'
 
-export default function Tooltip({
+export default function Popover({
   children,
+  content,
   placement,
-  tooltip,
   trigger,
   ...rest
 }) {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const actions = () => {
     switch (trigger) {
@@ -33,6 +33,9 @@ export default function Tooltip({
     }
   }
 
+  const PopoverContent =
+    typeof content === 'string' ? <Text>{content}</Text> : content
+
   return (
     <Manager {...rest}>
       <Reference>
@@ -41,7 +44,7 @@ export default function Tooltip({
             ref={ref}
             {...actions()}
             css={`
-              display: inline-flex;
+              cursor: pointer;
             `}
           >
             {children}
@@ -50,20 +53,26 @@ export default function Tooltip({
       </Reference>
       {isOpen
         ? ReactDOM.createPortal(
-            <Popper placement={placement}>
+            <Popper
+              placement={placement}
+              modifiers={{
+                offset: {
+                  offset: '0,14',
+                },
+                flip: {
+                  padding: 70,
+                },
+              }}
+            >
               {({ placement: innerPlacement, ref, style }) => (
-                <TooltipContainer
+                <PopoverContainer
                   ref={ref}
                   style={style}
-                  data-placement={innerPlacement}
+                  placement={innerPlacement || placement}
                 >
-                  <Arrow />
-                  {typeof tooltip === 'string' ? (
-                    <Text>{tooltip}</Text>
-                  ) : (
-                    tooltip
-                  )}
-                </TooltipContainer>
+                  <Arrow placement={innerPlacement || placement} />
+                  <PopoverContent />
+                </PopoverContainer>
               )}
             </Popper>,
             document.querySelector('#root')
@@ -73,14 +82,14 @@ export default function Tooltip({
   )
 }
 
-Tooltip.propTypes = {
+Popover.propTypes = {
   children: PropTypes.node.isRequired,
-  placement: PropTypes.oneOf(['right', 'left', 'top', 'bottom']),
-  tooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  placement: PropTypes.oneOf(['bottom', 'center', 'left', 'top']),
+  content: PropTypes.oneOfType(PropTypes.func, PropTypes.string).isRequired,
   trigger: PropTypes.string,
 }
 
-Tooltip.defaultProps = {
+Popover.defaultProps = {
   placement: 'top',
   trigger: '',
 }
