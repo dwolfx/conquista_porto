@@ -115,6 +115,10 @@ export const SectionRow = styled(Row)`
   padding: ${props => props.padding};
 `
 
+export const CardRow = styled(Row)`
+  padding: ${props => props.padding};
+`
+
 export const SectionCol = styled(Col)`
   height: 100%;
   display: ${props => props.display};
