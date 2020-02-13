@@ -46,7 +46,7 @@ export const Table = styled.table`
 export const Thead = styled.thead`
   &.sticky {
     position: fixed;
-    top: 132px;
+    top: 73px;
     z-index: 1;
   }
 `
