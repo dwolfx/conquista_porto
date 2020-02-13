@@ -10,6 +10,8 @@ import creditImg from 'assets/images/pages/Objectives/creditCard.png'
 import planeImg from 'assets/images/pages/Objectives/travelSecurity.png'
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
+import { useSelector } from 'react-redux'
+
 import {
   GridContainer,
   Banner,
@@ -21,7 +23,10 @@ import {
 } from './styles'
 
 export default function Manager(location) {
+  const { data: objectiveData } = useSelector(state => state.objective)
   const { pageRecommendation } = location.store || false
+
+  console.log('MANAGER', objectiveData)
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
