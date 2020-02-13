@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
@@ -21,6 +21,9 @@ export const WizardFlow = ({ data, objective }) => {
   const [formData, setFormData] = useState(getFormEntries(data))
   const [isActive, setIsActive] = useState(false)
   const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
+  const { isLoading, data: objectiveData } = useSelector(
+    state => state.objective
+  )
 
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
@@ -35,8 +38,13 @@ export const WizardFlow = ({ data, objective }) => {
         ...formData,
       })
     )
-    history.push('/objetivos')
   }
+
+  useEffect(() => {
+    if (objectiveData && !isLoading) {
+      history.push('/objetivos')
+    }
+  }, [history, isLoading, objectiveData])
 
   const handleSingleValue = event => {
     const {
