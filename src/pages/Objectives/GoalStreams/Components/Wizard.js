@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
@@ -13,6 +14,7 @@ const getFormEntries = (data = []) =>
   data.reduce((acc, cur) => ({ ...acc, [cur.name]: '' }), {})
 
 export const WizardFlow = ({ data, objective }) => {
+  const history = useHistory()
   const inputRef = useRef()
   const dispatch = useDispatch()
   const [currentStep, setStepIndex] = useState(0)
@@ -33,6 +35,7 @@ export const WizardFlow = ({ data, objective }) => {
         ...formData,
       })
     )
+    history.push('/objetivos')
   }
 
   const handleSingleValue = event => {
