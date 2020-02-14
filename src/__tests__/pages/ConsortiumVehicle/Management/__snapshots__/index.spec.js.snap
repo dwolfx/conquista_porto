@@ -3,34 +3,34 @@
 exports[`ManagementConsortiumVehicle renders correctly 1`] = `
 Array [
   <section
-    className="sc-cvbbAY dRBzmY"
+    className="sc-brqgnP inmbLP"
   >
     <div
-      className="sc-jDwBTQ hZAXzY"
+      className="sc-iRbamj eRWnOF"
     >
       <div>
         <small
-          className="sc-htoDjs bGdwrI"
+          className="sc-iwsKbI kdLeFz"
         >
           Soluções
            » 
         </small>
         <strong
-          className="sc-dnqmqq fFfgHa"
+          className="sc-gZMcBi lmAohb"
         >
           consórcio de VEÍCULO
         </strong>
       </div>
     </div>
     <div
-      className="sc-brqgnP flGAwl"
+      className="sc-jAaTju hWyJNq"
       id="consortium-vehicle-top-page"
     >
       <nav
-        className="sc-cMljjf fbADxM"
+        className="sc-jDwBTQ fKDfWC"
       >
         <div
-          className="sc-gPEVay dhPfoT"
+          className="sc-jlyJG iurlso"
           onClick={[Function]}
         >
           <svg
@@ -40,24 +40,24 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-fBuWsC hEeWng"
+            className="sc-dVhcbM hACFpQ"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-jWBwVP jVGvqP"
+          className="sc-cMljjf bYdauo"
           onClick={[Function]}
         >
           <span
-            className="sc-fBuWsC cDQofF"
+            className="sc-dVhcbM bltXSX"
             fontSize="14px"
           >
             Contrato 1
           </span>
           <span
-            className="sc-fBuWsC XsBPW"
+            className="sc-dVhcbM fdRSEp"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -65,7 +65,7 @@ Array [
             STATUS
           </span>
           <span
-            className="sc-fBuWsC dzKRA"
+            className="sc-dVhcbM lbIPLZ"
             fontSize="14px"
           >
             Contemplado
@@ -73,16 +73,16 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-jAaTju cvSkXK"
+        className="sc-gPEVay jojasL"
       >
         <h4
-          className="sc-iRbamj OAaH"
+          className="sc-gipzik dDULUB"
         >
           Contrato 
           1
         </h4>
         <div
-          className="slick-slider sc-jlyJG jedFjF slick-initialized"
+          className="slick-slider sc-csuQGl hOpUtD slick-initialized"
         >
           
           <div
@@ -119,7 +119,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-gipzik lcbVoa"
+                    className="sc-Rmtcm kUkeID"
                     style={
                       Object {
                         "display": "inline-block",
@@ -136,12 +136,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-csuQGl hNfULV"
+                        className="sc-bRBYWo loIzdC"
                       >
                         Cota
                       </p>
                       <span
-                        className="sc-Rmtcm jDjrXX"
+                        className="sc-hzDkRC dZRqrH"
                       >
                         500
                       </span>
@@ -164,7 +164,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-gipzik lcbVoa"
+                    className="sc-Rmtcm kUkeID"
                     style={
                       Object {
                         "display": "inline-block",
@@ -181,12 +181,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-csuQGl hNfULV"
+                        className="sc-bRBYWo loIzdC"
                       >
                         grupo
                       </p>
                       <span
-                        className="sc-Rmtcm jDjrXX"
+                        className="sc-hzDkRC dZRqrH"
                       >
                         x398
                       </span>
@@ -209,7 +209,7 @@ Array [
               >
                 <div>
                   <div
-                    className="sc-gipzik lcbVoa"
+                    className="sc-Rmtcm kUkeID"
                     style={
                       Object {
                         "display": "inline-block",
@@ -226,12 +226,12 @@ Array [
                     </svg>
                     <div>
                       <p
-                        className="sc-csuQGl hNfULV"
+                        className="sc-bRBYWo loIzdC"
                       >
                         Crédito contratado
                       </p>
                       <span
-                        className="sc-Rmtcm jDjrXX"
+                        className="sc-hzDkRC dZRqrH"
                       >
                         R$ 40.000,00
                       </span>
@@ -245,47 +245,47 @@ Array [
           
         </div>
         <article
-          className="sc-bRBYWo fIqnzP"
+          className="sc-jhAzac fQpUHr"
         >
           <div
-            className="sc-hzDkRC bhyfZb"
+            className="sc-fBuWsC cLCNwm"
           >
             <div
-              className="sc-jhAzac gxNvQR"
+              className="sc-fMiknA bUAwpm"
             >
               <span
-                className="sc-fBuWsC iRfEBe"
+                className="sc-dVhcbM kJHGoL"
                 fontSize="22px"
               >
                 Valor para quitação
               </span>
               <span
-                className="sc-fBuWsC gzxylc"
+                className="sc-dVhcbM kEOMrj"
               >
                 R$ 27.200,00
               </span>
             </div>
             <div
-              className="sc-jhAzac gxNvQR"
+              className="sc-fMiknA bUAwpm"
             >
               <span
-                className="sc-fBuWsC iRfEBe"
+                className="sc-dVhcbM kJHGoL"
                 fontSize="22px"
               >
                 Valor da parcela atual
               </span>
               <span
-                className="sc-fBuWsC gzxylc"
+                className="sc-dVhcbM kEOMrj"
               >
                 R$ 675,00
               </span>
             </div>
           </div>
           <div
-            className="sc-fMiknA bSvQPZ"
+            className="sc-eqIVtm hDnoch"
           >
             <span
-              className="sc-fBuWsC knhxN"
+              className="sc-dVhcbM jMLkoQ"
               fontSize="18px"
             >
               Evolução do pagamento
@@ -317,11 +317,11 @@ Array [
               </div>
             </div>
             <button
-              className="sc-htpNat dCtEpf"
+              className="sc-ifAKCX clErPs"
               color="primary"
             >
               <span
-                className="sc-bxivhb etaiaS"
+                className="sc-EHOje gyxTyo"
               >
                 acesse o app e faça seu lance
               </span>
@@ -332,20 +332,20 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-dxgOiQ gtLtFb"
+    className="sc-jKJlTe ioyEyk"
   >
     <div
-      className="sc-ckVGcZ iIFymU"
+      className="sc-eNQAEJ gibuHY"
       data-gtm-name="highlight section - Parcelas que cabem no seu bolso."
       data-gtm-type="container"
     >
       <h1
-        className="sc-jKJlTe cqnkVN"
+        className="sc-hMqMXs cSNBOd"
       >
         Parcelas que cabem no seu bolso.
       </h1>
       <p
-        className="sc-eNQAEJ dsxAui"
+        className="sc-kEYyzF espATi"
       >
         Com o Conquista, você planeja a compra do seu carro novo ou seminovo.
         <br />
@@ -355,7 +355,7 @@ Array [
       <br />
       <br />
       <button
-        className="sc-htpNat knqqDf"
+        className="sc-ifAKCX rrVkN"
         color="secondary"
         data-gtm-clicktype="button"
         data-gtm-name={
@@ -372,7 +372,7 @@ Array [
         onClick={[Function]}
       >
         <span
-          className="sc-bxivhb etaiaS"
+          className="sc-EHOje gyxTyo"
         >
           <span>
             SIMULAR E CONTRATAR
@@ -388,18 +388,18 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-chPdSV YiBem"
+    className="sc-kGXeez fJFFJm"
   >
     <div
-      className="sc-kgoBCf gVFzJp"
+      className="sc-kpOJdX eQyMxP"
     >
       <h1
-        className="sc-kGXeez kUPIX"
+        className="sc-dxgOiQ dpqXrj"
       >
         SAIBA MAIS:
       </h1>
       <div
-        className="slick-slider sc-kpOJdX khOzmS slick-initialized"
+        className="slick-slider sc-ckVGcZ hFYiag slick-initialized"
       >
         
         <div
@@ -436,26 +436,26 @@ Array [
             >
               <div>
                 <div
-                  className="sc-VigVT gvAvGe"
+                  className="sc-fjdhpX ezgUwc"
                 >
                   <div
-                    className="sc-jTzLTM kGsJKJ"
+                    className="sc-jzJRlG juNtlz"
                   >
                     <img
-                      className="sc-kAzzGY fFQnoG"
+                      className="sc-kgoBCf dbMNDb"
                       src={null}
                     />
                   </div>
                   <div
-                    className="sc-cSHVUG eEUsMZ"
+                    className="sc-chPdSV ekiUcZ"
                   >
                     <p
-                      className="sc-fjdhpX imoorw"
+                      className="sc-cSHVUG cKAjjy"
                     >
                       Tente um lance
                     </p>
                     <p
-                      className="sc-jzJRlG kioWCD"
+                      className="sc-kAzzGY jWMmGN"
                     >
                       Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.
                     </p>
@@ -478,26 +478,26 @@ Array [
             >
               <div>
                 <div
-                  className="sc-VigVT gvAvGe"
+                  className="sc-fjdhpX ezgUwc"
                 >
                   <div
-                    className="sc-jTzLTM kGsJKJ"
+                    className="sc-jzJRlG juNtlz"
                   >
                     <img
-                      className="sc-kAzzGY fFQnoG"
+                      className="sc-kgoBCf dbMNDb"
                       src={null}
                     />
                   </div>
                   <div
-                    className="sc-cSHVUG eEUsMZ"
+                    className="sc-chPdSV ekiUcZ"
                   >
                     <p
-                      className="sc-fjdhpX imoorw"
+                      className="sc-cSHVUG cKAjjy"
                     >
                       Valor do consórcio como parte do lance
                     </p>
                     <p
-                      className="sc-jzJRlG kioWCD"
+                      className="sc-kAzzGY jWMmGN"
                     >
                       Para conseguir dar um lance mais alto e aumentar suas chances de ser contemplado, você pode usar parte do valor do consórcio como complemento ao que foi ofertado. Cada consórcio tem suas regras, basta se informar sobre a existência desse benefício.
                     </p>
@@ -520,26 +520,26 @@ Array [
             >
               <div>
                 <div
-                  className="sc-VigVT gvAvGe"
+                  className="sc-fjdhpX ezgUwc"
                 >
                   <div
-                    className="sc-jTzLTM kGsJKJ"
+                    className="sc-jzJRlG juNtlz"
                   >
                     <img
-                      className="sc-kAzzGY fFQnoG"
+                      className="sc-kgoBCf dbMNDb"
                       src={null}
                     />
                   </div>
                   <div
-                    className="sc-cSHVUG eEUsMZ"
+                    className="sc-chPdSV ekiUcZ"
                   >
                     <p
-                      className="sc-fjdhpX imoorw"
+                      className="sc-cSHVUG cKAjjy"
                     >
                       Escolha qualquer veículo
                     </p>
                     <p
-                      className="sc-jzJRlG kioWCD"
+                      className="sc-kAzzGY jWMmGN"
                     >
                       Ao fazer um consórcio, será utilizado um veículo específico como referência. No entanto, como o valor obtido com o consórcio é em dinheiro, você pode usá-lo para adquirir qualquer outro veículo sem restrição de modelo.
                     </p>
@@ -555,16 +555,16 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-hMqMXs eAZusz"
+    className="sc-kkGfuU cenwiF"
   >
     <div
-      className="sc-kEYyzF ytSZC"
+      className="sc-iAyFgw iSHGTV"
       data-gtm-name="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
       data-gtm-type="container"
     >
       <div>
         <svg
-          className="sc-kkGfuU isWLNv"
+          className="sc-hSdWYo izMJvP"
           fill="#272727"
           height="24px"
         >
@@ -573,12 +573,12 @@ Array [
       </div>
       <div>
         <p
-          className="sc-iAyFgw jJZiyb"
+          className="sc-eHgmQL dZHVoL"
         >
           SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC
         </p>
         <p
-          className="sc-hSdWYo gsEHGZ"
+          className="sc-cvbbAY faGOwx"
         >
           Aqui, você tem mais informações legais sobre consórcio.
         </p>
@@ -591,7 +591,7 @@ Array [
           onClick={[Function]}
         >
           <p
-            className="sc-eHgmQL evXPOm"
+            className="sc-jWBwVP fmavkB"
           >
             BAIXAR ARQUIVO
              &gt; 
@@ -600,13 +600,13 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kEYyzF ytSZC"
+      className="sc-iAyFgw iSHGTV"
       data-gtm-name="CONDIÇÕES GERAIS"
       data-gtm-type="container"
     >
       <div>
         <svg
-          className="sc-kkGfuU isWLNv"
+          className="sc-hSdWYo izMJvP"
           fill="#272727"
           height="24px"
         >
@@ -615,12 +615,12 @@ Array [
       </div>
       <div>
         <p
-          className="sc-iAyFgw jJZiyb"
+          className="sc-eHgmQL dZHVoL"
         >
           CONDIÇÕES GERAIS
         </p>
         <p
-          className="sc-hSdWYo gsEHGZ"
+          className="sc-cvbbAY faGOwx"
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
         </p>
@@ -633,7 +633,7 @@ Array [
           onClick={[Function]}
         >
           <p
-            className="sc-eHgmQL evXPOm"
+            className="sc-jWBwVP fmavkB"
           >
             BAIXAR ARQUIVO
              &gt; 
@@ -642,13 +642,13 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kEYyzF ytSZC"
+      className="sc-iAyFgw iSHGTV"
       data-gtm-name="TABELA DE TARIFAS"
       data-gtm-type="container"
     >
       <div>
         <svg
-          className="sc-kkGfuU isWLNv"
+          className="sc-hSdWYo izMJvP"
           fill="#272727"
           height="24px"
         >
@@ -657,12 +657,12 @@ Array [
       </div>
       <div>
         <p
-          className="sc-iAyFgw jJZiyb"
+          className="sc-eHgmQL dZHVoL"
         >
           TABELA DE TARIFAS
         </p>
         <p
-          className="sc-hSdWYo gsEHGZ"
+          className="sc-cvbbAY faGOwx"
         >
           Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
         </p>
@@ -675,7 +675,7 @@ Array [
           onClick={[Function]}
         >
           <p
-            className="sc-eHgmQL evXPOm"
+            className="sc-jWBwVP fmavkB"
           >
             BAIXAR ARQUIVO
              &gt; 
