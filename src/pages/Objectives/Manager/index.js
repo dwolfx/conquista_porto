@@ -1,4 +1,6 @@
 import React from 'react'
+import { Col } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
@@ -18,9 +20,10 @@ import {
   Banner,
   ObjectiveDetails,
   ObjectiveHeader,
-  Wallet,
   Recommendations,
   ColumnWrapper,
+  FullHeightCard,
+  Wallet,
 } from './styles'
 
 export default function Manager(location) {
@@ -85,7 +88,30 @@ export default function Manager(location) {
         <ObjectiveDetails></ObjectiveDetails>
         {/* <ObjectiveCard></ObjectiveCard> */}
       </ColumnWrapper>
-      <Wallet></Wallet>
+
+      <Wallet>
+        <Col xs="12">
+          <FullHeightCard
+            headerIcon="dollarsign"
+            headerTitle="Carteira de fundos"
+            headerButtonText="Salvar alterações"
+            headerButtonProps={{
+              color: 'secondary',
+              onClick: () => console.log('salvou alterações'),
+            }}
+            footer={
+              <Button
+                outline
+                css={`
+                  width: 100%;
+                `}
+              >
+                Adicionar fundo
+              </Button>
+            }
+          ></FullHeightCard>
+        </Col>
+      </Wallet>
 
       <ColumnWrapper>
         <Text type="heading3" color="gray6">

@@ -21,13 +21,16 @@ export const CardHeader = styled.div`
 `
 
 export const CardIcon = styled.div`
+  align-items: center;
   background-image: linear-gradient(
     135deg,
     ${props => props.theme.colors.blue5},
     ${props => props.theme.colors.blue4}
   );
   border-radius: 50%;
+  display: flex;
   height: 35px;
+  justify-content: center;
   margin-right: ${props => `${props.theme.gutter}px`};
   padding: 7px;
   width: 35px;
