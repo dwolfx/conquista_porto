@@ -1,4 +1,6 @@
 import React from 'react'
+import { Col } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
@@ -15,9 +17,10 @@ import {
   Banner,
   ObjectiveDetails,
   ObjectiveHeader,
-  Wallet,
   Recommendations,
   ColumnWrapper,
+  FullHeightCard,
+  Wallet,
 } from './styles'
 
 export default function Manager(location) {
@@ -53,6 +56,15 @@ export default function Manager(location) {
     <ButtonLink noIcon>OUTROS OBJETIVOS</ButtonLink>
   )
 
+  const walletHeaderTitle = (
+    <Text type="headline" color="gray6" bold>
+      Carteira de fundos
+    </Text>
+  )
+  const walletHeaderButton = (
+    <Button color="secondary">Salvar alterações</Button>
+  )
+
   return (
     <GridContainer>
       {pageRecommendation && (
@@ -83,7 +95,33 @@ export default function Manager(location) {
         <ObjectiveDetails></ObjectiveDetails>
         {/* <ObjectiveCard></ObjectiveCard> */}
       </ColumnWrapper>
-      <Wallet></Wallet>
+
+      <Wallet>
+        <Col xs="12">
+          <FullHeightCard
+            headerIcon="dollarsign"
+            headerTitle={() => (
+              <HorizontalList
+                startItems={[walletHeaderTitle]}
+                endItems={[walletHeaderButton]}
+                css={`
+                  width: 100%;
+                `}
+              />
+            )}
+            footer={
+              <Button
+                outline
+                css={`
+                  width: 100%;
+                `}
+              >
+                Adicionar fundo
+              </Button>
+            }
+          ></FullHeightCard>
+        </Col>
+      </Wallet>
 
       <ColumnWrapper>
         <Text type="heading3" color="gray6">

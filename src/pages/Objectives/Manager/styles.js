@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+import { Container, Row } from 'styled-bootstrap-grid'
+
 import BannerComponent from 'components/Banner'
-import { Container } from 'styled-bootstrap-grid'
+import Card from 'components/Card'
 
 export const GridContainer = styled(Container)`
   padding: 35px 0;
@@ -28,11 +30,8 @@ export const ObjectiveDetails = styled.div`
   margin-bottom: 21px;
 `
 
-export const Wallet = styled.div`
+export const Wallet = styled(Row)`
   width: 100%;
-  height: 1281px;
-  background-color: #fff;
-  border: 1px solid black;
   margin-bottom: 21px;
 `
 
@@ -52,4 +51,8 @@ export const Recommendations = styled.div`
   && > div {
     width: calc(50% - 7px);
   }
+`
+
+export const FullHeightCard = styled(Card)`
+  height: 100%;
 `
