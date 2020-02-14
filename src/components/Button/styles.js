@@ -68,6 +68,12 @@ const handleColor = (colors, type, isDisabled, isOutline) => {
 }
 
 // styles
+export const LoadingContainer = styled.div`
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 14px;
+`
+
 export const Button = styled.button`
   background: ${props =>
     handleBgGradient(

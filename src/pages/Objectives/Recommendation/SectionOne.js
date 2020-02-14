@@ -13,6 +13,7 @@ import {
   FullHeightCard,
   SectionRow,
   SectionCol,
+  CardRow,
   SuggestedProduct,
   PieChartContainer,
   PieChartChildrenContainer,
@@ -116,13 +117,13 @@ const SectionOne = ({ goal, combo, income }) => {
 
       <Col lg="6">
         <FullHeightCard headerIcon="linechart" headerTitle="Rendimentos">
-          <SectionRow padding="28px 49px">
+          <CardRow padding="28px 49px">
             <Text type="headline">
               Com base nos rendimentos históricos dos fundos que sugerimos, o
               gráfico apresenta uma estimativa de como seu dinheiro poderá
               evoluir até sua meta.
             </Text>
-          </SectionRow>
+          </CardRow>
           <LineChart
             data={income}
             width="100%"

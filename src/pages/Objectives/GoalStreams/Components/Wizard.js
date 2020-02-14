@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
-import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+
 import useValidator from 'pages/Objectives/GoalStreams/useValidator'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 
 import TopBar from './TopBar'
 import QuestionInput from './QuestionInput'
@@ -13,12 +15,16 @@ const getFormEntries = (data = []) =>
   data.reduce((acc, cur) => ({ ...acc, [cur.name]: '' }), {})
 
 export const WizardFlow = ({ data, objective }) => {
+  const history = useHistory()
   const inputRef = useRef()
   const dispatch = useDispatch()
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState(getFormEntries(data))
   const [isActive, setIsActive] = useState(false)
   const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
+  const { isLoading, data: objectiveData } = useSelector(
+    state => state.objective
+  )
 
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
@@ -34,6 +40,12 @@ export const WizardFlow = ({ data, objective }) => {
       })
     )
   }
+
+  useEffect(() => {
+    if (objectiveData && !isLoading) {
+      history.push('/objetivos')
+    }
+  }, [history, isLoading, objectiveData])
 
   const handleSingleValue = event => {
     const {
@@ -80,7 +92,11 @@ export const WizardFlow = ({ data, objective }) => {
       )}
       {isLastStep && (
         <Col lg="6" xs="12">
-          <ButtonAction onClick={postFlow} disabled={!isActive}>
+          <ButtonAction
+            onClick={postFlow}
+            disabled={!isActive || isLoading}
+            loading={isLoading}
+          >
             Concluir
           </ButtonAction>
         </Col>
