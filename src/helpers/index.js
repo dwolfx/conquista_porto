@@ -69,9 +69,3 @@ export const formatDateMask = event => {
   // eslint-disable-next-line no-param-reassign
   event.target.value = newValue
 }
-
-export const formatToBrazilianDate = date =>
-  date
-    .split('-')
-    .reverse()
-    .join('/')

@@ -4,13 +4,14 @@ import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
-import { formatMoney, formatToBrazilianDate } from 'helpers'
+import { formatMoney } from 'helpers'
 
 import creditImg from 'assets/images/pages/Objectives/creditCard.png'
 import planeImg from 'assets/images/pages/Objectives/travelSecurity.png'
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 
 import {
   GridContainer,
@@ -25,6 +26,10 @@ import {
 export default function Manager(location) {
   const { data: objectiveData } = useSelector(state => state.objective)
   const { pageRecommendation } = location.store || false
+
+  if (!objectiveData) {
+    return null
+  }
 
   const { nickname, targetValue, targetDate } = objectiveData.goal
 
@@ -42,7 +47,7 @@ export default function Manager(location) {
   const horizontalListGoalDate = (
     <ColumnWrapper>
       <Text color="gray5">META (DATA)</Text>
-      <Text color="black">{formatToBrazilianDate(targetDate)}</Text>
+      <Text color="black">{moment(targetDate).format('MMM YYYY')}</Text>
     </ColumnWrapper>
   )
   const horizontalListBtnEdit = <ButtonLink noIcon>EDITAR OBJETIVO</ButtonLink>
