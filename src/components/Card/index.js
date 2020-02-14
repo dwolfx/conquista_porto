@@ -19,13 +19,15 @@ export default function Card({
   children,
   headerIcon,
   headerTitle,
-  headerButton,
+  headerButtonText,
   headerButtonProps,
   footer,
   ...rest
 }) {
   const ButtonHeader = () =>
-    headerButton ? <Button {...headerButtonProps}>{headerButton}</Button> : null
+    headerButtonText ? (
+      <Button {...headerButtonProps}>{headerButtonText}</Button>
+    ) : null
 
   const CardHeaderContent = () => (
     <HorizontalList
@@ -60,7 +62,7 @@ export default function Card({
 Card.defaultProps = {
   headerIcon: null,
   headerTitle: null,
-  headerButton: null,
+  headerButtonText: null,
   headerButtonProps: null,
   footer: null,
 }
@@ -79,7 +81,7 @@ Card.propTypes = {
     return null
   },
   headerTitle: PropTypes.string,
-  headerButton: PropTypes.string,
+  headerButtonText: PropTypes.string,
   headerButtonProps: PropTypes.shape({
     color: PropTypes.string,
     outline: PropTypes.bool,
