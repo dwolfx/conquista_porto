@@ -92,7 +92,7 @@ export default function Manager(location) {
           <FullHeightCard
             headerIcon="dollarsign"
             headerTitle="Carteira de fundos"
-            headerButton="Salvar alterações"
+            headerButtonText="Salvar alterações"
             headerButtonProps={{
               color: 'secondary',
               onClick: () => console.log('salvou alterações'),
