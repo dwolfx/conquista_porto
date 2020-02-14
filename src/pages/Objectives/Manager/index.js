@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
@@ -20,6 +20,8 @@ import moment from 'moment'
 import Accordion from 'components/NewAccordion'
 import Divisor from 'components/Divisor'
 
+import GoalChart from 'pages/Objectives/Manager/GoalChart'
+
 import managerData from 'mocks/objective.json'
 import {
   GridContainer,
@@ -31,6 +33,7 @@ import {
   Wallet,
   AccordionWrapper,
   AccordionContentWrapper,
+  CardContent,
 } from './styles'
 
 export default function Manager({ location }) {
@@ -40,10 +43,6 @@ export default function Manager({ location }) {
   )
 
   const { pageRecommendation } = location.state || false
-
-  if (!objectiveData) {
-    return null
-  }
 
   const { nickname, target_value, target_date } = objectiveData
 
@@ -116,7 +115,12 @@ export default function Manager({ location }) {
             marginBetweenElements="28px"
           />
         </ObjectiveHeader>
-        <ObjectiveDetails></ObjectiveDetails>
+        <ObjectiveDetails>
+          <CardContent>
+            <GoalChart data={objectiveData} />
+          </CardContent>
+        </ObjectiveDetails>
+        {/* <ObjectiveCard></ObjectiveCard> */}
       </ColumnWrapper>
 
       <Wallet>
