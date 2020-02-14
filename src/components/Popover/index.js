@@ -84,7 +84,7 @@ export default function Popover({
 
 Popover.propTypes = {
   children: PropTypes.node.isRequired,
-  placement: PropTypes.oneOf(['bottom', 'center', 'left', 'top']),
+  placement: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
   content: PropTypes.oneOfType(PropTypes.func, PropTypes.string).isRequired,
   trigger: PropTypes.string,
 }
