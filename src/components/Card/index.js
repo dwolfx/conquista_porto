@@ -23,6 +23,8 @@ export default function Card({
 }) {
   const themeContext = useContext(ThemeContext)
 
+  const HeaderTitle = headerTitle
+
   return (
     <CardWrapper hasFooter={!!footer} {...rest}>
       {headerTitle && (
@@ -32,7 +34,11 @@ export default function Card({
               <Icon name={headerIcon} fill={themeContext.colors.white} />
             </CardIcon>
           )}
-          <CardTitle>{headerTitle}</CardTitle>
+          {typeof headerTitle === 'string' ? (
+            <CardTitle>headerTitle</CardTitle>
+          ) : (
+            <HeaderTitle />
+          )}
         </CardHeader>
       )}
       <CardBody>{children}</CardBody>
@@ -60,6 +66,6 @@ Card.propTypes = {
 
     return null
   },
-  headerTitle: PropTypes.string,
+  headerTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   footer: PropTypes.node,
 }
