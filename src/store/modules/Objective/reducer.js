@@ -21,7 +21,7 @@ export default function(state = INITIAL_STATE, action) {
     case Types.POST_FAILURE:
       return {
         ...state,
-        data: [],
+        data: {},
         isLoading: false,
       }
     default:
