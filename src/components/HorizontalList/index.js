@@ -9,9 +9,10 @@ export default function HorizontalList({
   size,
   noPadding,
   marginBetweenElements,
+  ...rest
 }) {
   return (
-    <Container size={size} noPadding={noPadding}>
+    <Container size={size} noPadding={noPadding} {...rest}>
       <StartBlock marginBetweenElements={marginBetweenElements}>
         {startItems &&
           startItems.map((Item, index) => (
