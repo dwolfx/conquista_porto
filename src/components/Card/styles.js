@@ -37,7 +37,7 @@ export const CardIcon = styled.div`
 `
 
 export const CardTitle = styled(Text).attrs(() => ({
-  type: 'heading4',
+  type: 'headline',
   bold: true,
 }))``
 
