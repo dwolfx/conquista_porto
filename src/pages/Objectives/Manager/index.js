@@ -56,15 +56,6 @@ export default function Manager(location) {
     <ButtonLink noIcon>OUTROS OBJETIVOS</ButtonLink>
   )
 
-  const walletHeaderTitle = (
-    <Text type="headline" color="gray6" bold>
-      Carteira de fundos
-    </Text>
-  )
-  const walletHeaderButton = (
-    <Button color="secondary">Salvar alterações</Button>
-  )
-
   return (
     <GridContainer>
       {pageRecommendation && (
@@ -100,15 +91,12 @@ export default function Manager(location) {
         <Col xs="12">
           <FullHeightCard
             headerIcon="dollarsign"
-            headerTitle={() => (
-              <HorizontalList
-                startItems={[walletHeaderTitle]}
-                endItems={[walletHeaderButton]}
-                css={`
-                  width: 100%;
-                `}
-              />
-            )}
+            headerTitle="Carteira de fundos"
+            headerButton="Salvar alterações"
+            headerButtonProps={{
+              color: 'secondary',
+              onClick: () => console.log('salvou alterações'),
+            }}
             footer={
               <Button
                 outline
