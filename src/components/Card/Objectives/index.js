@@ -20,7 +20,7 @@ export default function ObjectivesCard({ icon, title, link, ...rest }) {
         <ButtonIcon
           data-gtm-name={title}
           data-gtm-type="click"
-          data-gtm-clicktype="card"
+          data-gtm-clicktype="button"
           color="secondary"
           size="small"
           icon="arrowright"
