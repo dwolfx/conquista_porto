@@ -40,7 +40,8 @@ export default function FileDownloadSection({ data, ...rest }) {
               }}
               data-gtm-type="click"
               data-gtm-clicktype="link"
-              data-gtm-name={`${item.title} - ${item.buttonText}`}
+              data-gtm-subname={item.title}
+              data-gtm-name={item.buttonText}
             >
               <DownloadLink>{item.buttonText} &gt; </DownloadLink>
             </Link>

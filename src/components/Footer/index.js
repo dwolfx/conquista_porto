@@ -20,14 +20,14 @@ import {
 
 const gtmType = 'click'
 const gtmClickType = 'rodape'
-const gtmName = 'footer'
 
 const content1 = [
   <Title bold>CENTRAL DE ATENDIMENTO</Title>,
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-name={`${gtmName} - CENTRAL DE ATENDIMENTO - (11) 3366 3370`}
+    data-gtm-subname="central de atendimento"
+    data-gtm-name="(11)3366-3370"
     hrefValue="tel:(11) 3366 3370"
   >
     (11) 3366 3370
@@ -38,7 +38,8 @@ const content2 = [
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-name={`${gtmName} - ATENDIMENTO PARA DEFICIENTES AUDITIVOS - 0800 727 8736`}
+    data-gtm-subname="atendimento para deficientes auditivos"
+    data-gtm-name="0800-727-8736"
     hrefValue="tel:0800 727 8736"
   >
     0800 727 8736
@@ -49,7 +50,8 @@ const content3 = [
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-name={`${gtmName} - SAC - 0800 727 2763`}
+    data-gtm-subname="sac"
+    data-gtm-name="0800-727-2763"
     hrefValue="tel:0800 727 2763"
   >
     0800 727 2763
@@ -60,7 +62,8 @@ const content4 = [
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-name={`${gtmName} - MENSAGENS - porto.investimentos@portoseguro.com.br`}
+    data-gtm-subname="mensagens"
+    data-gtm-name="porto.investimentos@portoseguro.com.br"
     hrefValue="mailto:porto.investimentos@portoseguro.com.br"
   >
     porto.investimentos@portoseguro.com.br
@@ -74,7 +77,8 @@ const content5 = [
       <LinkText
         data-gtm-type={gtmType}
         data-gtm-clicktype={gtmClickType}
-        data-gtm-name={`${gtmName} - OUVIDORIA - 0800 727 1184`}
+        data-gtm-subname="ouvidoria"
+        data-gtm-name="0800-727-1184"
         hrefValue="tel:0800 727 1184"
       >
         0800 727 1184
@@ -82,7 +86,8 @@ const content5 = [
       <LinkText
         data-gtm-type={gtmType}
         data-gtm-clicktype={gtmClickType}
-        data-gtm-name={`${gtmName} - OUVIDORIA - (11) 3366 3184`}
+        data-gtm-subname="ouvidoria"
+        data-gtm-name="(11)-3366-3184"
         hrefValue="tel:(11) 3366 3184"
       >
         (11) 3366 3184
@@ -92,7 +97,8 @@ const content5 = [
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-name={`${gtmName} - OUVIDORIA - ouvidoria@portoseguro.com.br`}
+    data-gtm-subname="ouvidoria"
+    data-gtm-name="ouvidoria@portoseguro.com.br"
     hrefValue="mailto:ouvidoria@portoseguro.com.br"
   >
     ouvidoria@portoseguro.com.br
@@ -103,12 +109,14 @@ const content6 = [
   <Logo
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-name={`${gtmName} - UMA PLATAFORMA - Logo Porto-Seguro`}
+    data-gtm-subname="uma plataforma"
+    data-gtm-name="Logo Porto-Seguro"
   />,
   <Link
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-name={`${gtmName} - UMA PLATAFORMA - POLÍTICA DE PRIVACIDADE`}
+    data-gtm-subname="uma plataforma"
+    data-gtm-name="política de privacidade"
     to="/"
   >
     <UppercaseBlueText>POLÍTICA DE PRIVACIDADE</UppercaseBlueText>
@@ -138,7 +146,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <FooterWrapper data-gtm-type="container" data-gtm-name={gtmName}>
+    <FooterWrapper data-gtm-type="container" data-gtm-name="footer">
       <BorderTop />
       <GridContainer>
         <GridRow>

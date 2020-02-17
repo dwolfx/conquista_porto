@@ -2,15 +2,15 @@
 
 exports[`TopBanner renders correctly 1`] = `
 <section
-  className="sc-htpNat gkcgIn"
+  className="sc-ifAKCX jTBjwu"
 >
   <div
-    className="sc-bxivhb eHGKbp"
-    data-gtm-name="Fundos de Investimentos"
+    className="sc-EHOje bPQYvy"
+    data-gtm-name="banner Fundos de Investimentos"
     data-gtm-type="container"
   >
     <h1
-      className="sc-EHOje nTaje"
+      className="sc-gzVnrw hoTfmd"
     >
       Fundos de Investimentos
     </h1>
@@ -21,7 +21,7 @@ exports[`TopBanner renders correctly 1`] = `
   </div>
   <img
     alt="Homem pesquisando investimentos em um website em seu computador"
-    className="sc-ifAKCX gOTEnr"
+    className="sc-bZQynM iVfWNu"
     src="banner_investimentos.jpg"
   />
 </section>

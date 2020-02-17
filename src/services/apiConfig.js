@@ -1,10 +1,12 @@
 import store from 'store'
 import { TOKEN_NAME } from 'store/modules/Auth/types'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
+import { dataLayerErrorInfo } from 'GoogleTagManager'
 const baseURL = process.env.REACT_APP_BASE_URL
 
 const responseInterceptor = response => {
   if (response.data.TipoCritica) {
+    dataLayerErrorInfo(response.data.TipoCritica)
     throw Error(response.data.Mensagem)
   }
   return response

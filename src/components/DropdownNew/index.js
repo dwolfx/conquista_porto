@@ -47,12 +47,12 @@ import {
  */
 
 export default function Dropdown({
-  title,
   items,
   children,
   nodes,
   containerPadding,
   redirectPath,
+  ...rest
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
@@ -113,7 +113,8 @@ export default function Dropdown({
         <ItemWrapper
           data-gtm-type="click"
           data-gtm-clicktype="link"
-          data-gtm-name={`${title} - ${subMenuTitle} - ${element.text}`}
+          data-gtm-subname={subMenuTitle}
+          data-gtm-name={element.text}
           key={element.text}
           onClick={() => element.path && handleClick(element.path)}
         >
@@ -193,7 +194,8 @@ export default function Dropdown({
                 <ItemWrapper
                   data-gtm-type="click"
                   data-gtm-clicktype={item.children ? 'sub-menu' : 'link'}
-                  data-gtm-name={`${title} - ${item.text}`}
+                  data-gtm-subname={rest.title}
+                  data-gtm-name={item.text}
                   key={item.text}
                   onMouseEnter={() =>
                     handleMountChildren(
@@ -229,7 +231,6 @@ export default function Dropdown({
 }
 
 Dropdown.propTypes = {
-  title: PropTypes.string.isRequired,
   items: mobileItemsPropTypes,
   children: PropTypes.element.isRequired,
   containerPadding: PropTypes.string,

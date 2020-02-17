@@ -42,19 +42,21 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
   }
 
   return (
-    <Container data-gtm-type="container" data-gtm-name="Responsive - Header">
+    <Container data-gtm-type="container" data-gtm-name="responsive header">
       <Content>
         <Header>
           <ConquistaBeta
             data-gtm-type="click"
-            data-gtm-clicktype="Link"
-            data-gtm-name="Responsive Header - Conquista Logo"
+            data-gtm-clicktype="link"
+            data-gtm-subname="responsive header"
+            data-gtm-name="conquista logo"
             onClick={() => closeAndRedirectHome()}
           />
           <ResponsiveMenu
             data-gtm-type="click"
-            data-gtm-clicktype="Button"
-            data-gtm-name="Responsive Header - Close Menu"
+            data-gtm-clicktype="button"
+            data-gtm-subname="responsive header"
+            data-gtm-name="fechar menu"
             onClick={() => setIsOpen(false)}
           >
             <Icon name="close" />
@@ -75,9 +77,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                 content: `${totalPoints} pontos`,
               },
             ]}
-            gtmType="click"
-            gtmClickType="link"
-            gtmName="Responsive Header Menu - Perfil"
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            data-gtm-subname="responsive header menu"
+            data-gtm-name="perfil"
             path="/perfil"
             callbackClickFn={() => setIsOpen(false)}
           />
@@ -94,9 +97,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
             ]}
             path="/notificacoes"
             callbackClickFn={() => setIsOpen(false)}
-            gtmType="click"
-            gtmClickType="link"
-            gtmName="Responsive Header Menu - Novas notificações disponíveis"
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            data-gtm-subname="responsive header menu"
+            data-gtm-name="novas notificações disponiveis"
           />
         </NotificationContainer>
         <ProductsContainer>
@@ -116,9 +120,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                           content: item.text,
                         },
                       ]}
-                      gtmType="click"
-                      gtmClickType="accordion"
-                      gtmName={`Responsive Header Menu - Menu Produtos - ${item.text}`}
+                      data-gtm-type="click"
+                      data-gtm-clicktype="accordion"
+                      data-gtm-subname="responsive header menu"
+                      data-gtm-name={item.text}
                     />
                   }
                   noBackground
@@ -137,9 +142,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                       ]}
                       path={child.path}
                       callbackClickFn={() => setIsOpen(false)}
-                      gtmType="click"
-                      gtmClickType="link"
-                      gtmName={`Responsive Header Menu - Menu Produtos - ${item.text} = ${child.text}`}
+                      data-gtm-type="click"
+                      data-gtm-clicktype="link"
+                      data-gtm-subname="menu produtos"
+                      data-gtm-name={child.text}
                     />
                   ))}
                 </Accordion>
@@ -158,9 +164,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                 ]}
                 path={item.path}
                 callbackClickFn={() => setIsOpen(false)}
-                gtmType="click"
-                gtmClickType="link"
-                gtmName={`Responsive Header Menu - Menu Produtos - ${item.text}`}
+                data-gtm-type="click"
+                data-gtm-clicktype="link"
+                data-gtm-subname="responsive header menu"
+                data-gtm-name={item.text}
               />
             )
           })}
@@ -169,8 +176,9 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
       <Footer>
         <Button
           data-gtm-type="click"
-          data-gtm-clicktype="Button"
-          data-gtm-name="Responsive Header - SAIR"
+          data-gtm-clicktype="button"
+          data-gtm-subname="responsive header"
+          data-gtm-name="sair"
           iconName="leave"
         >
           SAIR

@@ -73,7 +73,7 @@ export default function HeaderNew() {
     }
   }, [])
 
-  const dropdownItemsTitle = 'Dropdown menu header'
+  const dropdownGtmItemsTitle = 'dropdown menu header'
   const items = [
     {
       icon: 'home',
@@ -158,21 +158,27 @@ export default function HeaderNew() {
           }
         />
       )}
-      <BgWrapper isScrolled={isMobile}>
+      <BgWrapper
+        isScrolled={isMobile}
+        data-gtm-type="container"
+        data-gtm-name="responsive header"
+      >
         <GridContainer>
           <LeftBlock>
             <ConquistaBeta
               data-gtm-type="click"
-              data-gtm-clicktype="Link"
-              data-gtm-name="Responsive Header - Conquista Logo"
+              data-gtm-clicktype="link"
+              data-gtm-subname="header"
+              data-gtm-name="conquista logo"
               onClick={() => history.push('/')}
             />
           </LeftBlock>
           <RightBlock>
             <ResponsiveMenu
               data-gtm-type="click"
-              data-gtm-clicktype="Button"
-              data-gtm-name="Responsive Header - Open Menu"
+              data-gtm-clicktype="button"
+              data-gtm-subname="responsive header"
+              data-gtm-name="abrir menu"
               onClick={() => setIsMobileOpen(!isMobileOpen)}
             >
               <Icon name="menu" color="white" />
@@ -187,19 +193,20 @@ export default function HeaderNew() {
     <BgWrapper
       isScrolled={isScrolled}
       data-gtm-type="container"
-      data-gtm-name="Header"
+      data-gtm-name="header"
     >
       <GridContainer>
         <LeftBlock>
           <ConquistaBeta
             data-gtm-type="click"
             data-gtm-clicktype="link"
-            data-gtm-name="Conquista Logo"
+            data-gtm-subname="header"
+            data-gtm-name="conquista logo"
             onClick={() => history.push('/')}
           />
           <DropDown
             items={items}
-            title={dropdownItemsTitle}
+            title={dropdownGtmItemsTitle}
             containerPadding="14px 0"
           >
             <MenuTag
@@ -207,7 +214,8 @@ export default function HeaderNew() {
               text="MENU"
               data-gtm-type="click"
               data-gtm-clicktype="menu"
-              data-gtm-name="Header Menu"
+              data-gtm-subname="header"
+              data-gtm-name="header menu"
             />
           </DropDown>
           {crumbs.length > 0 && <Icon name="arrowright2" />}
@@ -228,7 +236,8 @@ export default function HeaderNew() {
               <Name
                 data-gtm-type="click"
                 data-gtm-clicktype="link"
-                data-gtm-name="Header - Nome do Usuário"
+                data-gtm-subname="header"
+                data-gtm-name="nome do usuario"
               >
                 {bankData && bankData.titular}
               </Name>
@@ -236,7 +245,8 @@ export default function HeaderNew() {
                 <Points
                   data-gtm-type="click"
                   data-gtm-clicktype="link"
-                  data-gtm-name="Header - Quantidade de Pontos"
+                  data-gtm-subname="header"
+                  data-gtm-name="quantidade de pontos"
                 >
                   {Intl.NumberFormat().format(
                     calculatePointsAmountBalance(points)
@@ -249,8 +259,9 @@ export default function HeaderNew() {
           <Divisor vertical customSize="35px" />
           <Button
             data-gtm-type="click"
-            data-gtm-clicktype="Button"
-            data-gtm-name="Header - SAIR"
+            data-gtm-clicktype="button"
+            data-gtm-subname="header"
+            data-gtm-name="sair"
             iconName="leave"
             onClick={() => {
               dispatch(AuthRequestLogout(userData.accessToken))
