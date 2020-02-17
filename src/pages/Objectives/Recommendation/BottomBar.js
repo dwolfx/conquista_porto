@@ -62,7 +62,12 @@ const BottomBar = ({ goal, isLoading }) => {
   }
 
   const footerDrawer = () => (
-    <ButtonSubmit onClick={() => submitDrawer()} disabled={isLoading}>
+    <ButtonSubmit
+      data-gtm-form="submit"
+      data-gtm-name="confirmar e recalcular"
+      onClick={() => submitDrawer()}
+      disabled={isLoading}
+    >
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
@@ -70,14 +75,16 @@ const BottomBar = ({ goal, isLoading }) => {
   return (
     <SectionBar>
       <Drawer
-        drawerTitle="Resumo"
+        drawerTitle="resumo"
         isOpen={isDrawerOpen}
         handleClose={() => setIsDrawerOpen(false)}
         footer={footerDrawer()}
       >
-        <FormWrapper>
+        <FormWrapper data-gtm-type="form" data-gtm-name="resumo">
           <ColInput>
             <InputText
+              data-gtm-form="input"
+              data-gtm-name="apelido"
               name="nickname"
               prefix="#"
               label="Apelido"
@@ -87,6 +94,8 @@ const BottomBar = ({ goal, isLoading }) => {
           </ColInput>
           <ColInput>
             <InputText
+              data-gtm-form="input"
+              data-gtm-name="investimento inicial"
               name="initialValue"
               prefix="R$"
               label="Investimento inicial"
@@ -96,6 +105,8 @@ const BottomBar = ({ goal, isLoading }) => {
           </ColInput>
           <ColInput>
             <InputText
+              data-gtm-form="input"
+              data-gtm-name="investimento mensal"
               name="monthlyValue"
               prefix="R$"
               label="Investimento mensal"
@@ -105,6 +116,8 @@ const BottomBar = ({ goal, isLoading }) => {
           </ColInput>
           <ColInput>
             <InputText
+              data-gtm-form="input"
+              data-gtm-name="meta financeira"
               name="targetValue"
               prefix="R$"
               label="Meta financeira"
@@ -114,6 +127,8 @@ const BottomBar = ({ goal, isLoading }) => {
           </ColInput>
           <ColInput>
             <InputText
+              data-gtm-form="input"
+              data-gtm-name="data-alvo"
               name="targetDate"
               label="Data-alvo"
               onChange={handleSingleValue}
@@ -126,12 +141,20 @@ const BottomBar = ({ goal, isLoading }) => {
         <Row justifyContent="end">
           <Col lgAuto>
             <ButtonBar
+              data-gtm-subname="barra inferior"
+              data-gtm-name="resumo"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
               color="primary"
               onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             >
               Resumo
             </ButtonBar>
             <ButtonBar
+              data-gtm-subname="barra inferior"
+              data-gtm-name="continuar"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
               color="secondary"
               onClick={() =>
                 history.push({

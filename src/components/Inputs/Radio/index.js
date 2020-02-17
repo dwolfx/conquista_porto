@@ -25,7 +25,13 @@ const RadioComponent = ({
         key={`#${props.name}-${item.value}-${index}`}
         disabled={item.disabled}
       >
-        <RadioInput value={item.value} onChange={onChange} {...props} />
+        <RadioInput
+          data-gtm-form="radio"
+          data-gtm-name={item.name}
+          value={item.value}
+          onChange={onChange}
+          {...props}
+        />
         {item.name}
       </RadioLabel>
     ))

@@ -2,50 +2,6 @@ import TagManager from 'react-gtm-module'
 import sha256 from 'crypto-js/sha256'
 import packageJson from '../../package.json'
 
-export const dataLayerServiceSolicitation = (
-  id,
-  name,
-  product,
-  status,
-  returnType,
-  description
-) => {
-  const serviceSolicitation = {
-    dataLayer: {
-      event: 'solicitacao_servico',
-      id_solicitacao: id,
-      nome_servico: name,
-      produto: product,
-      status,
-      retorno: returnType,
-      descricao: description,
-    },
-  }
-  TagManager.dataLayer(serviceSolicitation)
-}
-
-export const dataLayerSearchInfo = (
-  name,
-  type,
-  product,
-  status,
-  returnType,
-  description
-) => {
-  const SearchInfo = {
-    dataLayer: {
-      event: 'resultado_consulta',
-      nome_servico: name,
-      tipo_busca: type,
-      produto: product,
-      status,
-      retorno: returnType,
-      descricao: description,
-    },
-  }
-  TagManager.dataLayer(SearchInfo)
-}
-
 export const dataLayerErrorInfo = description => {
   const SearchInfo = {
     dataLayer: {

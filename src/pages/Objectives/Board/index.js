@@ -27,6 +27,10 @@ const Board = () => {
               <CardTitle>{card.label}</CardTitle>
               {card.route && (
                 <Button
+                  data-gtm-subname={`card ${card.label}`}
+                  data-gtm-name="escolher"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
                   outline
                   onClick={() =>
                     handleFlowRedirect(`${match.path}${card.route}`)
