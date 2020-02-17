@@ -3,6 +3,7 @@ import { HashRouter, useLocation } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
+import 'moment/locale/pt-br'
 
 import TagManager from 'react-gtm-module'
 import store from './store'
@@ -21,7 +22,7 @@ function ScrollToTopOnMount() {
 }
 
 const tagManagerArgs = {
-  gtmId: 'GTM-P6KJKN7',
+  gtmId: 'GTM-M4L9HVF',
 }
 
 TagManager.initialize(tagManagerArgs)

@@ -56,6 +56,29 @@ export const dataLayerErrorInfo = description => {
   TagManager.dataLayer(SearchInfo)
 }
 
+export const dataLayerProductSuggestion = (
+  products,
+  returnType,
+  description
+) => {
+  const productList = products.map(product => ({
+    id: product.id,
+    name: product.name,
+    category: product.category,
+    position: product.position,
+  }))
+
+  const ProductSuggestion = {
+    dataLayer: {
+      event: 'lista_sugestao',
+      products: productList,
+      retorno: returnType,
+      descricao: description,
+    },
+  }
+  TagManager.dataLayer(ProductSuggestion)
+}
+
 const setCustomData = (auth, points, title) => {
   const hash = sha256(auth.cpf)
   const productList = [

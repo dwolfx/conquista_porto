@@ -42,6 +42,7 @@ router.render = (req, res) => {
         goalType: '1',
         easyToSavePlannedAmount: false,
         targetDateFlexible: false,
+        suggestionGoal: false,
       },
       combo: [
         {

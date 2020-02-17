@@ -304,6 +304,12 @@ export default function Routes({ ...props }) {
         component={PointsStatement}
         pageTitle="Pontos - Extrato"
       />
+      <DefaultRoute
+        path="/objetivos/gerenciar"
+        exact
+        component={ObjectivesManager}
+        pageTitle="Objetivos - Gerenciar"
+      />
       <Route
         path="/objetivos"
         component={Objectives}
@@ -314,12 +320,6 @@ export default function Routes({ ...props }) {
         exact
         component={ProfileRegistration}
         pageTitle="Perfil - Cadastro"
-      />
-      <DefaultRoute
-        path="/objetivos/gerenciar"
-        exact
-        component={ObjectivesManager}
-        pageTitle="Objetivos - Gerenciar"
       />
       <Route
         path="/perfil/investidor-perfil"

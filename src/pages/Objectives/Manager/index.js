@@ -10,6 +10,9 @@ import creditImg from 'assets/images/pages/Objectives/creditCard.png'
 import planeImg from 'assets/images/pages/Objectives/travelSecurity.png'
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
+import { useSelector } from 'react-redux'
+import moment from 'moment'
+
 import {
   GridContainer,
   Banner,
@@ -21,31 +24,30 @@ import {
 } from './styles'
 
 export default function Manager(location) {
+  const { data: objectiveData } = useSelector(state => state.objective)
   const { pageRecommendation } = location.store || false
+
+  if (!objectiveData) {
+    return null
+  }
+
+  const { nickname, targetValue, targetDate } = objectiveData.goal
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
-      #MeuCarroZero
+      #{nickname}
     </Text>
   )
   const horizontalListGoalMoney = (
     <ColumnWrapper>
-      <Text type="body" color="gray5">
-        META (R$)
-      </Text>
-      <Text type="body" color="black">
-        {formatMoney(90000)}
-      </Text>
+      <Text color="gray5">META (R$)</Text>
+      <Text color="black">{formatMoney(targetValue)}</Text>
     </ColumnWrapper>
   )
   const horizontalListGoalDate = (
     <ColumnWrapper>
-      <Text type="body" color="gray5">
-        META (DATA)
-      </Text>
-      <Text type="body" color="black">
-        Set 2025
-      </Text>
+      <Text color="gray5">META (DATA)</Text>
+      <Text color="black">{moment(targetDate).format('MMM YYYY')}</Text>
     </ColumnWrapper>
   )
   const horizontalListBtnEdit = <ButtonLink noIcon>EDITAR OBJETIVO</ButtonLink>
@@ -60,7 +62,7 @@ export default function Manager(location) {
           <Text type="heading3" color="white">
             Objetivo criado com sucesso!
           </Text>
-          <Text type="body" color="white">
+          <Text color="white">
             Aqui, você acompanha o progresso e contrata produtos que ajudam no
             seu objetivo.
           </Text>
@@ -101,7 +103,7 @@ export default function Manager(location) {
             <Button color="secondary">CONHECER</Button>
           </Banner>
           <Banner bgImage={planeImg}>
-            <Text type="headline " color="white">
+            <Text type="headline" color="white">
               Seguro Viagem
             </Text>
             <Text type="captionUppercase" color="white">
