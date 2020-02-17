@@ -19,8 +19,8 @@ export default function Login() {
   const dispatch = useDispatch()
 
   const [credentials, setCredentials] = useState({
-    username: '39812241833',
-    password: 'senha123',
+    username: '',
+    password: '',
   })
 
   const handleInputOnChange = key => event => {
