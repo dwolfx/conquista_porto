@@ -5,8 +5,8 @@ import { dataLayerErrorInfo } from 'GoogleTagManager'
 const baseURL = process.env.REACT_APP_BASE_URL
 
 const responseInterceptor = response => {
-  dataLayerErrorInfo(response.data.TipoCritica)
   if (response.data.TipoCritica) {
+    dataLayerErrorInfo(response.data.TipoCritica)
     throw Error(response.data.Mensagem)
   }
   return response
