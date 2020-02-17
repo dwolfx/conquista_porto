@@ -39,7 +39,16 @@ export default function SectionTwo({ onRedirect, objectives }) {
   }, [isMobile])
 
   const renderObjectiveCardFooter = () =>
-    objectives ? <OfferCardButton>Gerenciar objetivos</OfferCardButton> : null
+    objectives ? (
+      <OfferCardButton
+        data-gtm-subname="card objetivos"
+        data-gtm-name="gerenciar objetivos"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+      >
+        Gerenciar objetivos
+      </OfferCardButton>
+    ) : null
 
   const renderEmptyState = () => (
     <EmptyBody>
@@ -47,7 +56,14 @@ export default function SectionTwo({ onRedirect, objectives }) {
         Com os Objetivos, fica mais fácil alcançar suas metas. Definindo-os,
         você receberá planos de investimentos personalizados.
       </EmptyText>
-      <EmptyButton color="secondary" onClick={() => onRedirect('/objetivos/')}>
+      <EmptyButton
+        data-gtm-subname="card objetivos"
+        data-gtm-name="criar objetivo"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        color="secondary"
+        onClick={() => onRedirect('/objetivos/')}
+      >
         CRIAR OBJETIVO
       </EmptyButton>
     </EmptyBody>

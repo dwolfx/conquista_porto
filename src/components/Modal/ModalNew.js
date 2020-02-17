@@ -65,7 +65,13 @@ const Modal = ({
             />
           )}
           <ModalTitle>{modalTitle}</ModalTitle>
-          <CloseButton onClick={handleClose} />
+          <CloseButton
+            data-gtm-subname={`modal ${modalTitle}`}
+            data-gtm-name="botao fechar"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={handleClose}
+          />
         </ModalHeader>
         <ChildrenWrapper>{children}</ChildrenWrapper>
       </ModalContainer>

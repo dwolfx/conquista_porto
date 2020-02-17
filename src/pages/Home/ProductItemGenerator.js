@@ -40,7 +40,11 @@ const ProductItemGenerator = (
                 <Text type="headline">{atualItemDetail.title}</Text>
               </ProductItemRow>
               {atualItemDetail.subTitle(product)}
-              {atualItemDetail.bottomLine(product, history)}
+              {atualItemDetail.bottomLine(
+                product,
+                history,
+                atualItemDetail.title
+              )}
             </ProductItem>
           </React.Fragment>
         )
@@ -76,6 +80,10 @@ const itemDetail = {
 
       const endItems = [
         <ButtonLink
+          data-gtm-subname="card credito cartao de credito"
+          data-gtm-name="gerenciar"
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
           onClick={() => {
             history.push(link)
           }}
@@ -155,6 +163,10 @@ function lifeInsuranceBottomLine(product, history) {
 
   const endItems = [
     <ButtonLink
+      data-gtm-subname="card seguros seguro de vida"
+      data-gtm-name="gerenciar"
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
       onClick={() => {
         history.push(link)
       }}
@@ -191,6 +203,10 @@ function tripInsuranceBottomLine(product, history) {
 
   const endItems = [
     <ButtonLink
+      data-gtm-subname="card seguros seguro viagem"
+      data-gtm-name="gerenciar"
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
       onClick={() => {
         history.push(link)
       }}
@@ -204,7 +220,7 @@ function tripInsuranceBottomLine(product, history) {
   )
 }
 
-function genericBottomLine(product, history) {
+function genericBottomLine(product, history, itemTitle) {
   const { link } = this
 
   const startItems = [
@@ -221,6 +237,10 @@ function genericBottomLine(product, history) {
 
   const endItems = [
     <ButtonLink
+      data-gtm-subname={`card credito ${itemTitle}`}
+      data-gtm-name="gerenciar"
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
       onClick={() => {
         history.push(link)
       }}
@@ -236,7 +256,11 @@ function genericBottomLine(product, history) {
 
 const EmptyProductItem = ({ atualItemDetail }) => {
   const history = useHistory()
-
+  const cardTitle =
+    atualItemDetail.title === 'Seguro de Vida' ||
+    atualItemDetail.title === 'Seguro Viagem'
+      ? 'seguros'
+      : 'credito'
   return (
     <EmptyProductItemRow>
       <HorizontalListWithMargin
@@ -247,6 +271,10 @@ const EmptyProductItem = ({ atualItemDetail }) => {
         ]}
         endItems={[
           <Button
+            data-gtm-subname={`card ${cardTitle} ${atualItemDetail.title}`}
+            data-gtm-name="conheca"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
             color="secondary"
             onClick={() => history.push(atualItemDetail.linkEmpty)}
           >

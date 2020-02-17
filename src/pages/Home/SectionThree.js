@@ -134,7 +134,13 @@ export default function SectionThree({ points }) {
     if (points) {
       return (
         <CardPontosFooter>
-          <ButtonLink onClick={() => setIsModalOpen(!isModalOpen)}>
+          <ButtonLink
+            data-gtm-subname="card pontos"
+            data-gtm-name="regras e condicoes"
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
             Regras e condições
           </ButtonLink>
         </CardPontosFooter>
@@ -169,6 +175,10 @@ export default function SectionThree({ points }) {
         exclusivos!
       </EmptyText>
       <EmptyButton
+        data-gtm-subname="card pontos"
+        data-gtm-name="ver regras e condicoes"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
         color="secondary"
         onClick={() => setIsModalOpen(!isModalOpen)}
       >
@@ -296,7 +306,17 @@ export default function SectionThree({ points }) {
                     : 0}{' '}
                   pontos
                 </Text>
-                {points && <Button color="secondary">Resgatar</Button>}
+                {points && (
+                  <Button
+                    data-gtm-subname="card pontos"
+                    data-gtm-name="resgatar"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                    color="secondary"
+                  >
+                    Resgatar
+                  </Button>
+                )}
               </PointsInfo>
             )}
             {points &&

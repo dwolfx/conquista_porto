@@ -158,11 +158,7 @@ export default function HeaderNew() {
           }
         />
       )}
-      <BgWrapper
-        isScrolled={isMobile}
-        data-gtm-type="container"
-        data-gtm-name="responsive header"
-      >
+      <BgWrapper isScrolled={isMobile}>
         <GridContainer>
           <LeftBlock>
             <ConquistaBeta
@@ -190,11 +186,7 @@ export default function HeaderNew() {
   )
 
   const renderFullHeader = () => (
-    <BgWrapper
-      isScrolled={isScrolled}
-      data-gtm-type="container"
-      data-gtm-name="header"
-    >
+    <BgWrapper isScrolled={isScrolled}>
       <GridContainer>
         <LeftBlock>
           <ConquistaBeta
@@ -228,7 +220,12 @@ export default function HeaderNew() {
             containerPadding="14px 14px 0 14px"
             redirectPath="/notificacoes"
           >
-            <NotificationBell />
+            <NotificationBell
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="header"
+              data-gtm-name="icone notificacoes"
+            />
           </DropDown>
           <Avatar onClick={() => history.push('/perfil')} />
           <Profile onClick={() => history.push('/perfil')}>
