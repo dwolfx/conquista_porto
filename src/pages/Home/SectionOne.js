@@ -280,7 +280,13 @@ const InvestmentCard = () => {
                     : 0
                 )}
               </Text>
-              <ButtonLink onClick={() => setIsModalOpen(!isModalOpen)}>
+              <ButtonLink
+                data-gtm-subname="card investimentos saldo disponivel"
+                data-gtm-name="conta de investimento"
+                data-gtm-type="click"
+                data-gtm-clicktype="link"
+                onClick={() => setIsModalOpen(!isModalOpen)}
+              >
                 Conta de Investimento
               </ButtonLink>
             </InvestmentInfos>
@@ -296,6 +302,10 @@ const InvestmentCard = () => {
                 )}
               </Text>
               <ButtonLink
+                data-gtm-subname="card investimentos saldo a liquidar"
+                data-gtm-name="ver extrato"
+                data-gtm-type="click"
+                data-gtm-clicktype="link"
                 onClick={() => history.push('/investimentos/extrato')}
               >
                 Ver extrato
@@ -336,6 +346,10 @@ const InvestmentCard = () => {
           combina com seu perfil.
         </Text>
         <SliderBoxButton
+          data-gtm-subname="card investimentos diversificando com menos riscos"
+          data-gtm-name="conhecer"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
           color="secondary"
           onClick={() => history.push('/investimentos')}
         >
