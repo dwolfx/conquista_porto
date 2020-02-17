@@ -15,6 +15,8 @@ import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 
+import Accordion from 'components/Accordion'
+
 import {
   GridContainer,
   Banner,
@@ -24,7 +26,10 @@ import {
   ColumnWrapper,
   FullHeightCard,
   Wallet,
+  AccordionContentWrapper,
 } from './styles'
+
+const managerData = require('./managerData.json')
 
 export default function Manager(location) {
   const { data: objectiveData } = useSelector(state => state.objective)
@@ -33,6 +38,8 @@ export default function Manager(location) {
   if (!objectiveData) {
     return null
   }
+
+  console.log('...MANAGER DATA:', managerData)
 
   const { nickname, targetValue, targetDate } = objectiveData.goal
 
@@ -109,7 +116,20 @@ export default function Manager(location) {
                 Adicionar fundo
               </Button>
             }
-          ></FullHeightCard>
+          >
+            {managerData.fund_list.map(fund => (
+              <Accordion
+                key={fund.id}
+                id={fund.id}
+                labelNode="nome do fundo"
+                titleNode={fund.name}
+              >
+                <AccordionContentWrapper margin="0px 0px 10px 0px">
+                  <Text>CONTENT TEST</Text>
+                </AccordionContentWrapper>
+              </Accordion>
+            ))}
+          </FullHeightCard>
         </Col>
       </Wallet>
 

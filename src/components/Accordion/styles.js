@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import Text from 'components/Text'
+
 import ArrowIcon from 'assets/icons/arrow-down2.svg'
 
 export const AccordionHeader = styled.div`
@@ -7,6 +9,7 @@ export const AccordionHeader = styled.div`
   position: relative;
   padding: ${props => (props.padding ? props.padding : '15px 30px')};
   cursor: pointer;
+  flex-direction: column;
 
   &:after {
     content: '';
@@ -23,6 +26,16 @@ export const AccordionHeader = styled.div`
     transition: all ease 0.3s;
   }
 `
+
+export const AccordionHeaderLabel = styled.div`
+  color: ${props => props.theme.colors.gray5};
+  font-family: ${props => props.theme.fontTypes.captionUppercase};
+`
+
+export const AccordionHeaderText = styled(Text).attrs(() => ({
+  type: 'headline',
+  bold: true,
+}))``
 
 export const AccordionBody = styled.div`
   padding: ${props => (props.noBodyPadding ? '0px' : '15px 30px')};
