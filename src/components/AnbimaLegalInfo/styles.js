@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import TextComponent from 'components/Text'
 
-export const GridContainer = styled(Container)``
+export const GridContainer = styled(Container)`
+  padding: 14px 0;
+`
+
 export const GridRow = styled(Row)``
 export const GridCol = styled(Col)``
 
