@@ -5,6 +5,7 @@ import { dataLayerErrorInfo } from 'GoogleTagManager'
 const baseURL = process.env.REACT_APP_BASE_URL
 
 const responseInterceptor = response => {
+  dataLayerErrorInfo(response.data.TipoCritica)
   if (response.data.TipoCritica) {
     throw Error(response.data.Mensagem)
   }
@@ -12,7 +13,6 @@ const responseInterceptor = response => {
 }
 
 const responseErrorInterceptor = error => {
-  dataLayerErrorInfo(error.response.data)
   if (error.response.status === 401) {
     store.dispatch(AuthRequestLogout())
   }
