@@ -207,8 +207,8 @@ export default function ManagementInvestments({ history }) {
         </CustomContent>
       </SectionCustomPicture>
       <FundsCarouselSection />
-      <AnbimaLegalInfo />
       <FileDownloadSection data={downloadFileSectionData} />
+      <AnbimaLegalInfo />
     </>
   )
 }

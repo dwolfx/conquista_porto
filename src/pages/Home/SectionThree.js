@@ -132,7 +132,13 @@ export default function SectionThree({ points }) {
 
   const renderPointsFooter = () => (
     <CardPontosFooter>
-      <ButtonLink onClick={() => setIsModalOpen(!isModalOpen)}>
+      <ButtonLink
+        data-gtm-subname="card pontos"
+        data-gtm-name="regras e condicoes"
+        data-gtm-type="click"
+        data-gtm-clicktype="link"
+        onClick={() => setIsModalOpen(!isModalOpen)}
+      >
         Regras e condições
       </ButtonLink>
     </CardPontosFooter>
@@ -276,7 +282,15 @@ export default function SectionThree({ points }) {
               <Icon name="information" color="blue4" />
               {points && (
                 <PointsButtonWrapper>
-                  <Button color="secondary">Resgatar</Button>
+                  <Button
+                    data-gtm-subname="card pontos"
+                    data-gtm-name="resgatar"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                    color="secondary"
+                  >
+                    Resgatar
+                  </Button>
                 </PointsButtonWrapper>
               )}
             </PointsInfo>
