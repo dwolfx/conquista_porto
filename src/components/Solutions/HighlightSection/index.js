@@ -33,9 +33,14 @@ export default function HighlightSection({
           onClick={onClick}
           data-gtm-type="click"
           data-gtm-clicktype="button"
-          data-gtm-subname={`highlight section - ${title}`}
-          data-gtm-name={buttonText}
+          data-gtm-subname={`${title}`}
+          data-gtm-name={
+            typeof buttonText === 'string'
+              ? buttonText
+              : buttonText.props.children[0]
+          }
         >
+          {console.log(buttonText)}
           {buttonText}
         </Button>
       </Content>
