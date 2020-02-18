@@ -45,7 +45,7 @@ export const AccordionBody = styled.div`
 export const AccordionWrapper = styled.div`
   background-color: ${props =>
     props.noBackground ? 'transparent' : props.theme.colors.white};
-  max-height: ${props => (props.isOpen ? '5000px' : '54px')};
+  max-height: ${props => (props.isOpen ? '5000px' : '84px')};
   transition: all ease-in-out 0.4s;
   overflow: hidden;
   margin-bottom: ${props => props.padding && props.padding};
