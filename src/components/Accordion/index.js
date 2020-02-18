@@ -30,11 +30,7 @@ const Accordion = ({
         onClick={() => setIsOpen(!isOpen)}
         labelNode
       >
-        {labelNode ? (
-          <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>
-        ) : (
-          false
-        )}
+        {labelNode && <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>}
         <AccordionHeaderText>{titleNode}</AccordionHeaderText>
       </AccordionHeader>
       <AccordionBody noBodyPadding={noBodyPadding}>{children}</AccordionBody>
