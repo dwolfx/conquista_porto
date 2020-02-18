@@ -17,8 +17,6 @@ import { formatMoney } from 'helpers'
 import pointsCardsData from './pointsCardsData'
 import {
   EmptyBody,
-  EmptyText,
-  EmptyButton,
   SectionCol,
   FullHeightCard,
   CardPontosFooter,
@@ -37,6 +35,8 @@ import {
   ContainerBox,
   ModalTextWrapper,
   PointsExtractListWrapper,
+  PointsButtonWrapper,
+  Icon,
 } from './styles'
 
 export default function SectionThree({ points }) {
@@ -130,25 +130,19 @@ export default function SectionThree({ points }) {
     }).isRequired,
   }
 
-  const renderPointsFooter = () => {
-    if (points) {
-      return (
-        <CardPontosFooter>
-          <ButtonLink
-            data-gtm-subname="card pontos"
-            data-gtm-name="regras e condicoes"
-            data-gtm-type="click"
-            data-gtm-clicktype="link"
-            onClick={() => setIsModalOpen(!isModalOpen)}
-          >
-            Regras e condições
-          </ButtonLink>
-        </CardPontosFooter>
-      )
-    }
-
-    return null
-  }
+  const renderPointsFooter = () => (
+    <CardPontosFooter>
+      <ButtonLink
+        data-gtm-subname="card pontos"
+        data-gtm-name="regras e condicoes"
+        data-gtm-type="click"
+        data-gtm-clicktype="link"
+        onClick={() => setIsModalOpen(!isModalOpen)}
+      >
+        Regras e condições
+      </ButtonLink>
+    </CardPontosFooter>
+  )
 
   const renderPointsHorizontalList = () =>
     points.detalheExtratoOptemaisTypes &&
@@ -166,26 +160,6 @@ export default function SectionThree({ points }) {
         ]}
       />
     ))
-
-  const renderEmptyState = () => (
-    <EmptyBody>
-      <EmptyText bold>
-        Ao investir na nossa plataforma, fazer compras no cartão de crédito e ao
-        contratar produtos Porto Seguro você terá acesso a ofertas e descontos
-        exclusivos!
-      </EmptyText>
-      <EmptyButton
-        data-gtm-subname="card pontos"
-        data-gtm-name="ver regras e condicoes"
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        color="secondary"
-        onClick={() => setIsModalOpen(!isModalOpen)}
-      >
-        Ver regras e condições
-      </EmptyButton>
-    </EmptyBody>
-  )
 
   const renderModalContent = () => {
     const customText = (type, color, text) => (
@@ -293,20 +267,21 @@ export default function SectionThree({ points }) {
             headerTitle="Pontos"
             footer={renderPointsFooter()}
           >
-            {points && points.detalheExtratoOptemaisTypes && (
-              <PointsInfo>
-                <Text type="headline">Saldo atual</Text>
-                <Text type="headline" bold>
-                  {points
-                    ? Intl.NumberFormat().format(
-                        calculatePointsAmountBalance(
-                          points.detalheExtratoOptemaisTypes
-                        )
-                      )
-                    : 0}{' '}
-                  pontos
-                </Text>
-                {points && (
+            <PointsInfo>
+              <Text type="headline">
+                {points ? 'Saldo atual' : 'Você possui 0 pontos'}
+              </Text>
+              <Text type="headline" bold>
+                {!!points &&
+                  Intl.NumberFormat().format(
+                    calculatePointsAmountBalance(
+                      points.detalheExtratoOptemaisTypes
+                    )
+                  )}
+              </Text>
+              <Icon name="information" color="blue4" />
+              {points && (
+                <PointsButtonWrapper>
                   <Button
                     data-gtm-subname="card pontos"
                     data-gtm-name="resgatar"
@@ -316,18 +291,20 @@ export default function SectionThree({ points }) {
                   >
                     Resgatar
                   </Button>
-                )}
-              </PointsInfo>
-            )}
-            {points &&
-            points.detalheExtratoOptemaisTypes &&
-            points.detalheExtratoOptemaisTypes.length > 0 ? (
-              <>
+                </PointsButtonWrapper>
+              )}
+            </PointsInfo>
+            <>
+              {points ? (
                 <PointsList>{renderPointsHorizontalList()}</PointsList>
-              </>
-            ) : (
-              renderEmptyState()
-            )}
+              ) : (
+                <EmptyBody>
+                  <Text type="headline" color="gray5">
+                    Você não possui movimentações referente a pontos no momento.
+                  </Text>
+                </EmptyBody>
+              )}
+            </>
           </FullHeightCard>
         </PointsExtractListWrapper>
       </SectionCol>
