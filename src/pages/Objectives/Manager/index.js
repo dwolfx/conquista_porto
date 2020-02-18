@@ -39,8 +39,6 @@ export default function Manager(location) {
     return null
   }
 
-  console.log('...MANAGER DATA:', managerData)
-
   const { nickname, targetValue, targetDate } = objectiveData.goal
 
   const horizontalListTitle = (
