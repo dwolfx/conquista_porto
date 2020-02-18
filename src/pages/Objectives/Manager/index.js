@@ -29,7 +29,7 @@ import {
   AccordionContentWrapper,
 } from './styles'
 
-const managerData = require('./managerData.json')
+import managerData from './managerData.json'
 
 export default function Manager(location) {
   const { data: objectiveData } = useSelector(state => state.objective)
