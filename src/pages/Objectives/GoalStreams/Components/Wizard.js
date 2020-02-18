@@ -74,7 +74,7 @@ export const WizardFlow = ({ data, objective }) => {
     </WizardStep>
   )
 
-  const WizardButtom = () => (
+  const WizardButton = () => (
     <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
@@ -115,7 +115,7 @@ export const WizardFlow = ({ data, objective }) => {
         <RowFull>
           <Col lg="4" xs="12">
             {WizardContainer()}
-            {WizardButtom()}
+            {WizardButton()}
           </Col>
         </RowFull>
       </BodyWizard>
