@@ -1315,7 +1315,7 @@
     lodash "^4.17.11"
     recompose "^0.30.0"
 
-"@nivo/line@^0.61.2":
+"@nivo/line@^0.61.1":
   version "0.61.1"
   resolved "https://registry.yarnpkg.com/@nivo/line/-/line-0.61.1.tgz#7e857c4abababef3e019211deff9feb347cec788"
   integrity sha512-PZFGgcj+IlDtZG6kTdBrGJ5cJvs1w5kaAI86IaH5AXJ0MQqVIZYWgbXdf5Vg6Hv2ouLmwNwONA/ORACKVkG+YA==

@@ -1,0 +1,169 @@
+{
+  "id": "1",
+  "nickname": "Disney",
+  "target_value": 90000,
+  "target_date": "10/10/2021",
+  "total_balance": 10000,
+  "years": [
+    {
+      "month_map": {
+        "1": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "2": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "3": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "4": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "5": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "6": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "7": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "8": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "9": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "10": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "11": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "12": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        }
+      },
+      "year": 2020
+    },
+    {
+      "month_map": {
+        "1": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "2": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "3": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "4": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "5": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "6": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "7": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "8": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "9": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        },
+        "10": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        }
+      },
+      "year": 2020
+    }
+  ],
+  "fund_list": [
+    {
+      "id": "1",
+      "recommended": true,
+      "name": "Porto Seguro Renda Fixa Referenciado DI Crédito Privado",
+      "initial_deposit": 1000,
+      "monthly_deposit": 1000,
+      "balance": 10000,
+      "available": 9100,
+      "invested": 1000,
+      "goals": [
+        {
+          "id": "2",
+          "name": "MinhaFacul",
+          "value": 400
+        },
+        {
+          "id": "3",
+          "name": "Curso",
+          "value": 500
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "recommended": false,
+      "name": "Porto Seguro Renda Fixa",
+      "initial_deposit": 2000,
+      "monthly_deposit": 2000,
+      "balance": 20000,
+      "available": 20000,
+      "invested": 0,
+      "goals": []
+    }
+  ],
+  "additional": {
+    "travel_security": false,
+    "life_security": true,
+    "credit_card": true
+  }
+}
