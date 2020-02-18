@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, createRef, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
 import InputText from 'components/NewInput'
@@ -36,6 +36,7 @@ const QuestionInput = forwardRef(
       formData,
       name,
       onChangeFormData,
+      isFocused,
       options,
       question,
       ruleText,
@@ -54,6 +55,7 @@ const QuestionInput = forwardRef(
             onChange={onChangeFormData}
             value={formData[name]}
             error={error}
+            onFocus={isFocused && error} // TODO: continuar daqui. Passar prop para baixo 
             newInput
           />
         </OutterWrapper>
@@ -80,6 +82,7 @@ const QuestionInput = forwardRef(
             onChange={onChangeFormData}
             value={formData[name]}
             error={error}
+            onFocus={isFocused && error}
           />
         </OutterWrapper>
       )
@@ -94,6 +97,7 @@ const QuestionInput = forwardRef(
           prefix={prefix}
           value={formData[name]}
           error={error}
+          onFocus={isFocused && error}
         />
       </OutterWrapper>
     )

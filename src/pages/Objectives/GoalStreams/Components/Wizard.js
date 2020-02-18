@@ -25,6 +25,7 @@ export const WizardFlow = ({ data, objective }) => {
   const { isLoading, data: objectiveData } = useSelector(
     state => state.objective
   )
+  const [isFocused, setInputFocus] = useState(true)
 
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
@@ -55,6 +56,8 @@ export const WizardFlow = ({ data, objective }) => {
     setFormData({ ...formData, [name]: value })
   }
 
+  const handleInputFocus = () => setInputFocus(!isFocused)
+
   // useEffect to determine isActive
   useEffect(() => {
     const { name } = data[currentStep]
@@ -62,11 +65,14 @@ export const WizardFlow = ({ data, objective }) => {
     setIsActive(!invalid && hasValue)
   }, [setIsActive, formData, data, currentStep, invalid])
 
+  console.log("isFocused? " + isFocused)
+
   const WizardContainer = () => (
     <WizardStep>
       <QuestionInput
         formData={formData}
         onChangeFormData={handleSingleValue}
+        isFocused={isFocused}
         error={error}
         ref={inputRef}
         {...data[currentStep]}
@@ -78,14 +84,20 @@ export const WizardFlow = ({ data, objective }) => {
     <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
-          <ButtonAction outline onClick={decrement}>
+          <ButtonAction outline onClick={() => {
+            decrement()
+            handleInputFocus()
+          }}>
             Anterior
           </ButtonAction>
         </Col>
       )}
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs="12">
-          <ButtonAction onClick={increment} disabled={!isActive}>
+          <ButtonAction onClick={() => {
+            increment()
+            handleInputFocus()
+          }} disabled={!isActive}>
             Próximo
           </ButtonAction>
         </Col>
