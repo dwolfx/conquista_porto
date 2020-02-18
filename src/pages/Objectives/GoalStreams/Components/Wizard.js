@@ -35,7 +35,7 @@ export const WizardFlow = ({ data, objective }) => {
   const postFlow = () => {
     dispatch(
       PostObjectiveDataRequest({
-        goalType: objective,
+        goal_type: objective,
         ...formData,
       })
     )

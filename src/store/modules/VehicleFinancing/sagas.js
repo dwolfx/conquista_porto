@@ -12,7 +12,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/financiamentos/auto?cpf=${cpf}&codigoCanal=0`
+      `/invest/financiamentos/auto?cpf=${cpf}&codigoCanal=0`
     )
     if (
       response.data.TipoCritica ||

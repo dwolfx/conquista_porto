@@ -19,8 +19,8 @@ const Board = () => {
     <Container>
       <Row justifyContent="center">
         {dataObjective.map(card => (
-          <Col key={card.goalType} lg={3} md={4} sm={6} xs={12}>
-            <CardWrapper key={card.goalType}>
+          <Col key={card.goal_type} lg={3} md={4} sm={6} xs={12}>
+            <CardWrapper key={card.goal_type}>
               <IconWrapper>
                 <Icon name={card.icon} color="blue4" width="56px" />
               </IconWrapper>

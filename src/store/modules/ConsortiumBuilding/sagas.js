@@ -11,7 +11,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`
+      `/invest/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`
     )
     yield put(GetConsortiumBuildingDataSuccess(response.data.consorcios))
   } catch (err) {

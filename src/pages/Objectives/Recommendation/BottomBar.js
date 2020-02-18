@@ -17,26 +17,26 @@ import {
   SectionBar,
 } from './styles'
 
-const BottomBar = ({ goal, isLoading }) => {
+const BottomBar = ({ answer, isLoading }) => {
   const {
     nickname,
-    targetDate,
-    targetValue,
-    initialValue,
-    monthlyValue,
-    goalType,
-  } = goal
+    target_date,
+    target_value,
+    initial_value,
+    monthly_value,
+    goal_type,
+  } = answer
   const history = useHistory()
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const [formData, setFormData] = useState({
     nickname,
-    targetDate,
-    targetValue,
-    initialValue,
-    monthlyValue,
-    goalType,
+    target_date,
+    target_value,
+    initial_value,
+    monthly_value,
+    goal_type,
   })
 
   const moneyMask = event => {
@@ -47,12 +47,12 @@ const BottomBar = ({ goal, isLoading }) => {
   const handleSingleValue = event => {
     const { name } = event.target
     if (
-      name === 'initialValue' ||
-      name === 'monthlyValue' ||
-      name === 'targetValue'
+      name === 'initia_value' ||
+      name === 'monthly_value' ||
+      name === 'target_value'
     )
       moneyMask(event)
-    if (name === 'targetDate') formatDateMask(event)
+    if (name === 'target_date') formatDateMask(event)
     setFormData({ ...formData, [name]: event.target.value })
   }
 
@@ -87,37 +87,37 @@ const BottomBar = ({ goal, isLoading }) => {
           </ColInput>
           <ColInput>
             <InputText
-              name="initialValue"
+              name="initial_value"
               prefix="R$"
               label="Investimento inicial"
               onChange={handleSingleValue}
-              value={formData.initialValue}
+              value={formData.initial_value}
             />
           </ColInput>
           <ColInput>
             <InputText
-              name="monthlyValue"
+              name="monthly_value"
               prefix="R$"
               label="Investimento mensal"
               onChange={handleSingleValue}
-              value={formData.monthlyValue}
+              value={formData.monthly_value}
             />
           </ColInput>
           <ColInput>
             <InputText
-              name="targetValue"
+              name="target_value"
               prefix="R$"
               label="Meta financeira"
               onChange={handleSingleValue}
-              value={formData.targetValue}
+              value={formData.target_value}
             />
           </ColInput>
           <ColInput>
             <InputText
-              name="targetDate"
+              name="target_date"
               label="Data-alvo"
               onChange={handleSingleValue}
-              value={formData.targetDate}
+              value={formData.target_date}
             />
           </ColInput>
         </FormWrapper>
@@ -150,18 +150,18 @@ const BottomBar = ({ goal, isLoading }) => {
 }
 
 BottomBar.defaultProps = {
-  goal: {},
+  answer: {},
 }
 
 BottomBar.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  goal: PropTypes.shape({
+  answer: PropTypes.shape({
     nickname: PropTypes.string.isRequired,
-    targetDate: PropTypes.string.isRequired,
-    targetValue: PropTypes.number.isRequired,
-    initialValue: PropTypes.number.isRequired,
-    monthlyValue: PropTypes.number.isRequired,
-    goalType: PropTypes.string.isRequired,
+    target_date: PropTypes.string.isRequired,
+    target_value: PropTypes.number.isRequired,
+    initial_value: PropTypes.number.isRequired,
+    monthly_value: PropTypes.number.isRequired,
+    goal_type: PropTypes.string.isRequired,
   }),
 }
 

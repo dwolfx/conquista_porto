@@ -3,7 +3,7 @@ import lifeSecurityImg from 'assets/images/pages/Objectives/lifeSecurity.png'
 import creditCardImg from 'assets/images/pages/Objectives/creditCard.png'
 
 export default {
-  travelSecurity: {
+  travel_security: {
     category: 'Seguro Viagem',
     title: 'Leve a tranquilidade na mala',
     text:
@@ -40,7 +40,7 @@ export default {
       ],
     },
   },
-  lifeSecurity: {
+  life_security: {
     category: 'Seguro de Vida',
     title: 'Suporte em todos os momentos',
     text:
@@ -77,7 +77,7 @@ export default {
       ],
     },
   },
-  creditCard: {
+  credit_card: {
     category: 'Cartão de Crédito',
     title: 'Benefícios além dos pontos',
     text:

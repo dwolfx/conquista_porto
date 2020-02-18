@@ -7,7 +7,7 @@ import { PostObjectiveDataSuccess, PostObjectiveDataFailure } from './action'
 function* postData(data) {
   const { payload } = data
   try {
-    const response = yield call(post, '/recommendation', payload)
+    const response = yield call(post, '/goal/recommendations', payload)
     yield put(PostObjectiveDataSuccess(response.data))
   } catch (err) {
     yield put(PostObjectiveDataFailure())
