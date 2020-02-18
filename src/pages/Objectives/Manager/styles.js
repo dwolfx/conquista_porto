@@ -56,3 +56,9 @@ export const Recommendations = styled.div`
 export const FullHeightCard = styled(Card)`
   height: 100%;
 `
+
+export const AccordionContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: ${props => (props.margin ? props.margin : '0px')};
+`
