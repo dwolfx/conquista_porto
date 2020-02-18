@@ -41,18 +41,6 @@ export const ColumnWrapper = styled.div`
   margin: ${props => props.margin};
 `
 
-export const Recommendations = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 21px;
-
-  && > div {
-    width: calc(50% - 7px);
-  }
-`
-
 export const FullHeightCard = styled(Card)`
   height: 100%;
 `

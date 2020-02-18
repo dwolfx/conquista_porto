@@ -1,15 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
+import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import { formatMoney } from 'helpers'
 
-import creditImg from 'assets/images/pages/Objectives/creditCard.png'
-import planeImg from 'assets/images/pages/Objectives/travelSecurity.png'
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
 import { useSelector } from 'react-redux'
@@ -23,22 +24,29 @@ import {
   Banner,
   ObjectiveDetails,
   ObjectiveHeader,
-  Recommendations,
   ColumnWrapper,
   FullHeightCard,
   Wallet,
   AccordionContentWrapper,
 } from './styles'
 
-export default function Manager(location) {
-  const { data: objectiveData } = useSelector(state => state.objective)
-  const { pageRecommendation } = location.store || false
+export default function Manager({ location }) {
+  const history = useHistory()
+  const { data: objectiveData } = useSelector(
+    state => state.objectiveManagement
+  )
+
+  const { pageRecommendation } = location.state || false
 
   if (!objectiveData) {
     return null
   }
 
-  const { nickname, target_value, target_date } = objectiveData.answer
+  const { nickname, target_value, target_date } = objectiveData
+
+  function handleRedirectToProduct(product) {
+    history.push(product.productPath)
+  }
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
@@ -130,32 +138,30 @@ export default function Manager(location) {
         </Col>
       </Wallet>
 
-      <ColumnWrapper>
-        <Text type="heading3" color="gray6">
-          Combine com o seu objetivo
-        </Text>
-        <Recommendations>
-          <Banner bgImage={creditImg}>
-            <Text type="heading4" color="white">
-              Cartão de Crédito
-            </Text>
-            <Text type="body" color="white">
-              O Cartão de Crédito que resolve e ainda dá vantagens e benefícios
-              da Porto Seguro para você, sua casa e seu carro.
-            </Text>
-            <Button color="secondary">CONHECER</Button>
-          </Banner>
-          <Banner bgImage={planeImg}>
-            <Text type="headline" color="white">
-              Seguro Viagem
-            </Text>
-            <Text type="captionUppercase" color="white">
-              COBERTURA PRINCIPAL
-            </Text>
-            {/* <Button color="secondary">CONHECER</Button> */}
-          </Banner>
-        </Recommendations>
-      </ColumnWrapper>
+      {Object.entries(objectiveData.additional).find(
+        ([, value]) => value === true
+      ) && (
+        <ColumnWrapper>
+          <Text type="heading3" color="gray6">
+            Combine com o seu objetivo
+          </Text>
+          <CardCombine
+            css={`
+              padding-top: 21px;
+            `}
+            additional={objectiveData.additional}
+            onClick={handleRedirectToProduct}
+          />
+        </ColumnWrapper>
+      )}
     </GridContainer>
   )
+}
+
+Manager.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      pageRecommendation: PropTypes.bool,
+    }),
+  }).isRequired,
 }

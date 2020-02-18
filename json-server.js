@@ -25,15 +25,15 @@ router.render = (req, res) => {
       item => +item.idNotificacao === +req.query.id
     )
     const { tipoNotificacao, ...rest } = notificacao
-    res.jsonp({ ...rest, lida: true })
+    return res.jsonp({ ...rest, lida: true })
   }
   if (req.originalUrl.startsWith('/api/goal/recommendations')) {
-    res.jsonp(recommendationMock)
+    return res.jsonp(recommendationMock)
   }
   if (req.originalUrl.startsWith('/api/goal/goals')) {
-    res.jsonp(objectiveMock)
+    return res.jsonp(objectiveMock)
   }
-  res.jsonp(res.locals.data)
+  return res.jsonp(res.locals.data)
 }
 
 server.use(router)
