@@ -65,7 +65,7 @@ const BottomBar = ({ answer, isLoading, id }) => {
 
   const submitToManagement = () => {
     function pushHistory(path) {
-      history.push(path)
+      history.push({ pathname: path, state: { pageRecommendation: true } })
     }
     dispatch(PostObjectiveManagementDataRequest({ id, pushHistory }))
   }
