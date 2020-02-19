@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
@@ -8,6 +8,7 @@ import { formatMoneyDecimal, formatDateMask } from 'helpers'
 import Drawer from 'components/Drawer'
 import InputText from 'components/NewInput'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+import { PostObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 import {
   ButtonBar,
   ButtonSubmit,
@@ -18,26 +19,15 @@ import {
 } from './styles'
 
 const BottomBar = ({ goal, isLoading }) => {
-  const {
-    nickname,
-    targetDate,
-    targetValue,
-    initialValue,
-    monthlyValue,
-    goalType,
-  } = goal
   const history = useHistory()
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-  const [formData, setFormData] = useState({
-    nickname,
-    targetDate,
-    targetValue,
-    initialValue,
-    monthlyValue,
-    goalType,
-  })
+  const [formData, setFormData] = useState({})
+
+  useEffect(() => {
+    setFormData({ ...goal })
+  }, [goal])
 
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
@@ -56,16 +46,22 @@ const BottomBar = ({ goal, isLoading }) => {
     setFormData({ ...formData, [name]: event.target.value })
   }
 
-  const submitDrawer = () => {
+  const submitToRecommendation = () => {
     dispatch(PostObjectiveDataRequest(formData))
     setIsDrawerOpen(!isDrawerOpen)
   }
 
   const footerDrawer = () => (
-    <ButtonSubmit onClick={() => submitDrawer()} disabled={isLoading}>
+    <ButtonSubmit onClick={() => submitToRecommendation()} disabled={isLoading}>
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
+
+  const submitToManagement = () => {
+    dispatch(PostObjectiveManagementDataRequest(formData))
+  }
+
+  console.log(submitToManagement)
 
   return (
     <SectionBar>
