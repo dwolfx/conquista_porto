@@ -128,7 +128,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
     return true
   }
 
-  let { name: productName } = creditProduct
+  let { name: productName } = creditProduct || ''
   productName = (productName || '').toLowerCase()
 
   return (
@@ -247,7 +247,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </FullHeightCard>
       </Col>
 
-      {combo.length > 1 && (
+      {creditProduct && combo.length > 1 && (
         <Col lg="3">
           <FullHeightCard
             headerIcon={

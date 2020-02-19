@@ -155,14 +155,16 @@ BottomBar.defaultProps = {
 
 BottomBar.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  answer: PropTypes.shape({
-    nickname: PropTypes.string.isRequired,
-    target_date: PropTypes.string.isRequired,
-    target_value: PropTypes.number.isRequired,
-    initial_value: PropTypes.number.isRequired,
-    monthly_value: PropTypes.number.isRequired,
-    goal_type: PropTypes.string.isRequired,
-  }),
+  answer: PropTypes.shape(
+    {
+      nickname: PropTypes.string,
+      target_date: PropTypes.string,
+      target_value: PropTypes.number,
+      initial_value: PropTypes.number,
+      monthly_value: PropTypes.number,
+      goal_type: PropTypes.string,
+    }.isRequired
+  ),
 }
 
 export default BottomBar
