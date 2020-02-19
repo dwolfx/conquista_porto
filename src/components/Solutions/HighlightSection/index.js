@@ -40,7 +40,6 @@ export default function HighlightSection({
               : buttonText.props.children[0]
           }
         >
-          {console.log(buttonText)}
           {buttonText}
         </Button>
       </Content>
