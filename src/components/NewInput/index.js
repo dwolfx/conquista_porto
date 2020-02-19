@@ -1,4 +1,4 @@
-import React, { createRef, forwardRef, useEffect } from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -13,8 +13,6 @@ import {
 
 const NewInput = forwardRef(
   ({ prefix, suffix, label, width, error, ...rest }, ref) => {
-    const inputRef = ref || createRef()
-
     return (
       <InputGroupWrapper>
         {label && <InputLabel>{label}</InputLabel>}

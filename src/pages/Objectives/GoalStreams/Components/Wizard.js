@@ -25,7 +25,6 @@ export const WizardFlow = ({ data, objective }) => {
   const { isLoading, data: objectiveData } = useSelector(
     state => state.objective
   )
-  const [isFocused, setInputFocus] = useState(true)
 
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
@@ -41,13 +40,7 @@ export const WizardFlow = ({ data, objective }) => {
       })
     )
   }
-
-  useEffect(() => {
-    if (objectiveData && !isLoading) {
-      history.push('/objetivos')
-    }
-  }, [history, isLoading, objectiveData])
-
+  
   const handleSingleValue = event => {
     const {
       target: { name, value },
@@ -56,7 +49,15 @@ export const WizardFlow = ({ data, objective }) => {
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleInputFocus = () => setInputFocus(!isFocused)
+  useEffect(() => {
+    if (objectiveData && !isLoading) {
+      history.push('/objetivos')
+    }
+  }, [history, isLoading, objectiveData])
+  
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [currentStep])
 
   // useEffect to determine isActive
   useEffect(() => {
@@ -65,14 +66,11 @@ export const WizardFlow = ({ data, objective }) => {
     setIsActive(!invalid && hasValue)
   }, [setIsActive, formData, data, currentStep, invalid])
 
-  console.log("isFocused? " + isFocused)
-
   const WizardContainer = () => (
     <WizardStep>
       <QuestionInput
         formData={formData}
         onChangeFormData={handleSingleValue}
-        isFocused={isFocused}
         error={error}
         ref={inputRef}
         {...data[currentStep]}
@@ -84,20 +82,14 @@ export const WizardFlow = ({ data, objective }) => {
     <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
-          <ButtonAction outline onClick={() => {
-            decrement()
-            handleInputFocus()
-          }}>
+          <ButtonAction outline onClick={decrement}>
             Anterior
           </ButtonAction>
         </Col>
       )}
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs="12">
-          <ButtonAction onClick={() => {
-            increment()
-            handleInputFocus()
-          }} disabled={!isActive}>
+          <ButtonAction onClick={increment} disabled={!isActive}>
             Próximo
           </ButtonAction>
         </Col>
