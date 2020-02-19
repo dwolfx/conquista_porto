@@ -6,7 +6,14 @@ import { File, Title } from './styles'
 const ArchiveDownload = ({ title, url }) => (
   <File>
     <Title>{title}</Title>
-    <ButtonLink target="_blank" href={url}>
+    <ButtonLink
+      target="_blank"
+      href={url}
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
+      data-gtm-subname={title}
+      data-gtm-name="Baixar arquivo"
+    >
       Baixar arquivo
     </ButtonLink>
   </File>
