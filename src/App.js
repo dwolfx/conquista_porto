@@ -3,7 +3,9 @@ import { HashRouter, useLocation } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
+import 'moment/locale/pt-br'
 
+import TagManager from 'react-gtm-module'
 import store from './store'
 import GlobalStyle from './styles/global'
 import theme from './styles/theme'
@@ -18,6 +20,12 @@ function ScrollToTopOnMount() {
 
   return null
 }
+
+const tagManagerArgs = {
+  gtmId: 'GTM-M4L9HVF',
+}
+
+TagManager.initialize(tagManagerArgs)
 
 const App = () => (
   <Provider store={store}>

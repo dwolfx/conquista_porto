@@ -140,7 +140,7 @@ export default function ManagementInvestments({ history }) {
           <LeftNav>
             <AddBtnLink
               onClick={() => {
-                history.push('/')
+                history.push('/investimentos/lista-fundos')
               }}
             >
               <Icon width="48" fill={theme.colors.gray3} name="add" />
@@ -174,7 +174,6 @@ export default function ManagementInvestments({ history }) {
             <GeneralView />
           </GeneralInfo> */}
         </PageContent>
-        <AnbimaLegalInfo />
       </Container>
       <HighlightSection
         title="Facilidade para investir"
@@ -183,6 +182,9 @@ export default function ManagementInvestments({ history }) {
         informações detalhadas de cada um e realiza seus investimentos com a
         segurança de uma plataforma da Porto Seguro."
         buttonText="lista de fundos"
+        onClick={() => {
+          history.push('/investimentos/lista-fundos')
+        }}
       />
       <SectionCustomPicture backgroundColor="#d6dde5">
         <CustomContent>
@@ -206,6 +208,7 @@ export default function ManagementInvestments({ history }) {
       </SectionCustomPicture>
       <FundsCarouselSection />
       <FileDownloadSection data={downloadFileSectionData} />
+      <AnbimaLegalInfo />
     </>
   )
 }

@@ -28,9 +28,9 @@ export default function Redirect(props) {
 
   function navigate() {
     if (props.history.location.state && props.history.location.state.url) {
-      window.location.replace(props.history.location.state.url)
+      window.open(props.history.location.state.url, '_blank')
     } else {
-      window.location.replace('https://www.portoseguro.com.br')
+      window.open('https://www.portoseguro.com.br', '_blank')
     }
   }
 

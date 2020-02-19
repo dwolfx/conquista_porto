@@ -1,58 +1,74 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
-import { formatMoneyDecimal, formatDateMask } from 'helpers'
-import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
-import TopBar from './TopBar'
-import QuestionFlow from './QuestionFlow'
 
+import useValidator from 'pages/Objectives/GoalStreams/useValidator'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+
+import TopBar from './TopBar'
+import QuestionInput from './QuestionInput'
 import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
+
+const getFormEntries = (data = []) =>
+  data.reduce((acc, cur) => ({ ...acc, [cur.name]: '' }), {})
 
 export const WizardFlow = ({ data, objective }) => {
   const history = useHistory()
+  const inputRef = useRef()
   const dispatch = useDispatch()
-  const goalRequisition = useSelector(state => state.objective.data)
   const [currentStep, setStepIndex] = useState(0)
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState(getFormEntries(data))
   const [isActive, setIsActive] = useState(false)
-  const computedState = {
-    isFirstStep: currentStep === 0,
-    isLastStep: currentStep === data.length - 1,
-  }
-  const { isFirstStep, isLastStep } = computedState
+  const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
+  const { isLoading, data: objectiveData } = useSelector(
+    state => state.objective
+  )
+
+  const isFirstStep = currentStep === 0
+  const isLastStep = currentStep === data.length - 1
+
   const increment = () => setStepIndex(currentStep + 1)
   const decrement = () => setStepIndex(currentStep - 1)
 
-  useEffect(() => {
-    setIsActive(!!formData[data[currentStep].name])
-    if (goalRequisition) history.push('/objetivos')
-  }, [formData, data, currentStep, goalRequisition, history])
-
-  const postFlow = () => dispatch(PostObjectiveDataRequest(objectiveData))
-
-  const moneyMask = event => {
-    const strippedValue = event.target.value.replace(/\D/g, '')
-    event.target.value = formatMoneyDecimal(strippedValue) // eslint-disable-line no-param-reassign
+  const postFlow = () => {
+    dispatch(
+      PostObjectiveDataRequest({
+        goalType: objective,
+        ...formData,
+      })
+    )
   }
+
+  useEffect(() => {
+    if (objectiveData && !isLoading) {
+      history.push('/objetivos')
+    }
+  }, [history, isLoading, objectiveData])
 
   const handleSingleValue = event => {
-    if (data[currentStep].type === 'number') moneyMask(event)
-    if (data[currentStep].type === 'date') formatDateMask(event)
-    setFormData({ ...formData, [event.target.name]: event.target.value })
+    const {
+      target: { name, value },
+    } = event
+
+    setFormData({ ...formData, [name]: value })
   }
 
-  const objectiveData = {
-    goalType: objective,
-    ...formData,
-  }
+  // useEffect to determine isActive
+  useEffect(() => {
+    const { name } = data[currentStep]
+    const hasValue = formData[name].toString().trim().length > 0
+    setIsActive(!invalid && hasValue)
+  }, [setIsActive, formData, data, currentStep, invalid])
 
   const WizardContainer = () => (
     <WizardStep>
-      <QuestionFlow
+      <QuestionInput
         formData={formData}
         onChangeFormData={handleSingleValue}
+        error={error}
+        ref={inputRef}
         {...data[currentStep]}
       />
     </WizardStep>
@@ -62,21 +78,38 @@ export const WizardFlow = ({ data, objective }) => {
     <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
-          <ButtonAction outline onClick={decrement}>
+          <ButtonAction
+            data-gtm-name="anterior"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            outline
+            onClick={decrement}
+          >
             Anterior
           </ButtonAction>
         </Col>
       )}
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs="12">
-          <ButtonAction onClick={increment} disabled={!isActive}>
+          <ButtonAction
+            data-gtm-form="submit"
+            data-gtm-name="proximo"
+            onClick={increment}
+            disabled={!isActive}
+          >
             Próximo
           </ButtonAction>
         </Col>
       )}
       {isLastStep && (
         <Col lg="6" xs="12">
-          <ButtonAction onClick={postFlow} disabled={!isActive}>
+          <ButtonAction
+            data-gtm-form="submit"
+            data-gtm-name="concluir"
+            onClick={postFlow}
+            disabled={!isActive || isLoading}
+            loading={isLoading}
+          >
             Concluir
           </ButtonAction>
         </Col>
@@ -88,7 +121,7 @@ export const WizardFlow = ({ data, objective }) => {
     <Wizard>
       <TopBar
         currentStep={currentStep + 1}
-        numberSteps={data.length}
+        numberSteps={data.length + 1}
         nickname={formData.nickname}
       />
       <BodyWizard>
@@ -109,6 +142,20 @@ WizardFlow.defaultProps = {
 }
 
 WizardFlow.propTypes = {
-  data: PropTypes.array,
-  objective: PropTypes.string,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      question: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      options: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+            .isRequired,
+        })
+      ),
+      validate: PropTypes.func,
+    })
+  ),
+  objective: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }

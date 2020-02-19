@@ -266,7 +266,7 @@ export const DescriptionContent = styled.div`
 
 export const Table = styled.table`
   border-collapse: collapse;
-
+  width: 100%;
   margin-top: 22px;
 
   thead {

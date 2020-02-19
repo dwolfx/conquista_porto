@@ -7,6 +7,7 @@ import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
+import ConquistaIcon from 'components/IconExporter'
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -170,9 +171,9 @@ export const PointsInfo = styled.div`
 
   p:first-child {
     color: ${props => props.theme.colors.gray5};
+    margin-left: 21px;
   }
   p:last-of-type {
-    flex: 1;
     padding: 0 14px;
   }
   button {
@@ -185,6 +186,9 @@ export const PointsList = styled.div`
   flex: 1;
   margin: 14px 0;
   overflow-y: scroll;
+`
+export const PointsButtonWrapper = styled.div`
+  margin-left: auto;
 `
 
 export const PointDate = styled(Text)`
@@ -428,4 +432,11 @@ export const TipBannerContainer = styled(Row)`
 export const ObjectivesContainer = styled(Row)`
   height: 50%;
   padding-bottom: 7px;
+`
+export const Icon = styled(ConquistaIcon).attrs({
+  name: props => props.name,
+  color: props => props.color,
+})`
+  width: 21px;
+  height: 21px;
 `

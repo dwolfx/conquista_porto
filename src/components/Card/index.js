@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
+import Button from 'components/Button'
+import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 
 import {
@@ -18,10 +19,27 @@ export default function Card({
   children,
   headerIcon,
   headerTitle,
+  headerButtonText,
+  headerButtonProps,
   footer,
   ...rest
 }) {
-  const themeContext = useContext(ThemeContext)
+  const ButtonHeader = () =>
+    headerButtonText ? (
+      <Button {...headerButtonProps}>{headerButtonText}</Button>
+    ) : null
+
+  const CardHeaderContent = () => (
+    <HorizontalList
+      size="small"
+      startItems={[<CardTitle>{headerTitle}</CardTitle>]}
+      endItems={[<ButtonHeader />]}
+      css={`
+        width: 100%;
+        padding: 0;
+      `}
+    />
+  )
 
   return (
     <CardWrapper hasFooter={!!footer} {...rest}>
@@ -29,10 +47,10 @@ export default function Card({
         <CardHeader>
           {headerIcon && (
             <CardIcon>
-              <Icon name={headerIcon} fill={themeContext.colors.white} />
+              <Icon name={headerIcon} color="white" width={21} />
             </CardIcon>
           )}
-          <CardTitle>{headerTitle}</CardTitle>
+          <CardHeaderContent />
         </CardHeader>
       )}
       <CardBody>{children}</CardBody>
@@ -44,6 +62,8 @@ export default function Card({
 Card.defaultProps = {
   headerIcon: null,
   headerTitle: null,
+  headerButtonText: null,
+  headerButtonProps: null,
   footer: null,
 }
 
@@ -61,5 +81,11 @@ Card.propTypes = {
     return null
   },
   headerTitle: PropTypes.string,
+  headerButtonText: PropTypes.string,
+  headerButtonProps: PropTypes.shape({
+    color: PropTypes.string,
+    outline: PropTypes.bool,
+    onClick: PropTypes.func,
+  }),
   footer: PropTypes.node,
 }

@@ -18,42 +18,107 @@ import {
   FooterWrapper,
 } from './styles'
 
+const gtmType = 'click'
+const gtmClickType = 'rodape'
+
 const content1 = [
   <Title bold>CENTRAL DE ATENDIMENTO</Title>,
-  <LinkText hrefValue="tel:(11) 3366 3370">(11) 3366 3370</LinkText>,
+  <LinkText
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-subname="central de atendimento"
+    data-gtm-name="(11)3366-3370"
+    hrefValue="tel:(11) 3366 3370"
+  >
+    (11) 3366 3370
+  </LinkText>,
 ]
 const content2 = [
   <Title>ATENDIMENTO PARA DEFICIENTES AUDITIVOS</Title>,
-  <LinkText hrefValue="tel:0800 727 8736">0800 727 8736</LinkText>,
+  <LinkText
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-subname="atendimento para deficientes auditivos"
+    data-gtm-name="0800-727-8736"
+    hrefValue="tel:0800 727 8736"
+  >
+    0800 727 8736
+  </LinkText>,
 ]
 const content3 = [
   <Title>SAC</Title>,
-  <LinkText hrefValue="tel:0800 727 2763">0800 727 2763</LinkText>,
+  <LinkText
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-subname="sac"
+    data-gtm-name="0800-727-2763"
+    hrefValue="tel:0800 727 2763"
+  >
+    0800 727 2763
+  </LinkText>,
 ]
 const content4 = [
   <Title>MENSAGENS</Title>,
-  <LinkText hrefValue="mailto:porto.investimentos@portoseguro.com.br">
+  <LinkText
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-subname="mensagens"
+    data-gtm-name="porto.investimentos@portoseguro.com.br"
+    hrefValue="mailto:porto.investimentos@portoseguro.com.br"
+  >
     porto.investimentos@portoseguro.com.br
   </LinkText>,
 ]
 const content5 = [
   <Title>OUVIDORIA</Title>,
   <HorizontalList
-    heightSize="dynamic"
     noPadding
     startItems={[
-      <LinkText hrefValue="tel:0800 727 1184">0800 727 1184</LinkText>,
-      <LinkText hrefValue="tel:(11) 3366 3184">(11) 3366 3184</LinkText>,
+      <LinkText
+        data-gtm-type={gtmType}
+        data-gtm-clicktype={gtmClickType}
+        data-gtm-subname="ouvidoria"
+        data-gtm-name="0800-727-1184"
+        hrefValue="tel:0800 727 1184"
+      >
+        0800 727 1184
+      </LinkText>,
+      <LinkText
+        data-gtm-type={gtmType}
+        data-gtm-clicktype={gtmClickType}
+        data-gtm-subname="ouvidoria"
+        data-gtm-name="(11)-3366-3184"
+        hrefValue="tel:(11) 3366 3184"
+      >
+        (11) 3366 3184
+      </LinkText>,
     ]}
   />,
-  <LinkText hrefValue="mailto:ouvidoria@portoseguro.com.br">
+  <LinkText
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-subname="ouvidoria"
+    data-gtm-name="ouvidoria@portoseguro.com.br"
+    hrefValue="mailto:ouvidoria@portoseguro.com.br"
+  >
     ouvidoria@portoseguro.com.br
   </LinkText>,
 ]
 const content6 = [
   <LogoTitle>UMA PLATAFORMA</LogoTitle>,
-  <Logo />,
-  <Link to="/">
+  <Logo
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-subname="uma plataforma"
+    data-gtm-name="Logo Porto-Seguro"
+  />,
+  <Link
+    data-gtm-type={gtmType}
+    data-gtm-clicktype={gtmClickType}
+    data-gtm-subname="uma plataforma"
+    data-gtm-name="política de privacidade"
+    to="/"
+  >
     <UppercaseBlueText>POLÍTICA DE PRIVACIDADE</UppercaseBlueText>
   </Link>,
 ]
@@ -81,7 +146,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <FooterWrapper>
+    <FooterWrapper data-gtm-type="container" data-gtm-name="footer">
       <BorderTop />
       <GridContainer>
         <GridRow>
@@ -96,11 +161,11 @@ const Footer = () => {
             <ListWrapper>
               <VerticalList elements={content4} />
               <VerticalList elements={content5} />
+              <VerticalList elements={content7} />
             </ListWrapper>
           </GridCol>
           <GridCol lg="4">
             <VerticalList elements={content6} />
-            <VerticalList elements={content7} />
           </GridCol>
         </GridRow>
         <GridRow>

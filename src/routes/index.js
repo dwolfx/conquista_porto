@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import {
+  Switch,
+  Route as ReactRouterDomRoute,
+  Redirect,
+  useHistory,
+} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import HeaderNew from 'components/HeaderNew'
@@ -33,13 +38,7 @@ import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 
 import Objectives from 'pages/Objectives'
-import ObjectivesRetirementFlow from 'pages/Objectives/GoalStreams/RetirementFlow'
-import ObjectivesTravelFlow from 'pages/Objectives/GoalStreams/TravelFlow'
-import ObjectivesBuyCarFlow from 'pages/Objectives/GoalStreams/BuyCarFlow'
-import ObjectivesStudyFlow from 'pages/Objectives/GoalStreams/StudyFlow'
-import ObjectivesEventFlow from 'pages/Objectives/GoalStreams/EventFlow'
-import ObjectivesBuyHouseFlow from 'pages/Objectives/GoalStreams/BuyHouseFlow'
-import ObjectivesSaveMoneyFlow from 'pages/Objectives/GoalStreams/SaveMoneyFlow'
+import ObjectivesManager from 'pages/Objectives/Manager'
 
 import Notifications from 'pages/Notifications'
 import Login from 'pages/Login'
@@ -52,9 +51,16 @@ import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
 import IconComponent from 'components/IconExporter'
+import googleTagManagerHandler from 'GoogleTagManager'
 import useAuth from './auth'
 
-const DefaultRoute = ({ component: Component, data, hook, ...rest }) => {
+const DefaultRoute = ({
+  component: Component,
+  data,
+  hook,
+  pageTitle,
+  ...rest
+}) => {
   let dataLength = 0
 
   try {
@@ -80,12 +86,12 @@ const DefaultRoute = ({ component: Component, data, hook, ...rest }) => {
       <main className="main-content">
         <Route
           {...rest}
+          pageTitle={pageTitle}
           render={props => {
             // if dataLength !== 0, data exists therefore redirects to management screen
             if (dataLength) {
               return <Redirect to={{ pathname: `${rest.path}/visualizar` }} />
             }
-
             // otherwise, renders the component
             return <Component {...props} />
           }}
@@ -100,11 +106,44 @@ DefaultRoute.propTypes = {
   component: PropTypes.func.isRequired,
   data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   hook: PropTypes.func,
+  pageTitle: PropTypes.string.isRequired,
 }
 
 DefaultRoute.defaultProps = {
   data: [],
   hook: () => {},
+}
+
+const Route = ({ path, component, pageTitle, ...rest }) => {
+  const history = useHistory()
+  const auth = useSelector(state => state.auth)
+  const points = useSelector(
+    state => state.points.data && state.points.data.detalheExtratoOptemaisTypes
+  )
+
+  useEffect(() => {
+    googleTagManagerHandler(history.location.pathname, pageTitle, auth, points)
+  }, [history.location.pathname, pageTitle, auth, points])
+
+  return (
+    <ReactRouterDomRoute
+      {...rest}
+      path={path}
+      exact={rest.exact}
+      component={component}
+      pageTitle={pageTitle}
+    />
+  )
+}
+
+Route.propTypes = {
+  path: PropTypes.string.isRequired,
+  component: PropTypes.func,
+  pageTitle: PropTypes.string.isRequired,
+}
+
+Route.defaultProps = {
+  component: null,
 }
 
 export default function Routes({ ...props }) {
@@ -132,7 +171,7 @@ export default function Routes({ ...props }) {
     <Login />
   ) : (
     <Switch {...props}>
-      <DefaultRoute path="/" exact component={Home} />
+      <DefaultRoute path="/" exact component={Home} pageTitle="Home" />
 
       <DefaultRoute
         path="/cartao-credito"
@@ -140,6 +179,7 @@ export default function Routes({ ...props }) {
         component={CartaoCredito}
         data={creditCardData}
         hook={useFetchCreditCard}
+        pageTitle="Home - Cartão de Crédito"
       />
       <DefaultRoute
         path="/seguro-viagem"
@@ -147,6 +187,7 @@ export default function Routes({ ...props }) {
         component={TripInsurance}
         data={tripInsuranceData}
         hook={useFetchTripInsurance}
+        pageTitle="Home - Seguro Viagem"
       />
       <DefaultRoute
         path="/financiamento-veiculo"
@@ -154,6 +195,7 @@ export default function Routes({ ...props }) {
         component={VehicleFinancing}
         data={vehicleFinancingData}
         hook={useFetchVehicleFinancing}
+        pageTitle="Home - Financiamento de Veículo"
       />
       <DefaultRoute
         path="/consorcio-imovel"
@@ -161,6 +203,7 @@ export default function Routes({ ...props }) {
         component={ConsortiumBuilding}
         data={consortiumBuildingData}
         hook={useFetchConsortiumBuilding}
+        pageTitle="Home - Consórcio de Imóvel"
       />
       <DefaultRoute
         path="/consorcio-veiculo"
@@ -168,6 +211,7 @@ export default function Routes({ ...props }) {
         component={ConsortiumVehicle}
         data={consortiumVehicleData}
         hook={useFetchConsortiumVehicle}
+        pageTitle="Home - Consórcio de Veículo"
       />
       <DefaultRoute
         path="/seguro-vida"
@@ -175,6 +219,7 @@ export default function Routes({ ...props }) {
         component={SeguroVida}
         data={lifeInsuranceData}
         hook={useFetchLifeInsurance}
+        pageTitle="Home - Seguro de Vida"
       />
       <DefaultRoute
         path="/investimentos"
@@ -182,84 +227,118 @@ export default function Routes({ ...props }) {
         component={Investimentos}
         data={positionData}
         hook={useFetchPosition}
+        pageTitle="Home - Investimentos"
       />
-
       <DefaultRoute
         path="/cartao-credito/visualizar"
         exact
         component={ManagementCreditCard}
+        pageTitle="Gestão - Cartão de Crédito"
       />
       <DefaultRoute
         path="/seguro-viagem/visualizar"
         component={ManagementTripInsurance}
+        pageTitle="Gestão - Seguro de Viagem"
       />
       <DefaultRoute
         path="/financiamento-veiculo/visualizar"
         exact
         component={ManagementVehicleFinancing}
+        pageTitle="Gestão - Financiamento de Veículo"
       />
       <DefaultRoute
         path="/consorcio-imovel/visualizar"
         exact
         component={ManagementConsortiumBuilding}
+        pageTitle="Gestão - Consórcio de Imóvel"
       />
       <DefaultRoute
         path="/consorcio-veiculo/visualizar"
         exact
         component={ManagementConsortiumVehicle}
+        pageTitle="Gestão - Consórcio de Veículo"
       />
       <DefaultRoute
         path="/investimentos/visualizar"
         component={ManagementInvestimentos}
+        pageTitle="Gestão - Investimentos"
       />
       <DefaultRoute
         path="/seguro-vida/visualizar"
         exact
         component={ManagementSeguroVida}
+        pageTitle="Gestão - Seguro de Vida"
       />
-
       <Route
         path="/investimentos/extrato"
         exact
         component={InvestimentosExtrato}
+        pageTitle="Investimentos - Extrato"
       />
       <DefaultRoute
         path="/investimentos/lista-fundos"
         component={InvestmentsFunds}
+        pageTitle="Investimentos - Lista de Fundos"
       />
       <DefaultRoute
         path="/previdencia-privada"
         exact
         component={PrevidenciaPrivada}
+        pageTitle="Home - Previdência Privada"
       />
-      <DefaultRoute path="/pontos" exact component={Points} />
-      <DefaultRoute path="/perfil" exact component={Profile} />
-
-      <DefaultRoute path="/pontos/extrato" exact component={PointsStatement} />
-      <Route path="/objetivos" exact component={Objectives} />
-      <Route
-        path="/objetivos/aposentadoria"
+      <DefaultRoute
+        path="/pontos"
         exact
-        component={ObjectivesRetirementFlow}
+        component={Points}
+        pageTitle="Home - Pontos"
       />
-      <Route path="/objetivos/viagem" exact component={ObjectivesTravelFlow} />
-      <Route path="/objetivos/carro" exact component={ObjectivesBuyCarFlow} />
-      <Route path="/objetivos/curso" exact component={ObjectivesStudyFlow} />
-      <Route path="/objetivos/evento" exact component={ObjectivesEventFlow} />
-      <Route path="/objetivos/casa" exact component={ObjectivesBuyHouseFlow} />
-      <Route
-        path="/objetivos/poupar"
+      <DefaultRoute
+        path="/perfil"
         exact
-        component={ObjectivesSaveMoneyFlow}
+        component={Profile}
+        pageTitle="Home - Perfil"
       />
-      <Route path="/perfil/cadastro" exact component={ProfileRegistration} />
+      <DefaultRoute
+        path="/pontos/extrato"
+        exact
+        component={PointsStatement}
+        pageTitle="Pontos - Extrato"
+      />
+      <DefaultRoute
+        path="/objetivos/gerenciar"
+        exact
+        component={ObjectivesManager}
+        pageTitle="Objetivos - Gerenciar"
+      />
+      <Route
+        path="/objetivos"
+        component={Objectives}
+        pageTitle="Home - Objetivos"
+      />
+      <Route
+        path="/perfil/cadastro"
+        exact
+        component={ProfileRegistration}
+        pageTitle="Perfil - Cadastro"
+      />
       <Route
         path="/perfil/investidor-perfil"
         exact
         component={ProfileSuitability}
+        pageTitle="Perfil - Perfil Investidor"
       />
-      <Route path="/redirect" exact component={RedirectComponent} />
-      <DefaultRoute path="/notificacoes" exact component={Notifications} />
+      <Route
+        path="/redirect"
+        exact
+        component={RedirectComponent}
+        pageTitle="Redirect"
+      />
+      <DefaultRoute
+        path="/notificacoes"
+        exact
+        component={Notifications}
+        pageTitle="Home - Notificações"
+      />
     </Switch>
   )
 }

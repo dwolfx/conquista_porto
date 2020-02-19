@@ -21,7 +21,13 @@ const ChartEmptyState = ({ value }) => {
           {formatMoney(value)}
         </Text>
       </PieItemMargin>
-      <ButtonLink onClick={() => history.push('/investimentos/visualizar')}>
+      <ButtonLink
+        data-gtm-subname="card investimentos total investido"
+        data-gtm-name="gerenciar"
+        data-gtm-type="click"
+        data-gtm-clicktype="link"
+        onClick={() => history.push('/investimentos/visualizar')}
+      >
         Gerenciar
       </ButtonLink>
     </EmptyBody>
@@ -42,7 +48,13 @@ const ChartMiddleInfoContent = ({ pieChartInfo }) => {
         {formatMoney(pieChartInfo.value)}
       </Text>
       <PieItemMargin>
-        <ButtonLink onClick={() => history.push('/investimentos/visualizar')}>
+        <ButtonLink
+          data-gtm-subname="card investimentos total investido"
+          data-gtm-name="gerenciar"
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          onClick={() => history.push('/investimentos/visualizar')}
+        >
           Gerenciar
         </ButtonLink>
       </PieItemMargin>

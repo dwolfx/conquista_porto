@@ -14,5 +14,6 @@
   "/conta/extrato\\?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/conta_extrato?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/notificacao/buscar/:cpf": "/notificacoes",
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
-  "/cotistas/posicao?cpf=:cpf": "/posicao?cpf=:cpf"
+  "/cotistas/posicao?cpf=:cpf": "/posicao?cpf=:cpf",
+  "/recommendation": "/recommendation"
 }

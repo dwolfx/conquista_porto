@@ -10,6 +10,7 @@ const truncate = css`
 export const TextStyle = styled.p`
   color: ${props => props.theme.colors[props.color]};
   font-weight: ${props => (props.bold ? 'normal' : '300')};
+  text-align: ${props => props.textAlign};
   ${props => props.truncate && truncate};
   ${props =>
     // if props.type not found in theme settings, get body as default

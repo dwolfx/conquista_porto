@@ -5,15 +5,20 @@ import Icon from 'components/IconExporter'
 
 import { Link } from './styles'
 
-export default function ButtonLink({ children, ...rest }) {
+export default function ButtonLink({ children, noIcon, ...rest }) {
   return (
     <Link {...rest}>
       {children}
-      <Icon name="arrowright" />
+      {!noIcon && <Icon name="arrowright" />}
     </Link>
   )
 }
 
 ButtonLink.propTypes = {
   children: PropTypes.node.isRequired,
+  noIcon: PropTypes.bool,
+}
+
+ButtonLink.defaultProps = {
+  noIcon: false,
 }

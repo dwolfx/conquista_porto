@@ -17,7 +17,7 @@
       },
       {
         "nome": "Conquista",
-        "valor": 0.0
+        "valor": 0
       }
     ]
   },
@@ -1472,7 +1472,10 @@
       "hora_resgate": "23:53",
       "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMFICAMBIAL.pdf",
       "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMFICAMBIAL.pdf",
-      "benchmark": { "nome": "PTAX 800 MEDIO", "id": "23" },
+      "benchmark": {
+        "nome": "PTAX 800 MEDIO",
+        "id": "23"
+      },
       "comparativo_hist_rentabil": {
         "hist_rentabil_benchmark": {
           "rentabil_Ano": "7.02",
@@ -1481,7 +1484,10 @@
           "rentabil_36_meses": "27.75",
           "rentabil_dia": "-0.86",
           "rentabil_mes_anteiror": "9.92",
-          "benchmark": { "nome": "PTAX 800 MEDIO", "id": "23" },
+          "benchmark": {
+            "nome": "PTAX 800 MEDIO",
+            "id": "23"
+          },
           "rentabil_mes": "0.20"
         },
         "hist_rentabil_fundo": {
@@ -1508,10 +1514,22 @@
       "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_OCCAMFICAMBIAL.pdf",
       "aliquotas_ir": {
         "aliquota": [
-          { "valor": "22.5", "faixa": "Até 180 dias" },
-          { "valor": "20", "faixa": "De 181 dias a 360 dias" },
-          { "valor": "17.5", "faixa": "De 361 dias a 720 dias" },
-          { "valor": "15", "faixa": "Acima de 720 dias" }
+          {
+            "valor": "22.5",
+            "faixa": "Até 180 dias"
+          },
+          {
+            "valor": "20",
+            "faixa": "De 181 dias a 360 dias"
+          },
+          {
+            "valor": "17.5",
+            "faixa": "De 361 dias a 720 dias"
+          },
+          {
+            "valor": "15",
+            "faixa": "Acima de 720 dias"
+          }
         ]
       },
       "taxa_administracao": "0.75",
@@ -2023,7 +2041,11 @@
           "data": "2019-07-03T00:00:00-03:00",
           "valor": "-500"
         },
-        { "tipo": "TED", "data": "2019-08-27T00:00:00-03:00", "valor": "100" }
+        {
+          "tipo": "TED",
+          "data": "2019-08-27T00:00:00-03:00",
+          "valor": "100"
+        }
       ]
     },
     "conta": {
@@ -2038,8 +2060,16 @@
       "codigo_banco": "420"
     }
   },
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" },
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
   "notificacoes": {
     "novas": [
       {
@@ -2132,217 +2162,218 @@
   },
   "posicao": [
     {
-        "conta_porto_seguro": {
-            "id_conta": "193791",
-            "cheque_especial": {
-                "limite": "0",
-                "data_vencimento": "0001-01-03T00:00:00-03:00"
-            },
-            "conta": "47",
-            "nome_banco": "Banco Portopar",
-            "saldo_liquidar": "0",
-            "agencia": "0001",
-            "codigo_banco": "306",
-            "saldo_disponivel": "0",
-            "cpf": "33244452809",
-            "encargos_acumulados": "0",
-            "valores_bloqueados": {
-                "judicial": "0",
-                "em_24horas": "0",
-                "indeterminado": "0",
-                "em_48horas": "0"
-            },
-            "digito_conta": "7",
-            "titular": "Rafael Rodrigues"
+      "conta_porto_seguro": {
+        "id_conta": "193791",
+        "cheque_especial": {
+          "limite": "0",
+          "data_vencimento": "0001-01-03T00:00:00-03:00"
         },
-        "posicoes": {
-            "posicao": {
-                "rendimentos": {
-                    "rendimento": [
-                        {
-                            "datainicio": "2020-01-01T00:00:00-03:00",
-                            "datafim": "2020-01-16T23:59:59.999-03:00",
-                            "meses": "1",
-                            "valorrendimento": "0.18"
-                        },
-                        {
-                            "datainicio": "2019-01-01T00:00:00-03:00",
-                            "datafim": "2020-01-16T23:59:59.999-03:00",
-                            "meses": "12",
-                            "valorrendimento": "-2.33"
-                        },
-                        {
-                            "datainicio": "2018-01-01T00:00:00-03:00",
-                            "datafim": "2020-01-16T23:59:59.999-03:00",
-                            "meses": "24",
-                            "valorrendimento": "-2.33"
-                        },
-                        {
-                            "datainicio": "2017-01-01T00:00:00-03:00",
-                            "datafim": "2020-01-16T23:59:59.999-03:00",
-                            "meses": "36",
-                            "valorrendimento": "-2.33"
-                        }
-                    ]
-                },
-                "categoria_arena": "01-Renda Fixa",
-                "historico_saldos_fundo": {
-                    "id_carteira": "51380013",
-                    "saldos": {
-                        "saldo": [
-                            {
-                                "valorsaldo": "200.04",
-                                "data": "2019-09-30T00:00:00-03:00"
-                            },
-                            {
-                                "valorsaldo": "198.10",
-                                "data": "2019-10-31T00:00:00-03:00"
-                            },
-                            {
-                                "valorsaldo": "193.96",
-                                "data": "2019-11-29T00:00:00-03:00"
-                            },
-                            {
-                                "valorsaldo": "194.98",
-                                "data": "2019-12-31T00:00:00-03:00"
-                            },
-                            {
-                                "valorsaldo": "195.34",
-                                "data": "2020-01-16T00:00:00-03:00"
-                            }
-                        ]
-                    }
-                },
-                "saldo_atual": "97.67",
-                "ultimas_operacoes": {
-                    "operacao": [
-                        {
-                            "data_operacao": "2019-10-22T00:00:00-03:00",
-                            "data_liquidacao": "2019-10-22T00:00:00-03:00",
-                            "tipo_operacao": "Aplicação",
-                            "valor_bruto": "555.55",
-                            "id_fundo": "51380013",
-                            "id_operacao": "10295979"
-                        },
-                        {
-                            "data_operacao": "2019-09-23T00:00:00-03:00",
-                            "data_liquidacao": "2019-09-23T00:00:00-03:00",
-                            "tipo_operacao": "Aplicação",
-                            "valor_bruto": "100.00",
-                            "id_fundo": "51380013",
-                            "id_operacao": "10268754"
-                        },
-                        {
-                            "data_operacao": "2019-09-23T00:00:00-03:00",
-                            "data_liquidacao": "2019-09-23T00:00:00-03:00",
-                            "tipo_operacao": "Aplicação",
-                            "valor_bruto": "100.00",
-                            "id_fundo": "51380013",
-                            "id_operacao": "10268753"
-                        },
-                        {
-                            "data_operacao": "2019-09-18T00:00:00-03:00",
-                            "data_liquidacao": "2019-09-18T00:00:00-03:00",
-                            "tipo_operacao": "Aplicação",
-                            "valor_bruto": "100.00",
-                            "id_fundo": "51380013",
-                            "id_operacao": "10263519"
-                        },
-                        {
-                            "data_operacao": "2019-09-03T00:00:00-03:00",
-                            "data_liquidacao": "2019-09-03T00:00:00-03:00",
-                            "tipo_operacao": "Aplicação",
-                            "valor_bruto": "100.00",
-                            "id_fundo": "51380013",
-                            "id_operacao": "10243696"
-                        }
-                    ]
-                },
-                "fundo": {
-                    "data_inicio": "2017-08-15T00:00:00-03:00",
-                    "taxa_performance": "0.00",
-                    "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
-                    "contagem_dias_resgate": "Úteis",
-                    "minimo_inicial": "100.0",
-                    "hora_resgate": "13:00",
-                    "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
-                    "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
-                    "categoria_ambima": "Multimercados Estrategia Especifica",
-                    "is_fundo_ativo": true,
-                    "aplicao_liberada": true,
-                    "aviso_data_fundo": false,
-                    "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
-                    "resgate_minimo": "100.0",
-                    "url_logo_gestor": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_RB.png",
-                    "resgate_liberado": true,
-                    "categoria_arena": "Renda Fixa",
-                    "id_carteira": "51380013",
-                    "regime_iof": "Regime Regressivo",
-                    "aplicacao_financeiro": "D+0",
-                    "nome_carteira": "RB Capital Vitória Debêntures Incentivadas FIC Multimercado Crédito Privado",
-                    "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
-                    "perfil_risco": "medio",
-                    "resgate_cotizacao": "D+4 (Úteis)",
-                    "nome_empresa": "Padrão",
-                    "benchmark": {
-                        "nome": "CDI",
-                        "id": "1"
-                    },
-                    "comparativo_hist_rentabil": {
-                        "hist_rentabil_benchmark": {
-                            "rentabil_Ano": "0.19",
-                            "rentabil_24_meses": "12.33",
-                            "rentabil_12_meses": "5.59",
-                            "rentabil_36_meses": "-",
-                            "rentabil_dia": "0.02",
-                            "rentabil_mes_anteiror": "0.38",
-                            "benchmark": {
-                                "nome": "CDI",
-                                "id": "1"
-                            },
-                            "rentabil_mes": "0.19"
-                        },
-                        "hist_rentabil_fundo": {
-                            "rel_fundo_benchmark_mes_ant": "140.17",
-                            "rentabil_ano": "0.13",
-                            "rentabil_12_meses": "1.75",
-                            "rentabil_36_meses": "-",
-                            "rel_fundo_benchmark_mes": "69.62",
-                            "rel_fundo_benchmark_dia": "146.12",
-                            "rentabil_mes_anteiror": "0.53",
-                            "rel_fundo_benchmark_24_meses": "88.69",
-                            "rel_fundo_benchmark_ano": "69.62",
-                            "rentabil_24_meses": "10.94",
-                            "rel_fundo_benchmark_36_meses": "-",
-                            "id_carteira": "51380013",
-                            "rentabil_dia": "0.02",
-                            "rentabil_mes": "0.13",
-                            "rel_fundo_benchmark_12_meses": "31.33"
-                        },
-                        "data_referencia": "2020-01-14T00:00:00-03:00"
-                    },
-                    "tipo_cota": "Fechamento",
-                    "hora_aplicacao": "13:00",
-                    "resgate_financeiro": "D+5 (Úteis)",
-                    "perfil_risco_ordem": "3",
-                    "saldo_minimo": "100.0",
-                    "taxa_administracao": "0.30",
-                    "aplicacao_cotizacao": "D+0",
-                    "aplicao_minima": "100.0"
-                }
-            }
+        "conta": "47",
+        "nome_banco": "Banco Portopar",
+        "saldo_liquidar": "0",
+        "agencia": "0001",
+        "codigo_banco": "306",
+        "saldo_disponivel": "0",
+        "cpf": "33244452809",
+        "encargos_acumulados": "0",
+        "valores_bloqueados": {
+          "judicial": "0",
+          "em_24horas": "0",
+          "indeterminado": "0",
+          "em_48horas": "0"
         },
-        "id_cotista": "2000120330",
-        "visao_geral": {
-            "total": "97.67",
-            "fundos": {
-                "fundo": {
-                    "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
-                    "nome_fundo": "RB Capital Vitória Debêntures Incentivadas FIC Multimercado Crédito Privado",
-                    "percentual": "100.00"
+        "digito_conta": "7",
+        "titular": "Rafael Rodrigues"
+      },
+      "posicoes": {
+        "posicao": {
+          "rendimentos": {
+            "rendimento": [
+              {
+                "datainicio": "2020-01-01T00:00:00-03:00",
+                "datafim": "2020-01-16T23:59:59.999-03:00",
+                "meses": "1",
+                "valorrendimento": "0.18"
+              },
+              {
+                "datainicio": "2019-01-01T00:00:00-03:00",
+                "datafim": "2020-01-16T23:59:59.999-03:00",
+                "meses": "12",
+                "valorrendimento": "-2.33"
+              },
+              {
+                "datainicio": "2018-01-01T00:00:00-03:00",
+                "datafim": "2020-01-16T23:59:59.999-03:00",
+                "meses": "24",
+                "valorrendimento": "-2.33"
+              },
+              {
+                "datainicio": "2017-01-01T00:00:00-03:00",
+                "datafim": "2020-01-16T23:59:59.999-03:00",
+                "meses": "36",
+                "valorrendimento": "-2.33"
+              }
+            ]
+          },
+          "categoria_arena": "01-Renda Fixa",
+          "historico_saldos_fundo": {
+            "id_carteira": "51380013",
+            "saldos": {
+              "saldo": [
+                {
+                  "valorsaldo": "200.04",
+                  "data": "2019-09-30T00:00:00-03:00"
+                },
+                {
+                  "valorsaldo": "198.10",
+                  "data": "2019-10-31T00:00:00-03:00"
+                },
+                {
+                  "valorsaldo": "193.96",
+                  "data": "2019-11-29T00:00:00-03:00"
+                },
+                {
+                  "valorsaldo": "194.98",
+                  "data": "2019-12-31T00:00:00-03:00"
+                },
+                {
+                  "valorsaldo": "195.34",
+                  "data": "2020-01-16T00:00:00-03:00"
                 }
+              ]
             }
+          },
+          "saldo_atual": "97.67",
+          "ultimas_operacoes": {
+            "operacao": [
+              {
+                "data_operacao": "2019-10-22T00:00:00-03:00",
+                "data_liquidacao": "2019-10-22T00:00:00-03:00",
+                "tipo_operacao": "Aplicação",
+                "valor_bruto": "555.55",
+                "id_fundo": "51380013",
+                "id_operacao": "10295979"
+              },
+              {
+                "data_operacao": "2019-09-23T00:00:00-03:00",
+                "data_liquidacao": "2019-09-23T00:00:00-03:00",
+                "tipo_operacao": "Aplicação",
+                "valor_bruto": "100.00",
+                "id_fundo": "51380013",
+                "id_operacao": "10268754"
+              },
+              {
+                "data_operacao": "2019-09-23T00:00:00-03:00",
+                "data_liquidacao": "2019-09-23T00:00:00-03:00",
+                "tipo_operacao": "Aplicação",
+                "valor_bruto": "100.00",
+                "id_fundo": "51380013",
+                "id_operacao": "10268753"
+              },
+              {
+                "data_operacao": "2019-09-18T00:00:00-03:00",
+                "data_liquidacao": "2019-09-18T00:00:00-03:00",
+                "tipo_operacao": "Aplicação",
+                "valor_bruto": "100.00",
+                "id_fundo": "51380013",
+                "id_operacao": "10263519"
+              },
+              {
+                "data_operacao": "2019-09-03T00:00:00-03:00",
+                "data_liquidacao": "2019-09-03T00:00:00-03:00",
+                "tipo_operacao": "Aplicação",
+                "valor_bruto": "100.00",
+                "id_fundo": "51380013",
+                "id_operacao": "10243696"
+              }
+            ]
+          },
+          "fundo": {
+            "data_inicio": "2017-08-15T00:00:00-03:00",
+            "taxa_performance": "0.00",
+            "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
+            "contagem_dias_resgate": "Úteis",
+            "minimo_inicial": "100.0",
+            "hora_resgate": "13:00",
+            "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
+            "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
+            "categoria_ambima": "Multimercados Estrategia Especifica",
+            "is_fundo_ativo": true,
+            "aplicao_liberada": true,
+            "aviso_data_fundo": false,
+            "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
+            "resgate_minimo": "100.0",
+            "url_logo_gestor": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_RB.png",
+            "resgate_liberado": true,
+            "categoria_arena": "Renda Fixa",
+            "id_carteira": "51380013",
+            "regime_iof": "Regime Regressivo",
+            "aplicacao_financeiro": "D+0",
+            "nome_carteira": "RB Capital Vitória Debêntures Incentivadas FIC Multimercado Crédito Privado",
+            "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
+            "perfil_risco": "medio",
+            "resgate_cotizacao": "D+4 (Úteis)",
+            "nome_empresa": "Padrão",
+            "benchmark": {
+              "nome": "CDI",
+              "id": "1"
+            },
+            "comparativo_hist_rentabil": {
+              "hist_rentabil_benchmark": {
+                "rentabil_Ano": "0.19",
+                "rentabil_24_meses": "12.33",
+                "rentabil_12_meses": "5.59",
+                "rentabil_36_meses": "-",
+                "rentabil_dia": "0.02",
+                "rentabil_mes_anteiror": "0.38",
+                "benchmark": {
+                  "nome": "CDI",
+                  "id": "1"
+                },
+                "rentabil_mes": "0.19"
+              },
+              "hist_rentabil_fundo": {
+                "rel_fundo_benchmark_mes_ant": "140.17",
+                "rentabil_ano": "0.13",
+                "rentabil_12_meses": "1.75",
+                "rentabil_36_meses": "-",
+                "rel_fundo_benchmark_mes": "69.62",
+                "rel_fundo_benchmark_dia": "146.12",
+                "rentabil_mes_anteiror": "0.53",
+                "rel_fundo_benchmark_24_meses": "88.69",
+                "rel_fundo_benchmark_ano": "69.62",
+                "rentabil_24_meses": "10.94",
+                "rel_fundo_benchmark_36_meses": "-",
+                "id_carteira": "51380013",
+                "rentabil_dia": "0.02",
+                "rentabil_mes": "0.13",
+                "rel_fundo_benchmark_12_meses": "31.33"
+              },
+              "data_referencia": "2020-01-14T00:00:00-03:00"
+            },
+            "tipo_cota": "Fechamento",
+            "hora_aplicacao": "13:00",
+            "resgate_financeiro": "D+5 (Úteis)",
+            "perfil_risco_ordem": "3",
+            "saldo_minimo": "100.0",
+            "taxa_administracao": "0.30",
+            "aplicacao_cotizacao": "D+0",
+            "aplicao_minima": "100.0"
+          }
         }
+      },
+      "id_cotista": "2000120330",
+      "visao_geral": {
+        "total": "97.67",
+        "fundos": {
+          "fundo": {
+            "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
+            "nome_fundo": "RB Capital Vitória Debêntures Incentivadas FIC Multimercado Crédito Privado",
+            "percentual": "100.00"
+          }
+        }
+      }
     }
-  ]
+  ],
+  "recommendation": {}
 }

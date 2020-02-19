@@ -2,7 +2,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
 import { setCookieValue } from 'helpers'
 import { AuthRequestLoginSuccess, AuthRequestLoginFailure } from './action'
-import { Types } from './types'
+import { Types, TOKEN_NAME } from './types'
 
 const axiosInstance = axios.create({
   headers: {
@@ -51,12 +51,12 @@ function* postLogout() {
 
 function saveAuthCookie({ cpf, accessToken }) {
   setCookieValue('cpf', cpf)
-  setCookieValue('accessToken', accessToken)
+  setCookieValue(TOKEN_NAME, accessToken)
 }
 
 function removeAuthCookie() {
   setCookieValue('cpf', '')
-  setCookieValue('accessToken', '')
+  setCookieValue(TOKEN_NAME, '')
 }
 
 export default all([

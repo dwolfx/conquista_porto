@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import { BlueText } from './styles'
 
-const LinkText = ({ hrefValue, children }) => (
-  <a href={hrefValue}>
+const LinkText = ({ hrefValue, children, ...rest }) => (
+  <a {...rest} href={hrefValue}>
     <BlueText>{children}</BlueText>
   </a>
 )

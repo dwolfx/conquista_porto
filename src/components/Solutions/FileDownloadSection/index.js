@@ -17,8 +17,12 @@ export default function FileDownloadSection({ data, ...rest }) {
   return (
     <Container {...rest}>
       {data.map((item, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <Item key={`${index}+${item.title}`}>
+        <Item
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${index}+${item.title}`}
+          data-gtm-type="container"
+          data-gtm-name={item.title}
+        >
           <div>
             <IconStyled
               name={item.icon || 'pdf'}
@@ -34,6 +38,10 @@ export default function FileDownloadSection({ data, ...rest }) {
                 pathname: '/redirect',
                 state: { url: item.url },
               }}
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-subname={item.title}
+              data-gtm-name={item.buttonText}
             >
               <DownloadLink>{item.buttonText} &gt; </DownloadLink>
             </Link>

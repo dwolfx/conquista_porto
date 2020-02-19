@@ -1,10 +1,11 @@
 /* eslint-disable no-param-reassign */
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import TextInput from 'components/Inputs/Text'
+import NewTextInput from 'components/NewInput'
 
-const DateInput = ({ onKeyUp, ...rest }) => {
+const DateInput = forwardRef(({ onKeyUp, newInput, ...rest }, ref) => {
   const applyDateMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
     let newValue = strippedValue
@@ -17,20 +18,32 @@ const DateInput = ({ onKeyUp, ...rest }) => {
 
     event.target.value = newValue
 
-    if (onKeyUp) {
-      onKeyUp()
-    }
+    onKeyUp()
   }
 
-  return <TextInput maxLength="10" onKeyUp={applyDateMask} {...rest} />
-}
+  if (newInput) {
+    return (
+      <NewTextInput
+        onKeyUp={applyDateMask}
+        maxLength="10"
+        ref={ref}
+        {...rest}
+      />
+    )
+  }
+  return (
+    <TextInput maxLength="10" ref={ref} onKeyUp={applyDateMask} {...rest} />
+  )
+})
 
 DateInput.defaultProps = {
-  onKeyUp: null,
+  onKeyUp: () => {},
+  newInput: false,
 }
 
 DateInput.propTypes = {
   onKeyUp: PropTypes.func,
+  newInput: PropTypes.bool,
 }
 
 export default DateInput

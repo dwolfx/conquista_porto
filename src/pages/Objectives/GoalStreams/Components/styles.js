@@ -75,6 +75,6 @@ export const TitleBar = styled(Text).attrs(() => ({ type: 'heading4' }))`
   }
 `
 
-export const Wrapper = styled.div`
+export const InputWrapper = styled.div`
   margin: 4rem auto;
 `

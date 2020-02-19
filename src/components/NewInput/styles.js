@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Icon from 'components/IconExporter'
 
 const inputDefaultStyle = css`
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
@@ -38,6 +39,7 @@ export const InputGroupWrapper = styled.div`
 export const InputWrapper = styled.div`
   ${inputDefaultStyle}
   ${props => props.error && inputErrorStyle}
+  position: relative;
 `
 
 export const InputLabel = styled.div`
@@ -55,12 +57,30 @@ export const InputAddon = styled.div`
   height: 100%;
 `
 
+export const ErrorMessage = styled.span`
+  color: ${props => props.theme.colors.magenta2};
+  font-family: ${props => props.theme.fontTypes.body};
+  position: absolute;
+  bottom: -28px;
+  left: 14px;
+  display: flex;
+`
+
+export const ErrorIcon = styled(Icon)`
+  fill: ${props => props.theme.colors.magenta2};
+  margin-right: 7px;
+`
+
 export const Input = styled.input`
   background-color: inherit;
   border: none;
   color: inherit;
   font-family: ${props => props.theme.fontTypes.headline};
-  height: inherit;
   padding: 0 7px;
   width: inherit;
+
+  &:-webkit-autofill {
+    box-shadow: none;
+    -webkit-box-shadow: 0 0 0 30px ${props => props.theme.colors.gray1} inset;
+  }
 `

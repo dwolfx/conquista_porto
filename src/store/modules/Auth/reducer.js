@@ -1,8 +1,8 @@
 import { getCookieValue } from 'helpers'
-import { Types } from './types'
+import { Types, TOKEN_NAME } from './types'
 
 const INITIAL_STATE = () => {
-  const accessToken = getCookieValue('accessToken')
+  const accessToken = getCookieValue(TOKEN_NAME)
   const cpf = getCookieValue('cpf')
 
   return {

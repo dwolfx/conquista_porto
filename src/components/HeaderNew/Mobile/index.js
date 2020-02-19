@@ -42,11 +42,23 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
   }
 
   return (
-    <Container>
+    <Container data-gtm-type="container" data-gtm-name="responsive header">
       <Content>
         <Header>
-          <ConquistaBeta onClick={() => closeAndRedirectHome()} />
-          <ResponsiveMenu onClick={() => setIsOpen(false)}>
+          <ConquistaBeta
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            data-gtm-subname="responsive header"
+            data-gtm-name="conquista logo"
+            onClick={() => closeAndRedirectHome()}
+          />
+          <ResponsiveMenu
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="responsive header"
+            data-gtm-name="fechar menu"
+            onClick={() => setIsOpen(false)}
+          >
             <Icon name="close" />
           </ResponsiveMenu>
         </Header>
@@ -65,6 +77,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                 content: `${totalPoints} pontos`,
               },
             ]}
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            data-gtm-subname="responsive header menu"
+            data-gtm-name="perfil"
             path="/perfil"
             callbackClickFn={() => setIsOpen(false)}
           />
@@ -81,6 +97,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
             ]}
             path="/notificacoes"
             callbackClickFn={() => setIsOpen(false)}
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            data-gtm-subname="responsive header menu"
+            data-gtm-name="novas notificações disponiveis"
           />
         </NotificationContainer>
         <ProductsContainer>
@@ -100,6 +120,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                           content: item.text,
                         },
                       ]}
+                      data-gtm-type="click"
+                      data-gtm-clicktype="accordion"
+                      data-gtm-subname="responsive header menu"
+                      data-gtm-name={item.text}
                     />
                   }
                   noBackground
@@ -118,6 +142,10 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                       ]}
                       path={child.path}
                       callbackClickFn={() => setIsOpen(false)}
+                      data-gtm-type="click"
+                      data-gtm-clicktype="link"
+                      data-gtm-subname="menu produtos"
+                      data-gtm-name={child.text}
                     />
                   ))}
                 </Accordion>
@@ -136,13 +164,25 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
                 ]}
                 path={item.path}
                 callbackClickFn={() => setIsOpen(false)}
+                data-gtm-type="click"
+                data-gtm-clicktype="link"
+                data-gtm-subname="responsive header menu"
+                data-gtm-name={item.text}
               />
             )
           })}
         </ProductsContainer>
       </Content>
       <Footer>
-        <Button iconName="leave">SAIR</Button>
+        <Button
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname="responsive header"
+          data-gtm-name="sair"
+          iconName="leave"
+        >
+          SAIR
+        </Button>
       </Footer>
     </Container>
   )

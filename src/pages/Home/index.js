@@ -66,6 +66,7 @@ const Home = () => {
 
   return (
     <GridContainer id="scroll">
+      {/* <ManagerObjective /> */}
       <Wrapper>
         <GridRow>
           <GridCol md="1" id="menu">

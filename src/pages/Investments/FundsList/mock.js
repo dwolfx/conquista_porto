@@ -69,7 +69,7 @@ export const fundsType = [
   },
   {
     name: 'Renda Variável',
-    value: 'rendavariavel',
+    value: 'rendavariável',
   },
   {
     name: 'Multimercado',
@@ -77,7 +77,7 @@ export const fundsType = [
   },
   {
     name: 'Ações',
-    value: 'acoes',
+    value: 'ações',
   },
   {
     name: 'Cambial',

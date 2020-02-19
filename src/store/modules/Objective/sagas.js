@@ -1,17 +1,13 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import axios from 'axios'
+import { post } from 'services/api'
 import { Types } from './types'
 import { PostObjectiveDataSuccess, PostObjectiveDataFailure } from './action'
 
 function* postData(data) {
   const { payload } = data
   try {
-    const response = yield call(
-      axios.post,
-      'http://97f768f9.ngrok.io/v1/recommendation',
-      payload
-    )
+    const response = yield call(post, '/recommendation', payload)
     yield put(PostObjectiveDataSuccess(response.data))
   } catch (err) {
     yield put(PostObjectiveDataFailure())
