@@ -69,7 +69,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
 
   return (
     <GridRecommendation>
-      {console.log('--- data: ', data)}
       <TopBar
         answer={answer}
         nickname={answer.nickname}

@@ -9,8 +9,9 @@ import IconButton from 'components/Button/Icon'
 import Icon from 'components/IconExporter'
 import PieChart from 'components/PieChart'
 import Divisor from 'components/Divisor'
-
+import Modal from 'components/Modal/ModalNew'
 import { formatMoney } from 'helpers'
+import ModalFundos from './ModalFundos'
 
 import {
   GridRow,
@@ -30,6 +31,8 @@ import {
 
 const SectionTwo = ({ creditProduct, combo, funds }) => {
   const theme = useContext(ThemeContext)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [fundDetails, setFundDetails] = useState({})
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
 
   function groupBy(arr, key) {
@@ -131,8 +134,21 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   let { name: productName } = creditProduct || ''
   productName = (productName || '').toLowerCase()
 
+  const fundsModal = fund => {
+    setFundDetails(fund)
+    setIsModalOpen(!isModalOpen)
+  }
+
   return (
     <GridRow>
+      <Modal
+        modalTitle="Regras de condições"
+        alignItems="flex-start"
+        isOpen={isModalOpen}
+        handleClose={() => setIsModalOpen(false)}
+      >
+        <ModalFundos fundDetails={fundDetails} />
+      </Modal>
       <Col lg={combo.length > 1 ? '9' : '12'}>
         <FullHeightCard headerIcon="financial" headerTitle="Fundos Sugeridos">
           <ContainerFunds>
@@ -240,6 +256,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           icon="arrowright"
                           size="large"
                           color="secondary"
+                          onClick={() => fundsModal(fund)}
                         ></IconButton>
                       </TableData>
                     </TableRow>

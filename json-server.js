@@ -270,7 +270,7 @@ router.render = (req, res) => {
           performance_rate: 20.0,
           pl: 0,
           pl_last_year: 0,
-          profile: 1,
+          profile: 2,
           profitability: {
             '1': 0.22,
             '2': 0.34,
@@ -287,8 +287,7 @@ router.render = (req, res) => {
           },
           url_performance_info_pdf:
             'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf',
-          url_fund_rules_pdf:
-            'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf',
+          url_fund_rules_pdf: null,
         },
         {
           adm_tax: 0,
@@ -312,7 +311,7 @@ router.render = (req, res) => {
           performance_rate: 20.0,
           pl: 0,
           pl_last_year: 0,
-          profile: 1,
+          profile: 3,
           profitability: {
             '1': 0.22,
             '2': 0.34,
@@ -353,7 +352,7 @@ router.render = (req, res) => {
           performance_rate: 20.0,
           pl: 0,
           pl_last_year: 0,
-          profile: 1,
+          profile: 4,
           profitability: {
             '1': 0.22,
             '2': 0.34,
@@ -394,7 +393,7 @@ router.render = (req, res) => {
           performance_rate: 20.0,
           pl: 0,
           pl_last_year: 0,
-          profile: 1,
+          profile: 5,
           profitability: {
             '1': 0.22,
             '2': 0.34,
