@@ -45,6 +45,7 @@ NewInput.propTypes = {
   suffix: PropTypes.any,
   width: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  maxLength: PropTypes.any
 }
 
 NewInput.defaultProps = {
