@@ -31,6 +31,10 @@ Array [
       >
         <div
           className="sc-jlyJG iurlso"
+          data-gtm-clicktype="card"
+          data-gtm-name="adcionar"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <svg
@@ -48,6 +52,10 @@ Array [
         </div>
         <div
           className="sc-cMljjf bYdauo"
+          data-gtm-clicktype="card"
+          data-gtm-name="contrato 1"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <span
@@ -349,23 +357,8 @@ Array [
         className="sc-dxgOiQ jZVIom"
         color="secondary"
         data-gtm-clicktype="button"
-        data-gtm-name={
-          <span>
-            SIMULAR E CONTRATAR
-             
-            <span
-              css="
-                position: absolute;
-                top: 7px;
-                right: 12px;
-                font-size: 13px;
-              "
-            >
-              &gt;
-            </span>
-          </span>
-        }
-        data-gtm-subname="highlight section - Parcelas que cabem no seu bolso."
+        data-gtm-name="SIMULAR E CONTRATAR"
+        data-gtm-subname="Parcelas que cabem no seu bolso."
         data-gtm-type="click"
         onClick={[Function]}
       >

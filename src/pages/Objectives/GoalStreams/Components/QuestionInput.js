@@ -50,6 +50,8 @@ const QuestionInput = forwardRef(
       return (
         <OutterWrapper question={question} ruleText={ruleText}>
           <DateInput
+            data-gtm-form="input"
+            data-gtm-name={name}
             ref={ref}
             name={name}
             onChange={onChangeFormData}
@@ -76,6 +78,8 @@ const QuestionInput = forwardRef(
       return (
         <OutterWrapper question={question} ruleText={ruleText}>
           <MoneyInput
+            data-gtm-form="input"
+            data-gtm-name={name}
             ref={ref}
             name={name}
             onChange={onChangeFormData}
@@ -90,6 +94,8 @@ const QuestionInput = forwardRef(
     return (
       <OutterWrapper question={question} ruleText={ruleText}>
         <InputText
+          data-gtm-form="input"
+          data-gtm-name={name}
           ref={ref}
           name={name}
           onChange={onChangeFormData}

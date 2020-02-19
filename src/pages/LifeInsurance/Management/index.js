@@ -135,6 +135,10 @@ export default function ManagementLifeInsurance({ history }) {
           <PageContent id="life-insurance-top-page">
             <LeftNav>
               <AddBtnLink
+                data-gtm-type="click"
+                data-gtm-clicktype="card"
+                data-gtm-subname="card custodia visualizar"
+                data-gtm-name="adicionar"
                 onClick={() => {
                   history.push('/')
                 }}
@@ -147,6 +151,10 @@ export default function ManagementLifeInsurance({ history }) {
               {lifeInsurance.data.map(item => (
                 <ManageableItem
                   key={item.Apolice.LinkDownload}
+                  data-gtm-type="click"
+                  data-gtm-clicktype="card"
+                  data-gtm-subname="card custodia visualizar"
+                  data-gtm-name="seguro de vida"
                   active={
                     selectedLifeInsurance.Apolice.LinkDownload ===
                     item.Apolice.LinkDownload
@@ -220,6 +228,10 @@ export default function ManagementLifeInsurance({ history }) {
                     <div>
                       <TopicTitle>Coberturas adicionais</TopicTitle>
                       <ShowAll
+                        data-gtm-type="click"
+                        data-gtm-clicktype="link"
+                        data-gtm-subname="seguro de vida"
+                        data-gtm-name="ver todas"
                         onClick={() => {
                           setIsOpenModal(true)
                         }}
@@ -282,7 +294,14 @@ export default function ManagementLifeInsurance({ history }) {
             Acesse a Área do Cliente para conferir todos os detalhes sobre os
             produtos da Porto Seguro.
           </Text>
-          <Button>ACeSSAR</Button>
+          <Button
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="acesse a area do cliente"
+            data-gtm-name="acessar"
+          >
+            ACeSSAR
+          </Button>
         </ClientAreaSection>
         <Modal
           isOpen={isOpenModal}

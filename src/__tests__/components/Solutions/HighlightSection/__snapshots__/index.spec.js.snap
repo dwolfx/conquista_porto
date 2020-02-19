@@ -29,7 +29,7 @@ exports[`HighlightSection renders correctly 1`] = `
       color="secondary"
       data-gtm-clicktype="button"
       data-gtm-name="lista de fundos"
-      data-gtm-subname="highlight section - Facilidade para investir"
+      data-gtm-subname="Facilidade para investir"
       data-gtm-type="click"
       onClick={[Function]}
     >

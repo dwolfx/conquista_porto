@@ -19,7 +19,7 @@ import {
   PieChartChildrenContainer,
 } from './styles'
 
-const SectionOne = ({ goal, combo, income }) => {
+const SectionOne = ({ answer, combo, income }) => {
   const theme = useContext(ThemeContext)
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
   const colorsLineChart = [
@@ -30,12 +30,12 @@ const SectionOne = ({ goal, combo, income }) => {
 
   const graphValuesGenerator = () => {
     const colorsPriority = [theme.colors.magenta2, theme.colors.blue4].reverse()
-    const sortedData = [...combo].sort((a, b) => a.totalValue - b.totalValue)
+    const sortedData = [...combo].sort((a, b) => a.total_value - b.total_value)
 
     return sortedData.map((item, index) => ({
       id: item.title,
       label: item.title,
-      value: item.totalValue,
+      value: item.total_value,
       color: colorsPriority[index],
     }))
   }
@@ -48,7 +48,7 @@ const SectionOne = ({ goal, combo, income }) => {
       <Text type="headline">
         {pieChartInfoChildren
           ? formatMoney(pieChartInfoChildren.value)
-          : formatMoney(goal.targetValue)}
+          : formatMoney(answer.target_value)}
       </Text>
     </>
   )
@@ -129,7 +129,7 @@ const SectionOne = ({ goal, combo, income }) => {
             width="100%"
             height="220px"
             colors={colorsLineChart}
-            marker={goal.targetValue}
+            marker={answer.target_value}
           />
         </FullHeightCard>
       </Col>
@@ -138,13 +138,13 @@ const SectionOne = ({ goal, combo, income }) => {
 }
 
 SectionOne.propTypes = {
-  goal: PropTypes.object,
+  answer: PropTypes.object,
   combo: PropTypes.array,
   income: PropTypes.object,
 }
 
 SectionOne.defaultProps = {
-  goal: {},
+  answer: {},
   combo: [],
   income: {},
 }

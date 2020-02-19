@@ -256,11 +256,9 @@ function genericBottomLine(product, history, itemTitle) {
 
 const EmptyProductItem = ({ atualItemDetail }) => {
   const history = useHistory()
-  const cardTitle =
-    atualItemDetail.title === 'Seguro de Vida' ||
-    atualItemDetail.title === 'Seguro Viagem'
-      ? 'seguros'
-      : 'credito'
+  const cardTitle = atualItemDetail.title.toLowerCase().includes('seguro')
+    ? 'seguros'
+    : 'credito'
   return (
     <EmptyProductItemRow>
       <HorizontalListWithMargin

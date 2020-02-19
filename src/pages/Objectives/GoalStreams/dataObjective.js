@@ -1,10 +1,11 @@
 import { betweenLength, minDate, minValue } from './validators'
 
-const INITIAL_VALUE_NAME = 'initialValue'
-const TARGET_DATE_NAME = 'targetDate'
-const TARGET_VALUE_NAME = 'targetValue'
+const INITIAL_VALUE_NAME = 'initial_value'
+const TARGET_DATE_NAME = 'target_date'
+const TARGET_VALUE_NAME = 'target_value'
 const NICKNAME_NAME = 'nickname'
-const MONTHLY_NAME = 'monthlyValue'
+const MONTHLY_NAME = 'monthly_value'
+const FLEXIBLE_TARGET_DATE_NAME = 'is_target_date_flexible'
 const TEXT_TYPE = 'text'
 const DATE_TYPE = 'date'
 const NUMBER_TYPE = 'number'
@@ -40,7 +41,7 @@ const firstStep = {
 
 export default [
   {
-    goalType: '1',
+    goal_type: '1',
     enable: false,
     icon: 'plane',
     label: 'Viagem',
@@ -93,7 +94,7 @@ export default [
     ],
   },
   {
-    goalType: '2',
+    goal_type: '2',
     enable: false,
     icon: 'time',
     label: 'Aposentadoria',
@@ -147,7 +148,7 @@ export default [
       {
         question:
           'Gostaria de ter uma renda mensal determinada na aposentadoria?',
-        name: 'wouldLikeToReceiveMonthlyIncome',
+        name: 'would_like_to_receive_monthly_income',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -158,7 +159,7 @@ export default [
     ],
   },
   {
-    goalType: '3',
+    goal_type: '3',
     enable: false,
     icon: 'car2',
     label: 'Carro',
@@ -178,7 +179,7 @@ export default [
       },
       {
         question: 'Essa data para você é:',
-        name: TARGET_DATE_NAME,
+        name: FLEXIBLE_TARGET_DATE_NAME,
         type: 'bool',
         options: [
           { name: 'Flexível', value: 'true' },
@@ -221,7 +222,7 @@ export default [
       {
         question:
           'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-        name: 'easyToSavePlannedAmount',
+        name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
           { name: 'Consigo guardar', value: 'true' },
@@ -231,7 +232,7 @@ export default [
       {
         question:
           'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'wouldLikeToReceiveBeforeFinalDate',
+        name: 'would_like_to_receive_before_final_date',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -241,7 +242,7 @@ export default [
     ],
   },
   {
-    goalType: '4',
+    goal_type: '4',
     enable: false,
     icon: 'student',
     label: 'Curso',
@@ -295,7 +296,7 @@ export default [
     ],
   },
   {
-    goalType: '5',
+    goal_type: '5',
     enable: false,
     icon: 'drink',
     label: 'Evento',
@@ -348,7 +349,7 @@ export default [
     ],
   },
   {
-    goalType: '6',
+    goal_type: '6',
     enable: false,
     icon: 'homewithwindow',
     label: 'Casa',
@@ -368,7 +369,7 @@ export default [
       },
       {
         question: 'Essa data para você é:',
-        name: TARGET_DATE_NAME,
+        name: FLEXIBLE_TARGET_DATE_NAME,
         type: 'bool',
         options: [
           { name: 'Flexível', value: 'true' },
@@ -411,7 +412,7 @@ export default [
       {
         question:
           'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-        name: 'easyToSavePlannedAmount',
+        name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
           { name: 'Consigo guardar', value: 'true' },
@@ -421,7 +422,7 @@ export default [
       {
         question:
           'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'wouldLikeToReceiveBeforeFinalDate',
+        name: 'would_like_to_receive_before_final_date',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -431,7 +432,7 @@ export default [
     ],
   },
   {
-    goalType: '7',
+    goal_type: '7',
     enable: false,
     icon: 'money',
     label: 'Poupar',

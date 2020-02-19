@@ -35,7 +35,7 @@ export const WizardFlow = ({ data, objective }) => {
   const postFlow = () => {
     dispatch(
       PostObjectiveDataRequest({
-        goalType: objective,
+        goal_type: objective,
         ...formData,
       })
     )
@@ -82,14 +82,25 @@ export const WizardFlow = ({ data, objective }) => {
     <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
-          <ButtonAction outline onClick={decrement}>
+          <ButtonAction
+            data-gtm-name="anterior"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            outline
+            onClick={decrement}
+          >
             Anterior
           </ButtonAction>
         </Col>
       )}
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs="12">
-          <ButtonAction onClick={increment} disabled={!isActive}>
+          <ButtonAction
+            data-gtm-form="submit"
+            data-gtm-name="proximo"
+            onClick={increment}
+            disabled={!isActive}
+          >
             Próximo
           </ButtonAction>
         </Col>
@@ -97,6 +108,8 @@ export const WizardFlow = ({ data, objective }) => {
       {isLastStep && (
         <Col lg="6" xs="12">
           <ButtonAction
+            data-gtm-form="submit"
+            data-gtm-name="concluir"
             onClick={postFlow}
             disabled={!isActive || isLoading}
             loading={isLoading}

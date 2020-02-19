@@ -15,6 +15,9 @@ import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 
+import Accordion from 'components/Accordion'
+
+import managerData from 'mocks/objective.json'
 import {
   GridContainer,
   Banner,
@@ -24,6 +27,7 @@ import {
   ColumnWrapper,
   FullHeightCard,
   Wallet,
+  AccordionContentWrapper,
 } from './styles'
 
 export default function Manager(location) {
@@ -34,7 +38,7 @@ export default function Manager(location) {
     return null
   }
 
-  const { nickname, targetValue, targetDate } = objectiveData.goal
+  const { nickname, target_value, target_date } = objectiveData.answer
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
@@ -44,13 +48,13 @@ export default function Manager(location) {
   const horizontalListGoalMoney = (
     <ColumnWrapper>
       <Text color="gray5">META (R$)</Text>
-      <Text color="black">{formatMoney(targetValue)}</Text>
+      <Text color="black">{formatMoney(target_value)}</Text>
     </ColumnWrapper>
   )
   const horizontalListGoalDate = (
     <ColumnWrapper>
       <Text color="gray5">META (DATA)</Text>
-      <Text color="black">{moment(targetDate).format('MMM YYYY')}</Text>
+      <Text color="black">{moment(target_date).format('MMM YYYY')}</Text>
     </ColumnWrapper>
   )
   const horizontalListBtnEdit = <ButtonLink noIcon>EDITAR OBJETIVO</ButtonLink>
@@ -109,7 +113,20 @@ export default function Manager(location) {
                 Adicionar fundo
               </Button>
             }
-          ></FullHeightCard>
+          >
+            {managerData.fund_list.map(fund => (
+              <Accordion
+                key={fund.id}
+                id={fund.id}
+                labelNode="nome do fundo"
+                titleNode={fund.name}
+              >
+                <AccordionContentWrapper margin="0px 0px 10px 0px">
+                  <Text>CONTENT TEST</Text>
+                </AccordionContentWrapper>
+              </Accordion>
+            ))}
+          </FullHeightCard>
         </Col>
       </Wallet>
 
