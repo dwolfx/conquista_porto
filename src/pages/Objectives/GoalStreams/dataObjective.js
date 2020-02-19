@@ -19,7 +19,7 @@ const firstStep = {
 
 export default [
   {
-    goalType: '1',
+    goal_type: '1',
     enable: false,
     icon: 'plane',
     label: 'Viagem',
@@ -28,7 +28,7 @@ export default [
       firstStep,
       {
         question: 'Qual a data da sua viagem?',
-        name: 'targetDate',
+        name: 'target_date',
         type: 'date',
         ruleText: 'Mínimo de 6 meses',
         validate(value) {
@@ -38,7 +38,7 @@ export default [
       },
       {
         question: 'Quanto vai custar sua viagem?',
-        name: 'targetValue',
+        name: 'target_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -48,7 +48,7 @@ export default [
       },
       {
         question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
+        name: 'initial_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -58,7 +58,7 @@ export default [
       },
       {
         question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
+        name: 'monthly_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
         validate(value) {
@@ -69,7 +69,7 @@ export default [
     ],
   },
   {
-    goalType: '2',
+    goal_type: '2',
     enable: false,
     icon: 'time',
     label: 'Aposentadoria',
@@ -78,7 +78,7 @@ export default [
       firstStep,
       {
         question: 'Quando você quer se aposentar?',
-        name: 'targetDate',
+        name: 'target_date',
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
@@ -89,7 +89,7 @@ export default [
       },
       {
         question: 'Quanto você quer atingir ao final desse objetivo?',
-        name: 'targetValue',
+        name: 'target_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -99,7 +99,7 @@ export default [
       },
       {
         question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
+        name: 'initial_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -109,7 +109,7 @@ export default [
       },
       {
         question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
+        name: 'monthly_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
         validate(value) {
@@ -120,7 +120,7 @@ export default [
       {
         question:
           'Gostaria de ter uma renda mensal determinada na aposentadoria?',
-        name: 'wouldLikeToReceiveMonthlyIncome',
+        name: 'would_like_to_receive_monthly_income',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -130,7 +130,7 @@ export default [
     ],
   },
   {
-    goalType: '3',
+    goal_type: '3',
     enable: false,
     icon: 'car2',
     label: 'Carro',
@@ -139,7 +139,7 @@ export default [
       firstStep,
       {
         question: 'Quando você quer comprar seu carro?',
-        name: 'targetDate',
+        name: 'target_date',
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
@@ -150,7 +150,7 @@ export default [
       },
       {
         question: 'Essa data para você é:',
-        name: 'targetDateFlexible',
+        name: 'is_target_date_flexible',
         type: 'bool',
         options: [
           { name: 'Flexível', value: 'true' },
@@ -159,7 +159,7 @@ export default [
       },
       {
         question: 'Qual o valor do carro?',
-        name: 'targetValue',
+        name: 'target_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -169,7 +169,7 @@ export default [
       },
       {
         question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
+        name: 'initial_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -179,7 +179,7 @@ export default [
       },
       {
         question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
+        name: 'monthly_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
         validate(value) {
@@ -190,7 +190,7 @@ export default [
       {
         question:
           'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-        name: 'easyToSavePlannedAmount',
+        name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
           { name: 'Consigo guardar', value: 'true' },
@@ -200,7 +200,7 @@ export default [
       {
         question:
           'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'wouldLikeToReceiveBeforeFinalDate',
+        name: 'would_like_to_receive_before_final_date',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -210,7 +210,7 @@ export default [
     ],
   },
   {
-    goalType: '4',
+    goal_type: '4',
     enable: false,
     icon: 'student',
     label: 'Curso',
@@ -219,7 +219,7 @@ export default [
       firstStep,
       {
         question: 'Quando começa o curso que você quer fazer?',
-        name: 'targetDate',
+        name: 'target_date',
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
@@ -230,7 +230,7 @@ export default [
       },
       {
         question: 'Qual o valor do curso?',
-        name: 'targetValue',
+        name: 'target_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -240,7 +240,7 @@ export default [
       },
       {
         question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
+        name: 'initial_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -250,7 +250,7 @@ export default [
       },
       {
         question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
+        name: 'monthly_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
         validate(value) {
@@ -261,7 +261,7 @@ export default [
     ],
   },
   {
-    goalType: '5',
+    goal_type: '5',
     enable: false,
     icon: 'drink',
     label: 'Evento',
@@ -270,7 +270,7 @@ export default [
       firstStep,
       {
         question: 'Quando vai acontecer o evento?',
-        name: 'targetDate',
+        name: 'target_date',
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
@@ -281,7 +281,7 @@ export default [
       },
       {
         question: 'Quanto vai custar o seu evento?',
-        name: 'targetValue',
+        name: 'target_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -291,7 +291,7 @@ export default [
       },
       {
         question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
+        name: 'initial_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -301,7 +301,7 @@ export default [
       },
       {
         question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
+        name: 'monthly_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
         validate(value) {
@@ -312,7 +312,7 @@ export default [
     ],
   },
   {
-    goalType: '6',
+    goal_type: '6',
     enable: false,
     icon: 'homewithwindow',
     label: 'Casa',
@@ -321,7 +321,7 @@ export default [
       firstStep,
       {
         question: 'Quando você quer comprar seu imóvel?',
-        name: 'targetDate',
+        name: 'target_date',
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
@@ -332,7 +332,7 @@ export default [
       },
       {
         question: 'Essa data para você é:',
-        name: 'targetDateFlexible',
+        name: 'is_target_date_flexible',
         type: 'bool',
         options: [
           { name: 'Flexível', value: 'true' },
@@ -341,7 +341,7 @@ export default [
       },
       {
         question: 'Qual o valor do imóvel que você quer?',
-        name: 'targetValue',
+        name: 'target_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -351,7 +351,7 @@ export default [
       },
       {
         question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
+        name: 'initial_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -361,7 +361,7 @@ export default [
       },
       {
         question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
+        name: 'monthly_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
         validate(value) {
@@ -372,7 +372,7 @@ export default [
       {
         question:
           'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-        name: 'easyToSavePlannedAmount',
+        name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
           { name: 'Consigo guardar', value: 'true' },
@@ -382,7 +382,7 @@ export default [
       {
         question:
           'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'wouldLikeToReceiveBeforeFinalDate',
+        name: 'would_like_to_receive_before_final_date',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -392,7 +392,7 @@ export default [
     ],
   },
   {
-    goalType: '7',
+    goal_type: '7',
     enable: false,
     icon: 'money',
     label: 'Poupar',
@@ -401,7 +401,7 @@ export default [
       firstStep,
       {
         question: 'Quando você quer resgatar se atingir o total?',
-        name: 'targetDate',
+        name: 'target_date',
         type: 'date',
         maxLength: '10',
         ruleText: 'Mínimo de 6 meses',
@@ -412,7 +412,7 @@ export default [
       },
       {
         question: 'Qual valor você pretente atingir?',
-        name: 'targetValue',
+        name: 'target_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -422,7 +422,7 @@ export default [
       },
       {
         question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
+        name: 'initial_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 1.000,00',
         validate(value) {
@@ -432,7 +432,7 @@ export default [
       },
       {
         question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
+        name: 'monthly_value',
         type: 'number',
         ruleText: 'Mínimo de R$ 100,00',
         validate(value) {
