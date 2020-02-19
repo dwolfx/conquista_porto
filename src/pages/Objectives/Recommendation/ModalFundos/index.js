@@ -27,7 +27,7 @@ const ModalFundos = ({ fundDetails }) => (
   <WrapperContent>
     <Panel>
       <PanelBody>
-        {fundDetails.profile && fundDetails.profile !== 0 && (
+        {fundDetails.profile && (
           <SingleItem>
             <SubTitle icon="flag" title="Perfil de risco" />
             <RiskDegree profile={fundDetails.profile} />
@@ -158,7 +158,7 @@ const ModalFundos = ({ fundDetails }) => (
                 <SubTitle5>cnpj</SubTitle5>
                 <Text>{fundDetails.cnpj}</Text>
               </Item>
-            ) : null}
+            ) : null }
             <Item>
               <SubTitle5>data de início</SubTitle5>
               <Text>{fundDetails.initial_date}</Text>
@@ -172,7 +172,7 @@ const ModalFundos = ({ fundDetails }) => (
                 <SubTitle5>pl atual</SubTitle5>
                 <Text>{fundDetails.pl}</Text>
               </Item>
-            ) : null}
+            ) : null }
             <Item>
               <SubTitle5>taxa de administração</SubTitle5>
               <Text>{fundDetails.adm_tax}%</Text>
@@ -182,7 +182,7 @@ const ModalFundos = ({ fundDetails }) => (
                 <SubTitle5>pl médio 12m</SubTitle5>
                 <Text>{fundDetails.pl_last_year}</Text>
               </Item>
-            ) : null}
+            ) : null }
             <Item>
               <SubTitle5>benchmark</SubTitle5>
               <Text>{fundDetails.benchmark}</Text>

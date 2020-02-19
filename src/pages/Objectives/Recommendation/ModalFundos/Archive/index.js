@@ -5,7 +5,7 @@ import { File, Title } from './styles'
 
 const ArchiveDownload = ({ title, url }) => (
   <File>
-    <Title>{title}</Title>
+    <Title bold>{title}</Title>
     <ButtonLink
       target="_blank"
       href={url}

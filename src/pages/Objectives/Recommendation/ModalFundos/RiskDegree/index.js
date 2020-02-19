@@ -1,28 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
+import { ThemeContext } from 'styled-components'
 import { ItemColor, RiskCaptionWrapper, ColorBox } from './styles'
 
 export default function NewRiskCaption({ profile }) {
+  const themeContext = useContext(ThemeContext)
   const colorsProfile = [
     {
-      color: 'gray4',
+      color: 'lowRisk',
       profile: 'Nenhum Risco',
     },
     {
-      color: 'blue4',
+      color: 'lowMediumRisk',
       profile: 'Risco Baixo',
     },
     {
-      color: 'green3',
+      color: 'mediumRisk',
       profile: 'Risco Médio',
     },
     {
-      color: 'yellow2',
+      color: 'mediumHighRisk',
       profile: 'Risco Alto',
     },
     {
-      color: 'magenta2',
+      color: 'highRisk',
       profile: 'Total Risco',
     },
   ]
@@ -32,7 +34,7 @@ export default function NewRiskCaption({ profile }) {
         <ItemColor key={item.color}>
           <ColorBox
             className={profile === index + 1 ? 'active' : ''}
-            backgroundColor={item.color}
+            backgroundColor={themeContext.fundRiskColorsNew[item.color]}
           />
           {profile === index + 1 && <Text type="caption">{item.profile}</Text>}
         </ItemColor>
