@@ -60,6 +60,10 @@ export default function LastTransactions({ lastOperations }) {
       <Text>Últimas Movimentações</Text>
       {renderLastTransactions()}
       <CompleteExtract
+        data-gtm-type="click"
+        data-gtm-clicktype="link"
+        data-gtm-subname="ultimas movimentacoes"
+        data-gtm-name="extrato completo"
         onClick={() => {
           history.push('/investimentos/extrato')
         }}

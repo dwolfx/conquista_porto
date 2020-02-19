@@ -31,6 +31,10 @@ Array [
       >
         <div
           className="sc-jlyJG iurlso"
+          data-gtm-clicktype="card"
+          data-gtm-name="adicionar"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <svg
@@ -48,6 +52,10 @@ Array [
         </div>
         <div
           className="sc-cMljjf bYdauo"
+          data-gtm-clicktype="card"
+          data-gtm-name="contrato 1"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <span
@@ -319,6 +327,10 @@ Array [
             <button
               className="sc-ifAKCX clErPs"
               color="primary"
+              data-gtm-clicktype="card"
+              data-gtm-name="acesse o app e faça seu lance"
+              data-gtm-subname="evolucao do pagamento"
+              data-gtm-type="click"
             >
               <span
                 className="sc-EHOje gyxTyo"

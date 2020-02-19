@@ -91,6 +91,10 @@ export default function ManagementConsortiumBuilding({ history }) {
         <PageContent id="consortium-building-top-page">
           <LeftNav>
             <AddBtnLink
+              data-gtm-type="click"
+              data-gtm-clicktype="card"
+              data-gtm-subname="card custodia visualizar"
+              data-gtm-name="adcionar"
               onClick={() => {
                 history.push('/')
               }}
@@ -105,6 +109,10 @@ export default function ManagementConsortiumBuilding({ history }) {
               ? consortiumBuilding.map((item, index) => (
                   <ManageableItem
                     key={item.Id}
+                    data-gtm-type="click"
+                    data-gtm-clicktype="card"
+                    data-gtm-subname="card custodia visualizar"
+                    data-gtm-name={`contrato ${index + 1}`}
                     active={selectedConsortiumBuilding === item.Id}
                     onClick={() => {
                       setSelectedConsortiumBuilding(item.id)
