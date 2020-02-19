@@ -42,6 +42,7 @@ const QuestionInput = forwardRef(
       type,
       error,
       prefix,
+      maxLength
     },
     ref
   ) => {
@@ -80,6 +81,7 @@ const QuestionInput = forwardRef(
             onChange={onChangeFormData}
             value={formData[name]}
             error={error}
+            maxLength={maxLength}
           />
         </OutterWrapper>
       )
@@ -94,6 +96,7 @@ const QuestionInput = forwardRef(
           prefix={prefix}
           value={formData[name]}
           error={error}
+          maxLength={maxLength}
         />
       </OutterWrapper>
     )

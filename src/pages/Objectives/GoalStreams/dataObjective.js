@@ -1,4 +1,4 @@
-import { betweenLength, minDate, minValue, maxValue } from './validators'
+import { betweenLength, minDate, minValue } from './validators'
 
 const INITIAL_VALUE_NAME = 'initialValue'
 const TARGET_DATE_NAME = 'targetDate'
@@ -8,7 +8,7 @@ const MONTHLY_NAME = 'monthlyValue'
 const TEXT_TYPE = 'text'
 const DATE_TYPE = 'date'
 const NUMBER_TYPE = 'number'
-const VALUE_INPUT_MAX_LENGTH = 20
+const VALUE_INPUT_MAX_LENGTH = 25
 const STRING_INPUT_MAX_LENGTH = 20
 const HUNDRED_MIN_VALUE = '100,00'
 const THOUSAND_MIN_VALUE = '1.000,00'
@@ -63,7 +63,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         validate(value) {
-          const isValid = minValue(value, THOUSAND_MIN_VALUE) && maxValue(value, '99.999.999.999.999.999,99')
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH
