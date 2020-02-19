@@ -12,6 +12,7 @@ import {
 const Accordion = ({
   labelNode,
   titleNode,
+  gtmName,
   children,
   id,
   isGrayArrow,
@@ -25,6 +26,9 @@ const Accordion = ({
   return (
     <AccordionWrapper isOpen={isOpen} id={id} padding={padding} {...rest}>
       <AccordionHeader
+        data-gtm-type="click"
+        data-gtm-clicktype="accordion"
+        data-gtm-name={gtmName}
         padding={padding}
         isGrayArrow={isGrayArrow}
         onClick={() => setIsOpen(!isOpen)}
@@ -43,6 +47,7 @@ export default Accordion
 Accordion.propTypes = {
   labelNode: PropTypes.string,
   titleNode: PropTypes.node.isRequired,
+  gtmName: PropTypes.string.isRequired,
   isGrayArrow: PropTypes.bool,
   children: PropTypes.node.isRequired,
   id: PropTypes.string.isRequired,

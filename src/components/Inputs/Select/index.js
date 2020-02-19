@@ -18,6 +18,7 @@ const SelectComponent = ({
   placeholder,
   defaultValue,
   showPlaceholder,
+  selectTitle,
   ...props
 }) => {
   const renderOptions = () =>
@@ -30,9 +31,11 @@ const SelectComponent = ({
         {item.name}
       </option>
     ))
-
   return (
     <SelectWrapper
+      data-gtm-type="select"
+      data-gtm-subname={selectTitle}
+      data-gtm-name={placeholder}
       width={width}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
@@ -65,6 +68,7 @@ SelectComponent.propTypes = {
   placeholder: PropTypes.string,
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   showPlaceholder: PropTypes.bool,
+  selectTitle: PropTypes.string.isRequired,
 }
 
 SelectComponent.defaultProps = {

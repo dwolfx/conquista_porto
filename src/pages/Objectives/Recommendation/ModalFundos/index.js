@@ -153,12 +153,12 @@ const ModalFundos = ({ fundDetails }) => (
         </SingleItem>
         <SingleItem borderBottom>
           <ListItems>
-            {fundDetails.cnpj ? (
+            {!!fundDetails.cnpj && (
               <Item>
                 <SubTitle5>cnpj</SubTitle5>
                 <Text>{fundDetails.cnpj}</Text>
               </Item>
-            ) : null}
+            )}
             <Item>
               <SubTitle5>data de início</SubTitle5>
               <Text>{fundDetails.initial_date}</Text>
@@ -167,22 +167,22 @@ const ModalFundos = ({ fundDetails }) => (
               <SubTitle5>gestor</SubTitle5>
               <Text>{fundDetails.manager}</Text>
             </Item>
-            {fundDetails.pl ? (
+            {!!fundDetails.pl && (
               <Item>
                 <SubTitle5>pl atual</SubTitle5>
                 <Text>{fundDetails.pl}</Text>
               </Item>
-            ) : null}
+            )}
             <Item>
               <SubTitle5>taxa de administração</SubTitle5>
               <Text>{fundDetails.adm_tax}%</Text>
             </Item>
-            {fundDetails.pl_last_year ? (
+            {!!fundDetails.pl_last_year && (
               <Item>
                 <SubTitle5>pl médio 12m</SubTitle5>
                 <Text>{fundDetails.pl_last_year}</Text>
               </Item>
-            ) : null}
+            )}
             <Item>
               <SubTitle5>benchmark</SubTitle5>
               <Text>{fundDetails.benchmark}</Text>

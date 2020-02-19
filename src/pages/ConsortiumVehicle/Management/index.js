@@ -92,6 +92,10 @@ export default function ManagementConsortiumVehicle({ history }) {
         <PageContent id="consortium-vehicle-top-page">
           <LeftNav>
             <AddBtnLink
+              data-gtm-type="click"
+              data-gtm-clicktype="card"
+              data-gtm-subname="card custodia visualizar"
+              data-gtm-name="adicionar"
               onClick={() => {
                 history.push('/')
               }}
@@ -106,6 +110,10 @@ export default function ManagementConsortiumVehicle({ history }) {
               ? consortiumVehicle.data.map(item => (
                   <ManageableItem
                     key={item.Id}
+                    data-gtm-type="click"
+                    data-gtm-clicktype="card"
+                    data-gtm-subname="card custodia visualizar"
+                    data-gtm-name="contrato 1"
                     active={selectedConsortiumVehicle === item.Id}
                     onClick={() => {
                       setSelectedConsortiumVehicle(item.Id)
@@ -220,7 +228,14 @@ export default function ManagementConsortiumVehicle({ history }) {
                         subtitle="parcelas"
                       />
 
-                      <Button>acesse o app e faça seu lance</Button>
+                      <Button
+                        data-gtm-type="click"
+                        data-gtm-clicktype="card"
+                        data-gtm-subname="evolucao do pagamento"
+                        data-gtm-name="acesse o app e faça seu lance"
+                      >
+                        acesse o app e faça seu lance
+                      </Button>
                     </Invoice>
                   </InvoiceContainer>
                 </RightContent>

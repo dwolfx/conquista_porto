@@ -17,6 +17,7 @@ import moment from 'moment'
 
 import Accordion from 'components/Accordion'
 
+import managerData from 'mocks/objective.json'
 import {
   GridContainer,
   Banner,
@@ -28,8 +29,6 @@ import {
   Wallet,
   AccordionContentWrapper,
 } from './styles'
-
-import managerData from './managerData.json'
 
 export default function Manager(location) {
   const { data: objectiveData } = useSelector(state => state.objective)

@@ -98,6 +98,10 @@ const ManagementVehicleFinancing = ({ history }) => {
         <PageContent>
           <LeftNav>
             <AddBtnLink
+              data-gtm-type="click"
+              data-gtm-clicktype="card"
+              data-gtm-subname="card custodia visualizar"
+              data-gtm-name="adicionar"
               onClick={() => {
                 history.push('/')
               }}
@@ -202,7 +206,14 @@ const ManagementVehicleFinancing = ({ history }) => {
                       />
                     </LinearProgressContent>
                     <LinearProgressButtonContent>
-                      <Button>Segunda via do boleto</Button>
+                      <Button
+                        data-gtm-type="click"
+                        data-gtm-clicktype="button"
+                        data-gtm-subname="evolucao do pagamento"
+                        data-gtm-name="segunda via do boleto"
+                      >
+                        Segunda via do boleto
+                      </Button>
                     </LinearProgressButtonContent>
                   </RowContentColumnDir>
                   <ComplementaryInfo>
@@ -366,7 +377,14 @@ const complementaryInfo = [
 ]
 
 const ManageableItemWithStyle = ({ name, value, onClick, isActive }) => (
-  <ManageableItem onClick={onClick} active={isActive}>
+  <ManageableItem
+    data-gtm-type="click"
+    data-gtm-clicktype="card"
+    data-gtm-subname="card custodia visualizar"
+    data-gtm-name={name}
+    onClick={onClick}
+    active={isActive}
+  >
     <Icon width="28" fill="{theme.colors.blue4}" name="car2" />
     <TextTitle margin="0 0 7px 0" textAlign="center">
       {name}

@@ -5,7 +5,7 @@ export const RiskCaptionWrapper = styled.div`
 `
 
 export const ColorBox = styled.div`
-  background-color: ${props => props.theme.colors[props.backgroundColor]};
+  background-color: ${props => props.backgroundColor};
   display: inline-block;
   height: 10px;
   margin: 0;

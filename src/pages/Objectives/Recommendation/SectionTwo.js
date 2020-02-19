@@ -134,9 +134,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   let { name: productName } = creditProduct || ''
   productName = (productName || '').toLowerCase()
 
-  const fundsModal = fund => {
+  const handleOpenModal = fund => {
     setFundDetails(fund)
     setIsModalOpen(!isModalOpen)
+  }
+
+  const handleCloseModal = () => {
+    setFundDetails({})
+    setIsModalOpen(false)
   }
 
   return (
@@ -145,7 +150,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         modalTitle="Regras de condições"
         alignItems="flex-start"
         isOpen={isModalOpen}
-        handleClose={() => setIsModalOpen(false)}
+        handleClose={() => handleCloseModal()}
       >
         <ModalFundos fundDetails={fundDetails} />
       </Modal>
@@ -256,7 +261,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           icon="arrowright"
                           size="large"
                           color="secondary"
-                          onClick={() => fundsModal(fund)}
+                          onClick={() => handleOpenModal(fund)}
                         ></IconButton>
                       </TableData>
                     </TableRow>

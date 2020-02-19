@@ -81,7 +81,6 @@ export const Information = styled(Text)`
 
 export const ItemInfo = styled.li`
   ${props => props.theme.fontTypes.body};
-  font-weight: 300;
 `
 
 export const Item = styled.div`

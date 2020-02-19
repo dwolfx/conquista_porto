@@ -305,7 +305,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         </Container>
       </SectionsRecommendation>
 
-      <BottomBar answer={answer} isLoading={isLoading} />
+      <BottomBar answer={answer} isLoading={isLoading} id={data.id} />
     </GridRecommendation>
   )
 }
@@ -331,6 +331,7 @@ Recommendation.defaultProps = {
 Recommendation.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     answer: PropTypes.shape({
       target_date: PropTypes.string,
       target_value: PropTypes.number,
