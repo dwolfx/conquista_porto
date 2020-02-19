@@ -69,3 +69,14 @@ export const formatDateMask = event => {
   // eslint-disable-next-line no-param-reassign
   event.target.value = newValue
 }
+
+export const getCookieValue = key => {
+  const regexPattern = `(?:(?:^|.*;\\s*)${key}\\s*=\\s*([^;]*).*$)|^.*$`
+  const regExp = new RegExp(regexPattern, 'g')
+
+  return document.cookie.replace(regExp, '$1')
+}
+
+export const setCookieValue = (key, value) => {
+  document.cookie = `${key}=${value}`
+}

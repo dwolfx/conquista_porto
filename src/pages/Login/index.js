@@ -7,20 +7,23 @@ import Input from 'components/Inputs/Text'
 import CPFInput from 'components/Inputs/CPFInput'
 import { AuthRequestLogin } from 'store/modules/Auth/action'
 import { useDispatch, useSelector } from 'react-redux'
-// import { handleGiwRedirect } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 import { FormWrapper } from './styles'
 
 export default function Login() {
-  // if (process.env.REACT_APP_ENV !== 'development') {
-  // handleGiwRedirect('/portal/site/portaldecliente/template.LOGOUT/')
-  // }
+  if (
+    process.env.REACT_APP_ENV !== 'development' &&
+    process.env.REACT_APP_ENV !== 'local'
+  ) {
+    handleGiwRedirect('/portal/site/portaldecliente/template.LOGOUT/')
+  }
 
   const error = useSelector(state => state.auth.error)
   const dispatch = useDispatch()
 
   const [credentials, setCredentials] = useState({
-    username: '39812241833',
-    password: 'senha123',
+    username: '',
+    password: '',
   })
 
   const handleInputOnChange = key => event => {
@@ -77,6 +80,7 @@ export default function Login() {
           </FormWrapper>
         </Col>
       </Row>
+      <Row>Versão Teste</Row>
     </Container>
   )
 }

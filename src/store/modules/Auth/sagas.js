@@ -1,5 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
+import { setCookieValue } from 'helpers'
 import { AuthRequestLoginSuccess, AuthRequestLoginFailure } from './action'
 import { Types } from './types'
 
@@ -35,27 +36,27 @@ function* postLogin({ credentials: { username, password } }) {
     }
 
     yield put(AuthRequestLoginSuccess(response))
-    saveAuthLocalStorage(response)
+    saveAuthCookie(response)
   } catch (error) {
     yield put(AuthRequestLoginFailure(error.toString()))
   }
 }
 
 function* postLogout() {
-  removeAuthLocalStorage()
+  removeAuthCookie()
   // const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
   // yield call(axiosInstance.post, logoutUrl, `token=${accessToken}`)
   yield true
 }
 
-function saveAuthLocalStorage({ cpf, accessToken }) {
-  localStorage.setItem('cpf', cpf)
-  localStorage.setItem('accessToken', accessToken)
+function saveAuthCookie({ cpf, accessToken }) {
+  setCookieValue('cpf', cpf)
+  setCookieValue('accessToken', accessToken)
 }
 
-function removeAuthLocalStorage() {
-  localStorage.removeItem('cpf')
-  localStorage.removeItem('accessToken')
+function removeAuthCookie() {
+  setCookieValue('cpf', '')
+  setCookieValue('accessToken', '')
 }
 
 export default all([

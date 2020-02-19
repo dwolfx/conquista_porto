@@ -1,10 +1,9 @@
+import { getCookieValue } from 'helpers'
 import { Types } from './types'
 
 const INITIAL_STATE = () => {
-  // const accessToken = localStorage.getItem('accessToken')
-  // const cpf = localStorage.getItem('cpf')
-  const accessToken = '0c77bfe1-5384-4f05-99fa-5068ece0850f'
-  const cpf = '22890390802'
+  const accessToken = getCookieValue('accessToken')
+  const cpf = getCookieValue('cpf')
 
   return {
     accessToken,
