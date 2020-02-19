@@ -26,7 +26,13 @@ const Drawer = ({
       <DrawerWrapper>
         <DrawerHeader>
           <DrawerTitle>{drawerTitle}</DrawerTitle>
-          <CloseButton onClick={handleClose} />
+          <CloseButton
+            data-gtm-subname={`menu ${drawerTitle}`}
+            data-gtm-name="botao fechar"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={handleClose}
+          />
         </DrawerHeader>
         <DrawerBody>{children}</DrawerBody>
         {footer && <DrawerFooter>{footer}</DrawerFooter>}

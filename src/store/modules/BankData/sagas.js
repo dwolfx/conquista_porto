@@ -6,7 +6,10 @@ import { GetDataSuccess, GetDataFailure } from './action'
 
 function* getData({ cpf }) {
   try {
-    const response = yield call(get, `/conta/dados?cpf=${cpf}&codigoCanal=0`)
+    const response = yield call(
+      get,
+      `/invest/conta/dados?cpf=${cpf}&codigoCanal=0`
+    )
     yield put(GetDataSuccess(response.data))
   } catch (err) {
     yield put(GetDataFailure())

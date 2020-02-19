@@ -66,7 +66,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </Text>
         <Text color="gray6" type="headline">
           {formatMoney(
-            funds.reduce((acc, curr) => acc + +curr.initialValue, 0)
+            funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
           )}
         </Text>
         <Divisor />
@@ -75,7 +75,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </Text>
         <Text type="headline">
           {formatMoney(
-            funds.reduce((acc, curr) => acc + +curr.monthlyValue, 0)
+            funds.reduce((acc, curr) => acc + +curr.monthly_value, 0)
           )}
         </Text>
       </PieChartChildrenContent>
@@ -91,7 +91,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
       theme.colors.darkBlue2,
     ]
 
-    const groupedData = groupBy(funds, 'categoryName')
+    const groupedData = groupBy(funds, 'category_name')
     const sortedData = Object.entries(groupedData).sort(
       (a, b) => b[1].length - a[1].length
     )
@@ -121,14 +121,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   function shouldApplyOpacity(fund) {
     if (
       !pieChartInfoChildren ||
-      pieChartInfoChildren.id === fund.categoryName
+      pieChartInfoChildren.id === fund.category_name
     ) {
       return false
     }
     return true
   }
 
-  let { name: productName } = creditProduct
+  let { name: productName } = creditProduct || ''
   productName = (productName || '').toLowerCase()
 
   return (
@@ -203,7 +203,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         <Square
                           color={
                             graphValuesGenerator().find(
-                              item => item.id === fund.categoryName
+                              item => item.id === fund.category_name
                             ).color
                           }
                         />
@@ -223,16 +223,20 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                       </TableData>
                       <TableData textAlign="right">
                         <Text type="body">
-                          {formatMoney(fund.initialValue)}
+                          {formatMoney(fund.initial_value)}
                         </Text>
                       </TableData>
                       <TableData textAlign="right">
                         <Text type="body">
-                          {formatMoney(fund.monthlyValue)}
+                          {formatMoney(fund.monthly_value)}
                         </Text>
                       </TableData>
                       <TableData textAlign="-webkit-center" width="100px">
                         <IconButton
+                          data-gtm-subname={`fundo ${fund.name}`}
+                          data-gtm-name="icone arrowright"
+                          data-gtm-type="click"
+                          data-gtm-clicktype="button"
                           icon="arrowright"
                           size="large"
                           color="secondary"
@@ -247,7 +251,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </FullHeightCard>
       </Col>
 
-      {combo.length > 1 && (
+      {creditProduct && combo.length > 1 && (
         <Col lg="3">
           <FullHeightCard
             headerIcon={
@@ -302,13 +306,13 @@ SectionTwo.propTypes = {
       profitability: PropTypes.shape({
         '12': PropTypes.number,
       }),
-      quotationApplyDays: PropTypes.number,
-      financialApplyDays: PropTypes.number,
-      quotationRescueDays: PropTypes.number,
-      financialRescueDays: PropTypes.number,
-      initialValue: PropTypes.number,
-      monthlyValue: PropTypes.number,
-      categoryName: PropTypes.string,
+      quotation_apply_days: PropTypes.string,
+      financial_apply_days: PropTypes.string,
+      quotation_rescue_days: PropTypes.string,
+      financial_rescue_days: PropTypes.string,
+      initial_value: PropTypes.number,
+      monthly_value: PropTypes.number,
+      category_name: PropTypes.string,
     })
   ).isRequired,
 }

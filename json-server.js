@@ -15,9 +15,7 @@ server.use(jsonServer.bodyParser)
 server.use(jsonServer.rewriter(routes))
 
 router.render = (req, res) => {
-  if (
-    req.originalUrl.startsWith('/conquistaapi/investimento/v1/notificacao/lida')
-  ) {
+  if (req.originalUrl.startsWith('/api/notificacao/lida')) {
     const allNotifications = [
       ...res.locals.data.anteriores,
       ...res.locals.data.novas,
@@ -29,9 +27,7 @@ router.render = (req, res) => {
     const { tipoNotificacao, ...rest } = notificacao
     res.jsonp({ ...rest, lida: true })
   }
-  if (
-    req.originalUrl.startsWith('/conquistaapi/investimento/v1/recommendation')
-  ) {
+  if (req.originalUrl.startsWith('/api/goal/recommendations')) {
     res.jsonp(recommendationMock)
   } else {
     res.jsonp(res.locals.data)

@@ -18,7 +18,7 @@ import {
   SectionBar,
 } from './styles'
 
-const BottomBar = ({ goal, isLoading }) => {
+const BottomBar = ({ answer, isLoading }) => {
   const history = useHistory()
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -26,8 +26,8 @@ const BottomBar = ({ goal, isLoading }) => {
   const [formData, setFormData] = useState({})
 
   useEffect(() => {
-    setFormData({ ...goal })
-  }, [goal])
+    setFormData({ ...answer })
+  }, [answer])
 
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
@@ -37,12 +37,12 @@ const BottomBar = ({ goal, isLoading }) => {
   const handleSingleValue = event => {
     const { name } = event.target
     if (
-      name === 'initialValue' ||
-      name === 'monthlyValue' ||
-      name === 'targetValue'
+      name === 'initial_value' ||
+      name === 'monthly_value' ||
+      name === 'target_value'
     )
       moneyMask(event)
-    if (name === 'targetDate') formatDateMask(event)
+    if (name === 'target_date') formatDateMask(event)
     setFormData({ ...formData, [name]: event.target.value })
   }
 
@@ -52,7 +52,12 @@ const BottomBar = ({ goal, isLoading }) => {
   }
 
   const footerDrawer = () => (
-    <ButtonSubmit onClick={() => submitToRecommendation()} disabled={isLoading}>
+    <ButtonSubmit
+      data-gtm-form="submit"
+      data-gtm-name="confirmar e recalcular"
+      onClick={() => submitToRecommendation()}
+      disabled={isLoading}
+    >
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
@@ -66,14 +71,16 @@ const BottomBar = ({ goal, isLoading }) => {
   return (
     <SectionBar>
       <Drawer
-        drawerTitle="Resumo"
+        drawerTitle="resumo"
         isOpen={isDrawerOpen}
         handleClose={() => setIsDrawerOpen(false)}
         footer={footerDrawer()}
       >
-        <FormWrapper>
+        <FormWrapper data-gtm-type="form" data-gtm-name="resumo">
           <ColInput>
             <InputText
+              data-gtm-form="input"
+              data-gtm-name="apelido"
               name="nickname"
               prefix="#"
               label="Apelido"
@@ -83,37 +90,45 @@ const BottomBar = ({ goal, isLoading }) => {
           </ColInput>
           <ColInput>
             <InputText
-              name="initialValue"
+              data-gtm-form="input"
+              data-gtm-name="investimento inicial"
+              name="initial_value"
               prefix="R$"
               label="Investimento inicial"
               onChange={handleSingleValue}
-              value={formData.initialValue}
+              value={formData.initial_value}
             />
           </ColInput>
           <ColInput>
             <InputText
-              name="monthlyValue"
+              data-gtm-form="input"
+              data-gtm-name="investimento mensal"
+              name="monthly_value"
               prefix="R$"
               label="Investimento mensal"
               onChange={handleSingleValue}
-              value={formData.monthlyValue}
+              value={formData.monthly_value}
             />
           </ColInput>
           <ColInput>
             <InputText
-              name="targetValue"
+              data-gtm-form="input"
+              data-gtm-name="meta financeira"
+              name="target_value"
               prefix="R$"
               label="Meta financeira"
               onChange={handleSingleValue}
-              value={formData.targetValue}
+              value={formData.target_value}
             />
           </ColInput>
           <ColInput>
             <InputText
-              name="targetDate"
+              data-gtm-form="input"
+              data-gtm-name="data-alvo"
+              name="target_date"
               label="Data-alvo"
               onChange={handleSingleValue}
-              value={formData.targetDate}
+              value={formData.target_date}
             />
           </ColInput>
         </FormWrapper>
@@ -122,12 +137,20 @@ const BottomBar = ({ goal, isLoading }) => {
         <Row justifyContent="end">
           <Col lgAuto>
             <ButtonBar
+              data-gtm-subname="barra inferior"
+              data-gtm-name="resumo"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
               color="primary"
               onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             >
               Resumo
             </ButtonBar>
             <ButtonBar
+              data-gtm-subname="barra inferior"
+              data-gtm-name="continuar"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
               color="secondary"
               onClick={() =>
                 history.push({
@@ -146,19 +169,21 @@ const BottomBar = ({ goal, isLoading }) => {
 }
 
 BottomBar.defaultProps = {
-  goal: {},
+  answer: {},
 }
 
 BottomBar.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  goal: PropTypes.shape({
-    nickname: PropTypes.string.isRequired,
-    targetDate: PropTypes.string.isRequired,
-    targetValue: PropTypes.number.isRequired,
-    initialValue: PropTypes.number.isRequired,
-    monthlyValue: PropTypes.number.isRequired,
-    goalType: PropTypes.string.isRequired,
-  }),
+  answer: PropTypes.shape(
+    {
+      nickname: PropTypes.string,
+      target_date: PropTypes.string,
+      target_value: PropTypes.number,
+      initial_value: PropTypes.number,
+      monthly_value: PropTypes.number,
+      goal_type: PropTypes.string,
+    }.isRequired
+  ),
 }
 
 export default BottomBar

@@ -47,23 +47,32 @@ const MacroDivisor = () => (
 )
 
 const Recommendation = ({ data, isLoading, totalSteps }) => {
-  const { goal, combo, income, funds, creditProduct, additional } = data
+  const {
+    answer,
+    combo,
+    income,
+    funds,
+    credit_product,
+    additional,
+    suggestion_goal,
+  } = data
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
 
   useEffect(() => {
-    if (goal.suggestionGoal) {
+    if (suggestion_goal) {
       setShowUnmetGoalBanner(true)
     } else {
       setShowUnmetGoalBanner(false)
     }
-  }, [goal.suggestionGoal])
+  }, [suggestion_goal])
 
   return (
     <GridRecommendation>
+      {console.log('--- data: ', data)}
       <TopBar
-        goal={goal}
-        nickname={goal.nickname}
+        answer={answer}
+        nickname={answer.nickname}
         currentStep={totalSteps}
         numberSteps={totalSteps}
       />
@@ -72,6 +81,10 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
           {showUnmetGoalBanner && (
             <CardWithCloseButton>
               <CloseButton
+                data-gtm-subname="card condicoes insuficientes para alcançar seu objetivo"
+                data-gtm-name="botao fechar"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
                 onClick={() => {
                   setShowUnmetGoalBanner(false)
                 }}
@@ -110,7 +123,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="gray6">
-                        {formatMoney(goal.initialValue)}
+                        {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
@@ -125,7 +138,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="green3">
-                        {formatMoney(goal.suggestionGoal.suggestionTargetValue)}
+                        {formatMoney(suggestion_goal.suggestion_monthly_value)}
                       </Text>,
                       <Icon
                         name="check"
@@ -144,7 +157,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="gray6">
-                        {moment(goal.targetDate).format('DD/MM/YYYY')}
+                        {moment(answer.target_date).format('DD/MM/YYYY')}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
@@ -159,12 +172,19 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="gray6">
-                        {formatMoney(goal.targetValue)}
+                        {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
-                  <SimulateButton>simular</SimulateButton>
+                  <SimulateButton
+                    data-gtm-subname="altere o investimento mensal"
+                    data-gtm-name="simular"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                  >
+                    simular
+                  </SimulateButton>
                 </UnmetGoalCard>
                 <MacroDivisor />
                 <UnmetGoalCard>
@@ -186,7 +206,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="gray6">
-                        {formatMoney(goal.initialValue)}
+                        {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
@@ -200,7 +220,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="gray6">
-                        {formatMoney(goal.monthlyValue)}
+                        {formatMoney(answer.monthly_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
@@ -214,9 +234,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="green3">
-                        {moment(
-                          goal.suggestionGoal.suggestionTargetDate
-                        ).format('DD/MM/YYYY')}
+                        {moment(suggestion_goal.suggestion_target_date).format(
+                          'DD/MM/YYYY'
+                        )}
                       </Text>,
                       <Icon
                         name="check"
@@ -234,12 +254,19 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="gray6">
-                        {formatMoney(goal.targetValue)}
+                        {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
-                  <SimulateButton>simular</SimulateButton>
+                  <SimulateButton
+                    data-gtm-subname="altere a data alvo"
+                    data-gtm-name="simular"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                  >
+                    simular
+                  </SimulateButton>
                 </UnmetGoalCard>
                 <MacroDivisor />
                 <UnmetGoalCard>
@@ -256,60 +283,68 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     objetivo. Lembre-se de que não é preciso mudar todos os
                     valores para atingi-lo.
                   </Text>
-                  <SimulateButton outline>alterar</SimulateButton>
+                  <SimulateButton
+                    data-gtm-subname="alterar os valores manualmente"
+                    data-gtm-name="alterar"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                    outline
+                  >
+                    alterar
+                  </SimulateButton>
                 </UnmetGoalCard>
               </UnmetGoalCards>
             </CardWithCloseButton>
           )}
-          <SectionOne goal={goal} combo={combo} income={income} />
+          <SectionOne answer={answer} combo={combo} income={income} />
           <SectionTwo
             combo={combo}
             funds={funds}
-            creditProduct={creditProduct}
+            creditProduct={credit_product}
           />
           <SectionThree additional={additional} />
         </Container>
       </SectionsRecommendation>
 
-      <BottomBar goal={goal} isLoading={isLoading} />
+      <BottomBar answer={answer} isLoading={isLoading} />
     </GridRecommendation>
   )
 }
 
 Recommendation.defaultProps = {
   data: {
-    goal: {
-      suggestionGoal: false,
-      targetDate: '',
-      targetValue: 0,
-      initialValue: 0,
-      monthlyValue: 0,
+    answer: {
+      target_date: '',
+      target_value: 0,
+      initial_value: 0,
+      monthly_value: 0,
       nickname: '',
     },
     combo: [],
     income: {},
     funds: [],
-    creditProduct: {},
+    credit_product: {},
     additional: {},
+    suggestion_goal: {},
   },
 }
 
 Recommendation.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   data: PropTypes.shape({
-    goal: PropTypes.shape({
-      suggestionGoal: PropTypes.bool,
-      targetDate: PropTypes.string,
-      targetValue: PropTypes.number,
-      initialValue: PropTypes.number,
-      monthlyValue: PropTypes.number,
+    answer: PropTypes.shape({
+      target_date: PropTypes.string,
+      target_value: PropTypes.number,
+      initial_value: PropTypes.number,
+      monthly_value: PropTypes.number,
       nickname: PropTypes.string,
     }),
     combo: PropTypes.array,
     income: PropTypes.object,
     funds: PropTypes.array,
-    creditProduct: PropTypes.object,
+    credit_product: PropTypes.object,
     additional: PropTypes.object,
+    suggestion_goal: PropTypes.object,
   }),
   totalSteps: PropTypes.number.isRequired,
 }

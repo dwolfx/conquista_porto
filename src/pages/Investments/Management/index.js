@@ -140,7 +140,7 @@ export default function ManagementInvestments({ history }) {
           <LeftNav>
             <AddBtnLink
               onClick={() => {
-                history.push('/')
+                history.push('/investimentos/lista-fundos')
               }}
             >
               <Icon width="48" fill={theme.colors.gray3} name="add" />

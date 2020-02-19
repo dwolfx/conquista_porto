@@ -12,7 +12,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/produtos/vida?cpfCnpj=${cpf}&codigoCanal=1&tipoSeguro=VIAGEM`
+      `/invest/produtos/vida?cpfCnpj=${cpf}&codigoCanal=1&tipoSeguro=VIAGEM`
     )
     yield put(GetTripInsuranceDataSuccess(response.data))
   } catch (err) {

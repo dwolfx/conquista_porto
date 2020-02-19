@@ -358,16 +358,8 @@ Array [
         className="sc-ifAKCX rrVkN"
         color="secondary"
         data-gtm-clicktype="button"
-        data-gtm-name={
-          <span>
-            SIMULAR E CONTRATAR
-             
-            <ForwardRef(Management___StyledSpan)>
-              &gt;
-            </ForwardRef(Management___StyledSpan)>
-          </span>
-        }
-        data-gtm-subname="highlight section - Parcelas que cabem no seu bolso."
+        data-gtm-name="SIMULAR E CONTRATAR"
+        data-gtm-subname="Parcelas que cabem no seu bolso."
         data-gtm-type="click"
         onClick={[Function]}
       >

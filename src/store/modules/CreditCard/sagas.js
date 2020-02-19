@@ -6,7 +6,10 @@ import { GetCreditCardDataSuccess, GetCreditCardDataFailure } from './action'
 
 function* getData({ cpf }) {
   try {
-    const response = yield call(get, `/cartoes?cpfCnpj=${cpf}&codigoCanal=0`)
+    const response = yield call(
+      get,
+      `/invest/cartoes?cpfCnpj=${cpf}&codigoCanal=0`
+    )
     yield put(GetCreditCardDataSuccess(response.data))
   } catch (err) {
     yield put(GetCreditCardDataFailure())
