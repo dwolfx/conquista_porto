@@ -5,4 +5,4 @@ export const Types = {
   AUTH_REQUEST_LOGIN_FAILURE: 'AUTH_REQUEST_LOGIN_FAILURE',
 }
 
-export const TOKEN_NAME = 'accessToken'
+export const TOKEN_NAME = 'AUTHTOKEN'
