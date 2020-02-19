@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
@@ -8,6 +9,7 @@ import { formatMoneyDecimal, formatDateMask } from 'helpers'
 import Drawer from 'components/Drawer'
 import InputText from 'components/NewInput'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+import { PostObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 import {
   ButtonBar,
   ButtonSubmit,
@@ -17,27 +19,16 @@ import {
   SectionBar,
 } from './styles'
 
-const BottomBar = ({ answer, isLoading }) => {
-  const {
-    nickname,
-    target_date,
-    target_value,
-    initial_value,
-    monthly_value,
-    goal_type,
-  } = answer
+const BottomBar = ({ answer, isLoading, id }) => {
   const history = useHistory()
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-  const [formData, setFormData] = useState({
-    nickname,
-    target_date,
-    target_value,
-    initial_value,
-    monthly_value,
-    goal_type,
-  })
+  const [formData, setFormData] = useState({})
+
+  useEffect(() => {
+    setFormData({ ...answer })
+  }, [answer])
 
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
@@ -56,7 +47,7 @@ const BottomBar = ({ answer, isLoading }) => {
     setFormData({ ...formData, [name]: event.target.value })
   }
 
-  const submitDrawer = () => {
+  const submitToRecommendation = () => {
     dispatch(PostObjectiveDataRequest(formData))
     setIsDrawerOpen(!isDrawerOpen)
   }
@@ -65,12 +56,19 @@ const BottomBar = ({ answer, isLoading }) => {
     <ButtonSubmit
       data-gtm-form="submit"
       data-gtm-name="confirmar e recalcular"
-      onClick={() => submitDrawer()}
+      onClick={() => submitToRecommendation()}
       disabled={isLoading}
     >
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
   )
+
+  const submitToManagement = () => {
+    function pushHistory(path) {
+      history.push({ pathname: path, state: { pageRecommendation: true } })
+    }
+    dispatch(PostObjectiveManagementDataRequest({ id, pushHistory }))
+  }
 
   return (
     <SectionBar>
@@ -156,12 +154,7 @@ const BottomBar = ({ answer, isLoading }) => {
               data-gtm-type="click"
               data-gtm-clicktype="button"
               color="secondary"
-              onClick={() =>
-                history.push({
-                  pathname: 'objetivos/gerenciar',
-                  store: { pageRecommendation: true },
-                })
-              }
+              onClick={submitToManagement}
             >
               Continuar
             </ButtonBar>
@@ -178,6 +171,7 @@ BottomBar.defaultProps = {
 
 BottomBar.propTypes = {
   isLoading: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
   answer: PropTypes.shape(
     {
       nickname: PropTypes.string,

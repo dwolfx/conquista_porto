@@ -16,5 +16,6 @@
   "/notificacao/buscar/:cpf": "/notificacoes",
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
   "/cotistas/posicao?cpf=:cpf": "/posicao?cpf=:cpf",
-  "/goal/recommendations": "/goal_recommendations"
+  "/goal/recommendations": "/goal_recommendations",
+  "/goal/goals": "/goal_management"
 }
