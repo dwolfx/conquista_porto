@@ -90,6 +90,10 @@ const SectionThree = ({ additional }) => {
               </Text>
               <ButtonContainer>
                 <Button
+                  data-gtm-subname={`${product.title}`}
+                  data-gtm-name="saiba mais"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
                   color="primary"
                   onClick={() => {
                     setModalState({

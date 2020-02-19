@@ -233,6 +233,10 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                       </TableData>
                       <TableData textAlign="-webkit-center" width="100px">
                         <IconButton
+                          data-gtm-subname={`fundo ${fund.name}`}
+                          data-gtm-name="icone arrowright"
+                          data-gtm-type="click"
+                          data-gtm-clicktype="button"
                           icon="arrowright"
                           size="large"
                           color="secondary"
