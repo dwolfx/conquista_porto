@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react'
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
@@ -19,7 +20,7 @@ import {
 } from './styles'
 
 const BottomBar = ({ answer, isLoading, id }) => {
-  // const history = useHistory()
+  const history = useHistory()
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
@@ -63,10 +64,11 @@ const BottomBar = ({ answer, isLoading, id }) => {
   )
 
   const submitToManagement = () => {
-    dispatch(PostObjectiveManagementDataRequest({ id }))
+    function pushHistory(path) {
+      history.push(path)
+    }
+    dispatch(PostObjectiveManagementDataRequest({ id, pushHistory }))
   }
-
-  console.log('>>>', formData)
 
   return (
     <SectionBar>

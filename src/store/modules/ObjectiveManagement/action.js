@@ -1,9 +1,10 @@
 import { Types } from './types'
 
-export function PostObjectiveManagementDataRequest(payload) {
+export function PostObjectiveManagementDataRequest({ id, pushHistory }) {
   return {
     type: Types.POST_REQUEST,
-    payload,
+    payload: id,
+    pushHistory,
   }
 }
 

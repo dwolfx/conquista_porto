@@ -7,11 +7,11 @@ import {
   PostObjectiveManagementDataFailure,
 } from './action'
 
-function* postData(data) {
-  const { payload } = data
+function* postData({ payload, pushHistory }) {
   try {
     const response = yield call(post, '/goal/goals', payload)
     yield put(PostObjectiveManagementDataSuccess(response.data))
+    pushHistory('/objetivos/gerenciar')
   } catch (err) {
     yield put(PostObjectiveManagementDataFailure())
   }

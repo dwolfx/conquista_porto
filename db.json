@@ -2377,11 +2377,11 @@
   ],
   "goal_recommendations": {
     "goal_type": "1",
-    "nickname": "Disney",
-    "target_date": "10/10/2020",
-    "target_value": "70.000.000,00",
-    "initial_value": "5.000,00",
-    "monthly_value": "1.000,00"
+    "nickname": "3132131",
+    "target_date": "31/12",
+    "target_value": "31.321.321,31",
+    "initial_value": "312.321.321,31",
+    "monthly_value": "13.213,12"
   },
   "goal_management": {
     "id": "1"
