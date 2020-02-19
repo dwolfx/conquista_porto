@@ -32,9 +32,8 @@ router.render = (req, res) => {
   }
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     res.jsonp(objectiveMock)
-  } else {
-    res.jsonp(res.locals.data)
   }
+  res.jsonp(res.locals.data)
 }
 
 server.use(router)

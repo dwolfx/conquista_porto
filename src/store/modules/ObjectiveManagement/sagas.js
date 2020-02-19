@@ -9,7 +9,7 @@ import {
 
 function* postData({ payload, pushHistory }) {
   try {
-    const response = yield call(post, '/goal/goals', payload)
+    const response = yield call(post, '/goal/goals', { id: payload })
     yield put(PostObjectiveManagementDataSuccess(response.data))
     pushHistory('/objetivos/gerenciar')
   } catch (err) {
