@@ -69,6 +69,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
 
   return (
     <GridRecommendation>
+      {console.log('--- data: ', data)}
       <TopBar
         answer={answer}
         nickname={answer.nickname}
@@ -80,6 +81,10 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
           {showUnmetGoalBanner && (
             <CardWithCloseButton>
               <CloseButton
+                data-gtm-subname="card condicoes insuficientes para alcançar seu objetivo"
+                data-gtm-name="botao fechar"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
                 onClick={() => {
                   setShowUnmetGoalBanner(false)
                 }}
@@ -133,7 +138,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="green3">
-                        {formatMoney(suggestion_goal.suggestionTargetValue)}
+                        {formatMoney(suggestion_goal.suggestion_monthly_value)}
                       </Text>,
                       <Icon
                         name="check"
@@ -172,7 +177,14 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
-                  <SimulateButton>simular</SimulateButton>
+                  <SimulateButton
+                    data-gtm-subname="altere o investimento mensal"
+                    data-gtm-name="simular"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                  >
+                    simular
+                  </SimulateButton>
                 </UnmetGoalCard>
                 <MacroDivisor />
                 <UnmetGoalCard>
@@ -222,7 +234,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="green3">
-                        {moment(suggestion_goal.suggestionTargetDate).format(
+                        {moment(suggestion_goal.suggestion_target_date).format(
                           'DD/MM/YYYY'
                         )}
                       </Text>,
@@ -247,7 +259,14 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
-                  <SimulateButton>simular</SimulateButton>
+                  <SimulateButton
+                    data-gtm-subname="altere a data alvo"
+                    data-gtm-name="simular"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                  >
+                    simular
+                  </SimulateButton>
                 </UnmetGoalCard>
                 <MacroDivisor />
                 <UnmetGoalCard>
@@ -264,7 +283,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     objetivo. Lembre-se de que não é preciso mudar todos os
                     valores para atingi-lo.
                   </Text>
-                  <SimulateButton outline>alterar</SimulateButton>
+                  <SimulateButton
+                    data-gtm-subname="alterar os valores manualmente"
+                    data-gtm-name="alterar"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                    outline
+                  >
+                    alterar
+                  </SimulateButton>
                 </UnmetGoalCard>
               </UnmetGoalCards>
             </CardWithCloseButton>

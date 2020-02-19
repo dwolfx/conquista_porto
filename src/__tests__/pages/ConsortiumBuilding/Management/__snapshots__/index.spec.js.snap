@@ -349,23 +349,8 @@ Array [
         className="sc-dxgOiQ jZVIom"
         color="secondary"
         data-gtm-clicktype="button"
-        data-gtm-name={
-          <span>
-            SIMULAR E CONTRATAR
-             
-            <span
-              css="
-                position: absolute;
-                top: 7px;
-                right: 12px;
-                font-size: 13px;
-              "
-            >
-              &gt;
-            </span>
-          </span>
-        }
-        data-gtm-subname="highlight section - Parcelas que cabem no seu bolso."
+        data-gtm-name="SIMULAR E CONTRATAR"
+        data-gtm-subname="Parcelas que cabem no seu bolso."
         data-gtm-type="click"
         onClick={[Function]}
       >

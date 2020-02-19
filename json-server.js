@@ -13,9 +13,7 @@ server.use(jsonServer.bodyParser)
 server.use(jsonServer.rewriter(routes))
 
 router.render = (req, res) => {
-  if (
-    req.originalUrl.startsWith('/conquistaapi/investimento/v1/notificacao/lida')
-  ) {
+  if (req.originalUrl.startsWith('/api/notificacao/lida')) {
     const allNotifications = [
       ...res.locals.data.anteriores,
       ...res.locals.data.novas,
@@ -27,11 +25,7 @@ router.render = (req, res) => {
     const { tipoNotificacao, ...rest } = notificacao
     res.jsonp({ ...rest, lida: true })
   }
-  if (
-    req.originalUrl.startsWith(
-      '/conquistaapi/investimento/v1/goal/recommendations'
-    )
-  ) {
+  if (req.originalUrl.startsWith('/api/goal/recommendations')) {
     const funds = {
       answer: {
         nickname: 'Disney',
@@ -44,7 +38,6 @@ router.render = (req, res) => {
         goal_type: '1',
         is_easy_to_save_planned_amount: false,
         is_target_date_flexible: false,
-        suggestionGoal: false,
       },
       combo: [
         {
@@ -439,7 +432,7 @@ router.render = (req, res) => {
         credit_card: false,
       },
       suggestion_goal: {
-        suggestion_monthly_value: 0,
+        suggestion_monthly_value: 1000,
         suggestion_target_date: '10/12/2020',
       },
     }

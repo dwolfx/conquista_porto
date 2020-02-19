@@ -1,5 +1,5 @@
 {
-  "/conquistaapi/investimento/v1/*": "/$1",
+  "/api/*": "/$1",
   "/invest/cartoes\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/cartao_credito?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
   "/invest/consorcios/imovel\\?Cpf=:Cpf&codigoCanal=:codigoCanal": "/consorcios_imovel?Cpf=:Cpf&codigoCanal=:codigoCanal",
   "/invest/consorcios/auto\\?Cpf=:Cpf&codigoCanal=:codigoCanal": "/consorcios_auto?Cpf=:Cpf&codigoCanal=:codigoCanal",
