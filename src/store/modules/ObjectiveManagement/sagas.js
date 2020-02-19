@@ -10,7 +10,7 @@ import {
 function* postData(data) {
   const { payload } = data
   try {
-    const response = yield call(post, '/recommendation', payload)
+    const response = yield call(post, '/goal/goals', payload)
     yield put(PostObjectiveManagementDataSuccess(response.data))
   } catch (err) {
     yield put(PostObjectiveManagementDataFailure())

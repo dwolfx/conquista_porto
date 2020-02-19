@@ -7,6 +7,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 const recommendationMock = require('./src/mocks/recommendation.json')
+const objectiveMock = require('./src/mocks/objective.json')
 
 server.use(middlewares)
 
@@ -23,12 +24,14 @@ router.render = (req, res) => {
     const notificacao = allNotifications.find(
       item => +item.idNotificacao === +req.query.id
     )
-
     const { tipoNotificacao, ...rest } = notificacao
     res.jsonp({ ...rest, lida: true })
   }
   if (req.originalUrl.startsWith('/api/goal/recommendations')) {
     res.jsonp(recommendationMock)
+  }
+  if (req.originalUrl.startsWith('/api/goal/goals')) {
+    res.jsonp(objectiveMock)
   } else {
     res.jsonp(res.locals.data)
   }

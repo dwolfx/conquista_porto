@@ -69,7 +69,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
 
   return (
     <GridRecommendation>
-      {console.log('--- data: ', data)}
       <TopBar
         answer={answer}
         nickname={answer.nickname}
@@ -305,8 +304,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
           <SectionThree additional={additional} />
         </Container>
       </SectionsRecommendation>
+      {/* {console.log('...R DATA:', data.id)} */}
 
-      <BottomBar answer={answer} isLoading={isLoading} />
+      <BottomBar answer={answer} isLoading={isLoading} id={data.id} />
     </GridRecommendation>
   )
 }
@@ -332,6 +332,7 @@ Recommendation.defaultProps = {
 Recommendation.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     answer: PropTypes.shape({
       target_date: PropTypes.string,
       target_value: PropTypes.number,

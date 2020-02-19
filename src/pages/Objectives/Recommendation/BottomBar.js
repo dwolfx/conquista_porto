@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
@@ -18,8 +18,8 @@ import {
   SectionBar,
 } from './styles'
 
-const BottomBar = ({ answer, isLoading }) => {
-  const history = useHistory()
+const BottomBar = ({ answer, isLoading, id }) => {
+  // const history = useHistory()
   const dispatch = useDispatch()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
@@ -63,10 +63,10 @@ const BottomBar = ({ answer, isLoading }) => {
   )
 
   const submitToManagement = () => {
-    dispatch(PostObjectiveManagementDataRequest(formData))
+    dispatch(PostObjectiveManagementDataRequest({ id }))
   }
 
-  console.log(submitToManagement)
+  console.log('>>>', formData)
 
   return (
     <SectionBar>
@@ -152,12 +152,7 @@ const BottomBar = ({ answer, isLoading }) => {
               data-gtm-type="click"
               data-gtm-clicktype="button"
               color="secondary"
-              onClick={() =>
-                history.push({
-                  pathname: 'objetivos/gerenciar',
-                  store: { pageRecommendation: true },
-                })
-              }
+              onClick={submitToManagement}
             >
               Continuar
             </ButtonBar>
@@ -174,6 +169,7 @@ BottomBar.defaultProps = {
 
 BottomBar.propTypes = {
   isLoading: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
   answer: PropTypes.shape(
     {
       nickname: PropTypes.string,
