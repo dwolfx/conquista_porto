@@ -304,7 +304,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
           <SectionThree additional={additional} />
         </Container>
       </SectionsRecommendation>
-      {/* {console.log('...R DATA:', data.id)} */}
 
       <BottomBar answer={answer} isLoading={isLoading} id={data.id} />
     </GridRecommendation>
