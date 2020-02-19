@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { createRef, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -13,18 +13,19 @@ import {
 
 const NewInput = forwardRef(
   ({ prefix, suffix, label, width, error, ...rest }, ref) => {
+    const inputRef = ref || createRef()
     return (
       <InputGroupWrapper>
         {label && <InputLabel>{label}</InputLabel>}
         <InputWrapper
           onClick={() => {
-            ref.current.focus()
+            inputRef.current.focus()
           }}
           width={width}
           error={error}
         >
           {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-          <Input ref={ref} {...rest} />
+          <Input ref={inputRef} {...rest} />
           {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
           {error && (
             <ErrorMessage>
