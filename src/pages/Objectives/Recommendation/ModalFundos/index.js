@@ -65,7 +65,6 @@ const ModalFundos = ({ fundDetails }) => (
               <Item>
                 <SubTitle5>Aplicação (Financeiro)</SubTitle5>
                 <Text>{fundDetails.financial_apply_days}</Text>
-                {console.log('--- fundDetails: ', fundDetails)}
               </Item>
               <Item>
                 <SubTitle5>Resgate (Cotização)</SubTitle5>
