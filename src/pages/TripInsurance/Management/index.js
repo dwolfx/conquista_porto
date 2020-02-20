@@ -100,6 +100,10 @@ export default function ManagementTripInsurance({ history }) {
           <PageContent id="trip-insurance-top-page">
             <LeftNav>
               <AddBtnLink
+                data-gtm-type="click"
+                data-gtm-clicktype="card"
+                data-gtm-subname="card custodia visualizar"
+                data-gtm-name="adicionar"
                 onClick={() => {
                   history.push('/')
                 }}
@@ -112,6 +116,10 @@ export default function ManagementTripInsurance({ history }) {
               {tripInsurance.data.map(item => (
                 <ManageableItem
                   key={item.Apolice.LinkDownload}
+                  data-gtm-type="click"
+                  data-gtm-clicktype="card"
+                  data-gtm-subname="card custodia visualizar"
+                  data-gtm-name={item.Nome}
                   active={
                     selectedTripInsurance.Apolice.LinkDownload ===
                     item.Apolice.LinkDownload
@@ -185,6 +193,10 @@ export default function ManagementTripInsurance({ history }) {
                     <div>
                       <TopicTitle>Coberturas adicionais</TopicTitle>
                       <ShowAll
+                        data-gtm-type="click"
+                        data-gtm-clicktype="link"
+                        data-gtm-subname="coberturas adicionais"
+                        data-gtm-name="ver todas"
                         onClick={() => {
                           setIsOpenModal(true)
                         }}

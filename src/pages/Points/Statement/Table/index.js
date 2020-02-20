@@ -41,12 +41,20 @@ export default function StatementTable() {
     <TableWrapper>
       <TableTabs>
         <TableTab
+          data-gtm-type="click"
+          data-gtm-clicktype="menu"
+          data-gtm-subname="extrato de pontos"
+          data-gtm-name="extrato"
           onClick={() => setCurrentTab('statementClass')}
           className={stateTab.statementClass}
         >
           Extrato
         </TableTab>
         <TableTab
+          data-gtm-type="click"
+          data-gtm-clicktype="menu"
+          data-gtm-subname="extrato de pontos"
+          data-gtm-name="acumulo de pontos"
           onClick={() => setCurrentTab('accumulatorClass')}
           className={stateTab.accumulatorClass}
         >
