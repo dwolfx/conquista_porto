@@ -55,7 +55,7 @@ export const rgba = (hex, alpha) => {
 }
 
 export function handleGiwRedirect(link) {
-  window.location.assign(link)
+  window.location.href = `${window.location.origin}/${link}`
 }
 
 export const formatDateMask = event => {
