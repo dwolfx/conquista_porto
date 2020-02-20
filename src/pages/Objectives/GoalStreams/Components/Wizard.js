@@ -41,12 +41,6 @@ export const WizardFlow = ({ data, objective }) => {
     )
   }
 
-  useEffect(() => {
-    if (objectiveData && !isLoading) {
-      history.push('/objetivos')
-    }
-  }, [history, isLoading, objectiveData])
-
   const handleSingleValue = event => {
     const {
       target: { name, value },
@@ -54,6 +48,18 @@ export const WizardFlow = ({ data, objective }) => {
 
     setFormData({ ...formData, [name]: value })
   }
+
+  useEffect(() => {
+    if (objectiveData && !isLoading) {
+      history.push('/objetivos')
+    }
+  }, [history, isLoading, objectiveData])
+
+  useEffect(() => {
+    if (inputRef.current !== null) {
+      inputRef.current.focus()
+    }
+  }, [currentStep])
 
   // useEffect to determine isActive
   useEffect(() => {
@@ -74,7 +80,7 @@ export const WizardFlow = ({ data, objective }) => {
     </WizardStep>
   )
 
-  const WizardButtom = () => (
+  const WizardButton = () => (
     <RowFull>
       {!isFirstStep && (
         <Col lg="6" xs="12">
@@ -128,7 +134,7 @@ export const WizardFlow = ({ data, objective }) => {
         <RowFull>
           <Col lg="4" xs="12">
             {WizardContainer()}
-            {WizardButtom()}
+            {WizardButton()}
           </Col>
         </RowFull>
       </BodyWizard>

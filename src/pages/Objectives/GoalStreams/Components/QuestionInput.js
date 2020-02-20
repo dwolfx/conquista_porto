@@ -42,6 +42,7 @@ const QuestionInput = forwardRef(
       type,
       error,
       prefix,
+      maxLength,
     },
     ref
   ) => {
@@ -84,6 +85,7 @@ const QuestionInput = forwardRef(
             onChange={onChangeFormData}
             value={formData[name]}
             error={error}
+            maxLength={maxLength}
           />
         </OutterWrapper>
       )
@@ -100,6 +102,7 @@ const QuestionInput = forwardRef(
           prefix={prefix}
           value={formData[name]}
           error={error}
+          maxLength={maxLength}
         />
       </OutterWrapper>
     )
@@ -116,6 +119,7 @@ QuestionInput.defaultProps = {
   type: '',
   error: null,
   prefix: null,
+  maxLength: 20,
 }
 
 QuestionInput.propTypes = {
@@ -131,6 +135,7 @@ QuestionInput.propTypes = {
     message: PropTypes.string.isRequired,
   }),
   prefix: PropTypes.string,
+  maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default QuestionInput

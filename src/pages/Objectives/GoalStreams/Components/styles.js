@@ -14,7 +14,7 @@ export const WizardStep = styled.div`
   width: 100%;
 `
 
-export const WizardButtom = styled.div`
+export const WizardButton = styled.div`
   display: flex;
   justify-content: center;
   & > button:nth-child(2) {
