@@ -68,7 +68,7 @@ const Modal = ({
             data-gtm-type="click"
             data-gtm-clicktype="button"
             data-gtm-subname={modalTitle}
-            data-gtm-name="icone fechar"
+            data-gtm-name="botao fechar"
             onClick={handleClose}
           />
         </ModalHeader>
