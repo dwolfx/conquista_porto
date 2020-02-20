@@ -15,7 +15,8 @@ import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 
-import Accordion from 'components/Accordion'
+import Accordion from 'components/NewAccordion'
+import Divisor from 'components/Divisor'
 
 import managerData from 'mocks/objective.json'
 import {
@@ -90,7 +91,6 @@ export default function Manager(location) {
           />
         </ObjectiveHeader>
         <ObjectiveDetails></ObjectiveDetails>
-        {/* <ObjectiveCard></ObjectiveCard> */}
       </ColumnWrapper>
 
       <Wallet>
@@ -114,17 +114,20 @@ export default function Manager(location) {
               </Button>
             }
           >
-            {managerData.fund_list.map(fund => (
-              <Accordion
-                key={fund.id}
-                id={fund.id}
-                labelNode="nome do fundo"
-                titleNode={fund.name}
-              >
-                <AccordionContentWrapper margin="0px 0px 10px 0px">
-                  <Text>CONTENT TEST</Text>
-                </AccordionContentWrapper>
-              </Accordion>
+            {managerData.fund_list.map((fund, index) => (
+              <>
+                <Accordion
+                  key={fund.id}
+                  id={fund.id}
+                  labelNode="nome do fundo"
+                  titleNode={fund.name}
+                >
+                  <AccordionContentWrapper margin="0px 0px 10px 0px">
+                    <Text>CONTENT TEST</Text>
+                  </AccordionContentWrapper>
+                </Accordion>
+                {index !== managerData.fund_list.length - 1 && <Divisor />}
+              </>
             ))}
           </FullHeightCard>
         </Col>
