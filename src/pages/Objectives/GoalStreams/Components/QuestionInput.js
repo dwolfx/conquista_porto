@@ -42,7 +42,7 @@ const QuestionInput = forwardRef(
       type,
       error,
       prefix,
-      maxLength
+      maxLength,
     },
     ref
   ) => {
@@ -119,6 +119,7 @@ QuestionInput.defaultProps = {
   type: '',
   error: null,
   prefix: null,
+  maxLength: 20,
 }
 
 QuestionInput.propTypes = {
@@ -134,6 +135,7 @@ QuestionInput.propTypes = {
     message: PropTypes.string.isRequired,
   }),
   prefix: PropTypes.string,
+  maxLength: PropTypes.any,
 }
 
 export default QuestionInput

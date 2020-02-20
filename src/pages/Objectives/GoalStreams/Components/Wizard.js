@@ -40,7 +40,7 @@ export const WizardFlow = ({ data, objective }) => {
       })
     )
   }
-  
+
   const handleSingleValue = event => {
     const {
       target: { name, value },
@@ -54,9 +54,11 @@ export const WizardFlow = ({ data, objective }) => {
       history.push('/objetivos')
     }
   }, [history, isLoading, objectiveData])
-  
+
   useEffect(() => {
-    inputRef.current.focus()
+    if (inputRef.current !== null) {
+      inputRef.current.focus()
+    }
   }, [currentStep])
 
   // useEffect to determine isActive

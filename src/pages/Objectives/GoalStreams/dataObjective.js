@@ -36,7 +36,7 @@ const firstStep = {
 
     return undefined
   },
-  maxLength: STRING_INPUT_MAX_LENGTH
+  maxLength: STRING_INPUT_MAX_LENGTH,
 }
 
 export default [
@@ -67,7 +67,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: INITIAL_INVESTMENT_QUESTION,
@@ -78,7 +78,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -89,7 +89,7 @@ export default [
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
     ],
   },
@@ -121,7 +121,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: INITIAL_INVESTMENT_QUESTION,
@@ -132,7 +132,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -143,7 +143,7 @@ export default [
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question:
@@ -154,7 +154,7 @@ export default [
           { name: 'Sim', value: 'true' },
           { name: 'Não', value: 'false' },
         ],
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
     ],
   },
@@ -195,7 +195,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: INITIAL_INVESTMENT_QUESTION,
@@ -206,7 +206,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -217,7 +217,7 @@ export default [
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question:
@@ -269,7 +269,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: INITIAL_INVESTMENT_QUESTION,
@@ -280,7 +280,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -291,7 +291,7 @@ export default [
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
     ],
   },
@@ -323,7 +323,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: INITIAL_INVESTMENT_QUESTION,
@@ -334,7 +334,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -385,7 +385,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: INITIAL_INVESTMENT_QUESTION,
@@ -396,7 +396,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -407,7 +407,7 @@ export default [
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question:
@@ -459,7 +459,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: INITIAL_INVESTMENT_QUESTION,
@@ -470,7 +470,7 @@ export default [
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -481,7 +481,7 @@ export default [
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
-        maxLength: VALUE_INPUT_MAX_LENGTH
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
     ],
   },

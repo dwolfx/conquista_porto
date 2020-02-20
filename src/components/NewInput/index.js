@@ -12,8 +12,9 @@ import {
 } from './styles'
 
 const NewInput = forwardRef(
-  ({ prefix, suffix, label, width, error, ...rest }, ref) => {
+  ({ prefix, suffix, label, width, error, maxLength, ...rest }, ref) => {
     const inputRef = ref || createRef()
+
     return (
       <InputGroupWrapper>
         {label && <InputLabel>{label}</InputLabel>}
@@ -25,7 +26,7 @@ const NewInput = forwardRef(
           error={error}
         >
           {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-          <Input ref={inputRef} {...rest} />
+          <Input ref={inputRef} maxLength={maxLength} {...rest} />
           {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
           {error && (
             <ErrorMessage>
@@ -45,7 +46,7 @@ NewInput.propTypes = {
   suffix: PropTypes.any,
   width: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  maxLength: PropTypes.any
+  maxLength: PropTypes.any,
 }
 
 NewInput.defaultProps = {
@@ -54,6 +55,7 @@ NewInput.defaultProps = {
   suffix: false,
   width: '100',
   error: false,
+  maxLength: 20,
 }
 
 export default NewInput
