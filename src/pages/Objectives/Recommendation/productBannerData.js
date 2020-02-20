@@ -9,6 +9,7 @@ export default {
     text:
       'Planos e coberturas pensados para você aproveitar ao máximo a sua viagem.',
     image: travelSecurityImg,
+    productPath: '/seguro-viagem',
     modalInfos: {
       title: 'Seguro Viagem Porto Seguro',
       text: 'Conheça as principais vantagens:',
@@ -46,6 +47,7 @@ export default {
     text:
       'Coberturas e benefícios para você e sua família enfrentarem adversidades com mais tranquilidade.',
     image: lifeSecurityImg,
+    productPath: '/seguro-vida',
     modalInfos: {
       title: 'Seguro Vida Porto Seguro',
       text: 'Conheça as principais vantagens:',
@@ -83,6 +85,7 @@ export default {
     text:
       'Tudo o que um cartão tem, mais as vantagens Porto Seguro para sua casa, carro e compras.',
     image: creditCardImg,
+    productPath: '/cartao-credito',
     modalInfos: {
       title: 'Cartão de Crédito Porto Seguro',
       text: 'Conheça as principais vantagens:',
