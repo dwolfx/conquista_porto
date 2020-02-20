@@ -3,13 +3,7 @@ import Button from 'components/Button'
 import Text from 'components/Text'
 
 export const WrapperContent = styled.div`
-  min-width: 650px;
-`
-
-export const Panel = styled.div`
-  &:not(:first-of-type) {
-    margin-top: 40px;
-  }
+  width: 644px;
 `
 
 export const PanelFooter = styled.div``
