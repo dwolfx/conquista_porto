@@ -181,7 +181,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
-                    
                   >
                     simular
                   </SimulateButton>
