@@ -32,7 +32,7 @@ export const SingleTab = styled.div`
   }
 
   &:last-child {
-    border-radius:  0 7px 7px 0;
+    border-radius: 0 7px 7px 0;
   }
 
   &.active {
