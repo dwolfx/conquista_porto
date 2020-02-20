@@ -10,8 +10,8 @@ import { BannerTips, ButtonContainer } from './styles'
 
 export default function CardCombine({ additional, onClick, ...rest }) {
   const dataLayerProducts = []
-  const dataLayerReturnType = ''
-  const dataLayerDescription = ''
+  let dataLayerReturnType = 'erro'
+  let dataLayerDescription = 'Não existem produtos sugeridos'
 
   const renderedProducts = Object.entries(additional)
     .filter(value => value[1] === true)
@@ -40,6 +40,8 @@ export default function CardCombine({ additional, onClick, ...rest }) {
       null
   )
   if (dataLayerProducts.length > 1) {
+    dataLayerReturnType = 'sucesso'
+    dataLayerDescription = ''
     dataLayerProductSuggestion(
       dataLayerProducts,
       dataLayerReturnType,
