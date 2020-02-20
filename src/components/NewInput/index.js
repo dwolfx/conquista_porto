@@ -12,7 +12,7 @@ import {
 } from './styles'
 
 const NewInput = forwardRef(
-  ({ prefix, suffix, label, width, error, maxLength, ...rest }, ref) => {
+  ({ prefix, suffix, label, width, error, ...rest }, ref) => {
     const inputRef = ref || createRef()
 
     return (
@@ -26,7 +26,7 @@ const NewInput = forwardRef(
           error={error}
         >
           {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-          <Input ref={inputRef} maxLength={maxLength} {...rest} />
+          <Input ref={inputRef} {...rest} />
           {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
           {error && (
             <ErrorMessage>
@@ -46,7 +46,6 @@ NewInput.propTypes = {
   suffix: PropTypes.any,
   width: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  maxLength: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 NewInput.defaultProps = {
@@ -55,7 +54,6 @@ NewInput.defaultProps = {
   suffix: false,
   width: '100',
   error: false,
-  maxLength: 20,
 }
 
 export default NewInput

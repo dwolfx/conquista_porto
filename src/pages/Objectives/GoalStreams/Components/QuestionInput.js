@@ -135,7 +135,7 @@ QuestionInput.propTypes = {
     message: PropTypes.string.isRequired,
   }),
   prefix: PropTypes.string,
-  maxLength: PropTypes.any,
+  maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default QuestionInput

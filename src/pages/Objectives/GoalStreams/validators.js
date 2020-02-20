@@ -24,11 +24,6 @@ export const minValue = (value, minimum) => {
   return schema.isValidSync(removeNonDigit(value))
 }
 
-export const maxValue = (value, maximum) => {
-  const schema = number().max(removeNonDigit(maximum))
-  return schema.isValidSync(removeNonDigit(value))
-}
-
 export const betweenLength = (minLength, maxLength, value) => {
   const min = validateMinLength(value, minLength)
   const max = validateMaxLength(value, maxLength)
