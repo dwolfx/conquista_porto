@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
 import { Tabs, TabList, Tab, TabPanel } from 'components/Tab/NewTab'
+import { formatMoney } from 'helpers'
 import Archive from './Archive'
 import RiskDegree from './RiskDegree'
 import SubTitle from './SubTitle'
@@ -27,9 +28,33 @@ const ModalFundos = ({ fundDetails }) => (
   <WrapperContent>
     <Tabs initialValue="tab-perfil-risco">
       <TabList>
-        <Tab name="tab-perfil-risco">Perfil de Risco</Tab>
-        <Tab name="tab-rentabilidade">Rentabilidade</Tab>
-        <Tab name="tab-mais-informacoes">Mais informações</Tab>
+        <Tab
+          name="tab-perfil-risco"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname="Regras de condições"
+          data-gtm-name="Perfil de Risco"
+        >
+          Perfil de Risco
+        </Tab>
+        <Tab
+          name="tab-rentabilidade"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname="Regras de condições"
+          data-gtm-name="Rentabilidade"
+        >
+          Rentabilidade
+        </Tab>
+        <Tab
+          name="tab-mais-informacoes"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname="Regras de condições"
+          data-gtm-name="Mais informações"
+        >
+          Mais informações
+        </Tab>
       </TabList>
       <TabPanel name="tab-perfil-risco">
         <PanelBody>
@@ -44,15 +69,15 @@ const ModalFundos = ({ fundDetails }) => (
             <ListItems>
               <Item>
                 <SubTitle5>Aplicação</SubTitle5>
-                <Text>R$ {fundDetails.min_value_to_apply}</Text>
+                <Text>{formatMoney(fundDetails.min_value_to_apply)}</Text>
               </Item>
               <Item>
                 <SubTitle5>movimentação mín.</SubTitle5>
-                <Text>R$ {fundDetails.min_movement}</Text>
+                <Text>{formatMoney(fundDetails.min_movement)}</Text>
               </Item>
               <Item>
                 <SubTitle5>saldo mín.</SubTitle5>
-                <Text>R$ {fundDetails.min_balance}</Text>
+                <Text>{formatMoney(fundDetails.min_balance)}</Text>
               </Item>
               <Item>
                 <SubTitle5>horário limite da aplic.</SubTitle5>

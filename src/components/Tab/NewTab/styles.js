@@ -1,18 +1,14 @@
 import styled from 'styled-components'
 
-export const PanelTabs = styled.div`
-  background-color: 'blue';
-`
+export const PanelTabs = styled.div``
+
+export const PanelTab = styled.div``
 
 export const PanelList = styled.div`
   border: 1px solid ${props => props.theme.colors.blue4};
   border-radius: 7px;
   display: flex;
   margin-bottom: 40px;
-`
-
-export const PanelTab = styled.div`
-  background-color: 'red';
 `
 
 export const SingleTab = styled.div`
