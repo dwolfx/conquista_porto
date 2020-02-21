@@ -114,7 +114,7 @@ export default function CreditCard() {
         imageDescription="Mulher segurando cartão de crédito em casa"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/cartao-de-credito/simular'
+            'portaldecliente/conquista/cartao-de-credito/simular?r=true'
           )
         }
       />
