@@ -6,7 +6,7 @@
   "proxy": "http://localhost:8080",
   "scripts": {
     "raise-db": "nodemon json-server.js",
-    "start": "react-scripts start",
+    "start": "env-cmd -f .env.development react-scripts start",
     "local": "env-cmd -f .env.local react-scripts start",
     "build": "env-cmd -f .env react-scripts build",
     "extract": "node extractBundle.js",
