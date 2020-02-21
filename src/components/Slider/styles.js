@@ -62,7 +62,7 @@ import Popover from 'components/Popover'
 //   }
 // `
 
-export const SliderWrapper = styled.div`
+export const SliderContainer = styled.div`
   width: 100%;
   display: flex;
   position: relative;
@@ -71,7 +71,7 @@ export const SliderWrapper = styled.div`
 
 const ThumbContainerStyle = css`
   height: 24px;
-  margin-top: -8px;
+  margin-top: -14px;
   width: 24px;
   z-index: 1;
   position: absolute;
@@ -111,10 +111,21 @@ export const Rail = styled.div`
     left: 0;
     position: absolute;
     top: 0%;
-    width: ${props => `calc(${props.value}% - 12px)`};
+    width: calc(0% - 12px);
     z-index: 1;
   }
+`
+
+export const SliderWrapper = styled.div`
+  position: relative;
+  width: 100%;
+
   ${ThumbPopover}, ${ThumbContainer} {
     left: ${props => `calc(${props.value}% - 12px)`};
+  }
+  ${Rail} {
+    &:before {
+      width: ${props => `calc(${props.value}% - 12px)`};
+    }
   }
 `

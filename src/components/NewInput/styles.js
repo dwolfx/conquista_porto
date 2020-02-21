@@ -8,6 +8,8 @@ const inputDefaultStyle = css`
   align-items: center;
   display: flex;
   padding: 0 7px;
+  font-family: ${props => props.theme.fontTypes.headline};
+
   #prefix {
     padding-left: 7px;
   }
@@ -53,7 +55,7 @@ export const InputAddon = styled.div`
   align-items: center;
   color: ${props => props.theme.colors.gray4};
   display: flex;
-  font-family: ${props => props.theme.fontTypes.headline};
+  font-family: inherit;
   height: 100%;
 `
 
@@ -75,7 +77,7 @@ export const Input = styled.input`
   background-color: inherit;
   border: none;
   color: inherit;
-  font-family: ${props => props.theme.fontTypes.headline};
+  font-family: inherit;
   padding: 0 7px;
   width: inherit;
 

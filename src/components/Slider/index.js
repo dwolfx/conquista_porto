@@ -2,12 +2,13 @@ import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
-import Input from 'components/NewInput'
+import Input from 'components/Inputs/Money'
 
 import { formatMoneyDecimal } from 'helpers'
 
 import {
   SliderWrapper,
+  SliderContainer,
   Rail,
   Thumb,
   ThumbPopover,
@@ -32,6 +33,7 @@ export default function Slider({
   ...rest
 }) {
   const sliderRef = useRef()
+  const inputRef = useRef()
   const [value, setValue] = useState(formatMoneyDecimal(initialValue * 100))
   const [percentValue, setPercentValue] = useState(
     valueToPercent(initialValue, max)
@@ -76,6 +78,8 @@ export default function Slider({
   }
 
   const handleMouseDown = event => {
+    event.preventDefault()
+
     handleSliderPosition(event)
 
     document.addEventListener('mousemove', handleMouseMove)
@@ -85,46 +89,60 @@ export default function Slider({
   }
 
   const handleInputOnChange = event => {
-    const targetValue = event.target.value
+    event.preventDefault()
 
-    setPercentValue(Math.floor(valueToPercent(targetValue, max)))
-    setValue(targetValue)
+    const moneyValue = +event.target.value.replace(/[\D]/g, '')
+    const percent = Math.min(valueToPercent(moneyValue / 100, max), 100)
+
+    setValue(formatMoneyDecimal(moneyValue))
+    setPercentValue(percent)
+
+    window.scrollTo(window.scrollX, window.scrollY - 1)
+    window.scrollTo(window.scrollX, window.scrollY + 1)
+
+    setTimeout(() => {
+      inputRef.current.focus()
+    }, 0)
   }
 
   return (
-    <SliderWrapper>
-      <Rail
-        ref={sliderRef}
-        value={percentValue}
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleMouseDown}
-        {...rest}
-      >
+    <SliderContainer>
+      <SliderWrapper value={percentValue} {...rest}>
+        <Rail
+          ref={sliderRef}
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleMouseDown}
+        />
         {showTooltip ? (
           <ThumbPopover
             content={() => (
               <Input
-                prefix="R$"
+                ref={inputRef}
                 value={value}
                 onChange={handleInputOnChange}
                 css={`
                   height: 33px;
-                  width: 90px;
                   font-size: 14px;
                 `}
               />
             )}
             alwaysVisible
           >
-            <Thumb />
+            <Thumb
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleMouseDown}
+            />
           </ThumbPopover>
         ) : (
           <ThumbContainer>
-            <Thumb />
+            <Thumb
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleMouseDown}
+            />
           </ThumbContainer>
         )}
-      </Rail>
-    </SliderWrapper>
+      </SliderWrapper>
+    </SliderContainer>
   )
 }
 
