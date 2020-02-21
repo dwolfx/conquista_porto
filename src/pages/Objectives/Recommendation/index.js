@@ -20,6 +20,9 @@ import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 
+import { useDispatch } from 'react-redux'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+
 import {
   GridRecommendation,
   SectionsRecommendation,
