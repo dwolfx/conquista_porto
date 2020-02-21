@@ -120,10 +120,7 @@ export default function Investments({ history }) {
         onClick={() => history.push('/investimentos/lista-fundos')}
       />
       <SectionCustomPicture backgroundColor="#d6dde5">
-        <CustomContent
-          data-gtm-type="container"
-          data-gtm-name="banner - investindo em objetivos"
-        >
+        <CustomContent>
           <Picture>
             <img src={RedHairGirlImage} alt="Mulher feliz" />
           </Picture>

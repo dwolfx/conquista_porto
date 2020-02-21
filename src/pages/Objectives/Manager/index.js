@@ -134,6 +134,10 @@ export default function Manager({ location }) {
             }}
             footer={
               <Button
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname="carteira de fundos"
+                data-gtm-name="adicionar fundo"
                 outline
                 css={`
                   width: 100%;

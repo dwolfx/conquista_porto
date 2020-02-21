@@ -146,7 +146,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <FooterWrapper data-gtm-type="container" data-gtm-name="footer">
+    <FooterWrapper>
       <BorderTop />
       <GridContainer>
         <GridRow>
