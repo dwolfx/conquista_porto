@@ -28,6 +28,7 @@ import {
   ColumnWrapper,
   FullHeightCard,
   Wallet,
+  AccordionWrapper,
   AccordionContentWrapper,
 } from './styles'
 
@@ -143,19 +144,18 @@ export default function Manager({ location }) {
             }
           >
             {managerData.fund_list.map((fund, index) => (
-              <>
+              <AccordionWrapper key={fund.id}>
                 <Accordion
-                  key={fund.id}
-                  id={fund.id}
+                  openByDefault={index === 0}
                   labelNode="nome do fundo"
                   titleNode={fund.name}
                 >
                   <AccordionContentWrapper margin="0px 0px 10px 0px">
-                    <Text>CONTENT TEST</Text>
+                    <Text>CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT</Text>
                   </AccordionContentWrapper>
                 </Accordion>
                 {index !== managerData.fund_list.length - 1 && <Divisor />}
-              </>
+              </AccordionWrapper>
             ))}
           </FullHeightCard>
         </Col>

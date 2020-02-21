@@ -9,10 +9,16 @@ import {
   AccordionBody,
 } from './styles'
 
-const NewAccordion = ({ labelNode, titleNode, children, id, ...rest }) => {
-  const [isOpen, setIsOpen] = useState(false)
+const NewAccordion = ({
+  labelNode,
+  titleNode,
+  children,
+  openByDefault,
+  ...rest
+}) => {
+  const [isOpen, setIsOpen] = useState(openByDefault)
   return (
-    <AccordionWrapper isOpen={isOpen} id={id} {...rest}>
+    <AccordionWrapper isOpen={isOpen} {...rest}>
       <AccordionHeader onClick={() => setIsOpen(!isOpen)}>
         {labelNode && <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>}
         <AccordionHeaderText>{titleNode}</AccordionHeaderText>
@@ -26,11 +32,12 @@ NewAccordion.propTypes = {
   labelNode: PropTypes.string,
   titleNode: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
-  id: PropTypes.string.isRequired,
+  openByDefault: PropTypes.bool,
 }
 
 NewAccordion.defaultProps = {
   labelNode: '',
+  openByDefault: false,
 }
 
 export default NewAccordion
