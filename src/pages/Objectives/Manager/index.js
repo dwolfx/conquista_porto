@@ -167,8 +167,8 @@ export default function Manager({ location }) {
                         <Button
                           data-gtm-type="click"
                           data-gtm-clicktype="button"
-                          data-gtm-subname="carteira de fundos"
-                          data-gtm-name={`Investir - ${fund.name}`}
+                          data-gtm-subname={fund.name}
+                          data-gtm-name="Investir"
                           css={`
                             width: 100%;
                           `}
