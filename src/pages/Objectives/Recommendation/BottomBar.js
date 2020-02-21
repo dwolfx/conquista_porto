@@ -19,10 +19,15 @@ import {
   SectionBar,
 } from './styles'
 
-const BottomBar = ({ answer, isLoading, id }) => {
+const BottomBar = ({
+  answer,
+  isLoading,
+  id,
+  isDrawerOpen,
+  setIsDrawerOpen,
+}) => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const [formData, setFormData] = useState({})
 
@@ -167,6 +172,8 @@ const BottomBar = ({ answer, isLoading, id }) => {
 
 BottomBar.defaultProps = {
   answer: {},
+  isDrawerOpen: false,
+  setIsDrawerOpen: () => {},
 }
 
 BottomBar.propTypes = {
@@ -182,6 +189,8 @@ BottomBar.propTypes = {
       goal_type: PropTypes.string,
     }.isRequired
   ),
+  isDrawerOpen: PropTypes.bool,
+  setIsDrawerOpen: PropTypes.func,
 }
 
 export default BottomBar
