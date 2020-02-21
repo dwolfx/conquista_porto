@@ -18,6 +18,9 @@ import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 
+import { useDispatch } from 'react-redux'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+
 import {
   GridRecommendation,
   SectionsRecommendation,
@@ -58,6 +61,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   } = data
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (suggestion_goal) {
@@ -66,6 +70,10 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       setShowUnmetGoalBanner(false)
     }
   }, [suggestion_goal])
+
+  const handleReloadRecommendations = (answer) => {
+    dispatch(PostObjectiveDataRequest({ answer }))
+  }
 
   return (
     <GridRecommendation>
@@ -156,7 +164,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="gray6">
-                        {moment(answer.target_date).format('DD/MM/YYYY')}
+                        {moment(answer.target_date).format('dd/MM/YYYY')}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
@@ -181,6 +189,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
+                    onClick={() => {
+                      handleReloadRecommendations(answer)
+                    }}
                   >
                     simular
                   </SimulateButton>
@@ -263,6 +274,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
+                    onClick={() => {
+                      handleReloadRecommendations(answer)
+                    }}
                   >
                     simular
                   </SimulateButton>
