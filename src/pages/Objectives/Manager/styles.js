@@ -22,11 +22,8 @@ export const Banner = styled(BannerComponent)`
   }
 `
 
-export const ObjectiveDetails = styled.div`
+export const ObjectiveDetails = styled(Card)`
   width: 100%;
-  height: 382px;
-  background-color: #fff;
-  border: 1px solid black;
   margin-bottom: 21px;
 `
 
@@ -51,4 +48,12 @@ export const AccordionContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: ${props => (props.margin ? props.margin : '0px')};
+`
+
+export const CardContent = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
+  padding: 35px 0 14px 0;
 `

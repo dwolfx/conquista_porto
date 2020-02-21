@@ -39,7 +39,7 @@ export default function Popover({
   }
 
   const PopoverContent =
-    typeof content === 'string' ? <Text>{content}</Text> : content
+    typeof content === 'string' ? () => <Text>{content}</Text> : content
 
   return (
     <Manager>
