@@ -7,7 +7,6 @@ import Input from 'components/Inputs/Money'
 import { formatMoneyDecimal } from 'helpers'
 
 import {
-  SliderWrapper,
   SliderContainer,
   Rail,
   Thumb,
@@ -24,12 +23,12 @@ function percentToValue(percent, max) {
 }
 
 export default function Slider({
-  min,
   max,
   initialValue,
-  onChange,
+  onMouseDown,
+  onTouchStart,
   showTooltip,
-  step,
+  normalizeValue,
   ...rest
 }) {
   const sliderRef = useRef()
@@ -40,34 +39,41 @@ export default function Slider({
   )
 
   const handleSliderPosition = event => {
+    // get click position in reference to slider
     const finger = {
       x: ((event.changedTouches && event.changedTouches[0]) || event).clientX,
       y: ((event.changedTouches && event.changedTouches[0]) || event).clientY,
     }
+    // get slider position and width
     const { width, left } = sliderRef.current.getBoundingClientRect()
 
+    // get the percentage of position relative to the slider
     let percent = (finger.x - left) / width
     percent = Math.floor(percent * 100)
 
+    // get the value relative to position then normalize value
     let moneyValue = percentToValue(percent, max) / 100
-    moneyValue = Math.round(moneyValue / step) * step
+    moneyValue = Math.round(moneyValue / normalizeValue) * normalizeValue
 
+    // update percentage with the value normalized
     percent = valueToPercent(moneyValue, max)
 
+    // if percentage between 0% and 100%, update states
     if (percent >= 0 && percent <= 100) {
       setPercentValue(percent)
       setValue(formatMoneyDecimal(+moneyValue * 100))
     }
 
+    // update popover position
     window.scrollTo(window.scrollX, window.scrollY - 1)
     window.scrollTo(window.scrollX, window.scrollY + 1)
   }
 
   const handleMouseMove = event => {
-    handleSliderPosition(event)
+    // prevent from selecting html text/tags on mouse drag
+    event.preventDefault()
 
-    window.scrollTo(window.scrollX, window.scrollY - 1)
-    window.scrollTo(window.scrollX, window.scrollY + 1)
+    handleSliderPosition(event)
   }
 
   const handleMouseLeave = () => {
@@ -79,6 +85,14 @@ export default function Slider({
 
   const handleMouseDown = event => {
     event.preventDefault()
+
+    // in case onMouseDown or onTouchStart is passed, run the functions before the default behavior
+    if (onMouseDown) {
+      onMouseDown(event)
+    }
+    if (onTouchStart) {
+      onTouchStart(event)
+    }
 
     handleSliderPosition(event)
 
@@ -97,51 +111,45 @@ export default function Slider({
     setValue(formatMoneyDecimal(moneyValue))
     setPercentValue(percent)
 
+    // update popover position
     window.scrollTo(window.scrollX, window.scrollY - 1)
     window.scrollTo(window.scrollX, window.scrollY + 1)
 
+    // prevent input from focus out on change
     setTimeout(() => {
       inputRef.current.focus()
     }, 0)
   }
 
   return (
-    <SliderContainer>
-      <SliderWrapper value={percentValue} {...rest}>
-        <Rail
-          ref={sliderRef}
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleMouseDown}
-        />
-        {showTooltip ? (
-          <ThumbPopover
-            content={() => (
-              <Input
-                ref={inputRef}
-                value={value}
-                onChange={handleInputOnChange}
-                css={`
-                  height: 33px;
-                  font-size: 14px;
-                `}
-              />
-            )}
-            alwaysVisible
-          >
-            <Thumb
-              onMouseDown={handleMouseDown}
-              onTouchStart={handleMouseDown}
+    <SliderContainer value={percentValue} {...rest}>
+      <Rail
+        ref={sliderRef}
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleMouseDown}
+      />
+      {showTooltip ? (
+        <ThumbPopover
+          content={() => (
+            <Input
+              ref={inputRef}
+              value={value}
+              onChange={handleInputOnChange}
+              css={`
+                height: 33px;
+                font-size: 14px;
+              `}
             />
-          </ThumbPopover>
-        ) : (
-          <ThumbContainer>
-            <Thumb
-              onMouseDown={handleMouseDown}
-              onTouchStart={handleMouseDown}
-            />
-          </ThumbContainer>
-        )}
-      </SliderWrapper>
+          )}
+          alwaysVisible
+        >
+          <Thumb onMouseDown={handleMouseDown} onTouchStart={handleMouseDown} />
+        </ThumbPopover>
+      ) : (
+        <ThumbContainer>
+          <Thumb onMouseDown={handleMouseDown} onTouchStart={handleMouseDown} />
+        </ThumbContainer>
+      )}
     </SliderContainer>
   )
 }
@@ -149,17 +157,17 @@ export default function Slider({
 Slider.propTypes = {
   initialValue: PropTypes.number,
   max: PropTypes.number,
-  min: PropTypes.number,
-  onChange: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onTouchStart: PropTypes.func,
   showTooltip: PropTypes.bool,
-  step: PropTypes.number,
+  normalizeValue: PropTypes.number,
 }
 
 Slider.defaultProps = {
-  initialValue: 30.25,
-  max: 150,
-  min: 0,
-  onChange: null,
+  initialValue: 0,
+  max: 100,
+  onMouseDown: null,
+  onTouchStart: null,
   showTooltip: true,
-  step: 1,
+  normalizeValue: 1,
 }
