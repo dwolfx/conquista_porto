@@ -66,9 +66,25 @@ export default function Manager({ location }) {
       <Text color="black">{moment(target_date).format('MMM YYYY')}</Text>
     </ColumnWrapper>
   )
-  const horizontalListBtnEdit = <ButtonLink noIcon>EDITAR OBJETIVO</ButtonLink>
+  const horizontalListBtnEdit = (
+    <ButtonLink
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
+      data-gtm-name="editar objetivo"
+      noIcon
+    >
+      EDITAR OBJETIVO
+    </ButtonLink>
+  )
   const horizontalListBtnChangeObjective = (
-    <ButtonLink noIcon>OUTROS OBJETIVOS</ButtonLink>
+    <ButtonLink
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
+      data-gtm-name="outros objetivos"
+      noIcon
+    >
+      OUTROS OBJETIVOS
+    </ButtonLink>
   )
 
   return (
@@ -109,6 +125,10 @@ export default function Manager({ location }) {
             headerButtonText="Salvar alterações"
             headerButtonProps={{
               color: 'secondary',
+              'data-gtm-type': 'click',
+              'data-gtm-clicktype': 'button',
+              'data-gtm-subname': 'carteira de fundos',
+              'data-gtm-name': 'salvar alteracoes',
               onClick: () => console.log('salvou alterações'),
             }}
             footer={

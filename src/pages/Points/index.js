@@ -81,7 +81,14 @@ export default function Points() {
               16.500
             </PointHeadline>
             <PointText>PONTOS</PointText>
-            <GoToLink>ver extrato &gt;</GoToLink>
+            <GoToLink
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-subname="saldo atual"
+              data-gtm-name="ver extrato"
+            >
+              ver extrato &gt;
+            </GoToLink>
           </Point>
           <Point>
             <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
@@ -89,7 +96,14 @@ export default function Points() {
               16.500
             </PointHeadline>
             <PointText>PONTOS</PointText>
-            <GoToLink>ver extrato &gt;</GoToLink>
+            <GoToLink
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-subname="saldo atual"
+              data-gtm-name="ver extrato"
+            >
+              ver extrato &gt;
+            </GoToLink>
           </Point>
           <Point>
             <PointHeadline fontSize={18}>Saldo atual</PointHeadline>
@@ -97,7 +111,14 @@ export default function Points() {
               16.500
             </PointHeadline>
             <PointText>PONTOS</PointText>
-            <GoToLink>ver extrato &gt;</GoToLink>
+            <GoToLink
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-subname="saldo atual"
+              data-gtm-name="ver extrato"
+            >
+              ver extrato &gt;
+            </GoToLink>
           </Point>
         </PointsWrapper>
       </PointsContainer>
@@ -106,7 +127,15 @@ export default function Points() {
           Conheça as ofertas e veja o que você pode resgatar com o seu saldo
           atual.
         </RescuePointsTitle>
-        <Button color="secondary" className="button-with-right-icon">
+        <Button
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          data-gtm-subname="Conheça as ofertas e veja o que você pode resgatar com o seu saldo
+        atual"
+          data-gtm-name="resgatar pontos"
+          color="secondary"
+          className="button-with-right-icon"
+        >
           Resgatar Pontos <span>&gt;</span>
         </Button>
       </RescuePointsSection>

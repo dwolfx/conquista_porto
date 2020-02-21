@@ -18,10 +18,7 @@ export const dataLayerProductSuggestion = (
   description
 ) => {
   const productList = products.map(product => ({
-    id: product.id,
-    name: product.name,
-    category: product.category,
-    position: product.position,
+    ...product,
   }))
 
   const ProductSuggestion = {
@@ -37,16 +34,6 @@ export const dataLayerProductSuggestion = (
 
 const setCustomData = (auth, points, title) => {
   const hash = sha256(auth.cpf)
-  const productList = [
-    'Cartão de Crédito',
-    'Consórcio de Imóvel',
-    'Consórcio de Veículo',
-    'Financiamento de Veículo',
-    'Investimentos',
-    'Previdência Privada',
-    'Seguro de Vida',
-    'Seguro Viagem',
-  ]
 
   window.customData.page.name = title
 
@@ -60,7 +47,6 @@ const setCustomData = (auth, points, title) => {
     points !== null && points !== undefined
       ? calculatePointsAmountBalance(points)
       : 0
-  window.customData.user.products = productList
 
   window.customData.user.logged = auth.accessToken ? 'true' : 'false'
   window.customData.user.loginType = 'Padrão'
