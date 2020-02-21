@@ -64,7 +64,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (suggestion_goal && suggestion_goal != null) {
+    if (suggestion_goal) {
       setShowUnmetGoalBanner(true)
     } else {
       setShowUnmetGoalBanner(false)
@@ -73,6 +73,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
 
   const handleReloadRecommendations = suggestionValues => {
     dispatch(PostObjectiveDataRequest({ ...suggestionValues }))
+    setShowUnmetGoalBanner(false)
   }
 
   return (
