@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react'
-import moment from 'moment'
 import { ThemeContext } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Container } from 'styled-bootstrap-grid'
@@ -12,6 +11,9 @@ import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
+
+import { useDispatch } from 'react-redux'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 
 import BottomBar from './BottomBar'
 import SectionOne from './SectionOne'
@@ -59,14 +61,19 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    if (suggestion_goal) {
+    if (suggestion_goal && suggestion_goal != null) {
       setShowUnmetGoalBanner(true)
     } else {
       setShowUnmetGoalBanner(false)
     }
   }, [suggestion_goal])
+
+  const handleReloadRecommendations = suggestionValues => {
+    dispatch(PostObjectiveDataRequest({ ...suggestionValues }))
+  }
 
   return (
     <GridRecommendation>
@@ -156,9 +163,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text color="gray6">
-                        {moment(answer.target_date).format('DD/MM/YYYY')}
-                      </Text>,
+                      <Text color="gray6">{answer.target_date}</Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -182,6 +187,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
+                    onClick={() => {
+                      handleReloadRecommendations({
+                        ...answer,
+                        monthly_value: suggestion_goal.suggestion_monthly_value,
+                      })
+                    }}
                   >
                     simular
                   </SimulateButton>
@@ -234,9 +245,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     ]}
                     endItems={[
                       <Text color="green3">
-                        {moment(suggestion_goal.suggestion_target_date).format(
-                          'DD/MM/YYYY'
-                        )}
+                        {suggestion_goal.suggestion_target_date}
                       </Text>,
                       <Icon
                         name="check"
@@ -264,6 +273,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
+                    onClick={() => {
+                      handleReloadRecommendations({
+                        ...answer,
+                        target_date: suggestion_goal.suggestion_target_date,
+                      })
+                    }}
                   >
                     simular
                   </SimulateButton>
