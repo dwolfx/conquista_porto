@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import moment from 'moment'
 import { ThemeContext } from 'styled-components'
-import PropTypes from 'prop-types'
 import { Container } from 'styled-bootstrap-grid'
+import { useDispatch } from 'react-redux'
 import 'styled-components/macro'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, formatMoneyDecimal, formatDateMask } from 'helpers'
 
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
@@ -13,6 +14,9 @@ import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
 
+import Drawer from 'components/Drawer'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+import InputText from 'components/NewInput'
 import BottomBar from './BottomBar'
 import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
@@ -28,6 +32,10 @@ import {
   UnmetGoalCards,
   UnmetGoalCard,
   SimulateButton,
+  ButtonSubmit,
+  IconLoading,
+  FormWrapper,
+  ColInput,
 } from './styles'
 
 const MacroDivisor = () => (
@@ -58,6 +66,14 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   } = data
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const dispatch = useDispatch()
+
+  const [formData, setFormData] = useState({})
+
+  useEffect(() => {
+    setFormData({ ...answer })
+  }, [answer])
 
   useEffect(() => {
     if (suggestion_goal) {
@@ -66,6 +82,39 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       setShowUnmetGoalBanner(false)
     }
   }, [suggestion_goal])
+
+  const footerDrawer = () => (
+    <ButtonSubmit
+      data-gtm-form="submit"
+      data-gtm-name="confirmar e recalcular"
+      onClick={() => submitToRecommendation()}
+      disabled={isLoading}
+    >
+      Confirmar e recalcular {isLoading && <IconLoading />}
+    </ButtonSubmit>
+  )
+
+  const submitToRecommendation = () => {
+    dispatch(PostObjectiveDataRequest(formData))
+    setIsDrawerOpen(!isDrawerOpen)
+  }
+
+  const moneyMask = event => {
+    const strippedValue = event.target.value.replace(/\D/g, '')
+    event.target.value = formatMoneyDecimal(strippedValue) // eslint-disable-line no-param-reassign
+  }
+
+  const handleSingleValue = event => {
+    const { name } = event.target
+    if (
+      name === 'initial_value' ||
+      name === 'monthly_value' ||
+      name === 'target_value'
+    )
+      moneyMask(event)
+    if (name === 'target_date') formatDateMask(event)
+    setFormData({ ...formData, [name]: event.target.value })
+  }
 
   return (
     <GridRecommendation>
@@ -76,6 +125,69 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         numberSteps={totalSteps}
       />
       <SectionsRecommendation>
+        <Drawer
+          drawerTitle="resumo"
+          isOpen={isDrawerOpen}
+          handleClose={() => setIsDrawerOpen(false)}
+          footer={footerDrawer()}
+        >
+          <FormWrapper data-gtm-type="form" data-gtm-name="resumo">
+            <ColInput>
+              <InputText
+                data-gtm-form="input"
+                data-gtm-name="apelido"
+                name="nickname"
+                prefix="#"
+                label="Apelido"
+                onChange={handleSingleValue}
+                value={formData.nickname}
+              />
+            </ColInput>
+            <ColInput>
+              <InputText
+                data-gtm-form="input"
+                data-gtm-name="investimento inicial"
+                name="initial_value"
+                prefix="R$"
+                label="Investimento inicial"
+                onChange={handleSingleValue}
+                value={formData.initial_value}
+              />
+            </ColInput>
+            <ColInput>
+              <InputText
+                data-gtm-form="input"
+                data-gtm-name="investimento mensal"
+                name="monthly_value"
+                prefix="R$"
+                label="Investimento mensal"
+                onChange={handleSingleValue}
+                value={formData.monthly_value}
+              />
+            </ColInput>
+            <ColInput>
+              <InputText
+                data-gtm-form="input"
+                data-gtm-name="meta financeira"
+                name="target_value"
+                prefix="R$"
+                label="Meta financeira"
+                onChange={handleSingleValue}
+                value={formData.target_value}
+              />
+            </ColInput>
+            <ColInput>
+              <InputText
+                data-gtm-form="input"
+                data-gtm-name="data-alvo"
+                name="target_date"
+                label="Data-alvo"
+                onChange={handleSingleValue}
+                value={formData.target_date}
+              />
+            </ColInput>
+          </FormWrapper>
+        </Drawer>
         <Container>
           {showUnmetGoalBanner && (
             <CardWithCloseButton>
@@ -288,6 +400,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
                     outline
+                    onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                   >
                     alterar
                   </SimulateButton>
@@ -305,7 +418,13 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         </Container>
       </SectionsRecommendation>
 
-      <BottomBar answer={answer} isLoading={isLoading} id={data.id} />
+      <BottomBar
+        answer={answer}
+        isLoading={isLoading}
+        id={data.id}
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
     </GridRecommendation>
   )
 }

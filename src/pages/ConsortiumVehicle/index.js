@@ -23,7 +23,7 @@ export default function ConsortiumVehicle() {
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/consorcio-de-veiculos/simular'
+            'portaldecliente/conquista/consorcio-de-veiculos/simular?r=true'
           )
         }
         image={Banner}
@@ -92,7 +92,7 @@ export default function ConsortiumVehicle() {
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/consorcio-de-veiculos/simular'
+            'portaldecliente/conquista/consorcio-de-veiculos/simular?r=true'
           )
         }
       />

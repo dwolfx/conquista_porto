@@ -6,8 +6,6 @@ exports[`HighlightSection renders correctly 1`] = `
 >
   <div
     className="sc-EHOje lcDrSG"
-    data-gtm-name="highlight section - Facilidade para investir"
-    data-gtm-type="container"
   >
     <h1
       className="sc-bZQynM cpGYjx"

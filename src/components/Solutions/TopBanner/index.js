@@ -13,7 +13,7 @@ export default function TopBanner({
 }) {
   return (
     <Container>
-      <Content data-gtm-type="container" data-gtm-name={`banner ${title}`}>
+      <Content>
         <Title textColor="white">{title}</Title>
         <p>{description}</p>
         <br />

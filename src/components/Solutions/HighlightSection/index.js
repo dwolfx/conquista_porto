@@ -15,10 +15,7 @@ export default function HighlightSection({
   const themeContext = useContext(ThemeContext)
   return (
     <Container backgroundColor={themeContext.colors.darkBlue2}>
-      <Content
-        data-gtm-type="container"
-        data-gtm-name={`highlight section - ${title}`}
-      >
+      <Content>
         <Title textColor="white">{title}</Title>
         <Text>
           {mainDescription}

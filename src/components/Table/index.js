@@ -32,9 +32,8 @@ const DefaultColumnFilter = ({
 }) => (
   <InputFilterWrapper>
     <InputFilter
-      data-gtm-subname="tabela de extrato de pontos"
       data-gtm-form="input"
-      data-gtm-name={Header}
+      data-gtm-name={`Filtrar ${Header}`}
       value={filterValue || ''}
       onChange={e => {
         setFilter(e.target.value || undefined)

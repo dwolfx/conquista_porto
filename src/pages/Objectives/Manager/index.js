@@ -29,6 +29,7 @@ import {
   ColumnWrapper,
   FullHeightCard,
   Wallet,
+  AccordionWrapper,
   AccordionContentWrapper,
 } from './styles'
 
@@ -134,7 +135,10 @@ export default function Manager({ location }) {
             }}
             footer={
               <Button
-                styledButton
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname="carteira de fundos"
+                data-gtm-name="adicionar fundo"
                 outline
                 css={`
                   width: 100%;
@@ -151,10 +155,9 @@ export default function Manager({ location }) {
             }
           >
             {managerData.fund_list.map((fund, index) => (
-              <>
+              <AccordionWrapper key={fund.id}>
                 <Accordion
-                  key={fund.id}
-                  id={fund.id}
+                  openByDefault={index === 0}
                   labelNode="nome do fundo"
                   titleNode={fund.name}
                 >
@@ -162,10 +165,13 @@ export default function Manager({ location }) {
                     <Row>
                       <Col lg="3" xs="12">
                         <Button
+                          data-gtm-type="click"
+                          data-gtm-clicktype="button"
+                          data-gtm-subname="carteira de fundos"
+                          data-gtm-name={`Investir - ${fund.name}`}
                           css={`
                             width: 100%;
                           `}
-                          styledButton
                           onClick={() => {
                             window.open(
                               `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idFundo=${fund.id}`,
@@ -181,7 +187,7 @@ export default function Manager({ location }) {
                   </AccordionContentWrapper>
                 </Accordion>
                 {index !== managerData.fund_list.length - 1 && <Divisor />}
-              </>
+              </AccordionWrapper>
             ))}
           </FullHeightCard>
         </Col>

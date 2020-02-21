@@ -25,6 +25,9 @@ const SelectComponent = ({
     options &&
     options.map((item, index) => (
       <option
+        data-gtm-type="select"
+        data-gtm-subname="opcao do select"
+        data-gtm-name={item.name}
         key={`${props.name}-${index}`}
         value={Object.keys(item).indexOf('value') ? item.value : item.name}
       >
@@ -33,18 +36,27 @@ const SelectComponent = ({
     ))
   return (
     <SelectWrapper
-      data-gtm-type="select"
-      data-gtm-subname={selectTitle}
-      data-gtm-name={placeholder}
       width={width}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
     >
       {label && <SelectLabel>{label}</SelectLabel>}
       <SelectFieldWrapper>
-        <SelectField {...props}>
+        <SelectField
+          data-gtm-type="select"
+          data-gtm-subname={selectTitle}
+          data-gtm-name={placeholder}
+          {...props}
+        >
           {showPlaceholder && (
-            <option value={defaultValue}>{placeholder}</option>
+            <option
+              data-gtm-type="select"
+              data-gtm-subname="opcao do select"
+              data-gtm-name={placeholder}
+              value={defaultValue}
+            >
+              {placeholder}
+            </option>
           )}
           {renderOptions()}
         </SelectField>

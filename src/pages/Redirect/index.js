@@ -59,7 +59,15 @@ export default function Redirect(props) {
               </Text>
               <LogoPorto />
               <Line />
-              <Button onClick={navigate}>Redirecionar Agora</Button>
+              <Button
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname="voce sera redirecionado para"
+                data-gtm-name="redirecionar agora"
+                onClick={navigate}
+              >
+                Redirecionar Agora
+              </Button>
             </Card>
           </GridCol>
         </GridRow>
