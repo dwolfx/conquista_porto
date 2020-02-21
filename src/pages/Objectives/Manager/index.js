@@ -125,6 +125,10 @@ export default function Manager({ location }) {
             headerButtonText="Salvar alterações"
             headerButtonProps={{
               color: 'secondary',
+              'data-gtm-type': 'click',
+              'data-gtm-clicktype': 'button',
+              'data-gtm-subname': 'carteira de fundos',
+              'data-gtm-name': 'salvar alteracoes',
               onClick: () => console.log('salvou alterações'),
             }}
             footer={
