@@ -58,6 +58,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   } = data
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   useEffect(() => {
     if (suggestion_goal) {
@@ -181,7 +182,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
-                    
                   >
                     simular
                   </SimulateButton>
@@ -289,6 +289,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
                     outline
+                    onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                   >
                     alterar
                   </SimulateButton>
@@ -306,7 +307,13 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         </Container>
       </SectionsRecommendation>
 
-      <BottomBar answer={answer} isLoading={isLoading} id={data.id} />
+      <BottomBar
+        answer={answer}
+        isLoading={isLoading}
+        id={data.id}
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
     </GridRecommendation>
   )
 }
