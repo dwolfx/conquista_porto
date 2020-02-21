@@ -51,9 +51,8 @@ export const Rail = styled.div`
 
 export const SliderContainer = styled.div`
   display: flex;
-  margin: 14px;
   position: relative;
-  width: calc(100% - 28px);
+  width: 100%;
 
   ${ThumbPopover}, ${ThumbContainer} {
     left: ${props => `calc(${props.value}% - 12px)`};

@@ -1,28 +1,29 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 import { Col, Row } from 'styled-bootstrap-grid'
+import moment from 'moment'
 import 'styled-components/macro'
-
-import Button from 'components/Button'
-import ButtonLink from 'components/Button/Link'
-import CardCombine from 'pages/Objectives/Manager/CardCombine'
-import Text from 'components/Text'
-import HorizontalList from 'components/HorizontalList'
-
-import { formatMoney } from 'helpers'
 
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
-import moment from 'moment'
-
 import Accordion from 'components/AccordionNew'
+import Button from 'components/Button'
+import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
+import HorizontalList from 'components/HorizontalList'
+import Slider from 'components/Slider'
+import Text from 'components/Text'
+
+import { formatMoney } from 'helpers'
 
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 
 import managerData from 'mocks/objective.json'
+
+import CardCombine from 'pages/Objectives/Manager/CardCombine'
+
 import {
   GridContainer,
   Banner,
@@ -36,19 +37,35 @@ import {
   CardContent,
 } from './styles'
 
+const objectiveColorGuide = [
+  '#E72176',
+  '#FFCD00',
+  '#46A166',
+  '#004E70',
+  '#E6F7FF',
+  '#2F736B',
+  '#FAD2E3',
+]
+
 export default function Manager({ location }) {
   const history = useHistory()
-  const { data: objectiveData } = useSelector(
-    state => state.objectiveManagement
-  )
+  let { data: objectiveData } = useSelector(state => state.objectiveManagement)
 
   const { pageRecommendation } = location.state || false
+
+  if (!objectiveData) {
+    objectiveData = { ...managerData }
+    // history.push('/objetivos')
+  }
 
   const { nickname, target_value, target_date } = objectiveData
 
   function handleRedirectToProduct(product) {
     history.push(product.productPath)
   }
+
+  const getColorGuide = index =>
+    objectiveColorGuide[index % objectiveColorGuide.length]
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
@@ -158,7 +175,7 @@ export default function Manager({ location }) {
               </Button>
             }
           >
-            {managerData.fund_list.map((fund, index) => (
+            {objectiveData.fund_list.map((fund, index) => (
               <AccordionWrapper key={fund.id}>
                 <Accordion
                   openByDefault={index === 0}
@@ -186,11 +203,50 @@ export default function Manager({ location }) {
                           Investir
                         </Button>
                       </Col>
-                      <Col lg="9" xs="12"></Col>
+                      <Col lg="9" xs="12">
+                        <Text>{formatMoney(fund.balance)}</Text>
+                        <div
+                          css={`
+                            height: 7px;
+                            width: 100%;
+                            border-radius: 7px;
+                            display: flex;
+                            background-color: #ccc;
+                            margin: 14px 0;
+                          `}
+                        >
+                          {fund.goals.map((goal, key) => {
+                            const percent = (goal.value / fund.balance) * 100
+                            return (
+                              <div
+                                css={`
+                                  width: ${percent}%;
+                                  height: 100%;
+                                  background-color: ${getColorGuide(key)};
+                                  border-top-left-radius: ${key === 0
+                                    ? '7px'
+                                    : 0};
+                                  border-bottom-left-radius: ${key === 0
+                                    ? '7px'
+                                    : 0};
+                                `}
+                              ></div>
+                            )
+                          })}
+                          <Slider
+                            max={fund.available + fund.invested}
+                            initialValue={fund.invested}
+                            css={`
+                              border-top-right-radius: 7px;
+                              border-bottom-right-radius: 7px;
+                            `}
+                          />
+                        </div>
+                      </Col>
                     </Row>
                   </AccordionContentWrapper>
                 </Accordion>
-                {index !== managerData.fund_list.length - 1 && <Divisor />}
+                {index !== objectiveData.fund_list.length - 1 && <Divisor />}
               </AccordionWrapper>
             ))}
           </FullHeightCard>

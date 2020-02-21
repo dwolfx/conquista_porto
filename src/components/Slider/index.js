@@ -128,6 +128,7 @@ export default function Slider({
         ref={sliderRef}
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
+        className={rest.className}
       />
       {showTooltip ? (
         <ThumbPopover
