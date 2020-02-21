@@ -42,6 +42,14 @@ export const fundRiskColors = {
   highRisk: '#D0011B',
 }
 
+export const fundRiskColorsNew = {
+  lowRisk: '#BABABA',
+  lowMediumRisk: '#00ADEF',
+  mediumRisk: '#57B063',
+  mediumHighRisk: '#FFCD00',
+  highRisk: '#E72176',
+}
+
 export const gridConfig = {
   breakpoints: {
     xl: 1280,
@@ -152,6 +160,7 @@ export default {
   shadows,
   colors: themeColors,
   fundRiskColors,
+  fundRiskColorsNew,
   fontFamily: 'Open Sans',
   fontTypes,
   gutter: 14,

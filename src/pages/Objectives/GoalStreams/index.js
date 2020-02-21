@@ -21,7 +21,7 @@ export default function GoalStreams({ handleSteps }) {
           history.push('/objetivos')
         }}
       />
-      <WizardFlow data={data.flow} objective={data.goalType} />
+      <WizardFlow data={data.flow} objective={data.goal_type} />
     </Container>
   ) : (
     <Redirect to="/objetivos" />

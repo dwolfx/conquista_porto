@@ -31,6 +31,10 @@ export default function Banner({
       >
         {hasCloseButton && (
           <CloseButton
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="banner"
+            data-gtm-name="botao fechar"
             onClick={() => {
               setIsOpen(false)
             }}

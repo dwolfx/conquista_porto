@@ -3,12 +3,13 @@ import lifeSecurityImg from 'assets/images/pages/Objectives/lifeSecurity.png'
 import creditCardImg from 'assets/images/pages/Objectives/creditCard.png'
 
 export default {
-  travelSecurity: {
+  travel_security: {
     category: 'Seguro Viagem',
     title: 'Leve a tranquilidade na mala',
     text:
       'Planos e coberturas pensados para você aproveitar ao máximo a sua viagem.',
     image: travelSecurityImg,
+    productPath: '/seguro-viagem',
     modalInfos: {
       title: 'Seguro Viagem Porto Seguro',
       text: 'Conheça as principais vantagens:',
@@ -40,12 +41,13 @@ export default {
       ],
     },
   },
-  lifeSecurity: {
+  life_security: {
     category: 'Seguro de Vida',
     title: 'Suporte em todos os momentos',
     text:
       'Coberturas e benefícios para você e sua família enfrentarem adversidades com mais tranquilidade.',
     image: lifeSecurityImg,
+    productPath: '/seguro-vida',
     modalInfos: {
       title: 'Seguro Vida Porto Seguro',
       text: 'Conheça as principais vantagens:',
@@ -77,12 +79,13 @@ export default {
       ],
     },
   },
-  creditCard: {
+  credit_card: {
     category: 'Cartão de Crédito',
     title: 'Benefícios além dos pontos',
     text:
       'Tudo o que um cartão tem, mais as vantagens Porto Seguro para sua casa, carro e compras.',
     image: creditCardImg,
+    productPath: '/cartao-credito',
     modalInfos: {
       title: 'Cartão de Crédito Porto Seguro',
       text: 'Conheça as principais vantagens:',

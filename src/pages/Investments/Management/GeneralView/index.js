@@ -118,6 +118,10 @@ export default function GeneralView() {
               )}
             </Text>
             <LinkButton
+              data-gtm-subname="conta de investimentos"
+              data-gtm-name="ver extrato"
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
               onClick={() => {
                 history.push('/investimentos/extrato')
               }}
@@ -125,7 +129,14 @@ export default function GeneralView() {
               {' '}
               ver extrato &gt;{' '}
             </LinkButton>
-            <ConquistaButton>RETIRAR</ConquistaButton>
+            <ConquistaButton
+              data-gtm-subname="conta de investimentos"
+              data-gtm-name="retirar"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+            >
+              RETIRAR
+            </ConquistaButton>
           </General>
           <AccountInfo>
             <LineDivider />
@@ -140,7 +151,7 @@ export default function GeneralView() {
               )}
             </Text>
             {bankData.DadosContaPortoSeguro && (
-              <Accordion titleNode="Dados da conta">
+              <Accordion titleNode="Dados da conta" gtmName="dados da conta">
                 <Wrapper margin="0px 0px 10px 0px">
                   <Text fontSize={10} spacing={1.5} lineHeight={22}>
                     BANCO

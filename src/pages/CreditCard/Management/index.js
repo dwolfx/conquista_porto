@@ -135,6 +135,10 @@ export default function ManagementCreditCard({ history }) {
           <PageContent id="cc-top-page">
             <LeftNav>
               <AddBtnLink
+                data-gtm-type="click"
+                data-gtm-clicktype="card"
+                data-gtm-subname="card custodia visualizar"
+                data-gtm-name="adicionar"
                 onClick={() => {
                   history.push('/')
                 }}
@@ -148,6 +152,10 @@ export default function ManagementCreditCard({ history }) {
               {creditCard.data.map(item => (
                 <ManageableItem
                   key={item.UltimosDigitos}
+                  data-gtm-type="click"
+                  data-gtm-clicktype="card"
+                  data-gtm-subname="card custodia visualizar"
+                  data-gtm-name="mundo 120 prata"
                   active={selectedCreditCard === item.UltimosDigitos}
                   onClick={() => {
                     setSelectedCreditCard(item.UltimosDigitos)

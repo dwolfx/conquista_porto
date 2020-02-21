@@ -9,8 +9,9 @@ import IconButton from 'components/Button/Icon'
 import Icon from 'components/IconExporter'
 import PieChart from 'components/PieChart'
 import Divisor from 'components/Divisor'
-
+import Modal from 'components/Modal/ModalNew'
 import { formatMoney } from 'helpers'
+import ModalFundos from './ModalFundos'
 
 import {
   GridRow,
@@ -30,6 +31,8 @@ import {
 
 const SectionTwo = ({ creditProduct, combo, funds }) => {
   const theme = useContext(ThemeContext)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [fundDetails, setFundDetails] = useState({})
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
 
   function groupBy(arr, key) {
@@ -66,7 +69,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </Text>
         <Text color="gray6" type="headline">
           {formatMoney(
-            funds.reduce((acc, curr) => acc + +curr.initialValue, 0)
+            funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
           )}
         </Text>
         <Divisor />
@@ -75,7 +78,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </Text>
         <Text type="headline">
           {formatMoney(
-            funds.reduce((acc, curr) => acc + +curr.monthlyValue, 0)
+            funds.reduce((acc, curr) => acc + +curr.monthly_value, 0)
           )}
         </Text>
       </PieChartChildrenContent>
@@ -91,7 +94,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
       theme.colors.darkBlue2,
     ]
 
-    const groupedData = groupBy(funds, 'categoryName')
+    const groupedData = groupBy(funds, 'category_name')
     const sortedData = Object.entries(groupedData).sort(
       (a, b) => b[1].length - a[1].length
     )
@@ -121,18 +124,36 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   function shouldApplyOpacity(fund) {
     if (
       !pieChartInfoChildren ||
-      pieChartInfoChildren.id === fund.categoryName
+      pieChartInfoChildren.id === fund.category_name
     ) {
       return false
     }
     return true
   }
 
-  let { name: productName } = creditProduct
+  let { name: productName } = creditProduct || ''
   productName = (productName || '').toLowerCase()
+
+  const handleOpenModal = fund => {
+    setFundDetails(fund)
+    setIsModalOpen(!isModalOpen)
+  }
+
+  const handleCloseModal = () => {
+    setFundDetails({})
+    setIsModalOpen(false)
+  }
 
   return (
     <GridRow>
+      <Modal
+        modalTitle="Regras de condições"
+        alignItems="flex-start"
+        isOpen={isModalOpen}
+        handleClose={() => handleCloseModal()}
+      >
+        <ModalFundos fundDetails={fundDetails} />
+      </Modal>
       <Col lg={combo.length > 1 ? '9' : '12'}>
         <FullHeightCard headerIcon="financial" headerTitle="Fundos Sugeridos">
           <ContainerFunds>
@@ -203,7 +224,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         <Square
                           color={
                             graphValuesGenerator().find(
-                              item => item.id === fund.categoryName
+                              item => item.id === fund.category_name
                             ).color
                           }
                         />
@@ -223,12 +244,12 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                       </TableData>
                       <TableData textAlign="right">
                         <Text type="body">
-                          {formatMoney(fund.initialValue)}
+                          {formatMoney(fund.initial_value)}
                         </Text>
                       </TableData>
                       <TableData textAlign="right">
                         <Text type="body">
-                          {formatMoney(fund.monthlyValue)}
+                          {formatMoney(fund.monthly_value)}
                         </Text>
                       </TableData>
                       <TableData textAlign="-webkit-center" width="100px">
@@ -240,6 +261,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           icon="arrowright"
                           size="large"
                           color="secondary"
+                          onClick={() => handleOpenModal(fund)}
                         ></IconButton>
                       </TableData>
                     </TableRow>
@@ -251,7 +273,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </FullHeightCard>
       </Col>
 
-      {combo.length > 1 && (
+      {creditProduct && combo.length > 1 && (
         <Col lg="3">
           <FullHeightCard
             headerIcon={
@@ -306,13 +328,13 @@ SectionTwo.propTypes = {
       profitability: PropTypes.shape({
         '12': PropTypes.number,
       }),
-      quotationApplyDays: PropTypes.number,
-      financialApplyDays: PropTypes.number,
-      quotationRescueDays: PropTypes.number,
-      financialRescueDays: PropTypes.number,
-      initialValue: PropTypes.number,
-      monthlyValue: PropTypes.number,
-      categoryName: PropTypes.string,
+      quotation_apply_days: PropTypes.string,
+      financial_apply_days: PropTypes.string,
+      quotation_rescue_days: PropTypes.string,
+      financial_rescue_days: PropTypes.string,
+      initial_value: PropTypes.number,
+      monthly_value: PropTypes.number,
+      category_name: PropTypes.string,
     })
   ).isRequired,
 }

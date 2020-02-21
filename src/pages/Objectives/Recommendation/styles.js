@@ -220,7 +220,6 @@ export const CardWithCloseButton = styled(Card)`
 
 export const CloseButton = styled.div`
   position: absolute;
-  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

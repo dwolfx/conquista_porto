@@ -14,6 +14,7 @@ import {
 const NewInput = forwardRef(
   ({ prefix, suffix, label, width, error, ...rest }, ref) => {
     const inputRef = ref || createRef()
+
     return (
       <InputGroupWrapper>
         {label && <InputLabel>{label}</InputLabel>}

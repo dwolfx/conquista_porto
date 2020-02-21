@@ -36,9 +36,11 @@ import { ReactComponent as creditcard } from 'assets/icons/credit-card.svg'
 import { ReactComponent as creditcard2 } from 'assets/icons/credit-card2.svg'
 import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
 import { ReactComponent as dollarsign } from 'assets/icons/dollar-sign.svg'
+import { ReactComponent as download } from 'assets/icons/download.svg'
 import { ReactComponent as drink } from 'assets/icons/drink.svg'
 import { ReactComponent as financial } from 'assets/icons/financial.svg'
 import { ReactComponent as fingerprint } from 'assets/icons/finger-print.svg'
+import { ReactComponent as flag } from 'assets/icons/flag.svg'
 import { ReactComponent as forward } from 'assets/icons/forward.svg'
 import { ReactComponent as gear } from 'assets/icons/gear.svg'
 import { ReactComponent as globe } from 'assets/icons/globe.svg'
@@ -67,6 +69,7 @@ import { ReactComponent as plane } from 'assets/icons/plane.svg'
 import { ReactComponent as refresh } from 'assets/icons/refresh.svg'
 import { ReactComponent as remove } from 'assets/icons/remove.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
+import { ReactComponent as scale } from 'assets/icons/scale.svg'
 import { ReactComponent as smartphone } from 'assets/icons/smartphone.svg'
 import { ReactComponent as student } from 'assets/icons/student-male.svg'
 import { ReactComponent as tag } from 'assets/icons/tag.svg'
@@ -118,9 +121,11 @@ const dict = {
   creditcard2,
   diamond,
   dollarsign,
+  download,
   drink,
   financial,
   fingerprint,
+  flag,
   forward,
   gear,
   globe,
@@ -150,6 +155,7 @@ const dict = {
   refresh,
   remove,
   safebox,
+  scale,
   smartphone,
   student,
   tag,

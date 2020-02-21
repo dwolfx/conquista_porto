@@ -31,6 +31,10 @@ Array [
       >
         <div
           className="sc-jlyJG iurlso"
+          data-gtm-clicktype="card"
+          data-gtm-name="adcionar"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <svg
@@ -48,6 +52,10 @@ Array [
         </div>
         <div
           className="sc-cMljjf bYdauo"
+          data-gtm-clicktype="card"
+          data-gtm-name="contrato 1"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <span
