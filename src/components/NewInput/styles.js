@@ -8,7 +8,6 @@ const inputDefaultStyle = css`
   align-items: center;
   display: flex;
   padding: 0 7px;
-  font-family: ${props => props.theme.fontTypes.headline};
 
   #prefix {
     padding-left: 7px;
@@ -36,6 +35,7 @@ const inputErrorStyle = css`
 export const InputGroupWrapper = styled.div`
   background-color: ${props => props.theme.colors.gray1};
   border-radius: 8px 8px 0px 0px;
+  ${props => props.theme.fontTypes.headline};
 `
 
 export const InputWrapper = styled.div`
@@ -46,26 +46,26 @@ export const InputWrapper = styled.div`
 
 export const InputLabel = styled.div`
   color: ${props => props.theme.colors.gray5};
-  font-family: ${props => props.theme.fontTypes.captionUppercase};
   padding-left: 14px;
   padding-top: 7px;
+  ${props => props.theme.fontTypes.captionUppercase};
 `
 
 export const InputAddon = styled.div`
   align-items: center;
   color: ${props => props.theme.colors.gray4};
   display: flex;
-  font-family: inherit;
+  font: inherit;
   height: 100%;
 `
 
 export const ErrorMessage = styled.span`
-  color: ${props => props.theme.colors.magenta2};
-  font-family: ${props => props.theme.fontTypes.body};
-  position: absolute;
   bottom: -28px;
-  left: 14px;
+  color: ${props => props.theme.colors.magenta2};
   display: flex;
+  left: 14px;
+  position: absolute;
+  ${props => props.theme.fontTypes.body};
 `
 
 export const ErrorIcon = styled(Icon)`
@@ -77,7 +77,7 @@ export const Input = styled.input`
   background-color: inherit;
   border: none;
   color: inherit;
-  font-family: inherit;
+  font: inherit;
   padding: 0 7px;
   width: inherit;
 

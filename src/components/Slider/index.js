@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
@@ -33,10 +33,13 @@ export default function Slider({
 }) {
   const sliderRef = useRef()
   const inputRef = useRef()
-  const [value, setValue] = useState(formatMoneyDecimal(initialValue * 100))
-  const [percentValue, setPercentValue] = useState(
-    valueToPercent(initialValue, max)
-  )
+  const [value, setValue] = useState(0)
+  const [percentValue, setPercentValue] = useState(0)
+
+  useEffect(() => {
+    setValue(formatMoneyDecimal(initialValue * 100))
+    setPercentValue(valueToPercent(initialValue, max))
+  }, [initialValue, max])
 
   const handleSliderPosition = event => {
     // get click position in reference to slider
@@ -65,8 +68,7 @@ export default function Slider({
     }
 
     // update popover position
-    window.scrollTo(window.scrollX, window.scrollY - 1)
-    window.scrollTo(window.scrollX, window.scrollY + 1)
+    window.dispatchEvent(new Event('resize'))
   }
 
   const handleMouseMove = event => {
@@ -112,8 +114,7 @@ export default function Slider({
     setPercentValue(percent)
 
     // update popover position
-    window.scrollTo(window.scrollX, window.scrollY - 1)
-    window.scrollTo(window.scrollX, window.scrollY + 1)
+    window.dispatchEvent(new Event('resize'))
 
     // prevent input from focus out on change
     setTimeout(() => {
