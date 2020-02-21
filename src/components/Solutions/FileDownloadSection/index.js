@@ -20,8 +20,6 @@ export default function FileDownloadSection({ data, ...rest }) {
         <Item
           // eslint-disable-next-line react/no-array-index-key
           key={`${index}+${item.title}`}
-          data-gtm-type="container"
-          data-gtm-name={item.title}
         >
           <div>
             <IconStyled

@@ -42,7 +42,7 @@ export default function Mobile({ items, setIsOpen, totalPoints }) {
   }
 
   return (
-    <Container data-gtm-type="container" data-gtm-name="responsive header">
+    <Container>
       <Content>
         <Header>
           <ConquistaBeta

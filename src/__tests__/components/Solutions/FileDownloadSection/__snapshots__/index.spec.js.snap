@@ -6,8 +6,6 @@ exports[`FileDownloadSection renders correctly 1`] = `
 >
   <div
     className="sc-bwzfXH frRDcH"
-    data-gtm-name="quadro de rentabilidade"
-    data-gtm-type="container"
   >
     <div>
       <svg
@@ -46,8 +44,6 @@ exports[`FileDownloadSection renders correctly 1`] = `
   </div>
   <div
     className="sc-bwzfXH frRDcH"
-    data-gtm-name="carta do gestor"
-    data-gtm-type="container"
   >
     <div>
       <svg
