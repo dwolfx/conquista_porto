@@ -36,11 +36,24 @@ export default function SelectDropdown({ currentValue, onChange, options }) {
 
   return (
     <Backdrop onClick={() => setIsOpen(false)}>
-      <DropdownWrapper isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+      <DropdownWrapper
+        data-gtm-type="click"
+        data-gtm-clicktype="menu"
+        data-gtm-name={label}
+        isOpen={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <Label>{label}</Label>
         <OptionsWrapper isOpen={isOpen}>
           {options.map(({ name, value }) => (
-            <Option key={value} onClick={() => onChange(value)}>
+            <Option
+              data-gtm-type="click"
+              data-gtm-clicktype="sub-menu"
+              data-gtm-subname={label}
+              data-gtm-name={name}
+              key={value}
+              onClick={() => onChange(value)}
+            >
               {name}
             </Option>
           ))}

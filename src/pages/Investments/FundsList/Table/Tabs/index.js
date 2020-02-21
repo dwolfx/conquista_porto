@@ -7,6 +7,10 @@ export default function TableTabs({ options, onClick, selectedTab }) {
     <TabsWrapper>
       {options.map(fundType => (
         <Tabs
+          data-gtm-type="click"
+          data-gtm-clicktype="menu"
+          data-gtm-subname="menu tipo de fundo"
+          data-gtm-name={fundType.name}
           key={fundType.value}
           onClick={() => onClick(fundType.value)}
           className={selectedTab === fundType.value && 'active'}

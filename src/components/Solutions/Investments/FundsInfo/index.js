@@ -60,7 +60,14 @@ export default function FundsInfo({ fund }) {
               </DownloadIconWrapper>
               <div>
                 <DownloadTitle>Informativo de desempenho</DownloadTitle>
-                <ButtonLink target="_blank" href={fund.link_infor_desempenho}>
+                <ButtonLink
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="informativo de desempenho"
+                  data-gtm-name="baixar arquivo"
+                  target="_blank"
+                  href={fund.link_infor_desempenho}
+                >
                   Baixar arquivo
                 </ButtonLink>
               </div>
@@ -75,7 +82,14 @@ export default function FundsInfo({ fund }) {
               </DownloadIconWrapper>
               <div>
                 <DownloadTitle>Informativo de desempenho</DownloadTitle>
-                <ButtonLink target="_blank" href={fund.link_infor_desempenho}>
+                <ButtonLink
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="informativo de desempenho"
+                  data-gtm-name="baixar arquivo"
+                  target="_blank"
+                  href={fund.link_infor_desempenho}
+                >
                   Baixar arquivo
                 </ButtonLink>
               </div>
