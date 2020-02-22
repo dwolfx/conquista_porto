@@ -29,6 +29,10 @@ const FormatFundoCell = ({ cell, column }) => {
       <FundoWrapper {...cell.getCellProps()}>
         <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
         <InformationIcon
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname={cell.row.original.apelido}
+          data-gtm-name="icone de informação do fundo"
           onClick={() => {
             dispatch(GetInvestmentDetailsRequest(cell.row.original.id_fundo))
             column.toggleModal(!column.isModalOpen)
@@ -46,7 +50,14 @@ const FormatMoneyCell = column => (
 const FormatEnabledCell = column => (
   <WrapperContent isTbody>
     {column.cell.value ? (
-      <InvestButton type="button" color="secondary">
+      <InvestButton
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        data-gtm-subname={column.cell.row.original.apelido}
+        data-gtm-name="investir"
+        type="button"
+        color="secondary"
+      >
         Investir
       </InvestButton>
     ) : (

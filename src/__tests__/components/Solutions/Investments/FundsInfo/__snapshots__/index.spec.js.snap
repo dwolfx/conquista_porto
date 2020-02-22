@@ -493,6 +493,10 @@ exports[`FundsInfo renders correctly 1`] = `
             </p>
             <a
               className="sc-bdVaJa jcJyHx"
+              data-gtm-clicktype="link"
+              data-gtm-name="baixar arquivo"
+              data-gtm-subname="informativo de desempenho"
+              data-gtm-type="click"
               href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_POLOMACROFIM.pdf"
               target="_blank"
             >
@@ -526,6 +530,10 @@ exports[`FundsInfo renders correctly 1`] = `
             </p>
             <a
               className="sc-bdVaJa jcJyHx"
+              data-gtm-clicktype="link"
+              data-gtm-name="baixar arquivo"
+              data-gtm-subname="informativo de desempenho"
+              data-gtm-type="click"
               href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_POLOMACROFIM.pdf"
               target="_blank"
             >
