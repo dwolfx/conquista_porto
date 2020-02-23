@@ -4,20 +4,20 @@ import PropTypes from 'prop-types'
 import {
   AccordionWrapper,
   AccordionHeader,
-  AccordionHeaderLabel,
   AccordionHeaderText,
   AccordionBody,
 } from './styles'
 
 const AccordionNew = ({
-  labelNode,
-  titleNode,
-  children,
   bodyPadding,
+  children,
+  labelNode,
   openByDefault,
+  titleNode,
   ...rest
 }) => {
   const [isOpen, setIsOpen] = useState(openByDefault)
+
   return (
     <AccordionWrapper isOpen={isOpen} {...rest}>
       <AccordionHeader
@@ -26,8 +26,11 @@ const AccordionNew = ({
         data-gtm-name={titleNode}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {labelNode && <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>}
-        <AccordionHeaderText>{titleNode}</AccordionHeaderText>
+        {typeof titleNode === 'string' ? (
+          <AccordionHeaderText>{titleNode}</AccordionHeaderText>
+        ) : (
+          titleNode
+        )}
       </AccordionHeader>
       <AccordionBody isOpen={isOpen} bodyPadding={bodyPadding}>
         {children}
@@ -37,16 +40,18 @@ const AccordionNew = ({
 }
 
 AccordionNew.propTypes = {
-  labelNode: PropTypes.string,
-  titleNode: PropTypes.node.isRequired,
-  children: PropTypes.node.isRequired,
   bodyPadding: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  endHeaderNode: PropTypes.node,
+  labelNode: PropTypes.string,
   openByDefault: PropTypes.bool,
+  titleNode: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 }
 
 AccordionNew.defaultProps = {
-  labelNode: '',
   bodyPadding: '',
+  endHeaderNode: null,
+  labelNode: '',
   openByDefault: false,
 }
 

@@ -16,7 +16,7 @@ export const AccordionHeader = styled.div`
     display: block;
     position: absolute;
     top: calc(50% - 14px);
-    right: 0;
+    right: -14px;
     background: url(${ArrowIcon}) no-repeat center center
       ${props => props.theme.colors.gray2};
     border-radius: 50%;
@@ -42,7 +42,7 @@ export const AccordionWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
   max-height: ${props => (props.isOpen ? '1000px' : '84px')};
   overflow: hidden;
-  padding: 20px 30px;
+  padding: 28px 14px;
   margin-bottom: 30px;
   transition: all ease-in-out 1s;
 

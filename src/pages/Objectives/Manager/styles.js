@@ -27,7 +27,7 @@ export const ObjectiveDetails = styled(Card)`
   margin-bottom: 21px;
 `
 
-export const Wallet = styled(Row)`
+export const WalletContainer = styled(Row)`
   width: 100%;
   margin-bottom: 21px;
 `

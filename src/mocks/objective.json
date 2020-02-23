@@ -245,9 +245,9 @@
       "name": "Porto Seguro Renda Fixa",
       "initial_deposit": 2000,
       "monthly_deposit": 2000,
-      "balance": 20000,
-      "available": 20000,
-      "invested": 0,
+      "balance": 10000,
+      "available": 10000,
+      "invested": 10,
       "goals": []
     }
   ],
