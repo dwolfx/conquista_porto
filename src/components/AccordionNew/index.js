@@ -13,7 +13,6 @@ import {
 const AccordionNew = ({
   bodyPadding,
   children,
-  labelNode,
   openByDefault,
   titleNode,
   triggerCloseOnArrow,
@@ -60,7 +59,6 @@ AccordionNew.propTypes = {
   bodyPadding: PropTypes.string,
   children: PropTypes.node.isRequired,
   endHeaderNode: PropTypes.node,
-  labelNode: PropTypes.string,
   openByDefault: PropTypes.bool,
   titleNode: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   triggerCloseOnArrow: PropTypes.bool,
@@ -69,7 +67,6 @@ AccordionNew.propTypes = {
 AccordionNew.defaultProps = {
   bodyPadding: '',
   endHeaderNode: null,
-  labelNode: '',
   openByDefault: false,
   triggerCloseOnArrow: false,
 }
