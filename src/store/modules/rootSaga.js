@@ -19,6 +19,7 @@ import notifications from './Notifications/sagas'
 import auth from './Auth/sagas'
 import objective from './Objective/sagas'
 import objectiveManagement from './ObjectiveManagement/sagas'
+import suitability from './Suitability/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -40,5 +41,6 @@ export default function* rootSaga() {
     auth,
     objective,
     objectiveManagement,
+    suitability,
   ])
 }

@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
+import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
+
 import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'
 import { CardWrapper, CardTitle, IconWrapper } from './styles'
 
 const Board = () => {
+  const cpf = useSelector(state => state.auth.cpf)
+  const isLoading = useSelector(state => state.suitability.isLoading)
+  const [loadingButton, setLoadingButton] = useState('')
+  const dispatch = useDispatch()
+
   const match = useRouteMatch()
   const history = useHistory()
-  const handleFlowRedirect = path => {
-    history.push(path)
-  }
 
   return (
     <Container>
@@ -32,9 +37,17 @@ const Board = () => {
                   data-gtm-type="click"
                   data-gtm-clicktype="button"
                   outline
-                  onClick={() =>
-                    handleFlowRedirect(`${match.path}${card.route}`)
-                  }
+                  loading={isLoading && loadingButton === card.goal_type}
+                  onClick={() => {
+                    setLoadingButton(card.goal_type)
+                    dispatch(
+                      GetSuitabilityRequestAndRedirect(
+                        cpf,
+                        `${match.path}${card.route}`,
+                        history
+                      )
+                    )
+                  }}
                 >
                   escolher
                 </Button>

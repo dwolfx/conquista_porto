@@ -34,7 +34,8 @@ export function NotificationsContent(redirectAndCloseFunc) {
             <ItemWrapper
               data-gtm-type="click"
               data-gtm-clicktype="link"
-              data-gtm-name={`Dropdown notificacoes header - notificacao - ${notification.titulo}`}
+              data-gtm-subname="dropdown notificacoes header"
+              data-gtm-name={`notificacao - ${notification.titulo}`}
               // eslint-disable-next-line react/no-array-index-key
               key={`notificationNewKey-${index}`}
               padding="14px 14px 21px 14px"
@@ -57,7 +58,8 @@ export function NotificationsContent(redirectAndCloseFunc) {
             <ItemWrapper
               data-gtm-type="click"
               data-gtm-clicktype="link"
-              data-gtm-name={`Dropdown notificacoes header - notificacao - ${notification.titulo}`}
+              data-gtm-subname="dropdown notificacoes header"
+              data-gtm-name={`notificacao - ${notification.titulo}`}
               // eslint-disable-next-line react/no-array-index-key
               key={`notificationOldKey-${index}`}
               padding="21px 14px"
@@ -80,7 +82,8 @@ export function NotificationsContent(redirectAndCloseFunc) {
         <Button
           data-gtm-type="click"
           data-gtm-clicktype="button"
-          data-gtm-name="Dropdown notificacoes header - VER MAIS"
+          data-gtm-subname="dropdown notificacoes header"
+          data-gtm-name="ver mais"
           onClick={() => redirectAndCloseFunc('/notificacoes')}
         >
           VER MAIS

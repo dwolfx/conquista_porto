@@ -2378,5 +2378,10 @@
   "goal_recommendations": {},
   "goal_management": {
     "id": "1"
+  },
+  "suitability": {
+    "idpessoa": 632,
+    "idperfilinvest": 3,
+    "nomeperfilinvest": "Arrojado"
   }
 }
