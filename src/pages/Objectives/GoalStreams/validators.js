@@ -14,6 +14,8 @@ export const validateMinLength = (value, minLength) => {
   return schema.isValidSync(value)
 }
 
+export const isInvalidDate = value => !moment(value, 'DD/MM/YYYY').isValid()
+
 export const minDate = (value, expectedDiffDay) =>
   moment(value, 'DD/MM/YYYY').isSameOrAfter(
     moment().add(expectedDiffDay, 'day')
