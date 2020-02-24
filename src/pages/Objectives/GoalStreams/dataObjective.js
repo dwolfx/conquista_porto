@@ -1,4 +1,4 @@
-import { betweenLength, minDate, minValue } from './validators'
+import { betweenLength, isInvalidDate, minDate, minValue } from './validators'
 
 const INITIAL_VALUE_NAME = 'initial_value'
 const TARGET_DATE_NAME = 'target_date'
@@ -16,6 +16,7 @@ const THOUSAND_MIN_VALUE = '1.000,00'
 const MAX_CHARS_ERROR_TEXT = 'Máximo 20 caracteres'
 const MIN_CHARS_ERROR_TEXT = 'Mínimo 3 caracteres'
 const MIN_DATE_ERROR_TEXT = 'Mínimo de 6 meses'
+const INVALID_DATE_ERROR_TEXT = 'Data inválida'
 const HUNDRED_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 100,00'
 const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
 const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
@@ -54,6 +55,9 @@ export default [
         type: DATE_TYPE,
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
+          if (isInvalidDate(value)) {
+            return INVALID_DATE_ERROR_TEXT
+          }
           const isValid = minDate(value, 180)
           return isValid ? undefined : MIN_DATE_ERROR_TEXT
         },
