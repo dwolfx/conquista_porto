@@ -10,6 +10,7 @@ import HorizontalList from 'components/HorizontalList'
 import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
+
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -467,11 +468,6 @@ export const ObjectivesAccordion = styled(AccordionNewComponent)`
   width: 100%;
   padding: 0px;
   margin: 0px;
-
-  button {
-    width: 100%;
-    margin: 7px 0;
-  }
 `
 
 export const ObjectiveDivisor = styled(DivisorComponent)`

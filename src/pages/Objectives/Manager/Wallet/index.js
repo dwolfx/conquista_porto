@@ -207,6 +207,7 @@ export default function Wallet({ fundList, goalName }) {
                             data-gtm-subname={fund.name}
                             data-gtm-name="Investir"
                             css={`
+                              margin-top: 68px;
                               width: 100%;
                             `}
                             onClick={() => {

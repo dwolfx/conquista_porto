@@ -33,10 +33,12 @@ export const AccordionCloseButton = styled(IconButton).attrs(() => ({
   size: 'large',
 }))`
   cursor: pointer;
+  height: 28px;
   position: absolute;
   top: calc(50% - 14px);
-  right: -14px;
+  right: 0;
   transition: all ease 0.6s;
+  width: 28px;
 
   svg {
     width: 28px;
@@ -53,7 +55,13 @@ export const AccordionWrapper = styled.div`
     transform: ${props => (props.isOpen ? 'rotate(-180deg)' : 'rotate(0)')};
   }
   ${AccordionBody} {
-    padding: ${props => (props.isOpen ? '35px 0 7px' : 0)};
+    padding: ${props => {
+      if (!props.isOpen) {
+        return 0
+      }
+
+      return props.bodyPadding ? props.bodyPadding : '28px 0px'
+    }};
     max-height: ${props => (props.isOpen ? '1000px' : 0)};
     overflow-y: ${props => (props.isOpen ? 'auto' : 'hidden')};
   }

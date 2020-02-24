@@ -29,7 +29,7 @@ const AccordionNew = ({
   }
 
   return (
-    <AccordionWrapper isOpen={isOpen} {...rest}>
+    <AccordionWrapper isOpen={isOpen} bodyPadding={bodyPadding} {...rest}>
       <AccordionHeader
         data-gtm-type="click"
         data-gtm-clicktype="accordion"
@@ -48,9 +48,7 @@ const AccordionNew = ({
           onClick={() => (triggerCloseOnArrow ? handleToggle() : null)}
         />
       </AccordionHeader>
-      <AccordionBody isOpen={isOpen} bodyPadding={bodyPadding}>
-        {children}
-      </AccordionBody>
+      <AccordionBody>{children}</AccordionBody>
     </AccordionWrapper>
   )
 }
