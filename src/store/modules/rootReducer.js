@@ -18,6 +18,7 @@ import notifications from './Notifications/reducer'
 import auth from './Auth/reducer'
 import objective from './Objective/reducer'
 import objectiveManagement from './ObjectiveManagement/reducer'
+import suitability from './Suitability/reducer'
 
 export default combineReducers({
   bankData,
@@ -38,4 +39,5 @@ export default combineReducers({
   auth,
   objective,
   objectiveManagement,
+  suitability,
 })

@@ -33,6 +33,15 @@ router.render = (req, res) => {
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     return res.jsonp(objectiveMock)
   }
+
+  // if (
+  //   req.originalUrl.startsWith(
+  //     '/api/invest/portopar/v1/cotista/perfil/investidor'
+  //   )
+  // ) {
+  //   return res.status(204).jsonp()
+  // }
+
   return res.jsonp(res.locals.data)
 }
 
