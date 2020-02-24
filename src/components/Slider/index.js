@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
+import Icon from 'components/IconExporter'
 import Input from 'components/Inputs/Money'
+import Text from 'components/Text'
 
-import { formatMoneyDecimal } from 'helpers'
+import { formatMoneyDecimal, formatMoney } from 'helpers'
 
 import {
   SliderContainer,
@@ -24,6 +26,7 @@ function percentToValue(percent, max) {
 
 export default function Slider({
   className,
+  error: errorProp,
   initialValue,
   max,
   normalizeValue,
@@ -36,11 +39,16 @@ export default function Slider({
   const inputRef = useRef()
   const [value, setValue] = useState(0)
   const [percentValue, setPercentValue] = useState(0)
+  const [error, setError] = useState(errorProp)
 
   useEffect(() => {
     setValue(formatMoneyDecimal(initialValue * 100))
     setPercentValue(valueToPercent(initialValue, max))
   }, [initialValue, max])
+
+  useEffect(() => {
+    setError(errorProp)
+  }, [errorProp])
 
   const handleSliderPosition = event => {
     // get click position in reference to slider
@@ -61,6 +69,12 @@ export default function Slider({
 
     // update percentage with the value normalized
     percent = valueToPercent(moneyValue, max)
+
+    if (moneyValue / 100 > max) {
+      setError(true)
+    } else {
+      setError(false)
+    }
 
     // if percentage between 0% and 100%, update states
     if (percent >= 0 && percent <= 100) {
@@ -111,6 +125,12 @@ export default function Slider({
     const moneyValue = +event.target.value.replace(/[\D]/g, '')
     const percent = Math.min(valueToPercent(moneyValue / 100, max), 100)
 
+    if (moneyValue / 100 > max) {
+      setError(true)
+    } else {
+      setError(false)
+    }
+
     setValue(formatMoneyDecimal(moneyValue))
     setPercentValue(percent)
 
@@ -134,19 +154,46 @@ export default function Slider({
       {showTooltip ? (
         <ThumbPopover
           content={() => (
-            <Input
-              ref={inputRef}
-              value={value}
-              onChange={handleInputOnChange}
-              css={`
-                height: 33px;
-                font-size: 14px;
-              `}
-            />
+            <>
+              <Input
+                ref={inputRef}
+                value={value}
+                onChange={handleInputOnChange}
+                css={`
+                  height: 33px;
+                  font-size: 14px;
+                `}
+                error={error}
+              />
+              {error && (
+                <div
+                  css={`
+                    align-items: center;
+                    display: flex;
+                    margin-top: 7px;
+                  `}
+                >
+                  <Icon name="information" color="magenta2" width={16} />
+                  <Text
+                    color="magenta2"
+                    bold
+                    css={`
+                      margin-left: 7px;
+                    `}
+                  >
+                    Limite máximo: {formatMoney(max)}
+                  </Text>
+                </div>
+              )}
+            </>
           )}
           alwaysVisible
         >
-          <Thumb onMouseDown={handleMouseDown} onTouchStart={handleMouseDown} />
+          <Thumb
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleMouseDown}
+            error={error}
+          />
         </ThumbPopover>
       ) : (
         <ThumbContainer>
@@ -159,6 +206,7 @@ export default function Slider({
 
 Slider.propTypes = {
   className: PropTypes.string,
+  error: PropTypes.bool,
   initialValue: PropTypes.number,
   max: PropTypes.number,
   normalizeValue: PropTypes.number,
@@ -169,6 +217,7 @@ Slider.propTypes = {
 
 Slider.defaultProps = {
   className: '',
+  error: false,
   initialValue: 0,
   max: 100,
   normalizeValue: 1,
