@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import ArrowIcon from 'assets/icons/arrow-down2.svg'
+import IconButton from 'components/Button/Icon'
+import Text from 'components/Text'
 
 export const AccordionHeader = styled.div`
   display: flex;
@@ -8,22 +9,6 @@ export const AccordionHeader = styled.div`
   cursor: pointer;
   flex-direction: column;
   padding-right: 42px;
-
-  &:after {
-    content: '';
-    justify-content: center;
-    transform-origin: center;
-    display: block;
-    position: absolute;
-    top: calc(50% - 14px);
-    right: -14px;
-    background: url(${ArrowIcon}) no-repeat center center
-      ${props => props.theme.colors.gray2};
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    transition: all ease 1s;
-  }
 `
 
 export const AccordionHeaderLabel = styled.div`
@@ -31,24 +16,45 @@ export const AccordionHeaderLabel = styled.div`
   font-family: ${props => props.theme.fontTypes.captionUppercase};
 `
 
-export const AccordionHeaderText = styled.div``
+export const AccordionHeaderText = styled(Text).attrs(() => ({
+  type: 'headline',
+  bold: true,
+}))``
 
 export const AccordionBody = styled.div`
+  overflow-x: hidden;
   padding: ${props => (props.bodyPadding ? props.bodyPadding : '28px 0px')};
-  display: ${props => !props.isOpen && 'none'};
+  transition: all ease 0.6s;
+`
+
+export const AccordionCloseButton = styled(IconButton).attrs(() => ({
+  icon: 'arrowdown',
+  color: 'secondary',
+  size: 'large',
+}))`
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - 14px);
+  right: -14px;
+  transition: all ease 0.6s;
+
+  svg {
+    width: 28px;
+  }
 `
 
 export const AccordionWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
-  max-height: ${props => (props.isOpen ? '1000px' : '84px')};
   overflow: hidden;
   padding: 28px 14px;
-  margin-bottom: 30px;
-  transition: all ease-in-out 1s;
+  transition: all ease-in-out 0.6s;
 
-  ${AccordionHeader} {
-    &:after {
-      transform: ${props => (props.isOpen ? 'rotate(-180deg)' : 'rotate(0)')};
-    }
+  ${AccordionCloseButton} {
+    transform: ${props => (props.isOpen ? 'rotate(-180deg)' : 'rotate(0)')};
+  }
+  ${AccordionBody} {
+    padding: ${props => (props.isOpen ? '35px 0 7px' : 0)};
+    max-height: ${props => (props.isOpen ? '1000px' : 0)};
+    overflow-y: ${props => (props.isOpen ? 'auto' : 'hidden')};
   }
 `
