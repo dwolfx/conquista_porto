@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import LoadingSpinner from 'components/Loading'
+// import LoadingSpinner from 'components/Loading'
+import Icon from 'components/IconExporter'
 
 import { Button, Content, LoadingContainer } from './styles'
 
@@ -16,12 +17,19 @@ import { Button, Content, LoadingContainer } from './styles'
  *
  */
 
-const ConquistaButton = ({ children, color, outline, loading, ...rest }) => (
+const ConquistaButton = ({
+  children,
+  color,
+  outline,
+  loading,
+  loadingColor,
+  ...rest
+}) => (
   <Button color={color} outline={outline} {...rest}>
     <Content>{children}</Content>
     {loading && (
       <LoadingContainer>
-        <LoadingSpinner />
+        <Icon name="spinner" color={loadingColor} />
       </LoadingContainer>
     )}
   </Button>
@@ -30,6 +38,7 @@ const ConquistaButton = ({ children, color, outline, loading, ...rest }) => (
 ConquistaButton.defaultProps = {
   color: 'primary',
   loading: false,
+  loadingColor: 'blue4',
   outline: false,
 }
 
@@ -37,6 +46,7 @@ ConquistaButton.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(['primary', 'secondary']),
   loading: PropTypes.bool,
+  loadingColor: PropTypes.string,
   outline: PropTypes.bool,
 }
 

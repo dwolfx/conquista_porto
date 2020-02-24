@@ -2375,7 +2375,14 @@
       }
     }
   ],
-  "goal_recommendations": {},
+  "goal_recommendations": {
+    "goal_type": "1",
+    "nickname": "asdasd",
+    "target_date": "23/12/2020",
+    "target_value": "2.222,22",
+    "initial_value": "1.233,33",
+    "monthly_value": "244,44"
+  },
   "goal_management": {
     "id": "1"
   },

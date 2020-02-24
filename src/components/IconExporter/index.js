@@ -86,6 +86,7 @@ import { ReactComponent as usermedic } from 'assets/icons/user-medic.svg'
 import { ReactComponent as visa } from 'assets/images/visa.svg'
 import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
 import { ReactComponent as loading } from 'assets/icons/loading.svg'
+import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
 
 const dict = {
   add,
@@ -157,6 +158,7 @@ const dict = {
   safebox,
   scale,
   smartphone,
+  spinner,
   student,
   tag,
   talkman,
