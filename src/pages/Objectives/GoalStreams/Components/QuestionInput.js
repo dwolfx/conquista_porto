@@ -57,6 +57,7 @@ const QuestionInput = forwardRef(
             value={formData[name]}
             error={error}
             newInput
+            placeholder="dd/mm/aaaa"
           />
         </OutterWrapper>
       )
@@ -85,6 +86,7 @@ const QuestionInput = forwardRef(
             value={formData[name]}
             error={error}
             maxLength={maxLength}
+            placeholder="1.000,00"
           />
         </OutterWrapper>
       )
@@ -102,6 +104,7 @@ const QuestionInput = forwardRef(
           value={formData[name]}
           error={error}
           maxLength={maxLength}
+          placeholder="MeuObjetivo"
         />
       </OutterWrapper>
     )
