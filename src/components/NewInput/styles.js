@@ -85,4 +85,9 @@ export const Input = styled.input`
     box-shadow: none;
     -webkit-box-shadow: 0 0 0 30px ${props => props.theme.colors.gray1} inset;
   }
+
+  ::-webkit-input-placeholder {
+    color: ${props => props.theme.colors.gray4};
+    ${props => props.theme.fontTypes.headline};
+  }
 `
