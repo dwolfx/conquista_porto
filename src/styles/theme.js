@@ -50,6 +50,16 @@ export const fundRiskColorsNew = {
   highRisk: '#E72176',
 }
 
+export const objectivesColorGuide = [
+  '#E72176',
+  '#FFCD00',
+  '#46A166',
+  '#004E70',
+  '#E6F7FF',
+  '#2F736B',
+  '#FAD2E3',
+]
+
 export const gridConfig = {
   breakpoints: {
     xl: 1280,

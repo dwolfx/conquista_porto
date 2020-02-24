@@ -34,3 +34,12 @@ export const ObjectivesInfoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
+
+export const ObjectivesBar = styled.div`
+  background-color: ${props => props.theme.colors.gray3};
+  border-radius: 7px;
+  display: flex;
+  margin: 14px 0;
+  height: 7px;
+  width: 100%;
+`
