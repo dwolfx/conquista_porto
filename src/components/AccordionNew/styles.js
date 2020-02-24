@@ -7,7 +7,7 @@ export const AccordionHeader = styled.div`
   position: relative;
   cursor: pointer;
   flex-direction: column;
-  padding-right: 40px;
+  padding-right: 42px;
 
   &:after {
     content: '';
@@ -34,7 +34,7 @@ export const AccordionHeaderLabel = styled.div`
 export const AccordionHeaderText = styled.div``
 
 export const AccordionBody = styled.div`
-  padding: ${props => (props.bodyPadding ? props.bodyPadding : '30px 0px')};
+  padding: ${props => (props.bodyPadding ? props.bodyPadding : '28px 0px')};
   display: ${props => !props.isOpen && 'none'};
 `
 

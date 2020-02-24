@@ -1,7 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { post } from 'services/api'
-import axios from 'axios'
+import { get, post } from 'services/api'
 import { Types } from './types'
 import {
   GetObjectiveDataSuccess,
@@ -23,7 +22,7 @@ function* postData(data) {
 function* getData() {
   try {
     const response = yield call(
-      axios.get,
+      get,
       'http://api-proxy.conquista.sciensa.click:8080/api/goal/goals'
     )
     yield put(GetObjectiveDataSuccess(response.data))

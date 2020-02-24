@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
@@ -22,7 +23,11 @@ export default function ObjectiveListContent({ objectives }) {
   )
 
   const horizontalListProgressBar = (actual, max) => (
-    <div style={{ width: '56px' }}>
+    <div
+      css={`
+        width: 56px;
+      `}
+    >
       <MiniLinearProgressBar atual={actual} max={max} />
     </div>
   )
