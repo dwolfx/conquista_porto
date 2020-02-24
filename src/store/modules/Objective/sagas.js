@@ -23,7 +23,7 @@ function* getData() {
   try {
     const response = yield call(
       get,
-      'http://api-proxy.conquista.sciensa.click:8080/api/goal/goals'
+      '/goal/goals'
     )
     yield put(GetObjectiveDataSuccess(response.data))
   } catch (err) {
