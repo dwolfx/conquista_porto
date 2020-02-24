@@ -22,6 +22,9 @@ import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 
+import { useDispatch } from 'react-redux'
+import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+
 import {
   GridRecommendation,
   SectionsRecommendation,
@@ -119,6 +122,10 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const handleReloadRecommendations = suggestionValues => {
     dispatch(PostObjectiveDataRequest({ ...suggestionValues }))
     setShowUnmetGoalBanner(false)
+  }
+  
+  const handleReloadRecommendations = (answer) => {
+    dispatch(PostObjectiveDataRequest({ answer }))
   }
 
   return (
