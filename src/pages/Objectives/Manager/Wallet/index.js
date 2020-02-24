@@ -33,7 +33,7 @@ const getColorGuide = index =>
 const FundAccordionHeader = ({ fund }) => (
   <Row
     css={`
-      padding-right: 30px;
+      padding-right: 28px;
     `}
   >
     <Col
@@ -168,8 +168,9 @@ export default function Wallet({ fundList, goalName }) {
                 openByDefault={index === 0}
                 titleNode={<FundAccordionHeader fund={fund} />}
                 triggerCloseOnArrow
+                bodyPadding="42px 42px 0 0"
               >
-                <AccordionContentWrapper margin="0px 0px 10px 0px">
+                <AccordionContentWrapper margin="0 0 7px 0">
                   <Row>
                     <Col
                       md="3"
@@ -178,7 +179,6 @@ export default function Wallet({ fundList, goalName }) {
                         flex-direction: column;
                         justify-content: space-between;
                         border-right: 1px solid ${theme.colors.gray2};
-                        padding-right: 28px;
                       `}
                     >
                       <Row>
@@ -207,7 +207,7 @@ export default function Wallet({ fundList, goalName }) {
                             data-gtm-subname={fund.name}
                             data-gtm-name="Investir"
                             css={`
-                              margin-top: 68px;
+                              margin-top: 63px;
                               width: 100%;
                             `}
                             onClick={() => {
