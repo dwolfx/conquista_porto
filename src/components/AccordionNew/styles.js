@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import Text from 'components/Text'
-
 import ArrowIcon from 'assets/icons/arrow-down2.svg'
 
 export const AccordionHeader = styled.div`
@@ -9,6 +7,7 @@ export const AccordionHeader = styled.div`
   position: relative;
   cursor: pointer;
   flex-direction: column;
+  padding-right: 42px;
 
   &:after {
     content: '';
@@ -32,13 +31,11 @@ export const AccordionHeaderLabel = styled.div`
   font-family: ${props => props.theme.fontTypes.captionUppercase};
 `
 
-export const AccordionHeaderText = styled(Text).attrs(() => ({
-  type: 'headline',
-  bold: true,
-}))``
+export const AccordionHeaderText = styled.div``
 
 export const AccordionBody = styled.div`
-  padding: 30px 0;
+  padding: ${props => (props.bodyPadding ? props.bodyPadding : '28px 0px')};
+  display: ${props => !props.isOpen && 'none'};
 `
 
 export const AccordionWrapper = styled.div`

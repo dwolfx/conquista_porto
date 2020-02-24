@@ -17,7 +17,7 @@ import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
 import moment from 'moment'
 
-import Accordion from 'components/NewAccordion'
+import Accordion from 'components/AccordionNew'
 import Divisor from 'components/Divisor'
 
 import GoalChart from 'pages/Objectives/Manager/GoalChart'

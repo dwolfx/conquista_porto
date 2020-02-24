@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import { StyledDivisor } from './styles'
 
-const Divisor = ({ vertical, customSize }) => (
-  <StyledDivisor vertical={vertical} customSize={customSize} />
+const Divisor = ({ vertical, customSize, ...rest }) => (
+  <StyledDivisor vertical={vertical} customSize={customSize} {...rest} />
 )
 
 Divisor.propTypes = {
