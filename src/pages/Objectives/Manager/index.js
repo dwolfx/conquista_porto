@@ -17,8 +17,6 @@ import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import Wallet from 'pages/Objectives/Manager/Wallet'
 
-import managerData from 'mocks/objective.json'
-
 import {
   GridContainer,
   Banner,
@@ -31,13 +29,14 @@ import {
 
 export default function Manager({ location }) {
   const history = useHistory()
-  let { data: objectiveData } = useSelector(state => state.objectiveManagement)
+  const { data: objectiveData } = useSelector(
+    state => state.objectiveManagement
+  )
 
   const { pageRecommendation } = location.state || false
 
   if (!objectiveData) {
-    objectiveData = { ...managerData }
-    // history.push('/objetivos')
+    history.push('/objetivos')
   }
 
   const { nickname, target_value, target_date } = objectiveData
@@ -116,7 +115,6 @@ export default function Manager({ location }) {
             <GoalChart data={objectiveData} />
           </CardContent>
         </ObjectiveDetails>
-        {/* <ObjectiveCard></ObjectiveCard> */}
       </ColumnWrapper>
 
       <WalletContainer>
