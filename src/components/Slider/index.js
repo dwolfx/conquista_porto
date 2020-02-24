@@ -23,12 +23,13 @@ function percentToValue(percent, max) {
 }
 
 export default function Slider({
-  max,
+  className,
   initialValue,
+  max,
+  normalizeValue,
   onMouseDown,
   onTouchStart,
   showTooltip,
-  normalizeValue,
   ...rest
 }) {
   const sliderRef = useRef()
@@ -123,12 +124,12 @@ export default function Slider({
   }
 
   return (
-    <SliderContainer value={percentValue} {...rest}>
+    <SliderContainer value={percentValue} className={className} {...rest}>
       <Rail
         ref={sliderRef}
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
-        className={rest.className}
+        className={className}
       />
       {showTooltip ? (
         <ThumbPopover
@@ -157,19 +158,21 @@ export default function Slider({
 }
 
 Slider.propTypes = {
+  className: PropTypes.string,
   initialValue: PropTypes.number,
   max: PropTypes.number,
+  normalizeValue: PropTypes.number,
   onMouseDown: PropTypes.func,
   onTouchStart: PropTypes.func,
   showTooltip: PropTypes.bool,
-  normalizeValue: PropTypes.number,
 }
 
 Slider.defaultProps = {
+  className: '',
   initialValue: 0,
   max: 100,
+  normalizeValue: 1,
   onMouseDown: null,
   onTouchStart: null,
   showTooltip: true,
-  normalizeValue: 1,
 }
