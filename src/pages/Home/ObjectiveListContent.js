@@ -108,7 +108,7 @@ export default function ObjectiveListContent({ objectives }) {
 ObjectiveListContent.propTypes = {
   objectives: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       nickname: PropTypes.string,
       percentage: PropTypes.number,
       remaining_value: PropTypes.number,

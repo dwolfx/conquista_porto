@@ -21,10 +21,7 @@ function* postData(data) {
 
 function* getData() {
   try {
-    const response = yield call(
-      get,
-      '/goal/goals'
-    )
+    const response = yield call(get, '/goal/goals')
     yield put(GetObjectiveDataSuccess(response.data))
   } catch (err) {
     yield put(GetObjectiveDataFailure())
