@@ -115,6 +115,7 @@ export const WizardFlow = ({ data, objective }) => {
             onClick={postFlow}
             disabled={!isActive || isLoading}
             loading={isLoading}
+            loadingColor="white"
           >
             Concluir
           </ButtonAction>
