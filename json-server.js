@@ -8,6 +8,7 @@ const middlewares = jsonServer.defaults()
 
 const recommendationMock = require('./src/mocks/recommendation.json')
 const objectiveMock = require('./src/mocks/objective.json')
+const objectivesMock = require('./src/mocks/objectives.json')
 
 server.use(middlewares)
 
@@ -31,7 +32,11 @@ router.render = (req, res) => {
     return res.jsonp(recommendationMock)
   }
   if (req.originalUrl.startsWith('/api/goal/goals')) {
-    return res.jsonp(objectiveMock)
+    if (req.method === 'GET') {
+      return res.jsonp(objectivesMock)
+    } else if (req.method === 'POST') {
+      return res.jsonp(objectiveMock)
+    }
   }
 
   // if (
