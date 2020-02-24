@@ -42,8 +42,6 @@ export const FullHeightCard = styled(Card)`
   height: 100%;
 `
 
-export const AccordionWrapper = styled.div``
-
 export const AccordionContentWrapper = styled.div`
   display: flex;
   flex-direction: column;

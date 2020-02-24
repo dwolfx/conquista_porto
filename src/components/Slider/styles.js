@@ -33,8 +33,9 @@ export const Rail = styled.div`
   background-color: ${props => props.theme.colors.gray3};
   cursor: pointer;
   height: 7px;
-  width: 100%;
+  overflow: hidden;
   position: relative;
+  width: 100%;
 
   &:before {
     content: '';
