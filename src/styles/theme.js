@@ -43,21 +43,21 @@ export const fundRiskColors = {
 }
 
 export const fundRiskColorsNew = {
-  lowRisk: '#BABABA',
-  lowMediumRisk: '#00ADEF',
-  mediumRisk: '#57B063',
-  mediumHighRisk: '#FFCD00',
-  highRisk: '#E72176',
+  lowRisk: themeColors.gray4,
+  lowMediumRisk: themeColors.blue4,
+  mediumRisk: themeColors.green3,
+  mediumHighRisk: themeColors.yellow2,
+  highRisk: themeColors.magenta2,
 }
 
 export const objectivesColorGuide = [
-  '#E72176',
-  '#FFCD00',
-  '#46A166',
-  '#004E70',
-  '#E6F7FF',
-  '#2F736B',
-  '#FAD2E3',
+  themeColors.magenta2,
+  themeColors.yellow2,
+  themeColors.green4,
+  themeColors.darkBlue2,
+  themeColors.darkBlue1,
+  themeColors.green5,
+  themeColors.magenta1,
 ]
 
 export const gridConfig = {
