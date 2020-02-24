@@ -52,7 +52,7 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
 
   return (
     <Container>
-      <MenuContainer data-gtm-type="container" data-gtm-name="menu-lateral">
+      <MenuContainer>
         <Option
           data-gtm-type="click"
           data-gtm-clicktype="menu-lateral"

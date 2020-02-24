@@ -2375,15 +2375,13 @@
       }
     }
   ],
-  "goal_recommendations": {
-    "goal_type": "1",
-    "nickname": "Disney",
-    "target_date": "10/10/2020",
-    "target_value": "70.000.000,00",
-    "initial_value": "5.000,00",
-    "monthly_value": "1.000,00"
-  },
+  "goal_recommendations": {},
   "goal_management": {
     "id": "1"
+  },
+  "suitability": {
+    "idpessoa": 632,
+    "idperfilinvest": 3,
+    "nomeperfilinvest": "Arrojado"
   }
 }

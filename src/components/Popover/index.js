@@ -9,15 +9,20 @@ import Text from 'components/Text'
 import { PopoverContainer, Arrow } from './styles'
 
 export default function Popover({
+  alwaysVisible,
   children,
   content,
   placement,
   trigger,
   ...rest
 }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(alwaysVisible)
 
   const actions = () => {
+    if (alwaysVisible) {
+      return null
+    }
+
     switch (trigger) {
       case 'click': {
         return {
@@ -34,10 +39,10 @@ export default function Popover({
   }
 
   const PopoverContent =
-    typeof content === 'string' ? <Text>{content}</Text> : content
+    typeof content === 'string' ? () => <Text>{content}</Text> : content
 
   return (
-    <Manager {...rest}>
+    <Manager>
       <Reference>
         {({ ref }) => (
           <div
@@ -46,6 +51,7 @@ export default function Popover({
             css={`
               cursor: pointer;
             `}
+            {...rest}
           >
             {children}
           </div>
@@ -83,6 +89,7 @@ export default function Popover({
 }
 
 Popover.propTypes = {
+  alwaysVisible: PropTypes.bool,
   children: PropTypes.node.isRequired,
   placement: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
   content: PropTypes.oneOfType(PropTypes.func, PropTypes.string).isRequired,
@@ -90,6 +97,7 @@ Popover.propTypes = {
 }
 
 Popover.defaultProps = {
+  alwaysVisible: false,
   placement: 'top',
   trigger: '',
 }

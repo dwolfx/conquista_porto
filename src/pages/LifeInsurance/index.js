@@ -99,7 +99,9 @@ export default function LifeInsurance() {
         image={BannerSeguroVidaImage}
         imageDescription="Família andando na beira do mar"
         onClick={() =>
-          handleGiwRedirect('portaldecliente/conquista/seguro-de-vida/simular')
+          handleGiwRedirect(
+            'portaldecliente/conquista/seguro-de-vida/simular?r=true'
+          )
         }
       />
       <BulletsSection
@@ -125,7 +127,9 @@ export default function LifeInsurance() {
         de Vida da Porto Seguro."
         buttonText="Simular e contratar"
         onClick={() =>
-          handleGiwRedirect('portaldecliente/conquista/seguro-de-vida/simular')
+          handleGiwRedirect(
+            'portaldecliente/conquista/seguro-de-vida/simular?r=true'
+          )
         }
       />
 

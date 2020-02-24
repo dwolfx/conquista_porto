@@ -207,7 +207,7 @@ export default function HeaderNew() {
               data-gtm-type="click"
               data-gtm-clicktype="menu"
               data-gtm-subname="header"
-              data-gtm-name="header menu"
+              data-gtm-name="menu"
             />
           </DropDown>
           {crumbs.length > 0 && <Icon name="arrowright2" />}

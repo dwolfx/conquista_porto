@@ -6,6 +6,7 @@ import 'styled-components/macro'
 import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
+import { dataLayerProductSuggestion } from 'GoogleTagManager'
 
 import products from './productBannerData'
 import {
@@ -55,9 +56,45 @@ const ModalContent = ({ items, text }) => (
 )
 
 const SectionThree = ({ additional }) => {
+  const dataLayerProducts = []
+  let dataLayerReturnType = 'erro'
+  let dataLayerDescription = 'Não existem produtos sugeridos'
+
   const renderedProducts = Object.entries(additional)
     .filter(value => value[1] === true)
     .map(item => products[item[0]])
+
+  renderedProducts.map(
+    (product, index) =>
+      (product.category === 'Seguro Viagem' &&
+        dataLayerProducts.push({
+          name: 'seguro-viagem',
+          category: 'seguros',
+          position: index + 1,
+        })) ||
+      (product.category === 'Seguro de Vida' &&
+        dataLayerProducts.push({
+          name: 'seguro-de-vida',
+          category: 'seguros',
+          position: index + 1,
+        })) ||
+      (product.category === 'Cartão de Crédito' &&
+        dataLayerProducts.push({
+          name: 'cartao-de-credito',
+          category: 'credito',
+          position: index + 1,
+        })) ||
+      null
+  )
+  if (dataLayerProducts.length >= 1) {
+    dataLayerReturnType = 'sucesso'
+    dataLayerDescription = ''
+    dataLayerProductSuggestion(
+      dataLayerProducts,
+      dataLayerReturnType,
+      dataLayerDescription
+    )
+  }
 
   const [modalState, setModalState] = useState({
     isOpen: false,

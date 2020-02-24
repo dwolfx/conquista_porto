@@ -55,7 +55,7 @@ export const rgba = (hex, alpha) => {
 }
 
 export function handleGiwRedirect(link) {
-  window.location.pathname = link
+  window.location.href = `${window.location.origin}/${link}`
 }
 
 export const formatDateMask = event => {
@@ -68,4 +68,15 @@ export const formatDateMask = event => {
   }
   // eslint-disable-next-line no-param-reassign
   event.target.value = newValue
+}
+
+export const getCookieValue = key => {
+  const regexPattern = `(?:(?:^|.*;\\s*)${key}\\s*=\\s*([^;]*).*$)|^.*$`
+  const regExp = new RegExp(regexPattern, 'g')
+
+  return document.cookie.replace(regExp, '$1')
+}
+
+export const setCookieValue = (key, value) => {
+  document.cookie = `${key}=${value}`
 }

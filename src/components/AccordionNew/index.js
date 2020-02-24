@@ -20,7 +20,12 @@ const AccordionNew = ({
   const [isOpen, setIsOpen] = useState(openByDefault)
   return (
     <AccordionWrapper isOpen={isOpen} {...rest}>
-      <AccordionHeader onClick={() => setIsOpen(!isOpen)}>
+      <AccordionHeader
+        data-gtm-type="click"
+        data-gtm-clicktype="accordion"
+        data-gtm-name={titleNode}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {labelNode && <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>}
         <AccordionHeaderText>{titleNode}</AccordionHeaderText>
       </AccordionHeader>

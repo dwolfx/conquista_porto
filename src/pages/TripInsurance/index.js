@@ -22,7 +22,9 @@ export default function TripInsurance() {
         description="Viaje com tranquilidade e tenha assistência 24h da Porto Seguro em qualquer lugar do mundo. Faça uma simulação informando os detalhes da viagem e contrate em alguns cliques."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleGiwRedirect('portaldecliente/conquista/seguro-viagem/simular')
+          handleGiwRedirect(
+            'portaldecliente/conquista/seguro-viagem/simular?r=true'
+          )
         }
         image={Banner}
       />
@@ -89,7 +91,9 @@ export default function TripInsurance() {
         subDescription="Informando detalhes como local e data, você pode simular coberturas e assistências nacionais e internacionais. Na sequência, basta escolher um plano e contratar."
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
-          handleGiwRedirect('portaldecliente/conquista/seguro-viagem/simular')
+          handleGiwRedirect(
+            'portaldecliente/conquista/seguro-viagem/simular?r=true'
+          )
         }
       />
       <MoreDetails
