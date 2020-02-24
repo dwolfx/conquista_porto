@@ -24,6 +24,7 @@ const NewInput = forwardRef(
           }}
           width={width}
           error={error}
+          className={rest.className}
         >
           {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
           <Input ref={inputRef} {...rest} />

@@ -91,6 +91,7 @@ export const mediaQueries = {
 const genericFontType = {
   fontFamily: 'Open Sans',
   lineHeight: 1.5,
+  fontWeight: 300,
 }
 
 export const fontTypes = {

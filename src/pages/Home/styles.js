@@ -7,7 +7,9 @@ import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
+import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
+import AccordionNewComponent from 'components/AccordionNew'
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -439,4 +441,39 @@ export const Icon = styled(ConquistaIcon).attrs({
 })`
   width: 21px;
   height: 21px;
+`
+export const ObjectivesListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+export const ObjectivesTableContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 7px 0;
+`
+
+export const ObjectivesTableBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`
+
+export const ObjectivesAccordion = styled(AccordionNewComponent)`
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+
+  button {
+    width: 100%;
+    margin: 7px 0;
+  }
+`
+
+export const ObjectiveDivisor = styled(DivisorComponent)`
+  margin: 14px 0;
 `

@@ -39,7 +39,7 @@ export default function CardCombine({ additional, onClick, ...rest }) {
         })) ||
       null
   )
-  if (dataLayerProducts.length > 1) {
+  if (dataLayerProducts.length >= 1) {
     dataLayerReturnType = 'sucesso'
     dataLayerDescription = ''
     dataLayerProductSuggestion(

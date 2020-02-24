@@ -41,6 +41,10 @@ export default function Notifications() {
             <NotificationsMessages>
               {notificationsData.map(item => (
                 <NotificationItem
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="notificação"
+                  data-gtm-name={item.titulo}
                   key={item.idNotificacao}
                   title={item.titulo}
                   message={item.textoConteudo}

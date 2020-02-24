@@ -41,7 +41,6 @@ const QuestionInput = forwardRef(
       ruleText,
       type,
       error,
-      prefix,
       maxLength,
     },
     ref
@@ -58,6 +57,7 @@ const QuestionInput = forwardRef(
             value={formData[name]}
             error={error}
             newInput
+            placeholder="dd/mm/aaaa"
           />
         </OutterWrapper>
       )
@@ -86,6 +86,7 @@ const QuestionInput = forwardRef(
             value={formData[name]}
             error={error}
             maxLength={maxLength}
+            placeholder="1.000,00"
           />
         </OutterWrapper>
       )
@@ -99,10 +100,11 @@ const QuestionInput = forwardRef(
           ref={ref}
           name={name}
           onChange={onChangeFormData}
-          prefix={prefix}
+          prefix="#"
           value={formData[name]}
           error={error}
           maxLength={maxLength}
+          placeholder="MeuObjetivo"
         />
       </OutterWrapper>
     )
@@ -118,7 +120,6 @@ QuestionInput.defaultProps = {
   ruleText: '',
   type: '',
   error: null,
-  prefix: null,
   maxLength: 20,
 }
 
@@ -134,7 +135,6 @@ QuestionInput.propTypes = {
     icon: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
   }),
-  prefix: PropTypes.string,
   maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 

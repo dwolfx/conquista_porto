@@ -47,10 +47,21 @@ export default function List({ data }) {
     <>
       {data.map((obj, index) => (
         <FundBox borderRisk={obj.perfil_risco_ordem} key={`list-item-${index}`}>
-          <BadgeWrapper onClick={() => expandDetails(index, obj.id_fundo)}>
+          <BadgeWrapper
+            data-gtm-type="click"
+            data-gtm-clicktype="accordion"
+            data-gtm-subname={obj.apelido}
+            data-gtm-name={`badge ${obj.categoria_arena}`}
+            onClick={() => expandDetails(index, obj.id_fundo)}
+          >
             <Badge>{obj.categoria_arena}</Badge>
           </BadgeWrapper>
-          <BoxHeader onClick={() => expandDetails(index, obj.id_fundo)}>
+          <BoxHeader
+            data-gtm-type="click"
+            data-gtm-clicktype="accordion"
+            data-gtm-name={obj.apelido}
+            onClick={() => expandDetails(index, obj.id_fundo)}
+          >
             <FundName>{obj.apelido}</FundName>
             {expand[index] ? <ArrowUp /> : <ArrowDown />}
           </BoxHeader>
@@ -135,7 +146,14 @@ export default function List({ data }) {
 
             <RiskDegree actives={[parseInt(obj.perfil_risco_ordem, 10)]} />
             {obj.aplicao_liberada && (
-              <InvestButton type="button" color="secondary">
+              <InvestButton
+                data-gtm-type="click"
+                data-gtm-clicktype="accordion"
+                data-gtm-subname={obj.apelido}
+                data-gtm-name="investir"
+                type="button"
+                color="secondary"
+              >
                 Investir
               </InvestButton>
             )}
