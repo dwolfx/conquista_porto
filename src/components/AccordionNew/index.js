@@ -9,10 +9,11 @@ import {
   AccordionBody,
 } from './styles'
 
-const NewAccordion = ({
+const AccordionNew = ({
   labelNode,
   titleNode,
   children,
+  bodyPadding,
   openByDefault,
   ...rest
 }) => {
@@ -23,21 +24,25 @@ const NewAccordion = ({
         {labelNode && <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>}
         <AccordionHeaderText>{titleNode}</AccordionHeaderText>
       </AccordionHeader>
-      <AccordionBody>{children}</AccordionBody>
+      <AccordionBody isOpen={isOpen} bodyPadding={bodyPadding}>
+        {children}
+      </AccordionBody>
     </AccordionWrapper>
   )
 }
 
-NewAccordion.propTypes = {
+AccordionNew.propTypes = {
   labelNode: PropTypes.string,
   titleNode: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
+  bodyPadding: PropTypes.string,
   openByDefault: PropTypes.bool,
 }
 
-NewAccordion.defaultProps = {
+AccordionNew.defaultProps = {
   labelNode: '',
+  bodyPadding: '',
   openByDefault: false,
 }
 
-export default NewAccordion
+export default AccordionNew

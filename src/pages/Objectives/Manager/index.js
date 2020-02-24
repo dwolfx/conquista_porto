@@ -16,7 +16,7 @@ import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 
-import Accordion from 'components/NewAccordion'
+import Accordion from 'components/AccordionNew'
 import Divisor from 'components/Divisor'
 
 import managerData from 'mocks/objective.json'
