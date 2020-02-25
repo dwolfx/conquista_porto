@@ -46,9 +46,6 @@ export const Topics = styled(Carousel)`
   display: flex;
   justify-content: space-between;
   margin: 28px 70px;
-  & > div > div {
-    width: 1px;
-  }
 `
 
 export const Topic = styled.div`
