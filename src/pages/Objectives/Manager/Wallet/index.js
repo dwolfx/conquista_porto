@@ -124,7 +124,11 @@ const FundAccordionHeader = ({ fund }) => (
 export default function Wallet({ fundList, goalName }) {
   const theme = useContext(ThemeContext)
   return (
-    <Col>
+    <Col
+      css={`
+        padding: 0;
+      `}
+    >
       <FullHeightCard
         headerIcon="dollarsign"
         headerTitle="Carteira de fundos"
