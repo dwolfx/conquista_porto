@@ -1,38 +1,29 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
-import { Col, Row } from 'styled-bootstrap-grid'
+import moment from 'moment'
 import 'styled-components/macro'
-
-import Button from 'components/Button'
-import ButtonLink from 'components/Button/Link'
-import CardCombine from 'pages/Objectives/Manager/CardCombine'
-import Text from 'components/Text'
-import HorizontalList from 'components/HorizontalList'
-
-import { formatMoney } from 'helpers'
 
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
 
-import moment from 'moment'
+import ButtonLink from 'components/Button/Link'
+import HorizontalList from 'components/HorizontalList'
+import Text from 'components/Text'
 
-import Accordion from 'components/AccordionNew'
-import Divisor from 'components/Divisor'
+import { formatMoney } from 'helpers'
 
+import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
+import Wallet from 'pages/Objectives/Manager/Wallet'
 
-import managerData from 'mocks/objective.json'
 import {
   GridContainer,
   Banner,
   ObjectiveDetails,
   ObjectiveHeader,
   ColumnWrapper,
-  FullHeightCard,
-  Wallet,
-  AccordionWrapper,
-  AccordionContentWrapper,
+  WalletContainer,
   CardContent,
 } from './styles'
 
@@ -43,6 +34,10 @@ export default function Manager({ location }) {
   )
 
   const { pageRecommendation } = location.state || false
+
+  if (!objectiveData) {
+    history.push('/objetivos')
+  }
 
   const { nickname, target_value, target_date } = objectiveData
 
@@ -120,82 +115,11 @@ export default function Manager({ location }) {
             <GoalChart data={objectiveData} />
           </CardContent>
         </ObjectiveDetails>
-        {/* <ObjectiveCard></ObjectiveCard> */}
       </ColumnWrapper>
 
-      <Wallet>
-        <Col xs="12">
-          <FullHeightCard
-            headerIcon="dollarsign"
-            headerTitle="Carteira de fundos"
-            headerButtonText="Salvar alterações"
-            headerButtonProps={{
-              color: 'secondary',
-              'data-gtm-type': 'click',
-              'data-gtm-clicktype': 'button',
-              'data-gtm-subname': 'carteira de fundos',
-              'data-gtm-name': 'salvar alteracoes',
-              onClick: () => console.log('salvou alterações'),
-            }}
-            footer={
-              <Button
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                data-gtm-subname="carteira de fundos"
-                data-gtm-name="adicionar fundo"
-                outline
-                css={`
-                  width: 100%;
-                `}
-                onClick={() => {
-                  window.open(
-                    'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/investimentos/info-fundos-investimento',
-                    '_blank'
-                  )
-                }}
-              >
-                Adicionar fundo
-              </Button>
-            }
-          >
-            {managerData.fund_list.map((fund, index) => (
-              <AccordionWrapper key={fund.id}>
-                <Accordion
-                  openByDefault={index === 0}
-                  labelNode="nome do fundo"
-                  titleNode={fund.name}
-                >
-                  <AccordionContentWrapper margin="0px 0px 10px 0px">
-                    <Row>
-                      <Col lg="3" xs="12">
-                        <Button
-                          data-gtm-type="click"
-                          data-gtm-clicktype="button"
-                          data-gtm-subname={fund.name}
-                          data-gtm-name="Investir"
-                          css={`
-                            width: 100%;
-                          `}
-                          onClick={() => {
-                            window.open(
-                              `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idFundo=${fund.id}`,
-                              '_blank'
-                            )
-                          }}
-                        >
-                          Investir
-                        </Button>
-                      </Col>
-                      <Col lg="9" xs="12"></Col>
-                    </Row>
-                  </AccordionContentWrapper>
-                </Accordion>
-                {index !== managerData.fund_list.length - 1 && <Divisor />}
-              </AccordionWrapper>
-            ))}
-          </FullHeightCard>
-        </Col>
-      </Wallet>
+      <WalletContainer>
+        <Wallet fundList={objectiveData.fund_list} goalName={nickname} />
+      </WalletContainer>
 
       {Object.entries(objectiveData.additional).find(
         ([, value]) => value === true

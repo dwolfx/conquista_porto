@@ -27,9 +27,9 @@ export const ObjectiveDetails = styled(Card)`
   margin-bottom: 21px;
 `
 
-export const Wallet = styled(Row)`
+export const WalletContainer = styled(Row)`
   width: 100%;
-  margin-bottom: 21px;
+  margin: 0 0 21px;
 `
 
 export const ColumnWrapper = styled.div`
@@ -41,8 +41,6 @@ export const ColumnWrapper = styled.div`
 export const FullHeightCard = styled(Card)`
   height: 100%;
 `
-
-export const AccordionWrapper = styled.div``
 
 export const AccordionContentWrapper = styled.div`
   display: flex;

@@ -20,7 +20,9 @@ export const ThumbContainer = styled.div`
 
 export const Thumb = styled.div`
   background-color: ${props => props.theme.colors.white};
-  border: 2px solid ${props => props.theme.colors.blue4};
+  border: 2px solid
+    ${props =>
+      props.error ? props.theme.colors.magenta2 : props.theme.colors.blue4};
   border-radius: 50%;
   cursor: pointer;
   height: 24px;
@@ -33,8 +35,9 @@ export const Rail = styled.div`
   background-color: ${props => props.theme.colors.gray3};
   cursor: pointer;
   height: 7px;
-  width: 100%;
+  overflow: hidden;
   position: relative;
+  width: 100%;
 
   &:before {
     content: '';
@@ -51,9 +54,8 @@ export const Rail = styled.div`
 
 export const SliderContainer = styled.div`
   display: flex;
-  margin: 14px;
   position: relative;
-  width: calc(100% - 28px);
+  width: 100%;
 
   ${ThumbPopover}, ${ThumbContainer} {
     left: ${props => `calc(${props.value}% - 12px)`};

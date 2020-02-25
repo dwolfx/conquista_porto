@@ -1,53 +1,92 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import {
   AccordionWrapper,
   AccordionHeader,
-  AccordionHeaderLabel,
   AccordionHeaderText,
   AccordionBody,
+  AccordionCloseButton,
 } from './styles'
 
 const AccordionNew = ({
-  labelNode,
-  titleNode,
-  children,
   bodyPadding,
+  children,
   openByDefault,
+  titleNode,
+  triggerCloseOnArrow,
   ...rest
 }) => {
   const [isOpen, setIsOpen] = useState(openByDefault)
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'))
+    }, 600)
+  }
+
+  const renderGTMPros = (show, isButton) => {
+    if (!show) {
+      return null
+    }
+
+    if (isButton) {
+      return {
+        'data-gtm-type': 'click',
+        'data-gtm-clicktype': 'accordion',
+        'data-gtm-subname': 'accordion header',
+        'data-gtm-name': 'botao fechar',
+      }
+    }
+
+    return {
+      'data-gtm-type': 'click',
+      'data-gtm-clicktype': 'accordion',
+      'data-gtm-name': 'accordion header',
+    }
+  }
+
   return (
-    <AccordionWrapper isOpen={isOpen} {...rest}>
+    <AccordionWrapper isOpen={isOpen} bodyPadding={bodyPadding} {...rest}>
       <AccordionHeader
-        data-gtm-type="click"
-        data-gtm-clicktype="accordion"
-        data-gtm-name={titleNode}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => (!triggerCloseOnArrow ? handleToggle() : null)}
+        css={`
+          cursor: ${!triggerCloseOnArrow ? 'pointer' : 'auto'};
+        `}
+        {...renderGTMPros(!triggerCloseOnArrow)}
       >
-        {labelNode && <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>}
-        <AccordionHeaderText>{titleNode}</AccordionHeaderText>
+        {typeof titleNode === 'string' ? (
+          <AccordionHeaderText>{titleNode}</AccordionHeaderText>
+        ) : (
+          titleNode
+        )}
+        <AccordionCloseButton
+          onClick={() => (triggerCloseOnArrow ? handleToggle() : null)}
+          {...renderGTMPros(triggerCloseOnArrow, true)}
+        />
       </AccordionHeader>
-      <AccordionBody isOpen={isOpen} bodyPadding={bodyPadding}>
-        {children}
-      </AccordionBody>
+      <AccordionBody>{children}</AccordionBody>
     </AccordionWrapper>
   )
 }
 
 AccordionNew.propTypes = {
-  labelNode: PropTypes.string,
-  titleNode: PropTypes.node.isRequired,
-  children: PropTypes.node.isRequired,
   bodyPadding: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  endHeaderNode: PropTypes.node,
   openByDefault: PropTypes.bool,
+  titleNode: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  triggerCloseOnArrow: PropTypes.bool,
 }
 
 AccordionNew.defaultProps = {
-  labelNode: '',
   bodyPadding: '',
+  endHeaderNode: null,
   openByDefault: false,
+  triggerCloseOnArrow: false,
 }
 
 export default AccordionNew

@@ -97,7 +97,15 @@ export default function ObjectiveListContent({ objectives }) {
               objective.remaining_value,
               objective.target_value
             )}
-            <Button outline>GERENCIAR</Button>
+            <Button
+              outline
+              css={`
+                width: 100%;
+                margin: 7px 0;
+              `}
+            >
+              GERENCIAR
+            </Button>
             <ObjectiveDivisor />
           </ObjectivesAccordion>
         ))}
