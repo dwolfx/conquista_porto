@@ -275,6 +275,10 @@ export default function Wallet({ fundList, goalName }) {
                                   css={`
                                     margin-top: 14px;
                                   `}
+                                  data-gtm-type="click"
+                                  data-gtm-clicktype="link"
+                                  data-gtm-subname={goal.name}
+                                  data-gtm-name="gerenciar"
                                 >
                                   Gerenciar
                                 </ButtonLink>
