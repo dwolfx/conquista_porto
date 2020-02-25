@@ -20,7 +20,9 @@ export const ThumbContainer = styled.div`
 
 export const Thumb = styled.div`
   background-color: ${props => props.theme.colors.white};
-  border: 2px solid ${props => props.theme.colors.blue4};
+  border: 2px solid
+    ${props =>
+      props.error ? props.theme.colors.magenta2 : props.theme.colors.blue4};
   border-radius: 50%;
   cursor: pointer;
   height: 24px;

@@ -197,7 +197,11 @@ export default function Slider({
         </ThumbPopover>
       ) : (
         <ThumbContainer>
-          <Thumb onMouseDown={handleMouseDown} onTouchStart={handleMouseDown} />
+          <Thumb
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleMouseDown}
+            error={error}
+          />
         </ThumbContainer>
       )}
     </SliderContainer>
