@@ -6,6 +6,7 @@ import 'styled-components/macro'
 
 import Accordion from 'components/AccordionNew'
 import Button from 'components/Button'
+import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
@@ -249,16 +250,30 @@ export default function Wallet({ fundList, goalName }) {
                               <Text>{formatMoney(fund.available)}</Text>
                             </ObjectiveInfoBox>
                             {fund.goals.map((goal, key) => (
-                              <ObjectiveInfoBox key={`goal-${goal.id}`}>
-                                <Text>
-                                  <ObjectiveInfoColor
-                                    css={`
-                                      background-color: ${getColorGuide(key)};
-                                    `}
-                                  />
-                                  #{goal.name}
-                                </Text>
-                                <Text>{formatMoney(goal.value)}</Text>
+                              <ObjectiveInfoBox
+                                key={`goal-${goal.id}`}
+                                css={`
+                                  justify-content: space-between;
+                                `}
+                              >
+                                <div>
+                                  <Text>
+                                    <ObjectiveInfoColor
+                                      css={`
+                                        background-color: ${getColorGuide(key)};
+                                      `}
+                                    />
+                                    #{goal.name}
+                                  </Text>
+                                  <Text>{formatMoney(goal.value)}</Text>
+                                </div>
+                                <ButtonLink
+                                  css={`
+                                    margin-top: 14px;
+                                  `}
+                                >
+                                  Gerenciar
+                                </ButtonLink>
                               </ObjectiveInfoBox>
                             ))}
                           </ObjectivesInfoContainer>
