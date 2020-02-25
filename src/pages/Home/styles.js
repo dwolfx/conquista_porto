@@ -444,10 +444,8 @@ export const Icon = styled(ConquistaIcon).attrs({
   height: 21px;
 `
 export const ObjectivesListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto;
+  padding: 0 7px;
 `
 
 export const ObjectivesTableContainer = styled.div`
