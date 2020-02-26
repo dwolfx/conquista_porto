@@ -226,6 +226,19 @@ export default function ManagementTripInsurance({ history }) {
                     </InvoiceItem>
                   </Invoice>
                 </Section>
+                <Section>
+                  <FileDownloadSection
+                    data={[
+                      {
+                        title: 'INFORMAÇÕES COMPLEMENTARES',
+                        description:
+                          'Para saber mais detalhes sobre seu seguro, consulte sua apólice.',
+                        buttonText: 'BAIXAR ARQUIVO',
+                        url: item.Apolice.LinkDownload,
+                      },
+                    ]}
+                  />
+                </Section>
               </RightContent>
             ))}
           </PageContent>
