@@ -303,10 +303,6 @@ export const ProductBannerItem = styled(Col)`
 `
 
 export const TextEllipsis = styled(Text)`
-  font-family: ${props =>
-    props.type
-      ? props.theme.fontTypes[props.type]
-      : props.theme.fontTypes.body};
   max-width: ${props => (props.maxWidth ? props.maxWidth : 'inherit')};
   overflow: hidden;
   text-overflow: ellipsis;
