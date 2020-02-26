@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
 import { Col, Row } from 'styled-bootstrap-grid'
 import Button from 'components/Button'
 import products from 'pages/Objectives/Recommendation/productBannerData'
 import { dataLayerProductSuggestion } from 'GoogleTagManager'
+import useMedia from 'hooks/useMedia'
 
 import { BannerTips, ButtonContainer } from './styles'
 
 export default function CardCombine({ additional, onClick, ...rest }) {
+  const [isMobile] = useState(useMedia('sm'))
   const dataLayerProducts = []
   let dataLayerReturnType = 'erro'
   let dataLayerDescription = 'Não existem produtos sugeridos'
@@ -48,10 +50,12 @@ export default function CardCombine({ additional, onClick, ...rest }) {
       dataLayerDescription
     )
   }
+  const checkBannerMarginBottom = (productsList, index) =>
+    productsList.length > 1 && index + 1 !== productsList.length ? 1 : 0
 
   return (
     <Row {...rest}>
-      {renderedProducts.map(product => (
+      {renderedProducts.map((product, index) => (
         <Col
           key={product.title}
           lg={renderedProducts.length > 1 ? '6' : '12'}
@@ -60,16 +64,40 @@ export default function CardCombine({ additional, onClick, ...rest }) {
           <BannerTips
             size={renderedProducts.length > 1 ? 'sm' : 'lg'}
             image={product.image}
+            notLastChild={checkBannerMarginBottom(renderedProducts, index)}
           >
-            <Text type="captionUppercase">{product.category}</Text>
-            <Text type="heading3">{product.title}</Text>
-            <Text
-              css={`
-                width: calc(10 / 12 * 100%);
-              `}
-            >
-              {product.text}
-            </Text>
+            {isMobile ? (
+              <>
+                <Text bold type="captionUppercase">
+                  {product.category}
+                </Text>
+                <Text bold type="heading4">
+                  {product.title}
+                </Text>
+                <Text bold type="headline">
+                  {product.text}
+                </Text>
+              </>
+            ) : (
+              <>
+                <Text bold type="captionUppercase">
+                  {product.category}
+                </Text>
+                <Text bold type="heading3">
+                  {product.title}
+                </Text>
+                <Text
+                  bold
+                  type="headline"
+                  css={`
+                    width: calc(10 / 12 * 100%);
+                  `}
+                >
+                  {product.text}
+                </Text>
+              </>
+            )}
+
             <ButtonContainer>
               <Button
                 data-gtm-type="click"

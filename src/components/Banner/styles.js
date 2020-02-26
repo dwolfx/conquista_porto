@@ -30,8 +30,9 @@ export const BannerWrapper = styled.div`
   }
 
   @media ${props => props.theme.mediaQueries.sm} {
+    height: auto;
     align-items: center;
-    padding: 0 21px;
+    padding: 28px 21px;
   }
 `
 
