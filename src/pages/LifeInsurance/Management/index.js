@@ -147,7 +147,7 @@ export default function ManagementLifeInsurance({ history }) {
                     margin="0 0 14px 0"
                     textAlign="center"
                   >
-                    Seguro de Vida
+                    {item.Nome}
                   </Text>
                   <Text
                     fontSize="11px"
@@ -173,7 +173,7 @@ export default function ManagementLifeInsurance({ history }) {
                   selectedLifeInsurance.Apolice.LinkDownload
                 }
               >
-                <PageTitle>Seguro de Vida</PageTitle>
+                <PageTitle>{item.Nome}</PageTitle>
                 <TopicsIconContent>
                   <Topic>
                     <Icon
