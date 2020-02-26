@@ -62,12 +62,15 @@ const main = async () => {
     await fs.writeFileSync(CHUNK_CSS_PATH, cssFile, { encoding: 'utf-8' })
 
     const runtimeFile = await getRuntimeFile(assets.entrypoints)
-    await fs.writeFileSync(CHUNK_RUNTIME_PATH, runtimeFile, {
+    const newRuntimeFile = runtimeFile
+      .toString()
+      .replace(/\/conquista/g, process.env.REACT_APP_REMOTE_URL)
+    await fs.writeFileSync(CHUNK_RUNTIME_PATH, newRuntimeFile, {
       encoding: 'utf-8',
     })
     console.log('CHUNK SUCCESS')
   } catch (error) {
-    console.error('error')
+    console.error(error)
   }
 }
 main()
