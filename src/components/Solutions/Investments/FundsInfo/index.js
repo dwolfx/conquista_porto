@@ -81,14 +81,14 @@ export default function FundsInfo({ fund }) {
                 />
               </DownloadIconWrapper>
               <div>
-                <DownloadTitle>Informativo de desempenho</DownloadTitle>
+                <DownloadTitle>REGULAMENTO DO FUNDO</DownloadTitle>
                 <ButtonLink
                   data-gtm-type="click"
                   data-gtm-clicktype="link"
-                  data-gtm-subname="informativo de desempenho"
+                  data-gtm-subname="regulamento do fundo"
                   data-gtm-name="baixar arquivo"
                   target="_blank"
-                  href={fund.link_infor_desempenho}
+                  href={fund.link_regulamento}
                 >
                   Baixar arquivo
                 </ButtonLink>
