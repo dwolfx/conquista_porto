@@ -32,6 +32,7 @@ Text.propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf(Object.keys(fontTypes)),
   color: PropTypes.oneOf([...Object.keys(themeColors), 'unset']),
+  truncate: PropTypes.bool,
 }
 
 Text.defaultProps = {
@@ -40,4 +41,5 @@ Text.defaultProps = {
   type: 'body',
   color: 'unset',
   textAlign: 'unset',
+  truncate: false,
 }

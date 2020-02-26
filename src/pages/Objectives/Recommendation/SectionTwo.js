@@ -26,7 +26,6 @@ import {
   ContainerFunds,
   TableRow,
   TableData,
-  TextEllipsis,
   Square,
   PieChartChildrenContent,
 } from './styles'
@@ -69,20 +68,20 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         <Text color="gray4" type="captionUppercase">
           total inicial
         </Text>
-        <TextEllipsis color="gray6" type="headline">
+        <Text truncate color="gray6" type="headline">
           {formatMoney(
             funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
           )}
-        </TextEllipsis>
+        </Text>
         <Divisor />
         <Text color="gray4" type="captionUppercase">
           total mensal
         </Text>
-        <TextEllipsis type="headline">
+        <Text truncate type="headline">
           {formatMoney(
             funds.reduce((acc, curr) => acc + +curr.monthly_value, 0)
           )}
-        </TextEllipsis>
+        </Text>
       </PieChartChildrenContent>
     )
   }
@@ -245,14 +244,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         <Text type="body">{`${fund.profitability['12']}%`}</Text>
                       </TableData>
                       <TableData textAlign="right">
-                        <TextEllipsis maxWidth="100px">
+                        <Text truncate width="100px">
                           {formatMoney(fund.initial_value)}
-                        </TextEllipsis>
+                        </Text>
                       </TableData>
                       <TableData textAlign="right">
-                        <TextEllipsis maxWidth="100px">
+                        <Text truncate width="100px">
                           {formatMoney(fund.monthly_value)}
-                        </TextEllipsis>
+                        </Text>
                       </TableData>
                       <TableData textAlign="-webkit-center" width="100px">
                         <IconButton
@@ -293,6 +292,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                   </SpacedText>
                   <SpacedValue>
                     <SpacedText
+                      truncate
                       type="headline"
                       color={item.checked ? 'green3' : 'gray6'}
                     >

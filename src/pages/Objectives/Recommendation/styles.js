@@ -25,9 +25,6 @@ export const SpacedValue = styled.div`
   ${SpacedText} {
     display: block;
     max-width: 215px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 `
 
@@ -302,9 +299,9 @@ export const ProductBannerItem = styled(Col)`
   }
 `
 
-export const TextEllipsis = styled(Text)`
-  max-width: ${props => (props.maxWidth ? props.maxWidth : 'inherit')};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`
+// export const TextEllipsis = styled(Text)`
+//   max-width: ${props => (props.maxWidth ? props.maxWidth : 'inherit')};
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// `

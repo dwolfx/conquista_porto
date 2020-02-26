@@ -18,7 +18,6 @@ import {
   SuggestedProduct,
   PieChartContainer,
   PieChartChildrenContainer,
-  TextEllipsis,
 } from './styles'
 
 const SectionOne = ({ answer, combo, income }) => {
@@ -47,11 +46,11 @@ const SectionOne = ({ answer, combo, income }) => {
       <Text color="gray4" type="captionUppercase">
         {pieChartInfoChildren ? pieChartInfoChildren.label : 'meta'}
       </Text>
-      <TextEllipsis type="headline">
+      <Text truncate type="headline">
         {pieChartInfoChildren
           ? formatMoney(pieChartInfoChildren.value)
           : formatMoney(answer.target_value)}
-      </TextEllipsis>
+      </Text>
     </>
   )
 
@@ -104,14 +103,15 @@ const SectionOne = ({ answer, combo, income }) => {
                         </Text>,
                       ]}
                       endItems={[
-                        <TextEllipsis
+                        <Text
+                          truncate
                           type="headline"
                           color="gray6"
+                          width="130px"
                           bold
-                          maxWidth="130px"
                         >
                           {value[1]}
-                        </TextEllipsis>,
+                        </Text>,
                       ]}
                     />
                   ))}

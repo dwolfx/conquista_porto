@@ -36,7 +36,6 @@ import {
   IconLoading,
   FormWrapper,
   ColInput,
-  TextEllipsis,
 } from './styles'
 
 const MacroDivisor = () => (
@@ -239,9 +238,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <TextEllipsis color="gray6" maxWidth="120px">
+                      <Text truncate color="gray6" width="120px">
                         {formatMoney(answer.initial_value)}
-                      </TextEllipsis>,
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -254,9 +253,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <TextEllipsis color="green3" maxWidth="120px">
+                      <Text truncate color="green3" width="120px">
                         {formatMoney(suggestion_goal.suggestion_monthly_value)}
-                      </TextEllipsis>,
+                      </Text>,
                       <Icon
                         name="check"
                         fill={themeContext.colors.green3}
@@ -286,9 +285,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <TextEllipsis color="gray6" maxWidth="120px">
+                      <Text truncate color="gray6" width="120px">
                         {formatMoney(answer.target_value)}
-                      </TextEllipsis>,
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -326,9 +325,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <TextEllipsis color="gray6" maxWidth="120px">
+                      <Text truncate color="gray6" width="120px">
                         {formatMoney(answer.initial_value)}
-                      </TextEllipsis>,
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -340,9 +339,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <TextEllipsis color="gray6" maxWidth="120px">
+                      <Text truncate color="gray6" width="120px">
                         {formatMoney(answer.monthly_value)}
-                      </TextEllipsis>,
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -372,9 +371,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <TextEllipsis color="gray6" maxWidth="120px">
+                      <Text truncate color="gray6" width="120px">
                         {formatMoney(answer.target_value)}
-                      </TextEllipsis>,
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
