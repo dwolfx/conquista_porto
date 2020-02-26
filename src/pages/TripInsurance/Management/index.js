@@ -17,6 +17,7 @@ import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
+import TopicsIconContent from 'components/TopicsIconContent'
 
 import Icon from 'components/IconExporter'
 
@@ -28,7 +29,6 @@ import {
   BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -44,29 +44,6 @@ import {
   ShowAll,
   Row,
 } from './styles'
-
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 550,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-}
 
 export default function ManagementTripInsurance({ history }) {
   useFetchTripInsurance()
@@ -162,7 +139,7 @@ export default function ManagementTripInsurance({ history }) {
                 }
               >
                 <PageTitle>{item.Nome}</PageTitle>
-                <Topics settings={settings}>
+                <TopicsIconContent>
                   <Topic>
                     <Icon
                       width="28"
@@ -205,7 +182,7 @@ export default function ManagementTripInsurance({ history }) {
                       </ShowAll>
                     </div>
                   </Topic>
-                </Topics>
+                </TopicsIconContent>
                 <PeriodContainer>
                   <Period>
                     <Text
