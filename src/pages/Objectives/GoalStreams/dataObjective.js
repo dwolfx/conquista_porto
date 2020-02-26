@@ -67,6 +67,7 @@ export default [
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -78,6 +79,7 @@ export default [
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -89,6 +91,7 @@ export default [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
@@ -121,6 +124,7 @@ export default [
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -132,6 +136,7 @@ export default [
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -143,6 +148,7 @@ export default [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
@@ -195,6 +201,7 @@ export default [
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -206,6 +213,7 @@ export default [
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -217,6 +225,7 @@ export default [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
@@ -269,6 +278,7 @@ export default [
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -280,6 +290,7 @@ export default [
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -291,6 +302,7 @@ export default [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
@@ -323,6 +335,7 @@ export default [
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -334,6 +347,7 @@ export default [
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -345,6 +359,7 @@ export default [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
@@ -385,6 +400,7 @@ export default [
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -396,6 +412,7 @@ export default [
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -407,6 +424,7 @@ export default [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
@@ -459,6 +477,7 @@ export default [
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -470,6 +489,7 @@ export default [
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
@@ -481,6 +501,7 @@ export default [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
