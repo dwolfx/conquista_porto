@@ -2,7 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
-import moment from 'moment'
 import 'styled-components/macro'
 
 import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
@@ -59,7 +58,7 @@ export default function Manager({ location }) {
   const horizontalListGoalDate = (
     <ColumnWrapper>
       <Text color="gray5">META (DATA)</Text>
-      <Text color="black">{moment(target_date).format('MMM YYYY')}</Text>
+      <Text color="black">{target_date}</Text>
     </ColumnWrapper>
   )
   const horizontalListBtnEdit = (
