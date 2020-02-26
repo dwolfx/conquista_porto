@@ -36,7 +36,7 @@ export default function GeneralView() {
   ]
 
   const generalViewChartData = () => {
-    if (!generalViewData || generalViewData.length === 0) {
+    if (!generalViewData || !generalViewData.length) {
       return []
     }
 
@@ -63,9 +63,8 @@ export default function GeneralView() {
             <Text fontSize={14} lineHeight={24}>
               Total:{' '}
               {formatMoney(
-                generalViewData || generalViewData.length
-                  ? generalViewData ||
-                      generalViewData.length[0].visao_geral.total
+                generalViewData && generalViewData.length
+                  ? generalViewData[0].visao_geral.total
                   : 0
               )}
             </Text>
