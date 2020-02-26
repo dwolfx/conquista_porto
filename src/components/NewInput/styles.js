@@ -88,6 +88,7 @@ export const Input = styled.input`
 
   ::-webkit-input-placeholder {
     color: ${props => props.theme.colors.gray4};
+    font-weight: 300;
     ${props => props.theme.fontTypes.headline};
   }
 `

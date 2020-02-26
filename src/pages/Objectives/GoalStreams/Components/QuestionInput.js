@@ -42,6 +42,7 @@ const QuestionInput = forwardRef(
       type,
       error,
       maxLength,
+      placeholder,
     },
     ref
   ) => {
@@ -86,7 +87,7 @@ const QuestionInput = forwardRef(
             value={formData[name]}
             error={error}
             maxLength={maxLength}
-            placeholder="1.000,00"
+            placeholder={placeholder}
           />
         </OutterWrapper>
       )
@@ -121,6 +122,7 @@ QuestionInput.defaultProps = {
   type: '',
   error: null,
   maxLength: 20,
+  placeholder: '',
 }
 
 QuestionInput.propTypes = {
@@ -136,6 +138,7 @@ QuestionInput.propTypes = {
     message: PropTypes.string.isRequired,
   }),
   maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  placeholder: PropTypes.string,
 }
 
 export default QuestionInput
