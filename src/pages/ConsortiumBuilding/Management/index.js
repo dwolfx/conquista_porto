@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 import { useSelector } from 'react-redux'
 
@@ -19,7 +18,7 @@ import TopicsIconContent from 'components/TopicsIconContent'
 import Icon from 'components/IconExporter'
 
 import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsortiumBuilding'
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   BreadcrumbContainer,
@@ -35,7 +34,7 @@ import {
   Text,
 } from './styles'
 
-export default function ManagementConsortiumBuilding({ history }) {
+export default function ManagementConsortiumBuilding() {
   const [selectedConsortiumBuilding, setSelectedConsortiumBuilding] = useState(
     null
   )
@@ -73,7 +72,9 @@ export default function ManagementConsortiumBuilding({ history }) {
               data-gtm-subname="card custodia visualizar"
               data-gtm-name="adcionar"
               onClick={() => {
-                history.push('/')
+                handleGiwRedirect(
+                  '/portaldecliente/conquista/consorcio-de-imoveis/simular?r=true'
+                )
               }}
             >
               <Icon width="48" fill={themeContext.colors.gray3} name="add" />
@@ -281,10 +282,4 @@ export default function ManagementConsortiumBuilding({ history }) {
       />
     </>
   )
-}
-
-ManagementConsortiumBuilding.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }
