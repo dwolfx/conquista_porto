@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import PropTypes from 'prop-types'
 
 import { ThemeContext } from 'styled-components/macro'
 
@@ -18,7 +17,7 @@ import TopicsIconContent from 'components/TopicsIconContent'
 
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   BreadcrumbContainer,
@@ -103,7 +102,7 @@ const moreDetailsData = [
   },
 ]
 
-export default function ManagementCreditCard({ history }) {
+export default function ManagementCreditCard() {
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
 
   const themeContext = useContext(ThemeContext)
@@ -140,7 +139,9 @@ export default function ManagementCreditCard({ history }) {
                 data-gtm-subname="card custodia visualizar"
                 data-gtm-name="adicionar"
                 onClick={() => {
-                  history.push('/')
+                  handleGiwRedirect(
+                    '/portaldecliente/conquista/cartao-de-credito/simular?r=true'
+                  )
                 }}
               >
                 <Icon width="48" fill={themeContext.colors.gray3} name="add" />
@@ -314,10 +315,4 @@ export default function ManagementCreditCard({ history }) {
   }
 
   return null
-}
-
-ManagementCreditCard.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }

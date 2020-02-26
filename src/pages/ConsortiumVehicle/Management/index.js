@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 // eslint-disable-next-line no-unused-vars
 import { ThemeContext } from 'styled-components/macro'
 import { useSelector } from 'react-redux'
@@ -21,7 +20,7 @@ import TopicsIconContent from 'components/TopicsIconContent'
 import Icon from 'components/IconExporter'
 
 import useFetchConsortiumVehicle from 'hooks/ConsortiumVehicle/useFetchConsortiumVehicle'
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   BreadcrumbContainer,
@@ -37,7 +36,7 @@ import {
   Text,
 } from './styles'
 
-export default function ManagementConsortiumVehicle({ history }) {
+export default function ManagementConsortiumVehicle() {
   useFetchConsortiumVehicle()
 
   const [selectedConsortiumVehicle, setSelectedConsortiumVehicle] = useState(
@@ -74,7 +73,9 @@ export default function ManagementConsortiumVehicle({ history }) {
               data-gtm-subname="card custodia visualizar"
               data-gtm-name="adicionar"
               onClick={() => {
-                history.push('/')
+                handleGiwRedirect(
+                  '/portaldecliente/conquista/consorcio-de-veiculos/simular?r=true'
+                )
               }}
             >
               <Icon width="48" fill={themeContext.colors.gray3} name="add" />
@@ -290,10 +291,4 @@ export default function ManagementConsortiumVehicle({ history }) {
       />
     </>
   )
-}
-
-ManagementConsortiumVehicle.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }

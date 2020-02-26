@@ -18,7 +18,7 @@ import LeftNav from 'components/Management/LeftNav'
 import ManageableItem from 'components/Management/ManageableItem'
 import TopicsIconContent from 'components/TopicsIconContent'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 
@@ -51,7 +51,7 @@ import {
   EmptyContent,
 } from './style'
 
-const ManagementVehicleFinancing = ({ history }) => {
+const ManagementVehicleFinancing = () => {
   const theme = useContext(ThemeContext)
   const [selectedContract, setSelectedContract] = useState(0)
   const vehiclesFinancings = useSelector(state => state.vehicleFinancing)
@@ -103,7 +103,9 @@ const ManagementVehicleFinancing = ({ history }) => {
               data-gtm-subname="card custodia visualizar"
               data-gtm-name="adicionar"
               onClick={() => {
-                history.push('/')
+                handleGiwRedirect(
+                  '/portaldecliente/conquista/financiamento-de-veiculos/simular?r=true'
+                )
               }}
             >
               <Icon width="48" fill={theme.colors.gray3} name="add" />
@@ -406,12 +408,6 @@ ManageableItemWithStyle.defaultProps = {
   value: '',
   onClick: () => {},
   isActive: false,
-}
-
-ManagementVehicleFinancing.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }
 
 export default ManagementVehicleFinancing

@@ -23,7 +23,7 @@ import Icon from 'components/IconExporter'
 
 import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   BreadcrumbContainer,
@@ -45,7 +45,7 @@ import {
   Row,
 } from './styles'
 
-export default function ManagementTripInsurance({ history }) {
+export default function ManagementTripInsurance() {
   useFetchTripInsurance()
 
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -82,7 +82,9 @@ export default function ManagementTripInsurance({ history }) {
                 data-gtm-subname="card custodia visualizar"
                 data-gtm-name="adicionar"
                 onClick={() => {
-                  history.push('/')
+                  handleGiwRedirect(
+                    '/portaldecliente/conquista/seguro-viagem/simular?r=true'
+                  )
                 }}
               >
                 <Icon width="48" fill="#ccc" name="add" />
@@ -526,10 +528,4 @@ const ParcelContainer = ({ data }) =>
 
 ParcelContainer.propTypes = {
   data: PropTypes.object.isRequired,
-}
-
-ManagementTripInsurance.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }
