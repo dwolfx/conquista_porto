@@ -8,6 +8,7 @@ import PieChart from 'components/PieChart'
 import HorizontalList from 'components/HorizontalList'
 import { formatMoney } from 'helpers'
 import LineChart from 'components/Charts/LineChart'
+import 'styled-components/macro'
 import {
   GridRow,
   FullHeightCard,
@@ -17,6 +18,7 @@ import {
   SuggestedProduct,
   PieChartContainer,
   PieChartChildrenContainer,
+  TextEllipsis,
 } from './styles'
 
 const SectionOne = ({ answer, combo, income }) => {
@@ -45,11 +47,11 @@ const SectionOne = ({ answer, combo, income }) => {
       <Text color="gray4" type="captionUppercase">
         {pieChartInfoChildren ? pieChartInfoChildren.label : 'meta'}
       </Text>
-      <Text type="headline">
+      <TextEllipsis type="headline">
         {pieChartInfoChildren
           ? formatMoney(pieChartInfoChildren.value)
           : formatMoney(answer.target_value)}
-      </Text>
+      </TextEllipsis>
     </>
   )
 
@@ -102,9 +104,14 @@ const SectionOne = ({ answer, combo, income }) => {
                         </Text>,
                       ]}
                       endItems={[
-                        <Text type="headline" color="gray6" bold>
+                        <TextEllipsis
+                          type="headline"
+                          color="gray6"
+                          bold
+                          maxWidth="130px"
+                        >
                           {value[1]}
-                        </Text>,
+                        </TextEllipsis>,
                       ]}
                     />
                   ))}

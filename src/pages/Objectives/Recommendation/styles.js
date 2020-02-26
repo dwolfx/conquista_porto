@@ -13,6 +13,14 @@ import { CardBody } from 'components/Card/styles'
 export const SpacedText = styled(Text)`
   display: flex;
   margin: 7px 0;
+  max-width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`
+
+export const SpacedValue = styled.div`
+  display: flex;
 
   svg {
     margin-left: 14px;
@@ -288,4 +296,15 @@ export const ProductBannerItem = styled(Col)`
   &:last-child {
     border-right: none;
   }
+`
+
+export const TextEllipsis = styled(Text)`
+  font-family: ${props =>
+    props.type
+      ? props.theme.fontTypes[props.type]
+      : props.theme.fontTypes.body};
+  max-width: ${props => (props.maxWidth ? props.maxWidth : 'inherit')};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `

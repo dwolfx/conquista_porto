@@ -19,12 +19,14 @@ import {
   InfoContent,
   CardContainer,
   SpacedText,
+  SpacedValue,
   PieChartChildrenContainer,
   FundsTable,
   TableHeader,
   ContainerFunds,
   TableRow,
   TableData,
+  TextEllipsis,
   Square,
   PieChartChildrenContent,
 } from './styles'
@@ -67,20 +69,20 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         <Text color="gray4" type="captionUppercase">
           total inicial
         </Text>
-        <Text color="gray6" type="headline">
+        <TextEllipsis color="gray6" type="headline">
           {formatMoney(
             funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
           )}
-        </Text>
+        </TextEllipsis>
         <Divisor />
         <Text color="gray4" type="captionUppercase">
           total mensal
         </Text>
-        <Text type="headline">
+        <TextEllipsis type="headline">
           {formatMoney(
             funds.reduce((acc, curr) => acc + +curr.monthly_value, 0)
           )}
-        </Text>
+        </TextEllipsis>
       </PieChartChildrenContent>
     )
   }
@@ -243,14 +245,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         <Text type="body">{`${fund.profitability['12']}%`}</Text>
                       </TableData>
                       <TableData textAlign="right">
-                        <Text type="body">
+                        <TextEllipsis maxWidth="100px">
                           {formatMoney(fund.initial_value)}
-                        </Text>
+                        </TextEllipsis>
                       </TableData>
                       <TableData textAlign="right">
-                        <Text type="body">
+                        <TextEllipsis maxWidth="100px">
                           {formatMoney(fund.monthly_value)}
-                        </Text>
+                        </TextEllipsis>
                       </TableData>
                       <TableData textAlign="-webkit-center" width="100px">
                         <IconButton
@@ -289,11 +291,13 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                   <SpacedText type="captionUppercase" color="gray5">
                     {item.name}
                   </SpacedText>
-                  <SpacedText
-                    type="headline"
-                    color={item.checked ? 'green3' : 'gray6'}
-                  >
-                    {item.value}
+                  <SpacedValue>
+                    <SpacedText
+                      type="headline"
+                      color={item.checked ? 'green3' : 'gray6'}
+                    >
+                      {item.value}
+                    </SpacedText>
                     {item.checked && (
                       <Icon
                         name="check"
@@ -301,14 +305,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         fill={theme.colors.green3}
                       />
                     )}
-                  </SpacedText>
-                  {item.info && (
-                    <Icon
-                      name="information"
-                      width="21px"
-                      fill={theme.colors.gray5}
-                    />
-                  )}
+                    {item.info && (
+                      <Icon
+                        name="information"
+                        width="21px"
+                        fill={theme.colors.gray5}
+                      />
+                    )}
+                  </SpacedValue>
                 </InfoContent>
               ))}
             </CardContainer>
