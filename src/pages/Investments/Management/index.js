@@ -55,7 +55,7 @@ export default function ManagementInvestments({ history }) {
   const [fundSelected, setFundSelected] = useState(null)
 
   useEffect(() => {
-    if (positionData) {
+    if (positionData && positionData.length > 0) {
       setFundSelected(
         Array.isArray(positionData[0].posicoes.posicao)
           ? positionData[0].posicoes.posicao[0]
