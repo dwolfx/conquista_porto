@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { RadioWrapper, RadioTitle, RadioLabel, RadioInput } from './styles'
@@ -16,8 +16,11 @@ const RadioComponent = ({
   title,
   value,
   width,
+  itemChecked,
   ...props
 }) => {
+  const [checkedItem, setCheckedItem] = useState(itemChecked)
+
   const renderOptions = () =>
     options &&
     options.map((item, index) => (
@@ -29,7 +32,11 @@ const RadioComponent = ({
           data-gtm-form="input"
           data-gtm-name={item.name}
           value={item.value}
-          onChange={onChange}
+          onChange={event => {
+            setCheckedItem(item.value)
+            return onChange(event)
+          }}
+          checked={checkedItem === item.value}
           {...props}
         />
         {item.name}
@@ -70,6 +77,7 @@ RadioComponent.propTypes = {
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  itemChecked: PropTypes.string,
 }
 RadioComponent.defaultProps = {
   itemsDirection: 'row',
@@ -84,6 +92,7 @@ RadioComponent.defaultProps = {
   title: '',
   value: '',
   width: 'auto',
+  itemChecked: '',
 }
 
 export default RadioComponent

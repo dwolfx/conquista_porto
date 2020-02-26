@@ -70,6 +70,7 @@ const QuestionInput = forwardRef(
             name={name}
             onChange={onChangeFormData}
             options={options}
+            itemChecked={formData[name]}
           />
         </OutterWrapper>
       )
