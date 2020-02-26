@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
-
 import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
+import DivisorComponent from 'components/Divisor'
 import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 import { CardBody } from 'components/Card/styles'
 
@@ -25,6 +25,10 @@ export const GridRow = styled(Row)`
   margin-bottom: 42px;
   height: ${props => props.height};
   justify-content: ${props => props.justifyContent};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-bottom: 14px;
+  }
 `
 export const SectionsRecommendation = styled.div`
   background-color: ${props => props.theme.colors.gray1};
@@ -171,11 +175,50 @@ export const TableData = styled.td`
   text-align: ${props => props.textAlign && props.textAlign};
   width: ${props => (props.width ? props.width : 'unset')};
 `
+export const ResponsiveTableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  & > p {
+    margin: 0 0 14px 14px;
+  }
+`
+
+export const TableCard = styled.div`
+  padding: 7px 0;
+
+  p {
+    margin-bottom: 7px;
+  }
+`
+
+export const TableDivisor = styled(DivisorComponent)`
+  margin: 21px 0;
+`
+
+export const ResponsiveTableButton = styled(Button)`
+  width: 100%;
+  align-self: center;
+`
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: ${props => props.direction || 'row'};
+  align-items: ${props => props.align || 'flex-start'};
+  justify-content: ${props => props.justify || 'flex-start'};
+  margin: ${props => props.margin};
+`
 
 export const ContainerFunds = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    flex-direction: column;
+  }
 `
 
 export const Square = styled.div`
@@ -183,6 +226,11 @@ export const Square = styled.div`
   height: 7px;
   background-color: ${props => props.color};
   border-radius: 2px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    align-self: center;
+    flex-shrink: 0;
+  }
 `
 
 export const PieChartChildrenContent = styled.div`
@@ -240,6 +288,10 @@ export const UnmetGoalCards = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 28px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    flex-direction: column;
+  }
 `
 
 export const UnmetGoalCard = styled.div`
@@ -248,13 +300,22 @@ export const UnmetGoalCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0px;
+  }
 `
 
 export const DivisorContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: ${props => (props.isMobile ? 'row' : 'column')};
   height: auto;
+  margin: ${props => props.isMobile && '35px 0'};
+
+  p {
+    margin: ${props => props.isMobile && '0 7px'};
+  }
 `
 
 export const SimulateButton = styled(Button)`
