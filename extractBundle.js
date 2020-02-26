@@ -39,6 +39,36 @@ const getCssFile = async entrypoints => {
   })
 }
 
+const changeRunTimeFile = async entrypoints => {
+  const pathFile = entrypoints.filter(fileName =>
+    matchFile(fileName, new RegExp(/js\/runtime(.*?).js/))
+  )[0]
+
+  fs.readFile(path.join(__dirname, 'build', pathFile), function(err, data) {
+    if (err) {
+      console.log(err)
+      return
+    }
+
+    const result = data
+      .toString()
+      .replace(/\/conquista/g, 'http://qa.conquista.sciensa.click/conquista')
+
+    console.log(result)
+
+    fs.writeFile(
+      path.join(__dirname, 'build', pathFile),
+      result,
+      'utf8',
+      function(erro) {
+        if (erro) {
+          throw erro
+        }
+      }
+    )
+  })
+}
+
 const getRuntimeFile = async entrypoints => {
   const pathFile = entrypoints.filter(fileName =>
     matchFile(fileName, new RegExp(/js\/runtime(.*?).js/))
@@ -61,13 +91,17 @@ const main = async () => {
     const cssFile = await getCssFile(assets.entrypoints)
     await fs.writeFileSync(CHUNK_CSS_PATH, cssFile, { encoding: 'utf-8' })
 
+    // await changeRunTimeFile(assets.entrypoints)
     const runtimeFile = await getRuntimeFile(assets.entrypoints)
-    await fs.writeFileSync(CHUNK_RUNTIME_PATH, runtimeFile, {
+    const newRuntimeFile = runtimeFile
+      .toString()
+      .replace(/\/conquista/g, process.env.REACT_APP_REMOTE_URL)
+    await fs.writeFileSync(CHUNK_RUNTIME_PATH, newRuntimeFile, {
       encoding: 'utf-8',
     })
     console.log('CHUNK SUCCESS')
   } catch (error) {
-    console.error('error')
+    console.error(error)
   }
 }
 main()
