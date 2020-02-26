@@ -13,10 +13,6 @@ import { CardBody } from 'components/Card/styles'
 export const SpacedText = styled(Text)`
   display: flex;
   margin: 7px 0;
-  max-width: 210px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 `
 
 export const SpacedValue = styled.div`
@@ -24,6 +20,14 @@ export const SpacedValue = styled.div`
 
   svg {
     margin-left: 14px;
+  }
+
+  ${SpacedText} {
+    display: block;
+    max-width: 215px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `
 
