@@ -41,6 +41,11 @@ export default function(state = INITIAL_STATE, action) {
         data: {},
         isLoading: false,
       }
+    case Types.CLEAN_DATA:
+      return {
+        ...state,
+        data: {},
+      }
     default:
       return state
   }
