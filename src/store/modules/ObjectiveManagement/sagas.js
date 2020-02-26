@@ -1,6 +1,8 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { post } from 'services/api'
+import { CleanObjectiveData } from 'store/modules/Objective/action'
+
 import { Types } from './types'
 import {
   PostObjectiveManagementDataSuccess,
@@ -12,6 +14,7 @@ function* postData({ payload, pushHistory }) {
     const response = yield call(post, '/goal/goals', { id: payload })
     yield put(PostObjectiveManagementDataSuccess(response.data))
     pushHistory('/objetivos/gerenciar')
+    yield put(CleanObjectiveData())
   } catch (err) {
     yield put(PostObjectiveManagementDataFailure())
   }

@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import { useHistory, useRouteMatch, Switch, Route } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Header from 'components/Wizard/Header'
+
+import { CleanObjectiveData } from 'store/modules/Objective/action'
+
 import Board from './Board'
+import GoalStreams from './GoalStreams'
 import Recommendation from './Recommendation'
 
 import { Container, RegistrationWrapper, BoartTitle } from './styles'
-import GoalStreams from './GoalStreams'
 
 const Objectives = () => {
+  const dispatch = useDispatch()
   const [totalSteps, setTotalSteps] = useState(0)
   const match = useRouteMatch()
   const history = useHistory()
@@ -36,12 +40,13 @@ const Objectives = () => {
         <Container>
           <Header
             onClose={() => {
+              dispatch(CleanObjectiveData())
               history.push('/')
               document.documentElement.scrollTop = 0
               document.body.scrollTop = 0
             }}
           />
-          {!objectiveData ? (
+          {!objectiveData || !Object.keys(objectiveData).length ? (
             <RegistrationWrapper>
               <BoartTitle>Criar objetivo</BoartTitle>
               <Board />
