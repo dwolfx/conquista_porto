@@ -30,9 +30,7 @@ const RadioComponent = ({
           data-gtm-form="input"
           data-gtm-name={item.name}
           value={item.value}
-          onChange={event => {
-            onChange(event)
-          }}
+          onChange={onChange}
           checked={initialItemChecked === item.value}
           {...props}
         />

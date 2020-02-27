@@ -46,6 +46,8 @@ const QuestionInput = forwardRef(
     },
     ref
   ) => {
+    console.log('...', formData)
+
     if (type === 'date') {
       return (
         <OutterWrapper question={question} ruleText={ruleText}>
