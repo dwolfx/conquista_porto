@@ -1,12 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Button from 'components/Button'
+
 import { formatMoney } from 'helpers'
+
+import { GetObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
   ObjectivesTableContainer,
@@ -16,6 +21,8 @@ import {
 } from './styles'
 
 export default function ObjectiveListContent({ objectives }) {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const horizontalListText = (text, type, color) => (
     <Text type={type} color={color}>
       {text}
@@ -98,11 +105,24 @@ export default function ObjectiveListContent({ objectives }) {
               objective.target_value
             )}
             <Button
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              data-gtm-subname={objective.nickname}
+              data-gtm-name="gerenciar"
               outline
               css={`
                 width: 100%;
                 margin: 7px 0;
               `}
+              onClick={() => {
+                dispatch(
+                  GetObjectiveManagementDataRequest({
+                    id: objective.id,
+                    history,
+                  })
+                )
+                history.push(`/objetivos/gerenciar/${objective.id}`)
+              }}
             >
               GERENCIAR
             </Button>
