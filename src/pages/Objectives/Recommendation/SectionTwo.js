@@ -19,6 +19,7 @@ import {
   InfoContent,
   CardContainer,
   SpacedText,
+  SpacedValue,
   PieChartChildrenContainer,
   FundsTable,
   TableHeader,
@@ -67,7 +68,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         <Text color="gray4" type="captionUppercase">
           total inicial
         </Text>
-        <Text color="gray6" type="headline">
+        <Text truncate color="gray6" type="headline">
           {formatMoney(
             funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
           )}
@@ -76,7 +77,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         <Text color="gray4" type="captionUppercase">
           total mensal
         </Text>
-        <Text type="headline">
+        <Text truncate type="headline">
           {formatMoney(
             funds.reduce((acc, curr) => acc + +curr.monthly_value, 0)
           )}
@@ -243,12 +244,12 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         <Text type="body">{`${fund.profitability['12']}%`}</Text>
                       </TableData>
                       <TableData textAlign="right">
-                        <Text type="body">
+                        <Text truncate width="100px">
                           {formatMoney(fund.initial_value)}
                         </Text>
                       </TableData>
                       <TableData textAlign="right">
-                        <Text type="body">
+                        <Text truncate width="100px">
                           {formatMoney(fund.monthly_value)}
                         </Text>
                       </TableData>
@@ -289,11 +290,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                   <SpacedText type="captionUppercase" color="gray5">
                     {item.name}
                   </SpacedText>
-                  <SpacedText
-                    type="headline"
-                    color={item.checked ? 'green3' : 'gray6'}
-                  >
-                    {item.value}
+                  <SpacedValue>
+                    <SpacedText
+                      truncate
+                      type="headline"
+                      color={item.checked ? 'green3' : 'gray6'}
+                    >
+                      {item.value}
+                    </SpacedText>
                     {item.checked && (
                       <Icon
                         name="check"
@@ -301,14 +305,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         fill={theme.colors.green3}
                       />
                     )}
-                  </SpacedText>
-                  {item.info && (
-                    <Icon
-                      name="information"
-                      width="21px"
-                      fill={theme.colors.gray5}
-                    />
-                  )}
+                    {item.info && (
+                      <Icon
+                        name="information"
+                        width="21px"
+                        fill={theme.colors.gray5}
+                      />
+                    )}
+                  </SpacedValue>
                 </InfoContent>
               ))}
             </CardContainer>
