@@ -11,7 +11,10 @@ import { Types } from './types'
 
 function* getData(action) {
   try {
-    const response = yield call(get, `/fundos/${action.fundId}?codigoCanal=0`)
+    const response = yield call(
+      get,
+      `/invest/fundos/${action.fundId}?codigoCanal=0`
+    )
     yield put(GetInvestmentDetailsSuccess(response.data))
   } catch (err) {
     yield put(GetInvestmentDetailsFailure())

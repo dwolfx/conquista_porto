@@ -7,7 +7,7 @@ import { Types } from './types'
 
 function* getData() {
   try {
-    const response = yield call(get, '/fundos')
+    const response = yield call(get, '/invest/fundos')
     yield put(GetInvestmentListSuccess(response.data))
   } catch (err) {
     yield put(GetInvestmentListFailure())
