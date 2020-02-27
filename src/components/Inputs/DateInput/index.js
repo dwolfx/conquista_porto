@@ -8,7 +8,13 @@ import NewTextInput from 'components/NewInput'
 const DateInput = forwardRef(({ onKeyUp, newInput, ...rest }, ref) => {
   const applyDateMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
-    const newValue = strippedValue.replace(/(\d{2})(\d{2})(\d{1})/g, '$1/$2/$3')
+    let newValue = strippedValue
+
+    if (strippedValue.length < 5) {
+      newValue = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
+    } else {
+      newValue = strippedValue.replace(/(\d{2})(\d{2})(\d{1})/g, '$1/$2/$3')
+    }
 
     event.target.value = newValue
 

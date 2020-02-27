@@ -23,7 +23,7 @@ export const ModalContainer = styled.div`
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
   border-radius: 8px;
-  position: relative;
+  position: fixed;
   max-width: 900px;
   min-width: 400px;
   margin: 28px 0;

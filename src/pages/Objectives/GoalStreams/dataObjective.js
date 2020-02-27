@@ -52,61 +52,6 @@ export default [
   {
     goal_type: '1',
     enable: false,
-    icon: 'plane',
-    label: 'Viagem',
-    route: '/viagem',
-    flow: [
-      firstStep,
-      {
-        question: 'Qual a data da sua viagem?',
-        name: TARGET_DATE_NAME,
-        type: DATE_TYPE,
-        ruleText: MIN_DATE_ERROR_TEXT,
-        validate(value) {
-          return validateDate(value)
-        },
-      },
-      {
-        question: 'Quanto vai custar sua viagem?',
-        name: TARGET_VALUE_NAME,
-        type: NUMBER_TYPE,
-        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
-        placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
-          const isValid = minValue(value, THOUSAND_MIN_VALUE)
-          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
-        },
-        maxLength: VALUE_INPUT_MAX_LENGTH,
-      },
-      {
-        question: INITIAL_INVESTMENT_QUESTION,
-        name: INITIAL_VALUE_NAME,
-        type: NUMBER_TYPE,
-        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
-        placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
-          const isValid = minValue(value, THOUSAND_MIN_VALUE)
-          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
-        },
-        maxLength: VALUE_INPUT_MAX_LENGTH,
-      },
-      {
-        question: MONTHLY_INVESTMENT_QUESTION,
-        name: MONTHLY_NAME,
-        type: NUMBER_TYPE,
-        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
-          const isValid = minValue(value, HUNDRED_MIN_VALUE)
-          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
-        },
-        maxLength: VALUE_INPUT_MAX_LENGTH,
-      },
-    ],
-  },
-  {
-    goal_type: '2',
-    enable: false,
     icon: 'time',
     label: 'Aposentadoria',
     route: '/aposentadoria',
@@ -172,7 +117,7 @@ export default [
     ],
   },
   {
-    goal_type: '3',
+    goal_type: '2',
     enable: false,
     icon: 'car2',
     label: 'Carro',
@@ -200,6 +145,91 @@ export default [
       },
       {
         question: 'Qual o valor do carro?',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+      {
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+      {
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+      {
+        question:
+          'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
+        name: 'is_easy_to_save_planned_amount',
+        type: 'bool',
+        options: [
+          { name: 'Consigo guardar', value: 'true' },
+          { name: 'Tenho dificuldade', value: 'false' },
+        ],
+      },
+      {
+        question:
+          'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
+        name: 'would_like_to_receive_before_final_date',
+        type: 'bool',
+        options: [
+          { name: 'Sim', value: 'true' },
+          { name: 'Não', value: 'false' },
+        ],
+      },
+    ],
+  },
+  {
+    goal_type: '3',
+    enable: false,
+    icon: 'homewithwindow',
+    label: 'Casa',
+    route: '/casa',
+    flow: [
+      firstStep,
+      {
+        question: 'Quando você quer comprar seu imóvel?',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        maxLength: '10',
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
+      },
+      {
+        question: 'Essa data para você é:',
+        name: FLEXIBLE_TARGET_DATE_NAME,
+        type: 'bool',
+        options: [
+          { name: 'Flexível', value: 'true' },
+          { name: 'Definitiva', value: 'false' },
+        ],
+      },
+      {
+        question: 'Qual o valor do imóvel que você quer?',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
@@ -370,32 +400,22 @@ export default [
   {
     goal_type: '6',
     enable: false,
-    icon: 'homewithwindow',
-    label: 'Casa',
-    route: '/casa',
+    icon: 'plane',
+    label: 'Viagem',
+    route: '/viagem',
     flow: [
       firstStep,
       {
-        question: 'Quando você quer comprar seu imóvel?',
+        question: 'Qual a data da sua viagem?',
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
-        maxLength: '10',
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
           return validateDate(value)
         },
       },
       {
-        question: 'Essa data para você é:',
-        name: FLEXIBLE_TARGET_DATE_NAME,
-        type: 'bool',
-        options: [
-          { name: 'Flexível', value: 'true' },
-          { name: 'Definitiva', value: 'false' },
-        ],
-      },
-      {
-        question: 'Qual o valor do imóvel que você quer?',
+        question: 'Quanto vai custar sua viagem?',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
@@ -429,26 +449,6 @@ export default [
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
-      },
-      {
-        question:
-          'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-        name: 'is_easy_to_save_planned_amount',
-        type: 'bool',
-        options: [
-          { name: 'Consigo guardar', value: 'true' },
-          { name: 'Tenho dificuldade', value: 'false' },
-        ],
-      },
-      {
-        question:
-          'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'would_like_to_receive_before_final_date',
-        type: 'bool',
-        options: [
-          { name: 'Sim', value: 'true' },
-          { name: 'Não', value: 'false' },
-        ],
       },
     ],
   },

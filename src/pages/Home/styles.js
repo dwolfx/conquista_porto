@@ -217,7 +217,7 @@ export const PointNumber = styled(Text)`
 
 export const EmptyProductItemRow = styled.div`
   width: 100%;
-  padding: 14px 0px;
+  padding: 7px 0px;
 `
 
 export const EmptyBody = styled.div`

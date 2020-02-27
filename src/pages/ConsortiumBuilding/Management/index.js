@@ -73,7 +73,7 @@ export default function ManagementConsortiumBuilding() {
               data-gtm-name="adcionar"
               onClick={() => {
                 handleGiwRedirect(
-                  '/portaldecliente/conquista/consorcio-de-imoveis/simular?r=true'
+                  'portaldecliente/conquista/consorcio-de-imoveis/simular?r=true'
                 )
               }}
             >
