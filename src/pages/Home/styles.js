@@ -436,10 +436,7 @@ export const ObjectivesContainer = styled(Row)`
   height: 50%;
   padding-bottom: 7px;
 `
-export const Icon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-  color: props => props.color,
-})`
+export const Icon = styled(ConquistaIcon)`
   width: 21px;
   height: 21px;
 `
