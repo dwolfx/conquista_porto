@@ -22,6 +22,14 @@ const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
 const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
 const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
 
+const RETIREMENT = '1'
+const CAR = '2'
+const HOME = '3'
+const COURSE = '4'
+const EVENT = '5'
+const TRIP = '6'
+const SAVE_MONEY = '7'
+
 const validateDate = value => {
   if (isInvalidDate(value)) {
     return INVALID_DATE_ERROR_TEXT
@@ -50,7 +58,7 @@ const firstStep = {
 
 export default [
   {
-    goal_type: '1',
+    goal_type: RETIREMENT,
     enable: false,
     icon: 'time',
     label: 'Aposentadoria',
@@ -117,7 +125,7 @@ export default [
     ],
   },
   {
-    goal_type: '2',
+    goal_type: CAR,
     enable: false,
     icon: 'car2',
     label: 'Carro',
@@ -202,7 +210,7 @@ export default [
     ],
   },
   {
-    goal_type: '3',
+    goal_type: HOME,
     enable: false,
     icon: 'homewithwindow',
     label: 'Casa',
@@ -287,7 +295,7 @@ export default [
     ],
   },
   {
-    goal_type: '4',
+    goal_type: COURSE,
     enable: false,
     icon: 'student',
     label: 'Curso',
@@ -343,7 +351,7 @@ export default [
     ],
   },
   {
-    goal_type: '5',
+    goal_type: EVENT,
     enable: false,
     icon: 'drink',
     label: 'Evento',
@@ -398,7 +406,7 @@ export default [
     ],
   },
   {
-    goal_type: '6',
+    goal_type: TRIP,
     enable: false,
     icon: 'plane',
     label: 'Viagem',
@@ -453,7 +461,7 @@ export default [
     ],
   },
   {
-    goal_type: '7',
+    goal_type: SAVE_MONEY,
     enable: false,
     icon: 'money',
     label: 'Poupar',
