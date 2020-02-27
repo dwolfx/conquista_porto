@@ -74,7 +74,7 @@ export default function ManagementConsortiumVehicle() {
               data-gtm-name="adicionar"
               onClick={() => {
                 handleGiwRedirect(
-                  '/portaldecliente/conquista/consorcio-de-veiculos/simular?r=true'
+                  'portaldecliente/conquista/consorcio-de-veiculos/simular?r=true'
                 )
               }}
             >

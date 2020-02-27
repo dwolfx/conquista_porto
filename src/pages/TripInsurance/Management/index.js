@@ -83,7 +83,7 @@ export default function ManagementTripInsurance() {
                 data-gtm-name="adicionar"
                 onClick={() => {
                   handleGiwRedirect(
-                    '/portaldecliente/conquista/seguro-viagem/simular?r=true'
+                    'portaldecliente/conquista/seguro-viagem/simular?r=true'
                   )
                 }}
               >

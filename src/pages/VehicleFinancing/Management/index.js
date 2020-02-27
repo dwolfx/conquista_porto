@@ -104,7 +104,7 @@ const ManagementVehicleFinancing = () => {
               data-gtm-name="adicionar"
               onClick={() => {
                 handleGiwRedirect(
-                  '/portaldecliente/conquista/financiamento-de-veiculos/simular?r=true'
+                  'portaldecliente/conquista/financiamento-de-veiculos/simular?r=true'
                 )
               }}
             >
