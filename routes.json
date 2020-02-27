@@ -16,7 +16,7 @@
   "/notificacao/buscar/:cpf": "/notificacoes",
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
   "/cotistas/posicao?cpf=:cpf": "/posicao?cpf=:cpf",
-  "/invest/portopar/v1/cotista/perfil/investidor/:cpf": "/suitability",
+  "/invest/portopar/cotista/perfil/investidor/:cpf": "/suitability",
   "/goal/recommendations": "/goal_recommendations",
   "/goal/goals": "/goal_management"
 }
