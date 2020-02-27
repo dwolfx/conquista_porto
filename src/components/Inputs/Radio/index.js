@@ -34,7 +34,7 @@ const RadioComponent = ({
           value={item.value}
           onChange={event => {
             setCheckedItem(item.value)
-            return onChange(event)
+            onChange(event)
           }}
           checked={checkedItem === item.value}
           {...props}
@@ -77,7 +77,7 @@ RadioComponent.propTypes = {
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  itemChecked: PropTypes.string,
+  itemChecked: PropTypes.bool,
 }
 RadioComponent.defaultProps = {
   itemsDirection: 'row',
@@ -92,7 +92,7 @@ RadioComponent.defaultProps = {
   title: '',
   value: '',
   width: 'auto',
-  itemChecked: '',
+  itemChecked: false,
 }
 
 export default RadioComponent
