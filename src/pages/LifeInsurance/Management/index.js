@@ -118,7 +118,7 @@ export default function ManagementLifeInsurance() {
                 data-gtm-name="adicionar"
                 onClick={() => {
                   handleGiwRedirect(
-                    '/portaldecliente/conquista/seguro-de-vida/simular?r=true'
+                    'portaldecliente/conquista/seguro-de-vida/simular?r=true'
                   )
                 }}
               >

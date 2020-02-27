@@ -24,7 +24,6 @@ function* getDataAndRedirect({ cpf, link, history }) {
         get,
         `/invest/portopar/cotista/perfil/investidor/${cpf}`
       )
-      console.log(response)
 
       if (response.status === 204) {
         yield put(GetSuitabilityDataNoContent())

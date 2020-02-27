@@ -11,7 +11,10 @@ import { Section, ChartContainer, ChartTooltip, Text } from './styles'
 export default function BalanceEvolution({ fund }) {
   const theme = useContext(ThemeContext)
   const balanceEvolutionData = () => {
-    const balanceData = fund.historico_saldos_fundo.saldos.saldo.map(item => ({
+    const saldosFlat = [fund.historico_saldos_fundo.saldos.saldo].flatMap(
+      item => item
+    )
+    const balanceData = saldosFlat.map(item => ({
       x: moment(item.data).format('DD/MM/YYYY'),
       y: item.valorsaldo,
     }))

@@ -140,7 +140,7 @@ export default function ManagementCreditCard() {
                 data-gtm-name="adicionar"
                 onClick={() => {
                   handleGiwRedirect(
-                    '/portaldecliente/conquista/cartao-de-credito/simular?r=true'
+                    'portaldecliente/conquista/cartao-de-credito/simular?r=true'
                   )
                 }}
               >
