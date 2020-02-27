@@ -31,6 +31,7 @@ export default function SectionTwo({ onRedirect }) {
   const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
   const [maxObjectiveCards, setMaxObjectiveCards] = useState(2)
   const objectives = useSelector(state => state.objective.objectives)
+  const hasObjectives = Boolean(objectives && objectives.length)
 
   const dispatch = useDispatch()
 
@@ -50,7 +51,7 @@ export default function SectionTwo({ onRedirect }) {
   }, [isMobile])
 
   const renderObjectiveCardFooter = () =>
-    objectives ? (
+    hasObjectives ? (
       <OfferCardButton
         data-gtm-subname="card objetivos"
         data-gtm-name="gerenciar objetivos"
@@ -101,7 +102,7 @@ export default function SectionTwo({ onRedirect }) {
           headerTitle="Objetivos"
           footer={renderObjectiveCardFooter()}
         >
-          {objectives ? (
+          {hasObjectives ? (
             <ObjectivesListContainer>
               <ObjectivesListContent objectives={objectives} />
             </ObjectivesListContainer>
