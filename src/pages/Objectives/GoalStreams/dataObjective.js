@@ -22,6 +22,14 @@ const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
 const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
 const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
 
+const validateDate = value => {
+  if (isInvalidDate(value)) {
+    return INVALID_DATE_ERROR_TEXT
+  }
+  const isValid = minDate(value, 180)
+  return isValid ? undefined : MIN_DATE_ERROR_TEXT
+}
+
 const firstStep = {
   question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
   name: NICKNAME_NAME,
@@ -56,8 +64,7 @@ export default [
         maxLength: '10',
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
-          const isValid = minDate(value, 180)
-          return isValid ? undefined : MIN_DATE_ERROR_TEXT
+          return validateDate(value)
         },
       },
       {
@@ -124,8 +131,7 @@ export default [
         maxLength: '10',
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
-          const isValid = minDate(value, 180)
-          return isValid ? undefined : MIN_DATE_ERROR_TEXT
+          return validateDate(value)
         },
       },
       {
@@ -210,8 +216,7 @@ export default [
         maxLength: '10',
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
-          const isValid = minDate(value, 180)
-          return isValid ? undefined : MIN_DATE_ERROR_TEXT
+          return validateDate(value)
         },
       },
       {
@@ -296,8 +301,7 @@ export default [
         maxLength: '10',
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
-          const isValid = minDate(value, 180)
-          return isValid ? undefined : MIN_DATE_ERROR_TEXT
+          return validateDate(value)
         },
       },
       {
@@ -353,8 +357,7 @@ export default [
         maxLength: '10',
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
-          const isValid = minDate(value, 180)
-          return isValid ? undefined : MIN_DATE_ERROR_TEXT
+          return validateDate(value)
         },
       },
       {
@@ -408,11 +411,7 @@ export default [
         type: DATE_TYPE,
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
-          if (isInvalidDate(value)) {
-            return INVALID_DATE_ERROR_TEXT
-          }
-          const isValid = minDate(value, 180)
-          return isValid ? undefined : MIN_DATE_ERROR_TEXT
+          return validateDate(value)
         },
       },
       {
@@ -468,8 +467,7 @@ export default [
         maxLength: '10',
         ruleText: MIN_DATE_ERROR_TEXT,
         validate(value) {
-          const isValid = minDate(value, 180)
-          return isValid ? undefined : MIN_DATE_ERROR_TEXT
+          return validateDate(value)
         },
       },
       {
