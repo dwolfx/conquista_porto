@@ -13,6 +13,7 @@ export default function ListItem({
   height,
   path,
   callbackClickFn,
+  ...rest
 }) {
   const history = useHistory()
 
@@ -23,6 +24,7 @@ export default function ListItem({
 
   return (
     <Container
+      {...rest}
       margin={margin}
       height={height}
       onClick={() => !!path && handleClick(path)}

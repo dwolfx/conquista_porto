@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Container, Col } from 'styled-bootstrap-grid'
-
+import 'styled-components/macro'
 import {
   BannerWrapper,
   BannerLabel,
@@ -21,11 +21,20 @@ export default function Banner({
   ...rest
 }) {
   const [isOpen, setIsOpen] = useState(true)
+
   return (
     isOpen && (
-      <div>
+      <div
+        css={`
+          position: relative;
+        `}
+      >
         {hasCloseButton && (
           <CloseButton
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="banner"
+            data-gtm-name="botao fechar"
             onClick={() => {
               setIsOpen(false)
             }}

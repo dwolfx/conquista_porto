@@ -16,6 +16,7 @@ const RadioComponent = ({
   title,
   value,
   width,
+  checkedItem,
   ...props
 }) => {
   const renderOptions = () =>
@@ -25,7 +26,14 @@ const RadioComponent = ({
         key={`#${props.name}-${item.value}-${index}`}
         disabled={item.disabled}
       >
-        <RadioInput value={item.value} onChange={onChange} {...props} />
+        <RadioInput
+          data-gtm-form="input"
+          data-gtm-name={item.name}
+          value={item.value}
+          onChange={onChange}
+          checked={checkedItem === item.value}
+          {...props}
+        />
         {item.name}
       </RadioLabel>
     ))
@@ -64,6 +72,7 @@ RadioComponent.propTypes = {
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  checkedItem: PropTypes.string,
 }
 RadioComponent.defaultProps = {
   itemsDirection: 'row',
@@ -78,6 +87,7 @@ RadioComponent.defaultProps = {
   title: '',
   value: '',
   width: 'auto',
+  checkedItem: '',
 }
 
 export default RadioComponent

@@ -8,8 +8,17 @@ import { Types } from './types'
 
 function* getData({ cpf }) {
   try {
-    const response = yield call(get, `/cotistas/posicao?cpf=${cpf}`)
-    yield put(GetPositionDataSuccess(response.data))
+    const response = yield call(
+      get,
+      `invest/cotistas/posicao?cpf=${cpf}&codigoCanal=0`
+    )
+
+    if (response && response.data.Mensagem) {
+      yield put(GetPositionDataFailure())
+      console.error('Error: ', response.data.Mensagem)
+    } else {
+      yield put(GetPositionDataSuccess(response.data))
+    }
   } catch (err) {
     yield put(GetPositionDataFailure())
   }

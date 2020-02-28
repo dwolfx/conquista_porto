@@ -2,13 +2,13 @@
 
 exports[`TopBanner renders correctly 1`] = `
 <section
-  className="sc-htpNat gkcgIn"
+  className="sc-bxivhb dpENvA"
 >
   <div
-    className="sc-bxivhb eHGKbp"
+    className="sc-ifAKCX bxZpVj"
   >
     <h1
-      className="sc-EHOje nTaje"
+      className="sc-bZQynM cpGYjx"
     >
       Fundos de Investimentos
     </h1>
@@ -19,7 +19,7 @@ exports[`TopBanner renders correctly 1`] = `
   </div>
   <img
     alt="Homem pesquisando investimentos em um website em seu computador"
-    className="sc-ifAKCX gOTEnr"
+    className="sc-EHOje fOnbnc"
     src="banner_investimentos.jpg"
   />
 </section>

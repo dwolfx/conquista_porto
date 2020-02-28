@@ -6,12 +6,13 @@ import { Container, StartBlock, EndBlock } from './styles'
 export default function HorizontalList({
   startItems,
   endItems,
-  heightSize,
+  size,
   noPadding,
   marginBetweenElements,
+  ...rest
 }) {
   return (
-    <Container heightSize={heightSize} noPadding={noPadding}>
+    <Container size={size} noPadding={noPadding} {...rest}>
       <StartBlock marginBetweenElements={marginBetweenElements}>
         {startItems &&
           startItems.map((Item, index) => (
@@ -31,7 +32,7 @@ export default function HorizontalList({
 HorizontalList.propTypes = {
   startItems: PropTypes.arrayOf(PropTypes.node),
   endItems: PropTypes.arrayOf(PropTypes.node),
-  heightSize: PropTypes.oneOf(['large', 'dynamic']),
+  size: PropTypes.oneOf(['large', 'small', 'default']),
   noPadding: PropTypes.bool,
   marginBetweenElements: PropTypes.string,
 }
@@ -39,7 +40,7 @@ HorizontalList.propTypes = {
 HorizontalList.defaultProps = {
   startItems: null,
   endItems: null,
-  heightSize: null,
+  size: 'default',
   noPadding: false,
   marginBetweenElements: '14px',
 }

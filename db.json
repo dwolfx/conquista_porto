@@ -2375,12 +2375,23 @@
       }
     }
   ],
-  "recommendation": {
-    "goalType": "1",
-    "nickname": "sasa",
-    "targetDate": "12/21",
-    "targetValue": "12,22",
-    "initialValue": "2,22",
-    "monthlyValue": "22,22"
+  "goal_recommendations": {
+    "goal_type": "3",
+    "nickname": "Disney",
+    "target_date": "02/02/2023",
+    "is_target_date_flexible": "true",
+    "target_value": "70.000.000,00",
+    "initial_value": "5.000,00",
+    "monthly_value": "1.000,00",
+    "is_easy_to_save_planned_amount": "false",
+    "would_like_to_receive_before_final_date": "true"
+  },
+  "goal_management": {
+    "id": "1"
+  },
+  "suitability": {
+    "idpessoa": 632,
+    "idperfilinvest": 3,
+    "nomeperfilinvest": "Arrojado"
   }
 }

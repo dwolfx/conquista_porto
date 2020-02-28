@@ -1,123 +1,205 @@
+import { betweenLength, isInvalidDate, minDate, minValue } from './validators'
+
+const INITIAL_VALUE_NAME = 'initial_value'
+const TARGET_DATE_NAME = 'target_date'
+const TARGET_VALUE_NAME = 'target_value'
+const NICKNAME_NAME = 'nickname'
+const MONTHLY_NAME = 'monthly_value'
+const FLEXIBLE_TARGET_DATE_NAME = 'is_target_date_flexible'
+const TEXT_TYPE = 'text'
+const DATE_TYPE = 'date'
+const NUMBER_TYPE = 'number'
+const VALUE_INPUT_MAX_LENGTH = 25
+const STRING_INPUT_MAX_LENGTH = 20
+const HUNDRED_MIN_VALUE = '100,00'
+const THOUSAND_MIN_VALUE = '1.000,00'
+const MAX_CHARS_ERROR_TEXT = 'Máximo 20 caracteres'
+const MIN_CHARS_ERROR_TEXT = 'Mínimo 3 caracteres'
+const MIN_DATE_ERROR_TEXT = 'Mínimo de 6 meses'
+const INVALID_DATE_ERROR_TEXT = 'Data inválida'
+const HUNDRED_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 100,00'
+const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
+const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
+const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
+
+const TRIP = '1'
+const RETIREMENT = '2'
+const CAR = '3'
+const COURSE = '4'
+const EVENT = '5'
+const HOME = '6'
+const SAVE_MONEY = '7'
+
+const validateDate = value => {
+  if (isInvalidDate(value)) {
+    return INVALID_DATE_ERROR_TEXT
+  }
+  const isValid = minDate(value, 180)
+  return isValid ? undefined : MIN_DATE_ERROR_TEXT
+}
+
+const firstStep = {
+  question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
+  name: NICKNAME_NAME,
+  type: TEXT_TYPE,
+  validate(value) {
+    const isBetweenLength = betweenLength(3, 20, value)
+    if (!isBetweenLength.min) {
+      return MIN_CHARS_ERROR_TEXT
+    }
+    if (!isBetweenLength.max) {
+      return MAX_CHARS_ERROR_TEXT
+    }
+
+    return undefined
+  },
+  maxLength: STRING_INPUT_MAX_LENGTH,
+}
+
 export default [
   {
-    goalType: 1,
+    goal_type: TRIP,
     enable: false,
     icon: 'plane',
     label: 'Viagem',
     route: '/viagem',
     flow: [
-      {
-        question:
-          'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
-        name: 'nickname',
-        type: 'text',
-        ruleText: 'Máximo de 20 caracteres',
-      },
+      firstStep,
       {
         question: 'Qual a data da sua viagem?',
-        name: 'targetDate',
-        type: 'date',
-        ruleText: 'Mínimo de 6 meses',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
       },
       {
         question: 'Quanto vai custar sua viagem?',
-        name: 'targetValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
-        type: 'number',
-        minimumValue: '100',
-        ruleText: 'Mínimo de R$ 100,00',
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
     ],
   },
   {
-    goalType: 2,
+    goal_type: RETIREMENT,
     enable: false,
     icon: 'time',
     label: 'Aposentadoria',
     route: '/aposentadoria',
     flow: [
-      {
-        question:
-          'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
-        name: 'nickname',
-        type: 'text',
-        ruleText: 'Máximo de 20 caracteres',
-      },
+      firstStep,
       {
         question: 'Quando você quer se aposentar?',
-        name: 'targetDate',
-        type: 'date',
-        ruleText: 'Mínimo de 6 meses',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        maxLength: '10',
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
       },
       {
         question: 'Quanto você quer atingir ao final desse objetivo?',
-        name: 'targetValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
-        type: 'number',
-        minimumValue: '100',
-        ruleText: 'Mínimo de R$ 100,00',
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question:
           'Gostaria de ter uma renda mensal determinada na aposentadoria?',
-        name: 'wouldLikeToReceiveMonthlyIncome',
+        name: 'would_like_to_receive_monthly_income',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
           { name: 'Não', value: 'false' },
         ],
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
     ],
   },
   {
-    goalType: 3,
+    goal_type: CAR,
     enable: false,
     icon: 'car2',
     label: 'Carro',
     route: '/carro',
     flow: [
-      {
-        question:
-          'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
-        name: 'nickname',
-        type: 'text',
-        ruleText: 'Máximo de 20 caracteres',
-      },
+      firstStep,
       {
         question: 'Quando você quer comprar seu carro?',
-        name: 'targetDate',
-        type: 'date',
-        ruleText: 'Mínimo de 6 meses',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        maxLength: '10',
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
       },
       {
         question: 'Essa data para você é:',
-        name: 'targetDateFlexible',
+        name: FLEXIBLE_TARGET_DATE_NAME,
         type: 'bool',
         options: [
           { name: 'Flexível', value: 'true' },
@@ -126,29 +208,44 @@ export default [
       },
       {
         question: 'Qual o valor do carro?',
-        name: 'targetValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
-        type: 'number',
-        minimumValue: '100',
-        ruleText: 'Mínimo de R$ 100,00',
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question:
           'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-        name: 'easyToSavePlannedAmount',
+        name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
           { name: 'Consigo guardar', value: 'true' },
@@ -158,7 +255,7 @@ export default [
       {
         question:
           'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'wouldLikeToReceiveBeforeFinalDate',
+        name: 'would_like_to_receive_before_final_date',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -168,114 +265,26 @@ export default [
     ],
   },
   {
-    goalType: 4,
-    enable: false,
-    icon: 'student',
-    label: 'Curso',
-    route: '/curso',
-    flow: [
-      {
-        question:
-          'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
-        name: 'nickname',
-        type: 'text',
-        ruleText: 'Máximo de 20 caracteres',
-      },
-      {
-        question: 'Quando começa o curso que você quer fazer?',
-        name: 'targetDate',
-        type: 'date',
-        ruleText: 'Mínimo de 6 meses',
-      },
-      {
-        question: 'Qual o valor do curso?',
-        name: 'targetValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
-      },
-      {
-        question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
-      },
-      {
-        question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
-        type: 'number',
-        minimumValue: '100',
-        ruleText: 'Mínimo de R$ 100,00',
-      },
-    ],
-  },
-  {
-    goalType: 5,
-    enable: false,
-    icon: 'drink',
-    label: 'Evento',
-    route: '/evento',
-    flow: [
-      {
-        question:
-          'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
-        name: 'nickname',
-        type: 'text',
-        ruleText: 'Máximo de 20 caracteres',
-      },
-      {
-        question: 'Quando vai acontecer o evento?',
-        name: 'targetDate',
-        type: 'date',
-        ruleText: 'Mínimo de 6 meses',
-      },
-      {
-        question: 'Quanto vai custar o seu evento?',
-        name: 'targetValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
-      },
-      {
-        question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
-      },
-      {
-        question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
-        type: 'number',
-        minimumValue: '100',
-        ruleText: 'Mínimo de R$ 100,00',
-      },
-    ],
-  },
-  {
-    goalType: 6,
+    goal_type: HOME,
     enable: false,
     icon: 'homewithwindow',
     label: 'Casa',
     route: '/casa',
     flow: [
-      {
-        question:
-          'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
-        name: 'nickname',
-        type: 'text',
-        ruleText: 'Máximo de 20 caracteres',
-      },
+      firstStep,
       {
         question: 'Quando você quer comprar seu imóvel?',
-        name: 'targetDate',
-        type: 'date',
-        ruleText: 'Mínimo de 6 meses',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        maxLength: '10',
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
       },
       {
         question: 'Essa data para você é:',
-        name: 'targetDateFlexible',
+        name: FLEXIBLE_TARGET_DATE_NAME,
         type: 'bool',
         options: [
           { name: 'Flexível', value: 'true' },
@@ -284,29 +293,44 @@ export default [
       },
       {
         question: 'Qual o valor do imóvel que você quer?',
-        name: 'targetValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
-        type: 'number',
-        minimumValue: '100',
-        ruleText: 'Mínimo de R$ 100,00',
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
         question:
           'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
-        name: 'easyToSavePlannedAmount',
+        name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
           { name: 'Consigo guardar', value: 'true' },
@@ -316,7 +340,7 @@ export default [
       {
         question:
           'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'wouldLikeToReceiveBeforeFinalDate',
+        name: 'would_like_to_receive_before_final_date',
         type: 'bool',
         options: [
           { name: 'Sim', value: 'true' },
@@ -326,45 +350,169 @@ export default [
     ],
   },
   {
-    goalType: 7,
+    goal_type: COURSE,
+    enable: false,
+    icon: 'student',
+    label: 'Curso',
+    route: '/curso',
+    flow: [
+      firstStep,
+      {
+        question: 'Quando começa o curso que você quer fazer?',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        maxLength: '10',
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
+      },
+      {
+        question: 'Qual o valor do curso?',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+      {
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+      {
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+    ],
+  },
+  {
+    goal_type: EVENT,
+    enable: false,
+    icon: 'drink',
+    label: 'Evento',
+    route: '/evento',
+    flow: [
+      firstStep,
+      {
+        question: 'Quando vai acontecer o evento?',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        maxLength: '10',
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
+      },
+      {
+        question: 'Quanto vai custar o seu evento?',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+      {
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+      },
+      {
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+      },
+    ],
+  },
+  {
+    goal_type: SAVE_MONEY,
     enable: false,
     icon: 'money',
     label: 'Poupar',
     route: '/poupar',
     flow: [
-      {
-        question:
-          'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
-        name: 'nickname',
-        type: 'text',
-        ruleText: 'Máximo de 20 caracteres',
-      },
+      firstStep,
       {
         question: 'Quando você quer resgatar se atingir o total?',
-        name: 'targetDate',
-        type: 'date',
-        ruleText: 'Mínimo de 6 meses',
+        name: TARGET_DATE_NAME,
+        type: DATE_TYPE,
+        maxLength: '10',
+        ruleText: MIN_DATE_ERROR_TEXT,
+        validate(value) {
+          return validateDate(value)
+        },
       },
       {
         question: 'Qual valor você pretente atingir?',
-        name: 'targetValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        name: TARGET_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você quer investir inicialmente?',
-        name: 'initialValue',
-        type: 'number',
-        minimumValue: '1000',
-        ruleText: 'Mínimo de R$ 1.000,00',
+        question: INITIAL_INVESTMENT_QUESTION,
+        name: INITIAL_VALUE_NAME,
+        type: NUMBER_TYPE,
+        ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
+        placeholder: THOUSAND_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, THOUSAND_MIN_VALUE)
+          return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
       {
-        question: 'Quanto você pretende investir por mês?',
-        name: 'monthlyValue',
-        type: 'number',
-        minimumValue: '100',
-        ruleText: 'Mínimo de R$ 100,00',
+        question: MONTHLY_INVESTMENT_QUESTION,
+        name: MONTHLY_NAME,
+        type: NUMBER_TYPE,
+        ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
+        placeholder: HUNDRED_MIN_VALUE,
+        validate(value) {
+          const isValid = minValue(value, HUNDRED_MIN_VALUE)
+          return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
+        },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
       },
     ],
   },

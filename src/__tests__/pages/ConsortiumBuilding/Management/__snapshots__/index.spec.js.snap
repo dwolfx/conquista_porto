@@ -3,10 +3,10 @@
 exports[`ManagementConsortiumBuilding renders correctly 1`] = `
 Array [
   <section
-    className="sc-cvbbAY dRBzmY"
+    className="sc-jWBwVP jFykRP"
   >
     <div
-      className="sc-jDwBTQ hZAXzY"
+      className="sc-jlyJG gEpZWh"
     >
       <div>
         <small
@@ -23,14 +23,18 @@ Array [
       </div>
     </div>
     <div
-      className="sc-brqgnP flGAwl"
+      className="sc-cMljjf gqPmfG"
       id="consortium-building-top-page"
     >
       <nav
-        className="sc-cMljjf fbADxM"
+        className="sc-jAaTju hyphQI"
       >
         <div
-          className="sc-gPEVay dhPfoT"
+          className="sc-gipzik ivuBZC"
+          data-gtm-clicktype="card"
+          data-gtm-name="adcionar"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <svg
@@ -40,25 +44,29 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-fBuWsC hEeWng"
+            className="sc-eqIVtm hYDqKX"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-jWBwVP jVGvqP"
+          className="sc-brqgnP lnJflU"
+          data-gtm-clicktype="card"
+          data-gtm-name="contrato 1"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-type="click"
           onClick={[Function]}
         >
           <span
-            className="sc-fBuWsC cDQofF"
+            className="sc-eqIVtm ioKzdm"
             fontSize="14px"
           >
             Contrato 
             1
           </span>
           <span
-            className="sc-fBuWsC XsBPW"
+            className="sc-eqIVtm hzuCud"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -66,7 +74,7 @@ Array [
             STATUS
           </span>
           <span
-            className="sc-fBuWsC dzKRA"
+            className="sc-eqIVtm beEpJo"
             fontSize="14px"
           >
             Contemplado
@@ -74,219 +82,126 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-jAaTju cvSkXK"
+        className="sc-jDwBTQ dwTEEm"
       >
         <h4
-          className="sc-iRbamj OAaH"
+          className="sc-csuQGl htfWNN"
         >
           Contrato 
           1
         </h4>
         <div
-          className="slick-slider sc-jlyJG jedFjF slick-initialized"
+          className="sc-iRbamj jrKdxT"
         >
-          
           <div
-            className="slick-list"
+            className="sc-bRBYWo dAqqrf"
           >
-            <div
-              className="slick-track"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseOver={[Function]}
-              style={
-                Object {
-                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
-                  "WebkitTransition": "",
-                  "msTransform": "translateX(0px)",
-                  "opacity": 1,
-                  "transform": "translate3d(0px, 0px, 0px)",
-                  "transition": "",
-                }
-              }
+            <svg
+              fill="#00ADEF"
+              width="28"
             >
-              <div
-                aria-hidden={false}
-                className="slick-slide slick-active slick-current"
-                data-index={0}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "outline": "none",
-                    "width": 0,
-                  }
-                }
-                tabIndex="-1"
+              computer-secure.svg
+            </svg>
+            <div>
+              <p
+                className="sc-hzDkRC krfNFo"
               >
-                <div>
-                  <div
-                    className="sc-gipzik lcbVoa"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                        "width": "100%",
-                      }
-                    }
-                    tabIndex={-1}
-                  >
-                    <svg
-                      fill="#00ADEF"
-                      width="28"
-                    >
-                      computer-secure.svg
-                    </svg>
-                    <div>
-                      <p
-                        className="sc-csuQGl hNfULV"
-                      >
-                        Cota
-                      </p>
-                      <span
-                        className="sc-Rmtcm jDjrXX"
-                      >
-                        300
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-hidden={false}
-                className="slick-slide slick-active"
-                data-index={1}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "outline": "none",
-                    "width": 0,
-                  }
-                }
-                tabIndex="-1"
+                Cota
+              </p>
+              <span
+                className="sc-jhAzac geNrTo"
               >
-                <div>
-                  <div
-                    className="sc-gipzik lcbVoa"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                        "width": "100%",
-                      }
-                    }
-                    tabIndex={-1}
-                  >
-                    <svg
-                      fill="#00ADEF"
-                      width="28"
-                    >
-                      person-group2.svg
-                    </svg>
-                    <div>
-                      <p
-                        className="sc-csuQGl hNfULV"
-                      >
-                        grupo
-                      </p>
-                      <span
-                        className="sc-Rmtcm jDjrXX"
-                      >
-                        x398
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-hidden={false}
-                className="slick-slide slick-active"
-                data-index={2}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "outline": "none",
-                    "width": 0,
-                  }
-                }
-                tabIndex="-1"
-              >
-                <div>
-                  <div
-                    className="sc-gipzik lcbVoa"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                        "width": "100%",
-                      }
-                    }
-                    tabIndex={-1}
-                  >
-                    <svg
-                      fill="#00ADEF"
-                      width="28"
-                    >
-                      coin.svg
-                    </svg>
-                    <div>
-                      <p
-                        className="sc-csuQGl hNfULV"
-                      >
-                        Crédito contratado
-                      </p>
-                      <span
-                        className="sc-Rmtcm jDjrXX"
-                      >
-                        R$ 40.000,00
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                300
+              </span>
             </div>
           </div>
-          
-          
+          <div
+            className="sc-bRBYWo dAqqrf"
+          >
+            <svg
+              fill="#00ADEF"
+              width="28"
+            >
+              person-group2.svg
+            </svg>
+            <div>
+              <p
+                className="sc-hzDkRC krfNFo"
+              >
+                grupo
+              </p>
+              <span
+                className="sc-jhAzac geNrTo"
+              >
+                x398
+              </span>
+            </div>
+          </div>
+          <div
+            className="sc-bRBYWo dAqqrf"
+          >
+            <svg
+              fill="#00ADEF"
+              width="28"
+            >
+              coin.svg
+            </svg>
+            <div>
+              <p
+                className="sc-hzDkRC krfNFo"
+              >
+                Crédito contratado
+              </p>
+              <span
+                className="sc-jhAzac geNrTo"
+              >
+                R$ 40.000,00
+              </span>
+            </div>
+          </div>
         </div>
         <article
-          className="sc-bRBYWo fIqnzP"
+          className="sc-fBuWsC FSrbq"
         >
           <div
-            className="sc-hzDkRC bhyfZb"
+            className="sc-fMiknA jOWFYq"
           >
             <div
-              className="sc-jhAzac gxNvQR"
+              className="sc-dVhcbM dxemIg"
             >
               <span
-                className="sc-fBuWsC iRfEBe"
+                className="sc-eqIVtm hQFHqb"
                 fontSize="22px"
               >
                 Valor para quitação
               </span>
               <span
-                className="sc-fBuWsC gzxylc"
+                className="sc-eqIVtm jMjcVb"
               >
                 R$ 27.200,00
               </span>
             </div>
             <div
-              className="sc-jhAzac gxNvQR"
+              className="sc-dVhcbM dxemIg"
             >
               <span
-                className="sc-fBuWsC iRfEBe"
+                className="sc-eqIVtm hQFHqb"
                 fontSize="22px"
               >
                 Valor da parcela atual
               </span>
               <span
-                className="sc-fBuWsC gzxylc"
+                className="sc-eqIVtm jMjcVb"
               >
                 R$ 675,00
               </span>
             </div>
           </div>
           <div
-            className="sc-fMiknA iosxXd"
+            className="sc-fAjcbJ hMdiGV"
           >
             <span
-              className="sc-fBuWsC knhxN"
+              className="sc-eqIVtm eSOXS"
               fontSize="18px"
             >
               Evolução do pagamento
@@ -323,18 +238,18 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-dxgOiQ gtLtFb"
+    className="sc-ckVGcZ dMSUmA"
   >
     <div
-      className="sc-ckVGcZ iIFymU"
+      className="sc-jKJlTe lfshyu"
     >
       <h1
-        className="sc-jKJlTe cqnkVN"
+        className="sc-eNQAEJ aOeWk"
       >
         Parcelas que cabem no seu bolso.
       </h1>
       <p
-        className="sc-eNQAEJ dsxAui"
+        className="sc-hMqMXs emhLAO"
       >
         O Conquista acompanha você na realização do sonho do imóvel próprio.
         <br />
@@ -344,12 +259,16 @@ Array [
       <br />
       <br />
       <button
-        className="sc-kGXeez kSVnZQ"
+        className="sc-kpOJdX hBHKgY"
         color="secondary"
+        data-gtm-clicktype="button"
+        data-gtm-name="SIMULAR E CONTRATAR"
+        data-gtm-subname="Parcelas que cabem no seu bolso."
+        data-gtm-type="click"
         onClick={[Function]}
       >
         <span
-          className="sc-kpOJdX jSZPtw"
+          className="sc-dxgOiQ cmPHRb"
         >
           <span>
             SIMULAR E CONTRATAR
@@ -537,14 +456,14 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-hMqMXs eAZusz"
+    className="sc-kEYyzF cPzDlO"
   >
     <div
-      className="sc-kEYyzF ytSZC"
+      className="sc-kkGfuU eVqEMm"
     >
       <div>
         <svg
-          className="sc-kkGfuU isWLNv"
+          className="sc-iAyFgw cNifeH"
           fill="#272727"
           height="24px"
         >
@@ -553,21 +472,25 @@ Array [
       </div>
       <div>
         <p
-          className="sc-iAyFgw jJZiyb"
+          className="sc-hSdWYo gBqxUN"
         >
           SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC
         </p>
         <p
-          className="sc-hSdWYo gsEHGZ"
+          className="sc-eHgmQL kxVpoD"
         >
           Aqui, você tem mais informações legais sobre consórcio.
         </p>
         <a
+          data-gtm-clicktype="link"
+          data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-subname="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
+          data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
         >
           <p
-            className="sc-eHgmQL evXPOm"
+            className="sc-cvbbAY jPiInA"
           >
             BAIXAR ARQUIVO
              &gt; 
@@ -576,11 +499,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kEYyzF ytSZC"
+      className="sc-kkGfuU eVqEMm"
     >
       <div>
         <svg
-          className="sc-kkGfuU isWLNv"
+          className="sc-iAyFgw cNifeH"
           fill="#272727"
           height="24px"
         >
@@ -589,21 +512,25 @@ Array [
       </div>
       <div>
         <p
-          className="sc-iAyFgw jJZiyb"
+          className="sc-hSdWYo gBqxUN"
         >
           CONDIÇÕES GERAIS
         </p>
         <p
-          className="sc-hSdWYo gsEHGZ"
+          className="sc-eHgmQL kxVpoD"
         >
           Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
         </p>
         <a
+          data-gtm-clicktype="link"
+          data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-subname="CONDIÇÕES GERAIS"
+          data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
         >
           <p
-            className="sc-eHgmQL evXPOm"
+            className="sc-cvbbAY jPiInA"
           >
             BAIXAR ARQUIVO
              &gt; 
@@ -612,11 +539,11 @@ Array [
       </div>
     </div>
     <div
-      className="sc-kEYyzF ytSZC"
+      className="sc-kkGfuU eVqEMm"
     >
       <div>
         <svg
-          className="sc-kkGfuU isWLNv"
+          className="sc-iAyFgw cNifeH"
           fill="#272727"
           height="24px"
         >
@@ -625,21 +552,25 @@ Array [
       </div>
       <div>
         <p
-          className="sc-iAyFgw jJZiyb"
+          className="sc-hSdWYo gBqxUN"
         >
           TABELA DE TARIFAS
         </p>
         <p
-          className="sc-hSdWYo gsEHGZ"
+          className="sc-eHgmQL kxVpoD"
         >
           Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
         </p>
         <a
+          data-gtm-clicktype="link"
+          data-gtm-name="BAIXAR ARQUIVO"
+          data-gtm-subname="TABELA DE TARIFAS"
+          data-gtm-type="click"
           href="/redirect"
           onClick={[Function]}
         >
           <p
-            className="sc-eHgmQL evXPOm"
+            className="sc-cvbbAY jPiInA"
           >
             BAIXAR ARQUIVO
              &gt; 

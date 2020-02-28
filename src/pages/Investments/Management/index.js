@@ -55,7 +55,7 @@ export default function ManagementInvestments({ history }) {
   const [fundSelected, setFundSelected] = useState(null)
 
   useEffect(() => {
-    if (positionData) {
+    if (positionData && positionData.length > 0) {
       setFundSelected(
         Array.isArray(positionData[0].posicoes.posicao)
           ? positionData[0].posicoes.posicao[0]
@@ -75,6 +75,10 @@ export default function ManagementInvestments({ history }) {
       .flatMap(item => item)
       .map((item, index) => (
         <ManageableItem
+          data-gtm-type="click"
+          data-gtm-clicktype="card"
+          data-gtm-subname="card custodia visualizar"
+          data-gtm-name={item.fundo.categoria_arena}
           key={item.fundo.id_carteira}
           onClick={() => {
             setFundSelected(positionData[0].posicoes.posicao[index])
@@ -139,8 +143,12 @@ export default function ManagementInvestments({ history }) {
         <PageContent>
           <LeftNav>
             <AddBtnLink
+              data-gtm-type="click"
+              data-gtm-clicktype="card"
+              data-gtm-subname="card custodia visualizar"
+              data-gtm-name="lista de fundos"
               onClick={() => {
-                history.push('/')
+                history.push('/investimentos/lista-fundos')
               }}
             >
               <Icon width="48" fill={theme.colors.gray3} name="add" />
@@ -160,6 +168,7 @@ export default function ManagementInvestments({ history }) {
             <AccordionGeneralInfo
               isOrangeArrow
               titleNode="Carteira de investimentos"
+              gtmName="carteira de investimentos"
             >
               <GeneralInfo>
                 <GeneralView />
@@ -174,7 +183,6 @@ export default function ManagementInvestments({ history }) {
             <GeneralView />
           </GeneralInfo> */}
         </PageContent>
-        <AnbimaLegalInfo />
       </Container>
       <HighlightSection
         title="Facilidade para investir"
@@ -203,12 +211,21 @@ export default function ManagementInvestments({ history }) {
               Crie objetivos e aproveite os planos personalizados que a
               ferramenta apresenta para investir com mais facilidade.
             </p>
-            <Button color="primary">Criar Objetivo</Button>
+            <Button
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="investindo em objetivos"
+              data-gtm-name="criar objetivo"
+              color="primary"
+            >
+              Criar Objetivo
+            </Button>
           </DescriptionContent>
         </CustomContent>
       </SectionCustomPicture>
       <FundsCarouselSection />
       <FileDownloadSection data={downloadFileSectionData} />
+      <AnbimaLegalInfo />
     </>
   )
 }

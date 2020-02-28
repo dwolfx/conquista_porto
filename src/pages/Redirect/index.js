@@ -28,9 +28,9 @@ export default function Redirect(props) {
 
   function navigate() {
     if (props.history.location.state && props.history.location.state.url) {
-      window.location.replace(props.history.location.state.url)
+      window.open(props.history.location.state.url, '_blank')
     } else {
-      window.location.replace('https://www.portoseguro.com.br')
+      window.open('https://www.portoseguro.com.br', '_blank')
     }
   }
 
@@ -59,7 +59,15 @@ export default function Redirect(props) {
               </Text>
               <LogoPorto />
               <Line />
-              <Button onClick={navigate}>Redirecionar Agora</Button>
+              <Button
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname="voce sera redirecionado para"
+                data-gtm-name="redirecionar agora"
+                onClick={navigate}
+              >
+                Redirecionar Agora
+              </Button>
             </Card>
           </GridCol>
         </GridRow>

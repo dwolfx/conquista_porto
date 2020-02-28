@@ -22,6 +22,10 @@ export default function TopBanner({
             color="secondary"
             className="button-with-right-icon"
             onClick={onClick}
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname={`banner ${title}`}
+            data-gtm-name={buttonText}
           >
             {buttonText} <span className="icon">&gt;</span>
           </Button>

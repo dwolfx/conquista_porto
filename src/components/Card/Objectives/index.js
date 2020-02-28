@@ -18,6 +18,9 @@ export default function ObjectivesCard({ icon, title, link, ...rest }) {
       <InfosBox>
         <OfferTitle>{title}</OfferTitle>
         <ButtonIcon
+          data-gtm-name={title}
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
           color="secondary"
           size="small"
           icon="arrowright"

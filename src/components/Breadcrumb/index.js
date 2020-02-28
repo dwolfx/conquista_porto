@@ -38,7 +38,7 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
               ) : (
                 crumb
               )}
-              {!isLast && <Icon name="arrowright2" />}
+              {!isLast && <Icon name="arrowright2" color="gray6" />}
             </React.Fragment>
           )
         })}

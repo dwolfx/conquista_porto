@@ -32,6 +32,8 @@ const DefaultColumnFilter = ({
 }) => (
   <InputFilterWrapper>
     <InputFilter
+      data-gtm-form="input"
+      data-gtm-name={`Filtrar ${Header}`}
       value={filterValue || ''}
       onChange={e => {
         setFilter(e.target.value || undefined)
@@ -58,6 +60,10 @@ const TfootWrapper = ({
       </TfootTd>
       <TfootTd colSpan="3" textAlign="right">
         <PaginationButton
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname="paginacao"
+          data-gtm-name="primeira"
           marginRight="70"
           padding="0 10px"
           visibility={canPreviousPage ? 'visible' : 'hidden'}
@@ -69,27 +75,63 @@ const TfootWrapper = ({
         </PaginationButton>
         {canPreviousPage && (
           <>
-            <PaginationButton onClick={() => previousPage()}>
+            <PaginationButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="paginacao"
+              data-gtm-name="icone backward"
+              onClick={() => previousPage()}
+            >
               <BackwardIcon />
             </PaginationButton>
 
-            <PaginationButton onClick={() => gotoPage(pageIndex - 1)}>
+            <PaginationButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="paginacao"
+              data-gtm-name={pageIndex}
+              onClick={() => gotoPage(pageIndex - 1)}
+            >
               {pageIndex}
             </PaginationButton>
           </>
         )}
-        <PaginationButton className="active">{pageIndex + 1}</PaginationButton>
+        <PaginationButton
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname="paginacao"
+          data-gtm-name={pageIndex + 1}
+          className="active"
+        >
+          {pageIndex + 1}
+        </PaginationButton>
         {canNextPage && (
           <>
-            <PaginationButton onClick={() => nextPage()}>
+            <PaginationButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="paginacao"
+              data-gtm-name={pageIndex + 2}
+              onClick={() => nextPage()}
+            >
               {pageIndex + 2}
             </PaginationButton>
-            <PaginationButton onClick={() => nextPage()}>
+            <PaginationButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="paginacao"
+              data-gtm-name="icone forward"
+              onClick={() => nextPage()}
+            >
               <ForwardIcon />
             </PaginationButton>
           </>
         )}
         <PaginationButton
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname="paginacao"
+          data-gtm-name="ultima"
           marginLeft="180"
           marginRight="10"
           padding="0 10px"

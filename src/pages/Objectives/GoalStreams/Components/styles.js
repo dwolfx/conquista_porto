@@ -14,7 +14,7 @@ export const WizardStep = styled.div`
   width: 100%;
 `
 
-export const WizardButtom = styled.div`
+export const WizardButton = styled.div`
   display: flex;
   justify-content: center;
   & > button:nth-child(2) {
@@ -75,6 +75,6 @@ export const TitleBar = styled(Text).attrs(() => ({ type: 'heading4' }))`
   }
 `
 
-export const Wrapper = styled.div`
+export const InputWrapper = styled.div`
   margin: 4rem auto;
 `

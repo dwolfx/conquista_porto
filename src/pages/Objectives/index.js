@@ -1,40 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory, useRouteMatch, Switch, Route } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Header from 'components/Wizard/Header'
+
+import { CleanObjectiveData } from 'store/modules/Objective/action'
+
 import Board from './Board'
+import GoalStreams from './GoalStreams'
 import Recommendation from './Recommendation'
 
 import { Container, RegistrationWrapper, BoartTitle } from './styles'
-import GoalStreams from './GoalStreams'
 
 const Objectives = () => {
+  const dispatch = useDispatch()
+  const [totalSteps, setTotalSteps] = useState(0)
   const match = useRouteMatch()
   const history = useHistory()
-  const objectiveData = useSelector(state => state.objective.data)
+  const { data: objectiveData, isLoading } = useSelector(
+    state => state.objective
+  )
+
+  // Use only for tests with recomendation
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(PostObjectiveDataRequest({}))
+  // }, [dispatch])
+
+  const handleSteps = data => {
+    setTotalSteps(data.length)
+  }
 
   return (
     <Switch>
       <Route path={`${match.path}/:objectiveId`}>
-        <GoalStreams />
+        <GoalStreams handleSteps={handleSteps} />
       </Route>
       <Route path={match.path}>
         <Container>
           <Header
             onClose={() => {
+              dispatch(CleanObjectiveData())
               history.push('/')
               document.documentElement.scrollTop = 0
               document.body.scrollTop = 0
             }}
+            showBackButton={!objectiveData}
           />
-          {!objectiveData ? (
+          {!objectiveData || !Object.keys(objectiveData).length ? (
             <RegistrationWrapper>
               <BoartTitle>Criar objetivo</BoartTitle>
               <Board />
             </RegistrationWrapper>
           ) : (
-            <Recommendation {...objectiveData} />
+            <Recommendation
+              data={objectiveData}
+              isLoading={isLoading}
+              totalSteps={totalSteps + 1}
+            />
           )}
         </Container>
       </Route>

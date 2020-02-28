@@ -7,7 +7,13 @@ import { AvatarWrapper } from './styles'
 
 export default function Avatar({ avatarUrl, ...rest }) {
   return (
-    <AvatarWrapper hasAvatar={!!avatarUrl} {...rest}>
+    <AvatarWrapper
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
+      data-gtm-name="Header - Avatar"
+      hasAvatar={!!avatarUrl}
+      {...rest}
+    >
       {avatarUrl ? (
         <img src={avatarUrl} alt="user pic" />
       ) : (

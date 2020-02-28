@@ -202,7 +202,14 @@ const InvestmentExtract = () => {
       <Section backgroundColor={themeContext.colors.gray1}>
         <Container backgroundColor={themeContext.colors.gray1}>
           <TableTabs>
-            <Tab className="active">Extrato</Tab>
+            <Tab
+              data-gtm-type="click"
+              data-gtm-clicktype="menu"
+              data-gtm-name="extrato"
+              className="active"
+            >
+              Extrato
+            </Tab>
           </TableTabs>
           <SelectWrapper>
             <Select
@@ -212,10 +219,13 @@ const InvestmentExtract = () => {
               options={selectOptions}
               onChange={handleChangeSelect}
               defaultValue={0}
+              selectTitle="filtrar por periodo"
             />
             {showDateFilter && (
               <>
                 <DateInput
+                  data-gtm-form="input"
+                  data-gtm-name="data inicial"
                   width={30}
                   label="Data inicial"
                   paddingRight={15}
@@ -237,6 +247,8 @@ const InvestmentExtract = () => {
                   }}
                 />
                 <DateInput
+                  data-gtm-form="input"
+                  data-gtm-name="data final"
                   width={30}
                   label="Data final"
                   paddingRight={15}
@@ -257,7 +269,13 @@ const InvestmentExtract = () => {
                     })
                   }}
                 />
-                <FilterButton onClick={() => filterByDate()}>
+                <FilterButton
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  data-gtm-subname="extrato"
+                  data-gtm-name="filtrar"
+                  onClick={() => filterByDate()}
+                >
                   Filtrar &gt;
                 </FilterButton>
               </>

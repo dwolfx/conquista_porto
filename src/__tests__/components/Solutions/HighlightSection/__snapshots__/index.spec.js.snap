@@ -2,18 +2,18 @@
 
 exports[`HighlightSection renders correctly 1`] = `
 <section
-  className="sc-htpNat hNjWdq"
+  className="sc-bxivhb dlDpbR"
 >
   <div
-    className="sc-bxivhb jSOFVZ"
+    className="sc-ifAKCX bAISMx"
   >
     <h1
-      className="sc-ifAKCX gunszn"
+      className="sc-EHOje nTaje"
     >
       Facilidade para investir
     </h1>
     <p
-      className="sc-EHOje gkqjBq"
+      className="sc-bZQynM feNivW"
     >
       Com o Conquista, é prático e rápido investir.
       <br />
@@ -23,12 +23,16 @@ exports[`HighlightSection renders correctly 1`] = `
     <br />
     <br />
     <button
-      className="sc-bdVaJa ciCnRE"
+      className="sc-bwzfXH hkrEio"
       color="secondary"
+      data-gtm-clicktype="button"
+      data-gtm-name="lista de fundos"
+      data-gtm-subname="Facilidade para investir"
+      data-gtm-type="click"
       onClick={[Function]}
     >
       <span
-        className="sc-bwzfXH eubHTp"
+        className="sc-htpNat dpHQoc"
       >
         lista de fundos
       </span>

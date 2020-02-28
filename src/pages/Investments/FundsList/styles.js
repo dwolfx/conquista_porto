@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import BreadcrumbCmp from 'components/Breadcrumb'
 import RiskDegreeComponent from 'components/RiskDegree'
 import {
   SelectWrapper,
@@ -16,6 +15,7 @@ export const GridContainer = styled(Container)`
 export const TopWrapper = styled(Row)`
   margin-top: 2rem;
   margin-bottom: 1rem;
+  justify-content: space-between;
 
   @media ${props => props.theme.mediaQueries.xs} {
     margin-top: 1rem;
@@ -46,22 +46,7 @@ export const TopWrapper = styled(Row)`
   }
 `
 
-export const Breadcrumb = styled(BreadcrumbCmp)`
-  flex: 1 0 auto;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    margin-bottom: 0.5rem;
-  }
-
-  @media ${props => props.theme.mediaQueries.md} {
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid ${props => props.theme.colors.gray3};
-  }
-`
-
 export const ContentWrapper = styled(Row)``
-
-export const BreadcrumbWrapper = styled.div``
 
 export const RiskDegree = styled(RiskDegreeComponent)`
   margin-left: auto;

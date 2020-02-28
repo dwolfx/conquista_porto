@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "nickname": "Minha facul",
+    "total_balance": 8200,
+    "remaining_value": 1500,
+    "target_value": 9700,
+    "percentage": 84.53
+  },
+  {
+    "id": "2",
+    "nickname": "Carro zero",
+    "total_balance": 9200,
+    "remaining_value": 2500,
+    "target_value": 11700,
+    "percentage": 78.63
+  }
+]

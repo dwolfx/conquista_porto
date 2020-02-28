@@ -1,17 +1,34 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { post } from 'services/api'
+import { get, post } from 'services/api'
 import { Types } from './types'
-import { PostObjectiveDataSuccess, PostObjectiveDataFailure } from './action'
+import {
+  GetObjectiveDataSuccess,
+  GetObjectiveDataFailure,
+  PostObjectiveDataSuccess,
+  PostObjectiveDataFailure,
+} from './action'
 
 function* postData(data) {
   const { payload } = data
   try {
-    const response = yield call(post, '/recommendation', payload)
+    const response = yield call(post, '/goal/recommendations', payload)
     yield put(PostObjectiveDataSuccess(response.data))
   } catch (err) {
     yield put(PostObjectiveDataFailure())
   }
 }
 
-export default all([takeLatest(Types.POST_REQUEST, postData)])
+function* getData() {
+  try {
+    const response = yield call(get, '/goal/goals')
+    yield put(GetObjectiveDataSuccess(response.data))
+  } catch (err) {
+    yield put(GetObjectiveDataFailure())
+  }
+}
+
+export default all([
+  takeLatest(Types.POST_REQUEST, postData),
+  takeLatest(Types.GET_REQUEST, getData),
+])

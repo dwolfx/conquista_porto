@@ -42,6 +42,24 @@ export const fundRiskColors = {
   highRisk: '#D0011B',
 }
 
+export const fundRiskColorsNew = {
+  lowRisk: themeColors.gray4,
+  lowMediumRisk: themeColors.blue4,
+  mediumRisk: themeColors.green3,
+  mediumHighRisk: themeColors.yellow2,
+  highRisk: themeColors.magenta2,
+}
+
+export const objectivesColorGuide = [
+  themeColors.magenta2,
+  themeColors.yellow2,
+  themeColors.green4,
+  themeColors.darkBlue2,
+  themeColors.darkBlue1,
+  themeColors.green5,
+  themeColors.magenta1,
+]
+
 export const gridConfig = {
   breakpoints: {
     xl: 1280,
@@ -105,8 +123,6 @@ export const fontTypes = {
     ...genericFontType,
     fontSize: 22,
     letterSpacing: 0,
-    textTransform: 'uppercase',
-    fontWeight: 300,
   },
   headline: {
     ...genericFontType,
@@ -154,6 +170,7 @@ export default {
   shadows,
   colors: themeColors,
   fundRiskColors,
+  fundRiskColorsNew,
   fontFamily: 'Open Sans',
   fontTypes,
   gutter: 14,

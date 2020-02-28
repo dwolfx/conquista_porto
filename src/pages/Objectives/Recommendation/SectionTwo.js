@@ -9,8 +9,9 @@ import IconButton from 'components/Button/Icon'
 import Icon from 'components/IconExporter'
 import PieChart from 'components/PieChart'
 import Divisor from 'components/Divisor'
-
+import Modal from 'components/Modal/ModalNew'
 import { formatMoney } from 'helpers'
+import ModalFundos from './ModalFundos'
 
 import {
   GridRow,
@@ -18,6 +19,7 @@ import {
   InfoContent,
   CardContainer,
   SpacedText,
+  SpacedValue,
   PieChartChildrenContainer,
   FundsTable,
   TableHeader,
@@ -30,6 +32,8 @@ import {
 
 const SectionTwo = ({ creditProduct, combo, funds }) => {
   const theme = useContext(ThemeContext)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [fundDetails, setFundDetails] = useState({})
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
 
   function groupBy(arr, key) {
@@ -64,18 +68,18 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         <Text color="gray4" type="captionUppercase">
           total inicial
         </Text>
-        <Text color="gray6" type="headline">
+        <Text truncate color="gray6" type="headline">
           {formatMoney(
-            funds.reduce((acc, curr) => acc + +curr.initialValue, 0)
+            funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
           )}
         </Text>
         <Divisor />
         <Text color="gray4" type="captionUppercase">
           total mensal
         </Text>
-        <Text type="headline">
+        <Text truncate type="headline">
           {formatMoney(
-            funds.reduce((acc, curr) => acc + +curr.monthlyValue, 0)
+            funds.reduce((acc, curr) => acc + +curr.monthly_value, 0)
           )}
         </Text>
       </PieChartChildrenContent>
@@ -91,7 +95,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
       theme.colors.darkBlue2,
     ]
 
-    const groupedData = groupBy(funds, 'categoryName')
+    const groupedData = groupBy(funds, 'category_name')
     const sortedData = Object.entries(groupedData).sort(
       (a, b) => b[1].length - a[1].length
     )
@@ -121,15 +125,36 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   function shouldApplyOpacity(fund) {
     if (
       !pieChartInfoChildren ||
-      pieChartInfoChildren.id === fund.categoryName
+      pieChartInfoChildren.id === fund.category_name
     ) {
       return false
     }
     return true
   }
 
+  let { name: productName } = creditProduct || ''
+  productName = (productName || '').toLowerCase()
+
+  const handleOpenModal = fund => {
+    setFundDetails(fund)
+    setIsModalOpen(!isModalOpen)
+  }
+
+  const handleCloseModal = () => {
+    setFundDetails({})
+    setIsModalOpen(false)
+  }
+
   return (
     <GridRow>
+      <Modal
+        modalTitle="Regras de condições"
+        alignItems="flex-start"
+        isOpen={isModalOpen}
+        handleClose={() => handleCloseModal()}
+      >
+        <ModalFundos fundDetails={fundDetails} />
+      </Modal>
       <Col lg={combo.length > 1 ? '9' : '12'}>
         <FullHeightCard headerIcon="financial" headerTitle="Fundos Sugeridos">
           <ContainerFunds>
@@ -200,7 +225,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         <Square
                           color={
                             graphValuesGenerator().find(
-                              item => item.id === fund.categoryName
+                              item => item.id === fund.category_name
                             ).color
                           }
                         />
@@ -219,20 +244,25 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         <Text type="body">{`${fund.profitability['12']}%`}</Text>
                       </TableData>
                       <TableData textAlign="right">
-                        <Text type="body">
-                          {formatMoney(fund.initialValue)}
+                        <Text truncate width="100px">
+                          {formatMoney(fund.initial_value)}
                         </Text>
                       </TableData>
                       <TableData textAlign="right">
-                        <Text type="body">
-                          {formatMoney(fund.monthlyValue)}
+                        <Text truncate width="100px">
+                          {formatMoney(fund.monthly_value)}
                         </Text>
                       </TableData>
                       <TableData textAlign="-webkit-center" width="100px">
                         <IconButton
+                          data-gtm-subname={`fundo ${fund.name}`}
+                          data-gtm-name="icone arrowright"
+                          data-gtm-type="click"
+                          data-gtm-clicktype="button"
                           icon="arrowright"
                           size="large"
                           color="secondary"
+                          onClick={() => handleOpenModal(fund)}
                         ></IconButton>
                       </TableData>
                     </TableRow>
@@ -244,20 +274,30 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </FullHeightCard>
       </Col>
 
-      {combo.length > 1 && (
+      {creditProduct && combo.length > 1 && (
         <Col lg="3">
-          <FullHeightCard headerIcon="carnew" headerTitle="Financiamento">
+          <FullHeightCard
+            headerIcon={
+              (productName.includes('financiamento') && 'money') ||
+              (productName.includes('consórcio de casa') && 'homewithwindow') ||
+              (productName.includes('consórcio de veículo') && 'car2')
+            }
+            headerTitle={creditProduct.name.split(' ')[0]}
+          >
             <CardContainer>
               {creditProduct.values.map((item, index) => (
                 <InfoContent key={index}>
                   <SpacedText type="captionUppercase" color="gray5">
                     {item.name}
                   </SpacedText>
-                  <SpacedText
-                    type="headline"
-                    color={item.checked ? 'green3' : 'gray6'}
-                  >
-                    {item.value}
+                  <SpacedValue>
+                    <SpacedText
+                      truncate
+                      type="headline"
+                      color={item.checked ? 'green3' : 'gray6'}
+                    >
+                      {item.value}
+                    </SpacedText>
                     {item.checked && (
                       <Icon
                         name="check"
@@ -265,14 +305,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         fill={theme.colors.green3}
                       />
                     )}
-                  </SpacedText>
-                  {item.info && (
-                    <Icon
-                      name="information"
-                      width="21px"
-                      fill={theme.colors.gray5}
-                    />
-                  )}
+                    {item.info && (
+                      <Icon
+                        name="information"
+                        width="21px"
+                        fill={theme.colors.gray5}
+                      />
+                    )}
+                  </SpacedValue>
                 </InfoContent>
               ))}
             </CardContainer>
@@ -292,13 +332,13 @@ SectionTwo.propTypes = {
       profitability: PropTypes.shape({
         '12': PropTypes.number,
       }),
-      quotationApplyDays: PropTypes.number,
-      financialApplyDays: PropTypes.number,
-      quotationRescueDays: PropTypes.number,
-      financialRescueDays: PropTypes.number,
-      initialValue: PropTypes.number,
-      monthlyValue: PropTypes.number,
-      categoryName: PropTypes.string,
+      quotation_apply_days: PropTypes.string,
+      financial_apply_days: PropTypes.string,
+      quotation_rescue_days: PropTypes.string,
+      financial_rescue_days: PropTypes.string,
+      initial_value: PropTypes.number,
+      monthly_value: PropTypes.number,
+      category_name: PropTypes.string,
     })
   ).isRequired,
 }

@@ -5,9 +5,22 @@ import { themeColors, fontTypes } from 'styles/theme'
 
 import { TextStyle } from './styles'
 
-export default function Text({ type, bold, color, children, ...rest }) {
+export default function Text({
+  type,
+  bold,
+  color,
+  children,
+  textAlign,
+  ...rest
+}) {
   return (
-    <TextStyle type={type} bold={bold} color={color} {...rest}>
+    <TextStyle
+      type={type}
+      bold={bold}
+      color={color}
+      textAlign={textAlign}
+      {...rest}
+    >
       {children}
     </TextStyle>
   )
@@ -15,9 +28,11 @@ export default function Text({ type, bold, color, children, ...rest }) {
 
 Text.propTypes = {
   bold: PropTypes.bool,
+  textAlign: PropTypes.oneOf(['left', 'center', 'right', 'unset']),
   children: PropTypes.node,
   type: PropTypes.oneOf(Object.keys(fontTypes)),
   color: PropTypes.oneOf([...Object.keys(themeColors), 'unset']),
+  truncate: PropTypes.bool,
 }
 
 Text.defaultProps = {
@@ -25,4 +40,6 @@ Text.defaultProps = {
   bold: false,
   type: 'body',
   color: 'unset',
+  textAlign: 'unset',
+  truncate: false,
 }

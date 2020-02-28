@@ -1,0 +1,259 @@
+{
+  "id": "1",
+  "nickname": "Disney",
+  "target_value": 22000,
+  "target_date": "10/10/2021",
+  "goal_type": 1,
+  "conquered": false,
+  "total_balance": 16000,
+  "years": [
+    {
+      "year": 2019,
+      "month_map": {
+        "4": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 2222
+        },
+        "5": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 6666
+        },
+        "6": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 123
+        },
+        "7": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "8": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "9": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5666
+        },
+        "10": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5000
+        },
+        "11": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5000
+        },
+        "12": {
+          "projected_balance": 2000,
+          "deposit": 4000,
+          "expected_deposit": 5000
+        }
+      }
+    },
+    {
+      "year": 2020,
+      "month_map": {
+        "1": {
+          "projected_balance": 1000,
+          "expected_deposit": 2000,
+          "deposit": 2000
+        },
+        "2": {
+          "projected_balance": 2000,
+          "deposit": 2355,
+          "expected_deposit": 3333
+        },
+        "3": {
+          "projected_balance": 2000,
+          "deposit": 555,
+          "expected_deposit": 3333
+        },
+        "4": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 2222
+        },
+        "5": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 6666
+        },
+        "6": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 123
+        },
+        "7": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "8": {
+          "projected_balance": 2000,
+          "deposit": 1000,
+          "expected_deposit": 3999
+        },
+        "9": {
+          "projected_balance": 2000,
+          "deposit": 2000,
+          "expected_deposit": 5666
+        },
+        "10": {
+          "projected_balance": 2000,
+          "deposit": 5000,
+          "expected_deposit": 5000
+        },
+        "11": {
+          "projected_balance": 2000,
+          "deposit": 5000,
+          "expected_deposit": 5000
+        },
+        "12": {
+          "projected_balance": 5000,
+          "deposit": 5000,
+          "expected_deposit": 5000
+        }
+      }
+    },
+    {
+      "year": 2021,
+      "month_map": {
+        "1": {
+          "projected_balance": 2000,
+          "deposit": 2355,
+          "expected_deposit": 5000
+        },
+        "2": {
+          "projected_balance": 2000,
+          "deposit": 2355,
+          "expected_deposit": 5000
+        },
+        "3": {
+          "projected_balance": 2000,
+          "deposit": 555,
+          "expected_deposit": 5000
+        },
+        "4": {
+          "projected_balance": 1000,
+          "expected_deposit": 1000,
+          "deposit": 1000
+        }
+      }
+    }
+  ],
+  "fund_list": [
+    {
+      "id": "1",
+      "recommended": true,
+      "name": "Porto Seguro Renda Fixa Referenciado DI Crédito Privado",
+      "initial_deposit": 1000,
+      "monthly_deposit": 1000,
+      "balance": 20000,
+      "available": 9100,
+      "invested": 1000,
+      "goals": [
+        {
+          "id": "2",
+          "name": "Las Vegas",
+          "value": 300,
+          "goal_type": 1
+        },
+        {
+          "id": "3",
+          "name": "Aposentadoria",
+          "value": 400,
+          "goal_type": 2
+        },
+        {
+          "id": "4",
+          "name": "Aposentadoria papai",
+          "value": 500,
+          "goal_type": 2
+        },
+        {
+          "id": "5",
+          "name": "Carro do Jorge",
+          "value": 600,
+          "goal_type": 3
+        },
+        {
+          "id": "6",
+          "name": "Meu carro",
+          "value": 700,
+          "goal_type": 3
+        },
+        {
+          "id": "7",
+          "name": "Facul",
+          "value": 800,
+          "goal_type": 4
+        },
+        {
+          "id": "8",
+          "name": "Pós",
+          "value": 900,
+          "goal_type": 4
+        },
+        {
+          "id": "9",
+          "name": "Niver",
+          "value": 1000,
+          "goal_type": 5
+        },
+        {
+          "id": "10",
+          "name": "Bodas de prata",
+          "value": 1100,
+          "goal_type": 5
+        },
+        {
+          "id": "11",
+          "name": "Meu apartamento",
+          "value": 1200,
+          "goal_type": 6
+        },
+        {
+          "id": "12",
+          "name": "Casa de praia",
+          "value": 1300,
+          "goal_type": 6
+        },
+        {
+          "id": "13",
+          "name": "Reserva",
+          "value": 1400,
+          "goal_type": 7
+        },
+        {
+          "id": "14",
+          "name": "Emergencia com o Pedrinho",
+          "value": 1500,
+          "goal_type": 7
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "recommended": false,
+      "name": "Porto Seguro Renda Fixa",
+      "initial_deposit": 2000,
+      "monthly_deposit": 2000,
+      "balance": 10000,
+      "available": 10000,
+      "invested": 10,
+      "goals": []
+    }
+  ],
+  "additional": {
+    "travel_security": false,
+    "life_security": true,
+    "credit_card": true
+  }
+}

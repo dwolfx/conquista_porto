@@ -4,9 +4,10 @@ import { useHistory } from 'react-router-dom'
 import { ResponsivePie } from '@nivo/pie'
 import { ThemeContext } from 'styled-components'
 
+import { handleGiwRedirect, formatMoney, formatCpf } from 'helpers'
+
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
-import { formatMoney, formatCpf } from 'helpers'
 import ConquistaButton from 'components/Button'
 import Accordion from 'components/Accordion'
 import {
@@ -36,7 +37,7 @@ export default function GeneralView() {
   ]
 
   const generalViewChartData = () => {
-    if (!generalViewData) {
+    if (!generalViewData || !generalViewData.length) {
       return []
     }
 
@@ -63,7 +64,9 @@ export default function GeneralView() {
             <Text fontSize={14} lineHeight={24}>
               Total:{' '}
               {formatMoney(
-                generalViewData ? generalViewData[0].visao_geral.total : 0
+                generalViewData && generalViewData.length
+                  ? generalViewData[0].visao_geral.total
+                  : 0
               )}
             </Text>
             <GraphHolder>
@@ -118,6 +121,10 @@ export default function GeneralView() {
               )}
             </Text>
             <LinkButton
+              data-gtm-subname="conta de investimentos"
+              data-gtm-name="ver extrato"
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
               onClick={() => {
                 history.push('/investimentos/extrato')
               }}
@@ -125,7 +132,17 @@ export default function GeneralView() {
               {' '}
               ver extrato &gt;{' '}
             </LinkButton>
-            <ConquistaButton>RETIRAR</ConquistaButton>
+            <ConquistaButton
+              data-gtm-subname="conta de investimentos"
+              data-gtm-name="retirar"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              onClick={() =>
+                handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
+              }
+            >
+              RETIRAR
+            </ConquistaButton>
           </General>
           <AccountInfo>
             <LineDivider />
@@ -140,7 +157,7 @@ export default function GeneralView() {
               )}
             </Text>
             {bankData.DadosContaPortoSeguro && (
-              <Accordion titleNode="Dados da conta">
+              <Accordion titleNode="Dados da conta" gtmName="dados da conta">
                 <Wrapper margin="0px 0px 10px 0px">
                   <Text fontSize={10} spacing={1.5} lineHeight={22}>
                     BANCO

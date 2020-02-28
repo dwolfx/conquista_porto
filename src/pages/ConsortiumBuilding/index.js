@@ -25,7 +25,7 @@ export default function ConsortiumBuilding() {
         imageDescription="Pai empurrando a filha em um balanço e uma casa ao fundo"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/consorcio-de-imoveis/simular'
+            'portaldecliente/conquista/consorcio-de-imoveis/simular?r=true'
           )
         }
       />
@@ -94,7 +94,7 @@ export default function ConsortiumBuilding() {
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/consorcio-de-imoveis/simular'
+            'portaldecliente/conquista/consorcio-de-imoveis/simular?r=true'
           )
         }
       />

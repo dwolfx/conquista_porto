@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { mobileItemsPropTypes } from 'components/HeaderNew/Mobile'
@@ -52,18 +52,56 @@ export default function Dropdown({
   nodes,
   containerPadding,
   redirectPath,
+  ...rest
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [childrenElements, setChildrenElements] = useState(null)
 
   const history = useHistory()
+  const containerRef = useRef(null)
+
+  function checkElementOut() {
+    const elementBounding = containerRef.current.getBoundingClientRect()
+
+    if (elementBounding.top < 0) {
+      containerRef.current.style.top = '0px'
+    }
+
+    if (elementBounding.left < 0) {
+      containerRef.current.style.left = '0px'
+    }
+
+    if (
+      elementBounding.bottom >
+      (window.innerHeight || document.documentElement.clientHeight)
+    ) {
+      const offsetDifference =
+        elementBounding.bottom -
+        (window.innerHeight || document.documentElement.clientHeight)
+      containerRef.current.style.top = `-${offsetDifference}px`
+    }
+
+    if (
+      elementBounding.right >
+      (window.innerWidth || document.documentElement.clientWidth)
+    ) {
+      const offsetDifference =
+        elementBounding.right -
+        (window.innerWidth || document.documentElement.clientWidth)
+      containerRef.current.style.left = `-${offsetDifference}px`
+    }
+  }
+
+  useEffect(() => {
+    if (isOpen) checkElementOut()
+  }, [isOpen])
 
   function handleDropDown(value) {
     setIsOpen(value)
   }
 
-  function handleMountChildren(elements) {
+  function handleMountChildren(elements, subMenuTitle) {
     if (!elements) {
       setIsHovering(false)
       return
@@ -73,6 +111,10 @@ export default function Dropdown({
     setChildrenElements(
       elements.map(element => (
         <ItemWrapper
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          data-gtm-subname={subMenuTitle}
+          data-gtm-name={element.text}
           key={element.text}
           onClick={() => element.path && handleClick(element.path)}
         >
@@ -105,7 +147,11 @@ export default function Dropdown({
           >
             {children}
           </div>
-          <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
+          <Container
+            ref={containerRef}
+            isOpen={isOpen}
+            onMouseLeave={() => handleMountChildren()}
+          >
             <Wrapper containerPadding={containerPadding}>
               {nodes.map(node => {
                 if (typeof node === 'function')
@@ -138,13 +184,24 @@ export default function Dropdown({
           >
             {children}
           </div>
-          <Container isOpen={isOpen} onMouseLeave={() => handleMountChildren()}>
+          <Container
+            ref={containerRef}
+            isOpen={isOpen}
+            onMouseLeave={() => handleMountChildren()}
+          >
             <Wrapper containerPadding={containerPadding}>
               {items.map(item => (
                 <ItemWrapper
+                  data-gtm-type="click"
+                  data-gtm-clicktype={item.children ? 'sub-menu' : 'link'}
+                  data-gtm-subname={rest.title}
+                  data-gtm-name={item.text}
                   key={item.text}
                   onMouseEnter={() =>
-                    handleMountChildren(item.children && item.children)
+                    handleMountChildren(
+                      item.children && item.children,
+                      item.text
+                    )
                   }
                   onClick={() => item.path && handleClick(item.path)}
                 >

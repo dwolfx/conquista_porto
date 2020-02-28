@@ -18,7 +18,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/consorcios/auto?cpf=${cpf}&codigoCanal=1`
+      `/invest/consorcios/auto?cpf=${cpf}&codigoCanal=1`
     )
     yield put(GetConsortiumVehicleDataSuccess(addId(response.data.consorcios)))
   } catch (err) {

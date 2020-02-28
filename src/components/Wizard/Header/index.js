@@ -17,14 +17,26 @@ const HeaderWizard = ({ showBackButton, onClose }) => {
   return (
     <Container>
       {showBackButton && (
-        <IconWrapper onClick={handleBack}>
+        <IconWrapper
+          data-gtm-subname="header"
+          data-gtm-name="botao voltar"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          onClick={handleBack}
+        >
           <Icon name="arrowleft" width={20} />
         </IconWrapper>
       )}
       <Content>
         <img src={Logo} alt="conquista logo png" />
       </Content>
-      <CloseButton onClick={onClose} />
+      <CloseButton
+        data-gtm-subname="header"
+        data-gtm-name="botao fechar"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        onClick={onClose}
+      />
     </Container>
   )
 }

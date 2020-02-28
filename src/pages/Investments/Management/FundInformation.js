@@ -83,6 +83,7 @@ export default function FundInformation({ fund }) {
               <Text>{moment().format('DD/MM/YYYY')}</Text>
             </HeaderNodeBalanceAccordion>
           }
+          gtmName="saldo bruto atual"
         >
           <CurrentBalance>
             <RowBankTransition>
@@ -205,6 +206,7 @@ export default function FundInformation({ fund }) {
             paddingRight={15}
             options={months}
             onChange={handleSelectChange}
+            selectTitle="rendimento bruto"
           />
         </GrossIncome>
       </div>

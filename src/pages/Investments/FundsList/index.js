@@ -15,7 +15,6 @@ import ListFunds from './List'
 import {
   GridContainer,
   TopWrapper,
-  Breadcrumb,
   ContentWrapper,
   RiskDegree,
   DropdownWrapper,
@@ -58,11 +57,6 @@ export default function FundsList() {
   return (
     <GridContainer as="section">
       <TopWrapper>
-        <Col xs="12" sm="12" md="4">
-          <Breadcrumb
-            crumbs={['SOLUÇÕES', 'INVESTIMENTOS', 'Lista de fundos']}
-          />
-        </Col>
         <DropdownWrapper xs="6" sm="6" md="4">
           <Text type="caption">Classificação de Risco</Text>
           <Dropdown currentValue={selectedRisk} onChange={setSelectedRisk} />

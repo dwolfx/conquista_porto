@@ -23,7 +23,7 @@ export default function VehicleFinancing() {
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/financiamento-de-veiculos/simular'
+            'portaldecliente/conquista/financiamento-de-veiculos/simular?r=true'
           )
         }
         image={Banner}
@@ -93,7 +93,7 @@ export default function VehicleFinancing() {
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/financiamento-de-veiculos/simular'
+            'portaldecliente/conquista/financiamento-de-veiculos/simular?r=true'
           )
         }
       />

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import objectiveTypes from 'components/Card/Objectives/types'
+import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
 
+import ObjectivesListContent from './ObjectiveListContent'
 import { tipsBanner } from './bannerData'
 import {
   EmptyBody,
@@ -15,17 +18,25 @@ import {
   BannerTips,
   FullHeightCard,
   FullHeightCardObjectives,
-  OfferCardButton,
   TipBannerContainer,
   ObjectivesContainer,
   BannerTipTitle,
+  ObjectivesListContainer,
 } from './styles'
 
-export default function SectionTwo({ onRedirect, objectives }) {
+export default function SectionTwo({ onRedirect }) {
   const isMobile = useMedia('sm')
   const [tipBannerIndex, setTipBannerIndex] = useState(0)
   const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
   const [maxObjectiveCards, setMaxObjectiveCards] = useState(2)
+  const objectives = useSelector(state => state.objective.objectives)
+  const hasObjectives = Boolean(objectives && objectives.length)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(GetObjectiveDataRequest())
+  }, [dispatch])
 
   useEffect(() => {
     setTipBannerIndex(Math.floor(Math.random() * (tipsBanner.length - 1)))
@@ -38,16 +49,20 @@ export default function SectionTwo({ onRedirect, objectives }) {
     setMaxObjectiveCards(isMobile ? 3 : 2)
   }, [isMobile])
 
-  const renderObjectiveCardFooter = () =>
-    objectives ? <OfferCardButton>Gerenciar objetivos</OfferCardButton> : null
-
   const renderEmptyState = () => (
     <EmptyBody>
       <EmptyText bold>
         Com os Objetivos, fica mais fácil alcançar suas metas. Definindo-os,
         você receberá planos de investimentos personalizados.
       </EmptyText>
-      <EmptyButton color="secondary" onClick={() => onRedirect('/objetivos/')}>
+      <EmptyButton
+        data-gtm-subname="card objetivos"
+        data-gtm-name="criar objetivo"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        color="secondary"
+        onClick={() => onRedirect('/objetivos/')}
+      >
         CRIAR OBJETIVO
       </EmptyButton>
     </EmptyBody>
@@ -69,12 +84,14 @@ export default function SectionTwo({ onRedirect, objectives }) {
   return (
     <>
       <SectionCol md="5">
-        <FullHeightCard
-          headerIcon="target"
-          headerTitle="Objetivos"
-          footer={renderObjectiveCardFooter()}
-        >
-          {objectives ? <Text>Listar objetivos</Text> : renderEmptyState()}
+        <FullHeightCard headerIcon="target" headerTitle="Objetivos">
+          {hasObjectives ? (
+            <ObjectivesListContainer>
+              <ObjectivesListContent objectives={objectives} />
+            </ObjectivesListContainer>
+          ) : (
+            renderEmptyState()
+          )}
         </FullHeightCard>
       </SectionCol>
 
@@ -108,11 +125,6 @@ export default function SectionTwo({ onRedirect, objectives }) {
   )
 }
 
-SectionTwo.defaultProps = {
-  objectives: null,
-}
-
 SectionTwo.propTypes = {
-  objectives: PropTypes.object,
   onRedirect: PropTypes.func.isRequired,
 }

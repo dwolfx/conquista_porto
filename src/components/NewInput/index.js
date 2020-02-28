@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { createRef, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -7,34 +7,46 @@ import {
   InputGroupWrapper,
   InputLabel,
   InputWrapper,
+  ErrorMessage,
+  ErrorIcon,
 } from './styles'
 
-const NewInput = ({ prefix, suffix, label, width, error, ...rest }) => {
-  const inputRef = useRef()
-  return (
-    <InputGroupWrapper>
-      {label && <InputLabel>{label}</InputLabel>}
-      <InputWrapper
-        onClick={() => {
-          inputRef.current.focus()
-        }}
-        width={width}
-        error={error}
-      >
-        {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-        <Input ref={inputRef} {...rest} />
-        {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
-      </InputWrapper>
-    </InputGroupWrapper>
-  )
-}
+const NewInput = forwardRef(
+  ({ prefix, suffix, label, width, error, ...rest }, ref) => {
+    const inputRef = ref || createRef()
+
+    return (
+      <InputGroupWrapper>
+        {label && <InputLabel>{label}</InputLabel>}
+        <InputWrapper
+          onClick={() => {
+            inputRef.current.focus()
+          }}
+          width={width}
+          error={error}
+          className={rest.className}
+        >
+          {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
+          <Input ref={inputRef} {...rest} />
+          {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
+          {error && (
+            <ErrorMessage>
+              <ErrorIcon name={error.icon} width="16px" />
+              {error.message}
+            </ErrorMessage>
+          )}
+        </InputWrapper>
+      </InputGroupWrapper>
+    )
+  }
+)
 
 NewInput.propTypes = {
   label: PropTypes.string,
   prefix: PropTypes.any,
   suffix: PropTypes.any,
   width: PropTypes.string,
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 }
 
 NewInput.defaultProps = {

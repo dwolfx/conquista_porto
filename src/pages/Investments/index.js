@@ -135,7 +135,15 @@ export default function Investments({ history }) {
               Crie objetivos e aproveite os planos personalizados que a
               ferramenta apresenta para investir com mais facilidade.
             </p>
-            <Button color="primary">Criar Objetivo</Button>
+            <Button
+              color="primary"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="banner - investindo em objetivos"
+              data-gtm-name="criar objetivo"
+            >
+              Criar Objetivo
+            </Button>
           </DescriptionContent>
         </CustomContent>
       </SectionCustomPicture>

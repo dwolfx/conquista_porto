@@ -31,7 +31,14 @@ const SimpleHeader = ({ header }) => {
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
-      <WrapperContent lineHeight="16px" isThead>
+      <WrapperContent
+        data-gtm-type="click"
+        data-gtm-clicktype="menu"
+        data-gtm-subname="menu de ordenação dos fundos"
+        data-gtm-name={headerContent}
+        lineHeight="16px"
+        isThead
+      >
         {headerContent && (
           <TheadText
             isSorted={header.isSorted}
@@ -53,6 +60,10 @@ const HeaderWithColumns = ({ header }) => (
     <WrapperContent>
       {header.columns.map(headerColumn => (
         <TheadColumn
+          data-gtm-type="click"
+          data-gtm-clicktype="menu"
+          data-gtm-subname="menu de ordenação dos fundos"
+          data-gtm-name={headerColumn.render('Header')}
           width={headerColumn.width}
           key={`inner-header-${headerColumn.Header}`}
           {...headerColumn.getHeaderProps(headerColumn.getSortByToggleProps())}

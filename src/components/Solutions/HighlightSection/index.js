@@ -25,7 +25,18 @@ export default function HighlightSection({
         </Text>
         <br />
         <br />
-        <Button color="secondary" onClick={onClick}>
+        <Button
+          color="secondary"
+          onClick={onClick}
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname={`${title}`}
+          data-gtm-name={
+            typeof buttonText === 'string'
+              ? buttonText
+              : buttonText.props.children[0]
+          }
+        >
           {buttonText}
         </Button>
       </Content>
