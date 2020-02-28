@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
@@ -123,18 +123,17 @@ const FundAccordionHeader = ({ fund }) => (
   </Row>
 )
 
-export default function Wallet({ fundList, goalName }) {
-  // const [fundValue, setFundValue] = useState({})
+export default function Wallet({ idFund, fundList, goalName }) {
   const theme = useContext(ThemeContext)
   const dispatch = useDispatch()
 
+  const { isLoading } = useSelector(state => state.objectiveManagement)
+
   const saveEditionsFunds = () => {
-    dispatch(
-      PostSaveFundsRequest({
-        fundList,
-      })
-    )
+    dispatch(PostSaveFundsRequest(idFund))
   }
+
+  console.log('--- fundList: ', fundList)
 
   return (
     <Col
@@ -156,6 +155,8 @@ export default function Wallet({ fundList, goalName }) {
         }}
         footer={
           <Button
+            loading={isLoading}
+            loadingColor="white"
             data-gtm-type="click"
             data-gtm-clicktype="button"
             data-gtm-subname="carteira de fundos"
@@ -329,6 +330,7 @@ FundAccordionHeader.propTypes = {
 }
 
 Wallet.propTypes = {
+  idFund: PropTypes.number.isRequired,
   fundList: PropTypes.array.isRequired,
   goalName: PropTypes.string.isRequired,
 }

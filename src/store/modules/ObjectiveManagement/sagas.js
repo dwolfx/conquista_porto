@@ -22,11 +22,22 @@ function* postData({ payload, pushHistory }) {
   }
 }
 
-function* postSaveFunds({ data, id }) {
-  const { payload } = data
+function* postSaveFunds({ fundId }) {
+  const data = {
+    fund_list: [
+      {
+        id: 51380129,
+        value: 300,
+      },
+      {
+        id: 5071,
+        value: 400,
+      },
+    ],
+  }
   try {
-    const response = yield call(post, `/goal/goals/${id}/funds`, payload)
-    yield put(PostSaveFundsSuccess(response.data))
+    const response = yield call(post, `/goal/goals/${fundId}/funds`, data)
+    yield put(PostSaveFundsSuccess(response))
   } catch (err) {
     yield put(PostSaveFundsFailure())
   }

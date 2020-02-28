@@ -32,13 +32,11 @@ export default function(state = INITIAL_STATE, action) {
     case Types.POST_SAVE_FUNDS_SUCCESS:
       return {
         ...state,
-        data: {},
         isLoading: false,
       }
     case Types.POST_SAVE_FUNDS_FAILURE:
       return {
         ...state,
-        data: {},
         isLoading: false,
       }
     default:

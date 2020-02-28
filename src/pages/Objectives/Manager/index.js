@@ -117,7 +117,11 @@ export default function Manager({ location }) {
       </ColumnWrapper>
 
       <WalletContainer>
-        <Wallet fundList={objectiveData.fund_list} goalName={nickname} />
+        <Wallet
+          idFund={objectiveData.id}
+          fundList={objectiveData.fund_list}
+          goalName={nickname}
+        />
       </WalletContainer>
 
       {Object.entries(objectiveData.additional).find(
