@@ -181,7 +181,11 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                 `}
               >
                 <thead>
-                  <TableRow>
+                  <TableRow
+                    css={`
+                      vertical-align: baseline;
+                    `}
+                  >
                     <TableHeader textAlign="left">
                       <Text type="captionUppercase" color="gray5">
                         fundo de investimento
@@ -253,7 +257,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           {formatMoney(fund.monthly_value)}
                         </Text>
                       </TableData>
-                      <TableData textAlign="-webkit-center" width="100px">
+                      <TableData textAlign="center" width="100px">
                         <IconButton
                           data-gtm-subname={`fundo ${fund.name}`}
                           data-gtm-name="icone arrowright"
