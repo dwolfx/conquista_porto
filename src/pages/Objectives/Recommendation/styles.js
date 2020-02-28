@@ -329,10 +329,15 @@ export const ProductBannerModal = styled(Modal)`
 
 export const ProductBannerContent = styled.div`
   width: 700px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: auto;
+  }
 `
 
 export const ProductBannerItemsContainer = styled(Row)`
   flex-wrap: wrap;
+  flex-direction: column;
 `
 
 export const ProductBannerItem = styled(Col)`
@@ -348,5 +353,9 @@ export const ProductBannerItem = styled(Col)`
   &:nth-child(3n),
   &:last-child {
     border-right: none;
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: auto;
   }
 `

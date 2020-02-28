@@ -6,6 +6,7 @@ import { Col } from 'styled-bootstrap-grid'
 
 import useValidator from 'pages/Objectives/GoalStreams/useValidator'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+import useMedia from 'hooks/useMedia'
 
 import TopBar from './TopBar'
 import QuestionInput from './QuestionInput'
@@ -18,6 +19,7 @@ export const WizardFlow = ({ data, objective }) => {
   const history = useHistory()
   const inputRef = useRef()
   const dispatch = useDispatch()
+  const isMobile = useMedia('sm')
   const [currentStep, setStepIndex] = useState(0)
   const [formData, setFormData] = useState(getFormEntries(data))
   const [isActive, setIsActive] = useState(false)
@@ -34,10 +36,13 @@ export const WizardFlow = ({ data, objective }) => {
 
   const postFlow = () => {
     dispatch(
-      PostObjectiveDataRequest({
-        goal_type: objective,
-        ...formData,
-      })
+      PostObjectiveDataRequest(
+        {
+          goal_type: objective,
+          ...formData,
+        },
+        isMobile
+      )
     )
   }
 

@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 
-import { PanelTabs, PanelList, PanelTab, SingleTab } from './styles'
+import { PanelTabs, PanelList, PanelTab, SingleTab, Icon } from './styles'
 
 const TabContext = createContext()
 
@@ -29,7 +29,14 @@ export const TabPanel = ({ name, children, ...restProps }) => {
   )
 }
 
-export const Tab = ({ name, className, onClick, children, ...restProps }) => {
+export const Tab = ({
+  name,
+  className,
+  onClick,
+  children,
+  icon,
+  ...restProps
+}) => {
   const tabContext = useContext(TabContext)
   const classNames = `${tabContext.activeTab === name ? 'active' : ''}`
 
@@ -40,7 +47,7 @@ export const Tab = ({ name, className, onClick, children, ...restProps }) => {
 
   return (
     <SingleTab className={classNames} onClick={handleClick} {...restProps}>
-      {children}
+      {children || <Icon name={icon.name} color={icon.color} />}
     </SingleTab>
   )
 }
@@ -64,9 +71,14 @@ Tab.propTypes = {
   className: PropTypes.string,
   children: PropTypes.string.isRequired,
   onClick: PropTypes.func,
+  icon: PropTypes.shape({
+    name: PropTypes.string,
+    color: PropTypes.string,
+  }),
 }
 
 Tab.defaultProps = {
   className: '',
   onClick: () => {},
+  icon: '',
 }

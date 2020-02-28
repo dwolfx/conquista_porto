@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
 import Text from 'components/Text'
+import ConquistaIcon from 'components/IconExporter'
+import DivisorComponent from 'components/Divisor'
 
 export const WrapperContent = styled.div`
   width: 644px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: auto;
+  }
 `
 
 export const PanelFooter = styled.div``
@@ -50,7 +56,7 @@ export const ButtonTab = styled(Button)`
 export const SingleItem = styled.div`
   border-bottom: ${props =>
     props.borderBottom ? `1px solid ${props.theme.colors.gray2}` : 'none'};
-  margin-bottom: 40px;
+  margin-bottom: 42px;
 
   &:last-child {
     margin-bottom: 0;
@@ -65,6 +71,13 @@ export const ListInfos = styled.ul`
 export const ListItems = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `
 
 export const ListFiles = styled(ListItems)``
@@ -98,6 +111,10 @@ export const Notification = styled.div`
   border-radius: 7px;
   padding: 18px;
   text-align: center;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 21px 14px;
+  }
 `
 
 export const Caption = styled(Text)`
@@ -107,4 +124,15 @@ export const Caption = styled(Text)`
   margin: 0 auto;
   max-width: 455px;
   text-transform: uppercase;
+`
+export const Icon = styled(ConquistaIcon).attrs({
+  name: props => props.name,
+  color: props => props.color,
+})`
+  width: 21px;
+  height: 21px;
+`
+
+export const Divisor = styled(DivisorComponent)`
+  margin: 28px 0;
 `
