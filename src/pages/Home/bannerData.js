@@ -5,31 +5,31 @@ import tipImg4 from 'assets/images/pages/Home/Banners/img_tip_4.jpg'
 
 export const tipsBanner = [
   {
-    caption: 'Dicas para alcançar seus objetivos',
-    title: 'Acompanhe suas metas',
+    caption: 'Dicas para economizar',
+    title: 'Registre todas as despesas',
     text:
-      'Nossa realidade e prioridades são tão mutáveis quanto o cenário econômico. Fique sempre de olho em seus objetivos e caso perceb...',
+      'O primeiro passo para começar a poupar e controlar seu dinheiro é descobrir onde ele está. ',
     image: tipImg1,
   },
   {
     caption: 'Dicas para alcançar seus objetivos',
-    title: 'Classifique seus objetivos',
+    title: 'Acompanhe suas metas',
     text:
-      'Muitas pessoas têm várias metas. Você espera alcançar mais de um objetivo? Uma boa ideia é tentar classificá-los em ordem de import...',
+      'Fique sempre de olho em seus objetivos. Caso perceba alguma mudança, reavalie seus investimentos ou outras despesas.',
     image: tipImg2,
   },
   {
-    caption: 'Dicas para economizar',
-    title: 'Registre todas as despesas',
+    caption: 'Dicas para alcançar seus objetivos',
+    title: 'Mantenha o foco',
     text:
-      'Como você pretende controlar seu dinheiro se não sabe onde ele está? Este é o primeiro passo para começar a poupar.',
+      'Disciplina é determinante para o sucesso. Portanto, lembre-se do objetivo maior quando surgirem distrações e despesas extras',
     image: tipImg3,
   },
   {
     caption: 'Dicas para economizar',
     title: 'Dia "Zero"',
     text:
-      'Escolha um dia da semana para ser seu dia zero gastos, não abrir a carteira significa economia garantida. Organize no calendário um d...',
+      'Escolha um dia na semana para ser seu dia sem gastos, não abrir a carteira significa economia garantida.',
     image: tipImg4,
   },
 ]

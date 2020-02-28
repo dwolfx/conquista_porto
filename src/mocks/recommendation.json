@@ -3,9 +3,9 @@
   "answer": {
     "nickname": "Disney",
     "target_date": "30/12/2019",
-    "target_value": 1700,
-    "initial_value": 5000,
-    "monthly_value": 2000,
+    "target_value": 70000000000000000,
+    "initial_value": 30000000000000000,
+    "monthly_value": 10000000000000000,
     "would_like_to_receive_before_final_date": false,
     "would_like_to_receive_monthly_income": false,
     "goal_type": "1",
@@ -16,15 +16,15 @@
     {
       "title": "Investimentos",
       "values": {
-        "Investimento Mensal": "R$ 80.000,00",
-        "Investimento Inicial": "R$ 920.000,00"
+        "Investimento Mensal": "R$ 80.000.000.000.000,00",
+        "Investimento Inicial": "R$ 920.000.000.000.000,00"
       },
       "total_value": 70000
     },
     {
       "title": "Financiamento de Veículo",
       "values": {
-        "Valor a Contratar": "R$ 69.999,00"
+        "Valor a Contratar": "R$ 69.999.000.000.000,00"
       },
       "total_value": 69999
     }
@@ -143,14 +143,14 @@
       "financial_apply_days": "D+0",
       "financial_rescue_days": "D+1 (Úteis)",
       "initial_date": "06/07/2012",
-      "initial_value": 450000,
+      "initial_value": 450000000000,
       "iof": "Regime Regressivo",
       "manager": "string",
       "min_balance": 0,
-      "min_initial_value": 1000,
+      "min_initial_value": 1000000000000,
       "min_movement": 0,
       "min_value_to_apply": 0,
-      "monthly_value": 30000,
+      "monthly_value": 30000000000,
       "name": "Occam Institucional II FIC Multimercado",
       "performance_rate": 20.0,
       "pl": 0,
@@ -381,6 +381,12 @@
         "value": "R$ 69.999,00",
         "checked": false,
         "info": "Valor esperado"
+      },
+      {
+        "name": "Valor a Contratar",
+        "value": "R$ 350.000.000.000.000.000,00",
+        "checked": true,
+        "info": false
       }
     ]
   },

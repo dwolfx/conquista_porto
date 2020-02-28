@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { Manager, Reference, Popper } from 'react-popper'
@@ -17,6 +17,10 @@ export default function Popover({
   ...rest
 }) {
   const [isOpen, setIsOpen] = useState(alwaysVisible)
+
+  useEffect(() => {
+    setIsOpen(alwaysVisible)
+  }, [alwaysVisible])
 
   const actions = () => {
     if (alwaysVisible) {
@@ -91,8 +95,8 @@ export default function Popover({
 Popover.propTypes = {
   alwaysVisible: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  content: PropTypes.oneOfType([PropTypes.func, PropTypes.string]).isRequired,
   placement: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
-  content: PropTypes.oneOfType(PropTypes.func, PropTypes.string).isRequired,
   trigger: PropTypes.string,
 }
 

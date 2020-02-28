@@ -22,16 +22,16 @@ function* getDataAndRedirect({ cpf, link, history }) {
     } else {
       const response = yield call(
         get,
-        `/invest/portopar/v1/cotista/perfil/investidor/${cpf}`
+        `/invest/portopar/cotista/perfil/investidor/${cpf}`
       )
-      console.log(response)
 
       if (response.status === 204) {
         yield put(GetSuitabilityDataNoContent())
         handleGiwRedirect(
           'portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil?r=true'
         )
-      } else {
+      }
+      if (response.status === 200) {
         yield put(GetSuitabilityDataSuccess(response.data))
         history.push(link)
       }

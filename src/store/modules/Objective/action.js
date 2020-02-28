@@ -39,3 +39,9 @@ export function PostObjectiveDataFailure() {
     type: Types.POST_FAILURE,
   }
 }
+
+export function CleanObjectiveData() {
+  return {
+    type: Types.CLEAN_DATA,
+  }
+}

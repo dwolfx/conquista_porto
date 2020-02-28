@@ -37,9 +37,8 @@ import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 
-import Recommendation from 'pages/Objectives/Recommendation'
 import Objectives from 'pages/Objectives'
-// import ObjectivesManager from 'pages/Objectives/Manager'
+import ObjectivesManager from 'pages/Objectives/Manager'
 
 import Notifications from 'pages/Notifications'
 import Login from 'pages/Login'
@@ -306,10 +305,15 @@ export default function Routes({ ...props }) {
         pageTitle="Pontos - Extrato"
       />
       <DefaultRoute
+        path="/objetivos/gerenciar/:objectiveId"
+        exact
+        component={ObjectivesManager}
+        pageTitle="Objetivos - Gerenciar"
+      />
+      <DefaultRoute
         path="/objetivos/gerenciar"
         exact
-        // component={ObjectivesManager}
-        component={Recommendation}
+        component={ObjectivesManager}
         pageTitle="Objetivos - Gerenciar"
       />
       <Route

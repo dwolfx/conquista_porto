@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 import { useSelector } from 'react-redux'
 
@@ -14,17 +13,17 @@ import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
+import TopicsIconContent from 'components/TopicsIconContent'
 
 import Icon from 'components/IconExporter'
 
 import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsortiumBuilding'
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -35,30 +34,7 @@ import {
   Text,
 } from './styles'
 
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 550,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-}
-
-export default function ManagementConsortiumBuilding({ history }) {
+export default function ManagementConsortiumBuilding() {
   const [selectedConsortiumBuilding, setSelectedConsortiumBuilding] = useState(
     null
   )
@@ -96,7 +72,9 @@ export default function ManagementConsortiumBuilding({ history }) {
               data-gtm-subname="card custodia visualizar"
               data-gtm-name="adcionar"
               onClick={() => {
-                history.push('/')
+                handleGiwRedirect(
+                  'portaldecliente/conquista/consorcio-de-imoveis/simular?r=true'
+                )
               }}
             >
               <Icon width="48" fill={themeContext.colors.gray3} name="add" />
@@ -147,7 +125,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                   isSelected={item.Id === selectedConsortiumBuilding}
                 >
                   <PageTitle>Contrato {index + 1}</PageTitle>
-                  <Topics settings={settings}>
+                  <TopicsIconContent>
                     <Topic>
                       <Icon
                         width="28"
@@ -183,7 +161,7 @@ export default function ManagementConsortiumBuilding({ history }) {
                         </TopicValue>
                       </div>
                     </Topic>
-                  </Topics>
+                  </TopicsIconContent>
                   <InvoiceContainer>
                     <InvoiceHeader>
                       <InstallmentContent>
@@ -304,10 +282,4 @@ export default function ManagementConsortiumBuilding({ history }) {
       />
     </>
   )
-}
-
-ManagementConsortiumBuilding.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }

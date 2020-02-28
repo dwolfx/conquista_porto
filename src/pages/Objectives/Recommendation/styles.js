@@ -13,9 +13,18 @@ import { CardBody } from 'components/Card/styles'
 export const SpacedText = styled(Text)`
   display: flex;
   margin: 7px 0;
+`
+
+export const SpacedValue = styled.div`
+  display: flex;
 
   svg {
     margin-left: 14px;
+  }
+
+  ${SpacedText} {
+    display: block;
+    max-width: 215px;
   }
 `
 
@@ -359,3 +368,10 @@ export const ProductBannerItem = styled(Col)`
     width: auto;
   }
 `
+
+// export const TextEllipsis = styled(Text)`
+//   max-width: ${props => (props.maxWidth ? props.maxWidth : 'inherit')};
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// `

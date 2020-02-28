@@ -57,7 +57,7 @@ export const PopoverContainer = styled.div`
   box-shadow: ${props => props.theme.shadows.gray2};
   padding: 14px;
   position: relative;
-  z-index: 11;
+  z-index: 9;
 `
 
 export const Arrow = styled.div`

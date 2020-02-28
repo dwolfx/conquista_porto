@@ -10,6 +10,7 @@ import HorizontalList from 'components/HorizontalList'
 import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
+
 import { rgba } from 'helpers'
 
 export const GridContainer = styled(Container)``
@@ -216,7 +217,7 @@ export const PointNumber = styled(Text)`
 
 export const EmptyProductItemRow = styled.div`
   width: 100%;
-  padding: 14px 0px;
+  padding: 7px 0px;
 `
 
 export const EmptyBody = styled.div`
@@ -435,18 +436,13 @@ export const ObjectivesContainer = styled(Row)`
   height: 50%;
   padding-bottom: 7px;
 `
-export const Icon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-  color: props => props.color,
-})`
+export const Icon = styled(ConquistaIcon)`
   width: 21px;
   height: 21px;
 `
 export const ObjectivesListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto;
+  padding: 0 7px;
 `
 
 export const ObjectivesTableContainer = styled.div`
@@ -467,11 +463,6 @@ export const ObjectivesAccordion = styled(AccordionNewComponent)`
   width: 100%;
   padding: 0px;
   margin: 0px;
-
-  button {
-    width: 100%;
-    margin: 7px 0;
-  }
 `
 
 export const ObjectiveDivisor = styled(DivisorComponent)`

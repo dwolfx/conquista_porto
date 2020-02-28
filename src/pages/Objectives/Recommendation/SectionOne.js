@@ -48,7 +48,7 @@ const SectionOne = ({ answer, combo, income }) => {
       <Text color="gray4" type="captionUppercase">
         {pieChartInfoChildren ? pieChartInfoChildren.label : 'meta'}
       </Text>
-      <Text type="headline">
+      <Text truncate type="headline">
         {pieChartInfoChildren
           ? formatMoney(pieChartInfoChildren.value)
           : formatMoney(answer.target_value)}
@@ -121,7 +121,13 @@ const SectionOne = ({ answer, combo, income }) => {
                         </Text>,
                       ]}
                       endItems={[
-                        <Text type="headline" color="gray6" bold>
+                        <Text
+                          truncate
+                          type="headline"
+                          color="gray6"
+                          width="130px"
+                          bold
+                        >
                           {value[1]}
                         </Text>,
                       ]}

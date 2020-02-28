@@ -18,18 +18,18 @@ import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
 import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
+import TopicsIconContent from 'components/TopicsIconContent'
 
 import Icon from 'components/IconExporter'
 
 import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -79,30 +79,7 @@ const moreDetailsData = [
   },
 ]
 
-const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 550,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-}
-
-export default function ManagementLifeInsurance({ history }) {
+export default function ManagementLifeInsurance() {
   useFetchLifeInsurance()
 
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -140,7 +117,9 @@ export default function ManagementLifeInsurance({ history }) {
                 data-gtm-subname="card custodia visualizar"
                 data-gtm-name="adicionar"
                 onClick={() => {
-                  history.push('/')
+                  handleGiwRedirect(
+                    'portaldecliente/conquista/seguro-de-vida/simular?r=true'
+                  )
                 }}
               >
                 <Icon width="48" fill="#ccc" name="add" />
@@ -170,7 +149,7 @@ export default function ManagementLifeInsurance({ history }) {
                     margin="0 0 14px 0"
                     textAlign="center"
                   >
-                    Seguro de Vida
+                    {item.Nome}
                   </Text>
                   <Text
                     fontSize="11px"
@@ -196,8 +175,8 @@ export default function ManagementLifeInsurance({ history }) {
                   selectedLifeInsurance.Apolice.LinkDownload
                 }
               >
-                <PageTitle>Seguro de Vida</PageTitle>
-                <Topics settings={settings}>
+                <PageTitle>{item.Nome}</PageTitle>
+                <TopicsIconContent>
                   <Topic>
                     <Icon
                       width="28"
@@ -240,7 +219,7 @@ export default function ManagementLifeInsurance({ history }) {
                       </ShowAll>
                     </div>
                   </Topic>
-                </Topics>
+                </TopicsIconContent>
                 <Section>
                   <Invoice>
                     <Text
@@ -261,6 +240,19 @@ export default function ManagementLifeInsurance({ history }) {
                   <Invoice>
                     <BeneficiarioContent data={selectedLifeInsurance} />
                   </Invoice>
+                </Section>
+                <Section>
+                  <FileDownloadSection
+                    data={[
+                      {
+                        title: 'INFORMAÇÕES COMPLEMENTARES',
+                        description:
+                          'Para saber mais detalhes sobre seu seguro, consulte sua apólice.',
+                        buttonText: 'BAIXAR ARQUIVO',
+                        url: item.Apolice.LinkDownload,
+                      },
+                    ]}
+                  />
                 </Section>
               </RightContent>
             ))}
@@ -567,10 +559,4 @@ BeneficiarioContent.propTypes = {
 
 ParcelContainer.propTypes = {
   data: PropTypes.object.isRequired,
-}
-
-ManagementLifeInsurance.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 }

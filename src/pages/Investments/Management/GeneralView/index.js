@@ -4,9 +4,10 @@ import { useHistory } from 'react-router-dom'
 import { ResponsivePie } from '@nivo/pie'
 import { ThemeContext } from 'styled-components'
 
+import { handleGiwRedirect, formatMoney, formatCpf } from 'helpers'
+
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
-import { formatMoney, formatCpf } from 'helpers'
 import ConquistaButton from 'components/Button'
 import Accordion from 'components/Accordion'
 import {
@@ -36,7 +37,7 @@ export default function GeneralView() {
   ]
 
   const generalViewChartData = () => {
-    if (!generalViewData) {
+    if (!generalViewData || !generalViewData.length) {
       return []
     }
 
@@ -63,7 +64,9 @@ export default function GeneralView() {
             <Text fontSize={14} lineHeight={24}>
               Total:{' '}
               {formatMoney(
-                generalViewData ? generalViewData[0].visao_geral.total : 0
+                generalViewData && generalViewData.length
+                  ? generalViewData[0].visao_geral.total
+                  : 0
               )}
             </Text>
             <GraphHolder>
@@ -134,6 +137,9 @@ export default function GeneralView() {
               data-gtm-name="retirar"
               data-gtm-type="click"
               data-gtm-clicktype="button"
+              onClick={() =>
+                handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
+              }
             >
               RETIRAR
             </ConquistaButton>

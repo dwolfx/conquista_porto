@@ -55,7 +55,7 @@ export const WizardFlow = ({ data, objective }) => {
   }
 
   useEffect(() => {
-    if (objectiveData && !isLoading) {
+    if (objectiveData && Object.keys(objectiveData).length && !isLoading) {
       history.push('/objetivos')
     }
   }, [history, isLoading, objectiveData])
@@ -120,6 +120,7 @@ export const WizardFlow = ({ data, objective }) => {
             onClick={postFlow}
             disabled={!isActive || isLoading}
             loading={isLoading}
+            loadingColor="white"
           >
             Concluir
           </ButtonAction>

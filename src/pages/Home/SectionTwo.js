@@ -18,7 +18,6 @@ import {
   BannerTips,
   FullHeightCard,
   FullHeightCardObjectives,
-  OfferCardButton,
   TipBannerContainer,
   ObjectivesContainer,
   BannerTipTitle,
@@ -31,6 +30,7 @@ export default function SectionTwo({ onRedirect }) {
   const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
   const [maxObjectiveCards, setMaxObjectiveCards] = useState(2)
   const objectives = useSelector(state => state.objective.objectives)
+  const hasObjectives = Boolean(objectives && objectives.length)
 
   const dispatch = useDispatch()
 
@@ -48,18 +48,6 @@ export default function SectionTwo({ onRedirect }) {
   useEffect(() => {
     setMaxObjectiveCards(isMobile ? 3 : 2)
   }, [isMobile])
-
-  const renderObjectiveCardFooter = () =>
-    objectives ? (
-      <OfferCardButton
-        data-gtm-subname="card objetivos"
-        data-gtm-name="gerenciar objetivos"
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-      >
-        Gerenciar objetivos
-      </OfferCardButton>
-    ) : null
 
   const renderEmptyState = () => (
     <EmptyBody>
@@ -96,12 +84,8 @@ export default function SectionTwo({ onRedirect }) {
   return (
     <>
       <SectionCol md="5">
-        <FullHeightCard
-          headerIcon="target"
-          headerTitle="Objetivos"
-          footer={renderObjectiveCardFooter()}
-        >
-          {objectives ? (
+        <FullHeightCard headerIcon="target" headerTitle="Objetivos">
+          {hasObjectives ? (
             <ObjectivesListContainer>
               <ObjectivesListContent objectives={objectives} />
             </ObjectivesListContainer>
