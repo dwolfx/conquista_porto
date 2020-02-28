@@ -24,11 +24,15 @@ function* postData({ payload, pushHistory }) {
 
 function* getData(payload) {
   try {
-    const { history } = payload
-    const response = yield call(get, `goal/goals/${payload.id}`)
+    const { history, path } = payload
+    const response = yield call(get, `/goal/goals/${payload.id}`)
 
     if (response.data) {
       yield put(GetObjectiveManagementDataSuccess(response.data))
+
+      if (path) {
+        history.push(path)
+      }
     } else {
       yield put(GetObjectiveManagementDataFailure())
       history.push('/objetivos')

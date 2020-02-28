@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
@@ -20,7 +21,9 @@ import { objectivesColorGuide } from 'styles/theme'
 import {
   AccordionContentWrapper,
   FullHeightCard,
+  LoadingStateContainer,
 } from 'pages/Objectives/Manager/styles'
+
 import {
   Slider,
   ObjectiveInfoBox,
@@ -124,19 +127,18 @@ const FundAccordionHeader = ({ fund }) => (
 
 export default function Wallet({ fundList, goalName, isLoading }) {
   const theme = useContext(ThemeContext)
+  const history = useHistory()
 
   const renderFundsList = () => {
     if (isLoading) {
       return (
-        <div
-          css={`
-            align-items: center;
-            display: flex;
-            height: 430px;
-          `}
-        >
-          <Loading />
-        </div>
+        <LoadingStateContainer>
+          <Loading
+            type="bar"
+            legend="Buscando suas informações"
+            placement="top"
+          />
+        </LoadingStateContainer>
       )
     }
 
@@ -253,6 +255,9 @@ export default function Wallet({ fundList, goalName, isLoading }) {
                               data-gtm-clicktype="link"
                               data-gtm-subname={goal.name}
                               data-gtm-name="gerenciar"
+                              onClick={() => {
+                                history.push(`/objetivos/gerenciar/${goal.id}`)
+                              }}
                             >
                               Gerenciar
                             </ButtonLink>

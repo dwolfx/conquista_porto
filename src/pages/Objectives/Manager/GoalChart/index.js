@@ -8,6 +8,8 @@ import IconExporter from 'components/IconExporter'
 import Loading from 'components/Loading'
 import { formatMoney } from 'helpers'
 
+import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
+
 import {
   ChartContainer,
   ButtonContainer,
@@ -257,15 +259,9 @@ export default function GoalChart({ data, isLoading }) {
 
   if (isLoading) {
     return (
-      <div
-        css={`
-          align-items: center;
-          display: flex;
-          height: 474px;
-        `}
-      >
+      <LoadingStateContainer>
         <Loading />
-      </div>
+      </LoadingStateContainer>
     )
   }
 

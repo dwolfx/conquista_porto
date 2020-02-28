@@ -28,6 +28,7 @@ import {
   WalletContainer,
   CardContent,
   FullHeightCard,
+  LoadingStateContainer,
 } from './styles'
 
 export default function Manager({ location }) {
@@ -37,7 +38,7 @@ export default function Manager({ location }) {
   const { data: objectiveData, isLoading: loadingData } = useSelector(
     state => state.objectiveManagement
   )
-  const [isLoading, setIsLoading] = useState(loadingData)
+  const [isLoading, setIsLoading] = useState(false)
   const [dataExists, setDataExists] = useState(
     Boolean(objectiveData && Object.entries(objectiveData).length !== 0)
   )
@@ -59,7 +60,7 @@ export default function Manager({ location }) {
     (objectiveData && objectiveData.id && +objectiveData.id !== +objectiveId) || // check if objectiveData exists and its id is equal to objectiveID
     !dataExists
   ) {
-    if (!isLoading) {
+    if (!loadingData) {
       // if isLoading is false, then dispatch action
       setIsLoading(true)
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
@@ -132,13 +133,16 @@ export default function Manager({ location }) {
       return (
         <FullHeightCard
           css={`
-            align-items: center;
-            display: flex;
-            height: 200px;
             width: 100%;
           `}
         >
-          <Loading />
+          <LoadingStateContainer>
+            <Loading
+              type="bar"
+              legend="Buscando suas informações"
+              placement="top"
+            />
+          </LoadingStateContainer>
         </FullHeightCard>
       )
     }

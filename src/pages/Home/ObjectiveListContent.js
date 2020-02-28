@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 
@@ -23,6 +23,7 @@ import {
 export default function ObjectiveListContent({ objectives }) {
   const dispatch = useDispatch()
   const history = useHistory()
+  const { isLoading } = useSelector(state => state.objectiveManagement)
   const horizontalListText = (text, type, color) => (
     <Text type={type} color={color}>
       {text}
@@ -119,10 +120,11 @@ export default function ObjectiveListContent({ objectives }) {
                   GetObjectiveManagementDataRequest({
                     id: objective.id,
                     history,
+                    path: `/objetivos/gerenciar/${objective.id}`,
                   })
                 )
-                history.push(`/objetivos/gerenciar/${objective.id}`)
               }}
+              loading={isLoading}
             >
               GERENCIAR
             </Button>
