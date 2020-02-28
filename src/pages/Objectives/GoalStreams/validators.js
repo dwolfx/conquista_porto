@@ -35,3 +35,11 @@ export const betweenLength = (minLength, maxLength, value) => {
     max,
   }
 }
+
+export const validateMinDate = (value, minDataErrorText) => {
+  if (isInvalidDate(value)) {
+    return 'Data inválida'
+  }
+  const isValid = minDate(value, 180)
+  return isValid ? undefined : minDataErrorText
+}
