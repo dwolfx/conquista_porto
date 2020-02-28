@@ -24,7 +24,7 @@ export default function Loading({
 
   return (
     <ComponentContainer>
-      {legend && placement === 'top' && (
+      {legend && (
         <LegendText type="headline" color="gray5" placement={placement}>
           {legend}
         </LegendText>
@@ -32,11 +32,6 @@ export default function Loading({
       <LoadingContainer>
         <LoadingBar color={color} />
       </LoadingContainer>
-      {legend && placement === 'bottom' && (
-        <LegendText type="headline" color="gray5" placement={placement}>
-          {legend}
-        </LegendText>
-      )}
     </ComponentContainer>
   )
 }

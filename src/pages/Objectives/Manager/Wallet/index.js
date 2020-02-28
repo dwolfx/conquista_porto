@@ -135,7 +135,7 @@ export default function Wallet({ fundList, goalName, isLoading }) {
         <LoadingStateContainer>
           <Loading
             type="bar"
-            legend="Buscando suas informações"
+            legend="Buscando suas informações..."
             placement="top"
           />
         </LoadingStateContainer>

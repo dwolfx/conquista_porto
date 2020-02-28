@@ -27,8 +27,6 @@ import {
   ColumnWrapper,
   WalletContainer,
   CardContent,
-  FullHeightCard,
-  LoadingStateContainer,
 } from './styles'
 
 export default function Manager({ location }) {
@@ -128,51 +126,6 @@ export default function Manager({ location }) {
     </ButtonLink>
   )
 
-  const renderCardCombine = () => {
-    if (isLoading) {
-      return (
-        <FullHeightCard
-          css={`
-            width: 100%;
-          `}
-        >
-          <LoadingStateContainer>
-            <Loading
-              type="bar"
-              legend="Buscando suas informações"
-              placement="top"
-            />
-          </LoadingStateContainer>
-        </FullHeightCard>
-      )
-    }
-
-    return dataExists ? (
-      Object.entries(objectiveData.additional).find(
-        ([, value]) => value === true
-      ) && (
-        <CardCombine
-          css={`
-            padding-top: 21px;
-          `}
-          additional={objectiveData.additional}
-          onClick={handleRedirectToProduct}
-        />
-      )
-    ) : (
-      <FullHeightCard
-        css={`
-          align-items: center;
-          display: flex;
-          height: 200px;
-          width: 100%;
-        `}
-      >
-        <Text>Nenhuma combinação possível</Text>
-      </FullHeightCard>
-    )
-  }
-
   return (
     <GridContainer>
       {pageRecommendation && (
@@ -219,10 +172,23 @@ export default function Manager({ location }) {
       </WalletContainer>
 
       <ColumnWrapper>
-        <Text type="heading3" color="gray6">
-          Combine com o seu objetivo
-        </Text>
-        {renderCardCombine()}
+        {dataExists &&
+          Object.entries(objectiveData.additional).find(
+            ([, value]) => value === true
+          ) && (
+            <>
+              <Text type="heading3" color="gray6">
+                Combine com o seu objetivo
+              </Text>
+              <CardCombine
+                css={`
+                  padding-top: 21px;
+                `}
+                additional={objectiveData.additional}
+                onClick={handleRedirectToProduct}
+              />
+            </>
+          )}
       </ColumnWrapper>
     </GridContainer>
   )

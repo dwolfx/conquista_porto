@@ -260,7 +260,11 @@ export default function GoalChart({ data, isLoading }) {
   if (isLoading) {
     return (
       <LoadingStateContainer>
-        <Loading />
+        <Loading
+          type="bar"
+          legend="Buscando suas informações..."
+          placement="top"
+        />
       </LoadingStateContainer>
     )
   }

@@ -45,4 +45,5 @@ export const LoadingBar = styled.div`
 export const LegendText = styled(Text)`
   margin-bottom: ${props => (props.placement === 'top' ? '21px' : 0)};
   margin-top: ${props => (props.placement === 'bottom' ? '21px' : 0)};
+  order: ${props => (props.placement === 'top' ? 0 : 2)};
 `
