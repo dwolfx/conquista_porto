@@ -157,6 +157,7 @@ export default function Slider({
       />
       {showTooltip ? (
         <ThumbPopover
+          flippable={false}
           content={() => (
             <>
               <Input
