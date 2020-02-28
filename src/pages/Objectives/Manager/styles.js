@@ -55,3 +55,10 @@ export const CardContent = styled.div`
   height: 100%;
   padding: 35px 0 14px 0;
 `
+
+export const LoadingStateContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: 474px;
+  justify-content: center;
+`

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
@@ -9,6 +10,7 @@ import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Icon from 'components/IconExporter'
+import Loading from 'components/Loading'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 
@@ -19,7 +21,9 @@ import { objectivesColorGuide } from 'styles/theme'
 import {
   AccordionContentWrapper,
   FullHeightCard,
+  LoadingStateContainer,
 } from 'pages/Objectives/Manager/styles'
+
 import {
   Slider,
   ObjectiveInfoBox,
@@ -121,8 +125,161 @@ const FundAccordionHeader = ({ fund }) => (
   </Row>
 )
 
-export default function Wallet({ fundList, goalName }) {
+export default function Wallet({ fundList, goalName, isLoading }) {
   const theme = useContext(ThemeContext)
+  const history = useHistory()
+
+  const renderFundsList = () => {
+    if (isLoading) {
+      return (
+        <LoadingStateContainer>
+          <Loading
+            type="bar"
+            legend="Buscando suas informações..."
+            placement="top"
+          />
+        </LoadingStateContainer>
+      )
+    }
+
+    return fundList ? (
+      fundList.map((fund, index) => (
+        <React.Fragment key={fund.id}>
+          <Accordion
+            openByDefault={index === 0}
+            titleNode={<FundAccordionHeader fund={fund} />}
+            triggerCloseOnArrow
+            bodyPadding="42px 42px 0 0"
+          >
+            <AccordionContentWrapper margin="0 0 7px 0">
+              <Row>
+                <Col
+                  md="3"
+                  css={`
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    border-right: 1px solid ${theme.colors.gray2};
+                  `}
+                >
+                  <Row>
+                    <Col md="6">
+                      <Text type="captionUppercase" color="gray4">
+                        Inv. Inicial
+                      </Text>
+                      <Text type="headline" color="gray6">
+                        {formatMoney(fund.initial_deposit)}
+                      </Text>
+                    </Col>
+                    <Col md="6">
+                      <Text type="captionUppercase" color="gray4">
+                        Inv. Mensal
+                      </Text>
+                      <Text type="headline" color="gray6">
+                        {formatMoney(fund.monthly_deposit)}
+                      </Text>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md="12">
+                      <Button
+                        data-gtm-type="click"
+                        data-gtm-clicktype="button"
+                        data-gtm-subname={fund.name}
+                        data-gtm-name="Investir"
+                        css={`
+                          margin-top: 63px;
+                          width: 100%;
+                        `}
+                        onClick={() => {
+                          window.open(
+                            `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idFundo=${fund.id}`,
+                            '_blank'
+                          )
+                        }}
+                      >
+                        Investir
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
+                <Col md="9">
+                  <Row>
+                    <Col md="9" offset="3">
+                      <ObjectivesInfoContainer>
+                        <ObjectiveInfoBox>
+                          <Text>
+                            <ObjectiveInfoColor
+                              css={`
+                                background-color: ${theme.colors.blue4};
+                              `}
+                            />
+                            #{goalName}
+                          </Text>
+                          <Text>{formatMoney(fund.invested)}</Text>
+                        </ObjectiveInfoBox>
+                        <ObjectiveInfoBox>
+                          <Text>
+                            <ObjectiveInfoColor
+                              css={`
+                                background-color: ${theme.colors.gray3};
+                              `}
+                            />
+                            Sem objetivo
+                          </Text>
+                          <Text>{formatMoney(fund.available)}</Text>
+                        </ObjectiveInfoBox>
+                        {fund.goals.map((goal, key) => (
+                          <ObjectiveInfoBox
+                            key={`goal-${goal.id}`}
+                            css={`
+                              justify-content: space-between;
+                            `}
+                          >
+                            <div>
+                              <Text>
+                                <ObjectiveInfoColor
+                                  css={`
+                                    background-color: ${getColorGuide(key)};
+                                  `}
+                                />
+                                #{goal.name}
+                              </Text>
+                              <Text>{formatMoney(goal.value)}</Text>
+                            </div>
+                            <ButtonLink
+                              css={`
+                                margin-top: 14px;
+                              `}
+                              data-gtm-type="click"
+                              data-gtm-clicktype="link"
+                              data-gtm-subname={goal.name}
+                              data-gtm-name="gerenciar"
+                              onClick={() => {
+                                history.push(`/objetivos/gerenciar/${goal.id}`)
+                              }}
+                            >
+                              Gerenciar
+                            </ButtonLink>
+                          </ObjectiveInfoBox>
+                        ))}
+                      </ObjectivesInfoContainer>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </AccordionContentWrapper>
+          </Accordion>
+          {index !== fundList.length - 1 && <Divisor />}
+        </React.Fragment>
+      ))
+    ) : (
+      <div>
+        <Text>Nenhum fundo disponível</Text>
+      </div>
+    )
+  }
+
   return (
     <Col
       css={`
@@ -142,24 +299,26 @@ export default function Wallet({ fundList, goalName }) {
           onClick: () => console.log('salvou alterações'),
         }}
         footer={
-          <Button
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            data-gtm-subname="carteira de fundos"
-            data-gtm-name="adicionar fundo"
-            outline
-            css={`
-              width: 100%;
-            `}
-            onClick={() => {
-              window.open(
-                'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/investimentos/info-fundos-investimento',
-                '_blank'
-              )
-            }}
-          >
-            Adicionar fundo
-          </Button>
+          !isLoading && !fundList ? (
+            <Button
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="carteira de fundos"
+              data-gtm-name="adicionar fundo"
+              outline
+              css={`
+                width: 100%;
+              `}
+              onClick={() => {
+                window.open(
+                  'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/investimentos/info-fundos-investimento',
+                  '_blank'
+                )
+              }}
+            >
+              Adicionar fundo
+            </Button>
+          ) : null
         }
       >
         <div
@@ -167,133 +326,7 @@ export default function Wallet({ fundList, goalName }) {
             padding-top: 21px;
           `}
         >
-          {fundList.map((fund, index) => (
-            <React.Fragment key={fund.id}>
-              <Accordion
-                openByDefault={index === 0}
-                titleNode={<FundAccordionHeader fund={fund} />}
-                triggerCloseOnArrow
-                bodyPadding="42px 42px 0 0"
-              >
-                <AccordionContentWrapper margin="0 0 7px 0">
-                  <Row>
-                    <Col
-                      md="3"
-                      css={`
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        border-right: 1px solid ${theme.colors.gray2};
-                      `}
-                    >
-                      <Row>
-                        <Col md="6">
-                          <Text type="captionUppercase" color="gray4">
-                            Inv. Inicial
-                          </Text>
-                          <Text type="headline" color="gray6">
-                            {formatMoney(fund.initial_deposit)}
-                          </Text>
-                        </Col>
-                        <Col md="6">
-                          <Text type="captionUppercase" color="gray4">
-                            Inv. Mensal
-                          </Text>
-                          <Text type="headline" color="gray6">
-                            {formatMoney(fund.monthly_deposit)}
-                          </Text>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col md="12">
-                          <Button
-                            data-gtm-type="click"
-                            data-gtm-clicktype="button"
-                            data-gtm-subname={fund.name}
-                            data-gtm-name="Investir"
-                            css={`
-                              margin-top: 63px;
-                              width: 100%;
-                            `}
-                            onClick={() => {
-                              window.open(
-                                `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idFundo=${fund.id}`,
-                                '_blank'
-                              )
-                            }}
-                          >
-                            Investir
-                          </Button>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col md="9">
-                      <Row>
-                        <Col md="9" offset="3">
-                          <ObjectivesInfoContainer>
-                            <ObjectiveInfoBox>
-                              <Text>
-                                <ObjectiveInfoColor
-                                  css={`
-                                    background-color: ${theme.colors.blue4};
-                                  `}
-                                />
-                                #{goalName}
-                              </Text>
-                              <Text>{formatMoney(fund.invested)}</Text>
-                            </ObjectiveInfoBox>
-                            <ObjectiveInfoBox>
-                              <Text>
-                                <ObjectiveInfoColor
-                                  css={`
-                                    background-color: ${theme.colors.gray3};
-                                  `}
-                                />
-                                Sem objetivo
-                              </Text>
-                              <Text>{formatMoney(fund.available)}</Text>
-                            </ObjectiveInfoBox>
-                            {fund.goals.map((goal, key) => (
-                              <ObjectiveInfoBox
-                                key={`goal-${goal.id}`}
-                                css={`
-                                  justify-content: space-between;
-                                `}
-                              >
-                                <div>
-                                  <Text>
-                                    <ObjectiveInfoColor
-                                      css={`
-                                        background-color: ${getColorGuide(key)};
-                                      `}
-                                    />
-                                    #{goal.name}
-                                  </Text>
-                                  <Text>{formatMoney(goal.value)}</Text>
-                                </div>
-                                <ButtonLink
-                                  css={`
-                                    margin-top: 14px;
-                                  `}
-                                  data-gtm-type="click"
-                                  data-gtm-clicktype="link"
-                                  data-gtm-subname={goal.name}
-                                  data-gtm-name="gerenciar"
-                                >
-                                  Gerenciar
-                                </ButtonLink>
-                              </ObjectiveInfoBox>
-                            ))}
-                          </ObjectivesInfoContainer>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Row>
-                </AccordionContentWrapper>
-              </Accordion>
-              {index !== fundList.length - 1 && <Divisor />}
-            </React.Fragment>
-          ))}
+          {renderFundsList()}
         </div>
       </FullHeightCard>
     </Col>
@@ -316,6 +349,26 @@ FundAccordionHeader.propTypes = {
 }
 
 Wallet.propTypes = {
-  fundList: PropTypes.array.isRequired,
-  goalName: PropTypes.string.isRequired,
+  fundList: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      recommended: PropTypes.bool,
+      goals: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string,
+        })
+      ),
+      available: PropTypes.number,
+      invested: PropTypes.number,
+      balance: PropTypes.number,
+    })
+  ),
+  goalName: PropTypes.string,
+  isLoading: PropTypes.bool,
+}
+
+Wallet.defaultProps = {
+  fundList: [],
+  goalName: '',
+  isLoading: false,
 }

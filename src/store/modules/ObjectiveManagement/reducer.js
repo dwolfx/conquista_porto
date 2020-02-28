@@ -24,6 +24,23 @@ export default function(state = INITIAL_STATE, action) {
         data: {},
         isLoading: false,
       }
+    case Types.GET_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      }
+    case Types.GET_SUCCESS:
+      return {
+        ...state,
+        data: action.payload,
+        isLoading: false,
+      }
+    case Types.GET_FAILURE:
+      return {
+        ...state,
+        data: {},
+        isLoading: false,
+      }
     default:
       return state
   }

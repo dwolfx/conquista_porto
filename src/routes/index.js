@@ -305,6 +305,12 @@ export default function Routes({ ...props }) {
         pageTitle="Pontos - Extrato"
       />
       <DefaultRoute
+        path="/objetivos/gerenciar/:objectiveId"
+        exact
+        component={ObjectivesManager}
+        pageTitle="Objetivos - Gerenciar"
+      />
+      <DefaultRoute
         path="/objetivos/gerenciar"
         exact
         component={ObjectivesManager}
