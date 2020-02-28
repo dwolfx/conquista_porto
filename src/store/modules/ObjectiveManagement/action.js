@@ -20,3 +20,23 @@ export function PostObjectiveManagementDataFailure() {
     type: Types.POST_FAILURE,
   }
 }
+
+export function PostSaveFundsRequest(id) {
+  return {
+    type: Types.POST_SAVE_FUNDS_REQUEST,
+    fundId: id,
+  }
+}
+
+export function PostSaveFundsSuccess(payload) {
+  return {
+    type: Types.POST_SAVE_FUNDS_SUCCESS,
+    payload,
+  }
+}
+
+export function PostSaveFundsFailure() {
+  return {
+    type: Types.POST_SAVE_FUNDS_FAILURE,
+  }
+}

@@ -7,6 +7,8 @@ import { Types } from './types'
 import {
   PostObjectiveManagementDataSuccess,
   PostObjectiveManagementDataFailure,
+  PostSaveFundsSuccess,
+  PostSaveFundsFailure,
 } from './action'
 
 function* postData({ payload, pushHistory }) {
@@ -20,4 +22,17 @@ function* postData({ payload, pushHistory }) {
   }
 }
 
-export default all([takeLatest(Types.POST_REQUEST, postData)])
+function* postSaveFunds({ data, id }) {
+  const { payload } = data
+  try {
+    const response = yield call(post, `/goal/goals/${id}/funds`, payload)
+    yield put(PostSaveFundsSuccess(response.data))
+  } catch (err) {
+    yield put(PostSaveFundsFailure())
+  }
+}
+
+export default all([
+  takeLatest(Types.POST_REQUEST, postData),
+  takeLatest(Types.POST_SAVE_FUNDS_REQUEST, postSaveFunds),
+])

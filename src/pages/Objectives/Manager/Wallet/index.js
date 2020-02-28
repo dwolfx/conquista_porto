@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
@@ -13,6 +14,7 @@ import Popover from 'components/Popover'
 import Text from 'components/Text'
 
 import { formatMoney } from 'helpers'
+import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import { objectivesColorGuide } from 'styles/theme'
 
@@ -122,7 +124,18 @@ const FundAccordionHeader = ({ fund }) => (
 )
 
 export default function Wallet({ fundList, goalName }) {
+  // const [fundValue, setFundValue] = useState({})
   const theme = useContext(ThemeContext)
+  const dispatch = useDispatch()
+
+  const saveEditionsFunds = () => {
+    dispatch(
+      PostSaveFundsRequest({
+        fundList,
+      })
+    )
+  }
+
   return (
     <Col
       css={`
@@ -139,7 +152,7 @@ export default function Wallet({ fundList, goalName }) {
           'data-gtm-clicktype': 'button',
           'data-gtm-subname': 'carteira de fundos',
           'data-gtm-name': 'salvar alteracoes',
-          onClick: () => console.log('salvou alterações'),
+          onClick: () => saveEditionsFunds(),
         }}
         footer={
           <Button
