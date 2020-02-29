@@ -4,7 +4,8 @@ import { AccordionHeader, AccordionBody } from 'components/Accordion/styles'
 import Carousel from 'components/Carousel'
 import LeftNavDefault from 'components/Management/LeftNav'
 import RightContentDefault from 'components/Management/RightContent'
-import TextComponent from 'components/Text'
+import ConquistaText from 'components/Text'
+import ConquistaIcon from 'components/IconExporter'
 
 export const LeftNav = styled(LeftNavDefault)`
   @media ${props => props.theme.mediaQueries.md} {
@@ -341,7 +342,7 @@ export const ComplementaryInfo = styled.article`
   padding-bottom: 22px;
 `
 
-export const FundCategoryText = styled(TextComponent).attrs(() => ({
+export const FundCategoryText = styled(ConquistaText).attrs(() => ({
   type: 'subheading',
   bold: true,
 }))`
@@ -352,4 +353,34 @@ export const FundCategoryText = styled(TextComponent).attrs(() => ({
 
 export const RightContent = styled(RightContentDefault)`
   width: 100%;
+`
+
+export const SelectBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    margin-left: 7px;
+  }
+`
+
+export const SelectItem = styled.div`
+  width: 100%;
+  padding: 0 21px;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.gray2};
+  }
+`
+
+export const SelectIcon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+  color: props.color,
+}))`
+  width: 21px;
+  height: 21px;
+  background-color: ${props => props.theme.colors.blue4};
+  border-radius: 50%;
+  stroke: ${props => props.name === 'arrowdown' && props.theme.colors.white};
 `

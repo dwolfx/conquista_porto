@@ -4,7 +4,7 @@ import moment from 'moment'
 import PropTypes from 'prop-types'
 
 import Icon from 'components/IconExporter'
-import SelectInput from 'components/Inputs/Select'
+import DropDown from 'components/DropdownNew'
 
 import { formatMoney } from 'helpers'
 
@@ -22,6 +22,9 @@ import {
   Text,
   RowBankTransition,
   BankTransitionDateWrapper,
+  SelectBox,
+  SelectItem,
+  SelectIcon,
 } from './styles'
 
 export default function FundInformation({ fund }) {
@@ -30,17 +33,32 @@ export default function FundInformation({ fund }) {
   const [incomeValue, setIncomeValue] = useState(
     fund.rendimentos.rendimento[months[0].value].valorrendimento
   )
+  const [selectValue, setSelectValue] = useState('')
 
   useEffect(() => {
     setIncomeValue(fund.rendimentos.rendimento[months[0].value].valorrendimento)
   }, [fund])
 
-  const handleSelectChange = e => {
-    const selectValue = e.target.value ? e.target.value : 0
-
+  const handleSelectChange = item => {
+    setSelectValue(item.name)
     setIncomeValue(
-      fund.rendimentos.rendimento[months[selectValue].value].valorrendimento
+      fund.rendimentos.rendimento[months[item.value].value].valorrendimento
     )
+  }
+
+  function renderSelectItems(closeFunc) {
+    const handleClick = item => {
+      handleSelectChange(item)
+      closeFunc()
+    }
+
+    const nodes = months.map(item => (
+      <SelectItem key={item.name} onClick={() => handleClick(item)}>
+        {item.name}
+      </SelectItem>
+    ))
+
+    return nodes
   }
 
   return (
@@ -201,13 +219,16 @@ export default function FundInformation({ fund }) {
         <GrossIncome>
           <Text>Rendimento Bruto</Text>
           <Text>{formatMoney(incomeValue)}</Text>
-          <SelectInput
-            width={40}
-            paddingRight={15}
-            options={months}
-            onChange={handleSelectChange}
-            selectTitle="rendimento bruto"
-          />
+          <DropDown
+            nodes={[renderSelectItems]}
+            customWidth="auto"
+            containerPadding="0px"
+          >
+            <SelectBox>
+              {selectValue || 'Selecione'}
+              <SelectIcon name="arrowdown" color="white" />
+            </SelectBox>
+          </DropDown>
         </GrossIncome>
       </div>
     </>
