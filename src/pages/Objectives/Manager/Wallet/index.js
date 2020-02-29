@@ -155,7 +155,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   useEffect(() => {
     setfundListCopy(fundList)
   }, [fundList])
-  
+
   useEffect(() => {
     setValue(value)
   }, [value])
