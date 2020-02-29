@@ -40,3 +40,23 @@ export function GetObjectiveManagementDataFailure() {
     type: Types.GET_FAILURE,
   }
 }
+
+export function DeleteObjectiveRequest(id, pushHistoryToHomeScreen) {
+  return {
+    type: Types.DELETE_REQUEST,
+    payload: { id, pushHistoryToHomeScreen },
+  }
+}
+
+export function DeleteObjectiveSuccess(payload) {
+  return {
+    type: Types.DELETE_SUCCESS,
+    payload,
+  }
+}
+
+export function DeleteObjectiveFailure() {
+  return {
+    type: Types.DELETE_FAILURE,
+  }
+}
