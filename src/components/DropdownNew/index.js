@@ -50,6 +50,7 @@ export default function Dropdown({
   items,
   children,
   nodes,
+  customWidth,
   containerPadding,
   redirectPath,
   ...rest
@@ -152,7 +153,10 @@ export default function Dropdown({
             isOpen={isOpen}
             onMouseLeave={() => handleMountChildren()}
           >
-            <Wrapper containerPadding={containerPadding}>
+            <Wrapper
+              containerPadding={containerPadding}
+              customWidth={customWidth}
+            >
               {nodes.map(node => {
                 if (typeof node === 'function')
                   return node(() =>
@@ -189,7 +193,10 @@ export default function Dropdown({
             isOpen={isOpen}
             onMouseLeave={() => handleMountChildren()}
           >
-            <Wrapper containerPadding={containerPadding}>
+            <Wrapper
+              containerPadding={containerPadding}
+              customWidth={customWidth}
+            >
               {items.map(item => (
                 <ItemWrapper
                   data-gtm-type="click"
@@ -235,9 +242,11 @@ Dropdown.propTypes = {
   children: PropTypes.element.isRequired,
   containerPadding: PropTypes.string,
   redirectPath: PropTypes.string,
+  customWidth: PropTypes.string,
 }
 
 Dropdown.defaultProps = {
   containerPadding: '14px',
   redirectPath: null,
+  customWidth: null,
 }

@@ -9,8 +9,6 @@ import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 import { dataLayerProductSuggestion } from 'GoogleTagManager'
 
-import useMedia from 'hooks/useMedia'
-
 import products from './productBannerData'
 import {
   BannerTips,
