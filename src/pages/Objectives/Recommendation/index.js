@@ -238,7 +238,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -253,7 +258,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="green3" width="120px">
+                      <Text
+                        truncate
+                        color="green3"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(suggestion_goal.suggestion_monthly_value)}
                       </Text>,
                       <Icon
@@ -272,7 +282,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text color="gray6">{answer.target_date}</Text>,
+                      <Text color="gray6" textAlign="right">
+                        {answer.target_date}
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -285,7 +297,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -325,7 +342,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -339,7 +361,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.monthly_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -353,7 +380,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text color="green3">
+                      <Text color="green3" textAlign="right">
                         {suggestion_goal.suggestion_target_date}
                       </Text>,
                       <Icon
@@ -371,7 +398,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,

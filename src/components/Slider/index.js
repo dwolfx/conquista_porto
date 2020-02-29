@@ -167,6 +167,7 @@ export default function Slider({
                   height: 33px;
                   font-size: 14px;
                 `}
+                maxLength="14"
                 error={error}
               />
               {error && (
