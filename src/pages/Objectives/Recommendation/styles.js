@@ -184,6 +184,10 @@ export const TableData = styled.td`
   text-align: ${props => `-webkit-${props.textAlign}`};
   text-align: ${props => `-moz-${props.textAlign}`};
   width: ${props => (props.width ? props.width : 'unset')};
+
+  && button {
+    margin: 0 auto;
+  }
 `
 export const ResponsiveTableContainer = styled.div`
   display: flex;

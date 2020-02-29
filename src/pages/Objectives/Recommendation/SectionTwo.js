@@ -283,10 +283,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                       </TableHeader>
                       <TableHeader>
                         <Text type="captionUppercase" color="gray5">
-                          rentabilidade
-                        </Text>
-                        <Text type="captionUppercase" color="gray4">
-                          últ. 12 meses
+                          RENT. 12M
                         </Text>
                       </TableHeader>
                       <TableHeader textAlign="right">
@@ -337,12 +334,12 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           <Text type="body">{`${fund.profitability['12']}%`}</Text>
                         </TableData>
                         <TableData textAlign="right">
-                          <Text type="body">
+                          <Text type="body" truncate>
                             {formatMoney(fund.initial_value)}
                           </Text>
                         </TableData>
                         <TableData textAlign="right">
-                          <Text type="body">
+                          <Text type="body" truncate>
                             {formatMoney(fund.monthly_value)}
                           </Text>
                         </TableData>
