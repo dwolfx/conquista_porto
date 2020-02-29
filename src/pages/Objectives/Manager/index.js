@@ -182,7 +182,7 @@ export default function Manager({ location }) {
             </CardContent>
           </ObjectiveDetails>
         </ColumnWrapper>
-        
+
         <WalletContainer>
           <Wallet
             idGoal={dataExists ? objectiveData.id : '0'}
