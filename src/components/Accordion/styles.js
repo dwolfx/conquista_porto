@@ -40,6 +40,7 @@ export const AccordionHeaderText = styled(Text).attrs(() => ({
 export const AccordionBody = styled.div`
   padding: ${props => (props.noBodyPadding ? '0px' : '15px 30px')};
   padding-bottom: 15px;
+  display: ${props => !props.isOpen && 'none'};
 `
 
 export const AccordionWrapper = styled.div`

@@ -37,7 +37,9 @@ const Accordion = ({
         {labelNode && <AccordionHeaderLabel>{labelNode}</AccordionHeaderLabel>}
         <AccordionHeaderText>{titleNode}</AccordionHeaderText>
       </AccordionHeader>
-      <AccordionBody noBodyPadding={noBodyPadding}>{children}</AccordionBody>
+      <AccordionBody isOpen={isOpen} noBodyPadding={noBodyPadding}>
+        {children}
+      </AccordionBody>
     </AccordionWrapper>
   )
 }
