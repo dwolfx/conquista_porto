@@ -17,6 +17,10 @@ import {
 } from './styles'
 
 function valueToPercent(value, max) {
+  if (max === 0) {
+    return 0
+  }
+
   return (value * 100) / max
 }
 
@@ -33,6 +37,7 @@ export default function Slider({
   onMouseDown,
   onTouchStart,
   showTooltip,
+  setValue: setValueProp,
   ...rest
 }) {
   const sliderRef = useRef()
@@ -49,6 +54,10 @@ export default function Slider({
   useEffect(() => {
     setError(errorProp)
   }, [errorProp])
+
+  useEffect(() => {
+    setValueProp(value)
+  }, [setValueProp, value])
 
   const handleSliderPosition = event => {
     // get click position in reference to slider
@@ -121,6 +130,10 @@ export default function Slider({
 
   const handleInputOnChange = event => {
     event.preventDefault()
+
+    // if (onInputChange) {
+    //   onInputChange(event)
+    // }
 
     const moneyValue = +event.target.value.replace(/[\D]/g, '')
     const percent = Math.min(valueToPercent(moneyValue / 100, max), 100)
@@ -217,6 +230,7 @@ Slider.propTypes = {
   onMouseDown: PropTypes.func,
   onTouchStart: PropTypes.func,
   showTooltip: PropTypes.bool,
+  setValue: PropTypes.number,
 }
 
 Slider.defaultProps = {
@@ -228,4 +242,5 @@ Slider.defaultProps = {
   onMouseDown: null,
   onTouchStart: null,
   showTooltip: true,
+  setValue: 0,
 }

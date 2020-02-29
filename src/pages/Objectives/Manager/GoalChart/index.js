@@ -5,7 +5,10 @@ import Text from 'components/Text'
 import moment from 'moment'
 import Popover from 'components/Popover'
 import IconExporter from 'components/IconExporter'
+import Loading from 'components/Loading'
 import { formatMoney } from 'helpers'
+
+import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
 
 import {
   ChartContainer,
@@ -21,11 +24,13 @@ import {
   DepositTextValue,
 } from './styles'
 
-export default function GoalChart({ data }) {
+export default function GoalChart({ data, isLoading }) {
   const [indexSelectedYear, setIndexSelectedYear] = useState(null)
   useEffect(() => {
     setIndexSelectedYear(
-      data.years.findIndex(item => item.year === moment().year())
+      data && data.years
+        ? data.years.findIndex(item => item.year === moment().year())
+        : null
     )
   }, [data])
 
@@ -252,6 +257,18 @@ export default function GoalChart({ data }) {
     return null
   }
 
+  if (isLoading) {
+    return (
+      <LoadingStateContainer>
+        <Loading
+          type="bar"
+          legend="Buscando suas informações..."
+          placement="top"
+        />
+      </LoadingStateContainer>
+    )
+  }
+
   return (
     <>
       <div>
@@ -331,13 +348,23 @@ export default function GoalChart({ data }) {
 
 GoalChart.propTypes = {
   data: PropTypes.shape({
-    total_balance: PropTypes.number.isRequired,
+    total_balance: PropTypes.number,
     years: PropTypes.arrayOf(
       PropTypes.shape({
-        month_map: PropTypes.shape({}).isRequired,
-        year: PropTypes.number.isRequired,
+        month_map: PropTypes.shape({}),
+        year: PropTypes.number,
       })
-    ).isRequired,
-    conquered: PropTypes.bool.isRequired,
-  }).isRequired,
+    ),
+    conquered: PropTypes.bool,
+  }),
+  isLoading: PropTypes.bool,
+}
+
+GoalChart.defaultProps = {
+  data: {
+    total_balance: 0,
+    years: [],
+    conquered: false,
+  },
+  isLoading: false,
 }

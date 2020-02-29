@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { post } from 'services/api'
+import { get, post } from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
 
 import { Types } from './types'
@@ -9,41 +9,65 @@ import {
   PostObjectiveManagementDataFailure,
   PostSaveFundsSuccess,
   PostSaveFundsFailure,
+  GetObjectiveManagementDataSuccess,
+  GetObjectiveManagementDataFailure,
 } from './action'
 
 function* postData({ payload, pushHistory }) {
   try {
     const response = yield call(post, '/goal/goals', { id: payload })
     yield put(PostObjectiveManagementDataSuccess(response.data))
-    pushHistory('/objetivos/gerenciar')
+    pushHistory(`/objetivos/gerenciar/${response.data.id}`)
     yield put(CleanObjectiveData())
   } catch (err) {
     yield put(PostObjectiveManagementDataFailure())
   }
 }
 
-function* postSaveFunds({ fundId }) {
+function* postSaveFunds({ payload }) {
+  const { idFund } = payload
   const data = {
     fund_list: [
       {
-        id: 51380129,
+        id: 1,
         value: 300,
       },
       {
-        id: 5071,
+        id: 2,
         value: 400,
       },
     ],
   }
   try {
-    const response = yield call(post, `/goal/goals/${fundId}/funds`, data)
+    const response = yield call(post, `/goal/goals/${idFund}/funds`, data)
     yield put(PostSaveFundsSuccess(response))
   } catch (err) {
     yield put(PostSaveFundsFailure())
   }
 }
 
+function* getData(payload) {
+  try {
+    const { id, history, path } = payload
+    const response = yield call(get, `/goal/goals/${id}`)
+
+    if (response.data) {
+      yield put(GetObjectiveManagementDataSuccess(response.data))
+
+      if (path) {
+        history.push(path)
+      }
+    } else {
+      yield put(GetObjectiveManagementDataFailure())
+      history.push('/objetivos')
+    }
+  } catch (err) {
+    yield put(GetObjectiveManagementDataFailure())
+  }
+}
+
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.POST_SAVE_FUNDS_REQUEST, postSaveFunds),
+  takeLatest(Types.GET_REQUEST, getData),
 ])

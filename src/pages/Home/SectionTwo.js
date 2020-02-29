@@ -18,7 +18,6 @@ import {
   BannerTips,
   FullHeightCard,
   FullHeightCardObjectives,
-  OfferCardButton,
   TipBannerContainer,
   ObjectivesContainer,
   BannerTipTitle,
@@ -49,18 +48,6 @@ export default function SectionTwo({ onRedirect }) {
   useEffect(() => {
     setMaxObjectiveCards(isMobile ? 3 : 2)
   }, [isMobile])
-
-  const renderObjectiveCardFooter = () =>
-    hasObjectives ? (
-      <OfferCardButton
-        data-gtm-subname="card objetivos"
-        data-gtm-name="gerenciar objetivos"
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-      >
-        Gerenciar objetivos
-      </OfferCardButton>
-    ) : null
 
   const renderEmptyState = () => (
     <EmptyBody>
@@ -97,11 +84,7 @@ export default function SectionTwo({ onRedirect }) {
   return (
     <>
       <SectionCol md="5">
-        <FullHeightCard
-          headerIcon="target"
-          headerTitle="Objetivos"
-          footer={renderObjectiveCardFooter()}
-        >
+        <FullHeightCard headerIcon="target" headerTitle="Objetivos">
           {hasObjectives ? (
             <ObjectivesListContainer>
               <ObjectivesListContent objectives={objectives} />

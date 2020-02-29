@@ -2378,11 +2378,10 @@
   "goal_recommendations": {
     "goal_type": "1",
     "nickname": "Disney",
-    "target_date": "10/02/2021",
+    "target_date": "02/02/2023",
     "target_value": "70.000.000,00",
     "initial_value": "5.000,00",
-    "monthly_value": "1.000,00",
-    "would_like_to_receive_monthly_income": "true"
+    "monthly_value": "1.000,00"
   },
   "goal_management": {
     "id": "1"
