@@ -156,7 +156,7 @@ export default function HeaderNew() {
             points &&
             Intl.NumberFormat().format(calculatePointsAmountBalance(points))
           }
-          closeFunc={() => dispatch(AuthRequestLogout(userData.accessToken))}
+          exitFunc={() => dispatch(AuthRequestLogout(userData.accessToken))}
         />
       )}
       <BgWrapper isScrolled={isMobile}>

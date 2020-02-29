@@ -21,7 +21,7 @@ import {
   Icon,
 } from './styles'
 
-export default function Mobile({ items, setIsOpen, totalPoints, closeFunc }) {
+export default function Mobile({ items, setIsOpen, totalPoints, exitFunc }) {
   const history = useHistory()
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
@@ -180,7 +180,7 @@ export default function Mobile({ items, setIsOpen, totalPoints, closeFunc }) {
           data-gtm-subname="responsive header"
           data-gtm-name="sair"
           iconName="leave"
-          onClick={closeFunc}
+          onClick={exitFunc}
         >
           SAIR
         </Button>
@@ -208,5 +208,5 @@ Mobile.propTypes = {
   items: mobileItemsPropTypes.isRequired,
   setIsOpen: PropTypes.func.isRequired,
   totalPoints: PropTypes.string.isRequired,
-  closeFunc: PropTypes.func,
+  exitFunc: PropTypes.func,
 }
