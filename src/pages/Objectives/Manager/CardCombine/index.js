@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
-import { Col, Row } from 'styled-bootstrap-grid'
 import Button from 'components/Button'
 import products from 'pages/Objectives/Recommendation/productBannerData'
 import { dataLayerProductSuggestion } from 'GoogleTagManager'
 import useMedia from 'hooks/useMedia'
 
-import { BannerTips, ButtonContainer } from './styles'
+import { BannerTips, ButtonContainer, ColBanner, RowBanner } from './styles'
 
 export default function CardCombine({ additional, onClick, ...rest }) {
   const isMobile = useMedia('sm')
@@ -50,13 +49,11 @@ export default function CardCombine({ additional, onClick, ...rest }) {
       dataLayerDescription
     )
   }
-  const checkBannerMarginBottom = (productsList, index) =>
-    productsList.length > 1 && index + 1 !== productsList.length ? 1 : 0
 
   return (
-    <Row {...rest}>
-      {renderedProducts.map((product, index) => (
-        <Col
+    <RowBanner {...rest}>
+      {renderedProducts.map(product => (
+        <ColBanner
           key={product.title}
           lg={renderedProducts.length > 1 ? '6' : '12'}
           xs={12}
@@ -64,7 +61,6 @@ export default function CardCombine({ additional, onClick, ...rest }) {
           <BannerTips
             size={renderedProducts.length > 1 ? 'sm' : 'lg'}
             image={product.image}
-            notLastChild={checkBannerMarginBottom(renderedProducts, index)}
           >
             {isMobile ? (
               <>
@@ -113,9 +109,9 @@ export default function CardCombine({ additional, onClick, ...rest }) {
               </Button>
             </ButtonContainer>
           </BannerTips>
-        </Col>
+        </ColBanner>
       ))}
-    </Row>
+    </RowBanner>
   )
 }
 

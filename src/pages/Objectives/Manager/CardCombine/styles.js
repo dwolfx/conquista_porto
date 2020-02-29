@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Col, Row } from 'styled-bootstrap-grid'
 import Banner from 'components/Banner'
 
 export const ButtonContainer = styled.div`
@@ -7,9 +8,17 @@ export const ButtonContainer = styled.div`
 
 export const BannerTips = styled(Banner)`
   color: ${props => props.theme.colors.white};
-  margin-bottom: ${props => (props.notLastChild === 1 ? '28px' : '0px')};
 
   &:before {
     opacity: 0.65;
+  }
+`
+
+export const RowBanner = styled(Row)``
+
+export const ColBanner = styled(Col)`
+  margin-bottom: 28px;
+  &:last-child {
+    margin-bottom: 0px;
   }
 `
