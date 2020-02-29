@@ -9,6 +9,8 @@ import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 import { dataLayerProductSuggestion } from 'GoogleTagManager'
 
+import useMedia from 'hooks/useMedia'
+
 import products from './productBannerData'
 import {
   BannerTips,
@@ -119,15 +121,29 @@ const SectionThree = ({ additional }) => {
               size={renderedProducts.length > 1 ? 'sm' : 'lg'}
               image={product.image}
             >
-              <Text type="captionUppercase">{product.category}</Text>
-              <Text type="heading3">{product.title}</Text>
-              <Text
-                css={`
-                  width: calc(10 / 12 * 100%);
-                `}
-              >
-                {product.text}
-              </Text>
+              {isMobile ? (
+                <>
+                  <Text bold type="captionUppercase">
+                    {product.category}
+                  </Text>
+                  <Text bold type="heading4">
+                    {product.title}
+                  </Text>
+                  <Text>{product.text}</Text>
+                </>
+              ) : (
+                <>
+                  <Text type="captionUppercase">{product.category}</Text>
+                  <Text type="heading3">{product.title}</Text>
+                  <Text
+                    css={`
+                      width: calc(10 / 12 * 100%);
+                    `}
+                  >
+                    {product.text}
+                  </Text>
+                </>
+              )}
               <ButtonContainer>
                 <Button
                   data-gtm-subname={`${product.title}`}

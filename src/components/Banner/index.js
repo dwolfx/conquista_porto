@@ -24,11 +24,7 @@ export default function Banner({
 
   return (
     isOpen && (
-      <div
-        css={`
-          position: relative;
-        `}
-      >
+      <div>
         {hasCloseButton && (
           <CloseButton
             data-gtm-type="click"
@@ -45,7 +41,7 @@ export default function Banner({
         <BannerWrapper image={bgImage} size={size} {...rest}>
           <Container>
             <Row justify={justify}>
-              <Col lg={size === 'sm' ? 12 : 10}>
+              <Col lg={size === 'sm' ? 12 : 10} sm={12} xs={12}>
                 {!!label && <BannerLabel>{label}</BannerLabel>}
                 <BannerContent>{children}</BannerContent>
               </Col>
