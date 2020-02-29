@@ -59,7 +59,7 @@ const ModalContent = ({ items, text }) => (
 
 const SectionThree = ({ additional }) => {
   const dataLayerProducts = []
-  const [isMobile] = useState(useMedia('sm'))
+  const isMobile = useMedia('sm')
   let dataLayerReturnType = 'erro'
   let dataLayerDescription = 'Não existem produtos sugeridos'
 

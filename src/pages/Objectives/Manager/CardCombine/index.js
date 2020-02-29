@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
 import { Col, Row } from 'styled-bootstrap-grid'
@@ -10,7 +10,7 @@ import useMedia from 'hooks/useMedia'
 import { BannerTips, ButtonContainer } from './styles'
 
 export default function CardCombine({ additional, onClick, ...rest }) {
-  const [isMobile] = useState(useMedia('sm'))
+  const isMobile = useMedia('sm')
   const dataLayerProducts = []
   let dataLayerReturnType = 'erro'
   let dataLayerDescription = 'Não existem produtos sugeridos'
