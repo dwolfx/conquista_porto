@@ -30,9 +30,7 @@ import {
 export default function FundInformation({ fund }) {
   const theme = useContext(ThemeContext)
 
-  const [incomeValue, setIncomeValue] = useState(
-    fund.rendimentos.rendimento[months[0].value].valorrendimento
-  )
+  const [incomeValue, setIncomeValue] = useState(null)
   const [selectValue, setSelectValue] = useState('')
 
   useEffect(() => {
