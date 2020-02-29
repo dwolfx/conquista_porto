@@ -76,7 +76,7 @@ export default function CardCombine({ additional, onClick, ...rest }) {
                 data-gtm-clicktype="button"
                 data-gtm-subname={`banner - ${product.category}`}
                 data-gtm-name="conheca"
-                color="primary"
+                color="secondary"
                 onClick={() => {
                   onClick(product)
                 }}
