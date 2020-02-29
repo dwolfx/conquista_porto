@@ -10,8 +10,7 @@ import {
 } from './action'
 
 function* postData(data) {
-  const { payload } = data
-  const { isMobile } = data
+  const { payload, isMobile } = data
   try {
     let response
     if (isMobile) {
