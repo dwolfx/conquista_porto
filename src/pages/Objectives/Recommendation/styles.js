@@ -164,6 +164,7 @@ export const ButtonContainer = styled.div`
 export const FundsTable = styled.table`
   width: 100%;
   border-spacing: 0px 7px;
+  padding-top: 7px;
 `
 
 export const TableHeader = styled.th`
@@ -173,11 +174,11 @@ export const TableHeader = styled.th`
 export const TableRow = styled.tr`
   opacity: ${props => (props.shouldOppacity ? 0.3 : 1)};
   color: ${props => props.theme.colors.gray6};
-  vertical-align: baseline;
 `
 
 export const TableData = styled.td`
-  text-align: ${props => props.textAlign && props.textAlign};
+  text-align: ${props => `-webkit-${props.textAlign}`};
+  text-align: ${props => `-moz-${props.textAlign}`};
   width: ${props => (props.width ? props.width : 'unset')};
 `
 
