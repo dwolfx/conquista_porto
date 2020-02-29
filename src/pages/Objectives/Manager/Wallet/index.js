@@ -37,18 +37,20 @@ import {
 const getColorGuide = index =>
   objectivesColorGuide[index % objectivesColorGuide.length]
 
-const FundAccordionHeader = ({ fund, setValue: setValueAccordion }) => {
-  const [value, setValue] = useState(0)
-
-  const handleValueFund = () => {}
-
-  useEffect(() => {
-    setValue(value)
-  }, [value])
-
-  useEffect(() => {
-    setValueAccordion(value)
-  }, [setValueAccordion, value])
+const FundAccordionHeader = ({ fund, fundList, setFundListCopy }) => {
+  const handleValueFund = (id, value) => {
+    setFundListCopy(
+      fundList.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            invested: value,
+          }
+        }
+        return item
+      })
+    )
+  }
 
   return (
     <Row
@@ -132,8 +134,8 @@ const FundAccordionHeader = ({ fund, setValue: setValueAccordion }) => {
                 max={fund.available + fund.invested}
                 initialValue={fund.invested}
                 onlyObjective={!fund.goals.length}
-                onChange={moneyValue => {
-                  handleValueFund(moneyValue)
+                onChange={value => {
+                  handleValueFund(fund.id, value)
                 }}
               />
             </ObjectivesBar>
@@ -145,25 +147,29 @@ const FundAccordionHeader = ({ fund, setValue: setValueAccordion }) => {
 }
 
 export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
-  const [value, setValue] = useState(0)
-  const [fundListCopy, setfundListCopy] = useState(null)
+  const [fundListCopy, setFundListCopy] = useState(null)
   const theme = useContext(ThemeContext)
 
   const history = useHistory()
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setfundListCopy(fundList)
+    setFundListCopy(fundList)
   }, [fundList])
-  
-  useEffect(() => {
-    setValue(value)
-  }, [value])
 
   const saveEditionsFunds = () => {
+    function formatRequestPayload() {
+      return fundListCopy.map(item => {
+        const { id, invested } = item
+        return { value: invested, id }
+      })
+    }
     dispatch(
       PostSaveFundsRequest({
         idGoal,
+        data: {
+          fund_list: formatRequestPayload(),
+        },
       })
     )
   }
@@ -186,7 +192,13 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         <React.Fragment key={fund.id}>
           <Accordion
             openByDefault={index === 0}
-            titleNode={<FundAccordionHeader fund={fund} setValue={setValue} />}
+            titleNode={
+              <FundAccordionHeader
+                fund={fund}
+                fundList={fundListCopy}
+                setFundListCopy={setFundListCopy}
+              />
+            }
             triggerCloseOnArrow
             bodyPadding="42px 42px 0 0"
           >
@@ -375,9 +387,9 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
 }
 
 FundAccordionHeader.propTypes = {
-  setValue: PropTypes.node.isRequired,
   fund: PropTypes.shape({
     name: PropTypes.string,
+    id: PropTypes.string.isRequired,
     recommended: PropTypes.bool,
     goals: PropTypes.arrayOf(
       PropTypes.shape({
@@ -388,6 +400,12 @@ FundAccordionHeader.propTypes = {
     invested: PropTypes.number,
     balance: PropTypes.number,
   }).isRequired,
+  fundList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  setFundListCopy: PropTypes.func.isRequired,
 }
 
 Wallet.propTypes = {
