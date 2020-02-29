@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
-import { Container } from 'styled-bootstrap-grid'
 import { useDispatch } from 'react-redux'
+import { Container } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import { formatMoney, formatMoneyDecimal, formatDateMask } from 'helpers'
+import useMedia from 'hooks/useMedia'
 
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
@@ -38,22 +39,6 @@ import {
   ColInput,
 } from './styles'
 
-const MacroDivisor = () => (
-  <DivisorContainer>
-    <Divisor vertical />
-    <Text
-      type="captionUppercase"
-      color="gray4"
-      css={`
-        padding: 7px 0;
-      `}
-    >
-      ou
-    </Text>
-    <Divisor vertical />
-  </DivisorContainer>
-)
-
 const Recommendation = ({ data, isLoading, totalSteps }) => {
   const {
     answer,
@@ -67,6 +52,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const isMobile = useMedia('sm')
   const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({})
@@ -82,6 +68,22 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       setShowUnmetGoalBanner(false)
     }
   }, [suggestion_goal])
+
+  const MacroDivisor = () => (
+    <DivisorContainer isMobile={isMobile}>
+      <Divisor vertical={!isMobile} />
+      <Text
+        type="captionUppercase"
+        color="gray4"
+        css={`
+          padding: 7px 0;
+        `}
+      >
+        ou
+      </Text>
+      <Divisor vertical={!isMobile} />
+    </DivisorContainer>
+  )
 
   const footerDrawer = () => (
     <ButtonSubmit
@@ -207,11 +209,11 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
               >
                 <CloseIcon name="close" />
               </CloseButton>
-              <Text type="heading3" textAlign="center">
+              <Text type="heading3" textAlign={isMobile ? 'left' : 'center'}>
                 Condições insuficientes para alcançar seu objetivo
               </Text>
               <Text
-                textAlign="center"
+                textAlign={isMobile ? 'left' : 'center'}
                 css={`
                   padding-top: 7px;
                 `}
@@ -424,7 +426,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     simular
                   </SimulateButton>
                 </UnmetGoalCard>
-                <MacroDivisor />
+                <MacroDivisor isMobile={isMobile} />
                 <UnmetGoalCard>
                   <Text type="headline" color="gray6">
                     Alterar os valores manualmente:
