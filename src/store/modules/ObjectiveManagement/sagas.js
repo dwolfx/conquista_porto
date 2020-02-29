@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get, post } from 'services/api'
+import { get, post, remove } from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
 
 import { Types } from './types'
@@ -9,6 +9,8 @@ import {
   PostObjectiveManagementDataFailure,
   GetObjectiveManagementDataSuccess,
   GetObjectiveManagementDataFailure,
+  DeleteObjectiveSuccess,
+  DeleteObjectiveFailure,
 } from './action'
 
 function* postData({ payload, pushHistory }) {
@@ -42,7 +44,19 @@ function* getData(payload) {
   }
 }
 
+function* deleteObjective({ payload }) {
+  try {
+    const { id, pushHistoryToHomeScreen } = payload
+    yield call(remove, `/goal/goals/${id}/funds`)
+    yield put(DeleteObjectiveSuccess())
+    pushHistoryToHomeScreen()
+  } catch (err) {
+    yield put(DeleteObjectiveFailure())
+  }
+}
+
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.GET_REQUEST, getData),
+  takeLatest(Types.DELETE_REQUEST, deleteObjective),
 ])

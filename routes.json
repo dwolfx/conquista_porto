@@ -18,5 +18,6 @@
   "/cotistas/posicao?cpf=:cpf": "/posicao?cpf=:cpf",
   "/invest/portopar/cotista/perfil/investidor/:cpf": "/suitability",
   "/goal/recommendations": "/goal_recommendations",
-  "/goal/goals": "/goal_management"
+  "/goal/goals": "/goal_management",
+  "/goal/goals/:id/funds": "/goal_management"
 }
