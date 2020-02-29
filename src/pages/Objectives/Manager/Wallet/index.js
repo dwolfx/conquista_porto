@@ -97,7 +97,7 @@ const FundAccordionHeader = ({ fund, fundList, setFundListCopy }) => {
           <Col
             md="3"
             css={`
-              padding-left: 3.5rem;
+              padding-left: 7px;
             `}
           >
             <Text type="captionUppercase" color="gray4">
