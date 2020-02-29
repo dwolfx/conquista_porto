@@ -393,7 +393,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
 FundAccordionHeader.propTypes = {
   fund: PropTypes.shape({
     name: PropTypes.string,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     recommended: PropTypes.bool,
     goals: PropTypes.arrayOf(
       PropTypes.shape({
