@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
-import { Container } from 'styled-bootstrap-grid'
 import { useDispatch } from 'react-redux'
+import { Container } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import { formatMoney, formatMoneyDecimal, formatDateMask } from 'helpers'
+import useMedia from 'hooks/useMedia'
 
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
@@ -38,22 +39,6 @@ import {
   ColInput,
 } from './styles'
 
-const MacroDivisor = () => (
-  <DivisorContainer>
-    <Divisor vertical />
-    <Text
-      type="captionUppercase"
-      color="gray4"
-      css={`
-        padding: 7px 0;
-      `}
-    >
-      ou
-    </Text>
-    <Divisor vertical />
-  </DivisorContainer>
-)
-
 const Recommendation = ({ data, isLoading, totalSteps }) => {
   const {
     answer,
@@ -67,6 +52,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const isMobile = useMedia('sm')
   const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({})
@@ -82,6 +68,22 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       setShowUnmetGoalBanner(false)
     }
   }, [suggestion_goal])
+
+  const MacroDivisor = () => (
+    <DivisorContainer isMobile={isMobile}>
+      <Divisor vertical={!isMobile} />
+      <Text
+        type="captionUppercase"
+        color="gray4"
+        css={`
+          padding: 7px 0;
+        `}
+      >
+        ou
+      </Text>
+      <Divisor vertical={!isMobile} />
+    </DivisorContainer>
+  )
 
   const footerDrawer = () => (
     <ButtonSubmit
@@ -207,11 +209,11 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
               >
                 <CloseIcon name="close" />
               </CloseButton>
-              <Text type="heading3" textAlign="center">
+              <Text type="heading3" textAlign={isMobile ? 'left' : 'center'}>
                 Condições insuficientes para alcançar seu objetivo
               </Text>
               <Text
-                textAlign="center"
+                textAlign={isMobile ? 'left' : 'center'}
                 css={`
                   padding-top: 7px;
                 `}
@@ -238,7 +240,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -253,7 +260,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="green3" width="120px">
+                      <Text
+                        truncate
+                        color="green3"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(suggestion_goal.suggestion_monthly_value)}
                       </Text>,
                       <Icon
@@ -272,7 +284,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text color="gray6">{answer.target_date}</Text>,
+                      <Text color="gray6" textAlign="right">
+                        {answer.target_date}
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -285,7 +299,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -325,7 +344,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -339,7 +363,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.monthly_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -353,7 +382,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text color="green3">
+                      <Text color="green3" textAlign="right">
                         {suggestion_goal.suggestion_target_date}
                       </Text>,
                       <Icon
@@ -371,7 +400,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -392,7 +426,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     simular
                   </SimulateButton>
                 </UnmetGoalCard>
-                <MacroDivisor />
+                <MacroDivisor isMobile={isMobile} />
                 <UnmetGoalCard>
                   <Text type="headline" color="gray6">
                     Alterar os valores manualmente:

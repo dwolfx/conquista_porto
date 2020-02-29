@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import ConquistaIcon from 'components/IconExporter'
 
 export const PanelTabs = styled.div``
 
@@ -18,6 +19,9 @@ export const SingleTab = styled.div`
   padding: 12px;
   text-align: center;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:not(:first-of-type) {
     border-left: 1px solid ${props => props.theme.colors.blue4};
@@ -38,5 +42,16 @@ export const SingleTab = styled.div`
       ${props => props.theme.colors.blue5},
       ${props => props.theme.colors.blue4}
     );
+    && svg {
+      fill: ${props => props.theme.colors.white};
+    }
   }
+`
+
+export const Icon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+  color: props.color,
+}))`
+  width: 21px;
+  height: 21px;
 `

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import { Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
@@ -7,8 +8,8 @@ import Text from 'components/Text'
 import PieChart from 'components/PieChart'
 import HorizontalList from 'components/HorizontalList'
 import { formatMoney } from 'helpers'
+import useMedia from 'hooks/useMedia'
 import LineChart from 'components/Charts/LineChart'
-import 'styled-components/macro'
 import {
   GridRow,
   FullHeightCard,
@@ -22,6 +23,7 @@ import {
 
 const SectionOne = ({ answer, combo, income }) => {
   const theme = useContext(ThemeContext)
+  const isMobile = useMedia('sm')
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
   const colorsLineChart = [
     theme.colors.magenta2,
@@ -59,16 +61,26 @@ const SectionOne = ({ answer, combo, income }) => {
   }
 
   return (
-    <GridRow height="430px">
-      <Col lg="6">
+    <GridRow height={isMobile ? 'auto' : '430px'}>
+      <Col
+        lg="6"
+        css={`
+          margin-bottom: ${isMobile ? '14px' : '0px'};
+        `}
+      >
         <FullHeightCard
           headerIcon="piechart"
           headerTitle={
             combo.length > 1 ? 'Combinação sugerida' : 'Produto sugerido'
           }
         >
-          <SectionRow padding="30px 21px">
-            <SectionCol md="5">
+          <SectionRow padding={isMobile ? '0px' : '30px 21px'}>
+            <SectionCol
+              md="5"
+              css={`
+                height: ${isMobile ? 'auto' : '100%'};
+              `}
+            >
               <PieChartContainer>
                 <PieChart
                   width="100%"
@@ -84,7 +96,13 @@ const SectionOne = ({ answer, combo, income }) => {
                 </PieChart>
               </PieChartContainer>
             </SectionCol>
-            <SectionCol md="7" display="flex">
+            <SectionCol
+              md="7"
+              display="flex"
+              css={`
+                height: ${isMobile ? 'auto' : '100%'};
+              `}
+            >
               {combo.map(item => (
                 <SuggestedProduct key={item.title}>
                   <HorizontalList
@@ -122,9 +140,14 @@ const SectionOne = ({ answer, combo, income }) => {
         </FullHeightCard>
       </Col>
 
-      <Col lg="6">
+      <Col
+        lg="6"
+        css={`
+          margin-bottom: ${isMobile ? '14px' : '0px'};
+        `}
+      >
         <FullHeightCard headerIcon="linechart" headerTitle="Rendimentos">
-          <CardRow padding="28px 49px">
+          <CardRow padding={isMobile ? '28px' : '28px 49px'}>
             <Text type="headline">
               Com base nos rendimentos históricos dos fundos que sugerimos, o
               gráfico apresenta uma estimativa de como seu dinheiro poderá

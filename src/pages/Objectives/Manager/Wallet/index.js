@@ -157,10 +157,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
     setFundListCopy(fundList)
   }, [fundList])
 
-  // useEffect(() => {
-  //   setValue(value)
-  // }, [value])
-
   const saveEditionsFunds = () => {
     function formatRequestPayload() {
       return fundListCopy.map(item => {
@@ -397,7 +393,7 @@ FundAccordionHeader.propTypes = {
     recommended: PropTypes.bool,
     goals: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string,
+        id: PropTypes.number,
       })
     ),
     available: PropTypes.number,
@@ -406,7 +402,7 @@ FundAccordionHeader.propTypes = {
   }).isRequired,
   fundList: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     })
   ).isRequired,
   setFundListCopy: PropTypes.func.isRequired,
@@ -419,7 +415,7 @@ Wallet.propTypes = {
       recommended: PropTypes.bool,
       goals: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string,
+          id: PropTypes.number,
         })
       ),
       available: PropTypes.number,

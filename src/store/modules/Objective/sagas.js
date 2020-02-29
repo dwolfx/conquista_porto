@@ -10,9 +10,14 @@ import {
 } from './action'
 
 function* postData(data) {
-  const { payload } = data
+  const { payload, isMobile } = data
   try {
-    const response = yield call(post, '/goal/recommendations', payload)
+    let response
+    if (isMobile) {
+      response = yield call(post, `/goal/recommendations?mobile=true`, payload)
+    } else {
+      response = yield call(post, '/goal/recommendations', payload)
+    }
     yield put(PostObjectiveDataSuccess(response.data))
   } catch (err) {
     yield put(PostObjectiveDataFailure())
