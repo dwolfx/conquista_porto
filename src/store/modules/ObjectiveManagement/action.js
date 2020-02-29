@@ -21,10 +21,10 @@ export function PostObjectiveManagementDataFailure() {
   }
 }
 
-export function PostSaveFundsRequest(id) {
+export function PostSaveFundsRequest(payload) {
   return {
     type: Types.POST_SAVE_FUNDS_REQUEST,
-    payload: id,
+    payload,
   }
 }
 
