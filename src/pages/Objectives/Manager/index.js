@@ -165,7 +165,7 @@ export default function Manager({ location }) {
 
       <WalletContainer>
         <Wallet
-          idFund={dataExists ? objectiveData.id : '0'}
+          idGoal={dataExists ? objectiveData.id : '0'}
           fundList={dataExists ? objectiveData.fund_list : []}
           goalName={dataExists ? objectiveData.nickname : ''}
           isLoading={isLoading}

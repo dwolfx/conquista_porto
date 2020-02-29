@@ -40,6 +40,8 @@ const getColorGuide = index =>
 const FundAccordionHeader = ({ fund, setValue: setValueAccordion }) => {
   const [value, setValue] = useState(0)
 
+  const handleValueFund = () => {}
+
   useEffect(() => {
     setValue(value)
   }, [value])
@@ -130,7 +132,9 @@ const FundAccordionHeader = ({ fund, setValue: setValueAccordion }) => {
                 max={fund.available + fund.invested}
                 initialValue={fund.invested}
                 onlyObjective={!fund.goals.length}
-                setValue={setValue}
+                onChange={moneyValue => {
+                  handleValueFund(moneyValue)
+                }}
               />
             </ObjectivesBar>
           </Col>
@@ -140,13 +144,18 @@ const FundAccordionHeader = ({ fund, setValue: setValueAccordion }) => {
   )
 }
 
-export default function Wallet({ fundList, goalName, idFund, isLoading }) {
+export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const [value, setValue] = useState(0)
+  const [fundListCopy, setfundListCopy] = useState(null)
   const theme = useContext(ThemeContext)
 
   const history = useHistory()
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    setfundListCopy(fundList)
+  }, [fundList])
+  
   useEffect(() => {
     setValue(value)
   }, [value])
@@ -154,7 +163,7 @@ export default function Wallet({ fundList, goalName, idFund, isLoading }) {
   const saveEditionsFunds = () => {
     dispatch(
       PostSaveFundsRequest({
-        idFund,
+        idGoal,
       })
     )
   }
@@ -172,8 +181,8 @@ export default function Wallet({ fundList, goalName, idFund, isLoading }) {
       )
     }
 
-    return fundList ? (
-      fundList.map((fund, index) => (
+    return fundListCopy ? (
+      fundListCopy.map((fund, index) => (
         <React.Fragment key={fund.id}>
           <Accordion
             openByDefault={index === 0}
@@ -223,7 +232,7 @@ export default function Wallet({ fundList, goalName, idFund, isLoading }) {
                         `}
                         onClick={() => {
                           window.open(
-                            `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idFundo=${fund.id}`,
+                            `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idGoalo=${fund.id}`,
                             '_blank'
                           )
                         }}
@@ -300,7 +309,7 @@ export default function Wallet({ fundList, goalName, idFund, isLoading }) {
               </Row>
             </AccordionContentWrapper>
           </Accordion>
-          {index !== fundList.length - 1 && <Divisor />}
+          {index !== fundListCopy.length - 1 && <Divisor />}
         </React.Fragment>
       ))
     ) : (
@@ -329,7 +338,7 @@ export default function Wallet({ fundList, goalName, idFund, isLoading }) {
           onClick: () => saveEditionsFunds(),
         }}
         footer={
-          !isLoading && !fundList ? (
+          !isLoading && !fundListCopy ? (
             <Button
               loading={isLoading}
               loadingColor="white"
@@ -397,7 +406,7 @@ Wallet.propTypes = {
     })
   ),
   goalName: PropTypes.string,
-  idFund: PropTypes.node.isRequired,
+  idGoal: PropTypes.node.isRequired,
   isLoading: PropTypes.bool,
 }
 
