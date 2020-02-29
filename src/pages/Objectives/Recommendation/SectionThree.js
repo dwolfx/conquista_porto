@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
+import useMedia from 'hooks/useMedia'
 import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
@@ -19,13 +20,14 @@ import {
   ProductBannerItemsContainer,
 } from './styles'
 
-const ModalContent = ({ items, text }) => (
+const ModalContent = ({ items, text, isMobile }) => (
   <ProductBannerContent>
     <Text
       type="headline"
       color="gray6"
       css={`
         margin-bottom: 10px;
+        text-align: ${isMobile ? 'center' : 'unset'};
       `}
     >
       {text}
@@ -57,6 +59,7 @@ const ModalContent = ({ items, text }) => (
 
 const SectionThree = ({ additional }) => {
   const dataLayerProducts = []
+  const isMobile = useMedia('sm')
   let dataLayerReturnType = 'erro'
   let dataLayerDescription = 'Não existem produtos sugeridos'
 
@@ -159,7 +162,11 @@ const SectionThree = ({ additional }) => {
           })
         }
       >
-        <ModalContent items={modalState.items} text={modalState.text} />
+        <ModalContent
+          items={modalState.items}
+          text={modalState.text}
+          isMobile={isMobile}
+        />
       </ProductBannerModal>
     </>
   )
@@ -181,6 +188,7 @@ ModalContent.propTypes = {
       text: PropTypes.string,
     })
   ),
+  isMobile: PropTypes.bool,
 }
 
 ModalContent.defaultProps = {
@@ -191,6 +199,7 @@ ModalContent.defaultProps = {
       text: '',
     },
   ],
+  isMobile: false,
 }
 
 export default SectionThree

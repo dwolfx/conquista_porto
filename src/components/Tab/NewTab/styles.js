@@ -48,10 +48,10 @@ export const SingleTab = styled.div`
   }
 `
 
-export const Icon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-  color: props => props.color,
-})`
+export const Icon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+  color: props.color,
+}))`
   width: 21px;
   height: 21px;
 `

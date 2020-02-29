@@ -125,10 +125,10 @@ export const Caption = styled(Text)`
   max-width: 455px;
   text-transform: uppercase;
 `
-export const Icon = styled(ConquistaIcon).attrs({
-  name: props => props.name,
-  color: props => props.color,
-})`
+export const Icon = styled(ConquistaIcon).attrs(props => ({
+  name: props.name,
+  color: props.color,
+}))`
   width: 21px;
   height: 21px;
 `

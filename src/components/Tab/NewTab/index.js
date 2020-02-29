@@ -80,5 +80,5 @@ Tab.propTypes = {
 Tab.defaultProps = {
   className: '',
   onClick: () => {},
-  icon: '',
+  icon: null,
 }

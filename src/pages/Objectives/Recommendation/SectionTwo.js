@@ -240,7 +240,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                       </Text>
                     </TableCard>
                     <ResponsiveTableButton
-                      outlined
+                      outline
                       onClick={() => handleOpenModal(fund)}
                     >
                       VER MAIS
@@ -299,7 +299,6 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           inv. mensal
                         </Text>
                       </TableHeader>
-                      <TableHeader></TableHeader>
                     </TableRow>
                   </thead>
 
