@@ -28,10 +28,9 @@ export default function ObjectiveListContent({ objectives }) {
     <div
       css={`
         width: 35px;
-        text-align: right;
       `}
     >
-      <Text type={type} color={color}>
+      <Text type={type} color={color} textAlign="right">
         {text}
       </Text>
     </div>
