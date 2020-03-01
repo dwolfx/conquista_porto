@@ -240,7 +240,7 @@ export default function Manager({ location }) {
               handleDeleteGoal(objectiveData.id)
             }}
           >
-            CONFIRMAR
+            excluir
           </Button>
         </ButtonContainerModal>
       </Modal>
