@@ -210,3 +210,7 @@ Mobile.propTypes = {
   totalPoints: PropTypes.string.isRequired,
   exitFunc: PropTypes.func,
 }
+
+Mobile.defaultProps = {
+  exitFunc: () => {},
+}
