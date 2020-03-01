@@ -181,7 +181,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                       <Square
                         color={
                           graphValuesGenerator().find(
-                            item => item.id === fund.category_name
+                            item => item.id === fund.name
                           ).color
                         }
                       />
