@@ -67,9 +67,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </Text>
         <Text truncate color="gray6" type="headline">
           {formatMoney(
-            funds.reduce(function(acc, curr) {
-              return acc + +curr.initial_value
-            }, 0)
+            funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
           )}
         </Text>
         <Divisor />
@@ -101,21 +99,21 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
 
     const totalFundsAmount = sortedFundByInitialValue
       .map(fund => fund.initial_value)
-      .reduce((accumulator, currentValue) => accumulator + currentValue)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
 
     const colorsAccordingToTheQuantityOfFunds = [
       ...colorsPriority.slice(0, sortedFundByInitialValue.length),
     ]
 
-    const generatedData = Object.entries(sortedFundByInitialValue).map(
-      (fund, index) => ({
+    const generatedData = Object.entries(sortedFundByInitialValue)
+      .map((fund, index) => ({
         id: fund[1].name,
         name: fund[1].name,
         value: fund[1].initial_value,
         percent: (fund[1].initial_value / totalFundsAmount) * 100,
         color: colorsAccordingToTheQuantityOfFunds[index],
-      })
-    ).reverse()
+      }))
+      .reverse()
     return generatedData
   }
 
