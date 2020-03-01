@@ -351,7 +351,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
           onClick: () => saveEditionsFunds(),
         }}
         footer={
-          !isLoading && !fundListCopy ? (
+          !isLoading && fundListCopy ? (
             <Button
               loading={isLoading}
               loadingColor="white"
