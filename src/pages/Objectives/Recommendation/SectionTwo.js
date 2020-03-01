@@ -43,16 +43,6 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
   const isMobile = useMedia('sm')
 
-  function groupBy(arr, key) {
-    return arr.reduce((prev, curr) => {
-      const newPrev = {
-        ...prev,
-        [curr[key]]: [...(prev[curr[key]] || []), curr],
-      }
-      return newPrev
-    }, {})
-  }
-
   function settingPieChartInfoChildren(payload) {
     setPieChartInfoChildren(payload)
   }
@@ -100,40 +90,35 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
       theme.colors.yellow2,
       theme.colors.green3,
       theme.colors.darkBlue2,
+      theme.colors.gray6,
     ]
 
-    const groupedData = groupBy(funds, 'category_name')
-    const sortedData = Object.entries(groupedData).sort(
-      (a, b) => b[1].length - a[1].length
-    )
+    const sortedFundByInitialValue = funds
+      .map(fund => fund)
+      .sort((a, b) => b.initial_value - a.initial_value)
+
+    const totalFundsAmount = sortedFundByInitialValue
+      .map(fund => fund.initial_value)
+      .reduce((accumulator, currentValue) => accumulator + currentValue)
 
     const colorsAccordingToTheQuantityOfFunds = [
-      ...colorsPriority.slice(0, sortedData.length),
+      ...colorsPriority.slice(0, sortedFundByInitialValue.length),
     ]
 
-    const amountOfFundsCategories = Object.values(groupedData).reduce(
-      (acc, curr) => acc + curr.length,
-      0
-    )
-
-    const generatedData = Object.entries(sortedData)
-      .map(([, item], index) => ({
-        id: item[0],
-        name: item[0],
-        value: item[1].length,
-        percent: (item[1].length / amountOfFundsCategories) * 100,
+    const generatedData = Object.entries(sortedFundByInitialValue).map(
+      (fund, index) => ({
+        id: fund[1].name,
+        name: fund[1].name,
+        value: fund[1].initial_value,
+        percent: (fund[1].initial_value / totalFundsAmount) * 100,
         color: colorsAccordingToTheQuantityOfFunds[index],
-      }))
-      .reverse()
-
+      })
+    )
     return generatedData
   }
 
   function shouldApplyOpacity(fund) {
-    if (
-      !pieChartInfoChildren ||
-      pieChartInfoChildren.id === fund.category_name
-    ) {
+    if (!pieChartInfoChildren || pieChartInfoChildren.id === fund.name) {
       return false
     }
     return true
@@ -315,7 +300,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           <Square
                             color={
                               graphValuesGenerator().find(
-                                item => item.id === fund.category_name
+                                item => item.id === fund.name
                               ).color
                             }
                           />
