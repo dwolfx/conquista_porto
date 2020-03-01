@@ -137,6 +137,7 @@ const FundAccordionHeader = ({ fund, fundList, setFundListCopy }) => {
                 onChange={value => {
                   handleValueFund(fund.id, value)
                 }}
+                showTooltip={fund.available !== 0}
               />
             </ObjectivesBar>
           </Col>
