@@ -25,9 +25,15 @@ export default function ObjectiveListContent({ objectives }) {
   const history = useHistory()
   const { isLoading } = useSelector(state => state.objectiveManagement)
   const horizontalListText = (text, type, color) => (
-    <Text type={type} color={color}>
-      {text}
-    </Text>
+    <div
+      css={`
+        width: 35px;
+      `}
+    >
+      <Text type={type} color={color} textAlign="right">
+        {text}
+      </Text>
+    </div>
   )
 
   const horizontalListProgressBar = (actual, max) => (
