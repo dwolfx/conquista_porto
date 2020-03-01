@@ -65,6 +65,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoadingDelete: false,
+        data: {},
       }
     case Types.DELETE_FAILURE:
       return {
