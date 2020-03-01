@@ -67,7 +67,9 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         </Text>
         <Text truncate color="gray6" type="headline">
           {formatMoney(
-            funds.reduce((acc, curr) => acc + +curr.initial_value, 0)
+            funds.reduce(function(acc, curr) {
+              return acc + +curr.initial_value
+            }, 0)
           )}
         </Text>
         <Divisor />
@@ -113,7 +115,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         percent: (fund[1].initial_value / totalFundsAmount) * 100,
         color: colorsAccordingToTheQuantityOfFunds[index],
       })
-    )
+    ).reverse()
     return generatedData
   }
 
