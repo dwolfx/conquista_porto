@@ -88,7 +88,7 @@ export const WizardFlow = ({ data, objective }) => {
   const WizardButton = () => (
     <RowFull>
       {!isFirstStep && (
-        <Col lg="6" xs="12">
+        <Col lg="6" xs="6">
           <ButtonAction
             data-gtm-name="anterior"
             data-gtm-type="click"
@@ -101,7 +101,7 @@ export const WizardFlow = ({ data, objective }) => {
         </Col>
       )}
       {!isLastStep && (
-        <Col lg={isFirstStep ? '12' : '6'} xs="12">
+        <Col lg={isFirstStep ? '12' : '6'} xs={isFirstStep ? '12' : '6'}>
           <ButtonAction
             data-gtm-form="submit"
             data-gtm-name="proximo"
@@ -113,7 +113,7 @@ export const WizardFlow = ({ data, objective }) => {
         </Col>
       )}
       {isLastStep && (
-        <Col lg="6" xs="12">
+        <Col lg="6" xs="6">
           <ButtonAction
             data-gtm-form="submit"
             data-gtm-name="concluir"
