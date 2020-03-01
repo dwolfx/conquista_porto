@@ -15,7 +15,6 @@ export const CloseButton = styled.div`
 `
 
 export const DrawerBody = styled.div`
-  height: 100%;
   overflow-y: auto;
   padding: 20px 8px;
 `
@@ -23,6 +22,7 @@ export const DrawerBody = styled.div`
 export const DrawerFooter = styled.div`
   border-top: 1px solid ${props => props.theme.colors.gray2};
   padding-top: 14px;
+  margin-top: auto;
 `
 
 export const DrawerHeader = styled.div`
@@ -43,7 +43,7 @@ export const DrawerWrapper = styled.div`
   box-shadow: ${props => props.theme.shadows.gray4};
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   max-width: 390px;
   overflow: hidden;
   padding: 14px;
