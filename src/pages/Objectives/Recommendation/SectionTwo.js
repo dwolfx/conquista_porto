@@ -34,6 +34,7 @@ import {
   PieChartChildrenContent,
   Wrapper,
   ResponsiveTableButton,
+  SectionTwoGraphContainer,
 } from './styles'
 
 const SectionTwo = ({ creditProduct, combo, funds }) => {
@@ -172,11 +173,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
           {isMobile ? (
             <>
               <Col lg="3">
-                <div
-                  css={`
-                    margin-bottom: 35px;
-                  `}
-                >
+                <SectionTwoGraphContainer>
                   <PieChart
                     width="218px"
                     height="300px"
@@ -189,7 +186,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                       {renderPieChartChildrenNode()}
                     </PieChartChildrenContainer>
                   </PieChart>
-                </div>
+                </SectionTwoGraphContainer>
               </Col>
 
               <ResponsiveTableContainer>

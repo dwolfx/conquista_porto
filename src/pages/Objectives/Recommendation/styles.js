@@ -379,9 +379,12 @@ export const ProductBannerItem = styled(Col)`
   }
 `
 
-// export const TextEllipsis = styled(Text)`
-//   max-width: ${props => (props.maxWidth ? props.maxWidth : 'inherit')};
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-// `
+export const SectionTwoGraphContainer = styled.div`
+  margin-bottom: 35px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
