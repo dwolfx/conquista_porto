@@ -59,9 +59,9 @@ function* getData(payload) {
 function* deleteObjective({ payload }) {
   try {
     const { id, pushHistoryToHomeScreen } = payload
-    yield call(remove, `/goal/goals/${id}/funds`)
-    yield put(DeleteObjectiveSuccess())
+    yield call(remove, `/goal/goals/${id}`)
     pushHistoryToHomeScreen()
+    yield put(DeleteObjectiveSuccess())
   } catch (err) {
     yield put(DeleteObjectiveFailure())
   }
