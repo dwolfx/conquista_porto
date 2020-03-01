@@ -25,6 +25,20 @@ export default function(state = INITIAL_STATE, action) {
         data: {},
         isLoading: false,
       }
+    case Types.POST_SAVE_FUNDS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      }
+    case Types.POST_SAVE_FUNDS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+      }
+    case Types.POST_SAVE_FUNDS_FAILURE:
+      return {
+        ...state,
+      }
     case Types.GET_REQUEST:
       return {
         ...state,

@@ -7,6 +7,8 @@ import { Types } from './types'
 import {
   PostObjectiveManagementDataSuccess,
   PostObjectiveManagementDataFailure,
+  PostSaveFundsSuccess,
+  PostSaveFundsFailure,
   GetObjectiveManagementDataSuccess,
   GetObjectiveManagementDataFailure,
   DeleteObjectiveSuccess,
@@ -21,6 +23,16 @@ function* postData({ payload, pushHistory }) {
     yield put(CleanObjectiveData())
   } catch (err) {
     yield put(PostObjectiveManagementDataFailure())
+  }
+}
+
+function* postSaveFunds({ payload }) {
+  const { idGoal, data } = payload
+  try {
+    const response = yield call(post, `/goal/goals/${idGoal}/funds`, data)
+    yield put(PostSaveFundsSuccess(response))
+  } catch (err) {
+    yield put(PostSaveFundsFailure())
   }
 }
 
@@ -57,6 +69,7 @@ function* deleteObjective({ payload }) {
 
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
+  takeLatest(Types.POST_SAVE_FUNDS_REQUEST, postSaveFunds),
   takeLatest(Types.GET_REQUEST, getData),
   takeLatest(Types.DELETE_REQUEST, deleteObjective),
 ])
