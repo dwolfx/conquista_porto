@@ -17,7 +17,7 @@ import {
 } from './styles'
 
 function valueToPercent(value, max) {
-  if (max === 0) {
+  if (max <= 0) {
     return 0
   }
 
@@ -25,6 +25,10 @@ function valueToPercent(value, max) {
 }
 
 function percentToValue(percent, max) {
+  if (percent <= 0) {
+    return 0
+  }
+
   return max * percent
 }
 
@@ -72,8 +76,6 @@ export default function Slider({
     let moneyValue = percentToValue(percent, max) / 100
     moneyValue = Math.round(moneyValue / normalizeValue) * normalizeValue
 
-    onChange(moneyValue)
-
     // update percentage with the value normalized
     percent = valueToPercent(moneyValue, max)
 
@@ -87,6 +89,10 @@ export default function Slider({
     if (percent >= 0 && percent <= 100) {
       setPercentValue(percent)
       setValue(formatMoneyDecimal(+moneyValue * 100))
+
+      if (onChange) {
+        onChange(moneyValue)
+      }
     }
 
     // update popover position
@@ -137,7 +143,9 @@ export default function Slider({
       setError(false)
     }
 
-    onChange(moneyValue)
+    if (onChange) {
+      onChange(moneyValue)
+    }
 
     setValue(formatMoneyDecimal(moneyValue))
     setPercentValue(percent)
