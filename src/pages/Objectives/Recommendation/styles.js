@@ -387,4 +387,4 @@ export const SectionTwoGraphContainer = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
+`
