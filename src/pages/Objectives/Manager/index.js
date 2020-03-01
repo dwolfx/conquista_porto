@@ -121,7 +121,7 @@ export default function Manager({ location }) {
       </Text>
     </ColumnWrapper>
   )
-  const horizontalListBtnEdit = (
+  const horizontalListBtnEdit = !isLoading ? (
     <ButtonLink
       data-gtm-type="click"
       data-gtm-clicktype="link"
@@ -133,17 +133,7 @@ export default function Manager({ location }) {
     >
       EXCLUIR OBJETIVO
     </ButtonLink>
-  )
-  const horizontalListBtnChangeObjective = (
-    <ButtonLink
-      data-gtm-type="click"
-      data-gtm-clicktype="link"
-      data-gtm-name="outros objetivos"
-      noIcon
-    >
-      OUTROS OBJETIVOS
-    </ButtonLink>
-  )
+  ) : null
 
   return (
     <>
@@ -168,7 +158,6 @@ export default function Manager({ location }) {
                 horizontalListGoalDate,
                 horizontalListBtnEdit,
               ]}
-              endItems={[horizontalListBtnChangeObjective]}
               noPadding
               marginBetweenElements="28px"
             />
@@ -240,7 +229,7 @@ export default function Manager({ location }) {
               handleDeleteGoal(objectiveData.id)
             }}
           >
-            CONFIRMAR
+            excluir
           </Button>
         </ButtonContainerModal>
       </Modal>
