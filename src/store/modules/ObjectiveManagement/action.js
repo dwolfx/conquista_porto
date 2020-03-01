@@ -21,6 +21,25 @@ export function PostObjectiveManagementDataFailure() {
   }
 }
 
+export function PostSaveFundsRequest(payload) {
+  return {
+    type: Types.POST_SAVE_FUNDS_REQUEST,
+    payload,
+  }
+}
+
+export function PostSaveFundsSuccess() {
+  return {
+    type: Types.POST_SAVE_FUNDS_SUCCESS,
+  }
+}
+
+export function PostSaveFundsFailure() {
+  return {
+    type: Types.POST_SAVE_FUNDS_FAILURE,
+  }
+}
+
 export function GetObjectiveManagementDataRequest(payload) {
   return {
     type: Types.GET_REQUEST,

@@ -37,6 +37,7 @@ export default function Slider({
   onMouseDown,
   onTouchStart,
   showTooltip,
+  onChange,
   ...rest
 }) {
   const sliderRef = useRef()
@@ -70,6 +71,8 @@ export default function Slider({
     // get the value relative to position then normalize value
     let moneyValue = percentToValue(percent, max) / 100
     moneyValue = Math.round(moneyValue / normalizeValue) * normalizeValue
+
+    onChange(moneyValue)
 
     // update percentage with the value normalized
     percent = valueToPercent(moneyValue, max)
@@ -125,7 +128,6 @@ export default function Slider({
 
   const handleInputOnChange = event => {
     event.preventDefault()
-
     const moneyValue = +event.target.value.replace(/[\D]/g, '')
     const percent = Math.min(valueToPercent(moneyValue / 100, max), 100)
 
@@ -134,6 +136,8 @@ export default function Slider({
     } else {
       setError(false)
     }
+
+    onChange(moneyValue)
 
     setValue(formatMoneyDecimal(moneyValue))
     setPercentValue(percent)
@@ -223,6 +227,7 @@ Slider.propTypes = {
   onMouseDown: PropTypes.func,
   onTouchStart: PropTypes.func,
   showTooltip: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
 }
 
 Slider.defaultProps = {
