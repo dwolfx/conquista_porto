@@ -244,7 +244,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                         `}
                         onClick={() => {
                           window.open(
-                            `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idGoalo=${fund.id}`,
+                            `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idFundo=${fund.id}`,
                             '_blank'
                           )
                         }}
