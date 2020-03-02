@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Close, Icon, Message, NotificationWrapper } from './styles'
@@ -10,24 +10,13 @@ const Notification = ({
   isOpen,
   message,
   ...rest
-}) => {
-  useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        handleClose()
-      }, 4000)
-    }
-  }, [handleClose, isOpen])
-
-  return (
-    <NotificationWrapper isOpen={isOpen} {...rest}>
-      {iconName && <Icon name={iconName} color={iconColor} />}
-      <Message>{message}</Message>
-      <Close name="close" color="gray5" onClick={handleClose} />
-    </NotificationWrapper>
-  )
-}
-
+}) => (
+  <NotificationWrapper isOpen={isOpen} {...rest}>
+    {iconName && <Icon name={iconName} color={iconColor} />}
+    <Message>{message}</Message>
+    <Close name="close" color="gray5" onClick={handleClose} />
+  </NotificationWrapper>
+)
 export default Notification
 
 Notification.defaultProps = {
