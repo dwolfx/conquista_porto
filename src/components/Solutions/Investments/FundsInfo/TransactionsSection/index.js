@@ -31,7 +31,11 @@ export default function TransactionsSection({ title, articles }) {
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Saldo Mín.</SubTitleWrapper>
-            <ValueWrapper>{formatMoney(articles.saldo_minimo)}</ValueWrapper>
+            <ValueWrapper>
+              {typeof articles.saldo_minimo === 'string' || undefined
+                ? '-'
+                : formatMoney(articles.saldo_minimo)}
+            </ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Horário Limite da Aplic.</SubTitleWrapper>
