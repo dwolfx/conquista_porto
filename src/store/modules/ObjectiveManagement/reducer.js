@@ -38,7 +38,7 @@ export default function(state = INITIAL_STATE, action) {
     case Types.POST_SAVE_FUNDS_FAILURE:
       return {
         ...state,
-        errorRequest: true,
+        error: true,
       }
     case Types.GET_REQUEST:
       return {
