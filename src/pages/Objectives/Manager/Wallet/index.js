@@ -164,7 +164,9 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const theme = useContext(ThemeContext)
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
-  const { error } = useSelector(state => state.objectiveManagement || '')
+  const { error, notification } = useSelector(
+    state => state.objectiveManagement || ''
+  )
 
   const history = useHistory()
   const dispatch = useDispatch()
@@ -188,7 +190,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         },
       })
     )
-    setNotificationOpen(!notificationOpen)
+    if (notification) setNotificationOpen(!notificationOpen)
   }
 
   const renderFundsList = () => {
