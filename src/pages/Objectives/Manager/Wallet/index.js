@@ -189,9 +189,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
       })
     )
     setNotificationOpen(!notificationOpen)
-    setTimeout(() => {
-      setNotificationOpen(false)
-    }, 4000)
   }
 
   const renderFundsList = () => {
