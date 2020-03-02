@@ -1,7 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-// eslint-disable-next-line import/no-cycle
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import { GetPointsDataSuccess, GetPointsDataFailure } from './action'
 
@@ -9,7 +8,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/invest/programa-pontos/extrato?cpf=${cpf}`
+      `${baseURLNamespaceInvest}/programa-pontos/extrato?cpf=${cpf}`
     )
     yield put(GetPointsDataSuccess(response.data))
   } catch (err) {

@@ -1,8 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 import saldoMin from 'components/Solutions/Investments/FundsInfo/TransactionsSection/funds-db'
 
-// eslint-disable-next-line import/no-cycle
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 
 import {
   GetInvestmentDetailsSuccess,
@@ -14,7 +13,7 @@ function* getData(action) {
   try {
     const response = yield call(
       get,
-      `/invest/fundos/${action.fundId}?codigoCanal=0`
+      `${baseURLNamespaceInvest}/fundos/${action.fundId}?codigoCanal=0`
     )
 
     if (response.data) {
