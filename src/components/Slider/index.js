@@ -144,7 +144,7 @@ export default function Slider({
     }
 
     if (onChange) {
-      onChange(moneyValue)
+      onChange(moneyValue / 100)
     }
 
     setValue(formatMoneyDecimal(moneyValue))
