@@ -174,10 +174,13 @@ export const Modal = styled(ModalDefault)`
 
 export const ModalContent = styled.div`
   padding: 30px 22px;
+  max-height: 700px;
+  overflow: auto;
 `
 
 export const Divider = styled.div`
   border-top: 1px solid ${props => props.theme.colors.gray3};
+  margin: 15px 0;
 `
 
 export const ShowAll = styled.p`

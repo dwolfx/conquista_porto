@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import moment from 'moment'
@@ -100,6 +100,29 @@ export default function ManagementLifeInsurance() {
       left: 0,
       behavior: 'smooth',
     })
+  }
+
+  const addedInsurancePoliciesDetailed = () => {
+    const {
+      GrupoCobertura: gruposCobertura,
+    } = selectedLifeInsurance.GruposCobertura
+
+    const normalizedPayload = gruposCobertura.map(grupoCobertura => ({
+      nome: grupoCobertura.Nome,
+      coberturasRisco: Array.isArray(
+        grupoCobertura.CoberturasRisco.CoberturaRisco
+      )
+        ? grupoCobertura.CoberturasRisco.CoberturaRisco
+        : [grupoCobertura.CoberturasRisco.CoberturaRisco],
+    }))
+
+    return (
+      <>
+        {normalizedPayload.map(data => (
+          <ListItem data={data} key={data.nome} />
+        ))}
+      </>
+    )
   }
 
   if (lifeInsurance.data && selectedLifeInsurance) {
@@ -292,214 +315,17 @@ export default function ManagementLifeInsurance() {
             data-gtm-subname="acesse a area do cliente"
             data-gtm-name="acessar"
           >
-            ACeSSAR
+            ACESSAR
           </Button>
         </ClientAreaSection>
+
         <Modal
           isOpen={isOpenModal}
           modalTitle="Coberturas"
           headerIcon="persongroup"
           handleClose={() => setIsOpenModal(!isOpenModal)}
         >
-          <ModalContent>
-            <Row margin="0 0 15px 0">
-              <Text
-                fontSize="11px"
-                lineHeight="21px"
-                fontWeight="600"
-                letterSpacing="1.5px"
-              >
-                EQUILÍBRIO FINANCEIRO
-              </Text>
-              <Text
-                fontSize="10px"
-                lineHeight="21px"
-                fontWeight="400"
-                letterSpacing="1.5px"
-              >
-                VALOR DE CAPITAL
-              </Text>
-            </Row>
-
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Morte
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 350.000,00
-              </Text>
-            </Row>
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Antecipação por Doença
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 350.000,00
-              </Text>
-            </Row>
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Funeral
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 5.000,00
-              </Text>
-            </Row>
-            <Row margin="0 0 15px 0">
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Compra de Jazigo
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 10.000,00
-              </Text>
-            </Row>
-
-            <Divider />
-
-            <Row margin="30px 0 15px 0">
-              <Text
-                fontSize="11px"
-                lineHeight="21px"
-                fontWeight="600"
-                letterSpacing="1.5px"
-              >
-                IMPREVISTOS
-              </Text>
-              <Text
-                fontSize="10px"
-                lineHeight="21px"
-                fontWeight="400"
-                letterSpacing="1.5px"
-              >
-                VALOR DE CAPITAL
-              </Text>
-            </Row>
-
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Morte Acidental
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 350.000,00
-              </Text>
-            </Row>
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Invalidez por Acidente
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 350.000,00
-              </Text>
-            </Row>
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                DMHO
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 10.000,00
-              </Text>
-            </Row>
-            <Row margin="0 0 15px 0">
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Majoração Invalidez
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 350.000,00
-              </Text>
-            </Row>
-
-            <Divider />
-
-            <Row margin="30px 0 15px 0">
-              <Text
-                fontSize="11px"
-                lineHeight="21px"
-                fontWeight="600"
-                letterSpacing="1.5px"
-              >
-                DOENÇAS
-              </Text>
-              <Text
-                fontSize="10px"
-                lineHeight="21px"
-                fontWeight="400"
-                letterSpacing="1.5px"
-              >
-                VALOR DE CAPITAL
-              </Text>
-            </Row>
-
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Diagnóstico de Câncer
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 50.000,00
-              </Text>
-            </Row>
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Doenças Graves 6 tipos
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 150.000,00
-              </Text>
-            </Row>
-            <Row margin="0 0 15px 0">
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Doenças Graves 10 tipos
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 200.000,00
-              </Text>
-            </Row>
-
-            <Divider />
-
-            <Row margin="30px 0 15px 0">
-              <Text
-                fontSize="11px"
-                lineHeight="21px"
-                fontWeight="600"
-                letterSpacing="1.5px"
-              >
-                RENDA
-              </Text>
-              <Text
-                fontSize="10px"
-                lineHeight="21px"
-                fontWeight="400"
-                letterSpacing="1.5px"
-              >
-                VALOR DE CAPITAL
-              </Text>
-            </Row>
-
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Incapacidade Temporária
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 200,00
-              </Text>
-            </Row>
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Diária por Incapacidade
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 200,00
-              </Text>
-            </Row>
-            <Row>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                Diária por Internação Hospitalar
-              </Text>
-              <Text fontSize="12px" lineHeight="22px" fontWeight="300">
-                R$ 150,00
-              </Text>
-            </Row>
-          </ModalContent>
+          <ModalContent>{addedInsurancePoliciesDetailed()}</ModalContent>
         </Modal>
       </>
     )
@@ -553,10 +379,51 @@ const ParcelContainer = ({ data }) =>
     </div>
   )
 
+const ListItem = ({ data }) => (
+  <Fragment key={data.nome}>
+    <Row margin="0 0 15px 0">
+      <Text
+        fontSize="11px"
+        lineHeight="21px"
+        fontWeight="600"
+        letterSpacing="1.5px"
+      >
+        {data.nome.toUpperCase()}
+      </Text>
+
+      <Text
+        fontSize="10px"
+        lineHeight="21px"
+        fontWeight="400"
+        letterSpacing="1.5px"
+      >
+        VALOR DE CAPITAL
+      </Text>
+    </Row>
+    {data.coberturasRisco.map(({ Nome, CapitalSegurado }) => (
+      <Fragment key={Nome}>
+        <Row>
+          <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+            {Nome}
+          </Text>
+          <Text fontSize="12px" lineHeight="22px" fontWeight="300">
+            {formatMoney(CapitalSegurado)}
+          </Text>
+        </Row>
+      </Fragment>
+    ))}
+    <Divider />
+  </Fragment>
+)
+
 BeneficiarioContent.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
 ParcelContainer.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
+ListItem.propTypes = {
   data: PropTypes.object.isRequired,
 }
