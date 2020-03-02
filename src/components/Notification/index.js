@@ -12,7 +12,7 @@ const Notification = ({
   ...rest
 }) => (
   <NotificationWrapper isOpen={isOpen} {...rest}>
-    {iconName && <Icon name={iconName} color={iconColor || 'white'} />}
+    {iconName && <Icon name={iconName} />}
     <Message>{message}</Message>
     <Close name="close" color="gray5" onClick={handleClose} />
   </NotificationWrapper>

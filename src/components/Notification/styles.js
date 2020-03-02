@@ -10,7 +10,7 @@ export const NotificationWrapper = styled.div`
   height: auto;
   justify-content: center;
   left: 0;
-  padding: 18px;
+  padding: 14px;
   position: fixed;
   top: ${props => (props.isOpen ? '72px' : '0')};
   transition: all ease 1s;
@@ -25,7 +25,7 @@ export const Message = styled(ComponentText)`
 
 export const Icon = styled(ConquistaIcon)`
   height: 20px;
-  margin-right: 20px;
+  margin-right: 21px;
   width: 20px;
 `
 
