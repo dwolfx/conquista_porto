@@ -14,7 +14,7 @@ import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
-import Notification from 'components/Notification'
+import Notification from 'components/NotificationManager'
 
 import { formatMoney } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
@@ -188,7 +188,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         },
       })
     )
-    setNotificationOpen(!notificationOpen)
+    if (!isLoadingSave) setNotificationOpen(!notificationOpen)
   }
 
   const renderFundsList = () => {
