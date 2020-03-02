@@ -14,6 +14,7 @@ import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
+import Notification from 'components/Notification'
 
 import { formatMoney } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
@@ -149,6 +150,7 @@ const FundAccordionHeader = ({ fund, fundList, setFundListCopy }) => {
 
 export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const [fundListCopy, setFundListCopy] = useState(null)
+  const [notificationOpen, setNotificationOpen] = useState(false)
   const theme = useContext(ThemeContext)
 
   const history = useHistory()
@@ -173,6 +175,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         },
       })
     )
+    setNotificationOpen(!notificationOpen)
   }
 
   const renderFundsList = () => {
@@ -338,6 +341,13 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         padding: 0;
       `}
     >
+      <Notification
+        iconName="check"
+        iconColor="blue4"
+        message="As alterações foram salvas com sucesso."
+        isOpen={notificationOpen}
+        handleClose={() => setNotificationOpen(false)}
+      />
       <FullHeightCard
         headerIcon="dollarsign"
         headerTitle="Carteira de fundos"
