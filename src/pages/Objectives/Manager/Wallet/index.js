@@ -37,19 +37,26 @@ import {
 const getColorGuide = index =>
   objectivesColorGuide[index % objectivesColorGuide.length]
 
-const FundAccordionHeader = ({ fund, fundList, setFundListCopy }) => {
+const FundAccordionHeader = ({
+  fund,
+  initialValue,
+  fundList,
+  setFundListCopy,
+}) => {
   const handleValueFund = (id, value) => {
-    setFundListCopy(
-      fundList.map(item => {
-        if (item.id === id) {
-          return {
-            ...item,
-            invested: value,
+    if (setFundListCopy) {
+      setFundListCopy(
+        fundList.map(item => {
+          if (item.id === id) {
+            return {
+              ...item,
+              invested: value,
+            }
           }
-        }
-        return item
-      })
-    )
+          return item
+        })
+      )
+    }
   }
 
   return (
@@ -132,7 +139,7 @@ const FundAccordionHeader = ({ fund, fundList, setFundListCopy }) => {
               })}
               <Slider
                 max={fund.available + fund.invested}
-                initialValue={fund.invested}
+                initialValue={initialValue}
                 onlyObjective={!fund.goals.length}
                 onChange={value => {
                   handleValueFund(fund.id, value)
@@ -188,15 +195,16 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
       )
     }
 
-    return fundListCopy ? (
-      fundListCopy.map((fund, index) => (
+    return fundList && fundListCopy ? (
+      fundList.map((fund, index) => (
         <React.Fragment key={fund.id}>
           <Accordion
             openByDefault={index === 0}
             titleNode={
               <FundAccordionHeader
                 fund={fund}
-                fundList={fundListCopy}
+                initialValue={fundListCopy[index].invested}
+                fundList={fundList}
                 setFundListCopy={setFundListCopy}
               />
             }
@@ -268,7 +276,9 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                             />
                             #{goalName}
                           </Text>
-                          <Text>{formatMoney(fund.invested)}</Text>
+                          <Text>
+                            {formatMoney(fundListCopy[index].invested)}
+                          </Text>
                         </ObjectiveInfoBox>
                         <ObjectiveInfoBox>
                           <Text>
@@ -279,7 +289,11 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                             />
                             Sem objetivo
                           </Text>
-                          <Text>{formatMoney(fund.available)}</Text>
+                          <Text>
+                            {formatMoney(
+                              fund.available - fundListCopy[index].invested
+                            )}
+                          </Text>
                         </ObjectiveInfoBox>
                         {fund.goals.map((goal, key) => (
                           <ObjectiveInfoBox
@@ -351,7 +365,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
           onClick: () => saveEditionsFunds(),
         }}
         footer={
-          !isLoading && fundListCopy ? (
+          !isLoading && fundList ? (
             <Button
               loading={isLoading}
               loadingColor="white"
@@ -406,7 +420,12 @@ FundAccordionHeader.propTypes = {
       id: PropTypes.number.isRequired,
     })
   ).isRequired,
-  setFundListCopy: PropTypes.func.isRequired,
+  setFundListCopy: PropTypes.func,
+  initialValue: PropTypes.number.isRequired,
+}
+
+FundAccordionHeader.defaultProps = {
+  setFundListCopy: null,
 }
 
 Wallet.propTypes = {
