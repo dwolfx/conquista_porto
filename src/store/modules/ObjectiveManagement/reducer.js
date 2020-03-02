@@ -34,14 +34,12 @@ export default function(state = INITIAL_STATE, action) {
     case Types.POST_SAVE_FUNDS_SUCCESS:
       return {
         ...state,
-        notification: true,
         isLoadingSave: false,
       }
     case Types.POST_SAVE_FUNDS_FAILURE:
       return {
         ...state,
         error: true,
-        notification: true,
         isLoadingSave: false,
       }
     case Types.GET_REQUEST:
