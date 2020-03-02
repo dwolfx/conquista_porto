@@ -25,9 +25,11 @@ export default function ObjectiveListContent({ objectives }) {
   const history = useHistory()
   const { isLoading } = useSelector(state => state.objectiveManagement)
   const horizontalListText = (text, type, color) => (
-    <div css={`
-      width: 35px;
-    `}>
+    <div
+      css={`
+        width: 35px;
+      `}
+    >
       <Text type={type} color={color} textAlign="right">
         {text}
       </Text>
