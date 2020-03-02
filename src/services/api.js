@@ -1,14 +1,15 @@
-// eslint-disable-next-line
 import axios from 'axios'
-// eslint-disable-next-line import/no-cycle
 import {
   baseURL,
+  baseURLNamespaceGoal,
+  baseURLNamespaceInvest,
+  baseURLNamespacePortopar,
   responseInterceptor,
   responseErrorInterceptor,
   requestInterceptor,
 } from './apiConfig'
 
-export const axiosInstance = axios.create({
+const axiosInstance = axios.create({
   baseURL,
   headers: {
     'content-type': 'application/json',
@@ -21,14 +22,24 @@ axiosInstance.interceptors.response.use(
   responseErrorInterceptor
 )
 
-export const get = (path, params) => axiosInstance(path, params)
+const get = (path, params) => axiosInstance(path, params)
 
-export const post = (path, data) =>
-  axiosInstance(path, { method: 'POST', data })
+const post = (path, data) => axiosInstance(path, { method: 'POST', data })
 
-export const put = (path, data) => axiosInstance(path, { method: 'PUT', data })
+const put = (path, data) => axiosInstance(path, { method: 'PUT', data })
 
-export const patch = (path, data) =>
-  axiosInstance(path, { method: 'PATCH', data })
+const patch = (path, data) => axiosInstance(path, { method: 'PATCH', data })
 
-export const remove = path => axiosInstance(path, { method: 'DELETE' })
+const remove = path => axiosInstance(path, { method: 'DELETE' })
+
+export {
+  axiosInstance,
+  get,
+  put,
+  patch,
+  remove,
+  post,
+  baseURLNamespaceGoal,
+  baseURLNamespaceInvest,
+  baseURLNamespacePortopar,
+}
