@@ -225,6 +225,17 @@ export const Wrapper = styled.div`
   margin: ${props => props.margin};
 `
 
+export const ErrorMessageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 7px 0 7px 14px;
+
+  & svg {
+    margin-right: 7px;
+  }
+`
+
 export const ContainerFunds = styled.div`
   display: flex;
   height: 100%;
@@ -259,7 +270,7 @@ export const FormWrapper = styled.div``
 
 export const ColInput = styled(Col)`
   &:not(:first-of-type) {
-    margin-top: 28px;
+    margin-top: ${props => (props.error ? '0' : '35px')};
   }
 `
 
