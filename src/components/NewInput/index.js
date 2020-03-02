@@ -29,7 +29,7 @@ const NewInput = forwardRef(
           {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
           <Input ref={inputRef} {...rest} />
           {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
-          {error && (
+          {error && typeof error === 'object' && (
             <ErrorMessage>
               <ErrorIcon name={error.icon} width="16px" />
               {error.message}

@@ -26,7 +26,14 @@ export default function Card({
 }) {
   const ButtonHeader = () =>
     headerButtonText ? (
-      <Button {...headerButtonProps}>{headerButtonText}</Button>
+      <Button
+        {...headerButtonProps}
+        css={`
+          padding: 0 21px;
+        `}
+      >
+        {headerButtonText}
+      </Button>
     ) : null
 
   const CardHeaderContent = () => (

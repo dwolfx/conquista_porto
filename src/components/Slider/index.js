@@ -51,8 +51,12 @@ export default function Slider({
   const [error, setError] = useState(errorProp)
 
   useEffect(() => {
-    setValue(formatMoneyDecimal(initialValue * 100))
-    setPercentValue(valueToPercent(initialValue, max))
+    const percent = valueToPercent(initialValue, max)
+
+    if (percent >= 0 && percent <= 100) {
+      setValue(formatMoneyDecimal(initialValue * 100))
+      setPercentValue(percent)
+    }
   }, [initialValue, max])
 
   useEffect(() => {
@@ -143,12 +147,15 @@ export default function Slider({
       setError(false)
     }
 
-    if (onChange) {
-      onChange(moneyValue / 100)
-    }
+    // if percentage between 0% and 100%, update states
+    if (percent >= 0 && percent <= 100) {
+      setValue(formatMoneyDecimal(moneyValue))
+      setPercentValue(percent)
 
-    setValue(formatMoneyDecimal(moneyValue))
-    setPercentValue(percent)
+      if (onChange) {
+        onChange(moneyValue / 100)
+      }
+    }
 
     // update popover position
     window.dispatchEvent(new Event('resize'))
@@ -191,7 +198,7 @@ export default function Slider({
                     margin-top: 7px;
                   `}
                 >
-                  <Icon name="information" color="magenta2" width={16} />
+                  <Icon name="alertrounded" color="magenta2" width={16} />
                   <Text
                     color="magenta2"
                     bold
