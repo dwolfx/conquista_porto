@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
@@ -159,6 +159,8 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const [fundListCopy, setFundListCopy] = useState(null)
   const [notificationOpen, setNotificationOpen] = useState(false)
   const theme = useContext(ThemeContext)
+
+  const { errorRequest } = useSelector(state => state.objectiveManagement || '')
 
   const history = useHistory()
   const dispatch = useDispatch()
@@ -356,9 +358,13 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
       `}
     >
       <Notification
-        iconName="check"
-        iconColor="blue4"
-        message="As alterações foram salvas com sucesso."
+        iconName={errorRequest ? 'check' : 'closerounded'}
+        iconColor={errorRequest ? 'blue4' : 'magenta2'}
+        message={
+          errorRequest
+            ? 'As alterações foram salvas com sucesso.'
+            : 'Erro ao salvar, tente novamente.'
+        }
         isOpen={notificationOpen}
         handleClose={() => setNotificationOpen(false)}
       />
