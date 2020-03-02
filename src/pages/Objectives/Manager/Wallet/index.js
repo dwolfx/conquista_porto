@@ -164,6 +164,8 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const theme = useContext(ThemeContext)
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
+  const { error } = useSelector(state => state.objectiveManagement || '')
+
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -360,9 +362,13 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
       `}
     >
       <Notification
-        iconName="check"
-        iconColor="blue4"
-        message="As alterações foram salvas com sucesso."
+        iconName={error ? 'closerounded' : 'check'}
+        iconColor={error ? 'magenta2' : 'blue4'}
+        message={
+          error
+            ? 'Erro ao salvar, tente novamente.'
+            : 'As alterações foram salvas com sucesso.'
+        }
         isOpen={notificationOpen}
         handleClose={() => setNotificationOpen(false)}
       />

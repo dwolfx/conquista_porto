@@ -2378,13 +2378,22 @@
   "goal_recommendations": {
     "goal_type": "1",
     "nickname": "Disney",
-    "target_date": "02/02/2023",
+    "target_date": "02/02/2026",
     "target_value": "70.000.000,00",
     "initial_value": "5.000,00",
     "monthly_value": "1.000,00"
   },
   "goal_management": {
-    "id": "1"
+    "fund_list": [
+      {
+        "value": 8383,
+        "id": "1"
+      },
+      {
+        "value": 2102,
+        "id": "2"
+      }
+    ]
   },
   "suitability": {
     "idpessoa": 632,
