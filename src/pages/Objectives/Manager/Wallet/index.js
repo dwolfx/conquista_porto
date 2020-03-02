@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
@@ -143,7 +143,10 @@ const FundAccordionHeader = ({
                 initialValue={initialValue}
                 onlyObjective={!fund.goals.length}
                 onChange={value => {
-                  handleValueFund(fund.id, value)
+                  handleValueFund(
+                    fund.id,
+                    Math.min(value, fund.available + fund.invested)
+                  )
                 }}
                 showTooltip={fund.available !== 0}
               />
@@ -159,6 +162,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const [fundListCopy, setFundListCopy] = useState(null)
   const [notificationOpen, setNotificationOpen] = useState(false)
   const theme = useContext(ThemeContext)
+  const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
   const { error } = useSelector(state => state.objectiveManagement || '')
 
@@ -209,7 +213,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
               <FundAccordionHeader
                 fund={fund}
                 initialValue={fundListCopy[index].invested}
-                fundList={fundList}
+                fundList={fundListCopy}
                 setFundListCopy={setFundListCopy}
               />
             }
@@ -379,6 +383,9 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
           'data-gtm-subname': 'carteira de fundos',
           'data-gtm-name': 'salvar alteracoes',
           onClick: () => saveEditionsFunds(),
+          loading: isLoadingSave,
+          loadingColor: 'white',
+          disabled: isLoadingSave,
         }}
         footer={
           !isLoading && fundList ? (

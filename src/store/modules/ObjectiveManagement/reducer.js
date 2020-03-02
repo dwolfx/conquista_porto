@@ -3,6 +3,7 @@ import { Types } from './types'
 const INITIAL_STATE = {
   data: null,
   isLoading: false,
+  isLoadingSave: false,
   isLoadingDelete: false,
 }
 
@@ -28,17 +29,18 @@ export default function(state = INITIAL_STATE, action) {
     case Types.POST_SAVE_FUNDS_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingSave: true,
       }
     case Types.POST_SAVE_FUNDS_SUCCESS:
       return {
         ...state,
-        isLoading: false,
+        isLoadingSave: false,
       }
     case Types.POST_SAVE_FUNDS_FAILURE:
       return {
         ...state,
         error: true,
+        isLoadingSave: false,
       }
     case Types.GET_REQUEST:
       return {
