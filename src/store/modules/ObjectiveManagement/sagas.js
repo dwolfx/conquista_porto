@@ -29,7 +29,7 @@ function* postData({ payload, pushHistory }) {
 }
 
 function* postSaveFunds({ payload }) {
-  const { idGoal, data } = payload
+  const { idGoal, data, onSuccess } = payload
   try {
     const response = yield call(
       post,
@@ -37,14 +37,19 @@ function* postSaveFunds({ payload }) {
       data
     )
     yield put(PostSaveFundsSuccess(response))
+
+    if (onSuccess) {
+      onSuccess()
+    }
   } catch (err) {
     yield put(PostSaveFundsFailure())
   }
 }
 
 function* getData(payload) {
+  const { id, history, path } = payload
+
   try {
-    const { id, history, path } = payload
     const response = yield call(get, `${baseURLNamespaceGoal}/goals/${id}`)
 
     if (response.data) {
@@ -59,6 +64,7 @@ function* getData(payload) {
     }
   } catch (err) {
     yield put(GetObjectiveManagementDataFailure())
+    history.push('/objetivos')
   }
 }
 

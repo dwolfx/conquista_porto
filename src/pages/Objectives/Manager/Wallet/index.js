@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Prompt } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'styled-bootstrap-grid'
@@ -10,159 +10,39 @@ import Accordion from 'components/AccordionNew'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
-import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
-import Popover from 'components/Popover'
+import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import Notification from 'components/NotificationManager'
 
 import { formatMoney } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
-import { objectivesColorGuide } from 'styles/theme'
-
 import {
   AccordionContentWrapper,
+  ButtonContainerModal,
   FullHeightCard,
   LoadingStateContainer,
 } from 'pages/Objectives/Manager/styles'
 
+import FundAccordionHeader from './AccordionHeader'
+import { getColorGuide, isFundsNotTheSame } from './utils'
 import {
-  Slider,
   ObjectiveInfoBox,
   ObjectiveInfoColor,
   ObjectivesInfoContainer,
-  ObjectivesBar,
 } from './styles'
 
-const getColorGuide = index =>
-  objectivesColorGuide[index % objectivesColorGuide.length]
-
-const FundAccordionHeader = ({
-  fund,
-  initialValue,
-  fundList,
-  setFundListCopy,
-}) => {
-  const handleValueFund = (id, value) => {
-    if (setFundListCopy) {
-      setFundListCopy(
-        fundList.map(item => {
-          if (item.id === id) {
-            return {
-              ...item,
-              invested: value,
-            }
-          }
-          return item
-        })
-      )
-    }
-  }
-
-  return (
-    <Row
-      css={`
-        padding-right: 28px;
-      `}
-    >
-      <Col
-        md="3"
-        css={`
-          display: flex;
-          flex-direction: column;
-          padding-right: 28px;
-        `}
-      >
-        <Text type="captionUppercase" color="gray4" bold>
-          nome do fundo
-        </Text>
-        <div
-          css={`
-            align-items: center;
-            display: flex;
-          `}
-        >
-          <Text type="headline" color="gray6" bold>
-            {fund.name}
-          </Text>
-          {fund.recommended && (
-            <Popover
-              content="Fundo recomendado"
-              css={`
-                width: 24px;
-                margin-left: 14px;
-              `}
-            >
-              <Icon name="information" width={21} color="blue4" />
-            </Popover>
-          )}
-        </div>
-      </Col>
-
-      <Col md="9" alignSelf="center">
-        <Row>
-          <Col
-            md="3"
-            css={`
-              padding-left: 7px;
-            `}
-          >
-            <Text type="captionUppercase" color="gray4">
-              Saldo do Fundo
-            </Text>
-            <Text type="headline" color="gray6">
-              {formatMoney(fund.balance)}
-            </Text>
-          </Col>
-          <Col
-            md="9"
-            css={`
-              align-items: center;
-              display: flex;
-            `}
-          >
-            <ObjectivesBar>
-              {fund.goals.map((goal, key) => {
-                const percent = (goal.value / fund.balance) * 100
-                return (
-                  <div
-                    css={`
-                      width: ${percent}%;
-                      height: 100%;
-                      background-color: ${getColorGuide(key)};
-                      border-top-left-radius: ${key === 0 ? '7px' : 0};
-                      border-bottom-left-radius: ${key === 0 ? '7px' : 0};
-                    `}
-                    key={`fund-${goal.id}`}
-                  />
-                )
-              })}
-              <Slider
-                max={fund.available + fund.invested}
-                initialValue={initialValue}
-                onlyObjective={!fund.goals.length}
-                onChange={value => {
-                  handleValueFund(
-                    fund.id,
-                    Math.min(value, fund.available + fund.invested)
-                  )
-                }}
-                showTooltip={fund.available !== 0}
-              />
-            </ObjectivesBar>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
-  )
-}
-
 export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
-  const [fundListCopy, setFundListCopy] = useState(null)
-  const [notificationOpen, setNotificationOpen] = useState(false)
   const theme = useContext(ThemeContext)
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
+
+  const [fundListCopy, setFundListCopy] = useState(null)
+  const [notificationOpen, setNotificationOpen] = useState(false)
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [confirmedUnsavedChanges, setConfirmedUnsavedChanges] = useState(false)
+  const [isModalUnsavedOpen, setIsModalUnsavedOpen] = useState(false)
+  const [newLocation, setNewLocation] = useState('')
 
   const { error } = useSelector(state => state.objectiveManagement || '')
 
@@ -172,6 +52,18 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   useEffect(() => {
     setFundListCopy(fundList)
   }, [fundList])
+
+  useEffect(() => {
+    if (fundList.length && (fundListCopy || []).length) {
+      setHasUnsavedChanges(isFundsNotTheSame(fundList, fundListCopy))
+    }
+  }, [fundListCopy, fundList])
+
+  useEffect(() => {
+    if (confirmedUnsavedChanges && newLocation) {
+      history.push(newLocation)
+    }
+  }, [confirmedUnsavedChanges, history, newLocation])
 
   const saveEditionsFunds = () => {
     function formatRequestPayload() {
@@ -185,6 +77,9 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         idGoal,
         data: {
           fund_list: formatRequestPayload(),
+        },
+        onSuccess: () => {
+          setHasUnsavedChanges(false)
         },
       })
     )
@@ -212,8 +107,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
             titleNode={
               <FundAccordionHeader
                 fund={fund}
-                initialValue={fundListCopy[index].invested}
-                fundList={fundListCopy}
+                fundListCopy={fundListCopy}
                 setFundListCopy={setFundListCopy}
               />
             }
@@ -300,7 +194,9 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                           </Text>
                           <Text>
                             {formatMoney(
-                              fund.available - fundListCopy[index].invested
+                              fund.available +
+                                fund.invested -
+                                fundListCopy[index].invested
                             )}
                           </Text>
                         </ObjectiveInfoBox>
@@ -356,71 +252,117 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   }
 
   return (
-    <Col
-      css={`
-        padding: 0;
-      `}
-    >
-      <Notification
-        iconName={error ? 'closerounded' : 'check'}
-        iconColor={error ? 'magenta2' : 'blue4'}
-        message={
-          error
-            ? 'Erro ao salvar, tente novamente.'
-            : 'As alterações foram salvas com sucesso.'
-        }
-        isOpen={notificationOpen}
-        handleClose={() => setNotificationOpen(false)}
-      />
-      <FullHeightCard
-        headerIcon="dollarsign"
-        headerTitle="Carteira de fundos"
-        headerButtonText="Salvar alterações"
-        headerButtonProps={{
-          color: 'secondary',
-          'data-gtm-type': 'click',
-          'data-gtm-clicktype': 'button',
-          'data-gtm-subname': 'carteira de fundos',
-          'data-gtm-name': 'salvar alteracoes',
-          onClick: () => saveEditionsFunds(),
-          loading: isLoadingSave,
-          loadingColor: 'white',
-          disabled: isLoadingSave,
-        }}
-        footer={
-          !isLoading && fundList ? (
-            <Button
-              loading={isLoading}
-              loadingColor="white"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              data-gtm-subname="carteira de fundos"
-              data-gtm-name="adicionar fundo"
-              outline
-              css={`
-                width: 100%;
-              `}
-              onClick={() => {
-                window.open(
-                  'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/investimentos/info-fundos-investimento',
-                  '_blank'
-                )
-              }}
-            >
-              Adicionar fundo
-            </Button>
-          ) : null
-        }
+    <>
+      <Col
+        css={`
+          padding: 0;
+        `}
       >
-        <div
-          css={`
-            padding-top: 21px;
-          `}
+        <Notification
+          iconName={error ? 'closerounded' : 'check'}
+          iconColor={error ? 'magenta2' : 'blue4'}
+          message={
+            error
+              ? 'Erro ao salvar, tente novamente.'
+              : 'As alterações foram salvas com sucesso.'
+          }
+          isOpen={notificationOpen}
+          handleClose={() => setNotificationOpen(false)}
+        />
+        <FullHeightCard
+          headerIcon="dollarsign"
+          headerTitle="Carteira de fundos"
+          headerButtonText="Salvar alterações"
+          headerButtonProps={{
+            color: 'secondary',
+            'data-gtm-type': 'click',
+            'data-gtm-clicktype': 'button',
+            'data-gtm-subname': 'carteira de fundos',
+            'data-gtm-name': 'salvar alteracoes',
+            onClick: () => saveEditionsFunds(),
+            loading: isLoadingSave,
+            loadingColor: 'white',
+            disabled: !hasUnsavedChanges,
+          }}
+          footer={
+            !isLoading && fundList ? (
+              <Button
+                loading={isLoading}
+                loadingColor="white"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname="carteira de fundos"
+                data-gtm-name="adicionar fundo"
+                outline
+                css={`
+                  width: 100%;
+                `}
+                onClick={() => {
+                  window.open(
+                    'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/investimentos/info-fundos-investimento',
+                    '_blank'
+                  )
+                }}
+              >
+                Adicionar fundo
+              </Button>
+            ) : null
+          }
         >
-          {renderFundsList()}
-        </div>
-      </FullHeightCard>
-    </Col>
+          <div
+            css={`
+              padding-top: 21px;
+            `}
+          >
+            {renderFundsList()}
+          </div>
+        </FullHeightCard>
+      </Col>
+      <Modal
+        isOpen={isModalUnsavedOpen}
+        handleClose={() => {
+          setIsModalUnsavedOpen(false)
+        }}
+        modalTitle="Alterações não salvas"
+      >
+        <Text type="headline" color="gray6">
+          As alterações não salvas serão perdidas.
+        </Text>
+        <Text type="headline" color="gray6">
+          Tem certeza que deseja continuar?
+        </Text>
+        <ButtonContainerModal>
+          <Button
+            outline
+            onClick={() => {
+              setIsModalUnsavedOpen(false)
+            }}
+          >
+            Cancelar
+          </Button>
+          <Button
+            onClick={() => {
+              setConfirmedUnsavedChanges(true)
+            }}
+          >
+            Confirmar
+          </Button>
+        </ButtonContainerModal>
+      </Modal>
+      <Prompt
+        when={hasUnsavedChanges}
+        message={nextLocation => {
+          setNewLocation(nextLocation.pathname)
+          setIsModalUnsavedOpen(true)
+
+          if (confirmedUnsavedChanges) {
+            return true
+          }
+
+          return false
+        }}
+      />
+    </>
   )
 }
 
@@ -442,12 +384,12 @@ FundAccordionHeader.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     })
-  ).isRequired,
+  ),
   setFundListCopy: PropTypes.func,
-  initialValue: PropTypes.number.isRequired,
 }
 
 FundAccordionHeader.defaultProps = {
+  fundListCopy: [],
   setFundListCopy: null,
 }
 
