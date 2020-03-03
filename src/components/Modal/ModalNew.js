@@ -22,6 +22,7 @@ const Modal = ({
   isOpen,
   modalTitle,
   alignItems,
+  maxWidth,
   ...rest
 }) => {
   const themeContext = useContext(ThemeContext)
@@ -55,7 +56,7 @@ const Modal = ({
   return ReactDOM.createPortal(
     <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
       <ModalOverlay isOpen={isOpen} onClick={handleClose} />
-      <ModalContainer>
+      <ModalContainer maxWidth={maxWidth}>
         <ModalHeader>
           {headerIcon && (
             <Icon
@@ -83,6 +84,7 @@ const Modal = ({
 Modal.defaultProps = {
   headerIcon: null,
   modalTitle: '',
+  maxWidth: '900px',
 }
 
 Modal.propTypes = {
@@ -92,6 +94,7 @@ Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   modalTitle: PropTypes.string,
   alignItems: PropTypes.string,
+  maxWidth: PropTypes.string,
 }
 
 export default Modal
