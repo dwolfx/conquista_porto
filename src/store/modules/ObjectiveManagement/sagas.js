@@ -47,8 +47,9 @@ function* postSaveFunds({ payload }) {
 }
 
 function* getData(payload) {
+  const { id, history, path } = payload
+
   try {
-    const { id, history, path } = payload
     const response = yield call(get, `${baseURLNamespaceGoal}/goals/${id}`)
 
     if (response.data) {
@@ -63,6 +64,7 @@ function* getData(payload) {
     }
   } catch (err) {
     yield put(GetObjectiveManagementDataFailure())
+    history.push('/objetivos')
   }
 }
 
