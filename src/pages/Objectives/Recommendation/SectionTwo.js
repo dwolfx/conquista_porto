@@ -141,7 +141,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   return (
     <GridRow>
       <Modal
-        modalTitle="Regras de condições"
+        modalTitle={fundDetails.name}
         alignItems="flex-start"
         isOpen={isModalOpen}
         handleClose={() => handleCloseModal()}

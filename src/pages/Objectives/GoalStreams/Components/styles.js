@@ -38,6 +38,7 @@ export const PageBar = styled(Text).attrs(() => ({ type: 'title' }))`
 
 export const Question = styled(Text).attrs(() => ({ type: 'heading4' }))`
   text-align: center;
+  padding: 14px;
   text-transform: none;
 `
 
@@ -64,7 +65,7 @@ export const Nickname = styled(Text).attrs(() => ({ type: 'heading4' }))`
 
 export const SectionBar = styled.section`
   background-color: ${props => props.theme.fundRiskColors.lowRisk};
-  padding: 10px 0;
+  padding: 14px 28px;
 `
 
 export const TitleBar = styled(Text).attrs(() => ({ type: 'heading4' }))`
@@ -77,4 +78,8 @@ export const TitleBar = styled(Text).attrs(() => ({ type: 'heading4' }))`
 
 export const InputWrapper = styled.div`
   margin: 4rem auto;
+`
+
+export const Form = styled.form`
+  width: 100%;
 `

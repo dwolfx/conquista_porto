@@ -217,7 +217,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       />
       <SectionsRecommendation>
         <Drawer
-          drawerTitle="resumo"
+          drawerTitle="Resumo"
           isOpen={isDrawerOpen}
           handleClose={() => setIsDrawerOpen(false)}
           footer={footerDrawer()}
