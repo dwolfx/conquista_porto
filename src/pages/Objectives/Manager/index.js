@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { useHistory, useParams } from 'react-router-dom'
 import 'styled-components/macro'
 
-import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
+import targetImg from 'assets/images/pages/Objectives/Manager/target.png'
 
 import ButtonLink from 'components/Button/Link'
 import Loading from 'components/Loading'
