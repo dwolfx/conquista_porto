@@ -1,7 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-// eslint-disable-next-line import/no-cycle
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import {
   GetVehicleFinancingSuccess,
@@ -12,7 +11,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/invest/financiamentos/auto?cpf=${cpf}&codigoCanal=0`
+      `${baseURLNamespaceInvest}/financiamentos/auto?cpf=${cpf}&codigoCanal=0`
     )
     if (
       response.data.TipoCritica ||

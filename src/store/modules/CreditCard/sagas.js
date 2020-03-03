@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import { GetCreditCardDataSuccess, GetCreditCardDataFailure } from './action'
 
@@ -8,7 +8,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/invest/cartoes?cpfCnpj=${cpf}&codigoCanal=0`
+      `${baseURLNamespaceInvest}/cartoes?cpfCnpj=${cpf}&codigoCanal=0`
     )
     yield put(GetCreditCardDataSuccess(response.data))
   } catch (err) {

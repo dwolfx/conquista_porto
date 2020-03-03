@@ -3,7 +3,11 @@ import { TOKEN_NAME } from 'store/modules/Auth/types'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
 import { dataLayerErrorInfo } from 'GoogleTagManager'
 import { getCookieValue } from 'helpers'
+
 const baseURL = process.env.REACT_APP_BASE_URL
+const baseURLNamespaceInvest = process.env.REACT_APP_BASE_URL_INVEST || ''
+const baseURLNamespaceGoal = process.env.REACT_APP_BASE_URL_GOAL || ''
+const baseURLNamespacePortopar = process.env.REACT_APP_BASE_URL_PORTOPAR || ''
 
 const responseInterceptor = response => {
   if (response.data.TipoCritica) {
@@ -27,6 +31,9 @@ const requestInterceptor = request => {
 
 export {
   baseURL,
+  baseURLNamespaceInvest,
+  baseURLNamespaceGoal,
+  baseURLNamespacePortopar,
   responseInterceptor,
   responseErrorInterceptor,
   requestInterceptor,

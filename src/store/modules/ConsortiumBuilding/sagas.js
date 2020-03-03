@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import {
   GetConsortiumBuildingDataSuccess,
@@ -11,7 +11,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/invest/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`
+      `${baseURLNamespaceInvest}/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`
     )
     yield put(GetConsortiumBuildingDataSuccess(response.data.consorcios))
   } catch (err) {
