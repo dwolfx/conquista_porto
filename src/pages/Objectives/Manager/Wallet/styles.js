@@ -23,7 +23,7 @@ export const ObjectiveInfoBox = styled.div`
   flex-direction: column;
   margin-bottom: 35px;
   padding: 7px 14px 7px 0;
-  width: 25%;
+  width: calc(100% / 3);
 
   ${TextStyle} {
     align-items: center;

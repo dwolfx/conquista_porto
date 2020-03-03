@@ -168,7 +168,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                 </Col>
                 <Col md="9">
                   <Row>
-                    <Col md="9" offset="3">
+                    <Col md="8" offset="4">
                       <ObjectivesInfoContainer>
                         <ObjectiveInfoBox>
                           <Text>
@@ -181,23 +181,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                           </Text>
                           <Text>
                             {formatMoney(fundListCopy[index].invested)}
-                          </Text>
-                        </ObjectiveInfoBox>
-                        <ObjectiveInfoBox>
-                          <Text>
-                            <ObjectiveInfoColor
-                              css={`
-                                background-color: ${theme.colors.gray3};
-                              `}
-                            />
-                            Sem objetivo
-                          </Text>
-                          <Text>
-                            {formatMoney(
-                              fund.available +
-                                fund.invested -
-                                fundListCopy[index].invested
-                            )}
                           </Text>
                         </ObjectiveInfoBox>
                         {fund.goals.map((goal, key) => (
