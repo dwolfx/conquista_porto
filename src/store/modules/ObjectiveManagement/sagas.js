@@ -29,7 +29,7 @@ function* postData({ payload, pushHistory }) {
 }
 
 function* postSaveFunds({ payload }) {
-  const { idGoal, data } = payload
+  const { idGoal, data, onSuccess } = payload
   try {
     const response = yield call(
       post,
@@ -37,6 +37,10 @@ function* postSaveFunds({ payload }) {
       data
     )
     yield put(PostSaveFundsSuccess(response))
+
+    if (onSuccess) {
+      onSuccess()
+    }
   } catch (err) {
     yield put(PostSaveFundsFailure())
   }

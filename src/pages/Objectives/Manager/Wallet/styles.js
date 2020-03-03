@@ -7,6 +7,7 @@ export const Slider = styled(SliderComp)`
   border-radius: ${props => (props.onlyObjective ? '7px' : 0)};
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  flex: 1;
 `
 
 export const ObjectiveInfoColor = styled.span`
