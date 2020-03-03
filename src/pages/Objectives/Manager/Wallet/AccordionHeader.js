@@ -138,7 +138,9 @@ export default function FundAccordionHeader({
               <Slider
                 max={fund.available + fund.invested}
                 initialValue={fund.invested}
-                onlyObjective={!fund.goals.length}
+                onlyObjective={
+                  fund.goals.length === 0 || fund.balance === fund.invested
+                }
                 onChange={value => {
                   handleValueFund(
                     fund.id,
