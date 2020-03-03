@@ -44,3 +44,14 @@ export const ObjectivesBar = styled.div`
   height: 7px;
   width: 100%;
 `
+
+export const OtherObjectivesBar = styled.div`
+  background-color: ${props =>
+    props.backgroundColor || props.theme.colors.gray2};
+  border-top-left-radius: ${props => (props.hasLeftRadius ? '7px' : 0)};
+  border-bottom-left-radius: ${props => (props.hasLeftRadius ? '7px' : 0)};
+  border-top-right-radius: ${props => (props.hasRightRadius ? '7px' : 0)};
+  border-bottom-right-radius: ${props => (props.hasRightRadius ? '7px' : 0)};
+  height: 100%;
+  width: ${props => props.percent || 0}%;
+`

@@ -10,7 +10,7 @@ import Text from 'components/Text'
 import { formatMoney } from 'helpers'
 
 import { getColorGuide } from './utils'
-import { Slider, ObjectivesBar } from './styles'
+import { Slider, ObjectivesBar, OtherObjectivesBar } from './styles'
 
 export default function FundAccordionHeader({
   fund,
@@ -100,40 +100,31 @@ export default function FundAccordionHeader({
                 const percent = (goal.value / fund.balance) * 100
 
                 return (
-                  <div
-                    css={`
-                      width: ${percent}%;
-                      height: 100%;
-                      background-color: ${getColorGuide(key)};
-                      border-top-left-radius: ${key === 0 ? '7px' : 0};
-                      border-bottom-left-radius: ${key === 0 ? '7px' : 0};
-                      border-top-right-radius: ${key ===
-                        fund.goals.length - 1 && fund.available === 0
-                        ? '7px'
-                        : 0};
-                      border-bottom-right-radius: ${key ===
-                        fund.goals.length - 1 && fund.available === 0
-                        ? '7px'
-                        : 0};
-                    `}
+                  <OtherObjectivesBar
+                    hasLeftRadius={key === 0}
+                    hasRightRadius={
+                      (key === fund.goals.length - 1 || percent === 100) &&
+                      fund.available === 0
+                    }
+                    percent={percent}
+                    backgroundColor={getColorGuide(key)}
                     key={`fund-${goal.id}`}
                   />
                 )
               })}
-              {fund.available !== 0 && (
-                <Slider
-                  max={fund.available + fund.invested}
-                  initialValue={fund.invested}
-                  onlyObjective={!fund.goals.length}
-                  onChange={value => {
-                    handleValueFund(
-                      fund.id,
-                      Math.min(value, fund.available + fund.invested)
-                    )
-                  }}
-                  showTooltip={fund.available !== 0}
-                />
-              )}
+              <Slider
+                max={fund.available + fund.invested}
+                initialValue={fund.invested}
+                onlyObjective={!fund.goals.length}
+                onChange={value => {
+                  handleValueFund(
+                    fund.id,
+                    Math.min(value, fund.available + fund.invested)
+                  )
+                }}
+                showTooltip={fund.available !== 0 || fund.invested !== 0}
+                showThumb={fund.available !== 0 || fund.invested !== 0}
+              />
             </ObjectivesBar>
           </Col>
         </Row>
