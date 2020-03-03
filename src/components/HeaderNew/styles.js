@@ -12,7 +12,7 @@ export const BgWrapper = styled.div`
   width: 100vw;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 11;
   border-bottom: ${props =>
     props.isScrolled ? `1px solid ${props.theme.colors.gray2}` : 'none'};
 `

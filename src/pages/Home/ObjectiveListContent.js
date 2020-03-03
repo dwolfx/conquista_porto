@@ -24,11 +24,27 @@ export default function ObjectiveListContent({ objectives }) {
   const dispatch = useDispatch()
   const history = useHistory()
   const { isLoading } = useSelector(state => state.objectiveManagement)
-  const horizontalListText = (text, type, color) => (
-    <Text type={type} color={color}>
-      {text}
-    </Text>
-  )
+  const horizontalListText = (text, type, color, hasContainer) => {
+    if (hasContainer) {
+      return (
+        <div
+          css={`
+            width: 35px;
+          `}
+        >
+          <Text type={type} color={color} textAlign="right">
+            {text}
+          </Text>
+        </div>
+      )
+    }
+
+    return (
+      <Text type={type} color={color} textAlign="right">
+        {text}
+      </Text>
+    )
+  }
 
   const horizontalListProgressBar = (actual, max) => (
     <div
@@ -94,7 +110,8 @@ export default function ObjectiveListContent({ objectives }) {
                   horizontalListText(
                     `${objective.percentage}%`,
                     'captionUppercase',
-                    'gray4'
+                    'gray4',
+                    true
                   ),
                 ]}
               />

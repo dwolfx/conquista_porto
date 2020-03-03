@@ -62,3 +62,13 @@ export const LoadingStateContainer = styled.div`
   height: 474px;
   justify-content: center;
 `
+
+export const ButtonContainerModal = styled.div`
+  padding-top: 56px;
+  text-align: right;
+
+  button {
+    margin-left: 14px;
+    width: 180px;
+  }
+`

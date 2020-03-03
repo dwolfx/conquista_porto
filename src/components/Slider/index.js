@@ -17,7 +17,7 @@ import {
 } from './styles'
 
 function valueToPercent(value, max) {
-  if (max === 0) {
+  if (max <= 0) {
     return 0
   }
 
@@ -25,6 +25,10 @@ function valueToPercent(value, max) {
 }
 
 function percentToValue(percent, max) {
+  if (percent <= 0) {
+    return 0
+  }
+
   return max * percent
 }
 
@@ -37,6 +41,7 @@ export default function Slider({
   onMouseDown,
   onTouchStart,
   showTooltip,
+  onChange,
   ...rest
 }) {
   const sliderRef = useRef()
@@ -46,8 +51,12 @@ export default function Slider({
   const [error, setError] = useState(errorProp)
 
   useEffect(() => {
-    setValue(formatMoneyDecimal(initialValue * 100))
-    setPercentValue(valueToPercent(initialValue, max))
+    const percent = valueToPercent(initialValue, max)
+
+    if (percent >= 0 && percent <= 100) {
+      setValue(formatMoneyDecimal(initialValue * 100))
+      setPercentValue(percent)
+    }
   }, [initialValue, max])
 
   useEffect(() => {
@@ -84,6 +93,10 @@ export default function Slider({
     if (percent >= 0 && percent <= 100) {
       setPercentValue(percent)
       setValue(formatMoneyDecimal(+moneyValue * 100))
+
+      if (onChange) {
+        onChange(moneyValue)
+      }
     }
 
     // update popover position
@@ -125,7 +138,6 @@ export default function Slider({
 
   const handleInputOnChange = event => {
     event.preventDefault()
-
     const moneyValue = +event.target.value.replace(/[\D]/g, '')
     const percent = Math.min(valueToPercent(moneyValue / 100, max), 100)
 
@@ -135,8 +147,15 @@ export default function Slider({
       setError(false)
     }
 
-    setValue(formatMoneyDecimal(moneyValue))
-    setPercentValue(percent)
+    // if percentage between 0% and 100%, update states
+    if (percent >= 0 && percent <= 100) {
+      setValue(formatMoneyDecimal(moneyValue))
+      setPercentValue(percent)
+
+      if (onChange) {
+        onChange(moneyValue / 100)
+      }
+    }
 
     // update popover position
     window.dispatchEvent(new Event('resize'))
@@ -157,6 +176,7 @@ export default function Slider({
       />
       {showTooltip ? (
         <ThumbPopover
+          flippable={false}
           content={() => (
             <>
               <Input
@@ -167,6 +187,7 @@ export default function Slider({
                   height: 33px;
                   font-size: 14px;
                 `}
+                maxLength="14"
                 error={error}
               />
               {error && (
@@ -177,7 +198,7 @@ export default function Slider({
                     margin-top: 7px;
                   `}
                 >
-                  <Icon name="information" color="magenta2" width={16} />
+                  <Icon name="alertrounded" color="magenta2" width={16} />
                   <Text
                     color="magenta2"
                     bold
@@ -221,6 +242,7 @@ Slider.propTypes = {
   onMouseDown: PropTypes.func,
   onTouchStart: PropTypes.func,
   showTooltip: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
 }
 
 Slider.defaultProps = {

@@ -11,6 +11,7 @@ import PieChart from 'components/PieChart'
 import Divisor from 'components/Divisor'
 import Modal from 'components/Modal/ModalNew'
 import { formatMoney } from 'helpers'
+import useMedia from 'hooks/useMedia'
 import ModalFundos from './ModalFundos'
 
 import {
@@ -26,8 +27,14 @@ import {
   ContainerFunds,
   TableRow,
   TableData,
+  ResponsiveTableContainer,
+  TableCard,
+  TableDivisor,
   Square,
   PieChartChildrenContent,
+  Wrapper,
+  ResponsiveTableButton,
+  SectionTwoGraphContainer,
 } from './styles'
 
 const SectionTwo = ({ creditProduct, combo, funds }) => {
@@ -35,16 +42,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [fundDetails, setFundDetails] = useState({})
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
-
-  function groupBy(arr, key) {
-    return arr.reduce((prev, curr) => {
-      const newPrev = {
-        ...prev,
-        [curr[key]]: [...(prev[curr[key]] || []), curr],
-      }
-      return newPrev
-    }, {})
-  }
+  const isMobile = useMedia('sm')
 
   function settingPieChartInfoChildren(payload) {
     setPieChartInfoChildren(payload)
@@ -93,40 +91,35 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
       theme.colors.yellow2,
       theme.colors.green3,
       theme.colors.darkBlue2,
+      theme.colors.gray6,
     ]
 
-    const groupedData = groupBy(funds, 'category_name')
-    const sortedData = Object.entries(groupedData).sort(
-      (a, b) => b[1].length - a[1].length
-    )
+    const sortedFundByInitialValue = funds
+      .map(fund => fund)
+      .sort((a, b) => b.initial_value - a.initial_value)
+
+    const totalFundsAmount = sortedFundByInitialValue
+      .map(fund => fund.initial_value)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
 
     const colorsAccordingToTheQuantityOfFunds = [
-      ...colorsPriority.slice(0, sortedData.length),
+      ...colorsPriority.slice(0, sortedFundByInitialValue.length),
     ]
 
-    const amountOfFundsCategories = Object.values(groupedData).reduce(
-      (acc, curr) => acc + curr.length,
-      0
-    )
-
-    const generatedData = Object.entries(sortedData)
-      .map(([, item], index) => ({
-        id: item[0],
-        name: item[0],
-        value: item[1].length,
-        percent: (item[1].length / amountOfFundsCategories) * 100,
+    const generatedData = Object.entries(sortedFundByInitialValue)
+      .map((fund, index) => ({
+        id: fund[1].name,
+        name: fund[1].name,
+        value: fund[1].initial_value,
+        percent: (fund[1].initial_value / totalFundsAmount) * 100,
         color: colorsAccordingToTheQuantityOfFunds[index],
       }))
       .reverse()
-
     return generatedData
   }
 
   function shouldApplyOpacity(fund) {
-    if (
-      !pieChartInfoChildren ||
-      pieChartInfoChildren.id === fund.category_name
-    ) {
+    if (!pieChartInfoChildren || pieChartInfoChildren.id === fund.name) {
       return false
     }
     return true
@@ -155,127 +148,212 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
       >
         <ModalFundos fundDetails={fundDetails} />
       </Modal>
-      <Col lg={combo.length > 1 ? '9' : '12'}>
+      <Col
+        lg={combo.length > 1 ? '9' : '12'}
+        css={`
+          margin-bottom: ${isMobile ? '14px' : '0px'};
+        `}
+      >
         <FullHeightCard headerIcon="financial" headerTitle="Fundos Sugeridos">
-          <ContainerFunds>
-            <Col lg="3">
-              <div>
-                <PieChart
-                  width="218px"
-                  height="300px"
-                  data={graphValuesGenerator()}
-                  onMouseEnter={settingPieChartInfoChildren}
-                  onSliceClick={settingPieChartInfoChildren}
-                  onMouseLeave={settingPieChartInfoChildren}
-                >
-                  <PieChartChildrenContainer>
-                    {renderPieChartChildrenNode()}
-                  </PieChartChildrenContainer>
-                </PieChart>
-              </div>
-            </Col>
-            <Col lg="9">
-              <FundsTable
-                css={`
-                  margin-left: 14px;
-                `}
-              >
-                <thead>
-                  <TableRow>
-                    <TableHeader textAlign="left">
-                      <Text type="captionUppercase" color="gray5">
-                        fundo de investimento
-                      </Text>
-                    </TableHeader>
-                    <TableHeader>
-                      <Text type="captionUppercase" color="gray5">
-                        rentabilidade
-                      </Text>
-                      <Text type="captionUppercase" color="gray4">
-                        últ. 12 meses
-                      </Text>
-                    </TableHeader>
-                    <TableHeader textAlign="right">
-                      <Text type="captionUppercase" color="gray5">
-                        inv. inicial
-                      </Text>
-                    </TableHeader>
-                    <TableHeader textAlign="right">
-                      <Text type="captionUppercase" color="gray5">
-                        inv. mensal
-                      </Text>
-                    </TableHeader>
-                    <TableHeader></TableHeader>
-                  </TableRow>
-                </thead>
+          {isMobile ? (
+            <>
+              <Col lg="3">
+                <SectionTwoGraphContainer>
+                  <PieChart
+                    width="218px"
+                    height="300px"
+                    data={graphValuesGenerator()}
+                    onMouseEnter={settingPieChartInfoChildren}
+                    onSliceClick={settingPieChartInfoChildren}
+                    onMouseLeave={settingPieChartInfoChildren}
+                  >
+                    <PieChartChildrenContainer>
+                      {renderPieChartChildrenNode()}
+                    </PieChartChildrenContainer>
+                  </PieChart>
+                </SectionTwoGraphContainer>
+              </Col>
 
-                <tbody>
-                  {funds.map(fund => (
-                    <TableRow
-                      key={fund.name}
-                      shouldOppacity={shouldApplyOpacity(fund)}
-                    >
-                      <TableData
-                        width="268px"
+              <ResponsiveTableContainer>
+                {funds.map(fund => (
+                  <React.Fragment key={fund.id}>
+                    <Wrapper>
+                      <Square
+                        color={
+                          graphValuesGenerator().find(
+                            item => item.id === fund.name
+                          ).color
+                        }
+                      />
+                      <Text
+                        type="body"
+                        width="270px"
                         css={`
-                          display: flex;
-                          align-items: center;
+                          margin-left: 7px;
+                          margin-bottom: 7px;
                         `}
                       >
-                        <Square
-                          color={
-                            graphValuesGenerator().find(
-                              item => item.id === fund.category_name
-                            ).color
-                          }
-                        />
-                        <Text
-                          type="body"
-                          truncate
-                          width="270px"
+                        {fund.name}
+                      </Text>
+                    </Wrapper>
+
+                    <TableCard>
+                      <Text type="captionUppercase" color="gray4">
+                        RENTABILIDADE (ÚLT. 12 MESES)
+                      </Text>
+                      <Text type="headline" color="gray6">
+                        {`${fund.profitability['12']}%`}
+                      </Text>
+                    </TableCard>
+                    <TableCard>
+                      <Text type="captionUppercase" color="gray4">
+                        INVESTIMENTO INICIAL
+                      </Text>
+                      <Text type="headline" color="gray6">
+                        {formatMoney(fund.initial_value)}
+                      </Text>
+                    </TableCard>
+                    <TableCard>
+                      <Text type="captionUppercase" color="gray4">
+                        INVESTIMENTO MENSAL
+                      </Text>
+                      <Text type="headline" color="gray6">
+                        {formatMoney(fund.monthly_value)}
+                      </Text>
+                    </TableCard>
+                    <ResponsiveTableButton
+                      outline
+                      onClick={() => handleOpenModal(fund)}
+                    >
+                      VER MAIS
+                    </ResponsiveTableButton>
+                    <TableDivisor />
+                  </React.Fragment>
+                ))}
+              </ResponsiveTableContainer>
+            </>
+          ) : (
+            <ContainerFunds>
+              <Col lg="3">
+                <div>
+                  <PieChart
+                    width="218px"
+                    height="300px"
+                    data={graphValuesGenerator()}
+                    onMouseEnter={settingPieChartInfoChildren}
+                    onSliceClick={settingPieChartInfoChildren}
+                    onMouseLeave={settingPieChartInfoChildren}
+                  >
+                    <PieChartChildrenContainer>
+                      {renderPieChartChildrenNode()}
+                    </PieChartChildrenContainer>
+                  </PieChart>
+                </div>
+              </Col>
+              <Col lg="9">
+                <FundsTable
+                  css={`
+                    margin-left: 14px;
+                  `}
+                >
+                  <thead>
+                    <TableRow>
+                      <TableHeader textAlign="left">
+                        <Text type="captionUppercase" color="gray5">
+                          fundo de investimento
+                        </Text>
+                      </TableHeader>
+                      <TableHeader>
+                        <Text type="captionUppercase" color="gray5">
+                          RENT. 12M
+                        </Text>
+                      </TableHeader>
+                      <TableHeader textAlign="right">
+                        <Text type="captionUppercase" color="gray5">
+                          inv. inicial
+                        </Text>
+                      </TableHeader>
+                      <TableHeader textAlign="right">
+                        <Text type="captionUppercase" color="gray5">
+                          inv. mensal
+                        </Text>
+                      </TableHeader>
+                    </TableRow>
+                  </thead>
+
+                  <tbody>
+                    {funds.map(fund => (
+                      <TableRow
+                        key={fund.name}
+                        shouldOppacity={shouldApplyOpacity(fund)}
+                      >
+                        <TableData
+                          width="268px"
                           css={`
-                            margin-left: 7px;
+                            display: flex;
+                            align-items: center;
                           `}
                         >
-                          {fund.name}
-                        </Text>
-                      </TableData>
-                      <TableData textAlign="center">
-                        <Text type="body">{`${fund.profitability['12']}%`}</Text>
-                      </TableData>
-                      <TableData textAlign="right">
-                        <Text truncate width="100px">
-                          {formatMoney(fund.initial_value)}
-                        </Text>
-                      </TableData>
-                      <TableData textAlign="right">
-                        <Text truncate width="100px">
-                          {formatMoney(fund.monthly_value)}
-                        </Text>
-                      </TableData>
-                      <TableData textAlign="-webkit-center" width="100px">
-                        <IconButton
-                          data-gtm-subname={`fundo ${fund.name}`}
-                          data-gtm-name="icone arrowright"
-                          data-gtm-type="click"
-                          data-gtm-clicktype="button"
-                          icon="arrowright"
-                          size="large"
-                          color="secondary"
-                          onClick={() => handleOpenModal(fund)}
-                        ></IconButton>
-                      </TableData>
-                    </TableRow>
-                  ))}
-                </tbody>
-              </FundsTable>
-            </Col>
-          </ContainerFunds>
+                          <Square
+                            color={
+                              graphValuesGenerator().find(
+                                item => item.id === fund.name
+                              ).color
+                            }
+                          />
+                          <Text
+                            type="body"
+                            truncate
+                            width="270px"
+                            css={`
+                              margin-left: 7px;
+                            `}
+                          >
+                            {fund.name}
+                          </Text>
+                        </TableData>
+                        <TableData textAlign="center">
+                          <Text type="body">{`${fund.profitability['12']}%`}</Text>
+                        </TableData>
+                        <TableData textAlign="right">
+                          <Text type="body" truncate>
+                            {formatMoney(fund.initial_value)}
+                          </Text>
+                        </TableData>
+                        <TableData textAlign="right">
+                          <Text type="body" truncate>
+                            {formatMoney(fund.monthly_value)}
+                          </Text>
+                        </TableData>
+                        <TableData textAlign="-webkit-center" width="100px">
+                          <IconButton
+                            data-gtm-subname={`fundo ${fund.name}`}
+                            data-gtm-name="icone arrowright"
+                            data-gtm-type="click"
+                            data-gtm-clicktype="button"
+                            icon="arrowright"
+                            size="large"
+                            color="secondary"
+                            onClick={() => handleOpenModal(fund)}
+                          ></IconButton>
+                        </TableData>
+                      </TableRow>
+                    ))}
+                  </tbody>
+                </FundsTable>
+              </Col>
+            </ContainerFunds>
+          )}
         </FullHeightCard>
       </Col>
 
       {creditProduct && combo.length > 1 && (
-        <Col lg="3">
+        <Col
+          lg="3"
+          css={`
+            margin-bottom: ${isMobile ? '14px' : '0px'};
+          `}
+        >
           <FullHeightCard
             headerIcon={
               (productName.includes('financiamento') && 'money') ||

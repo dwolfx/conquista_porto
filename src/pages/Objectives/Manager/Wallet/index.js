@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
@@ -13,8 +14,10 @@ import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
+import Notification from 'components/NotificationManager'
 
 import { formatMoney } from 'helpers'
+import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import { objectivesColorGuide } from 'styles/theme'
 
@@ -35,99 +38,158 @@ import {
 const getColorGuide = index =>
   objectivesColorGuide[index % objectivesColorGuide.length]
 
-const FundAccordionHeader = ({ fund }) => (
-  <Row
-    css={`
-      padding-right: 28px;
-    `}
-  >
-    <Col
-      md="3"
+const FundAccordionHeader = ({
+  fund,
+  initialValue,
+  fundList,
+  setFundListCopy,
+}) => {
+  const handleValueFund = (id, value) => {
+    if (setFundListCopy) {
+      setFundListCopy(
+        fundList.map(item => {
+          if (item.id === id) {
+            return {
+              ...item,
+              invested: value,
+            }
+          }
+          return item
+        })
+      )
+    }
+  }
+
+  return (
+    <Row
       css={`
-        display: flex;
-        flex-direction: column;
         padding-right: 28px;
       `}
     >
-      <Text type="captionUppercase" color="gray4" bold>
-        nome do fundo
-      </Text>
-      <div
+      <Col
+        md="3"
         css={`
-          align-items: center;
           display: flex;
+          flex-direction: column;
+          padding-right: 28px;
         `}
       >
-        <Text type="headline" color="gray6" bold>
-          {fund.name}
+        <Text type="captionUppercase" color="gray4" bold>
+          nome do fundo
         </Text>
-        {fund.recommended && (
-          <Popover
-            content="Fundo recomendado"
-            css={`
-              width: 24px;
-              margin-left: 14px;
-            `}
-          >
-            <Icon name="information" width={21} color="blue4" />
-          </Popover>
-        )}
-      </div>
-    </Col>
-
-    <Col md="9" alignSelf="center">
-      <Row>
-        <Col
-          md="3"
-          css={`
-            padding-left: 3.5rem;
-          `}
-        >
-          <Text type="captionUppercase" color="gray4">
-            Saldo do Fundo
-          </Text>
-          <Text type="headline" color="gray6">
-            {formatMoney(fund.balance)}
-          </Text>
-        </Col>
-        <Col
-          md="9"
+        <div
           css={`
             align-items: center;
             display: flex;
           `}
         >
-          <ObjectivesBar>
-            {fund.goals.map((goal, key) => {
-              const percent = (goal.value / fund.balance) * 100
-              return (
-                <div
-                  css={`
-                    width: ${percent}%;
-                    height: 100%;
-                    background-color: ${getColorGuide(key)};
-                    border-top-left-radius: ${key === 0 ? '7px' : 0};
-                    border-bottom-left-radius: ${key === 0 ? '7px' : 0};
-                  `}
-                  key={`fund-${goal.id}`}
-                />
-              )
-            })}
-            <Slider
-              max={fund.available + fund.invested}
-              initialValue={fund.invested}
-              onlyObjective={!fund.goals.length}
-            />
-          </ObjectivesBar>
-        </Col>
-      </Row>
-    </Col>
-  </Row>
-)
+          <Text type="headline" color="gray6" bold>
+            {fund.name}
+          </Text>
+          {fund.recommended && (
+            <Popover
+              content="Fundo recomendado"
+              css={`
+                width: 24px;
+                margin-left: 14px;
+              `}
+            >
+              <Icon name="information" width={21} color="blue4" />
+            </Popover>
+          )}
+        </div>
+      </Col>
 
-export default function Wallet({ fundList, goalName, isLoading }) {
+      <Col md="9" alignSelf="center">
+        <Row>
+          <Col
+            md="3"
+            css={`
+              padding-left: 7px;
+            `}
+          >
+            <Text type="captionUppercase" color="gray4">
+              Saldo do Fundo
+            </Text>
+            <Text type="headline" color="gray6">
+              {formatMoney(fund.balance)}
+            </Text>
+          </Col>
+          <Col
+            md="9"
+            css={`
+              align-items: center;
+              display: flex;
+            `}
+          >
+            <ObjectivesBar>
+              {fund.goals.map((goal, key) => {
+                const percent = (goal.value / fund.balance) * 100
+                return (
+                  <div
+                    css={`
+                      width: ${percent}%;
+                      height: 100%;
+                      background-color: ${getColorGuide(key)};
+                      border-top-left-radius: ${key === 0 ? '7px' : 0};
+                      border-bottom-left-radius: ${key === 0 ? '7px' : 0};
+                    `}
+                    key={`fund-${goal.id}`}
+                  />
+                )
+              })}
+              <Slider
+                max={fund.available + fund.invested}
+                initialValue={initialValue}
+                onlyObjective={!fund.goals.length}
+                onChange={value => {
+                  handleValueFund(
+                    fund.id,
+                    Math.min(value, fund.available + fund.invested)
+                  )
+                }}
+                showTooltip={fund.available !== 0}
+              />
+            </ObjectivesBar>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+  )
+}
+
+export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
+  const [fundListCopy, setFundListCopy] = useState(null)
+  const [notificationOpen, setNotificationOpen] = useState(false)
   const theme = useContext(ThemeContext)
+  const { isLoadingSave } = useSelector(state => state.objectiveManagement)
+
+  const { error } = useSelector(state => state.objectiveManagement || '')
+
   const history = useHistory()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    setFundListCopy(fundList)
+  }, [fundList])
+
+  const saveEditionsFunds = () => {
+    function formatRequestPayload() {
+      return fundListCopy.map(item => {
+        const { id, invested } = item
+        return { value: invested, id }
+      })
+    }
+    dispatch(
+      PostSaveFundsRequest({
+        idGoal,
+        data: {
+          fund_list: formatRequestPayload(),
+        },
+      })
+    )
+    if (!isLoadingSave) setNotificationOpen(!notificationOpen)
+  }
 
   const renderFundsList = () => {
     if (isLoading) {
@@ -142,12 +204,19 @@ export default function Wallet({ fundList, goalName, isLoading }) {
       )
     }
 
-    return fundList ? (
+    return fundList && fundListCopy ? (
       fundList.map((fund, index) => (
         <React.Fragment key={fund.id}>
           <Accordion
             openByDefault={index === 0}
-            titleNode={<FundAccordionHeader fund={fund} />}
+            titleNode={
+              <FundAccordionHeader
+                fund={fund}
+                initialValue={fundListCopy[index].invested}
+                fundList={fundListCopy}
+                setFundListCopy={setFundListCopy}
+              />
+            }
             triggerCloseOnArrow
             bodyPadding="42px 42px 0 0"
           >
@@ -216,7 +285,9 @@ export default function Wallet({ fundList, goalName, isLoading }) {
                             />
                             #{goalName}
                           </Text>
-                          <Text>{formatMoney(fund.invested)}</Text>
+                          <Text>
+                            {formatMoney(fundListCopy[index].invested)}
+                          </Text>
                         </ObjectiveInfoBox>
                         <ObjectiveInfoBox>
                           <Text>
@@ -227,7 +298,11 @@ export default function Wallet({ fundList, goalName, isLoading }) {
                             />
                             Sem objetivo
                           </Text>
-                          <Text>{formatMoney(fund.available)}</Text>
+                          <Text>
+                            {formatMoney(
+                              fund.available - fundListCopy[index].invested
+                            )}
+                          </Text>
                         </ObjectiveInfoBox>
                         {fund.goals.map((goal, key) => (
                           <ObjectiveInfoBox
@@ -270,7 +345,7 @@ export default function Wallet({ fundList, goalName, isLoading }) {
               </Row>
             </AccordionContentWrapper>
           </Accordion>
-          {index !== fundList.length - 1 && <Divisor />}
+          {index !== fundListCopy.length - 1 && <Divisor />}
         </React.Fragment>
       ))
     ) : (
@@ -286,6 +361,17 @@ export default function Wallet({ fundList, goalName, isLoading }) {
         padding: 0;
       `}
     >
+      <Notification
+        iconName={error ? 'closerounded' : 'check'}
+        iconColor={error ? 'magenta2' : 'blue4'}
+        message={
+          error
+            ? 'Erro ao salvar, tente novamente.'
+            : 'As alterações foram salvas com sucesso.'
+        }
+        isOpen={notificationOpen}
+        handleClose={() => setNotificationOpen(false)}
+      />
       <FullHeightCard
         headerIcon="dollarsign"
         headerTitle="Carteira de fundos"
@@ -296,11 +382,16 @@ export default function Wallet({ fundList, goalName, isLoading }) {
           'data-gtm-clicktype': 'button',
           'data-gtm-subname': 'carteira de fundos',
           'data-gtm-name': 'salvar alteracoes',
-          onClick: () => console.log('salvou alterações'),
+          onClick: () => saveEditionsFunds(),
+          loading: isLoadingSave,
+          loadingColor: 'white',
+          disabled: isLoadingSave,
         }}
         footer={
-          !isLoading && !fundList ? (
+          !isLoading && fundList ? (
             <Button
+              loading={isLoading}
+              loadingColor="white"
               data-gtm-type="click"
               data-gtm-clicktype="button"
               data-gtm-subname="carteira de fundos"
@@ -336,16 +427,28 @@ export default function Wallet({ fundList, goalName, isLoading }) {
 FundAccordionHeader.propTypes = {
   fund: PropTypes.shape({
     name: PropTypes.string,
+    id: PropTypes.number.isRequired,
     recommended: PropTypes.bool,
     goals: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string,
+        id: PropTypes.number,
       })
     ),
     available: PropTypes.number,
     invested: PropTypes.number,
     balance: PropTypes.number,
   }).isRequired,
+  fundList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  setFundListCopy: PropTypes.func,
+  initialValue: PropTypes.number.isRequired,
+}
+
+FundAccordionHeader.defaultProps = {
+  setFundListCopy: null,
 }
 
 Wallet.propTypes = {
@@ -355,7 +458,7 @@ Wallet.propTypes = {
       recommended: PropTypes.bool,
       goals: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string,
+          id: PropTypes.number,
         })
       ),
       available: PropTypes.number,
@@ -364,6 +467,7 @@ Wallet.propTypes = {
     })
   ),
   goalName: PropTypes.string,
+  idGoal: PropTypes.node.isRequired,
   isLoading: PropTypes.bool,
 }
 

@@ -23,7 +23,7 @@ export const Container = styled.div`
 `
 
 export const Wrapper = styled.div`
-  width: 301px;
+  width: ${props => (props.customWidth ? props.customWidth : '301px')};
   height: fit-content;
   display: flex;
   align-items: center;

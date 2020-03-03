@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
-import { Container } from 'styled-bootstrap-grid'
 import { useDispatch } from 'react-redux'
+import { Container } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import { formatMoney, formatMoneyDecimal, formatDateMask } from 'helpers'
+import useMedia from 'hooks/useMedia'
 
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
@@ -23,6 +24,13 @@ import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 
 import {
+  ValidateInitialInvestment,
+  ValidateMonthlyInvestment,
+  ValidateNickname,
+  ValidateTargetDate,
+} from './validations'
+
+import {
   GridRecommendation,
   SectionsRecommendation,
   CardWithCloseButton,
@@ -36,23 +44,8 @@ import {
   IconLoading,
   FormWrapper,
   ColInput,
+  ErrorMessageContainer,
 } from './styles'
-
-const MacroDivisor = () => (
-  <DivisorContainer>
-    <Divisor vertical />
-    <Text
-      type="captionUppercase"
-      color="gray4"
-      css={`
-        padding: 7px 0;
-      `}
-    >
-      ou
-    </Text>
-    <Divisor vertical />
-  </DivisorContainer>
-)
 
 const Recommendation = ({ data, isLoading, totalSteps }) => {
   const {
@@ -67,6 +60,14 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const themeContext = useContext(ThemeContext)
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [invalidInput, setInvalidInput] = useState({
+    nickname: false,
+    initial_value: false,
+    monthly_value: false,
+    target_date: false,
+  })
+  const [blurredInputs, setBlurredInputs] = useState([])
+  const isMobile = useMedia('sm')
   const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({})
@@ -83,12 +84,33 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
     }
   }, [suggestion_goal])
 
+  const MacroDivisor = () => (
+    <DivisorContainer isMobile={isMobile}>
+      <Divisor vertical={!isMobile} />
+      <Text
+        type="captionUppercase"
+        color="gray4"
+        css={`
+          padding: 7px 0;
+        `}
+      >
+        ou
+      </Text>
+      <Divisor vertical={!isMobile} />
+    </DivisorContainer>
+  )
+
   const footerDrawer = () => (
     <ButtonSubmit
       data-gtm-form="submit"
       data-gtm-name="confirmar e recalcular"
       onClick={() => submitToRecommendation()}
-      disabled={isLoading}
+      disabled={
+        invalidInput.nickname ||
+        invalidInput.initial_value ||
+        invalidInput.monthly_value ||
+        invalidInput.target_date
+      }
     >
       Confirmar e recalcular {isLoading && <IconLoading />}
     </ButtonSubmit>
@@ -104,8 +126,72 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
     event.target.value = formatMoneyDecimal(strippedValue) // eslint-disable-line no-param-reassign
   }
 
+  const renderErrorMessage = message => (
+    <ErrorMessageContainer align="center">
+      <Icon name="information" color="magenta2" width={21} />
+      <Text type="body" color="magenta2">
+        {message}
+      </Text>
+    </ErrorMessageContainer>
+  )
+
+  const validator = (value, name) => {
+    if (blurredInputs.indexOf(name) < 0) {
+      setBlurredInputs([...blurredInputs, name])
+    }
+
+    switch (name) {
+      case 'nickname':
+        if (ValidateNickname(value)[0]) {
+          if (invalidInput.nickname)
+            setInvalidInput({ ...invalidInput, nickname: false })
+          break
+        }
+
+        if (!invalidInput.nickname)
+          setInvalidInput({ ...invalidInput, nickname: true })
+        break
+
+      case 'initial_value':
+        if (ValidateInitialInvestment(value)[0]) {
+          if (invalidInput.initial_value)
+            setInvalidInput({ ...invalidInput, initial_value: false })
+          break
+        }
+
+        if (!invalidInput.initial_value)
+          setInvalidInput({ ...invalidInput, initial_value: true })
+        break
+      case 'monthly_value':
+        if (ValidateMonthlyInvestment(value)[0]) {
+          if (invalidInput.monthly_value)
+            setInvalidInput({ ...invalidInput, monthly_value: false })
+          break
+        }
+        if (!invalidInput.monthly_value)
+          setInvalidInput({ ...invalidInput, monthly_value: true })
+        break
+      case 'target_date':
+        if (ValidateTargetDate(value)[0]) {
+          if (invalidInput.target_date)
+            setInvalidInput({ ...invalidInput, target_date: false })
+          break
+        }
+        if (!invalidInput.target_date)
+          setInvalidInput({ ...invalidInput, target_date: true })
+        break
+      default:
+        break
+    }
+  }
+
   const handleSingleValue = event => {
     const { name } = event.target
+
+    if (blurredInputs.indexOf(name) >= 0) {
+      validator(event.target.value, name)
+    }
+
     if (
       name === 'initial_value' ||
       name === 'monthly_value' ||
@@ -142,35 +228,51 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 data-gtm-form="input"
                 data-gtm-name="apelido"
                 name="nickname"
+                error={invalidInput.nickname}
+                onBlur={e => validator(e.target.value, 'nickname')}
                 prefix="#"
                 label="Apelido"
                 onChange={handleSingleValue}
                 value={formData.nickname}
               />
+              {invalidInput.nickname &&
+                renderErrorMessage(ValidateNickname(formData.nickname)[1])}
             </ColInput>
-            <ColInput>
+            <ColInput error={invalidInput.nickname}>
               <InputText
                 data-gtm-form="input"
                 data-gtm-name="investimento inicial"
                 name="initial_value"
+                error={invalidInput.initial_value}
+                onBlur={e => validator(e.target.value, 'initial_value')}
                 prefix="R$"
                 label="Investimento inicial"
                 onChange={handleSingleValue}
                 value={formData.initial_value}
               />
+              {invalidInput.initial_value &&
+                renderErrorMessage(
+                  ValidateInitialInvestment(formData.initial_value)[1]
+                )}
             </ColInput>
-            <ColInput>
+            <ColInput error={invalidInput.initial_value}>
               <InputText
                 data-gtm-form="input"
                 data-gtm-name="investimento mensal"
                 name="monthly_value"
+                error={invalidInput.monthly_value}
+                onBlur={e => validator(e.target.value, 'monthly_value')}
                 prefix="R$"
                 label="Investimento mensal"
                 onChange={handleSingleValue}
                 value={formData.monthly_value}
               />
+              {invalidInput.monthly_value &&
+                renderErrorMessage(
+                  ValidateMonthlyInvestment(formData.monthly_value)[1]
+                )}
             </ColInput>
-            <ColInput>
+            <ColInput error={invalidInput.monthly_value}>
               <InputText
                 data-gtm-form="input"
                 data-gtm-name="meta financeira"
@@ -186,10 +288,14 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 data-gtm-form="input"
                 data-gtm-name="data-alvo"
                 name="target_date"
+                error={invalidInput.target_date}
+                onBlur={e => validator(e.target.value, 'target_date')}
                 label="Data-alvo"
                 onChange={handleSingleValue}
                 value={formData.target_date}
               />
+              {invalidInput.target_date &&
+                renderErrorMessage(ValidateTargetDate(formData.target_date)[1])}
             </ColInput>
           </FormWrapper>
         </Drawer>
@@ -207,11 +313,11 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
               >
                 <CloseIcon name="close" />
               </CloseButton>
-              <Text type="heading3" textAlign="center">
+              <Text type="heading3" textAlign={isMobile ? 'left' : 'center'}>
                 Condições insuficientes para alcançar seu objetivo
               </Text>
               <Text
-                textAlign="center"
+                textAlign={isMobile ? 'left' : 'center'}
                 css={`
                   padding-top: 7px;
                 `}
@@ -238,7 +344,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -253,7 +364,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="green3" width="120px">
+                      <Text
+                        truncate
+                        color="green3"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(suggestion_goal.suggestion_monthly_value)}
                       </Text>,
                       <Icon
@@ -272,7 +388,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text color="gray6">{answer.target_date}</Text>,
+                      <Text color="gray6" textAlign="right">
+                        {answer.target_date}
+                      </Text>,
                       <Icon name="check" fill="none" width="24px" />,
                     ]}
                   />
@@ -285,7 +403,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -325,7 +448,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.initial_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -339,7 +467,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.monthly_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -353,7 +486,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text color="green3">
+                      <Text color="green3" textAlign="right">
                         {suggestion_goal.suggestion_target_date}
                       </Text>,
                       <Icon
@@ -371,7 +504,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       </Text>,
                     ]}
                     endItems={[
-                      <Text truncate color="gray6" width="120px">
+                      <Text
+                        truncate
+                        color="gray6"
+                        width="120px"
+                        textAlign="right"
+                      >
                         {formatMoney(answer.target_value)}
                       </Text>,
                       <Icon name="check" fill="none" width="24px" />,
@@ -392,7 +530,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     simular
                   </SimulateButton>
                 </UnmetGoalCard>
-                <MacroDivisor />
+                <MacroDivisor isMobile={isMobile} />
                 <UnmetGoalCard>
                   <Text type="headline" color="gray6">
                     Alterar os valores manualmente:

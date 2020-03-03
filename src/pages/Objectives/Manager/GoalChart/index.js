@@ -280,15 +280,18 @@ export default function GoalChart({ data, isLoading }) {
         </Text>
       </div>
       <ChartContainer>
-        <ButtonContainer>
-          <PreviousButton
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            data-gtm-subname="grafico"
-            data-gtm-name="botao anterior"
-            onClick={handleClickPrevButton}
-          ></PreviousButton>
-        </ButtonContainer>
+        {data.years.length > 1 && (
+          <ButtonContainer>
+            <PreviousButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="grafico"
+              data-gtm-name="botao anterior"
+              onClick={handleClickPrevButton}
+            ></PreviousButton>
+          </ButtonContainer>
+        )}
+
         <Chart>
           <ChartEvolutionWrapper>
             {renderChartEvolutionMonths()}
@@ -332,15 +335,17 @@ export default function GoalChart({ data, isLoading }) {
             </Text>
           </MonthsContainer>
         </Chart>
-        <ButtonContainer>
-          <NextButton
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            data-gtm-subname="grafico"
-            data-gtm-name="botao proximo"
-            onClick={handleClickNextButton}
-          ></NextButton>
-        </ButtonContainer>
+        {data.years.length > 1 && (
+          <ButtonContainer>
+            <NextButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="grafico"
+              data-gtm-name="botao proximo"
+              onClick={handleClickNextButton}
+            ></NextButton>
+          </ButtonContainer>
+        )}
       </ChartContainer>
     </>
   )

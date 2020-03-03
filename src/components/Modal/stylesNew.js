@@ -17,6 +17,10 @@ export const ModalOverlay = styled.div`
 export const ChildrenWrapper = styled.div`
   overflow: auto;
   padding: 28px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 21px;
+  }
 `
 
 export const ModalContainer = styled.div`

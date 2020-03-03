@@ -21,6 +21,25 @@ export function PostObjectiveManagementDataFailure() {
   }
 }
 
+export function PostSaveFundsRequest(payload) {
+  return {
+    type: Types.POST_SAVE_FUNDS_REQUEST,
+    payload,
+  }
+}
+
+export function PostSaveFundsSuccess() {
+  return {
+    type: Types.POST_SAVE_FUNDS_SUCCESS,
+  }
+}
+
+export function PostSaveFundsFailure() {
+  return {
+    type: Types.POST_SAVE_FUNDS_FAILURE,
+  }
+}
+
 export function GetObjectiveManagementDataRequest(payload) {
   return {
     type: Types.GET_REQUEST,
@@ -38,5 +57,25 @@ export function GetObjectiveManagementDataSuccess(payload) {
 export function GetObjectiveManagementDataFailure() {
   return {
     type: Types.GET_FAILURE,
+  }
+}
+
+export function DeleteObjectiveRequest(id, pushHistoryToHomeScreen) {
+  return {
+    type: Types.DELETE_REQUEST,
+    payload: { id, pushHistoryToHomeScreen },
+  }
+}
+
+export function DeleteObjectiveSuccess(payload) {
+  return {
+    type: Types.DELETE_SUCCESS,
+    payload,
+  }
+}
+
+export function DeleteObjectiveFailure() {
+  return {
+    type: Types.DELETE_FAILURE,
   }
 }

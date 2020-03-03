@@ -257,7 +257,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-            R$ 1.000,00
+            -
           </div>
         </div>
         <div

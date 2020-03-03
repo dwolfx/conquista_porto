@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
-
 import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
+import DivisorComponent from 'components/Divisor'
 import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 import { CardBody } from 'components/Card/styles'
 
@@ -34,6 +34,10 @@ export const GridRow = styled(Row)`
   margin-bottom: 42px;
   height: ${props => props.height};
   justify-content: ${props => props.justifyContent};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-bottom: 14px;
+  }
 `
 export const SectionsRecommendation = styled.div`
   background-color: ${props => props.theme.colors.gray1};
@@ -164,6 +168,7 @@ export const ButtonContainer = styled.div`
 export const FundsTable = styled.table`
   width: 100%;
   border-spacing: 0px 7px;
+  padding-top: 7px;
 `
 
 export const TableHeader = styled.th`
@@ -173,18 +178,72 @@ export const TableHeader = styled.th`
 export const TableRow = styled.tr`
   opacity: ${props => (props.shouldOppacity ? 0.3 : 1)};
   color: ${props => props.theme.colors.gray6};
-  vertical-align: baseline;
 `
 
 export const TableData = styled.td`
-  text-align: ${props => props.textAlign && props.textAlign};
+  text-align: ${props => `-webkit-${props.textAlign}`};
+  text-align: ${props => `-moz-${props.textAlign}`};
   width: ${props => (props.width ? props.width : 'unset')};
+
+  && button {
+    margin: 0 auto;
+  }
+`
+export const ResponsiveTableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  & > p {
+    margin: 0 0 14px 14px;
+  }
+`
+
+export const TableCard = styled.div`
+  padding: 7px 0;
+
+  p {
+    margin-bottom: 7px;
+  }
+`
+
+export const TableDivisor = styled(DivisorComponent)`
+  margin: 21px 0;
+`
+
+export const ResponsiveTableButton = styled(Button)`
+  width: 100%;
+  align-self: center;
+`
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: ${props => props.direction || 'row'};
+  align-items: ${props => props.align || 'flex-start'};
+  justify-content: ${props => props.justify || 'flex-start'};
+  margin: ${props => props.margin};
+`
+
+export const ErrorMessageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 7px 0 7px 14px;
+
+  & svg {
+    margin-right: 7px;
+  }
 `
 
 export const ContainerFunds = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    flex-direction: column;
+  }
 `
 
 export const Square = styled.div`
@@ -192,6 +251,11 @@ export const Square = styled.div`
   height: 7px;
   background-color: ${props => props.color};
   border-radius: 2px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    align-self: center;
+    flex-shrink: 0;
+  }
 `
 
 export const PieChartChildrenContent = styled.div`
@@ -206,7 +270,7 @@ export const FormWrapper = styled.div``
 
 export const ColInput = styled(Col)`
   &:not(:first-of-type) {
-    margin-top: 28px;
+    margin-top: ${props => (props.error ? '0' : '35px')};
   }
 `
 
@@ -249,6 +313,10 @@ export const UnmetGoalCards = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 28px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    flex-direction: column;
+  }
 `
 
 export const UnmetGoalCard = styled.div`
@@ -257,13 +325,22 @@ export const UnmetGoalCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0px;
+  }
 `
 
 export const DivisorContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: ${props => (props.isMobile ? 'row' : 'column')};
   height: auto;
+  margin: ${props => props.isMobile && '35px 0'};
+
+  p {
+    margin: ${props => props.isMobile && '0 7px'};
+  }
 `
 
 export const SimulateButton = styled(Button)`
@@ -277,10 +354,20 @@ export const ProductBannerModal = styled(Modal)`
 
 export const ProductBannerContent = styled.div`
   width: 700px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: auto;
+  }
 `
 
 export const ProductBannerItemsContainer = styled(Row)`
   flex-wrap: wrap;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const ProductBannerItem = styled(Col)`
@@ -297,11 +384,18 @@ export const ProductBannerItem = styled(Col)`
   &:last-child {
     border-right: none;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: auto;
+  }
 `
 
-// export const TextEllipsis = styled(Text)`
-//   max-width: ${props => (props.maxWidth ? props.maxWidth : 'inherit')};
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-// `
+export const SectionTwoGraphContainer = styled.div`
+  margin-bottom: 35px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`

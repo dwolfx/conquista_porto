@@ -34,8 +34,12 @@ router.render = (req, res) => {
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
       return res.jsonp(objectivesMock)
-    } else if (req.method === 'POST') {
+    }
+    if (req.method === 'POST') {
       return res.jsonp(objectiveMock)
+    }
+    if (req.method === 'DELETE') {
+      return res.status(204).jsonp({})
     }
   }
 

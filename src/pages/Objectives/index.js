@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Header from 'components/Wizard/Header'
 
-import { CleanObjectiveData } from 'store/modules/Objective/action'
+import {
+  CleanObjectiveData,
+  // PostObjectiveDataRequest,
+} from 'store/modules/Objective/action'
 
 import Board from './Board'
 import GoalStreams from './GoalStreams'

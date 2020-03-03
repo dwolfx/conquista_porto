@@ -29,6 +29,7 @@ import { ReactComponent as car2 } from 'assets/icons/car2.svg'
 import { ReactComponent as carnew } from 'assets/icons/car-new.svg'
 import { ReactComponent as check } from 'assets/icons/check.svg'
 import { ReactComponent as close } from 'assets/icons/close.svg'
+import { ReactComponent as closerounded } from 'assets/icons/close-rounded.svg'
 import { ReactComponent as coin } from 'assets/icons/coin.svg'
 import { ReactComponent as computersecure } from 'assets/icons/computer-secure.svg'
 import { ReactComponent as couch } from 'assets/icons/couch.svg'
@@ -115,6 +116,7 @@ const dict = {
   carnew,
   check,
   close,
+  closerounded,
   coin,
   computersecure,
   couch,

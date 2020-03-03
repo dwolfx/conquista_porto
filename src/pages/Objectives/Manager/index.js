@@ -4,12 +4,14 @@ import PropTypes from 'prop-types'
 import { useHistory, useParams } from 'react-router-dom'
 import 'styled-components/macro'
 
-import targetImg from 'assets/images/pages/Objectives/Manager/target.jpg'
+import targetImg from 'assets/images/pages/Objectives/Manager/target.png'
 
 import ButtonLink from 'components/Button/Link'
 import Loading from 'components/Loading'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
+import Modal from 'components/Modal/ModalNew'
+import Button from 'components/Button'
 
 import { formatMoney } from 'helpers'
 
@@ -17,7 +19,10 @@ import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import Wallet from 'pages/Objectives/Manager/Wallet'
 
-import { GetObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
+import {
+  GetObjectiveManagementDataRequest,
+  DeleteObjectiveRequest,
+} from 'store/modules/ObjectiveManagement/action'
 
 import {
   GridContainer,
@@ -27,16 +32,20 @@ import {
   ColumnWrapper,
   WalletContainer,
   CardContent,
+  ButtonContainerModal,
 } from './styles'
 
 export default function Manager({ location }) {
   const { objectiveId } = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
-  const { data: objectiveData, isLoading: loadingData } = useSelector(
-    state => state.objectiveManagement
-  )
+  const {
+    data: objectiveData,
+    isLoading: loadingData,
+    isLoadingDelete,
+  } = useSelector(state => state.objectiveManagement)
   const [isLoading, setIsLoading] = useState(false)
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
   const [dataExists, setDataExists] = useState(
     Boolean(objectiveData && Object.entries(objectiveData).length !== 0)
   )
@@ -76,6 +85,13 @@ export default function Manager({ location }) {
     history.push(product.productPath)
   }
 
+  function handleDeleteGoal(id) {
+    function pushHistoryToHomeScreen() {
+      history.push('/')
+    }
+    dispatch(DeleteObjectiveRequest(id, pushHistoryToHomeScreen))
+  }
+
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
       {!isLoading ? (
@@ -105,92 +121,119 @@ export default function Manager({ location }) {
       </Text>
     </ColumnWrapper>
   )
-  const horizontalListBtnEdit = (
+  const horizontalListBtnEdit = !isLoading ? (
     <ButtonLink
       data-gtm-type="click"
       data-gtm-clicktype="link"
-      data-gtm-name="editar objetivo"
+      data-gtm-name="excluir objetivo"
+      onClick={() => {
+        setIsModalDeleteOpen(true)
+      }}
       noIcon
     >
-      EDITAR OBJETIVO
+      EXCLUIR OBJETIVO
     </ButtonLink>
-  )
-  const horizontalListBtnChangeObjective = (
-    <ButtonLink
-      data-gtm-type="click"
-      data-gtm-clicktype="link"
-      data-gtm-name="outros objetivos"
-      noIcon
-    >
-      OUTROS OBJETIVOS
-    </ButtonLink>
-  )
+  ) : null
 
   return (
-    <GridContainer>
-      {pageRecommendation && (
-        <Banner bgImage={targetImg} hasCloseButton size="lg">
-          <Text type="heading3" color="white">
-            Objetivo criado com sucesso!
-          </Text>
-          <Text color="white">
-            Aqui, você acompanha o progresso e contrata produtos que ajudam no
-            seu objetivo.
-          </Text>
-        </Banner>
-      )}
-      <ColumnWrapper>
-        <ObjectiveHeader>
-          <HorizontalList
-            startItems={[
-              horizontalListTitle,
-              horizontalListGoalMoney,
-              horizontalListGoalDate,
-              horizontalListBtnEdit,
-            ]}
-            endItems={[horizontalListBtnChangeObjective]}
-            noPadding
-            marginBetweenElements="28px"
-          />
-        </ObjectiveHeader>
-        <ObjectiveDetails>
-          <CardContent>
-            <GoalChart
-              data={dataExists ? objectiveData : {}}
-              isLoading={isLoading}
+    <>
+      <GridContainer>
+        {pageRecommendation && (
+          <Banner bgImage={targetImg} hasCloseButton size="lg">
+            <Text type="heading3" color="white">
+              Objetivo criado com sucesso!
+            </Text>
+            <Text color="white">
+              Aqui, você acompanha o progresso e contrata produtos que ajudam no
+              seu objetivo.
+            </Text>
+          </Banner>
+        )}
+        <ColumnWrapper>
+          <ObjectiveHeader>
+            <HorizontalList
+              startItems={[
+                horizontalListTitle,
+                horizontalListGoalMoney,
+                horizontalListGoalDate,
+                horizontalListBtnEdit,
+              ]}
+              noPadding
+              marginBetweenElements="28px"
             />
-          </CardContent>
-        </ObjectiveDetails>
-      </ColumnWrapper>
-
-      <WalletContainer>
-        <Wallet
-          fundList={dataExists ? objectiveData.fund_list : []}
-          goalName={dataExists ? objectiveData.nickname : ''}
-          isLoading={isLoading}
-        />
-      </WalletContainer>
-
-      <ColumnWrapper>
-        {dataExists &&
-          Object.entries(objectiveData.additional).find(
-            ([, value]) => value === true
-          ) && (
-            <>
-              <Text type="heading3" color="gray6">
-                Combine com o seu objetivo
-              </Text>
-              <CardCombine
-                css={`
-                  padding-top: 21px;
-                `}
-                additional={objectiveData.additional}
-                onClick={handleRedirectToProduct}
+          </ObjectiveHeader>
+          <ObjectiveDetails>
+            <CardContent>
+              <GoalChart
+                data={dataExists ? objectiveData : {}}
+                isLoading={isLoading}
               />
-            </>
-          )}
-      </ColumnWrapper>
-    </GridContainer>
+            </CardContent>
+          </ObjectiveDetails>
+        </ColumnWrapper>
+
+        <WalletContainer>
+          <Wallet
+            idGoal={dataExists ? objectiveData.id : '0'}
+            fundList={dataExists ? objectiveData.fund_list : []}
+            goalName={dataExists ? objectiveData.nickname : ''}
+            isLoading={isLoading}
+          />
+        </WalletContainer>
+
+        <ColumnWrapper>
+          {dataExists &&
+            Object.entries(objectiveData.additional).find(
+              ([, value]) => value === true
+            ) && (
+              <>
+                <Text type="heading3" color="gray6">
+                  Combine com o seu objetivo
+                </Text>
+                <CardCombine
+                  css={`
+                    padding-top: 21px;
+                  `}
+                  additional={objectiveData.additional}
+                  onClick={handleRedirectToProduct}
+                />
+              </>
+            )}
+        </ColumnWrapper>
+      </GridContainer>
+      <Modal
+        isOpen={isModalDeleteOpen}
+        handleClose={() => {
+          setIsModalDeleteOpen(false)
+        }}
+        modalTitle="Excluir"
+      >
+        <Text type="headline" color="gray6">
+          Seu objetivo será excluído e os valores em fundo associados à ele irão
+          para a categoria &quot;Sem objetivo&quot;. Tem certeza que deseja
+          continuar?
+        </Text>
+        <ButtonContainerModal>
+          <Button
+            outline
+            onClick={() => {
+              setIsModalDeleteOpen(false)
+            }}
+          >
+            CANCELAR
+          </Button>
+          <Button
+            loading={isLoadingDelete}
+            loadingColor="white"
+            onClick={() => {
+              handleDeleteGoal(objectiveData.id)
+            }}
+          >
+            excluir
+          </Button>
+        </ButtonContainerModal>
+      </Modal>
+    </>
   )
 }
 

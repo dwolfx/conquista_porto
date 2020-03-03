@@ -41,7 +41,6 @@ const QuestionInput = forwardRef(
       ruleText,
       type,
       error,
-      maxLength,
       placeholder,
     },
     ref
@@ -87,7 +86,7 @@ const QuestionInput = forwardRef(
             onChange={onChangeFormData}
             value={formData[name]}
             error={error}
-            maxLength={maxLength}
+            maxLength={14}
             placeholder={placeholder}
           />
         </OutterWrapper>
@@ -105,7 +104,7 @@ const QuestionInput = forwardRef(
           prefix="#"
           value={formData[name]}
           error={error}
-          maxLength={maxLength}
+          maxLength={20}
           placeholder="MeuObjetivo"
         />
       </OutterWrapper>
@@ -122,7 +121,6 @@ QuestionInput.defaultProps = {
   ruleText: '',
   type: '',
   error: null,
-  maxLength: 20,
   placeholder: '',
 }
 
@@ -138,7 +136,6 @@ QuestionInput.propTypes = {
     icon: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
   }),
-  maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
 }
 

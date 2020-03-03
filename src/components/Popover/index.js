@@ -12,6 +12,7 @@ export default function Popover({
   alwaysVisible,
   children,
   content,
+  flippable,
   placement,
   trigger,
   ...rest
@@ -71,6 +72,7 @@ export default function Popover({
                 },
                 flip: {
                   padding: 70,
+                  enabled: flippable,
                 },
               }}
             >
@@ -96,6 +98,7 @@ Popover.propTypes = {
   alwaysVisible: PropTypes.bool,
   children: PropTypes.node.isRequired,
   content: PropTypes.oneOfType([PropTypes.func, PropTypes.string]).isRequired,
+  flippable: PropTypes.bool,
   placement: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
   trigger: PropTypes.string,
 }
@@ -103,5 +106,6 @@ Popover.propTypes = {
 Popover.defaultProps = {
   alwaysVisible: false,
   placement: 'top',
+  flippable: true,
   trigger: '',
 }

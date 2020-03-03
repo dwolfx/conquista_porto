@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get } from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import {
   GetConsolidatedPositionDataSuccess,
@@ -11,7 +11,7 @@ function* getData({ cpf }) {
   try {
     const response = yield call(
       get,
-      `/invest/cotistas/posicao-consolidada?cpf=${cpf}`
+      `${baseURLNamespaceInvest}/cotistas/posicao-consolidada?cpf=${cpf}`
     )
     yield put(GetConsolidatedPositionDataSuccess(response.data))
   } catch (err) {
