@@ -1676,7 +1676,7 @@
       "encargos_acumulados": 0,
       "id_conta": 0,
       "nome_banco": "Banco Porto",
-      "saldo_disponivel": 10000,
+      "saldo_disponivel": 100000,
       "saldo_liquidar": 0,
       "titular": "Julia Francis Reyes",
       "valores_bloqueados": {
@@ -2173,7 +2173,7 @@
         "saldo_liquidar": "0",
         "agencia": "0001",
         "codigo_banco": "306",
-        "saldo_disponivel": "0",
+        "saldo_disponivel": "10000",
         "cpf": "33244452809",
         "encargos_acumulados": "0",
         "valores_bloqueados": {

@@ -127,21 +127,22 @@ export default function HeaderNew() {
         },
       ],
     },
-    {
-      icon: 'target',
-      text: 'Objetivos',
-      path: '/objetivos',
-    },
-    {
-      icon: 'diamond',
-      text: 'Pontos',
-      path: '/pontos',
-    },
-    {
-      icon: 'idea',
-      text: 'Recomendações',
-      path: '/',
-    },
+    // Temporary comment
+    // {
+    //   icon: 'target',
+    //   text: 'Objetivos',
+    //   path: '/objetivos',
+    // },
+    // {
+    //   icon: 'diamond',
+    //   text: 'Pontos',
+    //   path: '/pontos',
+    // },
+    // {
+    //   icon: 'idea',
+    //   text: 'Recomendações',
+    //   path: '/',
+    // },
   ]
 
   const dropdownNodesTitle = 'Dropdown notificações header'

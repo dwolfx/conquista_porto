@@ -9,7 +9,7 @@ import { handleGiwRedirect, formatMoney, formatCpf } from 'helpers'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
 import ConquistaButton from 'components/Button'
-import Accordion from 'components/Accordion'
+
 import {
   Container,
   General,
@@ -21,6 +21,7 @@ import {
   InfoList,
   InfoItem,
   LineDivider,
+  FullWidthAccordion,
 } from './styles'
 
 export default function GeneralView() {
@@ -49,6 +50,26 @@ export default function GeneralView() {
         value: parseFloat(item.percentual),
         color: colorGuide[index],
       }))
+  }
+
+  const showBalance = () => {
+    if (bankData.DadosContaPortoSeguro.saldo_disponivel > 0) {
+      return (
+        <>
+          <Text fontSize={22} lineHeight={32} margin="0px 0px 14px 0px">
+            Saldo Disponível
+          </Text>
+          <Text fontSize={18} lineHeight={28} margin="0px 0px 14px 0px">
+            {formatMoney(
+              bankData.DadosContaPortoSeguro
+                ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                : 0
+            )}
+          </Text>
+        </>
+      )
+    }
+    return null
   }
 
   useFetchBankData()
@@ -110,16 +131,7 @@ export default function GeneralView() {
             <Text fontSize={11} lineHeight={21} margin="14px 0px" weight>
               CONTA DE INVESTIMENTOS
             </Text>
-            <Text fontSize={22} lineHeight={32} margin="0px 0px 14px 0px">
-              Saldo Disponível
-            </Text>
-            <Text fontSize={18} lineHeight={28} margin="0px 0px 14px 0px">
-              {formatMoney(
-                bankData.DadosContaPortoSeguro
-                  ? bankData.DadosContaPortoSeguro.saldo_disponivel
-                  : 0
-              )}
-            </Text>
+
             <LinkButton
               data-gtm-subname="conta de investimentos"
               data-gtm-name="ver extrato"
@@ -146,18 +158,12 @@ export default function GeneralView() {
           </General>
           <AccountInfo>
             <LineDivider />
-            <Text fontSize={22} lineHeight={32}>
-              Saldo a Liquidar
-            </Text>
-            <Text fontSize={18} lineHeight={28}>
-              {formatMoney(
-                bankData.DadosContaPortoSeguro
-                  ? bankData.DadosContaPortoSeguro.saldo_liquidar
-                  : 0
-              )}
-            </Text>
+            {showBalance()}
             {bankData.DadosContaPortoSeguro && (
-              <Accordion titleNode="Dados da conta" gtmName="dados da conta">
+              <FullWidthAccordion
+                titleNode="Dados da conta"
+                gtmName="dados da conta"
+              >
                 <Wrapper margin="0px 0px 10px 0px">
                   <Text fontSize={10} spacing={1.5} lineHeight={22}>
                     BANCO
@@ -213,7 +219,7 @@ export default function GeneralView() {
                     recursos
                   </InfoItem>
                 </InfoList>
-              </Accordion>
+              </FullWidthAccordion>
             )}
           </AccountInfo>
         </>
