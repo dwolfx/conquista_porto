@@ -7,6 +7,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 const recommendationMock = require('./src/mocks/recommendation.json')
+const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const objectiveMock = require('./src/mocks/objective.json')
 const objectivesMock = require('./src/mocks/objectives.json')
 
@@ -29,8 +30,12 @@ router.render = (req, res) => {
     return res.jsonp({ ...rest, lida: true })
   }
   if (req.originalUrl.startsWith('/api/goal/recommendations')) {
+    if (req.originalUrl.includes('mobile')) {
+      return res.jsonp(recommendationMockMobile)
+    }
     return res.jsonp(recommendationMock)
   }
+
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
       return res.jsonp(objectivesMock)
@@ -42,14 +47,6 @@ router.render = (req, res) => {
       return res.status(204).jsonp({})
     }
   }
-
-  // if (
-  //   req.originalUrl.startsWith(
-  //     '/api/invest/portopar/v1/cotista/perfil/investidor'
-  //   )
-  // ) {
-  //   return res.status(204).jsonp()
-  // }
 
   return res.jsonp(res.locals.data)
 }

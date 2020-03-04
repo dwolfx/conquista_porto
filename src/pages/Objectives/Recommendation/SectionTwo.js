@@ -176,7 +176,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
 
               <ResponsiveTableContainer>
                 {funds.map(fund => (
-                  <React.Fragment key={fund.id}>
+                  <React.Fragment key={fund.fund_id}>
                     <Wrapper>
                       <Square
                         color={
