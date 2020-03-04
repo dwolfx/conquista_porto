@@ -69,7 +69,6 @@ export const TheadTh = styled.th`
   line-height: 14px;
   padding: 0 13px;
   height: 70px;
-  text-transform: uppercase;
   position: relative;
 `
 
