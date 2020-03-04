@@ -18,32 +18,49 @@ const AnbimaLegalInfo = () => (
       <GridCol lg={12}>
         <TextWrapper>
           <Text>
-            A Porto Seguro Investimentos informa os cotistas que o Distribuidor
-            de cotas dos Fundos poderá receber remuneração de distribuição
-            do(s)administrador(es) e/ou dos Fundos de Investimento em que seus
-            clientes aplicarem recursos, seja na forma de investimento direto,
-            seja por meio de conta e ordem; Esta remuneração poderá ser
-            diferenciada em função dos diversos Fundos de Investimento
-            investidos. Leia o formulário de informações complementares, a
-            lâmina de informações essenciais, se houver, e o regulamento antes
-            de investir. Confira a Lâmina de Informações Essenciais, o
-            Demonstrativo de Desempenho e o Formulário de Informações
-            Complementares - INTRAG/CVM. &nbsp;
+            Indicadores: trata-se de mera referência econômica, e não meta ou
+            parâmetro de performance. Leia a lâmina de informações essenciais,
+            se houver, e o regulamento antes de investir. Rentabilidade passada
+            não representa garantia de rentabilidade futura. A rentabilidade
+            divulgada não é líquida de impostos. Fundos de Investimento não
+            contam com a garantia do administrador, do gestor, de qualquer
+            mecanismo de seguro ou Fundo Garantidor de Crédito – FGC. Descrição
+            do tipo ANBIMA disponível no Formulário de Informações
+            Complementares. Para avaliação de performance de um fundo de
+            investimento, é recomendável a análise de, no mínimo, 12 (doze)
+            meses. &nbsp;
             <Link
               target="_blank"
               rel="noopener noreferrer"
-              href="http://www.intrag.com.br/intrag-pt/index.html"
+              href="https://cvmweb.cvm.gov.br/swb/default.asp?sg_sistema=fundosreg"
             >
-              ACESSE AQUI
+              Confira aqui
             </Link>
-            . A Porto Seguro Investimentos pode receber eventuais serviços
-            adicionais fornecidos por Corretoras em razão de sua contratação e
-            relacionamento. A Portopar DTVM recebe remuneração de distribuição
-            do(s)Administrador(es) e/ou do(s) Fundo(s) de Investimento em que
-            seus clientes aplicam recursos, seja na forma de investimento
-            direto, seja por meio de conta e ordem e que esta remuneração pode
-            ser diferenciada em função dos diversos Fundos de Investimento
-            investidos.
+            &nbsp; as informações. as informações legais referentes a cada
+            investimento e as informações adicionais de fundos de investimento
+            como data de início, patrimônio líquido, taxas aplicáveis e público
+            alvo. SUPERVISÃO E FISCALIZAÇÃO: Comissão de Valores Mobiliários –
+            CVM Serviço de Atendimento ao Cidadão em &nbsp;
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://www.cvm.gov.br"
+            >
+              http://www.cvm.gov.br
+            </Link>
+            | Central de Atendimento: (11) 3366-3200/SAC
+            0800-727-2763/0800-727-8736 Atendimento para deficientes auditivos.
+            Ouvidoria: 0800-727-1184 | 3366-3184 ouvidoria@portoseguro.com.br,
+            (Seg à Sexta das 8h15 às 18h30, exceto feriados). Fale Conosco:
+            &nbsp;
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="mailto:porto.investimentos@portoseguro.com.br"
+            >
+              porto.investimentos@portoseguro.com.br
+            </Link>
+            .
           </Text>
         </TextWrapper>
       </GridCol>

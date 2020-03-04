@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Accordion from 'components/Accordion'
 
 export const Container = styled.div`
   width: 100%;
@@ -64,11 +65,15 @@ export const LinkButton = styled.p`
 export const LineDivider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${props => props.theme.colors.gray2};
   margin: 15px 0px;
 `
 
 export const InfoList = styled.ul``
+
+export const FullWidthAccordion = styled(Accordion)`
+  width: 100%;
+`
 
 export const InfoItem = styled.li`
   margin-bottom: 20px;

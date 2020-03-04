@@ -11,7 +11,12 @@ export default function ObjectivesCard({ icon, title, link, ...rest }) {
   const history = useHistory()
 
   return (
-    <CardObjective {...rest}>
+    <CardObjective
+      onClick={() => {
+        history.push(link)
+      }}
+      {...rest}
+    >
       <IconWrapper>
         <Icon name={icon} />
       </IconWrapper>
@@ -24,9 +29,6 @@ export default function ObjectivesCard({ icon, title, link, ...rest }) {
           color="secondary"
           size="small"
           icon="arrowright"
-          onClick={() => {
-            history.push(link)
-          }}
         />
       </InfosBox>
     </CardObjective>

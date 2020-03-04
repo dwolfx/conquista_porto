@@ -1,51 +1,51 @@
 export const columns = [
   {
-    Header: 'Fundo',
+    Header: 'FUNDO',
     accessor: 'fundo',
     width: '400px',
   },
   {
-    Header: 'Aplicação min. (R$)',
+    Header: 'APLICAÇÃO MIN. (R$)',
     accessor: 'minimo_inicial',
     width: '110px',
   },
   {
-    Header: 'Resgate',
+    Header: 'RESGATE',
     width: '236px',
     columns: [
       {
-        Header: 'Cotização',
+        Header: 'COTIZAÇÃO',
         accessor: 'resgate_cotizacao',
         width: '118px',
       },
       {
-        Header: 'Liquidação',
+        Header: 'LIQUIDAÇÃO',
         accessor: 'resgate_financeiro',
         width: '118px',
       },
     ],
   },
   {
-    Header: 'Taxa Adm. (% A.A.)',
+    Header: 'TAXA ADM. (% a.a.)',
     accessor: 'taxa_administracao',
     width: '110px',
   },
   {
-    Header: 'Rentabilidade',
+    Header: 'RENTABILIDADE (%)',
     width: '273px',
     columns: [
       {
-        Header: 'Mês',
+        Header: 'MÊS',
         accessor: 'rentabil_fundo_mes',
         width: '91px',
       },
       {
-        Header: 'Ano',
+        Header: 'ANO',
         accessor: 'rentabil_fundo_ano',
         width: '91px',
       },
       {
-        Header: 'Últ. 12M',
+        Header: 'ÚLT. 12M',
         accessor: 'rentabil_fundo_12_meses',
         width: '91px',
       },
@@ -68,16 +68,16 @@ export const fundsType = [
     value: 'rendafixa',
   },
   {
-    name: 'Renda Variável',
-    value: 'rendavariável',
-  },
-  {
     name: 'Multimercado',
     value: 'multimercado',
   },
   {
     name: 'Ações',
     value: 'ações',
+  },
+  {
+    name: 'Investimento no Exterior',
+    value: 'investimentoexterior',
   },
   {
     name: 'Cambial',

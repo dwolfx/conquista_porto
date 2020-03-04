@@ -14,6 +14,7 @@ import Modal from 'components/Modal/ModalNew'
 
 import { formatMoney } from 'helpers'
 
+import Popover from 'components/Popover/index'
 import pointsCardsData from './pointsCardsData'
 import {
   EmptyBody,
@@ -279,7 +280,21 @@ export default function SectionThree({ points }) {
                     )
                   )}
               </Text>
-              <Icon name="information" color="blue4" />
+              <Popover
+                content={() => (
+                  <Text
+                    type="body"
+                    color="gray5"
+                    css={`
+                      width: 140px;
+                    `}
+                  >
+                    Pontos acumulados no Conquista e no Cartão Porto Seguro
+                  </Text>
+                )}
+              >
+                <Icon name="information" color="blue4" />
+              </Popover>
               {points && (
                 <PointsButtonWrapper>
                   <Button

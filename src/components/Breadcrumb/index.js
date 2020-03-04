@@ -36,19 +36,13 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
     'data-gtm-name': `${crumb in crumbList ? crumbList[crumb] : crumb}`,
   })
 
-  const handleBreadcrumbLink = (index, click) => {
+  const handleBreadcrumbLink = index => {
     const crumbPath = [...crumbs].slice(0, index + 1).join('/')
     const path = history.location.pathname
 
     if (path !== `/${crumbPath}`) {
-      if (click) {
-        history.push(`/${crumbPath}`)
-      }
-
-      return true
+      history.push(`/${crumbPath}`)
     }
-
-    return false
   }
 
   if (version === 'new') {
@@ -56,16 +50,14 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
       <Container>
         {crumbs.map((crumb, index) => {
           const isLast = crumbs.length === index + 1
-          const isBreadCrumbLink = handleBreadcrumbLink(index)
 
           return (
             <React.Fragment key={`crumbKey-${index}`}>
               {typeof crumb === 'string' ? (
                 <Crumbcontainer
-                  cursorStyle={isBreadCrumbLink ? 'pointer' : 'auto'}
-                  isBreadCrumbLink
-                  {...(isBreadCrumbLink ? gtmAttrs(crumb) : null)}
-                  onClick={() => handleBreadcrumbLink(index, true)}
+                  cursorStyle={!isLast ? 'pointer' : 'auto'}
+                  {...(!isLast ? gtmAttrs(crumb) : null)}
+                  onClick={() => (!isLast ? handleBreadcrumbLink(index) : null)}
                 >
                   <StyledText>
                     {crumb in crumbList ? crumbList[crumb] : crumb}

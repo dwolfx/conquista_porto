@@ -17,7 +17,7 @@ const ChartEmptyState = ({ value }) => {
         Total investido
       </Text>
       <PieItemMargin>
-        <Text color="gray5" type="heading4" bold>
+        <Text color="black" type="heading4" bold>
           {formatMoney(value)}
         </Text>
       </PieItemMargin>
@@ -38,13 +38,17 @@ const ChartMiddleInfoContent = ({ pieChartInfo }) => {
   const history = useHistory()
   return validPieChartInfo(pieChartInfo) ? (
     <EmptyBody>
-      <Text type="heading4">{`${pieChartInfo.percent}%`}</Text>
+      <Text
+        type="heading4"
+        color="black"
+        bold
+      >{`${pieChartInfo.percent}%`}</Text>
       <PieItemMargin>
         <Text color="gray5" type="captionUppercase">
           {pieChartInfo.label}
         </Text>
       </PieItemMargin>
-      <Text type="heading4" bold>
+      <Text type="heading4" color="black" bold>
         {formatMoney(pieChartInfo.value)}
       </Text>
       <PieItemMargin>

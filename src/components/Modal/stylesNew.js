@@ -28,7 +28,7 @@ export const ModalContainer = styled.div`
   box-shadow: ${props => props.theme.shadows.gray4};
   border-radius: 8px;
   position: fixed;
-  max-width: 900px;
+  max-width: ${props => props.maxWidth};
   min-width: 400px;
   margin: 28px 0;
   max-height: calc(100vh - (28px * 2));

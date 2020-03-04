@@ -18,40 +18,30 @@ export default function WrapperDetailsContent({ title, fundsDetail }) {
     <Container>
       <Title>{title}</Title>
       <LineWrapper>
-        {/* <DetailItem>
-          <SubTitle>CNPJ</SubTitle>
-          <Text>{fundsDetail.value1}</Text>
-        </DetailItem> */}
         <DetailItem>
           <SubTitle>Data de início</SubTitle>
           <Text>{moment(fundsDetail.data_inicio).format('DD/MM/YYYY')}</Text>
         </DetailItem>
-      </LineWrapper>
-      <LineWrapper>
         <DetailItem>
           <SubTitle>Gestor</SubTitle>
           <Text>{fundsDetail.nome_gestor}</Text>
         </DetailItem>
+      </LineWrapper>
+      <LineWrapper>
         <DetailItem>
           <SubTitle>Benchmark</SubTitle>
           <Text>{fundsDetail.benchmark.nome}</Text>
         </DetailItem>
-      </LineWrapper>
-      <LineWrapper>
         <DetailItem>
           <SubTitle>PL atual</SubTitle>
-          <Text>{formatMoney(fundsDetail.valor_patrimonio_liq)}</Text>
+          <Text>{formatMoney(+fundsDetail.valor_patrimonio_liq)}</Text>
         </DetailItem>
+      </LineWrapper>
+      <LineWrapper>
         <DetailItem>
           <SubTitle>Taxa de administração</SubTitle>
           <Text>{fundsDetail.taxa_administracao}% a.a</Text>
         </DetailItem>
-      </LineWrapper>
-      <LineWrapper>
-        {/* <DetailItem>
-          <SubTitle>PL Médio 12M</SubTitle>
-          <Text>{fundsDetail.value7}</Text>
-        </DetailItem> */}
         <DetailItem>
           <SubTitle>Taxa de performance</SubTitle>
           <Text>{fundsDetail.taxa_performance}% sobre o que exceder</Text>

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useTable, useSortBy } from 'react-table'
 import PropTypes from 'prop-types'
 
-import Modal from 'components/Modal'
+import Modal from 'components/Modal/ModalNew'
 import FundsInfo from 'components/Solutions/Investments/FundsInfo'
 import FormatColumns from './formatters'
 import Tabs from './Tabs'
@@ -159,6 +159,7 @@ export default function TableFunds({
         isOpen={isModalOpen}
         modalTitle="Informações do fundo"
         alignItems="flex-start"
+        maxWidth="1200px"
       >
         <FundsInfo fund={fundDetails} />
       </Modal>

@@ -1,32 +1,32 @@
 export default [
   {
     icon: 'plane',
-    title: 'Fazer uma viagem',
+    title: 'Viagem',
     link: '/objetivos/viagem',
   },
   {
     icon: 'time',
-    title: 'Aposentar mais cedo',
+    title: 'Aposentar',
     link: '/objetivos/aposentadoria',
   },
   {
     icon: 'homewithwindow',
-    title: 'Comprar uma casa',
+    title: 'Casa',
     link: '/objetivos/casa',
   },
   {
     icon: 'car2',
-    title: 'Comprar um carro',
+    title: 'Carro',
     link: '/objetivos/carro',
   },
   {
     icon: 'drink',
-    title: 'Fazer um evento',
+    title: 'Evento',
     link: '/objetivos/evento',
   },
   {
     icon: 'student',
-    title: 'Fazer um curso',
+    title: 'Curso',
     link: '/objetivos/curso',
   },
   // {
@@ -36,7 +36,7 @@ export default [
   // },
   {
     icon: 'money',
-    title: 'Reserva de emergência',
+    title: 'Poupar',
     link: '/objetivos/poupar',
   },
 ]

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import useMedia from 'hooks/useMedia'
@@ -29,12 +30,11 @@ import {
   Avatar,
 } from './styles'
 
-export default function HeaderNew() {
+export default function HeaderNew({ crumbs }) {
   const dispatch = useDispatch()
   const history = useHistory()
   const [isMobile] = useState(useMedia('sm'))
   const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const [crumbs, setCrumbs] = useState([])
   const [isScrolled, setIsScrolled] = useState(false)
   const bankData = useSelector(
     state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
@@ -48,15 +48,6 @@ export default function HeaderNew() {
     extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
 
   const userData = useSelector(state => state.auth)
-  useEffect(() => {
-    if (!crumbs) {
-      setCrumbs(history.location.pathname.split('/').filter(el => el !== ''))
-    }
-  }, [history, crumbs])
-
-  useEffect(() => {
-    setCrumbs(history.location.pathname.split('/').filter(el => el !== ''))
-  }, [history.location.pathname])
 
   function checkScroll() {
     if (window.scrollY > 0) {
@@ -127,21 +118,22 @@ export default function HeaderNew() {
         },
       ],
     },
-    {
-      icon: 'target',
-      text: 'Objetivos',
-      path: '/objetivos',
-    },
-    {
-      icon: 'diamond',
-      text: 'Pontos',
-      path: '/pontos',
-    },
-    {
-      icon: 'idea',
-      text: 'Recomendações',
-      path: '/',
-    },
+    // Temporary comment
+    // {
+    //   icon: 'target',
+    //   text: 'Objetivos',
+    //   path: '/objetivos',
+    // },
+    // {
+    //   icon: 'diamond',
+    //   text: 'Pontos',
+    //   path: '/pontos',
+    // },
+    // {
+    //   icon: 'idea',
+    //   text: 'Recomendações',
+    //   path: '/',
+    // },
   ]
 
   const dropdownNodesTitle = 'Dropdown notificações header'
@@ -280,4 +272,12 @@ export default function HeaderNew() {
   )
 
   return <>{isMobile ? renderResponsideHeader() : renderFullHeader()}</>
+}
+
+HeaderNew.propTypes = {
+  crumbs: PropTypes.arrayOf(PropTypes.string),
+}
+
+HeaderNew.defaultProps = {
+  crumbs: [],
 }
