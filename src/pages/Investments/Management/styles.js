@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import AccordionDefault from 'components/Accordion'
 import { AccordionHeader, AccordionBody } from 'components/Accordion/styles'
-import Carousel from 'components/Carousel'
 import LeftNavDefault from 'components/Management/LeftNav'
 import RightContentDefault from 'components/Management/RightContent'
 import ConquistaText from 'components/Text'
@@ -77,18 +76,12 @@ export const PageTitle = styled.h4`
   text-align: center;
 `
 
-export const Topics = styled(Carousel)`
-  display: flex;
-  justify-content: space-between;
-  margin: 28px 20px;
-`
-
 export const Topic = styled.div`
   display: flex !important;
   justify-content: center;
 
   svg {
-    margin-right: 16px;
+    margin-right: 7px;
   }
 `
 
