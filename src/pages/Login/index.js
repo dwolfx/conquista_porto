@@ -32,9 +32,7 @@ export default function Login() {
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
   ) {
-    window.location = handleGiwRedirect(
-      '/portal/site/portaldecliente/template.LOGOUT/'
-    )
+    handleGiwRedirect('/portal/site/portaldecliente/template.LOGOUT/')
     return null
   }
 
