@@ -18,6 +18,14 @@ export const formatMoneyDecimal = (value = 0) => {
   ).replace(UNICODE_NON_BREAKING_SPACE, USUAL_SPACE)
 }
 
+export const formatMoneyWithoutCurrencyFlag = value =>
+  value &&
+  `${value
+    .toString()
+    .replace(/\D/g, '')
+    .replace(/([\d*])([\d]{2})$/g, '$1,$2')
+    .replace(/((\d)(?=(\d{3})+(?!\d)))/g, '$1.')}`
+
 export const formatCpf = value => {
   const numbers = value.toString().replace(/\D/g, '')
 

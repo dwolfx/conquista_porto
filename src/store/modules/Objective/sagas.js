@@ -11,6 +11,8 @@ import {
 
 function* postData(data) {
   const { payload, isMobile } = data
+
+  console.log({ payload })
   try {
     let response
     if (isMobile) {
