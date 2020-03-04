@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -17,6 +17,16 @@ export default function FundAccordionHeader({
   fundListCopy,
   setFundListCopy,
 }) {
+  const [fundAvailable, setFundAvailable] = useState(0)
+
+  useEffect(() => {
+    setFundAvailable(
+      fund.available +
+        fund.invested -
+        fundListCopy.filter(item => item.id === fund.id)[0].invested
+    )
+  }, [fund.available, fund.id, fund.invested, fundListCopy])
+
   const handleValueFund = (id, value) => {
     if (setFundListCopy) {
       setFundListCopy(
@@ -98,7 +108,7 @@ export default function FundAccordionHeader({
               Não distribuído
             </Text>
             <Text type="headline" color="gray6">
-              {formatMoney(fund.available)}
+              {formatMoney(fundAvailable)}
             </Text>
           </Col>
           <Col
