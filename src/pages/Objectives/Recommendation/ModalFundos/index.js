@@ -26,12 +26,11 @@ import {
   Divisor,
 } from './styles'
 
-const ModalFundos = ({ fundDetails }) => {
+const ModalFundos = ({ fundDetails, initialReset }) => {
   const isMobile = useMedia('sm')
-
   return (
     <WrapperContent>
-      <Tabs initialValue="tab-perfil-risco">
+      <Tabs initialValue="tab-perfil-risco" initialReset={!!initialReset}>
         <TabList>
           <Tab
             name="tab-perfil-risco"
@@ -263,6 +262,7 @@ const ModalFundos = ({ fundDetails }) => {
 }
 
 ModalFundos.propTypes = {
+  initialReset: PropTypes.bool.isRequired,
   fundDetails: PropTypes.shape({
     profitability: PropTypes.object,
     min_value_to_apply: PropTypes.number,

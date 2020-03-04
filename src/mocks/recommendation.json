@@ -135,6 +135,7 @@
   },
   "funds": [
     {
+      "fund_id": 51380129,
       "adm_tax": 0,
       "benchmark": "CDI",
       "category_name": "Multimercado",
