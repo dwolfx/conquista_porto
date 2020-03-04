@@ -18,5 +18,5 @@ export const RegistrationWrapper = styled.div`
 `
 
 export const BoartTitle = styled(Text).attrs(() => ({ type: 'heading3' }))`
-  padding: 30px 15px;
+  padding: 28px 14px;
 `

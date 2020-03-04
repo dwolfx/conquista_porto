@@ -7,7 +7,7 @@ export const Container = styled.div`
   border-bottom: 1px solid rgba(210, 210, 210, 0.4);
   flex-direction: row;
   display: flex;
-  padding: 30px;
+  padding: 28px;
 `
 
 export const IconWrapper = styled.div`
