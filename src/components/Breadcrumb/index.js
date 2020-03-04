@@ -43,7 +43,14 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
           return (
             <React.Fragment key={`crumbKey-${index}`}>
               {typeof crumb === 'string' ? (
-                <div role="button" onClick={() => handleClick(index)}>
+                <div
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="header"
+                  data-gtm-name={crumb in crumbList ? crumbList[crumb] : crumb}
+                  role="button"
+                  onClick={() => handleClick(index)}
+                >
                   <StyledText>
                     {crumb in crumbList ? crumbList[crumb] : crumb}
                   </StyledText>

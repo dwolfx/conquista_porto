@@ -1,7 +1,3 @@
-// import React from 'react'
-
-// import { Text } from './styles'
-
 export const downloadFileSectionData = [
   {
     title: 'QUADRO DE RENTABILIDADE',
@@ -18,22 +14,6 @@ export const downloadFileSectionData = [
 ]
 
 export const complementaryInfo = [
-  // removed only for now
-
-  // {
-  //   title: 'Programa de relacionamento',
-  //   description: (
-  //     <span>
-  //       Com este produto você acumulou:
-  //       <br />{' '}
-  //       <Text lineHeight="32px" fontSize="22px">
-  //         210 pontos
-  //       </Text>
-  //     </span>
-  //   ),
-  //   buttonText: 'Ver extrato',
-  //   icon: 'diamond',
-  // },
   {
     title: 'Informativo de desempenho',
     description:
@@ -41,29 +21,6 @@ export const complementaryInfo = [
     buttonText: 'BAIXAR ARQUIVO',
   },
 ]
-
-export const settings = {
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 370,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-}
 
 export const months = [
   {

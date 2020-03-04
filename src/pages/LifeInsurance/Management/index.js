@@ -7,7 +7,6 @@ import { css, ThemeContext } from 'styled-components/macro'
 
 import { useSelector } from 'react-redux'
 
-import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -27,7 +26,6 @@ import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
-  BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
   Topic,
@@ -129,9 +127,6 @@ export default function ManagementLifeInsurance() {
     return (
       <>
         <Container>
-          <BreadcrumbContainer>
-            <Breadcrumb crumbs={['Soluções', 'seguro de vida']} />
-          </BreadcrumbContainer>
           <PageContent id="life-insurance-top-page">
             <LeftNav>
               <AddBtnLink

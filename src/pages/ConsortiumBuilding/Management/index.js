@@ -3,7 +3,6 @@ import { ThemeContext } from 'styled-components'
 import { useSelector } from 'react-redux'
 
 import LinearProgressBar from 'components/LinearProgressBar'
-import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -21,7 +20,6 @@ import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsort
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
-  BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
   Topic,
@@ -61,9 +59,6 @@ export default function ManagementConsortiumBuilding() {
   return (
     <>
       <Container>
-        <BreadcrumbContainer>
-          <Breadcrumb crumbs={['Soluções', 'consórcio de imóvel']} />
-        </BreadcrumbContainer>
         <PageContent id="consortium-building-top-page">
           <LeftNav>
             <AddBtnLink
