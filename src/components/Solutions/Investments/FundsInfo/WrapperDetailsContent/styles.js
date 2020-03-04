@@ -26,7 +26,6 @@ export const DetailItem = styled.div`
   display: flex;
   width: 50%;
   flex-direction: column;
-  height: 46px;
   @media (max-width: 489px) {
     width: 100%;
   }
