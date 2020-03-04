@@ -143,6 +143,7 @@ export default function PieChart({
                   direction: 'row',
                   symbolSize: 14,
                   itemWidth: 20,
+                  translateY: -28,
                   itemHeight: 18,
                   itemsSpacing: 7,
                   itemTextColor: 'transparent',

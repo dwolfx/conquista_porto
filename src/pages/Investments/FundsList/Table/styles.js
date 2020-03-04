@@ -74,15 +74,15 @@ export const TheadTh = styled.th`
 `
 
 export const TheadThWithColumns = styled(TheadTh)`
-  padding: 18px 0 0;
+  padding: 12px 0 0;
 
   ${WrapperContent} {
     border-top: 1px solid ${props => props.theme.colors.gray3};
     display: flex;
-    margin-top: 5px;
+    margin-top: 7px;
 
     span::after {
-      top: 49px;
+      top: 45px;
       right: initial;
     }
   }

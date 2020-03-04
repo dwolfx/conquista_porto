@@ -26,12 +26,12 @@ export const columns = [
     ],
   },
   {
-    Header: 'Taxa Adm. (% A.A.)',
+    Header: 'Taxa Adm. (% a.a.)',
     accessor: 'taxa_administracao',
     width: '110px',
   },
   {
-    Header: 'Rentabilidade',
+    Header: 'Rentabilidade (%)',
     width: '273px',
     columns: [
       {
@@ -68,16 +68,16 @@ export const fundsType = [
     value: 'rendafixa',
   },
   {
-    name: 'Renda Variável',
-    value: 'rendavariável',
-  },
-  {
     name: 'Multimercado',
     value: 'multimercado',
   },
   {
     name: 'Ações',
     value: 'ações',
+  },
+  {
+    name: 'Investimento no Exterior',
+    value: 'investimentoexterior',
   },
   {
     name: 'Cambial',
