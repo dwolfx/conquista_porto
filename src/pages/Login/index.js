@@ -7,17 +7,10 @@ import Input from 'components/Inputs/Text'
 import CPFInput from 'components/Inputs/CPFInput'
 import { AuthRequestLogin } from 'store/modules/Auth/action'
 import { useDispatch, useSelector } from 'react-redux'
-// import { handleGiwRedirect } from 'helpers'
+import { handleGiwRedirect } from 'helpers'
 import { FormWrapper } from './styles'
 
 export default function Login() {
-  // if (
-  //   process.env.REACT_APP_ENV !== 'development' &&
-  //   process.env.REACT_APP_ENV !== 'local'
-  // ) {
-  //   handleGiwRedirect('/portal/site/portaldecliente/template.LOGOUT/')
-  // }
-
   const error = useSelector(state => state.auth.error)
   const dispatch = useDispatch()
 
@@ -33,6 +26,16 @@ export default function Login() {
   const handleSubmit = event => {
     dispatch(AuthRequestLogin(credentials))
     event.preventDefault()
+  }
+
+  if (
+    process.env.REACT_APP_ENV !== 'development' &&
+    process.env.REACT_APP_ENV !== 'local'
+  ) {
+    window.location = handleGiwRedirect(
+      '/portal/site/portaldecliente/template.LOGOUT/'
+    )
+    return null
   }
 
   return (
