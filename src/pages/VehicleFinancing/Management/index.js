@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components/macro'
 
 import LinearProgressBar from 'components/LinearProgressBar'
-import Breadcrumb from 'components/Breadcrumb'
 import Button from 'components/Button'
 import Icon from 'components/IconExporter'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -23,7 +22,6 @@ import { formatMoney, handleGiwRedirect } from 'helpers'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 
 import {
-  BreadcrumbContainer,
   AddBtnLink,
   TextBody,
   TextHeading4,
@@ -92,9 +90,6 @@ const ManagementVehicleFinancing = () => {
   return (
     <>
       <Container>
-        <BreadcrumbContainer>
-          <Breadcrumb crumbs={['Soluções', 'FINANCIAMENTO DE VEÍCULO']} />
-        </BreadcrumbContainer>
         <PageContent>
           <LeftNav>
             <AddBtnLink

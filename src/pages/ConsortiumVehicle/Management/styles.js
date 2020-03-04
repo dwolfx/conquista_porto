@@ -1,12 +1,6 @@
 import styled from 'styled-components'
 import Carousel from '../../../components/Carousel'
 
-export const BreadcrumbContainer = styled.div`
-  @media (max-width: 1000px) {
-    padding-left: 30px;
-  }
-`
-
 export const AddBtnLink = styled.div`
   border: 2px solid ${props => props.theme.colors.gray3};
   background-color: ${props => props.theme.colors.gray1};

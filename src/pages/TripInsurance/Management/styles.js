@@ -4,12 +4,6 @@ import ModalDefault from 'components/Modal'
 import { ModalContainer } from 'components/Modal/styles'
 import Carousel from 'components/Carousel'
 
-export const BreadcrumbContainer = styled.div`
-  @media (max-width: 1000px) {
-    padding-left: 30px;
-  }
-`
-
 export const AddBtnLink = styled.div`
   border: 2px solid #d2d2d2;
   background-color: #f1f1f1;
