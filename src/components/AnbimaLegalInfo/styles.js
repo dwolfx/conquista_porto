@@ -25,7 +25,6 @@ export const Text = styled(TextComponent).attrs(() => ({
 export const Link = styled.a`
   color: ${props => props.theme.colors.blue4};
   font-weight: bold;
-  text-transform: uppercase;
 `
 
 export const ImgAnbima = styled.img`
