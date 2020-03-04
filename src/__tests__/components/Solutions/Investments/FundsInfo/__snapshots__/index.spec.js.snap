@@ -367,10 +367,10 @@ exports[`FundsInfo renders correctly 1`] = `
           Detalhes do Fundo
         </h4>
         <div
-          className="sc-kAzzGY blPhns"
+          className="sc-kAzzGY jzuRpv"
         >
           <div
-            className="sc-chPdSV eohfTt"
+            className="sc-chPdSV dhgsn"
           >
             <h5
               className="sc-kGXeez hKshTX"
@@ -378,17 +378,13 @@ exports[`FundsInfo renders correctly 1`] = `
               Data de início
             </h5>
             <p
-              className="sc-kpOJdX jaPJmo"
+              className="sc-kpOJdX jcZxoT"
             >
               29/12/2009
             </p>
           </div>
-        </div>
-        <div
-          className="sc-kAzzGY blPhns"
-        >
           <div
-            className="sc-chPdSV eohfTt"
+            className="sc-chPdSV dhgsn"
           >
             <h5
               className="sc-kGXeez hKshTX"
@@ -396,11 +392,15 @@ exports[`FundsInfo renders correctly 1`] = `
               Gestor
             </h5>
             <p
-              className="sc-kpOJdX jaPJmo"
+              className="sc-kpOJdX jcZxoT"
             />
           </div>
+        </div>
+        <div
+          className="sc-kAzzGY jzuRpv"
+        >
           <div
-            className="sc-chPdSV eohfTt"
+            className="sc-chPdSV dhgsn"
           >
             <h5
               className="sc-kGXeez hKshTX"
@@ -408,17 +408,13 @@ exports[`FundsInfo renders correctly 1`] = `
               Benchmark
             </h5>
             <p
-              className="sc-kpOJdX jaPJmo"
+              className="sc-kpOJdX jcZxoT"
             >
               CDI
             </p>
           </div>
-        </div>
-        <div
-          className="sc-kAzzGY blPhns"
-        >
           <div
-            className="sc-chPdSV eohfTt"
+            className="sc-chPdSV dhgsn"
           >
             <h5
               className="sc-kGXeez hKshTX"
@@ -426,13 +422,17 @@ exports[`FundsInfo renders correctly 1`] = `
               PL atual
             </h5>
             <p
-              className="sc-kpOJdX jaPJmo"
+              className="sc-kpOJdX jcZxoT"
             >
               R$ 121.480.174,47
             </p>
           </div>
+        </div>
+        <div
+          className="sc-kAzzGY jzuRpv"
+        >
           <div
-            className="sc-chPdSV eohfTt"
+            className="sc-chPdSV dhgsn"
           >
             <h5
               className="sc-kGXeez hKshTX"
@@ -440,18 +440,14 @@ exports[`FundsInfo renders correctly 1`] = `
               Taxa de administração
             </h5>
             <p
-              className="sc-kpOJdX jaPJmo"
+              className="sc-kpOJdX jcZxoT"
             >
               2.00
               % a.a
             </p>
           </div>
-        </div>
-        <div
-          className="sc-kAzzGY blPhns"
-        >
           <div
-            className="sc-chPdSV eohfTt"
+            className="sc-chPdSV dhgsn"
           >
             <h5
               className="sc-kGXeez hKshTX"
@@ -459,7 +455,7 @@ exports[`FundsInfo renders correctly 1`] = `
               Taxa de performance
             </h5>
             <p
-              className="sc-kpOJdX jaPJmo"
+              className="sc-kpOJdX jcZxoT"
             >
               20.00
               % sobre o que exceder
