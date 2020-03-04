@@ -56,8 +56,10 @@ import useAuth from './auth'
 
 const DefaultRoute = ({
   component: Component,
+  computedMatch: match,
   data,
   hook,
+  name,
   pageTitle,
   ...rest
 }) => {
@@ -80,12 +82,24 @@ const DefaultRoute = ({
     dataLength = 0
   }
 
+  const crumbs = match.path
+    .split('/')
+    .slice(1)
+    .map(item => {
+      if (Object.keys(match.params).includes(item.replace(':', ''))) {
+        return name ? `#${name}` : pageTitle
+      }
+
+      return item
+    })
+
   return (
     <>
-      <HeaderNew />
+      <HeaderNew crumbs={crumbs} />
       <main className="main-content">
         <Route
           {...rest}
+          computedMatch={match}
           pageTitle={pageTitle}
           render={props => {
             // if dataLength !== 0, data exists therefore redirects to management screen
@@ -104,14 +118,21 @@ const DefaultRoute = ({
 
 DefaultRoute.propTypes = {
   component: PropTypes.func.isRequired,
+  computedMatch: PropTypes.shape({
+    path: PropTypes.string,
+    params: PropTypes.object,
+  }),
   data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   hook: PropTypes.func,
+  name: PropTypes.string,
   pageTitle: PropTypes.string.isRequired,
 }
 
 DefaultRoute.defaultProps = {
+  computedMatch: {},
   data: [],
   hook: () => {},
+  name: '',
 }
 
 const Route = ({ path, component, pageTitle, ...rest }) => {
@@ -155,6 +176,7 @@ export default function Routes({ ...props }) {
     consortiumVehicleData,
     lifeInsuranceData,
     positionData,
+    objectiveManagement,
   } = useSelector(state => ({
     creditCardData: state.creditCard.data,
     tripInsuranceData: state.tripInsurance.data,
@@ -163,6 +185,7 @@ export default function Routes({ ...props }) {
     consortiumVehicleData: state.consortiumVehicle.data,
     lifeInsuranceData: state.lifeInsurance.data,
     positionData: state.investmentPosition.data,
+    objectiveManagement: state.objectiveManagement.data,
   }))
 
   const isAuth = useAuth()
@@ -309,6 +332,7 @@ export default function Routes({ ...props }) {
         exact
         component={ObjectivesManager}
         pageTitle="Objetivos - Gerenciar"
+        name={(objectiveManagement || {}).nickname}
       />
       <DefaultRoute
         path="/objetivos/gerenciar"
