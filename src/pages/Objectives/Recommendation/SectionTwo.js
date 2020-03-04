@@ -40,6 +40,7 @@ import {
 const SectionTwo = ({ creditProduct, combo, funds }) => {
   const theme = useContext(ThemeContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [initialReset, setInitialReset] = useState(true)
   const [fundDetails, setFundDetails] = useState({})
   const [pieChartInfoChildren, setPieChartInfoChildren] = useState(null)
   const isMobile = useMedia('sm')
@@ -131,11 +132,13 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   const handleOpenModal = fund => {
     setFundDetails(fund)
     setIsModalOpen(!isModalOpen)
+    setInitialReset(false)
   }
 
   const handleCloseModal = () => {
     setFundDetails({})
     setIsModalOpen(false)
+    setInitialReset(true)
   }
 
   return (
@@ -146,7 +149,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         isOpen={isModalOpen}
         handleClose={() => handleCloseModal()}
       >
-        <ModalFundos fundDetails={fundDetails} />
+        <ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
       </Modal>
       <Col
         lg={combo.length > 1 ? '9' : '12'}

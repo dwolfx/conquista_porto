@@ -1,12 +1,26 @@
-import React, { createContext, useState, useContext } from 'react'
+import React, { createContext, useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { PanelTabs, PanelList, PanelTab, SingleTab, Icon } from './styles'
 
 const TabContext = createContext()
 
-export const Tabs = ({ initialValue, children, ...restProps }) => {
-  const [activeTab, changeTab] = useState(initialValue)
+export const Tabs = ({
+  initialValue,
+  initialReset,
+  children,
+  ...restProps
+}) => {
+  const [activeTab, changeTab] = useState('')
+
+  useEffect(() => {
+    if (initialReset) {
+      changeTab(initialValue)
+    } else {
+      changeTab(activeTab)
+    }
+  }, [activeTab, initialReset, initialValue])
+
   const tabProviderValue = { activeTab, changeTab }
 
   return (
@@ -53,8 +67,13 @@ export const Tab = ({
 }
 
 Tabs.propTypes = {
+  initialReset: PropTypes.bool,
   initialValue: PropTypes.string.isRequired,
   children: PropTypes.array.isRequired,
+}
+
+Tabs.defaultProps = {
+  initialReset: false,
 }
 
 TabList.propTypes = {
