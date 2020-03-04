@@ -14,7 +14,7 @@ export const Container = styled.div`
 export const LineWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px 15px 30px;
+  padding: 7px 30px;
   @media (max-width: 489px) {
     flex-direction: column;
     justify-content: center;
@@ -46,7 +46,7 @@ export const SubTitle = styled.h5`
   line-height: 24px;
 `
 export const Text = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 28px;
 `
