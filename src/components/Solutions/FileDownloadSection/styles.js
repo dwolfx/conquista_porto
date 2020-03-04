@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Col } from 'styled-bootstrap-grid'
 
 import IconExporter from '../../IconExporter'
 
@@ -14,21 +15,15 @@ export const Container = styled.section`
   }
 `
 
-export const Item = styled.div`
-  display: flex;
-  padding: 20px 20px;
+export const ColItem = styled(Col)`
+  padding: 28px;
   border-right: 1px solid ${props => props.theme.colors.gray3};
 
   :last-child {
     border-right: none;
   }
 
-  @media (min-width: 1000px) {
-    flex: 1;
-    justify-content: center;
-  }
-
-  @media (max-width: 800px) {
+  @media ${props => props.theme.mediaQueries.md} {
     border-right: none;
   }
 `

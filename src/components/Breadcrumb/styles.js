@@ -37,3 +37,7 @@ export const CrumbCurrentPage = styled.strong`
   font-size: 14px;
   font-weight: 600;
 `
+
+export const Crumbcontainer = styled.div`
+  cursor: ${props => props.cursorStyle};
+`

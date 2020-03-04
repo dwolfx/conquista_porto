@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import {
+  Crumbcontainer,
   CrumbText,
   CrumbCurrentPage,
   Container,
@@ -28,11 +29,26 @@ const crumbList = {
 export default function Breadcrumb({ crumbs, version, ...props }) {
   const history = useHistory()
 
-  const handleClick = index => {
+  const gtmAttrs = crumb => ({
+    'data-gtm-type': 'click',
+    'data-gtm-clicktype': 'link',
+    'data-gtm-subname': 'header',
+    'data-gtm-name': `${crumb in crumbList ? crumbList[crumb] : crumb}`,
+  })
+
+  const handleBreadcrumbLink = (index, click) => {
     const crumbPath = [...crumbs].slice(0, index + 1).join('/')
     const path = history.location.pathname
 
-    if (path !== `/${crumbPath}`) history.push(`/${crumbPath}`)
+    if (path !== `/${crumbPath}`) {
+      if (click) {
+        history.push(`/${crumbPath}`)
+      }
+
+      return true
+    }
+
+    return false
   }
 
   if (version === 'new') {
@@ -40,21 +56,21 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
       <Container>
         {crumbs.map((crumb, index) => {
           const isLast = crumbs.length === index + 1
+          const isBreadCrumbLink = handleBreadcrumbLink(index)
+
           return (
             <React.Fragment key={`crumbKey-${index}`}>
               {typeof crumb === 'string' ? (
-                <div
-                  data-gtm-type="click"
-                  data-gtm-clicktype="link"
-                  data-gtm-subname="header"
-                  data-gtm-name={crumb in crumbList ? crumbList[crumb] : crumb}
-                  role="button"
-                  onClick={() => handleClick(index)}
+                <Crumbcontainer
+                  cursorStyle={isBreadCrumbLink ? 'pointer' : 'auto'}
+                  isBreadCrumbLink
+                  {...(isBreadCrumbLink ? gtmAttrs(crumb) : null)}
+                  onClick={() => handleBreadcrumbLink(index, true)}
                 >
                   <StyledText>
                     {crumb in crumbList ? crumbList[crumb] : crumb}
                   </StyledText>
-                </div>
+                </Crumbcontainer>
               ) : (
                 crumb
               )}

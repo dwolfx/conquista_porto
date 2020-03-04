@@ -5,7 +5,12 @@ import { useDispatch } from 'react-redux'
 import { Container } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
-import { formatMoney, formatMoneyDecimal, formatDateMask } from 'helpers'
+import {
+  formatMoney,
+  formatMoneyDecimal,
+  formatMoneyWithoutCurrencyFlag,
+  formatDateMask,
+} from 'helpers'
 import useMedia from 'hooks/useMedia'
 
 import Text from 'components/Text'
@@ -122,7 +127,14 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   )
 
   const submitToRecommendation = () => {
-    dispatch(PostObjectiveDataRequest(formData))
+    dispatch(
+      PostObjectiveDataRequest({
+        ...formData,
+        initial_value: formatMoneyWithoutCurrencyFlag(formData.initial_value),
+        monthly_value: formatMoneyWithoutCurrencyFlag(formData.monthly_value),
+        target_value: formatMoneyWithoutCurrencyFlag(formData.target_value),
+      })
+    )
     setIsDrawerOpen(!isDrawerOpen)
   }
 
@@ -253,7 +265,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 prefix="R$"
                 label="Investimento inicial"
                 onChange={handleSingleValue}
-                value={formData.initial_value}
+                value={formatMoneyWithoutCurrencyFlag(formData.initial_value)}
               />
               {invalidInput.initial_value &&
                 renderErrorMessage(
@@ -270,7 +282,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 prefix="R$"
                 label="Investimento mensal"
                 onChange={handleSingleValue}
-                value={formData.monthly_value}
+                value={formatMoneyWithoutCurrencyFlag(formData.monthly_value)}
               />
               {invalidInput.monthly_value &&
                 renderErrorMessage(
@@ -285,7 +297,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 prefix="R$"
                 label="Meta financeira"
                 onChange={handleSingleValue}
-                value={formData.target_value}
+                value={formatMoneyWithoutCurrencyFlag(formData.target_value)}
               />
             </ColInput>
             <ColInput>
@@ -427,7 +439,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     onClick={() => {
                       handleReloadRecommendations({
                         ...answer,
-                        monthly_value: suggestion_goal.suggestion_monthly_value,
+                        target_value: formatMoneyWithoutCurrencyFlag(
+                          answer.target_value
+                        ),
+                        initial_value: formatMoneyWithoutCurrencyFlag(
+                          answer.initial_value
+                        ),
+                        monthly_value: formatMoneyWithoutCurrencyFlag(
+                          suggestion_goal.suggestion_monthly_value
+                        ),
                       })
                     }}
                   >
@@ -528,6 +548,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     onClick={() => {
                       handleReloadRecommendations({
                         ...answer,
+                        target_value: formatMoneyWithoutCurrencyFlag(
+                          answer.target_value
+                        ),
+                        initial_value: formatMoneyWithoutCurrencyFlag(
+                          answer.initial_value
+                        ),
+                        monthly_value: formatMoneyWithoutCurrencyFlag(
+                          answer.monthly_value
+                        ),
                         target_date: suggestion_goal.suggestion_target_date,
                       })
                     }}
