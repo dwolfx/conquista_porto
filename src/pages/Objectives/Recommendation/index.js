@@ -73,7 +73,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const [formData, setFormData] = useState({})
 
   useEffect(() => {
-    setFormData({ ...answer })
+    setFormData({
+      ...answer,
+      initial_value: formatMoneyDecimal(answer.initial_value * 100),
+      monthly_value: formatMoneyDecimal(answer.monthly_value * 100),
+      target_value: formatMoneyDecimal(answer.target_value * 100),
+    })
   }, [answer])
 
   useEffect(() => {
@@ -217,7 +222,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       />
       <SectionsRecommendation>
         <Drawer
-          drawerTitle="resumo"
+          drawerTitle="Resumo"
           isOpen={isDrawerOpen}
           handleClose={() => setIsDrawerOpen(false)}
           footer={footerDrawer()}

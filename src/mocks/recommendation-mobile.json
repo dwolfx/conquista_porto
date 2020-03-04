@@ -1,0 +1,327 @@
+{
+  "id": "89",
+  "answer": {
+    "nickname": "ObjetivoAndre",
+    "target_date": "29/01/2021",
+    "target_value": 1000000,
+    "initial_value": 1000,
+    "monthly_value": 300,
+    "is_easy_to_save_planned_amount": false,
+    "is_target_date_flexible": false,
+    "would_like_to_receive_before_final_date": false,
+    "would_like_to_receive_monthly_income": false,
+    "goal_type": 1
+  },
+  "combo": [
+    {
+      "title": "Investimentos",
+      "values": {
+        "Investimento Mensal": "R$ 300,00",
+        "Investimento Inicial": "R$ 1.000,00"
+      },
+      "total_value": 4153.16
+    }
+  ],
+  "income": {
+    "pessimistic": [
+      {
+        "month": "mar/2020",
+        "value": 1000
+      },
+      {
+        "month": "mai/2020",
+        "value": 1611.72
+      },
+      {
+        "month": "jul/2020",
+        "value": 2229.69
+      },
+      {
+        "month": "set/2020",
+        "value": 2854.01
+      },
+      {
+        "month": "nov/2020",
+        "value": 3484.72
+      },
+      {
+        "month": "jan/2021",
+        "value": 4121.91
+      }
+    ],
+    "median": [
+      {
+        "month": "mar/2020",
+        "value": 1000
+      },
+      {
+        "month": "mai/2020",
+        "value": 1614.64
+      },
+      {
+        "month": "jul/2020",
+        "value": 2237.19
+      },
+      {
+        "month": "set/2020",
+        "value": 2867.7
+      },
+      {
+        "month": "nov/2020",
+        "value": 3506.32
+      },
+      {
+        "month": "jan/2021",
+        "value": 4153.16
+      }
+    ],
+    "optimistic": [
+      {
+        "month": "mar/2020",
+        "value": 1000
+      },
+      {
+        "month": "mai/2020",
+        "value": 1617.59
+      },
+      {
+        "month": "jul/2020",
+        "value": 2244.71
+      },
+      {
+        "month": "set/2020",
+        "value": 2881.49
+      },
+      {
+        "month": "nov/2020",
+        "value": 3528.1
+      },
+      {
+        "month": "jan/2021",
+        "value": 4184.68
+      }
+    ]
+  },
+  "funds": [
+    {
+      "fund_id": 51380129,
+      "name": "WESTERN ASSET RENDA FIXA ATIVO FI",
+      "category_name": "Renda Fixa",
+      "profitability": {
+        "1": 0.3,
+        "2": 0.48,
+        "12": 7.88,
+        "24": 16.61,
+        "36": 28.83
+      },
+      "min_initial_value": 5000,
+      "min_value_to_apply": 100,
+      "profile": 2,
+      "min_movement": 100,
+      "min_balance": 1000,
+      "time_limit": "13:00",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+0 (Úteis)",
+      "financial_rescue_days": "D+1 (Úteis)",
+      "cnpj": null,
+      "manager": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_date": "21/03/2000",
+      "benchmark": "CDI",
+      "adm_tax": 0.4,
+      "performance_rate": 0,
+      "classification": "Longo Prazo",
+      "tribute_ir": {
+        "180": 22.5,
+        "360": 20,
+        "720": 17.5,
+        "721": 15
+      },
+      "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_WESTERNASSETATIVOFIRF.pdf\n                            ",
+      "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_WESTERNASSETATIVOFIRF.pdf\n                            ",
+      "iof": "Regime Regressivo",
+      "initial_value": 200,
+      "monthly_value": 60
+    },
+    {
+      "fund_id": 5071,
+      "name": "Porto Seguro Clássico RF FICFI LP",
+      "category_name": "Renda Fixa",
+      "profitability": {
+        "1": 0.26,
+        "2": 0.51,
+        "12": 7.1,
+        "24": 14.22,
+        "36": 25.77
+      },
+      "min_initial_value": 3000,
+      "min_value_to_apply": 100,
+      "profile": 2,
+      "min_movement": 100,
+      "min_balance": 1000,
+      "time_limit": "15:00",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+0 (Úteis)",
+      "financial_rescue_days": "D+1 (Úteis)",
+      "cnpj": null,
+      "manager": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_date": "06/07/1998",
+      "benchmark": "CDI",
+      "adm_tax": 0.5,
+      "performance_rate": 20,
+      "classification": "Longo Prazo",
+      "tribute_ir": {
+        "180": 22.5,
+        "360": 20,
+        "720": 17.5,
+        "721": 15
+      },
+      "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/InformativoDesempenho_PS_Classico.pdf\n                            ",
+      "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/Regulamento_PS_Classico.pdf\n                            ",
+      "iof": "Regime Regressivo",
+      "initial_value": 200,
+      "monthly_value": 60
+    },
+    {
+      "fund_id": 51380065,
+      "name": "AZ Quest Valore FI Renda Fixa Crédito Privado",
+      "category_name": "Renda Fixa",
+      "profitability": {
+        "1": 0.25,
+        "2": 0.5,
+        "12": 5.46,
+        "24": 12.72,
+        "36": 24.45
+      },
+      "min_initial_value": 5000,
+      "min_value_to_apply": 300,
+      "profile": 2,
+      "min_movement": 300,
+      "min_balance": 300,
+      "time_limit": "13:00",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+4 (Corridos)",
+      "financial_rescue_days": "D+1 (Úteis)",
+      "cnpj": null,
+      "manager": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_date": "28/04/2014",
+      "benchmark": "CDI",
+      "adm_tax": 1,
+      "performance_rate": 0,
+      "classification": "Longo Prazo",
+      "tribute_ir": {
+        "180": 22.5,
+        "360": 20,
+        "720": 17.5,
+        "721": 15
+      },
+      "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_AZQUESTVALOREFIRF.pdf\n                            ",
+      "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_AZQUESTVALOREFIRF.pdf\n                            ",
+      "iof": "Regime Regressivo",
+      "initial_value": 200,
+      "monthly_value": 60
+    },
+    {
+      "fund_id": 5105,
+      "name": "Porto Seguro FI Referenciado DI Credito Privado",
+      "category_name": "Renda Fixa",
+      "profitability": {
+        "1": 0.18,
+        "2": 0.27,
+        "12": 5.42,
+        "24": 12.26,
+        "36": 23.49
+      },
+      "min_initial_value": 1000,
+      "min_value_to_apply": 100,
+      "profile": 2,
+      "min_movement": 100,
+      "min_balance": 1000,
+      "time_limit": "15:00",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+0 (Úteis)",
+      "financial_rescue_days": "D+0 (Úteis)",
+      "cnpj": null,
+      "manager": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_date": "28/02/2014",
+      "benchmark": "CDI",
+      "adm_tax": 0.4,
+      "performance_rate": 0,
+      "classification": "Longo Prazo",
+      "tribute_ir": {
+        "180": 22.5,
+        "360": 20,
+        "720": 17.5,
+        "721": 15
+      },
+      "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf\n                            ",
+      "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf\n                            ",
+      "iof": "Regime Regressivo",
+      "initial_value": 200,
+      "monthly_value": 60
+    },
+    {
+      "fund_id": 6000,
+      "name": "PORTO SEGURO IMAB5 FICFI RENDA FIXA",
+      "category_name": "Renda Fixa",
+      "profitability": {
+        "1": 0.22,
+        "2": 1.2,
+        "12": 12.48,
+        "24": 23.24,
+        "36": 38.27
+      },
+      "min_initial_value": 5000,
+      "min_value_to_apply": 100,
+      "profile": 2,
+      "min_movement": 100,
+      "min_balance": 1000,
+      "time_limit": "15:00",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+0 (Úteis)",
+      "financial_rescue_days": "D+1 (Úteis)",
+      "cnpj": null,
+      "manager": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_date": "01/03/2016",
+      "benchmark": "IMA-B 5",
+      "adm_tax": 0.5,
+      "performance_rate": 20,
+      "classification": "Longo Prazo",
+      "tribute_ir": {
+        "180": 22.5,
+        "360": 20,
+        "720": 17.5,
+        "721": 15
+      },
+      "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/InformativoDesempenho_PS_IMAB5.pdf\n                            ",
+      "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/Regulamento_PS_IMAB5.pdf\n                            ",
+      "iof": "Regime Regressivo",
+      "initial_value": 200,
+      "monthly_value": 60
+    }
+  ],
+  "credit_product": null,
+  "additional": {
+    "travel_security": false,
+    "life_security": false,
+    "credit_card": true
+  },
+  "suggestion_goal": {
+    "suggestion_target_date": "05/12/2062",
+    "suggestion_monthly_value": 97072
+  }
+}

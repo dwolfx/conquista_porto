@@ -7,6 +7,7 @@ export const Slider = styled(SliderComp)`
   border-radius: ${props => (props.onlyObjective ? '7px' : 0)};
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  flex: 1;
 `
 
 export const ObjectiveInfoColor = styled.span`
@@ -22,7 +23,7 @@ export const ObjectiveInfoBox = styled.div`
   flex-direction: column;
   margin-bottom: 35px;
   padding: 7px 14px 7px 0;
-  width: 25%;
+  width: calc(100% / 3);
 
   ${TextStyle} {
     align-items: center;
@@ -42,4 +43,15 @@ export const ObjectivesBar = styled.div`
   margin: 14px 0;
   height: 7px;
   width: 100%;
+`
+
+export const OtherObjectivesBar = styled.div`
+  background-color: ${props =>
+    props.backgroundColor || props.theme.colors.gray2};
+  border-top-left-radius: ${props => (props.hasLeftRadius ? '7px' : 0)};
+  border-bottom-left-radius: ${props => (props.hasLeftRadius ? '7px' : 0)};
+  border-top-right-radius: ${props => (props.hasRightRadius ? '7px' : 0)};
+  border-bottom-right-radius: ${props => (props.hasRightRadius ? '7px' : 0)};
+  height: 100%;
+  width: ${props => props.percent || 0}%;
 `

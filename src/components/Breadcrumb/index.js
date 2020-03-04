@@ -1,6 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
 import {
   CrumbText,
   CrumbCurrentPage,
@@ -24,6 +26,15 @@ const crumbList = {
 }
 
 export default function Breadcrumb({ crumbs, version, ...props }) {
+  const history = useHistory()
+
+  const handleClick = index => {
+    const crumbPath = [...crumbs].slice(0, index + 1).join('/')
+    const path = history.location.pathname
+
+    if (path !== `/${crumbPath}`) history.push(`/${crumbPath}`)
+  }
+
   if (version === 'new') {
     return (
       <Container>
@@ -32,9 +43,11 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
           return (
             <React.Fragment key={`crumbKey-${index}`}>
               {typeof crumb === 'string' ? (
-                <StyledText>
-                  {crumb in crumbList ? crumbList[crumb] : crumb}
-                </StyledText>
+                <div role="button" onClick={() => handleClick(index)}>
+                  <StyledText>
+                    {crumb in crumbList ? crumbList[crumb] : crumb}
+                  </StyledText>
+                </div>
               ) : (
                 crumb
               )}

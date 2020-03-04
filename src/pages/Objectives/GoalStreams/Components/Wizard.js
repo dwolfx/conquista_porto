@@ -10,7 +10,14 @@ import useMedia from 'hooks/useMedia'
 
 import TopBar from './TopBar'
 import QuestionInput from './QuestionInput'
-import { BodyWizard, ButtonAction, RowFull, Wizard, WizardStep } from './styles'
+import {
+  BodyWizard,
+  ButtonAction,
+  RowFull,
+  Wizard,
+  WizardStep,
+  Form,
+} from './styles'
 
 const getFormEntries = (data = []) =>
   data.reduce((acc, cur) => ({ ...acc, [cur.name]: '' }), {})
@@ -73,6 +80,15 @@ export const WizardFlow = ({ data, objective }) => {
     setIsActive(!invalid && hasValue)
   }, [setIsActive, formData, data, currentStep, invalid])
 
+  function onFormSubmit(e) {
+    e.preventDefault()
+    if (isLastStep) {
+      postFlow()
+    } else {
+      increment()
+    }
+  }
+
   const WizardContainer = () => (
     <WizardStep>
       <QuestionInput
@@ -90,6 +106,7 @@ export const WizardFlow = ({ data, objective }) => {
       {!isFirstStep && (
         <Col lg="6" xs="6">
           <ButtonAction
+            type="button"
             data-gtm-name="anterior"
             data-gtm-type="click"
             data-gtm-clicktype="button"
@@ -103,9 +120,9 @@ export const WizardFlow = ({ data, objective }) => {
       {!isLastStep && (
         <Col lg={isFirstStep ? '12' : '6'} xs={isFirstStep ? '12' : '6'}>
           <ButtonAction
+            type="submit"
             data-gtm-form="submit"
             data-gtm-name="proximo"
-            onClick={increment}
             disabled={!isActive}
           >
             Próximo
@@ -115,9 +132,9 @@ export const WizardFlow = ({ data, objective }) => {
       {isLastStep && (
         <Col lg="6" xs="6">
           <ButtonAction
+            type="submit"
             data-gtm-form="submit"
             data-gtm-name="concluir"
-            onClick={postFlow}
             disabled={!isActive || isLoading}
             loading={isLoading}
             loadingColor="white"
@@ -137,12 +154,14 @@ export const WizardFlow = ({ data, objective }) => {
         nickname={formData.nickname}
       />
       <BodyWizard>
-        <RowFull>
-          <Col lg="4" xs="12">
-            {WizardContainer()}
-            {WizardButton()}
-          </Col>
-        </RowFull>
+        <Form onSubmit={onFormSubmit}>
+          <RowFull>
+            <Col lg="4" xs="12">
+              {WizardContainer()}
+              {WizardButton()}
+            </Col>
+          </RowFull>
+        </Form>
       </BodyWizard>
     </Wizard>
   )

@@ -141,7 +141,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
   return (
     <GridRow>
       <Modal
-        modalTitle="Regras de condições"
+        modalTitle={fundDetails.name}
         alignItems="flex-start"
         isOpen={isModalOpen}
         handleClose={() => handleCloseModal()}
@@ -176,7 +176,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
 
               <ResponsiveTableContainer>
                 {funds.map(fund => (
-                  <React.Fragment key={fund.id}>
+                  <React.Fragment key={fund.fund_id}>
                     <Wrapper>
                       <Square
                         color={

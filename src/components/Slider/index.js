@@ -40,6 +40,7 @@ export default function Slider({
   normalizeValue,
   onMouseDown,
   onTouchStart,
+  showThumb,
   showTooltip,
   onChange,
   ...rest
@@ -214,19 +215,23 @@ export default function Slider({
           )}
           alwaysVisible
         >
-          <Thumb
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleMouseDown}
-            error={error}
-          />
+          {showThumb && (
+            <Thumb
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleMouseDown}
+              error={error}
+            />
+          )}
         </ThumbPopover>
       ) : (
         <ThumbContainer>
-          <Thumb
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleMouseDown}
-            error={error}
-          />
+          {showThumb && (
+            <Thumb
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleMouseDown}
+              error={error}
+            />
+          )}
         </ThumbContainer>
       )}
     </SliderContainer>
@@ -241,6 +246,7 @@ Slider.propTypes = {
   normalizeValue: PropTypes.number,
   onMouseDown: PropTypes.func,
   onTouchStart: PropTypes.func,
+  showThumb: PropTypes.bool,
   showTooltip: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
 }
@@ -253,5 +259,6 @@ Slider.defaultProps = {
   normalizeValue: 1,
   onMouseDown: null,
   onTouchStart: null,
+  showThumb: true,
   showTooltip: true,
 }

@@ -10,10 +10,12 @@ export const NotificationWrapper = styled.div`
   height: auto;
   justify-content: center;
   left: 0;
+  opacity: ${props => (props.isOpen ? 1 : 0)};
   padding: 14px;
   position: fixed;
   top: ${props => (props.isOpen ? '72px' : '0')};
   transition: all ease 1s;
+  visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   width: 100%;
   z-index: 10;
 `
