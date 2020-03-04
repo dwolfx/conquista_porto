@@ -3,17 +3,17 @@
 exports[`ManagementConsortiumBuilding renders correctly 1`] = `
 Array [
   <section
-    className="sc-kEYyzF byOLky"
+    className="sc-hSdWYo fIlefo"
   >
     <div
-      className="sc-iAyFgw haAITV"
+      className="sc-cvbbAY jrggbK"
       id="consortium-building-top-page"
     >
       <nav
-        className="sc-hSdWYo hAqokE"
+        className="sc-jWBwVP egIhGe"
       >
         <div
-          className="sc-brqgnP hveAhn"
+          className="sc-jDwBTQ jWYFNp"
           data-gtm-clicktype="card"
           data-gtm-name="adcionar"
           data-gtm-subname="card custodia visualizar"
@@ -27,14 +27,14 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-Rmtcm eXgqsQ"
+            className="sc-jhAzac eQRqex"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-kkGfuU grmAna"
+          className="sc-eHgmQL yWEMk"
           data-gtm-clicktype="card"
           data-gtm-name="contrato 1"
           data-gtm-subname="card custodia visualizar"
@@ -42,14 +42,14 @@ Array [
           onClick={[Function]}
         >
           <span
-            className="sc-Rmtcm gqUVDw"
+            className="sc-jhAzac hDroat"
             fontSize="14px"
           >
             Contrato 
             1
           </span>
           <span
-            className="sc-Rmtcm dHRDIp"
+            className="sc-jhAzac ctcEkb"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -57,7 +57,7 @@ Array [
             STATUS
           </span>
           <span
-            className="sc-Rmtcm bZZbkR"
+            className="sc-jhAzac iuyKOp"
             fontSize="14px"
           >
             Contemplado
@@ -65,19 +65,19 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-eHgmQL fdpTLU"
+        className="sc-brqgnP flduTw"
       >
         <h4
-          className="sc-cMljjf eoHMTR"
+          className="sc-gPEVay kTXUkH"
         >
           Contrato 
           1
         </h4>
         <div
-          className="sc-jWBwVP kBrNob"
+          className="sc-jAaTju ejfACh"
         >
           <div
-            className="sc-jDwBTQ kXTMvB"
+            className="sc-jlyJG kyFLtE"
           >
             <svg
               fill="#00ADEF"
@@ -87,19 +87,19 @@ Array [
             </svg>
             <div>
               <p
-                className="sc-gPEVay jgbVbd"
+                className="sc-gipzik blIAxp"
               >
                 Cota
               </p>
               <span
-                className="sc-iRbamj bFiGMH"
+                className="sc-csuQGl huvmgK"
               >
                 300
               </span>
             </div>
           </div>
           <div
-            className="sc-jDwBTQ kXTMvB"
+            className="sc-jlyJG kyFLtE"
           >
             <svg
               fill="#00ADEF"
@@ -109,19 +109,19 @@ Array [
             </svg>
             <div>
               <p
-                className="sc-gPEVay jgbVbd"
+                className="sc-gipzik blIAxp"
               >
                 grupo
               </p>
               <span
-                className="sc-iRbamj bFiGMH"
+                className="sc-csuQGl huvmgK"
               >
                 x398
               </span>
             </div>
           </div>
           <div
-            className="sc-jDwBTQ kXTMvB"
+            className="sc-jlyJG kyFLtE"
           >
             <svg
               fill="#00ADEF"
@@ -131,12 +131,12 @@ Array [
             </svg>
             <div>
               <p
-                className="sc-gPEVay jgbVbd"
+                className="sc-gipzik blIAxp"
               >
                 Crédito contratado
               </p>
               <span
-                className="sc-iRbamj bFiGMH"
+                className="sc-csuQGl huvmgK"
               >
                 R$ 40.000,00
               </span>
@@ -144,47 +144,47 @@ Array [
           </div>
         </div>
         <article
-          className="sc-jlyJG gEAvvM"
+          className="sc-Rmtcm cUjWef"
         >
           <div
-            className="sc-gipzik dgBTPf"
+            className="sc-bRBYWo fsgoLh"
           >
             <div
-              className="sc-csuQGl fzZTCo"
+              className="sc-hzDkRC lcEqhT"
             >
               <span
-                className="sc-Rmtcm eSNKyd"
+                className="sc-jhAzac gpksLn"
                 fontSize="22px"
               >
                 Valor para quitação
               </span>
               <span
-                className="sc-Rmtcm evRTW"
+                className="sc-jhAzac kvPhkY"
               >
                 R$ 27.200,00
               </span>
             </div>
             <div
-              className="sc-csuQGl fzZTCo"
+              className="sc-hzDkRC lcEqhT"
             >
               <span
-                className="sc-Rmtcm eSNKyd"
+                className="sc-jhAzac gpksLn"
                 fontSize="22px"
               >
                 Valor da parcela atual
               </span>
               <span
-                className="sc-Rmtcm evRTW"
+                className="sc-jhAzac kvPhkY"
               >
                 R$ 675,00
               </span>
             </div>
           </div>
           <div
-            className="sc-bRBYWo eCnEhm"
+            className="sc-fBuWsC hhbMPN"
           >
             <span
-              className="sc-Rmtcm iiuLez"
+              className="sc-jhAzac fsxKCG"
               fontSize="18px"
             >
               Evolução do pagamento
@@ -438,129 +438,138 @@ Array [
       </div>
     </div>
   </section>,
-  <section
-    className="sc-kpOJdX lhyJAp"
+  <div
+    className="sc-kpOJdX eOwqYg"
+    data-name="container"
   >
     <div
-      className="sc-dxgOiQ eqsXin"
+      className="sc-dxgOiQ jVxGoj"
+      data-name="row"
     >
-      <div>
-        <svg
-          className="sc-ckVGcZ jIRUXF"
-          fill="#272727"
-          height="24px"
-        >
-          pdf.svg
-        </svg>
-      </div>
-      <div>
-        <p
-          className="sc-jKJlTe eyUuPl"
-        >
-          SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC
-        </p>
-        <p
-          className="sc-eNQAEJ iiIhOD"
-        >
-          Aqui, você tem mais informações legais sobre consórcio.
-        </p>
-        <a
-          data-gtm-clicktype="link"
-          data-gtm-name="BAIXAR ARQUIVO"
-          data-gtm-subname="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
-          data-gtm-type="click"
-          href="/redirect"
-          onClick={[Function]}
-        >
-          <p
-            className="sc-hMqMXs bfWKbJ"
+      <div
+        className="sc-ckVGcZ sc-eNQAEJ beVtUp"
+        data-name="col-md-6 col-lg-4"
+      >
+        <div>
+          <svg
+            className="sc-hMqMXs gNXNig"
+            fill="#272727"
+            height="24px"
           >
-            BAIXAR ARQUIVO
-             &gt; 
+            pdf.svg
+          </svg>
+        </div>
+        <div>
+          <p
+            className="sc-kEYyzF cwgvqX"
+          >
+            SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC
           </p>
-        </a>
+          <p
+            className="sc-kkGfuU grLSAi"
+          >
+            Aqui, você tem mais informações legais sobre consórcio.
+          </p>
+          <a
+            data-gtm-clicktype="link"
+            data-gtm-name="BAIXAR ARQUIVO"
+            data-gtm-subname="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
+            data-gtm-type="click"
+            href="/redirect"
+            onClick={[Function]}
+          >
+            <p
+              className="sc-iAyFgw dYKjsZ"
+            >
+              BAIXAR ARQUIVO
+               &gt; 
+            </p>
+          </a>
+        </div>
+      </div>
+      <div
+        className="sc-ckVGcZ sc-eNQAEJ beVtUp"
+        data-name="col-md-6 col-lg-4"
+      >
+        <div>
+          <svg
+            className="sc-hMqMXs gNXNig"
+            fill="#272727"
+            height="24px"
+          >
+            pdf.svg
+          </svg>
+        </div>
+        <div>
+          <p
+            className="sc-kEYyzF cwgvqX"
+          >
+            CONDIÇÕES GERAIS
+          </p>
+          <p
+            className="sc-kkGfuU grLSAi"
+          >
+            Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
+          </p>
+          <a
+            data-gtm-clicktype="link"
+            data-gtm-name="BAIXAR ARQUIVO"
+            data-gtm-subname="CONDIÇÕES GERAIS"
+            data-gtm-type="click"
+            href="/redirect"
+            onClick={[Function]}
+          >
+            <p
+              className="sc-iAyFgw dYKjsZ"
+            >
+              BAIXAR ARQUIVO
+               &gt; 
+            </p>
+          </a>
+        </div>
+      </div>
+      <div
+        className="sc-ckVGcZ sc-eNQAEJ beVtUp"
+        data-name="col-md-6 col-lg-4"
+      >
+        <div>
+          <svg
+            className="sc-hMqMXs gNXNig"
+            fill="#272727"
+            height="24px"
+          >
+            pdf.svg
+          </svg>
+        </div>
+        <div>
+          <p
+            className="sc-kEYyzF cwgvqX"
+          >
+            TABELA DE TARIFAS
+          </p>
+          <p
+            className="sc-kkGfuU grLSAi"
+          >
+            Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
+          </p>
+          <a
+            data-gtm-clicktype="link"
+            data-gtm-name="BAIXAR ARQUIVO"
+            data-gtm-subname="TABELA DE TARIFAS"
+            data-gtm-type="click"
+            href="/redirect"
+            onClick={[Function]}
+          >
+            <p
+              className="sc-iAyFgw dYKjsZ"
+            >
+              BAIXAR ARQUIVO
+               &gt; 
+            </p>
+          </a>
+        </div>
       </div>
     </div>
-    <div
-      className="sc-dxgOiQ eqsXin"
-    >
-      <div>
-        <svg
-          className="sc-ckVGcZ jIRUXF"
-          fill="#272727"
-          height="24px"
-        >
-          pdf.svg
-        </svg>
-      </div>
-      <div>
-        <p
-          className="sc-jKJlTe eyUuPl"
-        >
-          CONDIÇÕES GERAIS
-        </p>
-        <p
-          className="sc-eNQAEJ iiIhOD"
-        >
-          Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
-        </p>
-        <a
-          data-gtm-clicktype="link"
-          data-gtm-name="BAIXAR ARQUIVO"
-          data-gtm-subname="CONDIÇÕES GERAIS"
-          data-gtm-type="click"
-          href="/redirect"
-          onClick={[Function]}
-        >
-          <p
-            className="sc-hMqMXs bfWKbJ"
-          >
-            BAIXAR ARQUIVO
-             &gt; 
-          </p>
-        </a>
-      </div>
-    </div>
-    <div
-      className="sc-dxgOiQ eqsXin"
-    >
-      <div>
-        <svg
-          className="sc-ckVGcZ jIRUXF"
-          fill="#272727"
-          height="24px"
-        >
-          pdf.svg
-        </svg>
-      </div>
-      <div>
-        <p
-          className="sc-jKJlTe eyUuPl"
-        >
-          TABELA DE TARIFAS
-        </p>
-        <p
-          className="sc-eNQAEJ iiIhOD"
-        >
-          Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
-        </p>
-        <a
-          data-gtm-clicktype="link"
-          data-gtm-name="BAIXAR ARQUIVO"
-          data-gtm-subname="TABELA DE TARIFAS"
-          data-gtm-type="click"
-          href="/redirect"
-          onClick={[Function]}
-        >
-          <p
-            className="sc-hMqMXs bfWKbJ"
-          >
-            BAIXAR ARQUIVO
-             &gt; 
-          </p>
-        </a>
-      </div>
-    </div>
-  </section>,
+  </div>,
 ]
 `;
