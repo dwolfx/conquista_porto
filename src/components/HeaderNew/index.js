@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import 'styled-components/macro'
 
 import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
@@ -215,19 +216,23 @@ export default function HeaderNew() {
           <BreadCrumb crumbs={[...crumbs]} version="new" />
         </LeftBlock>
         <RightBlock>
-          <DropDown
-            nodes={nodes}
-            title={dropdownNodesTitle}
-            containerPadding="14px 14px 0 14px"
-            redirectPath="/notificacoes"
-          >
-            <NotificationBell
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              data-gtm-subname="header"
-              data-gtm-name="icone notificacoes"
-            />
-          </DropDown>
+          <div css={`
+            display: none;
+          `}>
+            <DropDown
+              nodes={nodes}
+              title={dropdownNodesTitle}
+              containerPadding="14px 14px 0 14px"
+              redirectPath="/notificacoes"
+            >
+              <NotificationBell
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname="header"
+                data-gtm-name="icone notificacoes"
+              />
+            </DropDown>
+          </div>
           <Avatar onClick={() => history.push('/perfil')} />
           <Profile onClick={() => history.push('/perfil')}>
             <div>
