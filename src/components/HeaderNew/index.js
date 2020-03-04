@@ -216,9 +216,11 @@ export default function HeaderNew() {
           <BreadCrumb crumbs={[...crumbs]} version="new" />
         </LeftBlock>
         <RightBlock>
-          <div css={`
-            display: none;
-          `}>
+          <div
+            css={`
+              display: none;
+            `}
+          >
             <DropDown
               nodes={nodes}
               title={dropdownNodesTitle}
