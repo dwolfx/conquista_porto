@@ -1,84 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FileDownloadSection renders correctly 1`] = `
-<section
-  className="sc-bdVaJa WUEDr"
+<div
+  className="sc-bdVaJa dtTGuF"
+  data-name="container"
 >
   <div
-    className="sc-bwzfXH frRDcH"
+    className="sc-bwzfXH iaYNOa"
+    data-name="row"
   >
-    <div>
-      <svg
-        className="sc-htpNat brNezA"
-        fill="#272727"
-        height="24px"
-      >
-        pdf.svg
-      </svg>
-    </div>
-    <div>
-      <p
-        className="sc-bxivhb sZtXP"
-      >
-        quadro de rentabilidade
-      </p>
-      <p
-        className="sc-ifAKCX bUqDVH"
-      >
-        Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
-      </p>
-      <a
-        data-gtm-clicktype="link"
-        data-gtm-subname="quadro de rentabilidade"
-        data-gtm-type="click"
-        href="/redirect"
-        onClick={[Function]}
-      >
-        <p
-          className="sc-EHOje hqABxm"
+    <div
+      className="sc-htpNat sc-ifAKCX eJuOSZ"
+      data-name="col-md-6 col-lg-6"
+    >
+      <div>
+        <svg
+          className="sc-EHOje jEbSvY"
+          fill="#272727"
+          height="24px"
         >
-           &gt; 
+          pdf.svg
+        </svg>
+      </div>
+      <div>
+        <p
+          className="sc-bZQynM fwRDsQ"
+        >
+          quadro de rentabilidade
         </p>
-      </a>
+        <p
+          className="sc-gzVnrw bfqAjb"
+        >
+          Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
+        </p>
+        <a
+          data-gtm-clicktype="link"
+          data-gtm-subname="quadro de rentabilidade"
+          data-gtm-type="click"
+          href="/redirect"
+          onClick={[Function]}
+        >
+          <p
+            className="sc-htoDjs bqWOYv"
+          >
+             &gt; 
+          </p>
+        </a>
+      </div>
+    </div>
+    <div
+      className="sc-htpNat sc-ifAKCX eJuOSZ"
+      data-name="col-md-6 col-lg-6"
+    >
+      <div>
+        <svg
+          className="sc-EHOje jEbSvY"
+          fill="#272727"
+          height="24px"
+        >
+          pdf.svg
+        </svg>
+      </div>
+      <div>
+        <p
+          className="sc-bZQynM fwRDsQ"
+        >
+          carta do gestor
+        </p>
+        <p
+          className="sc-gzVnrw bfqAjb"
+        >
+          Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
+        </p>
+        <a
+          data-gtm-clicktype="link"
+          data-gtm-subname="carta do gestor"
+          data-gtm-type="click"
+          href="/redirect"
+          onClick={[Function]}
+        >
+          <p
+            className="sc-htoDjs bqWOYv"
+          >
+             &gt; 
+          </p>
+        </a>
+      </div>
     </div>
   </div>
-  <div
-    className="sc-bwzfXH frRDcH"
-  >
-    <div>
-      <svg
-        className="sc-htpNat brNezA"
-        fill="#272727"
-        height="24px"
-      >
-        pdf.svg
-      </svg>
-    </div>
-    <div>
-      <p
-        className="sc-bxivhb sZtXP"
-      >
-        carta do gestor
-      </p>
-      <p
-        className="sc-ifAKCX bUqDVH"
-      >
-        Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
-      </p>
-      <a
-        data-gtm-clicktype="link"
-        data-gtm-subname="carta do gestor"
-        data-gtm-type="click"
-        href="/redirect"
-        onClick={[Function]}
-      >
-        <p
-          className="sc-EHOje hqABxm"
-        >
-           &gt; 
-        </p>
-      </a>
-    </div>
-  </div>
-</section>
+</div>
 `;
