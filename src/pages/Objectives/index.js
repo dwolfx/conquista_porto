@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useRouteMatch, Switch, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -6,7 +6,7 @@ import Header from 'components/Wizard/Header'
 
 import {
   CleanObjectiveData,
-  // PostObjectiveDataRequest,
+  PostObjectiveDataRequest,
 } from 'store/modules/Objective/action'
 
 import Board from './Board'
@@ -26,9 +26,9 @@ const Objectives = () => {
 
   // Use only for tests with recomendation
   // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(PostObjectiveDataRequest({}))
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(PostObjectiveDataRequest({}))
+  }, [dispatch])
 
   const handleSteps = data => {
     setTotalSteps(data.length)
