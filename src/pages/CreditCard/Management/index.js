@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 
 import { ThemeContext } from 'styled-components/macro'
 
-import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -20,7 +19,6 @@ import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
-  BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
   Topic,
@@ -128,9 +126,6 @@ export default function ManagementCreditCard() {
     return (
       <>
         <Container>
-          <BreadcrumbContainer>
-            <Breadcrumb crumbs={['Soluções', 'cartão de crédito']} />
-          </BreadcrumbContainer>
           <PageContent id="cc-top-page">
             <LeftNav>
               <AddBtnLink

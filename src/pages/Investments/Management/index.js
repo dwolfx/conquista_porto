@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
-import Breadcrumb from 'components/Breadcrumb'
 import Button from 'components/Button'
 
 import HighlightSection from 'components/Solutions/HighlightSection'
@@ -34,7 +33,6 @@ import {
   RightContent,
   MiddleContent,
   GeneralInfo,
-  BreadcrumbContainer,
   AddBtnLink,
   Text,
   SectionCustomPicture,
@@ -137,9 +135,6 @@ export default function ManagementInvestments({ history }) {
   return (
     <>
       <Container>
-        <BreadcrumbContainer>
-          <Breadcrumb crumbs={['Soluções', 'investimentos']} />
-        </BreadcrumbContainer>
         <PageContent>
           <LeftNav>
             <AddBtnLink

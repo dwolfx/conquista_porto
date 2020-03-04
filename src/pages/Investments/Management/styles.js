@@ -36,12 +36,6 @@ export const GeneralInfo = styled.article`
   }
 `
 
-export const BreadcrumbContainer = styled.div`
-  @media ${props => props.theme.mediaQueries.md} {
-    padding-left: 30px;
-  }
-`
-
 export const AddBtnLink = styled.div`
   border: 2px solid ${props => props.theme.colors.gray3};
   background-color: ${props => props.theme.colors.gray1};

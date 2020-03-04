@@ -7,7 +7,6 @@ import { css, ThemeContext } from 'styled-components/macro'
 
 import { useSelector } from 'react-redux'
 
-import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -26,7 +25,6 @@ import useFetchTripInsurance from 'hooks/TripInsurance/useFetchTripInsurance'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
-  BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
   Topic,
@@ -71,9 +69,6 @@ export default function ManagementTripInsurance() {
     return (
       <>
         <Container>
-          <BreadcrumbContainer>
-            <Breadcrumb crumbs={['Soluções', 'seguro viagem']} />
-          </BreadcrumbContainer>
           <PageContent id="trip-insurance-top-page">
             <LeftNav>
               <AddBtnLink

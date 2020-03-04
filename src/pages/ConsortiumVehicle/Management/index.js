@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 
 import LinearProgressBar from 'components/LinearProgressBar'
 import Button from 'components/Button'
-import Breadcrumb from 'components/Breadcrumb'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -23,7 +22,6 @@ import useFetchConsortiumVehicle from 'hooks/ConsortiumVehicle/useFetchConsortiu
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
-  BreadcrumbContainer,
   AddBtnLink,
   PageTitle,
   Topic,
@@ -62,9 +60,6 @@ export default function ManagementConsortiumVehicle() {
   return (
     <>
       <Container>
-        <BreadcrumbContainer>
-          <Breadcrumb crumbs={['Soluções', 'consórcio de VEÍCULO']} />
-        </BreadcrumbContainer>
         <PageContent id="consortium-vehicle-top-page">
           <LeftNav>
             <AddBtnLink
