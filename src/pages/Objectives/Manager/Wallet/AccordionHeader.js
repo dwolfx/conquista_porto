@@ -76,9 +76,9 @@ export default function FundAccordionHeader({
       <Col md="9" alignSelf="center">
         <Row>
           <Col
-            md="3"
+            md="2"
             css={`
-              padding-left: 7px;
+              padding-left: 14px;
             `}
           >
             <Text type="captionUppercase" color="gray4">
@@ -89,12 +89,35 @@ export default function FundAccordionHeader({
             </Text>
           </Col>
           <Col
-            md="9"
+            md="2"
+            css={`
+              padding-left: 7px;
+            `}
+          >
+            <Text type="captionUppercase" color="gray4">
+              Não distribuído
+            </Text>
+            <Text type="headline" color="gray6">
+              {formatMoney(fund.available)}
+            </Text>
+          </Col>
+          <Col
+            md="8"
             css={`
               align-items: center;
               display: flex;
+              flex-direction: column;
             `}
           >
+            <Text
+              type="captionUppercase"
+              color="gray4"
+              css={`
+                align-self: flex-start;
+              `}
+            >
+              Distribuição nos seus objetivos
+            </Text>
             <ObjectivesBar>
               {fund.goals.map((goal, key) => {
                 const percent = (goal.value / fund.balance) * 100
@@ -115,7 +138,9 @@ export default function FundAccordionHeader({
               <Slider
                 max={fund.available + fund.invested}
                 initialValue={fund.invested}
-                onlyObjective={!fund.goals.length}
+                onlyObjective={
+                  fund.goals.length === 0 || fund.balance === fund.invested
+                }
                 onChange={value => {
                   handleValueFund(
                     fund.id,
