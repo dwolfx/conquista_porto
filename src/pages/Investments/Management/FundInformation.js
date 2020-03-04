@@ -5,13 +5,13 @@ import PropTypes from 'prop-types'
 
 import Icon from 'components/IconExporter'
 import DropDown from 'components/DropdownNew'
+import TopicsIconContent from 'components/TopicsIconContent'
 
 import { formatMoney } from 'helpers'
 
-import { months, settings } from './data'
+import { months } from './data'
 import {
   PageTitle,
-  Topics,
   Topic,
   TopicTitle,
   TopicValue,
@@ -63,7 +63,7 @@ export default function FundInformation({ fund }) {
     <>
       <PageTitle>{fund.fundo.apelido}</PageTitle>
       <div>
-        <Topics settings={settings}>
+        <TopicsIconContent>
           <Topic>
             <Icon width="28" fill={theme.colors.blue4} name="time" />
             <div>
@@ -89,7 +89,7 @@ export default function FundInformation({ fund }) {
               <TopicValue>{`${fund.fundo.aplicacao_cotizacao} ${fund.fundo.contagem_dias_resgate}`}</TopicValue>
             </div>
           </Topic>
-        </Topics>
+        </TopicsIconContent>
         <BalanceAccordion
           isOrangeArrow
           titleNode={
