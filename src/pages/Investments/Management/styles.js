@@ -155,7 +155,7 @@ export const GrossIncome = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 20px 30px;
-  padding: 15px 21px;
+  padding: 30px;
   border-radius: 3px;
   background-color: ${props => props.theme.colors.gray1};
 
@@ -346,6 +346,7 @@ export const SelectBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   & svg {
     margin-left: 7px;
@@ -355,6 +356,7 @@ export const SelectBox = styled.div`
 export const SelectItem = styled.div`
   width: 100%;
   padding: 0 21px;
+  cursor: pointer;
 
   &:hover {
     background-color: ${props => props.theme.colors.gray2};
