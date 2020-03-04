@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -24,6 +24,8 @@ export default function ObjectiveListContent({ objectives }) {
   const dispatch = useDispatch()
   const history = useHistory()
   const { isLoading } = useSelector(state => state.objectiveManagement)
+  const [loadingObjectiveButton, setLoadingObjectiveButton] = useState('')
+
   const horizontalListText = (text, type, color, hasContainer) => {
     if (hasContainer) {
       return (
@@ -133,6 +135,7 @@ export default function ObjectiveListContent({ objectives }) {
                 margin: 7px 0;
               `}
               onClick={() => {
+                setLoadingObjectiveButton(objective.id)
                 dispatch(
                   GetObjectiveManagementDataRequest({
                     id: objective.id,
@@ -141,7 +144,7 @@ export default function ObjectiveListContent({ objectives }) {
                   })
                 )
               }}
-              loading={isLoading}
+              loading={isLoading && loadingObjectiveButton === objective.id}
             >
               GERENCIAR
             </Button>
