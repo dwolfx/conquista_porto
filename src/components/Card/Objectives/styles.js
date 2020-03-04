@@ -5,6 +5,7 @@ import { CardBody } from 'components/Card/styles'
 import Text from 'components/Text'
 
 export const CardObjective = styled(Card)`
+  cursor: pointer;
   padding: 0 21px;
   ${CardBody} {
     display: flex;
