@@ -10,7 +10,7 @@ exports[`FileDownloadSection renders correctly 1`] = `
     data-name="row"
   >
     <div
-      className="sc-htpNat sc-ifAKCX eJuOSZ"
+      className="sc-htpNat sc-ifAKCX hOZaya"
       data-name="col-md-6 col-lg-6"
     >
       <div>
@@ -49,7 +49,7 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat sc-ifAKCX eJuOSZ"
+      className="sc-htpNat sc-ifAKCX hOZaya"
       data-name="col-md-6 col-lg-6"
     >
       <div>

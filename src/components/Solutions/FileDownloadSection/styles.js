@@ -16,7 +16,7 @@ export const Container = styled.section`
 `
 
 export const ColItem = styled(Col)`
-  padding: 20px 20px;
+  padding: 28px;
   border-right: 1px solid ${props => props.theme.colors.gray3};
 
   :last-child {
