@@ -49,20 +49,26 @@ function* postSaveFunds({ payload }) {
 function* getData(payload) {
   const { id, history, path } = payload
 
-  try {
-    const response = yield call(get, `${baseURLNamespaceGoal}/goals/${id}`)
+  // 'if' added to prevent an API call when breadcrumb is clicked
+  if (id) {
+    try {
+      const response = yield call(get, `${baseURLNamespaceGoal}/goals/${id}`)
 
-    if (response.data) {
-      yield put(GetObjectiveManagementDataSuccess(response.data))
+      if (response.data) {
+        yield put(GetObjectiveManagementDataSuccess(response.data))
 
-      if (path) {
-        history.push(path)
+        if (path) {
+          history.push(path)
+        }
+      } else {
+        yield put(GetObjectiveManagementDataFailure())
+        history.push('/objetivos')
       }
-    } else {
+    } catch (err) {
       yield put(GetObjectiveManagementDataFailure())
       history.push('/objetivos')
     }
-  } catch (err) {
+  } else {
     yield put(GetObjectiveManagementDataFailure())
     history.push('/objetivos')
   }
