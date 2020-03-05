@@ -240,6 +240,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
               <Col lg="3">
                 <div>
                   <PieChart
+                    marginLegend={0}
                     width="218px"
                     height="300px"
                     data={graphValuesGenerator()}
