@@ -11,11 +11,8 @@ import Table from './Table'
 
 import {
   Caption,
-  Information,
   Item,
-  ItemInfo,
   ListFiles,
-  ListInfos,
   ListItems,
   Notification,
   PanelBody,
@@ -175,7 +172,8 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
           <PanelBody>
             <SingleItem>
               <SubTitle icon="information" title="Mais informações" />
-              <Information>
+              {/* Neste momento não temos essas informações definidas, porém futuramente vamos consumir esse box */}
+              {/* <Information>
                 Solução ideal para quem busca retornos consistentes acima do
                 Tesouro Direto, sem abrir mão de segurança e liquidez.
               </Information>
@@ -191,7 +189,7 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
                 <ItemInfo>
                   Conta com uma gestão profissional e altamente qualificada.
                 </ItemInfo>
-              </ListInfos>
+              </ListInfos> */}
             </SingleItem>
             {isMobile && <Divisor />}
             <SingleItem borderBottom={!isMobile}>
