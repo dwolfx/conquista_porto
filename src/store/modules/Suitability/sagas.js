@@ -28,7 +28,7 @@ function* getDataAndRedirect({ cpf, link, history }) {
       if (response.status === 204) {
         yield put(GetSuitabilityDataNoContent())
         handleGiwRedirect(
-          'portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil?r=true'
+          'portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true'
         )
       }
       if (response.status === 200) {
