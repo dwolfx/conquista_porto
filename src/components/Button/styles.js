@@ -14,7 +14,7 @@ const handleBgGradient = (colors, type, isDisabled, isOutline) => {
           ${colors.blue5} 20%,
           ${colors.blue4}
         )`
-        : colors.blue3
+        : colors.blue2
     case 'secondary':
       return !isDisabled
         ? `linear-gradient(
@@ -22,7 +22,7 @@ const handleBgGradient = (colors, type, isDisabled, isOutline) => {
             ${colors.green5} -35%,
             ${colors.green4}
           )`
-        : colors.green3
+        : colors.green2
     default:
       return colors.white
   }
