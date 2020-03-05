@@ -232,12 +232,12 @@ export default function HeaderNew({ crumbs }) {
           </div>
           <Avatar
             onClick={() =>
-              handleGiwRedirect('giwconquista/arena_perfil.do?portal=7&r=true')
+              handleGiwRedirect('portaldecliente/conquista/meu-perfil?r=true')
             }
           />
           <Profile
             onClick={() =>
-              handleGiwRedirect('giwconquista/arena_perfil.do?portal=7&r=true')
+              handleGiwRedirect('portaldecliente/conquista/meu-perfil?r=true')
             }
           >
             <div>
