@@ -5,7 +5,7 @@ export const getColorGuide = index =>
 
 export const isFundsNotTheSame = (fundList, fundListCopy) => {
   const compare = fundList.map((item, index) => {
-    if (item.invested !== fundListCopy[index].invested) {
+    if (fundListCopy[index] && item.invested !== fundListCopy[index].invested) {
       return true
     }
 

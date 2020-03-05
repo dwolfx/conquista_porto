@@ -87,7 +87,7 @@ const DefaultRoute = ({
     .slice(1)
     .map(item => {
       if (Object.keys(match.params).includes(item.replace(':', ''))) {
-        return name ? `#${name}` : pageTitle
+        return name || pageTitle
       }
 
       return item
@@ -332,7 +332,7 @@ export default function Routes({ ...props }) {
         exact
         component={ObjectivesManager}
         pageTitle="Objetivos - Gerenciar"
-        name={(objectiveManagement || {}).nickname}
+        name={objectiveManagement ? `#${objectiveManagement.nickname}` : ''}
       />
       <DefaultRoute
         path="/objetivos/gerenciar"

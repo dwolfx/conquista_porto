@@ -326,6 +326,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
           <Button
             onClick={() => {
               setConfirmedUnsavedChanges(true)
+              setIsModalUnsavedOpen(false)
             }}
           >
             Confirmar
@@ -336,12 +337,14 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         when={hasUnsavedChanges}
         message={nextLocation => {
           setNewLocation(nextLocation.pathname)
-          setIsModalUnsavedOpen(true)
 
           if (confirmedUnsavedChanges) {
+            setIsModalUnsavedOpen(false)
+            setConfirmedUnsavedChanges(false)
             return true
           }
 
+          setIsModalUnsavedOpen(true)
           return false
         }}
       />
