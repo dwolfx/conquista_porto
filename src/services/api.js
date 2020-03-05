@@ -4,6 +4,7 @@ import {
   baseURLNamespaceGoal,
   baseURLNamespaceInvest,
   baseURLNamespacePortopar,
+  baseURLNamespaceRecommendation,
   responseInterceptor,
   responseErrorInterceptor,
   requestInterceptor,
@@ -40,6 +41,7 @@ export {
   remove,
   post,
   baseURLNamespaceGoal,
+  baseURLNamespaceRecommendation,
   baseURLNamespaceInvest,
   baseURLNamespacePortopar,
 }

@@ -17,8 +17,8 @@
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
   "/cotistas/posicao?cpf=:cpf": "/posicao?cpf=:cpf",
   "/cotista/perfil/investidor/:cpf": "/suitability",
-  "/goal/recommendations": "/goal_recommendations",
-  "/goal/recommendations\\?mobile=:isMobileMode": "/goal_recommendations?mobile=:isMobileMode",
+  "/recommendation/recommendations": "/goal_recommendations",
+  "/recommendation/recommendations\\?mobile=:isMobileMode": "/goal_recommendations?mobile=:isMobileMode",
   "/goal/goals": "/goal_management",
   "/goal/goals/:id/funds": "/goal_management"
 }
