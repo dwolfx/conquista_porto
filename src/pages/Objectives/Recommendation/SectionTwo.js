@@ -210,7 +210,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                     </TableCard>
                     <TableCard>
                       <Text type="captionUppercase" color="gray4">
-                        INVESTIMENTO INICIAL
+                        INVESTIMENTO MENSAL
                       </Text>
                       <Text type="headline" color="gray6">
                         {formatMoney(fund.initial_value)}
@@ -218,7 +218,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                     </TableCard>
                     <TableCard>
                       <Text type="captionUppercase" color="gray4">
-                        INVESTIMENTO MENSAL
+                        INVESTIMENTO INICIAL
                       </Text>
                       <Text type="headline" color="gray6">
                         {formatMoney(fund.monthly_value)}
