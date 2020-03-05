@@ -83,6 +83,7 @@ const SectionOne = ({ answer, combo, income }) => {
             >
               <PieChartContainer>
                 <PieChart
+                  marginLegend={0}
                   width="100%"
                   height="300px"
                   data={graphValuesGenerator()}
