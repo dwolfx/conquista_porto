@@ -1,5 +1,5 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get, baseURLNamespacePortopar } from 'services/api'
 import { handleGiwRedirect } from 'helpers'
 import { getSuitability } from './selectors'
 
@@ -22,7 +22,7 @@ function* getDataAndRedirect({ cpf, link, history }) {
     } else {
       const response = yield call(
         get,
-        `${baseURLNamespaceInvest}/portopar/cotista/perfil/investidor/${cpf}`
+        `${baseURLNamespacePortopar}/cotista/perfil/investidor/${cpf}`
       )
 
       if (response.status === 204) {
