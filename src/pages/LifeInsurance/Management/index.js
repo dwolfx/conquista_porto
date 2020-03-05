@@ -100,6 +100,31 @@ export default function ManagementLifeInsurance() {
     })
   }
 
+  const handleIsMorte = item => {
+    try {
+      if (
+        item.GruposCobertura.GrupoCobertura[0].CoberturasRisco.CoberturaRisco[1]
+          .Nome === 'Morte'
+      ) {
+        return (
+          <>
+            <Text>Morte</Text>
+            <Text>
+              {formatMoney(
+                item.GruposCobertura.GrupoCobertura[0].CoberturasRisco
+                  .CoberturaRisco[1].CapitalSegurado
+              )}
+            </Text>
+          </>
+        )
+      }
+
+      return null
+    } catch (err) {
+      return null
+    }
+  }
+
   const addedInsurancePoliciesDetailed = () => {
     const {
       GrupoCobertura: gruposCobertura,
@@ -248,10 +273,7 @@ export default function ManagementLifeInsurance() {
                     >
                       Cobertura Principal
                     </Text>
-                    <InvoiceItem>
-                      <Text>Morte Acidental</Text>
-                      <Text>R$ 35.000,00</Text>
-                    </InvoiceItem>
+                    <InvoiceItem>{handleIsMorte(item)}</InvoiceItem>
                   </Invoice>
                 </Section>
                 <Section>
