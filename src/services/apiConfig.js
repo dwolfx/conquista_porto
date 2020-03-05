@@ -8,6 +8,8 @@ const baseURL = process.env.REACT_APP_BASE_URL
 const baseURLNamespaceInvest = process.env.REACT_APP_BASE_URL_INVEST || ''
 const baseURLNamespaceGoal = process.env.REACT_APP_BASE_URL_GOAL || ''
 const baseURLNamespacePortopar = process.env.REACT_APP_BASE_URL_PORTOPAR || ''
+const baseURLNamespaceRecommendation =
+  process.env.REACT_APP_BASE_URL_RECOMMENDATION || ''
 
 const responseInterceptor = response => {
   if (response.data.TipoCritica) {
@@ -34,6 +36,7 @@ export {
   baseURLNamespaceInvest,
   baseURLNamespaceGoal,
   baseURLNamespacePortopar,
+  baseURLNamespaceRecommendation,
   responseInterceptor,
   responseErrorInterceptor,
   requestInterceptor,

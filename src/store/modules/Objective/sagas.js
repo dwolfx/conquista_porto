@@ -1,6 +1,11 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get, post, baseURLNamespaceGoal } from 'services/api'
+import {
+  get,
+  post,
+  baseURLNamespaceGoal,
+  baseURLNamespaceRecommendation,
+} from 'services/api'
 import { Types } from './types'
 import {
   GetObjectiveDataSuccess,
@@ -17,13 +22,13 @@ function* postData(data) {
     if (isMobile) {
       response = yield call(
         post,
-        `${baseURLNamespaceGoal}/recommendations?mobile=true`,
+        `${baseURLNamespaceRecommendation}/recommendations?mobile=true`,
         payload
       )
     } else {
       response = yield call(
         post,
-        `${baseURLNamespaceGoal}/recommendations`,
+        `${baseURLNamespaceRecommendation}/recommendations`,
         payload
       )
     }

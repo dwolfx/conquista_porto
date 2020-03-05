@@ -29,7 +29,7 @@ router.render = (req, res) => {
     const { tipoNotificacao, ...rest } = notificacao
     return res.jsonp({ ...rest, lida: true })
   }
-  if (req.originalUrl.startsWith('/api/goal/recommendations')) {
+  if (req.originalUrl.startsWith('/api/recommendation/recommendations')) {
     if (req.originalUrl.includes('mobile')) {
       return res.jsonp(recommendationMockMobile)
     }
