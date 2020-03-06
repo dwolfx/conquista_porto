@@ -1,7 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from 'components/Wizard/Header'
 import { useParams, Redirect, useHistory } from 'react-router'
+
+import Loading from 'components/Loading'
+import Header from 'components/Wizard/Header'
+
+import useSuitability from 'hooks/useSuitability/useSuitability'
+
 import { Container } from './Components/styles'
 import { WizardFlow } from './Components/Wizard'
 import dataObjective from './dataObjective'
@@ -13,6 +18,11 @@ export default function GoalStreams({ handleSteps }) {
     objective => objective.route === `/${objectiveId}`
   )
   handleSteps(data.flow)
+  const { suitability: suitabilityHook, isLoading } = useSuitability()
+
+  if (!suitabilityHook && isLoading) {
+    return <Loading />
+  }
 
   return data ? (
     <Container>

@@ -13,7 +13,7 @@ import {
 
 function* getDataAndRedirect({ cpf, link, history }) {
   try {
-    yield put(SetSuitabilityLoading())
+    yield put(SetSuitabilityLoading(true))
 
     const suitabilityState = yield select(getSuitability)
 
@@ -33,10 +33,14 @@ function* getDataAndRedirect({ cpf, link, history }) {
       }
       if (response.status === 200) {
         yield put(GetSuitabilityDataSuccess(response.data))
-        history.push(link)
+
+        if (link) {
+          history.push(link)
+        }
       }
     }
   } catch (err) {
+    yield put(SetSuitabilityLoading(false))
     yield put(GetSuitabilityDataFailure())
   }
 }
