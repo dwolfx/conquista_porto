@@ -102,9 +102,10 @@ export default function PrivateWelfare() {
         title="Previdência Privada"
         description="Conte com a Porto Seguro para planejar sua aposentadoria. Selecione entre receber uma
         renda mensal ou o saldo total na idade escolhida, simule um plano e invista no seu futuro."
-        buttonText="Simular e Contratar"
+        buttonText="Em breve"
         image={BannerPrevidenciaPrivadaImage}
         imageDescription="Casal de idosos abraçados, sentandos em um banco de madeira e observando o horizonte"
+        noBtnIcon
         onClick={() => {}}
       />
       <BulletsSection
@@ -127,7 +128,7 @@ export default function PrivateWelfare() {
         title="Seu futuro seguro e tranquilo"
         mainDescription="Com a Previdência Privada, você pode definir se prefere receber uma renda mensal ou o saldo total na idade escolhida."
         subDescription="Aproveite a simulação para conhecer os planos da Porto Seguro."
-        buttonText="Simular e contratar"
+        buttonText="Em breve"
       />
 
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />
