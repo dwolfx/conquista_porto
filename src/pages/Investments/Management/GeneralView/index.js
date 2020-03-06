@@ -102,30 +102,12 @@ export default function GeneralView() {
                 enableRadialLabels={false}
                 slicesLabelsSkipAngle={10}
                 slicesLabelsTextColor="#000000"
-                sliceLabel={e => `${e.value}%`}
+                sliceLabel={() => null}
                 tooltipFormat={value => `${value}%`}
                 animate
                 motionStiffness={90}
                 motionDamping={15}
-                legends={[
-                  {
-                    anchor: 'bottom-left',
-                    direction: 'column',
-                    itemWidth: 100,
-                    itemHeight: 18,
-                    itemTextColor: '#000',
-                    symbolSize: 18,
-                    symbolShape: 'square',
-                    effects: [
-                      {
-                        on: 'hover',
-                        style: {
-                          itemTextColor: '#000',
-                        },
-                      },
-                    ],
-                  },
-                ]}
+                legends={[]}
               />
             </GraphHolder>
             <Text fontSize={11} lineHeight={21} margin="14px 0px" weight>
