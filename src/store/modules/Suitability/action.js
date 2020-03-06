@@ -1,11 +1,9 @@
 import { Types } from './types'
 
-export function GetSuitabilityRequestAndRedirect(cpf, link, history) {
+export function GetSuitabilityRequestAndRedirect(payload) {
   return {
     type: Types.GET_REQUEST_AND_REDIRECT,
-    cpf,
-    link,
-    history,
+    payload,
   }
 }
 
@@ -22,10 +20,10 @@ export function GetSuitabilityDataNoContent() {
   }
 }
 
-export function SetSuitabilityLoading() {
+export function SetSuitabilityLoading(isLoading) {
   return {
     type: Types.SET_LOADING,
-    isLoading: true,
+    isLoading,
   }
 }
 

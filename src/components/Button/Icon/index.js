@@ -5,10 +5,10 @@ import Icon from 'components/IconExporter'
 
 import { Button } from './styles'
 
-export default function ButtonIcon({ color, icon, size, ...rest }) {
+export default function ButtonIcon({ color, icon, size, isLoading, ...rest }) {
   return (
     <Button color={color} size={size} {...rest}>
-      <Icon name={icon} />
+      {!isLoading ? <Icon name={icon} /> : <Icon name="spinner" />}
     </Button>
   )
 }
@@ -16,10 +16,12 @@ export default function ButtonIcon({ color, icon, size, ...rest }) {
 ButtonIcon.defaultProps = {
   color: 'primary',
   size: 'small',
+  isLoading: false,
 }
 
 ButtonIcon.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary']),
   icon: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['small', 'large']),
+  isLoading: PropTypes.bool,
 }
