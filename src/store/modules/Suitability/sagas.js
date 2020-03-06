@@ -11,37 +11,38 @@ import {
   SetSuitabilityLoading,
 } from './action'
 
-function* getDataAndRedirect({ cpf, link, history }) {
-  try {
-    yield put(SetSuitabilityLoading(true))
+function* getDataAndRedirect({ payload: { cpf, link, errorLink, history } }) {
+  yield put(SetSuitabilityLoading(true))
 
-    const suitabilityState = yield select(getSuitability)
+  const suitabilityState = yield select(getSuitability)
 
-    if (suitabilityState.data) {
-      history.push(link)
-    } else {
+  if (suitabilityState.data) {
+    history.push(link)
+  } else {
+    try {
       const response = yield call(
         get,
         `${baseURLNamespacePortopar}/cotista/perfil/investidor/${cpf}`
       )
-
       if (response.status === 204) {
         yield put(GetSuitabilityDataNoContent())
         handleGiwRedirect(
           'portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true'
         )
-      }
-      if (response.status === 200) {
+      } else if (response.status === 200) {
         yield put(GetSuitabilityDataSuccess(response.data))
 
         if (link) {
           history.push(link)
         }
+      } else {
+        throw Error()
       }
+    } catch (err) {
+      yield put(SetSuitabilityLoading(false))
+      yield put(GetSuitabilityDataFailure())
+      history.push(errorLink || '/')
     }
-  } catch (err) {
-    yield put(SetSuitabilityLoading(false))
-    yield put(GetSuitabilityDataFailure())
   }
 }
 

@@ -18,7 +18,9 @@ export default function GoalStreams({ handleSteps }) {
     objective => objective.route === `/${objectiveId}`
   )
   handleSteps(data.flow)
-  const { suitability: suitabilityHook, isLoading } = useSuitability()
+  const { suitability: suitabilityHook, isLoading } = useSuitability({
+    errorLink: '/objetivos',
+  })
 
   if (!suitabilityHook && isLoading) {
     return <Loading />

@@ -45,6 +45,7 @@ const Board = () => {
                         cpf,
                         link: `${match.path}${card.route}`,
                         history,
+                        errorLink: '/objetivos',
                       })
                     )
                   }}
