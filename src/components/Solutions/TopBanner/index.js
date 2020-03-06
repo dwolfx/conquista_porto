@@ -10,6 +10,7 @@ export default function TopBanner({
   imageDescription,
   buttonText,
   onClick,
+  noBtnIcon,
 }) {
   return (
     <Container>
@@ -27,7 +28,7 @@ export default function TopBanner({
             data-gtm-subname={`banner ${title}`}
             data-gtm-name={buttonText}
           >
-            {buttonText} <span className="icon">&gt;</span>
+            {buttonText} {!noBtnIcon && <span className="icon">&gt;</span>}
           </Button>
         )}
       </Content>
@@ -43,9 +44,11 @@ TopBanner.propTypes = {
   imageDescription: PropTypes.string.isRequired,
   buttonText: PropTypes.string,
   onClick: PropTypes.func,
+  noBtnIcon: PropTypes.bool,
 }
 
 TopBanner.defaultProps = {
   onClick: null,
   buttonText: null,
+  noBtnIcon: false,
 }
