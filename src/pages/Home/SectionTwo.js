@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import objectiveTypes from 'components/Card/Objectives/types'
-import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
+
+import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
+import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
 import ObjectivesListContent from './ObjectiveListContent'
 import { tipsBanner } from './bannerData'
@@ -25,11 +28,19 @@ import {
 } from './styles'
 
 export default function SectionTwo({ onRedirect }) {
+  const history = useHistory()
   const isMobile = useMedia('sm')
+
+  const [objectiveTypeClicked, setObjectiveTypeClicked] = useState(null)
   const [tipBannerIndex, setTipBannerIndex] = useState(0)
   const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
   const [maxObjectiveCards, setMaxObjectiveCards] = useState(2)
-  const objectives = useSelector(state => state.objective.objectives)
+
+  const { objectives, cpf, isLoadingSuitability } = useSelector(state => ({
+    objectives: state.objective.objectives,
+    isLoadingSuitability: state.suitability.isLoading,
+    cpf: state.auth.cpf,
+  }))
   const hasObjectives = Boolean(objectives && objectives.length)
 
   const dispatch = useDispatch()
@@ -76,7 +87,17 @@ export default function SectionTwo({ onRedirect }) {
           <FullHeightCardObjectives
             icon={item.icon}
             title={item.title}
-            link={item.link}
+            isLoading={isLoadingSuitability && objectiveTypeClicked === item.id}
+            onClick={() => {
+              setObjectiveTypeClicked(item.id)
+              dispatch(
+                GetSuitabilityRequestAndRedirect({
+                  cpf,
+                  link: item.link,
+                  history,
+                })
+              )
+            }}
           />
         </SectionCol>
       ))
