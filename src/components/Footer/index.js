@@ -22,7 +22,7 @@ const gtmType = 'click'
 const gtmClickType = 'rodape'
 
 const content1 = [
-  <Title bold>CENTRAL DE ATENDIMENTO</Title>,
+  <Title>MENSAGENS</Title>,
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
@@ -34,15 +34,15 @@ const content1 = [
   </LinkText>,
 ]
 const content2 = [
-  <Title>ATENDIMENTO PARA DEFICIENTES AUDITIVOS</Title>,
+  <Title bold>CENTRAL DE ATENDIMENTO</Title>,
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
-    data-gtm-subname="atendimento para deficientes auditivos"
-    data-gtm-name="0800-727-8736"
-    hrefValue="tel:0800 727 8736"
+    data-gtm-subname="central de atendimento"
+    data-gtm-name="(11)3366-3370"
+    hrefValue="tel:(11) 3366 3370"
   >
-    0800 727 8736
+    (11) 3366 3370
   </LinkText>,
 ]
 const content3 = [
@@ -58,7 +58,7 @@ const content3 = [
   </LinkText>,
 ]
 const content4 = [
-  <Title>MENSAGENS</Title>,
+  <Title>ATENDIMENTO PARA DEFICIENTES AUDITIVOS</Title>,
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
@@ -123,8 +123,9 @@ const content6 = [
   </Link>,
 ]
 const content7 = [
+  <Title>DIAS E HORÁRIOS</Title>,
   <LogoText>
-    Atendimento de segunda a sexta,
+    Para todos os contatos, atendimento de segunda a sexta,
     <br />
     das 8h15 às 18h30, exceto feriados.
   </LogoText>,
@@ -155,11 +156,11 @@ const Footer = () => {
               <VerticalList elements={content1} />
               <VerticalList elements={content2} />
               <VerticalList elements={content3} />
+              <VerticalList elements={content4} />
             </ListWrapper>
           </GridCol>
           <GridCol lg="4">
             <ListWrapper>
-              <VerticalList elements={content4} />
               <VerticalList elements={content5} />
               <VerticalList elements={content7} />
             </ListWrapper>
