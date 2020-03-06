@@ -41,11 +41,12 @@ const Board = () => {
                   onClick={() => {
                     setLoadingButton(card.goal_type)
                     dispatch(
-                      GetSuitabilityRequestAndRedirect(
+                      GetSuitabilityRequestAndRedirect({
                         cpf,
-                        `${match.path}${card.route}`,
-                        history
-                      )
+                        link: `${match.path}${card.route}`,
+                        history,
+                        errorPath: '/objetivos',
+                      })
                     )
                   }}
                 >
