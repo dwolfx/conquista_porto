@@ -22,7 +22,11 @@ const responseInterceptor = response => {
 const responseErrorInterceptor = error => {
   if (error.response.status === 401) {
     store.dispatch(AuthRequestLogout())
+  } else if (error.response.status >= 300) {
+    // making sure that the error will be catch
+    throw Error(error)
   }
+
   return error
 }
 
