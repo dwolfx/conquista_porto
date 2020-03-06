@@ -31,7 +31,6 @@ export default function ObjectivesCard({ icon, title, isLoading, ...rest }) {
 ObjectivesCard.propTypes = {
   icon: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
   isLoading: PropTypes.bool,
 }
 
