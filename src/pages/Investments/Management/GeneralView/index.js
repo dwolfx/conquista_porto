@@ -143,6 +143,7 @@ export default function GeneralView() {
             {showBalance()}
             {bankData.DadosContaPortoSeguro && (
               <FullWidthAccordion
+                id={bankData.DadosContaPortoSeguro.id_conta}
                 titleNode="Dados da conta"
                 gtmName="dados da conta"
               >

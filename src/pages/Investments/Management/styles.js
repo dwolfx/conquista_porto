@@ -6,6 +6,7 @@ import TopicsIconContent from 'components/TopicsIconContent'
 import RightContentDefault from 'components/Management/RightContent'
 import ConquistaText from 'components/Text'
 import ConquistaIcon from 'components/IconExporter'
+import ConquistaButton from 'components/Button'
 
 export const LeftNav = styled(LeftNavDefault)`
   overflow: visible;
@@ -147,7 +148,7 @@ export const Section = styled.article`
   border-top: 1px solid ${props => props.theme.colors.gray3};
 `
 
-export const HeaderNodeBalanceAccordion = styled.div`
+export const HeaderNodeBalanceAccordion = styled.span`
   display: flex;
   justify-content: space-between;
   width: 95%;
@@ -385,4 +386,20 @@ export const SelectIcon = styled(ConquistaIcon).attrs(props => ({
   background-color: ${props => props.theme.colors.blue4};
   border-radius: 50%;
   stroke: ${props => props.name === 'arrowdown' && props.theme.colors.white};
+`
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 28px 0 56px 0;
+`
+
+export const CustomConquistaButton = styled(ConquistaButton)`
+  min-width: 231px;
+  margin: 7px;
+  padding: 0 28px;
+  max-width: 100%;
 `

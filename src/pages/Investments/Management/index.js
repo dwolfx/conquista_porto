@@ -104,14 +104,19 @@ export default function ManagementInvestments({ history }) {
           style={{ width: '100%' }}
           key={item.fundo.id_carteira}
         >
-          <FundInformation fund={item} />
+          <FundInformation fund={item} idCotista={positionData[0].id_cotista} />
 
           <BalanceEvolution fund={item} />
 
           <RentabilityHistoric fund={item.fundo} />
 
-          <LastTransactions lastOperations={item.ultimas_operacoes.operacao} />
-
+          <LastTransactions
+            lastOperations={
+              Array.isArray(item.ultimas_operacoes.operacao)
+                ? item.ultimas_operacoes.operacao
+                : [item.ultimas_operacoes.operacao]
+            }
+          />
           <ComplementaryInfo>
             <Text
               margin="22px 0"

@@ -10,6 +10,7 @@ import { Section, ChartContainer, ChartTooltip, Text } from './styles'
 
 export default function BalanceEvolution({ fund }) {
   const theme = useContext(ThemeContext)
+
   const balanceEvolutionData = () => {
     const saldosFlat = [fund.historico_saldos_fundo.saldos.saldo].flatMap(
       item => item
@@ -78,7 +79,7 @@ BalanceEvolution.propTypes = {
   fund: PropTypes.shape({
     historico_saldos_fundo: PropTypes.shape({
       saldos: PropTypes.shape({
-        saldo: PropTypes.array,
+        saldo: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
       }),
     }),
   }).isRequired,
