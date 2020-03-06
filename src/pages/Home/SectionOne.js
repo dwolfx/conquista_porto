@@ -242,8 +242,9 @@ const InvestmentCard = () => {
   )
 
   const theme = useContext(ThemeContext)
-
-  return consolidatedPosition ? (
+  return consolidatedPosition &&
+    consolidatedPosition.saldototal &&
+    consolidatedPosition.categorias ? (
     <>
       <Modal
         modalTitle="Conta de investimento"
