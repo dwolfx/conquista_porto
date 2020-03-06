@@ -1,10 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import useMedia from 'hooks/useMedia'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Table, TableWrapper, TBody, Td, Th, THead, Tr } from './styles'
 
-import Text from 'components/Text'
-
-import { TableWrapper, Table, TBody, THead, Tr, Th, Td, Item } from './styles'
+export const TableTD = ({ children, legend }) => {
+  const isMobile = useMedia('sm')
+  return (
+    <Td>
+      {isMobile && <span>{legend}</span>}
+      {children}
+    </Td>
+  )
+}
 
 const TableProfitability = ({ profitability }) => {
   const isMobile = useMedia('sm')
@@ -28,55 +35,9 @@ const TableProfitability = ({ profitability }) => {
   ]
   return (
     <>
-      {isMobile ? (
-        <>
-          <Text type="headline" color="gray4">
-            Fundo (%)
-          </Text>
-          <Item>
-            <Text type="captionUppercase" color="gray4">
-              MÊS ANTERIOR
-            </Text>
-            <Text type="headline" color="gray6">
-              {profitability[1] ? profitability[1] : '-'}
-            </Text>
-          </Item>
-          <Item>
-            <Text type="captionUppercase" color="gray4">
-              ANO
-            </Text>
-            <Text type="headline" color="gray6">
-              {profitability[2] ? profitability[2] : '-'}
-            </Text>
-          </Item>
-          <Item>
-            <Text type="captionUppercase" color="gray4">
-              ÚTL 12M
-            </Text>
-            <Text type="headline" color="gray6">
-              {profitability[12] ? profitability[12] : '-'}
-            </Text>
-          </Item>
-          <Item>
-            <Text type="captionUppercase" color="gray4">
-              ÚLT 24M
-            </Text>
-            <Text type="headline" color="gray6">
-              {profitability[24] ? profitability[24] : '-'}
-            </Text>
-          </Item>
-          <Item>
-            <Text type="captionUppercase" color="gray4">
-              ÚLT 36M
-            </Text>
-            <Text type="headline" color="gray6">
-              {profitability[36] ? profitability[36] : '-'}
-            </Text>
-          </Item>
-        </>
-      ) : (
-        <TableWrapper>
-          <Table>
+      <TableWrapper>
+        <Table>
+          {!isMobile && (
             <THead>
               <Tr>
                 <Th></Th>
@@ -85,37 +46,72 @@ const TableProfitability = ({ profitability }) => {
                 ))}
               </Tr>
             </THead>
-            <TBody>
-              <Tr>
-                <Td>Fundo (%)</Td>
-                <Td>{profitability[1] ? profitability[1] : '-'}</Td>
-                <Td>{profitability[2] ? profitability[2] : '-'}</Td>
-                <Td>{profitability[12] ? profitability[12] : '-'}</Td>
-                <Td>{profitability[24] ? profitability[24] : '-'}</Td>
-                <Td>{profitability[36] ? profitability[36] : '-'}</Td>
-              </Tr>
-              <Tr>
-                <Td>IMA-b 5 (%)</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-              </Tr>
-              <Tr>
-                <Td>Variação (P.P.)</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-                <Td>-</Td>
-              </Tr>
-            </TBody>
-          </Table>
-        </TableWrapper>
-      )}
+          )}
+          <TBody>
+            <Tr>
+              <Td>Fundo (%)</Td>
+              <TableTD legend="mês anterior">
+                {profitability.ima[1] ? profitability.ima[1] : '-'}
+              </TableTD>
+              <TableTD legend="ano">
+                {profitability.ima[2] ? profitability.ima[2] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 12m">
+                {profitability.ima[12] ? profitability.ima[12] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 24m">
+                {profitability.ima[24] ? profitability.ima[24] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 36m">
+                {profitability.ima[36] ? profitability.ima[36] : '-'}
+              </TableTD>
+            </Tr>
+            <Tr>
+              <Td>IMA-b 5 (%)</Td>
+              <TableTD legend="mês anterior">
+                {profitability.variacao[1] ? profitability.variacao[1] : '-'}
+              </TableTD>
+              <TableTD legend="ano">
+                {profitability.variacao[2] ? profitability.variacao[2] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 12m">
+                {profitability.variacao[12] ? profitability.variacao[12] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 24m">
+                {profitability.variacao[24] ? profitability.variacao[24] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 36m">
+                {profitability.variacao[36] ? profitability.variacao[36] : '-'}
+              </TableTD>
+            </Tr>
+            <Tr>
+              <Td>Variação (P.P.)</Td>
+              <TableTD legend="mês anterior">
+                {profitability.fundos[1] ? profitability.fundos[1] : '-'}
+              </TableTD>
+              <TableTD legend="ano">
+                {profitability.fundos[2] ? profitability.fundos[2] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 12m">
+                {profitability.fundos[12] ? profitability.fundos[12] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 24m">
+                {profitability.fundos[24] ? profitability.fundos[24] : '-'}
+              </TableTD>
+              <TableTD legend="últ. 36m">
+                {profitability.fundos[36] ? profitability.fundos[36] : '-'}
+              </TableTD>
+            </Tr>
+          </TBody>
+        </Table>
+      </TableWrapper>
     </>
   )
+}
+
+TableTD.propTypes = {
+  children: PropTypes.node.isRequired,
+  legend: PropTypes.string.isRequired,
 }
 
 TableProfitability.propTypes = {
