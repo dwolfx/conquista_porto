@@ -4,6 +4,11 @@ const defaultStyle = css`
   border: 1px solid ${props => props.theme.colors.gray2};
   font-family: ${props => props.theme.fontTypes.captionUppercase};
   text-align: center;
+
+  @media (max-width: 768px) {
+    border: none;
+    display: block;
+  }
 `
 
 export const TableWrapper = styled.div``
@@ -25,11 +30,23 @@ export const TBody = styled.tbody`
   tr {
     &:nth-child(even) {
       background-color: ${props => props.theme.colors.gray1};
+
+      @media (max-width: 768px) {
+        background: none;
+      }
     }
   }
 `
 
-export const Tr = styled.tr``
+export const Tr = styled.tr`
+  @media (max-width: 768px) {
+    border-bottom: 1px solid ${props => props.theme.colors.gray2};
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+`
 
 export const Td = styled.td`
   ${defaultStyle};
@@ -37,6 +54,23 @@ export const Td = styled.td`
 
   &:first-child {
     text-align: left;
+
+    @media (max-width: 768px) {
+      color: ${props => props.theme.colors.gray4};
+    }
+  }
+
+  @media (max-width: 768px) {
+    color: ${props => props.theme.colors.gray6};
+    font-size: 18px;
+    text-align: left;
+
+    span {
+      font-family: ${props => props.theme.fontTypes.captionUppercase};
+      color: ${props => props.theme.colors.gray4};
+      display: block;
+      text-transform: uppercase;
+    }
   }
 `
 
