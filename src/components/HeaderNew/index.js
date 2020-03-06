@@ -9,10 +9,13 @@ import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
 import DropDown from 'components/DropdownNew'
+
+import { handleGiwRedirect } from 'helpers'
+
 import { AuthRequestLogout } from 'store/modules/Auth/action'
+
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
-
 import {
   BgWrapper,
   GridContainer,
@@ -33,7 +36,7 @@ import {
 export default function HeaderNew({ crumbs }) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const [isMobile] = useState(useMedia('sm'))
+  const isMobile = useMedia('sm')
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const bankData = useSelector(
@@ -227,8 +230,16 @@ export default function HeaderNew({ crumbs }) {
               />
             </DropDown>
           </div>
-          <Avatar onClick={() => history.push('/perfil')} />
-          <Profile onClick={() => history.push('/perfil')}>
+          <Avatar
+            onClick={() =>
+              handleGiwRedirect('portaldecliente/conquista/meu-perfil?r=true')
+            }
+          />
+          <Profile
+            onClick={() =>
+              handleGiwRedirect('portaldecliente/conquista/meu-perfil?r=true')
+            }
+          >
             <div>
               <Name
                 data-gtm-type="click"

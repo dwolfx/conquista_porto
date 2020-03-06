@@ -16,6 +16,7 @@ export default function PieChart({
   onSliceClick,
   width,
   hideLegend,
+  marginLegend,
   ...rest
 }) {
   const chartReducer = (state = data, action) => {
@@ -146,7 +147,7 @@ export default function PieChart({
                   direction: 'row',
                   symbolSize: 14,
                   itemWidth: 20,
-                  translateY: isMobile ? 0 : -28,
+                  translateY: isMobile ? 0 : marginLegend,
                   itemHeight: 18,
                   itemsSpacing: 7,
                   itemTextColor: 'transparent',
@@ -175,6 +176,7 @@ PieChart.defaultProps = {
   onMouseLeave: null,
   onSliceClick: null,
   hideLegend: false,
+  marginLegend: -28,
 }
 
 PieChart.propTypes = {
@@ -192,4 +194,5 @@ PieChart.propTypes = {
   onSliceClick: PropTypes.func,
   width: PropTypes.string.isRequired,
   hideLegend: PropTypes.bool,
+  marginLegend: PropTypes.number,
 }

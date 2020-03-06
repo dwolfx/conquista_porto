@@ -134,12 +134,12 @@ export const WizardFlow = ({ data, objective }) => {
           <ButtonAction
             type="submit"
             data-gtm-form="submit"
-            data-gtm-name="concluir"
+            data-gtm-name="proximo"
             disabled={!isActive || isLoading}
             loading={isLoading}
             loadingColor="white"
           >
-            Concluir
+            Próximo
           </ButtonAction>
         </Col>
       )}

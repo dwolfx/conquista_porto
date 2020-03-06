@@ -27,10 +27,10 @@ const content1 = [
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
     data-gtm-subname="central de atendimento"
-    data-gtm-name="(11)3366-3370"
-    hrefValue="tel:(11) 3366 3370"
+    data-gtm-name="(11)3366-3200"
+    hrefValue="tel:(11) 3366 3200"
   >
-    (11) 3366 3370
+    (11) 3366 3200
   </LinkText>,
 ]
 const content2 = [
@@ -63,10 +63,10 @@ const content4 = [
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
     data-gtm-subname="mensagens"
-    data-gtm-name="porto.investimentos@portoseguro.com.br"
-    hrefValue="mailto:porto.investimentos@portoseguro.com.br"
+    data-gtm-name="suporte.conquista@portoseguro.com.br"
+    hrefValue="mailto:suporte.conquista@portoseguro.com.br"
   >
-    porto.investimentos@portoseguro.com.br
+    suporte.conquista@portoseguro.com.br
   </LinkText>,
 ]
 const content5 = [
