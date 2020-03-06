@@ -11,6 +11,7 @@ import Text from 'components/Text'
 import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
+import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
 
 import { formatMoney } from 'helpers'
 
@@ -42,8 +43,8 @@ import {
 
 export default function SectionThree({ points }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [belowOffer, setBelowOffer] = useState(pointsCardsData[0])
-  const [aboveOffer, setAboveOffer] = useState(pointsCardsData[1])
+  const [belowOffer, setBelowOffer] = useState(null)
+  const [aboveOffer, setAboveOffer] = useState(null)
 
   useEffect(() => {
     if (points) {
@@ -90,8 +91,13 @@ export default function SectionThree({ points }) {
         setBelowOffer(newBelowOffer)
         setAboveOffer(newAboveOffer)
       }
+    } else {
+      setBelowOffer(pointsCardsData[0])
+      setAboveOffer(pointsCardsData[1])
     }
   }, [points])
+
+  useDataLayerProducts(belowOffer, aboveOffer)
 
   const PointsOfferCard = ({ offer }) => (
     <FullHeightCard
@@ -331,10 +337,10 @@ export default function SectionThree({ points }) {
           `}
         >
           <SectionCol md="6">
-            <PointsOfferCard offer={belowOffer} />
+            <PointsOfferCard offer={belowOffer || pointsCardsData[0]} />
           </SectionCol>
           <SectionCol md="6">
-            <PointsOfferCard offer={aboveOffer} />
+            <PointsOfferCard offer={aboveOffer || pointsCardsData[1]} />
           </SectionCol>
         </Row>
       </SectionCol>

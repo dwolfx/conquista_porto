@@ -2,10 +2,12 @@ import TagManager from 'react-gtm-module'
 import sha256 from 'crypto-js/sha256'
 import packageJson from '../../package.json'
 
-export const dataLayerErrorInfo = description => {
+export const dataLayerErrorInfo = (description, path, title) => {
   const SearchInfo = {
     dataLayer: {
       event: 'erro',
+      pg_path: path,
+      pg_title: title,
       descricao: description,
     },
   }
@@ -34,6 +36,7 @@ export const dataLayerProductSuggestion = (
 
 const setCustomData = (auth, points, title) => {
   const hash = sha256(auth.cpf)
+  const newHash = `${hash.words.join('')}`
 
   window.customData.page.name = title
 
@@ -41,8 +44,7 @@ const setCustomData = (auth, points, title) => {
   window.customData.site.versao = packageJson.version
   window.customData.site.brand = 'porto-seguro'
 
-  window.customData.user.id = ''
-  window.customData.user.numero = hash
+  window.customData.user.numero = newHash
   window.customData.user.points =
     points !== null && points !== undefined
       ? calculatePointsAmountBalance(points)
@@ -64,5 +66,5 @@ export default function googleTagManagerHandler(path, title, auth, points) {
     },
   }
   TagManager.dataLayer(tagManagerArgs)
-  setCustomData(auth, points)
+  setCustomData(auth, points, title)
 }
