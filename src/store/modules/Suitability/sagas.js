@@ -11,7 +11,7 @@ import {
   SetSuitabilityLoading,
 } from './action'
 
-function* getDataAndRedirect({ payload: { cpf, link, errorLink, history } }) {
+function* getDataAndRedirect({ payload: { cpf, link, errorPath, history } }) {
   yield put(SetSuitabilityLoading(true))
 
   const suitabilityState = yield select(getSuitability)
@@ -24,6 +24,7 @@ function* getDataAndRedirect({ payload: { cpf, link, errorLink, history } }) {
         get,
         `${baseURLNamespacePortopar}/cotista/perfil/investidor/${cpf}`
       )
+
       if (response.status === 204) {
         yield put(GetSuitabilityDataNoContent())
         handleGiwRedirect(
@@ -35,13 +36,14 @@ function* getDataAndRedirect({ payload: { cpf, link, errorLink, history } }) {
         if (link) {
           history.push(link)
         }
-      } else {
-        throw Error()
       }
     } catch (err) {
       yield put(SetSuitabilityLoading(false))
       yield put(GetSuitabilityDataFailure())
-      history.push(errorLink || '/')
+
+      if (errorPath) {
+        history.push(errorPath)
+      }
     }
   }
 }

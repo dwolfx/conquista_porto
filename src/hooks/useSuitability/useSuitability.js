@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
-export default function useSuitability({ errorLink }) {
+export default function useSuitability({ errorPath }) {
   const history = useHistory()
   const dispatch = useDispatch()
   const { suitability, cpf, isLoading } = useSelector(state => ({
@@ -16,17 +16,17 @@ export default function useSuitability({ errorLink }) {
 
   useEffect(() => {
     if (!suitability) {
-      dispatch(GetSuitabilityRequestAndRedirect({ cpf, history, errorLink }))
+      dispatch(GetSuitabilityRequestAndRedirect({ cpf, history, errorPath }))
     }
-  }, [suitability, dispatch, cpf, history, errorLink])
+  }, [suitability, dispatch, cpf, history, errorPath])
 
   return { suitability, isLoading }
 }
 
 useSuitability.propTypes = {
-  errorLink: PropTypes.string,
+  errorPath: PropTypes.string,
 }
 
 useSuitability.defaultProps = {
-  errorLink: '/',
+  errorPath: '/',
 }

@@ -19,7 +19,7 @@ export default function GoalStreams({ handleSteps }) {
   )
   handleSteps(data.flow)
   const { suitability: suitabilityHook, isLoading } = useSuitability({
-    errorLink: '/objetivos',
+    errorPath: '/objetivos',
   })
 
   if (!suitabilityHook && isLoading) {
