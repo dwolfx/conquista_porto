@@ -317,7 +317,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           </Text>
                         </TableData>
                         <TableData textAlign="center">
-                          <Text type="body">{`${fund.profitability['12']}%`}</Text>
+                          <Text type="body">{`${fund.profitability.fundos['12']}%`}</Text>
                         </TableData>
                         <TableData textAlign="right">
                           <Text type="body" truncate>
@@ -412,7 +412,9 @@ SectionTwo.propTypes = {
     PropTypes.shape({
       name: PropTypes.string,
       profitability: PropTypes.shape({
-        '12': PropTypes.number,
+        fundos: PropTypes.shape({
+          '12': PropTypes.number,
+        }),
       }),
       quotation_apply_days: PropTypes.string,
       financial_apply_days: PropTypes.string,
