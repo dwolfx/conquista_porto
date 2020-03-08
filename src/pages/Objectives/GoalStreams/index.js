@@ -5,7 +5,7 @@ import { useParams, Redirect, useHistory } from 'react-router'
 import Loading from 'components/Loading'
 import Header from 'components/Wizard/Header'
 
-import useSuitability from 'hooks/useSuitability/useSuitability'
+import useSuitability from 'hooks/Suitability/useSuitability'
 
 import { Container } from './Components/styles'
 import { WizardFlow } from './Components/Wizard'
