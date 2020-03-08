@@ -1,4 +1,5 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
+import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import {
   get,
@@ -34,7 +35,10 @@ function* postData(data) {
     }
     yield put(PostObjectiveDataSuccess(response.data))
   } catch (err) {
-    yield put(PostObjectiveDataFailure())
+    yield put({
+      ...PostObjectiveDataFailure(),
+      toast: buildToast(err.message, ToastTypes.error),
+    })
   }
 }
 

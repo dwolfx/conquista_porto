@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import './setupTests'
 
+import 'react-toastify/dist/ReactToastify.css'
+
 Array.prototype.flatMap = function(lambda) {
   return Array.prototype.concat.apply([], this.map(lambda))
 }
