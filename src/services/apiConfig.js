@@ -22,11 +22,11 @@ const responseInterceptor = response => {
 const responseErrorInterceptor = error => {
   if (error.response.status === 401) {
     store.dispatch(AuthRequestLogout())
-  } else if (error.response.status >= 300) {
-    // making sure that the error will be catch
-    throw Error(error)
+  } else if (error.response.status >= 500) {
+    throw Error('Erro de comunicação interna. Tente novamente mais tarde.')
+  } else if (error.response.status === 404) {
+    throw Error('Recurso não encontrado.')
   }
-
   return error
 }
 

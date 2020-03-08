@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { HashRouter, useLocation } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
@@ -17,7 +18,6 @@ function ScrollToTopOnMount() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [pathname])
-
   return null
 }
 
@@ -35,6 +35,7 @@ const App = () => (
           <ScrollToTopOnMount />
           <GlobalStyle />
           <Routes />
+          <ToastContainer autoClose={3000} draggable={false} />
         </GridThemeProvider>
       </ThemeProvider>
     </HashRouter>
