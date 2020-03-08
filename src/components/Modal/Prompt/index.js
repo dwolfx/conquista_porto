@@ -63,7 +63,6 @@ export default function PromptModal({
       <Prompt
         when={hasUnsavedChanges}
         message={nextLocation => {
-          console.log(nextLocation)
           setNewLocation(nextLocation.pathname)
 
           if (confirmedUnsavedChanges) {
@@ -71,7 +70,6 @@ export default function PromptModal({
             setConfirmedUnsavedChanges(false)
 
             if (onConfirmation) {
-              console.log('teste')
               onConfirmation()
             }
 

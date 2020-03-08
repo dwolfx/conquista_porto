@@ -637,11 +637,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         setIsDrawerOpen={setIsDrawerOpen}
       />
 
-      {console.log(
-        !objectiveManagementData ||
-          (objectiveManagementData &&
-            Object.entries(objectiveManagementData).length === 0)
-      )}
       <UnsavedChangedPrompt
         hasUnsavedChanges={
           objectiveData &&

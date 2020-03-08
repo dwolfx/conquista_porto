@@ -12,7 +12,6 @@ import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Loading from 'components/Loading'
 import Text from 'components/Text'
-import Notification from 'components/NotificationManager'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
 import { formatMoney } from 'helpers'
@@ -37,10 +36,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
   const [fundListCopy, setFundListCopy] = useState(null)
-  const [notificationOpen, setNotificationOpen] = useState(false)
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
-
-  const { error } = useSelector(state => state.objectiveManagement || '')
 
   const history = useHistory()
   const dispatch = useDispatch()
@@ -73,7 +69,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         },
       })
     )
-    if (!isLoadingSave) setNotificationOpen(!notificationOpen)
   }
 
   const renderFundsList = () => {
@@ -231,17 +226,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
           padding: 0;
         `}
       >
-        <Notification
-          iconName={error ? 'closerounded' : 'check'}
-          iconColor={error ? 'magenta2' : 'blue4'}
-          message={
-            error
-              ? 'Erro ao salvar, tente novamente.'
-              : 'As alterações foram salvas com sucesso.'
-          }
-          isOpen={notificationOpen}
-          handleClose={() => setNotificationOpen(false)}
-        />
         <FullHeightCard
           headerIcon="dollarsign"
           headerTitle="Carteira de fundos"
