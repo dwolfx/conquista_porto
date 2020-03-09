@@ -1,11 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import useMedia from 'hooks/useMedia'
 
-import { Topics } from './style'
+import { Topics, TopicsMobile } from './style'
 
-const TopicsIconContent = ({ children }) => (
-  <Topics settings={settings}>{children}</Topics>
-)
+const TopicsIconContent = ({ children }) => {
+  const isMobile = useMedia('sm')
+
+  if (isMobile) {
+    return <TopicsMobile settings={settings}>{children}</TopicsMobile>
+  }
+  return <Topics>{children}</Topics>
+}
 
 TopicsIconContent.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
