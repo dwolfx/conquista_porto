@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory, Prompt } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'styled-bootstrap-grid'
@@ -11,16 +11,14 @@ import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Loading from 'components/Loading'
-import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
-import Notification from 'components/NotificationManager'
+import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
 import { formatMoney } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
   AccordionContentWrapper,
-  ButtonContainerModal,
   FullHeightCard,
   LoadingStateContainer,
 } from 'pages/Objectives/Manager/styles'
@@ -38,13 +36,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
   const [fundListCopy, setFundListCopy] = useState(null)
-  const [notificationOpen, setNotificationOpen] = useState(false)
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
-  const [confirmedUnsavedChanges, setConfirmedUnsavedChanges] = useState(false)
-  const [isModalUnsavedOpen, setIsModalUnsavedOpen] = useState(false)
-  const [newLocation, setNewLocation] = useState('')
-
-  const { error } = useSelector(state => state.objectiveManagement || '')
 
   const history = useHistory()
   const dispatch = useDispatch()
@@ -58,12 +50,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
       setHasUnsavedChanges(isFundsNotTheSame(fundList, fundListCopy))
     }
   }, [fundListCopy, fundList])
-
-  useEffect(() => {
-    if (confirmedUnsavedChanges && newLocation) {
-      history.push(newLocation)
-    }
-  }, [confirmedUnsavedChanges, history, newLocation])
 
   const saveEditionsFunds = () => {
     function formatRequestPayload() {
@@ -83,7 +69,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         },
       })
     )
-    if (!isLoadingSave) setNotificationOpen(!notificationOpen)
   }
 
   const renderFundsList = () => {
@@ -241,17 +226,6 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
           padding: 0;
         `}
       >
-        <Notification
-          iconName={error ? 'closerounded' : 'check'}
-          iconColor={error ? 'magenta2' : 'blue4'}
-          message={
-            error
-              ? 'Erro ao salvar, tente novamente.'
-              : 'As alterações foram salvas com sucesso.'
-          }
-          isOpen={notificationOpen}
-          handleClose={() => setNotificationOpen(false)}
-        />
         <FullHeightCard
           headerIcon="dollarsign"
           headerTitle="Carteira de fundos"
@@ -301,53 +275,8 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
           </div>
         </FullHeightCard>
       </Col>
-      <Modal
-        isOpen={isModalUnsavedOpen}
-        handleClose={() => {
-          setIsModalUnsavedOpen(false)
-        }}
-        modalTitle="Alterações não salvas"
-      >
-        <Text type="headline" color="gray6">
-          As alterações não salvas serão perdidas.
-        </Text>
-        <Text type="headline" color="gray6">
-          Tem certeza que deseja continuar?
-        </Text>
-        <ButtonContainerModal>
-          <Button
-            outline
-            onClick={() => {
-              setIsModalUnsavedOpen(false)
-            }}
-          >
-            Cancelar
-          </Button>
-          <Button
-            onClick={() => {
-              setConfirmedUnsavedChanges(true)
-              setIsModalUnsavedOpen(false)
-            }}
-          >
-            Confirmar
-          </Button>
-        </ButtonContainerModal>
-      </Modal>
-      <Prompt
-        when={hasUnsavedChanges}
-        message={nextLocation => {
-          setNewLocation(nextLocation.pathname)
 
-          if (confirmedUnsavedChanges) {
-            setIsModalUnsavedOpen(false)
-            setConfirmedUnsavedChanges(false)
-            return true
-          }
-
-          setIsModalUnsavedOpen(true)
-          return false
-        }}
-      />
+      <UnsavedChangesPrompt hasUnsavedChanges={hasUnsavedChanges} />
     </>
   )
 }

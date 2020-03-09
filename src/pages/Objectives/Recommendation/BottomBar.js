@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import PropTypes from 'prop-types'
 
@@ -13,6 +13,7 @@ import { ButtonBar, SectionBar } from './styles'
 const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
   const history = useHistory()
   const dispatch = useDispatch()
+  const isLoading = useSelector(state => state.objectiveManagement.isLoading)
 
   const submitToManagement = () => {
     function pushHistory(path) {
@@ -43,6 +44,8 @@ const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
               data-gtm-clicktype="button"
               color="secondary"
               onClick={submitToManagement}
+              isLoading={isLoading}
+              disabled={isLoading}
             >
               Continuar
             </ButtonBar>

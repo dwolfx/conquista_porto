@@ -26,7 +26,10 @@ const responseErrorInterceptor = error => {
     throw Error('Erro de comunicação interna. Tente novamente mais tarde.')
   } else if (error.response.status === 404) {
     throw Error('Recurso não encontrado.')
+  } else if (error.response.status === 400) {
+    throw Error('Algo deu errado. Tente novamente mais tarde.')
   }
+
   return error
 }
 

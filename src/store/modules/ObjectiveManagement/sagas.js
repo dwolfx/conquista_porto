@@ -2,6 +2,7 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, post, remove, baseURLNamespaceGoal } from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
+import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import { Types } from './types'
 import {
@@ -24,7 +25,10 @@ function* postData({ payload, pushHistory }) {
     pushHistory(`/objetivos/gerenciar/${response.data.id}`)
     yield put(CleanObjectiveData())
   } catch (err) {
-    yield put(PostObjectiveManagementDataFailure())
+    yield put({
+      ...PostObjectiveManagementDataFailure(),
+      toast: buildToast(err.message, ToastTypes.error),
+    })
   }
 }
 
@@ -36,13 +40,19 @@ function* postSaveFunds({ payload }) {
       `${baseURLNamespaceGoal}/goals/${idGoal}/funds`,
       data
     )
-    yield put(PostSaveFundsSuccess(response))
+    yield put({
+      ...PostSaveFundsSuccess(response),
+      toast: buildToast('Alterações salvas com sucesso.', ToastTypes.success),
+    })
 
     if (onSuccess) {
       onSuccess()
     }
   } catch (err) {
-    yield put(PostSaveFundsFailure())
+    yield put({
+      ...PostSaveFundsFailure(),
+      toast: buildToast(err.message, ToastTypes.error),
+    })
   }
 }
 
@@ -61,16 +71,27 @@ function* getData(payload) {
           history.push(path)
         }
       } else {
-        yield put(GetObjectiveManagementDataFailure())
-        history.push('/objetivos')
+        yield put({
+          ...GetObjectiveManagementDataFailure(),
+          toast: buildToast('Nenhum objetivo encontrado.', ToastTypes.error),
+        })
       }
     } catch (err) {
-      yield put(GetObjectiveManagementDataFailure())
-      history.push('/objetivos')
+      yield put({
+        ...GetObjectiveManagementDataFailure(),
+        toast: buildToast(err.message, ToastTypes.error),
+      })
+      history.push('/')
     }
   } else {
-    yield put(GetObjectiveManagementDataFailure())
-    history.push('/objetivos')
+    yield put({
+      ...GetObjectiveManagementDataFailure(),
+      toast: buildToast(
+        'Ocorreu um erro. Tente novamente mais tarde',
+        ToastTypes.error
+      ),
+    })
+    history.push('/')
   }
 }
 
@@ -79,9 +100,15 @@ function* deleteObjective({ payload }) {
     const { id, pushHistoryToHomeScreen } = payload
     yield call(remove, `${baseURLNamespaceGoal}/goals/${id}`)
     pushHistoryToHomeScreen()
-    yield put(DeleteObjectiveSuccess())
+    yield put({
+      ...DeleteObjectiveSuccess(),
+      toast: buildToast('Objetivo deletado com sucesso', ToastTypes.success),
+    })
   } catch (err) {
-    yield put(DeleteObjectiveFailure())
+    yield put({
+      ...DeleteObjectiveFailure(),
+      toast: buildToast(err.message, ToastTypes.success),
+    })
   }
 }
 
