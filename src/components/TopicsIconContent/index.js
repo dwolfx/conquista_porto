@@ -1,18 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import useMedia from 'hooks/useMedia'
+import { Topics } from './style'
 
-import { TopicsMobile, Topics } from './style'
-
-const TopicsIconContent = ({ children }) => {
-  const isMobile = useMedia('sm')
-
-  if (isMobile) {
-    return <TopicsMobile settings={settings}>{children}</TopicsMobile>
-  }
-  return <Topics>{children}</Topics>
-}
+const TopicsIconContent = ({ children }) => (
+  <Topics settings={settings}>{children}</Topics>
+)
 
 TopicsIconContent.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
@@ -23,7 +16,7 @@ const settings = {
   slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 550,
+      breakpoint: 991,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -31,7 +24,7 @@ const settings = {
       },
     },
     {
-      breakpoint: 370,
+      breakpoint: 767,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
