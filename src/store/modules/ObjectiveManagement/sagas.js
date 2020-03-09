@@ -81,6 +81,7 @@ function* getData(payload) {
         ...GetObjectiveManagementDataFailure(),
         toast: buildToast(err.message, ToastTypes.error),
       })
+      history.push('/')
     }
   } else {
     yield put({
@@ -90,6 +91,7 @@ function* getData(payload) {
         ToastTypes.error
       ),
     })
+    history.push('/')
   }
 }
 
@@ -103,7 +105,10 @@ function* deleteObjective({ payload }) {
       toast: buildToast('Objetivo deletado com sucesso', ToastTypes.success),
     })
   } catch (err) {
-    yield put(DeleteObjectiveFailure())
+    yield put({
+      ...DeleteObjectiveFailure(),
+      toast: buildToast(err.message, ToastTypes.success),
+    })
   }
 }
 
