@@ -22,6 +22,7 @@ export default function Card({
   headerButtonText,
   headerButtonProps,
   footer,
+  showHeaderButton,
   ...rest
 }) {
   const ButtonHeader = () =>
@@ -40,7 +41,7 @@ export default function Card({
     <HorizontalList
       size="small"
       startItems={[<CardTitle>{headerTitle}</CardTitle>]}
-      endItems={[<ButtonHeader />]}
+      endItems={showHeaderButton && headerButtonText ? [<ButtonHeader />] : []}
       css={`
         width: 100%;
         padding: 0;
@@ -72,6 +73,7 @@ Card.defaultProps = {
   headerButtonText: null,
   headerButtonProps: null,
   footer: null,
+  showHeaderButton: false,
 }
 
 Card.propTypes = {
@@ -89,6 +91,7 @@ Card.propTypes = {
   },
   headerTitle: PropTypes.string,
   headerButtonText: PropTypes.string,
+  showHeaderButton: PropTypes.bool,
   headerButtonProps: PropTypes.shape({
     color: PropTypes.string,
     outline: PropTypes.bool,

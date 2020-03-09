@@ -36,13 +36,14 @@ router.render = (req, res) => {
     return res.jsonp(recommendationMock)
   }
   if (req.originalUrl.startsWith('/api/goal/goals')) {
-    if (req.method === 'GET' && req.originalUrl.endsWith('/api/goal/goals')) {
+    if (req.method === 'GET') {
+      if (!req.originalUrl.endsWith('/api/goal/goals')) {
+        return res.jsonp(objectiveMock)
+      }
       return res.jsonp(objectivesMock)
     }
-    if (
-      req.method === 'POST' ||
-      (req.method === 'GET' && !req.originalUrl.endsWith('/api/goal/goals'))
-    ) {
+
+    if (req.method === 'POST') {
       return res.jsonp(objectiveMock)
     }
     if (req.method === 'DELETE') {

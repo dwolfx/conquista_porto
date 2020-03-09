@@ -5,10 +5,10 @@ import { useHistory, useParams } from 'react-router-dom'
 import 'styled-components/macro'
 
 import targetImg from 'assets/images/pages/Objectives/Manager/target.png'
+import targetImgMobile from 'assets/images/pages/Objectives/Manager/target-mobile.png'
 
 import ButtonLink from 'components/Button/Link'
 import Loading from 'components/Loading'
-import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Modal from 'components/Modal/ModalNew'
 import Button from 'components/Button'
@@ -24,6 +24,8 @@ import {
   DeleteObjectiveRequest,
 } from 'store/modules/ObjectiveManagement/action'
 
+import useMedia from 'hooks/useMedia'
+import InfoText from 'components/InfoText'
 import {
   GridContainer,
   Banner,
@@ -33,6 +35,8 @@ import {
   WalletContainer,
   CardContent,
   ButtonContainerModal,
+  FlexContainer,
+  HorizontalLine,
 } from './styles'
 
 export default function Manager({ location }) {
@@ -42,6 +46,7 @@ export default function Manager({ location }) {
   const { data: objectiveData, isLoading, isLoadingDelete } = useSelector(
     state => state.objectiveManagement
   )
+  const isMobile = useMedia('sm')
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
 
   const { pageRecommendation } = location.state || false
@@ -73,46 +78,15 @@ export default function Manager({ location }) {
     dispatch(DeleteObjectiveRequest(id, pushHistoryToHomeScreen))
   }
 
-  const horizontalListTitle = (
-    <Text type="heading3" color="gray6">
-      {!isLoading ? `#${objectiveData.nickname}` : <Loading />}
-    </Text>
-  )
-  const horizontalListGoalMoney = (
-    <ColumnWrapper>
-      <Text color="gray5">META (R$)</Text>
-      <Text color="black">
-        {!isLoading ? formatMoney(objectiveData.target_value) : <Loading />}
-      </Text>
-    </ColumnWrapper>
-  )
-  const horizontalListGoalDate = (
-    <ColumnWrapper>
-      <Text color="gray5">META (DATA)</Text>
-      <Text color="black">
-        {!isLoading ? objectiveData.target_date : <Loading />}
-      </Text>
-    </ColumnWrapper>
-  )
-  const horizontalListBtnEdit = !isLoading ? (
-    <ButtonLink
-      data-gtm-type="click"
-      data-gtm-clicktype="link"
-      data-gtm-name="excluir objetivo"
-      onClick={() => {
-        setIsModalDeleteOpen(true)
-      }}
-      noIcon
-    >
-      EXCLUIR OBJETIVO
-    </ButtonLink>
-  ) : null
-
   return (
     <>
       <GridContainer>
         {pageRecommendation && (
-          <Banner bgImage={targetImg} hasCloseButton size="lg">
+          <Banner
+            bgImage={isMobile ? targetImgMobile : targetImg}
+            hasCloseButton
+            size="lg"
+          >
             <Text type="heading3" color="white">
               Objetivo criado com sucesso!
             </Text>
@@ -122,19 +96,81 @@ export default function Manager({ location }) {
             </Text>
           </Banner>
         )}
+
         <ColumnWrapper>
           <ObjectiveHeader>
-            <HorizontalList
-              startItems={[
-                horizontalListTitle,
-                horizontalListGoalMoney,
-                horizontalListGoalDate,
-                horizontalListBtnEdit,
-              ]}
-              noPadding
-              marginBetweenElements="28px"
-            />
+            <FlexContainer
+              direction={isMobile ? 'column' : 'row'}
+              alignItems={isMobile ? 'start' : 'center'}
+            >
+              <Text type="heading3" color="gray6">
+                {!isLoading ? `#${objectiveData.nickname}` : <Loading />}
+              </Text>
+              <FlexContainer
+                direction="row"
+                alignItems="center"
+                css={`
+                  margin-left: ${isMobile ? '0' : '56px'};
+                `}
+              >
+                <ColumnWrapper
+                  css={`
+                    margin-right: 28px;
+                  `}
+                >
+                  <InfoText
+                    label="META (R$)"
+                    value={
+                      !isLoading ? (
+                        formatMoney(objectiveData.target_value)
+                      ) : (
+                        <Loading />
+                      )
+                    }
+                  />
+                </ColumnWrapper>
+                <ColumnWrapper
+                  css={`
+                    margin-right: ${isMobile ? '28px' : ''};
+                  `}
+                >
+                  <InfoText
+                    label="META (DATA)"
+                    value={
+                      !isLoading ? (
+                        (objectiveData || '').target_date
+                      ) : (
+                        <Loading />
+                      )
+                    }
+                  />
+                </ColumnWrapper>
+              </FlexContainer>
+              <FlexContainer
+                direction={isMobile ? 'column;' : 'row;'}
+                margin={isMobile ? '0;' : '0 28px;'}
+                alignItems={isMobile ? 'center' : 'start'}
+                justifyContent={isMobile ? 'center' : 'start'}
+                width="100%"
+              >
+                {isMobile ? (
+                  <HorizontalLine color="gray2" margin="28px 0" />
+                ) : null}
+                <ButtonLink
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-name="excluir objetivo"
+                  onClick={() => {
+                    setIsModalDeleteOpen(true)
+                  }}
+                  noIcon
+                >
+                  EXCLUIR OBJETIVO
+                </ButtonLink>
+              </FlexContainer>
+            </FlexContainer>
           </ObjectiveHeader>
+
           <ObjectiveDetails>
             <CardContent>
               <GoalChart data={objectiveData} isLoading={isLoading} />

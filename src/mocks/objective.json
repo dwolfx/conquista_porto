@@ -150,7 +150,7 @@
   ],
   "fund_list": [
     {
-      "id": "1",
+      "id": 1,
       "recommended": true,
       "name": "Porto Seguro Renda Fixa Referenciado DI Crédito Privado",
       "initial_deposit": 1000,
@@ -160,79 +160,79 @@
       "invested": 1000,
       "goals": [
         {
-          "id": "2",
+          "id": 1,
           "name": "Las Vegas",
           "value": 300,
           "goal_type": 1
         },
         {
-          "id": "3",
+          "id": 2,
           "name": "Aposentadoria",
           "value": 400,
           "goal_type": 2
         },
         {
-          "id": "4",
+          "id": 3,
           "name": "Aposentadoria papai",
           "value": 500,
           "goal_type": 2
         },
         {
-          "id": "5",
+          "id": 4,
           "name": "Carro do Jorge",
           "value": 600,
           "goal_type": 3
         },
         {
-          "id": "6",
+          "id": 5,
           "name": "Meu carro",
           "value": 700,
           "goal_type": 3
         },
         {
-          "id": "7",
+          "id": 6,
           "name": "Facul",
           "value": 800,
           "goal_type": 4
         },
         {
-          "id": "8",
+          "id": 7,
           "name": "Pós",
           "value": 900,
           "goal_type": 4
         },
         {
-          "id": "9",
+          "id": 8,
           "name": "Niver",
           "value": 1000,
           "goal_type": 5
         },
         {
-          "id": "10",
+          "id": 9,
           "name": "Bodas de prata",
           "value": 1100,
           "goal_type": 5
         },
         {
-          "id": "11",
+          "id": 10,
           "name": "Meu apartamento",
           "value": 1200,
           "goal_type": 6
         },
         {
-          "id": "12",
+          "id": 11,
           "name": "Casa de praia",
           "value": 1300,
           "goal_type": 6
         },
         {
-          "id": "13",
+          "id": 12,
           "name": "Reserva",
           "value": 1400,
           "goal_type": 7
         },
         {
-          "id": "14",
+          "id": 13,
           "name": "Emergencia com o Pedrinho",
           "value": 1500,
           "goal_type": 7
@@ -240,7 +240,7 @@
       ]
     },
     {
-      "id": "2",
+      "id": 2,
       "recommended": false,
       "name": "Porto Seguro Renda Fixa",
       "initial_deposit": 2000,

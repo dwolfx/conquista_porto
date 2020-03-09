@@ -3,6 +3,7 @@ import ArrowDown from 'assets/icons/arrow-down.svg'
 
 export const DropdownWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.gray3};
   cursor: pointer;
   font-size: ${props => props.theme.fontTypes.caption};
   height: 39px;

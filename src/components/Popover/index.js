@@ -75,6 +75,12 @@ export default function Popover({
                   enabled: flippable,
                 },
               }}
+              css={`
+                #popper[data-popper-reference-hidden] {
+                  visibility: hidden;
+                  pointer-events: none;
+                }
+              `}
             >
               {({ placement: innerPlacement, ref, style }) => (
                 <PopoverContainer

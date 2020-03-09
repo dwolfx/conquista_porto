@@ -62,7 +62,7 @@ export default function FundsList() {
           <Text type="caption">Classificação de Risco</Text>
           <Dropdown currentValue={selectedRisk} onChange={setSelectedRisk} />
         </DropdownWrapper>
-        <DropdownWrapper hiddenSmUp xs="6">
+        <DropdownWrapper xs="6">
           <Text type="caption">Tipo</Text>
           <SelectDropdown
             options={fundsType}
