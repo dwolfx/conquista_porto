@@ -75,14 +75,12 @@ function* getData(payload) {
           ...GetObjectiveManagementDataFailure(),
           toast: buildToast('Nenhum objetivo encontrado.', ToastTypes.error),
         })
-        history.push('/objetivos')
       }
     } catch (err) {
       yield put({
         ...GetObjectiveManagementDataFailure(),
         toast: buildToast(err.message, ToastTypes.error),
       })
-      history.push('/objetivos')
     }
   } else {
     yield put({
@@ -92,7 +90,6 @@ function* getData(payload) {
         ToastTypes.error
       ),
     })
-    history.push('/objetivos')
   }
 }
 

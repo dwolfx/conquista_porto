@@ -22,6 +22,10 @@ export default function PromptModal({
   useEffect(() => {
     if (confirmedUnsavedChanges && newLocation) {
       history.push(newLocation)
+
+      if (onConfirmation) {
+        onConfirmation()
+      }
     }
   }, [confirmedUnsavedChanges, history, newLocation, onConfirmation])
 
@@ -68,10 +72,6 @@ export default function PromptModal({
           if (confirmedUnsavedChanges) {
             setIsModalUnsavedOpen(false)
             setConfirmedUnsavedChanges(false)
-
-            if (onConfirmation) {
-              onConfirmation()
-            }
 
             return true
           }

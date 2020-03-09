@@ -71,15 +71,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const themeContext = useContext(ThemeContext)
   const isMobile = useMedia('sm')
   const dispatch = useDispatch()
-  const {
-    objectiveData,
-    isLoadingManagement,
-    objectiveManagementData,
-  } = useSelector(state => ({
-    objectiveData: state.objective.data,
-    objectiveManagementData: state.objectiveManagement.data,
-    isLoadingManagement: state.objectiveManagement.isLoading,
-  }))
+  const { isLoadingManagement, objectiveManagementData } = useSelector(
+    state => ({
+      objectiveManagementData: state.objectiveManagement.data,
+      isLoadingManagement: state.objectiveManagement.isLoading,
+    })
+  )
 
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -97,7 +94,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       objectiveManagementData &&
       Object.entries(objectiveManagementData).length !== 0
     ) {
-      console.log('teste')
       dispatch(CleanObjectiveManagementData())
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -639,12 +635,10 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
 
       <UnsavedChangedPrompt
         hasUnsavedChanges={
-          objectiveData &&
-          Object.entries(objectiveData).length !== 0 &&
-          (!objectiveManagementData ||
-            (objectiveManagementData &&
-              Object.entries(objectiveManagementData).length === 0)) &&
-          !isLoadingManagement
+          !objectiveManagementData ||
+          (objectiveManagementData &&
+            Object.entries(objectiveManagementData).length === 0 &&
+            !isLoadingManagement)
         }
         onConfirmation={() => dispatch(CleanObjectiveData())}
       />
