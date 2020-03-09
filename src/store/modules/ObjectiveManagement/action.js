@@ -79,3 +79,9 @@ export function DeleteObjectiveFailure() {
     type: Types.DELETE_FAILURE,
   }
 }
+
+export function CleanObjectiveManagementData() {
+  return {
+    type: Types.CLEAN_DATA,
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Container } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
@@ -17,11 +17,17 @@ import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
+import Drawer from 'components/Drawer'
+import InputText from 'components/NewInput'
+import UnsavedChangedPrompt from 'components/Modal/Prompt'
+
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
 
-import Drawer from 'components/Drawer'
-import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
-import InputText from 'components/NewInput'
+import {
+  CleanObjectiveData,
+  PostObjectiveDataRequest,
+} from 'store/modules/Objective/action'
+import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/action'
 
 import BottomBar from './BottomBar'
 import SectionOne from './SectionOne'
@@ -63,6 +69,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
     suggestion_goal,
   } = data
   const themeContext = useContext(ThemeContext)
+  const isMobile = useMedia('sm')
+  const dispatch = useDispatch()
+  const { isLoadingManagement, objectiveManagementData } = useSelector(
+    state => ({
+      objectiveManagementData: state.objectiveManagement.data,
+      isLoadingManagement: state.objectiveManagement.isLoading,
+    })
+  )
+
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [invalidInput, setInvalidInput] = useState({
@@ -72,10 +87,17 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
     target_date: false,
   })
   const [blurredInputs, setBlurredInputs] = useState([])
-  const isMobile = useMedia('sm')
-  const dispatch = useDispatch()
-
   const [formData, setFormData] = useState({})
+
+  useEffect(() => {
+    if (
+      objectiveManagementData &&
+      Object.entries(objectiveManagementData).length !== 0
+    ) {
+      dispatch(CleanObjectiveManagementData())
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     setFormData({
@@ -609,6 +631,16 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         id={data.id}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
+      />
+
+      <UnsavedChangedPrompt
+        hasUnsavedChanges={
+          !objectiveManagementData ||
+          (objectiveManagementData &&
+            Object.entries(objectiveManagementData).length === 0 &&
+            !isLoadingManagement)
+        }
+        onConfirmation={() => dispatch(CleanObjectiveData())}
       />
     </GridRecommendation>
   )
