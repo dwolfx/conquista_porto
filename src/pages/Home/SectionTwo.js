@@ -122,7 +122,7 @@ export default function SectionTwo({ onRedirect }) {
           <SectionCol md="4" xs="6">
             <FullHeightCardObjectives
               icon="add"
-              title="Criar um objetivo"
+              title="Criar objetivo"
               onClick={() => history.push('/objetivos')}
             />
           </SectionCol>

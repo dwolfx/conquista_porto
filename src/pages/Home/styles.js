@@ -88,6 +88,9 @@ export const FullHeightCard = styled(Card)`
 
 export const FullHeightCardObjectives = styled(CardObjectives)`
   height: 100%;
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 150px;
+  }
 `
 
 export const BannerTips = styled(Banner)`
