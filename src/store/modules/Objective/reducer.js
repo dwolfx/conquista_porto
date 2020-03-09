@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   data: null,
   objectives: null,
   isLoading: false,
+  error: false,
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -12,6 +13,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: true,
+        error: false,
       }
     case Types.GET_SUCCESS:
       return {
@@ -23,6 +25,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: false,
+        error: true,
       }
     case Types.POST_REQUEST:
       return {
@@ -40,6 +43,7 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         data: {},
         isLoading: false,
+        error: true,
       }
     case Types.CLEAN_DATA:
       return {
