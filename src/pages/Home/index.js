@@ -30,10 +30,14 @@ const Home = () => {
   const row2 = useRef(null)
   const row3 = useRef(null)
 
+  function handleFetchInvestments() {
+    dispatch(GetConsolidatedPositionDataRequest(auth.cpf))
+  }
+
   useEffect(() => {
     dispatch(GetBankDataRequest(auth.cpf))
     dispatch(GetCreditCardDataRequest(auth.cpf))
-    dispatch(GetConsolidatedPositionDataRequest(auth.cpf))
+    handleFetchInvestments()
     dispatch(GetVehicleFinancingDataRequest(auth.cpf))
     dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
     dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
@@ -76,7 +80,7 @@ const Home = () => {
             <GridRow>
               <GridCol md="12">
                 <GridRow id="t1" ref={row1}>
-                  <SectionOne />
+                  <SectionOne onFetchInvestments={handleFetchInvestments} />
                 </GridRow>
                 {/* <GridRow style={{ paddingRight: 7, paddingLeft: 7 }}>
                   <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />

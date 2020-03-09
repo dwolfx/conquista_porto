@@ -20,5 +20,6 @@
   "/recommendation/recommendations": "/goal_recommendations",
   "/recommendation/recommendations\\?mobile=:isMobileMode": "/goal_recommendations?mobile=:isMobileMode",
   "/goal/goals": "/goal_management",
+  "/goal/goals/:id": "/goal_management",
   "/goal/goals/:id/funds": "/goal_management"
 }

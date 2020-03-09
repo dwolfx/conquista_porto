@@ -1669,9 +1669,9 @@
         "limite": 0
       },
       "codigo_banco": "0000",
-      "conta": 9999,
+      "conta": "9999",
       "cpf": "33244452809",
-      "digito_conta": 9,
+      "digito_conta": "9",
       "encargos_acumulados": 0,
       "id_conta": 0,
       "nome_banco": "Banco Porto",
@@ -2375,12 +2375,13 @@
     }
   ],
   "goal_recommendations": {
-    "goal_type": "1",
-    "nickname": "Disney",
-    "target_date": "01/02/2023",
-    "target_value": "70.000.000,00",
-    "initial_value": "5.000,00",
-    "monthly_value": "1.000,00"
+    "goal_type": "2",
+    "nickname": "oie",
+    "target_date": "11/11/2020",
+    "target_value": "111.111,11",
+    "initial_value": "111.111,11",
+    "monthly_value": "1.111,11",
+    "would_like_to_receive_monthly_income": "false"
   },
   "goal_management": {
     "id": "1"
