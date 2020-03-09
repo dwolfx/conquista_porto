@@ -22,6 +22,9 @@ export const IconWrapper = styled.div`
     fill: ${props => props.theme.colors.gray4};
     height: 100%;
   }
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 45px;
+  }
 `
 
 export const InfosBox = styled.div`
@@ -38,4 +41,7 @@ export const OfferTitle = styled(Text).attrs(() => ({
   flex: 1;
   padding-right: 10px;
   margin-right: 20px;
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-right: 0;
+  }
 `
