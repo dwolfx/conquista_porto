@@ -2375,13 +2375,12 @@
     }
   ],
   "goal_recommendations": {
-    "goal_type": "2",
-    "nickname": "oie",
-    "target_date": "11/11/2020",
-    "target_value": "111.111,11",
-    "initial_value": "111.111,11",
-    "monthly_value": "1.111,11",
-    "would_like_to_receive_monthly_income": "false"
+    "goal_type": "1",
+    "nickname": "Disney",
+    "target_date": "05/06/2021",
+    "target_value": "70.000.000,00",
+    "initial_value": "5.000,00",
+    "monthly_value": "1.000,00"
   },
   "goal_management": {
     "id": "1"
