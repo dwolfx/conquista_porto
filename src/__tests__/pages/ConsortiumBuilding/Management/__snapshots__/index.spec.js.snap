@@ -13,7 +13,7 @@ Array [
         className="sc-jWBwVP egIhGe"
       >
         <div
-          className="sc-jAaTju hPMUOo"
+          className="sc-jDwBTQ jWYFNp"
           data-gtm-clicktype="card"
           data-gtm-name="adcionar"
           data-gtm-subname="card custodia visualizar"
@@ -27,7 +27,7 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-hzDkRC jNrmJA"
+            className="sc-jhAzac eQRqex"
             fontSize="14px"
           >
             Adicionar
@@ -42,14 +42,14 @@ Array [
           onClick={[Function]}
         >
           <span
-            className="sc-hzDkRC eKswkd"
+            className="sc-jhAzac hDroat"
             fontSize="14px"
           >
             Contrato 
             1
           </span>
           <span
-            className="sc-hzDkRC fTmYXd"
+            className="sc-jhAzac ctcEkb"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -57,7 +57,7 @@ Array [
             STATUS
           </span>
           <span
-            className="sc-hzDkRC dvaUsf"
+            className="sc-jhAzac iuyKOp"
             fontSize="14px"
           >
             Contemplado
@@ -68,216 +68,123 @@ Array [
         className="sc-brqgnP flduTw"
       >
         <h4
-          className="sc-jDwBTQ kSEOPd"
+          className="sc-gPEVay kTXUkH"
         >
           Contrato 
           1
         </h4>
         <div
-          className="slick-slider sc-cMljjf fmErYT slick-initialized"
+          className="sc-cMljjf gCvwYm"
         >
-          
           <div
-            className="slick-list"
+            className="sc-jlyJG kyFLtE"
           >
-            <div
-              className="slick-track"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseOver={[Function]}
-              style={
-                Object {
-                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
-                  "WebkitTransition": "",
-                  "msTransform": "translateX(0px)",
-                  "opacity": 1,
-                  "transform": "translate3d(0px, 0px, 0px)",
-                  "transition": "",
-                }
-              }
+            <svg
+              fill="#00ADEF"
+              width="28"
             >
-              <div
-                aria-hidden={false}
-                className="slick-slide slick-active slick-current"
-                data-index={0}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "outline": "none",
-                    "width": 0,
-                  }
-                }
-                tabIndex="-1"
+              computer-secure.svg
+            </svg>
+            <div>
+              <p
+                className="sc-gipzik blIAxp"
               >
-                <div>
-                  <div
-                    className="sc-iRbamj WQgfQ"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                        "width": "100%",
-                      }
-                    }
-                    tabIndex={-1}
-                  >
-                    <svg
-                      fill="#00ADEF"
-                      width="28"
-                    >
-                      computer-secure.svg
-                    </svg>
-                    <div>
-                      <p
-                        className="sc-jlyJG hDYOez"
-                      >
-                        Cota
-                      </p>
-                      <span
-                        className="sc-gipzik hviDzY"
-                      >
-                        300
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-hidden={false}
-                className="slick-slide slick-active"
-                data-index={1}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "outline": "none",
-                    "width": 0,
-                  }
-                }
-                tabIndex="-1"
+                Cota
+              </p>
+              <span
+                className="sc-csuQGl huvmgK"
               >
-                <div>
-                  <div
-                    className="sc-iRbamj WQgfQ"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                        "width": "100%",
-                      }
-                    }
-                    tabIndex={-1}
-                  >
-                    <svg
-                      fill="#00ADEF"
-                      width="28"
-                    >
-                      person-group2.svg
-                    </svg>
-                    <div>
-                      <p
-                        className="sc-jlyJG hDYOez"
-                      >
-                        grupo
-                      </p>
-                      <span
-                        className="sc-gipzik hviDzY"
-                      >
-                        x398
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-hidden={false}
-                className="slick-slide slick-active"
-                data-index={2}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "outline": "none",
-                    "width": 0,
-                  }
-                }
-                tabIndex="-1"
-              >
-                <div>
-                  <div
-                    className="sc-iRbamj WQgfQ"
-                    style={
-                      Object {
-                        "display": "inline-block",
-                        "width": "100%",
-                      }
-                    }
-                    tabIndex={-1}
-                  >
-                    <svg
-                      fill="#00ADEF"
-                      width="28"
-                    >
-                      coin.svg
-                    </svg>
-                    <div>
-                      <p
-                        className="sc-jlyJG hDYOez"
-                      >
-                        Crédito contratado
-                      </p>
-                      <span
-                        className="sc-gipzik hviDzY"
-                      >
-                        R$ 40.000,00
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                300
+              </span>
             </div>
           </div>
-          
-          
+          <div
+            className="sc-jlyJG kyFLtE"
+          >
+            <svg
+              fill="#00ADEF"
+              width="28"
+            >
+              person-group2.svg
+            </svg>
+            <div>
+              <p
+                className="sc-gipzik blIAxp"
+              >
+                grupo
+              </p>
+              <span
+                className="sc-csuQGl huvmgK"
+              >
+                x398
+              </span>
+            </div>
+          </div>
+          <div
+            className="sc-jlyJG kyFLtE"
+          >
+            <svg
+              fill="#00ADEF"
+              width="28"
+            >
+              coin.svg
+            </svg>
+            <div>
+              <p
+                className="sc-gipzik blIAxp"
+              >
+                Crédito contratado
+              </p>
+              <span
+                className="sc-csuQGl huvmgK"
+              >
+                R$ 40.000,00
+              </span>
+            </div>
+          </div>
         </div>
         <article
-          className="sc-csuQGl dYUMnX"
+          className="sc-Rmtcm cUjWef"
         >
           <div
-            className="sc-Rmtcm eiXaXW"
+            className="sc-bRBYWo fsgoLh"
           >
             <div
-              className="sc-bRBYWo jHANop"
+              className="sc-hzDkRC lcEqhT"
             >
               <span
-                className="sc-hzDkRC cgfDno"
+                className="sc-jhAzac gpksLn"
                 fontSize="22px"
               >
                 Valor para quitação
               </span>
               <span
-                className="sc-hzDkRC fiqcoK"
+                className="sc-jhAzac kvPhkY"
               >
                 R$ 27.200,00
               </span>
             </div>
             <div
-              className="sc-bRBYWo jHANop"
+              className="sc-hzDkRC lcEqhT"
             >
               <span
-                className="sc-hzDkRC cgfDno"
+                className="sc-jhAzac gpksLn"
                 fontSize="22px"
               >
                 Valor da parcela atual
               </span>
               <span
-                className="sc-hzDkRC fiqcoK"
+                className="sc-jhAzac kvPhkY"
               >
                 R$ 675,00
               </span>
             </div>
           </div>
           <div
-            className="sc-jhAzac kwfZjW"
+            className="sc-fBuWsC hhbMPN"
           >
             <span
-              className="sc-hzDkRC gNhLUh"
+              className="sc-jhAzac fsxKCG"
               fontSize="18px"
             >
               Evolução do pagamento
