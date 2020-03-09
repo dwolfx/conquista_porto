@@ -4,18 +4,18 @@ import Text from 'components/Text'
 
 export const loop = keyframes`
   from {
-    -ms-transform: translateX(-147px);
-    -moz-transform: translateX(-147px);
-    -webkit-transform: translateX(-147px);
-    -o-transform: translateX(-147px);
-    transform: translateX(-147px);
+    -ms-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
   to {
-    -ms-transform: translateX(${props => props.width});
-    -moz-transform: translateX(${props => props.width});
-    -webkit-transform: translateX(${props => props.width});
-    -o-transform: translateX(${props => props.width});
-    transform: translateX(${props => props.width});
+    -ms-transform: translateX(300%);
+    -moz-transform: translateX(300%);
+    -webkit-transform: translateX(300%);
+    -o-transform: translateX(300%);
+    transform: translateX(300%);
   }
 `
 
@@ -27,23 +27,20 @@ export const ComponentContainer = styled.div`
   width: 100%;
 `
 
-export const LoadingBar = styled.div`
-  background-color: ${props => props.theme.colors[props.color]};
-  border-radius: inherit;
-  height: 100%;
-  width: 147px;
-`
-
 export const LoadingContainer = styled.div`
   background-color: ${props => props.theme.colors.gray2};
   border-radius: 4px;
   height: 7px;
   overflow: hidden;
-  width: ${props => props.width};
+  width: 100%;
+`
 
-  ${LoadingBar} {
-    animation: ${loop} 2s linear infinite;
-  }
+export const LoadingBar = styled.div`
+  animation: ${loop} 2s linear infinite;
+  background-color: ${props => props.theme.colors[props.color]};
+  border-radius: inherit;
+  height: 100%;
+  width: calc(100% / 3);
 `
 
 export const LegendText = styled(Text)`

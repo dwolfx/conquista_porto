@@ -13,7 +13,6 @@ import {
 export default function Loading({
   color,
   width,
-  widthBar,
   type,
   legend,
   placement,
@@ -30,7 +29,7 @@ export default function Loading({
           {legend}
         </LegendText>
       )}
-      <LoadingContainer width={widthBar}>
+      <LoadingContainer>
         <LoadingBar color={color} />
       </LoadingContainer>
     </ComponentContainer>
@@ -41,7 +40,6 @@ Loading.defaultProps = {
   color: 'blue4',
   type: 'spinner',
   width: 28,
-  widthBar: '428px',
   legend: '',
   placement: 'top',
 }
@@ -50,7 +48,6 @@ Loading.propTypes = {
   color: PropTypes.string,
   type: PropTypes.oneOf(['spinner', 'bar']),
   width: PropTypes.number,
-  widthBar: PropTypes.string,
   legend: PropTypes.string,
   placement: PropTypes.oneOf(['top', 'bottom']),
 }
