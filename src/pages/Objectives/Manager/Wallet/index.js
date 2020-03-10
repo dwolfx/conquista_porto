@@ -14,7 +14,7 @@ import Loading from 'components/Loading'
 import Text from 'components/Text'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
@@ -140,9 +140,8 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                           width: 100%;
                         `}
                         onClick={() => {
-                          window.open(
-                            `http://otclienthom.portoseguro.brasil/portaldecliente/conquista/aplicacao?idFundo=${fund.id}`,
-                            '_blank'
+                          handleGiwRedirect(
+                            `portaldecliente/conquista/aplicacao?idFundo=${fund.id}`
                           )
                         }}
                       >
@@ -255,9 +254,8 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
                   width: 100%;
                 `}
                 onClick={() => {
-                  window.open(
-                    'http://otclienthom.portoseguro.brasil/portaldecliente/conquista/investimentos/info-fundos-investimento',
-                    '_blank'
+                  handleGiwRedirect(
+                    'portaldecliente/conquista/investimentos/info-fundos-investimento'
                   )
                 }}
               >
