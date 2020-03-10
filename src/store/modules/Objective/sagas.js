@@ -53,5 +53,6 @@ function* getData() {
 
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
+  takeLatest(Types.POST_REQUEST_BY_SIMULATE, postData),
   takeLatest(Types.GET_REQUEST, getData),
 ])

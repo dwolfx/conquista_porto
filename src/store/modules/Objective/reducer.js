@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   objectives: null,
   isLoading: false,
   error: false,
+  isLoadingBySimulate: false,
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -32,16 +33,23 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         isLoading: true,
       }
+    case Types.POST_REQUEST_BY_SIMULATE:
+      return {
+        ...state,
+        isLoadingBySimulate: true,
+      }
     case Types.POST_SUCCESS:
       return {
         ...state,
         data: action.payload,
+        isLoadingBySimulate: false,
         isLoading: false,
       }
     case Types.POST_FAILURE:
       return {
         ...state,
         data: {},
+        isLoadingBySimulate: false,
         isLoading: false,
         error: true,
       }
