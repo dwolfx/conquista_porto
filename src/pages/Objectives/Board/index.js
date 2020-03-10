@@ -38,6 +38,7 @@ const Board = () => {
                   data-gtm-clicktype="button"
                   outline
                   loading={isLoading && loadingButton === card.goal_type}
+                  disabled={isLoading && loadingButton === card.goal_type}
                   onClick={() => {
                     setLoadingButton(card.goal_type)
                     dispatch(
@@ -46,6 +47,7 @@ const Board = () => {
                         link: `${match.path}${card.route}`,
                         history,
                         errorPath: '/objetivos',
+                        goalType: card.goal_type,
                       })
                     )
                   }}

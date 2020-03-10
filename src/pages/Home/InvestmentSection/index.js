@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
-import 'styled-components/macro'
 import { ThemeContext } from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import 'styled-components/macro'
 
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
@@ -93,7 +93,11 @@ export default function InvestmentSection({ onFetchInvestments }) {
   const renderInvestimentCardContent = () => {
     if (isLoading) {
       return (
-        <SectionRow>
+        <SectionRow
+          css={`
+            padding: 0 35px;
+          `}
+        >
           <Loading
             type="bar"
             legend="Aguarde, estamos buscando suas informações..."

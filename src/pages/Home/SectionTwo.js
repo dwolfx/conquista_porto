@@ -134,6 +134,7 @@ export default function SectionTwo({ onRedirect }) {
                   cpf,
                   link: item.link,
                   history,
+                  goalType: item.goalType,
                 })
               )
             }}

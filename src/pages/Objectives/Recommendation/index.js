@@ -92,6 +92,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   })
   const [blurredInputs, setBlurredInputs] = useState([])
   const [formData, setFormData] = useState({})
+  const [activeButton, setActiveButton] = useState(null)
 
   useEffect(() => {
     if (
@@ -155,13 +156,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const submitToRecommendation = () => {
     dispatch(
       PostObjectiveDataRequest({
-        ...formData,
-        initial_value: formatMoneyWithoutCurrencyFlag(formData.initial_value),
-        monthly_value: formatMoneyWithoutCurrencyFlag(formData.monthly_value),
-        target_value: formatMoneyWithoutCurrencyFlag(formData.target_value),
+        data: {
+          ...formData,
+          initial_value: formatMoneyWithoutCurrencyFlag(formData.initial_value),
+          monthly_value: formatMoneyWithoutCurrencyFlag(formData.monthly_value),
+          target_value: formatMoneyWithoutCurrencyFlag(formData.target_value),
+        },
+        onSuccess: () => setIsDrawerOpen(false),
       })
     )
-    setIsDrawerOpen(!isDrawerOpen)
   }
 
   const moneyMask = event => {
@@ -245,10 +248,16 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
     setFormData({ ...formData, [name]: event.target.value })
   }
 
-  const handleReloadRecommendations = suggestionValues => {
+  const handleReloadRecommendations = (suggestionValues, activeBtn) => {
     dispatch(
-      PostObjectiveDataRequestBySimulate({ ...suggestionValues }, isMobile)
+      PostObjectiveDataRequestBySimulate({
+        data: {
+          ...suggestionValues,
+        },
+        isMobile,
+      })
     )
+    setActiveButton(activeBtn)
   }
 
   return (
@@ -463,21 +472,27 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
-                    loading={isLoadingBySimulate}
+                    loading={
+                      isLoadingBySimulate &&
+                      activeButton === 'initialInvestment'
+                    }
                     loadingColor="white"
                     onClick={() => {
-                      handleReloadRecommendations({
-                        ...answer,
-                        target_value: formatMoneyWithoutCurrencyFlag(
-                          answer.target_value
-                        ),
-                        initial_value: formatMoneyWithoutCurrencyFlag(
-                          answer.initial_value
-                        ),
-                        monthly_value: formatMoneyWithoutCurrencyFlag(
-                          suggestion_goal.suggestion_monthly_value
-                        ),
-                      })
+                      handleReloadRecommendations(
+                        {
+                          ...answer,
+                          target_value: formatMoneyWithoutCurrencyFlag(
+                            answer.target_value * 100
+                          ),
+                          initial_value: formatMoneyWithoutCurrencyFlag(
+                            answer.initial_value * 100
+                          ),
+                          monthly_value: formatMoneyWithoutCurrencyFlag(
+                            suggestion_goal.suggestion_monthly_value * 100
+                          ),
+                        },
+                        'initialInvestment'
+                      )
                     }}
                   >
                     simular
@@ -574,22 +589,27 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
-                    loading={isLoadingBySimulate}
+                    loading={
+                      isLoadingBySimulate && activeButton === 'finalDate'
+                    }
                     loadingColor="white"
                     onClick={() => {
-                      handleReloadRecommendations({
-                        ...answer,
-                        target_value: formatMoneyWithoutCurrencyFlag(
-                          answer.target_value
-                        ),
-                        initial_value: formatMoneyWithoutCurrencyFlag(
-                          answer.initial_value
-                        ),
-                        monthly_value: formatMoneyWithoutCurrencyFlag(
-                          answer.monthly_value
-                        ),
-                        target_date: suggestion_goal.suggestion_target_date,
-                      })
+                      handleReloadRecommendations(
+                        {
+                          ...answer,
+                          target_value: formatMoneyWithoutCurrencyFlag(
+                            answer.target_value * 100
+                          ),
+                          initial_value: formatMoneyWithoutCurrencyFlag(
+                            answer.initial_value * 100
+                          ),
+                          monthly_value: formatMoneyWithoutCurrencyFlag(
+                            answer.monthly_value * 100
+                          ),
+                          target_date: suggestion_goal.suggestion_target_date,
+                        },
+                        'finalDate'
+                      )
                     }}
                   >
                     simular

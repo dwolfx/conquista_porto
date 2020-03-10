@@ -15,8 +15,8 @@ import {
   PostObjectiveDataFailure,
 } from './action'
 
-function* postData(data) {
-  const { payload, isMobile } = data
+function* postData({ payload }) {
+  const { data, isMobile, onSuccess } = payload
 
   try {
     let response
@@ -24,16 +24,20 @@ function* postData(data) {
       response = yield call(
         post,
         `${baseURLNamespaceRecommendation}/recommendations?mobile=true`,
-        payload
+        data
       )
     } else {
       response = yield call(
         post,
         `${baseURLNamespaceRecommendation}/recommendations`,
-        payload
+        data
       )
     }
     yield put(PostObjectiveDataSuccess(response.data))
+
+    if (onSuccess) {
+      onSuccess()
+    }
   } catch (err) {
     yield put({
       ...PostObjectiveDataFailure(),

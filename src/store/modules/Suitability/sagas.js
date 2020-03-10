@@ -11,7 +11,9 @@ import {
   SetSuitabilityLoading,
 } from './action'
 
-function* getDataAndRedirect({ payload: { cpf, link, errorPath, history } }) {
+function* getDataAndRedirect({
+  payload: { cpf, link, errorPath, history, goalType },
+}) {
   yield put(SetSuitabilityLoading(true))
 
   const suitabilityState = yield select(getSuitability)
@@ -28,7 +30,7 @@ function* getDataAndRedirect({ payload: { cpf, link, errorPath, history } }) {
       if (response.status === 204) {
         yield put(GetSuitabilityDataNoContent())
         handleGiwRedirect(
-          'portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true'
+          `portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true&codidoObjetivo=${goalType}`
         )
       } else if (response.status === 200) {
         yield put(GetSuitabilityDataSuccess(response.data))
