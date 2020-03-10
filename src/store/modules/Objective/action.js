@@ -26,11 +26,10 @@ export function PostObjectiveDataRequest(payload) {
   }
 }
 
-export function PostObjectiveDataRequestBySimulate(payload, isMobile) {
+export function PostObjectiveDataRequestBySimulate(payload) {
   return {
     type: Types.POST_REQUEST_BY_SIMULATE,
     payload,
-    isMobile,
   }
 }
 
