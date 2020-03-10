@@ -4,7 +4,6 @@ import { ThemeContext } from 'styled-components/macro'
 import { useSelector } from 'react-redux'
 
 import LinearProgressBar from 'components/LinearProgressBar'
-import Button from 'components/Button'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
@@ -200,15 +199,6 @@ export default function ManagementConsortiumVehicle() {
                         max={item.QuantidadeParcelasContratadas}
                         subtitle="parcelas"
                       />
-
-                      <Button
-                        data-gtm-type="click"
-                        data-gtm-clicktype="card"
-                        data-gtm-subname="evolucao do pagamento"
-                        data-gtm-name="acesse o app e faça seu lance"
-                      >
-                        acesse o app e faça seu lance
-                      </Button>
                     </Invoice>
                   </InvoiceContainer>
                 </RightContent>
