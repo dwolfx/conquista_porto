@@ -12,8 +12,22 @@ const baseURLNamespaceRecommendation =
   process.env.REACT_APP_BASE_URL_RECOMMENDATION || ''
 
 const responseInterceptor = response => {
+  let stepChangeTitle = ''
+  let stepChangePath = ''
+
   if (response.data.TipoCritica) {
-    dataLayerErrorInfo(response.data.TipoCritica)
+    window.dataLayer.forEach(dataLayerItem => {
+      if (dataLayerItem.event === 'step_change') {
+        stepChangeTitle = dataLayerItem.pg_title
+        stepChangePath = dataLayerItem.pg_path
+      }
+    })
+
+    dataLayerErrorInfo(
+      response.data.TipoCritica,
+      stepChangePath,
+      stepChangeTitle
+    )
     throw Error(response.data.Mensagem)
   }
   return response

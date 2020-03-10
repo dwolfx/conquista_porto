@@ -7,10 +7,12 @@ import {
   useHistory,
 } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import 'styled-components/macro'
 
 import HeaderNew from 'components/HeaderNew'
 // import Header from 'components/Header'
 import Footer from 'components/Footer'
+import Loading from 'components/Loading'
 
 import Home from 'pages/Home'
 import Investimentos from 'pages/Investments'
@@ -50,9 +52,10 @@ import useFetchConsortiumBuilding from 'hooks/ConsortiumBuilding/useFetchConsort
 import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
-import IconComponent from 'components/IconExporter'
 import googleTagManagerHandler from 'GoogleTagManager'
 import useAuth from './auth'
+
+import { LoadingContainer } from './styles'
 
 const DefaultRoute = ({
   component: Component,
@@ -71,9 +74,9 @@ const DefaultRoute = ({
 
       // while the hook is being called, dont render anything (eliminates blink between screens)
       return (
-        <>
-          <IconComponent name="loading" />
-        </>
+        <LoadingContainer>
+          <Loading type="bar" />
+        </LoadingContainer>
       )
     }
 
@@ -101,6 +104,7 @@ const DefaultRoute = ({
           {...rest}
           computedMatch={match}
           pageTitle={pageTitle}
+          isFinalComponent={Boolean(!dataLength)}
           render={props => {
             // if dataLength !== 0, data exists therefore redirects to management screen
             if (dataLength) {
@@ -135,7 +139,7 @@ DefaultRoute.defaultProps = {
   name: '',
 }
 
-const Route = ({ path, component, pageTitle, ...rest }) => {
+const Route = ({ path, component, pageTitle, isFinalComponent, ...rest }) => {
   const history = useHistory()
   const auth = useSelector(state => state.auth)
   const points = useSelector(
@@ -143,8 +147,18 @@ const Route = ({ path, component, pageTitle, ...rest }) => {
   )
 
   useEffect(() => {
-    googleTagManagerHandler(history.location.pathname, pageTitle, auth, points)
-  }, [history.location.pathname, pageTitle, auth, points])
+    const pathName = history.location.pathname
+    const splitName = pathName.split('/')
+    let title = pageTitle
+
+    if (pathName.includes('objetivos') && splitName.length > 2) {
+      title = `${pageTitle} - ${splitName.slice(-1)}`
+    }
+
+    if (isFinalComponent) {
+      googleTagManagerHandler(history.location.pathname, title, auth, points)
+    }
+  }, [history.location.pathname, pageTitle, auth, points, isFinalComponent])
 
   return (
     <ReactRouterDomRoute
@@ -161,10 +175,12 @@ Route.propTypes = {
   path: PropTypes.string.isRequired,
   component: PropTypes.func,
   pageTitle: PropTypes.string.isRequired,
+  isFinalComponent: PropTypes.bool,
 }
 
 Route.defaultProps = {
   component: null,
+  isFinalComponent: true,
 }
 
 export default function Routes({ ...props }) {
