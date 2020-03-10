@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { HashRouter, useLocation } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import Toast from 'components/Toast'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
@@ -35,7 +35,7 @@ const App = () => (
           <ScrollToTopOnMount />
           <GlobalStyle />
           <Routes />
-          <ToastContainer autoClose={3000} draggable={false} />
+          <Toast />
         </GridThemeProvider>
       </ThemeProvider>
     </HashRouter>
