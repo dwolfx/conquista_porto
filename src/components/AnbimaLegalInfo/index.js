@@ -1,6 +1,8 @@
 import React from 'react'
 
-import logoAnbima from 'assets/images/logo-anbima.png'
+import logoAnbimaGestao from 'assets/images/logo-anbima-gestao.png'
+import logoAnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
+import logoAnbimaComoInvestir from 'assets/images/logo-anbima-como-investir.png'
 
 import {
   TextWrapper,
@@ -67,7 +69,30 @@ const AnbimaLegalInfo = () => (
     </GridRow>
     <GridRow>
       <GridCol lg={12}>
-        <ImgAnbima src={logoAnbima} alt="Logo anbima" />
+        <Link
+          target="_blank"
+          href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          data-gtm-subname="Anbima Gestão de Recursos"
+          data-gtm-name="Anbima Gestão de Recursos"
+        >
+          <ImgAnbima src={logoAnbimaGestao} alt="Logo Anbima Gestão" />
+        </Link>
+        <ImgAnbima
+          src={logoAnbimaDistribuicao}
+          alt="Logo Anbima Distribuição"
+        />
+        <Link
+          target="_blank"
+          href="https://comoinvestir.anbima.com.br/"
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          data-gtm-subname="Anbima Como investir"
+          data-gtm-name="Anbima Como investir"
+        >
+          <ImgAnbima src={logoAnbimaComoInvestir} alt="Como investir" />
+        </Link>
       </GridCol>
     </GridRow>
   </GridContainer>
