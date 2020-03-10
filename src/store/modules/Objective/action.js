@@ -19,11 +19,10 @@ export function GetObjectiveDataFailure() {
   }
 }
 
-export function PostObjectiveDataRequest(payload, isMobile) {
+export function PostObjectiveDataRequest(payload) {
   return {
     type: Types.POST_REQUEST,
     payload,
-    isMobile,
   }
 }
 

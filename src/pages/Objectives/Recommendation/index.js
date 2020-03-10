@@ -155,13 +155,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const submitToRecommendation = () => {
     dispatch(
       PostObjectiveDataRequest({
-        ...formData,
-        initial_value: formatMoneyWithoutCurrencyFlag(formData.initial_value),
-        monthly_value: formatMoneyWithoutCurrencyFlag(formData.monthly_value),
-        target_value: formatMoneyWithoutCurrencyFlag(formData.target_value),
+        data: {
+          ...formData,
+          initial_value: formatMoneyWithoutCurrencyFlag(formData.initial_value),
+          monthly_value: formatMoneyWithoutCurrencyFlag(formData.monthly_value),
+          target_value: formatMoneyWithoutCurrencyFlag(formData.target_value),
+        },
+        onSuccess: () => setIsDrawerOpen(false),
       })
     )
-    setIsDrawerOpen(!isDrawerOpen)
   }
 
   const moneyMask = event => {

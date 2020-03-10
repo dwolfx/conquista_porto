@@ -43,13 +43,13 @@ export const WizardFlow = ({ data, objective }) => {
 
   const postFlow = () => {
     dispatch(
-      PostObjectiveDataRequest(
-        {
+      PostObjectiveDataRequest({
+        data: {
           goal_type: objective,
           ...formData,
         },
-        isMobile
-      )
+        isMobile,
+      })
     )
   }
 
