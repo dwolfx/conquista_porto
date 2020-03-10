@@ -1,14 +1,18 @@
 export const downloadFileSectionData = [
   {
-    title: 'QUADRO DE RENTABILIDADE',
+    title: 'TABELA DE RENTABILIDADE MENSAL',
     description:
-      'Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.',
+      'Acompanhe o rendimento de todos os fundos de Investimento disponíveis.',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Tabela-Mensal/TABELAMENSALDEFUNDOS.pdf',
     buttonText: 'BAIXAR ARQUIVO',
   },
   {
-    title: 'CARTA DO GESTOR',
+    title: 'CENÁRIO ECONÔMICO',
     description:
-      'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
+      'Um resumo mensal do cenário econômico local e internacional produzido pela área econômica da Porto Seguro Investimentos.',
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/relatorio%20economico/Relatorio_Economico_Mensal.pdf',
     buttonText: 'BAIXAR ARQUIVO',
   },
 ]
