@@ -1,14 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Carousel from 'components/Carousel'
 
-export const TopicsMobile = styled(Carousel)`
+const truncate = css`
   display: flex;
   justify-content: space-between;
-  margin: 28px 70px;
+  margin: 28px 30px;
 `
 
 export const Topics = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 28px 70px;
+  ${truncate}
+`
+
+export const TopicsMobile = styled(Carousel)`
+  ${truncate}
 `

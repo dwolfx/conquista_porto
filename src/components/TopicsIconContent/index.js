@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import useMedia from 'hooks/useMedia'
 
-import { TopicsMobile, Topics } from './style'
+import { Topics, TopicsMobile } from './style'
 
 const TopicsIconContent = ({ children }) => {
   const isMobile = useMedia('sm')
@@ -23,7 +22,7 @@ const settings = {
   slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 550,
+      breakpoint: 991,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -31,7 +30,7 @@ const settings = {
       },
     },
     {
-      breakpoint: 370,
+      breakpoint: 767,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
