@@ -7,6 +7,9 @@ import LogoPortoSeguro from 'assets/images/logo-institucional.svg'
 export const FooterWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
   width: 100%;
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding-bottom: 42px;
+  }
 `
 
 export const GridContainer = styled(Container)`

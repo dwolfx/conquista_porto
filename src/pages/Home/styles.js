@@ -10,6 +10,7 @@ import HorizontalList from 'components/HorizontalList'
 import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
+import { LegendText } from 'components/Loading/styles'
 
 import { rgba } from 'helpers'
 
@@ -88,6 +89,9 @@ export const FullHeightCard = styled(Card)`
 
 export const FullHeightCardObjectives = styled(CardObjectives)`
   height: 100%;
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: 150px;
+  }
 `
 
 export const BannerTips = styled(Banner)`
@@ -242,79 +246,6 @@ export const EmptyButton = styled(Button)`
   min-width: 0;
 `
 
-export const SliderBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
-
-export const SliderImageBox = styled.div`
-  border-radius: 8px;
-  height: 100%;
-  margin-top: 14px;
-  margin-bottom: 21px;
-  overflow: hidden;
-  position: relative;
-
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-`
-
-export const SliderCaption = styled.div`
-  bottom: 0;
-  background-color: ${props => rgba(props.theme.colors.gray6, 0.63)};
-  padding: 10px 14px;
-  position: absolute;
-  width: 100%;
-
-  p {
-    color: ${props => props.theme.colors.white};
-  }
-`
-
-export const SliderTextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 0 14px 14px;
-
-  p:last-of-type {
-    color: ${props => props.theme.colors.gray5};
-    flex: 1;
-  }
-`
-
-export const SliderBoxButton = styled(Button)`
-  width: 100%;
-`
-
-export const InvestmentInfos = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-
-  p {
-    color: ${props => props.theme.colors.gray5};
-  }
-`
-
-export const InvestmentInfosRow = styled(Row)`
-  height: 50%;
-  margin-left: 7px;
-  margin-right: 7px;
-
-  &:first-of-type {
-    padding-bottom: 7px;
-    border-bottom: 1px solid ${props => props.theme.colors.gray2};
-  }
-  &:last-of-type {
-    padding-top: 7px;
-  }
-`
 export const ProductItem = styled.div`
   width: 100%;
   color: ${props => props.theme.colors.gray5};
@@ -365,24 +296,6 @@ export const ContainerBox = styled.div`
   border-radius: 8px;
 `
 
-export const TableBox = styled.div`
-  min-width: 33%;
-  margin-bottom: 14px;
-
-  p:first-of-type {
-    margin-bottom: 7px;
-  }
-`
-
-export const ContainerAccountInfo = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-`
-
 export const ModalContentWrapper = styled.div`
   padding: 28px;
 `
@@ -393,17 +306,6 @@ export const ModalTextWrapper = styled.div`
   }
 
   margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
-`
-
-export const PieChartContainer = styled.div`
-  height: 100%;
-  width: 100%;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    height: 305px;
-    width: 236px;
-    margin: 0 auto;
-  }
 `
 
 export const ProductsCol = styled(SectionCol)`
@@ -469,4 +371,17 @@ export const ObjectivesAccordion = styled(AccordionNewComponent)`
 
 export const ObjectiveDivisor = styled(DivisorComponent)`
   margin: 14px 0;
+`
+
+export const LoadingStateObjectivesContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 35px;
+
+  ${LegendText} {
+    text-align: center;
+  }
 `

@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const truncate = css`
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+`
 
 export const Container = styled.div`
   background: white;
@@ -14,15 +18,15 @@ export const Container = styled.div`
   transition: all 0.2s ease 0s;
   display: block;
   text-decoration: none;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  ${props => props.active && truncate};
+
   ::after {
     content: '';
-    display: ${props => !props.active && 'none'};
+    display: ${props => (props.active ? 'block' : 'none')};
     position: absolute;
     left: 100%;
     top: calc(50% - 11px);

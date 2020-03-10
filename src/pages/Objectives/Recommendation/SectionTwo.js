@@ -148,6 +148,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         alignItems="flex-start"
         isOpen={isModalOpen}
         handleClose={() => handleCloseModal()}
+        maxWidth="700px"
       >
         <ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
       </Modal>

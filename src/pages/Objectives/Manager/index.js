@@ -46,9 +46,7 @@ export default function Manager({ location }) {
   } = useSelector(state => state.objectiveManagement)
   const [isLoading, setIsLoading] = useState(false)
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
-  const [dataExists, setDataExists] = useState(
-    Boolean(objectiveData && Object.entries(objectiveData).length !== 0)
-  )
+  const [dataExists, setDataExists] = useState(null)
 
   useEffect(() => {
     setIsLoading(Boolean((!objectiveData && objectiveId) || loadingData))
@@ -56,7 +54,11 @@ export default function Manager({ location }) {
 
   useEffect(() => {
     setDataExists(
-      Boolean(objectiveData && Object.entries(objectiveData).length !== 0)
+      Boolean(
+        objectiveData &&
+          typeof objectiveData === 'object' &&
+          Object.entries(objectiveData).length !== 0
+      )
     )
   }, [objectiveData])
 
@@ -183,7 +185,6 @@ export default function Manager({ location }) {
 
         <ColumnWrapper>
           {dataExists &&
-            typeof objectiveData === 'object' &&
             Object.entries(objectiveData.additional).find(
               ([, value]) => value === true
             ) && (

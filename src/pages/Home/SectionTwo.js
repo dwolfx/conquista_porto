@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
+import Button from 'components/Button'
 import objectiveTypes from 'components/Card/Objectives/types'
 import Text from 'components/Text'
+import Loading from 'components/Loading'
 
 import useMedia from 'hooks/useMedia'
 
@@ -25,6 +28,7 @@ import {
   ObjectivesContainer,
   BannerTipTitle,
   ObjectivesListContainer,
+  LoadingStateObjectivesContainer,
 } from './styles'
 
 export default function SectionTwo({ onRedirect }) {
@@ -36,8 +40,16 @@ export default function SectionTwo({ onRedirect }) {
   const [objectiveCardIndex, setObjectiveCardIndex] = useState(0)
   const [maxObjectiveCards, setMaxObjectiveCards] = useState(2)
 
-  const { objectives, cpf, isLoadingSuitability } = useSelector(state => ({
+  const {
+    objectives,
+    cpf,
+    isLoadingSuitability,
+    isLoadingObjectives,
+    errorObjectives,
+  } = useSelector(state => ({
     objectives: state.objective.objectives,
+    isLoadingObjectives: state.objective.isLoading,
+    errorObjectives: state.objective.error,
     isLoadingSuitability: state.suitability.isLoading,
     cpf: state.auth.cpf,
   }))
@@ -60,7 +72,7 @@ export default function SectionTwo({ onRedirect }) {
     setMaxObjectiveCards(isMobile ? 3 : 2)
   }, [isMobile])
 
-  const renderEmptyState = () => (
+  const EmptyState = () => (
     <EmptyBody>
       <EmptyText bold>
         Com os Objetivos, fica mais fácil alcançar suas metas. Definindo-os,
@@ -79,6 +91,33 @@ export default function SectionTwo({ onRedirect }) {
     </EmptyBody>
   )
 
+  const LoadingState = () => (
+    <LoadingStateObjectivesContainer>
+      <Loading
+        type="bar"
+        legend="Aguarde, estamos buscando suas informações..."
+        widthBar="100%"
+      />
+    </LoadingStateObjectivesContainer>
+  )
+
+  const ErrorState = () => (
+    <LoadingStateObjectivesContainer>
+      <Text
+        type="headline"
+        color="magenta2"
+        css={`
+          margin-bottom: 14px;
+        `}
+      >
+        Não foi possível carregar suas informações.
+      </Text>
+      <Button onClick={() => dispatch(GetObjectiveDataRequest())}>
+        Tentar novamente
+      </Button>
+    </LoadingStateObjectivesContainer>
+  )
+
   const renderObjectiveCards = () =>
     objectiveTypes
       .slice(objectiveCardIndex, objectiveCardIndex + maxObjectiveCards)
@@ -95,6 +134,7 @@ export default function SectionTwo({ onRedirect }) {
                   cpf,
                   link: item.link,
                   history,
+                  goalType: item.goalType,
                 })
               )
             }}
@@ -102,17 +142,28 @@ export default function SectionTwo({ onRedirect }) {
         </SectionCol>
       ))
 
+  const renderObjectivesBodyCard = () => {
+    if (isLoadingObjectives) {
+      return <LoadingState />
+    }
+
+    if (errorObjectives) {
+      return <ErrorState />
+    }
+
+    return hasObjectives ? (
+      <ObjectivesListContainer>
+        <ObjectivesListContent objectives={objectives} />
+      </ObjectivesListContainer>
+    ) : (
+      <EmptyState />
+    )
+  }
   return (
     <>
       <SectionCol md="5">
         <FullHeightCard headerIcon="target" headerTitle="Objetivos">
-          {hasObjectives ? (
-            <ObjectivesListContainer>
-              <ObjectivesListContent objectives={objectives} />
-            </ObjectivesListContainer>
-          ) : (
-            renderEmptyState()
-          )}
+          {renderObjectivesBodyCard()}
         </FullHeightCard>
       </SectionCol>
 
@@ -122,7 +173,7 @@ export default function SectionTwo({ onRedirect }) {
           <SectionCol md="4" xs="6">
             <FullHeightCardObjectives
               icon="add"
-              title="Criar um objetivo"
+              title="Criar objetivo"
               onClick={() => history.push('/objetivos')}
             />
           </SectionCol>

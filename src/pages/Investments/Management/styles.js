@@ -2,11 +2,13 @@ import styled from 'styled-components'
 import AccordionDefault from 'components/Accordion'
 import { AccordionHeader, AccordionBody } from 'components/Accordion/styles'
 import LeftNavDefault from 'components/Management/LeftNav'
+import TopicsIconContent from 'components/TopicsIconContent'
 import RightContentDefault from 'components/Management/RightContent'
 import ConquistaText from 'components/Text'
 import ConquistaIcon from 'components/IconExporter'
 
 export const LeftNav = styled(LeftNavDefault)`
+  overflow: visible;
   @media ${props => props.theme.mediaQueries.md} {
     order: 2;
   }
@@ -71,12 +73,23 @@ export const PageTitle = styled.h4`
 `
 
 export const Topic = styled.div`
+  align-items: flex-start;
   display: flex !important;
-  justify-content: center;
+  justify-content: flex-start;
 
   svg {
     margin-right: 7px;
+    min-width: 28px;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    justify-content: center;
+  }
+`
+
+export const TopicsContentRow = styled(TopicsIconContent)`
+  margin: 28px 20px;
+  width: 100%;
 `
 
 export const TopicTitle = styled.p`

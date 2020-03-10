@@ -1,4 +1,13 @@
 import { betweenLength, minValue, validateMinDate } from './validators'
+import {
+  CAR,
+  COURSE,
+  EVENT,
+  HOME,
+  RETIREMENT,
+  SAVE_MONEY,
+  TRIP,
+} from './goalTypes'
 
 const INITIAL_VALUE_NAME = 'initial_value'
 const TARGET_DATE_NAME = 'target_date'
@@ -20,14 +29,6 @@ const HUNDRED_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 100,00'
 const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
 const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
 const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
-
-const TRIP = '1'
-const RETIREMENT = '2'
-const CAR = '3'
-const COURSE = '4'
-const EVENT = '5'
-const HOME = '6'
-const SAVE_MONEY = '7'
 
 const firstStep = {
   question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
