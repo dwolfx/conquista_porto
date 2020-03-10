@@ -143,6 +143,7 @@ export const ErrorContainer = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100%;
+  padding: 0 35px;
 
   button {
     margin-top: 14px;
