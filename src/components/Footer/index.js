@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
@@ -33,18 +34,7 @@ const content1 = [
     suporte.conquista@portoseguro.com.br
   </LinkText>,
 ]
-const content2 = [
-  <Title bold>CHAT ONLINE</Title>,
-  <LinkText
-    data-gtm-type={gtmType}
-    data-gtm-clicktype={gtmClickType}
-    data-gtm-subname="chat"
-    data-gtm-name="Converse agora com um atendente"
-    hrefValue=""
-  >
-    Converse agora com um atendente
-  </LinkText>,
-]
+
 const content3 = [
   <Title bold>CENTRAL DE ATENDIMENTO</Title>,
   <LogoText>
@@ -138,6 +128,10 @@ const content8 = [
 ]
 
 const Footer = () => {
+  const bankData = useSelector(
+    state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
+  )
+
   const [breakpoint, setBreakpoint] = useState('')
   function checkResolution() {
     const windowWidth = window.innerWidth
@@ -160,14 +154,32 @@ const Footer = () => {
           <GridCol lg="4">
             <ListWrapper>
               <VerticalList elements={content1} />
-              <VerticalList elements={content2} />
+
+              {bankData && (
+                <VerticalList
+                  elements={[
+                    <Title bold>CHAT ONLINE</Title>,
+                    <LinkText
+                      data-gtm-type={gtmType}
+                      data-gtm-clicktype={gtmClickType}
+                      data-gtm-subname="chat"
+                      data-gtm-name="Converse agora com um atendente"
+                      hrefValue={`https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${bankData.cpf}&nome=${bankData.titular}`}
+                      target="_blank"
+                    >
+                      Converse agora com um atendente
+                    </LinkText>,
+                  ]}
+                />
+              )}
+
               <VerticalList elements={content3} />
               <VerticalList elements={content4} />
-              <VerticalList elements={content5} />
             </ListWrapper>
           </GridCol>
           <GridCol lg="4">
             <ListWrapper>
+              <VerticalList elements={content5} />
               <VerticalList elements={content6} />
               <VerticalList elements={content7} />
             </ListWrapper>
