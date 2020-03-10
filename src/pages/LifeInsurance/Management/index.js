@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux'
 import MoreDetails from 'components/Solutions/MoreDetails'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
-import Button from 'components/Button'
 
 import Container from 'components/Management/Container'
 import ManageableItem from 'components/Management/ManageableItem'
@@ -36,7 +35,6 @@ import {
   InvoiceItem,
   Table,
   Text,
-  ClientAreaSection,
   Modal,
   ModalContent,
   Divider,
@@ -321,20 +319,6 @@ export default function ManagementLifeInsurance() {
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />
-        <ClientAreaSection>
-          <Text>
-            Acesse a Área do Cliente para conferir todos os detalhes sobre os
-            produtos da Porto Seguro.
-          </Text>
-          <Button
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            data-gtm-subname="acesse a area do cliente"
-            data-gtm-name="acessar"
-          >
-            ACESSAR
-          </Button>
-        </ClientAreaSection>
 
         <Modal
           isOpen={isOpenModal}
