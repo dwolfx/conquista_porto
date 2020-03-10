@@ -4,6 +4,8 @@ const INITIAL_STATE = {
   data: null,
   objectives: null,
   isLoading: false,
+  error: false,
+  isLoadingBySimulate: false,
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -12,6 +14,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: true,
+        error: false,
       }
     case Types.GET_SUCCESS:
       return {
@@ -23,23 +26,32 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: false,
+        error: true,
       }
     case Types.POST_REQUEST:
       return {
         ...state,
         isLoading: true,
       }
+    case Types.POST_REQUEST_BY_SIMULATE:
+      return {
+        ...state,
+        isLoadingBySimulate: true,
+      }
     case Types.POST_SUCCESS:
       return {
         ...state,
         data: action.payload,
+        isLoadingBySimulate: false,
         isLoading: false,
       }
     case Types.POST_FAILURE:
       return {
         ...state,
         data: {},
+        isLoadingBySimulate: false,
         isLoading: false,
+        error: true,
       }
     case Types.CLEAN_DATA:
       return {

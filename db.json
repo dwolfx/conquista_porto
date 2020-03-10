@@ -2375,16 +2375,12 @@
     }
   ],
   "goal_recommendations": {
-    "nickname": "Disney",
-    "target_date": "30/12/2019",
-    "target_value": "70.000.000.000.000.000,00",
-    "initial_value": "30.000.000.000.000.000,00",
-    "monthly_value": "10.000.000.000.000.000,00",
-    "would_like_to_receive_before_final_date": false,
-    "would_like_to_receive_monthly_income": false,
     "goal_type": "1",
-    "is_easy_to_save_planned_amount": false,
-    "is_target_date_flexible": false
+    "nickname": "Disney",
+    "target_date": "05/06/2021",
+    "target_value": "70.000.000,00",
+    "initial_value": "5.000,00",
+    "monthly_value": "1.000,00"
   },
   "goal_management": {
     "id": "1"

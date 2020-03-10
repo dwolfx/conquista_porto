@@ -4,18 +4,18 @@ import Text from 'components/Text'
 
 export const loop = keyframes`
   from {
-    -ms-transform: translateX(-147px);
-    -moz-transform: translateX(-147px);
-    -webkit-transform: translateX(-147px);
-    -o-transform: translateX(-147px);
-    transform: translateX(-147px);
+    -ms-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
   to {
-    -ms-transform: translateX(428px);
-    -moz-transform: translateX(428px);
-    -webkit-transform: translateX(428px);
-    -o-transform: translateX(428px);
-    transform: translateX(428px);
+    -ms-transform: translateX(300%);
+    -moz-transform: translateX(300%);
+    -webkit-transform: translateX(300%);
+    -o-transform: translateX(300%);
+    transform: translateX(300%);
   }
 `
 
@@ -32,7 +32,7 @@ export const LoadingContainer = styled.div`
   border-radius: 4px;
   height: 7px;
   overflow: hidden;
-  width: 428px;
+  width: 100%;
 `
 
 export const LoadingBar = styled.div`
@@ -40,7 +40,7 @@ export const LoadingBar = styled.div`
   background-color: ${props => props.theme.colors[props.color]};
   border-radius: inherit;
   height: 100%;
-  width: 147px;
+  width: calc(100% / 3);
 `
 
 export const LegendText = styled(Text)`

@@ -26,6 +26,7 @@ import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
 import {
   CleanObjectiveData,
   PostObjectiveDataRequest,
+  PostObjectiveDataRequestBySimulate,
 } from 'store/modules/Objective/action'
 import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/action'
 
@@ -71,12 +72,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const themeContext = useContext(ThemeContext)
   const isMobile = useMedia('sm')
   const dispatch = useDispatch()
-  const { isLoadingManagement, objectiveManagementData } = useSelector(
-    state => ({
-      objectiveManagementData: state.objectiveManagement.data,
-      isLoadingManagement: state.objectiveManagement.isLoading,
-    })
-  )
+  const {
+    isLoadingManagement,
+    objectiveManagementData,
+    isLoadingBySimulate,
+  } = useSelector(state => ({
+    objectiveManagementData: state.objectiveManagement.data,
+    isLoadingManagement: state.objectiveManagement.isLoading,
+    isLoadingBySimulate: state.objective.isLoadingBySimulate,
+  }))
 
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -242,8 +246,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   }
 
   const handleReloadRecommendations = suggestionValues => {
-    dispatch(PostObjectiveDataRequest({ ...suggestionValues }))
-    setShowUnmetGoalBanner(false)
+    dispatch(
+      PostObjectiveDataRequestBySimulate({ ...suggestionValues }, isMobile)
+    )
   }
 
   return (
@@ -339,7 +344,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
           </FormWrapper>
         </Drawer>
         <Container>
-          {showUnmetGoalBanner && (
+          {showUnmetGoalBanner && suggestion_goal && (
             <CardWithCloseButton>
               <CloseButton
                 data-gtm-subname="card condicoes insuficientes para alcançar seu objetivo"
@@ -458,6 +463,8 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
+                    loading={isLoadingBySimulate}
+                    loadingColor="white"
                     onClick={() => {
                       handleReloadRecommendations({
                         ...answer,
@@ -567,6 +574,8 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="simular"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
+                    loading={isLoadingBySimulate}
+                    loadingColor="white"
                     onClick={() => {
                       handleReloadRecommendations({
                         ...answer,
@@ -660,7 +669,7 @@ Recommendation.defaultProps = {
     funds: [],
     credit_product: {},
     additional: {},
-    suggestion_goal: {},
+    suggestion_goal: null,
   },
 }
 

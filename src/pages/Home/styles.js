@@ -10,6 +10,7 @@ import HorizontalList from 'components/HorizontalList'
 import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
+import { LegendText } from 'components/Loading/styles'
 
 import { rgba } from 'helpers'
 
@@ -370,4 +371,17 @@ export const ObjectivesAccordion = styled(AccordionNewComponent)`
 
 export const ObjectiveDivisor = styled(DivisorComponent)`
   margin: 14px 0;
+`
+
+export const LoadingStateObjectivesContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 35px;
+
+  ${LegendText} {
+    text-align: center;
+  }
 `
