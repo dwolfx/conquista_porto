@@ -264,6 +264,8 @@ export default function ManagementConsortiumVehicle() {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
+            url:
+              'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/consorcio-veiculos/regulamento_consorcio_de_automovel.pdf',
             buttonText: 'BAIXAR ARQUIVO',
           },
           {
