@@ -2,12 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import Divisor from 'components/Divisor'
 
-import InvestmentSection from './InvestmentSection'
+import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
+import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
+import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
+import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
+import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
+import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 
+import InvestmentSection from './InvestmentSection'
 import ProductItemGenerator from './ProductItemGenerator'
 
 import {
@@ -19,25 +25,48 @@ import {
 } from './styles'
 
 const SectionOne = ({ onFetchInvestments }) => {
-  const vehiclesFinancings = useSelector(state => state.vehicleFinancing)
-  const creditCards = useSelector(state => state.creditCard)
-  const vehiclesConsortium = useSelector(state => state.consortiumVehicle)
-  const buildingConsortium = useSelector(state => state.consortiumBuilding)
+  const {
+    auth,
+    vehiclesFinancings,
+    creditCards,
+    vehiclesConsortium,
+    buildingConsortium,
+  } = useSelector(state => ({
+    auth: state.auth,
+    vehiclesFinancings: state.vehicleFinancing,
+    creditCards: state.creditCard,
+    vehiclesConsortium: state.consortiumVehicle,
+    buildingConsortium: state.consortiumBuilding,
+  }))
 
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const renderCreditProducts = () => {
     let result = []
 
     result = [
-      ...ProductItemGenerator(creditCards, 'cartaoCredito', history),
+      ...ProductItemGenerator(creditCards, 'cartaoCredito', history, () =>
+        dispatch(GetCreditCardDataRequest(auth.cpf))
+      ),
       ...ProductItemGenerator(
         vehiclesFinancings,
         'financiamentoVeiculo',
-        history
+        history,
+        () => dispatch(GetVehicleFinancingDataRequest(auth.cpf))
       ),
-      ...ProductItemGenerator(vehiclesConsortium, 'consorcioVeiculo', history),
-      ...ProductItemGenerator(buildingConsortium, 'consorcioImovel', history),
+      ...ProductItemGenerator(
+        vehiclesConsortium,
+        'consorcioVeiculo',
+        history,
+        () => dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
+      ),
+      ...ProductItemGenerator(
+        buildingConsortium,
+        'consorcioImovel',
+        history,
+        () => dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
+      ),
     ]
 
     return formatResult(insertDivisor, sortArray)(result)
@@ -73,16 +102,24 @@ const SectionOne = ({ onFetchInvestments }) => {
 }
 
 const InsuranceCard = () => {
-  const lifeInsurance = useSelector(state => state.lifeInsurance)
-  const tripInsurance = useSelector(state => state.tripInsurance)
+  const { auth, lifeInsurance, tripInsurance } = useSelector(state => ({
+    auth: state.auth,
+    lifeInsurance: state.lifeInsurance,
+    tripInsurance: state.tripInsurance,
+  }))
 
   const history = useHistory()
+  const dispatch = useDispatch()
 
   let result = []
 
   result = [
-    ...ProductItemGenerator(lifeInsurance, 'seguroVida', history),
-    ...ProductItemGenerator(tripInsurance, 'seguroViagem', history),
+    ...ProductItemGenerator(lifeInsurance, 'seguroVida', history, () =>
+      dispatch(GetLifeInsuranceDataRequest(auth.cpf))
+    ),
+    ...ProductItemGenerator(tripInsurance, 'seguroViagem', history, () =>
+      dispatch(GetTripInsuranceDataRequest(auth.cpf))
+    ),
   ]
 
   return formatResult(insertDivisor, sortArray)(result)

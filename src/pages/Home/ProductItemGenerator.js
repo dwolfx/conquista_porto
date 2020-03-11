@@ -20,12 +20,14 @@ import {
   LinearProgressBarContent,
   TextBlack,
   HorizontalListWithMargin,
+  ErrorText,
 } from './styles'
 
 const ProductItemGenerator = (
   productList = {},
   type = 'notImplemented',
-  history = () => {}
+  history = () => {},
+  action
 ) => {
   if (type === 'notImplemented') return []
 
@@ -58,6 +60,7 @@ const ProductItemGenerator = (
             atualItemDetail={atualItemDetail}
             hasError={hasError}
             isLoading={isLoading}
+            reloadAction={action}
           />
         </React.Fragment>,
       ]
@@ -261,7 +264,12 @@ function genericBottomLine(product, history, itemTitle) {
   )
 }
 
-const EmptyProductItem = ({ atualItemDetail, hasError, isLoading }) => {
+const EmptyProductItem = ({
+  atualItemDetail,
+  hasError,
+  isLoading,
+  reloadAction,
+}) => {
   const history = useHistory()
   const cardTitle = atualItemDetail.title.toLowerCase().includes('seguro')
     ? 'seguros'
@@ -279,7 +287,11 @@ const EmptyProductItem = ({ atualItemDetail, hasError, isLoading }) => {
           css={`
             cursor: pointer;
           `}
-          onClick={() => console.log('teste')}
+          onClick={() => {
+            if (reloadAction) {
+              reloadAction()
+            }
+          }}
         />
       )
     }
@@ -304,6 +316,7 @@ const EmptyProductItem = ({ atualItemDetail, hasError, isLoading }) => {
         startItems={[
           <Text type="headline" color="gray5">
             {atualItemDetail.title}
+            {hasError && <ErrorText>Falha ao carregar</ErrorText>}
           </Text>,
         ]}
         endItems={[<EndItems />]}
@@ -316,11 +329,13 @@ EmptyProductItem.propTypes = {
   atualItemDetail: PropTypes.object.isRequired,
   hasError: PropTypes.bool,
   isLoading: PropTypes.bool,
+  reloadAction: PropTypes.func,
 }
 
 EmptyProductItem.defaultProps = {
   hasError: false,
   isLoading: false,
+  reloadAction: null,
 }
 
 export default ProductItemGenerator
