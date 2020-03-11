@@ -185,6 +185,7 @@ export default function Manager({ location }) {
 
         <ColumnWrapper>
           {dataExists &&
+            objectiveData.additional &&
             Object.entries(objectiveData.additional).find(
               ([, value]) => value === true
             ) && (

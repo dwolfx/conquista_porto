@@ -10,7 +10,14 @@ function* getData({ cpf }) {
       get,
       `${baseURLNamespaceInvest}/cartoes?cpfCnpj=${cpf}&codigoCanal=0`
     )
-    yield put(GetCreditCardDataSuccess(response.data))
+
+    let responseData = response.data
+
+    if (response.data.Mensagem) {
+      responseData = []
+    }
+
+    yield put(GetCreditCardDataSuccess(responseData))
   } catch (err) {
     yield put(GetCreditCardDataFailure())
   }

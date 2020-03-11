@@ -385,3 +385,9 @@ export const LoadingStateObjectivesContainer = styled.div`
     text-align: center;
   }
 `
+
+export const ErrorText = styled(Text)`
+  color: ${props => props.theme.colors.magenta2};
+  margin-top: 7px;
+  ${props => props.theme.fontTypes.captionUppercase}
+`

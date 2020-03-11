@@ -14,7 +14,6 @@ function* getData({ cpf }) {
 
     if (response && response.data.Mensagem) {
       yield put(GetPositionDataFailure())
-      console.error('Error: ', response.data.Mensagem)
     } else {
       yield put(GetPositionDataSuccess(response.data))
     }

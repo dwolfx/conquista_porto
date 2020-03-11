@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
+import 'styled-components/macro'
+
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 import Button from 'components/Button'
 import Icon from 'components/IconExporter'
-
-import { useHistory } from 'react-router-dom'
+import Loading from 'components/Loading'
 
 import { formatMoney } from 'helpers'
 
@@ -18,19 +20,22 @@ import {
   LinearProgressBarContent,
   TextBlack,
   HorizontalListWithMargin,
+  ErrorText,
 } from './styles'
 
 const ProductItemGenerator = (
-  productList = [],
+  productList = {},
   type = 'notImplemented',
-  history = () => {}
+  history = () => {},
+  onRetry
 ) => {
   if (type === 'notImplemented') return []
 
+  const { data, hasError, isLoading } = productList
   const atualItemDetail = itemDetail[type]
 
-  return productList && productList.length > 0
-    ? productList.map((product, index) => {
+  return data && data.length > 0
+    ? data.map((product, index) => {
         const id = `${type}-${Date.now().toPrecision() + index}`
 
         return (
@@ -51,7 +56,12 @@ const ProductItemGenerator = (
       })
     : [
         <React.Fragment key={`empty-${Math.random()}`}>
-          <EmptyProductItem atualItemDetail={atualItemDetail} />
+          <EmptyProductItem
+            atualItemDetail={atualItemDetail}
+            hasError={hasError}
+            isLoading={isLoading}
+            onRetry={onRetry}
+          />
         </React.Fragment>,
       ]
 }
@@ -254,31 +264,62 @@ function genericBottomLine(product, history, itemTitle) {
   )
 }
 
-const EmptyProductItem = ({ atualItemDetail }) => {
+const EmptyProductItem = ({
+  atualItemDetail,
+  hasError,
+  isLoading,
+  onRetry,
+}) => {
   const history = useHistory()
   const cardTitle = atualItemDetail.title.toLowerCase().includes('seguro')
     ? 'seguros'
     : 'credito'
+
+  const EndItems = () => {
+    if (isLoading) {
+      return <Loading />
+    }
+    if (hasError) {
+      return (
+        <Icon
+          name="reload"
+          color="blue4"
+          css={`
+            cursor: pointer;
+          `}
+          onClick={() => {
+            if (onRetry) {
+              onRetry()
+            }
+          }}
+        />
+      )
+    }
+
+    return (
+      <Button
+        data-gtm-subname={`card ${cardTitle} ${atualItemDetail.title}`}
+        data-gtm-name="conheca"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        color="secondary"
+        onClick={() => history.push(atualItemDetail.linkEmpty)}
+      >
+        CONHEÇA
+      </Button>
+    )
+  }
+
   return (
     <EmptyProductItemRow>
       <HorizontalListWithMargin
         startItems={[
           <Text type="headline" color="gray5">
             {atualItemDetail.title}
+            {hasError && <ErrorText>Falha ao carregar</ErrorText>}
           </Text>,
         ]}
-        endItems={[
-          <Button
-            data-gtm-subname={`card ${cardTitle} ${atualItemDetail.title}`}
-            data-gtm-name="conheca"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            color="secondary"
-            onClick={() => history.push(atualItemDetail.linkEmpty)}
-          >
-            CONHEÇA
-          </Button>,
-        ]}
+        endItems={[<EndItems />]}
       />
     </EmptyProductItemRow>
   )
@@ -286,6 +327,15 @@ const EmptyProductItem = ({ atualItemDetail }) => {
 
 EmptyProductItem.propTypes = {
   atualItemDetail: PropTypes.object.isRequired,
+  hasError: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  onRetry: PropTypes.func,
+}
+
+EmptyProductItem.defaultProps = {
+  hasError: false,
+  isLoading: false,
+  onRetry: null,
 }
 
 export default ProductItemGenerator

@@ -13,15 +13,13 @@ function* getData({ cpf }) {
       get,
       `${baseURLNamespaceInvest}/financiamentos/auto?cpf=${cpf}&codigoCanal=0`
     )
-    if (
-      response.data.TipoCritica ||
-      response.data.Mensagem ||
-      response.data.mensagem
-    ) {
-      yield put(GetVehicleFinancingFailure())
-    } else {
-      yield put(GetVehicleFinancingSuccess(response.data))
+    let responseData = response.data
+
+    if (response.data.Mensagem) {
+      responseData = []
     }
+
+    yield put(GetVehicleFinancingSuccess(responseData))
   } catch (err) {
     yield put(GetVehicleFinancingFailure())
   }

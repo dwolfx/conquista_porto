@@ -145,6 +145,7 @@ export default function ObjectiveListContent({ objectives }) {
                 )
               }}
               loading={isLoading && loadingObjectiveButton === objective.id}
+              disabled={isLoading}
             >
               GERENCIAR
             </Button>
