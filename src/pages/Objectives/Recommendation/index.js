@@ -593,6 +593,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     loading={
                       isLoadingBySimulate && activeButton === 'finalDate'
                     }
+                    disabled={isLoadingBySimulate}
                     loadingColor="white"
                     onClick={() => {
                       handleReloadRecommendations(
