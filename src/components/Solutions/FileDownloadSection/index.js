@@ -25,9 +25,9 @@ export default function FileDownloadSection({ data, ...rest }) {
               <Title>{item.title}</Title>
               <Description align="left">{item.description}</Description>
               <Link
+                target="_blank"
                 to={{
-                  pathname: '/redirect',
-                  state: { url: item.url },
+                  pathname: `/redirect?to=${item.url}`,
                 }}
                 data-gtm-type="click"
                 data-gtm-clicktype="link"
