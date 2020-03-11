@@ -48,7 +48,6 @@ export default function(state = INITIAL_STATE, action) {
     case Types.POST_FAILURE:
       return {
         ...state,
-        data: {},
         isLoadingBySimulate: false,
         isLoading: false,
         hasError: true,
