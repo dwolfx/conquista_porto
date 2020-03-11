@@ -469,8 +469,9 @@ Array [
             data-gtm-name="BAIXAR ARQUIVO"
             data-gtm-subname="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
             data-gtm-type="click"
-            href="/redirect"
+            href="/redirect?to=undefined"
             onClick={[Function]}
+            target="_blank"
           >
             <p
               className="sc-iAyFgw dYKjsZ"
@@ -510,8 +511,9 @@ Array [
             data-gtm-name="BAIXAR ARQUIVO"
             data-gtm-subname="CONDIÇÕES GERAIS"
             data-gtm-type="click"
-            href="/redirect"
+            href="/redirect?to=https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/consorcio-veiculos/regulamento_consorcio_de_automovel.pdf"
             onClick={[Function]}
+            target="_blank"
           >
             <p
               className="sc-iAyFgw dYKjsZ"
@@ -551,8 +553,9 @@ Array [
             data-gtm-name="BAIXAR ARQUIVO"
             data-gtm-subname="TABELA DE TARIFAS"
             data-gtm-type="click"
-            href="/redirect"
+            href="/redirect?to=undefined"
             onClick={[Function]}
+            target="_blank"
           >
             <p
               className="sc-iAyFgw dYKjsZ"

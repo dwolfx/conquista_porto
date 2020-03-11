@@ -16,21 +16,29 @@ import {
 
 /**
  * ### HOW TO USE ###
- * The button which will navigate to Redirect page must have the following 'to' param:
- *  <Link to={{
- *    pathname: "/redirect",
- *    state: {url: "https://www.yourUrlToRedirect.com.br"}
- *  }}>Click me</Link>
+ * The button which will navigate to Redirect page must have the following 'to' param with the url as query param:
+ *  <Link
+ *    target="_blank"
+ *    to={{
+ *      pathname: `/redirect?to=https://www.yourUrlToRedirect.com.br`,
+ *    }}
+ *    data-gtm-type="click"
+ *    data-gtm-clicktype="link"
+ *    data-gtm-subname="container_name"
+ *    data-gtm-name="button_name"
+ *  >Click me</Link>
  */
 
-export default function Redirect(props) {
+export default function Redirect({ history }) {
   const [counter, setCounter] = useState(5)
 
+  const urlToGo = new URLSearchParams(history.location.search).get('to')
+
   function navigate() {
-    if (props.history.location.state && props.history.location.state.url) {
-      window.open(props.history.location.state.url, '_blank')
+    if (urlToGo) {
+      window.open(urlToGo, '_self')
     } else {
-      window.open('https://www.portoseguro.com.br', '_blank')
+      window.open('https://www.portoseguro.com.br', '_self')
     }
   }
 
