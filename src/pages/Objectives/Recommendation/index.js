@@ -53,7 +53,6 @@ import {
   UnmetGoalCard,
   SimulateButton,
   ButtonSubmit,
-  IconLoading,
   FormWrapper,
   ColInput,
   ErrorMessageContainer,
@@ -148,8 +147,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         invalidInput.monthly_value ||
         invalidInput.target_date
       }
+      isLoading={isLoading}
     >
-      Confirmar e recalcular {isLoading && <IconLoading />}
+      Confirmar e recalcular
     </ButtonSubmit>
   )
 
@@ -477,6 +477,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                       activeButton === 'initialInvestment'
                     }
                     loadingColor="white"
+                    disabled={isLoadingBySimulate}
                     onClick={() => {
                       handleReloadRecommendations(
                         {

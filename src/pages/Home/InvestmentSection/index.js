@@ -108,7 +108,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
     if (hasError) {
       return (
         <ErrorContainer>
-          <Text color="magenta2">
+          <Text type="headline" color="magenta2">
             Não foi possível carregar suas informações.
           </Text>
           <Button onClick={onFetchInvestments}>Tentar novamente</Button>

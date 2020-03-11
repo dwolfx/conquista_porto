@@ -3,6 +3,7 @@ import { Container, Row } from 'styled-bootstrap-grid'
 
 import BannerComponent from 'components/Banner'
 import Card from 'components/Card'
+import { LoadingContainer } from 'components/Loading/styles'
 
 export const GridContainer = styled(Container)`
   padding: 35px 0;
@@ -61,6 +62,10 @@ export const LoadingStateContainer = styled.div`
   display: flex;
   height: 474px;
   justify-content: center;
+
+  ${LoadingContainer} {
+    width: 428px;
+  }
 `
 
 export const ButtonContainerModal = styled.div`
