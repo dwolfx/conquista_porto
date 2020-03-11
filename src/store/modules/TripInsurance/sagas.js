@@ -13,7 +13,22 @@ function* getData({ cpf }) {
       get,
       `${baseURLNamespaceInvest}/produtos/vida?cpfCnpj=${cpf}&codigoCanal=1&tipoSeguro=VIAGEM`
     )
-    yield put(GetTripInsuranceDataSuccess(response.data))
+
+    let responseData = response.data
+
+    if (response.data.Mensagem) {
+      responseData = []
+    }
+
+    try {
+      responseData = [responseData.ProdutosViagem.Viagem].flatMap(
+        product => product
+      )
+    } catch (err) {
+      responseData = []
+    }
+
+    yield put(GetTripInsuranceDataSuccess(responseData))
   } catch (err) {
     yield put(GetTripInsuranceDataFailure())
   }

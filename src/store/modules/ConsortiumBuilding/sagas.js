@@ -13,7 +13,14 @@ function* getData({ cpf }) {
       get,
       `${baseURLNamespaceInvest}/consorcios/imovel?Cpf=${cpf}&codigoCanal=1`
     )
-    yield put(GetConsortiumBuildingDataSuccess(response.data.consorcios))
+
+    let responseData = response.data
+
+    if (response.data.Mensagem) {
+      responseData = []
+    }
+
+    yield put(GetConsortiumBuildingDataSuccess(responseData.consorcios || []))
   } catch (err) {
     yield put(GetConsortiumBuildingDataFailure())
   }
