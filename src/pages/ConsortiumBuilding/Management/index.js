@@ -266,6 +266,8 @@ export default function ManagementConsortiumBuilding() {
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
             buttonText: 'BAIXAR ARQUIVO',
+            url:
+              'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-imoveis/consorcio-imoveis/regulamento_consorcio_de_imovel.pdf',
           },
           {
             title: 'TABELA DE TARIFAS',
