@@ -17,9 +17,14 @@ export const validateMinLength = (value, minLength) => {
 export const isInvalidDate = value =>
   !moment(value, 'DD/MM/YYYY', true).isValid()
 
-export const minDate = (value, expectedDiffDay) =>
+export const minDate = (value, expectedDiffMonth) =>
   moment(value, 'DD/MM/YYYY').isSameOrAfter(
-    moment().add(expectedDiffDay, 'day')
+    moment().add(expectedDiffMonth, 'month')
+  )
+
+export const maxDate = (value, expectedDiffMonth) =>
+  moment(value, 'DD/MM/YYYY').isSameOrBefore(
+    moment().add(expectedDiffMonth, 'month')
   )
 
 export const minValue = (value, minimum) => {
@@ -36,10 +41,15 @@ export const betweenLength = (minLength, maxLength, value) => {
   }
 }
 
-export const validateMinDate = (value, minDataErrorText) => {
+export const validateDate = (value, minDateErrorText, maxDateErrorText) => {
   if (isInvalidDate(value)) {
     return 'Data inválida'
   }
-  const isValid = minDate(value, 180)
-  return isValid ? undefined : minDataErrorText
+  if (!minDate(value, 6)) {
+    return minDateErrorText
+  }
+  if (!maxDate(value, 360)) {
+    return maxDateErrorText
+  }
+  return undefined
 }
