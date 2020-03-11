@@ -19,10 +19,10 @@ import {
 } from './styles'
 
 const SectionOne = ({ onFetchInvestments }) => {
-  const vehiclesFinancings = useSelector(state => state.vehicleFinancing.data)
-  const creditCards = useSelector(state => state.creditCard.data)
-  const vehiclesConsortium = useSelector(state => state.consortiumVehicle.data)
-  const buildingConsortium = useSelector(state => state.consortiumBuilding.data)
+  const vehiclesFinancings = useSelector(state => state.vehicleFinancing)
+  const creditCards = useSelector(state => state.creditCard)
+  const vehiclesConsortium = useSelector(state => state.consortiumVehicle)
+  const buildingConsortium = useSelector(state => state.consortiumBuilding)
 
   const history = useHistory()
 
@@ -73,8 +73,8 @@ const SectionOne = ({ onFetchInvestments }) => {
 }
 
 const InsuranceCard = () => {
-  const lifeInsurance = useSelector(state => state.lifeInsurance.data)
-  const tripInsurance = useSelector(state => state.tripInsurance.data)
+  const lifeInsurance = useSelector(state => state.lifeInsurance)
+  const tripInsurance = useSelector(state => state.tripInsurance)
 
   const history = useHistory()
 
