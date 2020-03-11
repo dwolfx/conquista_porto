@@ -24,18 +24,32 @@ export default function FileDownloadSection({ data, ...rest }) {
             <div>
               <Title>{item.title}</Title>
               <Description align="left">{item.description}</Description>
-              <Link
-                target="_blank"
-                to={{
-                  pathname: `/redirect?to=${item.url}`,
-                }}
-                data-gtm-type="click"
-                data-gtm-clicktype="link"
-                data-gtm-subname={item.title}
-                data-gtm-name={item.buttonText}
-              >
-                <DownloadLink>{item.buttonText} &gt; </DownloadLink>
-              </Link>
+              {item.willRedirect ? (
+                <Link
+                  target="_blank"
+                  to={
+                    item.willRedirect
+                      ? { pathname: `/redirect?to=${item.url}` }
+                      : item.url
+                  }
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname={item.title}
+                  data-gtm-name={item.buttonText}
+                >
+                  <DownloadLink>{item.buttonText} &gt; </DownloadLink>
+                </Link>
+              ) : (
+                <DownloadLink
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname={item.title}
+                  data-gtm-name={item.buttonText}
+                  onClick={() => window.open(item.url, '_blank')}
+                >
+                  {item.buttonText} &gt;{' '}
+                </DownloadLink>
+              )}
             </div>
           </ColItem>
         ))}
@@ -51,6 +65,7 @@ FileDownloadSection.propTypes = {
       iconName: PropTypes.string,
       description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
       buttonText: PropTypes.string,
+      willRedirect: PropTypes.bool.isRequired,
       url: PropTypes.string,
     })
   ).isRequired,

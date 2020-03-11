@@ -62,6 +62,7 @@ const downloadFileSectionData = [
     buttonText: 'Visualizar',
     url:
       'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/vida_individual_/vida_e_acidentes_pessoais%20_individual_anual.pdf',
+    willRedirect: false,
   },
 ]
 

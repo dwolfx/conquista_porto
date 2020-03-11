@@ -260,12 +260,14 @@ export default function ManagementConsortiumBuilding() {
             description:
               'Aqui, você tem mais informações legais sobre consórcio.',
             buttonText: 'BAIXAR ARQUIVO',
+            willRedirect: false,
           },
           {
             title: 'CONDIÇÕES GERAIS',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
             buttonText: 'BAIXAR ARQUIVO',
+            willRedirect: false,
             url:
               'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-imoveis/consorcio-imoveis/regulamento_consorcio_de_imovel.pdf',
           },
@@ -274,6 +276,7 @@ export default function ManagementConsortiumBuilding() {
             description:
               'Confira mais informações sobre tarifas envolvidas na contratação de consórcio.',
             buttonText: 'BAIXAR ARQUIVO',
+            willRedirect: false,
           },
         ]}
       />

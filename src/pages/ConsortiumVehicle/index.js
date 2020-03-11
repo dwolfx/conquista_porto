@@ -129,6 +129,7 @@ export default function ConsortiumVehicle() {
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Veículos da Porto Seguro.',
             buttonText: 'Visualizar',
+            willRedirect: false,
             url:
               'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/consorcio-veiculos/regulamento_consorcio_de_automovel.pdf',
           },
