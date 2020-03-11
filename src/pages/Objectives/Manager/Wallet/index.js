@@ -238,7 +238,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
             onClick: () => saveEditionsFunds(),
             loading: isLoadingSave,
             loadingColor: 'white',
-            disabled: !hasUnsavedChanges,
+            disabled: !hasUnsavedChanges || isLoadingSave,
           }}
           footer={
             !isLoading && fundList ? (

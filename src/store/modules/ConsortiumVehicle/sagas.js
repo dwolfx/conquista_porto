@@ -20,7 +20,14 @@ function* getData({ cpf }) {
       get,
       `${baseURLNamespaceInvest}/consorcios/auto?cpf=${cpf}&codigoCanal=1`
     )
-    yield put(GetConsortiumVehicleDataSuccess(addId(response.data.consorcios)))
+
+    let responseData = []
+
+    if (!response.data.Mensagem) {
+      responseData = addId(response.data.consorcios)
+    }
+
+    yield put(GetConsortiumVehicleDataSuccess(responseData))
   } catch (err) {
     yield put(GetConsortiumVehicleDataFailure())
   }
