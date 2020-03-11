@@ -62,10 +62,10 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
         </TabList>
         <TabPanel name="tab-perfil-risco">
           <PanelBody>
-            {fundDetails.profile && (
+            {fundDetails['wsdls/profile'] && (
               <SingleItem>
                 <SubTitle icon="flag" title="Perfil de risco" />
-                <RiskDegree profile={fundDetails.profile} />
+                <RiskDegree profile={fundDetails['wsdls/profile']} />
               </SingleItem>
             )}
             <SingleItem borderBottom>
@@ -162,9 +162,11 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
           <PanelBody>
             <SingleItem>
               <SubTitle icon="linechart" title="Rentabilidade Histórica" />
-              {fundDetails.profitability && (
-                <Table profitability={fundDetails.profitability} />
-              )}
+              <Table
+                profitability={
+                  fundDetails.profitability ? fundDetails.profitability : ''
+                }
+              />
             </SingleItem>
           </PanelBody>
         </TabPanel>
@@ -262,9 +264,9 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
 ModalFundos.propTypes = {
   initialReset: PropTypes.bool.isRequired,
   fundDetails: PropTypes.shape({
-    profitability: PropTypes.object,
+    profitability: PropTypes.array,
     min_value_to_apply: PropTypes.number,
-    profile: PropTypes.number,
+    'wsdls/profile': PropTypes.number,
     min_movement: PropTypes.number,
     min_balance: PropTypes.number,
     time_limit: PropTypes.string,
@@ -290,9 +292,9 @@ ModalFundos.propTypes = {
 
 ModalFundos.defaultProps = {
   fundDetails: {
-    profitability: {},
+    profitability: [],
     min_value_to_apply: 0,
-    profile: 1,
+    'wsdls/profile': 1,
     min_movement: 0,
     min_balance: 0,
     time_limit: '00:00',

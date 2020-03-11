@@ -1,12 +1,21 @@
 import useMedia from 'hooks/useMedia'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Table, TableWrapper, TBody, Td, Th, THead, Tr } from './styles'
+import {
+  Table,
+  TableWrapper,
+  TitleTD,
+  TBody,
+  Td,
+  Th,
+  THead,
+  Tr,
+} from './styles'
 
-export const TableTD = ({ children, legend }) => {
+export const TextTD = ({ children, empty, legend }) => {
   const isMobile = useMedia('sm')
   return (
-    <Td>
+    <Td colSpan={empty ? '6' : '1'} empty>
       {isMobile && <span>{legend}</span>}
       {children}
     </Td>
@@ -33,6 +42,7 @@ const TableProfitability = ({ profitability }) => {
       name: 'Últ 36m',
     },
   ]
+
   return (
     <>
       <TableWrapper>
@@ -47,79 +57,89 @@ const TableProfitability = ({ profitability }) => {
               </Tr>
             </THead>
           )}
-          <TBody>
-            <Tr>
-              <Td>Fundo (%)</Td>
-              <TableTD legend="mês anterior">
-                {profitability.ima[1] ? profitability.ima[1] : '-'}
-              </TableTD>
-              <TableTD legend="ano">
-                {profitability.ima[2] ? profitability.ima[2] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 12m">
-                {profitability.ima[12] ? profitability.ima[12] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 24m">
-                {profitability.ima[24] ? profitability.ima[24] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 36m">
-                {profitability.ima[36] ? profitability.ima[36] : '-'}
-              </TableTD>
-            </Tr>
-            <Tr>
-              <Td>IMA-b 5 (%)</Td>
-              <TableTD legend="mês anterior">
-                {profitability.variacao[1] ? profitability.variacao[1] : '-'}
-              </TableTD>
-              <TableTD legend="ano">
-                {profitability.variacao[2] ? profitability.variacao[2] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 12m">
-                {profitability.variacao[12] ? profitability.variacao[12] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 24m">
-                {profitability.variacao[24] ? profitability.variacao[24] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 36m">
-                {profitability.variacao[36] ? profitability.variacao[36] : '-'}
-              </TableTD>
-            </Tr>
-            <Tr>
-              <Td>Variação (P.P.)</Td>
-              <TableTD legend="mês anterior">
-                {profitability.fundos[1] ? profitability.fundos[1] : '-'}
-              </TableTD>
-              <TableTD legend="ano">
-                {profitability.fundos[2] ? profitability.fundos[2] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 12m">
-                {profitability.fundos[12] ? profitability.fundos[12] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 24m">
-                {profitability.fundos[24] ? profitability.fundos[24] : '-'}
-              </TableTD>
-              <TableTD legend="últ. 36m">
-                {profitability.fundos[36] ? profitability.fundos[36] : '-'}
-              </TableTD>
-            </Tr>
-          </TBody>
+          {!profitability[0] ? (
+            <TBody>
+              <Tr>
+                <TextTD empty>Nenhum resultado encontrado</TextTD>
+              </Tr>
+            </TBody>
+          ) : (
+            <TBody>
+              <Tr>
+                <TitleTD>{profitability[0].name} (%)</TitleTD>
+                <TextTD legend="mês anterior">
+                  {profitability[0].value[1] ? profitability[0].value[1] : '-'}
+                </TextTD>
+                <TextTD legend="ano">
+                  {profitability[0].value[2] ? profitability[0].value[2] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 12m">
+                  {profitability[0].value[3] ? profitability[0].value[3] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 24m">
+                  {profitability[0].value[4] ? profitability[0].value[4] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 36m">
+                  {profitability[0].value[5] ? profitability[0].value[5] : '-'}
+                </TextTD>
+              </Tr>
+              <Tr>
+                <TitleTD>{profitability[1].name} (%)</TitleTD>
+                <TextTD legend="mês anterior">
+                  {profitability[1].value[1] ? profitability[1].value[1] : '-'}
+                </TextTD>
+                <TextTD legend="ano">
+                  {profitability[1].value[2] ? profitability[1].value[2] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 12m">
+                  {profitability[1].value[3] ? profitability[1].value[3] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 24m">
+                  {profitability[1].value[4] ? profitability[1].value[4] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 36m">
+                  {profitability[1].value[5] ? profitability[1].value[5] : '-'}
+                </TextTD>
+              </Tr>
+              <Tr>
+                <TitleTD>Variação</TitleTD>
+                <TextTD legend="mês anterior">
+                  {profitability[2].value[1] ? profitability[2].value[1] : '-'}
+                </TextTD>
+                <TextTD legend="ano">
+                  {profitability[2].value[2] ? profitability[2].value[2] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 12m">
+                  {profitability[2].value[3] ? profitability[2].value[3] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 24m">
+                  {profitability[2].value[4] ? profitability[2].value[4] : '-'}
+                </TextTD>
+                <TextTD legend="últ. 36m">
+                  {profitability[2].value[5] ? profitability[2].value[5] : '-'}
+                </TextTD>
+              </Tr>
+            </TBody>
+          )}
         </Table>
       </TableWrapper>
     </>
   )
 }
 
-TableTD.propTypes = {
+TextTD.propTypes = {
+  empty: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  legend: PropTypes.string.isRequired,
+  legend: PropTypes.string,
+}
+
+TextTD.defaultProps = {
+  empty: false,
+  legend: '',
 }
 
 TableProfitability.propTypes = {
-  profitability: PropTypes.object,
-}
-
-TableProfitability.defaultProps = {
-  profitability: null,
+  profitability: PropTypes.node.isRequired,
 }
 
 export default TableProfitability
