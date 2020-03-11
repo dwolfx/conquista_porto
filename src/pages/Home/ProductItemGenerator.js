@@ -27,7 +27,7 @@ const ProductItemGenerator = (
   productList = {},
   type = 'notImplemented',
   history = () => {},
-  action
+  onRetry
 ) => {
   if (type === 'notImplemented') return []
 
@@ -60,7 +60,7 @@ const ProductItemGenerator = (
             atualItemDetail={atualItemDetail}
             hasError={hasError}
             isLoading={isLoading}
-            reloadAction={action}
+            onRetry={onRetry}
           />
         </React.Fragment>,
       ]
@@ -268,7 +268,7 @@ const EmptyProductItem = ({
   atualItemDetail,
   hasError,
   isLoading,
-  reloadAction,
+  onRetry,
 }) => {
   const history = useHistory()
   const cardTitle = atualItemDetail.title.toLowerCase().includes('seguro')
@@ -288,8 +288,8 @@ const EmptyProductItem = ({
             cursor: pointer;
           `}
           onClick={() => {
-            if (reloadAction) {
-              reloadAction()
+            if (onRetry) {
+              onRetry()
             }
           }}
         />
@@ -329,13 +329,13 @@ EmptyProductItem.propTypes = {
   atualItemDetail: PropTypes.object.isRequired,
   hasError: PropTypes.bool,
   isLoading: PropTypes.bool,
-  reloadAction: PropTypes.func,
+  onRetry: PropTypes.func,
 }
 
 EmptyProductItem.defaultProps = {
   hasError: false,
   isLoading: false,
-  reloadAction: null,
+  onRetry: null,
 }
 
 export default ProductItemGenerator
