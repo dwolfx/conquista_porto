@@ -276,7 +276,9 @@ export default function GoalChart({ data, isLoading }) {
           ano de visualização
         </Text>
         <Text type="heading3" textAlign="center">
-          {indexSelectedYear !== null && data.years[indexSelectedYear].year}
+          {indexSelectedYear !== null &&
+            data &&
+            data.years[indexSelectedYear].year}
         </Text>
       </div>
       <ChartContainer>

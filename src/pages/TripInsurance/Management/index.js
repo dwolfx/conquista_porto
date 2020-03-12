@@ -231,6 +231,7 @@ export default function ManagementTripInsurance() {
                         description:
                           'Para saber mais detalhes sobre seu seguro, consulte sua apólice.',
                         buttonText: 'BAIXAR ARQUIVO',
+                        willRedirect: false,
                         url: item.Apolice.LinkDownload,
                       },
                     ]}
@@ -292,6 +293,8 @@ export default function ManagementTripInsurance() {
               title: 'CONDIÇÕES GERAIS',
               description:
                 'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro Viagem da Porto Seguro.',
+              willRedirect: true,
+              url: 'https://www.portoseguro.com.br/seguro-viagem',
               buttonText: 'BAIXAR ARQUIVO',
             },
           ]}

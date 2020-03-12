@@ -72,6 +72,7 @@ const downloadFileSectionData = [
     buttonText: 'Visualizar',
     url:
       'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/relatorio%20economico/Relatorio_Economico_Mensal.pdf',
+    willRedirect: false,
   },
   {
     title: 'Tabela de Rentabilizade Mensal',
@@ -80,6 +81,7 @@ const downloadFileSectionData = [
     buttonText: 'Visualizar',
     url:
       'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Tabela-Mensal/TABELAMENSALDEFUNDOS.pdf',
+    willRedirect: false,
   },
 ]
 

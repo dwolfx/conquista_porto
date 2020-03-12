@@ -60,6 +60,7 @@ const downloadFileSectionData = [
     buttonText: 'Visualizar',
     url:
       'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/previdencia-privada/CartaGestor_PREV.pdf',
+    willRedirect: false,
   },
   {
     title: 'Quadro de Rentabilidade',
@@ -68,6 +69,7 @@ const downloadFileSectionData = [
     buttonText: 'Visualizar',
     url:
       'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/previdencia-privada/Rentabilidade_Prev_2018.pdf',
+    willRedirect: false,
   },
 ]
 

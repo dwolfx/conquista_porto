@@ -11,37 +11,26 @@ const baseURLNamespacePortopar = process.env.REACT_APP_BASE_URL_PORTOPAR || ''
 const baseURLNamespaceRecommendation =
   process.env.REACT_APP_BASE_URL_RECOMMENDATION || ''
 
-const responseInterceptor = response => {
-  let stepChangeTitle = ''
-  let stepChangePath = ''
+const responseInterceptor = response => response
 
-  if (response.data.TipoCritica) {
-    window.dataLayer.forEach(dataLayerItem => {
-      if (dataLayerItem.event === 'step_change') {
-        stepChangeTitle = dataLayerItem.pg_title
-        stepChangePath = dataLayerItem.pg_path
-      }
-    })
-
-    dataLayerErrorInfo(
-      response.data.TipoCritica,
-      stepChangePath,
-      stepChangeTitle
-    )
-    throw Error(response.data.Mensagem)
-  }
-  return response
+const errorMessages = {
+  400: 'Algo deu errado. Tente novamente mais tarde.',
+  404: 'Recurso não encontrado.',
+  500: 'Erro de comunicação interna. Tente novamente mais tarde.',
 }
 
 const responseErrorInterceptor = error => {
   if (error.response.status === 401) {
     store.dispatch(AuthRequestLogout())
   } else if (error.response.status >= 500) {
-    throw Error('Erro de comunicação interna. Tente novamente mais tarde.')
+    dataLayerErrorInfo(errorMessages[500])
+    throw Error(errorMessages[500])
   } else if (error.response.status === 404) {
-    throw Error('Recurso não encontrado.')
+    dataLayerErrorInfo(errorMessages[404])
+    throw Error(errorMessages[404])
   } else if (error.response.status === 400) {
-    throw Error('Algo deu errado. Tente novamente mais tarde.')
+    dataLayerErrorInfo(errorMessages[400])
+    throw Error(errorMessages[400])
   }
 
   return error

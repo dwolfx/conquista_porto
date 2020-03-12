@@ -334,18 +334,21 @@ const ManagementVehicleFinancing = () => {
             title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
             description: 'Informações legais sobre financiamento.',
             buttonText: 'BAIXAR ARQUIVO',
+            willRedirect: false,
           },
           {
             title: 'TABELA DE TARIFAS',
             description:
               'Mais informações sobre tarifas envolvidas na contratação de financiamento.',
             buttonText: 'Visualizar',
+            willRedirect: false,
           },
           {
             title: 'CONDIÇÕES',
             description:
               'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Financiamento de Veículos da Porto Seguro.',
             buttonText: 'BAIXAR ARQUIVO',
+            willRedirect: false,
           },
         ]}
       />
@@ -363,6 +366,7 @@ const complementaryInfo = [
       </span>
     ),
     buttonText: 'Ver extrato',
+    willRedirect: false,
     icon: 'diamond',
   },
   {
@@ -370,6 +374,7 @@ const complementaryInfo = [
     description:
       'Para saber mais detalhes sobre seu financiamento, consulte seu contrato.',
     buttonText: 'BAIXAR ARQUIVO',
+    willRedirect: false,
   },
 ]
 

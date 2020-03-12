@@ -68,6 +68,7 @@ import { ReactComponent as petpaw } from 'assets/icons/pet-paw.svg'
 import { ReactComponent as piechart } from 'assets/icons/pie-chart.svg'
 import { ReactComponent as plane } from 'assets/icons/plane.svg'
 import { ReactComponent as refresh } from 'assets/icons/refresh.svg'
+import { ReactComponent as reload } from 'assets/icons/reload.svg'
 import { ReactComponent as remove } from 'assets/icons/remove.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
 import { ReactComponent as scale } from 'assets/icons/scale.svg'
@@ -156,6 +157,7 @@ const dict = {
   piechart,
   plane,
   refresh,
+  reload,
   remove,
   safebox,
   scale,

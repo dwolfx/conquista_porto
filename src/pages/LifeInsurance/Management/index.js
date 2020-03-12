@@ -47,6 +47,9 @@ const downloadFileSectionData = [
     title: 'Condições Gerais',
     description:
       'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro de Vida da Porto Seguro.',
+    willRedirect: false,
+    url:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/vida_individual_/vida_e_acidentes_pessoais%20_individual_anual.pdf',
     buttonText: 'Baixar Arquivo',
   },
 ]
@@ -287,6 +290,7 @@ export default function ManagementLifeInsurance() {
                         description:
                           'Para saber mais detalhes sobre seu seguro, consulte sua apólice.',
                         buttonText: 'BAIXAR ARQUIVO',
+                        willRedirect: false,
                         url: item.Apolice.LinkDownload,
                       },
                     ]}

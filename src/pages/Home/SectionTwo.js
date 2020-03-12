@@ -45,11 +45,11 @@ export default function SectionTwo({ onRedirect }) {
     cpf,
     isLoadingSuitability,
     isLoadingObjectives,
-    errorObjectives,
+    hasErrorObjectives,
   } = useSelector(state => ({
     objectives: state.objective.objectives,
     isLoadingObjectives: state.objective.isLoading,
-    errorObjectives: state.objective.error,
+    hasErrorObjectives: state.objective.hasError,
     isLoadingSuitability: state.suitability.isLoading,
     cpf: state.auth.cpf,
   }))
@@ -147,7 +147,7 @@ export default function SectionTwo({ onRedirect }) {
       return <LoadingState />
     }
 
-    if (errorObjectives) {
+    if (hasErrorObjectives) {
       return <ErrorState />
     }
 

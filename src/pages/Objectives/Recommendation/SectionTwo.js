@@ -373,9 +373,9 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
         >
           <FullHeightCard
             headerIcon={
+              (productName.includes('financiamento de veículo') && 'car2') ||
               (productName.includes('financiamento') && 'money') ||
-              (productName.includes('consórcio de casa') && 'homewithwindow') ||
-              (productName.includes('consórcio de veículo') && 'car2')
+              (productName.includes('consórcio de imóvel') && 'homewithwindow')
             }
             headerTitle={creditProduct.name.split(' ')[0]}
           >
