@@ -76,7 +76,7 @@ export const Td = styled.td`
 
 export const TitleTD = styled.td`
   ${defaultStyle};
-  padding-left: 9px;
+  padding-left: 7px;
   text-align: left;
   text-transform: uppercase;
 `

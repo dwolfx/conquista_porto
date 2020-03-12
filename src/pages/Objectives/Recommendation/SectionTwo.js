@@ -424,7 +424,7 @@ SectionTwo.propTypes = {
   funds: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      profitability: PropTypes.node,
+      profitability: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
       quotation_apply_days: PropTypes.string,
       financial_apply_days: PropTypes.string,
       quotation_rescue_days: PropTypes.string,

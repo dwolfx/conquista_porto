@@ -264,7 +264,7 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
 ModalFundos.propTypes = {
   initialReset: PropTypes.bool.isRequired,
   fundDetails: PropTypes.shape({
-    profitability: PropTypes.array,
+    profitability: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     min_value_to_apply: PropTypes.number,
     'wsdls/profile': PropTypes.number,
     min_movement: PropTypes.number,
