@@ -173,7 +173,8 @@ TextTD.defaultProps = {
 }
 
 TableProfitability.propTypes = {
-  profitability: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  profitability: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    .isRequired,
 }
 
 export default TableProfitability
