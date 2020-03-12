@@ -464,22 +464,18 @@ Array [
           >
             Aqui, você tem mais informações legais sobre consórcio.
           </p>
-          <a
+          <p
+            className="sc-iAyFgw dYKjsZ"
             data-gtm-clicktype="link"
             data-gtm-name="BAIXAR ARQUIVO"
             data-gtm-subname="SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC"
             data-gtm-type="click"
-            href="/redirect?to=undefined"
             onClick={[Function]}
-            target="_blank"
           >
-            <p
-              className="sc-iAyFgw dYKjsZ"
-            >
-              BAIXAR ARQUIVO
-               &gt; 
-            </p>
-          </a>
+            BAIXAR ARQUIVO
+             &gt;
+             
+          </p>
         </div>
       </div>
       <div
@@ -506,22 +502,18 @@ Array [
           >
             Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.
           </p>
-          <a
+          <p
+            className="sc-iAyFgw dYKjsZ"
             data-gtm-clicktype="link"
             data-gtm-name="BAIXAR ARQUIVO"
             data-gtm-subname="CONDIÇÕES GERAIS"
             data-gtm-type="click"
-            href="/redirect?to=https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/consorcio-veiculos/regulamento_consorcio_de_automovel.pdf"
             onClick={[Function]}
-            target="_blank"
           >
-            <p
-              className="sc-iAyFgw dYKjsZ"
-            >
-              BAIXAR ARQUIVO
-               &gt; 
-            </p>
-          </a>
+            BAIXAR ARQUIVO
+             &gt;
+             
+          </p>
         </div>
       </div>
       <div
@@ -548,22 +540,18 @@ Array [
           >
             Confira mais informações sobre tarifas envolvidas na contratação de consórcio.
           </p>
-          <a
+          <p
+            className="sc-iAyFgw dYKjsZ"
             data-gtm-clicktype="link"
             data-gtm-name="BAIXAR ARQUIVO"
             data-gtm-subname="TABELA DE TARIFAS"
             data-gtm-type="click"
-            href="/redirect?to=undefined"
             onClick={[Function]}
-            target="_blank"
           >
-            <p
-              className="sc-iAyFgw dYKjsZ"
-            >
-              BAIXAR ARQUIVO
-               &gt; 
-            </p>
-          </a>
+            BAIXAR ARQUIVO
+             &gt;
+             
+          </p>
         </div>
       </div>
     </div>

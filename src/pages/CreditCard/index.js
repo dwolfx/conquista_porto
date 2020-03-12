@@ -59,6 +59,7 @@ const downloadFileSectionData = [
     title: 'Sistema de informações de crédito - SCR',
     description: 'Informações legais sobre crédito.',
     buttonText: 'Visualizar',
+    willRedirect: true,
     url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
   {
@@ -66,6 +67,7 @@ const downloadFileSectionData = [
     description:
       'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
     buttonText: 'Visualizar',
+    willRedirect: true,
     url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
   {
@@ -73,6 +75,7 @@ const downloadFileSectionData = [
     description:
       'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
     buttonText: 'Visualizar',
+    willRedirect: true,
     url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
 ]

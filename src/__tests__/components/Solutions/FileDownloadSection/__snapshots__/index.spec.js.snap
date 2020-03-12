@@ -33,20 +33,16 @@ exports[`FileDownloadSection renders correctly 1`] = `
         >
           Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
         </p>
-        <a
+        <p
+          className="sc-htoDjs bqWOYv"
           data-gtm-clicktype="link"
           data-gtm-subname="quadro de rentabilidade"
           data-gtm-type="click"
-          href="/redirect?to=undefined"
           onClick={[Function]}
-          target="_blank"
         >
-          <p
-            className="sc-htoDjs bqWOYv"
-          >
-             &gt; 
-          </p>
-        </a>
+           &gt;
+           
+        </p>
       </div>
     </div>
     <div
@@ -73,20 +69,16 @@ exports[`FileDownloadSection renders correctly 1`] = `
         >
           Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
         </p>
-        <a
+        <p
+          className="sc-htoDjs bqWOYv"
           data-gtm-clicktype="link"
           data-gtm-subname="carta do gestor"
           data-gtm-type="click"
-          href="/redirect?to=undefined"
           onClick={[Function]}
-          target="_blank"
         >
-          <p
-            className="sc-htoDjs bqWOYv"
-          >
-             &gt; 
-          </p>
-        </a>
+           &gt;
+           
+        </p>
       </div>
     </div>
   </div>
