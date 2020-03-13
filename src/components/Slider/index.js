@@ -179,7 +179,12 @@ export default function Slider({
         <ThumbPopover
           flippable={false}
           content={() => (
-            <>
+            <div
+              css={`
+                margin: -7px;
+                width: ${error ? 211 : 40 + (value.length + 1) * 8}px;
+              `}
+            >
               <Input
                 ref={inputRef}
                 value={value}
@@ -211,7 +216,7 @@ export default function Slider({
                   </Text>
                 </div>
               )}
-            </>
+            </div>
           )}
           alwaysVisible
         >
