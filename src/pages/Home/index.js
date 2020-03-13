@@ -114,7 +114,7 @@ Home.propTypes = {
     state: PropTypes.shape({
       scrollGoal: PropTypes.bool,
     }),
-  }).isRequired
+  }).isRequired,
 }
 
 export default Home
