@@ -108,26 +108,8 @@
       "name": "WESTERN ASSET RENDA FIXA ATIVO FI",
       "category_name": "Renda Fixa",
       "profitability": {
-        "ima": {
-          "1": 0.00,
-          "2": 1.67,
-          "36": 77.99,
-          "24": 35.49,
-          "12": 21.22
-        },
-        "variacao": {
-          "1": 0.00,
-          "2": 0.22,
-          "36": 18.21,
-          "24": 18.23,
-          "12": 7.84
-        },
         "fundos": {
-          "1": 0.51,
-        "2": 0.58,
-        "36": 28.57,
-        "24": 16.57,
-        "12": 7.83
+            "12": 7.03
         }
       },
       "min_initial_value": 5000,
@@ -165,29 +147,7 @@
       "fund_id": 5071,
       "name": "Porto Seguro Clássico RF FICFI LP",
       "category_name": "Renda Fixa",
-      "profitability": {
-        "ima": {
-          "1": 0.00,
-          "2": 1.67,
-          "36": 77.99,
-          "24": 35.49,
-          "12": 21.22
-        },
-        "variacao": {
-          "1": 0.00,
-          "2": 0.22,
-          "36": 18.21,
-          "24": 18.23,
-          "12": 7.84
-        },
-        "fundos": {
-          "1": 0.51,
-        "2": 0.58,
-        "36": 28.57,
-        "24": 16.57,
-        "12": 7.83
-        }
-      },
+      "profitability": null,
       "min_initial_value": 3000,
       "min_value_to_apply": 100,
       "profile": 2,
@@ -223,13 +183,38 @@
       "fund_id": 51380065,
       "name": "AZ Quest Valore FI Renda Fixa Crédito Privado",
       "category_name": "Renda Fixa",
-      "profitability": {
-        "1": 0.25,
-        "2": 0.5,
-        "12": 5.46,
-        "24": 12.72,
-        "36": 24.45
-      },
+      "profitability": [
+        {
+          "name": "fundo",
+          "value": {
+            "1": -5.62,
+            "2": 6.32,
+            "3": 5.13,
+            "4": 11.99,
+            "5": 22.16
+          }
+        },
+        {
+          "name": "Ibovespa",
+          "value": {
+            "1": 0.05,
+            "2": 0.39,
+            "3": 3.50,
+            "4": 11.92,
+            "5": 21.33
+          }
+        },
+        {
+          "name": "variacao",
+          "value": {
+            "1": 80.87,
+            "2": 1612.53,
+            "3": 97.87,
+            "4": 100.64,
+            "5": 103.87
+          }
+        }
+      ],
       "min_initial_value": 5000,
       "min_value_to_apply": 300,
       "profile": 2,
@@ -265,29 +250,37 @@
       "fund_id": 5105,
       "name": "Porto Seguro FI Referenciado DI Credito Privado",
       "category_name": "Renda Fixa",
-      "profitability": {
-        "ima": {
-          "1": 0.00,
-          "2": 1.67,
-          "36": 77.99,
-          "24": 35.49,
-          "12": 21.22
+      "profitability": [
+        {
+          "name": "fundo",
+          "value": {
+            "1": -5.62,
+            "2": 6.32,
+            "3": 5.13,
+            "4": 11.99,
+            "5": 22.16
+          }
         },
-        "variacao": {
-          "1": 0.00,
-          "2": 0.22,
-          "36": 18.21,
-          "24": 18.23,
-          "12": 7.84
+        {
+          "name": "Ibovespa",
+          "value": {
+            "1": 0.05,
+            "2": 0.39,
+            "3": 5.24,
+            "4": 11.92,
+            "5": 21.33
+          }
         },
-        "fundos": {
-          "1": 0.51,
-        "2": 0.58,
-        "36": 28.57,
-        "24": 16.57,
-        "12": 7.83
+        {
+          "name": "variacao",
+          "value": {
+            "1": 80.87,
+            "2": 1612.53,
+            "3": 97.87,
+            "5": 103.87
+          }
         }
-      },
+      ],
       "min_initial_value": 1000,
       "min_value_to_apply": 100,
       "profile": 2,
@@ -323,54 +316,35 @@
       "fund_id": 6000,
       "name": "PORTO SEGURO IMAB5 FICFI RENDA FIXA",
       "category_name": "Renda Fixa",
-      "profitability": {
-        "ima": {
-          "1": 0.00,
-          "2": 1.67,
-          "36": 77.99,
-          "24": 35.49,
-          "12": 21.22
+      "profitability": [
+        {
+          "name": "fundo",
+          "value": {
+            "4": 11.99,
+            "5": 22.16
+          }
         },
-        "variacao": {
-          "1": 0.00,
-          "2": 0.22,
-          "36": 18.21,
-          "24": 18.23,
-          "12": 7.84
+        {
+          "name": "Ibovespa",
+          "value": {
+            "1": 0.05,
+            "2": 0.39,
+            "3": 5.24,
+            "4": 11.92,
+            "5": 21.33
+          }
         },
-        "fundos": {
-          "1": 0.51,
-        "2": 0.58,
-        "36": 28.57,
-        "24": 16.57,
-        "12": 7.83
+        {
+          "name": "variacao",
+          "value": {
+            "1": 80.87,
+            "2": 1612.53,
+            "3": 97.87,
+            "4": 100.64,
+            "5": 103.87
+          }
         }
-      },
-      "min_initial_value": 5000,
-      "min_value_to_apply": 100,
-      "profile": 2,
-      "min_movement": 100,
-      "min_balance": 1000,
-      "time_limit": "15:00",
-      "quotation_apply_days": "D+0",
-      "financial_apply_days": "D+0",
-      "quotation_rescue_days": "D+0 (Úteis)",
-      "financial_rescue_days": "D+1 (Úteis)",
-      "cnpj": null,
-      "manager": null,
-      "pl": null,
-      "pl_last_year": null,
-      "initial_date": "01/03/2016",
-      "benchmark": "IMA-B 5",
-      "adm_tax": 0.5,
-      "performance_rate": 20,
-      "classification": "Longo Prazo",
-      "tribute_ir": {
-        "180": 22.5,
-        "360": 20,
-        "720": 17.5,
-        "721": 15
-      },
+      ],
       "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/InformativoDesempenho_PS_IMAB5.pdf\n                            ",
       "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/Regulamento_PS_IMAB5.pdf\n                            ",
       "iof": "Regime Regressivo",

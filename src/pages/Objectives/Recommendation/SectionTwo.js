@@ -206,7 +206,12 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                         RENTABILIDADE (ÚLT. 12 MESES)
                       </Text>
                       <Text type="headline" color="gray6">
-                        {`${fund.profitability['12']}%`}
+                        {fund.profitability &&
+                        fund.profitability[0] &&
+                        fund.profitability[0].value &&
+                        fund.profitability[0].value[3]
+                          ? `${fund.profitability[0].value[3]}%`
+                          : '-'}
                       </Text>
                     </TableCard>
                     <TableCard>
@@ -318,7 +323,14 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                           </Text>
                         </TableData>
                         <TableData textAlign="center">
-                          <Text type="body">{`${fund.profitability.fundos['12']}%`}</Text>
+                          <Text type="body">
+                            {fund.profitability &&
+                            fund.profitability[0] &&
+                            fund.profitability[0].value &&
+                            fund.profitability[0].value[3]
+                              ? `${fund.profitability[0].value[3]}%`
+                              : '-'}
+                          </Text>
                         </TableData>
                         <TableData textAlign="right">
                           <Text type="body" truncate>
@@ -412,11 +424,7 @@ SectionTwo.propTypes = {
   funds: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      profitability: PropTypes.shape({
-        fundos: PropTypes.shape({
-          '12': PropTypes.number,
-        }),
-      }),
+      profitability: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
       quotation_apply_days: PropTypes.string,
       financial_apply_days: PropTypes.string,
       quotation_rescue_days: PropTypes.string,

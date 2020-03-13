@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 
 // functions
 const handleBgGradient = (colors, type, isDisabled, isOutline) => {
@@ -67,11 +67,30 @@ const handleColor = (colors, type, isDisabled, isOutline) => {
   return !isDisabled ? colors.green4 : colors.gray3
 }
 
+// animations
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+`
+
 // styles
 export const LoadingContainer = styled.div`
   position: absolute;
   top: calc(50% - 12px);
   right: 14px;
+
+  ${props =>
+    props.isLoading &&
+    css`
+      svg {
+        animation: ${rotate} 1s linear infinite;
+      }
+    `}
 `
 
 export const Button = styled.button`
