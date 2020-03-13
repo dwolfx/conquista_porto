@@ -637,6 +637,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                     data-gtm-name="alterar"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
+                    disabled={isLoadingBySimulate}
                     outline
                     onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                   >
