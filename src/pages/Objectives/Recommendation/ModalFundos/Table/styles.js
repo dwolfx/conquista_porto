@@ -53,7 +53,7 @@ export const Td = styled.td`
   padding: 14px 15px;
 
   &:first-child {
-    text-align: left;
+    text-align: ${props => (props.empty ? 'center' : 'left')};
 
     @media ${props => props.theme.mediaQueries.sm} {
       color: ${props => props.theme.colors.gray4};
@@ -72,6 +72,13 @@ export const Td = styled.td`
       text-transform: uppercase;
     }
   }
+`
+
+export const TitleTD = styled.td`
+  ${defaultStyle};
+  padding-left: 7px;
+  text-align: left;
+  text-transform: uppercase;
 `
 
 export const Th = styled.th`
