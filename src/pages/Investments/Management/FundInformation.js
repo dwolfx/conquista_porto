@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import Icon from 'components/IconExporter'
 import DropDown from 'components/DropdownNew'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import { months } from './data'
 import {
@@ -25,9 +25,11 @@ import {
   SelectItem,
   SelectIcon,
   TopicsContentRow,
+  ButtonWrapper,
+  CustomConquistaButton,
 } from './styles'
 
-export default function FundInformation({ fund }) {
+export default function FundInformation({ fund, idCotista }) {
   const theme = useContext(ThemeContext)
 
   const [incomeValue, setIncomeValue] = useState(null)
@@ -42,6 +44,33 @@ export default function FundInformation({ fund }) {
     setIncomeValue(
       fund.rendimentos.rendimento[months[item.value].value].valorrendimento
     )
+  }
+
+  const getTributacao = (fundItem, tipoTributacao) => {
+    const valorTributacao = fundItem.tributacoes.tributacao.find(
+      t => t.tipo === tipoTributacao.toUpperCase()
+    ).valor
+    return valorTributacao || '--'
+  }
+
+  const getGiwPath = type => {
+    const paths = {
+      investir: 'arena_aplicacao_cotista_01',
+      resgatar: 'arena_resgatar_01',
+    }
+
+    return paths[type]
+  }
+
+  const buildGiwUrl = (fundItem, action) => {
+    const {
+      fundo: { nome_gestor, apelido, id_carteira },
+      categoria_arena,
+    } = fundItem
+
+    return `gerenciadorinterfaceweb/${getGiwPath(
+      action
+    )}.do?portal=${7}&idFundo=${id_carteira}&idCotista=${idCotista}&nomeFundo=${apelido}&tipofundo=${categoria_arena}&brand=${nome_gestor}`
   }
 
   function renderSelectItems(closeFunc) {
@@ -91,6 +120,7 @@ export default function FundInformation({ fund }) {
           </Topic>
         </TopicsContentRow>
         <BalanceAccordion
+          id={fund.fundo.id_carteira}
           isOrangeArrow
           titleNode={
             <HeaderNodeBalanceAccordion>
@@ -158,7 +188,7 @@ export default function FundInformation({ fund }) {
                 </Text>
               </BankTransitionDateWrapper>
               <Text fontSize="16px" lineHeight="24px" fontWeight="300">
-                --
+                {formatMoney(getTributacao(fund, 'IR'))}
               </Text>
             </RowBankTransition>
             <RowBankTransition marginTop="4px">
@@ -174,7 +204,7 @@ export default function FundInformation({ fund }) {
                 </Text>
               </BankTransitionDateWrapper>
               <Text fontSize="16px" lineHeight="24px" fontWeight="300">
-                --
+                {formatMoney(getTributacao(fund, 'IOF'))}
               </Text>
             </RowBankTransition>
             <RowBankTransition
@@ -228,6 +258,25 @@ export default function FundInformation({ fund }) {
             </SelectBox>
           </DropDown>
         </GrossIncome>
+        <ButtonWrapper>
+          <CustomConquistaButton
+            data-gtm-name="investir"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={() => handleGiwRedirect(buildGiwUrl(fund, 'investir'))}
+          >
+            INVESTIR
+          </CustomConquistaButton>
+          <CustomConquistaButton
+            data-gtm-name="resgatar"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={() => handleGiwRedirect(buildGiwUrl(fund, 'resgatar'))}
+            outline
+          >
+            RESGATAR
+          </CustomConquistaButton>
+        </ButtonWrapper>
       </div>
     </>
   )
@@ -241,10 +290,12 @@ FundInformation.propTypes = {
     fundo: PropTypes.shape({
       aplicacao_cotizacao: PropTypes.string,
       apelido: PropTypes.string,
+      id_carteira: PropTypes.string,
       perfil_risco: PropTypes.string,
       aplicao_minima: PropTypes.string,
       contagem_dias_resgate: PropTypes.string,
     }),
     saldo_atual: PropTypes.string,
   }).isRequired,
+  idCotista: PropTypes.string.isRequired,
 }
