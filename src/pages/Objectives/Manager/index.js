@@ -43,15 +43,6 @@ export default function Manager({ location }) {
     state => state.objectiveManagement
   )
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
-  const [dataExists, setDataExists] = useState(null)
-
-  useEffect(() => {
-    setDataExists(
-      objectiveData &&
-        typeof objectiveData === 'object' &&
-        Object.entries(objectiveData).length !== 0
-    )
-  }, [objectiveData])
 
   const { pageRecommendation } = location.state || false
 
@@ -84,22 +75,14 @@ export default function Manager({ location }) {
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
-      {!isLoading ? (
-        `#${dataExists ? objectiveData.nickname : ''}`
-      ) : (
-        <Loading />
-      )}
+      {!isLoading ? `#${objectiveData.nickname}` : <Loading />}
     </Text>
   )
   const horizontalListGoalMoney = (
     <ColumnWrapper>
       <Text color="gray5">META (R$)</Text>
       <Text color="black">
-        {!isLoading ? (
-          formatMoney(dataExists ? objectiveData.target_value : 0)
-        ) : (
-          <Loading />
-        )}
+        {!isLoading ? formatMoney(objectiveData.target_value) : <Loading />}
       </Text>
     </ColumnWrapper>
   )
@@ -107,7 +90,7 @@ export default function Manager({ location }) {
     <ColumnWrapper>
       <Text color="gray5">META (DATA)</Text>
       <Text color="black">
-        {!isLoading ? (objectiveData || '').target_date : <Loading />}
+        {!isLoading ? objectiveData.target_date : <Loading />}
       </Text>
     </ColumnWrapper>
   )
@@ -170,7 +153,7 @@ export default function Manager({ location }) {
         </WalletContainer>
 
         <ColumnWrapper>
-          {dataExists &&
+          {objectiveData &&
             objectiveData.additional &&
             Object.entries(objectiveData.additional).find(
               ([, value]) => value === true

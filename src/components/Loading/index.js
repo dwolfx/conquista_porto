@@ -8,6 +8,7 @@ import {
   LoadingContainer,
   LoadingBar,
   LegendText,
+  RotateAnimation,
 } from './styles'
 
 export default function Loading({
@@ -19,7 +20,11 @@ export default function Loading({
   ...rest
 }) {
   if (type === 'spinner') {
-    return <Icon name="spinner" color={color} width={width} {...rest} />
+    return (
+      <RotateAnimation>
+        <Icon name="spinner" color={color} width={width} {...rest} />
+      </RotateAnimation>
+    )
   }
 
   return (
