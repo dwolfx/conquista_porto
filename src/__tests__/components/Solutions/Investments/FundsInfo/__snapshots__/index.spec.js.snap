@@ -419,7 +419,7 @@ exports[`FundsInfo renders correctly 1`] = `
             <h5
               className="sc-kGXeez hKshTX"
             >
-              PL atual
+              Patrimônio Líquido atual
             </h5>
             <p
               className="sc-kpOJdX jcZxoT"
