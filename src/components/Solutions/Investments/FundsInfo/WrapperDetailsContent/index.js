@@ -33,7 +33,7 @@ export default function WrapperDetailsContent({ title, fundsDetail }) {
           <Text>{fundsDetail.benchmark.nome}</Text>
         </DetailItem>
         <DetailItem>
-          <SubTitle>PL atual</SubTitle>
+          <SubTitle>Patrimônio Líquido atual</SubTitle>
           <Text>{formatMoney(+fundsDetail.valor_patrimonio_liq)}</Text>
         </DetailItem>
       </LineWrapper>
@@ -44,7 +44,11 @@ export default function WrapperDetailsContent({ title, fundsDetail }) {
         </DetailItem>
         <DetailItem>
           <SubTitle>Taxa de performance</SubTitle>
-          <Text>{fundsDetail.taxa_performance}% sobre o que exceder</Text>
+          {Number(fundsDetail.taxa_performance) === 0 ? (
+            <Text>Não há cobrança de performance</Text>
+          ) : (
+            <Text>{fundsDetail.taxa_performance}% sobre o que exceder</Text>
+          )}
         </DetailItem>
       </LineWrapper>
     </Container>
