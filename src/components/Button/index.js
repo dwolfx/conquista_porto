@@ -28,7 +28,7 @@ const ConquistaButton = ({
   <Button color={color} outline={outline} {...rest}>
     <Content>{children}</Content>
     {loading && (
-      <LoadingContainer>
+      <LoadingContainer isLoading={loading}>
         <Icon name="spinner" color={loadingColor} />
       </LoadingContainer>
     )}
