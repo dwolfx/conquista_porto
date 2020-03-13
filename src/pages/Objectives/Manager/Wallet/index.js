@@ -170,7 +170,6 @@ export default function Wallet({
                             #{goalName}
                           </Text>
                           <Text>
-                            {console.log(fundListCopy, index)}
                             {formatMoney(fundListCopy[index].invested)}
                           </Text>
                         </ObjectiveInfoBox>
