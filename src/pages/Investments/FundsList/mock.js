@@ -73,11 +73,11 @@ export const fundsType = [
   },
   {
     name: 'Ações',
-    value: 'ações',
+    value: 'rendavariável',
   },
   {
     name: 'Investimento no Exterior',
-    value: 'investimentoexterior',
+    value: 'investimentonoexterior',
   },
   {
     name: 'Cambial',
