@@ -269,16 +269,14 @@ export default function GoalChart({ data, isLoading }) {
     )
   }
 
-  return (
+  return data && data.years ? (
     <>
       <div>
         <Text type="captionUppercase" color="gray6" textAlign="center">
           ano de visualização
         </Text>
         <Text type="heading3" textAlign="center">
-          {indexSelectedYear !== null &&
-            data &&
-            data.years[indexSelectedYear].year}
+          {indexSelectedYear !== null && data.years[indexSelectedYear].year}
         </Text>
       </div>
       <ChartContainer>
@@ -350,7 +348,7 @@ export default function GoalChart({ data, isLoading }) {
         )}
       </ChartContainer>
     </>
-  )
+  ) : null
 }
 
 GoalChart.propTypes = {

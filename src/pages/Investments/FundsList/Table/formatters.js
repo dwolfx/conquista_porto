@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
-import { formatMoney } from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   FundoWrapper,
@@ -57,6 +57,11 @@ const FormatEnabledCell = column => (
         data-gtm-name="investir"
         type="button"
         color="secondary"
+        onClick={() => {
+          handleGiwRedirect(
+            `portaldecliente/conquista/aplicacao?idFundo=${column.cell.row.original.id_fundo}`
+          )
+        }}
       >
         Investir
       </InvestButton>

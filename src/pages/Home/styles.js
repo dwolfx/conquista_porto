@@ -386,8 +386,9 @@ export const LoadingStateObjectivesContainer = styled.div`
   }
 `
 
-export const ErrorText = styled(Text)`
+export const ErrorText = styled.span`
   color: ${props => props.theme.colors.magenta2};
+  display: block;
   margin-top: 7px;
   ${props => props.theme.fontTypes.captionUppercase}
 `

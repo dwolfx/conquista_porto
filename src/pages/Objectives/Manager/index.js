@@ -39,42 +39,21 @@ export default function Manager({ location }) {
   const { objectiveId } = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
-  const {
-    data: objectiveData,
-    isLoading: loadingData,
-    isLoadingDelete,
-  } = useSelector(state => state.objectiveManagement)
-  const [isLoading, setIsLoading] = useState(false)
+  const { data: objectiveData, isLoading, isLoadingDelete } = useSelector(
+    state => state.objectiveManagement
+  )
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
-  const [dataExists, setDataExists] = useState(null)
-
-  useEffect(() => {
-    setIsLoading(Boolean((!objectiveData && objectiveId) || loadingData))
-  }, [loadingData, objectiveData, objectiveId])
-
-  useEffect(() => {
-    setDataExists(
-      Boolean(
-        objectiveData &&
-          typeof objectiveData === 'object' &&
-          Object.entries(objectiveData).length !== 0
-      )
-    )
-  }, [objectiveData])
 
   const { pageRecommendation } = location.state || false
 
-  if (
-    (!objectiveData && objectiveId) || // check if objectiveId exists and if objectiveData dont
-    (objectiveData && objectiveData.id && +objectiveData.id !== +objectiveId) || // check if objectiveData exists and its id is equal to objectiveID
-    !dataExists
-  ) {
-    if (!loadingData) {
-      // if isLoading is false, then dispatch action
-      setIsLoading(true)
+  useEffect(() => {
+    if (
+      (!objectiveData && objectiveId) || // check if objectiveId exists and if objectiveData dont
+      (objectiveData && objectiveData.id && +objectiveData.id !== +objectiveId) // check if objectiveData exists and its id is equal to objectiveID
+    ) {
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
     }
-  }
+  }, [dispatch, history, objectiveData, objectiveId])
 
   if (!objectiveId) {
     // if objectiveId dont exists, redirect to "objetivos" page
@@ -96,22 +75,14 @@ export default function Manager({ location }) {
 
   const horizontalListTitle = (
     <Text type="heading3" color="gray6">
-      {!isLoading ? (
-        `#${dataExists ? objectiveData.nickname : ''}`
-      ) : (
-        <Loading />
-      )}
+      {!isLoading ? `#${objectiveData.nickname}` : <Loading />}
     </Text>
   )
   const horizontalListGoalMoney = (
     <ColumnWrapper>
       <Text color="gray5">META (R$)</Text>
       <Text color="black">
-        {!isLoading ? (
-          formatMoney(dataExists ? objectiveData.target_value : 0)
-        ) : (
-          <Loading />
-        )}
+        {!isLoading ? formatMoney(objectiveData.target_value) : <Loading />}
       </Text>
     </ColumnWrapper>
   )
@@ -119,7 +90,7 @@ export default function Manager({ location }) {
     <ColumnWrapper>
       <Text color="gray5">META (DATA)</Text>
       <Text color="black">
-        {!isLoading ? (objectiveData || '').target_date : <Loading />}
+        {!isLoading ? objectiveData.target_date : <Loading />}
       </Text>
     </ColumnWrapper>
   )
@@ -166,25 +137,23 @@ export default function Manager({ location }) {
           </ObjectiveHeader>
           <ObjectiveDetails>
             <CardContent>
-              <GoalChart
-                data={dataExists ? objectiveData : {}}
-                isLoading={isLoading}
-              />
+              <GoalChart data={objectiveData} isLoading={isLoading} />
             </CardContent>
           </ObjectiveDetails>
         </ColumnWrapper>
 
         <WalletContainer>
           <Wallet
-            idGoal={dataExists ? objectiveData.id : '0'}
-            fundList={dataExists ? objectiveData.fund_list : []}
-            goalName={dataExists ? objectiveData.nickname : ''}
+            idGoal={objectiveData ? objectiveData.id : '0'}
+            fundList={objectiveData ? objectiveData.fund_list : []}
+            goalName={objectiveData ? objectiveData.nickname : ''}
+            isModalDeleteOpen={isModalDeleteOpen}
             isLoading={isLoading}
           />
         </WalletContainer>
 
         <ColumnWrapper>
-          {dataExists &&
+          {objectiveData &&
             objectiveData.additional &&
             Object.entries(objectiveData.additional).find(
               ([, value]) => value === true
