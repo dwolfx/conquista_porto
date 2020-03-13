@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// import LoadingSpinner from 'components/Loading'
-import Icon from 'components/IconExporter'
+import LoadingIcon from 'components/Loading'
 
 import { Button, Content, LoadingContainer } from './styles'
 
@@ -28,8 +27,8 @@ const ConquistaButton = ({
   <Button color={color} outline={outline} {...rest}>
     <Content>{children}</Content>
     {loading && (
-      <LoadingContainer isLoading={loading}>
-        <Icon name="spinner" color={loadingColor} />
+      <LoadingContainer>
+        <LoadingIcon type="spinner" color={loadingColor} />
       </LoadingContainer>
     )}
   </Button>

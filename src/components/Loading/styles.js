@@ -2,6 +2,16 @@ import styled, { keyframes } from 'styled-components'
 
 import Text from 'components/Text'
 
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+`
+
 export const loop = keyframes`
   from {
     -ms-transform: translateX(-100%);
@@ -47,4 +57,9 @@ export const LegendText = styled(Text)`
   margin-bottom: ${props => (props.placement === 'top' ? '21px' : 0)};
   margin-top: ${props => (props.placement === 'bottom' ? '21px' : 0)};
   order: ${props => (props.placement === 'top' ? 0 : 2)};
+`
+export const RotateAnimation = styled.div`
+  svg {
+    animation: ${rotate} 1s linear infinite;
+  }
 `
