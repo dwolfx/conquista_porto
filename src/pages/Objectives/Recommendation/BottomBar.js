@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -15,7 +15,10 @@ const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
   const dispatch = useDispatch()
   const isLoading = useSelector(state => state.objectiveManagement.isLoading)
 
+  const [buttonConfirmClicked, setButtonConfirmClicked] = useState(false)
+
   const submitToManagement = () => {
+    setButtonConfirmClicked(true)
     function pushHistory(path) {
       history.push({ pathname: path, state: { pageRecommendation: true } })
     }
@@ -44,8 +47,8 @@ const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
               data-gtm-clicktype="button"
               color="secondary"
               onClick={submitToManagement}
-              isLoading={isLoading}
-              disabled={isLoading}
+              loading={isLoading && buttonConfirmClicked}
+              disabled={isLoading && buttonConfirmClicked}
             >
               Continuar
             </ButtonBar>
