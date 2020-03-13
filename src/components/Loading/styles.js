@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
+import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
 const rotate = keyframes`
@@ -58,8 +59,6 @@ export const LegendText = styled(Text)`
   margin-top: ${props => (props.placement === 'bottom' ? '21px' : 0)};
   order: ${props => (props.placement === 'top' ? 0 : 2)};
 `
-export const RotateAnimation = styled.div`
-  svg {
-    animation: ${rotate} 1s linear infinite;
-  }
+export const IconAnimated = styled(Icon)`
+  animation: ${rotate} 1s linear infinite;
 `
