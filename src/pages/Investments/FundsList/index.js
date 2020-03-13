@@ -35,7 +35,8 @@ export default function FundsList() {
       type === allOption
         ? fundsArr
         : fundsArr.filter(
-            fund => fund.nome_categoria.toLowerCase().replace(' ', '') === type
+            fund =>
+              fund.nome_categoria.toLowerCase().replace(/\s/g, '') === type
           )
 
     return newFunds.flatMap(fund => fund.fundos)
