@@ -40,7 +40,9 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
     const crumbPath = [...crumbs].slice(0, index + 1).join('/')
     const path = history.location.pathname
 
-    if (path !== `/${crumbPath}`) {
+    if(path.includes('/objetivos/gerenciar/')) {
+      history.push({ pathname: '/', state: { scrollGoal: true } })
+    } else if (path !== `/${crumbPath}`) {
       history.push(`/${crumbPath}`)
     }
   }

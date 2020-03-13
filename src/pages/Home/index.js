@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Menu from 'components/Menu'
 
@@ -20,7 +21,7 @@ import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
 
-const Home = () => {
+const Home = ({ location }) => {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
   const history = useHistory()
@@ -50,6 +51,14 @@ const Home = () => {
   const onRedirect = link => {
     history.push(link)
   }
+
+  const { scrollGoal } = location.state || false
+
+  useEffect(() => {
+    if (scrollGoal) {
+      scrollPage('t2')
+    }
+  }, [scrollGoal])
 
   function scrollPage(id) {
     const el = document.querySelector(`#${id}`).getBoundingClientRect()
@@ -99,4 +108,13 @@ const Home = () => {
     </GridContainer>
   )
 }
+
+Home.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      scrollGoal: PropTypes.bool,
+    }),
+  }).isRequired
+}
+
 export default Home
