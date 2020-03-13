@@ -31,11 +31,17 @@ import {
   ObjectivesInfoContainer,
 } from './styles'
 
-export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
+export default function Wallet({
+  fundList,
+  goalName,
+  idGoal,
+  isLoading,
+  isModalDeleteOpen,
+}) {
   const theme = useContext(ThemeContext)
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
-  const [fundListCopy, setFundListCopy] = useState(null)
+  const [fundListCopy, setFundListCopy] = useState([])
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
 
   const history = useHistory()
@@ -84,7 +90,7 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
       )
     }
 
-    return fundList && fundListCopy ? (
+    return fundList.length && fundListCopy.length ? (
       fundList.map((fund, index) => (
         <React.Fragment key={fund.id}>
           <Accordion
@@ -274,7 +280,9 @@ export default function Wallet({ fundList, goalName, idGoal, isLoading }) {
         </FullHeightCard>
       </Col>
 
-      <UnsavedChangesPrompt hasUnsavedChanges={hasUnsavedChanges} />
+      <UnsavedChangesPrompt
+        hasUnsavedChanges={hasUnsavedChanges && !isModalDeleteOpen}
+      />
     </>
   )
 }
@@ -324,10 +332,12 @@ Wallet.propTypes = {
   goalName: PropTypes.string,
   idGoal: PropTypes.node.isRequired,
   isLoading: PropTypes.bool,
+  isModalDeleteOpen: PropTypes.bool,
 }
 
 Wallet.defaultProps = {
   fundList: [],
   goalName: '',
   isLoading: false,
+  isModalDeleteOpen: false,
 }

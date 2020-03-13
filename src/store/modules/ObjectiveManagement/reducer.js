@@ -2,7 +2,7 @@ import { Types } from './types'
 
 const INITIAL_STATE = {
   data: null,
-  isLoading: false,
+  isLoading: true,
   isLoadingSave: false,
   isLoadingDelete: false,
 }

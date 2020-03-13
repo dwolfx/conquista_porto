@@ -145,9 +145,10 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         invalidInput.nickname ||
         invalidInput.initial_value ||
         invalidInput.monthly_value ||
-        invalidInput.target_date
+        invalidInput.target_date ||
+        isLoading
       }
-      isLoading={isLoading}
+      loading={isLoading}
     >
       Confirmar e recalcular
     </ButtonSubmit>
