@@ -16,7 +16,7 @@ function* getData({ cpf }) {
 
     let responseData = response.data
 
-    if (response.data.Message) {
+    if (response.data.Message && !responseData.ProdutosVida) {
       responseData = []
     }
 
