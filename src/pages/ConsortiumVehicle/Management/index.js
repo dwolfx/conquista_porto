@@ -255,27 +255,13 @@ export default function ManagementConsortiumVehicle() {
       <FileDownloadSection
         data={[
           {
-            title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SRC',
-            description:
-              'Aqui, você tem mais informações legais sobre consórcio.',
-            buttonText: 'BAIXAR ARQUIVO',
-            willRedirect: false,
-          },
-          {
             title: 'CONDIÇÕES GERAIS',
             description:
-              'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Imóveis da Porto Seguro.',
+              'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Veículos da Porto Seguro.',
             willRedirect: false,
             url:
               'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-veiculos/consorcio-veiculos/regulamento_consorcio_de_automovel.pdf',
             buttonText: 'BAIXAR ARQUIVO',
-          },
-          {
-            title: 'TABELA DE TARIFAS',
-            description:
-              'Confira mais informações sobre tarifas envolvidas na contratação de consórcio.',
-            buttonText: 'BAIXAR ARQUIVO',
-            willRedirect: false,
           },
         ]}
       />
