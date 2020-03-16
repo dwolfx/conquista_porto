@@ -32,6 +32,7 @@ export const columns = [
   },
   {
     Header: 'RENTABILIDADE (%)',
+    accessor: 'rentabilidade',
     width: '273px',
     columns: [
       {

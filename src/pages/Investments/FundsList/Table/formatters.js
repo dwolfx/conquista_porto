@@ -75,6 +75,12 @@ const FormatDefault = column => (
   <WrapperContent isTbody>{column.cell.value}</WrapperContent>
 )
 
+const FormatDotToComma = column => (
+  <WrapperContent isTbody>
+    {column.cell.value.toString().replace('.', ',')}
+  </WrapperContent>
+)
+
 export default function FormatColumns(columns, toggleModal, isModalOpen) {
   const formatters = {
     fundo: column => ({
@@ -99,6 +105,14 @@ export default function FormatColumns(columns, toggleModal, isModalOpen) {
       ...column,
       Cell: FormatMoneyCell,
     }),
+    taxa_administracao: column => ({
+      ...column,
+      Cell: FormatDotToComma,
+    }),
+    rentabilidade: column => ({
+      ...column,
+      Cell: FormatDotToComma,
+    }),
     default: column => ({
       ...column,
       Cell: FormatDefault,
@@ -107,6 +121,14 @@ export default function FormatColumns(columns, toggleModal, isModalOpen) {
 
   return columns.map(column => {
     if (column.columns) {
+      if (column.accessor === 'rentabilidade') {
+        return {
+          ...column,
+          columns: column.columns
+            ? column.columns.map(formatters.rentabilidade)
+            : null,
+        }
+      }
       return {
         ...column,
         columns: column.columns ? column.columns.map(formatters.default) : null,
