@@ -14,7 +14,11 @@ import Loading from 'components/Loading'
 import Text from 'components/Text'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import {
+  formatMoney,
+  handleGiwRedirect,
+  formatMoneyWithoutCurrencyFlag,
+} from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
@@ -61,7 +65,7 @@ export default function Wallet({
     function formatRequestPayload() {
       return fundListCopy.map(item => {
         const { id, invested } = item
-        return { value: invested, id }
+        return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
       })
     }
     dispatch(

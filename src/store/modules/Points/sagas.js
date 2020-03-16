@@ -10,6 +10,11 @@ function* getData({ cpf }) {
       get,
       `${baseURLNamespaceInvest}/programa-pontos/extrato?cpf=${cpf}`
     )
+
+    if (response.data.Message) {
+      throw Error(response.data.Message.Mensagem)
+    }
+
     yield put(GetPointsDataSuccess(response.data))
   } catch (err) {
     yield put(GetPointsDataFailure())

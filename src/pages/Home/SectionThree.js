@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -12,10 +13,14 @@ import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
 import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
+import Popover from 'components/Popover/index'
 
 import { formatMoney } from 'helpers'
 
-import Popover from 'components/Popover/index'
+import { GetPointsDataRequest } from 'store/modules/Points/action'
+
+import LoadingState from './commons/LoadingState'
+import ErrorState from './commons/ErrorState'
 import pointsCardsData from './pointsCardsData'
 import {
   EmptyBody,
@@ -39,12 +44,19 @@ import {
   PointsExtractListWrapper,
   PointsButtonWrapper,
   Icon,
+  PointsEmptyContainer,
 } from './styles'
 
 export default function SectionThree({ points }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [belowOffer, setBelowOffer] = useState(null)
   const [aboveOffer, setAboveOffer] = useState(null)
+
+  const dispatch = useDispatch()
+  const { isLoading, hasError, auth } = useSelector(state => ({
+    ...state.points,
+    auth: state.auth,
+  }))
 
   useEffect(() => {
     if (points) {
@@ -137,19 +149,25 @@ export default function SectionThree({ points }) {
     }).isRequired,
   }
 
-  const renderPointsFooter = () => (
-    <CardPontosFooter>
-      <ButtonLink
-        data-gtm-subname="card pontos"
-        data-gtm-name="regras e condicoes"
-        data-gtm-type="click"
-        data-gtm-clicktype="link"
-        onClick={() => setIsModalOpen(!isModalOpen)}
-      >
-        Regras e condições
-      </ButtonLink>
-    </CardPontosFooter>
-  )
+  const renderPointsFooter = () => {
+    if (isLoading || hasError) {
+      return null
+    }
+
+    return (
+      <CardPontosFooter>
+        <ButtonLink
+          data-gtm-subname="card pontos"
+          data-gtm-name="regras e condicoes"
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          onClick={() => setIsModalOpen(!isModalOpen)}
+        >
+          Regras e condições
+        </ButtonLink>
+      </CardPontosFooter>
+    )
+  }
 
   const renderPointsHorizontalList = () =>
     points.detalheExtratoOptemaisTypes &&
@@ -257,6 +275,83 @@ export default function SectionThree({ points }) {
   const calculatePointsAmountBalance = extrato =>
     extrato ? extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0) : 0
 
+  const renderPointsCard = () => {
+    if (isLoading) {
+      return <LoadingState />
+    }
+
+    if (hasError) {
+      return (
+        <ErrorState onRetry={() => dispatch(GetPointsDataRequest(auth.cpf))} />
+      )
+    }
+
+    if (points && Object.entries(points).length === 0) {
+      return (
+        <PointsEmptyContainer>
+          <Text type="headline" color="gray5">
+            Você não possui movimentações referente a pontos no momento.
+          </Text>
+        </PointsEmptyContainer>
+      )
+    }
+
+    return (
+      <>
+        <PointsInfo>
+          <Text type="headline">
+            {points ? 'Saldo atual' : 'Você possui 0 pontos'}
+          </Text>
+          <Text type="headline" bold>
+            {!!points &&
+              Intl.NumberFormat().format(
+                calculatePointsAmountBalance(points.detalheExtratoOptemaisTypes)
+              )}
+          </Text>
+          <Popover
+            content={() => (
+              <Text
+                type="body"
+                color="gray5"
+                css={`
+                  width: 140px;
+                `}
+              >
+                Pontos acumulados no Conquista e no Cartão Porto Seguro
+              </Text>
+            )}
+          >
+            <Icon name="information" color="blue4" />
+          </Popover>
+          {points && (
+            <PointsButtonWrapper>
+              <Button
+                data-gtm-subname="card pontos"
+                data-gtm-name="resgatar"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                color="secondary"
+              >
+                Resgatar
+              </Button>
+            </PointsButtonWrapper>
+          )}
+        </PointsInfo>
+        <>
+          {points ? (
+            <PointsList>{renderPointsHorizontalList()}</PointsList>
+          ) : (
+            <EmptyBody>
+              <Text type="headline" color="gray5">
+                Você não possui movimentações referente a pontos no momento.
+              </Text>
+            </EmptyBody>
+          )}
+        </>
+      </>
+    )
+  }
+
   return (
     <>
       <Modal
@@ -274,58 +369,7 @@ export default function SectionThree({ points }) {
             headerTitle="Pontos"
             footer={renderPointsFooter()}
           >
-            <PointsInfo>
-              <Text type="headline">
-                {points ? 'Saldo atual' : 'Você possui 0 pontos'}
-              </Text>
-              <Text type="headline" bold>
-                {!!points &&
-                  Intl.NumberFormat().format(
-                    calculatePointsAmountBalance(
-                      points.detalheExtratoOptemaisTypes
-                    )
-                  )}
-              </Text>
-              <Popover
-                content={() => (
-                  <Text
-                    type="body"
-                    color="gray5"
-                    css={`
-                      width: 140px;
-                    `}
-                  >
-                    Pontos acumulados no Conquista e no Cartão Porto Seguro
-                  </Text>
-                )}
-              >
-                <Icon name="information" color="blue4" />
-              </Popover>
-              {points && (
-                <PointsButtonWrapper>
-                  <Button
-                    data-gtm-subname="card pontos"
-                    data-gtm-name="resgatar"
-                    data-gtm-type="click"
-                    data-gtm-clicktype="button"
-                    color="secondary"
-                  >
-                    Resgatar
-                  </Button>
-                </PointsButtonWrapper>
-              )}
-            </PointsInfo>
-            <>
-              {points ? (
-                <PointsList>{renderPointsHorizontalList()}</PointsList>
-              ) : (
-                <EmptyBody>
-                  <Text type="headline" color="gray5">
-                    Você não possui movimentações referente a pontos no momento.
-                  </Text>
-                </EmptyBody>
-              )}
-            </>
+            {renderPointsCard()}
           </FullHeightCard>
         </PointsExtractListWrapper>
       </SectionCol>
