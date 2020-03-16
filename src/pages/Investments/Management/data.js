@@ -19,16 +19,6 @@ export const downloadFileSectionData = [
   },
 ]
 
-export const complementaryInfo = [
-  {
-    title: 'Informativo de desempenho',
-    description:
-      'Material técnico, com gráficos, informações e histórico do fundo.',
-    buttonText: 'BAIXAR ARQUIVO',
-    willRedirect: false,
-  },
-]
-
 export const months = [
   {
     name: 'Último mês',

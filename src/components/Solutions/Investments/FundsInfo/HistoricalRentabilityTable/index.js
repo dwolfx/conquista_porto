@@ -34,6 +34,8 @@ export default function HistoricalRentabilityTable({ data }) {
 
   const printFieldText = text => text || '---'
 
+  const histRentabilBenchmark = data.hist_rentabil_benchmark
+  const histRentabilFundo = data.hist_rentabil_fundo
   return (
     <Container>
       <Title>Rentabilidade Histórica</Title>
@@ -51,69 +53,46 @@ export default function HistoricalRentabilityTable({ data }) {
           <TBody>
             <Tr>
               <Td>Fundo (%)</Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_fundo.rentabil_mes_anteiror)}
-              </Td>
-              <Td>{printFieldText(data.hist_rentabil_fundo.rentabil_ano)}</Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_fundo.rentabil_12_meses)}
-              </Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_fundo.rentabil_24_meses)}
-              </Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_fundo.rentabil_36_meses)}
-              </Td>
+              <Td>{printFieldText(histRentabilFundo.rentabil_mes_anteiror)}</Td>
+              <Td>{printFieldText(histRentabilFundo.rentabil_ano)}</Td>
+              <Td>{printFieldText(histRentabilFundo.rentabil_12_meses)}</Td>
+              <Td>{printFieldText(histRentabilFundo.rentabil_24_meses)}</Td>
+              <Td>{printFieldText(histRentabilFundo.rentabil_36_meses)}</Td>
             </Tr>
             <Tr>
               <Td>
-                {printFieldText(data.hist_rentabil_benchmark.benchmark.nome)}{' '}
-                (%)
+                {printFieldText(histRentabilBenchmark.benchmark.nome)} (%)
               </Td>
               <Td>
-                {printFieldText(
-                  data.hist_rentabil_benchmark.rentabil_mes_anteiror
-                )}
+                {printFieldText(histRentabilBenchmark.rentabil_mes_anteiror)}
               </Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_benchmark.rentabil_Ano)}
-              </Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_benchmark.rentabil_12_meses)}
-              </Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_benchmark.rentabil_24_meses)}
-              </Td>
-              <Td>
-                {printFieldText(data.hist_rentabil_benchmark.rentabil_36_meses)}
-              </Td>
+              <Td>{printFieldText(histRentabilBenchmark.rentabil_Ano)}</Td>
+              <Td>{printFieldText(histRentabilBenchmark.rentabil_12_meses)}</Td>
+              <Td>{printFieldText(histRentabilBenchmark.rentabil_24_meses)}</Td>
+              <Td>{printFieldText(histRentabilBenchmark.rentabil_36_meses)}</Td>
             </Tr>
             <Tr>
-              <Td>Variação (P.P.)</Td>
               <Td>
-                {printFieldText(
-                  data.hist_rentabil_fundo.rel_fundo_benchmark_mes_anteiror
-                )}
+                {histRentabilBenchmark.benchmark.nome === 'CDI'
+                  ? 'Variação'
+                  : 'Variação (P.P.)'}
               </Td>
               <Td>
                 {printFieldText(
-                  data.hist_rentabil_fundo.rel_fundo_benchmark_ano
+                  histRentabilFundo.rel_fundo_benchmark_mes_anteiror
                 )}
               </Td>
               <Td>
-                {printFieldText(
-                  data.hist_rentabil_fundo.rel_fundo_benchmark_12_meses
-                )}
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_ano)}
               </Td>
               <Td>
-                {printFieldText(
-                  data.hist_rentabil_fundo.rel_fundo_benchmark_24_meses
-                )}
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_12_meses)}
               </Td>
               <Td>
-                {printFieldText(
-                  data.hist_rentabil_fundo.rel_fundo_benchmark_36_meses
-                )}
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_24_meses)}
+              </Td>
+              <Td>
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_36_meses)}
               </Td>
             </Tr>
           </TBody>

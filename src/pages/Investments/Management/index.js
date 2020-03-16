@@ -27,7 +27,7 @@ import BalanceEvolution from './BalanceEvolution'
 import RentabilityHistoric from './RentabilityHistoric'
 import LastTransactions from './LastTransactions'
 
-import { complementaryInfo, downloadFileSectionData } from './data'
+import { downloadFileSectionData } from './data'
 import {
   LeftNav,
   RightContent,
@@ -129,7 +129,16 @@ export default function ManagementInvestments({ history }) {
               INFORMAÇÕES COMPLEMENTARES
             </Text>
             <FileDownloadSection
-              data={complementaryInfo}
+              data={[
+                {
+                  title: 'Informativo de desempenho',
+                  description:
+                    'Material técnico, com gráficos, informações e histórico do fundo.',
+                  buttonText: 'BAIXAR ARQUIVO',
+                  willRedirect: false,
+                  url: item.fundo.link_infor_desempenho,
+                },
+              ]}
               backgroundColor="inherit"
             />
           </ComplementaryInfo>

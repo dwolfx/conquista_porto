@@ -3,18 +3,6 @@ import { Col } from 'styled-bootstrap-grid'
 
 import IconExporter from '../../IconExporter'
 
-export const Container = styled.section`
-  display: flex;
-  background-color: ${props =>
-    props.backgroundColor || props.theme.colors.gray1};
-  justify-content: center;
-  width: 100%;
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
-`
-
 export const ColItem = styled(Col)`
   padding: 28px;
   border-right: 1px solid ${props => props.theme.colors.gray3};

@@ -10,12 +10,12 @@ exports[`FileDownloadSection renders correctly 1`] = `
     data-name="row"
   >
     <div
-      className="sc-htpNat sc-ifAKCX hOZaya"
+      className="sc-htpNat sc-bxivhb gLRiCF"
       data-name="col-md-6 col-lg-6"
     >
       <div>
         <svg
-          className="sc-EHOje jEbSvY"
+          className="sc-ifAKCX hFvWti"
           fill="#272727"
           height="24px"
         >
@@ -24,17 +24,17 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
       <div>
         <p
-          className="sc-bZQynM fwRDsQ"
+          className="sc-EHOje gUDciq"
         >
           quadro de rentabilidade
         </p>
         <p
-          className="sc-gzVnrw bfqAjb"
+          className="sc-bZQynM fasgbO"
         >
           Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
         </p>
         <p
-          className="sc-htoDjs bqWOYv"
+          className="sc-gzVnrw jijAhp"
           data-gtm-clicktype="link"
           data-gtm-subname="quadro de rentabilidade"
           data-gtm-type="click"
@@ -46,12 +46,12 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat sc-ifAKCX hOZaya"
+      className="sc-htpNat sc-bxivhb gLRiCF"
       data-name="col-md-6 col-lg-6"
     >
       <div>
         <svg
-          className="sc-EHOje jEbSvY"
+          className="sc-ifAKCX hFvWti"
           fill="#272727"
           height="24px"
         >
@@ -60,17 +60,17 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
       <div>
         <p
-          className="sc-bZQynM fwRDsQ"
+          className="sc-EHOje gUDciq"
         >
           carta do gestor
         </p>
         <p
-          className="sc-gzVnrw bfqAjb"
+          className="sc-bZQynM fasgbO"
         >
           Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
         </p>
         <p
-          className="sc-htoDjs bqWOYv"
+          className="sc-gzVnrw jijAhp"
           data-gtm-clicktype="link"
           data-gtm-subname="carta do gestor"
           data-gtm-type="click"
