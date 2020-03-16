@@ -73,7 +73,7 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
               <ListItems>
                 <Item>
                   <SubTitle5>Aplicação</SubTitle5>
-                  <Text>{formatMoney(fundDetails.min_value_to_apply)}</Text>
+                  <Text>{formatMoney(fundDetails.min_initial_value)}</Text>
                 </Item>
                 <Item>
                   <SubTitle5>movimentação mín.</SubTitle5>
@@ -265,7 +265,7 @@ ModalFundos.propTypes = {
   initialReset: PropTypes.bool.isRequired,
   fundDetails: PropTypes.shape({
     profitability: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    min_value_to_apply: PropTypes.number,
+    min_initial_value: PropTypes.number,
     'wsdls/profile': PropTypes.number,
     min_movement: PropTypes.number,
     min_balance: PropTypes.number,
@@ -293,7 +293,7 @@ ModalFundos.propTypes = {
 ModalFundos.defaultProps = {
   fundDetails: {
     profitability: [],
-    min_value_to_apply: 0,
+    min_initial_value: 0,
     'wsdls/profile': 1,
     min_movement: 0,
     min_balance: 0,
