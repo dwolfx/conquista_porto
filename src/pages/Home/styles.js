@@ -392,3 +392,12 @@ export const ErrorText = styled.span`
   margin-top: 7px;
   ${props => props.theme.fontTypes.captionUppercase}
 `
+
+export const PointsEmptyContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  padding: 0 56px;
+  text-align: center;
+`
