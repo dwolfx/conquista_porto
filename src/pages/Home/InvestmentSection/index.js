@@ -4,16 +4,16 @@ import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import 'styled-components/macro'
 
-import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
 import PieChart from 'components/PieChart'
-import Loading from 'components/Loading'
 
 import InvestmentEmptyImg from 'assets/images/pages/Home/img_investiments_empty.jpg'
 
 import { formatMoney } from 'helpers'
 
+import LoadingState from '../commons/LoadingState'
+import ErrorState from '../commons/ErrorState'
 import ChartMiddleInfoContent from '../ChartMiddleInfoContent'
 import ModalAccountPortoInfo from './ModalAccountPortoInfo'
 
@@ -28,7 +28,6 @@ import {
   SliderBoxButton,
   SliderCaption,
   SliderTextBox,
-  ErrorContainer,
 } from './styles'
 
 const graphValuesGenerator = (data, theme) => {
@@ -92,29 +91,12 @@ export default function InvestmentSection({ onFetchInvestments }) {
 
   const renderInvestimentCardContent = () => {
     if (isLoading) {
-      return (
-        <SectionRow
-          css={`
-            padding: 0 35px;
-          `}
-        >
-          <Loading
-            type="bar"
-            legend="Aguarde, estamos buscando suas informações..."
-          />
-        </SectionRow>
-      )
+      return <LoadingState />
     }
     if (hasError) {
-      return (
-        <ErrorContainer>
-          <Text type="headline" color="magenta2">
-            Não foi possível carregar suas informações.
-          </Text>
-          <Button onClick={onFetchInvestments}>Tentar novamente</Button>
-        </ErrorContainer>
-      )
+      return <ErrorState onRetry={onFetchInvestments} />
     }
+
     if (data && data.saldototal && data.categorias) {
       return (
         <>

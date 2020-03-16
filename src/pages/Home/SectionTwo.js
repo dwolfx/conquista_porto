@@ -4,16 +4,16 @@ import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
-import Button from 'components/Button'
 import objectiveTypes from 'components/Card/Objectives/types'
 import Text from 'components/Text'
-import Loading from 'components/Loading'
 
 import useMedia from 'hooks/useMedia'
 
 import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
+import LoadingState from './commons/LoadingState'
+import ErrorState from './commons/ErrorState'
 import ObjectivesListContent from './ObjectiveListContent'
 import { tipsBanner } from './bannerData'
 import {
@@ -28,7 +28,6 @@ import {
   ObjectivesContainer,
   BannerTipTitle,
   ObjectivesListContainer,
-  LoadingStateObjectivesContainer,
 } from './styles'
 
 export default function SectionTwo({ onRedirect }) {
@@ -91,33 +90,6 @@ export default function SectionTwo({ onRedirect }) {
     </EmptyBody>
   )
 
-  const LoadingState = () => (
-    <LoadingStateObjectivesContainer>
-      <Loading
-        type="bar"
-        legend="Aguarde, estamos buscando suas informações..."
-        widthBar="100%"
-      />
-    </LoadingStateObjectivesContainer>
-  )
-
-  const ErrorState = () => (
-    <LoadingStateObjectivesContainer>
-      <Text
-        type="headline"
-        color="magenta2"
-        css={`
-          margin-bottom: 14px;
-        `}
-      >
-        Não foi possível carregar suas informações.
-      </Text>
-      <Button onClick={() => dispatch(GetObjectiveDataRequest())}>
-        Tentar novamente
-      </Button>
-    </LoadingStateObjectivesContainer>
-  )
-
   const renderObjectiveCards = () =>
     objectiveTypes
       .slice(objectiveCardIndex, objectiveCardIndex + maxObjectiveCards)
@@ -148,7 +120,7 @@ export default function SectionTwo({ onRedirect }) {
     }
 
     if (hasErrorObjectives) {
-      return <ErrorState />
+      return <ErrorState onRetry={() => dispatch(GetObjectiveDataRequest())} />
     }
 
     return hasObjectives ? (
