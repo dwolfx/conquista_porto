@@ -1,14 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Icon from 'components/IconExporter'
-
 import {
   ComponentContainer,
   LoadingContainer,
   LoadingBar,
   LegendText,
-  RotateAnimation,
+  IconAnimated,
 } from './styles'
 
 export default function Loading({
@@ -20,11 +18,7 @@ export default function Loading({
   ...rest
 }) {
   if (type === 'spinner') {
-    return (
-      <RotateAnimation>
-        <Icon name="spinner" color={color} width={width} {...rest} />
-      </RotateAnimation>
-    )
+    return <IconAnimated name="spinner" color={color} width={width} {...rest} />
   }
 
   return (
