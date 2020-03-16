@@ -20,7 +20,7 @@ export default function TransactionsSection({ title, articles }) {
       <Wrapper>
         <ResponsiveLine>
           <ArticleItem>
-            <SubTitleWrapper>Aplicação</SubTitleWrapper>
+            <SubTitleWrapper>Aplicação Inicial</SubTitleWrapper>
             <ValueWrapper>{formatMoney(articles.minimo_inicial)}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
