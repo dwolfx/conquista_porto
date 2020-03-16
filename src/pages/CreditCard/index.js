@@ -73,7 +73,7 @@ const downloadFileSectionData = [
   {
     title: 'Condições gerais',
     description:
-      'Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.',
+      'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Cartão de Crédito da Porto Seguro.',
     buttonText: 'Visualizar',
     willRedirect: true,
     url: 'https://www.portoseguro.com.br/cartao-de-credito',
