@@ -44,6 +44,7 @@ import {
   PointsExtractListWrapper,
   PointsButtonWrapper,
   Icon,
+  PointsEmptyContainer,
 } from './styles'
 
 export default function SectionThree({ points }) {
@@ -287,20 +288,11 @@ export default function SectionThree({ points }) {
 
     if (points && Object.entries(points).length === 0) {
       return (
-        <div
-          css={`
-            align-items: center;
-            display: flex;
-            height: 100%;
-            justify-content: center;
-            padding: 0 56px;
-            text-align: center;
-          `}
-        >
+        <PointsEmptyContainer>
           <Text type="headline" color="gray5">
             Você não possui movimentações referente a pontos no momento.
           </Text>
-        </div>
+        </PointsEmptyContainer>
       )
     }
 
