@@ -7,7 +7,7 @@ exports[`FundsInfo renders correctly 1`] = `
   <h2
     className="sc-brqgnP fopwoI"
   >
-    Polo Macro FIM
+    POLO MACRO FI MULTIMERCADO
   </h2>
   <h5
     className="sc-jDwBTQ gQSKIz"
@@ -133,8 +133,7 @@ exports[`FundsInfo renders correctly 1`] = `
               className="sc-dnqmqq cyytZL"
             >
               CDI
-               
-              (%)
+               (%)
             </td>
             <td
               className="sc-dnqmqq cyytZL"
@@ -168,7 +167,7 @@ exports[`FundsInfo renders correctly 1`] = `
             <td
               className="sc-dnqmqq cyytZL"
             >
-              Variação (P.P.)
+              Variação
             </td>
             <td
               className="sc-dnqmqq cyytZL"
