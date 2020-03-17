@@ -6,7 +6,6 @@ import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 import { Col } from 'styled-bootstrap-grid'
 import Text from 'components/Text'
-import SelectDropdown from 'components/SelectDropdown'
 
 import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
 import { columns, fundsType } from './mock'
@@ -61,14 +60,6 @@ export default function FundsList() {
         <DropdownWrapper xs="6" sm="6" md="4">
           <Text type="caption">Classificação de Risco</Text>
           <Dropdown currentValue={selectedRisk} onChange={setSelectedRisk} />
-        </DropdownWrapper>
-        <DropdownWrapper xs="6">
-          <Text type="caption">Tipo</Text>
-          <SelectDropdown
-            options={fundsType}
-            onChange={setSelectedType}
-            currentValue={selectedType}
-          />
         </DropdownWrapper>
         <Col hiddenSmDown xs="12" sm="6" md="4">
           <RiskDegree actives={[1, 2, 3, 4, 5]} />

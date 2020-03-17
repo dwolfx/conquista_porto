@@ -200,42 +200,46 @@ export default function Wallet({
                                 {formatMoney(fundListCopy[index].invested)}
                               </Text>
                             </ObjectiveInfoBox>
-                            {fund.goals.map((goal, key) => (
-                              <ObjectiveInfoBox
-                                key={`goal-${goal.id}`}
-                                css={`
-                                  justify-content: space-between;
-                                `}
-                              >
-                                <div>
-                                  <Text>
-                                    <ObjectiveInfoColor
-                                      css={`
-                                        background-color: ${getColorGuide(key)};
-                                      `}
-                                    />
-                                    #{goal.name}
-                                  </Text>
-                                  <Text>{formatMoney(goal.value)}</Text>
-                                </div>
-                                <ButtonLink
+                            {fund.goals.map((goal, key) =>
+                              goal.value !== 0 ? (
+                                <ObjectiveInfoBox
+                                  key={`goal-${goal.id}`}
                                   css={`
-                                    margin-top: 14px;
+                                    justify-content: space-between;
                                   `}
-                                  data-gtm-type="click"
-                                  data-gtm-clicktype="link"
-                                  data-gtm-subname={goal.name}
-                                  data-gtm-name="gerenciar"
-                                  onClick={() => {
-                                    history.push(
-                                      `/objetivos/gerenciar/${goal.id}`
-                                    )
-                                  }}
                                 >
-                                  Gerenciar
-                                </ButtonLink>
-                              </ObjectiveInfoBox>
-                            ))}
+                                  <div>
+                                    <Text>
+                                      <ObjectiveInfoColor
+                                        css={`
+                                          background-color: ${getColorGuide(
+                                            key
+                                          )};
+                                        `}
+                                      />
+                                      #{goal.name}
+                                    </Text>
+                                    <Text>{formatMoney(goal.value)}</Text>
+                                  </div>
+                                  <ButtonLink
+                                    css={`
+                                      margin-top: 14px;
+                                    `}
+                                    data-gtm-type="click"
+                                    data-gtm-clicktype="link"
+                                    data-gtm-subname={goal.name}
+                                    data-gtm-name="gerenciar"
+                                    onClick={() => {
+                                      history.push(
+                                        `/objetivos/gerenciar/${goal.id}`
+                                      )
+                                    }}
+                                  >
+                                    Gerenciar
+                                  </ButtonLink>
+                                </ObjectiveInfoBox>
+                              ) : null
+                            )}
                           </ObjectivesInfoContainer>
                         </Col>
                       </Row>
