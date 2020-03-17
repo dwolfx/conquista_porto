@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
-import Button from 'components/Button'
 import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 
@@ -19,29 +18,15 @@ export default function Card({
   children,
   headerIcon,
   headerTitle,
-  headerButtonText,
-  headerButtonProps,
+  headerEndItem: HeaderEndItem,
   footer,
-  showHeaderButton,
   ...rest
 }) {
-  const ButtonHeader = () =>
-    headerButtonText ? (
-      <Button
-        {...headerButtonProps}
-        css={`
-          padding: 0 21px;
-        `}
-      >
-        {headerButtonText}
-      </Button>
-    ) : null
-
   const CardHeaderContent = () => (
     <HorizontalList
       size="small"
       startItems={[<CardTitle>{headerTitle}</CardTitle>]}
-      endItems={showHeaderButton && headerButtonText ? [<ButtonHeader />] : []}
+      endItems={HeaderEndItem ? [HeaderEndItem] : []}
       css={`
         width: 100%;
         padding: 0;
@@ -70,10 +55,8 @@ export default function Card({
 Card.defaultProps = {
   headerIcon: null,
   headerTitle: null,
-  headerButtonText: null,
-  headerButtonProps: null,
+  headerEndItem: null,
   footer: null,
-  showHeaderButton: false,
 }
 
 Card.propTypes = {
@@ -90,12 +73,6 @@ Card.propTypes = {
     return null
   },
   headerTitle: PropTypes.string,
-  headerButtonText: PropTypes.string,
-  showHeaderButton: PropTypes.bool,
-  headerButtonProps: PropTypes.shape({
-    color: PropTypes.string,
-    outline: PropTypes.bool,
-    onClick: PropTypes.func,
-  }),
   footer: PropTypes.node,
+  headerEndItem: PropTypes.node,
 }

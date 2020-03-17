@@ -468,6 +468,25 @@ export default function Wallet({
     )
   }
 
+  const HeaderEndItem = !isMobile ? (
+    <Button
+      color="secondary"
+      data-gtm-type="click"
+      data-gtm-clicktype="button"
+      data-gtm-subname="carteira de fundos"
+      data-gtm-name="salvar alteracoes"
+      onClick={() => saveEditionsFunds()}
+      loading={isLoadingSave}
+      loadingColor="white"
+      disabled={!hasUnsavedChanges || isLoadingSave}
+      css={`
+        padding: 0 21px;
+      `}
+    >
+      Salvar alterações
+    </Button>
+  ) : null
+
   return (
     <>
       <Col
@@ -478,19 +497,7 @@ export default function Wallet({
         <FullHeightCard
           headerIcon="dollarsign"
           headerTitle="Carteira de fundos"
-          headerButtonText="Salvar alterações"
-          showHeaderButton={!isMobile}
-          headerButtonProps={{
-            color: 'secondary',
-            'data-gtm-type': 'click',
-            'data-gtm-clicktype': 'button',
-            'data-gtm-subname': 'carteira de fundos',
-            'data-gtm-name': 'salvar alteracoes',
-            onClick: () => saveEditionsFunds(),
-            loading: isLoadingSave,
-            loadingColor: 'white',
-            disabled: !hasUnsavedChanges || isLoadingSave,
-          }}
+          headerEndItem={HeaderEndItem}
           footer={
             !isLoading && fundList ? (
               <FooterContainer>
