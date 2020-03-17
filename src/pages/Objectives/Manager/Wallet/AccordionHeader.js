@@ -46,6 +46,12 @@ export default function FundAccordionHeader({
     }
   }
 
+  const sumGoalsValue = fund.goals.reduce(
+    (acc, cur) => acc + cur.value,
+    fund.invested
+  )
+  const maxFundsDistribuition = Math.max(fund.balance, sumGoalsValue)
+
   return (
     <Row
       css={`
@@ -144,7 +150,7 @@ export default function FundAccordionHeader({
               </Text>
               <ObjectivesBar>
                 {fund.goals.map((goal, key) => {
-                  const percent = (goal.value / fund.balance) * 100
+                  const percent = (goal.value / maxFundsDistribuition) * 100
 
                   return (
                     <OtherObjectivesBar
@@ -160,7 +166,7 @@ export default function FundAccordionHeader({
                   )
                 })}
                 <Slider
-                  max={fund.available + fund.invested}
+                  max={Math.max(fund.available + fund.invested, fund.invested)}
                   initialValue={fund.invested}
                   onlyObjective={
                     fund.goals.length === 0 || fund.balance === fund.invested
@@ -168,7 +174,7 @@ export default function FundAccordionHeader({
                   onChange={value => {
                     handleValueFund(
                       fund.id,
-                      Math.min(value, fund.available + fund.invested)
+                      Math.min(value, Math.abs(fund.available) + fund.invested)
                     )
                   }}
                   showTooltip={fund.available !== 0 || fund.invested !== 0}
