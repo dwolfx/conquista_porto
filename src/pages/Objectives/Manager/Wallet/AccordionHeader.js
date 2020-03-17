@@ -9,6 +9,8 @@ import Text from 'components/Text'
 
 import { formatMoney } from 'helpers'
 
+import useMedia from 'hooks/useMedia'
+import InfoText from 'components/InfoText'
 import { getColorGuide } from './utils'
 import { Slider, ObjectivesBar, OtherObjectivesBar } from './styles'
 
@@ -19,6 +21,7 @@ export default function FundAccordionHeader({
 }) {
   const [fundAvailable, setFundAvailable] = useState(0)
 
+  const isMobile = useMedia('sm')
   useEffect(() => {
     setFundAvailable(
       fund.available +
@@ -51,10 +54,11 @@ export default function FundAccordionHeader({
     >
       <Col
         md="3"
+        sm="12"
         css={`
           display: flex;
           flex-direction: column;
-          padding-right: 28px;
+          padding-right: ${isMobile ? '0' : '28'}px;
         `}
       >
         <Text type="captionUppercase" color="gray4" bold>
@@ -69,7 +73,7 @@ export default function FundAccordionHeader({
           <Text type="headline" color="gray6" bold>
             {fund.name}
           </Text>
-          {fund.recommended && (
+          {fund.recommended && !isMobile && (
             <Popover
               content="Fundo recomendado"
               css={`
@@ -83,87 +87,98 @@ export default function FundAccordionHeader({
         </div>
       </Col>
 
-      <Col md="9" alignSelf="center">
-        <Row>
+      {isMobile ? (
+        <>
           <Col
-            md="2"
+            sm="12"
             css={`
-              padding-left: 14px;
+              margin: 7px 0;
             `}
           >
-            <Text type="captionUppercase" color="gray4">
-              Saldo do Fundo
-            </Text>
-            <Text type="headline" color="gray6">
-              {formatMoney(fund.balance)}
+            <Text type="subheading" color="blue4">
+              FUNDO RECOMENDADO
             </Text>
           </Col>
-          <Col
-            md="2"
-            css={`
-              padding-left: 7px;
-            `}
-          >
-            <Text type="captionUppercase" color="gray4">
-              Não distribuído
-            </Text>
-            <Text type="headline" color="gray6">
-              {formatMoney(fundAvailable)}
-            </Text>
-          </Col>
-          <Col
-            md="8"
-            css={`
-              align-items: center;
-              display: flex;
-              flex-direction: column;
-            `}
-          >
-            <Text
-              type="captionUppercase"
-              color="gray4"
+        </>
+      ) : (
+        <Col md="9" alignSelf="center">
+          <Row>
+            <Col
+              md="2"
               css={`
-                align-self: flex-start;
+                padding-left: 14px;
               `}
             >
-              Distribuição nos seus objetivos
-            </Text>
-            <ObjectivesBar>
-              {fund.goals.map((goal, key) => {
-                const percent = (goal.value / fund.balance) * 100
-
-                return (
-                  <OtherObjectivesBar
-                    hasLeftRadius={key === 0}
-                    hasRightRadius={
-                      (key === fund.goals.length - 1 || percent === 100) &&
-                      fund.available === 0
-                    }
-                    percent={percent}
-                    backgroundColor={getColorGuide(key)}
-                    key={`fund-${goal.id}`}
-                  />
-                )
-              })}
-              <Slider
-                max={fund.available + fund.invested}
-                initialValue={fund.invested}
-                onlyObjective={
-                  fund.goals.length === 0 || fund.balance === fund.invested
-                }
-                onChange={value => {
-                  handleValueFund(
-                    fund.id,
-                    Math.min(value, fund.available + fund.invested)
-                  )
-                }}
-                showTooltip={fund.available !== 0 || fund.invested !== 0}
-                showThumb={fund.available !== 0 || fund.invested !== 0}
+              <InfoText
+                label="Saldo do Fundo"
+                value={formatMoney(fund.balance)}
               />
-            </ObjectivesBar>
-          </Col>
-        </Row>
-      </Col>
+            </Col>
+            <Col
+              md="2"
+              css={`
+                padding-left: 7px;
+              `}
+            >
+              <InfoText
+                label="Não distribuído"
+                value={formatMoney(fundAvailable)}
+              />
+            </Col>
+            <Col
+              md="8"
+              css={`
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+              `}
+            >
+              <Text
+                type="captionUppercase"
+                color="gray4"
+                css={`
+                  align-self: flex-start;
+                `}
+              >
+                Distribuição nos seus objetivos
+              </Text>
+              <ObjectivesBar>
+                {fund.goals.map((goal, key) => {
+                  const percent = (goal.value / fund.balance) * 100
+
+                  return (
+                    <OtherObjectivesBar
+                      hasLeftRadius={key === 0}
+                      hasRightRadius={
+                        (key === fund.goals.length - 1 || percent === 100) &&
+                        fund.available === 0
+                      }
+                      percent={percent}
+                      backgroundColor={getColorGuide(key)}
+                      key={`fund-${goal.id}`}
+                    />
+                  )
+                })}
+                <Slider
+                  max={fund.available + fund.invested}
+                  initialValue={fund.invested}
+                  onlyObjective={
+                    fund.goals.length === 0 || fund.balance === fund.invested
+                  }
+                  onChange={value => {
+                    handleValueFund(
+                      fund.id,
+                      Math.min(value, fund.available + fund.invested)
+                    )
+                  }}
+                  showTooltip={fund.available !== 0 || fund.invested !== 0}
+                  showThumb={fund.available !== 0 || fund.invested !== 0}
+                />
+              </ObjectivesBar>
+            </Col>
+          </Row>
+        </Col>
+      )}
     </Row>
   )
 }

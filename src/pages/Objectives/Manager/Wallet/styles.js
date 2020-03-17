@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import SliderComp from 'components/Slider'
 
 import { TextStyle } from 'components/Text/styles'
+import { Col, Row } from 'styled-bootstrap-grid'
 
 export const Slider = styled(SliderComp)`
   border-radius: ${props => (props.onlyObjective ? '7px' : 0)};
@@ -29,6 +30,11 @@ export const ObjectiveInfoBox = styled.div`
     align-items: center;
     display: flex;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 7px 14px 7px 14px;
+    width: calc(100% / 2);
+  }
 `
 
 export const ObjectivesInfoContainer = styled.div`
@@ -54,4 +60,21 @@ export const OtherObjectivesBar = styled.div`
   border-bottom-right-radius: ${props => (props.hasRightRadius ? '7px' : 0)};
   height: 100%;
   width: ${props => props.percent || 0}%;
+`
+
+export const CurrentFundBalance = styled(Col)`
+  margin: 21px 0;
+  border-bottom: 2px solid ${props => props.theme.colors.blue4};
+  background-color: ${props => props.theme.colors.gray1};
+  border-radius: 7px 7px 0 0;
+  padding: 7px 21px;
+
+  ${TextStyle} {
+    margin-bottom: 7px;
+  }
+`
+
+export const InfoMobileRow = styled(Row)`
+  margin: 28px 0;
+  justify-content: space-between;
 `
