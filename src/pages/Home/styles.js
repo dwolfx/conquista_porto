@@ -74,8 +74,6 @@ export const SectionCol = styled(Col)`
 
   @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 14px;
-    height: -webkit-fill-available;
-    height: -moz-available;
   }
 `
 
