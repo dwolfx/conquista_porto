@@ -1,6 +1,12 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get, post, remove, baseURLNamespaceGoal } from 'services/api'
+import {
+  get,
+  post,
+  remove,
+  baseURLNamespaceGoal,
+  baseURLNamespaceGoalFunds,
+} from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
 import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
@@ -37,7 +43,7 @@ function* postSaveFunds({ payload }) {
   try {
     const response = yield call(
       post,
-      `${baseURLNamespaceGoal}/goals/${idGoal}/funds`,
+      `${baseURLNamespaceGoalFunds}/goals/${idGoal}/funds`,
       data
     )
     yield put({

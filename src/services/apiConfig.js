@@ -7,6 +7,8 @@ import { getCookieValue } from 'helpers'
 const baseURL = process.env.REACT_APP_BASE_URL
 const baseURLNamespaceInvest = process.env.REACT_APP_BASE_URL_INVEST || ''
 const baseURLNamespaceGoal = process.env.REACT_APP_BASE_URL_GOAL || ''
+const baseURLNamespaceGoalFunds =
+  process.env.REACT_APP_BASE_URL_GOAL_FUNDS || ''
 const baseURLNamespacePortopar = process.env.REACT_APP_BASE_URL_PORTOPAR || ''
 const baseURLNamespaceRecommendation =
   process.env.REACT_APP_BASE_URL_RECOMMENDATION || ''
@@ -45,6 +47,7 @@ export {
   baseURL,
   baseURLNamespaceInvest,
   baseURLNamespaceGoal,
+  baseURLNamespaceGoalFunds,
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
   responseInterceptor,
