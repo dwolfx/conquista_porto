@@ -2,6 +2,7 @@ import axios from 'axios'
 import {
   baseURL,
   baseURLNamespaceGoal,
+  baseURLNamespaceGoalFunds,
   baseURLNamespaceInvest,
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
@@ -41,6 +42,7 @@ export {
   remove,
   post,
   baseURLNamespaceGoal,
+  baseURLNamespaceGoalFunds,
   baseURLNamespaceRecommendation,
   baseURLNamespaceInvest,
   baseURLNamespacePortopar,
