@@ -59,25 +59,25 @@ export default function SectionThree({ points }) {
   }))
 
   useEffect(() => {
-    if (points) {
+    if (points && aboveOffer && belowOffer) {
       const pointsAmount = calculatePointsAmountBalance(
         points.detalheExtratoOptemaisTypes
       )
 
       if (pointsAmount) {
-        const maxPoints = pointsCardsData.slice(-1)[0].points
+        const maxPoints = [...pointsCardsData].slice(-1)[0].points
         let newBelowOffer
         let newAboveOffer
 
         if (pointsAmount > maxPoints) {
           // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
           // aboveOffer must be higher than belowOffer
-          const higherGroupData = pointsCardsData.filter(
+          const higherGroupData = [...pointsCardsData].filter(
             item => item.group === 5
           )
 
           newBelowOffer = higherGroupData[Math.floor(Math.random() * 3)]
-          newAboveOffer = higherGroupData
+          newAboveOffer = [...higherGroupData]
             .reverse()
             .reduce(
               (acc, cur) => (cur.points > newBelowOffer.points ? cur : acc),
@@ -85,11 +85,11 @@ export default function SectionThree({ points }) {
             )
         } else {
           // if current points are below the maximum offer, get the offer below the current points and one above the current
-          newBelowOffer = pointsCardsData.reduce(
+          newBelowOffer = [...pointsCardsData].reduce(
             (acc, cur) => (cur.points <= pointsAmount ? cur : acc),
             belowOffer
           )
-          newAboveOffer = pointsCardsData
+          newAboveOffer = [...pointsCardsData]
             .reverse()
             .reduce(
               (acc, cur) =>

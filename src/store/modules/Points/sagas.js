@@ -11,7 +11,11 @@ function* getData({ cpf }) {
       `${baseURLNamespaceInvest}/programa-pontos/extrato?cpf=${cpf}`
     )
 
-    if (response.data.Message) {
+    if (
+      response.data.Message &&
+      (!response.data.cadastroPessoaProgramaType ||
+        !response.data.detalheExtratoOptemaisTypes)
+    ) {
       throw Error(response.data.Message.Mensagem)
     }
 
