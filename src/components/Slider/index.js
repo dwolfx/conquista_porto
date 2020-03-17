@@ -77,19 +77,26 @@ export default function Slider({
     let percent = (finger.x - left) / width
     percent = Math.floor(percent * 100)
 
-    // get the value relative to position then normalize value
-    let moneyValue = percentToValue(percent, max) / 100
-    moneyValue = Math.round(moneyValue / normalizeValue) * normalizeValue
+    let moneyValue
 
-    // update percentage with the value normalized
-    percent = valueToPercent(moneyValue, max)
-
-    if (moneyValue / 100 > max) {
-      setError(true)
+    if (percent >= 100) {
+      moneyValue = max
+      percent = 100
     } else {
-      setError(false)
-    }
+      // get the value relative to position then normalize value
+      moneyValue = percentToValue(percent, max) / 100
+      moneyValue = Math.round(moneyValue / normalizeValue) * normalizeValue
 
+      // update percentage with the value normalized
+      percent = valueToPercent(moneyValue, max)
+
+      if (moneyValue / 100 > max) {
+        setError(true)
+      } else {
+        setError(false)
+      }
+    }
+    
     // if percentage between 0% and 100%, update states
     if (percent >= 0 && percent <= 100) {
       setPercentValue(percent)
