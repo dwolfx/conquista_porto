@@ -1,15 +1,24 @@
 import styled, { css, keyframes } from 'styled-components'
 import { TextStyle } from 'components/Text/styles'
 import IconButton from 'components/Button/Icon'
+import { Col } from 'styled-bootstrap-grid'
+import SelectDropdown from 'components/SelectDropdown'
+import { Option, Label, OptionsWrapper } from 'components/SelectDropdown/styles'
 
 export const ChartContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: center
   height: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
   padding-top: 42px;
-  height: 305px;
-`
+  height: 308px
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    align-items: flex-start;
+    height: 700px;
+    padding: 21px 0 0 0;
+  }
+  `
 
 export const ButtonContainer = styled.div``
 
@@ -28,11 +37,18 @@ export const NextButton = styled(IconButton).attrs(() => ({
 export const ChartItemContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: ${props => props.flexDirection};
   align-items: flex-end;
   position: relative;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
 `
 
-const scale = keyframes`
+const scaleY = keyframes`
   from {
     transform: scaleY(0);
   }
@@ -41,8 +57,17 @@ const scale = keyframes`
   }
 `
 
+const scaleX = keyframes`
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+`
+
 export const ChartItem = styled.div`
-  width: 56px;
+  width: ${props => `${props.width}px`};
   height: ${props => `${props.height}px`};
   border-radius: 7px 7px 0px 0px;
   background-color: ${props => props.theme.colors.gray2};
@@ -52,23 +77,44 @@ export const ChartItem = styled.div`
   &:before {
     content: '';
     width: 100%;
-    background-color: ${props => props.theme.colors.magenta2};
     height: ${props => `${props.missingDepositPercentage}%`};
+    background-color: ${props => props.theme.colors.magenta2};
     display: block;
-    animation: ${scale} 0.3s ease-out 0s 1 backwards;
+    animation: ${scaleY} 0.3s ease-out 0s 1 backwards;
     transform-origin: bottom center;
   }
 
   &:after {
     content: '';
     width: 100%;
-    background-color: ${props => props.theme.colors.blue4};
     height: ${props => `${props.depositPercentage}%`};
+    background-color: ${props => props.theme.colors.blue4};
     display: block;
     position: absolute;
     bottom: 0;
-    animation: ${scale} 0.3s ease-out 0s 1 backwards;
+    animation: ${scaleY} 0.3s ease-out 0s 1 backwards;
     transform-origin: bottom center;
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    border-radius: 0px 7px 7px 0px;
+
+    &:before {
+      content: '';
+      height: 100%;
+      width: ${props => `${props.missingDepositPercentage}%`};
+      position: absolute;
+      right: 0;
+      animation: ${scaleX} 0.3s ease-out 0s 1 backwards;
+    }
+
+    &:after {
+      content: '';
+      height: 100%;
+      width: ${props => `${props.depositPercentage}%`};
+      left: 0;
+      animation: ${scaleX} 0.3s ease-out 0s 1 backwards;
+    }
   }
 `
 
@@ -92,11 +138,29 @@ export const ChartEvolutionWrapper = styled.div`
   display: flex;
   justify-content: center;
   border-bottom: 2px dashed #ccc;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    border-bottom: none;
+    flex-direction: column;
+    border-left: 2px dashed #ccc;
+    margin-left: 7px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const MonthsContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: row;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+  }
 
   ${TextStyle} {
     text-align: center;
@@ -108,6 +172,11 @@ const indicatorStyle = css`
   border: 1px dashed #ccc;
   position: absolute;
   z-index: 1;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: 70%;
+    height: 0;
+  }
 `
 
 const indicatorAfterSelectorStyle = css`
@@ -116,6 +185,11 @@ const indicatorAfterSelectorStyle = css`
   position: absolute;
   top: -14px;
   transform: translate(-50%, -50%);
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    top: 0;
+    right: -91px;
+  }
 `
 
 export const StartOrEndIndicator = styled.div`
@@ -129,4 +203,42 @@ export const StartOrEndIndicator = styled.div`
 export const DepositTextValue = styled.span`
   font-weight: normal;
   color: ${props => props.theme.colors.gray6};
+`
+
+export const CustomDropdownWrapper = styled(Col)`
+  z-index: 2;
+  width: 126px;
+  margin: 0 auto;
+`
+export const CustomSelectDropdown = styled(SelectDropdown)`
+  background-color: ${props => props.theme.colors.gray1};
+  margin: 14px auto;
+  border-radius: 7px;
+  text-align: left;
+  padding-left: 14px;
+  font-size: ${props => props.theme.fontTypes.heading4};
+
+  &:before {
+    background-color: transparent;
+  }
+  &:after {
+    background-color: black;
+  }
+
+  ${OptionsWrapper} {
+    border-radius: 0 0 7px 7px;
+    position: absolute;
+    left: 17px;
+    width: inherit;
+  }
+
+  ${Option} {
+    background-color: ${props => props.theme.colors.gray1};
+    padding: 7px 14px;
+  }
+
+  ${Label} {
+    line-height: 41px;
+    margin: 0;
+  }
 `

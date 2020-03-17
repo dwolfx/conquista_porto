@@ -48,7 +48,7 @@ export const AccordionCloseButton = styled(IconButton).attrs(() => ({
 export const AccordionWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
   overflow: hidden;
-  padding: 28px 14px;
+  padding: 28px 7px;
   transition: all ease-in-out 0.6s;
 
   ${AccordionCloseButton} {
@@ -59,10 +59,9 @@ export const AccordionWrapper = styled.div`
       if (!props.isOpen) {
         return 0
       }
-
       return props.bodyPadding ? props.bodyPadding : '28px 0px'
     }};
-    max-height: ${props => (props.isOpen ? '1000px' : 0)};
+    max-height: ${props => (props.isOpen ? '1500px' : 0)};
     overflow-y: ${props => (props.isOpen ? 'auto' : 'hidden')};
   }
 `

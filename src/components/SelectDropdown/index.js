@@ -24,7 +24,12 @@ const Backdrop = ({ children, onClick }) => {
   return <div ref={ref}>{children}</div>
 }
 
-export default function SelectDropdown({ currentValue, onChange, options }) {
+export default function SelectDropdown({
+  currentValue,
+  onChange,
+  options,
+  ...rest
+}) {
   const [label, setLabel] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -42,21 +47,24 @@ export default function SelectDropdown({ currentValue, onChange, options }) {
         data-gtm-name={label}
         isOpen={isOpen}
         onClick={() => setIsOpen(!isOpen)}
+        {...rest}
       >
         <Label>{label}</Label>
         <OptionsWrapper isOpen={isOpen}>
-          {options.map(({ name, value }) => (
-            <Option
-              data-gtm-type="click"
-              data-gtm-clicktype="sub-menu"
-              data-gtm-subname={label}
-              data-gtm-name={name}
-              key={value}
-              onClick={() => onChange(value)}
-            >
-              {name}
-            </Option>
-          ))}
+          {options && options.length
+            ? options.map(({ name, value }) => (
+                <Option
+                  data-gtm-type="click"
+                  data-gtm-clicktype="sub-menu"
+                  data-gtm-subname={label}
+                  data-gtm-name={name}
+                  key={value}
+                  onClick={() => onChange(value)}
+                >
+                  {name}
+                </Option>
+              ))
+            : null}
         </OptionsWrapper>
       </DropdownWrapper>
     </Backdrop>

@@ -4,10 +4,6 @@ import { useSelector } from 'react-redux'
 
 import Header from 'components/Wizard/Header'
 
-// import {
-// PostObjectiveDataRequest,
-// } from 'store/modules/Objective/action'
-
 import Board from './Board'
 import GoalStreams from './GoalStreams'
 import Recommendation from './Recommendation'

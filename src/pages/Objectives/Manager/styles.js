@@ -8,10 +8,18 @@ import { Button as BtnStyle } from 'components/Button/styles'
 
 export const GridContainer = styled(Container)`
   padding: 35px 0;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 35px 14px;
+  }
 `
 
 export const ObjectiveHeader = styled.div`
   margin: 21px 0;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0 14px;
+  }
 `
 
 export const Banner = styled(BannerComponent)`
@@ -32,6 +40,22 @@ export const ObjectiveDetails = styled(Card)`
 export const WalletContainer = styled(Row)`
   width: 100%;
   margin: 0 0 21px;
+`
+
+export const FlexContainer = styled.div`
+  display: flex;
+  align-items: ${props => props.alignItems};
+  justify-content: ${props => props.justifyContent};
+  flex-direction: ${props => props.direction};
+  margin: ${props => props.margin};
+  width: ${props => props.width};
+`
+
+export const HorizontalLine = styled.hr`
+  background-color: ${props => props.theme.colors[props.color]};
+  border-color: ${props => props.theme.colors[props.color]};
+  margin: ${props => props.margin};
+  width: 100%;
 `
 
 export const ColumnWrapper = styled.div`
@@ -89,6 +113,8 @@ export const LoadingStateContainer = styled.div`
 export const ButtonContainerModal = styled.div`
   padding-top: 56px;
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
 
   button {
     margin-left: 14px;
