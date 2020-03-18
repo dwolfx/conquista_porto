@@ -96,7 +96,7 @@ export default function Slider({
         setError(false)
       }
     }
-    
+
     // if percentage between 0% and 100%, update states
     if (percent >= 0 && percent <= 100) {
       setPercentValue(percent)
