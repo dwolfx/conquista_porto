@@ -19,7 +19,10 @@ import {
   handleGiwRedirect,
   formatMoneyWithoutCurrencyFlag,
 } from 'helpers'
-import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
+import {
+  GetObjectiveManagementDataRequest,
+  PostSaveFundsRequest,
+} from 'store/modules/ObjectiveManagement/action'
 
 import {
   AccordionContentWrapper,
@@ -85,6 +88,7 @@ export default function Wallet({
         },
         onSuccess: () => {
           setHasUnsavedChanges(false)
+          dispatch(GetObjectiveManagementDataRequest({ id: idGoal, history }))
         },
       })
     )
