@@ -16,6 +16,7 @@ import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import InvestmentSection from './InvestmentSection'
 import ProductItemGenerator from './ProductItemGenerator'
 
+import CardHeaderState from './commons/CardHeaderState'
 import {
   FullHeightCard,
   SectionCol,
@@ -31,12 +32,16 @@ const SectionOne = ({ onFetchInvestments }) => {
     creditCards,
     vehiclesConsortium,
     buildingConsortium,
+    investments,
   } = useSelector(state => ({
     auth: state.auth,
     vehiclesFinancings: state.vehicleFinancing,
     creditCards: state.creditCard,
     vehiclesConsortium: state.consortiumVehicle,
     buildingConsortium: state.consortiumBuilding,
+    isLoadingInvestments: state.consolidatedPosition,
+    hasErrorInvestments: state.consolidatedPosition,
+    investments: state.consolidatedPosition,
   }))
 
   const history = useHistory()
@@ -75,7 +80,18 @@ const SectionOne = ({ onFetchInvestments }) => {
   return (
     <>
       <SectionCol md="5">
-        <FullHeightCard headerIcon="financial" headerTitle="Investimentos">
+        <FullHeightCard
+          headerIcon="financial"
+          headerTitle="Investimentos"
+          headerEndItem={
+            <CardHeaderState
+              data={investments.data}
+              isLoading={investments.isLoading}
+              hasError={investments.hasError}
+              onErrorClick={() => onFetchInvestments}
+            />
+          }
+        >
           <InvestmentSection onFetchInvestments={onFetchInvestments} />
         </FullHeightCard>
       </SectionCol>

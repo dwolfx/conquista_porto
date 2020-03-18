@@ -11,7 +11,18 @@ export default function CardHeaderState({
   hasError,
   onErrorClick,
 }) {
-  if (isLoading && data && Object.entries(data).length !== 0) {
+  let dataExists = false
+
+  if (data) {
+    if (Array.isArray(data)) {
+      dataExists = data.reduce((acc, cur) => acc && cur.length !== 0, true)
+    } else {
+      // object
+      dataExists = Object.entries(data).length !== 0
+    }
+  }
+
+  if (isLoading && dataExists) {
     return <Loading />
   }
 
