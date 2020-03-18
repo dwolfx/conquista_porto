@@ -70,9 +70,7 @@ export default function Wallet({
     dispatch(
       PostSaveFundsRequest({
         idGoal,
-        data: {
-          fund_list: fundListCopy,
-        },
+        data: fundListCopy,
         onSuccess: () => {
           setHasUnsavedChanges(false)
         },

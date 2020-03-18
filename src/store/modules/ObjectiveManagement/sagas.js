@@ -44,7 +44,7 @@ function* postSaveFunds({ payload }) {
   const { idGoal, data, onSuccess } = payload
 
   const dataFormated = {
-    fund_list: data.fund_list.map(item => {
+    fund_list: data.map(item => {
       const { id, invested } = item
       return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
     }),
