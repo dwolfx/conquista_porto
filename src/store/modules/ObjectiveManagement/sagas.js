@@ -20,6 +20,7 @@ import {
   GetObjectiveManagementDataFailure,
   DeleteObjectiveSuccess,
   DeleteObjectiveFailure,
+  UpdateObjectiveManagementData,
 } from './action'
 
 function* postData({ payload, pushHistory }) {
@@ -39,7 +40,7 @@ function* postData({ payload, pushHistory }) {
 }
 
 function* postSaveFunds({ payload }) {
-  const { idGoal, data, onSuccess } = payload
+  const { idGoal, data, onSuccess, newObjectiveValues } = payload
   try {
     const response = yield call(
       post,
@@ -49,6 +50,10 @@ function* postSaveFunds({ payload }) {
     yield put({
       ...PostSaveFundsSuccess(response),
       toast: buildToast('Alterações salvas com sucesso.', ToastTypes.success),
+    })
+
+    yield put({
+      ...UpdateObjectiveManagementData(newObjectiveValues),
     })
 
     if (onSuccess) {

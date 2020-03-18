@@ -80,6 +80,11 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         data: {},
       }
+    case Types.UPDATE_DATA:
+      return {
+        ...state,
+        data: { ...action.payload },
+      }
     default:
       return state
   }

@@ -50,9 +50,10 @@ export default function Wallet({
   isModalDeleteOpen,
 }) {
   const theme = useContext(ThemeContext)
-  const { isLoadingSave } = useSelector(state => state.objectiveManagement)
+  const { isLoadingSave, data: objectiveData } = useSelector(
+    state => state.objectiveManagement
+  )
 
-  const [fundListUpdated, setFundListUpdated] = useState([])
   const [fundListCopy, setFundListCopy] = useState([])
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
 
@@ -63,14 +64,13 @@ export default function Wallet({
 
   useEffect(() => {
     setFundListCopy(fundList)
-    setFundListUpdated(fundList)
   }, [fundList])
 
   useEffect(() => {
-    if (fundListUpdated.length && fundListCopy.length) {
-      setHasUnsavedChanges(isFundsNotTheSame(fundListUpdated, fundListCopy))
+    if (fundList.length && fundListCopy.length) {
+      setHasUnsavedChanges(isFundsNotTheSame(fundList, fundListCopy))
     }
-  }, [fundListCopy, fundListUpdated])
+  }, [fundListCopy, fundList])
 
   const saveEditionsFunds = () => {
     function formatRequestPayload() {
@@ -93,7 +93,10 @@ export default function Wallet({
         },
         onSuccess: () => {
           setHasUnsavedChanges(false)
-          setFundListUpdated(newFundsValues)
+        },
+        newObjectiveValues: {
+          ...objectiveData,
+          fund_list: newFundsValues,
         },
       })
     )

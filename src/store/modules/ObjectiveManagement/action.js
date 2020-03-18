@@ -85,3 +85,10 @@ export function CleanObjectiveManagementData() {
     type: Types.CLEAN_DATA,
   }
 }
+
+export function UpdateObjectiveManagementData(payload) {
+  return {
+    type: Types.UPDATE_DATA,
+    payload,
+  }
+}
