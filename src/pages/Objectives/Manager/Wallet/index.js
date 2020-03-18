@@ -52,6 +52,7 @@ export default function Wallet({
   const theme = useContext(ThemeContext)
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
+  const [fundListUpdated, setFundListUpdated] = useState([])
   const [fundListCopy, setFundListCopy] = useState([])
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
 
@@ -62,13 +63,14 @@ export default function Wallet({
 
   useEffect(() => {
     setFundListCopy(fundList)
+    setFundListUpdated(fundList)
   }, [fundList])
 
   useEffect(() => {
-    if (fundList.length && (fundListCopy || []).length) {
-      setHasUnsavedChanges(isFundsNotTheSame(fundList, fundListCopy))
+    if (fundListUpdated.length && fundListCopy.length) {
+      setHasUnsavedChanges(isFundsNotTheSame(fundListUpdated, fundListCopy))
     }
-  }, [fundListCopy, fundList])
+  }, [fundListCopy, fundListUpdated])
 
   const saveEditionsFunds = () => {
     function formatRequestPayload() {
@@ -77,6 +79,12 @@ export default function Wallet({
         return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
       })
     }
+
+    const newFundsValues = fundListCopy.map(item => ({
+      ...item,
+      invested: item.invested,
+    }))
+
     dispatch(
       PostSaveFundsRequest({
         idGoal,
@@ -85,6 +93,7 @@ export default function Wallet({
         },
         onSuccess: () => {
           setHasUnsavedChanges(false)
+          setFundListUpdated(newFundsValues)
         },
       })
     )
