@@ -23,22 +23,7 @@ export const formatMoneyWithoutCurrencyFlag = value => {
     return 0
   }
 
-  let valueToFormat = value
-
-  // if is integer, don't have the last two decimal digits
-  if (Number.isInteger(value)) {
-    valueToFormat = value * 100
-  }
-
-  // regex that:
-  // removes all non decimal digits
-  // separate the last two digits with a ','
-  // separate every 3 digits with a '.'
-  return `${valueToFormat
-    .toString()
-    .replace(/\D/g, '')
-    .replace(/([\d*])([\d]{2})$/g, '$1,$2')
-    .replace(/((\d)(?=(\d{3})+(?!\d)))/g, '$1.')}`
+  return value.toLocaleString('pt-BR')
 }
 
 export const formatCpf = value => {
