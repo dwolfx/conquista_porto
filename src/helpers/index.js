@@ -18,13 +18,28 @@ export const formatMoneyDecimal = (value = 0) => {
   ).replace(UNICODE_NON_BREAKING_SPACE, USUAL_SPACE)
 }
 
-export const formatMoneyWithoutCurrencyFlag = value =>
-  value &&
-  `${value
+export const formatMoneyWithoutCurrencyFlag = value => {
+  if (!value) {
+    return 0
+  }
+
+  let valueToFormat = value
+
+  // if is integer, don't have the last two decimal digits
+  if (Number.isInteger(value)) {
+    valueToFormat = value * 100
+  }
+
+  // regex that:
+  // removes all non decimal digits
+  // separate the last two digits with a ','
+  // separate every 3 digits with a '.'
+  return `${valueToFormat
     .toString()
     .replace(/\D/g, '')
     .replace(/([\d*])([\d]{2})$/g, '$1,$2')
     .replace(/((\d)(?=(\d{3})+(?!\d)))/g, '$1.')}`
+}
 
 export const formatCpf = value => {
   const numbers = value.toString().replace(/\D/g, '')
