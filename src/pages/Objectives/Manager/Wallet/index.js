@@ -80,11 +80,6 @@ export default function Wallet({
       })
     }
 
-    const newFundsValues = fundListCopy.map(item => ({
-      ...item,
-      invested: item.invested,
-    }))
-
     dispatch(
       PostSaveFundsRequest({
         idGoal,
@@ -96,7 +91,7 @@ export default function Wallet({
         },
         newObjectiveValues: {
           ...objectiveData,
-          fund_list: newFundsValues,
+          fund_list: fundListCopy,
         },
       })
     )
