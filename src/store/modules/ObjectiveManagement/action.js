@@ -28,10 +28,9 @@ export function PostSaveFundsRequest(payload) {
   }
 }
 
-export function PostSaveFundsSuccess(payload) {
+export function PostSaveFundsSuccess() {
   return {
     type: Types.POST_SAVE_FUNDS_SUCCESS,
-    payload,
   }
 }
 
