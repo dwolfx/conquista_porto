@@ -14,11 +14,7 @@ import Loading from 'components/Loading'
 import Text from 'components/Text'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
-import {
-  formatMoney,
-  handleGiwRedirect,
-  formatMoneyWithoutCurrencyFlag,
-} from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
@@ -65,24 +61,16 @@ export default function Wallet({
   }, [fundList])
 
   useEffect(() => {
-    if (fundList.length && (fundListCopy || []).length) {
+    if (fundList.length && fundListCopy.length) {
       setHasUnsavedChanges(isFundsNotTheSame(fundList, fundListCopy))
     }
   }, [fundListCopy, fundList])
 
   const saveEditionsFunds = () => {
-    function formatRequestPayload() {
-      return fundListCopy.map(item => {
-        const { id, invested } = item
-        return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
-      })
-    }
     dispatch(
       PostSaveFundsRequest({
         idGoal,
-        data: {
-          fund_list: formatRequestPayload(),
-        },
+        data: fundListCopy,
         onSuccess: () => {
           setHasUnsavedChanges(false)
         },

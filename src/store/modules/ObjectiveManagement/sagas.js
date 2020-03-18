@@ -1,5 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+import { formatMoneyWithoutCurrencyFlag } from 'helpers'
+
 import {
   get,
   post,
@@ -40,14 +42,23 @@ function* postData({ payload, pushHistory }) {
 
 function* postSaveFunds({ payload }) {
   const { idGoal, data, onSuccess } = payload
+
+  const dataFormated = {
+    fund_list: data.map(item => {
+      const { id, invested } = item
+      return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
+    }),
+  }
+
   try {
-    const response = yield call(
+    yield call(
       post,
       `${baseURLNamespaceGoalFunds}/goals/${idGoal}/funds`,
-      data
+      dataFormated
     )
+
     yield put({
-      ...PostSaveFundsSuccess(response),
+      ...PostSaveFundsSuccess(data),
       toast: buildToast('Alterações salvas com sucesso.', ToastTypes.success),
     })
 
