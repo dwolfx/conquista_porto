@@ -35,10 +35,6 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoadingSave: false,
-        data: {
-          ...state.data,
-          fund_list: [...action.payload],
-        },
       }
     case Types.POST_SAVE_FUNDS_FAILURE:
       return {
