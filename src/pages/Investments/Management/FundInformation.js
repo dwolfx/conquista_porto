@@ -55,8 +55,8 @@ export default function FundInformation({ fund, idCotista }) {
 
   const getGiwPath = type => {
     const paths = {
-      investir: 'arena_aplicacao_cotista_01',
-      resgatar: 'arena_resgatar_01',
+      investir: 'aplicacao',
+      resgatar: 'resgate',
     }
 
     return paths[type]
@@ -68,9 +68,9 @@ export default function FundInformation({ fund, idCotista }) {
       categoria_arena,
     } = fundItem
 
-    return `gerenciadorinterfaceweb/${getGiwPath(
+    return `portaldecliente/conquista/${getGiwPath(
       action
-    )}.do?portal=${7}&idFundo=${id_carteira}&idCotista=${idCotista}&nomeFundo=${apelido}&tipofundo=${categoria_arena}&brand=${nome_gestor}`
+    )}?idFundo=${id_carteira}&idCotista=${idCotista}&nomeFundo=${apelido}&tipoFundo=${categoria_arena}&brand=${nome_gestor}&r=true`
   }
 
   function renderSelectItems(closeFunc) {

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import Text from 'components/Text'
 import IconExporter from 'components/IconExporter'
@@ -48,29 +49,35 @@ export default function ChartPopoverContent({ info, data }) {
             margin-bottom: 14px;
           `}
         >
-          <IconExporter
-            name={
-              informationMessage === UNDER_GOAL && !data.conquered
-                ? 'alertrounded'
-                : 'check'
-            }
-            color={
-              informationMessage === UNDER_GOAL && !data.conquered
-                ? 'magenta2'
-                : 'blue4'
-            }
-            width="21px"
-          />
-          <Text
-            color="gray5"
+          <div
             css={`
-              padding-left: 7px;
+              display: flex;
             `}
           >
-            {data.conquered
-              ? 'Parabéns! Você atingiu seu objetivo.'
-              : 'Você está abaixo da meta deste mês.'}
-          </Text>
+            <IconExporter
+              name={
+                informationMessage === UNDER_GOAL && !data.conquered
+                  ? 'alertrounded'
+                  : 'check'
+              }
+              color={
+                informationMessage === UNDER_GOAL && !data.conquered
+                  ? 'magenta2'
+                  : 'blue4'
+              }
+              width="21px"
+            />
+            <Text
+              color="gray5"
+              css={`
+                padding-left: 7px;
+              `}
+            >
+              {data.conquered
+                ? 'Parabéns! Você atingiu seu objetivo.'
+                : 'Você está abaixo da meta deste mês.'}
+            </Text>
+          </div>
         </div>
       )
     }
