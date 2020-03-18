@@ -1,5 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
+import { formatMoneyWithoutCurrencyFlag } from 'helpers'
+
 import {
   get,
   post,
@@ -20,7 +22,6 @@ import {
   GetObjectiveManagementDataFailure,
   DeleteObjectiveSuccess,
   DeleteObjectiveFailure,
-  UpdateObjectiveManagementData,
 } from './action'
 
 function* postData({ payload, pushHistory }) {
@@ -40,20 +41,25 @@ function* postData({ payload, pushHistory }) {
 }
 
 function* postSaveFunds({ payload }) {
-  const { idGoal, data, onSuccess, newObjectiveValues } = payload
+  const { idGoal, data, onSuccess } = payload
+
+  const dataFormated = {
+    fund_list: data.fund_list.map(item => {
+      const { id, invested } = item
+      return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
+    }),
+  }
+
   try {
-    const response = yield call(
+    yield call(
       post,
       `${baseURLNamespaceGoalFunds}/goals/${idGoal}/funds`,
-      data
+      dataFormated
     )
-    yield put({
-      ...PostSaveFundsSuccess(response),
-      toast: buildToast('Alterações salvas com sucesso.', ToastTypes.success),
-    })
 
     yield put({
-      ...UpdateObjectiveManagementData(newObjectiveValues),
+      ...PostSaveFundsSuccess(data),
+      toast: buildToast('Alterações salvas com sucesso.', ToastTypes.success),
     })
 
     if (onSuccess) {

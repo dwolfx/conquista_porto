@@ -28,9 +28,10 @@ export function PostSaveFundsRequest(payload) {
   }
 }
 
-export function PostSaveFundsSuccess() {
+export function PostSaveFundsSuccess(payload) {
   return {
     type: Types.POST_SAVE_FUNDS_SUCCESS,
+    payload,
   }
 }
 
@@ -83,12 +84,5 @@ export function DeleteObjectiveFailure() {
 export function CleanObjectiveManagementData() {
   return {
     type: Types.CLEAN_DATA,
-  }
-}
-
-export function UpdateObjectiveManagementData(payload) {
-  return {
-    type: Types.UPDATE_DATA,
-    payload,
   }
 }

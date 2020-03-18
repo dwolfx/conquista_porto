@@ -35,6 +35,10 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoadingSave: false,
+        data: {
+          ...state.data,
+          ...action.payload,
+        },
       }
     case Types.POST_SAVE_FUNDS_FAILURE:
       return {
@@ -79,11 +83,6 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         data: {},
-      }
-    case Types.UPDATE_DATA:
-      return {
-        ...state,
-        data: { ...action.payload },
       }
     default:
       return state

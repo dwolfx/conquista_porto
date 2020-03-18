@@ -14,11 +14,7 @@ import Loading from 'components/Loading'
 import Text from 'components/Text'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
-import {
-  formatMoney,
-  handleGiwRedirect,
-  formatMoneyWithoutCurrencyFlag,
-} from 'helpers'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
@@ -50,9 +46,7 @@ export default function Wallet({
   isModalDeleteOpen,
 }) {
   const theme = useContext(ThemeContext)
-  const { isLoadingSave, data: objectiveData } = useSelector(
-    state => state.objectiveManagement
-  )
+  const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
   const [fundListCopy, setFundListCopy] = useState([])
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
@@ -73,25 +67,14 @@ export default function Wallet({
   }, [fundListCopy, fundList])
 
   const saveEditionsFunds = () => {
-    function formatRequestPayload() {
-      return fundListCopy.map(item => {
-        const { id, invested } = item
-        return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
-      })
-    }
-
     dispatch(
       PostSaveFundsRequest({
         idGoal,
         data: {
-          fund_list: formatRequestPayload(),
+          fund_list: fundListCopy,
         },
         onSuccess: () => {
           setHasUnsavedChanges(false)
-        },
-        newObjectiveValues: {
-          ...objectiveData,
-          fund_list: fundListCopy,
         },
       })
     )
