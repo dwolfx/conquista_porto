@@ -484,13 +484,13 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                         {
                           ...answer,
                           target_value: formatMoneyWithoutCurrencyFlag(
-                            answer.target_value * 100
+                            answer.target_value
                           ),
                           initial_value: formatMoneyWithoutCurrencyFlag(
-                            answer.initial_value * 100
+                            answer.initial_value
                           ),
                           monthly_value: formatMoneyWithoutCurrencyFlag(
-                            suggestion_goal.suggestion_monthly_value * 100
+                            suggestion_goal.suggestion_monthly_value
                           ),
                         },
                         'initialInvestment'
@@ -601,13 +601,13 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                         {
                           ...answer,
                           target_value: formatMoneyWithoutCurrencyFlag(
-                            answer.target_value * 100
+                            answer.target_value
                           ),
                           initial_value: formatMoneyWithoutCurrencyFlag(
-                            answer.initial_value * 100
+                            answer.initial_value
                           ),
                           monthly_value: formatMoneyWithoutCurrencyFlag(
-                            answer.monthly_value * 100
+                            answer.monthly_value
                           ),
                           target_date: suggestion_goal.suggestion_target_date,
                         },

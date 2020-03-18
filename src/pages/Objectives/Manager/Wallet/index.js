@@ -77,7 +77,10 @@ export default function Wallet({
     function formatRequestPayload() {
       return fundListCopy.map(item => {
         const { id, invested } = item
-        return { value: formatMoneyWithoutCurrencyFlag(invested * 100), id }
+        return {
+          value: formatMoneyWithoutCurrencyFlag(invested),
+          id,
+        }
       })
     }
     dispatch(
