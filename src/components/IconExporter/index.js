@@ -55,7 +55,10 @@ import { ReactComponent as linechart } from 'assets/icons/line-chart.svg'
 import { ReactComponent as link } from 'assets/icons/link.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
 import { ReactComponent as malefemale } from 'assets/icons/male-female.svg'
-import { ReactComponent as master } from 'assets/images/mastercard.svg'
+import {
+  ReactComponent as master,
+  ReactComponent as mastercard,
+} from 'assets/icons/mastercard.svg'
 import { ReactComponent as menu } from 'assets/icons/menu.svg'
 import { ReactComponent as money } from 'assets/icons/money.svg'
 import { ReactComponent as monitoranalytics } from 'assets/icons/monitor-analytics.svg'
@@ -85,7 +88,7 @@ import { ReactComponent as tools } from 'assets/icons/tools.svg'
 import { ReactComponent as trash } from 'assets/icons/trashcan.svg'
 import { ReactComponent as user } from 'assets/icons/user.svg'
 import { ReactComponent as usermedic } from 'assets/icons/user-medic.svg'
-import { ReactComponent as visa } from 'assets/images/visa.svg'
+import { ReactComponent as visa } from 'assets/icons/visa.svg'
 import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
 import { ReactComponent as loading } from 'assets/icons/loading.svg'
 import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
@@ -145,6 +148,7 @@ const dict = {
   loading,
   malefemale,
   master,
+  mastercard,
   menu,
   money,
   monitoranalytics,
@@ -194,7 +198,7 @@ const IconComponent = ({ name, color, ...rest }) => {
     }
   }
 
-  return <Icon {...otherProps} />
+  return Icon ? <Icon {...otherProps} /> : null
 }
 
 IconComponent.propTypes = {
