@@ -43,6 +43,7 @@ import {
   OtherObjectivesBar,
   CurrentFundBalance,
   InfoMobileRow,
+  FooterContainer,
 } from './styles'
 
 export default function Wallet({
@@ -482,25 +483,47 @@ export default function Wallet({
           }}
           footer={
             !isLoading && fundList ? (
-              <Button
-                loading={isLoading}
-                loadingColor="white"
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                data-gtm-subname="carteira de fundos"
-                data-gtm-name="adicionar fundo"
-                outline
-                css={`
-                  width: 100%;
-                `}
-                onClick={() => {
-                  handleGiwRedirect(
-                    'portaldecliente/conquista/investimentos/info-fundos-investimento'
-                  )
-                }}
-              >
-                Adicionar fundo
-              </Button>
+              <FooterContainer>
+                <Button
+                  loading={isLoading}
+                  loadingColor="white"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  data-gtm-subname="carteira de fundos"
+                  data-gtm-name="adicionar fundo"
+                  outline
+                  css={`
+                    margin-top: 21px;
+                    width: 100%;
+                  `}
+                  onClick={() => {
+                    handleGiwRedirect(
+                      'portaldecliente/conquista/investimentos/info-fundos-investimento'
+                    )
+                  }}
+                >
+                  Adicionar fundo
+                </Button>
+                {isMobile && (
+                  <Button
+                    color="secondary"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="button"
+                    data-gtm-subname="carteira de fundos"
+                    data-gtm-name="salvar alteracoes"
+                    onClick={() => saveEditionsFunds()}
+                    loading={isLoadingSave}
+                    loadingColor="white"
+                    css={`
+                      margin: 14px auto;
+                      width: 100%;
+                    `}
+                    disabled={!hasUnsavedChanges || isLoadingSave}
+                  >
+                    Salvar alterações
+                  </Button>
+                )}
+              </FooterContainer>
             ) : null
           }
         >
