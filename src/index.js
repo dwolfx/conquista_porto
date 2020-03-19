@@ -8,8 +8,10 @@ import './setupTests'
 
 import 'react-toastify/dist/ReactToastify.css'
 
-Array.prototype.flatMap = function(lambda) {
-  return Array.prototype.concat.apply([], this.map(lambda))
-}
+Array.prototype.flatMap = Array.prototype.flatMap
+  ? Array.prototype.flatMap
+  : function(lambda) {
+      return Array.prototype.concat.apply([], this.map(lambda))
+    }
 
 ReactDOM.render(<App />, document.getElementById('root'))
