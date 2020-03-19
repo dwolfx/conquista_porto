@@ -1,118 +1,32 @@
 {
   "posicao-consolidada": {
-    "cpf": "68826796220",
-    "saldototal": 402708.19,
+    "saldototal": 616.76,
     "categorias": [
-      {
-        "nome": "Renda Variável",
-        "valor": 1995.78
-      },
-      {
-        "nome": "Renda Fixa",
-        "valor": 135734.02
-      },
-      {
-        "nome": "Multimercado",
-        "valor": 264978.39
-      },
-      {
-        "nome": "Conquista",
-        "valor": 0
-      }
+      { "nome": "Renda Variável", "valor": 616.76 },
+      { "nome": "Renda Fixa", "valor": 0.0 }
     ]
   },
   "cartao_credito": [
     {
-      "CodigoCanal": 0,
-      "CpfCnpj": "32036703801",
-      "Bandeira": "Visa",
-      "Fatura": {
-        "MelhorDataCompra": 22,
-        "Status": "Aberta",
-        "Valor": 25090,
-        "Vencimento": 16
-      },
-      "LimiteCartaoAdicional": {
-        "LimiteCredito": 0,
-        "LimiteDisponivel": 0,
-        "LimiteDisponivelOverlimitt": 0,
-        "LimiteSaque": 0
-      },
-      "LimiteTitularCartao": {
-        "LimiteCredito": 0,
-        "LimiteDisponivel": 0,
-        "LimiteDisponivelOverlimitt": 0,
-        "LimiteSaque": 0
-      },
-      "Link": "string",
-      "Tipo": "Gold",
-      "UltimosDigitos": 3212
+      "Tipo": "GOLD",
+      "Bandeira": "MASTERCARD",
+      "Fatura": { "MelhorDataCompra": "6", "Valor": "0", "Vencimento": "16" },
+      "UltimosDigitos": "4115",
+      "LimiteTitularCartao": { "LimiteDisponivel": "0" }
     },
     {
-      "CodigoCanal": 0,
-      "CpfCnpj": "33244452809",
-      "Bandeira": "Master",
+      "Tipo": "PLATINUM",
+      "Bandeira": "VISA",
       "Fatura": {
-        "MelhorDataCompra": 12,
-        "Status": "Fechada",
-        "Valor": 25,
-        "Vencimento": 20
+        "MelhorDataCompra": "7",
+        "Valor": "4070.5",
+        "Vencimento": "18"
       },
-      "limiteCartaoAdicional": {
-        "LimiteCredito": 0,
-        "LimiteDisponivel": 0,
-        "LimiteDisponivelOverlimitt": 0,
-        "LimiteSaque": 0
-      },
-      "LimiteTitularCartao": {
-        "LimiteCredito": 0,
-        "LimiteDisponivel": 0,
-        "LimiteDisponivelOverlimitt": 0,
-        "LimiteSaque": 0
-      },
-      "Link": "string",
-      "Tipo": "Platinum",
-      "UltimosDigitos": 3901
+      "UltimosDigitos": "5112",
+      "LimiteTitularCartao": { "LimiteDisponivel": "10650.73" }
     }
   ],
-  "financiamento_veiculo": [
-    {
-      "id": 1,
-      "Contrato": "contrato1",
-      "Descricao": "Este é contrato 1 de financiamento",
-      "Marca": "Fiat",
-      "Modelo": "Palio Weekend",
-      "PontosGanhos": "50",
-      "QuantidadeParcelasContratadas": "32",
-      "QuantidadeParcelasPagas": 1,
-      "SaldoDevedor": "50000",
-      "UrlContrato": "www.google.com.br",
-      "ValorContratado": "50000",
-      "ValorEntrada": "10000",
-      "ValorPago": "25000",
-      "ValorParcelaAtual": "2500",
-      "cpf": "33244452809",
-      "codigoCanal": 0
-    },
-    {
-      "id": 2,
-      "Contrato": "contrato2",
-      "Descricao": "Este é contrato 1 de financiamento",
-      "Marca": "Renault",
-      "Modelo": "Sandero",
-      "PontosGanhos": "50",
-      "QuantidadeParcelasContratadas": "20",
-      "QuantidadeParcelasPagas": "12",
-      "SaldoDevedor": "25000",
-      "UrlContrato": "www.google.com.br",
-      "ValorContratado": "50000",
-      "ValorEntrada": "10000",
-      "ValorPago": "25000",
-      "ValorParcelaAtual": "2500",
-      "cpf": "33244452809",
-      "codigoCanal": 0
-    }
-  ],
+  "financiamento_veiculo": { "TipoCritica": "SUCESSO", "Mensagem": "SUCESSO" },
   "fundos_lista": [
     [
       {
@@ -1591,36 +1505,28 @@
       "valorCoberturaVida": 0
     }
   ],
-  "consorcios_imovel": {
-    "Cliente": {
-      "Cpf": "33244452809"
-    },
-    "consorcios": [
-      {
-        "Id": 1,
-        "UrlProposta": "",
-        "DescricaoBem": "",
-        "ValorContratado": "137132.8",
-        "Descricao": "Contrato 889654",
-        "ValorParcelaAtual": "434.85",
-        "StatusConsorcio": "Contemplado",
-        "QuantidadeParcelasContratadas": "191",
-        "ValorQuitacao": "30482.77",
-        "QuantidadeParcelasPagas": "121",
-        "Grupo": "I159",
-        "Cota": "180",
-        "ValorPago": "108246.07",
-        "PontosGanhos": "100"
-      }
-    ]
-  },
+  "consorcios_imovel": { "TipoCritica": "SUCESSO", "Mensagem": "SUCESSO" },
   "consorcios_auto": {
-    "Cliente": {
-      "Cpf": "33244452809"
-    },
+    "cliente": { "Sobrenome": "Rodrigues", "Nome": "Rafael" },
     "consorcios": [
       {
-        "Id": 1,
+        "UrlProposta": "",
+        "DescricaoBem": "ONIX HATCH LT 1.4 8V",
+        "ValorContratado": "52432",
+        "Descricao": "Contrato 4000044932",
+        "ValorParcelaAtual": "838.01",
+        "StatusConsorcio": "Não Contemplado",
+        "QuantidadeParcelasContratadas": "74",
+        "ValorQuitacao": "46026.8",
+        "QuantidadeParcelasPagas": "18",
+        "Marca": "",
+        "Modelo": "",
+        "Grupo": "A241",
+        "Cota": "124",
+        "ValorPago": "14777.26",
+        "PontosGanhos": "100"
+      },
+      {
         "UrlProposta": "",
         "DescricaoBem": "",
         "ValorContratado": "25958",
@@ -1630,322 +1536,236 @@
         "QuantidadeParcelasContratadas": "80",
         "ValorQuitacao": "0",
         "QuantidadeParcelasPagas": "80",
-        "Marca": "FIAT",
-        "Modelo": "Uno Way",
+        "Marca": "",
+        "Modelo": "",
         "Grupo": "A104",
         "Cota": "123",
         "ValorPago": "31792.5",
         "PontosGanhos": "100"
-      },
-      {
-        "Id": 2,
-        "Cota": 700,
-        "Descricao": "string",
-        "DescricaoBem": "string",
-        "Grupo": "x398",
-        "PontosGanhos": 0,
-        "QuantidadeParcelasContratadas": 12,
-        "QuantidadeParcelasPagas": 9,
-        "StatusConsorcio": "Contemplado",
-        "UrlProposta": "string",
-        "ValorContratado": 40000,
-        "ValorPago": 0,
-        "ValorParcelaAtual": 675,
-        "ValorQuitacao": 27200
-      }
-    ],
-    "StatusPrevidencia": "string",
-    "TaxaAnualRendimento": 0,
-    "Tipo": "string",
-    "TipoCobertura": "string",
-    "TipoProduto": "string",
-    "ValorCoberturaVida": 0
-  },
-  "conta_porto": {
-    "DadosContaPortoSeguro": {
-      "agencia": "0001",
-      "cheque_especial": {
-        "data_vencimento": "2019-12-26T11:15:44.425Z",
-        "limite": 0
-      },
-      "codigo_banco": "0000",
-      "conta": "9999",
-      "cpf": "33244452809",
-      "digito_conta": "9",
-      "encargos_acumulados": 0,
-      "id_conta": 0,
-      "nome_banco": "Banco Porto",
-      "saldo_disponivel": 100000,
-      "saldo_liquidar": 0,
-      "titular": "Julia Francis Reyes",
-      "valores_bloqueados": {
-        "em_24horas": 0,
-        "em_48horas": 0,
-        "indeterminado": 0,
-        "judicial": 0
-      }
-    },
-    "UltimaOperacoes": [
-      {
-        "data": "2019-12-26T11:15:44.425Z",
-        "tipo": "string",
-        "valor": 0
       }
     ]
   },
-  "seguros": {
-    "ProdutosViagem": {
-      "Viagem": {
-        "codigoFormaPagamento": "62",
-        "CoberturasBasicas": {
-          "CoberturaBasica": [
-            {
-              "CapitalSegurado": "30000.00",
-              "Nome": "DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"
-            },
-            {
-              "CapitalSegurado": "100000.00",
-              "Nome": "MORTE ACIDENTAL"
-            }
-          ]
-        },
-        "Beneficiarios": {
-          "Beneficiario": {
-            "Percentual": "100",
-            "Nome": "Herdeiros legais"
+  "conta_porto": {
+    "UltimasOperacoes": {
+      "transacoes": {
+        "transacao": [
+          {
+            "tipo": "RESGATE",
+            "data": "2020-03-06T00:00:00-03:00",
+            "valor": "97.83"
+          },
+          {
+            "tipo": "APLICAÇÃO",
+            "data": "2020-03-02T00:00:00-03:00",
+            "valor": "-1000"
+          },
+          {
+            "tipo": "TED",
+            "data": "2020-03-02T00:00:00-03:00",
+            "valor": "500"
+          },
+          {
+            "tipo": "TED",
+            "data": "2020-02-28T00:00:00-03:00",
+            "valor": "400"
+          },
+          {
+            "tipo": "TED",
+            "data": "2020-02-28T00:00:00-03:00",
+            "valor": "102.06"
           }
-        },
-        "DtFinalVigencia": "2020-09-08-03:00",
-        "GruposCobertura": {
-          "GrupoCobertura": [
-            {
-              "CoberturasRisco": {
-                "CoberturaRisco": [
-                  {
-                    "CapitalSegurado": "200.00",
-                    "Nome": "Hospedagem Acompanhante- Hospitalização Prolongada"
-                  },
-                  {
-                    "CapitalSegurado": "5000.00",
-                    "Nome": "Acompanhamento de Menor"
-                  },
-                  {
-                    "CapitalSegurado": "5000.00",
-                    "Nome": "Assistência Funeral Viagem"
-                  },
-                  {
-                    "CapitalSegurado": "5000.00",
-                    "Nome": "Remarcação de Pas. para Reg. de Membros de Família"
-                  },
-                  {
-                    "CapitalSegurado": "200.00",
-                    "Nome": "Hospedagem após Alta Hospitalar"
-                  },
-                  {
-                    "CapitalSegurado": "20000.00",
-                    "Nome": "Traslado Médico"
-                  },
-                  {
-                    "CapitalSegurado": "5000.00",
-                    "Nome": "Acompanhante em caso de Hospitalização Prolongada"
-                  },
-                  {
-                    "CapitalSegurado": "500.00",
-                    "Nome": "Danos de Bagagem"
-                  },
-                  {
-                    "CapitalSegurado": "5000.00",
-                    "Nome": "Remarcação de passagem para Regresso"
-                  },
-                  {
-                    "CapitalSegurado": "20000.00",
-                    "Nome": "Traslado de Corpo"
-                  },
-                  {
-                    "CapitalSegurado": "20000.00",
-                    "Nome": "Regresso Sanitário"
-                  },
-                  {
-                    "CapitalSegurado": "1500.00",
-                    "Nome": "Extravio de Bagagem"
-                  }
-                ]
-              },
-              "Nome": "Outros"
-            },
-            {
-              "CoberturasRisco": {
-                "CoberturaRisco": [
-                  {
-                    "CapitalSegurado": "100000.00",
-                    "Nome": "Invalidez Permanente Total ou Parcial por Acidente"
-                  },
-                  {
-                    "CapitalSegurado": "100000.00",
-                    "Nome": "Morte Acidental"
-                  }
-                ]
-              },
-              "Nome": "Imprevistos"
-            }
-          ]
-        },
-        "Sucursal": "1",
-        "parcelas": {
-          "parcela": {
-            "numero": "1",
-            "valor": "7.59"
-          }
-        },
-        "Ramo": "1369",
-        "DtInicioVigencia": "2020-09-08-03:00",
-        "Nome": "Plano Porto Brasil Ouro",
-        "NomeSegurado": "RAFAEL RODRIGUES",
-        "Apolice": {
-          "LinkDownload": "http://vidanova/servicosvida/obterApolice?param=MSwxMzY5LDYwMzI1LDcsNDgxNjQwOA=="
-        },
-        "descricaoFormaPagamento": "CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"
+        ]
       }
     },
-    "ProdutosVida": {
-      "SeguroVida": [
-        {
-          "codigoFormaPagamento": "52",
-          "CoberturasBasicas": {
-            "CoberturaBasica": {
-              "CapitalSegurado": "150000.00",
-              "Nome": "MORTE ACIDENTAL"
-            }
-          },
-          "Beneficiarios": {
-            "Beneficiario": {
-              "Percentual": "100",
-              "Nome": "Herdeiros legais"
-            }
-          },
-          "DtFinalVigencia": "2020-12-14-03:00",
-          "GruposCobertura": {
-            "GrupoCobertura": [
-              {
-                "CoberturasRisco": {
-                  "CoberturaRisco": [
-                    {
-                      "CapitalSegurado": "5000.00",
-                      "Nome": "Assistência Funeral - Titular"
-                    },
-                    {
-                      "CapitalSegurado": "150000.00",
-                      "Nome": "Morte"
-                    }
-                  ]
-                },
-                "Nome": "Equilíbrio Financeiro Familiar"
-              },
-              {
-                "CoberturasRisco": {
-                  "CoberturaRisco": [
-                    {
-                      "CapitalSegurado": "12000.00",
-                      "Nome": "Capitalização"
-                    },
-                    {
-                      "CapitalSegurado": "0.00",
-                      "Nome": "Assistência Vida 24 Horas"
-                    }
-                  ]
-                },
-                "Nome": "Outros"
-              },
-              {
-                "CoberturasRisco": {
-                  "CoberturaRisco": {
-                    "CapitalSegurado": "150000.00",
-                    "Nome": "Invalidez Permanente Total ou Parcial por Acidente"
-                  }
-                },
-                "Nome": "Imprevistos"
-              }
-            ]
-          },
-          "Sucursal": "1",
-          "parcelas": {
-            "parcela": [
-              {
-                "numero": "1",
-                "valor": "32.93"
-              },
-              {
-                "numero": "2",
-                "valor": "32.93"
-              },
-              {
-                "numero": "3",
-                "valor": "32.93"
-              },
-              {
-                "numero": "4",
-                "valor": "32.93"
-              },
-              {
-                "numero": "5",
-                "valor": "32.93"
-              },
-              {
-                "numero": "6",
-                "valor": "32.93"
-              },
-              {
-                "numero": "7",
-                "valor": "32.93"
-              },
-              {
-                "numero": "8",
-                "valor": "32.93"
-              },
-              {
-                "numero": "9",
-                "valor": "32.93"
-              },
-              {
-                "numero": "10",
-                "valor": "32.93"
-              },
-              {
-                "numero": "11",
-                "valor": "32.93"
-              },
-              {
-                "numero": "12",
-                "valor": "32.93"
-              }
-            ]
-          },
-          "Ramo": "1391",
-          "DtInicioVigencia": "2019-12-15-03:00",
-          "Nome": "Vida e Acidentes Pessoais Individual - Anual",
-          "NomeSegurado": "RAFAEL RODRIGUES",
-          "Apolice": {
-            "LinkDownload": "http://vidanova/servicosvida/obterApolice?param=MSwxMzkxLDEzNzU4OCw3LDEwNjI3NzA5"
-          },
-          "descricaoFormaPagamento": "ADC - TODAS PARCELAS"
-        }
-      ]
+    "DadosContaPortoSeguro": {
+      "id_conta": "193791",
+      "cheque_especial": {
+        "limite": "0",
+        "data_vencimento": "0001-01-03T00:00:00-03:00"
+      },
+      "conta": "47",
+      "nome_banco": "Banco Portopar",
+      "saldo_liquidar": "0",
+      "agencia": "0001",
+      "codigo_banco": "306",
+      "saldo_disponivel": "99.89",
+      "cpf": "33244452809",
+      "encargos_acumulados": "0",
+      "valores_bloqueados": {
+        "judicial": "0",
+        "em_24horas": "0",
+        "indeterminado": "0",
+        "em_48horas": "0"
+      },
+      "digito_conta": "7",
+      "titular": "Rafael Rodrigues"
     }
   },
+  "seguros": {"Message":{"TipoCritica":"SUCESSO","Mensagem":"SUCESSO"},"ProdutosViagem":{"Viagem":[{"codigoFormaPagamento":"62","CoberturasBasicas":{"CoberturaBasica":[{"CapitalSegurado":"30000.00","Nome":"DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"},{"CapitalSegurado":"100000.00","Nome":"MORTE ACIDENTAL"}]},"Beneficiarios":{"Beneficiario":{"Percentual":"100","Nome":"Herdeiros legais"}},"DtFinalVigencia":"2020-09-08-03:00","GruposCobertura":{"GrupoCobertura":[{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"200.00","Nome":"Hospedagem Acompanhante- Hospitalização Prolongada"},{"CapitalSegurado":"5000.00","Nome":"Acompanhamento de Menor"},{"CapitalSegurado":"5000.00","Nome":"Assistência Funeral Viagem"},{"CapitalSegurado":"5000.00","Nome":"Remarcação de Pas. para Reg. de Membros de Família"},{"CapitalSegurado":"200.00","Nome":"Hospedagem após Alta Hospitalar"},{"CapitalSegurado":"20000.00","Nome":"Traslado Médico"},{"CapitalSegurado":"5000.00","Nome":"Acompanhante em caso de Hospitalização Prolongada"},{"CapitalSegurado":"500.00","Nome":"Danos de Bagagem"},{"CapitalSegurado":"5000.00","Nome":"Remarcação de passagem para Regresso"},{"CapitalSegurado":"20000.00","Nome":"Traslado de Corpo"},{"CapitalSegurado":"20000.00","Nome":"Regresso Sanitário"},{"CapitalSegurado":"1500.00","Nome":"Extravio de Bagagem"}]},"Nome":"Outros"},{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"100000.00","Nome":"Invalidez Permanente Total ou Parcial por Acidente"},{"CapitalSegurado":"100000.00","Nome":"Morte Acidental"}]},"Nome":"Imprevistos"}]},"Sucursal":"1","parcelas":{"parcela":{"numero":"1","valor":"7.59"}},"Ramo":"1369","DtInicioVigencia":"2020-09-08-03:00","Nome":"Plano Porto Brasil Ouro","NomeSegurado":"RAFAEL RODRIGUES","Apolice":{"LinkDownload":"http:\/\/vidanova\/servicosvida\/obterApolice?param=MSwxMzY5LDYwMzI1LDcsNDgxNjQwOA=="},"descricaoFormaPagamento":"CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"},{"codigoFormaPagamento":"62","CoberturasBasicas":{"CoberturaBasica":[{"CapitalSegurado":"10000.00","Nome":"DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"},{"CapitalSegurado":"80000.00","Nome":"MORTE ACIDENTAL"}]},"Beneficiarios":{"Beneficiario":{"Percentual":"100","Nome":"Herdeiros legais"}},"DtFinalVigencia":"2020-09-11-03:00","GruposCobertura":{"GrupoCobertura":[{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"20000.00","Nome":"Regresso Sanitário"},{"CapitalSegurado":"5000.00","Nome":"Assistência Funeral Viagem"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de Pas. para Reg. de Membros de Família"},{"CapitalSegurado":"20000.00","Nome":"Traslado de Corpo"},{"CapitalSegurado":"20000.00","Nome":"Traslado Médico"},{"CapitalSegurado":"3000.00","Nome":"Acompanhamento de Menor"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de passagem para Regresso"},{"CapitalSegurado":"100.00","Nome":"Hospedagem Acompanhante- Hospitalização Prolongada"},{"CapitalSegurado":"100.00","Nome":"Hospedagem após Alta Hospitalar"},{"CapitalSegurado":"3000.00","Nome":"Acompanhante em caso de Hospitalização Prolongada"}]},"Nome":"Outros"},{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"80000.00","Nome":"Morte Acidental"},{"CapitalSegurado":"80000.00","Nome":"Invalidez Permanente Total ou Parcial por Acidente"}]},"Nome":"Imprevistos"}]},"Sucursal":"1","parcelas":{"parcela":{"numero":"1","valor":"3.53"}},"Ramo":"1369","DtInicioVigencia":"2020-09-11-03:00","Nome":"Plano Porto Brasil Terra","NomeSegurado":"RAFAEL RODRIGUES","Apolice":{"LinkDownload":"http:\/\/vidanova\/servicosvida\/obterApolice?param=MSwxMzY5LDYwMzkyLDcsNDgzMDk1Nw=="},"descricaoFormaPagamento":"CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"},{"codigoFormaPagamento":"62","CoberturasBasicas":{"CoberturaBasica":[{"CapitalSegurado":"15000.00","Nome":"DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"},{"CapitalSegurado":"100000.00","Nome":"MORTE ACIDENTAL"}]},"Beneficiarios":{"Beneficiario":{"Percentual":"100","Nome":"Herdeiros legais"}},"DtFinalVigencia":"2020-10-10-03:00","GruposCobertura":{"GrupoCobertura":[{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"15000.00","Nome":"Regresso Sanitário"},{"CapitalSegurado":"100.00","Nome":"Despesas Farmecêuticas"},{"CapitalSegurado":"2000.00","Nome":"Remarcação de passagem para Regresso"},{"CapitalSegurado":"2500.00","Nome":"Extravio de Bagagem"},{"CapitalSegurado":"2000.00","Nome":"Acompanhante em caso de Hospitalização Prolongada"},{"CapitalSegurado":"1000.00","Nome":"Interrupção de Viagem"},{"CapitalSegurado":"100.00","Nome":"Hospedagem Acompanhante- Hospitalização Prolongada"},{"CapitalSegurado":"1000.00","Nome":"Cancelamento de Viagem"},{"CapitalSegurado":"1000.00","Nome":"Despesas Jurídicas"},{"CapitalSegurado":"100.00","Nome":"Fisioterapia"},{"CapitalSegurado":"5000.00","Nome":"Assistência Funeral Viagem"},{"CapitalSegurado":"100.00","Nome":"Hospedagem após Alta Hospitalar"},{"CapitalSegurado":"2000.00","Nome":"Acompanhamento de Menor"},{"CapitalSegurado":"2000.00","Nome":"Pagamento de Fiança"},{"CapitalSegurado":"2000.00","Nome":"Remarcação de Pas. para Reg. de Membros de Família"},{"CapitalSegurado":"15000.00","Nome":"Traslado Médico"},{"CapitalSegurado":"100.00","Nome":"Danos de Bagagem"},{"CapitalSegurado":"15000.00","Nome":"Traslado de Corpo"}]},"Nome":"Outros"},{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"100000.00","Nome":"Morte Acidental"},{"CapitalSegurado":"100000.00","Nome":"Invalidez Permanente Total ou Parcial por Acidente"}]},"Nome":"Imprevistos"}]},"Sucursal":"1","parcelas":{"parcela":{"numero":"1","valor":"26.14"}},"Ramo":"1369","DtInicioVigencia":"2020-10-10-03:00","Nome":"Plano Porto America Latina","NomeSegurado":"RAFAEL RODRIGUES","Apolice":{"LinkDownload":"http:\/\/vidanova\/servicosvida\/obterApolice?param=MSwxMzY5LDYwNTU0LDcsNTEzNTc4Nw=="},"descricaoFormaPagamento":"CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"},{"codigoFormaPagamento":"62","CoberturasBasicas":{"CoberturaBasica":[{"CapitalSegurado":"10000.00","Nome":"DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"},{"CapitalSegurado":"80000.00","Nome":"MORTE ACIDENTAL"}]},"Beneficiarios":{"Beneficiario":{"Percentual":"100","Nome":"Herdeiros legais"}},"DtFinalVigencia":"2020-10-19-03:00","GruposCobertura":{"GrupoCobertura":[{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"20000.00","Nome":"Traslado Médico"},{"CapitalSegurado":"3000.00","Nome":"Acompanhante em caso de Hospitalização Prolongada"},{"CapitalSegurado":"20000.00","Nome":"Regresso Sanitário"},{"CapitalSegurado":"3000.00","Nome":"Acompanhamento de Menor"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de Pas. para Reg. de Membros de Família"},{"CapitalSegurado":"5000.00","Nome":"Assistência Funeral Viagem"},{"CapitalSegurado":"100.00","Nome":"Hospedagem Acompanhante- Hospitalização Prolongada"},{"CapitalSegurado":"100.00","Nome":"Hospedagem após Alta Hospitalar"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de passagem para Regresso"},{"CapitalSegurado":"20000.00","Nome":"Traslado de Corpo"}]},"Nome":"Outros"},{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"80000.00","Nome":"Invalidez Permanente Total ou Parcial por Acidente"},{"CapitalSegurado":"80000.00","Nome":"Morte Acidental"}]},"Nome":"Imprevistos"}]},"Sucursal":"1","parcelas":{"parcela":{"numero":"1","valor":"3.53"}},"Ramo":"1369","DtInicioVigencia":"2020-10-19-03:00","Nome":"Plano Porto Brasil Terra","NomeSegurado":"RAFAEL RODRIGUES","Apolice":{"LinkDownload":"http:\/\/vidanova\/servicosvida\/obterApolice?param=MSwxMzY5LDYwNjE5LDcsNTE1Mjc5OA=="},"descricaoFormaPagamento":"CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"},{"codigoFormaPagamento":"62","CoberturasBasicas":{"CoberturaBasica":[{"CapitalSegurado":"10000.00","Nome":"DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"},{"CapitalSegurado":"80000.00","Nome":"MORTE ACIDENTAL"}]},"Beneficiarios":{"Beneficiario":{"Percentual":"100","Nome":"Herdeiros legais"}},"DtFinalVigencia":"2020-04-26-03:00","GruposCobertura":{"GrupoCobertura":[{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"3000.00","Nome":"Acompanhamento de Menor"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de passagem para Regresso"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de Pas. para Reg. de Membros de Família"},{"CapitalSegurado":"100.00","Nome":"Hospedagem após Alta Hospitalar"},{"CapitalSegurado":"20000.00","Nome":"Traslado Médico"},{"CapitalSegurado":"5000.00","Nome":"Assistência Funeral Viagem"},{"CapitalSegurado":"20000.00","Nome":"Regresso Sanitário"},{"CapitalSegurado":"20000.00","Nome":"Traslado de Corpo"},{"CapitalSegurado":"100.00","Nome":"Hospedagem Acompanhante- Hospitalização Prolongada"},{"CapitalSegurado":"3000.00","Nome":"Acompanhante em caso de Hospitalização Prolongada"}]},"Nome":"Outros"},{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"80000.00","Nome":"Morte Acidental"},{"CapitalSegurado":"80000.00","Nome":"Invalidez Permanente Total ou Parcial por Acidente"}]},"Nome":"Imprevistos"}]},"Sucursal":"1","parcelas":{"parcela":{"numero":"1","valor":"3.53"}},"Ramo":"1369","DtInicioVigencia":"2020-04-26-03:00","Nome":"Plano Porto Brasil Terra","NomeSegurado":"RAFAEL RODRIGUES","Apolice":{"LinkDownload":"http:\/\/vidanova\/servicosvida\/obterApolice?param=MSwxMzY5LDYwNzA4LDcsMTAwMDA2OTU="},"descricaoFormaPagamento":"CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"},{"codigoFormaPagamento":"62","CoberturasBasicas":{"CoberturaBasica":[{"CapitalSegurado":"10000.00","Nome":"DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"},{"CapitalSegurado":"80000.00","Nome":"MORTE ACIDENTAL"}]},"Beneficiarios":{"Beneficiario":{"Percentual":"100","Nome":"Herdeiros legais"}},"DtFinalVigencia":"2020-11-23-03:00","GruposCobertura":{"GrupoCobertura":[{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"20000.00","Nome":"Traslado de Corpo"},{"CapitalSegurado":"20000.00","Nome":"Traslado Médico"},{"CapitalSegurado":"100.00","Nome":"Hospedagem após Alta Hospitalar"},{"CapitalSegurado":"5000.00","Nome":"Assistência Funeral Viagem"},{"CapitalSegurado":"3000.00","Nome":"Acompanhamento de Menor"},{"CapitalSegurado":"20000.00","Nome":"Regresso Sanitário"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de Pas. para Reg. de Membros de Família"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de passagem para Regresso"},{"CapitalSegurado":"3000.00","Nome":"Acompanhante em caso de Hospitalização Prolongada"},{"CapitalSegurado":"100.00","Nome":"Hospedagem Acompanhante- Hospitalização Prolongada"}]},"Nome":"Outros"},{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"80000.00","Nome":"Invalidez Permanente Total ou Parcial por Acidente"},{"CapitalSegurado":"80000.00","Nome":"Morte Acidental"}]},"Nome":"Imprevistos"}]},"Sucursal":"1","parcelas":{"parcela":{"numero":"1","valor":"3.53"}},"Ramo":"1369","DtInicioVigencia":"2020-11-23-03:00","Nome":"Plano Porto Brasil Terra","NomeSegurado":"RAFAEL RODRIGUES","Apolice":{"LinkDownload":"http:\/\/vidanova\/servicosvida\/obterApolice?param=MSwxMzY5LDYxMDExLDcsMTAzMzI0Nzc="},"descricaoFormaPagamento":"CARTAO DE CREDITO(TODAS PARC. EM CARTAO)"},{"codigoFormaPagamento":"97","CoberturasBasicas":{"CoberturaBasica":[{"CapitalSegurado":"10000.00","Nome":"DESPESAS MEDICO HOSPITALARES E ODONTOLÓGICAS"},{"CapitalSegurado":"80000.00","Nome":"MORTE ACIDENTAL"}]},"Beneficiarios":{"Beneficiario":{"Percentual":"100","Nome":"Herdeiros legais"}},"DtFinalVigencia":"2020-10-31-03:00","GruposCobertura":{"GrupoCobertura":[{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"3000.00","Nome":"Acompanhamento de Menor"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de Pas. para Reg. de Membros de Família"},{"CapitalSegurado":"3000.00","Nome":"Remarcação de passagem para Regresso"},{"CapitalSegurado":"100.00","Nome":"Hospedagem Acompanhante- Hospitalização Prolongada"},{"CapitalSegurado":"20000.00","Nome":"Traslado Médico"},{"CapitalSegurado":"100.00","Nome":"Hospedagem após Alta Hospitalar"},{"CapitalSegurado":"5000.00","Nome":"Assistência Funeral Viagem"},{"CapitalSegurado":"20000.00","Nome":"Traslado de Corpo"},{"CapitalSegurado":"3000.00","Nome":"Acompanhante em caso de Hospitalização Prolongada"},{"CapitalSegurado":"20000.00","Nome":"Regresso Sanitário"}]},"Nome":"Outros"},{"CoberturasRisco":{"CoberturaRisco":[{"CapitalSegurado":"80000.00","Nome":"Invalidez Permanente Total ou Parcial por Acidente"},{"CapitalSegurado":"80000.00","Nome":"Morte Acidental"}]},"Nome":"Imprevistos"}]},"Sucursal":"95","parcelas":{"parcela":{"numero":"1","valor":"3.36"}},"Ramo":"1369","DtInicioVigencia":"2020-10-31-03:00","Nome":"Plano Porto Brasil Terra","NomeSegurado":"RAFAEL RODRIGUES","Apolice":{"LinkDownload":"http:\/\/vidanova\/servicosvida\/obterApolice?param=OTUsMTM2OSwxNDkyNTgsNywxMDMzMzIwMw=="},"descricaoFormaPagamento":"CARTAO PORTO SEGURO"}]}},
   "pontos": {
-    "Message": {
-      "TipoCritica": "SUCESSO",
-      "Mensagem": "SUCESSO"
-    },
+    "Message": { "TipoCritica": "SUCESSO", "Mensagem": "SUCESSO" },
     "cadastroPessoaProgramaType": {
-      "segmento": "EXCLUSIVO",
+      "segmento": "BASICO",
       "codigoFidelidade": "33244452809",
       "nome": "Rafael Rodrigues",
       "dataInicioVigencia": "21/09/2019"
     },
     "detalheExtratoOptemaisTypes": [
       {
-        "pontoGanho": "222304",
+        "pontoGanho": "155",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "22,46",
+        "taxaCon": "4,46",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "02/2020"
+      },
+      {
+        "pontoGanho": "2018",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "10,95",
+        "taxaCon": "4,25",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/2020"
+      },
+      {
+        "pontoGanho": "4609",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "2,00",
+        "taxaCon": "4,42",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "12/2019"
+      },
+      {
+        "pontoGanho": "3871",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "32,90",
+        "taxaCon": "4,20",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "11/2019"
+      },
+      {
+        "pontoGanho": "1465",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "69,88",
+        "taxaCon": "4,31",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "10/2019"
+      },
+      {
+        "pontoGanho": "500",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CONQUISTA",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "09/2019"
+      },
+      {
+        "pontoGanho": "100",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CONQUISTA",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "09/2019"
+      },
+      {
+        "pontoGanho": "200",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CONQUISTA",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "09/2019"
+      },
+      {
+        "pontoGanho": "200",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CONQUISTA",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "09/2019"
+      },
+      {
+        "pontoGanho": "1881",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "32,90",
+        "taxaCon": "4,29",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "09/2019"
+      },
+      {
+        "pontoGanho": "1151",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "91,80",
+        "taxaCon": "4,16",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "08/2019"
+      },
+      {
+        "pontoGanho": "1223",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "82,80",
+        "taxaCon": "3,98",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "07/2019"
+      },
+      {
+        "pontoGanho": "2000",
+        "descricaoTipo": "BONIFICAÇÃO",
+        "nomeTransacao": "BONIFICACAO ESPECIAL",
+        "valorCompra": "2000,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "06/2019"
+      },
+      {
+        "pontoGanho": "1523",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "67,00",
+        "taxaCon": "4,05",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "06/2019"
+      },
+      {
+        "pontoGanho": "631",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "39,99",
+        "taxaCon": "4,16",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "05/2019"
+      },
+      {
+        "pontoGanho": "923",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "214,02",
+        "taxaCon": "4,16",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "04/2019"
+      },
+      {
+        "pontoGanho": "2212",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "102,60",
+        "taxaCon": "4,06",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "03/2019"
+      },
+      {
+        "pontoGanho": "304",
         "descricaoTipo": "PONTUAÇÃO",
         "nomeTransacao": "CARTÃO PORTO SEGURO",
         "valorCompra": "205,14",
@@ -2015,15 +1835,6 @@
         "taxaCon": "3,52",
         "tipoDebitoCredito": "C",
         "dataCompra": "04/2018"
-      },
-      {
-        "pontoGanho": "36",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "66,03",
-        "taxaCon": "3,52",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "03/2018"
       }
     ]
   },

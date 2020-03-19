@@ -67,6 +67,9 @@ export const SliderBox = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    height: auto;
+  }
 `
 
 export const SliderImageBox = styled.div`
@@ -76,7 +79,9 @@ export const SliderImageBox = styled.div`
   margin-bottom: 21px;
   overflow: hidden;
   position: relative;
-
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    height: 162px;
+  }
   img {
     object-fit: cover;
     height: 100%;

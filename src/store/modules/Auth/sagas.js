@@ -7,6 +7,7 @@ import { Types, TOKEN_NAME } from './types'
 const axiosInstance = axios.create({
   headers: {
     Accept: '*/*',
+    'Access-Control-Allow-Origin': '*',
     'content-type': 'application/x-www-form-urlencoded',
     Hint: 'login_cliente',
   },
@@ -44,6 +45,7 @@ function* postLogin({ credentials: { username, password } }) {
 
 function* postLogout() {
   removeAuthCookie()
+  window.location.href = 'https://www.portoseguro.com.br/conquista'
   // const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
   // yield call(axiosInstance.post, logoutUrl, `token=${accessToken}`)
   yield true
