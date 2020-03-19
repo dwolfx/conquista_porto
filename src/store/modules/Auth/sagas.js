@@ -7,6 +7,7 @@ import { Types, TOKEN_NAME } from './types'
 const axiosInstance = axios.create({
   headers: {
     Accept: '*/*',
+    'Access-Control-Allow-Origin': '*',
     'content-type': 'application/x-www-form-urlencoded',
     Hint: 'login_cliente',
   },
