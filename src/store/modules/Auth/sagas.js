@@ -44,6 +44,7 @@ function* postLogin({ credentials: { username, password } }) {
 
 function* postLogout() {
   removeAuthCookie()
+  window.location.href = 'https://www.portoseguro.com.br/conquista'
   // const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
   // yield call(axiosInstance.post, logoutUrl, `token=${accessToken}`)
   yield true
