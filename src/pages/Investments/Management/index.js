@@ -14,6 +14,7 @@ import ManageableItem from 'components/Management/ManageableItem'
 import PageContent from 'components/Management/PageContent'
 
 import Icon from 'components/IconExporter'
+import Loading from 'components/Loading'
 
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
 
@@ -42,13 +43,16 @@ import {
   ComplementaryInfo,
   AccordionGeneralInfo,
   FundCategoryText,
+  LoadingContainer,
 } from './styles'
 
 export default function ManagementInvestments({ history }) {
   const theme = useContext(ThemeContext)
   const isMobile = useMedia('sm')
 
-  const positionData = useSelector(state => state.investmentPosition.data)
+  const { data: positionData, isLoading } = useSelector(
+    state => state.investmentPosition
+  )
 
   const [fundSelected, setFundSelected] = useState(null)
 
@@ -146,8 +150,11 @@ export default function ManagementInvestments({ history }) {
       ))
   }
 
-  return (
-    <>
+  const renderManager = () =>
+    positionData &&
+    positionData[0] &&
+    positionData[0].posicoes &&
+    positionData[0].posicoes.posicao ? (
       <Container>
         <PageContent>
           <LeftNav>
@@ -188,11 +195,22 @@ export default function ManagementInvestments({ history }) {
               <GeneralView />
             </GeneralInfo>
           )}
-          {/* <GeneralInfo>
-            <GeneralView />
-          </GeneralInfo> */}
         </PageContent>
       </Container>
+    ) : null
+
+  if (isLoading) {
+    return (
+      <LoadingContainer>
+        <Loading type="bar" />
+      </LoadingContainer>
+    )
+  }
+
+  return (
+    <>
+      {renderManager()}
+
       <HighlightSection
         title="Facilidade para investir"
         mainDescription="Com o Conquista, é prático e rápido investir."
@@ -226,6 +244,7 @@ export default function ManagementInvestments({ history }) {
               data-gtm-subname="investindo em objetivos"
               data-gtm-name="criar objetivo"
               color="primary"
+              onClick={() => history.push('/objetivos')}
             >
               Criar Objetivo
             </Button>
