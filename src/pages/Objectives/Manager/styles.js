@@ -5,6 +5,7 @@ import BannerComponent from 'components/Banner'
 import Card from 'components/Card'
 import { LoadingContainer } from 'components/Loading/styles'
 import { Button as BtnStyle } from 'components/Button/styles'
+import Tag from 'components/Tag'
 
 export const GridContainer = styled(Container)`
   padding: 35px 0;
@@ -120,4 +121,11 @@ export const ButtonContainerModal = styled.div`
     margin-left: 14px;
     width: 180px;
   }
+`
+
+export const MenuTag = styled(Tag)`
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: auto;
 `
