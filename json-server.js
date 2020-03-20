@@ -18,6 +18,13 @@ server.use(jsonServer.bodyParser)
 server.use(jsonServer.rewriter(routes))
 
 router.render = (req, res) => {
+  if (req.originalUrl.startsWith('/api/autenticacao/token-catalogo')) {
+    return res.jsonp({
+      token: '1905199724134E2F73647183664C0A15',
+      msg: 'OK',
+      CodRetorno: 0,
+    })
+  }
   if (req.originalUrl.startsWith('/api/notificacao/lida')) {
     const allNotifications = [
       ...res.locals.data.anteriores,
