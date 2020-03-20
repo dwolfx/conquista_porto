@@ -322,6 +322,10 @@ export default function Wallet({
                           display: flex;
                           flex-direction: column;
                           padding-left: 21px;
+                          ${isMobile &&
+                            `
+                            padding-right: 21px;
+                          `}
                         `}
                       >
                         <Text
