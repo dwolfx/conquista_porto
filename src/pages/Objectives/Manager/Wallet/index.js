@@ -309,7 +309,13 @@ export default function Wallet({
                       <Col md="2" xs="5">
                         <InfoText
                           label="Não distribuído"
-                          value={formatMoney(fund.available)}
+                          value={formatMoney(
+                            fund.available +
+                              fund.invested -
+                              fundListCopy.filter(
+                                item => item.id === fund.id
+                              )[0].invested
+                          )}
                         />
                       </Col>
                     </InfoMobileRow>
