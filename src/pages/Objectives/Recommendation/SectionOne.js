@@ -158,7 +158,7 @@ const SectionOne = ({ answer, combo, income }) => {
           <LineChart
             data={income}
             width="100%"
-            height="220px"
+            height={isMobile ? '260px' : '220px'}
             colors={colorsLineChart}
             marker={answer.target_value}
           />

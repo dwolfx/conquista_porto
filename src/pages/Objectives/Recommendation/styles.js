@@ -50,6 +50,9 @@ export const SectionBar = styled.section`
   padding: 10px 0;
   position: fixed;
   width: 100%;
+  @media ${props => props.theme.mediaQueries.sm} {
+    z-index: 11;
+  }
 `
 
 export const ButtonBar = styled(Button)`
