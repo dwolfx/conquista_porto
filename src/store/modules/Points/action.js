@@ -19,3 +19,7 @@ export function GetPointsDataFailure() {
     type: Types.GET_FAILURE,
   }
 }
+
+export function PostRecuePointsRequest({ onSuccess }) {
+  return { type: Types.POST_RESCUE_POINTS_REQUEST, payload: { onSuccess } }
+}
