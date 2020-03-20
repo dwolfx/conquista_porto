@@ -54,5 +54,6 @@ export const CardFooter = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-top: 1px solid ${props => props.theme.colors.gray2};
   display: flex;
-  height: 63px;
+  margin: 14px 0;
+  min-height: 63px;
 `
