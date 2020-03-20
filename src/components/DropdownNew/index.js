@@ -228,7 +228,11 @@ export default function Dropdown({
                 </ItemWrapper>
               ))}
             </Wrapper>
-            {isHovering && <WrapperChildren openingSide={openingSide}>{childrenElements}</WrapperChildren>}
+            {isHovering && (
+              <WrapperChildren openingSide={openingSide}>
+                {childrenElements}
+              </WrapperChildren>
+            )}
           </Container>
         </RelativeHolder>
         <Backdrop
@@ -254,5 +258,5 @@ Dropdown.defaultProps = {
   containerPadding: '14px',
   redirectPath: null,
   customWidth: null,
-  openingSide: 'right'
+  openingSide: 'right',
 }
