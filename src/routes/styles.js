@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 export const LoadingContainer = styled.div`
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+  width: 480px;
 `
