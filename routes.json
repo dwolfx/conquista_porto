@@ -21,5 +21,6 @@
   "/recommendation/recommendations\\?mobile=:isMobileMode": "/goal_recommendations?mobile=:isMobileMode",
   "/goal/goals": "/goal_management",
   "/goal/goals/:id": "/goal_management",
+  "/autenticacao/token-catalogo": "/resgate_pontos",
   "/goal/goals/:id/funds": "/goal_management"
 }

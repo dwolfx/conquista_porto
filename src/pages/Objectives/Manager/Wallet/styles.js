@@ -78,3 +78,9 @@ export const InfoMobileRow = styled(Row)`
   margin: 28px 0;
   justify-content: space-between;
 `
+
+export const FooterContainer = styled.div`
+  display: block;
+  width: 100%;
+  border-top: 1px solid ${props => props.theme.colors.gray2};
+`

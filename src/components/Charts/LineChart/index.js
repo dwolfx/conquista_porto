@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
+import useMedia from 'hooks/useMedia'
 
 import { ResponsiveLine } from '@nivo/line'
 
@@ -20,12 +21,12 @@ const MyResponsiveLine = ({
   marker,
 }) => {
   const themeContext = useContext(ThemeContext)
-
+  const isMobile = useMedia('sm')
   return (
     <LineChartContainer width={width} height={height}>
       <ResponsiveLine
         data={parseData(data)}
-        margin={{ top: 10, right: 55, bottom: 30, left: 40 }}
+        margin={{ top: 10, right: 55, bottom: isMobile ? 60 : 30, left: 40 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
         curve="linear"
@@ -40,9 +41,9 @@ const MyResponsiveLine = ({
         axisRight={null}
         axisBottom={{
           orient: 'bottom',
-          tickSize: 0,
-          tickPadding: 5,
-          tickRotation: 0,
+          tickSize: isMobile ? 4 : 0,
+          tickPadding: isMobile ? 16 : 5,
+          tickRotation: isMobile ? 40 : 0,
           legend: '',
           legendOffset: 0,
           legendPosition: 'middle',

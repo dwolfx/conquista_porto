@@ -3,9 +3,8 @@ import { Container, Row } from 'styled-bootstrap-grid'
 
 import BannerComponent from 'components/Banner'
 import Card from 'components/Card'
-import { LoadingContainer } from 'components/Loading/styles'
-import { Button as BtnStyle } from 'components/Button/styles'
 import Tag from 'components/Tag'
+import { LoadingContainer } from 'components/Loading/styles'
 
 export const GridContainer = styled(Container)`
   padding: 35px 0;
@@ -67,19 +66,6 @@ export const ColumnWrapper = styled.div`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
-
-  ${BtnStyle} {
-    &[color='secondary'] {
-      @media ${props => props.theme.mediaQueries.sm} {
-        padding: 0;
-        width: 130px;
-
-        span {
-          padding: 0;
-        }
-      }
-    }
-  }
 `
 
 export const AccordionContentWrapper = styled.div`

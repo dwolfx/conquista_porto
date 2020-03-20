@@ -17,7 +17,10 @@ import Popover from 'components/Popover/index'
 
 import { formatMoney } from 'helpers'
 
-import { GetPointsDataRequest } from 'store/modules/Points/action'
+import {
+  GetPointsDataRequest,
+  PostRecuePointsRequest,
+} from 'store/modules/Points/action'
 
 import LoadingState from './commons/LoadingState'
 import ErrorState from './commons/ErrorState'
@@ -110,6 +113,9 @@ export default function SectionThree({ points }) {
   }, [points])
 
   useDataLayerProducts(belowOffer, aboveOffer)
+  function redirectToRescuePointsSystem({ url }) {
+    window.location.href = url
+  }
 
   const PointsOfferCard = ({ offer }) => (
     <FullHeightCard
@@ -331,6 +337,13 @@ export default function SectionThree({ points }) {
                 data-gtm-type="click"
                 data-gtm-clicktype="button"
                 color="secondary"
+                onClick={() =>
+                  dispatch(
+                    PostRecuePointsRequest({
+                      onSuccess: redirectToRescuePointsSystem,
+                    })
+                  )
+                }
               >
                 Resgatar
               </Button>
