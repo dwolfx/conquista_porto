@@ -29,19 +29,27 @@ export default function Taxation({ title, taxationData }) {
   return (
     <Container>
       <Title>{title}</Title>
-      <LineWrapper>
-        <DetailItem>
-          <SubTitle>Classificação</SubTitle>
-          <Text>{taxationData.classificacao}</Text>
-        </DetailItem>
-      </LineWrapper>
-      {renderAliquotas(taxationData.aliquotas_ir.aliquota)}
-      <LineWrapper>
-        <DetailItem>
-          <SubTitle>IOF</SubTitle>
-          <Text>{taxationData.regime_iof}</Text>
-        </DetailItem>
-      </LineWrapper>
+      {taxationData.classificacao && (
+        <LineWrapper>
+          <DetailItem>
+            <SubTitle>Classificação</SubTitle>
+            <Text>{taxationData.classificacao}</Text>
+          </DetailItem>
+        </LineWrapper>
+      )}
+      {taxationData &&
+      taxationData.aliquotas_ir &&
+      taxationData.aliquotas_ir.aliquota
+        ? renderAliquotas(taxationData.aliquotas_ir.aliquota)
+        : null}
+      {taxationData.regime_iof && (
+        <LineWrapper>
+          <DetailItem>
+            <SubTitle>IOF</SubTitle>
+            <Text>{taxationData.regime_iof}</Text>
+          </DetailItem>
+        </LineWrapper>
+      )}
     </Container>
   )
 }
