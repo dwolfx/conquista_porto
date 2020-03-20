@@ -2,9 +2,12 @@ import React, { useState, useLayoutEffect, useMemo, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useTable, useSortBy } from 'react-table'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import Modal from 'components/Modal/ModalNew'
 import FundsInfo from 'components/Solutions/Investments/FundsInfo'
+import Loading from 'components/Loading'
+
 import FormatColumns from './formatters'
 import Tabs from './Tabs'
 
@@ -99,7 +102,9 @@ export default function TableFunds({
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
-  const fundDetails = useSelector(state => state.investmentDetails.data)
+  const { data: fundDetails, isLoading } = useSelector(
+    state => state.investmentDetails
+  )
   const tableWrapperRef = useRef(null)
   const tableRef = useRef(null)
   const theadRef = useRef(null)
@@ -161,7 +166,13 @@ export default function TableFunds({
         alignItems="flex-start"
         maxWidth="1200px"
       >
-        <FundsInfo fund={fundDetails} />
+        <div
+          css={`
+            margin: 0 -28px;
+          `}
+        >
+          {isLoading ? <Loading /> : <FundsInfo fund={fundDetails} />}
+        </div>
       </Modal>
       <Tabs
         options={fundsType}
