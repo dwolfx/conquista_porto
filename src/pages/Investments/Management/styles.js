@@ -403,3 +403,8 @@ export const CustomConquistaButton = styled(ConquistaButton)`
   padding: 0 28px;
   max-width: 100%;
 `
+
+export const LoadingContainer = styled.div`
+  margin: 0 auto;
+  width: 480px;
+`
