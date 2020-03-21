@@ -9,9 +9,13 @@ import ConquistaIcon from 'components/IconExporter'
 import ConquistaButton from 'components/Button'
 
 export const LeftNav = styled(LeftNavDefault)`
-  overflow: visible;
+  overflow: auto;
   @media ${props => props.theme.mediaQueries.md} {
     order: 2;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 `
 
