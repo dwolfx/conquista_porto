@@ -21,7 +21,7 @@ export const downloadFileSectionData = [
 
 export const months = [
   {
-    name: 'Último mês',
+    name: 'Mês',
     value: 0,
   },
   {
