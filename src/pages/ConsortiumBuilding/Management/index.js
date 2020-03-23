@@ -226,6 +226,11 @@ export default function ManagementConsortiumBuilding() {
             </span>
           </span>
         }
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-imoveis/simular?r=true'
+          )
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"

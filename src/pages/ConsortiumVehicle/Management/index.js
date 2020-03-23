@@ -225,6 +225,11 @@ export default function ManagementConsortiumVehicle() {
             </span>
           </span>
         }
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/consorcio-de-veiculos/simular?r=true'
+          )
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"
