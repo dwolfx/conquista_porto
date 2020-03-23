@@ -75,3 +75,9 @@ export const ItemText = styled.div`
   flex: 1;
   margin-left: 21px;
 `
+
+export const WrapperChildren = styled(Wrapper)`
+  position: ${props =>
+    props.openingSide === 'left' ? 'absolute' : 'relative'};
+  margin-left: ${props => (props.openingSide === 'left' ? '-301px' : '0')};
+`
