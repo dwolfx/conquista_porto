@@ -8,7 +8,7 @@ import IconExporter from 'components/IconExporter'
 import moment from 'moment'
 import { formatMoney } from 'helpers'
 
-import { DepositTextValue } from '../styles'
+import { DepositTextValue, TopInfoContentPopover } from '../styles'
 
 export default function ChartPopoverContent({ info, data }) {
   function isFutureDateBasedOnMonth(date) {
@@ -43,12 +43,7 @@ export default function ChartPopoverContent({ info, data }) {
   const renderTopMessage = () => {
     if (shouldDisplayMessageOnPopover) {
       return (
-        <div
-          css={`
-            display: flex;
-            margin-bottom: 14px;
-          `}
-        >
+        <TopInfoContentPopover>
           <IconExporter
             name={
               informationMessage === UNDER_GOAL && !data.conquered
@@ -72,14 +67,14 @@ export default function ChartPopoverContent({ info, data }) {
               ? 'Parabéns! Você atingiu seu objetivo.'
               : 'Você está abaixo da meta deste mês.'}
           </Text>
-        </div>
+        </TopInfoContentPopover>
       )
     }
     return null
   }
 
   return (
-    <div>
+    <>
       {renderTopMessage()}
       <Text color="gray5">Saldo total: {formatMoney(info.total_balance)}</Text>
       {!isFutureDateBasedOnMonth(currentDate) && (
@@ -96,7 +91,7 @@ export default function ChartPopoverContent({ info, data }) {
           <DepositTextValue>{formatMoney(info.deposit)}</DepositTextValue>
         </Text>
       )}
-    </div>
+    </>
   )
 }
 
