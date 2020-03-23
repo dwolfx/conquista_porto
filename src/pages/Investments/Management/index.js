@@ -21,11 +21,11 @@ import useFetchPosition from 'hooks/Investments/useFetchPosition'
 import RedHairGirlImage from 'assets/images/red_hair_girl.jpg'
 import useMedia from 'hooks/useMedia'
 import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
+import HistoricalRentabilityTable from 'components/Solutions/Investments/FundsInfo/HistoricalRentabilityTable'
 import GeneralView from './GeneralView'
 
 import FundInformation from './FundInformation'
 import BalanceEvolution from './BalanceEvolution'
-import RentabilityHistoric from './RentabilityHistoric'
 import LastTransactions from './LastTransactions'
 
 import { downloadFileSectionData } from './data'
@@ -112,7 +112,9 @@ export default function ManagementInvestments({ history }) {
 
           <BalanceEvolution fund={item} />
 
-          <RentabilityHistoric fund={item.fundo} />
+          <HistoricalRentabilityTable
+            data={item.fundo.comparativo_hist_rentabil}
+          />
 
           <LastTransactions
             lastOperations={
