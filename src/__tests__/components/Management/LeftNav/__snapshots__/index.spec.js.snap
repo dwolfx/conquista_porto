@@ -2,7 +2,7 @@
 
 exports[`LeftNav renders correctly 1`] = `
 <nav
-  className="sc-bdVaJa gBVYGC"
+  className="sc-bdVaJa eIWwYF"
 >
   <span>
     testando
