@@ -61,7 +61,9 @@ export default function HistoricalRentabilityTable({ data }) {
             </Tr>
             <Tr>
               <Td>
-                {printFieldText(histRentabilBenchmark.benchmark.nome)} (%)
+                {printFieldText(histRentabilBenchmark.benchmark.nome) === 'CDI'
+                  ? `% ${printFieldText(histRentabilBenchmark.benchmark.nome)}`
+                  : printFieldText(histRentabilBenchmark.benchmark.nome)}
               </Td>
               <Td>
                 {printFieldText(histRentabilBenchmark.rentabil_mes_anteiror)}
