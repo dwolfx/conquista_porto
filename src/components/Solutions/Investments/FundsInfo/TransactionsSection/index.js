@@ -88,6 +88,6 @@ TransactionsSection.propTypes = {
     hora_aplicacao: PropTypes.string,
     contagem_dias_resgate: PropTypes.string,
     minimo_inicial: PropTypes.string,
-    saldo_minimo: PropTypes.string,
+    saldo_minimo: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }).isRequired,
 }
