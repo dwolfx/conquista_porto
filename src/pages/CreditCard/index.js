@@ -142,6 +142,11 @@ export default function CreditCard() {
         subDescription="Além das conveniências da Porto Seguro, o Cartão de Crédito tem bandeiras e limites para
         vários perfis. Inclusive, na simulação, você pode verificar se há pré-aprovações para você."
         buttonText="Simular e contratar"
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/cartao-de-credito/simular?r=true'
+          )
+        }
       />
 
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />

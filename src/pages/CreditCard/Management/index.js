@@ -164,14 +164,6 @@ export default function ManagementCreditCard() {
                   }}
                 >
                   <Text
-                    fontSize="14px"
-                    lineHeight="19px"
-                    margin="0 0 14px 0"
-                    textAlign="center"
-                  >
-                    Mundo 120 Prata
-                  </Text>
-                  <Text
                     fontSize="11px"
                     fontWeight={600}
                     letterSpacing="1.5px"
@@ -188,7 +180,7 @@ export default function ManagementCreditCard() {
                 key={item.UltimosDigitos}
                 isSelected={item.UltimosDigitos === selectedCreditCard}
               >
-                <PageTitle>Mundo 120 Prata</PageTitle>
+                <PageTitle>Cartão de crédito Porto Seguro</PageTitle>
                 <TopicsIconContent>
                   <Topic>
                     <Icon
@@ -244,12 +236,9 @@ export default function ManagementCreditCard() {
                         lineHeight="28px"
                         textAlign="center"
                       >
-                        Fatura
+                        Melhor dia de compra
                       </Text>
-                      <InvoiceItem>
-                        <Text>{item.Fatura.Status}</Text>
-                        <Text>{formatMoney(item.Fatura.Valor)}</Text>
-                      </InvoiceItem>
+                      <Text>{item.Fatura.MelhorDataCompra}</Text>
                     </DateContent>
                   </InvoiceHeader>
                   <Invoice>
@@ -259,7 +248,7 @@ export default function ManagementCreditCard() {
                       lineHeight="28px"
                       textAlign="center"
                     >
-                      Fatura
+                      Fatura Fechada
                     </Text>
                     <InvoiceItem>
                       <Text>{item.Fatura.Status}</Text>
@@ -306,6 +295,11 @@ export default function ManagementCreditCard() {
                 &gt;
               </span>
             </span>
+          }
+          onClick={() =>
+            handleGiwRedirect(
+              'portaldecliente/conquista/cartao-de-credito/simular?r=true'
+            )
           }
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />

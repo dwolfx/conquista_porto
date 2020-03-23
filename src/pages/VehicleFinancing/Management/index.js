@@ -301,6 +301,11 @@ const ManagementVehicleFinancing = () => {
             SIMULAR E CONTRATAR <ArrowButton>&gt;</ArrowButton>
           </span>
         }
+        onClick={() =>
+          handleGiwRedirect(
+            'portaldecliente/conquista/financiamento-de-veiculos/simular?r=true'
+          )
+        }
       />
       <MoreDetails
         title="SAIBA MAIS:"

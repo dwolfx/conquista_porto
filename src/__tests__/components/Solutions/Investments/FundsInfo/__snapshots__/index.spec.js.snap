@@ -132,8 +132,7 @@ exports[`FundsInfo renders correctly 1`] = `
             <td
               className="sc-dnqmqq cyytZL"
             >
-              CDI
-               (%)
+              % CDI
             </td>
             <td
               className="sc-dnqmqq cyytZL"
@@ -292,8 +291,7 @@ exports[`FundsInfo renders correctly 1`] = `
           <div
             className="sc-jzJRlG kbWvCb"
           >
-             
-            Corridos
+             Úteis
           </div>
         </div>
         <div
@@ -308,8 +306,7 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-jzJRlG kbWvCb"
           >
             D+0
-             
-            Corridos
+             Úteis
           </div>
         </div>
       </div>
@@ -328,8 +325,7 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-jzJRlG kbWvCb"
           >
             D+30
-             
-            Corridos
+             Corridos
           </div>
         </div>
         <div
@@ -344,8 +340,7 @@ exports[`FundsInfo renders correctly 1`] = `
             className="sc-jzJRlG kbWvCb"
           >
             D+1
-             
-            Corridos
+             Úteis
           </div>
         </div>
       </div>

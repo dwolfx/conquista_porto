@@ -320,6 +320,11 @@ export default function ManagementLifeInsurance() {
               </span>
             </span>
           }
+          onClick={() =>
+            handleGiwRedirect(
+              'portaldecliente/conquista/seguro-de-vida/simular?r=true'
+            )
+          }
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />
