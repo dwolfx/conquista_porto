@@ -30,7 +30,7 @@ function* getDataAndRedirect({
       if (response.status === 204) {
         yield put(GetSuitabilityDataNoContent())
         handleGiwRedirect(
-          `portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true&codidoObjetivo=${goalType}`
+          `portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true&codigoObjetivo=${goalType}`
         )
       } else if (response.status === 200) {
         yield put(GetSuitabilityDataSuccess(response.data))
