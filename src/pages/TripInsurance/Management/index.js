@@ -260,6 +260,11 @@ export default function ManagementTripInsurance() {
               </span>
             </span>
           }
+          onClick={() =>
+            handleGiwRedirect(
+              'portaldecliente/conquista/seguro-viagem/simular?r=true'
+            )
+          }
         />
         <MoreDetails
           title="SAIBA MAIS:"

@@ -307,6 +307,11 @@ export default function ManagementCreditCard() {
               </span>
             </span>
           }
+          onClick={() =>
+            handleGiwRedirect(
+              'portaldecliente/conquista/cartao-de-credito/simular?r=true'
+            )
+          }
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />
