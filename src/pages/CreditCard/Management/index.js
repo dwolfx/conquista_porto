@@ -236,12 +236,9 @@ export default function ManagementCreditCard() {
                         lineHeight="28px"
                         textAlign="center"
                       >
-                        Fatura
+                        Melhor dia de compra
                       </Text>
-                      <InvoiceItem>
-                        <Text>{item.Fatura.Status}</Text>
-                        <Text>{formatMoney(item.Fatura.Valor)}</Text>
-                      </InvoiceItem>
+                      <Text>{item.Fatura.MelhorDataCompra}</Text>
                     </DateContent>
                   </InvoiceHeader>
                   <Invoice>
@@ -251,7 +248,7 @@ export default function ManagementCreditCard() {
                       lineHeight="28px"
                       textAlign="center"
                     >
-                      Fatura
+                      Fatura Fechada
                     </Text>
                     <InvoiceItem>
                       <Text>{item.Fatura.Status}</Text>
