@@ -132,8 +132,7 @@ exports[`FundsInfo renders correctly 1`] = `
             <td
               className="sc-dnqmqq cyytZL"
             >
-              CDI
-               (%)
+              % CDI
             </td>
             <td
               className="sc-dnqmqq cyytZL"
