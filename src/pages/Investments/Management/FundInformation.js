@@ -46,14 +46,35 @@ export default function FundInformation({ fund, idCotista }) {
     )
   }
 
-  const getTributacao = (fundItem, tipoTributacao) => {
+  const getTributacao = (fundItem, tipoTributacao, moneyFormatted = true) => {
     const valorTributacao =
       fundItem && fundItem.tributacoes
         ? fundItem.tributacoes.tributacao.find(
             t => t.tipo === tipoTributacao.toUpperCase()
           ).valor
         : null
+    if (!moneyFormatted) {
+      return valorTributacao || null
+    }
     return valorTributacao ? formatMoney(valorTributacao) : '--'
+  }
+
+  const calculatedBalance = fundItem => {
+    const tributacaoSum =
+      +getTributacao(fundItem, 'IOF', false) +
+      +getTributacao(fundItem, 'IR', false)
+
+    const saldoBruto = fundItem.saldo_atual
+    const saldoBloqueado = fundItem.saldo_bloqueado || 0
+    const saldoDisponivel = saldoBruto - saldoBloqueado
+    const saldoLiquido = saldoDisponivel - tributacaoSum
+
+    return {
+      saldoBruto,
+      saldoBloqueado,
+      saldoDisponivel,
+      saldoLiquido,
+    }
   }
 
   const getGiwPath = type => {
@@ -148,7 +169,7 @@ export default function FundInformation({ fund, idCotista }) {
                 </Text>
               </BankTransitionDateWrapper>
               <Text fontSize="15px" lineHeight="28px" fontWeight="300">
-                --
+                {formatMoney(calculatedBalance(fund).saldoBruto) || '--'}
               </Text>
             </RowBankTransition>
             <RowBankTransition marginTop="4px">
@@ -164,7 +185,7 @@ export default function FundInformation({ fund, idCotista }) {
                 </Text>
               </BankTransitionDateWrapper>
               <Text fontSize="15px" lineHeight="28px" fontWeight="300">
-                --
+                {formatMoney(calculatedBalance(fund).saldoBloqueado) || '--'}
               </Text>
             </RowBankTransition>
             <RowBankTransition
@@ -175,7 +196,7 @@ export default function FundInformation({ fund, idCotista }) {
                 Saldo disponível
               </Text>
               <Text fontSize="15px" lineHeight="28px" fontWeight="bold">
-                --
+                {formatMoney(calculatedBalance(fund).saldoDisponivel) || '--'}
               </Text>
             </RowBankTransition>
             <RowBankTransition marginTop="14px">
@@ -218,7 +239,7 @@ export default function FundInformation({ fund, idCotista }) {
                 Saldo líquido
               </Text>
               <Text fontSize="16px" lineHeight="24px" fontWeight="bold">
-                --
+                {formatMoney(calculatedBalance(fund).saldoLiquido) || '--'}
               </Text>
             </RowBankTransition>
             <RowBankTransition marginTop="14px">
@@ -299,6 +320,7 @@ FundInformation.propTypes = {
       contagem_dias_resgate: PropTypes.string,
     }),
     saldo_atual: PropTypes.string,
+    saldo_bloqueado: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }).isRequired,
   idCotista: PropTypes.string.isRequired,
 }
