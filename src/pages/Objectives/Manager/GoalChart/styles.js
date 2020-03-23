@@ -7,18 +7,18 @@ import { Option, Label, OptionsWrapper } from 'components/SelectDropdown/styles'
 
 export const ChartContainer = styled.div`
   display: flex;
-  align-items: center
+  align-items: center;
   height: 100%;
   justify-content: center;
   padding-top: 42px;
-  height: 308px
+  height: 308px;
 
   @media ${props => props.theme.mediaQueries.sm} {
     align-items: flex-start;
     height: 700px;
     padding: 21px 0 0 0;
   }
-  `
+`
 
 export const ButtonContainer = styled.div``
 
@@ -241,4 +241,10 @@ export const CustomSelectDropdown = styled(SelectDropdown)`
     line-height: 41px;
     margin: 0;
   }
+`
+
+export const TopInfoContentPopover = styled.div`
+  display: flex;
+  margin-bottom: 14px;
+  align-items: center;
 `
