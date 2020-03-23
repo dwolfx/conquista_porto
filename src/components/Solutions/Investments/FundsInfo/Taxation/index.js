@@ -20,7 +20,7 @@ export default function Taxation({ title, taxationData }) {
             <LineWrapper key={`aliquota-${index}`}>
               <DetailItem>
                 <SubTitle>{item.faixa}</SubTitle>
-                <Text>{item.valor}%</Text>
+                {item.faixa !== 'ISENTO' && <Text>{item.valor}%</Text>}
               </DetailItem>
             </LineWrapper>
           ))
@@ -60,7 +60,7 @@ Taxation.propTypes = {
     classificacao: PropTypes.string,
     regime_iof: PropTypes.string,
     aliquotas_ir: PropTypes.shape({
-      aliquota: PropTypes.array,
+      aliquota: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     }),
   }).isRequired,
 }
