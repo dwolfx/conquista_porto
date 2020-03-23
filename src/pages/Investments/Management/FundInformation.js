@@ -47,10 +47,13 @@ export default function FundInformation({ fund, idCotista }) {
   }
 
   const getTributacao = (fundItem, tipoTributacao) => {
-    const valorTributacao = fundItem.tributacoes.tributacao.find(
-      t => t.tipo === tipoTributacao.toUpperCase()
-    ).valor
-    return valorTributacao || '--'
+    const valorTributacao =
+      fundItem && fundItem.tributacoes
+        ? fundItem.tributacoes.tributacao.find(
+            t => t.tipo === tipoTributacao.toUpperCase()
+          ).valor
+        : null
+    return valorTributacao ? formatMoney(valorTributacao) : '--'
   }
 
   const getGiwPath = type => {
@@ -188,7 +191,7 @@ export default function FundInformation({ fund, idCotista }) {
                 </Text>
               </BankTransitionDateWrapper>
               <Text fontSize="16px" lineHeight="24px" fontWeight="300">
-                {formatMoney(getTributacao(fund, 'IR'))}
+                {getTributacao(fund, 'IR')}
               </Text>
             </RowBankTransition>
             <RowBankTransition marginTop="4px">
@@ -204,7 +207,7 @@ export default function FundInformation({ fund, idCotista }) {
                 </Text>
               </BankTransitionDateWrapper>
               <Text fontSize="16px" lineHeight="24px" fontWeight="300">
-                {formatMoney(getTributacao(fund, 'IOF'))}
+                {getTributacao(fund, 'IOF')}
               </Text>
             </RowBankTransition>
             <RowBankTransition

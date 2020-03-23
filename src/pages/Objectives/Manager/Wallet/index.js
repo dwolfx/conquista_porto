@@ -115,7 +115,7 @@ export default function Wallet({
   }
 
   const renderFundsList = () => {
-    if (isLoading) {
+    if (isLoading || fundList.length !== fundListCopy.length) {
       return (
         <LoadingStateContainer>
           <Loading
@@ -580,6 +580,7 @@ FundAccordionHeader.defaultProps = {
 Wallet.propTypes = {
   fundList: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.number,
       name: PropTypes.string,
       recommended: PropTypes.bool,
       goals: PropTypes.arrayOf(
