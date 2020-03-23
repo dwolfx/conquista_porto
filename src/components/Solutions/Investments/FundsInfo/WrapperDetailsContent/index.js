@@ -2,8 +2,6 @@ import React from 'react'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 
-import { formatMoney } from 'helpers'
-
 import {
   Container,
   LineWrapper,
@@ -23,18 +21,8 @@ export default function WrapperDetailsContent({ title, fundsDetail }) {
           <Text>{moment(fundsDetail.data_inicio).format('DD/MM/YYYY')}</Text>
         </DetailItem>
         <DetailItem>
-          <SubTitle>Gestor</SubTitle>
-          <Text>{fundsDetail.nome_gestor}</Text>
-        </DetailItem>
-      </LineWrapper>
-      <LineWrapper>
-        <DetailItem>
           <SubTitle>Benchmark</SubTitle>
           <Text>{fundsDetail.benchmark.nome}</Text>
-        </DetailItem>
-        <DetailItem>
-          <SubTitle>Patrimônio Líquido atual</SubTitle>
-          <Text>{formatMoney(+fundsDetail.valor_patrimonio_liq)}</Text>
         </DetailItem>
       </LineWrapper>
       <LineWrapper>
