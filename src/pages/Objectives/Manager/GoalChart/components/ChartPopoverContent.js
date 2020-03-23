@@ -49,35 +49,29 @@ export default function ChartPopoverContent({ info, data }) {
             margin-bottom: 14px;
           `}
         >
-          <div
+          <IconExporter
+            name={
+              informationMessage === UNDER_GOAL && !data.conquered
+                ? 'alertrounded'
+                : 'check'
+            }
+            color={
+              informationMessage === UNDER_GOAL && !data.conquered
+                ? 'magenta2'
+                : 'blue4'
+            }
+            width="21px"
+          />
+          <Text
+            color="gray5"
             css={`
-              display: flex;
+              padding-left: 7px;
             `}
           >
-            <IconExporter
-              name={
-                informationMessage === UNDER_GOAL && !data.conquered
-                  ? 'alertrounded'
-                  : 'check'
-              }
-              color={
-                informationMessage === UNDER_GOAL && !data.conquered
-                  ? 'magenta2'
-                  : 'blue4'
-              }
-              width="21px"
-            />
-            <Text
-              color="gray5"
-              css={`
-                padding-left: 7px;
-              `}
-            >
-              {data.conquered
-                ? 'Parabéns! Você atingiu seu objetivo.'
-                : 'Você está abaixo da meta deste mês.'}
-            </Text>
-          </div>
+            {data.conquered
+              ? 'Parabéns! Você atingiu seu objetivo.'
+              : 'Você está abaixo da meta deste mês.'}
+          </Text>
         </div>
       )
     }
