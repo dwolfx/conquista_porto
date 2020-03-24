@@ -9,11 +9,12 @@ export const SectionRow = styled(Row)`
 
 export const SectionCol = styled(Col)`
   height: 100%;
+
   @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 14px;
   }
 
-  @media (min--moz-device-pixel-ratio: 0) {
+  @media all and (-moz-images-in-menus: 0) {
     height: -webkit-fill-available;
     height: -moz-available;
   }
