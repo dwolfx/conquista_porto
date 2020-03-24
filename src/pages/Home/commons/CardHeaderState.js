@@ -6,27 +6,16 @@ import Loading from 'components/Loading'
 import Icon from 'components/IconExporter'
 
 export default function CardHeaderState({
-  data,
+  showHeader,
   isLoading,
   hasError,
   onErrorClick,
 }) {
-  let dataExists = false
-
-  if (data) {
-    if (Array.isArray(data)) {
-      dataExists = data.reduce((acc, cur) => acc && cur.length !== 0, true)
-    } else {
-      // object
-      dataExists = Object.entries(data).length !== 0
-    }
-  }
-
-  if (isLoading && dataExists) {
+  if (isLoading && showHeader) {
     return <Loading />
   }
 
-  if (hasError && data && Object.entries(data).length !== 0) {
+  if (hasError && showHeader) {
     return (
       <Icon
         name="reload"
@@ -47,14 +36,14 @@ export default function CardHeaderState({
 }
 
 CardHeaderState.propTypes = {
-  data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  showHeader: PropTypes.bool,
   isLoading: PropTypes.bool,
   hasError: PropTypes.bool,
   onErrorClick: PropTypes.func,
 }
 
 CardHeaderState.defaultProps = {
-  data: null,
+  showHeader: false,
   isLoading: false,
   hasError: false,
   onErrorClick: null,

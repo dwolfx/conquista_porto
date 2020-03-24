@@ -85,10 +85,12 @@ const SectionOne = ({ onFetchInvestments }) => {
           headerTitle="Investimentos"
           headerEndItem={
             <CardHeaderState
-              data={investments.data}
+              showHeader={
+                investments.data && Object.entries(investments.data).length
+              }
               isLoading={investments.isLoading}
               hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments}
+              onErrorClick={() => onFetchInvestments()}
             />
           }
         >
