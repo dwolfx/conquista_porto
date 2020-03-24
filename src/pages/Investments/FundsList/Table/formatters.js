@@ -59,7 +59,7 @@ const FormatEnabledCell = column => (
         color="secondary"
         onClick={() => {
           handleGiwRedirect(
-            `portaldecliente/conquista/aplicacao?idFundo=${column.cell.row.original.id_fundo}`
+            `portaldecliente/conquista/aplicacao?idFundo=${column.cell.row.original.id_fundo}&r=true`
           )
         }}
       >
