@@ -188,22 +188,18 @@ export default function ManagementTripInsurance() {
                       lineHeight="32px"
                       textAlign="center"
                     >
-                      Destino
-                    </Text>
-                    {/* <Text>{item.Fatura.Vencimento}</Text> */}
-                  </Period>
-                  <Period>
-                    <Text
-                      fontSize="22px"
-                      margin="0 0 7px 0"
-                      lineHeight="32px"
-                      textAlign="center"
-                    >
                       Período
                     </Text>
                     <Text>
-                      {moment(item.DtInicioVigencia).format('DD/MM/YYYY')} até{' '}
-                      {moment(item.DtFinalVigencia).format('DD/MM/YYYY')}
+                      {moment(
+                        selectedTripInsurance.DtInicioVigencia,
+                        'YYYY-MM-DD-HH-mm'
+                      ).format('DD/MM/YYYY')}{' '}
+                      até{' '}
+                      {moment(
+                        selectedTripInsurance.DtFinalVigencia,
+                        'YYYY-MM-DD-HH-mm'
+                      ).format('DD/MM/YYYY')}
                     </Text>
                   </Period>
                 </PeriodContainer>
