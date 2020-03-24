@@ -383,42 +383,12 @@ exports[`FundsInfo renders correctly 1`] = `
             <h5
               className="sc-kGXeez hKshTX"
             >
-              Gestor
-            </h5>
-            <p
-              className="sc-kpOJdX jcZxoT"
-            />
-          </div>
-        </div>
-        <div
-          className="sc-kAzzGY jzuRpv"
-        >
-          <div
-            className="sc-chPdSV dhgsn"
-          >
-            <h5
-              className="sc-kGXeez hKshTX"
-            >
               Benchmark
             </h5>
             <p
               className="sc-kpOJdX jcZxoT"
             >
               CDI
-            </p>
-          </div>
-          <div
-            className="sc-chPdSV dhgsn"
-          >
-            <h5
-              className="sc-kGXeez hKshTX"
-            >
-              Patrimônio Líquido atual
-            </h5>
-            <p
-              className="sc-kpOJdX jcZxoT"
-            >
-              R$ 121.480.174,47
             </p>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
 import 'moment/locale/pt-br'
+import smoothscroll from 'smoothscroll-polyfill'
 
 import TagManager from 'react-gtm-module'
 import store from './store'
@@ -26,6 +27,8 @@ const tagManagerArgs = {
 }
 
 TagManager.initialize(tagManagerArgs)
+
+smoothscroll.polyfill()
 
 const App = () => (
   <Provider store={store}>
