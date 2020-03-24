@@ -58,21 +58,6 @@ const downloadFileSectionData = [
 
 const complementaryInfo = [
   {
-    title: 'Programa de relacionamento',
-    description: (
-      <span>
-        Com este produto você acumulou:
-        <br />{' '}
-        <Text lineHeight="32px" fontSize="22px">
-          50 pontos
-        </Text>
-      </span>
-    ),
-    willRedirect: false,
-    buttonText: 'Ver extrato',
-    icon: 'diamond',
-  },
-  {
     title: 'Informativo de desempenho',
     description:
       'Material técnico, com gráficos, informações e histórico do fundo.',
