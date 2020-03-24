@@ -1,7 +1,11 @@
 import React from 'react'
+import 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
 import Modal from 'components/Modal/ModalNew'
+import HorizontalList from 'components/HorizontalList'
+import { formatMoney, handleGiwRedirect } from 'helpers'
+import Button from 'components/Button'
 
 import {
   ModalTextWrapper,
@@ -14,6 +18,7 @@ export default function ModalAccountPortoInfo({
   isOpen,
   onChangeModalOpen,
   bankData,
+  userCPF,
 }) {
   return (
     <Modal
@@ -24,6 +29,54 @@ export default function ModalAccountPortoInfo({
     >
       <>
         <ModalTextWrapper>
+          <Text
+            type="headline"
+            color="gray6"
+            bold
+            css={`
+              margin-bottom: 7px;
+            `}
+          >
+            Resumo da conta
+          </Text>
+
+          <ContainerBox>
+            <HorizontalList
+              size="small"
+              startItems={[
+                <Text type="headline" color="gray4" bold>
+                  Saldo disponível
+                </Text>,
+              ]}
+              endItems={[
+                <Text type="headline" color="gray6" bold>
+                  {formatMoney(
+                    bankData && bankData.DadosContaPortoSeguro
+                      ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                      : 0
+                  )}
+                </Text>,
+                <Button
+                  outline
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  data-gtm-subname="investimentos e resgate"
+                  data-gtm-name="resgatar"
+                  onClick={() => {
+                    handleGiwRedirect(
+                      `portaldecliente/conquista/resgate?r=true&cpf=${userCPF}`
+                    )
+                  }}
+                >
+                  Resgatar
+                </Button>,
+              ]}
+              css={`
+                width: 100%;
+                padding: 0;
+              `}
+            />
+          </ContainerBox>
           <Text type="headline" color="gray6" bold>
             Como investir?
           </Text>
@@ -121,10 +174,12 @@ ModalAccountPortoInfo.defaultProps = {
 ModalAccountPortoInfo.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onChangeModalOpen: PropTypes.func.isRequired,
+  userCPF: PropTypes.string.isRequired,
   bankData: PropTypes.shape({
     DadosContaPortoSeguro: PropTypes.shape({
       titular: PropTypes.string,
       cpf: PropTypes.string,
+      saldo_disponivel: PropTypes.string,
       digito_conta: PropTypes.string,
       conta: PropTypes.string,
       codigo_banco: PropTypes.string,
