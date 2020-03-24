@@ -189,7 +189,7 @@ export default function Wallet({
                               `}
                               onClick={() => {
                                 handleGiwRedirect(
-                                  `portaldecliente/conquista/aplicacao?idFundo=${fund.id}`
+                                  `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true`
                                 )
                               }}
                             >
@@ -290,7 +290,7 @@ export default function Wallet({
                           `}
                           onClick={() => {
                             handleGiwRedirect(
-                              `portaldecliente/conquista/aplicacao?idFundo=${fund.id}`
+                              `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true`
                             )
                           }}
                         >
