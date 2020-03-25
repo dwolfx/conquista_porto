@@ -412,3 +412,8 @@ export const LoadingContainer = styled.div`
   margin: 0 auto;
   width: 480px;
 `
+
+export const LockIcon = styled(ConquistaIcon).attrs(() => ({ name: 'lock' }))`
+  fill: ${props => props.theme.colors.gray4};
+  width: 28px;
+`

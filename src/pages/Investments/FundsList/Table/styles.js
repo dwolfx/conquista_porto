@@ -3,6 +3,7 @@ import IconExporter from 'components/IconExporter'
 import ConquistaButton from 'components/Button'
 import { fundRiskColors } from 'styles/theme'
 import ArrowSortable from 'assets/icons/arrow-sortable.svg'
+import Popover from 'components/Popover'
 
 const riskColorsMap = {
   1: fundRiskColors.lowRisk,
@@ -185,4 +186,9 @@ export const InvestButton = styled(ConquistaButton)`
 export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock' }))`
   fill: ${props => props.theme.colors.gray4};
   width: 28px;
+`
+
+export const PopoverCustom = styled(Popover)`
+  width: 28px;
+  margin: 0 auto;
 `
