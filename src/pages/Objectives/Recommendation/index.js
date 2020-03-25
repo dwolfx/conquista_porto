@@ -72,13 +72,14 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const isMobile = useMedia('sm')
   const dispatch = useDispatch()
   const {
-    isLoadingManagement,
-    objectiveManagementData,
+    isLoading: isLoadingManagement,
+    data: objectiveManagementData,
     isLoadingBySimulate,
+    suitabilityData,
   } = useSelector(state => ({
-    objectiveManagementData: state.objectiveManagement.data,
-    isLoadingManagement: state.objectiveManagement.isLoading,
+    ...state.objectiveManagement.data,
     isLoadingBySimulate: state.objective.isLoadingBySimulate,
+    suitabilityData: state.suitability.data,
   }))
 
   const [showUnmetGoalBanner, setShowUnmetGoalBanner] = useState(false)
@@ -106,11 +107,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   useEffect(() => {
     setFormData({
       ...answer,
+      profile: +suitabilityData.idperfilinvest,
       initial_value: formatMoneyDecimal(answer.initial_value * 100),
       monthly_value: formatMoneyDecimal(answer.monthly_value * 100),
       target_value: formatMoneyDecimal(answer.target_value * 100),
     })
-  }, [answer])
+  }, [answer, suitabilityData])
 
   useEffect(() => {
     if (suggestion_goal) {
@@ -254,6 +256,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       PostObjectiveDataRequestBySimulate({
         data: {
           ...suggestionValues,
+          profile: +suitabilityData.idperfilinvest,
         },
         isMobile,
       })

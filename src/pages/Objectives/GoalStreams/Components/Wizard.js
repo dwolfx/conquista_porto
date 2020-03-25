@@ -31,8 +31,11 @@ export const WizardFlow = ({ data, objective }) => {
   const [formData, setFormData] = useState(getFormEntries(data))
   const [isActive, setIsActive] = useState(false)
   const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
-  const { isLoading, data: objectiveData } = useSelector(
-    state => state.objective
+  const { isLoading, data: objectiveData, suitabilityData } = useSelector(
+    state => ({
+      ...state.objective,
+      suitabilityData: state.suitability.data,
+    })
   )
 
   const isFirstStep = currentStep === 0
@@ -46,6 +49,7 @@ export const WizardFlow = ({ data, objective }) => {
       PostObjectiveDataRequest({
         data: {
           goal_type: objective,
+          profile: +suitabilityData.idperfilinvest,
           ...formData,
         },
         isMobile,
