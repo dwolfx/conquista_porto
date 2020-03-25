@@ -61,7 +61,10 @@ export default function InvestmentSection({ onFetchInvestments }) {
   const { data, isLoading, hasError } = useSelector(
     state => state.consolidatedPosition
   )
-  const bankData = useSelector(state => state.bankData.data)
+  const { bankData, auth } = useSelector(state => ({
+    bankData: state.bankData.data,
+    auth: state.auth,
+  }))
 
   const history = useHistory()
 
@@ -96,7 +99,6 @@ export default function InvestmentSection({ onFetchInvestments }) {
     if (hasError) {
       return <ErrorState onRetry={onFetchInvestments} />
     }
-
     if (data) {
       return (
         <>
@@ -104,6 +106,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
             isOpen={isModalOpen}
             onChangeModalOpen={setIsModalOpen}
             bankData={bankData}
+            userCPF={auth.cpf}
           />
           <SectionRow>
             <SectionCol md="6">
