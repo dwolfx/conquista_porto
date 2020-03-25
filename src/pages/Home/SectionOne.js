@@ -33,6 +33,8 @@ const SectionOne = ({ onFetchInvestments }) => {
     vehiclesConsortium,
     buildingConsortium,
     investments,
+    lifeInsurance,
+    tripInsurance,
   } = useSelector(state => ({
     auth: state.auth,
     vehiclesFinancings: state.vehicleFinancing,
@@ -42,6 +44,8 @@ const SectionOne = ({ onFetchInvestments }) => {
     isLoadingInvestments: state.consolidatedPosition,
     hasErrorInvestments: state.consolidatedPosition,
     investments: state.consolidatedPosition,
+    lifeInsurance: state.lifeInsurance,
+    tripInsurance: state.tripInsurance,
   }))
 
   const history = useHistory()
@@ -101,15 +105,76 @@ const SectionOne = ({ onFetchInvestments }) => {
       <SectionCol md="7">
         <SectionRow>
           <ProductsCol md="6">
-            <FullHeightCard headerIcon="creditcard" headerTitle="Crédito">
+            <FullHeightCard
+              headerIcon="creditcard"
+              headerTitle="Crédito"
+              headerEndItem={
+                <CardHeaderState
+                  showHeader={
+                    vehiclesFinancings.data &&
+                    creditCards.data &&
+                    vehiclesConsortium.data &&
+                    buildingConsortium.data
+                  }
+                  isLoading={
+                    vehiclesFinancings.isLoading ||
+                    creditCards.isLoading ||
+                    vehiclesConsortium.isLoading ||
+                    buildingConsortium.isLoading
+                  }
+                  hasError={
+                    vehiclesFinancings.hasError ||
+                    creditCards.hasError ||
+                    vehiclesConsortium.hasError ||
+                    buildingConsortium.hasError
+                  }
+                  onErrorClick={() => {
+                    if (creditCards.hasError) {
+                      dispatch(GetCreditCardDataRequest(auth.cpf))
+                    }
+                    if (vehiclesFinancings.hasError) {
+                      dispatch(GetVehicleFinancingDataRequest(auth.cpf))
+                    }
+                    if (vehiclesConsortium.hasError) {
+                      dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
+                    }
+                    if (buildingConsortium.hasError) {
+                      dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
+                    }
+                  }}
+                />
+              }
+            >
               <OverflowCard>{renderCreditProducts()}</OverflowCard>
             </FullHeightCard>
           </ProductsCol>
 
           <ProductsCol md="6">
-            <FullHeightCard headerIcon="targetmarket" headerTitle="Seguros">
+            <FullHeightCard
+              headerIcon="targetmarket"
+              headerTitle="Seguros"
+              headerEndItem={
+                <CardHeaderState
+                  showHeader={lifeInsurance.data && tripInsurance.data}
+                  isLoading={lifeInsurance.isLoading || tripInsurance.isLoading}
+                  hasError={lifeInsurance.hasError || tripInsurance.hasError}
+                  onErrorClick={() => {
+                    if (lifeInsurance.hasError) {
+                      dispatch(GetLifeInsuranceDataRequest(auth.cpf))
+                    }
+                    if (tripInsurance.hasError) {
+                      dispatch(GetTripInsuranceDataRequest(auth.cpf))
+                    }
+                  }}
+                />
+              }
+            >
               <OverflowCard>
-                <InsuranceCard />
+                <InsuranceCard
+                  auth={auth}
+                  lifeInsurance={lifeInsurance}
+                  tripInsurance={tripInsurance}
+                />
               </OverflowCard>
             </FullHeightCard>
           </ProductsCol>
@@ -119,13 +184,7 @@ const SectionOne = ({ onFetchInvestments }) => {
   )
 }
 
-const InsuranceCard = () => {
-  const { auth, lifeInsurance, tripInsurance } = useSelector(state => ({
-    auth: state.auth,
-    lifeInsurance: state.lifeInsurance,
-    tripInsurance: state.tripInsurance,
-  }))
-
+const InsuranceCard = ({ auth, lifeInsurance, tripInsurance }) => {
   const history = useHistory()
   const dispatch = useDispatch()
 
