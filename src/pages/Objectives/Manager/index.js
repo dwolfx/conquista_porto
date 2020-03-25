@@ -16,6 +16,7 @@ import Button from 'components/Button'
 import { formatMoney } from 'helpers'
 
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
+import DropDown from 'components/DropdownNew'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import Wallet from 'pages/Objectives/Manager/Wallet'
 
@@ -37,6 +38,7 @@ import {
   ButtonContainerModal,
   FlexContainer,
   HorizontalLine,
+  MenuTag,
 } from './styles'
 
 export default function Manager({ location }) {
@@ -77,6 +79,39 @@ export default function Manager({ location }) {
     }
     dispatch(DeleteObjectiveRequest(id, pushHistoryToHomeScreen))
   }
+
+  const dropdownGtmItemsTitle = 'dropdown menu header'
+  const items = [
+    {
+      icon: 'plane',
+      text: 'Viagem',
+      path: '/',
+    },
+    {
+      icon: 'time',
+      text: 'Aposentadoria',
+      children: [
+        {
+          text: '#AposentadoriaEsposa',
+          path: '/',
+        },
+        {
+          text: '#Aposentei',
+          path: '/',
+        },
+      ],
+    },
+    {
+      icon: 'car2',
+      text: 'Carro',
+      path: '/',
+    },
+    {
+      icon: 'homewithwindow',
+      text: 'Casa',
+      path: '/',
+    },
+  ]
 
   return (
     <>
@@ -150,7 +185,7 @@ export default function Manager({ location }) {
                 direction={isMobile ? 'column;' : 'row;'}
                 margin={isMobile ? '0;' : '0 28px;'}
                 alignItems={isMobile ? 'center' : 'start'}
-                justifyContent={isMobile ? 'center' : 'start'}
+                justifyContent={isMobile ? 'center' : 'space-between'}
                 width="100%"
               >
                 {isMobile ? (
@@ -167,6 +202,21 @@ export default function Manager({ location }) {
                 >
                   EXCLUIR OBJETIVO
                 </ButtonLink>
+                <DropDown
+                  items={items}
+                  title={dropdownGtmItemsTitle}
+                  containerPadding="14px 0"
+                  openingSide="left"
+                >
+                  <MenuTag
+                    color="blue"
+                    text="OUTROS OBJETIVOS"
+                    data-gtm-type="click"
+                    data-gtm-clicktype="outros-objetivos"
+                    data-gtm-subname="header"
+                    data-gtm-name="outros-objetivos"
+                  />
+                </DropDown>
               </FlexContainer>
             </FlexContainer>
           </ObjectiveHeader>

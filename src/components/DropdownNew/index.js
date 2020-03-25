@@ -11,6 +11,7 @@ import {
   ItemIcon,
   ItemText,
   Wrapper,
+  WrapperChildren,
   ItemIconContainer,
 } from './styles'
 
@@ -53,6 +54,7 @@ export default function Dropdown({
   customWidth,
   containerPadding,
   redirectPath,
+  openingSide,
   ...rest
 }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -119,9 +121,11 @@ export default function Dropdown({
           key={element.text}
           onClick={() => element.path && handleClick(element.path)}
         >
-          <ItemIconContainer>
-            <ItemIcon name={element.icon} />
-          </ItemIconContainer>
+          {element.icon && (
+            <ItemIconContainer>
+              <ItemIcon name={element.icon} />
+            </ItemIconContainer>
+          )}
           <ItemText>{element.text}</ItemText>
         </ItemWrapper>
       ))
@@ -224,7 +228,11 @@ export default function Dropdown({
                 </ItemWrapper>
               ))}
             </Wrapper>
-            {isHovering && <Wrapper>{childrenElements}</Wrapper>}
+            {isHovering && (
+              <WrapperChildren openingSide={openingSide}>
+                {childrenElements}
+              </WrapperChildren>
+            )}
           </Container>
         </RelativeHolder>
         <Backdrop
@@ -243,10 +251,12 @@ Dropdown.propTypes = {
   containerPadding: PropTypes.string,
   redirectPath: PropTypes.string,
   customWidth: PropTypes.string,
+  openingSide: PropTypes.string,
 }
 
 Dropdown.defaultProps = {
   containerPadding: '14px',
   redirectPath: null,
   customWidth: null,
+  openingSide: 'right',
 }
