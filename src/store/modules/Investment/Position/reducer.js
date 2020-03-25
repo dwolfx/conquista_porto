@@ -21,7 +21,6 @@ export default function(state = INITIAL_STATE, action) {
     case Types.ADD_FAILURE:
       return {
         ...state,
-        data: [],
         isLoading: false,
       }
     default:
