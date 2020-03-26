@@ -9,21 +9,18 @@ export const SectionRow = styled(Row)`
 
 export const SectionCol = styled(Col)`
   height: 100%;
+
   @media ${props => props.theme.mediaQueries.sm} {
     margin-bottom: 14px;
   }
 
-  @media (min--moz-device-pixel-ratio: 0) {
+  @media all and (-moz-images-in-menus: 0) {
     height: -webkit-fill-available;
     height: -moz-available;
   }
 `
 
 export const ModalTextWrapper = styled.div`
-  p:first-of-type {
-    margin-bottom: 7px;
-  }
-
   margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
 `
 
@@ -37,10 +34,6 @@ export const ContainerBox = styled.div`
 export const TableBox = styled.div`
   min-width: 33%;
   margin-bottom: 14px;
-
-  p:first-of-type {
-    margin-bottom: 7px;
-  }
 `
 
 export const ContainerAccountInfo = styled.div`

@@ -23,7 +23,6 @@ export default function(state = INITIAL_STATE, action) {
     case Types.GET_FAILURE:
       return {
         ...state,
-        data: null,
         isLoading: false,
         hasError: true,
       }

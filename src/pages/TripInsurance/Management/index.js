@@ -66,6 +66,9 @@ export default function ManagementTripInsurance() {
   }
 
   if (tripInsurance.data && selectedTripInsurance) {
+    const morteAcidental = selectedTripInsurance.CoberturasBasicas.CoberturaBasica.find(
+      item => item.Nome.toLowerCase() === 'morte acidental'
+    )
     return (
       <>
         <Container>
@@ -188,22 +191,18 @@ export default function ManagementTripInsurance() {
                       lineHeight="32px"
                       textAlign="center"
                     >
-                      Destino
-                    </Text>
-                    {/* <Text>{item.Fatura.Vencimento}</Text> */}
-                  </Period>
-                  <Period>
-                    <Text
-                      fontSize="22px"
-                      margin="0 0 7px 0"
-                      lineHeight="32px"
-                      textAlign="center"
-                    >
                       Período
                     </Text>
                     <Text>
-                      {moment(item.DtInicioVigencia).format('DD/MM/YYYY')} até{' '}
-                      {moment(item.DtFinalVigencia).format('DD/MM/YYYY')}
+                      {moment(
+                        selectedTripInsurance.DtInicioVigencia,
+                        'YYYY-MM-DD-HH-mm'
+                      ).format('DD/MM/YYYY')}{' '}
+                      até{' '}
+                      {moment(
+                        selectedTripInsurance.DtFinalVigencia,
+                        'YYYY-MM-DD-HH-mm'
+                      ).format('DD/MM/YYYY')}
                     </Text>
                   </Period>
                 </PeriodContainer>
@@ -217,9 +216,12 @@ export default function ManagementTripInsurance() {
                     >
                       Cobertura Principal
                     </Text>
+
                     <InvoiceItem>
-                      <Text>Morte Acidental</Text>
-                      <Text>R$ 35.000,00</Text>
+                      <Text textAlign="center">{morteAcidental.Nome}</Text>
+                      <Text textAlign="center">
+                        {formatMoney(morteAcidental.CapitalSegurado)}
+                      </Text>
                     </InvoiceItem>
                   </Invoice>
                 </Section>

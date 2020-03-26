@@ -22,6 +22,7 @@ import {
   PostRecuePointsRequest,
 } from 'store/modules/Points/action'
 
+import CardHeaderState from './commons/CardHeaderState'
 import LoadingState from './commons/LoadingState'
 import ErrorState from './commons/ErrorState'
 import pointsCardsData from './pointsCardsData'
@@ -282,11 +283,11 @@ export default function SectionThree({ points }) {
     extrato ? extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0) : 0
 
   const renderPointsCard = () => {
-    if (isLoading) {
+    if (isLoading && !(points && Object.entries(points).length)) {
       return <LoadingState />
     }
 
-    if (hasError) {
+    if (hasError && !(points && Object.entries(points).length)) {
       return (
         <ErrorState onRetry={() => dispatch(GetPointsDataRequest(auth.cpf))} />
       )
@@ -381,6 +382,14 @@ export default function SectionThree({ points }) {
             headerIcon="diamond"
             headerTitle="Pontos"
             footer={renderPointsFooter()}
+            headerEndItem={
+              <CardHeaderState
+                showHeader={points && Object.entries(points).length}
+                isLoading={isLoading}
+                hasError={hasError}
+                onErrorClick={() => dispatch(GetPointsDataRequest(auth.cpf))}
+              />
+            }
           >
             {renderPointsCard()}
           </FullHeightCard>

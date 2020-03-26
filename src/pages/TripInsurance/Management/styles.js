@@ -80,18 +80,14 @@ export const Section = styled.article`
 export const PeriodContainer = styled.div`
   display: flex;
   border-top: 1px solid #ccc;
+  justify-content: center;
 `
 
 export const Period = styled.div`
-  width: 50%;
   padding: 22px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  &:first-child {
-    border-right: 1px solid #ccc;
-  }
 `
 
 export const Text = styled.span`
@@ -120,6 +116,14 @@ export const InvoiceItem = styled.div`
   padding: 14px 0;
   border-radius: 4px;
   margin-bottom: 14px;
+
+  ${Text} {
+    text-transform: lowercase;
+
+    ::first-letter {
+      text-transform: capitalize;
+    }
+  }
 `
 
 export const Modal = styled(ModalDefault)`
