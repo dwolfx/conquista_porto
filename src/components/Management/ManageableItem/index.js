@@ -5,7 +5,7 @@ import { Container } from './styles'
 
 export default function ManageableItem({ active, children, onClick, ...rest }) {
   return (
-    <Container onClick={onClick} active {...rest}>
+    <Container onClick={onClick} active={active} {...rest}>
       {children}
     </Container>
   )
