@@ -2,9 +2,11 @@ import React, { useContext, useState, useEffect } from 'react'
 import { ThemeContext } from 'styled-components'
 import moment from 'moment'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
 import DropDown from 'components/DropdownNew'
+import Popover from 'components/Popover'
 
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
@@ -27,6 +29,7 @@ import {
   TopicsContentRow,
   ButtonWrapper,
   CustomConquistaButton,
+  LockIcon,
 } from './styles'
 
 export default function FundInformation({ fund, idCotista }) {
@@ -283,14 +286,26 @@ export default function FundInformation({ fund, idCotista }) {
           </DropDown>
         </GrossIncome>
         <ButtonWrapper>
-          <CustomConquistaButton
-            data-gtm-name="investir"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            onClick={() => handleGiwRedirect(buildGiwUrl(fund, 'investir'))}
-          >
-            INVESTIR
-          </CustomConquistaButton>
+          {fund.fundo.aplicao_liberada ? (
+            <CustomConquistaButton
+              data-gtm-name="investir"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              onClick={() => handleGiwRedirect(buildGiwUrl(fund, 'investir'))}
+            >
+              INVESTIR
+            </CustomConquistaButton>
+          ) : (
+            <Popover
+              content={() => (
+                <Text type="body" color="gray5">
+                  Fundo fechado para movimentações
+                </Text>
+              )}
+            >
+              <LockIcon />
+            </Popover>
+          )}
           <CustomConquistaButton
             data-gtm-name="resgatar"
             data-gtm-type="click"
@@ -318,6 +333,7 @@ FundInformation.propTypes = {
       perfil_risco: PropTypes.string,
       aplicao_minima: PropTypes.string,
       contagem_dias_resgate: PropTypes.string,
+      aplicao_liberada: PropTypes.bool,
     }),
     saldo_atual: PropTypes.string,
     saldo_bloqueado: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
