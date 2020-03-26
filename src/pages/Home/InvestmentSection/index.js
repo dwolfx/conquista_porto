@@ -93,10 +93,10 @@ export default function InvestmentSection({ onFetchInvestments }) {
   }
 
   const renderInvestimentCardContent = () => {
-    if (isLoading) {
+    if (isLoading && !(data && Object.entries(data).length)) {
       return <LoadingState />
     }
-    if (hasError) {
+    if (hasError && !(data && Object.entries(data).length)) {
       return <ErrorState onRetry={onFetchInvestments} />
     }
     if (data) {
