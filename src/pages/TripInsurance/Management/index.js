@@ -66,6 +66,9 @@ export default function ManagementTripInsurance() {
   }
 
   if (tripInsurance.data && selectedTripInsurance) {
+    const morteAcidental = selectedTripInsurance.CoberturasBasicas.CoberturaBasica.find(
+      item => item.Nome.toLowerCase() === 'morte acidental'
+    )
     return (
       <>
         <Container>
@@ -213,9 +216,12 @@ export default function ManagementTripInsurance() {
                     >
                       Cobertura Principal
                     </Text>
+
                     <InvoiceItem>
-                      <Text>Morte Acidental</Text>
-                      <Text>R$ 35.000,00</Text>
+                      <Text textAlign="center">{morteAcidental.Nome}</Text>
+                      <Text textAlign="center">
+                        {formatMoney(morteAcidental.CapitalSegurado)}
+                      </Text>
                     </InvoiceItem>
                   </Invoice>
                 </Section>

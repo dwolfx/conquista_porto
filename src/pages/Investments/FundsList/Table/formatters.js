@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
+import Text from 'components/Text'
+
 import {
   FundoWrapper,
   WrapperContent,
@@ -13,6 +15,7 @@ import {
   LockIcon,
   FundoOutterWrapper,
   LogoImg,
+  PopoverCustom,
 } from './styles'
 
 const collator = new Intl.Collator(undefined, {
@@ -49,7 +52,7 @@ const FormatMoneyCell = column => (
 
 const FormatEnabledCell = column => (
   <WrapperContent isTbody>
-    {column.cell.value ? (
+    {column.cell.value && column.cell.row.original.aplicao_liberada ? (
       <InvestButton
         data-gtm-type="click"
         data-gtm-clicktype="button"
@@ -66,7 +69,16 @@ const FormatEnabledCell = column => (
         Investir
       </InvestButton>
     ) : (
-      <LockIcon />
+      <PopoverCustom
+        content={() => (
+          <Text type="body" color="gray5">
+            Fundo fechado para movimentações
+          </Text>
+        )}
+        placement="left"
+      >
+        <LockIcon />
+      </PopoverCustom>
     )}
   </WrapperContent>
 )

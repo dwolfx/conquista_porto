@@ -86,3 +86,7 @@ export const Arrow = styled.div`
     ${props => arrowDirection[props.placement].pseudo};
   }
 `
+
+export const ChildrenWrapper = styled.div`
+  cursor: pointer;
+`
