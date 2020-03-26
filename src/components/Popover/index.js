@@ -6,7 +6,7 @@ import 'styled-components/macro'
 
 import Text from 'components/Text'
 
-import { PopoverContainer, Arrow } from './styles'
+import { PopoverContainer, Arrow, ChildrenWrapper } from './styles'
 
 export default function Popover({
   alwaysVisible,
@@ -50,16 +50,9 @@ export default function Popover({
     <Manager>
       <Reference>
         {({ ref }) => (
-          <div
-            ref={ref}
-            {...actions()}
-            css={`
-              cursor: pointer;
-            `}
-            {...rest}
-          >
+          <ChildrenWrapper ref={ref} {...actions()} {...rest}>
             {children}
-          </div>
+          </ChildrenWrapper>
         )}
       </Reference>
       {isOpen

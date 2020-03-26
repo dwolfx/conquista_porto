@@ -14,6 +14,8 @@ import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/acti
 
 import LoadingState from './commons/LoadingState'
 import ErrorState from './commons/ErrorState'
+import CardHeaderState from './commons/CardHeaderState'
+
 import ObjectivesListContent from './ObjectiveListContent'
 import { tipsBanner } from './bannerData'
 import {
@@ -115,11 +117,11 @@ export default function SectionTwo({ onRedirect }) {
       ))
 
   const renderObjectivesBodyCard = () => {
-    if (isLoadingObjectives) {
+    if (isLoadingObjectives && !hasObjectives) {
       return <LoadingState />
     }
 
-    if (hasErrorObjectives) {
+    if (hasErrorObjectives && !hasObjectives) {
       return <ErrorState onRetry={() => dispatch(GetObjectiveDataRequest())} />
     }
 
@@ -131,10 +133,22 @@ export default function SectionTwo({ onRedirect }) {
       <EmptyState />
     )
   }
+
   return (
     <>
       <SectionCol md="5">
-        <FullHeightCard headerIcon="target" headerTitle="Objetivos">
+        <FullHeightCard
+          headerIcon="target"
+          headerTitle="Objetivos"
+          headerEndItem={
+            <CardHeaderState
+              showHeader={objectives && Object.entries(objectives).length}
+              isLoading={isLoadingObjectives}
+              hasError={hasErrorObjectives}
+              onErrorClick={() => dispatch(GetObjectiveDataRequest())}
+            />
+          }
+        >
           {renderObjectivesBodyCard()}
         </FullHeightCard>
       </SectionCol>

@@ -58,6 +58,7 @@ const ProductItemGenerator = (
         <React.Fragment key={`empty-${Math.random()}`}>
           <EmptyProductItem
             atualItemDetail={atualItemDetail}
+            hasData={Boolean(data)}
             hasError={hasError}
             isLoading={isLoading}
             onRetry={onRetry}
@@ -266,6 +267,7 @@ function genericBottomLine(product, history, itemTitle) {
 
 const EmptyProductItem = ({
   atualItemDetail,
+  hasData,
   hasError,
   isLoading,
   onRetry,
@@ -276,10 +278,11 @@ const EmptyProductItem = ({
     : 'credito'
 
   const EndItems = () => {
-    if (isLoading) {
+    if (isLoading && !hasData) {
       return <Loading />
     }
-    if (hasError) {
+
+    if (hasError && !hasData) {
       return (
         <Icon
           name="reload"
@@ -316,7 +319,7 @@ const EmptyProductItem = ({
         startItems={[
           <Text type="headline" color="gray5">
             {atualItemDetail.title}
-            {hasError && <ErrorText>Falha ao carregar</ErrorText>}
+            {hasError && !hasData && <ErrorText>Falha ao carregar</ErrorText>}
           </Text>,
         ]}
         endItems={[<EndItems />]}
@@ -327,12 +330,14 @@ const EmptyProductItem = ({
 
 EmptyProductItem.propTypes = {
   atualItemDetail: PropTypes.object.isRequired,
+  hasData: PropTypes.bool,
   hasError: PropTypes.bool,
   isLoading: PropTypes.bool,
   onRetry: PropTypes.func,
 }
 
 EmptyProductItem.defaultProps = {
+  hasData: false,
   hasError: false,
   isLoading: false,
   onRetry: null,

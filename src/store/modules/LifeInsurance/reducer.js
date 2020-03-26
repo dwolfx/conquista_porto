@@ -25,7 +25,6 @@ export default function(state = INITIAL_STATE, action) {
     case Types.GET_DATA_FAILURE:
       return {
         ...state,
-        data: [],
         isLoading: false,
         hasError: true,
       }
