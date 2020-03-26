@@ -116,6 +116,14 @@ export const InvoiceItem = styled.div`
   padding: 14px 0;
   border-radius: 4px;
   margin-bottom: 14px;
+
+  ${Text} {
+    text-transform: lowercase;
+
+    ::first-letter {
+      text-transform: capitalize;
+    }
+  }
 `
 
 export const Modal = styled(ModalDefault)`
