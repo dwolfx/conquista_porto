@@ -1,6 +1,9 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
-import { get, baseURLNamespacePortopar } from 'services/api'
+
 import { handleGiwRedirect } from 'helpers'
+import { get, baseURLNamespacePortopar } from 'services/api'
+import { buildToast, ToastTypes } from 'store/modules/toastActions'
+
 import { getSuitability } from './selectors'
 
 import { Types } from './types'
@@ -40,8 +43,11 @@ function* getDataAndRedirect({
         }
       }
     } catch (err) {
-      yield put(SetSuitabilityLoading(false))
-      yield put(GetSuitabilityDataFailure())
+      yield put({
+        ...SetSuitabilityLoading(false),
+        ...GetSuitabilityDataFailure(),
+        toast: buildToast(err.message, ToastTypes.error),
+      })
 
       if (errorPath) {
         history.push(errorPath)
