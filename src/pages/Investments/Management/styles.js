@@ -156,7 +156,7 @@ export const HeaderNodeBalanceAccordion = styled.span`
   justify-content: space-between;
   width: 95%;
 
-  @media (max-width: 720px) {
+  @media ${props => props.theme.mediaQueries.md} {
     flex-direction: column;
     align-items: center;
   }

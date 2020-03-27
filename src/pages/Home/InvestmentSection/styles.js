@@ -10,7 +10,7 @@ export const SectionRow = styled(Row)`
 export const SectionCol = styled(Col)`
   height: 100%;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     margin-bottom: 14px;
   }
 
@@ -49,7 +49,7 @@ export const PieChartContainer = styled.div`
   height: 100%;
   width: 100%;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     height: 305px;
     width: 236px;
     margin: 0 auto;
