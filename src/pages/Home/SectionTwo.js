@@ -142,7 +142,9 @@ export default function SectionTwo({ onRedirect }) {
           headerTitle="Objetivos"
           headerEndItem={
             <CardHeaderState
-              showHeader={objectives && Object.entries(objectives).length}
+              showHeader={Boolean(
+                objectives && Object.entries(objectives).length
+              )}
               isLoading={isLoadingObjectives}
               hasError={hasErrorObjectives}
               onErrorClick={() => dispatch(GetObjectiveDataRequest())}
