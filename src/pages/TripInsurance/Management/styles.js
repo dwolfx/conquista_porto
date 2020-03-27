@@ -9,6 +9,7 @@ export const AddBtnLink = styled.div`
   background-color: #f1f1f1;
   padding: 8px;
   margin-bottom: 30px;
+  min-width: 150px;
   padding: 14px;
   cursor: pointer;
   width: 100%;
