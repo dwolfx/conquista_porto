@@ -13,7 +13,10 @@ function* getData({ cpf }) {
 
     let responseData = response.data
 
-    if (response.data.Mensagem) {
+    if (
+      response.data.Mensagem ||
+      response.data.TipoCritica === 'CRITICA_NEGOCIO'
+    ) {
       responseData = []
     }
 
