@@ -192,7 +192,7 @@ export default function SectionThree({ points }) {
     ))
 
   const renderModalContent = () => (
-    <>        
+    <>
       <ModalTextWrapper>
         <Text type="headline" color="gray6" bold>
           Quem pode pontuar?
