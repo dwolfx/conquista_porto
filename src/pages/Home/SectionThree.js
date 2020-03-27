@@ -384,7 +384,7 @@ export default function SectionThree({ points }) {
             footer={renderPointsFooter()}
             headerEndItem={
               <CardHeaderState
-                showHeader={points && Object.entries(points).length}
+                showHeader={Boolean(points && Object.entries(points).length)}
                 isLoading={isLoading}
                 hasError={hasError}
                 onErrorClick={() => dispatch(GetPointsDataRequest(auth.cpf))}
