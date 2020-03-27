@@ -9,7 +9,6 @@ import 'styled-components/macro'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
-import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
 import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
@@ -43,7 +42,6 @@ import {
   PointName,
   PointNumber,
   PointsList,
-  ContainerBox,
   ModalTextWrapper,
   PointsExtractListWrapper,
   PointsButtonWrapper,
@@ -193,91 +191,39 @@ export default function SectionThree({ points }) {
       />
     ))
 
-  const renderModalContent = () => {
-    const customText = (type, color, text) => (
-      <Text type={type} color={color} bold>
-        {text}
-      </Text>
-    )
-    const tag = (color, text) => <Tag color={color} text={text} />
-
-    return (
-      <>
-        <ModalTextWrapper>
-          <Text type="headline" color="gray6" bold>
-            Como acumular pontos?
-          </Text>
-          <Text type="headline" color="gray5">
-            Confira as condições exclusivas para os colaboradores da Porto
-            Seguro. Essas condições são válidas até 01/02/2019.
-          </Text>
-        </ModalTextWrapper>
-        <ContainerBox>
-          <HorizontalList
-            noPadding
-            startItems={[
-              customText('headline', 'gray6', 'Cadastro no Conquista'),
-            ]}
-            endItems={[tag('gray', '250 pontos')]}
-          />
-          <HorizontalList
-            noPadding
-            startItems={[
-              customText('headline', 'gray6', 'Cadastro de investidor'),
-            ]}
-            endItems={[tag('gray', '200 pontos')]}
-          />
-          <HorizontalList
-            noPadding
-            startItems={[
-              customText('headline', 'gray6', 'Primeiro objetivo salvo'),
-            ]}
-            endItems={[tag('gray', '100 pontos')]}
-          />
-          <HorizontalList
-            noPadding
-            startItems={[
-              customText(
-                'headline',
-                'gray6',
-                'Primeiro investimento realizado'
-              ),
-            ]}
-            endItems={[tag('gray', '200 pontos')]}
-          />
-        </ContainerBox>
-        <ModalTextWrapper>
-          <Text type="headline" color="gray6" bold>
-            Quem pode pontuar?
-          </Text>
-          <Text type="headline" color="gray5">
-            Todos as pessoas que acessam o Conquista têm acesso ao programa e
-            podem pontuar. Aqueles que já forem investidores na Portopar, têm os
-            pontos de cadastro e cadastro de investidor contabilizados ao
-            realizarem o 1° acesso à plataforma.
-          </Text>
-        </ModalTextWrapper>
-        <ModalTextWrapper>
-          <Text type="headline" color="gray6" bold>
-            Depois de quanto tempo os pontos expiram?
-          </Text>
-          <Text type="headline" color="gray5">
-            O pontos têm duração de 24 meses a partir da emissão.
-          </Text>
-        </ModalTextWrapper>
-        <ModalTextWrapper>
-          <Text type="headline" color="gray6" bold>
-            Como somar pontos com o Cartão de Crédito Porto Seguro?
-          </Text>
-          <Text type="headline" color="gray5">
-            Os pontos do Programa de Relacionamento do Conquista são
-            automaticamente somados aos pontos do titular do Cartão de Crédito
-            Porto Seguro.
-          </Text>
-        </ModalTextWrapper>
-      </>
-    )
-  }
+  const renderModalContent = () => (
+    <>        
+      <ModalTextWrapper>
+        <Text type="headline" color="gray6" bold>
+          Quem pode pontuar?
+        </Text>
+        <Text type="headline" color="gray5">
+          Todos as pessoas que acessam o Conquista têm acesso ao programa e
+          podem pontuar. Aqueles que já forem investidores na Portopar, têm os
+          pontos de cadastro e cadastro de investidor contabilizados ao
+          realizarem o 1° acesso à plataforma.
+        </Text>
+      </ModalTextWrapper>
+      <ModalTextWrapper>
+        <Text type="headline" color="gray6" bold>
+          Depois de quanto tempo os pontos expiram?
+        </Text>
+        <Text type="headline" color="gray5">
+          O pontos têm duração de 24 meses a partir da emissão.
+        </Text>
+      </ModalTextWrapper>
+      <ModalTextWrapper>
+        <Text type="headline" color="gray6" bold>
+          Como somar pontos com o Cartão de Crédito Porto Seguro?
+        </Text>
+        <Text type="headline" color="gray5">
+          Os pontos do Programa de Relacionamento do Conquista são
+          automaticamente somados aos pontos do titular do Cartão de Crédito
+          Porto Seguro.
+        </Text>
+      </ModalTextWrapper>
+    </>
+  )
 
   const calculatePointsAmountBalance = extrato =>
     extrato ? extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0) : 0
