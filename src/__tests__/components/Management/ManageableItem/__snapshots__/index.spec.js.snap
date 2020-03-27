@@ -2,7 +2,7 @@
 
 exports[`ManageableItem renders correctly 1`] = `
 <div
-  className="sc-bdVaJa HvgkV"
+  className="sc-bdVaJa drpYNQ"
   onClick={null}
 >
   <span>

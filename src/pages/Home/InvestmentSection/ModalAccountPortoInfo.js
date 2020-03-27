@@ -158,7 +158,7 @@ export default function ModalAccountPortoInfo({
           </ModalTextWrapper>
           <ModalTextWrapper margin="0 0 0 0">
             <Text type="headline" color="gray5" bold>
-              A Porto Seguro faz a idenfiticação e direcionamento dos recursos.
+              A Porto Seguro faz a identificação e direcionamento dos recursos.
             </Text>
           </ModalTextWrapper>
         </ContainerBox>

@@ -99,7 +99,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
     if (hasError && !(data && Object.entries(data).length)) {
       return <ErrorState onRetry={onFetchInvestments} />
     }
-    if (data) {
+    if (data && data.saldototal && data.categorias) {
       return (
         <>
           <ModalAccountPortoInfo

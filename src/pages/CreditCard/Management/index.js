@@ -28,7 +28,6 @@ import {
   InvoiceHeader,
   Invoice,
   InvoiceItem,
-  ComplementaryInfo,
   DateContent,
   Text,
 } from './styles'
@@ -53,16 +52,6 @@ const downloadFileSectionData = [
       'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Cartão de Crédito da Porto Seguro.',
     buttonText: 'BAIXAR ARQUIVO',
     willRedirect: false,
-  },
-]
-
-const complementaryInfo = [
-  {
-    title: 'Informativo de desempenho',
-    description:
-      'Material técnico, com gráficos, informações e histórico do fundo.',
-    willRedirect: false,
-    buttonText: 'BAIXAR ARQUIVO',
   },
 ]
 
@@ -241,22 +230,6 @@ export default function ManagementCreditCard() {
                     </InvoiceItem>
                   </Invoice>
                 </InvoiceContainer>
-                <ComplementaryInfo>
-                  <Text
-                    margin="22px 0"
-                    lineHeight="21px"
-                    letterSpacing="1.5px"
-                    fontColor={themeContext.colors.gray6}
-                    fontWeight="600"
-                    fontSize="11px"
-                  >
-                    INFORMAÇÕES COMPLEMENTARES
-                  </Text>
-                  <FileDownloadSection
-                    data={complementaryInfo}
-                    backgroundColor="inherit"
-                  />
-                </ComplementaryInfo>
               </RightContent>
             ))}
           </PageContent>

@@ -118,8 +118,7 @@ export const TopicValue = styled.span`
 export const BalanceAccordion = styled(AccordionDefault)`
   margin: 20px 30px;
 
-  @media (max-width: 720px) {
-    max-height: 100px;
+  @media ${props => props.theme.mediaQueries.md} {
     flex-direction: column;
     align-items: center;
   }
@@ -311,6 +310,7 @@ export const RowBankTransition = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: ${props => props.marginTop};
+  margin-bottom: ${props => props.marginBottom};
   width: ${props => props.width};
   border-top: ${props => props.borderTop || 'unset'};
 `
