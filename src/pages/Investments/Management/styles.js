@@ -311,6 +311,7 @@ export const RowBankTransition = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: ${props => props.marginTop};
+  margin-bottom: ${props => props.marginBottom};
   width: ${props => props.width};
   border-top: ${props => props.borderTop || 'unset'};
 `
