@@ -45,9 +45,12 @@ export default function Manager({ location }) {
   const { objectiveId } = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
-  const { data: objectiveData, isLoading, isLoadingDelete, otherGoalsManagement, } = useSelector(
-    state => state.objectiveManagement
-  )
+  const {
+    data: objectiveData,
+    isLoading,
+    isLoadingDelete,
+    otherGoalsManagement,
+  } = useSelector(state => state.objectiveManagement)
   const isMobile = useMedia('sm')
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
 
@@ -174,7 +177,6 @@ export default function Manager({ location }) {
                 {otherGoalsManagement && otherGoalsManagement[1] && (
                   <OtherGoals otherGoals={otherGoalsManagement} />
                 )}
-
               </FlexContainer>
             </FlexContainer>
           </ObjectiveHeader>
