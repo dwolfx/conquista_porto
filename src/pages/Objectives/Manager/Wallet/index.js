@@ -66,7 +66,7 @@ export default function Wallet({
   }, [fundList])
 
   useEffect(() => {
-    if (fundList.length && (fundListCopy || []).length) {
+    if (fundList.length && fundListCopy.length) {
       setHasUnsavedChanges(isFundsNotTheSame(fundList, fundListCopy))
     }
   }, [fundListCopy, fundList])
@@ -81,6 +81,7 @@ export default function Wallet({
         }
       })
     }
+
     dispatch(
       PostSaveFundsRequest({
         idGoal,

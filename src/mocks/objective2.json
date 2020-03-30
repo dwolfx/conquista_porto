@@ -154,10 +154,10 @@
       "recommended": true,
       "name": "Porto Seguro Renda Fixa Referenciado DI Crédito Privado",
       "initial_deposit": 1000,
-      "monthly_deposit": 1000,
-      "balance": 700,
+      "monthly_deposit": 1100,
+      "balance": 500,
       "available": -643,
-      "invested": 420,
+      "invested": 410,
       "goals": [
         {
           "id": 1,
