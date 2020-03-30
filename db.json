@@ -2971,9 +2971,13 @@
       }
     }
   ],
+  "token_resgate_pontos": {
+    "client_id": "ORG040PRG1",
+    "client_secret": "v9S30OO0C+pHYpw9za3sj3YTPgNwb3J0b2FyZW5h"
+  },
   "resgate_pontos": {
-    "cod_chave": "22890390802",
-    "cpf": "22890390802",
+    "cod_chave": "33244452809",
+    "cpf": "33244452809",
     "cod_org": "040",
     "cod_prog": "001"
   },
