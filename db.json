@@ -2979,16 +2979,7 @@
   },
   "goal_recommendations": {},
   "goal_management": {
-    "fund_list": [
-      {
-        "value": "461",
-        "id": 1
-      },
-      {
-        "value": "10",
-        "id": 2
-      }
-    ]
+    "id": "1"
   },
   "suitability": {
     "idpessoa": 632,
