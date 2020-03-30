@@ -90,7 +90,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </tr>
         </thead>
         <tbody
-          className="sc-bZQynM fDIwx"
+          className="sc-bZQynM cEPSTO"
         >
           <tr
             className="sc-gzVnrw bTzsuO"
@@ -347,13 +347,13 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </section>
   <section
-    className="sc-jWBwVP cLmclV"
+    className="sc-jWBwVP jUBbsC"
   >
     <div
       className="sc-cvbbAY bKzjwJ"
     >
       <div
-        className="sc-cSHVUG hRSvtj"
+        className="sc-cSHVUG cClipN"
       >
         <h4
           className="sc-kgoBCf cvKmzQ"
@@ -428,7 +428,7 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-gPEVay jcerLG"
+        className="sc-gPEVay kxtVzo"
       >
         <div
           className="sc-iRbamj cXdNXz"
@@ -507,7 +507,7 @@ exports[`FundsInfo renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-dxgOiQ lflzBH"
+      className="sc-dxgOiQ bTxeuU"
     >
       <h4
         className="sc-eNQAEJ kHTHNS"
