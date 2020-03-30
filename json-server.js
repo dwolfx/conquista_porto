@@ -18,7 +18,12 @@ server.use(jsonServer.bodyParser)
 server.use(jsonServer.rewriter(routes))
 
 router.render = (req, res) => {
-  if (req.originalUrl.startsWith('/api/autenticacao/token-catalogo')) {
+  if (req.originalUrl.startsWith('/api/loyalty/optemais/auth/tokenorg')) {
+    return res.jsonp({
+      access_token: '0122333444455555',
+    })
+  }
+  if (req.originalUrl.startsWith('/api/loyalty/optemais/auth/tokencatalogo')) {
     return res.jsonp({
       token: '1905199724134E2F73647183664C0A15',
       msg: 'OK',
