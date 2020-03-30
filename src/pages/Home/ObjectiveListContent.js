@@ -18,6 +18,7 @@ import {
   ObjectivesTableBox,
   ObjectivesAccordion,
   ObjectiveDivisor,
+  LinearProgressBarContent,
 } from './styles'
 
 export default function ObjectiveListContent({ objectives }) {
@@ -26,36 +27,15 @@ export default function ObjectiveListContent({ objectives }) {
   const { isLoading } = useSelector(state => state.objectiveManagement)
   const [loadingObjectiveButton, setLoadingObjectiveButton] = useState('')
 
-  const horizontalListText = (text, type, color, hasContainer) => {
-    if (hasContainer) {
-      return (
-        <div
-          css={`
-            width: 35px;
-          `}
-        >
-          <Text type={type} color={color} textAlign="right">
-            {text}
-          </Text>
-        </div>
-      )
-    }
-
-    return (
-      <Text type={type} color={color} textAlign="right">
-        {text}
+  const horizontalListProgressAndPorcentage = (actual, max, percentage) => (
+    <>
+      <LinearProgressBarContent>
+        <MiniLinearProgressBar atual={actual} max={max} />
+      </LinearProgressBarContent>
+      <Text type="captionUppercase" color="gray5" textAlign="right" bold>
+        {`${percentage}%`}
       </Text>
-    )
-  }
-
-  const horizontalListProgressBar = (actual, max) => (
-    <div
-      css={`
-        width: 56px;
-      `}
-    >
-      <MiniLinearProgressBar atual={actual} max={max} />
-    </div>
+    </>
   )
 
   const table = (current, remaining, total) => (
@@ -98,22 +78,15 @@ export default function ObjectiveListContent({ objectives }) {
               <HorizontalList
                 noPadding
                 startItems={[
-                  horizontalListText(
-                    `#${objective.nickname}`,
-                    'headline',
-                    'gray5'
-                  ),
+                  <Text type="headline" color="gray5" textAlign="right" bold>
+                    {`#${objective.nickname}`}
+                  </Text>,
                 ]}
                 endItems={[
-                  horizontalListProgressBar(
+                  horizontalListProgressAndPorcentage(
                     objective.total_balance,
-                    objective.target_value
-                  ),
-                  horizontalListText(
-                    `${objective.percentage}%`,
-                    'captionUppercase',
-                    'gray4',
-                    true
+                    objective.target_value,
+                    objective.percentage
                   ),
                 ]}
               />

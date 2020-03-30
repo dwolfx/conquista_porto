@@ -196,7 +196,6 @@ export const PointsInfo = styled.div`
 
 export const PointsList = styled.div`
   flex: 1;
-  margin: 14px 0;
   overflow-y: scroll;
 `
 export const PointsButtonWrapper = styled.div`
