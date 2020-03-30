@@ -46,7 +46,6 @@ export const CardBody = styled.div`
   flex: 1;
   flex-direction: column;
   overflow: hidden;
-  /* padding: 0 14px; */
 `
 
 export const CardFooter = styled.div`
@@ -54,6 +53,5 @@ export const CardFooter = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-top: 1px solid ${props => props.theme.colors.gray2};
   display: flex;
-  margin: 14px 0;
   min-height: 63px;
 `

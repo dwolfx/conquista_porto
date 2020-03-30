@@ -3,6 +3,7 @@ import SliderComp from 'components/Slider'
 
 import { TextStyle } from 'components/Text/styles'
 import { Col, Row } from 'styled-bootstrap-grid'
+import { Button } from 'components/Button/styles'
 
 export const Slider = styled(SliderComp)`
   border-radius: ${props => (props.onlyObjective ? '7px' : 0)};
@@ -82,5 +83,9 @@ export const InfoMobileRow = styled(Row)`
 export const FooterContainer = styled.div`
   display: block;
   width: 100%;
-  border-top: 1px solid ${props => props.theme.colors.gray2};
+`
+
+export const BlockButton = styled(Button)`
+  margin-bottom: 14px;
+  width: 100%;
 `

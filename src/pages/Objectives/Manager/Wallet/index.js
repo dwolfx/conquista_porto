@@ -44,6 +44,7 @@ import {
   CurrentFundBalance,
   InfoMobileRow,
   FooterContainer,
+  BlockButton,
 } from './styles'
 
 export default function Wallet({
@@ -501,8 +502,9 @@ export default function Wallet({
           footer={
             !isLoading && fundList ? (
               <FooterContainer>
-                <Button
+                <BlockButton
                   loading={isLoading}
+                  color="primary"
                   loadingColor="white"
                   data-gtm-type="click"
                   data-gtm-clicktype="button"
@@ -510,8 +512,7 @@ export default function Wallet({
                   data-gtm-name="adicionar fundo"
                   outline
                   css={`
-                    margin-top: 21px;
-                    width: 100%;
+                    margin-top: 14px;
                   `}
                   onClick={() => {
                     handleGiwRedirect(
@@ -520,9 +521,9 @@ export default function Wallet({
                   }}
                 >
                   Adicionar fundo
-                </Button>
+                </BlockButton>
                 {isMobile && (
-                  <Button
+                  <BlockButton
                     color="secondary"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
@@ -531,14 +532,10 @@ export default function Wallet({
                     onClick={() => saveEditionsFunds()}
                     loading={isLoadingSave}
                     loadingColor="white"
-                    css={`
-                      margin: 14px auto;
-                      width: 100%;
-                    `}
                     disabled={!hasUnsavedChanges || isLoadingSave}
                   >
                     Salvar alterações
-                  </Button>
+                  </BlockButton>
                 )}
               </FooterContainer>
             ) : null
