@@ -21,6 +21,7 @@
   "/recommendation/recommendations\\?mobile=:isMobileMode": "/goal_recommendations?mobile=:isMobileMode",
   "/goal/goals": "/goal_management",
   "/goal/goals/:id": "/goal_management?id=:id",
-  "/autenticacao/token-catalogo": "/resgate_pontos",
+  "/loyalty/optemais/auth/tokencatalogo": "/resgate_pontos",
+  "/loyalty/optemais/auth/tokenorg": "/token_resgate_pontos",
   "/goal/goals/:id/funds": "/goal_management"
 }
