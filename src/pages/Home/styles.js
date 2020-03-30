@@ -35,7 +35,7 @@ export const GridRow = styled(Row)`
 `
 
 export const HorizontalListWithMargin = styled(HorizontalList)`
-  margin: 7px 0;
+  margin-bottom: 7px;
 `
 
 export const TextBlack = styled(Text)`
@@ -256,15 +256,11 @@ export const ProductItem = styled.div`
 
 export const ProductItemRow = styled.div`
   width: 100%;
-  padding: 14px 14px 0px 14px;
+  padding: 14px 0 0 14px;
 `
 
 export const LinearProgressBarContent = styled.div`
   width: 56px;
-`
-
-export const CreditCardItemRow = styled(ProductItemRow)`
-  padding: 14px 14px 0px 48px;
 `
 
 export const ThreeItemsLine = styled.div`
