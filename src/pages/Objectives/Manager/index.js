@@ -16,12 +16,13 @@ import Button from 'components/Button'
 import { formatMoney } from 'helpers'
 
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
-import DropDown from 'components/DropdownNew'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
+import OtherGoals from 'pages/Objectives/Manager/OtherGoals'
 import Wallet from 'pages/Objectives/Manager/Wallet'
 
 import {
   GetObjectiveManagementDataRequest,
+  GetOtherGoalsDataRequest,
   DeleteObjectiveRequest,
 } from 'store/modules/ObjectiveManagement/action'
 
@@ -38,14 +39,13 @@ import {
   ButtonContainerModal,
   FlexContainer,
   HorizontalLine,
-  MenuTag,
 } from './styles'
 
 export default function Manager({ location }) {
   const { objectiveId } = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
-  const { data: objectiveData, isLoading, isLoadingDelete } = useSelector(
+  const { data: objectiveData, isLoading, isLoadingDelete, otherGoalsManagement, } = useSelector(
     state => state.objectiveManagement
   )
   const isMobile = useMedia('sm')
@@ -60,6 +60,7 @@ export default function Manager({ location }) {
     ) {
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
     }
+    dispatch(GetOtherGoalsDataRequest({ id: objectiveId, history }))
   }, [dispatch, history, objectiveData, objectiveId])
 
   if (!objectiveId) {
@@ -79,39 +80,6 @@ export default function Manager({ location }) {
     }
     dispatch(DeleteObjectiveRequest(id, pushHistoryToHomeScreen))
   }
-
-  const dropdownGtmItemsTitle = 'dropdown menu header'
-  const items = [
-    {
-      icon: 'plane',
-      text: 'Viagem',
-      path: '/',
-    },
-    {
-      icon: 'time',
-      text: 'Aposentadoria',
-      children: [
-        {
-          text: '#AposentadoriaEsposa',
-          path: '/',
-        },
-        {
-          text: '#Aposentei',
-          path: '/',
-        },
-      ],
-    },
-    {
-      icon: 'car2',
-      text: 'Carro',
-      path: '/',
-    },
-    {
-      icon: 'homewithwindow',
-      text: 'Casa',
-      path: '/',
-    },
-  ]
 
   return (
     <>
@@ -202,21 +170,11 @@ export default function Manager({ location }) {
                 >
                   EXCLUIR OBJETIVO
                 </ButtonLink>
-                <DropDown
-                  items={items}
-                  title={dropdownGtmItemsTitle}
-                  containerPadding="14px 0"
-                  openingSide="left"
-                >
-                  <MenuTag
-                    color="blue"
-                    text="OUTROS OBJETIVOS"
-                    data-gtm-type="click"
-                    data-gtm-clicktype="outros-objetivos"
-                    data-gtm-subname="header"
-                    data-gtm-name="outros-objetivos"
-                  />
-                </DropDown>
+
+                {otherGoalsManagement && otherGoalsManagement[1] && (
+                  <OtherGoals otherGoals={otherGoalsManagement} />
+                )}
+
               </FlexContainer>
             </FlexContainer>
           </ObjectiveHeader>

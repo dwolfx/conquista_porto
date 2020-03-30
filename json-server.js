@@ -10,6 +10,7 @@ const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const objectiveMock = require('./src/mocks/objective.json')
 const objectivesMock = require('./src/mocks/objectives.json')
+const objectiveOtherGoals = require('./src/mocks/objectiveOtherGoals.json')
 
 server.use(middlewares)
 
@@ -44,7 +45,9 @@ router.render = (req, res) => {
   }
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
-      if (!req.originalUrl.endsWith('/api/goal/goals')) {
+      if (req.originalUrl.startsWith('/api/goal/goals/bytype')) {
+        return res.jsonp(objectiveOtherGoals)
+      } else if (!req.originalUrl.endsWith('/api/goal/goals')) {
         return res.jsonp({ ...objectiveMock, id: req.query.id })
       }
       return res.jsonp(objectivesMock)

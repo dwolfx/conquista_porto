@@ -22,5 +22,6 @@
   "/goal/goals": "/goal_management",
   "/goal/goals/:id": "/goal_management?id=:id",
   "/autenticacao/token-catalogo": "/resgate_pontos",
-  "/goal/goals/:id/funds": "/goal_management"
+  "/goal/goals/:id/funds": "/goal_management",
+  "/goal/goals/bytype/:id": "/goal_bytype"
 }
