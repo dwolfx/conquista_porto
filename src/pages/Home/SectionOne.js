@@ -89,9 +89,9 @@ const SectionOne = ({ onFetchInvestments }) => {
           headerTitle="Investimentos"
           headerEndItem={
             <CardHeaderState
-              showHeader={
+              showHeader={Boolean(
                 investments.data && Object.entries(investments.data).length
-              }
+              )}
               isLoading={investments.isLoading}
               hasError={investments.hasError}
               onErrorClick={() => onFetchInvestments()}
@@ -110,12 +110,12 @@ const SectionOne = ({ onFetchInvestments }) => {
               headerTitle="Crédito"
               headerEndItem={
                 <CardHeaderState
-                  showHeader={
+                  showHeader={Boolean(
                     vehiclesFinancings.data &&
-                    creditCards.data &&
-                    vehiclesConsortium.data &&
-                    buildingConsortium.data
-                  }
+                      creditCards.data &&
+                      vehiclesConsortium.data &&
+                      buildingConsortium.data
+                  )}
                   isLoading={
                     vehiclesFinancings.isLoading ||
                     creditCards.isLoading ||
@@ -155,7 +155,7 @@ const SectionOne = ({ onFetchInvestments }) => {
               headerTitle="Seguros"
               headerEndItem={
                 <CardHeaderState
-                  showHeader={lifeInsurance.data && tripInsurance.data}
+                  showHeader={Boolean(lifeInsurance.data && tripInsurance.data)}
                   isLoading={lifeInsurance.isLoading || tripInsurance.isLoading}
                   hasError={lifeInsurance.hasError || tripInsurance.hasError}
                   onErrorClick={() => {

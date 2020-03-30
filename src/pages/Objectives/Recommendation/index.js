@@ -77,7 +77,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
     isLoadingBySimulate,
     suitabilityData,
   } = useSelector(state => ({
-    ...state.objectiveManagement.data,
+    ...state.objectiveManagement,
     isLoadingBySimulate: state.objective.isLoadingBySimulate,
     suitabilityData: state.suitability.data,
   }))

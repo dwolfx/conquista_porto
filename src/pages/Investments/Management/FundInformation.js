@@ -80,6 +80,21 @@ export default function FundInformation({ fund, idCotista }) {
     }
   }
 
+  const getUpdatedBalance = fundItem => {
+    let lastBalance = fundItem.historico_saldos_fundo.saldos.saldo
+    if (Array.isArray(lastBalance)) {
+      lastBalance = lastBalance[lastBalance.length - 1]
+    }
+    return (
+      <>
+        <Text>{lastBalance ? formatMoney(lastBalance.valorsaldo) : '--'}</Text>
+        <Text>
+          {lastBalance ? moment(lastBalance.data).format('DD/MM/YYYY') : '--'}
+        </Text>
+      </>
+    )
+  }
+
   const getGiwPath = type => {
     const paths = {
       investir: 'aplicacao',
@@ -152,8 +167,7 @@ export default function FundInformation({ fund, idCotista }) {
           titleNode={
             <HeaderNodeBalanceAccordion>
               <Text>Saldo Bruto atual</Text>
-              <Text>{formatMoney(fund.saldo_atual)}</Text>
-              <Text>{moment().format('DD/MM/YYYY')}</Text>
+              {getUpdatedBalance(fund)}
             </HeaderNodeBalanceAccordion>
           }
           gtmName="saldo bruto atual"
@@ -235,7 +249,8 @@ export default function FundInformation({ fund, idCotista }) {
               </Text>
             </RowBankTransition>
             <RowBankTransition
-              marginTop="4px"
+              marginTop="7px"
+              marginBottom="7px"
               borderTop={`1px solid ${theme.colors.gray3}`}
             >
               <Text fontSize="15px" lineHeight="28px" fontWeight="bold">
@@ -243,19 +258,6 @@ export default function FundInformation({ fund, idCotista }) {
               </Text>
               <Text fontSize="16px" lineHeight="24px" fontWeight="bold">
                 {formatMoney(calculatedBalance(fund).saldoLiquido) || '--'}
-              </Text>
-            </RowBankTransition>
-            <RowBankTransition marginTop="14px">
-              <Text
-                fontSize="15px"
-                lineHeight="25px"
-                fontWeight="bold"
-                fontColor={theme.colors.blue4}
-              >
-                Movimentações pendentes
-              </Text>
-              <Text fontSize="16px" lineHeight="28px" fontWeight="300">
-                --
               </Text>
             </RowBankTransition>
             <Text

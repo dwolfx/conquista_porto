@@ -9,7 +9,6 @@ import ListItem from 'components/ListItem'
 import {
   Container,
   ProfileContainer,
-  NotificationContainer,
   ProductsContainer,
   Header,
   Footer,
@@ -17,7 +16,6 @@ import {
   ConquistaBeta,
   ResponsiveMenu,
   AvatarIcon,
-  NotificationBellIcon,
   Icon,
 } from './styles'
 
@@ -85,7 +83,7 @@ export default function Mobile({ items, setIsOpen, totalPoints, exitFunc }) {
             callbackClickFn={() => setIsOpen(false)}
           />
         </ProfileContainer>
-        <NotificationContainer>
+        {/* <NotificationContainer>
           <ListItem
             StartIcon={NotificationBellIcon}
             text={[
@@ -102,7 +100,7 @@ export default function Mobile({ items, setIsOpen, totalPoints, exitFunc }) {
             data-gtm-subname="responsive header menu"
             data-gtm-name="novas notificações disponiveis"
           />
-        </NotificationContainer>
+        </NotificationContainer> */}
         <ProductsContainer>
           {items.map(item => {
             const startIcon = <Icon name={item.icon} color="gray5" />

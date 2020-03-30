@@ -16,10 +16,9 @@ import {
   ProductItem,
   ProductItemRow,
   EmptyProductItemRow,
-  CreditCardItemRow,
+  HorizontalListWithMargin,
   LinearProgressBarContent,
   TextBlack,
-  HorizontalListWithMargin,
   ErrorText,
 } from './styles'
 
@@ -73,11 +72,13 @@ const itemDetail = {
     link: '/cartao-credito/visualizar',
     linkEmpty: '/cartao-credito',
     subTitle: product => (
-      <CreditCardItemRow>
-        <Text type="captionUppercase">{`FATURA ${
-          product.Fatura.Status ? product.Fatura.Status : ''
-        }`}</Text>
-      </CreditCardItemRow>
+      <ProductItemRow>
+        <Text type="captionUppercase">
+          {`FATURA EM ABERTO ${
+            product.Fatura.Status ? product.Fatura.Status : ''
+          }`}
+        </Text>
+      </ProductItemRow>
     ),
     bottomLine(product, history) {
       const { link } = this
@@ -159,9 +160,11 @@ function lifeInsuranceBottomLine(product, history) {
   let value = ''
 
   try {
-    value =
-      product.GruposCobertura.GrupoCobertura[0].CoberturasRisco
-        .CoberturaRisco[1].CapitalSegurado
+    value = product.GruposCobertura.GrupoCobertura[0].CoberturasRisco.CoberturaRisco.filter(
+      item => item.Nome === 'Morte'
+    )
+
+    value = value.length > 0 ? value[0].CapitalSegurado : ''
   } catch (error) {
     value = ''
   }
@@ -201,14 +204,14 @@ function tripInsuranceBottomLine(product, history) {
       item => item.Nome === 'MORTE ACIDENTAL'
     )
 
-    value = value.length ? value[0] : ''
+    value = value.length > 0 ? value[0].CapitalSegurado : ''
   } catch (error) {
     value = ''
   }
 
   const startItems = [
     <TextBlack type="headline" bold>
-      {formatMoney(value.CapitalSegurado)}
+      {formatMoney(value)}
     </TextBlack>,
   ]
 
