@@ -34,7 +34,7 @@ export default function(state = INITIAL_STATE, action) {
     case Types.POST_SAVE_FUNDS_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        data: action.payload ? action.payload : state.data,
         isLoadingSave: false,
       }
     case Types.POST_SAVE_FUNDS_FAILURE:
