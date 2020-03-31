@@ -63,7 +63,9 @@ export default function Manager({ location }) {
     ) {
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
     }
+
     dispatch(GetOtherGoalsDataRequest({ id: objectiveId, history }))
+    
   }, [dispatch, history, objectiveData, objectiveId])
 
   if (!objectiveId) {
@@ -174,7 +176,7 @@ export default function Manager({ location }) {
                   EXCLUIR OBJETIVO
                 </ButtonLink>
 
-                {otherGoalsManagement && otherGoalsManagement[1] && (
+                {otherGoalsManagement[1] && (
                   <OtherGoals otherGoals={otherGoalsManagement} />
                 )}
               </FlexContainer>

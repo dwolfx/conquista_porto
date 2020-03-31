@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import DropDown from 'components/DropdownNew'
@@ -7,24 +7,26 @@ import { categoryGoals } from 'pages/Objectives/GoalStreams/goalTypes'
 import { MenuTag } from './styles'
 
 export default function OtherGoals({ otherGoals }) {
-  const itensGoals = []
+  const [itensGoals, setItensGoals] = useState([]);
 
-  function listObjectives(element) {
-    if (otherGoals[element]) {
-      const subItem = otherGoals[element].map(item => ({
+  useEffect(() => {
+    const listObjectives = (categoryNumber) => {
+      const subItem = otherGoals[categoryNumber].map(item => ({
         text: item.nickname,
         path: `/objetivos/gerenciar/${item.id}`,
       }))
       const categoryItem = {
-        icon: categoryGoals(element).icon,
-        text: categoryGoals(element).text,
+        icon: categoryGoals(categoryNumber).icon,
+        text: categoryGoals(categoryNumber).text,
         children: subItem,
       }
-      itensGoals.push(categoryItem)
+      return categoryItem 
     }
-  }
-  Object.entries(otherGoals).map(item => item.forEach(listObjectives))
 
+    const listGoals = Object.keys(otherGoals).map(listObjectives) 
+    setItensGoals(listGoals)
+  }, [otherGoals]);
+  
   return (
     <DropDown
       items={itensGoals}
