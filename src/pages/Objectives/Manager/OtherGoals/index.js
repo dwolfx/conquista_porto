@@ -7,10 +7,10 @@ import { categoryGoals } from 'pages/Objectives/GoalStreams/goalTypes'
 import { MenuTag } from './styles'
 
 export default function OtherGoals({ otherGoals }) {
-  const [itensGoals, setItensGoals] = useState([]);
+  const [itensGoals, setItensGoals] = useState([])
 
   useEffect(() => {
-    const listObjectives = (categoryNumber) => {
+    const listObjectives = categoryNumber => {
       const subItem = otherGoals[categoryNumber].map(item => ({
         text: item.nickname,
         path: `/objetivos/gerenciar/${item.id}`,
@@ -20,13 +20,13 @@ export default function OtherGoals({ otherGoals }) {
         text: categoryGoals(categoryNumber).text,
         children: subItem,
       }
-      return categoryItem 
+      return categoryItem
     }
 
-    const listGoals = Object.keys(otherGoals).map(listObjectives) 
+    const listGoals = Object.keys(otherGoals).map(listObjectives)
     setItensGoals(listGoals)
-  }, [otherGoals]);
-  
+  }, [otherGoals])
+
   return (
     <DropDown
       items={itensGoals}

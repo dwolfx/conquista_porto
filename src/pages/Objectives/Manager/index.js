@@ -65,7 +65,6 @@ export default function Manager({ location }) {
     }
 
     dispatch(GetOtherGoalsDataRequest({ id: objectiveId, history }))
-    
   }, [dispatch, history, objectiveData, objectiveId])
 
   if (!objectiveId) {
