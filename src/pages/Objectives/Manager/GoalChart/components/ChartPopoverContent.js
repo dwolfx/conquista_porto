@@ -76,12 +76,16 @@ export default function ChartPopoverContent({ info, data }) {
   return (
     <>
       {renderTopMessage()}
-      <Text color="gray5">Saldo total: {formatMoney(info.total_balance)}</Text>
       {!isFutureDateBasedOnMonth(currentDate) && (
         <Text color="gray5">
-          Saldo projetado: {formatMoney(info.projected_balance)}
+          Saldo total: {formatMoney(info.total_balance)}
         </Text>
       )}
+
+      <Text color="gray5">
+        Saldo projetado: {formatMoney(info.projected_balance)}
+      </Text>
+
       <Text color="gray5">
         Investimento mensal esperado: {formatMoney(info.expected_deposit)}
       </Text>
