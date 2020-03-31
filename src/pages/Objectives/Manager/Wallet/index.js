@@ -19,10 +19,7 @@ import {
   handleGiwRedirect,
   formatMoneyWithoutCurrencyFlag,
 } from 'helpers'
-import {
-  GetObjectiveManagementDataRequest,
-  PostSaveFundsRequest,
-} from 'store/modules/ObjectiveManagement/action'
+import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
   AccordionContentWrapper,
@@ -70,7 +67,7 @@ export default function Wallet({
   }, [fundList])
 
   useEffect(() => {
-    if (fundList.length && (fundListCopy || []).length) {
+    if (fundList.length && fundListCopy.length) {
       setHasUnsavedChanges(isFundsNotTheSame(fundList, fundListCopy))
     }
   }, [fundListCopy, fundList])
@@ -85,6 +82,7 @@ export default function Wallet({
         }
       })
     }
+
     dispatch(
       PostSaveFundsRequest({
         idGoal,
@@ -93,7 +91,6 @@ export default function Wallet({
         },
         onSuccess: () => {
           setHasUnsavedChanges(false)
-          dispatch(GetObjectiveManagementDataRequest({ id: idGoal, history }))
         },
       })
     )
