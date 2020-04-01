@@ -10,7 +10,6 @@ const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const objectiveMock = require('./src/mocks/objective.json')
 const objectivesMock = require('./src/mocks/objectives.json')
-const objectiveOtherGoals = require('./src/mocks/objectiveOtherGoals.json')
 
 server.use(middlewares)
 
