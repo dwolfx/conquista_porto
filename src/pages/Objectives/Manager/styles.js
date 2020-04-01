@@ -3,7 +3,6 @@ import { Container, Row } from 'styled-bootstrap-grid'
 
 import BannerComponent from 'components/Banner'
 import Card from 'components/Card'
-import Tag from 'components/Tag'
 import { LoadingContainer } from 'components/Loading/styles'
 
 export const GridContainer = styled(Container)`
@@ -107,11 +106,4 @@ export const ButtonContainerModal = styled.div`
     margin-left: 14px;
     width: 180px;
   }
-`
-
-export const MenuTag = styled(Tag)`
-  background: none;
-  border: none;
-  cursor: pointer;
-  height: auto;
 `
