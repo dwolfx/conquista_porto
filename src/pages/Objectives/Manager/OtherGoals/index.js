@@ -38,7 +38,7 @@ export default function OtherGoals({ otherGoals }) {
         color="blue"
         text="OUTROS OBJETIVOS"
         data-gtm-type="click"
-        data-gtm-clicktype="outros-objetivos"
+        data-gtm-clicktype="sub-menu"
         data-gtm-subname="header"
         data-gtm-name="outros-objetivos"
       />
