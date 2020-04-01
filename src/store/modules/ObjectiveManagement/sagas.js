@@ -47,7 +47,7 @@ function* postSaveFunds({ payload }) {
       data
     )
     yield put({
-      ...PostSaveFundsSuccess(response),
+      ...PostSaveFundsSuccess(response.data),
       toast: buildToast('Alterações salvas com sucesso.', ToastTypes.success),
     })
 

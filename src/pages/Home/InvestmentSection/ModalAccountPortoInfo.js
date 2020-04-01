@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
@@ -18,8 +19,8 @@ export default function ModalAccountPortoInfo({
   isOpen,
   onChangeModalOpen,
   bankData,
-  userCPF,
 }) {
+  const history = useHistory()
   return (
     <Modal
       modalTitle="Conta de investimento"
@@ -61,14 +62,26 @@ export default function ModalAccountPortoInfo({
                   data-gtm-type="click"
                   data-gtm-clicktype="button"
                   data-gtm-subname="investimentos e resgate"
-                  data-gtm-name="resgatar"
+                  data-gtm-name="retirar"
                   onClick={() => {
                     handleGiwRedirect(
-                      `portaldecliente/conquista/resgate?r=true&cpf=${userCPF}`
+                      'portaldecliente/conquista/retirada?r=true'
                     )
                   }}
                 >
-                  Resgatar
+                  retirar
+                </Button>,
+                <Button
+                  color="secondary"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  data-gtm-subname="investimentos e resgate"
+                  data-gtm-name="investir"
+                  onClick={() => {
+                    history.push('/investimentos/lista-fundos')
+                  }}
+                >
+                  investir
                 </Button>,
               ]}
               css={`
@@ -174,7 +187,6 @@ ModalAccountPortoInfo.defaultProps = {
 ModalAccountPortoInfo.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onChangeModalOpen: PropTypes.func.isRequired,
-  userCPF: PropTypes.string.isRequired,
   bankData: PropTypes.shape({
     DadosContaPortoSeguro: PropTypes.shape({
       titular: PropTypes.string,
