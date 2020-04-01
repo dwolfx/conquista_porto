@@ -95,7 +95,7 @@ function* getData(payload) {
     yield put({
       ...GetObjectiveManagementDataFailure(),
       toast: buildToast(
-        'Ocorreu um erro. Tente novamente mais tarde',
+        'Ocorreu um erro. Tente novamente mais tarde.',
         ToastTypes.error
       ),
     })
@@ -137,7 +137,7 @@ function* getOtherGoalsData(payload) {
     yield put({
       ...GetOtherGoalsDataFailure(),
       toast: buildToast(
-        'Ocorreu um erro. Tente novamente mais tarde',
+        'Ocorreu um erro. Tente novamente mais tarde.',
         ToastTypes.error
       ),
     })
@@ -152,7 +152,7 @@ function* deleteObjective({ payload }) {
     pushHistoryToHomeScreen()
     yield put({
       ...DeleteObjectiveSuccess(),
-      toast: buildToast('Objetivo deletado com sucesso', ToastTypes.success),
+      toast: buildToast('Objetivo deletado com sucesso.', ToastTypes.success),
     })
   } catch (err) {
     yield put({
