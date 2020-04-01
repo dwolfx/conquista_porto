@@ -49,7 +49,7 @@ router.render = (req, res) => {
   }
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
-      if (!req.originalUrl.endsWith('/api/goal/goals') && req.query.id) {
+      if (!req.originalUrl.endsWith('/api/goal/goals') && !req.originalUrl.includes('bytype')) {
         return res.jsonp({ ...objectiveMock, id: req.query.id })
       } else if (!req.originalUrl.includes('bytype')) {
         return res.jsonp(objectivesMock)
