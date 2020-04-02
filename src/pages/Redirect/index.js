@@ -32,7 +32,7 @@ import {
 export default function Redirect({ history }) {
   const [counter, setCounter] = useState(5)
 
-  const urlToGo = new URLSearchParams(history.location.search).get('to')
+  const urlToGo = history.location.search.substr(4)
 
   function navigate() {
     if (urlToGo) {
