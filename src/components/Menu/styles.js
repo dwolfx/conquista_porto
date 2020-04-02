@@ -21,7 +21,7 @@ export const MenuContainer = styled.div`
   background-color: ${props => props.theme.colors.blue4};
   padding-left: 14px;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     position: relative;
     top: 0;
     width: 100%;
@@ -85,7 +85,7 @@ export const Option = styled.div`
       }
     `}
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     margin-bottom: 0;
     background-color: transparent;
 
