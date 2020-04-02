@@ -60,6 +60,7 @@ export default function Dropdown({
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [childrenElements, setChildrenElements] = useState(null)
+  const [selectedItem, setSelectedItem] = useState(null)
 
   const history = useHistory()
   const containerRef = useRef(null)
@@ -104,29 +105,31 @@ export default function Dropdown({
     setIsOpen(value)
   }
 
-  function handleMountChildren(elements, subMenuTitle) {
+  const handleMountChildren = (elements, subMenuTitle) => {
+    setSelectedItem(subMenuTitle)
+    setIsHovering(true)
+
     if (!elements) {
       setIsHovering(false)
       return
     }
 
-    setIsHovering(true)
     setChildrenElements(
-      elements.map(element => (
+      elements.map(item => (
         <ItemWrapper
           data-gtm-type="click"
           data-gtm-clicktype="link"
           data-gtm-subname={subMenuTitle}
-          data-gtm-name={element.text}
-          key={element.text}
-          onClick={() => element.path && handleClick(element.path)}
+          data-gtm-name={item.text}
+          key={item.text}
+          onClick={() => item.path && handleClick(item.path)}
         >
-          {element.icon && (
+          {item.icon && (
             <ItemIconContainer>
-              <ItemIcon name={element.icon} />
+              <ItemIcon name={item.icon} />
             </ItemIconContainer>
           )}
-          <ItemText>{element.text}</ItemText>
+          <ItemText>{item.text}</ItemText>
         </ItemWrapper>
       ))
     )
@@ -225,14 +228,14 @@ export default function Dropdown({
                       <ItemIcon name="arrowright2" />
                     </ItemIconContainer>
                   )}
+                  {isHovering && item.text === selectedItem && (
+                    <WrapperChildren openingSide={openingSide}>
+                      {childrenElements}
+                    </WrapperChildren>
+                  )}
                 </ItemWrapper>
               ))}
             </Wrapper>
-            {isHovering && (
-              <WrapperChildren openingSide={openingSide}>
-                {childrenElements}
-              </WrapperChildren>
-            )}
           </Container>
         </RelativeHolder>
         <Backdrop
