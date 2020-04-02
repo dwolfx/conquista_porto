@@ -105,8 +105,8 @@ export default function Dropdown({
     setIsOpen(value)
   }
 
-  const handleMountChildren = (elements, text) => {
-    setSelectedItem(text)
+  const handleMountChildren = (elements, subMenuTitle) => {
+    setSelectedItem(subMenuTitle)
     setIsHovering(true)
 
     if (!elements) {
@@ -119,7 +119,7 @@ export default function Dropdown({
         <ItemWrapper
           data-gtm-type="click"
           data-gtm-clicktype="link"
-          data-gtm-subname={text}
+          data-gtm-subname={subMenuTitle}
           data-gtm-name={item.text}
           key={item.text}
           onClick={() => item.path && handleClick(item.path)}
@@ -212,7 +212,10 @@ export default function Dropdown({
                   data-gtm-name={item.text}
                   key={item.text}
                   onMouseEnter={() =>
-                    handleMountChildren(item.children, item.text)
+                    handleMountChildren(
+                      item.children && item.children,
+                      item.text
+                    )
                   }
                   onClick={() => item.path && handleClick(item.path)}
                 >
