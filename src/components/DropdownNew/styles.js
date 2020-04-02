@@ -53,6 +53,7 @@ export const ItemWrapper = styled.div`
   align-items: center;
   justify-items: flex-start;
   cursor: pointer;
+  position: relative;
 
   &&:hover {
     background-color: ${props => props.theme.colors.gray1};
@@ -77,7 +78,7 @@ export const ItemText = styled.div`
 `
 
 export const WrapperChildren = styled(Wrapper)`
-  position: ${props =>
-    props.openingSide === 'left' ? 'absolute' : 'relative'};
-  margin-left: ${props => (props.openingSide === 'left' ? '-301px' : '0')};
+  position: absolute;
+  margin-left: ${props => (props.openingSide === 'left' ? '-301px' : '301px')};
+  top: 0;
 `
