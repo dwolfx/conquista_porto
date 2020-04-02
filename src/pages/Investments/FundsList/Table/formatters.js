@@ -130,6 +130,13 @@ export default function FormatColumns(
     }),
     rentabilidade: column => ({
       ...column,
+      sortType(
+        { original: { [column.accessor]: nextValue } },
+        { original: { [column.accessor]: currentValue } }
+      ) {
+        const [fst] = [nextValue, currentValue].sort((a, b) => a - b)
+        return fst === nextValue ? -1 : 1
+      },
       Cell: FormatDotToComma,
     }),
     default: column => ({
