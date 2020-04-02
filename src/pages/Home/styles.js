@@ -24,7 +24,7 @@ export const GridRow = styled(Row)`
     margin: 0;
     margin-bottom: 30px;
 
-    @media ${props => props.theme.mediaQueries.sm} {
+    @media ${props => props.theme.mediaQueries.md} {
       height: auto;
       margin-bottom: 14px;
     }
@@ -46,7 +46,7 @@ export const GridCol = styled(Col)`
   &#menu {
     transition: all 0.35s ease-in-out;
 
-    @media ${props => props.theme.mediaQueries.sm} {
+    @media ${props => props.theme.mediaQueries.md} {
       bottom: 14px;
       height: 63px;
       margin-left: 7px;
@@ -72,7 +72,7 @@ export const SectionCol = styled(Col)`
     padding-bottom: 51px;
   }
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     margin-bottom: 14px;
   }
 
@@ -92,7 +92,7 @@ export const FullHeightCard = styled(Card)`
 
 export const FullHeightCardObjectives = styled(CardObjectives)`
   height: 100%;
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     height: 150px;
   }
 `
@@ -107,7 +107,7 @@ export const BannerTipTitle = styled(Text)`
   margin-bottom: 7px;
   margin-top: 7px;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     ${props => props.theme.fontTypes.heading4};
     text-transform: none;
   }
@@ -211,7 +211,7 @@ export const PointName = styled(Text)`
   flex: 1%;
   padding: 0 14px;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 170px;
@@ -307,7 +307,7 @@ export const ModalTextWrapper = styled.div`
 `
 
 export const ProductsCol = styled(SectionCol)`
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     height: 430px;
   }
 `
@@ -315,7 +315,7 @@ export const ProductsCol = styled(SectionCol)`
 export const PointsExtractListWrapper = styled.div`
   height: 100%;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     height: 551px;
   }
 `
@@ -324,7 +324,7 @@ export const AdRow = styled(GridRow)`
   padding-right: 7;
   padding-left: 7;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     margin-bottom: 0;
   }
 `

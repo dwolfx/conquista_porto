@@ -8,7 +8,7 @@ import { Container, MenuContainer, Option, OptionName } from './styles'
 
 export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
   const [selectedOption, setSelectedOption] = useState('produtos')
-  const isMobile = useMedia('sm')
+  const isMobile = useMedia('md')
 
   function checkScroll() {
     let row1Pos = null

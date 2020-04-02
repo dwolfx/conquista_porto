@@ -265,9 +265,10 @@ export default function FundInformation({ fund, idCotista }) {
               lineHeight="1.3"
               fontColor={theme.colors.gray5}
             >
-              O saldo refere-se ao valor na data de 01/03/2019 e será atualizado
-              no decorrer do dia. Resgastes realizados estarão sujeitos à
-              confirmação.
+              O saldo refere-se a data exibida e será atualizado no decorrer do
+              dia. Resgates parciais poderão ser convertidos em totais, caso
+              resulte em saldo inferior ao valor mínimo de permanência, conforme
+              disposto nas regras de movimentação deste fundo.
               <br />
               <br />* Valores estimados
             </Text>
