@@ -311,7 +311,7 @@ const EmptyProductItem = ({
         color="secondary"
         onClick={() => history.push(atualItemDetail.linkEmpty)}
       >
-        CONHEÇA
+        CONHECER
       </Button>
     )
   }
