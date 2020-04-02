@@ -113,7 +113,7 @@ export default function SectionThree({ points }) {
 
   useDataLayerProducts(belowOffer, aboveOffer)
   function redirectToRescuePointsSystem({ url }) {
-    window.location.href = url
+    window.open(`#/redirect?to=${url}`, '_blank')
   }
 
   const PointsOfferCard = ({ offer }) => (
