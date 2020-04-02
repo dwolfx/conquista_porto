@@ -11,6 +11,7 @@ import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
 import { handleGiwRedirect } from 'helpers'
+import { useLocation } from 'react-router-dom'
 
 const makeSenseSectionData = [
   {
@@ -105,6 +106,8 @@ const moreDetailsData = [
 ]
 
 export default function CreditCard() {
+  const { state: locationState } = useLocation()
+
   return (
     <>
       <TopBanner
@@ -115,7 +118,11 @@ export default function CreditCard() {
         imageDescription="Mulher segurando cartão de crédito em casa"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/cartao-de-credito/simular?r=true'
+            `portaldecliente/conquista/cartao-de-credito/simular?r=true${
+              (locationState || {}).idGoal
+                ? `&idObjetivo=${(locationState || {}).idGoal}`
+                : ''
+            }`
           )
         }
       />

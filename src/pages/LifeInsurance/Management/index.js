@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { useLocation } from 'react-router-dom'
 
 import moment from 'moment'
 // eslint-disable-next-line no-unused-vars
@@ -84,6 +85,7 @@ export default function ManagementLifeInsurance() {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [selectedLifeInsurance, setSelectedLifeInsurance] = useState(null)
   const themeContext = useContext(ThemeContext)
+  const { state: locationState } = useLocation()
 
   const lifeInsurance = useSelector(state => state.lifeInsurance)
 
@@ -162,7 +164,11 @@ export default function ManagementLifeInsurance() {
                 data-gtm-name="adicionar"
                 onClick={() => {
                   handleGiwRedirect(
-                    'portaldecliente/conquista/seguro-de-vida/simular?r=true'
+                    `portaldecliente/conquista/seguro-de-vida/simular?r=true${
+                      (locationState || {}).idGoal
+                        ? `&idObjetivo=${(locationState || {}).idGoal}`
+                        : ''
+                    }`
                   )
                 }}
               >

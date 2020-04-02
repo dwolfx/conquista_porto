@@ -98,6 +98,7 @@ export default function TableFunds({
   fundsType,
   setSelectedType,
   selectedType,
+  idGoal,
 }) {
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
@@ -142,8 +143,8 @@ export default function TableFunds({
     {
       // to edit how each column should render see FormatColumns function
       columns: useMemo(
-        () => FormatColumns(columnsProps, toggleModal, isModalOpen),
-        [isModalOpen, columnsProps]
+        () => FormatColumns(columnsProps, toggleModal, isModalOpen, idGoal),
+        [isModalOpen, columnsProps, idGoal]
       ),
       data,
     },
@@ -222,6 +223,11 @@ TableFunds.propTypes = {
   fundsType: PropTypes.array.isRequired,
   setSelectedType: PropTypes.func.isRequired,
   selectedType: PropTypes.string.isRequired,
+  idGoal: PropTypes.number,
+}
+
+TableFunds.defaultProps = {
+  idGoal: null,
 }
 
 TheadWrapper.propTypes = {
