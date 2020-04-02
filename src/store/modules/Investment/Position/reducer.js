@@ -2,6 +2,7 @@ import { Types } from './types'
 
 const INITIAL_STATE = {
   data: null,
+  hasError: false,
   isLoading: true,
 }
 
@@ -22,6 +23,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: false,
+        hasError: true,
       }
     default:
       return state
