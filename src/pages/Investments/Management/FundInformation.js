@@ -89,7 +89,9 @@ export default function FundInformation({ fund, idCotista }) {
       <>
         <Text>{lastBalance ? formatMoney(lastBalance.valorsaldo) : '--'}</Text>
         <Text>
-          {lastBalance ? moment(lastBalance.data).format('DD/MM/YYYY') : '--'}
+          {lastBalance
+            ? `em: ${moment(lastBalance.data).format('DD/MM/YYYY')}`
+            : '--'}
         </Text>
       </>
     )
@@ -265,12 +267,7 @@ export default function FundInformation({ fund, idCotista }) {
               lineHeight="1.3"
               fontColor={theme.colors.gray5}
             >
-              O saldo refere-se a data exibida e será atualizado no decorrer do
-              dia. Resgates parciais poderão ser convertidos em totais, caso
-              resulte em saldo inferior ao valor mínimo de permanência, conforme
-              disposto nas regras de movimentação deste fundo.
-              <br />
-              <br />* Valores estimados
+              * Valores estimados
             </Text>
           </CurrentBalance>
         </BalanceAccordion>
