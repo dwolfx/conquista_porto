@@ -235,13 +235,12 @@ export default function HeaderNew({ crumbs }) {
               handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
             }
           />
-          <Profile
-            onClick={() =>
-              handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
-            }
-          >
+          <Profile>
             <div>
               <Name
+                onClick={() =>
+                  handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
+                }
                 data-gtm-type="click"
                 data-gtm-clicktype="link"
                 data-gtm-subname="header"
@@ -250,12 +249,7 @@ export default function HeaderNew({ crumbs }) {
                 {bankData && bankData.titular}
               </Name>
               {points && (
-                <Points
-                  data-gtm-type="click"
-                  data-gtm-clicktype="link"
-                  data-gtm-subname="header"
-                  data-gtm-name="quantidade de pontos"
-                >
+                <Points>
                   {Intl.NumberFormat().format(
                     calculatePointsAmountBalance(points)
                   )}{' '}
