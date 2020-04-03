@@ -66,7 +66,6 @@ export const Profile = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  cursor: pointer;
 
   svg {
     align-self: center;
@@ -76,6 +75,7 @@ export const Profile = styled.div`
 export const Name = styled.p`
   ${props => props.theme.fontTypes.headline};
   color: ${props => props.theme.colors.gray6};
+  cursor: pointer;
 `
 
 export const Points = styled.p`

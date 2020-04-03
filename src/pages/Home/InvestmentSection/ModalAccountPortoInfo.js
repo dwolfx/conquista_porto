@@ -30,17 +30,6 @@ export default function ModalAccountPortoInfo({
     >
       <>
         <ModalTextWrapper>
-          <Text
-            type="headline"
-            color="gray6"
-            bold
-            css={`
-              margin-bottom: 7px;
-            `}
-          >
-            Resumo da conta
-          </Text>
-
           <ContainerBox>
             <HorizontalList
               size="small"
@@ -90,14 +79,6 @@ export default function ModalAccountPortoInfo({
               `}
             />
           </ContainerBox>
-          <Text type="headline" color="gray6" bold>
-            Como investir?
-          </Text>
-          <Text type="headline" color="gray5">
-            Para investir você precisará realizar um depósito ou transferência
-            para a sua conta de investimento e assim que processarmos a operação
-            você estará mais próximo de tornar seus objetivos realidade.
-          </Text>
         </ModalTextWrapper>
         <ModalTextWrapper margin="0 0 14px 0">
           <Text type="headline" color="gray6" bold>
@@ -154,7 +135,7 @@ export default function ModalAccountPortoInfo({
         </ContainerBox>
         <ModalTextWrapper margin="0 0 14px 0">
           <Text type="headline" color="gray6" bold>
-            Informações adicionais
+            Regras e condições
           </Text>
         </ModalTextWrapper>
         <ContainerBox>
