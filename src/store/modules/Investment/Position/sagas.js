@@ -12,11 +12,16 @@ function* getData({ cpf }) {
       `${baseURLNamespaceInvest}/cotistas/posicao?cpf=${cpf}&codigoCanal=0`
     )
 
-    if (response && response.data.Mensagem) {
-      yield put(GetPositionDataFailure())
-    } else {
-      yield put(GetPositionDataSuccess(response.data))
+    let responseData = response.data
+
+    if (
+      (response && response.data.Mensagem) ||
+      response.data.TipoCritica === 'CRITICA_NEGOCIO'
+    ) {
+      responseData = []
     }
+
+    yield put(GetPositionDataSuccess(responseData))
   } catch (err) {
     yield put(GetPositionDataFailure())
   }
