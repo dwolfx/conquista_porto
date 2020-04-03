@@ -532,8 +532,8 @@ const ParcelContainer = ({ data }) =>
     </div>
   ) : (
     <div>
-      <TopicTitle>Forma de pagamento não descrita</TopicTitle>
-      <TopicValue>{formatMoney(0)}</TopicValue>
+      <TopicTitle>Forma de pagamento</TopicTitle>
+      <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
     </div>
   )
 
