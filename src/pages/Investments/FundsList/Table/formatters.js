@@ -50,7 +50,7 @@ const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = column => (
+const FormatEnabledCell = (column, idGoal) => (
   <WrapperContent isTbody>
     {column.cell.value && column.cell.row.original.aplicao_liberada ? (
       <InvestButton
@@ -62,7 +62,9 @@ const FormatEnabledCell = column => (
         color="secondary"
         onClick={() => {
           handleGiwRedirect(
-            `portaldecliente/conquista/aplicacao?idFundo=${column.cell.row.original.id_fundo}&r=true`
+            `portaldecliente/conquista/aplicacao?idFundo=${
+              column.cell.row.original.id_fundo
+            }&r=true${idGoal ? `idObjetivo=${idGoal}` : ''}`
           )
         }}
       >
@@ -93,7 +95,12 @@ const FormatDotToComma = column => (
   </WrapperContent>
 )
 
-export default function FormatColumns(columns, toggleModal, isModalOpen) {
+export default function FormatColumns(
+  columns,
+  toggleModal,
+  isModalOpen,
+  idGoal
+) {
   const formatters = {
     fundo: column => ({
       ...column,
@@ -111,7 +118,7 @@ export default function FormatColumns(columns, toggleModal, isModalOpen) {
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: FormatEnabledCell,
+      Cell: cell => FormatEnabledCell(cell, idGoal),
     }),
     minimo_inicial: column => ({
       ...column,
@@ -123,6 +130,13 @@ export default function FormatColumns(columns, toggleModal, isModalOpen) {
     }),
     rentabilidade: column => ({
       ...column,
+      sortType(
+        { original: { [column.accessor]: nextValue } },
+        { original: { [column.accessor]: currentValue } }
+      ) {
+        const [fst] = [nextValue, currentValue].sort((a, b) => a - b)
+        return fst === nextValue ? -1 : 1
+      },
       Cell: FormatDotToComma,
     }),
     default: column => ({

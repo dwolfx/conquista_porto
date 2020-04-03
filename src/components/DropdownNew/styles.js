@@ -53,6 +53,7 @@ export const ItemWrapper = styled.div`
   align-items: center;
   justify-items: flex-start;
   cursor: pointer;
+  position: relative;
 
   &&:hover {
     background-color: ${props => props.theme.colors.gray1};
@@ -74,4 +75,10 @@ export const ItemIcon = styled(ConquistaIcon).attrs(props => ({
 export const ItemText = styled.div`
   flex: 1;
   margin-left: 21px;
+`
+
+export const WrapperChildren = styled(Wrapper)`
+  position: absolute;
+  margin-left: ${props => (props.openingSide === 'left' ? '-301px' : '301px')};
+  top: 0;
 `

@@ -11,6 +11,10 @@ import { EmptyBody, PieItemMargin } from './styles'
 
 const ChartEmptyState = ({ value }) => {
   const history = useHistory()
+
+  const linkInvestment =
+    value > 0 ? '/investimentos/visualizar' : '/investimentos'
+
   return (
     <EmptyBody>
       <Text color="gray5" type="captionUppercase">
@@ -26,7 +30,7 @@ const ChartEmptyState = ({ value }) => {
         data-gtm-name="gerenciar"
         data-gtm-type="click"
         data-gtm-clicktype="link"
-        onClick={() => history.push('/investimentos/visualizar')}
+        onClick={() => history.push(linkInvestment)}
       >
         Gerenciar
       </ButtonLink>
