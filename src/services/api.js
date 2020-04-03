@@ -14,7 +14,6 @@ import {
 const axiosInstance = axios.create({
   baseURL,
   headers: {
-    'Access-Control-Allow-Origin': '*',
     'content-type': 'application/json',
   },
 })

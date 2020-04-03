@@ -35,7 +35,6 @@ app.post(
     request
       .post({
         headers: {
-          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/x-www-form-urlencoded',
           Hint: 'login_cliente',
           Accept: '*/*',
@@ -63,7 +62,6 @@ app.post(
     request
       .post({
         headers: {
-          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/x-www-form-urlencoded',
           Accept: '*/*',
         },
