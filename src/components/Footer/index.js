@@ -117,11 +117,12 @@ const content8 = [
     data-gtm-name="Logo Porto-Seguro"
   />,
   <Link
+    target="_blank"
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
     data-gtm-subname="uma plataforma"
     data-gtm-name="política de privacidade"
-    to="/"
+    to="/redirect?to=https://www.portoseguro.com.br/politica-de-privacidade"
   >
     <UppercaseBlueText>POLÍTICA DE PRIVACIDADE</UppercaseBlueText>
   </Link>,
