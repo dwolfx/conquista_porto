@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import logoSeguroViagem from 'assets/images/logoSeguroViagem.png'
+import logoPortoSeguro from 'assets/images/logo-institucional.png'
 import logoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
@@ -32,7 +32,7 @@ export const LogoConquista = styled.img.attrs(() => ({
 `
 
 export const LogoPorto = styled.img.attrs(() => ({
-  src: logoSeguroViagem,
+  src: logoPortoSeguro,
 }))`
   margin: 53px 0px;
 `
@@ -57,6 +57,6 @@ export const Text = styled.p`
 export const Line = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${props => props.theme.colors.gray2}
+  background-color: ${props => props.theme.colors.gray2};
   margin-bottom: 17px;
 `
