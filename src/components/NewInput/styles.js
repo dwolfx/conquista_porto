@@ -32,6 +32,10 @@ const inputErrorStyle = css`
   }
 `
 
+export const InputFieldGroup = styled.div`
+  position: relative;
+`
+
 export const InputGroupWrapper = styled.div`
   background-color: ${props => props.theme.colors.gray1};
   border-radius: 8px 8px 0px 0px;
@@ -60,12 +64,15 @@ export const InputAddon = styled.div`
 `
 
 export const ErrorMessage = styled.span`
-  bottom: -28px;
+  align-items: center;
+  bottom: 0;
   color: ${props => props.theme.colors.magenta2};
   display: flex;
   left: 14px;
+  margin-bottom: -28px;
   position: absolute;
   ${props => props.theme.fontTypes.body};
+  width: 100%;
 `
 
 export const ErrorIcon = styled(Icon)`
