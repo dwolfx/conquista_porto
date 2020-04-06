@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import {
@@ -23,7 +23,7 @@ import {
   InvestButton,
 } from './style'
 
-export default function List({ data, idGoal }) {
+export default function List({ data }) {
   const dispatch = useDispatch()
 
   const [expand, setExpand] = useState({})
@@ -153,13 +153,6 @@ export default function List({ data, idGoal }) {
                 data-gtm-name="investir"
                 type="button"
                 color="secondary"
-                onClick={() => {
-                  handleGiwRedirect(
-                    `portaldecliente/conquista/aplicacao?idFundo=${
-                      obj.id_fundo
-                    }&r=true${idGoal ? `idObjetivo=${idGoal}` : ''}`
-                  )
-                }}
               >
                 Investir
               </InvestButton>
@@ -173,9 +166,4 @@ export default function List({ data, idGoal }) {
 
 List.propTypes = {
   data: PropTypes.array.isRequired,
-  idGoal: PropTypes.number,
-}
-
-List.defaultProps = {
-  idGoal: null,
 }

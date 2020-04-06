@@ -68,12 +68,7 @@ export default function Manager({ location }) {
   }
 
   function handleRedirectToProduct(product) {
-    history.push({
-      pathname: product.productPath,
-      state: {
-        idGoal: objectiveId,
-      },
-    })
+    history.push(product.productPath)
   }
 
   function handleDeleteGoal(id) {
