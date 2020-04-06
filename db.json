@@ -2981,15 +2981,7 @@
     "cod_org": "040",
     "cod_prog": "001"
   },
-  "goal_recommendations": {
-    "goal_type": "1",
-    "profile": 3,
-    "nickname": "Disney",
-    "target_date": "30/12/2021",
-    "target_value": "70.000.000,00",
-    "initial_value": "5.000,00",
-    "monthly_value": "1.000,00"
-  },
+  "goal_recommendations": {},
   "goal_management": {
     "id": "1"
   },
@@ -2997,35 +2989,5 @@
     "idpessoa": 632,
     "idperfilinvest": 3,
     "nomeperfilinvest": "Arrojado"
-  },
-  "goal_bytype": {
-    "1": [
-      {
-        "id": 44,
-        "nickname": "#Viagem"
-      }
-    ],
-    "2": [
-      {
-        "id": 43,
-        "nickname": "#Aposentadoria"
-      }
-    ],
-    "3": [
-      {
-        "id": 45,
-        "nickname": "#Carro"
-      }
-    ],
-    "6": [
-      {
-        "id": 46,
-        "nickname": "#Casa"
-      },
-      {
-        "id": 47,
-        "nickname": "#MinhaCasaMinhaVida"
-      }
-    ]
   }
 }
