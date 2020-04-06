@@ -42,7 +42,6 @@ export default function TripInsurance() {
           'O Seguro Viagem protege você e/ou sua família em viagens nacionais e internacionais, podendo ser acionado de qualquer lugar do mundo.',
           'Com coberturas para períodos variados, incluindo intercâmbios, o seguro também inclui assistência 24h da Porto Seguro e orientação para diversas situações.',
           'Especificamente para os países europeus inclusos no Tratado de Schengen, o Seguro Viagem é obrigatório. Então, contratá-lo é essencial para evitar impedimentos.',
-          'Com opções variadas de planos, o Seguro Viagem pode ser personalizado para cobrir acidentes, necessidades hospitalares, cancelamentos, extravios e outros.',
         ]}
       />
       <MakeSenseSection
