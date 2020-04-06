@@ -11,6 +11,11 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         data: { ...action.payload },
       }
+    case Types.CLEAR_DATA:
+      return {
+        ...state,
+        data: {},
+      }
     default:
       return state
   }

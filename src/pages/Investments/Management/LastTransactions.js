@@ -19,7 +19,7 @@ import {
 export default function LastTransactions({ lastOperations }) {
   const theme = useContext(ThemeContext)
   const history = useHistory()
-
+  const [operation] = lastOperations
   const renderLastTransactions = () =>
     lastOperations
       ? [lastOperations]
@@ -67,7 +67,10 @@ export default function LastTransactions({ lastOperations }) {
         data-gtm-subname="ultimas movimentacoes"
         data-gtm-name="extrato completo"
         onClick={() => {
-          history.push('/investimentos/extrato')
+          history.push({
+            pathname: '/investimentos/extrato',
+            search: `?idFundo=${operation.id_fundo}`,
+          })
         }}
       >
         Extrato Completo &gt;

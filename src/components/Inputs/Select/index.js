@@ -47,6 +47,7 @@ const SelectComponent = ({
           data-gtm-type="select"
           data-gtm-subname={selectTitle}
           data-gtm-name={placeholder}
+          defaultValue={defaultValue || options[0]}
           {...props}
         >
           {showPlaceholder && (
@@ -54,7 +55,6 @@ const SelectComponent = ({
               data-gtm-type="select"
               data-gtm-subname="opcao do select"
               data-gtm-name={placeholder}
-              value={defaultValue}
             >
               {placeholder}
             </option>

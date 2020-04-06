@@ -13,7 +13,15 @@ import Header from 'components/Wizard/Header'
 import Tab from 'components/Tab'
 import { formatMoney, formatCpf } from 'helpers'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
+import {
+  GetBankExtractRequest,
+  ClearBankExtractData,
+} from 'store/modules/BankExtract/action'
+import {
+  GetBankExtractFundRequest,
+  ClearBankExtractFundData,
+} from 'store/modules/BankExtractFund/action'
+import useQueryParams from 'hooks/useQueryParams'
 
 import { selectOptions, statementColumns } from './data'
 import {
@@ -36,28 +44,64 @@ const InvestmentExtract = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
+  const query = useQueryParams()
 
   const [showDateFilter, setShowDateFilter] = useState(false)
 
   const [requestData, setRequestData] = useState({
-    filter: 0,
-    startDate: '',
-    endDate: '',
+    idFundo: query.get('idFundo'),
+    tipoFiltro: 30,
+    dataInicial: '',
+    dataFinal: '',
   })
 
   useEffect(() => {
-    dispatch(GetBankExtractRequest(requestData, auth.cpf))
+    if (query.get('idFundo')) {
+      dispatch(GetBankExtractFundRequest(requestData, auth.cpf))
+    } else {
+      dispatch(GetBankExtractRequest(requestData, auth.cpf))
+    }
   }, [])
 
   useFetchBankData()
-
   const bankData = useSelector(state => state.bankData.data)
   const bankExtract = useSelector(state => {
-    // formating bankExtract to build table data (must be an array)
-    // if no data exists, return an empty array
-    try {
-      return Array.isArray(state.bankExtract.data.transacoes.transacao)
-        ? state.bankExtract.data.transacoes.transacao.map(item => ({
+    if (query.get('idFundo')) {
+      return state.bankExtractFund
+    }
+    return state.bankExtract
+  })
+
+  const handleChangeSelect = e => {
+    setShowDateFilter(e.target.value === 'other')
+    if (e.target.value !== 'other') {
+      const newRequestData = {
+        ...requestData,
+        tipoFiltro: e.target.value,
+        dataInicial: '',
+        dataFinal: '',
+      }
+      setRequestData(newRequestData)
+
+      if (query.get('idFundo')) {
+        dispatch(GetBankExtractFundRequest(newRequestData, auth.cpf))
+      } else {
+        dispatch(GetBankExtractRequest(newRequestData, auth.cpf))
+      }
+    } else {
+      setRequestData({
+        ...requestData,
+        tipoFiltro: 0,
+      })
+    }
+  }
+
+  const normalizePayload = extract => {
+    let bankExtractNormalized = []
+
+    if (extract.data.transacoes && extract.data.transacoes.transacao) {
+      bankExtractNormalized = Array.isArray(extract.data.transacoes.transacao)
+        ? extract.data.transacoes.transacao.map(item => ({
             transactionDate: moment(item.data).format('DD/MM/YYYY'),
             type: item.tipo,
             value: formatMoney(Math.abs(item.valor)),
@@ -65,42 +109,64 @@ const InvestmentExtract = () => {
         : [
             {
               transactionDate: moment(
-                state.bankExtract.data.transacoes.transacao.data
+                extract.data.transacoes.transacao.data
               ).format('DD/MM/YYYY'),
-              type: state.bankExtract.data.transacoes.transacao.tipo,
+              type: extract.data.transacoes.transacao.tipo,
               value: formatMoney(
-                Math.abs(state.bankExtract.data.transacoes.transacao.valor)
+                Math.abs(extract.data.transacoes.transacao.valor)
               ),
             },
           ]
-    } catch {
-      return []
     }
-  })
-
-  const handleChangeSelect = e => {
-    setShowDateFilter(e.target.value === 'other')
-
-    if (e.target.value !== 'other') {
-      const newRequestData = {
-        ...requestData,
-        filter: e.target.value,
-        startDate: '',
-        endDate: '',
-      }
-      setRequestData(newRequestData)
-
-      dispatch(GetBankExtractRequest(newRequestData, auth.cpf))
+    if (extract.data[0] && extract.data[0].operacoes) {
+      const { operacoes } = extract.data[0]
+      bankExtractNormalized = Array.isArray(operacoes.operacao)
+        ? operacoes.operacao.map(operacaoItem => ({
+            transactionDate: moment(operacaoItem.data_operacao).format(
+              'DD/MM/YYYY'
+            ),
+            type: operacaoItem.tipo_operacao,
+            value: formatMoney(Math.abs(operacaoItem.valor_bruto)),
+          }))
+        : [
+            {
+              transactionDate: moment(operacoes.operacao.data_operacao).format(
+                'DD/MM/YYYY'
+              ),
+              type: operacoes.operacao.tipo_operacao,
+              value: formatMoney(Math.abs(operacoes.operacao.valor_bruto)),
+            },
+          ]
+    }
+    return bankExtractNormalized
+  }
+  const filterByDate = () => {
+    const newRequestData = {
+      ...requestData,
+      dataInicial: moment(requestData.dataInicial).format('YYYY-MM-DD'),
+      dataFinal: moment(requestData.dataFinal).format('YYYY-MM-DD'),
+    }
+    if (query.get('idFundo')) {
+      dispatch(GetBankExtractFundRequest(newRequestData, auth.cpf))
     } else {
+      dispatch(GetBankExtractRequest(newRequestData, auth.cpf))
+    }
+  }
+
+  const validateDate = field => {
+    if (!moment(requestData[field], 'DD/MM/YYYY').isValid()) {
       setRequestData({
         ...requestData,
-        filter: 0,
+        [field]: '',
       })
     }
   }
 
-  const filterByDate = () => {
-    dispatch(GetBankExtractRequest(requestData, auth.cpf))
+  const handleDateInput = (e, field) => {
+    setRequestData({
+      ...requestData,
+      [field]: e.target.value,
+    })
   }
 
   if (!bankData) {
@@ -112,6 +178,11 @@ const InvestmentExtract = () => {
       <Header
         showBackButton={false}
         onClose={() => {
+          if (query.get('idFundo')) {
+            dispatch(ClearBankExtractFundData())
+          } else {
+            dispatch(ClearBankExtractData())
+          }
           history.goBack()
         }}
       />
@@ -218,33 +289,19 @@ const InvestmentExtract = () => {
               label="Filtrar por período"
               options={selectOptions}
               onChange={handleChangeSelect}
-              defaultValue={0}
+              defaultValue={30}
               selectTitle="filtrar por periodo"
             />
             {showDateFilter && (
               <>
                 <DateInput
-                  data-gtm-form="input"
-                  data-gtm-name="data inicial"
                   width={30}
                   label="Data inicial"
                   paddingRight={15}
                   paddingLeft={15}
-                  onBlur={e => {
-                    const startDate = moment(
-                      e.target.value,
-                      'DD/MM/YYYY'
-                    ).isValid()
-                      ? moment(e.target.value, 'DD/MM/YYYY').format(
-                          'YYYY-MM-DD'
-                        )
-                      : ''
-
-                    setRequestData({
-                      ...requestData,
-                      startDate,
-                    })
-                  }}
+                  onChange={e => handleDateInput(e, 'dataInicial')}
+                  onBlur={() => validateDate('dataInicial')}
+                  value={requestData.dataInicial}
                 />
                 <DateInput
                   data-gtm-form="input"
@@ -253,21 +310,9 @@ const InvestmentExtract = () => {
                   label="Data final"
                   paddingRight={15}
                   paddingLeft={15}
-                  onBlur={e => {
-                    const endDate = moment(
-                      e.target.value,
-                      'DD/MM/YYYY'
-                    ).isValid()
-                      ? moment(e.target.value, 'DD/MM/YYYY').format(
-                          'YYYY-MM-DD'
-                        )
-                      : ''
-
-                    setRequestData({
-                      ...requestData,
-                      endDate,
-                    })
-                  }}
+                  value={requestData.dataFinal}
+                  onChange={e => handleDateInput(e, 'dataFinal')}
+                  onBlur={() => validateDate('dataFinal')}
                 />
                 <FilterButton
                   data-gtm-type="click"
@@ -283,7 +328,7 @@ const InvestmentExtract = () => {
           </SelectWrapper>
           <Table
             columns={statementColumns}
-            data={bankExtract}
+            data={normalizePayload(bankExtract)}
             showFilter={false}
           />
         </Container>

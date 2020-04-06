@@ -20,3 +20,9 @@ export function GetBankExtractFailure() {
     type: Types.GET_FAILURE,
   }
 }
+
+export function ClearBankExtractData() {
+  return {
+    type: Types.CLEAR_DATA,
+  }
+}
