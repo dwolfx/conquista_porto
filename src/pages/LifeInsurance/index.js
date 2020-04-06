@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 
 import BannerSeguroVidaImage from 'assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
 import SeloSeguroVida from 'assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
@@ -70,7 +69,7 @@ const downloadFileSectionData = [
 const moreDetailsData = [
   {
     img: 'carousel-01',
-    imgTitle: 'Seguro como renda proteção',
+    imgTitle: 'Seguro como proteção',
     imgDescription:
       'O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um estilo de vida de qualidade aos seus entes queridos, caso você falte um dia.',
     imgPath: 'lifeInsurance',
@@ -79,20 +78,19 @@ const moreDetailsData = [
     img: 'carousel-02',
     imgTitle: 'Coberturas não relacionadas à morte',
     imgDescription:
-      'O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em alguns casos de doenças graves, incapacidade temporária total ou parcial por acidentes, entre outros.',
+      'O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em alguns casos de doenças graves.',
     imgPath: 'lifeInsurance',
   },
   {
     img: 'carousel-03',
     imgTitle: 'Seguro para profissionais',
     imgDescription:
-      'A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho e para cobrir despesas médicas hospitalares e odontológicas.',
+      'A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho.',
     imgPath: 'lifeInsurance',
   },
 ]
 
 export default function LifeInsurance() {
-  const { state: locationState } = useLocation()
   return (
     <>
       <TopBanner
@@ -103,11 +101,7 @@ export default function LifeInsurance() {
         imageDescription="Família andando na beira do mar"
         onClick={() =>
           handleGiwRedirect(
-            `portaldecliente/conquista/seguro-de-vida/simular?r=true${
-              (locationState || {}).idGoal
-                ? `&idObjetivo=${(locationState || {}).idGoal}`
-                : ''
-            }`
+            'portaldecliente/conquista/seguro-de-vida/simular?r=true'
           )
         }
       />
@@ -116,9 +110,8 @@ export default function LifeInsurance() {
         imageURL={SeloSeguroVida}
         data={[
           'O Seguro de Vida é uma proteção financeira para você e/ou para a sua família estarem preparados para todos os momentos.',
-          'Em um mesmo plano, é possível incluir você e os beneficiários de sua escolha, definindo o recebimento de auxílio em vida e/ou após a morte do segurado(a).',
-          'Há coberturas de proteção à renda, em caso de desemprego, incapacidade temporária total ou parcial por acidentes e outros obstáculos.',
-          'O Seguro de Vida também é vantajoso para pessoas solteiras e sem filhos, pois oferece estabilidade financeira em casos de invalidez e doenças graves.',
+          'E para profissionais liberais o seguro garante a reposição da renda em caso de afastamento do trabalho por doença ou acidente.',
+          'O Seguro de Vida também é vantajoso para pessoas solteiras e sem filhos pois oferece estabilidade financeira em casos de invalidez e doenças graves.',
         ]}
       />
       <MakeSenseSection

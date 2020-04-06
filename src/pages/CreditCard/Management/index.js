@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
 
 import { ThemeContext } from 'styled-components/macro'
 
@@ -85,7 +84,6 @@ export default function ManagementCreditCard() {
 
   const themeContext = useContext(ThemeContext)
   const creditCard = useSelector(state => state.creditCard)
-  const { state: locationState } = useLocation()
 
   useFetchCreditCard()
 
@@ -116,11 +114,7 @@ export default function ManagementCreditCard() {
                 data-gtm-name="adicionar"
                 onClick={() => {
                   handleGiwRedirect(
-                    `portaldecliente/conquista/cartao-de-credito/simular?r=true${
-                      (locationState || {}).idGoal
-                        ? `&idObjetivo=${(locationState || {}).idGoal}`
-                        : ''
-                    }`
+                    'portaldecliente/conquista/cartao-de-credito/simular?r=true'
                   )
                 }}
               >

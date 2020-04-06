@@ -5,7 +5,6 @@ const INITIAL_STATE = {
   isLoading: true,
   isLoadingSave: false,
   isLoadingDelete: false,
-  otherGoalsManagement: [],
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -59,23 +58,6 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         data: {},
-        isLoading: false,
-      }
-    case Types.GET_OTHER_GOALS_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-      }
-    case Types.GET_OTHER_GOALS_SUCCESS:
-      return {
-        ...state,
-        otherGoalsManagement: action.payload,
-        isLoading: false,
-      }
-    case Types.GET_OTHER_GOALS_FAILURE:
-      return {
-        ...state,
-        otherGoalsManagement: {},
         isLoading: false,
       }
     case Types.DELETE_REQUEST:

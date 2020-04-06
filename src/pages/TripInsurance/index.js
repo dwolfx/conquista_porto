@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 
 import Banner from 'assets/images/pages/solutions/tripInsurance/banner.jpg'
 import BulletImage from 'assets/images/pages/solutions/tripInsurance/selo-seguro-viagem.svg'
@@ -16,8 +15,6 @@ import { handleGiwRedirect } from 'helpers'
 import { Container } from './styles'
 
 export default function TripInsurance() {
-  const { state: locationState } = useLocation()
-
   return (
     <Container>
       <TopBanner
@@ -26,11 +23,7 @@ export default function TripInsurance() {
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
           handleGiwRedirect(
-            `portaldecliente/conquista/seguro-viagem/simular?r=true${
-              (locationState || {}).idGoal
-                ? `&idObjetivo=${(locationState || {}).idGoal}`
-                : ''
-            }`
+            'portaldecliente/conquista/seguro-viagem/simular?r=true'
           )
         }
         image={Banner}
@@ -42,7 +35,6 @@ export default function TripInsurance() {
           'O Seguro Viagem protege você e/ou sua família em viagens nacionais e internacionais, podendo ser acionado de qualquer lugar do mundo.',
           'Com coberturas para períodos variados, incluindo intercâmbios, o seguro também inclui assistência 24h da Porto Seguro e orientação para diversas situações.',
           'Especificamente para os países europeus inclusos no Tratado de Schengen, o Seguro Viagem é obrigatório. Então, contratá-lo é essencial para evitar impedimentos.',
-          'Com opções variadas de planos, o Seguro Viagem pode ser personalizado para cobrir acidentes, necessidades hospitalares, cancelamentos, extravios e outros.',
         ]}
       />
       <MakeSenseSection

@@ -2,6 +2,7 @@ import React, { createRef, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
+  InputFieldGroup,
   Input,
   InputAddon,
   InputGroupWrapper,
@@ -16,27 +17,29 @@ const NewInput = forwardRef(
     const inputRef = ref || createRef()
 
     return (
-      <InputGroupWrapper>
-        {label && <InputLabel>{label}</InputLabel>}
-        <InputWrapper
-          onClick={() => {
-            inputRef.current.focus()
-          }}
-          width={width}
-          error={error}
-          className={rest.className}
-        >
-          {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-          <Input ref={inputRef} {...rest} />
-          {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
-          {error && typeof error === 'object' && (
-            <ErrorMessage>
-              <ErrorIcon name={error.icon} width="16px" />
-              {error.message}
-            </ErrorMessage>
-          )}
-        </InputWrapper>
-      </InputGroupWrapper>
+      <InputFieldGroup>
+        <InputGroupWrapper>
+          {label && <InputLabel>{label}</InputLabel>}
+          <InputWrapper
+            onClick={() => {
+              inputRef.current.focus()
+            }}
+            width={width}
+            error={error}
+            className={rest.className}
+          >
+            {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
+            <Input ref={inputRef} {...rest} />
+            {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
+          </InputWrapper>
+        </InputGroupWrapper>
+        {error && typeof error === 'object' && (
+          <ErrorMessage>
+            <ErrorIcon name={error.icon} width="16px" />
+            {error.message}
+          </ErrorMessage>
+        )}
+      </InputFieldGroup>
     )
   }
 )

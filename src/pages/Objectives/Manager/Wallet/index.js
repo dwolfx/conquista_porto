@@ -187,7 +187,7 @@ export default function Wallet({
                               `}
                               onClick={() => {
                                 handleGiwRedirect(
-                                  `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&idObjetivo=${idGoal}&r=true`
+                                  `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true`
                                 )
                               }}
                             >
@@ -512,12 +512,9 @@ export default function Wallet({
                     margin-top: 14px;
                   `}
                   onClick={() => {
-                    history.push({
-                      pathname: '/investimentos/lista-fundos',
-                      state: {
-                        idGoal,
-                      },
-                    })
+                    handleGiwRedirect(
+                      'portaldecliente/conquista/investimentos/info-fundos-investimento'
+                    )
                   }}
                 >
                   Adicionar fundo

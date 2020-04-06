@@ -50,7 +50,7 @@ const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = (column, idGoal) => (
+const FormatEnabledCell = column => (
   <WrapperContent isTbody>
     {column.cell.value && column.cell.row.original.aplicao_liberada ? (
       <InvestButton
@@ -62,9 +62,7 @@ const FormatEnabledCell = (column, idGoal) => (
         color="secondary"
         onClick={() => {
           handleGiwRedirect(
-            `portaldecliente/conquista/aplicacao?idFundo=${
-              column.cell.row.original.id_fundo
-            }&r=true${idGoal ? `idObjetivo=${idGoal}` : ''}`
+            `portaldecliente/conquista/aplicacao?idFundo=${column.cell.row.original.id_fundo}&r=true`
           )
         }}
       >
@@ -95,12 +93,7 @@ const FormatDotToComma = column => (
   </WrapperContent>
 )
 
-export default function FormatColumns(
-  columns,
-  toggleModal,
-  isModalOpen,
-  idGoal
-) {
+export default function FormatColumns(columns, toggleModal, isModalOpen) {
   const formatters = {
     fundo: column => ({
       ...column,
@@ -118,7 +111,7 @@ export default function FormatColumns(
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: cell => FormatEnabledCell(cell, idGoal),
+      Cell: FormatEnabledCell,
     }),
     minimo_inicial: column => ({
       ...column,

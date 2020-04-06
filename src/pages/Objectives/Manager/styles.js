@@ -65,6 +65,7 @@ export const ColumnWrapper = styled.div`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
+  }
 `
 
 export const AccordionContentWrapper = styled.div`
