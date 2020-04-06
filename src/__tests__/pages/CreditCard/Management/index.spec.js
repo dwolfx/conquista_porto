@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer'
 import { ThemeProvider } from 'styled-components'
 import createStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
-import { MemoryRouter } from 'react-router-dom'
 
 import theme from 'styles/theme'
 
@@ -50,9 +49,7 @@ it('ManagementCreditCard renders correctly', () => {
     .create(
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <ManagementCreditCard />
-          </MemoryRouter>
+          <ManagementCreditCard history={{ push: () => {} }} />
         </ThemeProvider>
       </Provider>
     )
