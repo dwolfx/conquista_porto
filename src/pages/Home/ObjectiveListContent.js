@@ -32,7 +32,11 @@ export default function ObjectiveListContent({ objectives }) {
       <LinearProgressBarContent>
         <MiniLinearProgressBar atual={actual} max={max} />
       </LinearProgressBarContent>
-      <Text type="captionUppercase" color="gray5" textAlign="right" bold>
+      <Text type="captionUppercase" color="gray5" textAlign="right" bold
+        css={`
+        min-width: 44px;
+        text-align: left;
+      `}>
         {`${percentage}%`}
       </Text>
     </>
