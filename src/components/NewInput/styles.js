@@ -32,7 +32,7 @@ const inputErrorStyle = css`
   }
 `
 
-export const FieldWrapper = styled.div`
+export const InputFieldGroup = styled.div`
   position: relative;
 `
 

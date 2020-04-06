@@ -2,7 +2,7 @@ import React, { createRef, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
 import {
-  FieldWrapper,
+  InputFieldGroup,
   Input,
   InputAddon,
   InputGroupWrapper,
@@ -17,7 +17,7 @@ const NewInput = forwardRef(
     const inputRef = ref || createRef()
 
     return (
-      <FieldWrapper className="FieldWrapper">
+      <InputFieldGroup>
         <InputGroupWrapper>
           {label && <InputLabel>{label}</InputLabel>}
           <InputWrapper
@@ -39,7 +39,7 @@ const NewInput = forwardRef(
             {error.message}
           </ErrorMessage>
         )}
-      </FieldWrapper>
+      </InputFieldGroup>
     )
   }
 )
