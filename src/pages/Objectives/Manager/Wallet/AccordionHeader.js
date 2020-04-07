@@ -11,8 +11,7 @@ import { formatMoney } from 'helpers'
 
 import useMedia from 'hooks/useMedia'
 import InfoText from 'components/InfoText'
-import { getColorGuide } from './utils'
-import { Slider, ObjectivesBar, OtherObjectivesBar } from './styles'
+import ObjectivesSlider from './ObjectivesSlider'
 
 export default function FundAccordionHeader({
   fund,
@@ -29,22 +28,6 @@ export default function FundAccordionHeader({
         fundListCopy.filter(item => item.id === fund.id)[0].invested
     )
   }, [fund.available, fund.id, fund.invested, fundListCopy])
-
-  const handleValueFund = (id, value) => {
-    if (setFundListCopy) {
-      setFundListCopy(
-        fundListCopy.map(item => {
-          if (item.id === id) {
-            return {
-              ...item,
-              invested: value,
-            }
-          }
-          return item
-        })
-      )
-    }
-  }
 
   const sumGoalsValue = fund.goals.reduce(
     (acc, cur) => acc + cur.value,
@@ -148,39 +131,13 @@ export default function FundAccordionHeader({
               >
                 Distribuição nos seus objetivos
               </Text>
-              <ObjectivesBar>
-                {fund.goals.map((goal, key) => {
-                  const percent = (goal.value / maxFundsDistribuition) * 100
 
-                  return (
-                    <OtherObjectivesBar
-                      hasLeftRadius={key === 0}
-                      hasRightRadius={
-                        (key === fund.goals.length - 1 || percent === 100) &&
-                        fund.available === 0
-                      }
-                      percent={percent}
-                      backgroundColor={getColorGuide(key)}
-                      key={`fund-${goal.id}`}
-                    />
-                  )
-                })}
-                <Slider
-                  max={Math.max(fund.available + fund.invested, fund.invested)}
-                  initialValue={fund.invested}
-                  onlyObjective={
-                    fund.goals.length === 0 || fund.balance === fund.invested
-                  }
-                  onChange={value => {
-                    handleValueFund(
-                      fund.id,
-                      Math.min(value, Math.abs(fund.available) + fund.invested)
-                    )
-                  }}
-                  showTooltip={fund.available !== 0 || fund.invested !== 0}
-                  showThumb={fund.available !== 0 || fund.invested !== 0}
-                />
-              </ObjectivesBar>
+              <ObjectivesSlider
+                fund={fund}
+                maxFundsDistribuition={maxFundsDistribuition}
+                fundListCopy={fundListCopy}
+                setFundListCopy={setFundListCopy}
+              />
             </Col>
           </Row>
         </Col>

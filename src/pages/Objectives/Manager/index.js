@@ -23,6 +23,7 @@ import {
   GetObjectiveManagementDataRequest,
   DeleteObjectiveRequest,
 } from 'store/modules/ObjectiveManagement/action'
+import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import useMedia from 'hooks/useMedia'
 import InfoText from 'components/InfoText'
@@ -60,9 +61,13 @@ export default function Manager({ location }) {
     }
   }, [dispatch, history, objectiveData, objectiveId])
 
-  if (!objectiveId) {
+  if (!objectiveId || (!isLoading && !objectiveData)) {
     // if objectiveId dont exists, redirect to "objetivos" page
-    history.push('/objetivos')
+    buildToast(
+      'Algo inesperado ocorreu. Certifique-se de que o objetivo realmente existe e tente novamente.',
+      ToastTypes.error
+    )
+    history.push('/')
 
     return null
   }

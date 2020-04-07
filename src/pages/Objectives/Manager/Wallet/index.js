@@ -28,16 +28,15 @@ import {
 } from 'pages/Objectives/Manager/styles'
 
 import useMedia from 'hooks/useMedia'
-import Slider from 'components/Slider'
 import InfoText from 'components/InfoText'
 import FundAccordionHeader from './AccordionHeader'
+
+import ObjectivesSlider from './ObjectivesSlider'
 import { getColorGuide, isFundsNotTheSame } from './utils'
 import {
   ObjectiveInfoBox,
   ObjectiveInfoColor,
   ObjectivesInfoContainer,
-  ObjectivesBar,
-  OtherObjectivesBar,
   CurrentFundBalance,
   InfoMobileRow,
   FooterContainer,
@@ -94,22 +93,6 @@ export default function Wallet({
         },
       })
     )
-  }
-
-  const handleValueFund = (id, value) => {
-    if (setFundListCopy) {
-      setFundListCopy(
-        fundListCopy.map(item => {
-          if (item.id === id) {
-            return {
-              ...item,
-              invested: value,
-            }
-          }
-          return item
-        })
-      )
-    }
   }
 
   const renderFundsList = () => {
@@ -341,50 +324,13 @@ export default function Wallet({
                         >
                           Distribuição nos seus objetivos
                         </Text>
-                        <ObjectivesBar>
-                          {fund.goals.map((goal, key) => {
-                            const percent =
-                              (goal.value / maxFundsDistribuition) * 100
 
-                            return (
-                              <OtherObjectivesBar
-                                hasLeftRadius={key === 0}
-                                hasRightRadius={
-                                  (key === fund.goals.length - 1 ||
-                                    percent === 100) &&
-                                  fund.available === 0
-                                }
-                                percent={percent}
-                                backgroundColor={getColorGuide(key)}
-                                key={`fund-${goal.id}`}
-                              />
-                            )
-                          })}
-                          <Slider
-                            max={Math.max(
-                              fund.available + fund.invested,
-                              fund.invested
-                            )}
-                            initialValue={fund.invested}
-                            onlyObjective={
-                              fund.goals.length === 0 ||
-                              fund.balance === fund.invested
-                            }
-                            onChange={value => {
-                              handleValueFund(
-                                fund.id,
-                                Math.min(
-                                  value,
-                                  Math.abs(fund.available) + fund.invested
-                                )
-                              )
-                            }}
-                            showTooltip={false}
-                            showThumb={
-                              fund.available !== 0 || fund.invested !== 0
-                            }
-                          />
-                        </ObjectivesBar>
+                        <ObjectivesSlider
+                          fund={fund}
+                          maxFundsDistribuition={maxFundsDistribuition}
+                          fundListCopy={fundListCopy}
+                          setFundListCopy={setFundListCopy}
+                        />
                       </Col>
                       <CurrentFundBalance md="2" xs="12">
                         <Text type="captionUppercase" color="gray5">
@@ -500,7 +446,7 @@ export default function Wallet({
             !isLoading && fundList ? (
               <FooterContainer>
                 <BlockButton
-                  loading={isLoading}
+                  loading={Boolean(isLoading)}
                   color="primary"
                   loadingColor="white"
                   data-gtm-type="click"
