@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 import Banner from 'assets/images/pages/solutions/tripInsurance/banner.jpg'
 import BulletImage from 'assets/images/pages/solutions/tripInsurance/selo-seguro-viagem.svg'
@@ -15,6 +16,8 @@ import { handleGiwRedirect } from 'helpers'
 import { Container } from './styles'
 
 export default function TripInsurance() {
+  const { state: locationState } = useLocation()
+
   return (
     <Container>
       <TopBanner
@@ -23,7 +26,11 @@ export default function TripInsurance() {
         buttonText="SIMULAR E CONTRATAR"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/seguro-viagem/simular?r=true'
+            `portaldecliente/conquista/seguro-viagem/simular?r=true${
+              (locationState || {}).idGoal
+                ? `&idObjetivo=${(locationState || {}).idGoal}`
+                : ''
+            }`
           )
         }
         image={Banner}

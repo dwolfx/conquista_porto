@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 import BannerSeguroVidaImage from 'assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
 import SeloSeguroVida from 'assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
@@ -91,6 +92,7 @@ const moreDetailsData = [
 ]
 
 export default function LifeInsurance() {
+  const { state: locationState } = useLocation()
   return (
     <>
       <TopBanner
@@ -101,7 +103,11 @@ export default function LifeInsurance() {
         imageDescription="Família andando na beira do mar"
         onClick={() =>
           handleGiwRedirect(
-            'portaldecliente/conquista/seguro-de-vida/simular?r=true'
+            `portaldecliente/conquista/seguro-de-vida/simular?r=true${
+              (locationState || {}).idGoal
+                ? `&idObjetivo=${(locationState || {}).idGoal}`
+                : ''
+            }`
           )
         }
       />
