@@ -17,7 +17,7 @@ export const BannerTips = styled(Banner)`
 export const RowBanner = styled(Row)``
 
 export const ColBanner = styled(Col)`
-  margin-bottom: 28px;
+  margin-bottom: 14px;
   &:last-child {
     margin-bottom: 0px;
   }
