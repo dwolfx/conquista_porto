@@ -7,21 +7,28 @@ import { Types } from './types'
 
 function* getData({ cpf }) {
   try {
-    const response = yield call(
+    const saldoResponse = yield call(
       get,
-      `${baseURLNamespaceInvest}/cotistas/posicao?cpf=${cpf}&codigoCanal=0`
+      `${baseURLNamespaceInvest}/cotistas/posicao-consolidada?cpf=${cpf}`
     )
 
-    let responseData = response.data
+    if (saldoResponse.data.saldototal > 0) {
+      const response = yield call(
+        get,
+        `${baseURLNamespaceInvest}/cotistas/posicao?cpf=${cpf}&codigoCanal=0`
+      )
 
-    if (
-      (response && response.data.Mensagem) ||
-      response.data.TipoCritica === 'CRITICA_NEGOCIO'
-    ) {
-      responseData = []
+      let responseData = response.data
+
+      if (
+        (response && response.data.Mensagem) ||
+        response.data.TipoCritica === 'CRITICA_NEGOCIO'
+      ) {
+        responseData = []
+      }
+
+      yield put(GetPositionDataSuccess(responseData))
     }
-
-    yield put(GetPositionDataSuccess(responseData))
   } catch (err) {
     yield put(GetPositionDataFailure())
   }
