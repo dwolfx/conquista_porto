@@ -11,9 +11,9 @@ import Button from 'components/Button/IconText'
 import DropDown from 'components/DropdownNew'
 
 import { handleGiwRedirect } from 'helpers'
+import { AuthRequestLogout } from 'store/modules/Auth/action'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { AuthRequestLogout } from 'store/modules/Auth/action'
 
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
@@ -66,7 +66,7 @@ export default function HeaderNew({ crumbs }) {
     return () => {
       window.removeEventListener('scroll', checkScroll)
     }
-  }, [userData])
+  }, [])
 
   useFetchBankData()
 
