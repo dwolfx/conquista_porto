@@ -104,7 +104,10 @@ export const ButtonContainerModal = styled.div`
   justify-content: flex-end;
 
   button {
-    margin-left: 14px;
     width: 180px;
+
+    &:last-of-type {
+      margin-left: 14px;
+    }
   }
 `
