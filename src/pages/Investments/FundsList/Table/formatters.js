@@ -78,8 +78,9 @@ const FormatEnabledCell = (column, idGoal) => (
       </ConquistaButton>
     ) : (
       <PopoverCustom
+        trigger="click"
         content={() => (
-          <Text type="body" color="gray5">
+          <Text type="body" color="gray4">
             Fundo fechado para movimentações
           </Text>
         )}

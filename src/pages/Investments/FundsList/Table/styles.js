@@ -197,10 +197,12 @@ export const InvestButton = styled(ConquistaButton)`
 
 export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock' }))`
   fill: ${props => props.theme.colors.gray4};
-  width: 28px;
+  height: 25px;
+  width: 25px;
 `
 
 export const PopoverCustom = styled(Popover)`
   width: 28px;
+  display: flex;
   margin: 0 auto;
 `
