@@ -11,8 +11,9 @@ import Button from 'components/Button/IconText'
 import DropDown from 'components/DropdownNew'
 
 import { handleGiwRedirect } from 'helpers'
-
 import { AuthRequestLogout } from 'store/modules/Auth/action'
+
+import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
@@ -62,11 +63,12 @@ export default function HeaderNew({ crumbs }) {
 
   useEffect(() => {
     window.addEventListener('scroll', checkScroll)
-
     return () => {
       window.removeEventListener('scroll', checkScroll)
     }
   }, [])
+
+  useFetchBankData()
 
   const dropdownGtmItemsTitle = 'dropdown menu header'
   const items = [
