@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import useMedia from 'hooks/useMedia'
@@ -12,6 +11,7 @@ import { dataLayerProductSuggestion } from 'GoogleTagManager'
 import products from './productBannerData'
 import {
   BannerTips,
+  Column,
   GridRow,
   ButtonContainer,
   ProductBannerModal,
@@ -110,7 +110,7 @@ const SectionThree = ({ additional }) => {
     <>
       <GridRow>
         {renderedProducts.map(product => (
-          <Col
+          <Column
             key={product.title}
             lg={renderedProducts.length > 1 ? '6' : '12'}
             xs={12}
@@ -162,7 +162,7 @@ const SectionThree = ({ additional }) => {
                 </Button>
               </ButtonContainer>
             </BannerTips>
-          </Col>
+          </Column>
         ))}
       </GridRow>
       <ProductBannerModal

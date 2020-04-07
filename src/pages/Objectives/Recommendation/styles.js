@@ -39,6 +39,15 @@ export const GridRow = styled(Row)`
     margin-bottom: 14px;
   }
 `
+
+export const Column = styled(Col)`
+  @media ${props => props.theme.mediaQueries.sm} {
+    &:not(:first-of-type) {
+      margin-top: 14px;
+    }
+  }
+`
+
 export const SectionsRecommendation = styled.div`
   background-color: ${props => props.theme.colors.gray1};
   padding: 42px 0 55px;

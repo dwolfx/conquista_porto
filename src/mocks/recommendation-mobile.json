@@ -355,7 +355,7 @@
   "credit_product": null,
   "additional": {
     "travel_security": false,
-    "life_security": false,
+    "life_security": true,
     "credit_card": true
   },
   "suggestion_goal": {
