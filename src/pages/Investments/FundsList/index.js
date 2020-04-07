@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 import Dropdown from 'pages/Investments/FundsList/DropdrownRisk'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
@@ -24,6 +25,7 @@ const allOption = 'todos'
 export default function FundsList() {
   useFetchInvestmentsList()
 
+  const { state: locationState } = useLocation()
   const isMobile = useMedia('xs')
   const [selectedRisk, setSelectedRisk] = useState(allOption)
   const [selectedType, setSelectedType] = useState(allOption)
@@ -68,7 +70,10 @@ export default function FundsList() {
       <ContentWrapper>
         <Col col="12">
           {isMobile ? (
-            <ListFunds data={fundsFiltered} />
+            <ListFunds
+              data={fundsFiltered}
+              idGoal={(locationState || {}).idGoal}
+            />
           ) : (
             <TableFunds
               columns={columns}
@@ -76,6 +81,7 @@ export default function FundsList() {
               fundsType={fundsType}
               setSelectedType={setSelectedType}
               selectedType={selectedType}
+              idGoal={(locationState || {}).idGoal}
             />
           )}
         </Col>
