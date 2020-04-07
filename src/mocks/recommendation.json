@@ -519,7 +519,7 @@
   "additional": {
     "travel_security": true,
     "life_security": false,
-    "credit_card": false
+    "credit_card": true
   },
   "suggestion_goal": {
     "suggestion_monthly_value": 1000,

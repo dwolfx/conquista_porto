@@ -18,3 +18,19 @@ export const isFundsNotTheSame = (fundList, fundListCopy) => {
 
   return false
 }
+
+export const handleValueFund = (id, value, fundListCopy, setFundListCopy) => {
+  if (setFundListCopy) {
+    setFundListCopy(
+      fundListCopy.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            invested: value,
+          }
+        }
+        return item
+      })
+    )
+  }
+}

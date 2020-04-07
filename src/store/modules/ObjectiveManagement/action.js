@@ -61,6 +61,26 @@ export function GetObjectiveManagementDataFailure() {
   }
 }
 
+export function GetOtherGoalsDataRequest(payload) {
+  return {
+    type: Types.GET_OTHER_GOALS_REQUEST,
+    ...payload,
+  }
+}
+
+export function GetOtherGoalsDataSuccess(payload) {
+  return {
+    type: Types.GET_OTHER_GOALS_SUCCESS,
+    payload,
+  }
+}
+
+export function GetOtherGoalsDataFailure() {
+  return {
+    type: Types.GET_OTHER_GOALS_FAILURE,
+  }
+}
+
 export function DeleteObjectiveRequest(id, pushHistoryToHomeScreen) {
   return {
     type: Types.DELETE_REQUEST,

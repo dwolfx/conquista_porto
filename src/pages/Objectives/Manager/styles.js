@@ -65,7 +65,6 @@ export const ColumnWrapper = styled.div`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
-  }
 `
 
 export const AccordionContentWrapper = styled.div`
@@ -104,7 +103,10 @@ export const ButtonContainerModal = styled.div`
   justify-content: flex-end;
 
   button {
-    margin-left: 14px;
     width: 180px;
+
+    &:last-of-type {
+      margin-left: 14px;
+    }
   }
 `
