@@ -2997,5 +2997,35 @@
     "idpessoa": 632,
     "idperfilinvest": 3,
     "nomeperfilinvest": "Arrojado"
+  },
+  "goal_bytype": {
+    "1": [
+      {
+        "id": 44,
+        "nickname": "#Viagem"
+      }
+    ],
+    "2": [
+      {
+        "id": 43,
+        "nickname": "#Aposentadoria"
+      }
+    ],
+    "3": [
+      {
+        "id": 45,
+        "nickname": "#Carro"
+      }
+    ],
+    "6": [
+      {
+        "id": 46,
+        "nickname": "#Casa"
+      },
+      {
+        "id": 47,
+        "nickname": "#MinhaCasaMinhaVida"
+      }
+    ]
   }
 }

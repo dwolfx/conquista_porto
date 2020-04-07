@@ -17,10 +17,12 @@ import { formatMoney } from 'helpers'
 
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
+import OtherGoals from 'pages/Objectives/Manager/OtherGoals'
 import Wallet from 'pages/Objectives/Manager/Wallet'
 
 import {
   GetObjectiveManagementDataRequest,
+  GetOtherGoalsDataRequest,
   DeleteObjectiveRequest,
 } from 'store/modules/ObjectiveManagement/action'
 
@@ -43,9 +45,12 @@ export default function Manager({ location }) {
   const { objectiveId } = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
-  const { data: objectiveData, isLoading, isLoadingDelete } = useSelector(
-    state => state.objectiveManagement
-  )
+  const {
+    data: objectiveData,
+    isLoading,
+    isLoadingDelete,
+    otherGoalsManagement,
+  } = useSelector(state => state.objectiveManagement)
   const isMobile = useMedia('sm')
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
 
@@ -58,6 +63,8 @@ export default function Manager({ location }) {
     ) {
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
     }
+
+    dispatch(GetOtherGoalsDataRequest({ id: objectiveId, history }))
   }, [dispatch, history, objectiveData, objectiveId])
 
   if (!objectiveId) {
@@ -150,7 +157,7 @@ export default function Manager({ location }) {
                 direction={isMobile ? 'column;' : 'row;'}
                 margin={isMobile ? '0;' : '0 28px;'}
                 alignItems={isMobile ? 'center' : 'start'}
-                justifyContent={isMobile ? 'center' : 'start'}
+                justifyContent={isMobile ? 'center' : 'space-between'}
                 width="100%"
               >
                 {isMobile ? (
@@ -167,6 +174,10 @@ export default function Manager({ location }) {
                 >
                   EXCLUIR OBJETIVO
                 </ButtonLink>
+
+                {otherGoalsManagement[1] && (
+                  <OtherGoals otherGoals={otherGoalsManagement} />
+                )}
               </FlexContainer>
             </FlexContainer>
           </ObjectiveHeader>

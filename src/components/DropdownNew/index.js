@@ -11,6 +11,7 @@ import {
   ItemIcon,
   ItemText,
   Wrapper,
+  WrapperChildren,
   ItemIconContainer,
 } from './styles'
 
@@ -53,11 +54,13 @@ export default function Dropdown({
   customWidth,
   containerPadding,
   redirectPath,
+  openingSide,
   ...rest
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [childrenElements, setChildrenElements] = useState(null)
+  const [selectedItem, setSelectedItem] = useState(null)
 
   const history = useHistory()
   const containerRef = useRef(null)
@@ -102,27 +105,31 @@ export default function Dropdown({
     setIsOpen(value)
   }
 
-  function handleMountChildren(elements, subMenuTitle) {
+  const handleMountChildren = (elements, subMenuTitle) => {
+    setSelectedItem(subMenuTitle)
+    setIsHovering(true)
+
     if (!elements) {
       setIsHovering(false)
       return
     }
 
-    setIsHovering(true)
     setChildrenElements(
-      elements.map(element => (
+      elements.map(item => (
         <ItemWrapper
           data-gtm-type="click"
           data-gtm-clicktype="link"
           data-gtm-subname={subMenuTitle}
-          data-gtm-name={element.text}
-          key={element.text}
-          onClick={() => element.path && handleClick(element.path)}
+          data-gtm-name={item.text}
+          key={item.text}
+          onClick={() => item.path && handleClick(item.path)}
         >
-          <ItemIconContainer>
-            <ItemIcon name={element.icon} />
-          </ItemIconContainer>
-          <ItemText>{element.text}</ItemText>
+          {item.icon && (
+            <ItemIconContainer>
+              <ItemIcon name={item.icon} />
+            </ItemIconContainer>
+          )}
+          <ItemText>{item.text}</ItemText>
         </ItemWrapper>
       ))
     )
@@ -221,10 +228,14 @@ export default function Dropdown({
                       <ItemIcon name="arrowright2" />
                     </ItemIconContainer>
                   )}
+                  {isHovering && item.text === selectedItem && (
+                    <WrapperChildren openingSide={openingSide}>
+                      {childrenElements}
+                    </WrapperChildren>
+                  )}
                 </ItemWrapper>
               ))}
             </Wrapper>
-            {isHovering && <Wrapper>{childrenElements}</Wrapper>}
           </Container>
         </RelativeHolder>
         <Backdrop
@@ -243,10 +254,12 @@ Dropdown.propTypes = {
   containerPadding: PropTypes.string,
   redirectPath: PropTypes.string,
   customWidth: PropTypes.string,
+  openingSide: PropTypes.string,
 }
 
 Dropdown.defaultProps = {
   containerPadding: '14px',
   redirectPath: null,
   customWidth: null,
+  openingSide: 'right',
 }
