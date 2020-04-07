@@ -95,9 +95,9 @@ const TheadWrapper = ({ header }) =>
 export default function TableFunds({
   data,
   columns: columnsProps,
-  fundsType,
-  setSelectedType,
-  selectedType,
+  // fundsType,
+  // setSelectedType,
+  // selectedType,
   idGoal,
 }) {
   const [theadY, setTheadY] = useState(0)
@@ -151,15 +151,15 @@ export default function TableFunds({
     useSortBy
   )
 
-  const handleTabsChange = selectedValue => {
-    setSelectedType(selectedValue)
-    const { current } = tableWrapperRef
-    current.scrollLeft = 0
-  }
+  // const handleTabsChange = selectedValue => {
+  //   setSelectedType(selectedValue)
+  //   const { current } = tableWrapperRef
+  //   current.scrollLeft = 0
+  // }
 
   return (
     <>
-      <Modal
+      {/* <Modal
         headerIcon="information"
         handleClose={isOpen => toggleModal(!isOpen)}
         isOpen={isModalOpen}
@@ -174,12 +174,12 @@ export default function TableFunds({
         >
           {isLoading ? <Loading /> : <FundsInfo fund={fundDetails} />}
         </div>
-      </Modal>
-      <Tabs
+      </Modal> */}
+      {/* <Tabs
         options={fundsType}
         onClick={handleTabsChange}
         selectedTab={selectedType}
-      />
+      /> */}
       <TableWrapper ref={tableWrapperRef}>
         <Table ref={tableRef} {...getTableProps()}>
           <Thead ref={theadRef} className={stickyThead && `sticky`}>
@@ -192,6 +192,7 @@ export default function TableFunds({
               ))}
             </TheadTr>
           </Thead>
+
           <Tbody {...getTableBodyProps()}>
             {rows.map(row => {
               prepareRow(row)

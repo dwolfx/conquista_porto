@@ -27,21 +27,22 @@ export const WrapperContent = styled.div`
     `}
 
   ${props =>
-    props.isTbody &&
+    props.isPercent &&
     css`
-      height: 99px;
-      padding: 30px 0;
+      font-weight: 600;
+      color: ${props.theme.colors.gray6};
     `}
 `
 
 export const TableWrapper = styled.div`
   overflow-x: auto;
   white-space: nowrap;
+  height: 490px;
 `
 
 export const Table = styled.table`
   border-collapse: collapse;
-  margin: 3rem auto 0;
+  // margin: 3rem auto 0;
 `
 
 export const Thead = styled.thead`
@@ -114,9 +115,13 @@ export const Tbody = styled.tbody``
 
 export const TbodyTr = styled.tr`
   background-color: ${props => props.theme.colors.white};
-  border-radius: 4px;
+  border: 1px solid ${props => props.theme.colors.gray2};
+  color: ${props => props.theme.colors.gray5};
+  font-weight: normal;
+  padding: 3px 0 3px 3px;
+  // border-radius: 4px;
   display: block;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   width: 100%;
 `
 
@@ -126,29 +131,35 @@ export const TbodyTd = styled.td`
   padding: 0;
   text-align: center;
 
-  &:not(:first-of-type) {
-    border-left: 1px solid ${props => props.theme.colors.gray3};
-  }
+  // &:not(:first-of-type) {
+  //   border-left: 1px solid ${props => props.theme.colors.gray3};
+  // }
 
-  :first-of-type {
-    border-left: 10px solid
-      ${props => riskColorsMap[parseInt(props.borderRisk, 10)]};
-    border-radius: 4px;
-  }
+  // :first-of-type {
+  //   border-left: 10px solid
+  //     ${props => riskColorsMap[parseInt(props.borderRisk, 10)]};
+  // }
+`
+
+export const RiskColorTag = styled.div`
+  width: 5px;
+  background-color: ${props => riskColorsMap[parseInt(props.borderRisk, 10)]};
+  border-radius: 4px;
 `
 
 export const FundoWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   line-height: 22px;
-  max-height: 99px;
-  padding: 37px 25px;
+  max-height: 70px;
+  padding: 9px 14px 8px 20px;
   width: 100%;
 `
 
 export const FundoOutterWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  padding-left: 25px;
+  // padding-left: 25px;
 `
 
 export const LogoImg = styled.div`
@@ -172,6 +183,7 @@ export const InformationIcon = styled(IconExporter).attrs(() => ({
 export const FundoNameWrapper = styled.p`
   text-align: left;
   max-width: 220px;
+  font-weight: normal;
   white-space: pre-wrap;
 `
 
