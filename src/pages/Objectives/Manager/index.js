@@ -22,7 +22,6 @@ import Wallet from 'pages/Objectives/Manager/Wallet'
 
 import {
   GetObjectiveManagementDataRequest,
-  GetOtherGoalsDataRequest,
   DeleteObjectiveRequest,
 } from 'store/modules/ObjectiveManagement/action'
 import { buildToast, ToastTypes } from 'store/modules/toastActions'
@@ -63,7 +62,6 @@ export default function Manager({ location }) {
       (objectiveData && objectiveData.id && +objectiveData.id !== +objectiveId) // check if objectiveData exists and its id is equal to objectiveID
     ) {
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
-      dispatch(GetOtherGoalsDataRequest({ id: objectiveId, history }))
     }
   }, [dispatch, history, objectiveData, objectiveId])
 
