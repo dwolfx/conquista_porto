@@ -48,6 +48,50 @@ export const columns = [
   },
 ]
 
+export const columns2 = [
+  {
+    Header: 'TÍTULO',
+    accessor: 'fundo',
+    width: '221px',
+    align: 'flex-start',
+  },
+  {
+    Header: 'APLIC. MIN.',
+    accessor: 'minimo_inicial',
+    width: '105px',
+  },
+  {
+    Header: 'RESGATE (COT.)',
+    accessor: 'resgate_cotizacao',
+    width: '130px',
+  },
+  {
+    Header: 'TAXA ADM. (a.a.)',
+    accessor: 'taxa_administracao',
+    width: '139px',
+  },
+  {
+    Header: 'RENT. MÊS',
+    accessor: 'rentabil_fundo_mes',
+    width: '97px',
+  },
+  {
+    Header: 'RENT. ANO',
+    accessor: 'rentabil_fundo_ano',
+    width: '99px',
+  },
+  {
+    Header: 'RENT. ÚLT. 12M',
+    accessor: 'rentabil_fundo_12_meses',
+    width: '131px',
+  },
+  {
+    Header: '',
+    accessor: 'is_fundo_ativo',
+    width: '115px',
+  },
+]
+
 export const fundsType = [
   {
     name: 'Todos',

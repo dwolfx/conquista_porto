@@ -52,7 +52,52 @@ export const Thead = styled.thead`
     z-index: 1;
   }
 `
+// #### TODO
+export const Thead2 = styled.thead`
+  width: 1240px;
+  &.sticky {
+    position: fixed;
+    top: 73px;
+    z-index: 1;
+  }
+`
+export const TheadTr2 = styled.tr`
+  display: block;
+  padding: 0px 6px;
+  height: 56px;
+  background-color: ${props => props.theme.colors.gray1};
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid ${props => props.theme.colors.gray2};
+`
 
+export const TheadTh2 = styled.th`
+  cursor: ${props => (props.canSort ? 'pointer' : 'default')};
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 15px;
+  position: relative;
+  height: 100%;
+  margin-right: 21px;
+  &:first-child {
+    margin-left: 21px;
+  }
+`
+// Outro componente usa o wrapper content - Mudar de nome
+export const WrapperContent2 = styled.div`
+  white-space: pre-wrap;
+  height: inherit;
+  display: flex;
+  justify-content: ${props => props.align || 'center'};
+  align-items: center;
+  ${props =>
+    props.isTbody &&
+    css`
+      height: 99px;
+      padding: 30px 0;
+    `};
+`
 export const TheadTr = styled.tr`
   background-color: ${props => props.theme.colors.gray4};
   display: block;
@@ -98,11 +143,11 @@ export const TheadText = styled.span`
     background-repeat: no-repeat;
     background-position: ${props =>
       props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
-    height: 12px;
     position: absolute;
-    right: ${props => props.right};
-    top: ${props => props.top};
-    width: 12px;
+    margin-left: 20px;
+    top: 19px;
+    width: 10px;
+    height: 17px;
   }
 `
 

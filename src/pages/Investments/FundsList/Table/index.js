@@ -7,15 +7,15 @@ import FormatColumns from './formatters'
 
 import {
   Table,
-  Thead,
-  TheadTr,
-  TheadTh,
+  Thead2,
+  TheadTr2,
+  TheadTh2,
   TheadThWithColumns,
   TheadColumn,
   Tbody,
   TbodyTr,
   TbodyTd,
-  WrapperContent,
+  WrapperContent2,
   TableWrapper,
   TheadText,
 } from './styles'
@@ -23,18 +23,18 @@ import {
 const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
   return (
-    <TheadTh
+    <TheadTh2
       width={header.width}
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
-      <WrapperContent
+      <WrapperContent2
+        align={header.align}
         data-gtm-type="click"
         data-gtm-clicktype="menu"
         data-gtm-subname="menu de ordenação dos fundos"
         data-gtm-name={headerContent}
         lineHeight="16px"
-        isThead
       >
         {headerContent && (
           <TheadText
@@ -46,15 +46,15 @@ const SimpleHeader = ({ header }) => {
             {headerContent}
           </TheadText>
         )}
-      </WrapperContent>
-    </TheadTh>
+      </WrapperContent2>
+    </TheadTh2>
   )
 }
 
 const HeaderWithColumns = ({ header }) => (
   <TheadThWithColumns width={header.width}>
     {header.Header}
-    <WrapperContent>
+    <WrapperContent2>
       {header.columns.map(headerColumn => (
         <TheadColumn
           data-gtm-type="click"
@@ -75,7 +75,7 @@ const HeaderWithColumns = ({ header }) => (
           </TheadText>
         </TheadColumn>
       ))}
-    </WrapperContent>
+    </WrapperContent2>
   </TheadThWithColumns>
 )
 
@@ -138,17 +138,16 @@ export default function TableFunds({ data, columns: columnsProps, idGoal }) {
     <>
       <TableWrapper ref={tableWrapperRef}>
         <Table ref={tableRef} {...getTableProps()}>
-          <Thead ref={theadRef} className={stickyThead && `sticky`}>
-            <TheadTr>
+          <Thead2 ref={theadRef} className={stickyThead && `sticky`}>
+            <TheadTr2>
               {columns.map(header => (
                 <TheadWrapper
                   key={`header-with-column-${header.Header}`}
                   header={header}
                 />
               ))}
-            </TheadTr>
-          </Thead>
-
+            </TheadTr2>
+          </Thead2>
           <Tbody {...getTableBodyProps()}>
             {rows.map(row => {
               prepareRow(row)
@@ -208,5 +207,6 @@ SimpleHeader.propTypes = {
     getSortByToggleProps: PropTypes.func.isRequired,
     getHeaderProps: PropTypes.func.isRequired,
     canSort: PropTypes.bool.isRequired,
+    align: PropTypes.string,
   }).isRequired,
 }

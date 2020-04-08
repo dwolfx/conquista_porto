@@ -9,7 +9,7 @@ import { Col } from 'styled-bootstrap-grid'
 import Text from 'components/Text'
 
 import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
-import { columns, fundsType } from './mock'
+import { columns2, fundsType } from './mock'
 import TableFunds from './Table'
 import ListFunds from './List'
 import {
@@ -56,8 +56,9 @@ export default function FundsList() {
     return filterByRisk(filterByType(funds.data[0]))
   }, [funds.data, selectedRisk, selectedType])
 
+  // TODO
   return (
-    <GridContainer as="section">
+    <GridContainer as="section" style={{ backgroundColor: 'white' }}>
       <TopWrapper>
         <DropdownWrapper xs="6" sm="6" md="4">
           <Text type="caption">Classificação de Risco</Text>
@@ -76,7 +77,7 @@ export default function FundsList() {
             />
           ) : (
             <TableFunds
-              columns={columns}
+              columns={columns2}
               data={fundsFiltered}
               fundsType={fundsType}
               setSelectedType={setSelectedType}
