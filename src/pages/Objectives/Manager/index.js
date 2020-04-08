@@ -63,9 +63,8 @@ export default function Manager({ location }) {
       (objectiveData && objectiveData.id && +objectiveData.id !== +objectiveId) // check if objectiveData exists and its id is equal to objectiveID
     ) {
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
+      dispatch(GetOtherGoalsDataRequest({ id: objectiveId, history }))
     }
-
-    dispatch(GetOtherGoalsDataRequest({ id: objectiveId, history }))
   }, [dispatch, history, objectiveData, objectiveId])
 
   if (!objectiveId || (!isLoading && !objectiveData)) {
