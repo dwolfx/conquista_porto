@@ -113,27 +113,29 @@ const SectionOne = ({ answer, combo, income }) => {
                       </Text>,
                     ]}
                   />
-                  {Object.entries(item.values).map(value => (
-                    <HorizontalList
-                      key={value[0]}
-                      startItems={[
-                        <Text type="body" color="gray6">
-                          {value[0]}
-                        </Text>,
-                      ]}
-                      endItems={[
-                        <Text
-                          truncate
-                          type="headline"
-                          color="gray6"
-                          width="130px"
-                          bold
-                        >
-                          {value[1]}
-                        </Text>,
-                      ]}
-                    />
-                  ))}
+                  {Object.entries(item.values)
+                    .sort((a, b) => (a > b ? 1 : -1))
+                    .map(([key, value]) => (
+                      <HorizontalList
+                        key={key}
+                        startItems={[
+                          <Text type="body" color="gray6">
+                            {key}
+                          </Text>,
+                        ]}
+                        endItems={[
+                          <Text
+                            truncate
+                            type="headline"
+                            color="gray6"
+                            width="130px"
+                            bold
+                          >
+                            {value}
+                          </Text>,
+                        ]}
+                      />
+                    ))}
                 </SuggestedProduct>
               ))}
             </SectionCol>
