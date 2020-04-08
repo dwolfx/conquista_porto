@@ -4,12 +4,7 @@ import { useTable, useSortBy } from 'react-table'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
-import Modal from 'components/Modal/ModalNew'
-import FundsInfo from 'components/Solutions/Investments/FundsInfo'
-import Loading from 'components/Loading'
-
 import FormatColumns from './formatters'
-import Tabs from './Tabs'
 
 import {
   Table,
@@ -92,20 +87,11 @@ const TheadWrapper = ({ header }) =>
     <SimpleHeader header={header} />
   )
 
-export default function TableFunds({
-  data,
-  columns: columnsProps,
-  // fundsType,
-  // setSelectedType,
-  // selectedType,
-  idGoal,
-}) {
+export default function TableFunds({ data, columns: columnsProps, idGoal }) {
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
-  const { data: fundDetails, isLoading } = useSelector(
-    state => state.investmentDetails
-  )
+  const { data: fundDetails } = useSelector(state => state.investmentDetails)
   const tableWrapperRef = useRef(null)
   const tableRef = useRef(null)
   const theadRef = useRef(null)
@@ -150,36 +136,8 @@ export default function TableFunds({
     },
     useSortBy
   )
-
-  // const handleTabsChange = selectedValue => {
-  //   setSelectedType(selectedValue)
-  //   const { current } = tableWrapperRef
-  //   current.scrollLeft = 0
-  // }
-
   return (
     <>
-      {/* <Modal
-        headerIcon="information"
-        handleClose={isOpen => toggleModal(!isOpen)}
-        isOpen={isModalOpen}
-        modalTitle="Informações do fundo"
-        alignItems="flex-start"
-        maxWidth="1200px"
-      >
-        <div
-          css={`
-            margin: 0 -28px;
-          `}
-        >
-          {isLoading ? <Loading /> : <FundsInfo fund={fundDetails} />}
-        </div>
-      </Modal> */}
-      {/* <Tabs
-        options={fundsType}
-        onClick={handleTabsChange}
-        selectedTab={selectedType}
-      /> */}
       <TableWrapper ref={tableWrapperRef}>
         <Table ref={tableRef} {...getTableProps()}>
           <Thead ref={theadRef} className={stickyThead && `sticky`}>

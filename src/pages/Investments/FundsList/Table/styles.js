@@ -201,7 +201,7 @@ export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock' }))`
   width: 25px;
 `
 
-export const PopoverCustom = styled(Popover)`
+export const CustomPopover = styled(Popover)`
   width: 28px;
   display: flex;
   margin: 0 auto;

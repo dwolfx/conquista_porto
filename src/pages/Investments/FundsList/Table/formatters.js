@@ -10,13 +10,10 @@ import Text from 'components/Text'
 import {
   FundoWrapper,
   WrapperContent,
-  // InformationIcon,
   FundoNameWrapper,
-  // InvestButton,
   LockIcon,
   FundoOutterWrapper,
-  // LogoImg,
-  PopoverCustom,
+  CustomPopover,
   RiskColorTag,
 } from './styles'
 
@@ -31,22 +28,11 @@ const FormatFundoCell = ({ cell, column }) => {
   return (
     <FundoOutterWrapper>
       <RiskColorTag borderRisk={cell.row.original.perfil_risco_ordem} />
-      {/* <LogoImg bg={cell.row.original.url_logo_gestor}></LogoImg> */}
       <FundoWrapper {...cell.getCellProps()}>
         <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
         <Text type="caption" color="gray4" bold textAlign="left">
           {cell.row.original.categoria_arena}
         </Text>
-        {/* <InformationIcon
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname={cell.row.original.apelido}
-          data-gtm-name="icone de informação do fundo"
-          onClick={() => {
-            dispatch(GetInvestmentDetailsRequest(cell.row.original.id_fundo))
-            column.toggleModal(!column.isModalOpen)
-          }}
-        /> */}
       </FundoWrapper>
     </FundoOutterWrapper>
   )
@@ -77,17 +63,13 @@ const FormatEnabledCell = (column, idGoal) => (
         Investir
       </ConquistaButton>
     ) : (
-      <PopoverCustom
-        trigger="click"
-        content={() => (
-          <Text type="body" color="gray4">
-            Fundo fechado para movimentações
-          </Text>
-        )}
+      <CustomPopover
+        content="Fundo fechado para aplicações"
         placement="left"
+        tooltip
       >
         <LockIcon />
-      </PopoverCustom>
+      </CustomPopover>
     )}
   </WrapperContent>
 )
