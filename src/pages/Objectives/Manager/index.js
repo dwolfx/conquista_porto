@@ -181,7 +181,6 @@ export default function Manager({ location }) {
                 >
                   EXCLUIR OBJETIVO
                 </ButtonLink>
-                  {console.log('--- otherGoalsManagement: ', otherGoalsManagement)}
                 {otherGoalsManagement[1] && (
                   <OtherGoals otherGoals={otherGoalsManagement} />
                 )}
