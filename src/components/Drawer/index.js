@@ -10,6 +10,7 @@ import {
   DrawerOverlay,
   DrawerTitle,
   DrawerWrapper,
+  DrawerContent,
 } from './styles'
 
 const Drawer = ({
@@ -19,11 +20,18 @@ const Drawer = ({
   isOpen,
   drawerTitle,
   positionDrawer,
+  width,
   ...rest
 }) =>
   ReactDOM.createPortal(
-    <DrawerOverlay isOpen={isOpen} positionDrawer={positionDrawer} {...rest}>
-      <DrawerWrapper>
+    <DrawerWrapper>
+      <DrawerOverlay isOpen={isOpen} onClick={handleClose} />
+      <DrawerContent
+        width={width}
+        positionDrawer={positionDrawer}
+        isOpen={isOpen}
+        {...rest}
+      >
         <DrawerHeader>
           <DrawerTitle>{drawerTitle}</DrawerTitle>
           <CloseButton
@@ -36,8 +44,8 @@ const Drawer = ({
         </DrawerHeader>
         <DrawerBody>{children}</DrawerBody>
         {footer && <DrawerFooter>{footer}</DrawerFooter>}
-      </DrawerWrapper>
-    </DrawerOverlay>,
+      </DrawerContent>
+    </DrawerWrapper>,
     document.querySelector('#root')
   )
 
@@ -45,6 +53,7 @@ Drawer.defaultProps = {
   drawerTitle: '',
   footer: null,
   positionDrawer: 'right',
+  width: '390px',
 }
 
 Drawer.propTypes = {
@@ -54,6 +63,7 @@ Drawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   drawerTitle: PropTypes.string,
   positionDrawer: PropTypes.string,
+  width: PropTypes.string,
 }
 
 export default Drawer

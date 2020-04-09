@@ -35,21 +35,29 @@ export const DrawerHeader = styled.div`
 export const DrawerTitle = styled.h3`
   ${props => props.theme.fontTypes.heading4}
   color: ${props => props.theme.colors.gray6};
-  font-weight: bold;
+  font-weight: normal;
 `
 
-export const DrawerWrapper = styled.div`
+export const DrawerContent = styled.div`
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 390px;
   overflow: hidden;
   padding: 14px;
   position: absolute;
   transition: all ease 0.5s;
+  width: ${props => props.width};
+  ${props => ({
+    [props.positionDrawer]: props.isOpen ? '0' : '-100%',
+  })}
+`
+
+export const DrawerWrapper = styled.div`
   width: 100%;
+  height: 100%;
+  z-index: 20;
 `
 
 export const DrawerOverlay = styled.div`
@@ -62,11 +70,4 @@ export const DrawerOverlay = styled.div`
   opacity: ${props => (props.isOpen ? '1' : '0')};
   left: 0;
   top: 0;
-  z-index: 1;
-
-  ${DrawerWrapper} {
-    ${props => ({
-      [props.positionDrawer]: props.isOpen ? '0' : '-100%',
-    })}
-  }
 `
