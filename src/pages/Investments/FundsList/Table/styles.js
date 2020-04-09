@@ -79,9 +79,10 @@ export const TheadTh2 = styled.th`
   line-height: 15px;
   position: relative;
   height: 100%;
-  margin-right: 21px;
-  &:first-child {
-    margin-left: 21px;
+  margin-left: 21px;
+  padding-right: 14px
+  &:last-child {
+    margin-right: 21px;
   }
 `
 // Outro componente usa o wrapper content - Mudar de nome
@@ -89,7 +90,7 @@ export const WrapperContent2 = styled.div`
   white-space: pre-wrap;
   height: inherit;
   display: flex;
-  justify-content: ${props => props.align || 'center'};
+  justify-content: ${props => props.justifyHeader || 'center'};
   align-items: center;
   ${props =>
     props.isTbody &&
@@ -144,7 +145,7 @@ export const TheadText = styled.span`
     background-position: ${props =>
       props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
     position: absolute;
-    margin-left: 20px;
+    margin-left: 10px;
     top: 19px;
     width: 10px;
     height: 17px;
@@ -156,11 +157,18 @@ export const TheadColumn = styled.div`
   width: ${props => props.width};
 `
 
-export const Tbody = styled.tbody``
+export const Tbody = styled.tbody`
+  border: 1px solid ${props => props.theme.colors.gray2};
+  width: 1240px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 401px;
+  display: block;
+`
 
 export const TbodyTr = styled.tr`
   background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray2};
   color: ${props => props.theme.colors.gray5};
   font-weight: normal;
   padding: 3px 0 3px 3px;
@@ -175,6 +183,15 @@ export const TbodyTd = styled.td`
   font-size: 14px;
   padding: 0;
   text-align: center;
+  margin-left: 21px;
+  text-align: ${props => props.align || 'center'};
+
+  &:last-child {
+    margin-right: 21px;
+  }
+  &:first-child {
+    margin-left: 0px;
+  }
 
   // &:not(:first-of-type) {
   //   border-left: 1px solid ${props => props.theme.colors.gray3};

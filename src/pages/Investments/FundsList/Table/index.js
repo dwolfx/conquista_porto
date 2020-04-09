@@ -24,12 +24,12 @@ const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
   return (
     <TheadTh2
-      width={header.width}
+      width={header.widthHeader || header.width}
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
       <WrapperContent2
-        align={header.align}
+        justifyHeader={header.justifyHeader}
         data-gtm-type="click"
         data-gtm-clicktype="menu"
         data-gtm-subname="menu de ordenação dos fundos"
@@ -158,6 +158,7 @@ export default function TableFunds({ data, columns: columnsProps, idGoal }) {
                     <TbodyTd
                       borderRisk={cell.row.original.perfil_risco_ordem}
                       width={cell.column.width}
+                      align={cell.column.align}
                       {...cell.getCellProps()}
                     >
                       {cell.render('Cell')}
@@ -201,12 +202,15 @@ HeaderWithColumns.propTypes = {
 SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
     render: PropTypes.func.isRequired,
     isSorted: PropTypes.bool.isRequired,
     isSortedDesc: PropTypes.bool,
     getSortByToggleProps: PropTypes.func.isRequired,
     getHeaderProps: PropTypes.func.isRequired,
     canSort: PropTypes.bool.isRequired,
+    justifyHeader: PropTypes.string,
     align: PropTypes.string,
   }).isRequired,
 }

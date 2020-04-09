@@ -52,18 +52,21 @@ export const columns2 = [
   {
     Header: 'TÍTULO',
     accessor: 'fundo',
-    width: '221px',
-    align: 'flex-start',
+    width: '242px',
+    widthHeader: '221px',
+    justifyHeader: 'flex-start',
   },
   {
     Header: 'APLIC. MIN.',
     accessor: 'minimo_inicial',
     width: '105px',
+    align: 'right',
   },
   {
     Header: 'RESGATE (COT.)',
     accessor: 'resgate_cotizacao',
     width: '130px',
+    align: 'right',
   },
   {
     Header: 'TAXA ADM. (a.a.)',
