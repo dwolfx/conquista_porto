@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Icon from 'components/IconExporter'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 export const GridContainer = styled(Container)`
@@ -19,4 +20,9 @@ export const ContentWrapper = styled(Row)``
 
 export const DropdownWrapper = styled(Col)`
   z-index: 1;
+`
+
+export const StyledIcon = styled(Icon)`
+  width: 21px;
+  height: 21px;
 `
