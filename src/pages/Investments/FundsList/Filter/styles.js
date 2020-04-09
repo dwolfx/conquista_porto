@@ -4,6 +4,10 @@ import ButtonTag from 'components/Button/Tag'
 
 export const ButtonTagStyled = styled(ButtonTag)``
 
+export const FilterRowContent = styled(Row)`
+  margin: 0px 7px 21px;
+`
+
 export const RowFilterByType = styled(Row)`
   ${ButtonTagStyled} {
     margin-right: 7px;

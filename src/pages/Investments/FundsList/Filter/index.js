@@ -9,17 +9,18 @@ import ButtonLink from 'components/Button/Link'
 import {
   RowFilterByType,
   ButtonTagStyled,
+  FilterRowContent,
   SquareRiskContainer,
   SquareRiskLevel,
   Divisor,
 } from './styles'
 
 const FILTER_TYPES = {
-  1: 'renda variável',
-  2: 'cambial',
-  3: 'multimercado',
+  1: 'renda fixa',
+  2: 'multimercado',
+  3: 'renda variável',
   4: 'investimento no exterior',
-  5: 'renda fixa',
+  5: 'cambial',
 }
 
 const FILTER_RISKS = {
@@ -48,7 +49,7 @@ export default function Filter({ filter, onChangeFilter }) {
   }
 
   return (
-    <Row alignItems="center" justifyContent="between">
+    <FilterRowContent alignItems="center" justifyContent="between">
       <RowFilterByType>
         <ButtonTagStyled
           color={filter.byCategoriaArena === FILTER_TYPES[1] ? 'primary' : ''}
@@ -164,7 +165,7 @@ export default function Filter({ filter, onChangeFilter }) {
           limpar filtros
         </ButtonLink>
       </Row>
-    </Row>
+    </FilterRowContent>
   )
 }
 

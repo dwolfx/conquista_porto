@@ -37,7 +37,7 @@ export const WrapperContent = styled.div`
 export const TableWrapper = styled.div`
   overflow-x: auto;
   white-space: nowrap;
-  height: 490px;
+  height: auto;
 `
 
 export const Table = styled.table`
@@ -45,29 +45,17 @@ export const Table = styled.table`
   // margin: 3rem auto 0;
 `
 
-export const Thead = styled.thead`
-  &.sticky {
-    position: fixed;
-    top: 73px;
-    z-index: 1;
-  }
-`
 // #### TODO
 export const Thead2 = styled.thead`
-  width: 1240px;
-  &.sticky {
-    position: fixed;
-    top: 73px;
-    z-index: 1;
-  }
+  width: 1238px;
 `
 export const TheadTr2 = styled.tr`
   display: block;
   padding: 0px 6px;
   height: 56px;
   background-color: ${props => props.theme.colors.gray1};
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   border: 1px solid ${props => props.theme.colors.gray2};
 `
 
@@ -105,7 +93,9 @@ export const TheadTr = styled.tr`
 `
 
 const getArrowPosition = isSortedDesc =>
-  isSortedDesc ? 'right -5px' : 'right 5px'
+  isSortedDesc ? 'right -8px' : 'right 8px'
+
+const getArrowTop = isSortedDesc => (isSortedDesc ? '23px' : '16px')
 
 export const TheadTh = styled.th`
   border: 1px solid ${props => props.theme.colors.gray3};
@@ -146,7 +136,8 @@ export const TheadText = styled.span`
       props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
     position: absolute;
     margin-left: 10px;
-    top: 19px;
+    top: ${props =>
+      props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
     width: 10px;
     height: 17px;
   }
@@ -159,7 +150,7 @@ export const TheadColumn = styled.div`
 
 export const Tbody = styled.tbody`
   border: 1px solid ${props => props.theme.colors.gray2};
-  width: 1240px;
+  width: 1238px;
   overflow-y: auto;
   overflow-x: hidden;
   height: 401px;
@@ -172,9 +163,7 @@ export const TbodyTr = styled.tr`
   color: ${props => props.theme.colors.gray5};
   font-weight: normal;
   padding: 3px 0 3px 3px;
-  // border-radius: 4px;
   display: block;
-  // margin-top: 1rem;
   width: 100%;
 `
 
@@ -192,15 +181,6 @@ export const TbodyTd = styled.td`
   &:first-child {
     margin-left: 0px;
   }
-
-  // &:not(:first-of-type) {
-  //   border-left: 1px solid ${props => props.theme.colors.gray3};
-  // }
-
-  // :first-of-type {
-  //   border-left: 10px solid
-  //     ${props => riskColorsMap[parseInt(props.borderRisk, 10)]};
-  // }
 `
 
 export const RiskColorTag = styled.div`

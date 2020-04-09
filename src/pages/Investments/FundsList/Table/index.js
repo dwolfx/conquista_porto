@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useMemo, useRef } from 'react'
+import React, { useState, useMemo } from 'react'
 import { useTable, useSortBy } from 'react-table'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
@@ -87,35 +87,7 @@ const TheadWrapper = ({ header }) =>
   )
 
 export default function TableFunds({ data, columns: columnsProps, idGoal }) {
-  const [theadY, setTheadY] = useState(0)
-  const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
-  const tableWrapperRef = useRef(null)
-  const tableRef = useRef(null)
-  const theadRef = useRef(null)
-
-  useLayoutEffect(() => {
-    setTheadY(window.scrollY + tableRef.current.getBoundingClientRect().y)
-  }, [setTheadY])
-
-  useLayoutEffect(() => {
-    const getScrollY = () => window.scrollY
-    const shouldSticky = scrollY => {
-      const { current: table } = tableRef
-      const { current: thead } = theadRef
-      const hasMinimumRows = data.length > 3
-      const isTheadInvisible = theadY - thead.offsetHeight < scrollY
-      const isEndOfTable = table.offsetHeight + 140 < scrollY
-      return hasMinimumRows && isTheadInvisible && !isEndOfTable
-    }
-
-    const handleScroll = () => setStickyThead(shouldSticky(getScrollY()))
-
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [theadY, data])
 
   const {
     getTableProps,
@@ -136,9 +108,9 @@ export default function TableFunds({ data, columns: columnsProps, idGoal }) {
   )
   return (
     <>
-      <TableWrapper ref={tableWrapperRef}>
-        <Table ref={tableRef} {...getTableProps()}>
-          <Thead2 ref={theadRef} className={stickyThead && `sticky`}>
+      <TableWrapper>
+        <Table {...getTableProps()}>
+          <Thead2>
             <TheadTr2>
               {columns.map(header => (
                 <TheadWrapper
@@ -178,8 +150,6 @@ TableFunds.propTypes = {
   data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
   fundsType: PropTypes.array.isRequired,
-  setSelectedType: PropTypes.func.isRequired,
-  selectedType: PropTypes.string.isRequired,
   idGoal: PropTypes.number,
 }
 
