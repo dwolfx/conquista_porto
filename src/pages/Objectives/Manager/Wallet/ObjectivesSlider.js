@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Slider from 'components/Slider'
+import useMedia from 'hooks/useMedia'
 
 import { getColorGuide, handleValueFund } from './utils'
 
@@ -13,6 +14,8 @@ export default function ObjectivesSlider({
   fundListCopy,
   setFundListCopy,
 }) {
+  const isMobile = useMedia('sm')
+
   return (
     <ObjectivesBar>
       {fund.goals.map((goal, key) => {
@@ -45,7 +48,7 @@ export default function ObjectivesSlider({
             setFundListCopy
           )
         }}
-        showTooltip={false}
+        showTooltip={!isMobile}
         showThumb={fund.available !== 0 || fund.invested !== 0}
       />
     </ObjectivesBar>

@@ -22,11 +22,11 @@ export default function FundAccordionHeader({
 
   const isMobile = useMedia('sm')
   useEffect(() => {
-    setFundAvailable(
-      fund.available +
-        fund.invested -
-        fundListCopy.filter(item => item.id === fund.id)[0].invested
-    )
+    const fundCopyFiltered = fundListCopy.filter(
+      item => item.id === fund.id
+    )[0] || { invested: 0 }
+
+    setFundAvailable(fund.available + fund.invested - fundCopyFiltered.invested)
   }, [fund.available, fund.id, fund.invested, fundListCopy])
 
   const sumGoalsValue = fund.goals.reduce(
