@@ -50,6 +50,7 @@ export default function Manager({ location }) {
     isLoading,
     isLoadingDelete,
     otherGoalsManagement,
+    isLoadingOtherGoals,
   } = useSelector(state => state.objectiveManagement)
   const isMobile = useMedia('sm')
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
@@ -166,6 +167,9 @@ export default function Manager({ location }) {
                 alignItems={isMobile ? 'center' : 'start'}
                 justifyContent={isMobile ? 'center' : 'space-between'}
                 width="100%"
+                css={`
+                  margin-right: 0;
+                `}
               >
                 {isMobile ? (
                   <HorizontalLine color="gray2" margin="28px 0" />
@@ -181,7 +185,8 @@ export default function Manager({ location }) {
                 >
                   EXCLUIR OBJETIVO
                 </ButtonLink>
-                {otherGoalsManagement[1] && (
+                {Object.entries(otherGoalsManagement).length > 1 &&
+                  !isLoadingOtherGoals && (
                   <OtherGoals otherGoals={otherGoalsManagement} />
                 )}
               </FlexContainer>

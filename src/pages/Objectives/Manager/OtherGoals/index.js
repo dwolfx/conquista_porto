@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
+import 'styled-components/macro'
+
 import DropDown from 'components/DropdownNew'
 import { categoryGoals } from 'pages/Objectives/GoalStreams/goalTypes'
 
@@ -41,6 +43,9 @@ export default function OtherGoals({ otherGoals }) {
         data-gtm-clicktype="sub-menu"
         data-gtm-subname="header"
         data-gtm-name="outros-objetivos"
+        css={`
+          padding-right: 0;
+        `}
       />
     </DropDown>
   )
