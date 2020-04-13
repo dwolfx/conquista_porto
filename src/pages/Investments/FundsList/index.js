@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
@@ -15,6 +16,10 @@ import ListFunds from './List'
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 
 export default function FundsList() {
+  const fundsStatus = useSelector(state => ({
+    isLoading: state.investmentsList.isLoading,
+    isError: state.investmentsList.isError,
+  }))
   useFetchInvestmentsList()
 
   const { state: locationState } = useLocation()
@@ -46,6 +51,8 @@ export default function FundsList() {
                 columns={columns}
                 data={filteredFundsList}
                 fundsType={fundsType}
+                isLoading={fundsStatus.isLoading}
+                isError={fundsStatus.isError}
                 idGoal={(locationState || {}).idGoal}
               />
             )}

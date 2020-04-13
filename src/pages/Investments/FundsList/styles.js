@@ -12,6 +12,7 @@ export const TableContent = styled.div`
   width: 100%;
   padding: 21px;
   margin-top: 14px;
+  height: auto;
 `
 
 export const ContentWrapper = styled(Row)``

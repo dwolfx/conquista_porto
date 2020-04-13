@@ -4,18 +4,17 @@ import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import FormatColumns from './formatters'
+import TableBody from './TableBody'
 
 import {
   Table,
-  Thead2,
-  TheadTr2,
-  TheadTh2,
+  Thead,
+  TheadTr,
+  TheadTh,
   TheadThWithColumns,
   TheadColumn,
   Tbody,
-  TbodyTr,
-  TbodyTd,
-  WrapperContent2,
+  TheadContent,
   TableWrapper,
   TheadText,
 } from './styles'
@@ -23,12 +22,12 @@ import {
 const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
   return (
-    <TheadTh2
+    <TheadTh
       width={header.widthHeader || header.width}
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
-      <WrapperContent2
+      <TheadContent
         justifyHeader={header.justifyHeader}
         data-gtm-type="click"
         data-gtm-clicktype="menu"
@@ -46,15 +45,15 @@ const SimpleHeader = ({ header }) => {
             {headerContent}
           </TheadText>
         )}
-      </WrapperContent2>
-    </TheadTh2>
+      </TheadContent>
+    </TheadTh>
   )
 }
 
 const HeaderWithColumns = ({ header }) => (
   <TheadThWithColumns width={header.width}>
     {header.Header}
-    <WrapperContent2>
+    <TheadContent>
       {header.columns.map(headerColumn => (
         <TheadColumn
           data-gtm-type="click"
@@ -75,7 +74,7 @@ const HeaderWithColumns = ({ header }) => (
           </TheadText>
         </TheadColumn>
       ))}
-    </WrapperContent2>
+    </TheadContent>
   </TheadThWithColumns>
 )
 
@@ -86,7 +85,13 @@ const TheadWrapper = ({ header }) =>
     <SimpleHeader header={header} />
   )
 
-export default function TableFunds({ data, columns: columnsProps, idGoal }) {
+export default function TableFunds({
+  data,
+  isLoading,
+  isError,
+  columns: columnsProps,
+  idGoal,
+}) {
   const [isModalOpen, toggleModal] = useState(false)
 
   const {
@@ -110,35 +115,23 @@ export default function TableFunds({ data, columns: columnsProps, idGoal }) {
     <>
       <TableWrapper>
         <Table {...getTableProps()}>
-          <Thead2>
-            <TheadTr2>
+          <Thead>
+            <TheadTr>
               {columns.map(header => (
                 <TheadWrapper
                   key={`header-with-column-${header.Header}`}
                   header={header}
                 />
               ))}
-            </TheadTr2>
-          </Thead2>
+            </TheadTr>
+          </Thead>
           <Tbody {...getTableBodyProps()}>
-            {rows.map(row => {
-              prepareRow(row)
-
-              return (
-                <TbodyTr {...row.getRowProps()}>
-                  {row.cells.map(cell => (
-                    <TbodyTd
-                      borderRisk={cell.row.original.perfil_risco_ordem}
-                      width={cell.column.width}
-                      align={cell.column.align}
-                      {...cell.getCellProps()}
-                    >
-                      {cell.render('Cell')}
-                    </TbodyTd>
-                  ))}
-                </TbodyTr>
-              )
-            })}
+            <TableBody
+              rows={rows}
+              isLoading={isLoading}
+              prepareRow={prepareRow}
+              isError={isError}
+            />
           </Tbody>
         </Table>
       </TableWrapper>
@@ -149,6 +142,8 @@ export default function TableFunds({ data, columns: columnsProps, idGoal }) {
 TableFunds.propTypes = {
   data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
   fundsType: PropTypes.array.isRequired,
   idGoal: PropTypes.number,
 }

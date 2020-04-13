@@ -34,6 +34,20 @@ export const WrapperContent = styled.div`
     `}
 `
 
+export const InfoTableContent = styled.tr`
+  margin: auto;
+  width: 428px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 35px;
+  white-space: pre-line;
+  text-align: center;
+`
+
 export const TableWrapper = styled.div`
   overflow-x: auto;
   white-space: nowrap;
@@ -42,14 +56,15 @@ export const TableWrapper = styled.div`
 
 export const Table = styled.table`
   border-collapse: collapse;
+  height: 69vh;
   // margin: 3rem auto 0;
 `
 
 // #### TODO
-export const Thead2 = styled.thead`
+export const Thead = styled.thead`
   width: 1238px;
 `
-export const TheadTr2 = styled.tr`
+export const TheadTr = styled.tr`
   display: block;
   padding: 0px 6px;
   height: 56px;
@@ -59,7 +74,7 @@ export const TheadTr2 = styled.tr`
   border: 1px solid ${props => props.theme.colors.gray2};
 `
 
-export const TheadTh2 = styled.th`
+export const TheadTh = styled.th`
   cursor: ${props => (props.canSort ? 'pointer' : 'default')};
   display: inline-block;
   font-size: 11px;
@@ -73,8 +88,8 @@ export const TheadTh2 = styled.th`
     margin-right: 21px;
   }
 `
-// Outro componente usa o wrapper content - Mudar de nome
-export const WrapperContent2 = styled.div`
+
+export const TheadContent = styled.div`
   white-space: pre-wrap;
   height: inherit;
   display: flex;
@@ -87,28 +102,11 @@ export const WrapperContent2 = styled.div`
       padding: 30px 0;
     `};
 `
-export const TheadTr = styled.tr`
-  background-color: ${props => props.theme.colors.gray4};
-  display: block;
-`
 
 const getArrowPosition = isSortedDesc =>
   isSortedDesc ? 'right -8px' : 'right 8px'
 
 const getArrowTop = isSortedDesc => (isSortedDesc ? '23px' : '16px')
-
-export const TheadTh = styled.th`
-  border: 1px solid ${props => props.theme.colors.gray3};
-  color: ${props => props.theme.colors.gray6};
-  cursor: ${props => (props.canSort ? 'pointer' : 'default')};
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 1px;
-  line-height: 14px;
-  padding: 0 13px;
-  height: 70px;
-  position: relative;
-`
 
 export const TheadThWithColumns = styled(TheadTh)`
   padding: 12px 0 0;
@@ -153,7 +151,7 @@ export const Tbody = styled.tbody`
   width: 1238px;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 401px;
+  height: 100%;
   display: block;
 `
 
