@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
@@ -22,16 +22,26 @@ const Drawer = ({
   positionDrawer,
   width,
   ...rest
-}) =>
-  ReactDOM.createPortal(
+}) => {
+  useEffect(() => {
+    const body = document.querySelector('body')
+    const html = document.querySelector('html')
+    if (isOpen) {
+      body.style.overflow = 'hidden'
+      html.style.overflowY = 'hidden'
+    }
+
+    function handleOverflow() {
+      body.style.overflow = 'visible'
+      html.style.overflowY = 'visible'
+    }
+    return () => handleOverflow()
+  }, [isOpen])
+
+  return ReactDOM.createPortal(
     <DrawerWrapper>
       <DrawerOverlay isOpen={isOpen} onClick={handleClose} />
-      <DrawerContent
-        width={width}
-        positionDrawer={positionDrawer}
-        isOpen={isOpen}
-        {...rest}
-      >
+      <DrawerContent positionDrawer={positionDrawer} isOpen={isOpen} {...rest}>
         <DrawerHeader>
           <DrawerTitle>{drawerTitle}</DrawerTitle>
           <CloseButton
@@ -48,6 +58,7 @@ const Drawer = ({
     </DrawerWrapper>,
     document.querySelector('#root')
   )
+}
 
 Drawer.defaultProps = {
   drawerTitle: '',
