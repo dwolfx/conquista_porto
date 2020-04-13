@@ -69,8 +69,8 @@ export const Taxation = ({ fund }) => {
       </Ul>
       <TaxationInfo>
         <Text>
-          Haverá incidência de iof regressivo caso ocorram resgates antes de 30
-          dias corridos da data da aplicação.
+          Haverá incidência de iof regressivo caso ocorram resgates
+          <br /> antes de 30 dias corridos da data da aplicação.
         </Text>
       </TaxationInfo>
     </TaxationWrapper>

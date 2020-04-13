@@ -62,8 +62,10 @@ export const LiValue = styled(TextComponent)`
 export const TaxationInfo = styled.div`
   background-color: ${props => props.theme.colors.gray2};
   border-radius: 8px;
+  height: 70px;
+  width: 100%;
   margin-top: 28px;
-  padding: 20px 81px;
+  padding: 21px 21px 0;
   text-align: center;
 `
 
