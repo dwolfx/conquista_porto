@@ -445,14 +445,14 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo gZnpKv sc-gipzik bHOClg"
+              className="sc-hSdWYo cZSEiF sc-gipzik bHOClg"
               color="unset"
               type="subheading"
             >
               Informativo de desempenho
             </p>
             <a
-              className="sc-bdVaJa jcJyHx"
+              className="sc-bdVaJa jGIpiP"
               data-gtm-clicktype="link"
               data-gtm-name="baixar arquivo"
               data-gtm-subname="informativo de desempenho"
@@ -482,14 +482,14 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo gZnpKv sc-gipzik bHOClg"
+              className="sc-hSdWYo cZSEiF sc-gipzik bHOClg"
               color="unset"
               type="subheading"
             >
               REGULAMENTO DO FUNDO
             </p>
             <a
-              className="sc-bdVaJa jcJyHx"
+              className="sc-bdVaJa jGIpiP"
               data-gtm-clicktype="link"
               data-gtm-name="baixar arquivo"
               data-gtm-subname="regulamento do fundo"
