@@ -14,7 +14,11 @@ const Detail = ({ title, isOpen, handleClose }) => (
     handleClose={handleClose}
     footer={footerDrawer()}
   >
-    <Tabs name="tab-detalhe" initialValue="tab-detalhe-fundo">
+    <Tabs
+      name="tab-detalhe"
+      initialValue="tab-detalhe-fundo"
+      initialReset={!isOpen}
+    >
       <TabList>
         <Tab
           name="tab-detalhe-fundo"
