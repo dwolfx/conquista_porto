@@ -1,5 +1,6 @@
 import CloseIcon from 'assets/icons/close.svg'
 import styled from 'styled-components'
+import Text from 'components/Text'
 
 export const CloseButton = styled.div`
   background-color: ${props => props.theme.colors.gray4};
@@ -32,10 +33,8 @@ export const DrawerHeader = styled.div`
   padding: 10px 14px 14px;
 `
 
-export const DrawerTitle = styled.h3`
-  ${props => props.theme.fontTypes.heading4}
+export const DrawerTitle = styled(Text).attrs(() => ({ type: 'heading4' }))`
   color: ${props => props.theme.colors.gray6};
-  font-weight: normal;
 `
 
 export const DrawerContent = styled.div`

@@ -20,7 +20,6 @@ const Drawer = ({
   isOpen,
   drawerTitle,
   positionDrawer,
-  width,
   ...rest
 }) => {
   useEffect(() => {
