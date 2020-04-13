@@ -53,7 +53,6 @@ Drawer.defaultProps = {
   drawerTitle: '',
   footer: null,
   positionDrawer: 'right',
-  width: '390px',
 }
 
 Drawer.propTypes = {
@@ -63,7 +62,6 @@ Drawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   drawerTitle: PropTypes.string,
   positionDrawer: PropTypes.string,
-  width: PropTypes.string,
 }
 
 export default Drawer

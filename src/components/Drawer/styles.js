@@ -48,10 +48,15 @@ export const DrawerContent = styled.div`
   padding: 14px;
   position: absolute;
   transition: all ease 0.5s;
-  width: ${props => props.width};
+  min-width: 390px;
+  max-width: 650px;
   ${props => ({
     [props.positionDrawer]: props.isOpen ? '0' : '-100%',
   })}
+
+  @media ${props => props.theme.mediaQueries.md} {
+    max-width: 100%;
+  }
 `
 
 export const DrawerWrapper = styled.div`
