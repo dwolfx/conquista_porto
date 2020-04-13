@@ -1,0 +1,22 @@
+import styled from 'styled-components'
+
+import Icon from 'components/IconExporter'
+import VerticalList from 'components/VerticalList'
+
+export const InformationContainer = styled.div`
+  margin-bottom: 7px;
+`
+
+export const StyledIcon = styled(Icon)`
+  width: 21px;
+  height: 21px;
+`
+
+export const VerticalListStyled = styled(VerticalList)`
+  margin-bottom: 14px;
+  width: ${props => props.width};
+`
+
+export const FileContainer = styled.div`
+  margin-top: 28px;
+`
