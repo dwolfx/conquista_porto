@@ -10,6 +10,7 @@ import Loading from 'components/Loading'
 
 import FormatColumns from './formatters'
 import Tabs from './Tabs'
+import Detail from '../Detail'
 
 import {
   Table,
@@ -103,6 +104,8 @@ export default function TableFunds({
   const [theadY, setTheadY] = useState(0)
   const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
+  const [openDetail, setOpenDetail] = useState(false)
+
   const { data: fundDetails, isLoading } = useSelector(
     state => state.investmentDetails
   )
@@ -159,6 +162,14 @@ export default function TableFunds({
 
   return (
     <>
+      <Detail
+        isOpen={openDetail}
+        handleClose={() => setOpenDetail(false)}
+        title="Porto Seguro FI RF Ref. DI CP"
+      />
+      <button type="button" onClick={() => setOpenDetail(true)}>
+        Exibir Detalhe
+      </button>
       <Modal
         headerIcon="information"
         handleClose={isOpen => toggleModal(!isOpen)}
