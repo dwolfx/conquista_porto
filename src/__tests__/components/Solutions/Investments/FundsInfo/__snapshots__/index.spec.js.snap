@@ -21,19 +21,19 @@ exports[`FundsInfo renders correctly 1`] = `
       Menor risco
     </label>
     <div
-      className="sc-iAyFgw cBGHIw"
+      className="sc-iAyFgw cvmSxV"
     />
     <div
-      className="sc-iAyFgw clkcll"
+      className="sc-iAyFgw fFvnvk"
     />
     <div
-      className="sc-iAyFgw dEJOjS"
+      className="sc-iAyFgw juoEUV"
     />
     <div
-      className="sc-iAyFgw hsAdED"
+      className="sc-iAyFgw bLXKeP"
     />
     <div
-      className="sc-iAyFgw fIfQpt active"
+      className="sc-iAyFgw jZiMdg active"
     />
     <label>
       Maior risco

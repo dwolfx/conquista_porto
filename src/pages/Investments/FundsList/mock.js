@@ -1,61 +1,47 @@
 export const columns = [
   {
-    Header: 'FUNDO',
+    Header: 'TÍTULO',
     accessor: 'fundo',
-    width: '400px',
+    width: '241px',
+    widthHeader: '221px',
+    justifyHeader: 'flex-start',
   },
   {
-    Header: 'APLICAÇÃO MIN. (R$)',
+    Header: 'APLIC. MIN.',
     accessor: 'minimo_inicial',
-    width: '110px',
+    width: '105px',
+    align: 'right',
   },
   {
-    Header: 'RESGATE',
-    width: '236px',
-    columns: [
-      {
-        Header: 'COTIZAÇÃO',
-        accessor: 'resgate_cotizacao',
-        width: '118px',
-      },
-      {
-        Header: 'LIQUIDAÇÃO',
-        accessor: 'resgate_financeiro',
-        width: '118px',
-      },
-    ],
+    Header: 'RESGATE (COT.)',
+    accessor: 'resgate_cotizacao',
+    width: '130px',
+    align: 'right',
   },
   {
-    Header: 'TAXA ADM. (% a.a.)',
+    Header: 'TAXA ADM. (a.a.)',
     accessor: 'taxa_administracao',
-    width: '110px',
+    width: '139px',
   },
   {
-    Header: 'RENTABILIDADE (%)',
-    accessor: 'rentabilidade',
-    width: '273px',
-    columns: [
-      {
-        Header: 'MÊS',
-        accessor: 'rentabil_fundo_mes',
-        width: '91px',
-      },
-      {
-        Header: 'ANO',
-        accessor: 'rentabil_fundo_ano',
-        width: '91px',
-      },
-      {
-        Header: 'ÚLT. 12M',
-        accessor: 'rentabil_fundo_12_meses',
-        width: '91px',
-      },
-    ],
+    Header: 'RENT. MÊS',
+    accessor: 'rentabil_fundo_mes',
+    width: '97px',
+  },
+  {
+    Header: 'RENT. ANO',
+    accessor: 'rentabil_fundo_ano',
+    width: '99px',
+  },
+  {
+    Header: 'RENT. ÚLT. 12M',
+    accessor: 'rentabil_fundo_12_meses',
+    width: '130px',
   },
   {
     Header: '',
     accessor: 'is_fundo_ativo',
-    width: '120px',
+    width: '114px',
   },
 ]
 

@@ -8,7 +8,11 @@ const arrowDirection = {
     `,
     pseudo: css`
       border-color: ${props =>
-        `${props.theme.colors.white} transparent transparent ${props.theme.colors.white}`};
+        `${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        } transparent transparent ${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        }`};
       top: 9px;
       left: calc(50% - 5px);
     `,
@@ -20,7 +24,11 @@ const arrowDirection = {
     `,
     pseudo: css`
       border-color: ${props =>
-        `${props.theme.colors.white} ${props.theme.colors.white} transparent transparent`};
+        `${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        } ${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        } transparent transparent`};
       top: 1px;
       left: -5px;
     `,
@@ -32,7 +40,11 @@ const arrowDirection = {
     `,
     pseudo: css`
       border-color: ${props =>
-        `transparent transparent ${props.theme.colors.white} ${props.theme.colors.white}`};
+        `transparent transparent ${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        } ${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        }`};
       top: 1px;
       right: -5px;
     `,
@@ -44,7 +56,11 @@ const arrowDirection = {
     `,
     pseudo: css`
       border-color: ${props =>
-        `transparent ${props.theme.colors.white} ${props.theme.colors.white} transparent`};
+        `transparent ${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        } ${
+          props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
+        } transparent`};
       top: -5px;
       left: calc(50% - 5px);
     `,
@@ -58,6 +74,13 @@ export const PopoverContainer = styled.div`
   padding: 14px;
   position: relative;
   z-index: 9;
+`
+
+export const Tooltip = styled(PopoverContainer)`
+  background-color: ${props => props.theme.colors.gray6};
+  color: ${props => props.theme.colors.white};
+  opacity: 0.84;
+  padding: 4.5px 7px;
 `
 
 export const Arrow = styled.div`

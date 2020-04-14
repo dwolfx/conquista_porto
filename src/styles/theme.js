@@ -35,11 +35,11 @@ export const shadows = {
 }
 
 export const fundRiskColors = {
-  lowRisk: '#555861',
-  lowMediumRisk: '#33BFFF',
-  mediumRisk: '#3CC225',
-  mediumHighRisk: '#FDA529',
-  highRisk: '#D0011B',
+  lowRisk: themeColors.darkBlue2,
+  lowMediumRisk: themeColors.blue4,
+  mediumRisk: themeColors.green3,
+  mediumHighRisk: themeColors.yellow2,
+  highRisk: themeColors.magenta2,
 }
 
 export const fundRiskColorsNew = {

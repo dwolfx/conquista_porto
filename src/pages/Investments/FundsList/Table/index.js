@@ -1,16 +1,10 @@
-import React, { useState, useLayoutEffect, useMemo, useRef } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useMemo } from 'react'
 import { useTable, useSortBy } from 'react-table'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
-import Modal from 'components/Modal/ModalNew'
-import FundsInfo from 'components/Solutions/Investments/FundsInfo'
-import Loading from 'components/Loading'
-
 import FormatColumns from './formatters'
-import Tabs from './Tabs'
-import Detail from '../Detail'
+import TableBody from './TableBody'
 
 import {
   Table,
@@ -20,9 +14,7 @@ import {
   TheadThWithColumns,
   TheadColumn,
   Tbody,
-  TbodyTr,
-  TbodyTd,
-  WrapperContent,
+  TheadContent,
   TableWrapper,
   TheadText,
 } from './styles'
@@ -31,17 +23,17 @@ const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
   return (
     <TheadTh
-      width={header.width}
+      width={header.widthHeader || header.width}
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
-      <WrapperContent
+      <TheadContent
+        justifyHeader={header.justifyHeader}
         data-gtm-type="click"
         data-gtm-clicktype="menu"
         data-gtm-subname="menu de ordenação dos fundos"
         data-gtm-name={headerContent}
         lineHeight="16px"
-        isThead
       >
         {headerContent && (
           <TheadText
@@ -53,7 +45,7 @@ const SimpleHeader = ({ header }) => {
             {headerContent}
           </TheadText>
         )}
-      </WrapperContent>
+      </TheadContent>
     </TheadTh>
   )
 }
@@ -61,7 +53,7 @@ const SimpleHeader = ({ header }) => {
 const HeaderWithColumns = ({ header }) => (
   <TheadThWithColumns width={header.width}>
     {header.Header}
-    <WrapperContent>
+    <TheadContent>
       {header.columns.map(headerColumn => (
         <TheadColumn
           data-gtm-type="click"
@@ -82,7 +74,7 @@ const HeaderWithColumns = ({ header }) => (
           </TheadText>
         </TheadColumn>
       ))}
-    </WrapperContent>
+    </TheadContent>
   </TheadThWithColumns>
 )
 
@@ -95,46 +87,12 @@ const TheadWrapper = ({ header }) =>
 
 export default function TableFunds({
   data,
+  isLoading,
+  isError,
   columns: columnsProps,
-  fundsType,
-  setSelectedType,
-  selectedType,
   idGoal,
 }) {
-  const [theadY, setTheadY] = useState(0)
-  const [stickyThead, setStickyThead] = useState(false)
   const [isModalOpen, toggleModal] = useState(false)
-  const [openDetail, setOpenDetail] = useState(false)
-
-  const { data: fundDetails, isLoading } = useSelector(
-    state => state.investmentDetails
-  )
-  const tableWrapperRef = useRef(null)
-  const tableRef = useRef(null)
-  const theadRef = useRef(null)
-
-  useLayoutEffect(() => {
-    setTheadY(window.scrollY + tableRef.current.getBoundingClientRect().y)
-  }, [setTheadY])
-
-  useLayoutEffect(() => {
-    const getScrollY = () => window.scrollY
-    const shouldSticky = scrollY => {
-      const { current: table } = tableRef
-      const { current: thead } = theadRef
-      const hasMinimumRows = data.length > 3
-      const isTheadInvisible = theadY - thead.offsetHeight < scrollY
-      const isEndOfTable = table.offsetHeight + 140 < scrollY
-      return hasMinimumRows && isTheadInvisible && !isEndOfTable
-    }
-
-    const handleScroll = () => setStickyThead(shouldSticky(getScrollY()))
-
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [theadY, data])
 
   const {
     getTableProps,
@@ -153,47 +111,11 @@ export default function TableFunds({
     },
     useSortBy
   )
-
-  const handleTabsChange = selectedValue => {
-    setSelectedType(selectedValue)
-    const { current } = tableWrapperRef
-    current.scrollLeft = 0
-  }
-
   return (
     <>
-      <Detail
-        isOpen={openDetail}
-        handleClose={() => setOpenDetail(false)}
-        title="Porto Seguro FI RF Ref. DI CP"
-      />
-      <button type="button" onClick={() => setOpenDetail(true)}>
-        Exibir Detalhe
-      </button>
-      <Modal
-        headerIcon="information"
-        handleClose={isOpen => toggleModal(!isOpen)}
-        isOpen={isModalOpen}
-        modalTitle="Informações do fundo"
-        alignItems="flex-start"
-        maxWidth="1200px"
-      >
-        <div
-          css={`
-            margin: 0 -28px;
-          `}
-        >
-          {isLoading ? <Loading /> : <FundsInfo fund={fundDetails} />}
-        </div>
-      </Modal>
-      <Tabs
-        options={fundsType}
-        onClick={handleTabsChange}
-        selectedTab={selectedType}
-      />
-      <TableWrapper ref={tableWrapperRef}>
-        <Table ref={tableRef} {...getTableProps()}>
-          <Thead ref={theadRef} className={stickyThead && `sticky`}>
+      <TableWrapper>
+        <Table {...getTableProps()}>
+          <Thead>
             <TheadTr>
               {columns.map(header => (
                 <TheadWrapper
@@ -204,23 +126,12 @@ export default function TableFunds({
             </TheadTr>
           </Thead>
           <Tbody {...getTableBodyProps()}>
-            {rows.map(row => {
-              prepareRow(row)
-
-              return (
-                <TbodyTr {...row.getRowProps()}>
-                  {row.cells.map(cell => (
-                    <TbodyTd
-                      borderRisk={cell.row.original.perfil_risco_ordem}
-                      width={cell.column.width}
-                      {...cell.getCellProps()}
-                    >
-                      {cell.render('Cell')}
-                    </TbodyTd>
-                  ))}
-                </TbodyTr>
-              )
-            })}
+            <TableBody
+              rows={rows}
+              isLoading={isLoading}
+              prepareRow={prepareRow}
+              isError={isError}
+            />
           </Tbody>
         </Table>
       </TableWrapper>
@@ -231,9 +142,9 @@ export default function TableFunds({
 TableFunds.propTypes = {
   data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
   fundsType: PropTypes.array.isRequired,
-  setSelectedType: PropTypes.func.isRequired,
-  selectedType: PropTypes.string.isRequired,
   idGoal: PropTypes.number,
 }
 
@@ -256,11 +167,15 @@ HeaderWithColumns.propTypes = {
 SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
     render: PropTypes.func.isRequired,
     isSorted: PropTypes.bool.isRequired,
     isSortedDesc: PropTypes.bool,
     getSortByToggleProps: PropTypes.func.isRequired,
     getHeaderProps: PropTypes.func.isRequired,
     canSort: PropTypes.bool.isRequired,
+    justifyHeader: PropTypes.string,
+    align: PropTypes.string,
   }).isRequired,
 }
