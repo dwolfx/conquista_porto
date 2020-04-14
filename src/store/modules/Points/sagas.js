@@ -21,7 +21,14 @@ function* getData({ cpf }) {
       throw Error(response.data.Message.Mensagem)
     }
 
-    yield put(GetPointsDataSuccess(response.data))
+    const refinedDate = {
+      ...response.data,
+      detalheExtratoOptemaisTypes: [
+        response.data.detalheExtratoOptemaisTypes,
+      ].flatMap(point => point),
+    }
+
+    yield put(GetPointsDataSuccess(refinedDate))
   } catch (err) {
     yield put(GetPointsDataFailure())
   }
