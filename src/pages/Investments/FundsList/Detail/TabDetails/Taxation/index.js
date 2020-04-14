@@ -2,16 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import VerticalList from 'components/VerticalList'
+import HorizontalList from 'components/HorizontalList'
+import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import {
   Li,
   LiTitle,
   LiValue,
-  ScaleIcon,
   TaxationInfo,
   Text,
-  Title,
-  TitleWrapper,
   TaxationWrapper,
   Ul,
 } from './styles'
@@ -27,7 +26,9 @@ export const Taxation = ({ fund }) => {
               <VerticalList
                 elements={[
                   <LiTitle>{item.faixa}</LiTitle>,
-                  item.faixa !== 'ISENTO' && <LiValue>{item.valor}%</LiValue>,
+                  item.faixa !== 'ISENTO' && (
+                    <LiValue bold>{item.valor}%</LiValue>
+                  ),
                 ]}
               />
             </Li>
@@ -36,17 +37,22 @@ export const Taxation = ({ fund }) => {
 
   return (
     <TaxationWrapper>
-      <TitleWrapper>
-        <ScaleIcon />
-        <Title>Tributação (IR)</Title>
-      </TitleWrapper>
+      <HorizontalList
+        noPadding
+        startItems={[
+          <StyledIcon name="scale" />,
+          <Text color="gray6" type="subheading" bold>
+            TRIBUTAÇÃO (IR)
+          </Text>,
+        ]}
+      />
       <Ul>
         {fund.classificacao && (
           <Li>
             <VerticalList
               elements={[
                 <LiTitle>Classificação</LiTitle>,
-                <LiValue>{fund.classificacao}</LiValue>,
+                <LiValue bold>{fund.classificacao}</LiValue>,
               ]}
             />
           </Li>
@@ -58,7 +64,7 @@ export const Taxation = ({ fund }) => {
           <VerticalList
             elements={[
               <LiTitle>IOF</LiTitle>,
-              <LiValue>
+              <LiValue bold>
                 {fund.regime_iof === 'Regime Regressivo'
                   ? 'Regressivo'
                   : fund.regime_iof}

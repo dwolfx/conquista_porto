@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Text from 'components/Text'
 
 import HorizontalList from 'components/HorizontalList'
-import { StyledIcon } from '../styles'
+import { StyledIcon } from 'pages/Investments/FundsList/styles'
 import {
   TablesContainer,
   FixedTable,
@@ -25,6 +25,7 @@ export default function TabProfitability({ fund }) {
   return (
     <div>
       <HorizontalList
+        noPadding
         startItems={[
           <StyledIcon name="linechart" />,
           <Text color="gray6" type="subheading" bold>
@@ -225,6 +226,12 @@ TabProfitability.propTypes = {
     comparativo_hist_rentabil: PropTypes.shape({
       hist_rentabil_fundo: PropTypes.object.isRequired,
       hist_rentabil_benchmark: PropTypes.object.isRequired,
-    }).isRequired,
-  }).isRequired,
+    }),
+  }),
+}
+
+TabProfitability.defaultProps = {
+  fund: {
+    comparativo_hist_rentabil: null,
+  },
 }

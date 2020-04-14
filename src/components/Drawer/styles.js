@@ -17,12 +17,17 @@ export const CloseButton = styled.div`
 
 export const DrawerBody = styled.div`
   overflow-y: auto;
-  padding: 20px 8px;
+  height: 100%;
+  padding: 28px 14px;
 `
 
 export const DrawerFooter = styled.div`
   border-top: 1px solid ${props => props.theme.colors.gray2};
-  padding-top: 14px;
+  height: 63px;
+  display: flex;
+  justify-content: center;
+  padding: 0 14px;
+  align-items: center;
   margin-top: auto;
 `
 
@@ -43,12 +48,14 @@ export const DrawerContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   overflow: hidden;
-  padding: 14px;
-  position: absolute;
+  padding: 10px 14px 0 14px;
+  position: fixed;
   transition: all ease 0.5s;
   min-width: 390px;
   max-width: 650px;
+  top: 0;
   ${props => ({
     [props.positionDrawer]: props.isOpen ? '0' : '-100%',
   })}

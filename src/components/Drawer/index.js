@@ -71,7 +71,7 @@ Drawer.propTypes = {
   handleClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   drawerTitle: PropTypes.string,
-  positionDrawer: PropTypes.string,
+  positionDrawer: PropTypes.oneOf(['right', 'left']),
 }
 
 export default Drawer

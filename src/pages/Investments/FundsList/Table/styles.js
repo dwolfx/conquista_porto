@@ -158,9 +158,14 @@ export const TbodyTr = styled.tr`
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   color: ${props => props.theme.colors.gray5};
   font-weight: normal;
+  cursor: pointer;
   padding: 3px 0 3px 3px;
   display: block;
   width: 100%;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.gray1};
+  }
 `
 
 export const TbodyTd = styled.td`
