@@ -5,8 +5,8 @@ export default function useFilter(filter) {
   const funds = useSelector(state => state.investmentsList.data)
 
   function filterByCategoriaArena(list, categoriaArena) {
-    return list.filter(
-      fund => fund.categoria_arena.toLowerCase() === categoriaArena
+    return list.filter(fund =>
+      categoriaArena.includes(fund.categoria_arena.toLowerCase())
     )
   }
 
@@ -21,17 +21,17 @@ export default function useFilter(filter) {
       .flatMap(item => item)
       .reduce((prev, curr) => [...prev, ...curr.fundos], [])
 
-    if (categoriaArena && perfilRisco) {
+    if (categoriaArena.length > 0 && perfilRisco) {
       const filteredListByPerfilRisco = filterByPerfilRisco(
         newFundsList,
         perfilRisco
       )
       return filterByCategoriaArena(filteredListByPerfilRisco, categoriaArena)
     }
-    if (categoriaArena && !perfilRisco) {
+    if (categoriaArena.length > 0 && !perfilRisco) {
       return filterByCategoriaArena(newFundsList, categoriaArena)
     }
-    if (perfilRisco && !categoriaArena) {
+    if (perfilRisco && categoriaArena.length === 0) {
       return filterByPerfilRisco(newFundsList, perfilRisco)
     }
     return newFundsList

@@ -33,10 +33,18 @@ const FILTER_RISKS = {
 
 export default function Filter({ filter, onChangeFilter }) {
   const handleClickFilterByType = categoria => {
-    if (categoria === filter.byCategoriaArena) {
-      onChangeFilter({ ...filter, byCategoriaArena: null })
+    if (filter.byCategoriaArena.includes(categoria)) {
+      onChangeFilter({
+        ...filter,
+        byCategoriaArena: filter.byCategoriaArena.filter(
+          item => item !== categoria
+        ),
+      })
     } else {
-      onChangeFilter({ ...filter, byCategoriaArena: categoria })
+      onChangeFilter({
+        ...filter,
+        byCategoriaArena: [...filter.byCategoriaArena, categoria],
+      })
     }
   }
 
@@ -52,7 +60,9 @@ export default function Filter({ filter, onChangeFilter }) {
     <FilterRowContent alignItems="center" justifyContent="between">
       <RowFilterByType>
         <ButtonTagStyled
-          color={filter.byCategoriaArena === FILTER_TYPES[1] ? 'primary' : ''}
+          color={
+            filter.byCategoriaArena.includes(FILTER_TYPES[1]) ? 'primary' : ''
+          }
           onClick={() => {
             handleClickFilterByType(FILTER_TYPES[1])
           }}
@@ -60,7 +70,9 @@ export default function Filter({ filter, onChangeFilter }) {
           Renda Fixa
         </ButtonTagStyled>
         <ButtonTagStyled
-          color={filter.byCategoriaArena === FILTER_TYPES[2] ? 'primary' : ''}
+          color={
+            filter.byCategoriaArena.includes(FILTER_TYPES[2]) ? 'primary' : ''
+          }
           onClick={() => {
             handleClickFilterByType(FILTER_TYPES[2])
           }}
@@ -68,7 +80,9 @@ export default function Filter({ filter, onChangeFilter }) {
           multimercado
         </ButtonTagStyled>
         <ButtonTagStyled
-          color={filter.byCategoriaArena === FILTER_TYPES[3] ? 'primary' : ''}
+          color={
+            filter.byCategoriaArena.includes(FILTER_TYPES[3]) ? 'primary' : ''
+          }
           onClick={() => {
             handleClickFilterByType(FILTER_TYPES[3])
           }}
@@ -76,7 +90,9 @@ export default function Filter({ filter, onChangeFilter }) {
           ações
         </ButtonTagStyled>
         <ButtonTagStyled
-          color={filter.byCategoriaArena === FILTER_TYPES[4] ? 'primary' : ''}
+          color={
+            filter.byCategoriaArena.includes(FILTER_TYPES[4]) ? 'primary' : ''
+          }
           onClick={() => {
             handleClickFilterByType(FILTER_TYPES[4])
           }}
@@ -84,7 +100,9 @@ export default function Filter({ filter, onChangeFilter }) {
           inv. no exterior
         </ButtonTagStyled>
         <ButtonTagStyled
-          color={filter.byCategoriaArena === FILTER_TYPES[5] ? 'primary' : ''}
+          color={
+            filter.byCategoriaArena.includes(FILTER_TYPES[5]) ? 'primary' : ''
+          }
           onClick={() => {
             handleClickFilterByType(FILTER_TYPES[5])
           }}
