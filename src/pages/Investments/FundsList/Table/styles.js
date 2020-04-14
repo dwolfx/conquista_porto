@@ -57,10 +57,8 @@ export const TableWrapper = styled.div`
 export const Table = styled.table`
   border-collapse: collapse;
   height: 69vh;
-  // margin: 3rem auto 0;
 `
 
-// #### TODO
 export const Thead = styled.thead`
   width: 1238px;
 `
@@ -199,7 +197,6 @@ export const FundoWrapper = styled.div`
 export const FundoOutterWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  // padding-left: 25px;
 `
 
 export const LogoImg = styled.div`
