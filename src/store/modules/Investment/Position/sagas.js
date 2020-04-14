@@ -10,8 +10,6 @@ function* getData({ cpf }) {
   try {
     const consolidatedPositionState = yield select(getConsolidatedPosition)
 
-    console.log('teste')
-
     const saldoResponse = consolidatedPositionState.data
       ? consolidatedPositionState
       : yield call(
