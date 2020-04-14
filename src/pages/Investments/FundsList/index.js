@@ -26,7 +26,7 @@ export default function FundsList() {
   const isMobile = useMedia('xs')
 
   const [filter, setFilter] = useState({
-    byCategoriaArena: null,
+    byCategoriaArena: [],
     byPerfilRisco: null,
   })
   const filteredFundsList = useFilter(filter)
