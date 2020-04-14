@@ -10,9 +10,10 @@ import Divisor from 'components/Divisor'
 import VerticalList from 'components/VerticalList'
 import ButtonLink from 'components/Button/Link'
 
+import { StyledIcon } from '../styles'
+
 import {
   InformationContainer,
-  StyledIcon,
   VerticalListStyled,
   FileContainer,
 } from './styles'

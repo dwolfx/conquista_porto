@@ -167,8 +167,7 @@ HeaderWithColumns.propTypes = {
 SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-      .isRequired,
+    widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     render: PropTypes.func.isRequired,
     isSorted: PropTypes.bool.isRequired,
     isSortedDesc: PropTypes.bool,
