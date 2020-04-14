@@ -12,18 +12,7 @@ export const columns = [
   {
     Header: 'RESGATE',
     width: '236px',
-    columns: [
-      {
-        Header: 'COTIZAÇÃO',
-        accessor: 'resgate_cotizacao',
-        width: '118px',
-      },
-      {
-        Header: 'LIQUIDAÇÃO',
-        accessor: 'resgate_financeiro',
-        width: '118px',
-      },
-    ],
+    accessor: 'resgate_cotizacao',
   },
   {
     Header: 'TAXA ADM. (% a.a.)',

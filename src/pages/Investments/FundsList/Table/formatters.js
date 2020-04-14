@@ -1,21 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
-import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { formatMoney, handleGiwRedirect } from 'helpers'
+import ConquistaButton from 'components/Button'
 
 import Text from 'components/Text'
 
 import {
   FundoWrapper,
   WrapperContent,
-  InformationIcon,
   FundoNameWrapper,
-  InvestButton,
   LockIcon,
   FundoOutterWrapper,
-  LogoImg,
-  PopoverCustom,
+  CustomPopover,
+  RiskColorTag,
 } from './styles'
 
 const collator = new Intl.Collator(undefined, {
@@ -23,28 +20,17 @@ const collator = new Intl.Collator(undefined, {
   sensitivity: 'base',
 })
 
-const FormatFundoCell = ({ cell, column }) => {
-  const dispatch = useDispatch()
-
-  return (
-    <FundoOutterWrapper>
-      <LogoImg bg={cell.row.original.url_logo_gestor}></LogoImg>
-      <FundoWrapper {...cell.getCellProps()}>
-        <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-        <InformationIcon
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname={cell.row.original.apelido}
-          data-gtm-name="icone de informação do fundo"
-          onClick={() => {
-            dispatch(GetInvestmentDetailsRequest(cell.row.original.id_fundo))
-            column.toggleModal(!column.isModalOpen)
-          }}
-        />
-      </FundoWrapper>
-    </FundoOutterWrapper>
-  )
-}
+const FormatFundoCell = ({ cell }) => (
+  <FundoOutterWrapper>
+    <RiskColorTag borderRisk={cell.row.original.perfil_risco_ordem} />
+    <FundoWrapper {...cell.getCellProps()}>
+      <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
+      <Text type="caption" color="gray4" bold textAlign="left">
+        {cell.row.original.categoria_arena}
+      </Text>
+    </FundoWrapper>
+  </FundoOutterWrapper>
+)
 
 const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
@@ -53,7 +39,7 @@ const FormatMoneyCell = column => (
 const FormatEnabledCell = (column, idGoal) => (
   <WrapperContent isTbody>
     {column.cell.value && column.cell.row.original.aplicao_liberada ? (
-      <InvestButton
+      <ConquistaButton
         data-gtm-type="click"
         data-gtm-clicktype="button"
         data-gtm-subname={column.cell.row.original.apelido}
@@ -69,29 +55,32 @@ const FormatEnabledCell = (column, idGoal) => (
         }}
       >
         Investir
-      </InvestButton>
+      </ConquistaButton>
     ) : (
-      <PopoverCustom
-        content={() => (
-          <Text type="body" color="gray5">
-            Fundo fechado para movimentações
-          </Text>
-        )}
+      <CustomPopover
+        content="Fundo fechado para aplicações"
         placement="left"
+        tooltip
       >
         <LockIcon />
-      </PopoverCustom>
+      </CustomPopover>
     )}
   </WrapperContent>
 )
 
 const FormatDefault = column => (
-  <WrapperContent isTbody>{column.cell.value}</WrapperContent>
+  <WrapperContent>{column.cell.value}</WrapperContent>
 )
 
 const FormatDotToComma = column => (
-  <WrapperContent isTbody>
+  <WrapperContent>
     {column.cell.value.toString().replace('.', ',')}
+  </WrapperContent>
+)
+
+const FormatToPercent = column => (
+  <WrapperContent isPercent>
+    {column.cell.value.toString().replace('.', ',')}%
   </WrapperContent>
 )
 
@@ -137,7 +126,7 @@ export default function FormatColumns(
         const [fst] = [nextValue, currentValue].sort((a, b) => a - b)
         return fst === nextValue ? -1 : 1
       },
-      Cell: FormatDotToComma,
+      Cell: FormatToPercent,
     }),
     default: column => ({
       ...column,
@@ -174,6 +163,8 @@ FormatFundoCell.propTypes = {
       original: PropTypes.shape({
         url_logo_gestor: PropTypes.string,
         apelido: PropTypes.string,
+        perfil_risco_ordem: PropTypes.string,
+        categoria_arena: PropTypes.string,
         id_fundo: PropTypes.string,
       }),
     }),

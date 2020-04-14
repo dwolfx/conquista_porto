@@ -85,10 +85,6 @@ export default function List({ data, idGoal }) {
               <dd>{obj.taxa_administracao}</dd>
             </DetailItem>
             <DetailItem>
-              <dt>RESGATE (COTIZAÇÃO)</dt>
-              <dd>{obj.resgate_cotizacao}</dd>
-            </DetailItem>
-            <DetailItem>
               <dt>RENTABILIDADE MÊS</dt>
               <dd>{obj.rentabil_fundo_mes}</dd>
             </DetailItem>
