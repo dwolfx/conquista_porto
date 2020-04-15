@@ -3,9 +3,9 @@
   "answer": {
     "nickname": "Disney",
     "target_date": "30/12/2019",
-    "target_value": 70000000000000000,
-    "initial_value": 30000000000000000,
-    "monthly_value": 10000000000000000,
+    "target_value": 999999999.99,
+    "initial_value": 999999999.99,
+    "monthly_value": 999999999.99,
     "would_like_to_receive_before_final_date": false,
     "would_like_to_receive_monthly_income": false,
     "goal_type": "1",

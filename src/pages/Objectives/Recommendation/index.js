@@ -306,6 +306,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 label="Investimento inicial"
                 onChange={handleSingleValue}
                 value={formatMoneyWithoutCurrencyFlag(formData.initial_value)}
+                maxLength={14}
               />
               {invalidInput.initial_value &&
                 renderErrorMessage(
@@ -323,6 +324,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 label="Investimento mensal"
                 onChange={handleSingleValue}
                 value={formatMoneyWithoutCurrencyFlag(formData.monthly_value)}
+                maxLength={14}
               />
               {invalidInput.monthly_value &&
                 renderErrorMessage(
@@ -338,6 +340,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 label="Meta financeira"
                 onChange={handleSingleValue}
                 value={formatMoneyWithoutCurrencyFlag(formData.target_value)}
+                maxLength={14}
               />
             </ColInput>
             <ColInput>

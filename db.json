@@ -3701,8 +3701,8 @@
     "nickname": "Disney",
     "target_date": "30/12/2021",
     "target_value": "70.000.000,00",
-    "initial_value": "5.000,00",
-    "monthly_value": "1.000,00"
+    "initial_value": "999.999.999,99",
+    "monthly_value": "999.999.999,99"
   },
   "goal_management": {
     "id": "89"
