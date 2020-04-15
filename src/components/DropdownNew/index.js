@@ -55,6 +55,7 @@ export default function Dropdown({
   containerPadding,
   redirectPath,
   openingSide,
+  disabled,
   ...rest
 }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -146,7 +147,7 @@ export default function Dropdown({
   if (nodes) {
     return (
       <>
-        <RelativeHolder>
+        <RelativeHolder disabled={disabled}>
           <div
             role="button"
             onClick={() => {
@@ -186,7 +187,7 @@ export default function Dropdown({
   if (items) {
     return (
       <>
-        <RelativeHolder>
+        <RelativeHolder disabled={disabled}>
           <div
             role="button"
             onClick={() => {
@@ -255,6 +256,7 @@ Dropdown.propTypes = {
   redirectPath: PropTypes.string,
   customWidth: PropTypes.string,
   openingSide: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 Dropdown.defaultProps = {
@@ -262,4 +264,5 @@ Dropdown.defaultProps = {
   redirectPath: null,
   customWidth: null,
   openingSide: 'right',
+  disabled: false,
 }

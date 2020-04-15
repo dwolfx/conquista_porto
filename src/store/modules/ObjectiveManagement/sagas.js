@@ -18,7 +18,6 @@ import {
   PostSaveFundsFailure,
   GetObjectiveManagementDataSuccess,
   GetObjectiveManagementDataFailure,
-  GetOtherGoalsDataRequest,
   GetOtherGoalsDataSuccess,
   GetOtherGoalsDataFailure,
   DeleteObjectiveSuccess,
@@ -74,7 +73,6 @@ function* getData(payload) {
       const response = yield call(get, `${baseURLNamespaceGoal}/goals/${id}`)
 
       if (response.data) {
-        yield put(GetOtherGoalsDataRequest({ id }))
         yield put(GetObjectiveManagementDataSuccess(response.data))
 
         if (path) {
