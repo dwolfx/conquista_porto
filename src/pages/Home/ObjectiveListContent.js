@@ -11,7 +11,10 @@ import Button from 'components/Button'
 
 import { formatMoney } from 'helpers'
 
-import { GetObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
+import {
+  GetObjectiveManagementDataRequest,
+  GetOtherGoalsDataRequest,
+} from 'store/modules/ObjectiveManagement/action'
 
 import {
   ObjectivesTableContainer,
@@ -124,6 +127,7 @@ export default function ObjectiveListContent({ objectives }) {
                     path: `/objetivos/gerenciar/${objective.id}`,
                   })
                 )
+                dispatch(GetOtherGoalsDataRequest({ id: objective.id }))
               }}
               loading={isLoading && loadingObjectiveButton === objective.id}
               disabled={isLoading && loadingObjectiveButton === objective.id}

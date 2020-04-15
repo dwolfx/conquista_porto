@@ -49,7 +49,6 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: true,
-        isLoadingOtherGoals: true,
       }
     case Types.GET_SUCCESS:
       return {
