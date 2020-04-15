@@ -23,6 +23,7 @@ import Wallet from 'pages/Objectives/Manager/Wallet'
 import {
   GetObjectiveManagementDataRequest,
   DeleteObjectiveRequest,
+  GetOtherGoalsDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
 import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
@@ -63,6 +64,7 @@ export default function Manager({ location }) {
       (objectiveData && objectiveData.id && +objectiveData.id !== +objectiveId) // check if objectiveData exists and its id is equal to objectiveID
     ) {
       dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
+      dispatch(GetOtherGoalsDataRequest({ id: objectiveId }))
     }
   }, [dispatch, history, objectiveData, objectiveId])
 
@@ -164,7 +166,7 @@ export default function Manager({ location }) {
               <FlexContainer
                 direction={isMobile ? 'column;' : 'row;'}
                 margin={isMobile ? '0;' : '0 28px;'}
-                alignItems={isMobile ? 'center' : 'start'}
+                alignItems="center"
                 justifyContent={isMobile ? 'center' : 'space-between'}
                 width="100%"
                 css={`
@@ -185,10 +187,10 @@ export default function Manager({ location }) {
                 >
                   EXCLUIR OBJETIVO
                 </ButtonLink>
-                {Object.entries(otherGoalsManagement).length > 1 &&
-                  !isLoadingOtherGoals && (
-                  <OtherGoals otherGoals={otherGoalsManagement} />
-                )}
+                <OtherGoals
+                  otherGoals={otherGoalsManagement}
+                  isLoading={isLoadingOtherGoals}
+                />
               </FlexContainer>
             </FlexContainer>
           </ObjectiveHeader>
