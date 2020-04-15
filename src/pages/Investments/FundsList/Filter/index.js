@@ -177,7 +177,7 @@ export default function Filter({ filter, onChangeFilter }) {
         <ButtonLink
           noIcon
           onClick={() => {
-            onChangeFilter({ byPerfilRisco: null, byCategoriaArena: null })
+            onChangeFilter({ byPerfilRisco: null, byCategoriaArena: [] })
           }}
         >
           limpar filtros
