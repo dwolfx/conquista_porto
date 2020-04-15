@@ -5,6 +5,12 @@ export const RelativeHolder = styled.div`
   position: relative;
   width: auto;
   height: auto;
+
+  ${props =>
+    props.disabled &&
+    `
+      pointer-events: none;
+    `}
 `
 
 export const Container = styled.div`
