@@ -80,8 +80,8 @@ const FormatDotToComma = column => (
   </WrapperContent>
 )
 
-const FormatToPercentBold = column => (
-  <WrapperContent isPercent>
+const FormatDotToCommaBold = column => (
+  <WrapperContent isBold>
     {column.cell.value.toString() !== '-'
       ? `${column.cell.value.toString().replace('.', ',')}%`
       : column.cell.value.toString()}
@@ -130,7 +130,7 @@ export default function FormatColumns(
         const [fst] = [nextValue, currentValue].sort((a, b) => a - b)
         return fst === nextValue ? -1 : 1
       },
-      Cell: FormatToPercentBold,
+      Cell: FormatDotToCommaBold,
     }),
     default: column => ({
       ...column,

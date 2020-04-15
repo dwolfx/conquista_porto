@@ -27,7 +27,7 @@ export const WrapperContent = styled.div`
     `}
 
   ${props =>
-    props.isPercent &&
+    props.isBold &&
     css`
       font-weight: 600;
       color: ${props.theme.colors.gray6};
