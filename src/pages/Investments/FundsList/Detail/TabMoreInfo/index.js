@@ -10,7 +10,7 @@ import Divisor from 'components/Divisor'
 import VerticalList from 'components/VerticalList'
 import ButtonLink from 'components/Button/Link'
 
-import { StyledIcon } from '../styles'
+import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import {
   InformationContainer,
@@ -23,6 +23,7 @@ export default function TabMoreInfo({ fund }) {
     <div>
       <InformationContainer>
         <HorizontalList
+          noPadding
           startItems={[
             <StyledIcon name="information" />,
             <Text color="gray6" type="subheading" bold>
@@ -33,7 +34,7 @@ export default function TabMoreInfo({ fund }) {
         <Row
           justifyContent="between"
           css={`
-            margin: 21px 14px 0;
+            margin: 14px 0;
           `}
         >
           <VerticalListStyled
@@ -100,7 +101,7 @@ export default function TabMoreInfo({ fund }) {
               <Text type="headline" color="gray6" bold>
                 {Number(fund.taxa_performance) === 0
                   ? 'Não há cobrança de performance'
-                  : `${fund.taxa_performance}% sobre o que exceder}`}
+                  : `${fund.taxa_performance}% sobre o que exceder`}
               </Text>,
             ]}
           />
@@ -109,8 +110,9 @@ export default function TabMoreInfo({ fund }) {
       <Divisor />
       <FileContainer>
         <HorizontalList
+          noPadding
           startItems={[
-            <StyledIcon name="information" />,
+            <StyledIcon name="download" />,
             <Text color="gray6" type="subheading" bold>
               ARQUIVOS
             </Text>,
@@ -118,7 +120,7 @@ export default function TabMoreInfo({ fund }) {
         />
         <Row
           css={`
-            margin: 21px 14px 0;
+            margin: 7px 0;
           `}
         >
           <VerticalList

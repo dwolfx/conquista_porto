@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { formatMoney } from 'helpers'
 import VerticalList from 'components/VerticalList'
+import HorizontalList from 'components/HorizontalList'
+import Text from 'components/Text'
+import { formatMoney } from 'helpers'
+import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import {
   GrayLine,
   Li,
   LiTitle,
   LiValue,
-  MoneyIcon,
-  Title,
-  TitleWrapper,
   TransactionsWrapper,
   Ul,
 } from './styles'
@@ -20,15 +20,15 @@ export const Transactions = ({ fund, category }) => {
   const liContent = [
     [
       <LiTitle>Aplicação Inicial</LiTitle>,
-      <LiValue>{formatMoney(fund.minimo_inicial)}</LiValue>,
+      <LiValue bold>{formatMoney(fund.minimo_inicial)}</LiValue>,
     ],
     [
       <LiTitle>Movimentação Mín.</LiTitle>,
-      <LiValue>{formatMoney(fund.aplicao_minima)}</LiValue>,
+      <LiValue bold>{formatMoney(fund.aplicao_minima)}</LiValue>,
     ],
     [
       <LiTitle>Saldo Mín.</LiTitle>,
-      <LiValue>
+      <LiValue bold>
         {typeof fund.saldo_minimo === 'string' || undefined
           ? '-'
           : formatMoney(fund.saldo_minimo)}
@@ -36,37 +36,45 @@ export const Transactions = ({ fund, category }) => {
     ],
     [
       <LiTitle>Horário Limite</LiTitle>,
-      <LiValue>{fund.hora_aplicacao}</LiValue>,
+      <LiValue bold>{fund.hora_aplicacao}</LiValue>,
     ],
     [
       <LiTitle>Aplicação (Cotização)</LiTitle>,
-      <LiValue>{fund.aplicacao_cotizacao} (Úteis)</LiValue>,
+      <LiValue bold>{fund.aplicacao_cotizacao} (Úteis)</LiValue>,
     ],
     [
       <LiTitle>Aplicação (Financeiro)</LiTitle>,
-      <LiValue>{fund.aplicacao_financeiro} (Úteis)</LiValue>,
+      <LiValue bold>{fund.aplicacao_financeiro} (Úteis)</LiValue>,
     ],
     [
       <LiTitle>Resgate (Cotização)</LiTitle>,
-      <LiValue>{fund.resgate_cotizacao} (Corridos)</LiValue>,
+      <LiValue bold>{fund.resgate_cotizacao} (Corridos)</LiValue>,
     ],
     [
       <LiTitle>Resgate (Financeiro)</LiTitle>,
-      <LiValue>{fund.resgate_financeiro} (Úteis)</LiValue>,
+      <LiValue bold>{fund.resgate_financeiro} (Úteis)</LiValue>,
     ],
     [
       <LiTitle>Categoria</LiTitle>,
-      <LiValue>{category === 'Renda Variável' ? 'Ações' : category}</LiValue>,
+      <LiValue bold>
+        {category === 'Renda Variável' ? 'Ações' : category}
+      </LiValue>,
     ],
   ]
 
   return (
     <>
       <TransactionsWrapper>
-        <TitleWrapper>
-          <MoneyIcon />
-          <Title>Movimentações</Title>
-        </TitleWrapper>
+        <HorizontalList
+          noPadding
+          startItems={[
+            <StyledIcon name="money" />,
+            <Text color="gray6" type="subheading" bold>
+              MOVIMENTAÇÕES
+            </Text>,
+          ]}
+        />
+
         <Ul>
           {liContent.map((item, index) => (
             // eslint-disable-next-line react/no-array-index-key

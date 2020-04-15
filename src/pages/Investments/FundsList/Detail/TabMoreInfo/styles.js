@@ -12,5 +12,5 @@ export const VerticalListStyled = styled(VerticalList)`
 `
 
 export const FileContainer = styled.div`
-  margin-top: 28px;
+  margin-top: 21px;
 `

@@ -8,7 +8,7 @@ export const TaxationWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  padding: 28px;
+  margin: 14px 0 0 0;
 `
 
 export const TitleWrapper = styled.div`
@@ -32,6 +32,7 @@ export const Title = styled(TextComponent)`
 
 export const Ul = styled.ul`
   display: grid;
+  margin: 14px 0;
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 24px;
@@ -64,7 +65,7 @@ export const TaxationInfo = styled.div`
   border-radius: 8px;
   height: 70px;
   width: 100%;
-  margin-top: 28px;
+  margin-top: 14px;
   padding: 21px 21px 0;
   text-align: center;
 `

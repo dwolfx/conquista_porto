@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
@@ -14,6 +13,7 @@ import TableFunds from './Table'
 import ListFunds from './List'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
+import Detail from './Detail'
 
 export default function FundsList() {
   const fundsStatus = useSelector(state => ({
@@ -22,13 +22,15 @@ export default function FundsList() {
   }))
   useFetchInvestmentsList()
 
-  const { state: locationState } = useLocation()
   const isMobile = useMedia('xs')
 
   const [filter, setFilter] = useState({
     byCategoriaArena: [],
     byPerfilRisco: null,
   })
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
   const filteredFundsList = useFilter(filter)
 
   function handleChangeFilter(newFilter) {
@@ -36,30 +38,34 @@ export default function FundsList() {
   }
 
   return (
-    <GridContainer as="section">
-      <TableContent>
-        <Filter filter={filter} onChangeFilter={handleChangeFilter} />
-        <ContentWrapper>
-          <Col col="12">
-            {isMobile ? (
-              <ListFunds
-                data={filteredFundsList}
-                idGoal={(locationState || {}).idGoal}
-              />
-            ) : (
-              <TableFunds
-                columns={columns}
-                data={filteredFundsList}
-                fundsType={fundsType}
-                isLoading={fundsStatus.isLoading}
-                isError={fundsStatus.isError}
-                idGoal={(locationState || {}).idGoal}
-              />
-            )}
-          </Col>
-        </ContentWrapper>
-      </TableContent>
-      <AnbimaLegalInfo />
-    </GridContainer>
+    <>
+      <GridContainer as="section">
+        <TableContent>
+          <Filter filter={filter} onChangeFilter={handleChangeFilter} />
+          <ContentWrapper>
+            <Col col="12">
+              {isMobile ? (
+                <ListFunds data={filteredFundsList} />
+              ) : (
+                <TableFunds
+                  columns={columns}
+                  isDrawerOpen={isDrawerOpen}
+                  onChangeIsDrawerOpen={setIsDrawerOpen}
+                  data={filteredFundsList}
+                  fundsType={fundsType}
+                  isLoading={fundsStatus.isLoading}
+                  isError={fundsStatus.isError}
+                />
+              )}
+            </Col>
+          </ContentWrapper>
+        </TableContent>
+        <AnbimaLegalInfo />
+      </GridContainer>
+      <Detail
+        isOpen={isDrawerOpen}
+        handleClose={() => setIsDrawerOpen(false)}
+      />
+    </>
   )
 }

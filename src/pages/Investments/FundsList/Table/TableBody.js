@@ -10,10 +10,22 @@ import 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { TbodyTr, TbodyTd, InfoTableContent } from './styles'
 
-const TableBody = ({ isLoading, isError, rows, prepareRow }) => {
+const TableBody = ({
+  isLoading,
+  isError,
+  rows,
+  prepareRow,
+  onChangeIsDrawerOpen,
+}) => {
   const dispatch = useDispatch()
+
+  const handleOpenDetail = idFundo => {
+    dispatch(GetInvestmentDetailsRequest(idFundo))
+    onChangeIsDrawerOpen(prevState => !prevState)
+  }
 
   const TbodyRender = () => {
     if (isLoading) {
@@ -68,7 +80,10 @@ const TableBody = ({ isLoading, isError, rows, prepareRow }) => {
       prepareRow(row)
 
       return (
-        <TbodyTr {...row.getRowProps()}>
+        <TbodyTr
+          {...row.getRowProps()}
+          onClick={() => handleOpenDetail(row.original.id_fundo)}
+        >
           {row.cells.map(cell => (
             <TbodyTd
               borderRisk={cell.row.original.perfil_risco_ordem}

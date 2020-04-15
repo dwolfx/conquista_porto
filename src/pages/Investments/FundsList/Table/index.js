@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useTable, useSortBy } from 'react-table'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
@@ -89,11 +89,9 @@ export default function TableFunds({
   data,
   isLoading,
   isError,
+  onChangeIsDrawerOpen,
   columns: columnsProps,
-  idGoal,
 }) {
-  const [isModalOpen, toggleModal] = useState(false)
-
   const {
     getTableProps,
     columns,
@@ -103,10 +101,7 @@ export default function TableFunds({
   } = useTable(
     {
       // to edit how each column should render see FormatColumns function
-      columns: useMemo(
-        () => FormatColumns(columnsProps, toggleModal, isModalOpen, idGoal),
-        [isModalOpen, columnsProps, idGoal]
-      ),
+      columns: useMemo(() => FormatColumns(columnsProps), [columnsProps]),
       data,
     },
     useSortBy
@@ -127,6 +122,7 @@ export default function TableFunds({
           </Thead>
           <Tbody {...getTableBodyProps()}>
             <TableBody
+              onChangeIsDrawerOpen={onChangeIsDrawerOpen}
               rows={rows}
               isLoading={isLoading}
               prepareRow={prepareRow}
@@ -144,12 +140,13 @@ TableFunds.propTypes = {
   columns: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
+  isDrawerOpen: PropTypes.bool,
+  onChangeIsDrawerOpen: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
-  idGoal: PropTypes.number,
 }
 
 TableFunds.defaultProps = {
-  idGoal: null,
+  isDrawerOpen: false,
 }
 
 TheadWrapper.propTypes = {

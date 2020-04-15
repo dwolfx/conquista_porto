@@ -4,9 +4,9 @@ export const TablesContainer = styled.div`
   vertical-align: middle;
   display: flex;
   border: 1px solid ${props => props.theme.colors.gray2};
-  width: 578px;
+  border-radius: 4px;
   position: relative;
-  margin: 28px auto;
+  margin: 14px 0;
 `
 export const FixedTable = styled.table`
   table-layout: fixed;

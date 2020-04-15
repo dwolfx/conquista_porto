@@ -6,11 +6,14 @@ import Transactions from './Transactions'
 import Taxation from './Taxation'
 
 import { ContentWrapper } from './styles'
+import { GrayLine } from './RiskProfileBar/styles'
 
 export const TabDetails = ({ fund, category }) => (
   <ContentWrapper>
     <RiskProfileBar riskProfile={fund.perfil_risco} />
+    <GrayLine />
     <Transactions fund={fund} category={category} />
+    <GrayLine />
     <Taxation fund={fund} />
   </ContentWrapper>
 )

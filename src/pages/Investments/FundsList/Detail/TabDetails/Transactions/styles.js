@@ -8,7 +8,7 @@ export const TransactionsWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  padding: 28px;
+  margin: 14px 0;
 `
 
 export const TitleWrapper = styled.div`
@@ -31,6 +31,7 @@ export const Title = styled(TextComponent)`
 `
 
 export const Ul = styled.ul`
+  margin: 14px 0 7px 0;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
@@ -62,5 +63,4 @@ export const LiValue = styled(TextComponent)`
 export const GrayLine = styled.div`
   background-color: ${props => props.theme.colors.gray2};
   height: 1px;
-  margin: 0 14px;
 `
