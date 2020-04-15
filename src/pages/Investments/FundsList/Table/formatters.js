@@ -74,13 +74,17 @@ const FormatDefault = column => (
 
 const FormatDotToComma = column => (
   <WrapperContent>
-    {column.cell.value.toString().replace('.', ',')}
+    {column.cell.value.toString() !== '-'
+      ? `${column.cell.value.toString().replace('.', ',')}%`
+      : column.cell.value.toString()}
   </WrapperContent>
 )
 
-const FormatToPercent = column => (
+const FormatToPercentBold = column => (
   <WrapperContent isPercent>
-    {column.cell.value.toString().replace('.', ',')}%
+    {column.cell.value.toString() !== '-'
+      ? `${column.cell.value.toString().replace('.', ',')}%`
+      : column.cell.value.toString()}
   </WrapperContent>
 )
 
@@ -126,7 +130,7 @@ export default function FormatColumns(
         const [fst] = [nextValue, currentValue].sort((a, b) => a - b)
         return fst === nextValue ? -1 : 1
       },
-      Cell: FormatToPercent,
+      Cell: FormatToPercentBold,
     }),
     default: column => ({
       ...column,
@@ -135,19 +139,10 @@ export default function FormatColumns(
   }
 
   return columns.map(column => {
-    if (column.columns) {
-      if (column.accessor === 'rentabilidade') {
-        return {
-          ...column,
-          columns: column.columns
-            ? column.columns.map(formatters.rentabilidade)
-            : null,
-        }
-      }
-      return {
-        ...column,
-        columns: column.columns ? column.columns.map(formatters.default) : null,
-      }
+    if (column.accessor.includes('rentabil_fundo')) {
+      return formatters[column.accessor]
+        ? formatters[column.accessor](column)
+        : formatters.rentabilidade(column)
     }
 
     return formatters[column.accessor]
