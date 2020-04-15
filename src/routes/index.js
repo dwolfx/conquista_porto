@@ -92,7 +92,9 @@ const DefaultRoute = ({
       if (Object.keys(match.params).includes(item.replace(':', ''))) {
         return name || pageTitle
       }
-
+      if (item === 'lista-fundos') {
+        return 'lista de fundos'
+      }
       return item
     })
 
