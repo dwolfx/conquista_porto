@@ -24,13 +24,21 @@ const HUNDRED_MIN_VALUE = '100,00'
 const THOUSAND_MIN_VALUE = '1.000,00'
 const MAX_CHARS_ERROR_TEXT = 'Máximo 20 caracteres'
 const MIN_CHARS_ERROR_TEXT = 'Mínimo 3 caracteres'
-const DATE_TEXT = 'Mínimo de 6 meses e máximo de 360 meses'
-const MIN_DATE_ERROR_TEXT = 'Mínimo de 6 meses'
-const MAX_DATE_ERROR_TEXT = 'Máximo de 360 meses'
+const DATE_TEXT = 'Mínimo de 6 meses'
 const HUNDRED_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 100,00'
 const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
 const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
 const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
+const MIN_DATE_VALUES = {
+  value: 6,
+  type: 'months',
+  text: 'meses',
+}
+const MAX_DATE_VALUES = {
+  value: 100,
+  type: 'years',
+  text: 'anos',
+}
 
 const firstStep = {
   question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
@@ -65,7 +73,7 @@ export default [
         type: DATE_TYPE,
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value, MIN_DATE_ERROR_TEXT, MAX_DATE_ERROR_TEXT)
+          return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
       {
@@ -121,7 +129,7 @@ export default [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value, MIN_DATE_ERROR_TEXT, MAX_DATE_ERROR_TEXT)
+          return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
       {
@@ -188,7 +196,7 @@ export default [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value, MIN_DATE_ERROR_TEXT, MAX_DATE_ERROR_TEXT)
+          return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
       {
@@ -273,7 +281,7 @@ export default [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value, MIN_DATE_ERROR_TEXT, MAX_DATE_ERROR_TEXT)
+          return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
       {
@@ -358,7 +366,7 @@ export default [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value, MIN_DATE_ERROR_TEXT, MAX_DATE_ERROR_TEXT)
+          return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
       {
@@ -414,7 +422,7 @@ export default [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value, MIN_DATE_ERROR_TEXT, MAX_DATE_ERROR_TEXT)
+          return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
       {
@@ -469,7 +477,7 @@ export default [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value, MIN_DATE_ERROR_TEXT, MAX_DATE_ERROR_TEXT)
+          return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
       {
