@@ -9,6 +9,7 @@ import 'styled-components/macro'
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
+import Tag from 'components/Tag'
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
 import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
@@ -26,11 +27,15 @@ import CardHeaderState from './commons/CardHeaderState'
 import LoadingState from './commons/LoadingState'
 import ErrorState from './commons/ErrorState'
 import pointsCardsData from './pointsCardsData'
+
+import { pointsRulesConditions } from './modalPointsData'
+
 import {
   EmptyBody,
   SectionCol,
   FullHeightCard,
   CardPontosFooter,
+  ContainerBox,
   OfferBox,
   OfferImageBox,
   OfferTextBox,
@@ -210,39 +215,39 @@ export default function SectionThree({ points }) {
       />
     ))
 
-  const renderModalContent = () => (
-    <>
-      <ModalTextWrapper>
-        <Text type="headline" color="gray6" bold>
-          Quem pode pontuar?
-        </Text>
-        <Text type="headline" color="gray5">
-          Todos as pessoas que acessam o Conquista têm acesso ao programa e
-          podem pontuar. Aqueles que já forem investidores na Portopar, têm os
-          pontos de cadastro e cadastro de investidor contabilizados ao
-          realizarem o 1° acesso à plataforma.
-        </Text>
-      </ModalTextWrapper>
-      <ModalTextWrapper>
-        <Text type="headline" color="gray6" bold>
-          Depois de quanto tempo os pontos expiram?
-        </Text>
-        <Text type="headline" color="gray5">
-          O pontos têm duração de 24 meses a partir da emissão.
-        </Text>
-      </ModalTextWrapper>
-      <ModalTextWrapper>
-        <Text type="headline" color="gray6" bold>
-          Como somar pontos com o Cartão de Crédito Porto Seguro?
-        </Text>
-        <Text type="headline" color="gray5">
-          Os pontos do Programa de Relacionamento do Conquista são
-          automaticamente somados aos pontos do titular do Cartão de Crédito
-          Porto Seguro.
-        </Text>
-      </ModalTextWrapper>
-    </>
-  )
+  const renderModalContent = () => {
+    const customText = (type, color, text) => (
+      <Text type={type} color={color} bold>
+        {text}
+      </Text>
+    )
+    const tag = (color, text) => <Tag color={color} text={text} />
+
+    return pointsRulesConditions.map((item, key) => (
+      <>
+        <ModalTextWrapper key={key}>
+          <Text type="headline" color="gray6" bold>
+            {item.title}
+          </Text>
+          <Text type="headline" color="gray5">
+            {item.text}
+          </Text>
+        </ModalTextWrapper>
+        {item.points && (
+          <ContainerBox>
+            {item.points.map((itemPoints, keyPoints) => (
+              <HorizontalList
+                noPadding
+                startItems={[customText('headline', 'gray6', itemPoints.name)]}
+                endItems={[tag('gray', itemPoints.points)]}
+                key={keyPoints}
+              />
+            ))}
+          </ContainerBox>
+        )}
+      </>
+    ))
+  }
 
   const renderPointsCard = () => {
     if (
