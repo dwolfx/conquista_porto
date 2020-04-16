@@ -103,29 +103,20 @@ export default function ManagementLifeInsurance() {
     })
   }
 
-  const handleIsMorte = item => {
-    try {
-      if (
-        item.GruposCobertura.GrupoCobertura[0].CoberturasRisco.CoberturaRisco[1]
-          .Nome === 'Morte'
-      ) {
-        return (
-          <>
-            <Text>Morte</Text>
-            <Text>
-              {formatMoney(
-                item.GruposCobertura.GrupoCobertura[0].CoberturasRisco
-                  .CoberturaRisco[1].CapitalSegurado
-              )}
-            </Text>
-          </>
-        )
-      }
+  const handleCoberturaMorte = item => {
+    const coberturas = Array.isArray(item.CoberturasBasicas.CoberturaBasica)
+      ? item.CoberturasBasicas.CoberturaBasica
+      : [item.CoberturasBasicas.CoberturaBasica]
 
-      return null
-    } catch (err) {
-      return null
-    }
+    const coberturaPorMorte = coberturas.find(
+      curr => curr.Nome.toLowerCase() === 'morte acidental'
+    )
+    return (
+      <>
+        <Text>Morte</Text>
+        <Text>{formatMoney(coberturaPorMorte.CapitalSegurado)}</Text>
+      </>
+    )
   }
 
   const addedInsurancePoliciesDetailed = () => {
@@ -280,7 +271,9 @@ export default function ManagementLifeInsurance() {
                     >
                       Cobertura Principal
                     </Text>
-                    <InvoiceItem>{handleIsMorte(item)}</InvoiceItem>
+                    <InvoiceItem>
+                      {handleCoberturaMorte(selectedLifeInsurance)}
+                    </InvoiceItem>
                   </Invoice>
                 </Section>
                 <Section>
@@ -350,8 +343,9 @@ export default function ManagementLifeInsurance() {
 }
 
 const BeneficiarioContent = ({ data }) => {
-  const beneficiaries = [data.Beneficiarios].flatMap(product => product)
-
+  const beneficiaries = Array.isArray(data.Beneficiarios.Beneficiario)
+    ? data.Beneficiarios.Beneficiario
+    : [data.Beneficiarios.Beneficiario]
   return (
     <>
       <Text
@@ -371,9 +365,9 @@ const BeneficiarioContent = ({ data }) => {
         </thead>
         <tbody>
           {beneficiaries.map(element => (
-            <tr key={element.Beneficiario.Nome}>
-              <td align="center">{element.Beneficiario.Nome}</td>
-              <td align="center">{element.Beneficiario.Percentual}%</td>
+            <tr key={element.Nome}>
+              <td align="center">{element.Nome}</td>
+              <td align="center">{element.Percentual}%</td>
             </tr>
           ))}
         </tbody>
