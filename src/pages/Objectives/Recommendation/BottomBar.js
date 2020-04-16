@@ -36,13 +36,13 @@ const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
           <Col lgAuto>
             <ButtonBar
               data-gtm-subname="barra inferior"
-              data-gtm-name="resumo"
+              data-gtm-name="editar objetivo"
               data-gtm-type="click"
               data-gtm-clicktype="button"
               color="primary"
               onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             >
-              Resumo
+              Editar objetivo
             </ButtonBar>
             <ButtonBar
               data-gtm-subname="barra inferior"
