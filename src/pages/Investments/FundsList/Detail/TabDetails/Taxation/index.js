@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
+
+import { formatDotToComma } from 'helpers'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import {
@@ -27,7 +29,7 @@ export const Taxation = ({ fund }) => {
                 elements={[
                   <LiTitle>{item.faixa}</LiTitle>,
                   item.faixa !== 'ISENTO' && (
-                    <LiValue bold>{item.valor}%</LiValue>
+                    <LiValue bold>{formatDotToComma(item.valor)}%</LiValue>
                   ),
                 ]}
               />
