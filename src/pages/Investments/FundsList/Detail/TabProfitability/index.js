@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import 'styled-components/macro'
 import Text from 'components/Text'
 
 import HorizontalList from 'components/HorizontalList'
+import { formatDotToComma } from 'helpers'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
 import {
   TablesContainer,
@@ -17,6 +18,8 @@ import {
 
 export default function TabProfitability({ fund }) {
   const printFieldText = text => text || '---'
+  const printFieldTextWithPercent = text =>
+    text ? `${formatDotToComma(text)}%` : '---'
 
   const histRentabilBenchmark =
     fund.comparativo_hist_rentabil.hist_rentabil_benchmark
@@ -28,7 +31,7 @@ export default function TabProfitability({ fund }) {
         noPadding
         startItems={[
           <StyledIcon name="linechart" />,
-          <Text color="gray6" type="subheading" bold>
+          <Text color="gray6" type="subheading">
             RENTABILIDADE HISTÓRICA
           </Text>,
         ]}
@@ -43,14 +46,14 @@ export default function TabProfitability({ fund }) {
           <tbody>
             <Tr>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   FUNDO
                 </Text>
               </Th>
             </Tr>
             <Tr>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   {printFieldText(histRentabilBenchmark.benchmark.nome) ===
                   'CDI'
                     ? `% ${printFieldText(
@@ -62,10 +65,10 @@ export default function TabProfitability({ fund }) {
             </Tr>
             <Tr>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   {histRentabilBenchmark.benchmark.nome === 'CDI'
-                    ? 'Variação'
-                    : 'Variação (P.P.)'}
+                    ? 'VARIAÇÃO'
+                    : 'VARIAÇÃO (P.P.)'}
                 </Text>
               </Th>
             </Tr>
@@ -76,27 +79,27 @@ export default function TabProfitability({ fund }) {
             <Tr>
               <Th>&nbsp;</Th>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   MÊS ANT.
                 </Text>
               </Th>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   ANO
                 </Text>
               </Th>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   ÚLT. 12M
                 </Text>
               </Th>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   ÚLT. 24M
                 </Text>
               </Th>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   ÚLT. 36M
                 </Text>
               </Th>
@@ -111,33 +114,41 @@ export default function TabProfitability({ fund }) {
               </Th>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(histRentabilFundo.rentabil_mes_anteiror)}
+                  {printFieldTextWithPercent(
+                    histRentabilFundo.rentabil_mes_anteiror
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(histRentabilFundo.rentabil_ano)}
+                  {printFieldTextWithPercent(histRentabilFundo.rentabil_ano)}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(histRentabilFundo.rentabil_12_meses)}
+                  {printFieldTextWithPercent(
+                    histRentabilFundo.rentabil_12_meses
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(histRentabilFundo.rentabil_24_meses)}
+                  {printFieldTextWithPercent(
+                    histRentabilFundo.rentabil_24_meses
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(histRentabilFundo.rentabil_36_meses)}
+                  {printFieldTextWithPercent(
+                    histRentabilFundo.rentabil_36_meses
+                  )}
                 </Text>
               </Td>
             </Tr>
             <Tr>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   {printFieldText(histRentabilBenchmark.benchmark.nome) ===
                   'CDI'
                     ? `% ${printFieldText(
@@ -148,33 +159,43 @@ export default function TabProfitability({ fund }) {
               </Th>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {histRentabilBenchmark.rentabil_mes_anteiror}
+                  {printFieldTextWithPercent(
+                    histRentabilBenchmark.rentabil_mes_anteiror
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {histRentabilBenchmark.rentabil_Ano}
+                  {printFieldTextWithPercent(
+                    histRentabilBenchmark.rentabil_Ano
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {histRentabilBenchmark.rentabil_12_meses}
+                  {printFieldTextWithPercent(
+                    histRentabilBenchmark.rentabil_12_meses
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {histRentabilBenchmark.rentabil_24_meses}
+                  {printFieldTextWithPercent(
+                    histRentabilBenchmark.rentabil_24_meses
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {histRentabilBenchmark.rentabil_36_meses}
+                  {printFieldTextWithPercent(
+                    histRentabilBenchmark.rentabil_36_meses
+                  )}
                 </Text>
               </Td>
             </Tr>
             <Tr>
               <Th>
-                <Text color="gray6" bold type="subheading">
+                <Text color="gray6" type="subheading">
                   {histRentabilBenchmark.benchmark.nome === 'CDI'
                     ? 'Variação'
                     : 'Variação (P.P.)'}
@@ -182,33 +203,35 @@ export default function TabProfitability({ fund }) {
               </Th>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(
+                  {printFieldTextWithPercent(
                     histRentabilFundo.rel_fundo_benchmark_mes_anteiror
                   )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(histRentabilFundo.rel_fundo_benchmark_ano)}
+                  {printFieldTextWithPercent(
+                    histRentabilFundo.rel_fundo_benchmark_ano
+                  )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(
+                  {printFieldTextWithPercent(
                     histRentabilFundo.rel_fundo_benchmark_12_meses
                   )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(
+                  {printFieldTextWithPercent(
                     histRentabilFundo.rel_fundo_benchmark_24_meses
                   )}
                 </Text>
               </Td>
               <Td>
                 <Text bold type="body" color="gray5">
-                  {printFieldText(
+                  {printFieldTextWithPercent(
                     histRentabilFundo.rel_fundo_benchmark_36_meses
                   )}
                 </Text>
