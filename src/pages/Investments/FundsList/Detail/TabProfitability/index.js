@@ -19,7 +19,7 @@ import {
 export default function TabProfitability({ fund }) {
   const printFieldText = text => text || '---'
   const printFieldTextWithPercent = text =>
-    text ? `${formatDotToComma(text)}%` : '---'
+    text && text !== '-' ? `${formatDotToComma(text)}%` : '---'
 
   const histRentabilBenchmark =
     fund.comparativo_hist_rentabil.hist_rentabil_benchmark
