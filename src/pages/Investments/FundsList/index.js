@@ -55,6 +55,9 @@ export default function FundsList() {
                   fundsType={fundsType}
                   isLoading={fundsStatus.isLoading}
                   isError={fundsStatus.isError}
+                  isFiltering={
+                    filter.byPerfilRisco || filter.byCategoriaArena.length > 0
+                  }
                 />
               )}
             </Col>

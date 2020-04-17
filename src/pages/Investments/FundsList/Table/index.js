@@ -89,6 +89,7 @@ export default function TableFunds({
   data,
   isLoading,
   isError,
+  isFiltering,
   onChangeIsDrawerOpen,
   columns: columnsProps,
 }) {
@@ -127,6 +128,7 @@ export default function TableFunds({
               isLoading={isLoading}
               prepareRow={prepareRow}
               isError={isError}
+              isFiltering={isFiltering}
             />
           </Tbody>
         </Table>
@@ -140,6 +142,7 @@ TableFunds.propTypes = {
   columns: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
+  isFiltering: PropTypes.bool.isRequired,
   isDrawerOpen: PropTypes.bool,
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
