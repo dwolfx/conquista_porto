@@ -5,7 +5,7 @@ import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 import { Col } from 'styled-bootstrap-grid'
 
-import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
+import Anbima from 'components/Anbima'
 import Filter from './Filter'
 import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
@@ -63,7 +63,7 @@ export default function FundsList() {
             </Col>
           </ContentWrapper>
         </TableContent>
-        <AnbimaLegalInfo />
+        <Anbima />
       </GridContainer>
       <Detail
         isOpen={isDrawerOpen}
