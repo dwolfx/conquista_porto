@@ -7,7 +7,10 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import { PostObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
+import {
+  GetOtherGoalsDataRequest,
+  PostObjectiveManagementDataRequest
+} from 'store/modules/ObjectiveManagement/action'
 import { ButtonBar, SectionBar } from './styles'
 
 const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
@@ -23,6 +26,7 @@ const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
       history.push({ pathname: path, state: { pageRecommendation: true } })
     }
     dispatch(PostObjectiveManagementDataRequest({ id, pushHistory }))
+    dispatch(GetOtherGoalsDataRequest({ id }))
   }
 
   return (
