@@ -176,6 +176,9 @@ export default function Filter({ filter, onChangeFilter }) {
         <Divisor />
         <ButtonLink
           noIcon
+          disabled={
+            !filter.byPerfilRisco && filter.byCategoriaArena.length === 0
+          }
           onClick={() => {
             onChangeFilter({ byPerfilRisco: null, byCategoriaArena: [] })
           }}
@@ -189,7 +192,7 @@ export default function Filter({ filter, onChangeFilter }) {
 
 Filter.propTypes = {
   filter: PropTypes.shape({
-    byCategoriaArena: PropTypes.string,
+    byCategoriaArena: PropTypes.arrayOf(PropTypes.string),
     byPerfilRisco: PropTypes.string,
   }).isRequired,
   onChangeFilter: PropTypes.func.isRequired,
