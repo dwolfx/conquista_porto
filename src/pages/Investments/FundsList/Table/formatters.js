@@ -1,7 +1,11 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import {
+  formatMoney,
+  handleGiwRedirect,
+  formatDotToComma as dotToComma,
+} from 'helpers'
 import ConquistaButton from 'components/Button'
 
 import Text from 'components/Text'
@@ -81,7 +85,7 @@ const FormatDefault = column => (
 const FormatDotToComma = column => (
   <WrapperContent>
     {column.cell.value.toString() !== '-'
-      ? `${column.cell.value.toString().replace('.', ',')}%`
+      ? `${dotToComma(column.cell.value)}%`
       : column.cell.value.toString()}
   </WrapperContent>
 )
@@ -89,7 +93,7 @@ const FormatDotToComma = column => (
 const FormatDotToCommaBold = column => (
   <WrapperContent isBold>
     {column.cell.value.toString() !== '-'
-      ? `${column.cell.value.toString().replace('.', ',')}%`
+      ? `${dotToComma(column.cell.value)}%`
       : column.cell.value.toString()}
   </WrapperContent>
 )
