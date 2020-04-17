@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 import { Link as RouterDomLink } from 'react-router-dom'
 
-import ComponentText from 'components/Text'
+import TextComponent from 'components/Text'
 
 import AnbimaGestao from 'assets/images/logo-anbima-gestao.png'
 import AnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
@@ -18,14 +18,14 @@ export const GridCol = styled(Col)`
 
 export const GridRow = styled(Row)``
 
-export const Text = styled(ComponentText).attrs(() => ({
+export const Text = styled(TextComponent).attrs(() => ({
   bold: true,
 }))`
   color: ${props => props.theme.colors.gray5};
   margin-bottom: 28px;
 `
 
-export const BlueText = styled(ComponentText).attrs(() => ({
+export const BlueText = styled(TextComponent).attrs(() => ({
   bold: true,
 }))`
   display: inline;
