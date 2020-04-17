@@ -58,7 +58,7 @@ const downloadFileSectionData = [
 const moreDetailsData = [
   {
     img: 'carousel-01',
-    imgTitle: 'Seguro como renda proteção',
+    imgTitle: 'Seguro como proteção familiar',
     imgDescription:
       'O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um estilo de vida de qualidade aos seus entes queridos, caso você falte um dia.',
     imgPath: 'lifeInsurance',
@@ -67,7 +67,7 @@ const moreDetailsData = [
     img: 'carousel-02',
     imgTitle: 'Coberturas não relacionadas à morte',
     imgDescription:
-      'O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em alguns casos de doenças graves, incapacidade temporária total ou parcial por acidentes, entre outros.',
+      'O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em casos de doenças graves e invalidez por acidente total ou parcial entre outros.',
     imgPath: 'lifeInsurance',
   },
   {

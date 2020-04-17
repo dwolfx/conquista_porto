@@ -38,21 +38,24 @@ const downloadFileSectionData = [
     title: 'SISTEMA DE INFORMAÇÕES DE CRÉDITO - SCR',
     description: 'Informações legais sobre crédito.',
     buttonText: 'BAIXAR ARQUIVO',
-    willRedirect: false,
+    willRedirect: true,
+    url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
   {
     title: 'TABELA DE TARIFAS',
     description:
       'Mais informações sobre tarifas envolvidas na contratação de cartão de crédito.',
     buttonText: 'Visualizar',
-    willRedirect: false,
+    willRedirect: true,
+    url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
   {
     title: 'CONDIÇÕES GERAIS',
     description:
       'Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Cartão de Crédito da Porto Seguro.',
     buttonText: 'BAIXAR ARQUIVO',
-    willRedirect: false,
+    willRedirect: true,
+    url: 'https://www.portoseguro.com.br/cartao-de-credito',
   },
 ]
 
