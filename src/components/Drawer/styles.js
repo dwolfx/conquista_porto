@@ -68,7 +68,7 @@ export const DrawerContent = styled.div`
 export const DrawerWrapper = styled.div`
   width: 100%;
   height: 100%;
-  z-index: 20;
+  z-index: 8;
 `
 
 export const DrawerOverlay = styled.div`

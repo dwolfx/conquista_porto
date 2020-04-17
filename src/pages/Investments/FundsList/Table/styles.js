@@ -247,5 +247,4 @@ export const CustomPopover = styled(Popover)`
   width: 28px;
   display: flex;
   margin: 0 auto;
-  z-index: 20;
 `

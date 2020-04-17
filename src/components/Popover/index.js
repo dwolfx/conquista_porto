@@ -6,7 +6,7 @@ import 'styled-components/macro'
 
 import Text from 'components/Text'
 
-import { PopoverContainer, Arrow, ChildrenWrapper, Tooltip } from './styles'
+import { PopoverContainer, Arrow, ChildrenWrapper } from './styles'
 
 export default function Popover({
   alwaysVisible,
@@ -15,7 +15,6 @@ export default function Popover({
   flippable,
   placement,
   trigger,
-  tooltip,
   ...rest
 }) {
   const [isOpen, setIsOpen] = useState(alwaysVisible)
@@ -38,32 +37,14 @@ export default function Popover({
       default: {
         return {
           onMouseEnter: () => setIsOpen(true),
-          onMouseLeave: () => setIsOpen(true),
+          onMouseLeave: () => setIsOpen(false),
         }
       }
     }
   }
 
-  const Content =
+  const PopoverContent =
     typeof content === 'string' ? () => <Text>{content}</Text> : content
-
-  const renderPopover = (ref, style, innerPlacement) => (
-    <PopoverContainer
-      ref={ref}
-      style={style}
-      placement={placement || innerPlacement}
-    >
-      <Arrow placement={placement || innerPlacement} />
-      <Content />
-    </PopoverContainer>
-  )
-
-  const renderTooltip = (ref, style, innerPlacement) => (
-    <Tooltip ref={ref} style={style} placement={placement || innerPlacement}>
-      <Arrow placement={placement || innerPlacement} tooltip />
-      <Content />
-    </Tooltip>
-  )
 
   return (
     <Manager>
@@ -94,11 +75,16 @@ export default function Popover({
                 }
               `}
             >
-              {({ placement: innerPlacement, ref, style }) =>
-                tooltip
-                  ? renderTooltip(ref, style, innerPlacement)
-                  : renderPopover(ref, style, innerPlacement)
-              }
+              {({ placement: innerPlacement, ref, style }) => (
+                <PopoverContainer
+                  ref={ref}
+                  style={style}
+                  placement={innerPlacement || placement}
+                >
+                  <Arrow placement={innerPlacement || placement} />
+                  <PopoverContent />
+                </PopoverContainer>
+              )}
             </Popper>,
             document.querySelector('#root')
           )
@@ -114,7 +100,6 @@ Popover.propTypes = {
   flippable: PropTypes.bool,
   placement: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
   trigger: PropTypes.string,
-  tooltip: PropTypes.bool,
 }
 
 Popover.defaultProps = {
@@ -122,5 +107,4 @@ Popover.defaultProps = {
   placement: 'top',
   flippable: true,
   trigger: '',
-  tooltip: false,
 }
