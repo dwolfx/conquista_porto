@@ -29,6 +29,13 @@ const handleOpacitySquareRisk = ({ value, selectedRisk }) => {
   return 0.3
 }
 
+const handleScaling = ({ value, selectedRisk }) => {
+  if (value === selectedRisk) {
+    return 'scale(1.17)'
+  }
+  return 'none'
+}
+
 export const SquareRiskLevel = styled.div.attrs(() => ({
   role: 'button',
 }))`
@@ -39,8 +46,8 @@ export const SquareRiskLevel = styled.div.attrs(() => ({
   background-color: ${props => props.theme.colors[props.color]};
   border-radius: 4px;
   transition: all 0.3s ease;
-
-  opacity: ${props => handleOpacitySquareRisk(props)};
+  transform: ${handleScaling};
+  opacity: ${handleOpacitySquareRisk};
 `
 
 export const Divisor = styled.div`
