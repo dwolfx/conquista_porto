@@ -12,21 +12,24 @@ export const GridContainer = styled(Container)`
   margin: 28px 0;
 `
 
-export const GridCol = styled(Col)``
+export const GridCol = styled(Col)`
+  padding: 0;
+`
 
 export const GridRow = styled(Row)``
 
 export const Text = styled(ComponentText).attrs(() => ({
   bold: true,
 }))`
+  color: ${props => props.theme.colors.gray5};
   margin-bottom: 28px;
 `
 
-export const UppercaseBlueText = styled.span.attrs(() => ({
+export const BlueText = styled(ComponentText).attrs(() => ({
   bold: true,
 }))`
+  display: inline;
   color: ${props => props.theme.colors.blue4};
-  text-transform: uppercase;
 `
 
 export const LogoAnbimaDistribuicao = styled.img.attrs(() => ({
