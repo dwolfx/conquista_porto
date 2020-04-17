@@ -38,7 +38,7 @@ export default function Popover({
       default: {
         return {
           onMouseEnter: () => setIsOpen(true),
-          onMouseLeave: () => setIsOpen(false),
+          onMouseLeave: () => setIsOpen(true),
         }
       }
     }

@@ -90,6 +90,7 @@ export default function TableFunds({
   isLoading,
   isError,
   onChangeIsDrawerOpen,
+  setIsOpenForInvestments,
   columns: columnsProps,
 }) {
   const {
@@ -123,6 +124,7 @@ export default function TableFunds({
           <Tbody {...getTableBodyProps()}>
             <TableBody
               onChangeIsDrawerOpen={onChangeIsDrawerOpen}
+              setIsOpenForInvestments={setIsOpenForInvestments}
               rows={rows}
               isLoading={isLoading}
               prepareRow={prepareRow}
@@ -142,6 +144,7 @@ TableFunds.propTypes = {
   isError: PropTypes.bool.isRequired,
   isDrawerOpen: PropTypes.bool,
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
+  setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
 }
 

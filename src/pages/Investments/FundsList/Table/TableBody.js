@@ -19,6 +19,7 @@ const TableBody = ({
   rows,
   prepareRow,
   onChangeIsDrawerOpen,
+  setIsOpenForInvestments,
 }) => {
   const dispatch = useDispatch()
 
@@ -82,7 +83,10 @@ const TableBody = ({
       return (
         <TbodyTr
           {...row.getRowProps()}
-          onClick={() => handleOpenDetail(row.original.id_fundo)}
+          onClick={() => {
+            handleOpenDetail(row.original.id_fundo)
+            setIsOpenForInvestments(row.original.aplicao_liberada)
+          }}
         >
           {row.cells.map(cell => (
             <TbodyTd
@@ -103,6 +107,7 @@ const TableBody = ({
 }
 
 TableBody.propTypes = {
+  setIsOpenForInvestments: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
   rows: PropTypes.array.isRequired,
