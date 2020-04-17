@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney, handleGiwRedirect, formatDotToComma } from 'helpers'
 import ConquistaButton from 'components/Button'
 
 import Text from 'components/Text'
@@ -78,18 +78,18 @@ const FormatDefault = column => (
   <WrapperContent>{column.cell.value}</WrapperContent>
 )
 
-const FormatDotToComma = column => (
+const FormatColumnDotToComma = column => (
   <WrapperContent>
     {column.cell.value.toString() !== '-'
-      ? `${column.cell.value.toString().replace('.', ',')}%`
+      ? `${formatDotToComma(column.cell.value)}%`
       : column.cell.value.toString()}
   </WrapperContent>
 )
 
-const FormatDotToCommaBold = column => (
+const FormatColumnDotToCommaBold = column => (
   <WrapperContent isBold>
     {column.cell.value.toString() !== '-'
-      ? `${column.cell.value.toString().replace('.', ',')}%`
+      ? `${formatDotToComma(column.cell.value)}%`
       : column.cell.value.toString()}
   </WrapperContent>
 )
@@ -119,7 +119,7 @@ export default function FormatColumns(columns, toggleModal) {
     }),
     taxa_administracao: column => ({
       ...column,
-      Cell: FormatDotToComma,
+      Cell: FormatColumnDotToComma,
     }),
     rentabilidade: column => ({
       ...column,
@@ -130,7 +130,7 @@ export default function FormatColumns(columns, toggleModal) {
         const [fst] = [nextValue, currentValue].sort((a, b) => a - b)
         return fst === nextValue ? -1 : 1
       },
-      Cell: FormatDotToCommaBold,
+      Cell: FormatColumnDotToCommaBold,
     }),
     default: column => ({
       ...column,

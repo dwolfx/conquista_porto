@@ -20,6 +20,7 @@ const TableBody = ({
   prepareRow,
   onChangeIsDrawerOpen,
   setIsOpenForInvestments,
+  isFiltering,
 }) => {
   const dispatch = useDispatch()
 
@@ -69,8 +70,9 @@ const TableBody = ({
         <InfoTableContent>
           <td>
             <Text type="headline" color="gray5">
-              No momento não possuimos nenhum fundo de investimento em nossa
-              plataforma.
+              {isFiltering
+                ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
+                : 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.'}
             </Text>
           </td>
         </InfoTableContent>
@@ -110,6 +112,7 @@ TableBody.propTypes = {
   setIsOpenForInvestments: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
+  isFiltering: PropTypes.bool.isRequired,
   rows: PropTypes.array.isRequired,
   prepareRow: PropTypes.func.isRequired,
 }

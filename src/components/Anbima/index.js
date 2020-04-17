@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {
+  BlueText,
   GridContainer,
   GridCol,
   GridRow,
@@ -9,7 +10,6 @@ import {
   LogoAnbimaGestao,
   LogoComoInvestir,
   Text,
-  UppercaseBlueText,
 } from './styled'
 
 const Anbima = () => (
@@ -19,14 +19,14 @@ const Anbima = () => (
         <Text>
           A Porto Seguro Investimentos informa os cotistas que o Distribuidor de
           cotas dos Fundos poderá receber remuneração de distribuição do(s)
-          administrador(es) e/ou dos Fundos de Invest imento em que seus
-          clientes aplicarem recursos, seja na forma de investimento direto,
-          seja por meio de conta e ordem; Esta remuneração poderá ser
-          diferenciada em função dos diversos Fundos de Investimento investidos.
-          Leia o formulário de informações complementares, a lâmina de
-          informações essenciais, se houver, e o regulamento antes de investir.
-          Confira a Lâmina de Informações Essenciais, o Demonstrativo de
-          Desempenho e o Formulário de Informações Complementares - INTRAG/CVM.
+          administrador(es) e/ou dos Fundos de Investimento em que seus clientes
+          aplicarem recursos, seja na forma de investimento direto, seja por
+          meio de conta e ordem; Esta remuneração poderá ser diferenciada em
+          função dos diversos Fundos de Investimento investidos. Leia o
+          formulário de informações complementares, a lâmina de informações
+          essenciais, se houver, e o regulamento antes de investir. Confira a
+          Lâmina de Informações Essenciais, o Demonstrativo de Desempenho e o
+          Formulário de Informações Complementares - INTRAG/CVM.
           <Link
             target="_blank"
             to={{
@@ -37,7 +37,7 @@ const Anbima = () => (
             data-gtm-subname="Anbima"
             data-gtm-name="ACESSE AQUI"
           >
-            <UppercaseBlueText> ACESSE AQUI</UppercaseBlueText>
+            <BlueText> ACESSE AQUI</BlueText>
           </Link>
           . A Porto Seguro Investimentos pode receber eventuais serviços
           adicionais fornecidos por Corretoras em razão de sua contratação e

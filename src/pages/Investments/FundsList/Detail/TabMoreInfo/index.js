@@ -10,6 +10,7 @@ import Divisor from 'components/Divisor'
 import VerticalList from 'components/VerticalList'
 import ButtonLink from 'components/Button/Link'
 
+import { formatDotToComma } from 'helpers'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import {
@@ -88,7 +89,7 @@ export default function TabMoreInfo({ fund }) {
                 taxa de administração
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {fund.taxa_administracao}% a.a
+                {formatDotToComma(fund.taxa_administracao)}% a.a
               </Text>,
             ]}
           />
@@ -101,7 +102,9 @@ export default function TabMoreInfo({ fund }) {
               <Text type="headline" color="gray6" bold>
                 {Number(fund.taxa_performance) === 0
                   ? 'Não há cobrança de performance'
-                  : `${fund.taxa_performance}% sobre o que exceder`}
+                  : `${formatDotToComma(
+                      fund.taxa_performance
+                    )}% sobre o que exceder`}
               </Text>,
             ]}
           />
