@@ -16,11 +16,9 @@ import TabProfitability from './TabProfitability'
 import TabMoreInfo from './TabMoreInfo'
 import TabDetails from './TabDetails'
 
-const footerDrawer = () => (
-  <ButtonSubmit color="secondary">Investir</ButtonSubmit>
-)
+import { LockIcon, CustomPopover } from '../Table/styles'
 
-const Detail = ({ isOpen, handleClose, hasError }) => {
+const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
   const { data: fundDetails, isLoading } = useSelector(
     state => state.investmentDetails
   )
@@ -42,6 +40,19 @@ const Detail = ({ isOpen, handleClose, hasError }) => {
     return name
   }
   const category = getCategoryName()
+
+  const footerDrawer = () =>
+    isOpenForInvestments ? (
+      <ButtonSubmit color="secondary">Investir</ButtonSubmit>
+    ) : (
+      <CustomPopover
+        content="Fundo fechado para aplicações"
+        placement="left"
+        tooltip
+      >
+        <LockIcon />
+      </CustomPopover>
+    )
 
   const renderTabs = () => (
     <Tabs name="tab-detalhe" initialValue="tab-detalhe-fundo" initialReset>
@@ -129,12 +140,14 @@ const Detail = ({ isOpen, handleClose, hasError }) => {
 
 Detail.propTypes = {
   isOpen: PropTypes.bool,
+  isOpenForInvestments: PropTypes.bool,
   hasError: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
 }
 
 Detail.defaultProps = {
   isOpen: false,
+  isOpenForInvestments: true,
   hasError: false,
 }
 export default Detail

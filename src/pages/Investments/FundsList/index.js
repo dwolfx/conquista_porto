@@ -30,6 +30,7 @@ export default function FundsList() {
   })
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
 
   const filteredFundsList = useFilter(filter)
 
@@ -51,6 +52,7 @@ export default function FundsList() {
                   columns={columns}
                   isDrawerOpen={isDrawerOpen}
                   onChangeIsDrawerOpen={setIsDrawerOpen}
+                  setIsOpenForInvestments={setIsOpenForInvestments}
                   data={filteredFundsList}
                   fundsType={fundsType}
                   isLoading={fundsStatus.isLoading}
@@ -67,6 +69,7 @@ export default function FundsList() {
       </GridContainer>
       <Detail
         isOpen={isDrawerOpen}
+        isOpenForInvestments={isOpenForInvestments}
         handleClose={() => setIsDrawerOpen(false)}
       />
     </>
