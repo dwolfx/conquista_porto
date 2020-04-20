@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const truncate = css`
+const truncate = css<any>`
   width: ${props => props.width && props.width};
   white-space: nowrap;
   overflow: hidden;
@@ -16,3 +16,4 @@ export const TextStyle = styled.p`
     // if props.type not found in theme settings, get body as default
     props.theme.fontTypes[props.type] || props.theme.fontTypes.body}
 `
+

@@ -18,7 +18,6 @@ import {
   EmptyProductItemRow,
   HorizontalListWithMargin,
   LinearProgressBarContent,
-  TextBlack,
   ErrorText,
 } from './styles'
 
@@ -85,9 +84,9 @@ const itemDetail = {
 
       const startItems = [
         <Icon width={20} name={product.Bandeira.toLowerCase()} />,
-        <TextBlack type="headline" bold>
+        <Text color="black" type="headline" bold>
           {formatMoney(product.Fatura.Valor)}
-        </TextBlack>,
+        </Text>,
       ]
 
       const endItems = [
@@ -170,9 +169,9 @@ function lifeInsuranceBottomLine(product, history) {
   }
 
   const startItems = [
-    <TextBlack type="headline" bold>
+    <Text color="black" type="headline" bold>
       {formatMoney(value)}
-    </TextBlack>,
+    </Text>,
   ]
 
   const endItems = [
@@ -210,9 +209,9 @@ function tripInsuranceBottomLine(product, history) {
   }
 
   const startItems = [
-    <TextBlack type="headline" bold>
+    <Text color="black" type="headline" bold>
       {formatMoney(value)}
-    </TextBlack>,
+    </Text>,
   ]
 
   const endItems = [
@@ -244,9 +243,9 @@ function genericBottomLine(product, history, itemTitle) {
         max={product.QuantidadeParcelasContratadas}
       />
     </LinearProgressBarContent>,
-    <TextBlack type="headline" bold>
+    <Text color="black" type="headline" bold>
       {`${product.QuantidadeParcelasPagas}/${product.QuantidadeParcelasContratadas}`}
-    </TextBlack>,
+    </Text>,
   ]
 
   const endItems = [

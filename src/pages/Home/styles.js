@@ -38,10 +38,6 @@ export const HorizontalListWithMargin = styled(HorizontalList)`
   margin-bottom: 7px;
 `
 
-export const TextBlack = styled(Text)`
-  color: ${props => props.theme.colors.black};
-`
-
 export const GridCol = styled(Col)`
   &#menu {
     transition: all 0.35s ease-in-out;
