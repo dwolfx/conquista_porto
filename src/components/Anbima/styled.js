@@ -9,7 +9,7 @@ import AnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
 import AnbimaComoInvestir from 'assets/images/logo-anbima-como-investir.png'
 
 export const GridContainer = styled(Container)`
-  margin: 28px 0;
+  margin: 28px auto;
 `
 
 export const GridCol = styled(Col)`
