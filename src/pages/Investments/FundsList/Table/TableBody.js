@@ -36,7 +36,7 @@ const TableBody = ({
           <td>
             <Loading
               type="bar"
-              legend="Aguarde, estamos buscando suas informações..."
+              legend="Aguarde enquanto buscamos informações de fundos de investimentos..."
               widthBar="100%"
             />
           </td>
