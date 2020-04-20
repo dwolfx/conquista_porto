@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 
 import bankData from './BankData/reducer'
 import bankExtract from './BankExtract/reducer'
+import bankExtractFund from './BankExtractFund/reducer'
 import creditCard from './CreditCard/reducer'
 import consolidatedPosition from './ConsolidatedPosition/reducer'
 import consortiumBuilding from './ConsortiumBuilding/reducer'
@@ -23,6 +24,7 @@ import suitability from './Suitability/reducer'
 export default combineReducers({
   bankData,
   bankExtract,
+  bankExtractFund,
   consortiumBuilding,
   consortiumVehicle,
   creditCard,

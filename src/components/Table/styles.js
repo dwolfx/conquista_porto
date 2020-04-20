@@ -86,9 +86,19 @@ export const PaginationButton = styled.button`
     stroke: ${props => props.theme.colors.gray5};
   }
 
-  &:disabled:hover {
-    background-color: ${props => props.theme.colors.gray2};
+  &:disabled {
+    color: ${props => props.theme.colors.gray5};
+    cursor: not-allowed;
   }
+
+  &:disabled:hover {
+    background-color: ${props => props.theme.colors.gray3};
+  }
+`
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  margin-left: 42px;
 `
 
 const defaultIconStyle = css`

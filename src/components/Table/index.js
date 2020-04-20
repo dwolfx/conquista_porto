@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useTable, useFilters, usePagination } from 'react-table'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import {
   TheadTr,
@@ -12,6 +13,7 @@ import {
   InputFilterWrapper,
   Tfoot,
   TfootTd,
+  ButtonGroup,
   PaginationButton,
   ForwardIcon,
   BackwardIcon,
@@ -52,100 +54,94 @@ const TfootWrapper = ({
   nextPage,
   gotoPage,
   previousPage,
-}) => (
-  <Tfoot>
-    <tr>
-      <TfootTd paddingLeft="10">
-        Total {dataProp.length} | Página {pageIndex + 1} de {pageCount}
-      </TfootTd>
-      <TfootTd colSpan="3" textAlign="right">
-        <PaginationButton
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname="paginacao"
-          data-gtm-name="primeira"
-          marginRight="70"
-          padding="0 10px"
-          visibility={canPreviousPage ? 'visible' : 'hidden'}
-          onClick={() => gotoPage(0)}
-        >
-          <BackwardIcon width="7" />
-          <BackwardIcon width="7" />
-          &nbsp; Primeira
-        </PaginationButton>
-        {canPreviousPage && (
-          <>
+}) => {
+  const updatePages = currentPage => {
+    const allPages = [...new Array(pageCount)].map((_, index) => index + 1)
+    let currentPages = pageCount > 3 ? [1, 2, 3] : allPages
+
+    if (currentPage > 2) {
+      currentPages = allPages.slice(currentPage - 2, currentPage + 1)
+    }
+    return currentPages
+  }
+
+  const handleGoToPage = item => {
+    gotoPage(item - 1)
+  }
+
+  return (
+    <Tfoot>
+      <tr>
+        <TfootTd paddingLeft="10">
+          Total {dataProp.length} | Página {pageIndex + 1} de {pageCount}
+        </TfootTd>
+        <TfootTd colSpan="2" textAlign="right">
+          <ButtonGroup>
+            <PaginationButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="paginacao"
+              data-gtm-name="primeira"
+              disabled={!canPreviousPage}
+              onClick={() => gotoPage(0)}
+            >
+              <BackwardIcon width="7" />
+              <BackwardIcon width="7" />
+              &nbsp; Primeira
+            </PaginationButton>
             <PaginationButton
               data-gtm-type="click"
               data-gtm-clicktype="button"
               data-gtm-subname="paginacao"
               data-gtm-name="icone backward"
+              disabled={!canPreviousPage}
               onClick={() => previousPage()}
             >
               <BackwardIcon />
+            </PaginationButton>
+            {updatePages(pageIndex + 1).map(item => (
+              <PaginationButton
+                key={`page-buttom-${item + 1}`}
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname="paginacao"
+                data-gtm-name={pageIndex + 1}
+                className={pageIndex === item - 1 ? 'active' : ''}
+                onClick={() => handleGoToPage(item)}
+              >
+                {item}
+              </PaginationButton>
+            ))}
+            <PaginationButton
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="paginacao"
+              data-gtm-name="icone forward"
+              disabled={!canNextPage}
+              onClick={() => nextPage()}
+            >
+              <ForwardIcon />
             </PaginationButton>
 
             <PaginationButton
               data-gtm-type="click"
               data-gtm-clicktype="button"
               data-gtm-subname="paginacao"
-              data-gtm-name={pageIndex}
-              onClick={() => gotoPage(pageIndex - 1)}
+              data-gtm-name="ultima"
+              disabled={!canNextPage}
+              padding="0 10px"
+              onClick={() => gotoPage(pageCount - 1)}
             >
-              {pageIndex}
+              Última &nbsp;
+              <ForwardIcon width="7" />
+              <ForwardIcon width="7" />
             </PaginationButton>
-          </>
-        )}
-        <PaginationButton
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname="paginacao"
-          data-gtm-name={pageIndex + 1}
-          className="active"
-        >
-          {pageIndex + 1}
-        </PaginationButton>
-        {canNextPage && (
-          <>
-            <PaginationButton
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              data-gtm-subname="paginacao"
-              data-gtm-name={pageIndex + 2}
-              onClick={() => nextPage()}
-            >
-              {pageIndex + 2}
-            </PaginationButton>
-            <PaginationButton
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              data-gtm-subname="paginacao"
-              data-gtm-name="icone forward"
-              onClick={() => nextPage()}
-            >
-              <ForwardIcon />
-            </PaginationButton>
-          </>
-        )}
-        <PaginationButton
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname="paginacao"
-          data-gtm-name="ultima"
-          marginLeft="180"
-          marginRight="10"
-          padding="0 10px"
-          visibility={canNextPage ? 'visible' : 'hidden'}
-          onClick={() => gotoPage(pageCount - 1)}
-        >
-          Última &nbsp;
-          <ForwardIcon width="7" />
-          <ForwardIcon width="7" />
-        </PaginationButton>
-      </TfootTd>
-    </tr>
-  </Tfoot>
-)
+          </ButtonGroup>
+        </TfootTd>
+      </tr>
+    </Tfoot>
+  )
+}
 
 export default function TableRender({ columns, data, showFilter }) {
   const filterTypes = useMemo(
@@ -171,10 +167,10 @@ export default function TableRender({ columns, data, showFilter }) {
     canNextPage,
     canPreviousPage,
     pageCount,
-    pageIndex = 0,
     nextPage,
     previousPage,
     gotoPage,
+    state: { pageIndex },
   } = useTable(
     {
       columns,

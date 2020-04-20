@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 
 import BannerSeguroVidaImage from 'assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
 import SeloSeguroVida from 'assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
@@ -10,8 +9,6 @@ import MakeSenseSection from 'components/Solutions/MakeSenseSection'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
-
-import { handleGiwRedirect } from 'helpers'
 
 const makeSenseSectionData = [
   {
@@ -92,24 +89,15 @@ const moreDetailsData = [
 ]
 
 export default function LifeInsurance() {
-  const { state: locationState } = useLocation()
   return (
     <>
       <TopBanner
         title="Seguro de Vida"
         description="Planeje a sua proteção ou da sua família e tenha tranquilidade para enfrentar adversidades. Você pode simular diferentes planos da Porto Seguro e contratar digitalmente."
-        buttonText="Simular e Contratar"
+        buttonText="EM BREVE"
         image={BannerSeguroVidaImage}
         imageDescription="Família andando na beira do mar"
-        onClick={() =>
-          handleGiwRedirect(
-            `portaldecliente/conquista/seguro-de-vida/simular?r=true${
-              (locationState || {}).idGoal
-                ? `&idObjetivo=${(locationState || {}).idGoal}`
-                : ''
-            }`
-          )
-        }
+        onClick={() => {}}
       />
       <BulletsSection
         title="Por que contratar o Seguro de Vida?"
@@ -131,12 +119,7 @@ export default function LifeInsurance() {
         mainDescription="Com o Conquista, é fácil encontrar o plano ideal para você."
         subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
         de Vida da Porto Seguro."
-        buttonText="Simular e contratar"
-        onClick={() =>
-          handleGiwRedirect(
-            'portaldecliente/conquista/seguro-de-vida/simular?r=true'
-          )
-        }
+        buttonText="EM BREVE"
       />
 
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />
