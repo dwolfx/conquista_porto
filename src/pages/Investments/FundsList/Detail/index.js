@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
-import { ButtonSubmit, DetailWrapper } from './styled'
+import { ButtonSubmit, EmptyStateWrapper } from './styled'
 import TabProfitability from './TabProfitability'
 import TabMoreInfo from './TabMoreInfo'
 import TabDetails from './TabDetails'
@@ -100,23 +100,24 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
 
   return (
     <Drawer
-      drawerTitle={fundDetails.apelido || 'Detalhes do Fundo'}
+      drawerTitle={!isLoading && fundDetails.apelido}
       isOpen={isOpen}
+      isLoading={isLoading}
       handleClose={handleClose}
       footer={footerDrawer()}
     >
       {isLoading && (
-        <DetailWrapper>
+        <EmptyStateWrapper>
           <Loading
             type="bar"
             legend="Aguarde, estamos buscando as informações detalhadas deste fundo de investimento..."
             widthBar="100%"
           />
-        </DetailWrapper>
+        </EmptyStateWrapper>
       )}
 
       {hasError && (
-        <DetailWrapper>
+        <EmptyStateWrapper>
           <Text type="headline" color="magenta2">
             Não foi possível carregar as informações detalhadas deste fundo de
             investimento.
@@ -131,7 +132,7 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
           >
             Tentar novamente
           </Button>
-        </DetailWrapper>
+        </EmptyStateWrapper>
       )}
       {!isLoading && !hasError ? renderTabs() : null}
     </Drawer>
