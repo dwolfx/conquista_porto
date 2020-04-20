@@ -2709,9 +2709,69 @@
       }
     ]
   },
-  "conta_extrato": {
+  "extrato": {
     "transacoes": {
       "transacao": [
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-09-03T00:00:00-03:00",
+          "valor": "-100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-07-03T00:00:00-03:00",
+          "valor": "-500"
+        },
+        {
+          "tipo": "TED",
+          "data": "2019-08-27T00:00:00-03:00",
+          "valor": "100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-09-03T00:00:00-03:00",
+          "valor": "-100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-07-03T00:00:00-03:00",
+          "valor": "-500"
+        },
+        {
+          "tipo": "TED",
+          "data": "2019-08-27T00:00:00-03:00",
+          "valor": "100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-09-03T00:00:00-03:00",
+          "valor": "-100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-07-03T00:00:00-03:00",
+          "valor": "-500"
+        },
+        {
+          "tipo": "TED",
+          "data": "2019-08-27T00:00:00-03:00",
+          "valor": "100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-09-03T00:00:00-03:00",
+          "valor": "-100"
+        },
+        {
+          "tipo": "APLICAÇÃO",
+          "data": "2019-07-03T00:00:00-03:00",
+          "valor": "-500"
+        },
+        {
+          "tipo": "TED",
+          "data": "2019-08-27T00:00:00-03:00",
+          "valor": "100"
+        },
         {
           "tipo": "APLICAÇÃO",
           "data": "2019-09-03T00:00:00-03:00",
@@ -2741,6 +2801,558 @@
       "codigo_banco": "420"
     }
   },
+  "movimentacoes": [
+    {
+      "fundos": {
+        "fundo": [
+          {
+            "apelido": "AZ Quest Valore FI RF CP",
+            "nome_carteira": "AZ Quest Valore FI Renda Fixa Crédito Privado",
+            "id_carteira": "51380065",
+            "is_fundo_ativo": false
+          },
+          {
+            "apelido": "CA Indosuez Vitesse FI RF CP",
+            "nome_carteira": "Ca Indosuez Vitesse FI Renda Fixa Crédito Privado",
+            "id_carteira": "51380060",
+            "is_fundo_ativo": false
+          },
+          {
+            "apelido": "Porto Seguro Alocação FIC FIM",
+            "nome_carteira": "Porto Seguro Alocação FIC FIM",
+            "id_carteira": "5112",
+            "is_fundo_ativo": false
+          },
+          {
+            "apelido": "Porto Seguro FIC FIA",
+            "nome_carteira": "Porto Seguro Ações FICFI",
+            "id_carteira": "5069",
+            "is_fundo_ativo": false
+          },
+          {
+            "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
+            "nome_carteira": "RB Capital Vitória Debêntures Incentivadas FIC Multimercado Crédito Privado",
+            "id_carteira": "51380013",
+            "is_fundo_ativo": false
+          },
+          {
+            "apelido": "Vinci Seleção FIA",
+            "nome_carteira": "Vinci Gas Seleção Dividendos FI Ações",
+            "id_carteira": "51380097",
+            "is_fundo_ativo": false
+          }
+        ]
+      },
+      "operacoes": {
+        "operacao": [
+          {
+            "data_operacao": "2020-02-18T00:00:00-03:00",
+            "data_liquidacao": "2020-02-18T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "20000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10590430"
+          },
+          {
+            "data_operacao": "2020-02-18T00:00:00-03:00",
+            "data_liquidacao": "2020-02-18T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "20000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10590431"
+          },
+          {
+            "data_operacao": "2020-02-18T00:00:00-03:00",
+            "data_liquidacao": "2020-02-18T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1500.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10590433"
+          },
+          {
+            "data_operacao": "2020-03-19T00:00:00-03:00",
+            "data_liquidacao": "2020-03-19T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "5000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10593959"
+          },
+          {
+            "data_operacao": "2020-03-26T00:00:00-03:00",
+            "data_liquidacao": "2020-03-26T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604890"
+          },
+          {
+            "data_operacao": "2020-03-26T00:00:00-03:00",
+            "data_liquidacao": "2020-03-26T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "10000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604893"
+          },
+          {
+            "data_operacao": "2020-03-26T00:00:00-03:00",
+            "data_liquidacao": "2020-03-26T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604894"
+          },
+          {
+            "data_operacao": "2020-03-26T00:00:00-03:00",
+            "data_liquidacao": "2020-03-26T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604891"
+          },
+          {
+            "data_operacao": "2020-03-26T00:00:00-03:00",
+            "data_liquidacao": "2020-03-26T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604895"
+          },
+          {
+            "data_operacao": "2020-04-06T00:00:00-03:00",
+            "data_liquidacao": "2020-04-06T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604976"
+          },
+          {
+            "data_operacao": "2020-04-06T00:00:00-03:00",
+            "data_liquidacao": "2020-04-06T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604981"
+          },
+          {
+            "data_operacao": "2020-04-06T00:00:00-03:00",
+            "data_liquidacao": "2020-04-06T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605015"
+          },
+          {
+            "data_operacao": "2020-04-06T00:00:00-03:00",
+            "data_liquidacao": "2020-04-06T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605014"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605016"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605017"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605018"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605020"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605021"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605022"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605019"
+          },
+          {
+            "data_operacao": "2020-04-09T00:00:00-03:00",
+            "data_liquidacao": "2020-04-09T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605051"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1098.73",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604977"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605022"
+          },
+          {
+            "data_operacao": "2020-04-07T00:00:00-03:00",
+            "data_liquidacao": "2020-04-07T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605019"
+          },
+          {
+            "data_operacao": "2020-04-09T00:00:00-03:00",
+            "data_liquidacao": "2020-04-09T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1111.11",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605051"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1098.73",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10604977"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          },
+          {
+            "data_operacao": "2020-04-13T00:00:00-03:00",
+            "data_liquidacao": "2020-04-13T00:00:00-03:00",
+            "tipo_operacao": "Aplicação",
+            "valor_bruto": "1000.00",
+            "tipo_movimentacao_operacao": "1",
+            "id_fundo": "51380060",
+            "id_operacao": "10605062"
+          }
+        ]
+      }
+    }
+  ],
   "comments": [
     {
       "id": 1,
