@@ -9,7 +9,7 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import {
   GetOtherGoalsDataRequest,
-  PostObjectiveManagementDataRequest
+  PostObjectiveManagementDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
 import { ButtonBar, SectionBar } from './styles'
 
