@@ -73,7 +73,7 @@ export const PopoverContainer = styled.div`
   box-shadow: ${props => props.theme.shadows.gray2};
   padding: 14px;
   position: relative;
-  z-index: 9;
+  z-index: 13;
 `
 
 export const Tooltip = styled(PopoverContainer)`
