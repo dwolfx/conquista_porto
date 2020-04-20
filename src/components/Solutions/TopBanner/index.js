@@ -28,7 +28,10 @@ export default function TopBanner({
             data-gtm-subname={`banner ${title}`}
             data-gtm-name={buttonText}
           >
-            {buttonText} {!noBtnIcon && <span className="icon">&gt;</span>}
+            {buttonText}{' '}
+            {!noBtnIcon && buttonText.toLowerCase() !== 'em breve' && (
+              <span className="icon">&gt;</span>
+            )}
           </Button>
         )}
       </Content>
