@@ -69,8 +69,3 @@ export const TaxationInfo = styled.div`
   padding: 21px 21px 0;
   text-align: center;
 `
-
-export const Text = styled(TextComponent)`
-  ${props => props.theme.fontTypes.captionUppercase};
-  color: ${props => props.theme.colors.gray6};
-`
