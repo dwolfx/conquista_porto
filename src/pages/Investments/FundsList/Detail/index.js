@@ -1,5 +1,7 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { handleGiwRedirect } from 'helpers'
 import Drawer from 'components/Drawer'
 import 'styled-components/macro'
 
@@ -44,9 +46,25 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
   }
   const category = getCategoryName()
 
+  const { state: locationState } = useLocation()
   const footerDrawer = () =>
     isOpenForInvestments ? (
-      <ButtonSubmit color="secondary">Investir</ButtonSubmit>
+      <ButtonSubmit
+        color="secondary"
+        onClick={() => {
+          handleGiwRedirect(
+            `portaldecliente/conquista/aplicacao?idFundo=${
+              fundDetails.id_fundo
+            }&r=true${
+              locationState && locationState.idGoal
+                ? `&idObjetivo=${locationState.idGoal}`
+                : ''
+            }`
+          )
+        }}
+      >
+        Investir
+      </ButtonSubmit>
     ) : (
       <LockFundWrapper>
         <LockIcon />

@@ -54,7 +54,9 @@ const FormatEnabledCell = column => {
               `portaldecliente/conquista/aplicacao?idFundo=${
                 column.cell.row.original.id_fundo
               }&r=true${
-                locationState.idGoal ? `idObjetivo=${locationState.idGoal}` : ''
+                locationState && locationState.idGoal
+                  ? `&idObjetivo=${locationState.idGoal}`
+                  : ''
               }`
             )
           }}
