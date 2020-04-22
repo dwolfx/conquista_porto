@@ -26,12 +26,14 @@ export const Taxation = ({ fund }) => {
             // eslint-disable-next-line react/no-array-index-key
             <Li key={`aliquota-${index}`}>
               <VerticalList
-                elements={[
-                  <LiTitle>{item.faixa}</LiTitle>,
-                  item.faixa !== 'ISENTO' && (
-                    <LiValue bold>{formatDotToComma(item.valor)}%</LiValue>
-                  ),
-                ]}
+                elements={
+                  item.faixa.toLowerCase() === 'isento'
+                    ? [<LiTitle>IR</LiTitle>, <LiValue bold>Isento</LiValue>]
+                    : [
+                        <LiTitle>{item.faixa}</LiTitle>,
+                        <LiValue bold>{formatDotToComma(item.valor)}%</LiValue>,
+                      ]
+                }
               />
             </Li>
           ))
