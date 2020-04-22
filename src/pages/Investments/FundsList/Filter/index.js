@@ -23,7 +23,7 @@ export const FILTER_TYPES = {
   5: 'cambial',
 }
 
-const FILTER_RISKS = {
+export const FILTER_RISKS = {
   1: 'baixo',
   2: 'medio-baixo',
   3: 'medio',

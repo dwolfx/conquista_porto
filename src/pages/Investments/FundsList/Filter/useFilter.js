@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
-import { FILTER_TYPES } from './index'
+import { FILTER_TYPES, FILTER_RISKS } from './index'
 
 export default function useFilter(filter) {
   const funds = useSelector(state => state.investmentsList.data)
@@ -13,7 +13,21 @@ export default function useFilter(filter) {
   }
 
   function sortFunds(list) {
-    return list.sort((itemList1, itemList2) => {
+    let sortedList = list.sort((itemList1, itemList2) => {
+      const indexItemList1 = Object.values(FILTER_RISKS).indexOf(
+        itemList1.perfil_risco.toLowerCase()
+      )
+      const indexItemList2 = Object.values(FILTER_RISKS).indexOf(
+        itemList2.perfil_risco.toLowerCase()
+      )
+
+      if (indexItemList1 > indexItemList2) return 1
+      if (indexItemList2 > indexItemList1) return -1
+
+      return 0
+    })
+
+    sortedList = sortedList.sort((itemList1, itemList2) => {
       const indexItemList1 = Object.values(FILTER_TYPES).indexOf(
         itemList1.categoria_arena.toLowerCase()
       )
@@ -26,6 +40,8 @@ export default function useFilter(filter) {
 
       return 0
     })
+
+    return sortedList
   }
 
   function filterByPerfilRisco(list, perfilRisco) {
@@ -35,9 +51,11 @@ export default function useFilter(filter) {
   const formattedFundsList = useMemo(() => {
     const categoriaArena = filter.byCategoriaArena
     const perfilRisco = filter.byPerfilRisco
-    const newFundsList = funds
-      .flatMap(item => item)
-      .reduce((prev, curr) => [...prev, ...curr.fundos], [])
+    const newFundsList = sortFunds(
+      funds
+        .flatMap(item => item)
+        .reduce((prev, curr) => [...prev, ...curr.fundos], [])
+    )
 
     if (categoriaArena.length > 0 && perfilRisco) {
       const filteredListByPerfilRisco = filterByPerfilRisco(
@@ -52,7 +70,7 @@ export default function useFilter(filter) {
     if (perfilRisco && categoriaArena.length === 0) {
       return filterByPerfilRisco(newFundsList, perfilRisco)
     }
-    return sortFunds(newFundsList)
+    return newFundsList
   }, [funds, filter])
 
   return formattedFundsList
