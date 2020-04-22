@@ -43,16 +43,14 @@ function* postLogin({ credentials: { username, password } }) {
 }
 
 function* postLogout() {
+  const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
   removeAuthCookie()
   if (
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
   ) {
-    window.location.href =
-      'https://cliente.portoseguro.com.br/portal/site/portaldecliente/conquista/template.LOGOUT/action.process/menuitem.dd3fa9cf23b0f9d5bf110c811ebaa1ca/'
+    window.location.href = logoutUrl
   }
-  // const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
-  // yield call(axiosInstance.post, logoutUrl, `token=${accessToken}`)
   yield true
 }
 

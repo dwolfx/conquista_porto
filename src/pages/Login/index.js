@@ -7,7 +7,6 @@ import Input from 'components/Inputs/Text'
 import CPFInput from 'components/Inputs/CPFInput'
 import { AuthRequestLogin } from 'store/modules/Auth/action'
 import { useDispatch, useSelector } from 'react-redux'
-import { handleGiwRedirect } from 'helpers'
 import { FormWrapper } from './styles'
 
 export default function Login() {
@@ -32,7 +31,8 @@ export default function Login() {
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
   ) {
-    return handleGiwRedirect('/portal/site/portaldecliente/template.LOGOUT/')
+    window.location.href = process.env.REACT_APP_BASE_URL_LOGOUT
+    return null
   }
 
   return (
