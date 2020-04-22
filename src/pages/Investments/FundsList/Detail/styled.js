@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
+import IconExporter from 'components/IconExporter'
 
 export const ButtonSubmit = styled(Button)`
   width: 100%;
@@ -13,4 +14,17 @@ export const EmptyStateWrapper = styled.div`
   text-align: center;
   width: 430px;
   margin: auto;
+`
+
+export const LockFundWrapper = styled.div`
+  display: flex;
+  width: 270px;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
+  fill: ${props => props.theme.colors.gray6};
+  height: 21px;
+  width: 21px;
 `
