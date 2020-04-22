@@ -15,7 +15,7 @@ import {
   Divisor,
 } from './styles'
 
-const FILTER_TYPES = {
+export const FILTER_TYPES = {
   1: 'renda fixa',
   2: 'multimercado',
   3: 'renda variável',
