@@ -18,11 +18,15 @@ export const GridCol = styled(Col)`
 
 export const GridRow = styled(Row)``
 
+export const TextWrapper = styled.div`
+  margin-bottom: 28px;
+`
+
 export const Text = styled(TextComponent).attrs(() => ({
   bold: true,
 }))`
+  display: inline;
   color: ${props => props.theme.colors.gray5};
-  margin-bottom: 28px;
 `
 
 export const BlueText = styled(TextComponent).attrs(() => ({
