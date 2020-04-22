@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
+import Text from 'components/Text'
 
 import { formatDotToComma } from 'helpers'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
@@ -12,7 +13,6 @@ import {
   LiTitle,
   LiValue,
   TaxationInfo,
-  Text,
   TaxationWrapper,
   Ul,
 } from './styles'
@@ -76,7 +76,7 @@ export const Taxation = ({ fund }) => {
         )}
       </Ul>
       <TaxationInfo>
-        <Text>
+        <Text color="gray6" type="captionUppercase" bold>
           Haverá incidência de iof regressivo caso ocorram resgates
           <br /> antes de 30 dias corridos da data da aplicação.
         </Text>
