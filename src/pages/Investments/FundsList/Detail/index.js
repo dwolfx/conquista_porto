@@ -11,12 +11,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
-import { ButtonSubmit, EmptyStateWrapper } from './styled'
+import {
+  ButtonSubmit,
+  EmptyStateWrapper,
+  LockFundWrapper,
+  LockIcon,
+} from './styled'
 import TabProfitability from './TabProfitability'
 import TabMoreInfo from './TabMoreInfo'
 import TabDetails from './TabDetails'
-
-import { LockIcon, CustomPopover } from '../Table/styles'
 
 const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
   const { data: fundDetails, isLoading } = useSelector(
@@ -45,13 +48,12 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
     isOpenForInvestments ? (
       <ButtonSubmit color="secondary">Investir</ButtonSubmit>
     ) : (
-      <CustomPopover
-        content="Fundo fechado para aplicações"
-        placement="left"
-        tooltip
-      >
+      <LockFundWrapper>
         <LockIcon />
-      </CustomPopover>
+        <Text color="gray5" type="button">
+          FUNDO FECHADO PARA APLICAÇÕES
+        </Text>
+      </LockFundWrapper>
     )
 
   const renderTabs = () => (
