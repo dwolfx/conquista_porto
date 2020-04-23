@@ -11,11 +11,13 @@ export const ChartContainer = styled.div`
   height: 100%;
   justify-content: center;
   padding-top: 42px;
-  height: 308px;
+  height: 322px;
+  margin-top: 35px;
 
   @media ${props => props.theme.mediaQueries.sm} {
     align-items: flex-start;
     height: 700px;
+    margin-top: 55px;
     padding: 21px 0 0 0;
   }
 `
@@ -45,6 +47,14 @@ export const ChartItemContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+  }
+
+  ${props => props.labelMoment} {
+    min-height: 220px;
+
+    @media ${props => props.theme.mediaQueries.sm} {
+      min-height: inherit;
+    }
   }
 `
 
@@ -126,11 +136,11 @@ export const Chart = styled.div`
   align-self: flex-end;
 
   ${ChartItemContainer} {
-    width: 80px;
+    min-width: 80px;
   }
 
   ${TextStyle} {
-    width: 80px;
+    min-width: 80px;
   }
 `
 
@@ -247,4 +257,20 @@ export const TopInfoContentPopover = styled.div`
   display: flex;
   margin-bottom: 14px;
   align-items: center;
+`
+
+export const IdealMomentLabel = styled.div`
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
+  margin-top: -98px;
+  min-width: 240px;
+  padding-bottom: 14px;
+  position: absolute;
+  top: 0%;
+  z-index: 1;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    max-width: 140px;
+    min-width: inherit;
+    right: 0;
+  }
 `
