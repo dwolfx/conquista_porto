@@ -4,9 +4,14 @@ import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
-import { GetPointsDataSuccess, GetPointsDataFailure } from './action'
+import {
+  GetPointsExtractSuccess,
+  GetPointsExtractFailure,
+  GetPointsBalanceSuccess,
+  GetPointsBalanceFailure,
+} from './action'
 
-function* getData({ cpf }) {
+function* getExtract({ cpf }) {
   try {
     const response = yield call(
       get,
@@ -21,16 +26,30 @@ function* getData({ cpf }) {
       throw Error(response.data.Message.Mensagem)
     }
 
-    const refinedDate = {
-      ...response.data,
-      detalheExtratoOptemaisTypes: [
-        response.data.detalheExtratoOptemaisTypes,
-      ].flatMap(point => point),
+    yield put(GetPointsExtractSuccess(response.data))
+  } catch (err) {
+    yield put(GetPointsExtractFailure())
+  }
+}
+
+function* getBalance({ cpf }) {
+  try {
+    const response = yield call(
+      get,
+      `${baseURLNamespaceInvest}/programa-pontos/consultar-pontos?cpf=${cpf}`
+    )
+
+    if (
+      response.data.Message &&
+      (!response.data.consultaPontosResponseType ||
+        !response.data.extratoOptemaisType)
+    ) {
+      throw Error(response.data.Message.Mensagem)
     }
 
-    yield put(GetPointsDataSuccess(refinedDate))
+    yield put(GetPointsBalanceSuccess(response.data))
   } catch (err) {
-    yield put(GetPointsDataFailure())
+    yield put(GetPointsBalanceFailure())
   }
 }
 
@@ -81,6 +100,7 @@ function* postRescuePoints({ payload }) {
 }
 
 export default all([
-  takeLatest(Types.GET_REQUEST, getData),
+  takeLatest(Types.GET_EXTRACT_REQUEST, getExtract),
+  takeLatest(Types.GET_BALANCE_REQUEST, getBalance),
   takeLatest(Types.POST_RESCUE_POINTS_REQUEST, postRescuePoints),
 ])

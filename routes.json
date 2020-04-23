@@ -13,6 +13,7 @@
   "/invest/fundos/:fundId\\?codigoCanal=:codigoCanal": "/fundo_detalhe",
   "/invest/fundos/movimentacoes\\?idFundo=:idFundo&cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/movimentacoes?idFundo=:idFundo&cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/invest/programa-pontos/extrato\\?cpf=:cpf": "/pontos?cpf=:cpf",
+  "/invest/programa-pontos/consultar-pontos\\?cpf=:cpf": "/pontos_consultar?cpf=:cpf",
   "/cotistas/posicao-consolidada\\?cpf=:cpf": "/posicao-consolidada?cpf=:cpf",
   "/conta/extrato\\?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/extrato?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/notificacao/buscar/:cpf": "/notificacoes",

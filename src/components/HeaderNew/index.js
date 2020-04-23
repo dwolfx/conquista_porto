@@ -13,6 +13,7 @@ import DropDown from 'components/DropdownNew'
 import { handleGiwRedirect } from 'helpers'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
 
+import useFetchPointsBalance from 'hooks/Points/useFetchPointsBalance'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
 import MobileHeader from './Mobile'
@@ -40,16 +41,12 @@ export default function HeaderNew({ crumbs }) {
   const isMobile = useMedia('sm')
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const bankData = useSelector(
-    state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
-  )
-
-  const points = useSelector(
-    state => state.points.data && state.points.data.detalheExtratoOptemaisTypes
-  )
-
-  const calculatePointsAmountBalance = extrato =>
-    extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0)
+  const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
+  const { bankData, balanceData, points } = useSelector(state => ({
+    bankData: state.bankData.data && state.bankData.data.DadosContaPortoSeguro,
+    balanceData: state.points.balanceData,
+    points: state.points.data && state.points.data.detalheExtratoOptemaisTypes,
+  }))
 
   const userData = useSelector(state => state.auth)
 
@@ -68,7 +65,16 @@ export default function HeaderNew({ crumbs }) {
     }
   }, [])
 
+  useEffect(() => {
+    setPointsAmountBalance(
+      balanceData.consultaPontosResponseType
+        ? balanceData.consultaPontosResponseType.saldoAtual
+        : 0
+    )
+  }, [balanceData])
+
   useFetchBankData()
+  useFetchPointsBalance()
 
   const dropdownGtmItemsTitle = 'dropdown menu header'
   const items = [
@@ -151,8 +157,9 @@ export default function HeaderNew({ crumbs }) {
           items={items}
           setIsOpen={setIsMobileOpen}
           totalPoints={
-            points &&
-            Intl.NumberFormat().format(calculatePointsAmountBalance(points))
+            !!points &&
+            !!pointsAmountBalance &&
+            Intl.NumberFormat().format(pointsAmountBalance)
           }
           exitFunc={() => dispatch(AuthRequestLogout(userData.accessToken))}
         />
@@ -250,14 +257,12 @@ export default function HeaderNew({ crumbs }) {
               >
                 {bankData && bankData.titular}
               </Name>
-              {points && (
-                <Points>
-                  {Intl.NumberFormat().format(
-                    calculatePointsAmountBalance(points)
-                  )}{' '}
-                  pontos
-                </Points>
-              )}
+              {!!balanceData.consultaPontosResponseType &&
+                !!pointsAmountBalance && (
+                  <Points>
+                    {Intl.NumberFormat().format(pointsAmountBalance)} pontos
+                  </Points>
+                )}
             </div>
           </Profile>
           <Divisor vertical customSize="35px" />

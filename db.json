@@ -2709,6 +2709,23 @@
       }
     ]
   },
+  "pontos_consultar": {
+    "consultaPontosResponseType": {
+      "pontoasAvencer": "0",
+      "saldoAtual": "26610",
+      "dataPontosAacumular": "",
+      "pontosAacumular": "0",
+      "dataPontosAvencer": ""
+    },
+    "extratoOptemaisType": {
+      "saldoCliente": "26610",
+      "saldoConsolidado": "26610"
+    },
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    }
+  },
   "extrato": {
     "transacoes": {
       "transacao": [

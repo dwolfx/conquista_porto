@@ -17,7 +17,8 @@ import Popover from 'components/Popover/index'
 import { formatMoney } from 'helpers'
 
 import {
-  GetPointsDataRequest,
+  GetPointsExtractRequest,
+  GetPointsBalanceRequest,
   PostRecuePointsRequest,
 } from 'store/modules/Points/action'
 
@@ -53,25 +54,37 @@ export default function SectionThree({ points }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [belowOffer, setBelowOffer] = useState(null)
   const [aboveOffer, setAboveOffer] = useState(null)
+  const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
 
   const dispatch = useDispatch()
-  const { isLoading, hasError, auth } = useSelector(state => ({
+  const {
+    isLoadingExtract,
+    hasErrorExtract,
+    isLoadingBalance,
+    hasErrorBalance,
+    balanceData,
+    auth,
+  } = useSelector(state => ({
     ...state.points,
     auth: state.auth,
   }))
 
   useEffect(() => {
-    if (points && aboveOffer && belowOffer) {
-      const pointsAmount = calculatePointsAmountBalance(
-        points.detalheExtratoOptemaisTypes
-      )
+    setPointsAmountBalance(
+      balanceData.consultaPontosResponseType
+        ? balanceData.consultaPontosResponseType.saldoAtual
+        : 0
+    )
+  }, [balanceData])
 
-      if (pointsAmount) {
+  useEffect(() => {
+    if (points && aboveOffer && belowOffer) {
+      if (pointsAmountBalance) {
         const maxPoints = [...pointsCardsData].slice(-1)[0].points
         let newBelowOffer
         let newAboveOffer
 
-        if (pointsAmount > maxPoints) {
+        if (pointsAmountBalance > maxPoints) {
           // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
           // aboveOffer must be higher than belowOffer
           const higherGroupData = [...pointsCardsData].filter(
@@ -88,14 +101,15 @@ export default function SectionThree({ points }) {
         } else {
           // if current points are below the maximum offer, get the offer below the current points and one above the current
           newBelowOffer = [...pointsCardsData].reduce(
-            (acc, cur) => (cur.points <= pointsAmount ? cur : acc),
+            (acc, cur) => (cur.points <= pointsAmountBalance ? cur : acc),
             belowOffer
           )
           newAboveOffer = [...pointsCardsData]
             .reverse()
             .reduce(
               (acc, cur) =>
-                cur.points > pointsAmount && belowOffer.points !== cur.points
+                cur.points > pointsAmountBalance &&
+                belowOffer.points !== cur.points
                   ? cur
                   : acc,
               aboveOffer
@@ -109,7 +123,7 @@ export default function SectionThree({ points }) {
       setBelowOffer(pointsCardsData[0])
       setAboveOffer(pointsCardsData[1])
     }
-  }, [points])
+  }, [points, pointsAmountBalance])
 
   useDataLayerProducts(belowOffer, aboveOffer)
   function redirectToRescuePointsSystem({ url }) {
@@ -155,7 +169,12 @@ export default function SectionThree({ points }) {
   }
 
   const renderPointsFooter = () => {
-    if (isLoading || hasError) {
+    if (
+      isLoadingExtract ||
+      isLoadingBalance ||
+      hasErrorExtract ||
+      hasErrorBalance
+    ) {
       return null
     }
 
@@ -225,17 +244,29 @@ export default function SectionThree({ points }) {
     </>
   )
 
-  const calculatePointsAmountBalance = extrato =>
-    extrato ? extrato.reduce((acc, curr) => acc + +curr.pontoGanho, 0) : 0
-
   const renderPointsCard = () => {
-    if (isLoading && !(points && Object.entries(points).length)) {
+    if (
+      (isLoadingExtract || isLoadingBalance) &&
+      !(points && Object.entries(points).length)
+    ) {
       return <LoadingState />
     }
 
-    if (hasError && !(points && Object.entries(points).length)) {
+    if (
+      (hasErrorExtract || hasErrorBalance) &&
+      !(points && Object.entries(points).length)
+    ) {
       return (
-        <ErrorState onRetry={() => dispatch(GetPointsDataRequest(auth.cpf))} />
+        <ErrorState
+          onRetry={() => {
+            if (hasErrorExtract) {
+              dispatch(GetPointsExtractRequest(auth.cpf))
+            }
+            if (hasErrorBalance) {
+              dispatch(GetPointsBalanceRequest(auth.cpf))
+            }
+          }}
+        />
       )
     }
 
@@ -253,13 +284,14 @@ export default function SectionThree({ points }) {
       <>
         <PointsInfo>
           <Text type="headline">
-            {points ? 'Saldo atual' : 'Você possui 0 pontos'}
+            {balanceData.consultaPontosResponseType
+              ? 'Saldo atual'
+              : 'Você possui 0 pontos'}
           </Text>
           <Text type="headline" bold>
-            {!!points &&
-              Intl.NumberFormat().format(
-                calculatePointsAmountBalance(points.detalheExtratoOptemaisTypes)
-              )}
+            {!!balanceData.consultaPontosResponseType &&
+              !!pointsAmountBalance &&
+              Intl.NumberFormat().format(pointsAmountBalance)}
           </Text>
           <Popover
             content={() => (
@@ -331,9 +363,16 @@ export default function SectionThree({ points }) {
             headerEndItem={
               <CardHeaderState
                 showHeader={Boolean(points && Object.entries(points).length)}
-                isLoading={isLoading}
-                hasError={hasError}
-                onErrorClick={() => dispatch(GetPointsDataRequest(auth.cpf))}
+                isLoading={isLoadingExtract || isLoadingBalance}
+                hasError={hasErrorExtract || hasErrorBalance}
+                onErrorClick={() => {
+                  if (hasErrorExtract) {
+                    dispatch(GetPointsExtractRequest(auth.cpf))
+                  }
+                  if (hasErrorBalance) {
+                    dispatch(GetPointsBalanceRequest(auth.cpf))
+                  }
+                }}
               />
             }
           >
