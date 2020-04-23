@@ -4,7 +4,11 @@ import { useSelector } from 'react-redux'
 import { FILTER_TYPES, FILTER_RISKS } from './index'
 
 export default function useFilter(filter) {
-  const funds = useSelector(state => state.investmentsList.data)
+  const funds = useSelector(state =>
+    state.investmentsList.data
+      .flatMap(item => item)
+      .reduce((prev, curr) => [...prev, ...curr.fundos], [])
+  )
 
   function filterByCategoriaArena(list, categoriaArena) {
     return list.filter(fund =>
@@ -51,11 +55,7 @@ export default function useFilter(filter) {
   const formattedFundsList = useMemo(() => {
     const categoriaArena = filter.byCategoriaArena
     const perfilRisco = filter.byPerfilRisco
-    const newFundsList = sortFunds(
-      funds
-        .flatMap(item => item)
-        .reduce((prev, curr) => [...prev, ...curr.fundos], [])
-    )
+    const newFundsList = sortFunds(funds)
 
     if (categoriaArena.length > 0 && perfilRisco) {
       const filteredListByPerfilRisco = filterByPerfilRisco(
