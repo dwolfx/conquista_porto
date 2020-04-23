@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 
 import Menu from 'components/Menu'
 
-import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
 import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
 import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
@@ -13,7 +12,7 @@ import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPosition/action'
 import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
-import { GetPointsDataRequest } from 'store/modules/Points/action'
+import { GetPointsExtractRequest } from 'store/modules/Points/action'
 
 import SectionOne from './SectionOne'
 // import AdvertisementBanner from './AdvertisementBanner'
@@ -36,7 +35,6 @@ const Home = ({ location }) => {
   }
 
   useEffect(() => {
-    dispatch(GetBankDataRequest(auth.cpf))
     dispatch(GetCreditCardDataRequest(auth.cpf))
     handleFetchInvestments()
     dispatch(GetVehicleFinancingDataRequest(auth.cpf))
@@ -44,7 +42,7 @@ const Home = ({ location }) => {
     dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
     dispatch(GetLifeInsuranceDataRequest(auth.cpf))
     dispatch(GetTripInsuranceDataRequest(auth.cpf))
-    dispatch(GetPointsDataRequest(auth.cpf))
+    dispatch(GetPointsExtractRequest(auth.cpf))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth])
 

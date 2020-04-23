@@ -2,29 +2,50 @@ import { Types } from './types'
 
 const INITIAL_STATE = {
   data: null,
-  isLoading: false,
-  hasError: false,
+  isLoadingExtract: false,
+  hasErrorExtract: false,
+  balanceData: {},
+  isLoadingBalance: false,
+  hasErrorBalance: false,
 }
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.GET_REQUEST:
+    case Types.GET_EXTRACT_REQUEST:
       return {
         ...state,
-        isLoading: true,
-        hasError: false,
+        isLoadingExtract: true,
+        hasErrorExtract: false,
       }
-    case Types.GET_SUCCESS:
+    case Types.GET_EXTRACT_SUCCESS:
       return {
         ...state,
         data: { ...action.payload },
-        isLoading: false,
+        isLoadingExtract: false,
       }
-    case Types.GET_FAILURE:
+    case Types.GET_EXTRACT_FAILURE:
       return {
         ...state,
-        isLoading: false,
-        hasError: true,
+        isLoadingExtract: false,
+        hasErrorExtract: true,
+      }
+    case Types.GET_BALANCE_REQUEST:
+      return {
+        ...state,
+        isLoadingBalance: true,
+        hasErrorBalance: false,
+      }
+    case Types.GET_BALANCE_SUCCESS:
+      return {
+        ...state,
+        balanceData: { ...action.payload },
+        isLoadingBalance: false,
+      }
+    case Types.GET_BALANCE_FAILURE:
+      return {
+        ...state,
+        isLoadingBalance: false,
+        hasErrorBalance: true,
       }
     default:
       return state
