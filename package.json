@@ -12,7 +12,7 @@
     "build:prod": "env-cmd -f .env react-scripts build",
     "extract": "env-cmd -f .env node extractBundle.js",
     "extractQa": "env-cmd -f .env.development node extractBundle.js",
-    "test": "react-scripts test",
+    "test": "cross-env CI=true react-scripts test -u --forceExit",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js, css, html, json}\"",
     "lint": "eslint \"src/**/*.{js, css, html, json}\"",
