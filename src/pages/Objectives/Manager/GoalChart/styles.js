@@ -17,7 +17,7 @@ export const ChartContainer = styled.div`
   @media ${props => props.theme.mediaQueries.sm} {
     align-items: flex-start;
     height: 700px;
-    margin-top: 55px;
+    margin-top: 49px;
     padding: 21px 0 0 0;
   }
 `
