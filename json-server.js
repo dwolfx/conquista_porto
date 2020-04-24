@@ -11,6 +11,7 @@ const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json
 const objectiveMock = require('./src/mocks/objective.json')
 const objectiveMock2 = require('./src/mocks/objective2.json')
 const objectivesMock = require('./src/mocks/objectives.json')
+const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
 
 server.use(middlewares)
 
@@ -46,7 +47,16 @@ router.render = (req, res) => {
     if (req.originalUrl.includes('mobile')) {
       return res.jsonp(recommendationMockMobile)
     }
-    return res.jsonp(recommendationMock)
+    return res.jsonp({
+      ...recommendationMock,
+      answer: {
+        ...recommendationMock.answer,
+        ...req.body,
+        initial_value: parseFloat(req.body.initial_value) * 100,
+        monthly_value: parseFloat(req.body.monthly_value) * 100,
+        target_value: parseFloat(req.body.target_value) * 100,
+      },
+    })
   }
   if (req.originalUrl.startsWith('/api/goal/goals/1/funds')) {
     if (req.method === 'POST') {
@@ -55,15 +65,21 @@ router.render = (req, res) => {
   }
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
-      if (!req.originalUrl.endsWith('/api/goal/goals') && !req.originalUrl.includes('bytype')) {
-        return res.jsonp({ ...objectiveMock, id: req.query.id })
-      } else if (!req.originalUrl.includes('bytype')) {
-        return res.jsonp(objectivesMock)
+      if (req.originalUrl.includes('bytype')) {
+        // get other objectives
+        return res.jsonp({ ...otherObjectivesMock })
       }
+      if (!req.originalUrl.endsWith('/api/goal/goals')) {
+        // get specific objective
+        return res.jsonp({ ...objectiveMock, id: req.query.id })
+      }
+
+      // list all objectives
+      return res.jsonp(objectivesMock)
     }
 
     if (req.method === 'POST') {
-      return res.jsonp(objectiveMock)
+      return res.jsonp({ ...objectiveMock, ...req.body.answer })
     }
     if (req.method === 'DELETE') {
       return res.status(204).jsonp({})

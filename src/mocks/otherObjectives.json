@@ -1,0 +1,59 @@
+{
+  "1": [
+    { "id": 80, "nickname": "uhuhuh" },
+    { "id": 95, "nickname": "01012021" },
+    { "id": 106, "nickname": "0101" },
+    { "id": 121, "nickname": "Barcelona" },
+    { "id": 109, "nickname": "Disney" },
+    { "id": 111, "nickname": "Minha Viagem" },
+    { "id": 122, "nickname": "HOMOLOG" },
+    { "id": 112, "nickname": "Viagem da minha vida" },
+    { "id": 116, "nickname": "Vegas" },
+    { "id": 118, "nickname": "Disney" },
+    { "id": 119, "nickname": "VegasTrip" }
+  ],
+  "2": [{ "id": 63, "nickname": "teste aposentadoria" }],
+  "3": [
+    { "id": 64, "nickname": "teste carrito" },
+    { "id": 90, "nickname": "testecarro" },
+    { "id": 113, "nickname": "MinhaVida MeuCarro" },
+    { "id": 114, "nickname": "Disney" }
+  ],
+  "4": [
+    { "id": 87, "nickname": "teste" },
+    { "id": 97, "nickname": "123" },
+    { "id": 99, "nickname": "12345" },
+    { "id": 96, "nickname": "0101" },
+    { "id": 98, "nickname": "1234" },
+    { "id": 92, "nickname": "testE" },
+    { "id": 100, "nickname": "1212" },
+    { "id": 101, "nickname": "1234" },
+    { "id": 110, "nickname": "MeuCursoMeuJob" },
+    { "id": 117, "nickname": "Curso " }
+  ],
+  "5": [
+    { "id": 88, "nickname": "teste" },
+    { "id": 91, "nickname": "testeEvento" },
+    { "id": 94, "nickname": "Disney" },
+    { "id": 81, "nickname": "TesteEventoSprint6" },
+    { "id": 82, "nickname": "tstes" },
+    { "id": 85, "nickname": "123" },
+    { "id": 103, "nickname": "evento" },
+    { "id": 104, "nickname": "evento2" },
+    { "id": 107, "nickname": "tes" },
+    { "id": 108, "nickname": "teste" },
+    { "id": 115, "nickname": "Disney" }
+  ],
+  "6": [
+    { "id": 93, "nickname": "CASA" },
+    { "id": 120, "nickname": "Disney" }
+  ],
+  "7": [
+    { "id": 83, "nickname": "teste" },
+    { "id": 84, "nickname": "teste" },
+    { "id": 86, "nickname": "teste," },
+    { "id": 89, "nickname": "teste123456" },
+    { "id": 102, "nickname": "poupar" },
+    { "id": 105, "nickname": "poup3" }
+  ]
+}
