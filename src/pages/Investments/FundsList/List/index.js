@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 import PropTypes from 'prop-types'
@@ -23,12 +24,13 @@ import {
   InvestButton,
 } from './style'
 
-export default function List({ data, idGoal }) {
+export default function List({ data }) {
   const dispatch = useDispatch()
 
   const [expand, setExpand] = useState({})
   const [fundDetailsLoaded, setFundDetailsLoaded] = useState({})
   const fundDetails = useSelector(state => state.investmentDetails.data)
+  const { state: locationState } = useLocation()
 
   useEffect(() => {
     if (fundDetails.id_fundo) {
@@ -85,10 +87,6 @@ export default function List({ data, idGoal }) {
               <dd>{obj.taxa_administracao}</dd>
             </DetailItem>
             <DetailItem>
-              <dt>RESGATE (COTIZAÇÃO)</dt>
-              <dd>{obj.resgate_cotizacao}</dd>
-            </DetailItem>
-            <DetailItem>
               <dt>RENTABILIDADE MÊS</dt>
               <dd>{obj.rentabil_fundo_mes}</dd>
             </DetailItem>
@@ -105,10 +103,6 @@ export default function List({ data, idGoal }) {
             Object.entries(fundDetailsLoaded[obj.id_fundo]).length > 0 ? (
               <>
                 <hr />
-                {/* <DetailItem>
-                    <dt>CNPJ</dt>
-                    <dd>{obj.cnpj}</dd>
-                  </DetailItem> */}
                 <DetailItem>
                   <dt>DATA DE INÍCIO</dt>
                   <dd>
@@ -133,10 +127,6 @@ export default function List({ data, idGoal }) {
                   <dt>TAXA DE ADMINISTRAÇÃO</dt>
                   <dd>{fundDetailsLoaded[obj.id_fundo].taxa_administracao}</dd>
                 </DetailItem>
-                {/* <DetailItem>
-                    <dt>PL MÉDIO 12M</dt>
-                    <dd>{obj.plMedio12m}</dd>
-                  </DetailItem> */}
                 <DetailItem>
                   <dt>TAXA DE PERFORMANCE</dt>
                   <dd>{fundDetailsLoaded[obj.id_fundo].taxa_administracao}</dd>
@@ -157,7 +147,11 @@ export default function List({ data, idGoal }) {
                   handleGiwRedirect(
                     `portaldecliente/conquista/aplicacao?idFundo=${
                       obj.id_fundo
-                    }&r=true${idGoal ? `idObjetivo=${idGoal}` : ''}`
+                    }&r=true${
+                      locationState.idGoal
+                        ? `idObjetivo=${locationState.idGoal}`
+                        : ''
+                    }`
                   )
                 }}
               >
@@ -173,9 +167,4 @@ export default function List({ data, idGoal }) {
 
 List.propTypes = {
   data: PropTypes.array.isRequired,
-  idGoal: PropTypes.number,
-}
-
-List.defaultProps = {
-  idGoal: null,
 }

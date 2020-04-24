@@ -26,6 +26,8 @@ export const formatMoneyWithoutCurrencyFlag = value => {
   return value.toLocaleString('pt-BR')
 }
 
+export const formatDotToComma = value => value.toString().replace('.', ',')
+
 export const formatCpf = value => {
   const numbers = value.toString().replace(/\D/g, '')
 

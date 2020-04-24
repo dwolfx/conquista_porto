@@ -20,7 +20,7 @@ import useFetchPosition from 'hooks/Investments/useFetchPosition'
 
 import RedHairGirlImage from 'assets/images/red_hair_girl.jpg'
 import useMedia from 'hooks/useMedia'
-import AnbimaLegalInfo from 'components/AnbimaLegalInfo'
+import Anbima from 'components/Anbima'
 import HistoricalRentabilityTable from 'components/Solutions/Investments/FundsInfo/HistoricalRentabilityTable'
 import GeneralView from './GeneralView'
 
@@ -255,7 +255,7 @@ export default function ManagementInvestments({ history }) {
       </SectionCustomPicture>
       <FundsCarouselSection />
       <FileDownloadSection data={downloadFileSectionData} />
-      <AnbimaLegalInfo />
+      <Anbima />
     </>
   )
 }

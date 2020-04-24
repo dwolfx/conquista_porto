@@ -2,31 +2,38 @@ import styled from 'styled-components'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 import { Link as RouterDomLink } from 'react-router-dom'
 
-import ComponentText from 'components/Text'
+import TextComponent from 'components/Text'
 
 import AnbimaGestao from 'assets/images/logo-anbima-gestao.png'
 import AnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
 import AnbimaComoInvestir from 'assets/images/logo-anbima-como-investir.png'
 
 export const GridContainer = styled(Container)`
-  margin: 28px 0;
+  margin: 28px auto;
 `
 
-export const GridCol = styled(Col)``
+export const GridCol = styled(Col)`
+  padding: 0;
+`
 
 export const GridRow = styled(Row)``
 
-export const Text = styled(ComponentText).attrs(() => ({
-  bold: true,
-}))`
+export const TextWrapper = styled.div`
   margin-bottom: 28px;
 `
 
-export const UppercaseBlueText = styled.span.attrs(() => ({
+export const Text = styled(TextComponent).attrs(() => ({
   bold: true,
 }))`
+  display: inline;
+  color: ${props => props.theme.colors.gray5};
+`
+
+export const BlueText = styled(TextComponent).attrs(() => ({
+  bold: true,
+}))`
+  display: inline;
   color: ${props => props.theme.colors.blue4};
-  text-transform: uppercase;
 `
 
 export const LogoAnbimaDistribuicao = styled.img.attrs(() => ({
