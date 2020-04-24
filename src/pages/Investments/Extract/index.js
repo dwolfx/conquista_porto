@@ -143,8 +143,12 @@ const InvestmentExtract = () => {
   const filterByDate = () => {
     const newRequestData = {
       ...requestData,
-      dataInicial: moment(requestData.dataInicial).format('YYYY-MM-DD'),
-      dataFinal: moment(requestData.dataFinal).format('YYYY-MM-DD'),
+      dataInicial: moment(requestData.dataInicial, 'DD/MM/YYYY').format(
+        'YYYY-MM-DD'
+      ),
+      dataFinal: moment(requestData.dataFinal, 'DD/MM/YYYY').format(
+        'YYYY-MM-DD'
+      ),
     }
     if (query.get('idFundo')) {
       dispatch(GetBankExtractFundRequest(newRequestData, auth.cpf))
