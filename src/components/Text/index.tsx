@@ -5,8 +5,8 @@ import { TextStyle } from './styles'
 
 const Text: FunctionComponent<IProps> = ({
   type = 'body',
-  bold = 'false',
-  color = 'body',
+  bold = false,
+  color = 'unset',
   children,
   textAlign = 'unset',
   ...rest
