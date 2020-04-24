@@ -323,9 +323,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       </SectionsRecommendation>
 
       <BottomBar
+        recommendationData={data}
         answer={answer}
         isLoading={isLoading}
-        id={data.id}
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
       />

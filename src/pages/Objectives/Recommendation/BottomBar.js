@@ -13,7 +13,7 @@ import {
 } from 'store/modules/ObjectiveManagement/action'
 import { ButtonBar, SectionBar } from './styles'
 
-const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
+const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
   const history = useHistory()
   const dispatch = useDispatch()
   const isLoading = useSelector(state => state.objectiveManagement.isLoading)
@@ -21,12 +21,20 @@ const BottomBar = ({ id, isDrawerOpen, setIsDrawerOpen }) => {
   const [buttonConfirmClicked, setButtonConfirmClicked] = useState(false)
 
   const submitToManagement = () => {
+    const data = {
+      id: recommendationData.id,
+      answer: recommendationData.answer,
+      fund_total_income: recommendationData.fund_total_income,
+      funds: recommendationData.funds,
+      additional: recommendationData.additional,
+    }
+
     setButtonConfirmClicked(true)
     function pushHistory(path) {
       history.push({ pathname: path, state: { pageRecommendation: true } })
     }
-    dispatch(PostObjectiveManagementDataRequest({ id, pushHistory }))
-    dispatch(GetOtherGoalsDataRequest({ id }))
+    dispatch(PostObjectiveManagementDataRequest({ data, pushHistory }))
+    dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id }))
   }
 
   return (
@@ -69,7 +77,13 @@ BottomBar.defaultProps = {
 }
 
 BottomBar.propTypes = {
-  id: PropTypes.string.isRequired,
+  recommendationData: PropTypes.shape({
+    id: PropTypes.number,
+    answer: PropTypes.object,
+    fund_total_income: PropTypes.object,
+    funds: PropTypes.array,
+    additional: PropTypes.object,
+  }).isRequired,
   isDrawerOpen: PropTypes.bool,
   setIsDrawerOpen: PropTypes.func,
 }
