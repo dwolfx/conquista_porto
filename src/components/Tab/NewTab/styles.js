@@ -9,7 +9,7 @@ export const PanelList = styled.div`
   border: 1px solid ${props => props.theme.colors.blue4};
   border-radius: 7px;
   display: flex;
-  margin-bottom: 40px;
+  margin-bottom: 21px;
 `
 
 export const SingleTab = styled.div`

@@ -8,19 +8,19 @@ exports[`RiskDegree RiskDegree to render with active colors 1`] = `
     Menor risco
   </label>
   <div
-    className="sc-bwzfXH djCGqy active"
+    className="sc-bwzfXH bBAyUi active"
   />
   <div
-    className="sc-bwzfXH cryNKO active"
+    className="sc-bwzfXH grmKRt active"
   />
   <div
-    className="sc-bwzfXH ilBlOd"
+    className="sc-bwzfXH dBIoZQ"
   />
   <div
-    className="sc-bwzfXH eYZvKI"
+    className="sc-bwzfXH kcfQtj"
   />
   <div
-    className="sc-bwzfXH hEyowe"
+    className="sc-bwzfXH dJUDyW"
   />
   <label>
     Maior risco
@@ -36,19 +36,19 @@ exports[`RiskDegree RiskDegree to render without any active colors 1`] = `
     Menor risco
   </label>
   <div
-    className="sc-bwzfXH djCGqy"
+    className="sc-bwzfXH bBAyUi"
   />
   <div
-    className="sc-bwzfXH cryNKO"
+    className="sc-bwzfXH grmKRt"
   />
   <div
-    className="sc-bwzfXH ilBlOd"
+    className="sc-bwzfXH dBIoZQ"
   />
   <div
-    className="sc-bwzfXH eYZvKI"
+    className="sc-bwzfXH kcfQtj"
   />
   <div
-    className="sc-bwzfXH hEyowe"
+    className="sc-bwzfXH dJUDyW"
   />
   <label>
     Maior risco

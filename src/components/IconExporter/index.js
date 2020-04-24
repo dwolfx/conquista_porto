@@ -54,6 +54,7 @@ import { ReactComponent as leave } from 'assets/icons/leave.svg'
 import { ReactComponent as linechart } from 'assets/icons/line-chart.svg'
 import { ReactComponent as link } from 'assets/icons/link.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
+import { ReactComponent as lock2 } from 'assets/icons/lock2.svg'
 import { ReactComponent as malefemale } from 'assets/icons/male-female.svg'
 import {
   ReactComponent as master,
@@ -145,6 +146,7 @@ const dict = {
   linechart,
   link,
   lock,
+  lock2,
   loading,
   malefemale,
   master,

@@ -26,7 +26,14 @@ function* getExtract({ cpf }) {
       throw Error(response.data.Message.Mensagem)
     }
 
-    yield put(GetPointsExtractSuccess(response.data))
+    const refinedDate = {
+      ...response.data,
+      detalheExtratoOptemaisTypes: [
+        response.data.detalheExtratoOptemaisTypes,
+      ].flatMap(point => point),
+    }
+
+    yield put(GetPointsExtractSuccess(refinedDate))
   } catch (err) {
     yield put(GetPointsExtractFailure())
   }

@@ -16,10 +16,8 @@ export const Tabs = ({
   useEffect(() => {
     if (initialReset) {
       changeTab(initialValue)
-    } else {
-      changeTab(activeTab)
     }
-  }, [activeTab, initialReset, initialValue])
+  }, [initialReset, initialValue])
 
   const tabProviderValue = { activeTab, changeTab }
 

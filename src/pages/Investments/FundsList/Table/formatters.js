@@ -1,21 +1,19 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
-import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney, handleGiwRedirect, formatDotToComma } from 'helpers'
+import ConquistaButton from 'components/Button'
 
 import Text from 'components/Text'
 
 import {
   FundoWrapper,
   WrapperContent,
-  InformationIcon,
   FundoNameWrapper,
-  InvestButton,
   LockIcon,
   FundoOutterWrapper,
-  LogoImg,
-  PopoverCustom,
+  CustomPopover,
+  RiskColorTag,
 } from './styles'
 
 const collator = new Intl.Collator(undefined, {
@@ -23,90 +21,87 @@ const collator = new Intl.Collator(undefined, {
   sensitivity: 'base',
 })
 
-const FormatFundoCell = ({ cell, column }) => {
-  const dispatch = useDispatch()
-
-  return (
-    <FundoOutterWrapper>
-      <LogoImg bg={cell.row.original.url_logo_gestor}></LogoImg>
-      <FundoWrapper {...cell.getCellProps()}>
-        <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
-        <InformationIcon
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname={cell.row.original.apelido}
-          data-gtm-name="icone de informação do fundo"
-          onClick={() => {
-            dispatch(GetInvestmentDetailsRequest(cell.row.original.id_fundo))
-            column.toggleModal(!column.isModalOpen)
-          }}
-        />
-      </FundoWrapper>
-    </FundoOutterWrapper>
-  )
-}
+const FormatFundoCell = ({ cell }) => (
+  <FundoOutterWrapper>
+    <RiskColorTag borderRisk={cell.row.original.perfil_risco_ordem} />
+    <FundoWrapper {...cell.getCellProps()}>
+      <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
+      <Text type="caption" color="gray4" bold textAlign="left">
+        {cell.row.original.categoria_arena}
+      </Text>
+    </FundoWrapper>
+  </FundoOutterWrapper>
+)
 
 const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = (column, idGoal) => (
-  <WrapperContent isTbody>
-    {column.cell.value && column.cell.row.original.aplicao_liberada ? (
-      <InvestButton
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        data-gtm-subname={column.cell.row.original.apelido}
-        data-gtm-name="investir"
-        type="button"
-        color="secondary"
-        onClick={() => {
-          handleGiwRedirect(
-            `portaldecliente/conquista/aplicacao?idFundo=${
-              column.cell.row.original.id_fundo
-            }&r=true${idGoal ? `idObjetivo=${idGoal}` : ''}`
-          )
-        }}
-      >
-        Investir
-      </InvestButton>
-    ) : (
-      <PopoverCustom
-        content={() => (
-          <Text type="body" color="gray5">
-            Fundo fechado para movimentações
-          </Text>
-        )}
-        placement="left"
-      >
-        <LockIcon />
-      </PopoverCustom>
-    )}
-  </WrapperContent>
-)
+const FormatEnabledCell = column => {
+  const { state: locationState } = useLocation()
+  return (
+    <WrapperContent isTbody>
+      {column.cell.value && column.cell.row.original.aplicao_liberada ? (
+        <ConquistaButton
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname={column.cell.row.original.apelido}
+          data-gtm-name="investir"
+          type="button"
+          color="secondary"
+          onClick={() => {
+            handleGiwRedirect(
+              `portaldecliente/conquista/aplicacao?idFundo=${
+                column.cell.row.original.id_fundo
+              }&r=true${
+                locationState && locationState.idGoal
+                  ? `&idObjetivo=${locationState.idGoal}`
+                  : ''
+              }`
+            )
+          }}
+        >
+          Investir
+        </ConquistaButton>
+      ) : (
+        <CustomPopover
+          content="Fundo fechado para aplicações"
+          placement="left"
+          tooltip
+        >
+          <LockIcon />
+        </CustomPopover>
+      )}
+    </WrapperContent>
+  )
+}
 
 const FormatDefault = column => (
-  <WrapperContent isTbody>{column.cell.value}</WrapperContent>
+  <WrapperContent>{column.cell.value}</WrapperContent>
 )
 
-const FormatDotToComma = column => (
-  <WrapperContent isTbody>
-    {column.cell.value.toString().replace('.', ',')}
+const FormatColumnDotToComma = column => (
+  <WrapperContent>
+    {column.cell.value.toString() !== '-'
+      ? `${formatDotToComma(column.cell.value)}%`
+      : column.cell.value.toString()}
   </WrapperContent>
 )
 
-export default function FormatColumns(
-  columns,
-  toggleModal,
-  isModalOpen,
-  idGoal
-) {
+const FormatColumnDotToCommaBold = column => (
+  <WrapperContent isBold>
+    {column.cell.value.toString() !== '-'
+      ? `${formatDotToComma(column.cell.value)}%`
+      : column.cell.value.toString()}
+  </WrapperContent>
+)
+
+export default function FormatColumns(columns, toggleModal) {
   const formatters = {
     fundo: column => ({
       ...column,
       Cell: FormatFundoCell,
       toggleModal,
-      isModalOpen,
       sortType(
         { original: { apelido: nextNickname } },
         { original: { apelido: currentNickname } }
@@ -118,7 +113,7 @@ export default function FormatColumns(
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: cell => FormatEnabledCell(cell, idGoal),
+      Cell: cell => FormatEnabledCell(cell),
     }),
     minimo_inicial: column => ({
       ...column,
@@ -126,7 +121,7 @@ export default function FormatColumns(
     }),
     taxa_administracao: column => ({
       ...column,
-      Cell: FormatDotToComma,
+      Cell: FormatColumnDotToComma,
     }),
     rentabilidade: column => ({
       ...column,
@@ -137,7 +132,7 @@ export default function FormatColumns(
         const [fst] = [nextValue, currentValue].sort((a, b) => a - b)
         return fst === nextValue ? -1 : 1
       },
-      Cell: FormatDotToComma,
+      Cell: FormatColumnDotToCommaBold,
     }),
     default: column => ({
       ...column,
@@ -146,19 +141,10 @@ export default function FormatColumns(
   }
 
   return columns.map(column => {
-    if (column.columns) {
-      if (column.accessor === 'rentabilidade') {
-        return {
-          ...column,
-          columns: column.columns
-            ? column.columns.map(formatters.rentabilidade)
-            : null,
-        }
-      }
-      return {
-        ...column,
-        columns: column.columns ? column.columns.map(formatters.default) : null,
-      }
+    if (column.accessor.includes('rentabil_fundo')) {
+      return formatters[column.accessor]
+        ? formatters[column.accessor](column)
+        : formatters.rentabilidade(column)
     }
 
     return formatters[column.accessor]
@@ -174,12 +160,13 @@ FormatFundoCell.propTypes = {
       original: PropTypes.shape({
         url_logo_gestor: PropTypes.string,
         apelido: PropTypes.string,
+        perfil_risco_ordem: PropTypes.string,
+        categoria_arena: PropTypes.string,
         id_fundo: PropTypes.string,
       }),
     }),
   }).isRequired,
   column: PropTypes.shape({
-    isModalOpen: PropTypes.bool,
     toggleModal: PropTypes.func,
   }).isRequired,
 }
