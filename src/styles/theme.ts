@@ -12,6 +12,7 @@ declare module 'styled-components' {
     grid: { [key in keyof typeof gridConfig]: any }
     mediaQueries: { [key in keyof typeof mediaQueries]: string }
     shadows: { [key in keyof typeof shadows]: string }
+    spacing: (x: number) => number
   }
 }
 
@@ -204,6 +205,7 @@ const theme: DefaultTheme = {
   grid: gridConfig,
   mediaQueries,
   shadows,
+  spacing: number => number * 7,
 }
 
 export default theme
