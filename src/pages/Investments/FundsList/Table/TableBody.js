@@ -37,7 +37,6 @@ const TableBody = ({
             <Loading
               type="bar"
               legend="Aguarde enquanto buscamos informações de fundos de investimentos..."
-              widthBar="100%"
             />
           </td>
         </InfoTableContent>

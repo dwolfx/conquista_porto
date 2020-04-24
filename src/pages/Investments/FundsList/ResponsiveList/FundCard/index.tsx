@@ -1,0 +1,176 @@
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+
+import HorizontalList from 'components/HorizontalList/index'
+import { formatMoney, formatDotToComma, handleGiwRedirect } from 'helpers'
+
+import {
+  ArrowDown,
+  ArrowUp,
+  Button,
+  CardCol,
+  CardContent,
+  CardTitle,
+  CategoryName,
+  Circle,
+  FirstDivisor,
+  FundInfo,
+  HeaderContent,
+  InfoTitle,
+  InfoValue,
+  RiskLine,
+  SecondDivisor,
+  TitleWrapper,
+} from './styles'
+
+interface IHeader {
+  title: string
+  category: string
+  isOpen: boolean
+  setIsOpen: Function
+}
+
+const Header: React.FC<IHeader> = ({ title, category, isOpen, setIsOpen }) => (
+  <HeaderContent
+    data-gtm-type="click"
+    data-gtm-clicktype="accordion"
+    data-gtm-name={title}
+    onClick={() => {
+      setIsOpen(!isOpen)
+    }}
+  >
+    <TitleWrapper>
+      <CardTitle>{title}</CardTitle>
+      <Circle>{isOpen ? <ArrowUp /> : <ArrowDown />}</Circle>
+    </TitleWrapper>
+    <CategoryName>{category}</CategoryName>
+  </HeaderContent>
+)
+
+export interface IFund {
+  perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
+  apelido: string
+  categoria_arena: string
+  minimo_inicial: number
+  resgate_cotizacao: string
+  rentabil_fundo_mes: number
+  rentabil_fundo_12_meses: number
+  rentabil_fundo_ano: number
+  taxa_administracao: number
+  id_fundo: number
+}
+
+interface IFundCard {
+  fund: IFund
+}
+
+const FundCard: React.FC<IFundCard> = ({ fund }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const { state: locationState } = useLocation()
+
+  return (
+    <CardCol xs={12}>
+      <RiskLine riskColor={fund.perfil_risco} />
+      <CardContent>
+        <Header
+          title={fund.apelido}
+          category={
+            fund.categoria_arena.toLowerCase() === 'renda variável'
+              ? 'Ações'
+              : fund.categoria_arena
+          }
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+        <FirstDivisor />
+        <FundInfo>
+          <HorizontalList
+            size="small"
+            startItems={[<InfoTitle>Aplicação mín.</InfoTitle>]}
+            endItems={[
+              <InfoValue>{formatMoney(fund.minimo_inicial)}</InfoValue>,
+            ]}
+          />
+          <HorizontalList
+            size="small"
+            startItems={[<InfoTitle>Resgate (cotização)</InfoTitle>]}
+            endItems={[<InfoValue>{fund.resgate_cotizacao}</InfoValue>]}
+          />
+          <HorizontalList
+            size="small"
+            startItems={[<InfoTitle>Rentabilidade mês</InfoTitle>]}
+            endItems={[
+              <InfoValue>
+                {formatDotToComma(fund.rentabil_fundo_mes)}%
+              </InfoValue>,
+            ]}
+          />
+          {isOpen && (
+            <>
+              <HorizontalList
+                size="small"
+                startItems={[<InfoTitle>Rentabilidade últ. 12m</InfoTitle>]}
+                endItems={[
+                  <InfoValue>
+                    {formatDotToComma(fund.rentabil_fundo_12_meses)}%
+                  </InfoValue>,
+                ]}
+              />
+              <HorizontalList
+                size="small"
+                startItems={[<InfoTitle>Rentabilidade ano</InfoTitle>]}
+                endItems={[
+                  <InfoValue>
+                    {formatDotToComma(fund.rentabil_fundo_ano)}%
+                  </InfoValue>,
+                ]}
+              />
+              <HorizontalList
+                size="small"
+                startItems={[<InfoTitle>Taxa adm. (a.a.)</InfoTitle>]}
+                endItems={[
+                  <InfoValue>
+                    {formatDotToComma(fund.taxa_administracao)}%
+                  </InfoValue>,
+                ]}
+              />
+              <SecondDivisor />
+              <Button
+                outline
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname={fund.apelido}
+                data-gtm-name="mais informacoes"
+                onClick={() => {}}
+              >
+                Mais informações
+              </Button>
+              <Button
+                color="secondary"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname={fund.apelido}
+                data-gtm-name="investir"
+                onClick={() => {
+                  handleGiwRedirect(
+                    `portaldecliente/conquista/aplicacao?idFundo=${
+                      fund.id_fundo
+                    }&r=true${
+                      locationState && locationState.idGoal
+                        ? `&idObjetivo=${locationState.idGoal}`
+                        : ''
+                    }`
+                  )
+                }}
+              >
+                Investir
+              </Button>
+            </>
+          )}
+        </FundInfo>
+      </CardContent>
+    </CardCol>
+  )
+}
+
+export default FundCard

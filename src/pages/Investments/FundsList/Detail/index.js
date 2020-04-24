@@ -131,7 +131,6 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
           <Loading
             type="bar"
             legend="Aguarde, estamos buscando as informações detalhadas deste fundo de investimento..."
-            widthBar="100%"
           />
         </EmptyStateWrapper>
       )}

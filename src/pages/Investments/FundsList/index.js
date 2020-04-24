@@ -10,7 +10,7 @@ import Filter from './Filter'
 import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
 import TableFunds from './Table'
-import ListFunds from './List'
+import ResponsiveList from './ResponsiveList/index'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'
@@ -41,13 +41,22 @@ export default function FundsList() {
   return (
     <>
       <GridContainer as="section">
-        <TableContent>
-          <Filter filter={filter} onChangeFilter={handleChangeFilter} />
-          <ContentWrapper>
-            <Col col="12">
-              {isMobile ? (
-                <ListFunds data={filteredFundsList} />
-              ) : (
+        {isMobile ? (
+          <Col col={12}>
+            <ResponsiveList
+              data={filteredFundsList}
+              isLoading={fundsStatus.isLoading}
+              isError={fundsStatus.isError}
+              isFiltering={
+                filter.byPerfilRisco || filter.byCategoriaArena.length > 0
+              }
+            />
+          </Col>
+        ) : (
+          <TableContent>
+            <Filter filter={filter} onChangeFilter={handleChangeFilter} />
+            <ContentWrapper>
+              <Col col={12}>
                 <TableFunds
                   columns={columns}
                   isDrawerOpen={isDrawerOpen}
@@ -61,10 +70,10 @@ export default function FundsList() {
                     filter.byPerfilRisco || filter.byCategoriaArena.length > 0
                   }
                 />
-              )}
-            </Col>
-          </ContentWrapper>
-        </TableContent>
+              </Col>
+            </ContentWrapper>
+          </TableContent>
+        )}
         <Anbima />
       </GridContainer>
       <Detail
