@@ -30,7 +30,6 @@ import {
   TextSubheading,
   TextButton,
   TextTitle,
-  ArrowButton,
   PageTitle,
   Topic,
   TopicTitle,
@@ -296,16 +295,7 @@ const ManagementVehicleFinancing = () => {
         mainDescription="Com o Conquista, você planeja a compra do seu carro novo ou seminovo."
         subDescription="Você pode fazer quantas simulações quiser, escolhendo parcelas mensais adequadas ao seu
 				orçamento. Conheça os planos e contrate uma solução com a solidez da Porto Seguro."
-        buttonText={
-          <span>
-            SIMULAR E CONTRATAR <ArrowButton>&gt;</ArrowButton>
-          </span>
-        }
-        onClick={() =>
-          handleGiwRedirect(
-            'portaldecliente/conquista/financiamento-de-veiculos/simular?r=true'
-          )
-        }
+        buttonText="EM BREVE"
       />
       <MoreDetails
         title="SAIBA MAIS:"

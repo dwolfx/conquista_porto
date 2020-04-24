@@ -65,13 +65,6 @@ export const TextButton = styled(Text)`
   ${props => props.theme.fontTypes.TextButton};
 `
 
-export const ArrowButton = styled.span`
-  position: absolute;
-  top: 9px;
-  right: 12px;
-  ${props => props.theme.fontTypes.TextButton};
-`
-
 export const PageTitle = styled.div`
   color: ${props => props.theme.colors.black};
   width: 100%;
