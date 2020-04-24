@@ -173,6 +173,11 @@ const InvestmentExtract = () => {
     })
   }
 
+  const fetchFundName = () =>
+    bankExtract.data[0].fundos.fundo.find(
+      f => f.id_carteira === query.get('idFundo')
+    ).nome_carteira
+
   if (!bankData) {
     return <div></div>
   }
@@ -199,6 +204,9 @@ const InvestmentExtract = () => {
 
       <Section>
         <Container>
+          {query.get('idFundo') && bankExtract.data[0] && (
+            <SectionTitle>{fetchFundName()}</SectionTitle>
+          )}
           <Row justify="center">
             <SectionSubTitle>Conta de investimentos</SectionSubTitle>
           </Row>
