@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
 import { themeColors } from 'styles/theme'
 
 import { ReactComponent as add } from 'assets/icons/add.svg'
@@ -185,12 +183,12 @@ const dict = {
   wallet,
 }
 
-const IconComponent = ({ name, color, ...rest }) => {
+export default ({ name, color, ...rest }: IProps) => {
   if (!name) {
     return null
   }
 
-  const Icon = dict[name.toLowerCase()]
+  const Icon = dict[name]
   let otherProps = { ...rest }
 
   if (color) {
@@ -203,13 +201,7 @@ const IconComponent = ({ name, color, ...rest }) => {
   return Icon ? <Icon {...otherProps} /> : null
 }
 
-IconComponent.propTypes = {
-  name: PropTypes.oneOf(Object.keys(dict)).isRequired,
-  color: PropTypes.oneOf([...Object.keys(themeColors), '']),
+interface IProps {
+  name: keyof typeof dict
+  color: keyof typeof themeColors
 }
-
-IconComponent.defaultProps = {
-  color: '',
-}
-
-export default IconComponent
