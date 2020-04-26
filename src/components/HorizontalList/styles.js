@@ -21,6 +21,8 @@ export const Container = styled.div`
 export const StartBlock = styled.div`
   display: flex;
   align-items: center;
+  margin-right: ${props => props.theme.spacing(1)}px;
+
   && > *:not(:last-child) {
     margin-right: ${props => props.marginBetweenElements};
   }
@@ -29,6 +31,8 @@ export const StartBlock = styled.div`
 export const EndBlock = styled.div`
   display: flex;
   align-items: center;
+  margin-left: ${props => props.theme.spacing(1)}px;
+
   && > *:not(:first-child) {
     margin-left: ${props => props.marginBetweenElements};
   }
