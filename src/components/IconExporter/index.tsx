@@ -183,25 +183,27 @@ const dict = {
   wallet,
 }
 
-export default ({ name, color, ...rest }: IProps) => {
+export default ({
+  color,
+  fill,
+  name,
+  width,
+  ...rest
+}: IProps) => {
   if (!name) {
     return null
   }
 
   const Icon = dict[name]
-  let otherProps = { ...rest }
 
-  if (color) {
-    otherProps = {
-      ...rest,
-      fill: themeColors[color],
-    }
-  }
-
-  return Icon ? <Icon {...otherProps} /> : null
+  return Icon ? (
+    <Icon width={width} fill={color ? themeColors[color] : fill} {...rest} />
+  ) : null
 }
 
 interface IProps {
-  name: keyof typeof dict
   color?: keyof typeof themeColors
+  fill?: string
+  name: keyof typeof dict
+  width?: number
 }
