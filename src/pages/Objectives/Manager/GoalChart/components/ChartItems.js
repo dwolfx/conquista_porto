@@ -80,6 +80,9 @@ export default function ChartItems({ indexSelectedYear, data, vertical }) {
                   data-gtm-clicktype="link"
                   onClick={() => history.push('/financiamento-veiculo')}
                   noIcon
+                  css={`
+                    margin-left: 7px;
+                  `}
                 >
                   Financiamento de Veículo
                 </ButtonLink>
