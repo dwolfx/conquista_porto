@@ -143,8 +143,12 @@ const InvestmentExtract = () => {
   const filterByDate = () => {
     const newRequestData = {
       ...requestData,
-      dataInicial: moment(requestData.dataInicial).format('YYYY-MM-DD'),
-      dataFinal: moment(requestData.dataFinal).format('YYYY-MM-DD'),
+      dataInicial: moment(requestData.dataInicial, 'DD/MM/YYYY').format(
+        'YYYY-MM-DD'
+      ),
+      dataFinal: moment(requestData.dataFinal, 'DD/MM/YYYY').format(
+        'YYYY-MM-DD'
+      ),
     }
     if (query.get('idFundo')) {
       dispatch(GetBankExtractFundRequest(newRequestData, auth.cpf))
@@ -168,6 +172,11 @@ const InvestmentExtract = () => {
       [field]: e.target.value,
     })
   }
+
+  const fetchFundName = () =>
+    bankExtract.data[0].fundos.fundo.find(
+      f => f.id_carteira === query.get('idFundo')
+    ).nome_carteira
 
   if (!bankData) {
     return <div></div>
@@ -195,6 +204,9 @@ const InvestmentExtract = () => {
 
       <Section>
         <Container>
+          {query.get('idFundo') && bankExtract.data[0] && (
+            <SectionTitle>{fetchFundName()}</SectionTitle>
+          )}
           <Row justify="center">
             <SectionSubTitle>Conta de investimentos</SectionSubTitle>
           </Row>
