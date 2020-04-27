@@ -45,6 +45,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-slick": "^0.25.2",
+    "react-spring": "^8.0.27",
     "react-table": "^7.0.0-beta.12",
     "react-toastify": "^5.5.0",
     "redux": "^4.0.4",
@@ -55,6 +56,7 @@
     "styled-bootstrap-grid": "^3.0.5",
     "styled-components": "^4.4.1",
     "typescript": "^3.7.2",
+    "uuidv4": "^6.0.7",
     "yup": "^0.28.1"
   },
   "devDependencies": {
