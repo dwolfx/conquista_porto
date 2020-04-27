@@ -1,9 +1,19 @@
 import styled from 'styled-components'
+
 import { Row } from 'styled-bootstrap-grid'
 import ButtonTag from 'components/Button/Tag'
 
 export const ButtonTagStyled = styled(ButtonTag)``
 
+export const ButtonContainer = styled.div`
+  margin: 14px 0 21px 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  ${ButtonTagStyled} {
+    margin: 0 7px 7px 0;
+  }
+`
 export const FilterRowContent = styled(Row)`
   margin: 0px 7px 21px;
 `
@@ -50,7 +60,7 @@ export const SquareRiskLevel = styled.div.attrs(() => ({
   opacity: ${handleOpacitySquareRisk};
 `
 
-export const Divisor = styled.div`
+export const VerticalDivisor = styled.div`
   background-color: ${props => props.theme.colors.gray2};
   height: 28px;
   width: 1px;

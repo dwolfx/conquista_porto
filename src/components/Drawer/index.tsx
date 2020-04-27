@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 
 import {
   CloseButton,
@@ -13,18 +12,29 @@ import {
   DrawerContent,
 } from './styles'
 
-const Drawer = ({
+interface IProps {
+  header?: React.ReactNode
+  footer?: React.ReactNode
+  handleClose?: () => any
+  isOpen: boolean
+  drawerTitle?: string
+  positionDrawer?: string
+}
+
+const Drawer: React.FC<IProps> = ({
   children,
+  header,
   footer,
   handleClose,
   isOpen,
   drawerTitle,
-  positionDrawer,
+  positionDrawer = 'right',
   ...rest
 }) => {
   useEffect(() => {
-    const body = document.querySelector('body')
-    const html = document.querySelector('html')
+    const body = document.querySelector('body') as HTMLBodyElement
+    const html = document.querySelector('html') as HTMLHtmlElement
+
     if (isOpen) {
       body.style.overflow = 'hidden'
       html.style.overflowY = 'hidden'
@@ -42,36 +52,25 @@ const Drawer = ({
       <DrawerOverlay isOpen={isOpen} onClick={handleClose} />
       <DrawerContent positionDrawer={positionDrawer} isOpen={isOpen} {...rest}>
         <DrawerHeader>
-          <DrawerTitle>{drawerTitle}</DrawerTitle>
-          <CloseButton
-            data-gtm-subname={`menu ${drawerTitle}`}
-            data-gtm-name="botao fechar"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            onClick={handleClose}
-          />
+          {header || (
+            <>
+              <DrawerTitle>{drawerTitle}</DrawerTitle>
+              <CloseButton
+                data-gtm-subname={`menu ${drawerTitle}`}
+                data-gtm-name="botao fechar"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                onClick={handleClose}
+              />
+            </>
+          )}
         </DrawerHeader>
         <DrawerBody>{children}</DrawerBody>
         {footer && <DrawerFooter>{footer}</DrawerFooter>}
       </DrawerContent>
     </DrawerWrapper>,
-    document.querySelector('#root')
+    document.querySelector('#root') as HTMLDivElement
   )
-}
-
-Drawer.defaultProps = {
-  drawerTitle: '',
-  footer: null,
-  positionDrawer: 'right',
-}
-
-Drawer.propTypes = {
-  footer: PropTypes.node,
-  children: PropTypes.node.isRequired,
-  handleClose: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  drawerTitle: PropTypes.string,
-  positionDrawer: PropTypes.oneOf(['right', 'left']),
 }
 
 export default Drawer

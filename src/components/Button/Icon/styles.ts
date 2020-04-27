@@ -1,6 +1,21 @@
 import styled from 'styled-components'
+import { dict } from 'components/IconExporter'
 
-export const Button = styled.button`
+export interface IProps {
+  color: 'primary' | 'secondary'
+  icon: keyof typeof dict
+  size?: 'small' | 'large'
+  iconWidth?: number | string
+  isLoading?: boolean
+  onClick?: () => void
+}
+
+interface IButtonProps {
+  color: 'primary' | 'secondary'
+  size: 'small' | 'large'
+  iconWidth?: number | string
+}
+export const ButtonStyled = styled.button<IButtonProps>`
   align-items: center;
   background-color: ${props =>
     props.color === 'primary'
@@ -27,6 +42,13 @@ export const Button = styled.button`
       props.color === 'primary'
         ? props.theme.colors.white
         : props.theme.colors.gray6};
-    width: ${props => (props.size === 'small' ? '10px' : '12px')};
+    width: ${props => handleSVGWidth(props)};
   }
 `
+
+const handleSVGWidth = (props: IButtonProps) => {
+  if (props.iconWidth) {
+    return props.iconWidth
+  }
+  return props.size === 'small' ? '10px' : '12px'
+}
