@@ -2,7 +2,11 @@ import styled from 'styled-components'
 
 import Text from 'components/Text'
 
-export const CardWrapper = styled.div`
+interface ICard {
+  hasFooter: boolean
+}
+
+export const CardWrapper = styled.div<ICard>`
   background-color: ${props => props.theme.colors.white};
   border: 1px solid ${props => props.theme.colors.gray2};
   border-radius: 8px;
