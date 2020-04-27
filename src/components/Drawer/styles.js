@@ -1,5 +1,6 @@
 import CloseIcon from 'assets/icons/close.svg'
 import styled from 'styled-components'
+import Text from 'components/Text'
 
 export const CloseButton = styled.div`
   background-color: ${props => props.theme.colors.gray4};
@@ -16,12 +17,17 @@ export const CloseButton = styled.div`
 
 export const DrawerBody = styled.div`
   overflow-y: auto;
-  padding: 20px 8px;
+  height: 100%;
+  padding: 28px 14px;
 `
 
 export const DrawerFooter = styled.div`
   border-top: 1px solid ${props => props.theme.colors.gray2};
-  padding-top: 14px;
+  height: 63px;
+  display: flex;
+  justify-content: center;
+  padding: 0 14px;
+  align-items: center;
   margin-top: auto;
 `
 
@@ -32,24 +38,37 @@ export const DrawerHeader = styled.div`
   padding: 10px 14px 14px;
 `
 
-export const DrawerTitle = styled.h3`
-  ${props => props.theme.fontTypes.heading4}
+export const DrawerTitle = styled(Text).attrs(() => ({ type: 'heading4' }))`
   color: ${props => props.theme.colors.gray6};
-  font-weight: bold;
 `
 
-export const DrawerWrapper = styled.div`
+export const DrawerContent = styled.div`
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 390px;
-  overflow: hidden;
-  padding: 14px;
-  position: absolute;
-  transition: all ease 0.5s;
   width: 100%;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+  position: fixed;
+  transition: all ease 0.5s;
+  min-width: 390px;
+  max-width: 650px;
+  top: 0;
+  ${props => ({
+    [props.positionDrawer]: props.isOpen ? '0' : '-100%',
+  })}
+
+  @media ${props => props.theme.mediaQueries.md} {
+    max-width: 100%;
+  }
+`
+
+export const DrawerWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  z-index: 12;
 `
 
 export const DrawerOverlay = styled.div`
@@ -62,11 +81,4 @@ export const DrawerOverlay = styled.div`
   opacity: ${props => (props.isOpen ? '1' : '0')};
   left: 0;
   top: 0;
-  z-index: 1;
-
-  ${DrawerWrapper} {
-    ${props => ({
-      [props.positionDrawer]: props.isOpen ? '0' : '-100%',
-    })}
-  }
 `

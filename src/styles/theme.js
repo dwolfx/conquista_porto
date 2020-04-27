@@ -35,11 +35,11 @@ export const shadows = {
 }
 
 export const fundRiskColors = {
-  lowRisk: '#555861',
-  lowMediumRisk: '#33BFFF',
-  mediumRisk: '#3CC225',
-  mediumHighRisk: '#FDA529',
-  highRisk: '#D0011B',
+  lowRisk: themeColors.darkBlue2,
+  lowMediumRisk: themeColors.blue4,
+  mediumRisk: themeColors.green3,
+  mediumHighRisk: themeColors.yellow2,
+  highRisk: themeColors.magenta2,
 }
 
 export const fundRiskColorsNew = {
@@ -100,7 +100,6 @@ export const mediaQueries = {
 
 const genericFontType = {
   fontFamily: 'Open Sans',
-  lineHeight: 1.5,
 }
 
 export const fontTypes = {
@@ -108,48 +107,57 @@ export const fontTypes = {
     ...genericFontType,
     fontSize: 92,
     letterSpacing: 0,
+    lineHeight: '125px',
   },
   heading2: {
     ...genericFontType,
     fontSize: 56,
     letterSpacing: 1,
+    lineHeight: '76px',
   },
   heading3: {
     ...genericFontType,
     fontSize: 34,
     letterSpacing: 0.5,
+    lineHeight: '46px',
   },
   heading4: {
     ...genericFontType,
     fontSize: 22,
     letterSpacing: 0,
+    lineHeight: '30px',
   },
   headline: {
     ...genericFontType,
     fontSize: 18,
     letterSpacing: 0,
+    lineHeight: '25px',
   },
   title: {
     fontSize: 14,
     letterSpacing: 0.25,
     fontWeight: 600,
+    lineHeight: '19px',
   },
   subheading: {
     ...genericFontType,
     fontSize: 11,
     letterSpacing: 1.5,
     fontWeight: 600,
+    lineHeight: '15px',
   },
   body: {
     ...genericFontType,
     fontSize: 14,
     letterSpacing: 0,
+    lineHeight: '19px',
   },
   caption: {
     ...genericFontType,
     fontSize: 12,
     letterSpacing: 0,
     fontWeight: 400,
+    lineHeight: '16px',
   },
   captionUppercase: {
     ...genericFontType,
@@ -157,12 +165,14 @@ export const fontTypes = {
     letterSpacing: 0.5,
     textTransform: 'uppercase',
     fontWeight: 400,
+    lineHeight: '16px',
   },
   button: {
     fontSize: 11,
     fontWeight: 600,
     letterSpacing: 1.5,
     textTransform: 'uppercase',
+    lineHeight: '15px',
   },
 }
 

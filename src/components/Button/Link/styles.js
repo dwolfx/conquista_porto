@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const Link = styled.a`
   align-items: center;
-  color: ${props => props.theme.colors.blue4};
+  color: ${props =>
+    props.disabled ? props.theme.colors.gray4 : props.theme.colors.blue4};
   cursor: pointer;
   display: inline-flex;
   ${props => props.theme.fontTypes.button}
