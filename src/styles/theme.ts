@@ -1,3 +1,21 @@
+import 'styled-components'
+import { DefaultTheme } from 'styled-components'
+
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    colors: { [key in keyof typeof themeColors]: string }
+    fontTypes: { [key in keyof typeof fontTypes]: any }
+    fontFamily: string
+    fundRiskColors: { [key in keyof typeof fundRiskColors]: string }
+    fundRiskColorsNew: { [key in keyof typeof fundRiskColorsNew]: string }
+    gutter: number
+    grid: { [key in keyof typeof gridConfig]: any }
+    mediaQueries: { [key in keyof typeof mediaQueries]: string }
+    shadows: { [key in keyof typeof shadows]: string }
+    spacing: (x: number) => number
+  }
+}
+
 export const themeColors = {
   black: '#000',
   gray1: '#F1F1F1',
@@ -24,6 +42,7 @@ export const themeColors = {
   yellow2: '#FFCD00',
   magenta1: '#FAD2E3',
   magenta2: '#E72176',
+  unset: 'unset',
 }
 
 export const shadows = {
@@ -176,14 +195,17 @@ export const fontTypes = {
   },
 }
 
-export default {
-  shadows,
+const theme: DefaultTheme = {
   colors: themeColors,
+  fontTypes,
+  fontFamily: 'Open Sans',
   fundRiskColors,
   fundRiskColorsNew,
-  fontFamily: 'Open Sans',
-  fontTypes,
   gutter: 14,
   grid: gridConfig,
   mediaQueries,
+  shadows,
+  spacing: number => number * 7,
 }
+
+export default theme
