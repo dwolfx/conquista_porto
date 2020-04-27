@@ -203,5 +203,5 @@ export default ({ name, color, ...rest }: IProps) => {
 
 interface IProps {
   name: keyof typeof dict
-  color: keyof typeof themeColors
+  color?: keyof typeof themeColors
 }
