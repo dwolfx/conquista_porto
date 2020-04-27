@@ -445,7 +445,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo iXylkv sc-gipzik bHOClg"
+              className="sc-hSdWYo bDANTG sc-gipzik bHOClg"
               color="unset"
               type="subheading"
             >
@@ -482,7 +482,7 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-hSdWYo iXylkv sc-gipzik bHOClg"
+              className="sc-hSdWYo bDANTG sc-gipzik bHOClg"
               color="unset"
               type="subheading"
             >
