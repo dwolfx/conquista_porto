@@ -1,9 +1,8 @@
 import React, { useEffect, useContext } from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
-import Icon from '../IconExporter'
+import Icon, { dict } from '../IconExporter'
 
 import {
   ModalOverlay,
@@ -15,36 +14,43 @@ import {
   ChildrenWrapper,
 } from './stylesNew'
 
-const Modal = ({
-  children,
-  headerIcon,
+interface IProps {
+  headerIcon?: keyof typeof dict
+  modalTitle?: string
+  handleClose: () => void
+  isOpen: boolean
+  alignItems?: string
+}
+
+const Modal: React.FC<IProps> = ({
+  headerIcon = null,
+  modalTitle = '',
   handleClose,
   isOpen,
-  modalTitle,
-  alignItems,
-  maxWidth,
+  alignItems = '',
+  children,
   ...rest
 }) => {
   const themeContext = useContext(ThemeContext)
   useEffect(() => {
-    const body = document.querySelector('body')
-    const html = document.querySelector('html')
+    const body = document.querySelector<HTMLInputElement>('body')
+    const html = document.querySelector<HTMLInputElement>('html')
     if (isOpen) {
-      body.style.overflow = 'hidden'
-      html.style.overflowY = 'hidden'
+      body!.style.overflow = 'hidden'
+      html!.style.overflowY = 'hidden'
     }
 
     function handleOverflow() {
-      body.style.overflow = 'visible'
-      html.style.overflowY = 'visible'
+      body!.style.overflow = 'visible'
+      html!.style.overflowY = 'visible'
     }
     return () => handleOverflow()
   }, [isOpen])
 
   useEffect(() => {
-    const handler = function handleEscClose(event) {
+    const handler = function handleEscClose(event: KeyboardEvent) {
       if (isOpen && event.keyCode === 27) {
-        handleClose(isOpen)
+        handleClose()
       }
     }
 
@@ -56,7 +62,7 @@ const Modal = ({
   return ReactDOM.createPortal(
     <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
       <ModalOverlay isOpen={isOpen} onClick={handleClose} />
-      <ModalContainer maxWidth={maxWidth}>
+      <ModalContainer lg={4} md={6} sm={6} xs={12}>
         <ModalHeader>
           {headerIcon && (
             <Icon
@@ -77,24 +83,8 @@ const Modal = ({
         <ChildrenWrapper>{children}</ChildrenWrapper>
       </ModalContainer>
     </ModalWrapper>,
-    document.querySelector('#root')
+    document.querySelector('#root') as HTMLInputElement
   )
-}
-
-Modal.defaultProps = {
-  headerIcon: null,
-  modalTitle: '',
-  maxWidth: '900px',
-}
-
-Modal.propTypes = {
-  children: PropTypes.node.isRequired,
-  headerIcon: PropTypes.string,
-  handleClose: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  modalTitle: PropTypes.string,
-  alignItems: PropTypes.string,
-  maxWidth: PropTypes.string,
 }
 
 export default Modal

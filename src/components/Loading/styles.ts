@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { themeColors } from 'styles/theme'
 
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
@@ -46,7 +47,11 @@ export const LoadingContainer = styled.div`
   width: 100%;
 `
 
-export const LoadingBar = styled.div`
+interface ILoadingBarProps {
+  color: keyof typeof themeColors
+}
+
+export const LoadingBar = styled.div<ILoadingBarProps>`
   animation: ${loop} 2s linear infinite;
   background-color: ${props => props.theme.colors[props.color]};
   border-radius: inherit;
@@ -54,7 +59,7 @@ export const LoadingBar = styled.div`
   width: calc(100% / 3);
 `
 
-export const LegendText = styled(Text)`
+export const LegendText = styled(Text)<{ placement: string }>`
   margin-bottom: ${props => (props.placement === 'top' ? '21px' : 0)};
   margin-top: ${props => (props.placement === 'bottom' ? '21px' : 0)};
   order: ${props => (props.placement === 'top' ? 0 : 2)};

@@ -1,7 +1,13 @@
 import styled from 'styled-components'
+import { themeColors } from 'styles/theme'
 
 // functions
-const handleBgGradient = (colors, type, isDisabled, isOutline) => {
+const handleBgGradient = (
+  colors: { [key in keyof typeof themeColors]: string },
+  type: 'primary' | 'secondary',
+  isDisabled: boolean = false,
+  isOutline: boolean
+) => {
   if (isOutline) {
     return colors.white
   }
@@ -28,7 +34,11 @@ const handleBgGradient = (colors, type, isDisabled, isOutline) => {
   }
 }
 
-const handleBgHover = (colors, type, isOutline) => {
+const handleBgHover = (
+  colors: { [key in keyof typeof themeColors]: string },
+  type: 'primary' | 'secondary',
+  isOutline: boolean
+) => {
   switch (type) {
     case 'primary':
       return isOutline ? colors.blue1 : colors.blue5
@@ -39,7 +49,12 @@ const handleBgHover = (colors, type, isOutline) => {
   }
 }
 
-const handleBorder = (colors, type, isDisabled, isOutline) => {
+const handleBorder = (
+  colors: { [key in keyof typeof themeColors]: string },
+  type: 'primary' | 'secondary',
+  isDisabled: boolean = false,
+  isOutline: boolean
+) => {
   if (!isOutline) {
     return 'none'
   }
@@ -55,7 +70,12 @@ const handleBorder = (colors, type, isDisabled, isOutline) => {
   return `1px solid ${borderColor}`
 }
 
-const handleColor = (colors, type, isDisabled, isOutline) => {
+const handleColor = (
+  colors: { [key in keyof typeof themeColors]: string },
+  type: 'primary' | 'secondary',
+  isDisabled: boolean = false,
+  isOutline: boolean
+) => {
   if (!isOutline) {
     return colors.white
   }
@@ -67,6 +87,12 @@ const handleColor = (colors, type, isDisabled, isOutline) => {
   return !isDisabled ? colors.green4 : colors.gray3
 }
 
+interface IButtonProps {
+  color: 'primary' | 'secondary'
+  outline: boolean
+  disabled?: boolean
+}
+
 // styles
 export const LoadingContainer = styled.div`
   position: absolute;
@@ -74,7 +100,7 @@ export const LoadingContainer = styled.div`
   right: 14px;
 `
 
-export const Button = styled.button`
+export const Button = styled.button<IButtonProps>`
   background: ${props =>
     handleBgGradient(
       props.theme.colors,

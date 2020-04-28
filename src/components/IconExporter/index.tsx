@@ -183,13 +183,7 @@ export const dict = {
   wallet,
 }
 
-export default ({
-  color,
-  fill,
-  name,
-  width,
-  ...rest
-}: IProps) => {
+export default ({ color, fill, name, width, ...rest }: IProps) => {
   if (!name) {
     return null
   }

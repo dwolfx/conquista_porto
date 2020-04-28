@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, Prompt } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 import Button from 'components/Button'
 import Modal from 'components/Modal/ModalNew'
@@ -8,11 +7,24 @@ import Text from 'components/Text'
 
 import { ButtonContainerModal } from './styles'
 
-export default function PromptModal({
-  hasUnsavedChanges,
+interface IProps {
+  hasUnsavedChanges?: boolean
+  onConfirmation: () => void
+  title: string
+  description: string
+  buttonTextCancel?: string
+  buttonTextConfirm?: string
+}
+
+const PromptModal: React.FC<IProps> = ({
+  buttonTextCancel = 'Cancelar',
+  buttonTextConfirm = 'Confirmar',
+  hasUnsavedChanges = false,
   onConfirmation,
+  title,
+  description,
   ...rest
-}) {
+}) => {
   const history = useHistory()
 
   const [confirmedUnsavedChanges, setConfirmedUnsavedChanges] = useState(false)
@@ -36,14 +48,11 @@ export default function PromptModal({
         handleClose={() => {
           setIsModalUnsavedOpen(false)
         }}
-        modalTitle="Alterações não salvas"
+        modalTitle={title}
         {...rest}
       >
         <Text type="headline" color="gray6">
-          As alterações não salvas serão perdidas.
-        </Text>
-        <Text type="headline" color="gray6">
-          Tem certeza que deseja continuar?
+          {description}
         </Text>
         <ButtonContainerModal>
           <Button
@@ -52,7 +61,7 @@ export default function PromptModal({
               setIsModalUnsavedOpen(false)
             }}
           >
-            Cancelar
+            {buttonTextCancel}
           </Button>
           <Button
             onClick={() => {
@@ -60,7 +69,7 @@ export default function PromptModal({
               setIsModalUnsavedOpen(false)
             }}
           >
-            Confirmar
+            {buttonTextConfirm}
           </Button>
         </ButtonContainerModal>
       </Modal>
@@ -84,12 +93,4 @@ export default function PromptModal({
   )
 }
 
-PromptModal.propTypes = {
-  hasUnsavedChanges: PropTypes.bool,
-  onConfirmation: PropTypes.func,
-}
-
-PromptModal.defaultProps = {
-  hasUnsavedChanges: false,
-  onConfirmation: null,
-}
+export default PromptModal

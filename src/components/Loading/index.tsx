@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { themeColors } from 'styles/theme'
 
 import {
   ComponentContainer,
@@ -9,14 +9,22 @@ import {
   IconAnimated,
 } from './styles'
 
-export default function Loading({
-  color,
-  width,
-  type,
-  legend,
-  placement,
+interface IProps {
+  color?: keyof typeof themeColors
+  width?: number
+  type?: 'spinner' | 'bar'
+  legend?: string
+  placement?: 'top' | 'bottom'
+}
+
+const Loading: React.FC<IProps> = ({
+  color = 'blue4',
+  width = 28,
+  type = 'spinner',
+  legend = '',
+  placement = 'top',
   ...rest
-}) {
+}) => {
   if (type === 'spinner') {
     return <IconAnimated name="spinner" color={color} width={width} {...rest} />
   }
@@ -35,18 +43,4 @@ export default function Loading({
   )
 }
 
-Loading.defaultProps = {
-  color: 'blue4',
-  type: 'spinner',
-  width: 28,
-  legend: '',
-  placement: 'top',
-}
-
-Loading.propTypes = {
-  color: PropTypes.string,
-  type: PropTypes.oneOf(['spinner', 'bar']),
-  width: PropTypes.number,
-  legend: PropTypes.string,
-  placement: PropTypes.oneOf(['top', 'bottom']),
-}
+export default Loading

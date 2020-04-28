@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
+import { Col } from 'styled-bootstrap-grid'
 import CloseIcon from 'assets/icons/close.svg'
 
-export const ModalOverlay = styled.div`
+export const ModalOverlay = styled.div<{ isOpen: boolean }>`
   background-color: rgba(39, 39, 39, 0.63);
   height: 100%;
   position: fixed;
@@ -23,13 +24,11 @@ export const ChildrenWrapper = styled.div`
   }
 `
 
-export const ModalContainer = styled.div`
+export const ModalContainer = styled(Col)`
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
   border-radius: 8px;
   position: fixed;
-  max-width: ${props => props.maxWidth};
-  min-width: 400px;
   margin: 28px 0;
   max-height: calc(100vh - (28px * 2));
   overflow: hidden;
@@ -79,7 +78,12 @@ export const CloseButton = styled.div`
   }
 `
 
-export const ModalWrapper = styled.div`
+interface IModalWrapperProps {
+  alignItems: string
+  isOpen: boolean
+}
+
+export const ModalWrapper = styled.div<IModalWrapperProps>`
   align-items: ${props => (props.alignItems ? props.alignItems : 'center')};
   display: flex;
   height: ${props => (props.isOpen ? '100%' : 0)};
