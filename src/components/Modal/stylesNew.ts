@@ -23,6 +23,14 @@ export const ChildrenWrapper = styled.div`
   @media ${props => props.theme.mediaQueries.sm} {
     padding: ${props => props.theme.spacing(3)}px;
   }
+
+  &.empty-children-wrapper {
+    padding: 0px;
+
+    @media ${props => props.theme.mediaQueries.sm} {
+      padding: 0px;
+    }
+  }
 `
 
 export const Divisor = styled(DivisorComponent).attrs(() => ({
@@ -51,6 +59,15 @@ export const ModalContainer = styled(Col)`
     margin: 0 auto;
     width: calc(100vw - 30px);
   }
+
+  &.fullScreen {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
 `
 
 export const ModalHeader = styled.div`
@@ -60,6 +77,10 @@ export const ModalHeader = styled.div`
 
   svg {
     margin-right: 15px;
+  }
+
+  &.empty-header {
+    padding: 10px 35px;
   }
 `
 
@@ -80,6 +101,11 @@ export const CloseButton = styled.div`
 
   &:hover {
     background-color: ${props => props.theme.colors.blue4};
+  }
+
+  &.empty-close-button {
+    height: 24px;
+    width: 24px;
   }
 `
 
