@@ -51,30 +51,6 @@ const Card:FunctionComponent<IProps> = ({
   )
 }
 
-// Card.defaultProps = {
-//   headerIcon: null,
-//   headerTitle: null,
-//   headerEndItem: null,
-//   footer: null,
-// }
-
-// Card.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   headerIcon: (props, propName) => {
-//     // if headerTitle exist, headerIcon is required AND it must be of type string
-//     if (
-//       !!props.headerTitle &&
-//       (props[propName] === 'undefined' || typeof props[propName] !== 'string')
-//     ) {
-//       return new Error('headerIcon is required.')
-//     }
-
-//     return null
-//   },
-//   headerTitle: PropTypes.string,
-//   footer: PropTypes.node,
-//   headerEndItem: PropTypes.node,
-// }
 
 interface IProps {
   headerIcon?: keyof typeof dict

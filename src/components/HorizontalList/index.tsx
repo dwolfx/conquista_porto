@@ -35,19 +35,3 @@ interface IProps {
   noPadding?: boolean
   marginBetweenElements?: string
 }
-
-// HorizontalList.propTypes = {
-//   startItems: PropTypes.arrayOf(PropTypes.node),
-//   endItems: PropTypes.arrayOf(PropTypes.node),
-//   size: PropTypes.oneOf(['large', 'small', 'default']),
-//   noPadding: PropTypes.bool,
-//   marginBetweenElements: PropTypes.string,
-// }
-
-// HorizontalList.defaultProps = {
-//   startItems: null,
-//   endItems: null,
-//   size: 'default',
-//   noPadding: false,
-//   marginBetweenElements: '14px',
-// }
