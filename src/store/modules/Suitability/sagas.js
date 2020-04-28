@@ -21,7 +21,7 @@ function* getDataAndRedirect({
 
   const suitabilityState = yield select(getSuitability)
 
-  if (suitabilityState.data) {
+  if (suitabilityState.data && Object.entries(suitabilityState.data).length) {
     history.push(link)
   } else {
     try {

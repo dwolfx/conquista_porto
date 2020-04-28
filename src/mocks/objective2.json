@@ -6,6 +6,7 @@
   "goal_type": 1,
   "conquered": false,
   "total_balance": 16000,
+  "credit_product": "Financiamento de Veículo",
   "years": [
     {
       "year": 2019,

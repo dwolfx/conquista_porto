@@ -1,14 +1,25 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 
 import PropTypes from 'prop-types'
 
+import ButtonLink from 'components/Button/Link'
 import Popover from 'components/Popover'
+import Text from 'components/Text'
 import { calcBarSize, calculateDepositPercentages } from '../helper'
-import { StartOrEndIndicator, ChartItemContainer, ChartItem } from '../styles'
+import {
+  StartOrEndIndicator,
+  ChartItemContainer,
+  ChartItem,
+  IdealMomentLabel,
+} from '../styles'
 import ChartPopoverContent from './ChartPopoverContent'
 
 export default function ChartItems({ indexSelectedYear, data, vertical }) {
+  const history = useHistory()
+  const idealMoment = data.credit_product === 'Financiamento de Veículo'
+
   if (indexSelectedYear !== null && indexSelectedYear >= 0) {
     const selectedYear = data.years[indexSelectedYear]
 
@@ -58,6 +69,26 @@ export default function ChartItems({ indexSelectedYear, data, vertical }) {
                 : 'none'};
             `}
           />
+          {startOrEndIndicator.isEnd && idealMoment && (
+            <IdealMomentLabel>
+              <Text type="captionUppercase" color="gray6" textAlign="center">
+                Momento ideal para contratar seu
+                <ButtonLink
+                  data-gtm-subname="card investimentos saldo disponivel"
+                  data-gtm-name="financiamento-de-veiculo"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  onClick={() => history.push('/financiamento-veiculo')}
+                  noIcon
+                  css={`
+                    margin-left: 7px;
+                  `}
+                >
+                  Financiamento de Veículo
+                </ButtonLink>
+              </Text>
+            </IdealMomentLabel>
+          )}
           {currMonthObject ? (
             <Popover
               content={() => (

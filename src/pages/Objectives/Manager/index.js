@@ -168,9 +168,9 @@ export default function Manager({ location }) {
                 margin={isMobile ? '0;' : '0 28px;'}
                 alignItems="center"
                 justifyContent={isMobile ? 'center' : 'space-between'}
-                width="100%"
                 css={`
                   margin-right: 0;
+                  flex: 1;
                 `}
               >
                 {isMobile ? (

@@ -14,15 +14,15 @@ export const ValidateNickname = value => {
 export const ValidateInitialInvestment = value => {
   const numbers = (+value.replace(/\D/g, '')).toString()
   const integer = numbers.slice(0, numbers.length - 2)
-  if (+integer >= 1000 && +integer < 1000000000) return [true]
-  return [false, 'Mínimo de R$ 1.000,00 e Máximo de R$1.000.000.000,00']
+  if (+integer >= 1000) return [true]
+  return [false, 'Mínimo de R$ 1.000,00']
 }
 
 export const ValidateMonthlyInvestment = value => {
   const numbers = (+value.replace(/\D/g, '')).toString()
   const integer = numbers.slice(0, numbers.length - 2)
-  if (+integer >= 100 && +integer < 1000000000) return [true]
-  return [false, 'Mínimo de R$ 100,00 e Máximo de R$1.000.000.000,00']
+  if (+integer >= 100) return [true]
+  return [false, 'Mínimo de R$ 100,00']
 }
 
 export const ValidateTargetDate = value => {

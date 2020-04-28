@@ -2,7 +2,7 @@ import { Types } from './types'
 
 const INITIAL_STATE = {
   isLoading: true,
-  data: null,
+  data: {},
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -14,13 +14,13 @@ export default function(state = INITIAL_STATE, action) {
       }
     case Types.GET_NO_CONTENT: {
       return {
-        data: null,
+        data: {},
         isLoading: false,
       }
     }
     case Types.GET_FAILURE:
       return {
-        data: null,
+        data: {},
         isLoading: false,
       }
     case Types.SET_LOADING:

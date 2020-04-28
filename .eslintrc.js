@@ -31,7 +31,7 @@ module.exports = {
     },
   },
   rules: {
-    'camelcase': 0,
+    camelcase: 0,
     'prettier/prettier': ['error', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,
@@ -43,6 +43,16 @@ module.exports = {
         imports: 'always-multiline',
         exports: 'always-multiline',
         functions: 'never',
+      },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
       },
     ],
     'import/imports-first': 0,
