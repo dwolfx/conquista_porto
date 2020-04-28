@@ -25,6 +25,7 @@ export const themeColors = {
   gray5: '#898989',
   gray6: '#272727',
   gray7: '#777777',
+  grayblue1: '#555861',
   white: '#FFFFFF',
   darkBlue1: '#E6F7FF',
   darkBlue2: '#004E70',

@@ -11,6 +11,7 @@ import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
 import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
+import Modal from './Modal'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'
@@ -29,6 +30,7 @@ export default function FundsList() {
     byPerfilRisco: null,
   })
 
+  const [isModalOpen, setModalOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
 
@@ -40,6 +42,11 @@ export default function FundsList() {
 
   return (
     <>
+      <Modal
+        isOpen={isModalOpen}
+        fullScreen
+        handleClose={() => setModalOpen(false)}
+      />
       <GridContainer as="section">
         {isMobile ? (
           <Col col={12}>
@@ -61,6 +68,7 @@ export default function FundsList() {
                   columns={columns}
                   isDrawerOpen={isDrawerOpen}
                   onChangeIsDrawerOpen={setIsDrawerOpen}
+                  onChangeModalOpen={setModalOpen}
                   setIsOpenForInvestments={setIsOpenForInvestments}
                   data={filteredFundsList}
                   fundsType={fundsType}
