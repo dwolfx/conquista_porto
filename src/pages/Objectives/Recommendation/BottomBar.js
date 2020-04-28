@@ -33,8 +33,14 @@ const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
     function pushHistory(path) {
       history.push({ pathname: path, state: { pageRecommendation: true } })
     }
-    dispatch(PostObjectiveManagementDataRequest({ data, pushHistory }))
-    dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id }))
+    dispatch(
+      PostObjectiveManagementDataRequest({
+        data,
+        pushHistory,
+        onSuccess: () =>
+          dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id })),
+      })
+    )
   }
 
   return (

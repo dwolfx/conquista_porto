@@ -1,10 +1,15 @@
 import { Types } from './types'
 
-export function PostObjectiveManagementDataRequest({ data, pushHistory }) {
+export function PostObjectiveManagementDataRequest({
+  data,
+  pushHistory,
+  onSuccess,
+}) {
   return {
     type: Types.POST_REQUEST,
     data,
     pushHistory,
+    onSuccess,
   }
 }
 
