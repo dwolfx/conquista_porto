@@ -15,7 +15,7 @@ export default function useSuitability({ errorPath }) {
   }))
 
   useEffect(() => {
-    if (!suitability) {
+    if (!(suitability && Object.entries(suitability).length)) {
       dispatch(GetSuitabilityRequestAndRedirect({ cpf, history, errorPath }))
     }
   }, [suitability, dispatch, cpf, history, errorPath])

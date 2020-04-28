@@ -24,13 +24,17 @@ import {
   DeleteObjectiveFailure,
 } from './action'
 
-function* postData({ payload, pushHistory }) {
+function* postData({ data, pushHistory, onSuccess }) {
   try {
     const response = yield call(post, `${baseURLNamespaceGoal}/goals`, {
-      id: payload,
+      ...data,
     })
     yield put(PostObjectiveManagementDataSuccess(response.data))
     pushHistory(`/objetivos/gerenciar/${response.data.id}`)
+
+    if (onSuccess) {
+      onSuccess()
+    }
     yield put(CleanObjectiveData())
   } catch (err) {
     yield put({

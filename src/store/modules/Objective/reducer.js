@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   objectives: null,
   isLoading: false,
   hasError: false,
+  isLoadingList: false,
   isLoadingBySimulate: false,
 }
 
@@ -13,25 +14,26 @@ export default function(state = INITIAL_STATE, action) {
     case Types.GET_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingList: true,
         hasError: false,
       }
     case Types.GET_SUCCESS:
       return {
         ...state,
         objectives: action.payload,
-        isLoading: false,
+        isLoadingList: false,
       }
     case Types.GET_FAILURE:
       return {
         ...state,
-        isLoading: false,
+        isLoadingList: false,
         hasError: true,
       }
     case Types.POST_REQUEST:
       return {
         ...state,
         isLoading: true,
+        hasError: false,
       }
     case Types.POST_REQUEST_BY_SIMULATE:
       return {

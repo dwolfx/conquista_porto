@@ -49,7 +49,7 @@ export default function SectionTwo({ onRedirect }) {
     hasErrorObjectives,
   } = useSelector(state => ({
     objectives: state.objective.objectives,
-    isLoadingObjectives: state.objective.isLoading,
+    isLoadingObjectives: state.objective.isLoadingList,
     hasErrorObjectives: state.objective.hasError,
     isLoadingSuitability: state.suitability.isLoading,
     cpf: state.auth.cpf,

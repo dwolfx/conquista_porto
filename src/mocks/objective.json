@@ -1,11 +1,12 @@
 {
   "id": "1",
-  "nickname": "Disney",
+  "nickname": "Meu Carrito Super Daora",
   "target_value": 22000,
   "target_date": "10/10/2021",
   "goal_type": 1,
   "conquered": false,
   "total_balance": 16000,
+  "credit_product": "Financiamento de Veículo",
   "years": [
     {
       "year": 2019,

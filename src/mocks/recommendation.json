@@ -1,16 +1,26 @@
 {
-  "id": "1",
+  "id": 1,
   "answer": {
     "nickname": "Disney",
     "target_date": "30/12/2019",
-    "target_value": 70000000000000000,
-    "initial_value": 30000000000000000,
-    "monthly_value": 10000000000000000,
+    "target_value": 999999999.99,
+    "initial_value": 999999999.99,
+    "monthly_value": 999999999.99,
     "would_like_to_receive_before_final_date": false,
     "would_like_to_receive_monthly_income": false,
     "goal_type": "1",
     "is_easy_to_save_planned_amount": false,
     "is_target_date_flexible": false
+  },
+  "fund_total_income": {
+    "0": 1000.0,
+    "1": 1503.7,
+    "2": 2009.25,
+    "3": 2516.69,
+    "4": 3026.0,
+    "5": 3537.19,
+    "6": 4050.28,
+    "7": 4565.27
   },
   "combo": [
     {
@@ -159,7 +169,7 @@
       "wsdls/profile": 5,
       "profitability": {
         "fundos": {
-            "12": 7.03
+          "12": 7.03
         }
       },
       "quotation_apply_days": "D+0",
