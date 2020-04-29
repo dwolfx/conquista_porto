@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import TextComponent from 'components/Text'
 
 export const ListWrapper = styled.div`
-  margin-top: 14px;
+  margin-top: ${props => props.theme.spacing(2)}px;
   padding: 0 7px;
 `
 
@@ -28,7 +28,7 @@ export const ErrorText = styled(TextComponent).attrs(() => ({
   type: 'headline',
   color: 'magenta2',
 }))`
-  margin-bottom: 14px;
+  margin-bottom: ${props => props.theme.spacing(2)}px;
 `
 
 export const EmptyDataText = styled(TextComponent).attrs(() => ({

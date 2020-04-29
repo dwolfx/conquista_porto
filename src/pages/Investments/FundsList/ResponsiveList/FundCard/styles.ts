@@ -21,7 +21,7 @@ interface IRiskLineProps {
 export const ArrowDown = styled(IconComponent).attrs(() => ({
   name: 'arrowdown',
 }))`
-  height: 21px;
+  height: ${props => props.theme.spacing(3)}px;
   fill: ${props => props.theme.colors.gray6};
 `
 
@@ -41,7 +41,7 @@ export const CardCol = styled(Col)`
   background-color: ${props => props.theme.colors.white};
   border-radius: 8px;
   padding: 0;
-  margin-bottom: 7px;
+  margin-bottom: ${props => props.theme.spacing(1)}px;
 `
 
 export const CardContent = styled.div`
@@ -63,8 +63,8 @@ export const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
-  width: 28px;
+  height: ${props => props.theme.spacing(4)}px;
+  width: ${props => props.theme.spacing(4)}px;
   border-radius: 50%;
   background-color: ${props => props.theme.colors.gray2};
 `
@@ -73,7 +73,7 @@ export const FirstDivisor = styled(DivisorComponent).attrs(() => ({
   customSize: 'calc(100% - 34px)',
 }))`
   margin-left: 13px;
-  margin-right: 21px;
+  margin-right: ${props => props.theme.spacing(3)}px;
 `
 
 export const FundInfo = styled.div`
@@ -115,5 +115,5 @@ export const SecondDivisor = styled(DivisorComponent).attrs(() => ({
 export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 7px;
+  margin-bottom: ${props => props.theme.spacing(1)}px;
 `

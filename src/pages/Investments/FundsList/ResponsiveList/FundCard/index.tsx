@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import HorizontalList from 'components/HorizontalList/index'
+import HorizontalList from 'components/HorizontalList'
 import { formatMoney, formatDotToComma, handleGiwRedirect } from 'helpers'
 
 import {
