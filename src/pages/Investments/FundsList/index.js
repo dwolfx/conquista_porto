@@ -30,7 +30,7 @@ export default function FundsList() {
     byPerfilRisco: null,
   })
 
-  const [isModalOpen, setModalOpen] = useState(false)
+  const [isModalOpen, setModalOpen] = useState(true)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
 
@@ -69,7 +69,7 @@ export default function FundsList() {
                   columns={columns}
                   isDrawerOpen={isDrawerOpen}
                   onChangeIsDrawerOpen={setIsDrawerOpen}
-                  onChangeModalOpen={setModalOpen}
+                  handleModalOpen={() => setModalOpen(true)}
                   setIsOpenForInvestments={setIsOpenForInvestments}
                   data={filteredFundsList}
                   fundsType={fundsType}
@@ -87,6 +87,7 @@ export default function FundsList() {
       </GridContainer>
       <Detail
         isOpen={isDrawerOpen}
+        handleModalOpen={() => setModalOpen(true)}
         isOpenForInvestments={isOpenForInvestments}
         handleClose={() => setIsDrawerOpen(false)}
       />

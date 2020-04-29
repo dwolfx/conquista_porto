@@ -23,14 +23,6 @@ export const ChildrenWrapper = styled.div`
   @media ${props => props.theme.mediaQueries.sm} {
     padding: ${props => props.theme.spacing(3)}px;
   }
-
-  &.empty-children-wrapper {
-    padding: 0px;
-
-    @media ${props => props.theme.mediaQueries.sm} {
-      padding: 0px;
-    }
-  }
 `
 
 export const Divisor = styled(DivisorComponent).attrs(() => ({
@@ -78,10 +70,6 @@ export const ModalHeader = styled.div`
   svg {
     margin-right: 15px;
   }
-
-  &.empty-header {
-    padding: 10px 35px;
-  }
 `
 
 export const ModalTitle = styled.h3`
@@ -101,11 +89,6 @@ export const CloseButton = styled.div`
 
   &:hover {
     background-color: ${props => props.theme.colors.blue4};
-  }
-
-  &.empty-close-button {
-    height: 24px;
-    width: 24px;
   }
 `
 
