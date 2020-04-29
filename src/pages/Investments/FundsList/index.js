@@ -10,7 +10,7 @@ import Filter from './Filter'
 import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
 import TableFunds from './Table'
-import ResponsiveList from './ResponsiveList/index'
+import ResponsiveList from './ResponsiveList'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'

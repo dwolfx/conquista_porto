@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Col } from 'styled-bootstrap-grid'
 import IconComponent from 'components/IconExporter'
-import TextComponent from 'components/Text/index'
+import TextComponent from 'components/Text'
 import DivisorComponent from 'components/Divisor'
 import ButtonComponent from 'components/Button'
 

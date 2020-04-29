@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FundCard, { IFund } from './FundCard/index'
+import FundCard, { IFund } from './FundCard'
 import Loading from 'components/Loading'
 import Button from 'components/Button'
 
