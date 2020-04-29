@@ -1,16 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { Container, StartBlock, EndBlock } from './styles'
 
 export default function HorizontalList({
   startItems,
   endItems,
-  size,
-  noPadding,
-  marginBetweenElements,
+  size = 'default',
+  noPadding = false,
+  marginBetweenElements = '14px',
   ...rest
-}) {
+}: IProps) {
   return (
     <Container size={size} noPadding={noPadding} {...rest}>
       <StartBlock marginBetweenElements={marginBetweenElements}>
@@ -29,18 +28,10 @@ export default function HorizontalList({
   )
 }
 
-HorizontalList.propTypes = {
-  startItems: PropTypes.arrayOf(PropTypes.node),
-  endItems: PropTypes.arrayOf(PropTypes.node),
-  size: PropTypes.oneOf(['large', 'small', 'default']),
-  noPadding: PropTypes.bool,
-  marginBetweenElements: PropTypes.string,
-}
-
-HorizontalList.defaultProps = {
-  startItems: null,
-  endItems: null,
-  size: 'default',
-  noPadding: false,
-  marginBetweenElements: '14px',
+interface IProps {
+  startItems?: React.ReactNode[]
+  endItems?: React.ReactNode[]
+  size?: 'large' | 'small' | 'default'
+  noPadding?: boolean
+  marginBetweenElements?: string
 }

@@ -1,9 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { FunctionComponent } from 'react'
 import 'styled-components/macro'
 
 import HorizontalList from 'components/HorizontalList'
-import Icon from 'components/IconExporter'
+import Icon, { dict } from 'components/IconExporter'
 
 import {
   CardWrapper,
@@ -14,14 +13,14 @@ import {
   CardTitle,
 } from './styles'
 
-export default function Card({
+const Card:FunctionComponent<IProps> = ({
   children,
   headerIcon,
   headerTitle,
   headerEndItem: HeaderEndItem,
   footer,
   ...rest
-}) {
+}) => {
   const CardHeaderContent = () => (
     <HorizontalList
       size="small"
@@ -52,27 +51,12 @@ export default function Card({
   )
 }
 
-Card.defaultProps = {
-  headerIcon: null,
-  headerTitle: null,
-  headerEndItem: null,
-  footer: null,
+
+interface IProps {
+  headerIcon?: keyof typeof dict
+  headerTitle?: string
+  footer?: React.ReactNode
+  headerEndItem?: React.ReactNode
 }
 
-Card.propTypes = {
-  children: PropTypes.node.isRequired,
-  headerIcon: (props, propName) => {
-    // if headerTitle exist, headerIcon is required AND it must be of type string
-    if (
-      !!props.headerTitle &&
-      (props[propName] === 'undefined' || typeof props[propName] !== 'string')
-    ) {
-      return new Error('headerIcon is required.')
-    }
-
-    return null
-  },
-  headerTitle: PropTypes.string,
-  footer: PropTypes.node,
-  headerEndItem: PropTypes.node,
-}
+export default Card;

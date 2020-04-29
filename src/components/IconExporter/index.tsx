@@ -92,7 +92,7 @@ import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
 import { ReactComponent as loading } from 'assets/icons/loading.svg'
 import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
 
-const dict = {
+export const dict = {
   add,
   alertrounded,
   apps,

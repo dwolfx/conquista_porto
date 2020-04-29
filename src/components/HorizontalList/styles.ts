@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+interface IContainer {
+  size: 'large' | 'small' | 'default'
+  noPadding: boolean
+}
+
+interface IBlocks {
+  marginBetweenElements: string
+}
+
+export const Container = styled.div<IContainer>`
   width: 100%;
   height: ${props => {
     switch (props.size) {
@@ -18,7 +27,7 @@ export const Container = styled.div`
   padding: ${props => (props.noPadding ? '0' : '0 14px')};
 `
 
-export const StartBlock = styled.div`
+export const StartBlock = styled.div<IBlocks>`
   display: flex;
   align-items: center;
   margin-right: ${props => props.theme.spacing(1)}px;
@@ -28,7 +37,7 @@ export const StartBlock = styled.div`
   }
 `
 
-export const EndBlock = styled.div`
+export const EndBlock = styled.div<IBlocks>`
   display: flex;
   align-items: center;
   margin-left: ${props => props.theme.spacing(1)}px;
