@@ -1,7 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { handleGiwRedirect } from 'helpers'
 import Drawer from 'components/Drawer'
 import 'styled-components/macro'
 
@@ -23,7 +21,13 @@ import TabProfitability from './TabProfitability'
 import TabMoreInfo from './TabMoreInfo'
 import TabDetails from './TabDetails'
 
-const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
+const Detail = ({
+  isOpen,
+  isOpenForInvestments,
+  handleModalOpen,
+  handleClose,
+  hasError,
+}) => {
   const { data: fundDetails, isLoading } = useSelector(
     state => state.investmentDetails
   )
@@ -46,23 +50,9 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
   }
   const category = getCategoryName()
 
-  const { state: locationState } = useLocation()
   const footerDrawer = () =>
     isOpenForInvestments ? (
-      <ButtonSubmit
-        color="secondary"
-        onClick={() => {
-          handleGiwRedirect(
-            `portaldecliente/conquista/aplicacao?idFundo=${
-              fundDetails.id_fundo
-            }&r=true${
-              locationState && locationState.idGoal
-                ? `&idObjetivo=${locationState.idGoal}`
-                : ''
-            }`
-          )
-        }}
-      >
+      <ButtonSubmit color="secondary" onClick={() => handleModalOpen()}>
         Investir
       </ButtonSubmit>
     ) : (
@@ -162,6 +152,7 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
 Detail.propTypes = {
   isOpen: PropTypes.bool,
   isOpenForInvestments: PropTypes.bool,
+  handleModalOpen: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
 }
