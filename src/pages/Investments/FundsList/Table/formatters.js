@@ -36,7 +36,7 @@ const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = (column, onChangeModalOpen) => (
+const FormatEnabledCell = (column, handleModalOpen) => (
   // const { state: locationState } = useLocation()
   <WrapperContent isTbody>
     {column.cell.value && column.cell.row.original.aplicao_liberada ? (
@@ -47,7 +47,10 @@ const FormatEnabledCell = (column, onChangeModalOpen) => (
         data-gtm-name="investir"
         type="button"
         color="secondary"
-        onClick={() => onChangeModalOpen(true)}
+        onClick={event => {
+          event.stopPropagation()
+          handleModalOpen(true)
+        }}
       >
         Investir
       </ConquistaButton>
@@ -83,7 +86,7 @@ const FormatColumnDotToCommaBold = column => (
   </WrapperContent>
 )
 
-export default function FormatColumns(columns, onChangeModalOpen) {
+export default function FormatColumns(columns, handleModalOpen) {
   const formatters = {
     fundo: column => ({
       ...column,
@@ -99,7 +102,7 @@ export default function FormatColumns(columns, onChangeModalOpen) {
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: cell => FormatEnabledCell(cell, onChangeModalOpen),
+      Cell: cell => FormatEnabledCell(cell, handleModalOpen),
     }),
     minimo_inicial: column => ({
       ...column,
