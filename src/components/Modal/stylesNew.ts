@@ -23,14 +23,6 @@ export const ChildrenWrapper = styled.div`
   @media ${props => props.theme.mediaQueries.sm} {
     padding: ${props => props.theme.spacing(3)}px;
   }
-
-  &.empty-children-wrapper {
-    padding: 0px;
-
-    @media ${props => props.theme.mediaQueries.sm} {
-      padding: 0px;
-    }
-  }
 `
 
 export const Divisor = styled(DivisorComponent).attrs(() => ({

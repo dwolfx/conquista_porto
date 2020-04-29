@@ -129,7 +129,6 @@ export default function TableFunds({
           <Tbody {...getTableBodyProps()}>
             <TableBody
               onChangeIsDrawerOpen={onChangeIsDrawerOpen}
-              onChangeModalOpen={handleLayerOpen}
               setIsOpenForInvestments={setIsOpenForInvestments}
               rows={rows}
               isLoading={isLoading}
