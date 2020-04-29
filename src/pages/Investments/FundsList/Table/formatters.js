@@ -37,7 +37,6 @@ const FormatMoneyCell = column => (
 )
 
 const FormatEnabledCell = (column, handleModalOpen) => (
-  // const { state: locationState } = useLocation()
   <WrapperContent isTbody>
     {column.cell.value && column.cell.row.original.aplicao_liberada ? (
       <ConquistaButton
