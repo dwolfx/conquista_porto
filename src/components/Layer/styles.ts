@@ -22,7 +22,12 @@ export const LayerHeader = styled.div`
   }
 `
 
-export const LayerWrapper = styled.div`
+interface ILayerWrapperProps {
+  alignItems: string
+  isOpen: boolean
+}
+
+export const LayerWrapper = styled.div<ILayerWrapperProps>`
   align-items: ${props => (props.alignItems ? props.alignItems : 'center')};
   display: flex;
   height: ${props => (props.isOpen ? '100%' : 0)};
