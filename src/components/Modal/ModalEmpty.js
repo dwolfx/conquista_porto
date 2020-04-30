@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 import {
-  ModalOverlay,
   ModalContainer,
-  CloseButton,
   ModalHeader,
   ModalWrapper,
   ChildrenWrapper,
 } from './stylesNew'
 
-const ModalEmpty = ({
+const Layer = ({
   children,
   headerContent,
   isOpen,
@@ -52,20 +50,9 @@ const ModalEmpty = ({
 
   return ReactDOM.createPortal(
     <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
-      <ModalOverlay isOpen={isOpen} onClick={handleClose} />
       <ModalContainer maxWidth={maxWidth} className={classNames}>
-        <ModalHeader className="empty-header">
-          {headerContent}
-          <CloseButton
-            className="empty-close-button"
-            data-gtm-subname="modal"
-            data-gtm-name="botao fechar"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            onClick={handleClose}
-          />
-        </ModalHeader>
-        <ChildrenWrapper className="empty-children-wrapper">
+        <ModalHeader className="layer-header">{headerContent}</ModalHeader>
+        <ChildrenWrapper className="layer-children-wrapper">
           {children}
         </ChildrenWrapper>
       </ModalContainer>
@@ -74,12 +61,12 @@ const ModalEmpty = ({
   )
 }
 
-ModalEmpty.defaultProps = {
+Layer.defaultProps = {
   maxWidth: '900px',
   fullScreen: false,
 }
 
-ModalEmpty.propTypes = {
+Layer.propTypes = {
   children: PropTypes.node.isRequired,
   handleClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
@@ -89,4 +76,4 @@ ModalEmpty.propTypes = {
   headerContent: PropTypes.node.isRequired,
 }
 
-export default ModalEmpty
+export default Layer

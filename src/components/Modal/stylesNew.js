@@ -23,7 +23,7 @@ export const ChildrenWrapper = styled.div`
     padding: 21px;
   }
 
-  &.empty-children-wrapper {
+  &.layer-children-wrapper {
     padding: 0px;
 
     @media ${props => props.theme.mediaQueries.sm} {
@@ -76,7 +76,7 @@ export const ModalHeader = styled.div`
     margin-right: 15px;
   }
 
-  &.empty-header {
+  &.layer-header {
     padding: 10px 35px;
   }
 `
@@ -98,11 +98,6 @@ export const CloseButton = styled.div`
 
   &:hover {
     background-color: ${props => props.theme.colors.blue4};
-  }
-
-  &.empty-close-button {
-    height: 24px;
-    width: 24px;
   }
 `
 
