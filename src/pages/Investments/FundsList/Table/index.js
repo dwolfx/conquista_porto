@@ -91,7 +91,7 @@ export default function TableFunds({
   isError,
   isFiltering,
   onChangeIsDrawerOpen,
-  handleModalOpen,
+  handleLayerOpen,
   setIsOpenForInvestments,
   columns: columnsProps,
 }) {
@@ -104,9 +104,9 @@ export default function TableFunds({
   } = useTable(
     {
       // to edit how each column should render see FormatColumns function
-      columns: useMemo(() => FormatColumns(columnsProps, handleModalOpen), [
+      columns: useMemo(() => FormatColumns(columnsProps, handleLayerOpen), [
         columnsProps,
-        handleModalOpen,
+        handleLayerOpen,
       ]),
       data,
     },
@@ -150,7 +150,7 @@ TableFunds.propTypes = {
   isError: PropTypes.bool.isRequired,
   isFiltering: PropTypes.bool.isRequired,
   isDrawerOpen: PropTypes.bool,
-  handleModalOpen: PropTypes.func.isRequired,
+  handleLayerOpen: PropTypes.func.isRequired,
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,

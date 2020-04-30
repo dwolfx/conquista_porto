@@ -36,7 +36,7 @@ const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = (column, handleModalOpen) => (
+const FormatEnabledCell = (column, handleLayerOpen) => (
   <WrapperContent isTbody>
     {column.cell.value && column.cell.row.original.aplicao_liberada ? (
       <ConquistaButton
@@ -48,7 +48,7 @@ const FormatEnabledCell = (column, handleModalOpen) => (
         color="secondary"
         onClick={event => {
           event.stopPropagation()
-          handleModalOpen(true)
+          handleLayerOpen(true)
         }}
       >
         Investir
@@ -85,7 +85,7 @@ const FormatColumnDotToCommaBold = column => (
   </WrapperContent>
 )
 
-export default function FormatColumns(columns, handleModalOpen) {
+export default function FormatColumns(columns, handleLayerOpen) {
   const formatters = {
     fundo: column => ({
       ...column,
@@ -101,7 +101,7 @@ export default function FormatColumns(columns, handleModalOpen) {
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: cell => FormatEnabledCell(cell, handleModalOpen),
+      Cell: cell => FormatEnabledCell(cell, handleLayerOpen),
     }),
     minimo_inicial: column => ({
       ...column,

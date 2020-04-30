@@ -11,7 +11,7 @@ import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
 import TableFunds from './Table'
 import ListFunds from './List'
-import Modal from './Modal'
+import Layer from './Layer'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'
@@ -30,7 +30,7 @@ export default function FundsList() {
     byPerfilRisco: null,
   })
 
-  const [isModalOpen, setModalOpen] = useState(true)
+  const [isLayerOpen, setLayerOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
 
@@ -42,10 +42,10 @@ export default function FundsList() {
 
   return (
     <>
-      <Modal
-        isOpen={isModalOpen}
+      <Layer
+        isOpen={isLayerOpen}
         fullScreen
-        handleClose={() => setModalOpen(false)}
+        handleClose={() => setLayerOpen(false)}
       />
       <GridContainer as="section">
         <TableContent>
@@ -59,7 +59,7 @@ export default function FundsList() {
                   columns={columns}
                   isDrawerOpen={isDrawerOpen}
                   onChangeIsDrawerOpen={setIsDrawerOpen}
-                  handleModalOpen={() => setModalOpen(true)}
+                  handleLayerOpen={() => setLayerOpen(true)}
                   setIsOpenForInvestments={setIsOpenForInvestments}
                   data={filteredFundsList}
                   fundsType={fundsType}
@@ -77,7 +77,7 @@ export default function FundsList() {
       </GridContainer>
       <Detail
         isOpen={isDrawerOpen}
-        handleModalOpen={() => setModalOpen(true)}
+        handleLayerOpen={() => setLayerOpen(true)}
         isOpenForInvestments={isOpenForInvestments}
         handleClose={() => setIsDrawerOpen(false)}
       />
