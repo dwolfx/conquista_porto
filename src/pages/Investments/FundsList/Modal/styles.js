@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 import ArrowLeft from 'assets/icons/arrow-left.svg'
-import { Col, Row } from 'styled-bootstrap-grid'
+import CloseIcon from 'assets/icons/close.svg'
+import { Container, Col, Row } from 'styled-bootstrap-grid'
+import Card from 'components/Card'
+
+export const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 export const HeaderColTitle = styled.div`
   flex: 1;
@@ -8,11 +15,15 @@ export const HeaderColTitle = styled.div`
   align-items: center;
   justify-content: center;
 `
-export const PrevButton = styled.div`
+
+export const HeaderIconButton = styled.div`
   background-color: ${props => props.theme.colors.gray4};
   cursor: pointer;
   height: 24px;
-  mask-image: url(${ArrowLeft});
+  ${props =>
+    props.icon === 'ArrowLeft'
+      ? `mask-image: url(${ArrowLeft});`
+      : `mask-image: url(${CloseIcon});`}
   transition: all ease 0.3s;
   width: 24px;
 
@@ -21,20 +32,36 @@ export const PrevButton = styled.div`
   }
 `
 
+export const GridContainer = styled(Container)`
+  padding: 0px;
+`
+
+export const ModalBodyContainer = styled(Container)`
+  height: 78vh;
+  padding-top: 28px;
+  padding-bottom: 20px;
+`
+export const FooterContainer = styled(Container)``
+
+export const GridRowExpanded = styled(Row)`
+  height: 100%;
+`
+export const GridRow = styled(Row)``
+export const GridRowNoMargin = styled(Row)`
+  margin: 0px;
+`
+
+export const GridCol = styled(Col)``
+
 export const StepBar = styled.div`
   background-color: ${props => props.theme.colors.grayblue1};
-  padding: 28px 21px;
+  height: 56px;
 `
 
-export const GridCol = styled(Col)`
-  padding-left: 7px;
-  padding-right: 14px;
-`
-
-export const GridRow = styled(Row)`
-  width: 100%;
-  margin-left: 28px;
-  margin-right: 21px;
+export const ColStepBar = styled(Col)`
+  height: 56px;
+  display: flex;
+  align-items: center;
 `
 
 export const ModalContent = styled.div`
@@ -44,17 +71,6 @@ export const ModalContent = styled.div`
   height: 76vh;
 `
 
-export const ModalCard = styled.div`
-  background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${props => props.theme.colors.gray2};
-  box-sizing: border-box;
-  border-radius: 8px;
-  width: 100%;
+export const ModalCard = styled(Card)`
   height: 100%;
-`
-
-export const FooterInfo = styled.div`
-  width: 100%;
-  padding-right: 35px;
-  padding-left: 35px;
 `
