@@ -24,7 +24,7 @@ import TabDetails from './TabDetails'
 const Detail = ({
   isOpen,
   isOpenForInvestments,
-  handleModalOpen,
+  handleLayerOpen,
   handleClose,
   hasError,
 }) => {
@@ -52,7 +52,7 @@ const Detail = ({
 
   const footerDrawer = () =>
     isOpenForInvestments ? (
-      <ButtonSubmit color="secondary" onClick={() => handleModalOpen()}>
+      <ButtonSubmit color="secondary" onClick={() => handleLayerOpen()}>
         Investir
       </ButtonSubmit>
     ) : (
@@ -151,7 +151,7 @@ const Detail = ({
 Detail.propTypes = {
   isOpen: PropTypes.bool,
   isOpenForInvestments: PropTypes.bool,
-  handleModalOpen: PropTypes.func.isRequired,
+  handleLayerOpen: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
 }

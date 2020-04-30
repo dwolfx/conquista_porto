@@ -36,7 +36,7 @@ export const GridContainer = styled(Container)`
   padding: 0px;
 `
 
-export const ModalBodyContainer = styled(Container)`
+export const LayerBodyContainer = styled(Container)`
   height: 78vh;
   padding-top: 28px;
   padding-bottom: 20px;
@@ -64,13 +64,13 @@ export const ColStepBar = styled(Col)`
   align-items: center;
 `
 
-export const ModalContent = styled.div`
+export const LayerContent = styled.div`
   width: 100%;
   padding: 28px 0px 21px;
   display: flex;
   height: 76vh;
 `
 
-export const ModalCard = styled(Card)`
+export const LayerCard = styled(Card)`
   height: 100%;
 `

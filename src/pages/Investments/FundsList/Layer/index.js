@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import Modal from 'components/Modal/ModalEmpty'
+import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Button from 'components/Button'
@@ -14,53 +14,53 @@ import {
   StepBar,
   ColStepBar,
   GridContainer,
-  ModalBodyContainer,
+  LayerBodyContainer,
   FooterContainer,
   GridRow,
   GridRowNoMargin,
   GridRowExpanded,
   GridCol,
-  ModalCard,
+  LayerCard,
 } from './styles'
 
-const ModalInvestment = ({ handleClose, ...rest }) => {
+const LayerInvestment = ({ handleClose, ...rest }) => {
   const [step, setStep] = useState(0)
   const stepCount = 2
 
-  const modalBody = [
-    <ModalBodyContainer>
+  const layerBody = [
+    <LayerBodyContainer>
       <GridRowExpanded>
         <GridCol lg="3">
-          <ModalCard>Step1</ModalCard>
+          <LayerCard>Step1</LayerCard>
         </GridCol>
         <GridCol lg="9">
-          <ModalCard>
+          <LayerCard>
             <Button onClick={() => setStep(step + 1)}>Próximo Passo</Button>
-          </ModalCard>
+          </LayerCard>
         </GridCol>
       </GridRowExpanded>
-    </ModalBodyContainer>,
-    <ModalBodyContainer>
+    </LayerBodyContainer>,
+    <LayerBodyContainer>
       <GridRowExpanded>
         <GridCol lg="3">
-          <ModalCard>Step2</ModalCard>
+          <LayerCard>Step2</LayerCard>
         </GridCol>
         <GridCol lg="9">
-          <ModalCard>
+          <LayerCard>
             <Button onClick={() => setStep(step - 1)}>Passo Anterior</Button>
-          </ModalCard>
+          </LayerCard>
         </GridCol>
       </GridRowExpanded>
-    </ModalBodyContainer>,
+    </LayerBodyContainer>,
   ]
 
   const headerAttributes = { step, setStep, handleClose }
 
   return (
-    <Modal
+    <Layer
       handleClose={handleClose}
       {...rest}
-      headerContent={<ModalHeader {...headerAttributes} />}
+      headerContent={<LayerHeader {...headerAttributes} />}
       fullScreen
     >
       <StepBar>
@@ -88,7 +88,7 @@ const ModalInvestment = ({ handleClose, ...rest }) => {
           </GridRow>
         </GridContainer>
       </StepBar>
-      {modalBody[step]}
+      {layerBody[step]}
       <FooterContainer>
         <GridRow>
           <GridCol lg="12">
@@ -100,17 +100,17 @@ const ModalInvestment = ({ handleClose, ...rest }) => {
           </GridCol>
         </GridRow>
       </FooterContainer>
-    </Modal>
+    </Layer>
   )
 }
 
-const ModalHeader = ({ step, setStep, handleClose }) => (
+const LayerHeader = ({ step, setStep, handleClose }) => (
   <GridContainer>
     <GridRowNoMargin>
       <GridCol lg="12">
         <HeaderContent>
           <HeaderIconButton
-            data-gtm-subname="modal Investimentir"
+            data-gtm-subname="layer Investimentir"
             data-gtm-name="botao voltar step"
             data-gtm-type="click"
             data-gtm-clicktype="button"
@@ -141,15 +141,15 @@ const ModalHeader = ({ step, setStep, handleClose }) => (
   </GridContainer>
 )
 
-ModalHeader.propTypes = {
+LayerHeader.propTypes = {
   step: PropTypes.number.isRequired,
   setStep: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
 }
 
-ModalInvestment.propTypes = {
+LayerInvestment.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
 }
 
-export default ModalInvestment
+export default LayerInvestment
