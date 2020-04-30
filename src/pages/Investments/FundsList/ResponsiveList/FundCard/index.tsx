@@ -12,6 +12,7 @@ import {
   ButtonWrapper,
   CardCol,
   CardContent,
+  CardHeader,
   CardTitle,
   CategoryName,
   Circle,
@@ -58,16 +59,16 @@ const Header: React.FC<IHeader> = ({
         setIsOpen(!isOpen)
       }}
     >
-      <TitleWrapper>
+      <CardHeader>
         <CardTitle>{title}</CardTitle>
         <Circle>{isOpen ? <ArrowUp /> : <ArrowDown />}</Circle>
-      </TitleWrapper>
+      </CardHeader>
       <CategoryName>{category}</CategoryName>
     </HeaderContent>
   ) : (
     <HeaderContent>
-      <TitleWrapper noMargin>
-        <div
+      <CardHeader noMargin>
+        <TitleWrapper
           data-gtm-type="click"
           data-gtm-clicktype="accordion"
           data-gtm-name={title}
@@ -76,7 +77,7 @@ const Header: React.FC<IHeader> = ({
           }}
         >
           <CardTitle>{title}</CardTitle>
-        </div>
+        </TitleWrapper>
         <RightContent>
           <LockFundWrapper
             onClick={() => {
@@ -96,7 +97,7 @@ const Header: React.FC<IHeader> = ({
             <Circle>{isOpen ? <ArrowUp /> : <ArrowDown />}</Circle>
           </div>
         </RightContent>
-      </TitleWrapper>
+      </CardHeader>
       <div
         data-gtm-type="click"
         data-gtm-clicktype="accordion"

@@ -42,6 +42,17 @@ export const CardContent = styled.div`
   width: 100%;
 `
 
+interface ICardHeader {
+  noMargin?: boolean
+}
+
+export const CardHeader = styled.div<ICardHeader>`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: ${props =>
+    props.noMargin ? 0 : `${props.theme.spacing(1)}px`};
+`
+
 export const CardTitle = styled(TextComponent).attrs(() => ({
   type: 'headline',
   bold: true,
@@ -146,13 +157,7 @@ export const SecondDivisor = styled(DivisorComponent).attrs(() => ({
 }))`
   margin: 14px 7px 21px;
 `
-interface ITitleWrapper {
-  noMargin?: boolean
-}
 
-export const TitleWrapper = styled.div<ITitleWrapper>`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: ${props =>
-    props.noMargin ? 0 : `${props.theme.spacing(1)}px`};
+export const TitleWrapper = styled.div`
+  margin-bottom: ${props => props.theme.spacing(1)}px;
 `
