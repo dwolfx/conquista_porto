@@ -59,7 +59,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
           <WrapperContent>
             <EmptyDataText>
               {isFiltering
-                ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
+                ? 'No momento, não temos fundos com essas especificações.'
                 : 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.'}
             </EmptyDataText>
           </WrapperContent>

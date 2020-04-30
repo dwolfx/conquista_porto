@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import { Col } from 'styled-bootstrap-grid'
 import CloseIcon from 'assets/icons/close.svg'
+import DivisorComponent from 'components/Divisor'
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
   background-color: rgba(39, 39, 39, 0.63);
@@ -17,11 +18,17 @@ export const ModalOverlay = styled.div<{ isOpen: boolean }>`
 
 export const ChildrenWrapper = styled.div`
   overflow: auto;
-  padding: 28px;
+  padding: ${props => props.theme.spacing(4)}px;
 
   @media ${props => props.theme.mediaQueries.sm} {
-    padding: 21px;
+    padding: ${props => props.theme.spacing(3)}px;
   }
+`
+
+export const Divisor = styled(DivisorComponent).attrs(() => ({
+  customSize: 'calc(100% - 14px)',
+}))`
+  margin: 0 7px;
 `
 
 export const ModalContainer = styled(Col)`
@@ -37,7 +44,6 @@ export const ModalContainer = styled(Col)`
 
   @media (max-width: 767px) {
     margin: 0px;
-    border-radius: 0px;
   }
 
   @media ${props => props.theme.mediaQueries.xs} {
@@ -49,7 +55,6 @@ export const ModalContainer = styled(Col)`
 
 export const ModalHeader = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.colors.gray4};
   display: flex;
   padding: 28px 35px;
 
@@ -66,12 +71,12 @@ export const ModalTitle = styled.h3`
 `
 
 export const CloseButton = styled.div`
-  background-color: ${props => props.theme.colors.gray4};
+  background-color: ${props => props.theme.colors.gray5};
   cursor: pointer;
-  height: 28px;
+  height: ${props => props.theme.spacing(4)}px;
   mask-image: url(${CloseIcon});
   transition: all ease 0.3s;
-  width: 28px;
+  width: ${props => props.theme.spacing(4)}px;
 
   &:hover {
     background-color: ${props => props.theme.colors.blue4};

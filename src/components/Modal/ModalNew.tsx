@@ -8,6 +8,7 @@ import {
   ModalOverlay,
   ModalContainer,
   CloseButton,
+  Divisor,
   ModalHeader,
   ModalTitle,
   ModalWrapper,
@@ -80,6 +81,7 @@ const Modal: React.FC<IProps> = ({
             onClick={handleClose}
           />
         </ModalHeader>
+        <Divisor />
         <ChildrenWrapper>{children}</ChildrenWrapper>
       </ModalContainer>
     </ModalWrapper>,
