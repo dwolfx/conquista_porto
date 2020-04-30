@@ -8,14 +8,19 @@ import Button from 'components/Button'
 
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import {
+  HeaderContent,
   HeaderColTitle,
-  PrevButton,
+  HeaderIconButton,
   StepBar,
-  ModalContent,
+  ColStepBar,
+  GridContainer,
+  ModalBodyContainer,
+  FooterContainer,
   GridRow,
+  GridRowNoMargin,
+  GridRowExpanded,
   GridCol,
   ModalCard,
-  FooterInfo,
 } from './styles'
 
 const ModalInvestment = ({ handleClose, ...rest }) => {
@@ -23,8 +28,8 @@ const ModalInvestment = ({ handleClose, ...rest }) => {
   const stepCount = 2
 
   const modalBody = [
-    <ModalContent>
-      <GridRow>
+    <ModalBodyContainer>
+      <GridRowExpanded>
         <GridCol lg="3">
           <ModalCard>Step1</ModalCard>
         </GridCol>
@@ -33,10 +38,10 @@ const ModalInvestment = ({ handleClose, ...rest }) => {
             <Button onClick={() => setStep(step + 1)}>Próximo Passo</Button>
           </ModalCard>
         </GridCol>
-      </GridRow>
-    </ModalContent>,
-    <ModalContent>
-      <GridRow>
+      </GridRowExpanded>
+    </ModalBodyContainer>,
+    <ModalBodyContainer>
+      <GridRowExpanded>
         <GridCol lg="3">
           <ModalCard>Step2</ModalCard>
         </GridCol>
@@ -45,8 +50,8 @@ const ModalInvestment = ({ handleClose, ...rest }) => {
             <Button onClick={() => setStep(step - 1)}>Passo Anterior</Button>
           </ModalCard>
         </GridCol>
-      </GridRow>
-    </ModalContent>,
+      </GridRowExpanded>
+    </ModalBodyContainer>,
   ]
 
   const headerAttributes = { step, setStep, handleClose }
@@ -59,55 +64,81 @@ const ModalInvestment = ({ handleClose, ...rest }) => {
       fullScreen
     >
       <StepBar>
-        <HorizontalList
-          size="small"
-          startItems={[
-            <Text color="gray4" type="headline">
-              Investir
-            </Text>,
-          ]}
-          endItems={[
-            <Text color="gray4" type="title">
-              {`ETAPA ${step + 1} de ${stepCount}`}
-            </Text>,
-          ]}
-          css={`
-            width: 100%;
-            padding: 0;
-          `}
-        />
+        <GridContainer>
+          <GridRow>
+            <ColStepBar lg="12">
+              <HorizontalList
+                size="small"
+                startItems={[
+                  <Text color="gray4" type="headline">
+                    Investir
+                  </Text>,
+                ]}
+                endItems={[
+                  <Text color="gray4" type="title">
+                    {`ETAPA ${step + 1} de ${stepCount}`}
+                  </Text>,
+                ]}
+                css={`
+                  width: 100%;
+                  padding: 0;
+                `}
+              />
+            </ColStepBar>
+          </GridRow>
+        </GridContainer>
       </StepBar>
       {modalBody[step]}
-      <FooterInfo>
-        <Text color="gray5" type="body">
-          Toda transmissão de ordem por meio digital está sujeita a interrupções
-          ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a
-          recepção de informações atualizadas.
-        </Text>
-      </FooterInfo>
+      <FooterContainer>
+        <GridRow>
+          <GridCol lg="12">
+            <Text color="gray5" type="body">
+              Toda transmissão de ordem por meio digital está sujeita a
+              interrupções ou atrasos, podendo impedir ou prejudicar o envio de
+              ordens ou a recepção de informações atualizadas.
+            </Text>
+          </GridCol>
+        </GridRow>
+      </FooterContainer>
     </Modal>
   )
 }
 
 const ModalHeader = ({ step, setStep, handleClose }) => (
-  <>
-    <PrevButton
-      data-gtm-subname="modal Investimentir"
-      data-gtm-name="botao voltar step"
-      data-gtm-type="click"
-      data-gtm-clicktype="button"
-      onClick={() => {
-        if (step === 0) {
-          handleClose()
-        } else {
-          setStep(step - 1)
-        }
-      }}
-    />
-    <HeaderColTitle style={{ flex: 1 }}>
-      <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
-    </HeaderColTitle>
-  </>
+  <GridContainer>
+    <GridRowNoMargin>
+      <GridCol lg="12">
+        <HeaderContent>
+          <HeaderIconButton
+            data-gtm-subname="modal Investimentir"
+            data-gtm-name="botao voltar step"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            icon="ArrowLeft"
+            onClick={() => {
+              if (step === 0) {
+                handleClose()
+              } else {
+                setStep(step - 1)
+              }
+            }}
+          />
+          <HeaderColTitle style={{ flex: 1 }}>
+            <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
+          </HeaderColTitle>
+          <HeaderIconButton
+            className="layer-close-button"
+            data-gtm-subname="botao fechar layer"
+            data-gtm-name="botao fechar"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            icon="CloseIcon"
+            onClick={handleClose}
+          />
+        </HeaderContent>
+      </GridCol>
+    </GridRowNoMargin>
+  </GridContainer>
 )
 
 ModalHeader.propTypes = {
