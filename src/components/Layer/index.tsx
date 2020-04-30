@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 
 import {
   LayerContainer,
@@ -9,33 +8,40 @@ import {
   ChildrenWrapper,
 } from './styles'
 
-const Layer = ({
+interface IProps {
+  headerContent: React.ReactNode
+  isOpen: boolean
+  handleClose: () => void
+  alignItems?: string
+}
+
+const Layer: React.FC<IProps> = ({
   children,
   headerContent,
   isOpen,
   handleClose,
-  alignItems,
+  alignItems = '',
   ...rest
 }) => {
   useEffect(() => {
-    const body = document.querySelector('body')
-    const html = document.querySelector('html')
+    const body = document.querySelector<HTMLInputElement>('body')
+    const html = document.querySelector<HTMLInputElement>('html')
     if (isOpen) {
-      body.style.overflow = 'hidden'
-      html.style.overflowY = 'hidden'
+      body!.style.overflow = 'hidden'
+      html!.style.overflowY = 'hidden'
     }
 
     function handleOverflow() {
-      body.style.overflow = 'visible'
-      html.style.overflowY = 'visible'
+      body!.style.overflow = 'visible'
+      html!.style.overflowY = 'visible'
     }
     return () => handleOverflow()
   }, [isOpen])
 
   useEffect(() => {
-    const handler = function handleEscClose(event) {
+    const handler = function handleEscClose(event: KeyboardEvent) {
       if (isOpen && event.keyCode === 27) {
-        handleClose(isOpen)
+        handleClose()
       }
     }
 
@@ -51,16 +57,8 @@ const Layer = ({
         <ChildrenWrapper>{children}</ChildrenWrapper>
       </LayerContainer>
     </LayerWrapper>,
-    document.querySelector('#root')
+    document.querySelector('#root') as HTMLInputElement
   )
-}
-
-Layer.propTypes = {
-  children: PropTypes.node.isRequired,
-  handleClose: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  alignItems: PropTypes.string,
-  headerContent: PropTypes.node.isRequired,
 }
 
 export default Layer
