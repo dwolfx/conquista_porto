@@ -25,11 +25,11 @@ import {
 import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/action'
 
 import BottomBar from './BottomBar'
-import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import SuggestionBanner from './SugestionBanner'
 import RecommendationMessage from './RecommendationMessage'
+import CardEstimatedResults from './CardEstimatedResults'
 
 import {
   ValidateInitialInvestment,
@@ -313,7 +313,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
             suggestion_goal={suggestion_goal}
           />
           <RecommendationMessage suggestion_goal={suggestion_goal} />
-          <SectionOne answer={answer} combo={combo} income={income} />
+          <CardEstimatedResults answer={answer} combo={combo} income={income} />
           <SectionTwo
             combo={combo}
             funds={funds}

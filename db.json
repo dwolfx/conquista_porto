@@ -2397,7 +2397,10 @@
     }
   },
   "seguro_vida": {
-    "Message": { "TipoCritica": "SUCESSO", "Mensagem": "SUCESSO" },
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
     "ProdutosVida": {
       "SeguroVida": {
         "codigoFormaPagamento": "97",
@@ -2409,8 +2412,14 @@
         },
         "Beneficiarios": {
           "Beneficiario": [
-            { "Percentual": "50", "Nome": "LAURA PASQUARELLI GARRASTAZU" },
-            { "Percentual": "50", "Nome": "LORENZO PASQUARELLI GARRASTAZU" }
+            {
+              "Percentual": "50",
+              "Nome": "LAURA PASQUARELLI GARRASTAZU"
+            },
+            {
+              "Percentual": "50",
+              "Nome": "LORENZO PASQUARELLI GARRASTAZU"
+            }
           ]
         },
         "DtFinalVigencia": "2020-11-25-03:00",
@@ -2419,7 +2428,10 @@
             {
               "CoberturasRisco": {
                 "CoberturaRisco": [
-                  { "CapitalSegurado": "1319626.71", "Nome": "Morte" },
+                  {
+                    "CapitalSegurado": "1319626.71",
+                    "Nome": "Morte"
+                  },
                   {
                     "CapitalSegurado": "3235.32",
                     "Nome": "Assistência Funeral - Familiar"
@@ -2457,17 +2469,50 @@
         "Sucursal": "1",
         "parcelas": {
           "parcela": [
-            { "numero": "1", "valor": "612.73" },
-            { "numero": "2", "valor": "612.73" },
-            { "numero": "3", "valor": "612.73" },
-            { "numero": "4", "valor": "612.73" },
-            { "numero": "5", "valor": "612.73" },
-            { "numero": "6", "valor": "612.73" },
-            { "numero": "7", "valor": "612.73" },
-            { "numero": "8", "valor": "612.73" },
-            { "numero": "9", "valor": "612.73" },
-            { "numero": "10", "valor": "612.73" },
-            { "numero": "11", "valor": "612.73" }
+            {
+              "numero": "1",
+              "valor": "612.73"
+            },
+            {
+              "numero": "2",
+              "valor": "612.73"
+            },
+            {
+              "numero": "3",
+              "valor": "612.73"
+            },
+            {
+              "numero": "4",
+              "valor": "612.73"
+            },
+            {
+              "numero": "5",
+              "valor": "612.73"
+            },
+            {
+              "numero": "6",
+              "valor": "612.73"
+            },
+            {
+              "numero": "7",
+              "valor": "612.73"
+            },
+            {
+              "numero": "8",
+              "valor": "612.73"
+            },
+            {
+              "numero": "9",
+              "valor": "612.73"
+            },
+            {
+              "numero": "10",
+              "valor": "612.73"
+            },
+            {
+              "numero": "11",
+              "valor": "612.73"
+            }
           ]
         },
         "Ramo": "1391",
@@ -3710,12 +3755,12 @@
   },
   "goal_recommendations": {
     "goal_type": "1",
-    "profile": null,
-    "nickname": "Bar",
-    "target_date": "10/02/2022",
-    "target_value": "1.000,00",
-    "initial_value": "1.000,00",
-    "monthly_value": "100,00"
+    "profile": 3,
+    "nickname": "Disney",
+    "target_date": "30/12/2021",
+    "target_value": "70.000.000,00",
+    "initial_value": "5.000,00",
+    "monthly_value": "1.000,00"
   },
   "goal_management": {
     "id": 1,

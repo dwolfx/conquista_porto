@@ -39,3 +39,12 @@ export const categoryGoals = type => {
   }
   return Goals[type]
 }
+
+export const incomeLabel = type => {
+  const Income = {
+    0: 'Pessimista',
+    1: 'Mediano',
+    2: 'Otimista',
+  }
+  return Income[type]
+}
