@@ -42,7 +42,7 @@ export const GridContainer = styled(Container)`
 
 export const LayerBodyContainer = styled(Container)`
   height: 78vh;
-  padding-top: 28px;
+  padding-top: ${props => props.theme.spacing(4)}px;
   padding-bottom: 20px;
 `
 export const FooterContainer = styled(Container)``

@@ -39,7 +39,7 @@ const LayerHeader = (props: IProps) => {
                 }
               }}
             />
-            <HeaderColTitle style={{ flex: 1 }}>
+            <HeaderColTitle>
               <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
             </HeaderColTitle>
             <HeaderIconButton

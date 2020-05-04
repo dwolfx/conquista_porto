@@ -20,7 +20,7 @@ import {
 
 interface IProps {
   handleClose: () => void
-  isOpen: false
+  isOpen: boolean 
 }
 
 const LayerInvestment: React.FC<IProps> = ({

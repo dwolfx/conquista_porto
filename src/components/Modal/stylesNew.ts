@@ -51,15 +51,6 @@ export const ModalContainer = styled(Col)`
     margin: 0 auto;
     width: calc(100vw - 30px);
   }
-
-  &.fullScreen {
-    height: 100%;
-    max-height: 100%;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-    margin: 0;
-  }
 `
 
 export const ModalHeader = styled.div`
@@ -69,10 +60,6 @@ export const ModalHeader = styled.div`
 
   svg {
     margin-right: 15px;
-  }
-
-  &.layer-header {
-    padding: 10px 35px;
   }
 `
 
