@@ -110,7 +110,7 @@ const Detail = ({
 
   return (
     <Drawer
-      drawerTitle={!isLoading && fundDetails.apelido}
+      drawerTitle={isLoading ? '' : fundDetails.apelido}
       isOpen={isOpen}
       isLoading={isLoading}
       handleClose={handleClose}

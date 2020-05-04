@@ -1,5 +1,5 @@
-import CloseIcon from 'assets/icons/close.svg'
 import styled from 'styled-components'
+import CloseIcon from 'assets/icons/close.svg'
 import Text from 'components/Text'
 
 export const CloseButton = styled.div`
@@ -19,6 +19,10 @@ export const DrawerBody = styled.div`
   overflow-y: auto;
   height: 100%;
   padding: 28px 14px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0;
+  }
 `
 
 export const DrawerFooter = styled.div`
@@ -29,6 +33,10 @@ export const DrawerFooter = styled.div`
   padding: 0 14px;
   align-items: center;
   margin-top: auto;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0;
+  }
 `
 
 export const DrawerHeader = styled.div`
@@ -36,13 +44,24 @@ export const DrawerHeader = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px 14px 14px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0;
+  }
 `
 
-export const DrawerTitle = styled(Text).attrs(() => ({ type: 'heading4' }))`
+export const DrawerTitle = styled(Text).attrs(() => ({
+  type: 'heading4',
+  bold: true,
+}))`
   color: ${props => props.theme.colors.gray6};
 `
 
-export const DrawerContent = styled.div`
+interface IDrawerContentProps {
+  isOpen: boolean
+  positionDrawer: string
+}
+export const DrawerContent = styled.div<IDrawerContentProps>`
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
   display: flex;
@@ -63,6 +82,11 @@ export const DrawerContent = styled.div`
   @media ${props => props.theme.mediaQueries.md} {
     max-width: 100%;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    min-width: 100vw;
+    padding: 0;
+  }
 `
 
 export const DrawerWrapper = styled.div`
@@ -71,7 +95,10 @@ export const DrawerWrapper = styled.div`
   z-index: 12;
 `
 
-export const DrawerOverlay = styled.div`
+interface IDrawerOverlayProps {
+  isOpen: boolean
+}
+export const DrawerOverlay = styled.div<IDrawerOverlayProps>`
   background-color: rgba(39, 39, 39, 0.63);
   height: 100%;
   position: fixed;

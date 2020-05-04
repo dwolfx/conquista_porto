@@ -7,29 +7,18 @@ import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'
 
 import {
+  FILTER_TYPES,
+  FILTER_RISKS,
+} from 'pages/Investments/FundsList/constants'
+
+import {
   RowFilterByType,
   ButtonTagStyled,
   FilterRowContent,
   SquareRiskContainer,
   SquareRiskLevel,
-  Divisor,
+  VerticalDivisor,
 } from './styles'
-
-export const FILTER_TYPES = {
-  1: 'renda fixa',
-  2: 'multimercado',
-  3: 'renda variável',
-  4: 'investimento no exterior',
-  5: 'cambial',
-}
-
-export const FILTER_RISKS = {
-  1: 'baixo',
-  2: 'medio-baixo',
-  3: 'medio',
-  4: 'medio-alto',
-  5: 'alto',
-}
 
 export default function Filter({ filter, onChangeFilter }) {
   const handleClickFilterByType = categoria => {
@@ -49,10 +38,16 @@ export default function Filter({ filter, onChangeFilter }) {
   }
 
   const handleClickFilterByRisk = risk => {
-    if (risk === filter.byPerfilRisco) {
-      onChangeFilter({ ...filter, byPerfilRisco: null })
+    if (filter.byPerfilRisco.includes(risk)) {
+      onChangeFilter({
+        ...filter,
+        byPerfilRisco: filter.byPerfilRisco.filter(item => item !== risk),
+      })
     } else {
-      onChangeFilter({ ...filter, byPerfilRisco: risk })
+      onChangeFilter({
+        ...filter,
+        byPerfilRisco: [...filter.byPerfilRisco, risk],
+      })
     }
   }
 
@@ -123,7 +118,7 @@ export default function Filter({ filter, onChangeFilter }) {
         </Text>
         <SquareRiskContainer>
           <SquareRiskLevel
-            selectedRisk={filter.byPerfilRisco}
+            selectedRisk={!filter.byPerfilRisco.includes(FILTER_RISKS[1])}
             value={FILTER_RISKS[1]}
             color="darkBlue2"
             onClick={() => {
@@ -131,7 +126,7 @@ export default function Filter({ filter, onChangeFilter }) {
             }}
           />
           <SquareRiskLevel
-            selectedRisk={filter.byPerfilRisco}
+            selectedRisk={!filter.byPerfilRisco.includes(FILTER_RISKS[2])}
             value={FILTER_RISKS[2]}
             color="blue4"
             onClick={() => {
@@ -139,7 +134,7 @@ export default function Filter({ filter, onChangeFilter }) {
             }}
           />
           <SquareRiskLevel
-            selectedRisk={filter.byPerfilRisco}
+            selectedRisk={!filter.byPerfilRisco.includes(FILTER_RISKS[3])}
             value={FILTER_RISKS[3]}
             color="green3"
             onClick={() => {
@@ -147,7 +142,7 @@ export default function Filter({ filter, onChangeFilter }) {
             }}
           />
           <SquareRiskLevel
-            selectedRisk={filter.byPerfilRisco}
+            selectedRisk={!filter.byPerfilRisco.includes(FILTER_RISKS[4])}
             value={FILTER_RISKS[4]}
             color="yellow2"
             onClick={() => {
@@ -155,7 +150,7 @@ export default function Filter({ filter, onChangeFilter }) {
             }}
           />
           <SquareRiskLevel
-            selectedRisk={filter.byPerfilRisco}
+            selectedRisk={!filter.byPerfilRisco.includes(FILTER_RISKS[5])}
             value={FILTER_RISKS[5]}
             color="magenta2"
             onClick={() => {
@@ -173,14 +168,18 @@ export default function Filter({ filter, onChangeFilter }) {
         >
           Alto Risco
         </Text>
-        <Divisor />
+        <VerticalDivisor />
         <ButtonLink
           noIcon
           disabled={
-            !filter.byPerfilRisco && filter.byCategoriaArena.length === 0
+            !filter.byPerfilRisco.length === 0 &&
+            filter.byCategoriaArena.length === 0
           }
           onClick={() => {
-            onChangeFilter({ byPerfilRisco: null, byCategoriaArena: [] })
+            onChangeFilter({
+              byPerfilRisco: [...Object.values(FILTER_RISKS)],
+              byCategoriaArena: [],
+            })
           }}
         >
           limpar filtros
@@ -193,7 +192,9 @@ export default function Filter({ filter, onChangeFilter }) {
 Filter.propTypes = {
   filter: PropTypes.shape({
     byCategoriaArena: PropTypes.arrayOf(PropTypes.string),
-    byPerfilRisco: PropTypes.string,
+    byPerfilRisco: PropTypes.arrayOf(PropTypes.string),
+    orderBy: PropTypes.string,
+    sortBy: PropTypes.bool,
   }).isRequired,
   onChangeFilter: PropTypes.func.isRequired,
 }
