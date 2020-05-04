@@ -9,18 +9,11 @@ const ButtonIcon: React.FC<IProps> = ({
   icon,
   size = 'small',
   isLoading = false,
-  iconWidth,
   onClick,
   ...rest
 }) => {
   return (
-    <ButtonStyled
-      color={color}
-      size={size}
-      iconWidth={iconWidth}
-      onClick={onClick}
-      {...rest}
-    >
+    <ButtonStyled color={color} size={size} onClick={onClick} {...rest}>
       {!isLoading ? <Icon name={icon} /> : <Icon name="spinner" />}
     </ButtonStyled>
   )

@@ -349,7 +349,7 @@ const SectionTwo = ({ creditProduct, combo, funds }) => {
                             data-gtm-type="click"
                             data-gtm-clicktype="button"
                             icon="arrowright"
-                            size="large"
+                            size="medium"
                             color="secondary"
                             onClick={() => handleOpenModal(fund)}
                           ></IconButton>

@@ -30,7 +30,7 @@ export const AccordionBody = styled.div`
 export const AccordionCloseButton = styled(IconButton).attrs(() => ({
   icon: 'arrowdown',
   color: 'secondary',
-  size: 'large',
+  size: 'medium',
 }))`
   cursor: pointer;
   height: 28px;

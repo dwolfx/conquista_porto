@@ -143,8 +143,8 @@ export const MobileFilter = ({
       <FloatButton
         color="primary"
         onClick={() => setIsDrawerOpen(true)}
+        size="large"
         icon="filter"
-        iconWidth="28"
       />
       <Drawer
         isOpen={isDrawerOpen}
@@ -368,7 +368,7 @@ const DrawerHeader = (handleCloseFilters: () => void) => (
       data-gtm-clicktype="button"
       onClick={() => handleCloseFilters()}
     />
-    <HeaderColTitle style={{ flex: 1 }}>
+    <HeaderColTitle>
       <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
     </HeaderColTitle>
     <CloseButton

@@ -2,53 +2,61 @@ import styled from 'styled-components'
 import { dict } from 'components/IconExporter'
 
 export interface IProps {
-  color: 'primary' | 'secondary'
+  color?: 'primary' | 'secondary'
   icon: keyof typeof dict
-  size?: 'small' | 'large'
+  size?: 'small' | 'medium' | 'large'
   iconWidth?: number | string
   isLoading?: boolean
   onClick?: () => void
 }
 
 interface IButtonProps {
-  color: 'primary' | 'secondary'
-  size: 'small' | 'large'
-  iconWidth?: number | string
+  color?: 'primary' | 'secondary'
+  size: 'small' | 'medium' | 'large'
 }
 export const ButtonStyled = styled.button<IButtonProps>`
   align-items: center;
-  background-color: ${props =>
-    props.color === 'primary'
-      ? props.theme.colors.green4
-      : props.theme.colors.gray2};
+  background-color: ${props => handleButtonColor(props)};
   border: none;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
-  height: ${props => (props.size === 'small' ? '28px' : '35px')};
+  height: ${props => handleSizing(props)};
   justify-content: center;
   outline: none;
   transition: all ease 0.3s;
-  width: ${props => (props.size === 'small' ? '28px' : '35px')};
+  width: ${props => handleSizing(props)};
 
   &:hover {
-    background-color: ${props =>
-      props.color === 'primary'
-        ? props.theme.colors.green5
-        : props.theme.colors.gray3};
+    background-color: ${props => handleButtonColor(props)};
   }
   svg {
     fill: ${props =>
-      props.color === 'primary'
-        ? props.theme.colors.white
-        : props.theme.colors.gray6};
-    width: ${props => handleSVGWidth(props)};
+      props.color ? props.theme.colors.white : props.theme.colors.gray6};
+    width: ${props => (props.size === 'small' ? '21px' : '24px')};
   }
 `
 
-const handleSVGWidth = (props: IButtonProps) => {
-  if (props.iconWidth) {
-    return props.iconWidth
+const handleSizing = (props: IButtonProps) => {
+  switch (props.size) {
+    case 'small':
+      return '28px'
+    case 'medium':
+      return '35px'
+    case 'large':
+      return '49px'
+    default:
+      return '28px'
   }
-  return props.size === 'small' ? '10px' : '12px'
+}
+
+const handleButtonColor = (props: any) => {
+  switch (props.color) {
+    case 'primary':
+      return props.theme.colors.blue4
+    case 'secondary':
+      return props.theme.colors.green4
+    default:
+      return props.theme.colors.gray2
+  }
 }
