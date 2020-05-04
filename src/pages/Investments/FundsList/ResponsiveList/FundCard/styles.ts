@@ -1,31 +1,19 @@
 import styled from 'styled-components'
 
 import { Col } from 'styled-bootstrap-grid'
-import IconComponent from 'components/IconExporter'
+import IconExporter from 'components/IconExporter'
 import TextComponent from 'components/Text'
 import DivisorComponent from 'components/Divisor'
 import ButtonComponent from 'components/Button'
 
-enum activeRiskColors {
-  baixo = 'lowRisk',
-  'medio-baixo' = 'lowMediumRisk',
-  medio = 'mediumRisk',
-  'medio-alto' = 'mediumHighRisk',
-  alto = 'highRisk',
-}
-
-interface IRiskLineProps {
-  riskColor: keyof typeof activeRiskColors
-}
-
-export const ArrowDown = styled(IconComponent).attrs(() => ({
+export const ArrowDown = styled(IconExporter).attrs(() => ({
   name: 'arrowdown',
 }))`
   height: ${props => props.theme.spacing(3)}px;
   fill: ${props => props.theme.colors.gray6};
 `
 
-export const ArrowUp = styled(IconComponent).attrs(() => ({ name: 'arrowup' }))`
+export const ArrowUp = styled(IconExporter).attrs(() => ({ name: 'arrowup' }))`
   width: 12px;
   fill: ${props => props.theme.colors.gray6};
 `
@@ -33,6 +21,12 @@ export const ArrowUp = styled(IconComponent).attrs(() => ({ name: 'arrowup' }))`
 export const Button = styled(ButtonComponent)`
   width: calc(100% - 28px);
   margin: 0 14px 7px;
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${props => props.theme.spacing(5)}px;
 `
 
 export const CardCol = styled(Col)`
@@ -46,6 +40,17 @@ export const CardCol = styled(Col)`
 
 export const CardContent = styled.div`
   width: 100%;
+`
+
+interface ICardHeader {
+  noMargin?: boolean
+}
+
+export const CardHeader = styled.div<ICardHeader>`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: ${props =>
+    props.noMargin ? 0 : `${props.theme.spacing(1)}px`};
 `
 
 export const CardTitle = styled(TextComponent).attrs(() => ({
@@ -67,6 +72,10 @@ export const Circle = styled.div`
   width: ${props => props.theme.spacing(4)}px;
   border-radius: 50%;
   background-color: ${props => props.theme.colors.gray2};
+`
+
+export const CloseButton = styled(ButtonComponent)`
+  margin-top: ${props => props.theme.spacing(19)};
 `
 
 export const FirstDivisor = styled(DivisorComponent).attrs(() => ({
@@ -98,6 +107,43 @@ export const InfoValue = styled(TextComponent).attrs(() => ({
   color: ${props => props.theme.colors.gray6};
 `
 
+export const LockFundWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  margin-right: 7px;
+`
+
+export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
+  fill: ${props => props.theme.colors.gray4};
+  height: 21px;
+  width: 21px;
+  margin-top: calc(7px / 2);
+`
+
+export const ModalText = styled(TextComponent).attrs(() => ({
+  type: 'headline',
+}))`
+  color: ${props => props.theme.colors.gray6};
+`
+
+enum activeRiskColors {
+  baixo = 'lowRisk',
+  'medio-baixo' = 'lowMediumRisk',
+  medio = 'mediumRisk',
+  'medio-alto' = 'mediumHighRisk',
+  alto = 'highRisk',
+}
+
+export const RightContent = styled.div`
+  display: flex;
+`
+
+interface IRiskLineProps {
+  riskColor: keyof typeof activeRiskColors
+}
+
 export const RiskLine = styled.div<IRiskLineProps>`
   width: 4px;
   border-radius: 4px;
@@ -113,7 +159,5 @@ export const SecondDivisor = styled(DivisorComponent).attrs(() => ({
 `
 
 export const TitleWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
   margin-bottom: ${props => props.theme.spacing(1)}px;
 `

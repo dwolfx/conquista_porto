@@ -1,6 +1,9 @@
 import styled from 'styled-components'
-
-export const StyledDivisor = styled.div`
+export interface IProps {
+  vertical?: boolean
+  customSize?: string
+}
+export const StyledDivisor = styled.div<IProps>`
   ${props =>
     props.vertical
       ? `border-left: 1px solid ${props.theme.colors.gray2}`
@@ -11,8 +14,7 @@ export const StyledDivisor = styled.div`
     }
     return props.customSize ? props.customSize : '100%'
   }};
-
-  height: ${props => {
+  ​height: ${props => {
     if (props.vertical) {
       return props.customSize && props.customSize
     }

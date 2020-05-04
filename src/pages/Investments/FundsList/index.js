@@ -45,6 +45,7 @@ export default function FundsList() {
           <Col col={12}>
             <ResponsiveList
               data={filteredFundsList}
+              setIsOpenForInvestments={setIsOpenForInvestments}
               isLoading={fundsStatus.isLoading}
               isError={fundsStatus.isError}
               isFiltering={
