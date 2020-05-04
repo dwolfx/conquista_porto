@@ -27,6 +27,7 @@ const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
       fund_total_income: recommendationData.fund_total_income,
       funds: recommendationData.funds,
       additional: recommendationData.additional,
+      credit_product: recommendationData.credit_product,
     }
 
     setButtonConfirmClicked(true)
@@ -89,6 +90,7 @@ BottomBar.propTypes = {
     fund_total_income: PropTypes.object,
     funds: PropTypes.array,
     additional: PropTypes.object,
+    credit_product: PropTypes.object,
   }).isRequired,
   isDrawerOpen: PropTypes.bool,
   setIsDrawerOpen: PropTypes.func,

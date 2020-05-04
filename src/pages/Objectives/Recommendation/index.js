@@ -25,7 +25,7 @@ import {
 import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/action'
 
 import BottomBar from './BottomBar'
-import SectionTwo from './SectionTwo'
+import WalletSection from './WalletSection'
 import SectionThree from './SectionThree'
 import SuggestionBanner from './SugestionBanner'
 import RecommendationMessage from './RecommendationMessage'
@@ -312,9 +312,12 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
             answer={answer}
             suggestion_goal={suggestion_goal}
           />
+
           <RecommendationMessage suggestion_goal={suggestion_goal} />
+
           <CardEstimatedResults answer={answer} combo={combo} income={income} />
-          <SectionTwo
+
+          <WalletSection
             combo={combo}
             funds={funds}
             creditProduct={credit_product}

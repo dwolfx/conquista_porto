@@ -60,6 +60,7 @@
     "yup": "^0.28.1"
   },
   "devDependencies": {
+    "@types/react-table": "^7.0.16",
     "@types/styled-components": "^4.1.20",
     "babel-eslint": "^10.0.3",
     "babel-plugin-styled-components": "^1.10.7",
