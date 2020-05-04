@@ -29,7 +29,7 @@ export const Container = styled(animated.div)<IToastProps>`
   ${props => toastTypeVariations[props.type || 'success']};
 
   @media ${props => props.theme.mediaQueries.xs} {
-    width: 100%;
+    width: auto;
   }
 
   div {

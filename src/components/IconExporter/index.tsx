@@ -54,6 +54,7 @@ import { ReactComponent as link } from 'assets/icons/link.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
 import { ReactComponent as lock2 } from 'assets/icons/lock2.svg'
 import { ReactComponent as malefemale } from 'assets/icons/male-female.svg'
+import { ReactComponent as filter } from 'assets/icons/filter.svg'
 import {
   ReactComponent as master,
   ReactComponent as mastercard,
@@ -181,6 +182,7 @@ export const dict = {
   usermedic,
   visa,
   wallet,
+  filter,
 }
 
 interface IProps {

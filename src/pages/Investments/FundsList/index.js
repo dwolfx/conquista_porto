@@ -6,6 +6,7 @@ import useMedia from 'hooks/useMedia'
 import { Col } from 'styled-bootstrap-grid'
 
 import Anbima from 'components/Anbima'
+import { FILTER_RISKS } from 'pages/Investments/FundsList/constants'
 import Filter from './Filter'
 import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
@@ -14,6 +15,8 @@ import ResponsiveList from './ResponsiveList'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'
+import MobileFilter from './MobileFilter'
+import sortFundList from './MobileFilter/sortFundList'
 
 export default function FundsList() {
   const fundsStatus = useSelector(state => ({
@@ -26,7 +29,12 @@ export default function FundsList() {
 
   const [filter, setFilter] = useState({
     byCategoriaArena: [],
-    byPerfilRisco: null,
+    byPerfilRisco: [...Object.values(FILTER_RISKS)],
+  })
+
+  const [mobileFundSort, setMobileFundSort] = useState({
+    sortBy: null,
+    sortType: null,
   })
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -38,42 +46,62 @@ export default function FundsList() {
     setFilter(newFilter)
   }
 
+  function handleChangeMobileSort(newMobileSort) {
+    setMobileFundSort(newMobileSort)
+  }
+
+  const mobileFundList = fundList => {
+    if (mobileFundSort.sortType !== null)
+      return sortFundList(fundList, mobileFundSort)
+    return fundList
+  }
+
   return (
     <>
       <GridContainer as="section">
         {isMobile ? (
-          <Col col={12}>
-            <ResponsiveList
-              data={filteredFundsList}
-              setIsOpenForInvestments={setIsOpenForInvestments}
-              isLoading={fundsStatus.isLoading}
-              isError={fundsStatus.isError}
-              isFiltering={
-                filter.byPerfilRisco || filter.byCategoriaArena.length > 0
-              }
+          <>
+            <MobileFilter
+              filter={filter}
+              onChangeFilter={handleChangeFilter}
+              sort={mobileFundSort}
+              onChangeSort={handleChangeMobileSort}
             />
-          </Col>
+            <Col col={12}>
+              <ResponsiveList
+                data={mobileFundList(filteredFundsList)}
+                isLoading={fundsStatus.isLoading}
+                isError={fundsStatus.isError}
+                isFiltering={
+                  filter.byPerfilRisco || filter.byCategoriaArena.length > 0
+                }
+              />
+            </Col>
+          </>
         ) : (
-          <TableContent>
+          <>
             <Filter filter={filter} onChangeFilter={handleChangeFilter} />
-            <ContentWrapper>
-              <Col col={12}>
-                <TableFunds
-                  columns={columns}
-                  isDrawerOpen={isDrawerOpen}
-                  onChangeIsDrawerOpen={setIsDrawerOpen}
-                  setIsOpenForInvestments={setIsOpenForInvestments}
-                  data={filteredFundsList}
-                  fundsType={fundsType}
-                  isLoading={fundsStatus.isLoading}
-                  isError={fundsStatus.isError}
-                  isFiltering={
-                    filter.byPerfilRisco || filter.byCategoriaArena.length > 0
-                  }
-                />
-              </Col>
-            </ContentWrapper>
-          </TableContent>
+            <TableContent>
+              <ContentWrapper>
+                <Col col={12}>
+                  <TableFunds
+                    columns={columns}
+                    isDrawerOpen={isDrawerOpen}
+                    onChangeIsDrawerOpen={setIsDrawerOpen}
+                    setIsOpenForInvestments={setIsOpenForInvestments}
+                    data={filteredFundsList}
+                    fundsType={fundsType}
+                    isLoading={fundsStatus.isLoading}
+                    isError={fundsStatus.isError}
+                    isFiltering={
+                      filter.byPerfilRisco > 0 ||
+                      filter.byCategoriaArena.length > 0
+                    }
+                  />
+                </Col>
+              </ContentWrapper>
+            </TableContent>
+          </>
         )}
         <Anbima />
       </GridContainer>

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { themeColors } from 'styles/theme'
 
-const handleColor = (type, themeColors, disabled) => {
+const handleColor = (type: string, disabled?: boolean) => {
   switch (type) {
     case 'primary':
       return themeColors.blue4
@@ -11,7 +12,7 @@ const handleColor = (type, themeColors, disabled) => {
   }
 }
 
-const handleBorderColor = (type, themeColors) => {
+const handleBorderColor = (type: string) => {
   switch (type) {
     case 'primary':
       return themeColors.blue4
@@ -22,14 +23,19 @@ const handleBorderColor = (type, themeColors) => {
   }
 }
 
-export const Button = styled.button`
+export interface IButtonProps {
+  color: 'primary' | 'secondary' | ''
+  children: React.ReactNode
+  disabled?: boolean
+  onClick: () => void
+}
+export const Button = styled.button<IButtonProps>`
   align-items: center;
   background-color: ${props => props.theme.colors.white};
   border: 1px solid;
-  border-color: ${props => handleBorderColor(props.color, props.theme.colors)};
+  border-color: ${props => handleBorderColor(props.color)};
   border-radius: 4px;
-  color: ${props =>
-    handleColor(props.color, props.theme.colors, props.disabled)};
+  color: ${props => handleColor(props.color, props.disabled)};
   cursor: pointer;
   display: flex;
   height: 28px;
