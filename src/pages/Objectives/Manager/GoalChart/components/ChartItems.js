@@ -18,7 +18,7 @@ import ChartPopoverContent from './ChartPopoverContent'
 
 export default function ChartItems({ indexSelectedYear, data, vertical }) {
   const history = useHistory()
-  const idealMoment = data.credit_product === 'Financiamento de Veículo'
+  const idealMoment = data.creditProduct.name === 'Financiamento de Veículo'
 
   if (indexSelectedYear !== null && indexSelectedYear >= 0) {
     const selectedYear = data.years[indexSelectedYear]
@@ -58,6 +58,7 @@ export default function ChartItems({ indexSelectedYear, data, vertical }) {
       if (startOrEndIndicator.isBegin) {
         startOrEndIndicatorText = 'início'
       }
+
       return (
         <ChartItemContainer key={`${selectedYear.year}-${MONTH_NUMBER}`}>
           <StartOrEndIndicator

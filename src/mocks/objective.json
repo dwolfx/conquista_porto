@@ -6,7 +6,6 @@
   "goal_type": 1,
   "conquered": false,
   "total_balance": 16000,
-  "credit_product": "Financiamento de Veículo",
   "years": [
     {
       "year": 2019,
@@ -184,5 +183,15 @@
     "travel_security": false,
     "life_security": true,
     "credit_card": true
+  },
+  "creditProduct": {
+    "name": "Financiamento de Veículo",
+    "values": [
+      {
+        "name": "Valor a Contratar",
+        "value": "R$ 45.343,61",
+        "checked": false
+      }
+    ]
   }
 }
