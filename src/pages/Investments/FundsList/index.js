@@ -11,7 +11,7 @@ import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
 import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
-import Layer from './Layer'
+import FinancialApplication from '../FinancialApplication'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'
@@ -42,7 +42,7 @@ export default function FundsList() {
 
   return (
     <>
-      <Layer
+      <FinancialApplication
         isOpen={isLayerOpen}
         fullScreen
         handleClose={() => setLayerOpen(false)}
