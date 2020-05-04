@@ -108,7 +108,6 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
       >
         <ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
       </Modal>
-
       <Col
         lg={combo.length > 1 ? '9' : '12'}
         css={`
