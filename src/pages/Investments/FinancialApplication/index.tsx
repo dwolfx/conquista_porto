@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
-import Button from 'components/Button'
 import LayerHeader from './LayerHeader'
 
 import {
@@ -20,7 +19,7 @@ import {
 
 interface IProps {
   handleClose: () => void
-  isOpen: boolean 
+  isOpen: boolean
 }
 
 const LayerInvestment: React.FC<IProps> = ({
@@ -28,36 +27,29 @@ const LayerInvestment: React.FC<IProps> = ({
   isOpen = false,
 }) => {
   const [step, setStep] = useState(0)
+  const [formData, setFormData] = useState({
+    moneyToInvest: '',
+    whenToInvest: '',
+    isAwareTerms: false,
+  })
   const stepCount = 2
 
-  const layerBody = [
-    <LayerBodyContainer>
-      <GridRowExpanded>
-        <GridCol lg={3}>
-          <LayerCard>Step1</LayerCard>
-        </GridCol>
-        <GridCol lg={9}>
-          <LayerCard>
-            <Button onClick={() => setStep(step + 1)}>Próximo Passo</Button>
-          </LayerCard>
-        </GridCol>
-      </GridRowExpanded>
-    </LayerBodyContainer>,
-    <LayerBodyContainer>
-      <GridRowExpanded>
-        <GridCol lg={3}>
-          <LayerCard>Step2</LayerCard>
-        </GridCol>
-        <GridCol lg={9}>
-          <LayerCard>
-            <Button onClick={() => setStep(step - 1)}>Passo Anterior</Button>
-          </LayerCard>
-        </GridCol>
-      </GridRowExpanded>
-    </LayerBodyContainer>,
-  ]
+  // ## AQUI ENTRAM OS COMPONENTES DE STEP
+  const layerBody = [<LayerCard>Step1</LayerCard>]
 
   const headerAttributes = { step, setStep, handleClose }
+
+  const nextStep = () => {
+    setStep(step + 1)
+  }
+
+  const previousStep = () => {
+    if (step == 0) {
+      handleClose()
+    } else {
+      setStep(step - 1)
+    }
+  }
 
   return (
     <Layer
@@ -90,7 +82,14 @@ const LayerInvestment: React.FC<IProps> = ({
           </GridRow>
         </GridContainer>
       </StepBar>
-      {layerBody[step]}
+      <LayerBodyContainer>
+        <GridRowExpanded>
+          <GridCol lg={3}>
+            <LayerCard>Card Descrição Fundo</LayerCard>
+          </GridCol>
+          <GridCol lg={9}>{layerBody[step]}</GridCol>
+        </GridRowExpanded>
+      </LayerBodyContainer>
       <FooterContainer>
         <GridRow>
           <GridCol lg={12}>
