@@ -29,6 +29,7 @@ import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import SuggestionBanner from './SugestionBanner'
+import RecommendationMessage from './RecommendationMessage'
 
 import {
   ValidateInitialInvestment,
@@ -311,7 +312,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
             answer={answer}
             suggestion_goal={suggestion_goal}
           />
-
+          <RecommendationMessage suggestion_goal={suggestion_goal} />
           <SectionOne answer={answer} combo={combo} income={income} />
           <SectionTwo
             combo={combo}
