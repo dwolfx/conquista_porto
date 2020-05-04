@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 import {
-  ModalContainer,
-  ModalHeader,
-  ModalWrapper,
+  LayerContainer,
+  LayerHeader,
+  LayerWrapper,
   ChildrenWrapper,
-} from './stylesNew'
+} from './styles'
 
 const Layer = ({
   children,
@@ -15,8 +15,6 @@ const Layer = ({
   isOpen,
   handleClose,
   alignItems,
-  maxWidth,
-  fullScreen,
   ...rest
 }) => {
   useEffect(() => {
@@ -46,24 +44,15 @@ const Layer = ({
     return () => window.removeEventListener('keyup', handler)
   }, [handleClose, isOpen])
 
-  const classNames = `${fullScreen ? 'fullScreen' : ''}`
-
   return ReactDOM.createPortal(
-    <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
-      <ModalContainer maxWidth={maxWidth} className={classNames}>
-        <ModalHeader className="layer-header">{headerContent}</ModalHeader>
-        <ChildrenWrapper className="layer-children-wrapper">
-          {children}
-        </ChildrenWrapper>
-      </ModalContainer>
-    </ModalWrapper>,
+    <LayerWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
+      <LayerContainer>
+        <LayerHeader>{headerContent}</LayerHeader>
+        <ChildrenWrapper>{children}</ChildrenWrapper>
+      </LayerContainer>
+    </LayerWrapper>,
     document.querySelector('#root')
   )
-}
-
-Layer.defaultProps = {
-  maxWidth: '900px',
-  fullScreen: false,
 }
 
 Layer.propTypes = {
@@ -71,8 +60,6 @@ Layer.propTypes = {
   handleClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   alignItems: PropTypes.string,
-  maxWidth: PropTypes.string,
-  fullScreen: PropTypes.bool,
   headerContent: PropTypes.node.isRequired,
 }
 

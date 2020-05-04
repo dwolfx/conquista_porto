@@ -16,7 +16,11 @@ export const HeaderColTitle = styled.div`
   justify-content: center;
 `
 
-export const HeaderIconButton = styled.div`
+interface HeaderIconButtonProps {
+  icon: string
+}
+
+export const HeaderIconButton = styled.div<HeaderIconButtonProps>`
   background-color: ${props => props.theme.colors.gray4};
   cursor: pointer;
   height: 24px;

@@ -11,7 +11,7 @@ import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
 import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
-import Layer from './Layer'
+import Layer from '../FinancialApplication'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'
