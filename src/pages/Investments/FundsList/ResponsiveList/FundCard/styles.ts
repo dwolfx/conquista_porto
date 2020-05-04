@@ -110,15 +110,15 @@ export const InfoValue = styled(TextComponent).attrs(() => ({
 export const LockFundWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 35px;
-  height: 35px;
-  margin-right: 7px;
+  width: ${props => props.theme.spacing(5)}px;
+  height: ${props => props.theme.spacing(5)}px;
+  margin-right: ${props => props.theme.spacing(1)}px;
 `
 
 export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
   fill: ${props => props.theme.colors.gray4};
-  height: 21px;
-  width: 21px;
+  height: ${props => props.theme.spacing(3)}px;
+  width: ${props => props.theme.spacing(3)}px;
   margin-top: calc(7px / 2);
 `
 
