@@ -27,13 +27,13 @@ export const ButtonContainer = styled.div``
 export const PreviousButton = styled(IconButton).attrs(() => ({
   icon: 'arrowleft',
   color: 'secondary',
-  size: 'large',
+  size: 'medium',
 }))``
 
 export const NextButton = styled(IconButton).attrs(() => ({
   icon: 'arrowright',
   color: 'secondary',
-  size: 'large',
+  size: 'medium',
 }))``
 
 export const ChartItemContainer = styled.div`
