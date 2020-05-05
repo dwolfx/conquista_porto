@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import Icon from 'components/IconExporter'
 
-const inputDefaultStyle = css`
+const inputDefaultStyle = css<{ width: string }>`
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
   height: 56px;
   width: ${props => `${props.width}%`};
@@ -42,7 +42,12 @@ export const InputGroupWrapper = styled.div`
   ${props => props.theme.fontTypes.headline};
 `
 
-export const InputWrapper = styled.div`
+interface IInputWrapperProps {
+  error: boolean | { icon: string; message: string }
+  width: string
+}
+
+export const InputWrapper = styled.div<IInputWrapperProps>`
   ${inputDefaultStyle}
   ${props => props.error && inputErrorStyle}
   position: relative;
