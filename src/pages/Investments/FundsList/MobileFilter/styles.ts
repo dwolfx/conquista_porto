@@ -76,17 +76,10 @@ export const ButtonContainer = styled.div`
 
 export const FloatButton = styled(IconButton)`
   content: '';
-  width: 49px;
-  height: 49px;
   border-radius: 50%;
   position: fixed;
   bottom: 14px;
   right: 14px;
   z-index: 11;
   border: none;
-  background-color: ${props => props.theme.colors.blue4};
-
-  &:hover {
-    background-color: ${props => props.theme.colors.blue5};
-  }
 `
