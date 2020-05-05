@@ -79,7 +79,7 @@ export default function Mobile({ items, setIsOpen, totalPoints, exitFunc }) {
             data-gtm-clicktype="link"
             data-gtm-subname="responsive header menu"
             data-gtm-name="perfil"
-            path="/perfil"
+            path="perfil"
             callbackClickFn={() => setIsOpen(false)}
           />
         </ProfileContainer>
