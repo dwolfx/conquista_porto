@@ -60,7 +60,6 @@ const WalletSection = ({ creditProduct, combo, funds }) => {
     fundsCategories = Object.entries(fundsCategories).sort(([keyA], [keyB]) =>
       fundsCategories[keyA] < fundsCategories[keyB] ? 1 : -1
     )
-    console.log(fundsCategories)
 
     return (
       <s.PercentualInfosContainer>
