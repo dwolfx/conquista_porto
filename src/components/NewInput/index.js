@@ -17,7 +17,7 @@ const NewInput = forwardRef(
     const inputRef = ref || createRef()
 
     return (
-      <InputFieldGroup>
+      <InputFieldGroup {...rest}>
         <InputGroupWrapper>
           {label && <InputLabel>{label}</InputLabel>}
           <InputWrapper
