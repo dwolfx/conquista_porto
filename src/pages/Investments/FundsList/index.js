@@ -62,7 +62,6 @@ export default function FundsList() {
     <>
       <FinancialApplication
         isOpen={isLayerOpen}
-        fullScreen
         handleClose={() => setLayerOpen(false)}
       />
       <GridContainer as="section">

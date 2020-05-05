@@ -70,7 +70,8 @@ export const ColStepBar = styled(Col)`
 
 export const LayerContent = styled.div`
   width: 100%;
-  padding: 28px 0px 21px;
+  padding: ${props => props.theme.spacing(4)}px 0px
+    ${props => props.theme.spacing(3)}px;
   display: flex;
   height: 76vh;
 `

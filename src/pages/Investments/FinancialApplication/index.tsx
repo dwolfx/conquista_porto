@@ -51,7 +51,6 @@ const LayerInvestment: React.FC<IProps> = ({
 
   // ## AQUI ENTRAM OS COMPONENTES DE STEP
   const layerBody = [
-
     <FormFinancialContribution formData={formData} nextStep={nextStep} />,
   ]
 
