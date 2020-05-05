@@ -29,8 +29,7 @@ export const AccordionBody = styled.div`
 
 export const AccordionCloseButton = styled(IconButton).attrs(() => ({
   icon: 'arrowdown',
-  color: 'secondary',
-  size: 'medium',
+  size: 'small',
 }))`
   cursor: pointer;
   height: 28px;
@@ -38,11 +37,6 @@ export const AccordionCloseButton = styled(IconButton).attrs(() => ({
   top: calc(50% - 14px);
   right: 0;
   transition: all ease 0.6s;
-  width: 28px;
-
-  svg {
-    width: 28px;
-  }
 `
 
 export const AccordionWrapper = styled.div`
