@@ -15,7 +15,7 @@ import {
   LabelObjective,
 } from './styles'
 
-type TAnswer = {
+interface IAnswer {
   nickname?: string
   target_date: string
   target_value: number
@@ -29,15 +29,20 @@ type TAnswer = {
   profile?: number
 }
 
-type TIncome = {
-  pessimistic: object
-  median: object
-  optimistic: object
+interface IMonthsIncome {
+  month: string
+  value: number
+}
+
+interface IIncome {
+  pessimistic: IMonthsIncome[]
+  median: IMonthsIncome[]
+  optimistic: IMonthsIncome[]
 }
 
 interface ICardProps {
-  answer: TAnswer
-  income: TIncome
+  answer: IAnswer
+  income: IIncome
 }
 
 const CardEstimatedResults = ({ answer, income }:ICardProps) => {

@@ -30,7 +30,6 @@ export const CardRow = styled(Row)`
 
   @media ${props => props.theme.mediaQueries.sm} {
     text-align: left;
-    justify-content: flex-start;
   }
 `
 
