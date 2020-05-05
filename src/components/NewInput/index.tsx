@@ -1,5 +1,5 @@
 import React, { createRef, forwardRef } from 'react'
-import PropTypes from 'prop-types'
+import { dict } from 'components/IconExporter'
 
 import {
   InputFieldGroup,
@@ -12,21 +12,30 @@ import {
   ErrorIcon,
 } from './styles'
 
-const NewInput = forwardRef(
-  ({ prefix, suffix, label, width, error, ...rest }, ref) => {
-    const inputRef = ref || createRef()
+interface IProps {
+  prefix: React.ReactNode
+  suffix: React.ReactNode
+  width: string
+  error: boolean | { icon: keyof typeof dict; message: string }
+  label: string
+  className: string
+}
+
+const NewInput = forwardRef<HTMLInputElement, IProps>(
+  ({ prefix, suffix, label, width, error, className, ...rest }, ref) => {
+    const inputRef = (ref || createRef()) as React.RefObject<HTMLInputElement>
 
     return (
-      <InputFieldGroup>
+      <InputFieldGroup {...rest}>
         <InputGroupWrapper>
           {label && <InputLabel>{label}</InputLabel>}
           <InputWrapper
             onClick={() => {
-              inputRef.current.focus()
+              inputRef.current?.focus()
             }}
             width={width}
             error={error}
-            className={rest.className}
+            className={className}
           >
             {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
             <Input ref={inputRef} {...rest} />
@@ -43,21 +52,5 @@ const NewInput = forwardRef(
     )
   }
 )
-
-NewInput.propTypes = {
-  label: PropTypes.string,
-  prefix: PropTypes.any,
-  suffix: PropTypes.any,
-  width: PropTypes.string,
-  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-}
-
-NewInput.defaultProps = {
-  label: '',
-  prefix: false,
-  suffix: false,
-  width: '100',
-  error: false,
-}
 
 export default NewInput
