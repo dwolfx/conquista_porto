@@ -20,8 +20,8 @@ export const columns = [
     Header: 'FUNDO DE INVESTIMENTO',
     accessor: 'name',
     justifyHeader: 'flex-start',
-    width: '221px',
-    widthHeader: '200px',
+    width: '24%',
+    widthHeader: '22%',
     format: (row: IFund) => (
       <s.FundoOutterWrapper>
         <RiskColorTag borderRisk={row['wsdls/profile']} />
@@ -53,21 +53,21 @@ export const columns = [
 
       return -1
     },
-    width: '144px',
+    width: '16%',
   },
   {
     Header: 'INV. INICIAL',
     accessor: 'initial_value',
     format: (row: IFund) => formatMoney(row.initial_value),
     align: 'center',
-    width: '129px',
+    width: '14%',
   },
   {
     Header: 'INV. MENSAL',
     accessor: 'monthly_value',
     format: (row: IFund) => formatMoney(row.monthly_value),
     align: 'center',
-    width: '129px',
+    width: '14%',
   },
   {
     Header: '',
@@ -77,6 +77,8 @@ export const columns = [
         mais informações
       </Button>
     ),
+    width: '20%',
+    align: 'center',
   },
 ]
 
