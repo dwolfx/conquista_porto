@@ -9,6 +9,12 @@ import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
 
 import * as s from './styles'
 
+const profitabilityExists = (fund: IFund) =>
+  fund.profitability &&
+  fund.profitability[0] &&
+  fund.profitability[0].value &&
+  fund.profitability[0].value[3]
+
 export const columns = [
   {
     Header: 'FUNDO DE INVESTIMENTO',
@@ -33,12 +39,20 @@ export const columns = [
     accessor: 'profitability',
     align: 'center',
     format: (row: IFund) =>
-      row.profitability &&
-      row.profitability[0] &&
-      row.profitability[0].value &&
-      row.profitability[0].value[3]
-        ? `${row.profitability[0].value[3]}%`
-        : '--',
+      profitabilityExists(row) ? `${row.profitability[0].value[3]}%` : '--',
+    sort: (a: IFund, b: IFund) => {
+      if (profitabilityExists(a)) {
+        if (profitabilityExists(b)) {
+          return a.profitability[0].value[3] > b.profitability[0].value[3]
+            ? 1
+            : -1
+        }
+
+        return 1
+      }
+
+      return -1
+    },
     width: '144px',
   },
   {
