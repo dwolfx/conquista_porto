@@ -9,19 +9,13 @@ import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
 
 import * as s from './styles'
 
-const profitabilityExists = (fund: IFund) =>
-  fund.profitability &&
-  fund.profitability[0] &&
-  fund.profitability[0].value &&
-  fund.profitability[0].value[3]
-
 export const columns = [
   {
     Header: 'FUNDO DE INVESTIMENTO',
     accessor: 'name',
     justifyHeader: 'flex-start',
-    width: '24%',
-    widthHeader: '22%',
+    width: '221px',
+    widthHeader: '200px',
     format: (row: IFund) => (
       <s.FundoOutterWrapper>
         <RiskColorTag borderRisk={row['wsdls/profile']} />
@@ -39,38 +33,27 @@ export const columns = [
     accessor: 'profitability',
     align: 'center',
     format: (row: IFund) =>
-      profitabilityExists(row) ? `${row.profitability[0].value[3]}%` : '--',
-    sort: (a: IFund, b: IFund) => {
-      if (profitabilityExists(a)) {
-        if (profitabilityExists(b)) {
-          return a.profitability[0].value[3] > b.profitability[0].value[3]
-            ? 1
-            : -1
-        }
-
-        return 1
-      }
-
-      return -1
-    },
-    width: '18%',
-    widthHeader: '16%',
+      row.profitability &&
+      row.profitability[0] &&
+      row.profitability[0].value &&
+      row.profitability[0].value[3]
+        ? `${row.profitability[0].value[3]}%`
+        : '--',
+    width: '144px',
   },
   {
     Header: 'INV. INICIAL',
     accessor: 'initial_value',
     format: (row: IFund) => formatMoney(row.initial_value),
     align: 'center',
-    width: '12%',
-    widthHeader: '14%',
+    width: '129px',
   },
   {
     Header: 'INV. MENSAL',
     accessor: 'monthly_value',
     format: (row: IFund) => formatMoney(row.monthly_value),
     align: 'center',
-    width: '14%',
-    widthHeader: '14%',
+    width: '129px',
   },
   {
     Header: '',
@@ -80,8 +63,6 @@ export const columns = [
         mais informações
       </Button>
     ),
-    width: '20%',
-    align: 'center',
   },
 ]
 
