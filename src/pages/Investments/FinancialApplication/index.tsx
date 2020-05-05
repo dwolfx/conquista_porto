@@ -4,6 +4,7 @@ import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import LayerHeader from './LayerHeader'
+import FormFinancialContribution from './FormFinancialContribution'
 
 import {
   StepBar,
@@ -34,9 +35,6 @@ const LayerInvestment: React.FC<IProps> = ({
   })
   const stepCount = 2
 
-  // ## AQUI ENTRAM OS COMPONENTES DE STEP
-  const layerBody = [<LayerCard>Step1</LayerCard>]
-
   const headerAttributes = { step, setStep, handleClose }
 
   const nextStep = () => {
@@ -50,6 +48,12 @@ const LayerInvestment: React.FC<IProps> = ({
       setStep(step - 1)
     }
   }
+
+  // ## AQUI ENTRAM OS COMPONENTES DE STEP
+  const layerBody = [
+
+    <FormFinancialContribution formData={formData} nextStep={nextStep} />,
+  ]
 
   return (
     <Layer

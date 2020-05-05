@@ -96,6 +96,7 @@ export default function FundsList() {
                     isDrawerOpen={isDrawerOpen}
                     onChangeIsDrawerOpen={setIsDrawerOpen}
                     setIsOpenForInvestments={setIsOpenForInvestments}
+                    handleLayerOpen={() => setLayerOpen(true)}
                     data={filteredFundsList}
                     fundsType={fundsType}
                     isLoading={fundsStatus.isLoading}
