@@ -1,7 +1,6 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { formatMoney, handleGiwRedirect, formatDotToComma } from 'helpers'
+import { formatMoney, formatDotToComma } from 'helpers'
 import ConquistaButton from 'components/Button'
 
 import Text from 'components/Text'
@@ -37,44 +36,34 @@ const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = column => {
-  const { state: locationState } = useLocation()
-  return (
-    <WrapperContent isTbody>
-      {column.cell.value && column.cell.row.original.aplicao_liberada ? (
-        <ConquistaButton
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname={column.cell.row.original.apelido}
-          data-gtm-name="investir"
-          type="button"
-          color="secondary"
-          onClick={() => {
-            handleGiwRedirect(
-              `portaldecliente/conquista/aplicacao?idFundo=${
-                column.cell.row.original.id_fundo
-              }&r=true${
-                locationState && locationState.idGoal
-                  ? `&idObjetivo=${locationState.idGoal}`
-                  : ''
-              }`
-            )
-          }}
-        >
-          Investir
-        </ConquistaButton>
-      ) : (
-        <CustomPopover
-          content="Fundo fechado para aplicações"
-          placement="left"
-          tooltip
-        >
-          <LockIcon />
-        </CustomPopover>
-      )}
-    </WrapperContent>
-  )
-}
+const FormatEnabledCell = (column, handleLayerOpen) => (
+  <WrapperContent isTbody>
+    {column.cell.value && column.cell.row.original.aplicao_liberada ? (
+      <ConquistaButton
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        data-gtm-subname={column.cell.row.original.apelido}
+        data-gtm-name="investir"
+        type="button"
+        color="secondary"
+        onClick={event => {
+          event.stopPropagation()
+          handleLayerOpen(true)
+        }}
+      >
+        Investir
+      </ConquistaButton>
+    ) : (
+      <CustomPopover
+        content="Fundo fechado para aplicações"
+        placement="left"
+        tooltip
+      >
+        <LockIcon />
+      </CustomPopover>
+    )}
+  </WrapperContent>
+)
 
 const FormatDefault = column => (
   <WrapperContent>{column.cell.value}</WrapperContent>
@@ -96,12 +85,11 @@ const FormatColumnDotToCommaBold = column => (
   </WrapperContent>
 )
 
-export default function FormatColumns(columns, toggleModal) {
+export default function FormatColumns(columns, handleLayerOpen) {
   const formatters = {
     fundo: column => ({
       ...column,
       Cell: FormatFundoCell,
-      toggleModal,
       sortType(
         { original: { apelido: nextNickname } },
         { original: { apelido: currentNickname } }
@@ -113,7 +101,7 @@ export default function FormatColumns(columns, toggleModal) {
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: cell => FormatEnabledCell(cell),
+      Cell: cell => FormatEnabledCell(cell, handleLayerOpen),
     }),
     minimo_inicial: column => ({
       ...column,

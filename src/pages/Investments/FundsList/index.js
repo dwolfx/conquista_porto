@@ -12,6 +12,7 @@ import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
 import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
+import FinancialApplication from '../FinancialApplication'
 
 import { GridContainer, ContentWrapper, TableContent } from './styles'
 import Detail from './Detail'
@@ -37,6 +38,7 @@ export default function FundsList() {
     sortType: null,
   })
 
+  const [isLayerOpen, setLayerOpen] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
 
@@ -58,6 +60,10 @@ export default function FundsList() {
 
   return (
     <>
+      <FinancialApplication
+        isOpen={isLayerOpen}
+        handleClose={() => setLayerOpen(false)}
+      />
       <GridContainer as="section">
         {isMobile ? (
           <>
@@ -89,6 +95,7 @@ export default function FundsList() {
                     isDrawerOpen={isDrawerOpen}
                     onChangeIsDrawerOpen={setIsDrawerOpen}
                     setIsOpenForInvestments={setIsOpenForInvestments}
+                    handleLayerOpen={() => setLayerOpen(true)}
                     data={filteredFundsList}
                     fundsType={fundsType}
                     isLoading={fundsStatus.isLoading}
@@ -107,6 +114,7 @@ export default function FundsList() {
       </GridContainer>
       <Detail
         isOpen={isDrawerOpen}
+        handleLayerOpen={() => setLayerOpen(true)}
         isOpenForInvestments={isOpenForInvestments}
         handleClose={() => setIsDrawerOpen(false)}
       />

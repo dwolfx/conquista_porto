@@ -91,6 +91,7 @@ export default function TableFunds({
   isError,
   isFiltering,
   onChangeIsDrawerOpen,
+  handleLayerOpen,
   setIsOpenForInvestments,
   columns: columnsProps,
 }) {
@@ -103,7 +104,10 @@ export default function TableFunds({
   } = useTable(
     {
       // to edit how each column should render see FormatColumns function
-      columns: useMemo(() => FormatColumns(columnsProps), [columnsProps]),
+      columns: useMemo(() => FormatColumns(columnsProps, handleLayerOpen), [
+        columnsProps,
+        handleLayerOpen,
+      ]),
       data,
     },
     useSortBy
@@ -146,6 +150,7 @@ TableFunds.propTypes = {
   isError: PropTypes.bool.isRequired,
   isFiltering: PropTypes.bool.isRequired,
   isDrawerOpen: PropTypes.bool,
+  handleLayerOpen: PropTypes.func.isRequired,
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
