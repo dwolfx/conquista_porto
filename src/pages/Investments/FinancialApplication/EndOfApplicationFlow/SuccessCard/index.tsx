@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux'
 
 import VerticalList from 'components/VerticalList'
 
+import { IProps } from '../styles'
+
 import * as s from '../styles'
 
-const SuccessCard = () => {
+const SuccessCard = ({ onCloseLayer }: IProps) => {
   const history = useHistory()
 
   const { bankData } = useSelector<any, any>(state => ({
@@ -18,18 +20,19 @@ const SuccessCard = () => {
       <s.Button
         data-gtm-type="click"
         data-gtm-clicktype="button"
-        data-gtm-name="lista de fundos"
-        onClick={() => history.push('/investimentos/lista-fundos')}
+        data-gtm-name="gerenciar investimentos"
+        outline
+        onClick={() => history.push('/investimentos/visualizar')}
       >
-        Lista de Fundos
+        Gerenciar Investimentos
       </s.Button>
       <s.Button
         data-gtm-type="click"
         data-gtm-clicktype="button"
-        data-gtm-name="gerenciar investimentos"
-        onClick={() => history.push('/investimentos/visualizar')}
+        data-gtm-name="lista de fundos"
+        onClick={() => onCloseLayer()}
       >
-        Gerenciar Investimentos
+        Lista de Fundos
       </s.Button>
     </s.ButtonsWrapper>
   )

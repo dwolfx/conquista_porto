@@ -5,6 +5,10 @@ import CardComponent from 'components/Card'
 import ConquistaIcon from 'components/IconExporter'
 import TextComponent from 'components/Text'
 
+export interface IProps {
+  onCloseLayer: () => void
+}
+
 export const AccountInfoText = styled(TextComponent).attrs(() => ({
   type: 'headline',
   bold: true,
@@ -29,7 +33,7 @@ export const AccountWrapper = styled.div`
     ${({ theme }) => theme.spacing(1)}px;
 `
 
-export const Button = styled(ButtonComponent).attrs(() => ({ outline: true }))`
+export const Button = styled(ButtonComponent)`
   margin-right: ${({ theme }) => theme.spacing(2)}px;
 `
 
@@ -45,7 +49,11 @@ export const Icon = styled(ConquistaIcon)`
   margin-right: ${({ theme }) => theme.spacing(3)}px;
 `
 
-export const Card = styled(CardComponent)``
+export const Card = styled(CardComponent)`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+`
 
 export const ContainerAccountInfo = styled.div`
   width: 100%;

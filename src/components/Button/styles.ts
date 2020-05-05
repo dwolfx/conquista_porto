@@ -93,13 +93,6 @@ interface IButtonProps {
   disabled?: boolean
 }
 
-// styles
-export const LoadingContainer = styled.div`
-  position: absolute;
-  top: calc(50% - 12px);
-  right: 14px;
-`
-
 export const Button = styled.button<IButtonProps>`
   background: ${props =>
     handleBgGradient(
@@ -191,7 +184,7 @@ export const Content = styled.span`
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 9px 25px;
+  padding: 0 25px;
   position: relative;
   width: 100%;
   ${props => props.theme.fontTypes.button};
