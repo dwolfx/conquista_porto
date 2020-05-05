@@ -11,7 +11,7 @@ import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
 
-import ModalFundos from '../ModalFundos'
+import ModalFundos from './ModalFundos'
 import {
   GridRow,
   FullHeightCard,
@@ -34,14 +34,6 @@ const WalletSection = ({ creditProduct, combo, funds }) => {
   let { name: productName } = creditProduct || ''
   productName = (productName || '').toLowerCase()
 
-  const PercentualInfos = () => (
-    <s.PercentualInfosContainer>
-      <Text type="headline" color="gray6" bold>
-        80% em Renda Fixa
-      </Text>
-    </s.PercentualInfosContainer>
-  )
-
   const handleOpenDetails = fund => {
     setFundDetails(fund)
     setIsModalOpen(true)
@@ -54,6 +46,52 @@ const WalletSection = ({ creditProduct, combo, funds }) => {
     setInitialReset(true)
   }
 
+  const PercentualInfos = () => {
+    let fundsCategories = {}
+
+    funds.forEach(fund => {
+      if (fund.category_name in fundsCategories) {
+        fundsCategories[fund.category_name] += 1
+      } else {
+        fundsCategories[fund.category_name] = 1
+      }
+    })
+
+    fundsCategories = Object.entries(fundsCategories).sort(([keyA], [keyB]) =>
+      fundsCategories[keyA] < fundsCategories[keyB] ? 1 : -1
+    )
+    console.log(fundsCategories)
+
+    return (
+      <s.PercentualInfosContainer>
+        {fundsCategories.map(([key, value]) => (
+          <s.PercentualText type="headline" color="gray6" bold>
+            {`${((value * 100) / funds.length).toFixed(1)}% em ${key}`}
+          </s.PercentualText>
+        ))}
+      </s.PercentualInfosContainer>
+    )
+  }
+
+  const sectionInfos = () => (
+    <>
+      <s.InfoRow>
+        <Text
+          type="headline"
+          color="gray6"
+          css={`
+            margin-right: 7px;
+          `}
+        >
+          Os investimentos inicial e mensal serão distribuídos nestes fundos.
+        </Text>
+        <Icon name="information" color="gray4" width={20} />
+      </s.InfoRow>
+
+      <PercentualInfos />
+    </>
+  )
+
   return (
     <GridRow>
       <Modal
@@ -65,38 +103,26 @@ const WalletSection = ({ creditProduct, combo, funds }) => {
       >
         <ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
       </Modal>
+
       <Col
         lg={combo.length > 1 ? '9' : '12'}
         css={`
           margin-bottom: ${isMobile ? '14px' : '0px'};
         `}
       >
-        <FullHeightCard
-          headerIcon="financial"
-          headerTitle="Composição da Carteira"
-        >
-          <s.InfoRow>
-            <Text
-              type="headline"
-              color="gray6"
-              css={`
-                margin-right: 7px;
-              `}
-            >
-              Os investimentos inicial e mensal serão distribuídos nestes
-              fundos.
-            </Text>
-            <Icon name="information" color="gray4" width={20} />
-          </s.InfoRow>
-
-          <PercentualInfos funds={funds} />
-
-          {isMobile ? (
-            <CardsView funds={funds} handleOpenDetails={handleOpenDetails} />
-          ) : (
-            <TableView funds={funds} handleOpenDetails={handleOpenDetails} />
-          )}
-        </FullHeightCard>
+        {isMobile ? (
+          <CardsView
+            sectionInfos={sectionInfos}
+            funds={funds}
+            handleOpenDetails={handleOpenDetails}
+          />
+        ) : (
+          <TableView
+            funds={funds}
+            handleOpenDetails={handleOpenDetails}
+            sectionInfos={sectionInfos}
+          />
+        )}
       </Col>
 
       {creditProduct && combo.length > 1 && (

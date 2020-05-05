@@ -34,6 +34,7 @@ export interface ICell {
 export interface IColumn {
   accessor: string
   format: (row: any, toogleFunc?: any) => any
+  sort: (valueA: any, valueB: any) => void
 }
 
 interface THeader {

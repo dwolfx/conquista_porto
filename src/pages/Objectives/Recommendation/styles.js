@@ -74,6 +74,11 @@ export const ButtonSubmit = styled(Button)`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
+  position: relative;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: auto;
+  }
   & ${CardBody} {
     overflow: visible;
   }

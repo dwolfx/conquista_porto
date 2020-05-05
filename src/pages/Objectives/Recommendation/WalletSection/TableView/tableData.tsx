@@ -2,8 +2,11 @@ import React from 'react'
 
 import Button from 'components/Button'
 import Text from 'components/Text'
-
 import { formatMoney } from 'helpers'
+import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
+
+import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
+
 import * as s from './styles'
 
 export const columns = [
@@ -13,12 +16,11 @@ export const columns = [
     justifyHeader: 'flex-start',
     width: '221px',
     widthHeader: '200px',
-    format: row => (
+    format: (row: IFund) => (
       <s.FundoOutterWrapper>
-        <s.RiskColorTag borderRisk={parseInt(row['wsdls/profile'], 10)} />
+        <RiskColorTag borderRisk={row['wsdls/profile']} />
         <s.FundoWrapper>
-          {/* <s.FundoWrapper {...row.getCellProps()}> */}
-          <s.FundoNameWrapper truncate>{row.name}</s.FundoNameWrapper>
+          <s.FundoNameWrapper>{row.name}</s.FundoNameWrapper>
           <Text type="caption" color="gray4" bold textAlign="left">
             {row.category_name}
           </Text>
@@ -30,7 +32,7 @@ export const columns = [
     Header: 'RENT. ÚLT. 12 MESES',
     accessor: 'profitability',
     align: 'center',
-    format: row =>
+    format: (row: IFund) =>
       row.profitability &&
       row.profitability[0] &&
       row.profitability[0].value &&
@@ -42,21 +44,21 @@ export const columns = [
   {
     Header: 'INV. INICIAL',
     accessor: 'initial_value',
-    format: row => formatMoney(row.initial_value),
+    format: (row: IFund) => formatMoney(row.initial_value),
     align: 'center',
     width: '129px',
   },
   {
     Header: 'INV. MENSAL',
     accessor: 'monthly_value',
-    format: row => formatMoney(row.monthly_value),
+    format: (row: IFund) => formatMoney(row.monthly_value),
     align: 'center',
     width: '129px',
   },
   {
     Header: '',
     accessor: 'acao',
-    format: (row, onShowDetails) => (
+    format: (row: IFund, onShowDetails: (r: IFund) => void) => (
       <Button outline onClick={() => onShowDetails(row)}>
         mais informações
       </Button>
