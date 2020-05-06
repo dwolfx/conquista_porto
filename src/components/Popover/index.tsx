@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { Manager, Reference, Popper } from 'react-popper'
 import 'styled-components/macro'
+
 import Text from 'components/Text'
+
 import { PopoverContainer, Arrow, ChildrenWrapper, Tooltip } from './styles'
 
 type TPlacement = 'bottom' | 'left' | 'right' | 'top'
+
 interface IProps {
   alwaysVisible?: boolean
   content: string | (() => React.ReactNode)
@@ -14,6 +17,7 @@ interface IProps {
   trigger?: string
   tooltip?: boolean
 }
+
 const Popover: React.FC<IProps> = ({
   alwaysVisible = false,
   children,
@@ -50,7 +54,7 @@ const Popover: React.FC<IProps> = ({
       }
     }
   }
-
+  
   const renderContent =
     typeof content === 'string' ? () => <Text>{content}</Text> : content
 
@@ -79,7 +83,7 @@ const Popover: React.FC<IProps> = ({
       {renderContent()}
     </Tooltip>
   )
-
+  
   return (
     <Manager>
       <Reference>

@@ -53,14 +53,16 @@ export const columns = [
 
       return -1
     },
-    width: '16%',
+    width: '18%',
+    widthHeader: '16%',
   },
   {
     Header: 'INV. INICIAL',
     accessor: 'initial_value',
     format: (row: IFund) => formatMoney(row.initial_value),
     align: 'center',
-    width: '14%',
+    width: '12%',
+    widthHeader: '14%',
   },
   {
     Header: 'INV. MENSAL',
@@ -68,6 +70,7 @@ export const columns = [
     format: (row: IFund) => formatMoney(row.monthly_value),
     align: 'center',
     width: '14%',
+    widthHeader: '14%',
   },
   {
     Header: '',
