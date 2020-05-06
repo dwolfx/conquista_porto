@@ -62,18 +62,21 @@ export default function useFilter(filter) {
     const perfilRisco = filter.byPerfilRisco
     const newFundsList = sortFundsByRisk(funds)
 
-    if (categoriaArena.length > 0 && perfilRisco) {
+    if (categoriaArena.length > 0 && perfilRisco.length > 0) {
       const filteredListByPerfilRisco = filterByPerfilRisco(
         newFundsList,
         perfilRisco
       )
       return filterByCategoriaArena(filteredListByPerfilRisco, categoriaArena)
     }
-    if (categoriaArena.length > 0 && !perfilRisco) {
+    if (categoriaArena.length > 0 && perfilRisco.length === 0) {
       return filterByCategoriaArena(newFundsList, categoriaArena)
     }
-    if (perfilRisco && categoriaArena.length === 0) {
+    if (perfilRisco.length > 0 && categoriaArena.length === 0) {
       return filterByPerfilRisco(newFundsList, perfilRisco)
+    }
+    if (perfilRisco.length === 0) {
+      return newFundsList
     }
     return newFundsList
   }, [funds, filter])

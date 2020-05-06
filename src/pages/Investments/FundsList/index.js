@@ -6,7 +6,6 @@ import useMedia from 'hooks/useMedia'
 import { Col } from 'styled-bootstrap-grid'
 
 import Anbima from 'components/Anbima'
-import { FILTER_RISKS } from 'pages/Investments/FundsList/constants'
 import Filter from './Filter'
 import useFilter from './Filter/useFilter'
 import { columns, fundsType } from './mock'
@@ -30,7 +29,7 @@ export default function FundsList() {
 
   const [filter, setFilter] = useState({
     byCategoriaArena: [],
-    byPerfilRisco: [...Object.values(FILTER_RISKS)],
+    byPerfilRisco: [],
   })
 
   const [mobileFundSort, setMobileFundSort] = useState({
@@ -86,8 +85,8 @@ export default function FundsList() {
           </>
         ) : (
           <>
-            <Filter filter={filter} onChangeFilter={handleChangeFilter} />
             <TableContent>
+              <Filter filter={filter} onChangeFilter={handleChangeFilter} />
               <ContentWrapper>
                 <Col col={12}>
                   <TableFunds
