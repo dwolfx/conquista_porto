@@ -43,10 +43,7 @@ const SuccessCard = () => {
         </s.TitleWrapper>
         <s.InfoText>
           Para que a informação seja efetivada, é preciso que sua conta de
-          investimento tenha saldo suficiente até às
-          {// substituir de acordo com a regra
-          Math.floor(Math.random() * 2) === 1 ? ' 15h' : ' 13h'}
-          .
+          investimento tenha saldo suficiente.
           <br />
           Pode levar alguns minutos até que o fundo apareça na sua tela de
           gestão.
