@@ -23,15 +23,21 @@ interface IProps {
   isOpen: boolean
 }
 
+type IFormData = {
+  moneyToInvest: string
+  whenToInvest: string
+  isAwareOfTerms: boolean
+}
+
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
   isOpen = false,
 }) => {
   const [step, setStep] = useState(0)
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<IFormData>({
     moneyToInvest: '',
     whenToInvest: '',
-    isAwareTerms: false,
+    isAwareOfTerms: false,
   })
   const stepCount = 2
 
@@ -49,9 +55,17 @@ const LayerInvestment: React.FC<IProps> = ({
     }
   }
 
+  const handleChangeFormData = (newFormData: IFormData) => {
+    setFormData(prevState => ({ ...prevState, ...newFormData }))
+  }
+
   // ## AQUI ENTRAM OS COMPONENTES DE STEP
   const layerBody = [
-    <FormFinancialContribution formData={formData} nextStep={nextStep} />,
+    <FormFinancialContribution
+      formData={formData}
+      nextStep={nextStep}
+      onChangeFormData={handleChangeFormData}
+    />,
   ]
 
   return (
