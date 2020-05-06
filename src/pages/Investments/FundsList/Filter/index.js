@@ -177,7 +177,7 @@ export default function Filter({ filter, onChangeFilter }) {
           }
           onClick={() => {
             onChangeFilter({
-              byPerfilRisco: [...Object.values(FILTER_RISKS)],
+              byPerfilRisco: [],
               byCategoriaArena: [],
             })
           }}

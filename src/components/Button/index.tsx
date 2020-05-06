@@ -11,6 +11,7 @@ interface IProps {
   loading?: boolean
   loadingColor?: keyof typeof themeColors
   onClick: () => void
+  disabled?: boolean
 }
 
 const ConquistaButton: React.FC<IProps> = ({
@@ -20,9 +21,16 @@ const ConquistaButton: React.FC<IProps> = ({
   loading = false,
   loadingColor = 'blue4',
   onClick,
+  disabled,
   ...rest
 }) => (
-  <Button onClick={onClick} color={color} outline={outline} {...rest}>
+  <Button
+    onClick={onClick}
+    color={color}
+    outline={outline}
+    disabled={disabled}
+    {...rest}
+  >
     <Content>{children}</Content>
     {loading && (
       <LoadingContainer>

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
@@ -48,11 +47,11 @@ export const MobileFilter = ({
   onChangeSort,
 }: IProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false)
-  const [isDesc, setIsDesc] = useState<boolean | null>(false)
+  const [isDesc, setIsDesc] = useState<boolean | null>(null)
 
   const [newFilters, setNewFilters] = useState<IFilterProps>({
     byCategoriaArena: [],
-    byPerfilRisco: [...Object.values(FILTER_RISKS)],
+    byPerfilRisco: [],
   })
 
   const [newSort, setNewSort] = useState<IFundSort>({
@@ -60,38 +59,41 @@ export const MobileFilter = ({
     sortType: null,
   })
 
+  const [disabled, setDisabled] = useState<boolean>(false)
+
   useEffect(() => {
-    setNewFilters({
-      ...filter,
-    })
-    setNewSort({
-      ...sort,
-    })
+    setNewFilters({ ...filter })
+    setNewSort({ ...sort })
   }, [filter, sort])
 
+  useEffect(() => {
+    const filterAndSort = { ...filter, ...sort }
+    const newFilterAndNewSort = { ...newFilters, ...newSort, sortType: isDesc }
+
+    isFiltersEqual(filterAndSort, newFilterAndNewSort)
+      ? setDisabled(true)
+      : setDisabled(false)
+  }, [filter, sort, newFilters, newSort, isDesc])
+
   const submitNewFilters = () => {
-    onChangeFilter({
-      ...newFilters,
-    })
-    onChangeSort({
-      ...newSort,
-      sortType: isDesc,
-    })
+    onChangeFilter({ ...newFilters })
+    onChangeSort({ ...newSort, sortType: isDesc })
     setIsDrawerOpen(false)
+  }
+
+  const isFiltersEqual = (
+    filterAndSort: IFilterProps & IFundSort,
+    newFilterAndNewSort: IFilterProps & IFundSort
+  ) => {
+    return JSON.stringify(filterAndSort) === JSON.stringify(newFilterAndNewSort)
   }
 
   const handleAddOrderFilter = (field: string) => {
     if (newSort.sortBy === field) {
-      setIsDesc(false)
-      setNewSort({
-        sortBy: null,
-        sortType: null,
-      })
+      setIsDesc(null)
+      setNewSort({ sortBy: null, sortType: null })
     } else {
-      setNewSort({
-        sortType: isDesc,
-        sortBy: field,
-      })
+      setNewSort({ sortType: isDesc, sortBy: field })
     }
   }
 
@@ -99,14 +101,14 @@ export const MobileFilter = ({
     if (newFilters.byCategoriaArena.includes(newFilter)) {
       setNewFilters({
         ...newFilters,
-        byCategoriaArena: newFilters.byCategoriaArena.filter(
-          item => item !== newFilter
-        ),
+        byCategoriaArena: newFilters.byCategoriaArena
+          .filter(item => item !== newFilter)
+          .sort(),
       })
     } else {
       setNewFilters({
         ...newFilters,
-        byCategoriaArena: [...newFilters.byCategoriaArena, newFilter],
+        byCategoriaArena: [...newFilters.byCategoriaArena, newFilter].sort(),
       })
     }
   }
@@ -115,14 +117,14 @@ export const MobileFilter = ({
     if (newFilters.byPerfilRisco.includes(newFilter)) {
       setNewFilters({
         ...newFilters,
-        byPerfilRisco: newFilters.byPerfilRisco.filter(
-          item => item !== newFilter
-        ),
+        byPerfilRisco: newFilters.byPerfilRisco
+          .filter(item => item !== newFilter)
+          .sort(),
       })
     } else {
       setNewFilters({
         ...newFilters,
-        byPerfilRisco: [...newFilters.byPerfilRisco, newFilter],
+        byPerfilRisco: [...newFilters.byPerfilRisco, newFilter].sort(),
       })
     }
   }
@@ -130,12 +132,8 @@ export const MobileFilter = ({
   const handleCloseFilters = () => {
     setIsDesc(sort.sortType)
     setIsDrawerOpen(false)
-    setNewFilters({
-      ...filter,
-    })
-    setNewSort({
-      ...sort,
-    })
+    setNewFilters({ ...filter })
+    setNewSort({ ...sort })
   }
 
   return (
@@ -149,7 +147,7 @@ export const MobileFilter = ({
       <Drawer
         isOpen={isDrawerOpen}
         header={DrawerHeader(handleCloseFilters)}
-        footer={DrawerFooter(submitNewFilters)}
+        footer={DrawerFooter(submitNewFilters, disabled)}
       >
         <FilterDrawerBody>
           <div>
@@ -171,7 +169,7 @@ export const MobileFilter = ({
                   handleAddOrderFilter(ORDER_TYPES[2])
                 }}
               >
-                COATIZAÇÃO DE RESGATE
+                COTIZAÇÃO DE RESGATE
               </ButtonTagStyled>
               <ButtonTagStyled
                 color={newSort.sortBy === ORDER_TYPES[3] ? 'primary' : ''}
@@ -313,7 +311,7 @@ export const MobileFilter = ({
                   handleAddRiskFilter(FILTER_RISKS[2])
                 }}
               >
-                MÉDIO BAIXO
+                MÉDIO-BAIXO
               </ButtonTagStyled>
               <ButtonTagStyled
                 color={
@@ -337,7 +335,7 @@ export const MobileFilter = ({
                   handleAddRiskFilter(FILTER_RISKS[4])
                 }}
               >
-                MÉDIO ALTO
+                MÉDIO-ALTO
               </ButtonTagStyled>
               <ButtonTagStyled
                 color={
@@ -381,8 +379,15 @@ const DrawerHeader = (handleCloseFilters: () => void) => (
   </FilterDrawerHeader>
 )
 
-const DrawerFooter = (submitNewFilters: () => void) => (
-  <ButtonSubmit color="secondary" onClick={() => submitNewFilters()}>
+const DrawerFooter = (
+  submitNewFilters: () => void,
+  disabled: boolean
+) => (
+  <ButtonSubmit
+    color="secondary"
+    onClick={() => submitNewFilters()}
+    disabled={disabled}
+  >
     APLICAR FILTROS
   </ButtonSubmit>
 )

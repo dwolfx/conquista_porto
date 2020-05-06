@@ -48,7 +48,7 @@ const LayerInvestment: React.FC<IProps> = ({
   }
 
   const previousStep = () => {
-    if (step == 0) {
+    if (step === 0) {
       handleClose()
     } else {
       setStep(step - 1)
