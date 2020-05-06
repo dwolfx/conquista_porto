@@ -72,7 +72,7 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
 
   const cardHeader = () => (
     <s.InfoContainer>
-      <Text type="headline" color="gray6" bold>
+      <Text type="heading4" color="gray6" bold>
         Composição da Carteira
       </Text>
       <s.Popover
