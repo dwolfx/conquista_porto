@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,6 +14,8 @@ import Button from 'components/Button'
 import MoneyInput from 'components/Inputs/Money'
 import DateInput from 'components/Inputs/DateInput'
 
+import { formatMoney } from 'helpers'
+
 import {
   CardStyled,
   BalanceInfoContainer,
@@ -26,21 +28,16 @@ import {
   CardFooter,
 } from './styles'
 
-const FormFinancialContribution = props => {
-  const { nextStep } = props
-
+const FormFinancialContribution = ({
+  formData,
+  nextStep,
+  onChangeFormData,
+  idFundo,
+}) => {
   useFetchBankData()
   useInvestmentPosition()
 
   const dispatch = useDispatch()
-  const [formData, setFormData] = useState({
-    moneyToInvest: '',
-    whenToInvest: '',
-  })
-
-  useEffect(() => {
-    setFormData(props.formData)
-  }, [props.formData])
 
   const { bankData, investmentPosition, auth } = useSelector(state => ({
     bankData: state.bankData,
@@ -76,6 +73,14 @@ const FormFinancialContribution = props => {
       )
     }
 
+    const chosenInvestmentFund = () =>
+      investmentPosition.data.length !== 0 &&
+      investmentPosition.data[0].posicoes.posicao.find(
+        posicao => posicao.fundo.id_carteira === idFundo
+      )
+
+    const fund = chosenInvestmentFund()
+
     return (
       <>
         <VerticalListStyled
@@ -84,7 +89,10 @@ const FormFinancialContribution = props => {
               conta de investimento
             </Text>,
             <Text type="headline" color="gray6" bold>
-              R$ 9700
+              {formatMoney(
+                bankData.data.DadosContaPortoSeguro &&
+                  bankData.data.DadosContaPortoSeguro.saldo_disponivel
+              )}
             </Text>,
             <Text type="caption" color="gray5" bold>
               Saldo em conta
@@ -97,7 +105,9 @@ const FormFinancialContribution = props => {
               fundo
             </Text>,
             <Text type="headline" color="gray6" bold>
-              R$ 1739273
+              {formatMoney(
+                investmentPosition.data.length === 0 ? 0 : fund.saldo_atual
+              )}
             </Text>,
             <Text type="caption" color="gray5" bold>
               Saldo e rendimento bruto
@@ -136,10 +146,10 @@ const FormFinancialContribution = props => {
             data-gtm-name="quanto investir"
             value={formData.moneyToInvest}
             onChange={({ target }) => {
-              setFormData(prevState => ({
-                ...prevState,
+              onChangeFormData({
+                ...formData,
                 moneyToInvest: target.value,
-              }))
+              })
             }}
             css={`
               margin-top: 7px;
@@ -156,10 +166,10 @@ const FormFinancialContribution = props => {
             data-gtm-name="quando investir"
             value={formData.whenToInvest}
             onChange={({ target }) => {
-              setFormData(prevState => ({
-                ...prevState,
+              onChangeFormData({
+                ...formData,
                 whenToInvest: target.value,
-              }))
+              })
             }}
             css={`
               margin-top: 7px;
@@ -175,9 +185,15 @@ const FormFinancialContribution = props => {
   )
 }
 
+FormFinancialContribution.defaultProps = {
+  idFundo: null,
+}
+
 FormFinancialContribution.propTypes = {
   formData: PropTypes.object.isRequired,
   nextStep: PropTypes.func.isRequired,
+  onChangeFormData: PropTypes.func.isRequired,
+  idFundo: PropTypes.string,
 }
 
 export default FormFinancialContribution
