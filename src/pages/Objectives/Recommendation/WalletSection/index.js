@@ -14,11 +14,12 @@ import ModalFundos from './ModalFundos'
 import { GridRow } from '../styles'
 import * as s from './styles'
 
+import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
 import TableView from './TableView'
 import CardCreditProduct from './CardCreditProduct'
 
-const WalletSection = ({ creditProduct, combo, funds }) => {
+const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [initialReset, setInitialReset] = useState(true)
   const [fundDetails, setFundDetails] = useState({})
@@ -62,19 +63,27 @@ const WalletSection = ({ creditProduct, combo, funds }) => {
     )
   }
 
-  const sectionInfos = () => (
+  const cardHeader = () => (
+    <s.InfoContainer>
+      <Text type="heading4" color="gray6" bold>
+        Composição da Carteira
+      </Text>
+      <s.Popover
+        content="Carteira é o nome que se dá ao conjunto de produtos de investimento que uma pessoa tem."
+        placement="top"
+      >
+        <Icon name="information" color="gray4" width={21} />
+      </s.Popover>
+    </s.InfoContainer>
+  )
+
+  const cardInfos = () => (
     <>
       <s.InfoRow>
-        <Text
-          type="headline"
-          color="gray6"
-          css={`
-            margin-right: 7px;
-          `}
-        >
-          Os investimentos inicial e mensal serão distribuídos nestes fundos.
-        </Text>
-        <Icon name="information" color="gray4" width={20} />
+        <CardInfosText
+          isUnmetGoal={isUnmetGoal}
+          productName={creditProduct.name}
+        />
       </s.InfoRow>
 
       <PercentualInfos />
@@ -101,15 +110,17 @@ const WalletSection = ({ creditProduct, combo, funds }) => {
       >
         {isMobile ? (
           <CardsView
-            sectionInfos={sectionInfos}
+            cardHeader={cardHeader}
+            cardInfos={cardInfos}
             funds={funds}
             handleOpenDetails={handleOpenDetails}
           />
         ) : (
           <TableView
+            cardHeader={cardHeader}
+            cardInfos={cardInfos}
             funds={funds}
             handleOpenDetails={handleOpenDetails}
-            sectionInfos={sectionInfos}
           />
         )}
       </Col>
@@ -137,11 +148,13 @@ WalletSection.propTypes = {
       category_name: PropTypes.string,
     })
   ).isRequired,
+  isUnmetGoal: PropTypes.bool,
 }
 
 WalletSection.defaultProps = {
   combo: [],
   creditProduct: {},
+  isUnmetGoal: false,
 }
 
 export default WalletSection

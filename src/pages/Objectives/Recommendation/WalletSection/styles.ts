@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Row } from 'styled-bootstrap-grid'
 
+import PopoverComp from 'components/Popover'
 import Text from 'components/Text'
 import { fundRiskColors } from 'styles/theme'
 
@@ -52,4 +53,21 @@ export const PercentualText = styled(Text)`
     padding-left: ${props => props.theme.spacing(2)}px;
     margin-left: ${props => props.theme.spacing(2)}px;
   }
+`
+
+export const InfoContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+`
+
+export const Popover = styled(PopoverComp)`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 ${props=> props.theme.spacing(1)}px;
+`
+
+export const TextUnderlined = styled(Text)`
+  text-decoration: underline;
 `

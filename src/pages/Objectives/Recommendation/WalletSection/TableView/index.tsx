@@ -7,18 +7,25 @@ import { columns, fundsType } from './tableData'
 import * as s from './styles'
 
 interface IProps {
+  cardHeader: React.JSXElementConstructor<object>
+  cardInfos: React.JSXElementConstructor<object>
   funds: IFund[]
   handleOpenDetails: (fund: IFund) => void
-  sectionInfos: React.JSXElementConstructor<object>
 }
 
 const DesktopView = ({
+  cardHeader: CardHeader,
+  cardInfos: CardInfos,
   funds,
   handleOpenDetails,
-  sectionInfos: SectionInfos,
 }: IProps) => (
-  <FullHeightCard headerIcon="financial" headerTitle="Composição da Carteira">
-    <SectionInfos />
+  <FullHeightCard
+    headerIcon="financial"
+    headerTitle={
+      <CardHeader />
+    }
+  >
+    <CardInfos />
 
     <s.ContainerFunds>
       <s.Table

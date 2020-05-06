@@ -321,6 +321,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
             combo={combo}
             funds={funds}
             creditProduct={credit_product}
+            isUnmetGoal={!!suggestion_goal}
           />
           <SectionThree additional={additional} />
         </Container>
