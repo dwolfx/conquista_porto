@@ -38,7 +38,7 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
   }
 
   const PercentualInfos = () => {
-    let fundsCategories = {}
+    const fundsCategories = {}
 
     funds.forEach(fund => {
       if (fund.category_name in fundsCategories) {
@@ -48,13 +48,15 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
       }
     })
 
-    fundsCategories = Object.entries(fundsCategories).sort(([keyA], [keyB]) =>
+    const fundsCategoriesSort = Object.entries(
+      fundsCategories
+    ).sort(([keyA], [keyB]) =>
       fundsCategories[keyA] < fundsCategories[keyB] ? 1 : -1
     )
 
     return (
       <s.PercentualInfosContainer>
-        {fundsCategories.map(([key, value]) => (
+        {fundsCategoriesSort.map(([key, value]) => (
           <s.PercentualText type="headline" color="gray6" bold>
             {`${((value * 100) / funds.length).toFixed(1)}% em ${key}`}
           </s.PercentualText>
@@ -65,7 +67,7 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
 
   const cardHeader = () => (
     <s.InfoContainer>
-      <Text type="heading4" color="gray6" bold>
+      <Text type="headline" color="gray6" bold>
         Composição da Carteira
       </Text>
       <s.Popover

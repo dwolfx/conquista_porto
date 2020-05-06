@@ -35,9 +35,13 @@ export const CardIcon = styled.div`
   display: flex;
   height: 35px;
   justify-content: center;
-  margin-right: ${props => `${props.theme.gutter}px`};
+  margin-right: ${props => `${props.theme.spacing(2)}px`};
   padding: 7px;
   width: 35px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-right: ${props => `${props.theme.spacing(1)}px`};
+  }
 `
 
 export const CardIconInfo = styled.div`

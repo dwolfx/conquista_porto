@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 const arrowDirection = {
   bottom: {
     main: css`
@@ -65,6 +66,7 @@ const arrowDirection = {
     `,
   },
 }
+
 export const PopoverContainer = styled.div<any>`
   background-color: ${props => props.theme.colors.white};
   border-radius: 4px;
@@ -73,16 +75,19 @@ export const PopoverContainer = styled.div<any>`
   position: relative;
   z-index: 13;
 `
+
 export const Tooltip = styled(PopoverContainer)`
   background-color: ${props => props.theme.colors.gray6};
   color: ${props => props.theme.colors.white};
   opacity: 0.84;
   padding: 4.5px 7px;
 `
+
 interface IArrow {
   placement: 'bottom' | 'left' | 'right' | 'top'
   tooltip?: boolean
 }
+
 export const Arrow = styled.div<IArrow>`
   height: 14px;
   overflow: hidden;
@@ -108,6 +113,7 @@ export const Arrow = styled.div<IArrow>`
     ${props => arrowDirection[props.placement].pseudo};
   }
 `
+
 export const ChildrenWrapper = styled.div`
   cursor: pointer;
 `

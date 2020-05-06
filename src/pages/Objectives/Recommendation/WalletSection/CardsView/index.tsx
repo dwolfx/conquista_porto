@@ -11,15 +11,17 @@ import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styl
 import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
 
 interface IProps {
+  cardHeader: React.JSXElementConstructor<object>
+  cardInfos: React.JSXElementConstructor<object>
   funds: IFund[]
   handleOpenDetails: (fund: IFund) => void
-  sectionInfos: React.JSXElementConstructor<object>
 }
 
-const MobileView = ({
+const CardsView = ({
+  cardHeader: CardHeader,
+  cardInfos: CardInfos,
   funds,
   handleOpenDetails,
-  sectionInfos: SectionInfos,
 }: IProps) => {
   const renderFundsCards = () =>
     funds.map((fund: IFund) => (
@@ -78,9 +80,9 @@ const MobileView = ({
     <>
       <FullHeightCard
         headerIcon="financial"
-        headerTitle="Composição da Carteira"
+        headerTitle={<CardHeader />}
       >
-        <SectionInfos />
+        <CardInfos />
       </FullHeightCard>
 
       {renderFundsCards()}
@@ -88,4 +90,4 @@ const MobileView = ({
   )
 }
 
-export default MobileView
+export default CardsView

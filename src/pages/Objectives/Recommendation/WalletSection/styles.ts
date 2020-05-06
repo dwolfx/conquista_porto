@@ -53,19 +53,32 @@ export const PercentualText = styled(Text)`
     padding-left: ${props => props.theme.spacing(2)}px;
     margin-left: ${props => props.theme.spacing(2)}px;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    &:not(:first-child) {
+      border-left: 0;
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
 `
 
 export const InfoContainer = styled.div`
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 `
 
 export const Popover = styled(PopoverComp)`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: 0 ${props=> props.theme.spacing(1)}px;
+  margin: 0 ${props => props.theme.spacing(1)}px;
+`
+
+export const InlineContentText = styled.span`
+  display: inline-flex;
 `
 
 export const TextUnderlined = styled(Text)`

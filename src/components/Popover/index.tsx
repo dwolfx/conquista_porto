@@ -4,6 +4,7 @@ import { Manager, Reference, Popper } from 'react-popper'
 import 'styled-components/macro'
 import Text from 'components/Text'
 import { PopoverContainer, Arrow, ChildrenWrapper, Tooltip } from './styles'
+
 type TPlacement = 'bottom' | 'left' | 'right' | 'top'
 interface IProps {
   alwaysVisible?: boolean
@@ -24,10 +25,13 @@ const Popover: React.FC<IProps> = ({
   ...rest
 }) => {
   const portalContainer = document.querySelector('#root')
+
   const [isOpen, setIsOpen] = useState(alwaysVisible)
+  
   useEffect(() => {
     setIsOpen(alwaysVisible)
   }, [alwaysVisible])
+  
   const actions = () => {
     if (alwaysVisible) {
       return null
@@ -46,6 +50,7 @@ const Popover: React.FC<IProps> = ({
       }
     }
   }
+  
   const renderContent =
     typeof content === 'string' ? () => <Text>{content}</Text> : content
 
@@ -63,6 +68,7 @@ const Popover: React.FC<IProps> = ({
       {renderContent()}
     </PopoverContainer>
   )
+
   const renderTooltip = (
     ref: React.Ref<any>,
     style: object,
@@ -73,6 +79,7 @@ const Popover: React.FC<IProps> = ({
       {renderContent()}
     </Tooltip>
   )
+  
   return (
     <Manager>
       <Reference>
@@ -114,4 +121,5 @@ const Popover: React.FC<IProps> = ({
     </Manager>
   )
 }
+
 export default Popover

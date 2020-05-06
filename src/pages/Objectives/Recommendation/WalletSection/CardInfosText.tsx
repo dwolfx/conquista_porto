@@ -25,19 +25,21 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
           <Text type="headline" color="gray6">
             Os investimentos inicial e mensal serão distribuídos nestes
           </Text>
-          <s.Popover content={fundosTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
-              fundos
-            </s.TextUnderlined>
-          </s.Popover>
-          <s.Popover
-            content={fundosTooltipText}
-            css={`
-              margin-left: 0;
-            `}
-          >
-            <Icon name="information" color="gray4" width={21} />
-          </s.Popover>
+          <s.InlineContentText>
+            <s.Popover content={fundosTooltipText}>
+              <s.TextUnderlined type="headline" color="gray6">
+                fundos
+              </s.TextUnderlined>
+            </s.Popover>
+            <s.Popover
+              content={fundosTooltipText}
+              css={`
+                margin-left: 0;
+              `}
+            >
+              <Icon name="information" color="gray4" width={21} />
+            </s.Popover>
+          </s.InlineContentText>
           <Text type="headline" color="gray6">
             e poderão ser utilizados como entrada no financiamento.
           </Text>
@@ -54,37 +56,37 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
         <s.InfoContainer>
           <Text type="headline" color="gray6">
             Os investimentos inicial e mensal serão distribuídos nestes
-          </Text>
-          <s.Popover content={fundosTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
-              fundos
-            </s.TextUnderlined>
-          </s.Popover>
-          <s.Popover
-            content={fundosTooltipText}
-            css={`
-              margin-left: 0;
-            `}
-          >
-            <Icon name="information" color="gray4" width={21} />
-          </s.Popover>
-          <Text type="headline" color="gray6">
+            <s.InlineContentText>
+              <s.Popover content={fundosTooltipText}>
+                <s.TextUnderlined type="headline" color="gray6">
+                  fundos
+                </s.TextUnderlined>
+              </s.Popover>
+              <s.Popover
+                content={fundosTooltipText}
+                css={`
+                  margin-left: 0;
+                `}
+              >
+                <Icon name="information" color="gray4" width={21} />
+              </s.Popover>
+            </s.InlineContentText>
             e poderão ser utilizados como
-          </Text>
-          <s.Popover content={lanceTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
-              lance
-            </s.TextUnderlined>
-          </s.Popover>
-          <s.Popover
-            content={lanceTooltipText}
-            css={`
-              margin-left: 0;
-            `}
-          >
-            <Icon name="information" color="gray4" width={21} />
-          </s.Popover>
-          <Text type="headline" color="gray6">
+            <s.InlineContentText>
+              <s.Popover content={lanceTooltipText}>
+                <s.TextUnderlined type="headline" color="gray6">
+                  lance
+                </s.TextUnderlined>
+              </s.Popover>
+              <s.Popover
+                content={lanceTooltipText}
+                css={`
+                  margin-left: 0;
+                `}
+              >
+                <Icon name="information" color="gray4" width={21} />
+              </s.Popover>
+            </s.InlineContentText>
             no consórcio.
           </Text>
         </s.InfoContainer>
@@ -101,35 +103,39 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
           <Text type="headline" color="gray6">
             Os investimentos inicial e mensal serão distribuídos nestes
           </Text>
-          <s.Popover content="Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados.">
-            <s.TextUnderlined type="headline" color="gray6">
-              fundos
-            </s.TextUnderlined>
-          </s.Popover>
-          <s.Popover
-            content="Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados."
-            css={`
-              margin-left: 0;
-            `}
-          >
-            <Icon name="information" color="gray4" width={21} />
-          </s.Popover>
+          <s.InlineContentText>
+            <s.Popover content="Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados.">
+              <s.TextUnderlined type="headline" color="gray6">
+                fundos
+              </s.TextUnderlined>
+            </s.Popover>
+            <s.Popover
+              content="Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados."
+              css={`
+                margin-left: 0;
+              `}
+            >
+              <Icon name="information" color="gray4" width={21} />
+            </s.Popover>
+          </s.InlineContentText>
           <Text type="headline" color="gray6">
             e poderão ser utilizados como
           </Text>
-          <s.Popover content={lanceTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
-              lance
-            </s.TextUnderlined>
-          </s.Popover>
-          <s.Popover
-            content={lanceTooltipText}
-            css={`
-              margin-left: 0;
-            `}
-          >
-            <Icon name="information" color="gray4" width={21} />
-          </s.Popover>
+          <s.InlineContentText>
+            <s.Popover content={lanceTooltipText}>
+              <s.TextUnderlined type="headline" color="gray6">
+                lance
+              </s.TextUnderlined>
+            </s.Popover>
+            <s.Popover
+              content={lanceTooltipText}
+              css={`
+                margin-left: 0;
+              `}
+            >
+              <Icon name="information" color="gray4" width={21} />
+            </s.Popover>
+          </s.InlineContentText>
           <Text type="headline" color="gray6">
             no consórcio.
           </Text>
@@ -145,19 +151,21 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
         <Text type="headline" color="gray6">
           Os investimentos inicial e mensal serão distribuídos nestes
         </Text>
-        <s.Popover content={fundosTooltipText}>
-          <s.TextUnderlined type="headline" color="gray6">
-            fundos.
-          </s.TextUnderlined>
-        </s.Popover>
-        <s.Popover
-          content={fundosTooltipText}
-          css={`
-            margin-left: 0;
-          `}
-        >
-          <Icon name="information" color="gray4" width={21} />
-        </s.Popover>
+        <s.InlineContentText>
+          <s.Popover content={fundosTooltipText}>
+            <s.TextUnderlined type="headline" color="gray6">
+              fundos.
+            </s.TextUnderlined>
+          </s.Popover>
+          <s.Popover
+            content={fundosTooltipText}
+            css={`
+              margin-left: 0;
+            `}
+          >
+            <Icon name="information" color="gray4" width={21} />
+          </s.Popover>
+        </s.InlineContentText>
         <Text type="headline" color="gray6"></Text>
       </s.InfoContainer>
     )
@@ -168,19 +176,21 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
       <Text type="headline" color="gray6">
         Os investimentos inicial e mensal serão distribuídos nestes
       </Text>
-      <s.Popover content={fundosTooltipText}>
-        <Text type="headline" color="gray6">
-          fundos
-        </Text>
-      </s.Popover>
-      <s.Popover
-        content={fundosTooltipText}
-        css={`
-          margin-left: 0;
-        `}
-      >
-        <Icon name="information" color="gray4" width={21} />
-      </s.Popover>
+      <s.InlineContentText>
+        <s.Popover content={fundosTooltipText}>
+          <Text type="headline" color="gray6">
+            fundos
+          </Text>
+        </s.Popover>
+        <s.Popover
+          content={fundosTooltipText}
+          css={`
+            margin-left: 0;
+          `}
+        >
+          <Icon name="information" color="gray4" width={21} />
+        </s.Popover>
+      </s.InlineContentText>
       <Text type="headline" color="gray6">
         que, juntos, te ajudarão na conquista do seu objetivo
       </Text>
