@@ -84,3 +84,20 @@ export const InlineContentText = styled.span`
 export const TextUnderlined = styled(Text)`
   text-decoration: underline;
 `
+
+export const InfoContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+`
+
+export const Popover = styled(PopoverComp)`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 ${props=> props.theme.spacing(1)}px;
+`
+
+export const TextUnderlined = styled(Text)`
+  text-decoration: underline;
+`

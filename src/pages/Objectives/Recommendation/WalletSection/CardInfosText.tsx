@@ -180,10 +180,10 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
       return textToDisplay.financiamento
     }
     if (productName.toLowerCase().includes('consórcio de imóvel')) {
-      return textToDisplay["consórcio de imóvel"]
+      return textToDisplay['consórcio de imóvel']
     }
     if (productName.toLowerCase().includes('consórcio de veículo')) {
-      return textToDisplay["consórcio de veículo"]
+      return textToDisplay['consórcio de veículo']
     }
 
     return textToDisplay.isUnmet
