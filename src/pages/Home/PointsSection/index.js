@@ -172,7 +172,7 @@ export default function PointsSection({ points }) {
     points.detalheExtratoOptemaisTypes &&
     points.detalheExtratoOptemaisTypes.map((item, index) => (
       <HorizontalList
-        key={`point-${index}`}
+        key={`point-${index}-${Math.random() * 100}`}
         startItems={[
           <PointDate>{item.dataCompra}</PointDate>,
           <PointName type="headline">{item.nomeTransacao}</PointName>,
@@ -193,9 +193,9 @@ export default function PointsSection({ points }) {
     )
     const tag = (color, text) => <Tag color={color} text={text} />
 
-    return pointsRulesConditions.map((item, key) => (
-      <>
-        <ModalTextWrapper key={key}>
+    return pointsRulesConditions.map(item => (
+      <React.Fragment key={item.id}>
+        <ModalTextWrapper>
           <Text type="headline" color="gray6" bold>
             {item.title}
           </Text>
@@ -215,7 +215,7 @@ export default function PointsSection({ points }) {
             ))}
           </ContainerBox>
         )}
-      </>
+      </React.Fragment>
     ))
   }
 
