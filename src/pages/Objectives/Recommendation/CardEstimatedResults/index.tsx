@@ -96,7 +96,7 @@ const CardEstimatedResults = ({ answer, income }:ICardProps) => {
             </CardRow>
             <CardRow justifyContent="between">
               {positionIncome.map((item: any, key) => (
-                <LabelIncome smAuto>
+                <LabelIncome smAuto key={`${incomeLabel(key)}-${key}`}>
                   <Text type="captionUppercase" color="gray5">
                     Cenário {incomeLabel[key]}
                   </Text>

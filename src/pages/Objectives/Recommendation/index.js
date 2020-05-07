@@ -372,7 +372,7 @@ Recommendation.defaultProps = {
 Recommendation.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   data: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     answer: PropTypes.shape({
       target_date: PropTypes.string,
       target_value: PropTypes.number,

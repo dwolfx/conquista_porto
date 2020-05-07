@@ -134,12 +134,19 @@ const TableFunds = ({
 TableFunds.propTypes = {
   data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  isError: PropTypes.bool.isRequired,
-  isFiltering: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
+  isFiltering: PropTypes.bool,
   onShowDetails: PropTypes.func.isRequired,
-  setIsOpenForInvestments: PropTypes.func.isRequired,
+  setIsOpenForInvestments: PropTypes.func,
   fundsType: PropTypes.array.isRequired,
+}
+
+TableFunds.defaultProps = {
+  isLoading: false,
+  isError: false,
+  isFiltering: false,
+  setIsOpenForInvestments: () => null,
 }
 
 TheadWrapper.propTypes = {

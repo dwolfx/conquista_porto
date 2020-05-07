@@ -12,14 +12,13 @@ interface IProps {
 }
 
 export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
-  let fundosTooltipText =
+  const fundosTooltipText =
     'Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados.'
+  const lanceTooltipText =
+    'Uma forma de aumentar as chances de ser contemplado no consórcio, em que se adiciona um valor maior junto à parcela mensal.'
 
   if (isUnmetGoal) {
     if (productName.toLowerCase().includes('financiamento')) {
-      fundosTooltipText =
-        'Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados.'
-
       return (
         <s.InfoContainer>
           <Text type="headline" color="gray6">
@@ -47,11 +46,6 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
       )
     }
     if (productName.toLowerCase().includes('consórcio de imóvel')) {
-      fundosTooltipText =
-        'Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados.'
-      const lanceTooltipText =
-        'Uma forma de aumentar as chances de ser contemplado no consórcio, em que se adiciona um valor maior junto à parcela mensal.'
-
       return (
         <s.InfoContainer>
           <Text type="headline" color="gray6">
@@ -93,11 +87,6 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
       )
     }
     if (productName.toLowerCase().includes('consórcio de veículo')) {
-      fundosTooltipText =
-        'Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados.'
-      const lanceTooltipText =
-        'Uma forma de aumentar as chances de ser contemplado no consórcio, em que se adiciona um valor maior junto à parcela mensal.'
-
       return (
         <s.InfoContainer>
           <Text type="headline" color="gray6">
@@ -142,9 +131,6 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
         </s.InfoContainer>
       )
     }
-
-    fundosTooltipText =
-      'Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados. '
 
     return (
       <s.InfoContainer>

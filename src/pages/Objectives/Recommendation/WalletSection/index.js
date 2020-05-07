@@ -57,7 +57,12 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
     return (
       <s.PercentualInfosContainer>
         {fundsCategoriesSort.map(([key, value]) => (
-          <s.PercentualText type="headline" color="gray6" bold>
+          <s.PercentualText
+            type="headline"
+            color="gray6"
+            bold
+            key={`${key}-${value}%`}
+          >
             {`${((value * 100) / funds.length).toFixed(1)}% em ${key}`}
           </s.PercentualText>
         ))}
