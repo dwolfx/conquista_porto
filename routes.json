@@ -28,5 +28,6 @@
   "/loyalty/optemais/auth/tokencatalogo": "/resgate_pontos",
   "/loyalty/optemais/auth/tokenorg": "/token_resgate_pontos",
   "/goal/goals/:id/funds": "/goal_management",
-  "/goal/goals/bytype/:id": "/goal_bytype"
+  "/goal/goals/bytype/:id": "/goal_bytype",
+  "/rewards/recommendations": "/recommendations_rewards"
 }

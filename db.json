@@ -3753,15 +3753,7 @@
     "cod_org": "040",
     "cod_prog": "001"
   },
-  "goal_recommendations": {
-    "goal_type": "1",
-    "profile": 3,
-    "nickname": "Disney",
-    "target_date": "30/12/2021",
-    "target_value": "70.000.000,00",
-    "initial_value": "5.000,00",
-    "monthly_value": "1.000,00"
-  },
+  "goal_recommendations": {},
   "goal_management": {
     "id": 1,
     "answer": {
@@ -4193,5 +4185,37 @@
         "nickname": "#MinhaCasaMinhaVida"
       }
     ]
-  }
+  },
+  "recommendations_rewards": [
+    {
+      "subject_name": "Previdência Privada",
+      "button_name": "PREVIDÊNCIA PRIVADA",
+      "url_name": "/portaldecliente/conquista/previdencia/home",
+      "text_content": "Quais são os seus planos para o futuro? Com o Conquista, você planeja sua proteção e da sua família. Conheça os planos de Previdência Privada, simule quantas vezes quiser e contrate tranquilidade para o amanhã."
+    },
+    {
+      "subject_name": "Foco em rentabilidade",
+      "button_name": "INVESTIR",
+      "url_name": "/portaldecliente/conquista/investimentos/info-fundos-investimento",
+      "text_content": "Você ainda não investe com o Conquista? Com fundos da Porto Seguro e de gestoras parceiras, a plataforma reúne opções para todos os perfis e oferece comodidade para quem busca diversificar rendimentos."
+    },
+    {
+      "subject_name": "Objetivos",
+      "button_name": "CRIAR OBJETIVOS",
+      "url_name": "/portaldecliente/conquista/Meus-Objetivos-Home",
+      "text_content": "Você quer planejar a realização dos seus sonhos? Crie objetivos com o Conquista. É só contar o que você deseja e a ferramenta apresentará um plano personalizado de como alcançar suas metas. Experimente! "
+    },
+    {
+      "subject_name": "Dinheiro",
+      "button_name": "GERENCIAR DESPESAS",
+      "url_name": "/portaldecliente/conquista/Gestao-Despesas-Pessoais",
+      "text_content": "Gostaria de organizar sua vida financeira com facilidade? A ferramenta Gerenciador irá permitir que você unifique suas contas bancárias e classifique suas despesas. Em breve, aqui no Conquista!"
+    },
+    {
+      "subject_name": "Produtos",
+      "button_name": "CONHECER SOLUÇÕES",
+      "url_name": "/portaldecliente/conquista",
+      "text_content": "Os investidores do Conquista têm, em média, 4 soluções da Porto Seguro. Simule quantas propostas quiser e contrate aqui. Quanto mais soluções você tiver, mais pontos pode acumular no Programa de Relacionamento."
+    }
+  ]
 }
