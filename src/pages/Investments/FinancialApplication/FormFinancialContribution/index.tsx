@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -16,6 +15,8 @@ import DateInput from 'components/Inputs/DateInput'
 
 import { formatMoney } from 'helpers'
 
+import { IFormData } from 'pages/Investments/FinancialApplication'
+
 import {
   CardStyled,
   BalanceInfoContainer,
@@ -28,7 +29,14 @@ import {
   CardFooter,
 } from './styles'
 
-const FormFinancialContribution = ({
+interface IProps {
+  formData: IFormData
+  nextStep: () => void
+  onChangeFormData: (formData: IFormData) => void
+  idFundo?: string
+}
+
+const FormFinancialContribution: React.FC<IProps> = ({
   formData,
   nextStep,
   onChangeFormData,
@@ -39,7 +47,7 @@ const FormFinancialContribution = ({
 
   const dispatch = useDispatch()
 
-  const { bankData, investmentPosition, auth } = useSelector(state => ({
+  const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
     auth: state.auth,
@@ -76,7 +84,7 @@ const FormFinancialContribution = ({
     const chosenInvestmentFund = () =>
       investmentPosition.data.length !== 0 &&
       investmentPosition.data[0].posicoes.posicao.find(
-        posicao => posicao.fundo.id_carteira === idFundo
+        (posicao: any) => posicao.fundo.id_carteira === idFundo
       )
 
     const fund = chosenInvestmentFund()
@@ -119,81 +127,73 @@ const FormFinancialContribution = ({
   }
 
   return (
-    <CardStyled
-      footer={
-        <CardFooter>
-          <Button
-            color="secondary"
-            onClick={() => {
-              // TODO Talvez entre algum código aqui para validar o próximo step
-              nextStep()
-            }}
-          >
-            Próximo
-          </Button>
-        </CardFooter>
-      }
-    >
-      <BalanceInfoContainer>{renderBaseAccountInfo()}</BalanceInfoContainer>
-      <DivisorStyled margin="21px 0 21px 0" />
-      <InputsContainer>
-        <InputContainer>
-          <Text type="headline" color="gray6">
-            Quanto você quer investir?
-          </Text>
-          <MoneyInput
-            data-gtm-form="input"
-            data-gtm-name="quanto investir"
-            value={formData.moneyToInvest}
-            onChange={({ target }) => {
-              onChangeFormData({
-                ...formData,
-                moneyToInvest: target.value,
-              })
-            }}
-            css={`
-              margin-top: 7px;
-            `}
-          />
-        </InputContainer>
-        <InputContainer>
-          <Text type="headline" color="gray6">
-            Quando você deseja investir?
-          </Text>
-          <DateInput
-            newInput
-            data-gtm-form="input"
-            data-gtm-name="quando investir"
-            value={formData.whenToInvest}
-            onChange={({ target }) => {
-              onChangeFormData({
-                ...formData,
-                whenToInvest: target.value,
-              })
-            }}
-            css={`
-              margin-top: 7px;
-            `}
-          />
-        </InputContainer>
-      </InputsContainer>
-      <DivisorStyled margin="28px 0 21px 0" />
-      <Text bold color="gray5">
-        Solicitações enviadas após às 15h serão processadas no próximo dia útil.
-      </Text>
-    </CardStyled>
+    <>
+      <CardStyled
+        footer={
+          <CardFooter>
+            <Button
+              color="secondary"
+              onClick={() => {
+                // TODO Talvez entre algum código aqui para validar o próximo step
+                nextStep()
+              }}
+            >
+              Próximo
+            </Button>
+          </CardFooter>
+        }
+      >
+        <BalanceInfoContainer>{renderBaseAccountInfo()}</BalanceInfoContainer>
+        <DivisorStyled margin="21px 0 21px 0" />
+        <InputsContainer>
+          <InputContainer>
+            <Text type="headline" color="gray6">
+              Quanto você quer investir?
+            </Text>
+            <MoneyInput
+              data-gtm-form="input"
+              data-gtm-name="quanto investir"
+              value={formData.moneyToInvest}
+              onChange={({ target }) => {
+                onChangeFormData({
+                  ...formData,
+                  moneyToInvest: target.value,
+                })
+              }}
+              css={`
+                margin-top: 7px;
+              `}
+            />
+          </InputContainer>
+          <InputContainer>
+            <Text type="headline" color="gray6">
+              Quando você deseja investir?
+            </Text>
+            <DateInput
+              newInput
+              data-gtm-form="input"
+              data-gtm-name="quando investir"
+              onChange={({ target }: any) => {
+                onChangeFormData({
+                  ...formData,
+                  whenToInvest: target.value,
+                })
+              }}
+              value={formData.whenToInvest}
+              css={`
+                margin-top: 7px;
+              `}
+            />
+          </InputContainer>
+        </InputsContainer>
+        <DivisorStyled margin="28px 0 21px 0" />
+        <Text bold color="gray5">
+          Solicitações enviadas após às 15h serão processadas no próximo dia
+          útil.
+        </Text>
+      </CardStyled>
+    </>
   )
-}
-
-FormFinancialContribution.defaultProps = {
-  idFundo: null,
-}
-
-FormFinancialContribution.propTypes = {
-  formData: PropTypes.object.isRequired,
-  nextStep: PropTypes.func.isRequired,
-  onChangeFormData: PropTypes.func.isRequired,
-  idFundo: PropTypes.string,
 }
 
 export default FormFinancialContribution

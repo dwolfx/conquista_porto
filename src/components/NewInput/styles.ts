@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
 import Icon from 'components/IconExporter'
 
-const inputDefaultStyle = css<{ width: string }>`
+const inputDefaultStyle = css<{ width?: string | number }>`
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
   height: 56px;
-  width: ${props => `${props.width}%`};
+  width: ${props => `${props.width ? props.width : 100}%`};
   align-items: center;
   display: flex;
   padding: 0 7px;
@@ -43,8 +43,8 @@ export const InputGroupWrapper = styled.div`
 `
 
 interface IInputWrapperProps {
-  error: boolean | { icon: string; message: string }
-  width: string
+  error?: boolean | { icon: string; message: string }
+  width?: string | number
 }
 
 export const InputWrapper = styled.div<IInputWrapperProps>`

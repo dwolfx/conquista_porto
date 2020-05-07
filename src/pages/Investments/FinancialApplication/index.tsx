@@ -23,7 +23,7 @@ interface IProps {
   isOpen: boolean
 }
 
-type IFormData = {
+export type IFormData = {
   moneyToInvest: string
   whenToInvest: string
   isAwareOfTerms: boolean
