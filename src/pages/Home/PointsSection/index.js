@@ -76,7 +76,7 @@ export default function PointsSection({ points }) {
 
   useEffect(() => {
     setCardsRecommendationData(
-      creditCard
+      creditCard && creditCard.length
         ? pointsCardsDataWithCreditCard
         : pointsCardsDataWithoutCreditCard
     )
@@ -366,18 +366,18 @@ export default function PointsSection({ points }) {
             <PointsOfferCard
               offer={belowOffer || cardsRecommendationData[0]}
               cardIcon={
-                creditCard
+                creditCard && creditCard.length
                   ? (belowOffer || cardsRecommendationData[0]).icon
                   : 'star'
               }
-              isMiscellaneous={!creditCard}
+              isMiscellaneous={!creditCard || !creditCard.length}
             />
           </SectionCol>
           <SectionCol md="6">
             <PointsOfferCard
               offer={aboveOffer || cardsRecommendationData[1]}
               cardIcon={
-                creditCard
+                creditCard && creditCard.length
                   ? (aboveOffer || cardsRecommendationData[1]).icon
                   : 'idea'
               }
