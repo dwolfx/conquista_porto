@@ -19,7 +19,110 @@ import RepairsOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_poi
 import SofaOfferImg1 from 'assets/images/pages/Home/PointsCards/img_offer_points_sofa_1.jpg'
 import SofaOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_sofa_2.jpg'
 
-export default [
+import { ICardsInfo } from './types'
+
+export const pointsCardsDataWithoutCreditCard: ICardsInfo[] = [
+  {
+    group: 1,
+    points: 1872,
+    type: 'Diversos',
+    exchangeProduct: 'Fone De Ouvido Multilaser',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 1,
+    points: 6900,
+    type: 'Diversos',
+    exchangeProduct: 'Ventilador de Mesa Britânia',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 1,
+    points: 12817,
+    type: 'Diversos',
+    exchangeProduct: 'Aspirador de Pó Vertical e de Mão ',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 1,
+    points: 17015,
+    type: 'Diversos',
+    exchangeProduct: 'Headphone Premium Bluetooth ',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 2,
+    points: 27224,
+    type: 'Diversos',
+    exchangeProduct: 'Mixer Philips Walita',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 2,
+    points: 32927,
+    type: 'Diversos',
+    exchangeProduct: 'Panela Elétrica Arno',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 2,
+    points: 47871,
+    type: 'Diversos',
+    exchangeProduct: 'Fritadeira Elétrica Multilaser Air Fryer ',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 2,
+    points: 59900,
+    type: 'Diversos',
+    exchangeProduct: 'Máquina de Café Citiz',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 3,
+    points: 65900,
+    type: 'Diversos',
+    exchangeProduct: 'Adega de Vinhos Philco',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 3,
+    points: 79900,
+    type: 'Diversos',
+    exchangeProduct: 'Máquina de Café Nespresso Expert',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 3,
+    points: 99900,
+    type: 'Diversos',
+    exchangeProduct: 'Smartwatch Samsung Galaxy Watch Active',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 3,
+    points: 115990,
+    type: 'Diversos',
+    exchangeProduct: 'Adega Climatizada Brastemp',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 4,
+    points: 141990,
+    type: 'Diversos',
+    exchangeProduct: 'Ar-condicionado Split Gree',
+    image: InsuranceOfferImg,
+  },
+  {
+    group: 4,
+    points: 161183,
+    type: 'Diversos',
+    exchangeProduct: 'Smartwatch Samsung Galaxy Watch Active 2 - Preta 4GB',
+    image: InsuranceOfferImg,
+  },
+]
+
+export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
   {
     group: 1,
     points: 6500,
@@ -34,7 +137,7 @@ export default [
     points: 13000,
     type: 'Seguro',
     exchangeProduct: 'Porto Seguro Residencial',
-    exchangeValue: 169,
+    exchangeValue: 240,
     icon: 'homewithwindow',
     image: InsuranceOfferImg2,
   },
@@ -70,7 +173,7 @@ export default [
     points: 39000,
     type: 'Seguro',
     exchangeProduct: 'Porto Seguro Residencial',
-    exchangeValue: 507,
+    exchangeValue: 720,
     icon: 'homewithwindow',
     image: InsuranceOfferImg4,
   },
@@ -106,7 +209,7 @@ export default [
     points: 65000,
     type: 'Seguro',
     exchangeProduct: 'Porto Seguro Residencial',
-    exchangeValue: 845,
+    exchangeValue: 1200,
     icon: 'homewithwindow',
     image: InsuranceOfferImg6,
   },
@@ -116,7 +219,6 @@ export default [
     type: 'Lavagem de sofá',
     exchangeProduct: 'Porto Faz',
     exchangeValue: 1320,
-    icon: '',
     image: SofaOfferImg2,
   },
   {
@@ -160,7 +262,7 @@ export default [
     points: 104000,
     type: 'Seguro',
     exchangeProduct: 'Porto Seguro Residencial',
-    exchangeValue: 1352,
+    exchangeValue: 1920,
     icon: 'homewithwindow',
     image: InsuranceOfferImg9,
   },
@@ -196,7 +298,7 @@ export default [
     points: 130000,
     type: '',
     exchangeProduct: 'Porto Seguro Residencial',
-    exchangeValue: 1690,
+    exchangeValue: 2400,
     icon: 'homewithwindow',
     image: NoGroupOfferImg6,
   },

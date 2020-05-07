@@ -15,20 +15,22 @@ import Modal from 'components/Modal/ModalNew'
 import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
 import Popover from 'components/Popover/index'
 
-import { formatMoney } from 'helpers'
-
 import {
   GetPointsExtractRequest,
   GetPointsBalanceRequest,
   PostRecuePointsRequest,
 } from 'store/modules/Points/action'
 
-import CardHeaderState from './commons/CardHeaderState'
-import LoadingState from './commons/LoadingState'
-import ErrorState from './commons/ErrorState'
-import pointsCardsData from './pointsCardsData'
+import CardHeaderState from 'pages/Home/commons/CardHeaderState'
+import LoadingState from 'pages/Home/commons/LoadingState'
+import ErrorState from 'pages/Home/commons/ErrorState'
 
+import {
+  pointsCardsDataWithCreditCard,
+  pointsCardsDataWithoutCreditCard,
+} from './pointsCardsData'
 import { pointsRulesConditions } from './modalPointsData'
+import PointsOfferCard from './RecommendationCard'
 
 import {
   EmptyBody,
@@ -36,13 +38,6 @@ import {
   FullHeightCard,
   CardPontosFooter,
   ContainerBox,
-  OfferBox,
-  OfferImageBox,
-  OfferTextBox,
-  OfferTitle,
-  OfferCategoryBox,
-  OfferCategoryText,
-  OfferText,
   PointsInfo,
   PointDate,
   PointName,
@@ -53,13 +48,16 @@ import {
   PointsButtonWrapper,
   Icon,
   PointsEmptyContainer,
-} from './styles'
+} from '../styles'
 
-export default function SectionThree({ points }) {
+export default function PointsSection({ points }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [belowOffer, setBelowOffer] = useState(null)
   const [aboveOffer, setAboveOffer] = useState(null)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
+  const [cardsRecommendationData, setCardsRecommendationData] = useState(
+    pointsCardsDataWithoutCreditCard
+  )
 
   const dispatch = useDispatch()
   const {
@@ -69,10 +67,20 @@ export default function SectionThree({ points }) {
     hasErrorBalance,
     balanceData,
     auth,
+    creditCard,
   } = useSelector(state => ({
     ...state.points,
     auth: state.auth,
+    creditCard: state.creditCard.data,
   }))
+
+  useEffect(() => {
+    setCardsRecommendationData(
+      creditCard
+        ? pointsCardsDataWithCreditCard
+        : pointsCardsDataWithoutCreditCard
+    )
+  }, [creditCard])
 
   useEffect(() => {
     setPointsAmountBalance(
@@ -85,14 +93,14 @@ export default function SectionThree({ points }) {
   useEffect(() => {
     if (points && aboveOffer && belowOffer) {
       if (pointsAmountBalance) {
-        const maxPoints = [...pointsCardsData].slice(-1)[0].points
+        const maxPoints = [...cardsRecommendationData].slice(-1)[0].points
         let newBelowOffer
         let newAboveOffer
 
         if (pointsAmountBalance > maxPoints) {
           // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
           // aboveOffer must be higher than belowOffer
-          const higherGroupData = [...pointsCardsData].filter(
+          const higherGroupData = [...cardsRecommendationData].filter(
             item => item.group === 5
           )
 
@@ -105,11 +113,11 @@ export default function SectionThree({ points }) {
             )
         } else {
           // if current points are below the maximum offer, get the offer below the current points and one above the current
-          newBelowOffer = [...pointsCardsData].reduce(
+          newBelowOffer = [...cardsRecommendationData].reduce(
             (acc, cur) => (cur.points <= pointsAmountBalance ? cur : acc),
             belowOffer
           )
-          newAboveOffer = [...pointsCardsData]
+          newAboveOffer = [...cardsRecommendationData]
             .reverse()
             .reduce(
               (acc, cur) =>
@@ -125,52 +133,14 @@ export default function SectionThree({ points }) {
         setAboveOffer(newAboveOffer)
       }
     } else {
-      setBelowOffer(pointsCardsData[0])
-      setAboveOffer(pointsCardsData[1])
+      setBelowOffer(cardsRecommendationData[0])
+      setAboveOffer(cardsRecommendationData[1])
     }
   }, [points, pointsAmountBalance])
 
   useDataLayerProducts(belowOffer, aboveOffer)
   function redirectToRescuePointsSystem({ url }) {
     window.open(`#/redirect?to=${url}`, '_blank')
-  }
-
-  const PointsOfferCard = ({ offer }) => (
-    <FullHeightCard
-      headerIcon={offer.icon || 'tag'}
-      headerTitle="Troque seus pontos"
-    >
-      <OfferBox>
-        <OfferImageBox>
-          <img src={offer.image} alt={`${offer.exchangeProduct} pic`} />
-          {offer.type && (
-            <OfferCategoryBox>
-              <OfferCategoryText type="subheading">
-                {offer.type}
-              </OfferCategoryText>
-            </OfferCategoryBox>
-          )}
-        </OfferImageBox>
-        <OfferTextBox>
-          <OfferTitle bold>{offer.exchangeProduct}</OfferTitle>
-          <OfferText>
-            {Intl.NumberFormat().format(offer.points)} pontos você troca por{' '}
-            {formatMoney(offer.exchangeValue)} no {offer.exchangeProduct}
-          </OfferText>
-        </OfferTextBox>
-      </OfferBox>
-    </FullHeightCard>
-  )
-
-  PointsOfferCard.propTypes = {
-    offer: PropTypes.shape({
-      points: PropTypes.number,
-      exchangeValue: PropTypes.number,
-      exchangeProduct: PropTypes.string,
-      icon: PropTypes.string,
-      type: PropTypes.string,
-      image: PropTypes.string,
-    }).isRequired,
   }
 
   const renderPointsFooter = () => {
@@ -393,10 +363,18 @@ export default function SectionThree({ points }) {
           `}
         >
           <SectionCol md="6">
-            <PointsOfferCard offer={belowOffer || pointsCardsData[0]} />
+            <PointsOfferCard
+              offer={belowOffer || cardsRecommendationData[0]}
+              icon={creditCard ? cardsRecommendationData[0].icon : 'star'}
+              isMiscellaneous={!creditCard}
+            />
           </SectionCol>
           <SectionCol md="6">
-            <PointsOfferCard offer={aboveOffer || pointsCardsData[1]} />
+            <PointsOfferCard
+              offer={aboveOffer || cardsRecommendationData[1]}
+              icon={creditCard ? cardsRecommendationData[0].icon : 'idea'}
+              isMiscellaneous={!creditCard}
+            />
           </SectionCol>
         </Row>
       </SectionCol>
@@ -404,11 +382,11 @@ export default function SectionThree({ points }) {
   )
 }
 
-SectionThree.defaultProps = {
+PointsSection.defaultProps = {
   points: null,
 }
 
-SectionThree.propTypes = {
+PointsSection.propTypes = {
   points: PropTypes.shape({
     detalheExtratoOptemaisTypes: PropTypes.arrayOf(
       PropTypes.shape({
