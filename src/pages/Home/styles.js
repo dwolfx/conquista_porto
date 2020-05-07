@@ -20,7 +20,7 @@ export const GridRow = styled(Row)`
   &#t3 {
     height: 430px;
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: ${props => props.theme.spacing(4.5)}px;
 
     @media ${props => props.theme.mediaQueries.md} {
       height: auto;
@@ -259,12 +259,8 @@ export const PointsExtractListWrapper = styled.div`
 `
 
 export const AdRow = styled(GridRow)`
-  padding-right: 7;
-  padding-left: 7;
-
-  @media ${props => props.theme.mediaQueries.md} {
-    margin-bottom: 0;
-  }
+  margin-bottom: ${props =>
+    props.hasBannerCookie && `${props.theme.spacing(4.5)}px`};
 `
 
 export const TipBannerContainer = styled(Row)`

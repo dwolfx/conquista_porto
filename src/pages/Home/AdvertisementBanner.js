@@ -1,36 +1,74 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Container } from 'styled-bootstrap-grid'
 
 import BannerImg from 'assets/images/pages/Home/img_banner_12.png'
 import Text from 'components/Text'
+import { getCookieValue, setCookieValue } from 'helpers'
+
+import { GetRewardRecommendationsRequest } from 'store/modules/Rewards/Recommendations/action'
 
 import { BannerButton, BannerTips, GridCol, AdRow } from './styles'
 
 const AdvertisementBanner = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
+
+  const [hideBanner, setHideBanner] = useState(true)
+  const [bannerData, setBannerData] = useState({})
+
+  const recommendationState = useSelector(state => state.rewardsRecommendations)
+
+  useEffect(() => {
+    setHideBanner(Boolean(getCookieValue('hideConquistaHomeBanner')))
+  }, [])
+
+  useEffect(() => {
+    if (!recommendationState.data.length) {
+      dispatch(GetRewardRecommendationsRequest())
+    } else {
+      const randomPosition = Math.floor(
+        Math.random() * (recommendationState.data.length - 1)
+      )
+
+      setBannerData(recommendationState.data[randomPosition])
+    }
+  }, [dispatch, recommendationState.data])
+
+  if (
+    !recommendationState.data.length ||
+    !Object.entries(bannerData).length ||
+    hideBanner
+  ) {
+    return null
+  }
 
   return (
-    <AdRow>
-      <GridCol lg="12">
-        <BannerTips size="lg" image={BannerImg} hasCloseButton>
-          <Text type="heading3">
-            Viva hoje.
-            <br /> Amanhã é com a gente
-          </Text>
-          <Text>
-            O Seguro de Vida é uma maneira de proporcionar tranquilidade e
-            segurança caso você precise ficar afastado do trabalho e, na sua
-            falta, garantir amparo financeiro a sua família.
-          </Text>
-          <BannerButton
-            color="secondary"
-            onClick={() => history.push('/seguro-vida')}
+    <Container>
+      <AdRow hasBannerCookie={!hideBanner}>
+        <GridCol lg="12">
+          <BannerTips
+            size="lg"
+            image={BannerImg}
+            hasCloseButton
+            onClose={() => {
+              setCookieValue('hideConquistaHomeBanner', 'true')
+              setHideBanner(true)
+            }}
           >
-            CONHEÇA
-          </BannerButton>
-        </BannerTips>
-      </GridCol>
-    </AdRow>
+            <Text type="heading3">{bannerData.subject_name}</Text>
+            <Text>{bannerData.text_content}</Text>
+            <BannerButton
+              color="secondary"
+              onClick={() => history.push(bannerData.url_name)}
+            >
+              {bannerData.button_name}
+            </BannerButton>
+          </BannerTips>
+        </GridCol>
+      </AdRow>
+    </Container>
   )
 }
 

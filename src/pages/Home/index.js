@@ -15,7 +15,7 @@ import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsExtractRequest } from 'store/modules/Points/action'
 
 import SectionOne from './SectionOne'
-// import AdvertisementBanner from './AdvertisementBanner'
+import AdvertisementBanner from './AdvertisementBanner'
 import SectionTwo from './SectionTwo'
 import PointsSection from './PointsSection'
 import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
@@ -89,9 +89,9 @@ const Home = ({ location }) => {
                 <GridRow id="t1" ref={row1}>
                   <SectionOne onFetchInvestments={handleFetchInvestments} />
                 </GridRow>
-                {/* <GridRow style={{ paddingRight: 7, paddingLeft: 7 }}>
-                  <AdvertisementBanner onRedirect={onRedirect} hasCloseButton />
-                </GridRow> */}
+
+                <AdvertisementBanner />
+
                 <GridRow id="t2" ref={row2}>
                   <SectionTwo onRedirect={onRedirect} />
                 </GridRow>
