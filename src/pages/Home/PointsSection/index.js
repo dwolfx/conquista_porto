@@ -365,14 +365,22 @@ export default function PointsSection({ points }) {
           <SectionCol md="6">
             <PointsOfferCard
               offer={belowOffer || cardsRecommendationData[0]}
-              icon={creditCard ? cardsRecommendationData[0].icon : 'star'}
+              cardIcon={
+                creditCard
+                  ? (belowOffer || cardsRecommendationData[0]).icon
+                  : 'star'
+              }
               isMiscellaneous={!creditCard}
             />
           </SectionCol>
           <SectionCol md="6">
             <PointsOfferCard
               offer={aboveOffer || cardsRecommendationData[1]}
-              icon={creditCard ? cardsRecommendationData[0].icon : 'idea'}
+              cardIcon={
+                creditCard
+                  ? (aboveOffer || cardsRecommendationData[1]).icon
+                  : 'idea'
+              }
               isMiscellaneous={!creditCard}
             />
           </SectionCol>
