@@ -21,6 +21,7 @@ import objective from './Objective/reducer'
 import objectiveManagement from './ObjectiveManagement/reducer'
 import suitability from './Suitability/reducer'
 import suitabilityInfo from './SuitabilityInfo/reducer'
+import rewardsRecommendations from './Rewards/Recommendations/reducer'
 
 export default combineReducers({
   bankData,
@@ -44,4 +45,5 @@ export default combineReducers({
   objectiveManagement,
   suitability,
   suitabilityInfo,
+  rewardsRecommendations,
 })
