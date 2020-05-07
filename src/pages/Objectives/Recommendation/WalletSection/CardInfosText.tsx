@@ -93,13 +93,13 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
             Os investimentos inicial e mensal serão distribuídos nestes
           </Text>
           <s.InlineContentText>
-            <s.Popover content="Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados.">
+            <s.Popover content={fundosTooltipText}>
               <s.TextUnderlined type="headline" color="gray6">
                 fundos
               </s.TextUnderlined>
             </s.Popover>
             <s.Popover
-              content="Fundos de investimento são grupos formados por investidores e administrados por especialistas, que buscam os rendimentos esperados."
+              content={fundosTooltipText}
               css={`
                 margin-left: 0;
               `}
