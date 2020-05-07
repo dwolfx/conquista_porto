@@ -48,7 +48,7 @@ const FormatEnabledCell = (column, handleLayerOpen) => (
         color="secondary"
         onClick={event => {
           event.stopPropagation()
-          handleLayerOpen(true)
+          handleLayerOpen(column.cell.row.original.id_fundo)
         }}
       >
         Investir

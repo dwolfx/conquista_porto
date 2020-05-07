@@ -1,13 +1,14 @@
-/* eslint-disable no-param-reassign */
 import React, { forwardRef } from 'react'
 
 import NewTextInput from 'components/NewInput'
+import { dict } from 'components/IconExporter'
 
 import { TextInputStyled } from './styles'
 
 interface IProps {
   newInput?: boolean
   value?: string
+  error?: boolean | { icon: keyof typeof dict; message: string }
   onKeyUp?: () => void
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void
 }
