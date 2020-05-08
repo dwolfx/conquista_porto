@@ -11,6 +11,7 @@ import LayerHeader from './LayerHeader'
 import FormFinancialContribution from './FormFinancialContribution'
 
 import { formatMoneyDecimal } from 'helpers'
+import DetailCard from './DetailCard'
 
 import {
   StepBar,

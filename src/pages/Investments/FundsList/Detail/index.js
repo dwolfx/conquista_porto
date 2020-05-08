@@ -8,6 +8,7 @@ import Button from 'components/Button'
 import Text from 'components/Text'
 
 import { useSelector, useDispatch } from 'react-redux'
+
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
@@ -33,23 +34,6 @@ const Detail = ({
     state => state.investmentDetails
   )
   const dispatch = useDispatch()
-  const funds = useSelector(state => state.investmentsList)
-  const categories = funds.data[0]
-
-  const getCategoryName = () => {
-    let name = ''
-    if (categories && fundDetails !== false)
-      categories.forEach(category => {
-        const filteredResult = category.fundos.filter(
-          fundo => fundo.id_fundo === fundDetails.id_fundo
-        )
-        if (filteredResult.length > 0) {
-          name = category.nome_categoria
-        }
-      })
-    return name
-  }
-  const category = getCategoryName()
 
   const footerDrawer = () =>
     isOpenForInvestments ? (
@@ -98,7 +82,7 @@ const Detail = ({
       </TabList>
 
       <TabPanel name="tab-detalhe-fundo">
-        <TabDetails fund={fundDetails} category={category} />
+        <TabDetails fund={fundDetails} />
       </TabPanel>
       <TabPanel name="tab-rentabilidade">
         <TabProfitability fund={fundDetails} />
