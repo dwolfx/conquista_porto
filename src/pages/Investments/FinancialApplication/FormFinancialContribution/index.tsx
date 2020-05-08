@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import 'styled-components/macro'
-import moment from 'moment'
 import { useSelector, useDispatch } from 'react-redux'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
@@ -14,7 +13,15 @@ import Button from 'components/Button'
 import MoneyInput from 'components/Inputs/Money'
 import DateInput from 'components/Inputs/DateInput'
 
-import { formatMoney } from 'helpers'
+import { formatMoneyDecimal, formatMoney } from 'helpers'
+
+import {
+  isPastDate,
+  isToday,
+  isTodayAndBefore15pm,
+  isInvalidDate,
+  formatMoneyToNumber,
+} from './utils'
 
 import { IFormData } from 'pages/Investments/FinancialApplication'
 
@@ -65,6 +72,12 @@ const FormFinancialContribution: React.FC<IProps> = ({
   }, [formData, formDataCopy])
 
   useEffect(() => {
+    if (!idFundo) {
+      setFormDataCopy(null)
+    }
+  }, [idFundo])
+
+  useEffect(() => {
     if (formData && formDataCopy) {
       if (JSON.stringify(formDataCopy) !== JSON.stringify(formData)) {
         onFormHasChanged(true)
@@ -106,7 +119,11 @@ const FormFinancialContribution: React.FC<IProps> = ({
         (posicao: any) => posicao.fundo.id_carteira === idFundo
       )
 
-    const fund = chosenInvestmentFund()
+    const fund: any = chosenInvestmentFund()
+    let saldoAtual = ''
+    if (fund) {
+      saldoAtual = fund.saldo_atual
+    }
 
     return (
       <>
@@ -133,7 +150,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
             </Text>,
             <Text type="headline" color="gray6" bold>
               {formatMoney(
-                investmentPosition.data.length === 0 ? 0 : fund.saldo_atual
+                investmentPosition.data.length === 0 ? 0 : saldoAtual
               )}
             </Text>,
             <Text type="caption" color="gray5" bold>
@@ -145,21 +162,20 @@ const FormFinancialContribution: React.FC<IProps> = ({
     )
   }
 
-  const isInvalidDate = (value: string) =>
-    !moment(value, 'DD/MM/YYYY', true).isValid()
+  const isDateInvalid = () =>
+    isInvalidDate(formData!.whenToInvest) ||
+    isPastDate(formData!.whenToInvest) ||
+    (isToday(formData!.whenToInvest) &&
+      !isTodayAndBefore15pm(formData!.whenToInvest))
 
-  const handleDateValidation = () => {
-    const isPastDate = moment(
-      moment(formData!.whenToInvest, 'DD/MM/YYYY'),
-      'hh:mm:ss'
-    ).isBefore(moment('15:00:00', 'hh:mm:ss'))
-
-    if (isInvalidDate(formData!.whenToInvest) || isPastDate) {
-      return {
-        icon: 'alertrounded',
-        message: 'Digite uma data válida',
-      }
+  const isMoneyLessThanAllowed = () => {
+    if (formDataCopy && formData) {
+      return (
+        formatMoneyToNumber(formData.moneyToInvest) <
+        formatMoneyToNumber(formDataCopy.moneyToInvest)
+      )
     }
+    return false
   }
 
   if (formData) {
@@ -170,10 +186,8 @@ const FormFinancialContribution: React.FC<IProps> = ({
             <CardFooter>
               <Button
                 color="secondary"
-                onClick={() => {
-                  // TODO Talvez entre algum código aqui para validar o próximo step
-                  nextStep()
-                }}
+                onClick={nextStep}
+                disabled={isDateInvalid() || isMoneyLessThanAllowed()}
               >
                 Próximo
               </Button>
@@ -197,6 +211,18 @@ const FormFinancialContribution: React.FC<IProps> = ({
                     moneyToInvest: target.value,
                   })
                 }}
+                error={
+                  isMoneyLessThanAllowed() && {
+                    icon: 'alertrounded',
+                    message: `O valor não pode ser menor do que ${formatMoneyDecimal(
+                      Number(
+                        formDataCopy!.moneyToInvest
+                          .toString()
+                          .replace(/\D/g, '')
+                      )
+                    )}`,
+                  }
+                }
                 css={`
                   margin-top: 7px;
                 `}
@@ -218,7 +244,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
                 }}
                 value={formData.whenToInvest}
                 error={
-                  handleDateValidation() && {
+                  isDateInvalid() && {
                     icon: 'alertrounded',
                     message: 'Digite uma data válida',
                   }

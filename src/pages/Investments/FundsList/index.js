@@ -63,7 +63,10 @@ export default function FundsList() {
     <>
       <FinancialApplication
         isOpen={isLayerOpen}
-        handleClose={() => setLayerOpen(false)}
+        handleClose={() => {
+          setLayerOpen(false)
+          setSelectedFundId(null)
+        }}
         selectedFundId={selectedFundId}
       />
       <GridContainer as="section">

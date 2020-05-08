@@ -7,7 +7,7 @@ export const ModalStyled = styled(Modal)`
 
 export const ButtonContainerModal = styled.div`
   display: flex;
-  padding-top: 35px;
+  padding-top: ${({ theme }) => theme.spacing(5)}px;
   justify-content: flex-end;
   button {
     &:last-of-type {

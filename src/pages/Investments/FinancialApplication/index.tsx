@@ -78,6 +78,13 @@ const LayerInvestment: React.FC<IProps> = ({
     }
   }, [selectedFundId, funds.data])
 
+  useEffect(() => {
+    if (!selectedFundId) {
+      setHasFormChanged(false)
+      setFormData(null)
+    }
+  }, [selectedFundId])
+
   const checkIfPossibleToClose = () => {
     if (hasFormChanged) {
       setIsConfirmationModalOpen(true)
@@ -115,6 +122,7 @@ const LayerInvestment: React.FC<IProps> = ({
       nextStep={nextStep}
       onChangeFormData={handleChangeFormData}
       onFormHasChanged={setHasFormChanged}
+      idFundo={selectedFundId}
     />,
   ]
 
