@@ -1,9 +1,11 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { IProps } from '../styles'
+
 import * as s from '../styles'
 
-const ErrorCard = () => {
+const ErrorCard = ({ onCloseLayer }: IProps) => {
   const history = useHistory()
 
   const cardFooter = (
@@ -11,18 +13,19 @@ const ErrorCard = () => {
       <s.Button
         data-gtm-type="click"
         data-gtm-clicktype="button"
-        data-gtm-name="lista de fundos"
-        onClick={() => history.push('/investimentos/lista-fundos')}
-      >
-        Lista de Fundos
-      </s.Button>
-      <s.Button
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
+        outline
         data-gtm-name="gerenciar investimentos"
         onClick={() => history.push('/investimentos/visualizar')}
       >
         Gerenciar Investimentos
+      </s.Button>
+      <s.Button
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        data-gtm-name="lista de fundos"
+        onClick={() => onCloseLayer()}
+      >
+        Lista de Fundos
       </s.Button>
     </s.ButtonsWrapper>
   )

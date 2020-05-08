@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
+import 'styled-components/macro'
 
 import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
@@ -9,6 +10,10 @@ import Modal from 'components/Modal/Confirmation'
 
 import LayerHeader from './LayerHeader'
 import FormFinancialContribution from './FormFinancialContribution'
+import SummaryFinantialContribution from './SummaryFinantialContribution'
+
+import SuccessCard from './EndOfApplicationFlow/SuccessCard'
+import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 
 import { formatMoneyDecimal } from 'helpers'
 
@@ -45,6 +50,9 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const [step, setStep] = useState(0)
   const [hasFormChanged, setHasFormChanged] = useState(false)
+  const [hasSucceded, setHasSucceded] = useState<boolean>(false)
+  const [hasFailed, setHasFailed] = useState<boolean>(false)
+  const [errorCount, setErrorCount] = useState<number>(0)
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false)
   const [formData, setFormData] = useState<IFormData | null>(null)
   const stepCount = 2
@@ -66,7 +74,7 @@ const LayerInvestment: React.FC<IProps> = ({
       setFormData(prevState => ({
         ...prevState,
         moneyToInvest: formatMoneyDecimal(
-          Number(selectedFund.minimo_inicial.replace(/[\D]/g, ''))
+          Number(selectedFund.minimo_inicial * 100)
         ),
         whenToInvest: canInvestToday
           ? moment().format('DD/MM/YYYY')
@@ -89,7 +97,7 @@ const LayerInvestment: React.FC<IProps> = ({
     if (hasFormChanged) {
       setIsConfirmationModalOpen(true)
     } else {
-      handleClose()
+      resetValues()
     }
   }
 
@@ -99,16 +107,43 @@ const LayerInvestment: React.FC<IProps> = ({
     handleClose: checkIfPossibleToClose,
   }
 
+  useEffect(() => {
+    if (errorCount === 5) {
+      setHasFailed(true)
+    }
+  }, [errorCount])
+
   const nextStep = () => {
     setStep(step + 1)
   }
 
   const previousStep = () => {
     if (step === 0) {
-      handleClose()
+      resetValues()
     } else {
       setStep(step - 1)
     }
+  }
+
+  const incrementError = () => {
+    setErrorCount(prevState => prevState + 1)
+  }
+
+  const resetValues = () => {
+    setHasFailed(false)
+    setHasSucceded(false)
+    setFormData({
+      moneyToInvest: '',
+      whenToInvest: '',
+      isAwareOfTerms: false,
+    })
+    setStep(0)
+    setErrorCount(0)
+    handleClose()
+  }
+
+  const handleRequestStatus = (id: 'success' | 'error', value: boolean) => {
+    id === 'success' ? setHasSucceded(value) : setHasFailed(value)
   }
 
   const handleChangeFormData = (newFormData: IFormData) => {
@@ -124,7 +159,45 @@ const LayerInvestment: React.FC<IProps> = ({
       onFormHasChanged={setHasFormChanged}
       idFundo={selectedFundId}
     />,
+    <SummaryFinantialContribution
+      formData={formData}
+      onChangeFormData={handleChangeFormData}
+      previousStep={previousStep}
+      onChangeRequestStatus={handleRequestStatus}
+      errorCount={errorCount}
+      onChangeErrorCount={incrementError}
+    />,
   ]
+
+  const getBodyContent = () => {
+    if (hasSucceded) {
+      return (
+        <GridCol lg={9}>
+          <SuccessCard onCloseLayer={() => resetValues()} />
+        </GridCol>
+      )
+    }
+
+    if (hasFailed) {
+      return (
+        <GridCol lg={9}>
+          <ErrorCard onCloseLayer={() => resetValues()} />
+        </GridCol>
+      )
+    }
+    return <GridCol lg={9}>{layerBody[step]}</GridCol>
+  }
+
+  const getStepCount = () => {
+    if (!hasSucceded && !hasFailed) {
+      return [
+        <Text color="gray4" type="title">
+          {`ETAPA ${step + 1} de ${stepCount}`}
+        </Text>,
+      ]
+    }
+    return []
+  }
 
   return (
     <Layer
@@ -143,11 +216,7 @@ const LayerInvestment: React.FC<IProps> = ({
                     Investir
                   </Text>,
                 ]}
-                endItems={[
-                  <Text color="gray4" type="title">
-                    {`ETAPA ${step + 1} de ${stepCount}`}
-                  </Text>,
-                ]}
+                endItems={getStepCount()}
                 css={`
                   width: 100%;
                   padding: 0;
@@ -162,7 +231,7 @@ const LayerInvestment: React.FC<IProps> = ({
           <GridCol lg={3}>
             <LayerCard>Card Descrição Fundo</LayerCard>
           </GridCol>
-          <GridCol lg={9}>{layerBody[step]}</GridCol>
+          {getBodyContent()}
         </GridRowExpanded>
       </LayerBodyContainer>
       <FooterContainer>
