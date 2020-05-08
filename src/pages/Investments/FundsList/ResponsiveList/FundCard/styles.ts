@@ -128,6 +128,15 @@ export const ModalText = styled(TextComponent).attrs(() => ({
   color: ${props => props.theme.colors.gray6};
 `
 
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(ButtonComponent)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
+`
+
 enum activeRiskColors {
   baixo = 'lowRisk',
   'medio-baixo' = 'lowMediumRisk',

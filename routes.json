@@ -20,6 +20,7 @@
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
   "/cotistas/posicao?cpf=:cpf": "/posicao?cpf=:cpf",
   "/invest/portopar/cotista/perfil/investidor/:cpf": "/suitability",
+  "/invest/cotista/status?cpf=:cpf": "/suitability_info",
   "/recommendation/recommendations": "/goal_recommendations",
   "/recommendation/recommendations\\?mobile=:isMobileMode": "/goal_recommendations?mobile=:isMobileMode",
   "/goal/goals": "/goal_management",
