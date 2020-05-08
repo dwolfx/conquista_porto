@@ -9,7 +9,7 @@ import { ButtonContainerModal } from './styles'
 
 interface IProps {
   hasUnsavedChanges?: boolean
-  onConfirmation: () => void
+  onConfirmation?: () => void
   title: string
   description: string
   buttonTextCancel?: string

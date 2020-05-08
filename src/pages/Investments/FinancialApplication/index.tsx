@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import moment from 'moment'
+import { useSelector } from 'react-redux'
 
 import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
+import Modal from 'components/Modal/Confirmation'
+
 import LayerHeader from './LayerHeader'
 import FormFinancialContribution from './FormFinancialContribution'
+
+import { formatMoneyDecimal } from 'helpers'
 
 import {
   StepBar,
@@ -21,9 +27,10 @@ import {
 interface IProps {
   handleClose: () => void
   isOpen: boolean
+  selectedFundId: string
 }
 
-type IFormData = {
+export type IFormData = {
   moneyToInvest: string
   whenToInvest: string
   isAwareOfTerms: boolean
@@ -32,16 +39,65 @@ type IFormData = {
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
   isOpen = false,
+  selectedFundId,
 }) => {
+  const funds = useSelector((state: any) => state.investmentsList)
+
   const [step, setStep] = useState(0)
-  const [formData, setFormData] = useState<IFormData>({
-    moneyToInvest: '',
-    whenToInvest: '',
-    isAwareOfTerms: false,
-  })
+  const [hasFormChanged, setHasFormChanged] = useState(false)
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false)
+  const [formData, setFormData] = useState<IFormData | null>(null)
   const stepCount = 2
 
-  const headerAttributes = { step, setStep, handleClose }
+  useEffect(() => {
+    if (selectedFundId && funds.data.length > 0) {
+      const normalizedFundList = funds.data
+        .flatMap((item: any) => item)
+        .reduce((prev: any, curr: any) => [...prev, ...curr.fundos], [])
+
+      const selectedFund = normalizedFundList.find(
+        (fund: any) => fund.id_fundo === selectedFundId
+      )
+
+      const canInvestToday = moment(moment(), 'hh:mm:ss').isBefore(
+        moment('15:00:00', 'hh:mm:ss')
+      )
+
+      setFormData(prevState => ({
+        ...prevState,
+        moneyToInvest: formatMoneyDecimal(
+          Number(selectedFund.minimo_inicial.replace(/[\D]/g, ''))
+        ),
+        whenToInvest: canInvestToday
+          ? moment().format('DD/MM/YYYY')
+          : moment()
+              .add('1', 'day')
+              .format('DD/MM/YYYY'),
+        isAwareOfTerms: false,
+      }))
+    }
+  }, [selectedFundId, funds.data])
+
+  useEffect(() => {
+    if (!selectedFundId) {
+      setHasFormChanged(false)
+      setFormData(null)
+    }
+  }, [selectedFundId])
+
+  const checkIfPossibleToClose = () => {
+    if (hasFormChanged) {
+      setIsConfirmationModalOpen(true)
+    } else {
+      handleClose()
+    }
+  }
+
+  const headerAttributes = {
+    step,
+    setStep,
+    handleClose: checkIfPossibleToClose,
+  }
 
   const nextStep = () => {
     setStep(step + 1)
@@ -65,6 +121,8 @@ const LayerInvestment: React.FC<IProps> = ({
       formData={formData}
       nextStep={nextStep}
       onChangeFormData={handleChangeFormData}
+      onFormHasChanged={setHasFormChanged}
+      idFundo={selectedFundId}
     />,
   ]
 
@@ -118,6 +176,20 @@ const LayerInvestment: React.FC<IProps> = ({
           </GridCol>
         </GridRow>
       </FooterContainer>
+      <Modal
+        isOpen={isConfirmationModalOpen}
+        title="Sair da página?"
+        description="Todas as informações serão perdidas e a solicitação não será finalizada."
+        buttonTextCancel="continuar solicitação"
+        buttonTextConfirm="sair"
+        onClose={() => {
+          setIsConfirmationModalOpen(false)
+        }}
+        onConfirmation={() => {
+          setIsConfirmationModalOpen(false)
+          handleClose()
+        }}
+      />
     </Layer>
   )
 }

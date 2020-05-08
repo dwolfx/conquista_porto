@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const LayerContainer = styled.div`
   background-color: ${props => props.theme.colors.white};
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   margin: 0;
   overflow: hidden;

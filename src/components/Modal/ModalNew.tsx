@@ -42,8 +42,8 @@ const Modal: React.FC<IProps> = ({
     }
 
     function handleOverflow() {
-      body!.style.overflow = 'visible'
-      html!.style.overflowY = 'visible'
+      body!.style.overflow = 'unset'
+      html!.style.overflowY = 'unset'
     }
     return () => handleOverflow()
   }, [isOpen])

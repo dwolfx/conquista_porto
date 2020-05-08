@@ -13,16 +13,31 @@ import {
 } from './styles'
 
 interface IProps {
-  prefix: React.ReactNode
-  suffix: React.ReactNode
-  width: string
-  error: boolean | { icon: keyof typeof dict; message: string }
-  label: string
-  className: string
+  prefix?: React.ReactNode
+  suffix?: React.ReactNode
+  width?: string | number
+  error?: boolean | { icon: keyof typeof dict; message: string }
+  label?: string
+  className?: string
+  maxLength?: string | number
+  onChange?: (event: any) => void
+  onKeyUp?: (event: any) => void
 }
 
 const NewInput = forwardRef<HTMLInputElement, IProps>(
-  ({ prefix, suffix, label, width, error, className, ...rest }, ref) => {
+  (
+    {
+      prefix,
+      suffix,
+      maxLength = null,
+      label,
+      width,
+      error,
+      className,
+      ...rest
+    },
+    ref
+  ) => {
     const inputRef = (ref || createRef()) as React.RefObject<HTMLInputElement>
 
     return (

@@ -26,7 +26,7 @@ export const VerticalListStyled = styled(VerticalList)`
   margin-right: ${props => props.theme.spacing(6)}px;
 `
 
-export const DivisorStyled = styled(Divisor)`
+export const DivisorStyled = styled(Divisor)<{ margin: string }>`
   margin: ${props => props.margin};
 `
 

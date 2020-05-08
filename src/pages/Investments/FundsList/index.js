@@ -32,6 +32,8 @@ export default function FundsList() {
     byPerfilRisco: [],
   })
 
+  const [selectedFundId, setSelectedFundId] = useState(null)
+
   const [mobileFundSort, setMobileFundSort] = useState({
     sortBy: null,
     sortType: null,
@@ -61,7 +63,11 @@ export default function FundsList() {
     <>
       <FinancialApplication
         isOpen={isLayerOpen}
-        handleClose={() => setLayerOpen(false)}
+        handleClose={() => {
+          setLayerOpen(false)
+          setSelectedFundId(null)
+        }}
+        selectedFundId={selectedFundId}
       />
       <GridContainer as="section">
         {isMobile ? (
@@ -94,7 +100,10 @@ export default function FundsList() {
                     isDrawerOpen={isDrawerOpen}
                     onChangeIsDrawerOpen={setIsDrawerOpen}
                     setIsOpenForInvestments={setIsOpenForInvestments}
-                    handleLayerOpen={() => setLayerOpen(true)}
+                    handleLayerOpen={fundId => {
+                      setSelectedFundId(fundId)
+                      setLayerOpen(true)
+                    }}
                     data={filteredFundsList}
                     fundsType={fundsType}
                     isLoading={fundsStatus.isLoading}
