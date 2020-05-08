@@ -36,7 +36,7 @@ const TableBody = ({
           <td>
             <Loading
               type="bar"
-              legend="Aguarde enquanto buscamos informações de fundos de investimentos..."
+              legend="Buscando informações dos fundos de investimento…"
             />
           </td>
         </InfoTableContent>
@@ -53,8 +53,8 @@ const TableBody = ({
                 margin-bottom: 14px;
               `}
             >
-              Não foi possível carregar suas informações de fundos de
-              investimentos.
+              Não foi possível carregar a lista de fundos. Por favor, tente
+              novamente.
             </Text>
             <Button onClick={() => dispatch(GetInvestmentListRequest())}>
               Tentar novamente
@@ -71,7 +71,7 @@ const TableBody = ({
             <Text type="headline" color="gray5">
               {isFiltering
                 ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
-                : 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.'}
+                : 'No momento, não temos fundos com essas especificações.'}
             </Text>
           </td>
         </InfoTableContent>
