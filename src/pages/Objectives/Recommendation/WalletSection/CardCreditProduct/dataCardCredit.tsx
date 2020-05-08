@@ -8,6 +8,7 @@ interface IProductCard {
       name: string,
       value: string,
       info?: boolean
+      checked?: boolean
     }[]
   }
 }

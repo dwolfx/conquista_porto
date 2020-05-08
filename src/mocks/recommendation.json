@@ -514,15 +514,11 @@
     "values": [
       {
         "name": "Valor a Contratar",
-        "value": "R$ 69.999,00",
-        "checked": false,
-        "info": "Valor esperado"
+        "value": "R$ 69.999,00"
       },
       {
         "name": "Valor a Contratar",
-        "value": "R$ 350.000.000.000.000.000,00",
-        "checked": true,
-        "info": false
+        "value": "R$ 350.000.000,00"
       }
     ]
   },

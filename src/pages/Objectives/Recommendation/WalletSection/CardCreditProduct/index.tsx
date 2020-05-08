@@ -17,6 +17,7 @@ interface IObjectItem {
   name: string
   value: string
   info?: boolean
+  checked?: boolean
 }
 
 interface ICardProps {
