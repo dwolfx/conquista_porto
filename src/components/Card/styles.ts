@@ -20,7 +20,7 @@ export const CardHeader = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   display: flex;
-  height: 63px;
+  min-height: 63px;
   padding: 0 14px;
 `
 

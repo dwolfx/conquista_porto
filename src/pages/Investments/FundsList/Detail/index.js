@@ -37,7 +37,10 @@ const Detail = ({
 
   const footerDrawer = () =>
     isOpenForInvestments ? (
-      <ButtonSubmit color="secondary" onClick={() => handleLayerOpen()}>
+      <ButtonSubmit
+        color="secondary"
+        onClick={() => handleLayerOpen(fundDetails.id_fundo, true)}
+      >
         {isLayerOpen ? 'Voltar' : 'Investir'}
       </ButtonSubmit>
     ) : (

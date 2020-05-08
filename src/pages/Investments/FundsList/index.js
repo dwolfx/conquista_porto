@@ -48,10 +48,11 @@ export default function FundsList() {
 
   const filteredFundsList = useFilter(filter)
 
-  const handleLayerOpen = (fundId = '') => {
+  const handleLayerOpen = (fundId = null, hasDetailsFund = false) => {
     setIsDrawerOpen(false)
     setLayerOpen(true)
-    if (fundId) {
+    setSelectedFundId(fundId)
+    if (!hasDetailsFund) {
       dispatch(GetInvestmentDetailsRequest(fundId))
     }
   }
@@ -113,8 +114,7 @@ export default function FundsList() {
                     onChangeIsDrawerOpen={setIsDrawerOpen}
                     setIsOpenForInvestments={setIsOpenForInvestments}
                     handleLayerOpen={fundId => {
-                      setSelectedFundId(fundId)
-                      setLayerOpen(true)
+                      handleLayerOpen(fundId)
                     }}
                     data={filteredFundsList}
                     fundsType={fundsType}
