@@ -3,7 +3,7 @@ import React from 'react'
 import LoadingIcon from 'components/Loading'
 import { themeColors } from 'styles/theme'
 
-import { Button, Content, LoadingContainer } from './styles'
+import { Button, Content } from './styles'
 
 interface IProps {
   color?: 'primary' | 'secondary'
@@ -31,12 +31,9 @@ const ConquistaButton: React.FC<IProps> = ({
     disabled={disabled}
     {...rest}
   >
-    <Content>{children}</Content>
-    {loading && (
-      <LoadingContainer>
-        <LoadingIcon type="spinner" color={loadingColor} />
-      </LoadingContainer>
-    )}
+    <Content>
+      {loading ? <LoadingIcon type="spinner" color={loadingColor} /> : children}
+    </Content>
   </Button>
 )
 
