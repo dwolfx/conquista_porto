@@ -9,7 +9,7 @@ import * as s from './styles'
 const RecommendationCard = ({
   cardIcon,
   cardTitle,
-  isMiscellaneous,
+  hasCreditCard,
   offer,
 }: IRecommendationCardProps) => (
   <FullHeightCard
@@ -29,7 +29,7 @@ const RecommendationCard = ({
       </s.OfferImageBox>
       <s.OfferTextBox>
         <s.OfferTitle bold>{offer.exchangeProduct}</s.OfferTitle>
-        {isMiscellaneous ? (
+        {hasCreditCard ? (
           <s.OfferText>
             {Intl.NumberFormat().format(offer.points)} pontos você pode trocar
             por {offer.exchangeProduct}

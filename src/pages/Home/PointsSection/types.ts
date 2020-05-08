@@ -13,6 +13,6 @@ export interface ICardsInfo {
 export interface IRecommendationCardProps {
   cardIcon: keyof typeof dict
   cardTitle: string
-  isMiscellaneous: boolean
+  hasCreditCard: boolean
   offer: ICardsInfo
 }

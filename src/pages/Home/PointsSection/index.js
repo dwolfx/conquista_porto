@@ -370,7 +370,7 @@ export default function PointsSection({ points }) {
                   ? (belowOffer || cardsRecommendationData[0]).icon
                   : 'star'
               }
-              isMiscellaneous={!creditCard || !creditCard.length}
+              hasCreditCard={!creditCard || !creditCard.length}
               cardTitle={
                 pointsAmountBalance >
                 (belowOffer || cardsRecommendationData[0]).points
@@ -387,7 +387,7 @@ export default function PointsSection({ points }) {
                   ? (aboveOffer || cardsRecommendationData[1]).icon
                   : 'idea'
               }
-              isMiscellaneous={!creditCard}
+              hasCreditCard={!creditCard || !creditCard.length}
               cardTitle={
                 pointsAmountBalance >
                 (aboveOffer || cardsRecommendationData[1]).points
