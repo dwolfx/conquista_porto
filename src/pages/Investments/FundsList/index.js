@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 import { Col } from 'styled-bootstrap-grid'
@@ -19,6 +20,8 @@ import MobileFilter from './MobileFilter'
 import sortFundList from './MobileFilter/sortFundList'
 
 export default function FundsList() {
+  const dispatch = useDispatch()
+
   const fundsStatus = useSelector(state => ({
     isLoading: state.investmentsList.isLoading,
     isError: state.investmentsList.isError,
@@ -45,6 +48,14 @@ export default function FundsList() {
 
   const filteredFundsList = useFilter(filter)
 
+  const handleLayerOpen = (fundId = '') => {
+    setIsDrawerOpen(false)
+    setLayerOpen(true)
+    if (fundId) {
+      dispatch(GetInvestmentDetailsRequest(fundId))
+    }
+  }
+
   function handleChangeFilter(newFilter) {
     setFilter(newFilter)
   }
@@ -68,6 +79,7 @@ export default function FundsList() {
           setSelectedFundId(null)
         }}
         selectedFundId={selectedFundId}
+        handleDrawerOpen={() => setIsDrawerOpen(true)}
       />
       <GridContainer as="section">
         {isMobile ? (
@@ -122,7 +134,8 @@ export default function FundsList() {
       </GridContainer>
       <Detail
         isOpen={isDrawerOpen}
-        handleLayerOpen={() => setLayerOpen(true)}
+        isLayerOpen={isLayerOpen}
+        handleLayerOpen={handleLayerOpen}
         isOpenForInvestments={isOpenForInvestments}
         handleClose={() => setIsDrawerOpen(false)}
       />

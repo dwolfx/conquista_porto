@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-
 const arrowDirection = {
   bottom: {
     main: css`
@@ -7,7 +6,7 @@ const arrowDirection = {
       left: calc(50% - 7px);
     `,
     pseudo: css`
-      border-color: ${props =>
+      border-color: ${(props: any) =>
         `${
           props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
         } transparent transparent ${
@@ -23,7 +22,7 @@ const arrowDirection = {
       right: -14px;
     `,
     pseudo: css`
-      border-color: ${props =>
+      border-color: ${(props: any) =>
         `${
           props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
         } ${
@@ -39,7 +38,7 @@ const arrowDirection = {
       left: -14px;
     `,
     pseudo: css`
-      border-color: ${props =>
+      border-color: ${(props: any) =>
         `transparent transparent ${
           props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
         } ${
@@ -55,7 +54,7 @@ const arrowDirection = {
       left: calc(50% - 7px);
     `,
     pseudo: css`
-      border-color: ${props =>
+      border-color: ${(props: any) =>
         `transparent ${
           props.tooltip ? props.theme.colors.gray6 : props.theme.colors.white
         } ${
@@ -66,8 +65,7 @@ const arrowDirection = {
     `,
   },
 }
-
-export const PopoverContainer = styled.div`
+export const PopoverContainer = styled.div<any>`
   background-color: ${props => props.theme.colors.white};
   border-radius: 4px;
   box-shadow: ${props => props.theme.shadows.gray2};
@@ -75,22 +73,23 @@ export const PopoverContainer = styled.div`
   position: relative;
   z-index: 13;
 `
-
 export const Tooltip = styled(PopoverContainer)`
   background-color: ${props => props.theme.colors.gray6};
   color: ${props => props.theme.colors.white};
   opacity: 0.84;
   padding: 4.5px 7px;
 `
-
-export const Arrow = styled.div`
+interface IArrow {
+  placement: 'bottom' | 'left' | 'right' | 'top'
+  tooltip?: boolean
+}
+export const Arrow = styled.div<IArrow>`
   height: 14px;
   overflow: hidden;
   position: absolute;
   width: 14px;
   z-index: -1;
   ${props => arrowDirection[props.placement].main};
-
   &:before {
     border: 5px solid;
     content: '';
@@ -109,7 +108,6 @@ export const Arrow = styled.div`
     ${props => arrowDirection[props.placement].pseudo};
   }
 `
-
 export const ChildrenWrapper = styled.div`
   cursor: pointer;
 `

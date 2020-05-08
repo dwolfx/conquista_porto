@@ -40,6 +40,17 @@ export const CardIcon = styled.div`
   width: 35px;
 `
 
+export const CardIconInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 21px;
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+`
+
 export const CardTitle = styled(Text).attrs(() => ({
   type: 'headline',
   bold: true,

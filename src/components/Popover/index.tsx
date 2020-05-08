@@ -1,34 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { Manager, Reference, Popper } from 'react-popper'
 import 'styled-components/macro'
-
 import Text from 'components/Text'
-
 import { PopoverContainer, Arrow, ChildrenWrapper, Tooltip } from './styles'
-
-export default function Popover({
-  alwaysVisible,
+type TPlacement = 'bottom' | 'left' | 'right' | 'top'
+interface IProps {
+  alwaysVisible?: boolean
+  content: string | (() => React.ReactNode)
+  flippable?: boolean
+  placement?: TPlacement
+  trigger?: string
+  tooltip?: boolean
+}
+const Popover: React.FC<IProps> = ({
+  alwaysVisible = false,
   children,
-  content,
-  flippable,
-  placement,
+  content = () => null,
+  flippable = true,
+  placement = 'top',
   trigger,
-  tooltip,
+  tooltip = false,
   ...rest
-}) {
+}) => {
+  const portalContainer = document.querySelector('#root')
   const [isOpen, setIsOpen] = useState(alwaysVisible)
-
   useEffect(() => {
     setIsOpen(alwaysVisible)
   }, [alwaysVisible])
-
   const actions = () => {
     if (alwaysVisible) {
       return null
     }
-
     switch (trigger) {
       case 'click': {
         return {
@@ -43,28 +46,33 @@ export default function Popover({
       }
     }
   }
-
-  const Content =
+  const renderContent =
     typeof content === 'string' ? () => <Text>{content}</Text> : content
 
-  const renderPopover = (ref, style, innerPlacement) => (
+  const renderPopover = (
+    ref: React.Ref<any>,
+    style: object,
+    innerPlacement: string
+  ) => (
     <PopoverContainer
       ref={ref}
       style={style}
       placement={placement || innerPlacement}
     >
       <Arrow placement={placement || innerPlacement} />
-      <Content />
+      {renderContent()}
     </PopoverContainer>
   )
-
-  const renderTooltip = (ref, style, innerPlacement) => (
+  const renderTooltip = (
+    ref: React.Ref<any>,
+    style: object,
+    innerPlacement: TPlacement
+  ) => (
     <Tooltip ref={ref} style={style} placement={placement || innerPlacement}>
       <Arrow placement={placement || innerPlacement} tooltip />
-      <Content />
+      {renderContent()}
     </Tooltip>
   )
-
   return (
     <Manager>
       <Reference>
@@ -74,7 +82,7 @@ export default function Popover({
           </ChildrenWrapper>
         )}
       </Reference>
-      {isOpen
+      {isOpen && portalContainer
         ? ReactDOM.createPortal(
             <Popper
               placement={placement}
@@ -94,33 +102,16 @@ export default function Popover({
                 }
               `}
             >
-              {({ placement: innerPlacement, ref, style }) =>
+              {({ placement: innerPlacement, ref, style }: any) =>
                 tooltip
                   ? renderTooltip(ref, style, innerPlacement)
                   : renderPopover(ref, style, innerPlacement)
               }
             </Popper>,
-            document.querySelector('#root')
+            portalContainer
           )
         : null}
     </Manager>
   )
 }
-
-Popover.propTypes = {
-  alwaysVisible: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  content: PropTypes.oneOfType([PropTypes.func, PropTypes.string]).isRequired,
-  flippable: PropTypes.bool,
-  placement: PropTypes.oneOf(['bottom', 'left', 'right', 'top']),
-  trigger: PropTypes.string,
-  tooltip: PropTypes.bool,
-}
-
-Popover.defaultProps = {
-  alwaysVisible: false,
-  placement: 'top',
-  flippable: true,
-  trigger: '',
-  tooltip: false,
-}
+export default Popover

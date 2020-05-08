@@ -25,6 +25,7 @@ const Detail = ({
   isOpen,
   isOpenForInvestments,
   handleLayerOpen,
+  isLayerOpen,
   handleClose,
   hasError,
 }) => {
@@ -53,7 +54,7 @@ const Detail = ({
   const footerDrawer = () =>
     isOpenForInvestments ? (
       <ButtonSubmit color="secondary" onClick={() => handleLayerOpen()}>
-        Investir
+        {isLayerOpen ? 'Voltar' : 'Investir'}
       </ButtonSubmit>
     ) : (
       <LockFundWrapper>
@@ -151,6 +152,7 @@ const Detail = ({
 Detail.propTypes = {
   isOpen: PropTypes.bool,
   isOpenForInvestments: PropTypes.bool,
+  isLayerOpen: PropTypes.bool,
   handleLayerOpen: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
@@ -159,6 +161,7 @@ Detail.propTypes = {
 Detail.defaultProps = {
   isOpen: false,
   isOpenForInvestments: true,
+  isLayerOpen: false,
   hasError: false,
 }
 export default Detail

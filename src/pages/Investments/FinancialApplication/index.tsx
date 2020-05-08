@@ -21,7 +21,6 @@ import {
   GridRow,
   GridRowExpanded,
   GridCol,
-  LayerCard,
 } from './styles'
 
 interface IProps {
@@ -38,6 +37,7 @@ export type IFormData = {
 
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
+  handleDrawerOpen = () => {},
   isOpen = false,
   selectedFundId,
 }) => {
@@ -160,7 +160,7 @@ const LayerInvestment: React.FC<IProps> = ({
       <LayerBodyContainer>
         <GridRowExpanded>
           <GridCol lg={3}>
-            <LayerCard>Card Descrição Fundo</LayerCard>
+            <DetailCard handleDrawerOpen={handleDrawerOpen} />
           </GridCol>
           <GridCol lg={9}>{layerBody[step]}</GridCol>
         </GridRowExpanded>
@@ -192,6 +192,12 @@ const LayerInvestment: React.FC<IProps> = ({
       />
     </Layer>
   )
+}
+
+interface IProps {
+  handleClose: () => void
+  handleDrawerOpen?: () => void
+  isOpen: boolean
 }
 
 export default LayerInvestment
