@@ -30,7 +30,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
           <WrapperContent>
             <Loading
               type="bar"
-              legend="Aguarde enquanto buscamos informações de fundos de investimentos..."
+              legend="Buscando informações dos fundos de investimento…"
             />
           </WrapperContent>
         </ListWrapper>
@@ -42,8 +42,8 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
         <ListWrapper>
           <WrapperContent errorType>
             <ErrorText>
-              Não foi possível carregar suas informações de fundos de
-              investimentos.
+              Não foi possível carregar a lista de fundos. Por favor, tente
+              novamente.
             </ErrorText>
             <Button onClick={() => dispatch(GetInvestmentListRequest())}>
               Tentar novamente
@@ -59,8 +59,8 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
           <WrapperContent>
             <EmptyDataText>
               {isFiltering
-                ? 'No momento, não temos fundos com essas especificações.'
-                : 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.'}
+                ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
+                : 'No momento, não temos fundos com essas especificações.'}
             </EmptyDataText>
           </WrapperContent>
         </ListWrapper>
