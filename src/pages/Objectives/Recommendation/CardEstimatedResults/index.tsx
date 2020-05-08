@@ -3,7 +3,7 @@ import { Col } from 'styled-bootstrap-grid'
 
 import Text from 'components/Text'
 import { formatMoney } from 'helpers'
-import { incomeLabel } from 'pages/Objectives/GoalStreams/goalTypes'
+import { incomeLabel } from './dataCardEstimated'
 import {
   BodyCard,
   CardRow,
@@ -98,7 +98,7 @@ const CardEstimatedResults = ({ answer, income }:ICardProps) => {
               {positionIncome.map((item: any, key) => (
                 <LabelIncome smAuto>
                   <Text type="captionUppercase" color="gray5">
-                    Cenário {incomeLabel(key)}
+                    Cenário {incomeLabel[key]}
                   </Text>
                   <Text type="heading4" bold>
                     {formatMoney(item[item.length - 1].value)}

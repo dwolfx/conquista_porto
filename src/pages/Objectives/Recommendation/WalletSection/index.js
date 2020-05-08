@@ -1,8 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import PropTypes from 'prop-types'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
-import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
@@ -12,27 +11,18 @@ import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 
 import ModalFundos from './ModalFundos'
-import {
-  GridRow,
-  FullHeightCard,
-  CardContainer,
-  SpacedText,
-  SpacedValue,
-} from '../styles'
+import { GridRow } from '../styles'
 import * as s from './styles'
 
 import CardsView from './CardsView'
 import TableView from './TableView'
+import CardCreditProduct from './CardCreditProduct'
 
 const WalletSection = ({ creditProduct, combo, funds }) => {
-  const theme = useContext(ThemeContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [initialReset, setInitialReset] = useState(true)
   const [fundDetails, setFundDetails] = useState({})
   const isMobile = useMedia('sm')
-
-  let { name: productName } = creditProduct || ''
-  productName = (productName || '').toLowerCase()
 
   const handleOpenDetails = fund => {
     setFundDetails(fund)
@@ -125,54 +115,7 @@ const WalletSection = ({ creditProduct, combo, funds }) => {
       </Col>
 
       {creditProduct && combo.length > 1 && (
-        <Col
-          lg="3"
-          css={`
-            margin-bottom: ${isMobile ? '14px' : '0px'};
-          `}
-        >
-          <FullHeightCard
-            headerIcon={
-              (productName.includes('financiamento de veículo') && 'car2') ||
-              (productName.includes('financiamento') && 'money') ||
-              (productName.includes('consórcio de imóvel') && 'homewithwindow')
-            }
-            headerTitle={creditProduct.name.split(' ')[0]}
-          >
-            <CardContainer>
-              {creditProduct.values.map((item, index) => (
-                <s.InfoContent key={index}>
-                  <SpacedText type="captionUppercase" color="gray5">
-                    {item.name}
-                  </SpacedText>
-                  <SpacedValue>
-                    <SpacedText
-                      truncate
-                      type="headline"
-                      color={item.checked ? 'green3' : 'gray6'}
-                    >
-                      {item.value}
-                    </SpacedText>
-                    {item.checked && (
-                      <Icon
-                        name="check"
-                        width="21px"
-                        fill={theme.colors.green3}
-                      />
-                    )}
-                    {item.info && (
-                      <Icon
-                        name="information"
-                        width="21px"
-                        fill={theme.colors.gray5}
-                      />
-                    )}
-                  </SpacedValue>
-                </s.InfoContent>
-              ))}
-            </CardContainer>
-          </FullHeightCard>
-        </Col>
+        <CardCreditProduct creditProduct={creditProduct} />
       )}
     </GridRow>
   )
