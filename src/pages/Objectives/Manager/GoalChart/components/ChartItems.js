@@ -18,7 +18,8 @@ import ChartPopoverContent from './ChartPopoverContent'
 
 export default function ChartItems({ indexSelectedYear, data, vertical }) {
   const history = useHistory()
-  const idealMoment = data.creditProduct && data.creditProduct.name === 'Financiamento de Veículo'
+  const idealMoment =
+    data.creditProduct && data.creditProduct.name === 'Financiamento de Veículo'
 
   if (indexSelectedYear !== null && indexSelectedYear >= 0) {
     const selectedYear = data.years[indexSelectedYear]
