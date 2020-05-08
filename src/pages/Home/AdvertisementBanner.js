@@ -50,7 +50,7 @@ const AdvertisementBanner = () => {
         <GridCol lg="12">
           <BannerTips
             size="lg"
-            image={BannerImg}
+            image={bannerData.icon_name || BannerImg}
             hasCloseButton
             onClose={() => {
               setCookieValue('hideConquistaHomeBanner', 'true')
