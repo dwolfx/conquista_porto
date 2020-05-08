@@ -1,128 +1,107 @@
-import InsuranceOfferImg from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_1.jpg'
-import InsuranceOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_2.jpg'
-import InsuranceOfferImg3 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_3.jpg'
-import InsuranceOfferImg4 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_4.jpg'
-import InsuranceOfferImg5 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_5.jpg'
-import InsuranceOfferImg6 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_6.jpg'
-import InsuranceOfferImg7 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_7.jpg'
-import InsuranceOfferImg8 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_8.jpg'
-import InsuranceOfferImg9 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_9.jpg'
-import InsuranceOfferImg10 from 'assets/images/pages/Home/PointsCards/img_offer_points_insurance_10.jpg'
-import NoGroupOfferImg1 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_1.jpg'
-import NoGroupOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_2.jpg'
-import NoGroupOfferImg3 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_3.jpg'
-import NoGroupOfferImg4 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_4.jpg'
-import NoGroupOfferImg5 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_5.jpg'
-import NoGroupOfferImg6 from 'assets/images/pages/Home/PointsCards/img_offer_points_nogroup_6.jpg'
-import RepairsOfferImg1 from 'assets/images/pages/Home/PointsCards/img_offer_points_repairs_1.jpg'
-import RepairsOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_repairs_2.jpg'
-import SofaOfferImg1 from 'assets/images/pages/Home/PointsCards/img_offer_points_sofa_1.jpg'
-import SofaOfferImg2 from 'assets/images/pages/Home/PointsCards/img_offer_points_sofa_2.jpg'
-
 import { ICardsInfo } from './types'
 
-export const pointsCardsDataWithoutCreditCard: ICardsInfo[] = [
+export const pointsRewardsDataWithoutCreditCard: ICardsInfo[] = [
   {
     group: 1,
     points: 1872,
     type: 'Diversos',
     exchangeProduct: 'Fone De Ouvido Multilaser',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Fone De Ouvido Multilaser.jpg'),
   },
   {
     group: 1,
     points: 6900,
     type: 'Diversos',
     exchangeProduct: 'Ventilador de Mesa Britânia',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Ventilador de Mesa Britania.jpg'),
   },
   {
     group: 1,
     points: 12817,
     type: 'Diversos',
     exchangeProduct: 'Aspirador de Pó Vertical e de Mão ',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Aspirador de Po Vertical e de Mao.jpg'),
   },
   {
     group: 1,
     points: 17015,
     type: 'Diversos',
     exchangeProduct: 'Headphone Premium Bluetooth ',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Headphone Premium Bluetooth.jpg'),
   },
   {
     group: 2,
     points: 27224,
     type: 'Diversos',
     exchangeProduct: 'Mixer Philips Walita',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Mixer Philips Walita.jpg'),
   },
   {
     group: 2,
     points: 32927,
     type: 'Diversos',
     exchangeProduct: 'Panela Elétrica Arno',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Panela Eletrica Arno.jpg'),
   },
   {
     group: 2,
     points: 47871,
     type: 'Diversos',
     exchangeProduct: 'Fritadeira Elétrica Multilaser Air Fryer ',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Fritadeira Eletrica Multilaser Air Fryer.jpg'),
   },
   {
     group: 2,
     points: 59900,
     type: 'Diversos',
     exchangeProduct: 'Máquina de Café Citiz',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Maquina de Cafe Citiz.jpg'),
   },
   {
     group: 3,
     points: 65900,
     type: 'Diversos',
     exchangeProduct: 'Adega de Vinhos Philco',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Adega de Vinhos Philco.jpg'),
   },
   {
     group: 3,
     points: 79900,
     type: 'Diversos',
     exchangeProduct: 'Máquina de Café Nespresso Expert',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Maquina de Cafe Nespresso Expert.jpg'),
   },
   {
     group: 3,
     points: 99900,
     type: 'Diversos',
     exchangeProduct: 'Smartwatch Samsung Galaxy Watch Active',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Smartwatch Samsung Galaxy Watch Active.jpg'),
   },
   {
     group: 3,
     points: 115990,
     type: 'Diversos',
     exchangeProduct: 'Adega Climatizada Brastemp',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Adega Climatizada Brastemp.jpg'),
   },
   {
     group: 4,
     points: 141990,
     type: 'Diversos',
     exchangeProduct: 'Ar-condicionado Split Gree',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Ar-condicionado Split Gree.jpg'),
   },
   {
     group: 4,
     points: 161183,
     type: 'Diversos',
     exchangeProduct: 'Smartwatch Samsung Galaxy Watch Active 2 - Preta 4GB',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/miscellaneous/Smartwatch Samsung Galaxy Watch Active 2 - Preta 4GB.jpg'),
   },
 ]
 
-export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
+export const pointsRewardsDataWithCreditCard: ICardsInfo[] = [
   {
     group: 1,
     points: 6500,
@@ -130,7 +109,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 150,
     icon: 'car2',
-    image: InsuranceOfferImg,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_1.jpg'),
   },
   {
     group: 1,
@@ -139,7 +118,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 240,
     icon: 'homewithwindow',
-    image: InsuranceOfferImg2,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_2.jpg'),
   },
   {
     group: 1,
@@ -148,7 +127,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Faz',
     exchangeValue: 360,
     icon: 'couch',
-    image: SofaOfferImg1,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_sofa_1.jpg'),
   },
   {
     group: 1,
@@ -157,7 +136,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 600,
     icon: 'car2',
-    image: InsuranceOfferImg3,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_3.jpg'),
   },
   {
     group: 2,
@@ -166,7 +145,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Centro automotivo Porto Seguro',
     exchangeValue: 600,
     icon: 'tools',
-    image: NoGroupOfferImg1,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_1.jpg'),
   },
   {
     group: 2,
@@ -175,7 +154,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 720,
     icon: 'homewithwindow',
-    image: InsuranceOfferImg4,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_4.jpg'),
   },
   {
     group: 2,
@@ -184,7 +163,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Azul Seguros Auto',
     exchangeValue: 700,
     icon: 'car2',
-    image: InsuranceOfferImg5,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_5.jpg'),
   },
   {
     group: 2,
@@ -193,7 +172,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Faz',
     exchangeValue: 960,
     icon: 'tool',
-    image: RepairsOfferImg1,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_repairs_1.jpg'),
   },
   {
     group: 3,
@@ -202,7 +181,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 1350,
     icon: 'car2',
-    image: NoGroupOfferImg2,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_2.jpg'),
   },
   {
     group: 3,
@@ -211,7 +190,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 1200,
     icon: 'homewithwindow',
-    image: InsuranceOfferImg6,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_6.jpg'),
   },
   {
     group: 3,
@@ -219,7 +198,8 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     type: 'Lavagem de sofá',
     exchangeProduct: 'Porto Faz',
     exchangeValue: 1320,
-    image: SofaOfferImg2,
+    icon: 'couch',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_sofa_2.jpg'),
   },
   {
     group: 3,
@@ -228,7 +208,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Financiamento de veículos Porto Seguro',
     exchangeValue: 1440,
     icon: 'money',
-    image: NoGroupOfferImg3,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_3.jpg'),
   },
   {
     group: 4,
@@ -237,7 +217,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Azul Seguros Auto',
     exchangeValue: 1300,
     icon: 'car2',
-    image: InsuranceOfferImg7,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_7.jpg'),
   },
   {
     group: 4,
@@ -246,7 +226,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 2100,
     icon: 'car2',
-    image: InsuranceOfferImg8,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_8.jpg'),
   },
   {
     group: 4,
@@ -255,7 +235,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Centro automotivo Porto Seguro',
     exchangeValue: 1800,
     icon: 'tools',
-    image: NoGroupOfferImg4,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_4.jpg'),
   },
   {
     group: 4,
@@ -264,7 +244,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 1920,
     icon: 'homewithwindow',
-    image: InsuranceOfferImg9,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_9.jpg'),
   },
   {
     group: 5,
@@ -273,7 +253,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Auto',
     exchangeValue: 2550,
     icon: 'car2',
-    image: InsuranceOfferImg10,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_10.jpg'),
   },
   {
     group: 5,
@@ -282,7 +262,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Faz',
     exchangeValue: 2160,
     icon: 'tool',
-    image: RepairsOfferImg2,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_repairs_2.jpg'),
   },
   {
     group: 5,
@@ -291,7 +271,7 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Centro automotivo Porto Seguro',
     exchangeValue: 2280,
     icon: 'tools',
-    image: NoGroupOfferImg5,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_5.jpg'),
   },
   {
     group: 5,
@@ -300,6 +280,6 @@ export const pointsCardsDataWithCreditCard: ICardsInfo[] = [
     exchangeProduct: 'Porto Seguro Residencial',
     exchangeValue: 2400,
     icon: 'homewithwindow',
-    image: NoGroupOfferImg6,
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_6.jpg'),
   },
 ]

@@ -26,8 +26,8 @@ import LoadingState from 'pages/Home/commons/LoadingState'
 import ErrorState from 'pages/Home/commons/ErrorState'
 
 import {
-  pointsCardsDataWithCreditCard,
-  pointsCardsDataWithoutCreditCard,
+  pointsRewardsDataWithCreditCard,
+  pointsRewardsDataWithoutCreditCard,
 } from './pointsCardsData'
 import { pointsRulesConditions } from './modalPointsData'
 import PointsOfferCard from './RecommendationCard'
@@ -56,7 +56,7 @@ export default function PointsSection({ points }) {
   const [aboveOffer, setAboveOffer] = useState(null)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
   const [cardsRecommendationData, setCardsRecommendationData] = useState(
-    pointsCardsDataWithoutCreditCard
+    pointsRewardsDataWithoutCreditCard
   )
 
   const dispatch = useDispatch()
@@ -77,8 +77,8 @@ export default function PointsSection({ points }) {
   useEffect(() => {
     setCardsRecommendationData(
       creditCard && creditCard.length
-        ? pointsCardsDataWithCreditCard
-        : pointsCardsDataWithoutCreditCard
+        ? pointsRewardsDataWithCreditCard
+        : pointsRewardsDataWithoutCreditCard
     )
   }, [creditCard])
 
@@ -371,6 +371,12 @@ export default function PointsSection({ points }) {
                   : 'star'
               }
               isMiscellaneous={!creditCard || !creditCard.length}
+              cardTitle={
+                pointsAmountBalance >
+                (belowOffer || cardsRecommendationData[0]).points
+                  ? 'Troque seus pontos'
+                  : 'Acumule mais pontos'
+              }
             />
           </SectionCol>
           <SectionCol md="6">
@@ -382,6 +388,12 @@ export default function PointsSection({ points }) {
                   : 'idea'
               }
               isMiscellaneous={!creditCard}
+              cardTitle={
+                pointsAmountBalance >
+                (aboveOffer || cardsRecommendationData[1]).points
+                  ? 'Troque seus pontos'
+                  : 'Acumule mais pontos'
+              }
             />
           </SectionCol>
         </Row>

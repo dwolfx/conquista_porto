@@ -7,13 +7,14 @@ import { IRecommendationCardProps } from './types'
 import * as s from './styles'
 
 const RecommendationCard = ({
-  offer,
   cardIcon,
+  cardTitle,
   isMiscellaneous,
+  offer,
 }: IRecommendationCardProps) => (
   <FullHeightCard
-    headerIcon={cardIcon || 'tag'}
-    headerTitle="Troque seus pontos"
+    headerIcon={cardIcon}
+    headerTitle={cardTitle}
   >
     <s.OfferBox>
       <s.OfferImageBox>
