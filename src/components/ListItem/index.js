@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { handleGiwRedirect } from 'helpers'
 
 import Text from 'components/Text'
 import { Container, StartBox, EndBox, TextWrapper } from './styles'
@@ -27,7 +28,11 @@ export default function ListItem({
       {...rest}
       margin={margin}
       height={height}
-      onClick={() => !!path && handleClick(path)}
+      onClick={() =>
+        path === 'perfil'
+          ? handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
+          : !!path && handleClick(path)
+      }
     >
       {StartIcon && (
         <StartBox>{StartIcon.type ? StartIcon : <StartIcon />}</StartBox>
