@@ -40,7 +40,7 @@ export const LayerWrapper = styled.div<ILayerWrapperProps>`
   transition: all ease 0.3s;
   visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   width: 100vw;
-  z-index: 13;
+  z-index: 12;
 `
 
 export const ChildrenWrapper = styled.div`

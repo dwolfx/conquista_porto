@@ -16,7 +16,7 @@ import {
   Ul,
 } from './styles'
 
-export const Transactions = ({ fund, category }) => {
+export const Transactions = ({ fund }) => {
   const liContent = [
     [
       <LiTitle>Aplicação Inicial</LiTitle>,
@@ -57,7 +57,7 @@ export const Transactions = ({ fund, category }) => {
     [
       <LiTitle>Categoria</LiTitle>,
       <LiValue bold>
-        {category === 'Renda Variável' ? 'Ações' : category}
+        {fund.categoria === 'Renda Variável' ? 'Ações' : fund.categoria}
       </LiValue>,
     ],
   ]
@@ -102,6 +102,6 @@ Transactions.propTypes = {
     minimo_inicial: PropTypes.string,
     saldo_minimo: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     classificacao: PropTypes.string,
+    categoria: PropTypes.string,
   }).isRequired,
-  category: PropTypes.string.isRequired,
 }

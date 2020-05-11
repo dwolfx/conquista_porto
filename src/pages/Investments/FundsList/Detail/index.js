@@ -8,6 +8,7 @@ import Button from 'components/Button'
 import Text from 'components/Text'
 
 import { useSelector, useDispatch } from 'react-redux'
+
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
@@ -25,6 +26,7 @@ const Detail = ({
   isOpen,
   isOpenForInvestments,
   handleLayerOpen,
+  isLayerOpen,
   handleClose,
   hasError,
 }) => {
@@ -32,28 +34,14 @@ const Detail = ({
     state => state.investmentDetails
   )
   const dispatch = useDispatch()
-  const funds = useSelector(state => state.investmentsList)
-  const categories = funds.data[0]
-
-  const getCategoryName = () => {
-    let name = ''
-    if (categories && fundDetails !== false)
-      categories.forEach(category => {
-        const filteredResult = category.fundos.filter(
-          fundo => fundo.id_fundo === fundDetails.id_fundo
-        )
-        if (filteredResult.length > 0) {
-          name = category.nome_categoria
-        }
-      })
-    return name
-  }
-  const category = getCategoryName()
 
   const footerDrawer = () =>
     isOpenForInvestments ? (
-      <ButtonSubmit color="secondary" onClick={() => handleLayerOpen()}>
-        Investir
+      <ButtonSubmit
+        color="secondary"
+        onClick={() => handleLayerOpen(fundDetails.id_fundo, true)}
+      >
+        {isLayerOpen ? 'Voltar' : 'Investir'}
       </ButtonSubmit>
     ) : (
       <LockFundWrapper>
@@ -97,7 +85,7 @@ const Detail = ({
       </TabList>
 
       <TabPanel name="tab-detalhe-fundo">
-        <TabDetails fund={fundDetails} category={category} />
+        <TabDetails fund={fundDetails} />
       </TabPanel>
       <TabPanel name="tab-rentabilidade">
         <TabProfitability fund={fundDetails} />
@@ -151,6 +139,7 @@ const Detail = ({
 Detail.propTypes = {
   isOpen: PropTypes.bool,
   isOpenForInvestments: PropTypes.bool,
+  isLayerOpen: PropTypes.bool,
   handleLayerOpen: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
@@ -159,6 +148,7 @@ Detail.propTypes = {
 Detail.defaultProps = {
   isOpen: false,
   isOpenForInvestments: true,
+  isLayerOpen: false,
   hasError: false,
 }
 export default Detail

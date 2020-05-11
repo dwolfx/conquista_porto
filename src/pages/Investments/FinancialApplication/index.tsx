@@ -16,6 +16,7 @@ import SuccessCard from './EndOfApplicationFlow/SuccessCard'
 import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 
 import { formatMoneyDecimal } from 'helpers'
+import DetailCard from './DetailCard'
 
 import {
   StepBar,
@@ -26,7 +27,6 @@ import {
   GridRow,
   GridRowExpanded,
   GridCol,
-  LayerCard,
 } from './styles'
 
 interface IProps {
@@ -43,6 +43,7 @@ export type IFormData = {
 
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
+  handleDrawerOpen = () => {},
   isOpen = false,
   selectedFundId,
 }) => {
@@ -229,7 +230,7 @@ const LayerInvestment: React.FC<IProps> = ({
       <LayerBodyContainer>
         <GridRowExpanded>
           <GridCol lg={3}>
-            <LayerCard>Card Descrição Fundo</LayerCard>
+            <DetailCard handleDrawerOpen={handleDrawerOpen} />
           </GridCol>
           {getBodyContent()}
         </GridRowExpanded>
@@ -261,6 +262,12 @@ const LayerInvestment: React.FC<IProps> = ({
       />
     </Layer>
   )
+}
+
+interface IProps {
+  handleClose: () => void
+  handleDrawerOpen?: () => void
+  isOpen: boolean
 }
 
 export default LayerInvestment

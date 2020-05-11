@@ -3,6 +3,7 @@ import { Types } from './types'
 const INITIAL_STATE = {
   data: {},
   isLoading: false,
+  isError: false,
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -11,6 +12,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: true,
+        isError: false,
       }
     case Types.INVESTMENT_DETAILS_ADD_SUCCESS:
       return {
@@ -22,6 +24,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: false,
+        isError: true,
       }
     default:
       return state

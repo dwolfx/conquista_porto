@@ -20,7 +20,11 @@ export const FILTER_TYPES = {
   5: 'cambial',
 }
 
-export const FILTER_RISKS = {
+interface IFILTER_RISKS {
+  [key: number]: string
+}
+
+export const FILTER_RISKS: IFILTER_RISKS = {
   1: 'baixo',
   2: 'medio-baixo',
   3: 'medio',
