@@ -55,6 +55,13 @@ export default function PointsSection({ points }) {
   const [belowOffer, setBelowOffer] = useState(null)
   const [aboveOffer, setAboveOffer] = useState(null)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
+  const [
+    firstRecommendationCardIcon,
+    setFirstRecommendationCardIcon,
+  ] = useState('star')
+  const [lastRecommendationCardIcon, setLastRecommendationCardIcon] = useState(
+    'idea'
+  )
   const [cardsRecommendationData, setCardsRecommendationData] = useState(
     pointsRewardsDataWithoutCreditCard
   )
@@ -100,16 +107,23 @@ export default function PointsSection({ points }) {
         if (pointsAmountBalance > maxPoints) {
           // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
           // aboveOffer must be higher than belowOffer
+          const lastGroupIndex = [...cardsRecommendationData].reduce(
+            (acc, cur) => (cur.group > acc ? cur.group : acc),
+            cardsRecommendationData[0].group
+          )
           const higherGroupData = [...cardsRecommendationData].filter(
-            item => item.group === 5
+            item => item.group === lastGroupIndex
           )
 
-          newBelowOffer = higherGroupData[Math.floor(Math.random() * 3)]
+          newBelowOffer =
+            higherGroupData[
+              Math.floor(Math.random() * (higherGroupData.length - 1))
+            ]
           newAboveOffer = [...higherGroupData]
             .reverse()
             .reduce(
               (acc, cur) => (cur.points > newBelowOffer.points ? cur : acc),
-              aboveOffer
+              newBelowOffer
             )
         } else {
           // if current points are below the maximum offer, get the offer below the current points and one above the current
@@ -137,6 +151,32 @@ export default function PointsSection({ points }) {
       setAboveOffer(cardsRecommendationData[1])
     }
   }, [points, pointsAmountBalance])
+
+  useEffect(() => {
+    let firstIcon = (belowOffer || cardsRecommendationData[0]).icon
+    let lastIcon = (aboveOffer || cardsRecommendationData[1]).icon
+
+    if (!creditCard || !creditCard.length) {
+      if (
+        pointsAmountBalance > (belowOffer || cardsRecommendationData[0]).points
+      ) {
+        firstIcon = 'star'
+      } else {
+        firstIcon = 'idea'
+      }
+
+      if (
+        pointsAmountBalance > (aboveOffer || cardsRecommendationData[1]).points
+      ) {
+        lastIcon = 'star'
+      } else {
+        lastIcon = 'idea'
+      }
+    }
+
+    setFirstRecommendationCardIcon(firstIcon)
+    setLastRecommendationCardIcon(lastIcon)
+  }, [pointsAmountBalance, aboveOffer, belowOffer, creditCard])
 
   useDataLayerProducts(belowOffer, aboveOffer)
   function redirectToRescuePointsSystem({ url }) {
@@ -365,11 +405,7 @@ export default function PointsSection({ points }) {
           <SectionCol md="6">
             <PointsOfferCard
               offer={belowOffer || cardsRecommendationData[0]}
-              cardIcon={
-                creditCard && creditCard.length
-                  ? (belowOffer || cardsRecommendationData[0]).icon
-                  : 'star'
-              }
+              cardIcon={firstRecommendationCardIcon}
               hasCreditCard={!creditCard || !creditCard.length}
               cardTitle={
                 pointsAmountBalance >
@@ -382,11 +418,7 @@ export default function PointsSection({ points }) {
           <SectionCol md="6">
             <PointsOfferCard
               offer={aboveOffer || cardsRecommendationData[1]}
-              cardIcon={
-                creditCard && creditCard.length
-                  ? (aboveOffer || cardsRecommendationData[1]).icon
-                  : 'idea'
-              }
+              cardIcon={lastRecommendationCardIcon}
               hasCreditCard={!creditCard || !creditCard.length}
               cardTitle={
                 pointsAmountBalance >

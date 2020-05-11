@@ -13,34 +13,7 @@
   "posicao-consolidada": {
     "saldototal": 1000
   },
-  "cartao_credito": [
-    {
-      "Tipo": "GOLD",
-      "Bandeira": "MASTERCARD",
-      "Fatura": {
-        "MelhorDataCompra": "6",
-        "Valor": "0",
-        "Vencimento": "16"
-      },
-      "UltimosDigitos": "4115",
-      "LimiteTitularCartao": {
-        "LimiteDisponivel": "0"
-      }
-    },
-    {
-      "Tipo": "PLATINUM",
-      "Bandeira": "VISA",
-      "Fatura": {
-        "MelhorDataCompra": "7",
-        "Valor": "4070.5",
-        "Vencimento": "18"
-      },
-      "UltimosDigitos": "5112",
-      "LimiteTitularCartao": {
-        "LimiteDisponivel": "10650.73"
-      }
-    }
-  ],
+  "cartao_credito": [],
   "financiamento_veiculo": {
     "TipoCritica": "SUCESSO",
     "Mensagem": "SUCESSO"
@@ -2768,7 +2741,7 @@
   "pontos_consultar": {
     "consultaPontosResponseType": {
       "pontoasAvencer": "0",
-      "saldoAtual": "26610",
+      "saldoAtual": "2008610",
       "dataPontosAacumular": "",
       "pontosAacumular": "0",
       "dataPontosAvencer": ""

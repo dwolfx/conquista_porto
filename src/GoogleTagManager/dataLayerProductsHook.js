@@ -7,7 +7,7 @@ const useDataLayerProducts = (belowOffer, aboveOffer) => {
     let dataLayerReturnType = 'erro'
     let dataLayerDescription = 'Não existem produtos sugeridos'
 
-    if (belowOffer !== null && aboveOffer !== null) {
+    if (belowOffer && aboveOffer) {
       dataLayerProducts.push({
         name: belowOffer.exchangeProduct,
         category: belowOffer.type,
