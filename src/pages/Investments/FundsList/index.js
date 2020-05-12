@@ -165,9 +165,6 @@ export default function FundsList() {
                 data={mobileFundList(filteredFundsList)}
                 isLoading={fundsStatus.isLoading}
                 isError={fundsStatus.isError}
-                isFiltering={
-                  filter.byPerfilRisco || filter.byCategoriaArena.length > 0
-                }
               />
             </Col>
           </>
@@ -189,10 +186,6 @@ export default function FundsList() {
                     fundsType={fundsType}
                     isLoading={fundsStatus.isLoading}
                     isError={fundsStatus.isError}
-                    isFiltering={
-                      filter.byPerfilRisco > 0 ||
-                      filter.byCategoriaArena.length > 0
-                    }
                   />
                 </Col>
               </ContentWrapper>

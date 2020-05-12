@@ -13,14 +13,12 @@ interface IResponsiveListProps {
   data: Array<IFund>
   isLoading: boolean
   isError: boolean
-  isFiltering: boolean
 }
 
 const ResponsiveList: React.FC<IResponsiveListProps> = ({
   data,
   isLoading,
   isError,
-  isFiltering,
 }) => {
   const dispatch = useDispatch()
   const ResponsiveListRender = () => {
@@ -30,7 +28,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
           <WrapperContent>
             <Loading
               type="bar"
-              legend="Buscando informações dos fundos de investimento…"
+              legend="Buscando informações dos fundos de investimentos…"
             />
           </WrapperContent>
         </ListWrapper>
@@ -58,9 +56,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
         <ListWrapper>
           <WrapperContent>
             <EmptyDataText>
-              {isFiltering
-                ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
-                : 'No momento, não temos fundos com essas especificações.'}
+              No momento, não temos fundos com essas especificações.
             </EmptyDataText>
           </WrapperContent>
         </ListWrapper>
