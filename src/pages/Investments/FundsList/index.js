@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useToast } from 'hooks/toast'
 
+import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
@@ -14,13 +16,40 @@ import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
 import FinancialApplication from '../FinancialApplication'
 
-import { GridContainer, ContentWrapper, TableContent } from './styles'
+import {
+  GridContainer,
+  ContentWrapper,
+  TableContent,
+  Modal,
+  ModalText,
+  ModalButtonWrapper,
+  ModalButton,
+} from './styles'
 import Detail from './Detail'
 import MobileFilter from './MobileFilter'
 import sortFundList from './MobileFilter/sortFundList'
 
+const modalSuitabilityInfoInitialState = {
+  isOpen: false,
+  title: '',
+  description: '',
+  button: {
+    buttonName: '',
+    dataGtmName: '',
+    dataGtmType: '',
+    dataGtmClicktype: '',
+    handleClick: () => {},
+  },
+}
+
 export default function FundsList() {
+  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
+    modalSuitabilityInfoInitialState
+  )
+
   const dispatch = useDispatch()
+
+  const { addToast } = useToast()
 
   const fundsStatus = useSelector(state => ({
     isLoading: state.investmentsList.isLoading,
@@ -48,13 +77,21 @@ export default function FundsList() {
 
   const filteredFundsList = useFilter(filter)
 
-  const handleLayerOpen = (fundId = null, hasDetailsFund = false) => {
-    setIsDrawerOpen(false)
-    setLayerOpen(true)
-    setSelectedFundId(fundId)
-    if (!hasDetailsFund) {
-      dispatch(GetInvestmentDetailsRequest(fundId))
+  const handleClickInvestButton = (fundId = null, hasDetailsFund = false) => {
+    const onSuccess = data => {
+      setModalSuitabilityInfo({ ...data })
+
+      if (data.isValid) {
+        setIsDrawerOpen(false)
+        setLayerOpen(true)
+        setSelectedFundId(fundId)
+        if (!hasDetailsFund) {
+          dispatch(GetInvestmentDetailsRequest(fundId))
+        }
+      }
     }
+
+    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
   }
 
   function handleChangeFilter(newFilter) {
@@ -73,6 +110,38 @@ export default function FundsList() {
 
   return (
     <>
+      <Modal
+        modalTitle={modalSuitabilityInfo.title}
+        isOpen={modalSuitabilityInfo.isOpen}
+        handleClose={() =>
+          setModalSuitabilityInfo({
+            ...modalSuitabilityInfo,
+            isOpen: false,
+          })
+        }
+      >
+        <ModalText>{modalSuitabilityInfo.description}</ModalText>
+        <ModalButtonWrapper>
+          {modalSuitabilityInfo.button && (
+            <ModalButton
+              data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+              data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+              data-gtm-clicktype={modalSuitabilityInfo.button.dataGtmClicktype}
+              onClick={
+                modalSuitabilityInfo.button.handleClick
+                  ? modalSuitabilityInfo.button.handleClick
+                  : () =>
+                      setModalSuitabilityInfo({
+                        ...modalSuitabilityInfo,
+                        isOpen: false,
+                      })
+              }
+            >
+              {modalSuitabilityInfo.button.buttonName}
+            </ModalButton>
+          )}
+        </ModalButtonWrapper>
+      </Modal>
       <FinancialApplication
         isOpen={isLayerOpen}
         handleClose={() => {
@@ -114,7 +183,7 @@ export default function FundsList() {
                     onChangeIsDrawerOpen={setIsDrawerOpen}
                     setIsOpenForInvestments={setIsOpenForInvestments}
                     handleLayerOpen={fundId => {
-                      handleLayerOpen(fundId)
+                      handleClickInvestButton(fundId)
                     }}
                     data={filteredFundsList}
                     fundsType={fundsType}
@@ -135,7 +204,7 @@ export default function FundsList() {
       <Detail
         isOpen={isDrawerOpen}
         isLayerOpen={isLayerOpen}
-        handleLayerOpen={handleLayerOpen}
+        handleLayerOpen={handleClickInvestButton}
         isOpenForInvestments={isOpenForInvestments}
         handleClose={() => setIsDrawerOpen(false)}
       />
