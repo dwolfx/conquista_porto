@@ -156,11 +156,12 @@ TableFunds.propTypes = {
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
-  clickedFundInvestButton: PropTypes.string.isRequired,
+  clickedFundInvestButton: PropTypes.string,
 }
 
 TableFunds.defaultProps = {
   isDrawerOpen: false,
+  clickedFundInvestButton: '',
 }
 
 TheadWrapper.propTypes = {
