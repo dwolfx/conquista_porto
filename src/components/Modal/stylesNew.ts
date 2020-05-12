@@ -18,10 +18,12 @@ export const ModalOverlay = styled.div<{ isOpen: boolean }>`
 
 export const ChildrenWrapper = styled.div`
   overflow: auto;
-  padding: ${props => props.theme.spacing(4)}px;
+  padding: ${props => props.theme.spacing(3)}px
+    ${props => props.theme.spacing(2)}px;
 
   @media ${props => props.theme.mediaQueries.sm} {
-    padding: ${props => props.theme.spacing(3)}px;
+    padding: ${props => props.theme.spacing(3)}px
+      ${props => props.theme.spacing(2)}px;
   }
 `
 
@@ -32,6 +34,7 @@ export const Divisor = styled(DivisorComponent).attrs(() => ({
 `
 
 export const ModalContainer = styled(Col)`
+  padding: 10px ${props => props.theme.spacing(2)}px;
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
   border-radius: 8px;
@@ -56,8 +59,7 @@ export const ModalContainer = styled(Col)`
 export const ModalHeader = styled.div`
   align-items: center;
   display: flex;
-  padding: 28px 35px;
-
+  padding: ${props => props.theme.spacing(2)}px;
   svg {
     margin-right: 15px;
   }
