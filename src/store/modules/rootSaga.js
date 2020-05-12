@@ -23,6 +23,7 @@ import objectiveManagement from './ObjectiveManagement/sagas'
 import suitability from './Suitability/sagas'
 import suitabilityInfo from './SuitabilityInfo/sagas'
 import rewardsRecommendations from './Rewards/Recommendations/sagas'
+import rewardsTypes from './Rewards/Types/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -48,5 +49,6 @@ export default function* rootSaga() {
     suitability,
     suitabilityInfo,
     rewardsRecommendations,
+    rewardsTypes,
   ])
 }

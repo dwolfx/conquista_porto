@@ -3726,20 +3726,32 @@
     "cod_org": "040",
     "cod_prog": "001"
   },
-  "goal_recommendations": {},
+  "goal_recommendations": {
+    "goal_type": "6",
+    "profile": 3,
+    "nickname": "Barcelona",
+    "target_date": "10/02/2022",
+    "is_target_date_flexible": "true",
+    "target_value": "1.000,00",
+    "initial_value": "1.000,00",
+    "monthly_value": "100,00",
+    "is_easy_to_save_planned_amount": "true",
+    "would_like_to_receive_before_final_date": "true"
+  },
   "goal_management": {
     "id": 1,
     "answer": {
-      "nickname": "Disney",
-      "target_date": "30/12/2019",
-      "target_value": null,
-      "initial_value": null,
-      "monthly_value": null,
-      "would_like_to_receive_before_final_date": false,
+      "nickname": "Barcelona",
+      "target_date": "10/02/2022",
+      "target_value": 100,
+      "initial_value": 100,
+      "monthly_value": 10000,
+      "would_like_to_receive_before_final_date": "true",
       "would_like_to_receive_monthly_income": false,
-      "goal_type": "1",
-      "is_easy_to_save_planned_amount": false,
-      "is_target_date_flexible": false
+      "goal_type": "6",
+      "is_easy_to_save_planned_amount": "true",
+      "is_target_date_flexible": "true",
+      "profile": 3
     },
     "fund_total_income": {
       "0": 1000,
@@ -4127,15 +4139,11 @@
       "values": [
         {
           "name": "Valor a Contratar",
-          "value": "R$ 69.999,00",
-          "checked": false,
-          "info": "Valor esperado"
+          "value": "R$ 69.999,00"
         },
         {
           "name": "Valor a Contratar",
-          "value": "R$ 350.000.000.000.000.000,00",
-          "checked": true,
-          "info": false
+          "value": "R$ 350.000.000,00"
         }
       ]
     }
@@ -4210,6 +4218,28 @@
       "button_name": "CONHECER SOLUÇÕES",
       "url_name": "/portaldecliente/conquista",
       "text_content": "Os investidores do Conquista têm, em média, 4 soluções da Porto Seguro. Simule quantas propostas quiser e contrate aqui. Quanto mais soluções você tiver, mais pontos pode acumular no Programa de Relacionamento."
+    }
+  ],
+  "rewards_types": [
+    {
+      "id": 1,
+      "name": "CADASTRO",
+      "quantity": 500
+    },
+    {
+      "id": 4,
+      "name": "PRIMEIRO OBJETIVO",
+      "quantity": 100
+    },
+    {
+      "id": 6,
+      "name": "CADASTRO COTISTA",
+      "quantity": 200
+    },
+    {
+      "id": 7,
+      "name": "PRIMEIRO INVESTIMENTO",
+      "quantity": 500
     }
   ]
 }

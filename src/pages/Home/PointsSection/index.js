@@ -20,6 +20,7 @@ import {
   GetPointsBalanceRequest,
   PostRecuePointsRequest,
 } from 'store/modules/Points/action'
+import { GetRewardTypesRequest } from 'store/modules/Rewards/Types/action'
 
 import CardHeaderState from 'pages/Home/commons/CardHeaderState'
 import LoadingState from 'pages/Home/commons/LoadingState'
@@ -75,10 +76,12 @@ export default function PointsSection({ points }) {
     balanceData,
     auth,
     creditCard,
+    rewardsTypes,
   } = useSelector(state => ({
     ...state.points,
     auth: state.auth,
     creditCard: state.creditCard.data,
+    rewardsTypes: state.rewardsTypes.data,
   }))
 
   useEffect(() => {
@@ -183,6 +186,12 @@ export default function PointsSection({ points }) {
     window.open(`#/redirect?to=${url}`, '_blank')
   }
 
+  const actionsModalRulesConditions = () => {
+    console.log('foi')
+    dispatch(GetRewardTypesRequest())
+    setIsModalOpen(!isModalOpen)
+  }
+
   const renderPointsFooter = () => {
     if (
       isLoadingExtract ||
@@ -200,7 +209,7 @@ export default function PointsSection({ points }) {
           data-gtm-name="regras e condicoes"
           data-gtm-type="click"
           data-gtm-clicktype="link"
-          onClick={() => setIsModalOpen(!isModalOpen)}
+          onClick={() => actionsModalRulesConditions()}
         >
           Regras e condições
         </ButtonLink>
@@ -245,12 +254,12 @@ export default function PointsSection({ points }) {
         </ModalTextWrapper>
         {item.points && (
           <ContainerBox>
-            {item.points.map((itemPoints, keyPoints) => (
+            {rewardsTypes.map(itemPoints => (
               <HorizontalList
                 noPadding
                 startItems={[customText('headline', 'gray6', itemPoints.name)]}
-                endItems={[tag('gray', itemPoints.points)]}
-                key={keyPoints}
+                endItems={[tag('gray', `${itemPoints.quantity} PONTOS`)]}
+                key={itemPoints.id}
               />
             ))}
           </ContainerBox>
