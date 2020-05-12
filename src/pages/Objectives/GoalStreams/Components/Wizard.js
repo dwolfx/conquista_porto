@@ -37,9 +37,10 @@ export const WizardFlow = ({ data, objective }) => {
       suitabilityData: state.suitability.data,
     })
   )
-
+  
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
+  const deviceColumns = isFirstStep ? '12' : '6'
 
   const increment = () => setStepIndex(currentStep + 1)
   const decrement = () => setStepIndex(currentStep - 1)
@@ -108,7 +109,7 @@ export const WizardFlow = ({ data, objective }) => {
   const WizardButton = () => (
     <RowFull>
       {!isFirstStep && (
-        <Col lg="6" xs="6">
+        <Col lg="6" sm="6" xs="6">
           <ButtonAction
             type="button"
             data-gtm-name="anterior"
@@ -122,7 +123,7 @@ export const WizardFlow = ({ data, objective }) => {
         </Col>
       )}
       {!isLastStep && (
-        <Col lg={isFirstStep ? '12' : '6'} xs={isFirstStep ? '12' : '6'}>
+        <Col lg={deviceColumns} sm={deviceColumns} xs={deviceColumns}>
           <ButtonAction
             type="submit"
             data-gtm-form="submit"
@@ -134,7 +135,7 @@ export const WizardFlow = ({ data, objective }) => {
         </Col>
       )}
       {isLastStep && (
-        <Col lg="6" xs="6">
+        <Col lg="6" sm="6" xs="6">
           <ButtonAction
             type="submit"
             data-gtm-form="submit"
