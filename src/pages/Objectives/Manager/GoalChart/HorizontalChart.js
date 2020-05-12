@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import Text from 'components/Text'
 import moment from 'moment'
+
+import Text from 'components/Text'
 import Loading from 'components/Loading'
 
 import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
@@ -74,7 +75,10 @@ export default function HorizontalChart({ data, isLoading }) {
               data-gtm-subname="grafico"
               data-gtm-name="botao anterior"
               onClick={handleClickPrevButton}
-            ></PreviousButton>
+              icon="arrowleft"
+              size="medium"
+              color="transparent"
+            />
           </ButtonContainer>
         )}
 
@@ -129,7 +133,10 @@ export default function HorizontalChart({ data, isLoading }) {
               data-gtm-subname="grafico"
               data-gtm-name="botao proximo"
               onClick={handleClickNextButton}
-            ></NextButton>
+              icon="arrowright"
+              size="medium"
+              color="transparent"
+            />
           </ButtonContainer>
         )}
       </ChartContainer>
