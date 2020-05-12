@@ -20,7 +20,6 @@ const TableBody = ({
   prepareRow,
   onChangeIsDrawerOpen,
   setIsOpenForInvestments,
-  isFiltering,
 }) => {
   const dispatch = useDispatch()
 
@@ -36,7 +35,7 @@ const TableBody = ({
           <td>
             <Loading
               type="bar"
-              legend="Buscando informações dos fundos de investimento…"
+              legend="Buscando informações dos fundos de investimentos…"
             />
           </td>
         </InfoTableContent>
@@ -69,9 +68,7 @@ const TableBody = ({
         <InfoTableContent>
           <td>
             <Text type="headline" color="gray5">
-              {isFiltering
-                ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
-                : 'No momento, não temos fundos com essas especificações.'}
+              No momento, não temos fundos com essas especificações.
             </Text>
           </td>
         </InfoTableContent>
@@ -111,7 +108,6 @@ TableBody.propTypes = {
   setIsOpenForInvestments: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
-  isFiltering: PropTypes.bool.isRequired,
   rows: PropTypes.array.isRequired,
   prepareRow: PropTypes.func.isRequired,
 }
