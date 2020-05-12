@@ -27,11 +27,11 @@ const Popover: React.FC<IProps> = ({
   const portalContainer = document.querySelector('#root')
 
   const [isOpen, setIsOpen] = useState(alwaysVisible)
-  
+
   useEffect(() => {
     setIsOpen(alwaysVisible)
   }, [alwaysVisible])
-  
+
   const actions = () => {
     if (alwaysVisible) {
       return null
@@ -50,7 +50,7 @@ const Popover: React.FC<IProps> = ({
       }
     }
   }
-  
+
   const renderContent =
     typeof content === 'string' ? () => <Text>{content}</Text> : content
 
@@ -79,7 +79,7 @@ const Popover: React.FC<IProps> = ({
       {renderContent()}
     </Tooltip>
   )
-  
+
   return (
     <Manager>
       <Reference>
