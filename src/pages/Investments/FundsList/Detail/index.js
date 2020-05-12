@@ -33,11 +33,16 @@ const Detail = ({
   const { data: fundDetails, isLoading } = useSelector(
     state => state.investmentDetails
   )
+  const suitabilityIsLoading = useSelector(
+    state => state.suitabilityInfo.isLoading
+  )
   const dispatch = useDispatch()
 
   const footerDrawer = () =>
     isOpenForInvestments ? (
       <ButtonSubmit
+        loading={suitabilityIsLoading}
+        loadingColor="white"
         color="secondary"
         onClick={() => handleLayerOpen(fundDetails.id_fundo, true)}
       >

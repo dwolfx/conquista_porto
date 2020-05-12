@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import Icon from 'components/IconExporter'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
+import ConquistaText from 'components/Text'
+import ConquistaButton from 'components/Button'
+import ConquistaModal from 'components/Modal/ModalNew'
 
 export const GridContainer = styled(Container)`
   background-color: ${props => props.theme.colors.gray1};
@@ -25,4 +28,22 @@ export const DropdownWrapper = styled(Col)`
 export const StyledIcon = styled(Icon)`
   width: 21px;
   height: 21px;
+`
+
+export const Modal = styled(ConquistaModal)`
+  z-index: 14;
+`
+
+export const ModalText = styled(ConquistaText).attrs(() => ({
+  type: 'headline',
+  color: 'gray6',
+}))``
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(ConquistaButton)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
 `
