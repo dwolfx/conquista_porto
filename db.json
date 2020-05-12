@@ -1,4 +1,15 @@
 {
+  "suitability_info": {
+    "status_cotista": true,
+    "CotistaContaOrdemPortoPar": "S",
+    "investidor_qualificado": "N",
+    "investidor_profissional": "N",
+    "codigo_status_cotista": "122",
+    "id_cotista": "2000121268",
+    "status_possui_suitability": true,
+    "status_data_vigencia_suitability": true,
+    "status_data_vencimento_cadastro": false
+  },
   "posicao-consolidada": {
     "saldototal": 1000
   },

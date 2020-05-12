@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useToast } from 'hooks/toast'
+
+import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
 
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
@@ -25,6 +29,8 @@ import {
   LockFundWrapper,
   LockIcon,
   ModalText,
+  ModalButtonWrapper,
+  ModalButton,
   RightContent,
   RiskLine,
   SecondDivisor,
@@ -129,17 +135,91 @@ export interface IFund {
 interface IFundCard {
   fund: IFund
 }
+const modalSuitabilityInfoInitialState = {
+  isOpen: false,
+  title: '',
+  description: '',
+  button: {
+    buttonName: '',
+    dataGtmName: '',
+    dataGtmType: '',
+    dataGtmClicktype: '',
+    handleClick: () => {},
+  },
+}
 
 const FundCard: React.FC<IFundCard> = ({ fund }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
+    modalSuitabilityInfoInitialState
+  )
+
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
+
+  const suitabilityIsLoading = useSelector<any, any>(
+    state => state.suitabilityInfo.isLoading
+  )
+
   const { state: locationState } = useLocation()
 
   const handleCloseModal = () => {
     setIsModalOpen(!isModalOpen)
   }
+
+  const handleClickInvestButton = () => {
+    const onSuccess = (data: any) => {
+      setModalSuitabilityInfo({ ...data })
+
+      if (data.isValid) {
+        handleGiwRedirect(
+          `portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
+            locationState && locationState.idGoal
+              ? `&idObjetivo=${locationState.idGoal}`
+              : ''
+          }`
+        )
+      }
+    }
+
+    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+  }
+
   return (
     <>
+      <Modal
+        modalTitle={modalSuitabilityInfo.title}
+        isOpen={modalSuitabilityInfo.isOpen}
+        handleClose={() =>
+          setModalSuitabilityInfo({
+            ...modalSuitabilityInfo,
+            isOpen: false,
+          })
+        }
+      >
+        <ModalText>{modalSuitabilityInfo.description}</ModalText>
+        <ModalButtonWrapper>
+          {modalSuitabilityInfo.button && (
+            <ModalButton
+              data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+              data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+              data-gtm-clicktype={modalSuitabilityInfo.button.dataGtmClicktype}
+              onClick={
+                modalSuitabilityInfo.button.handleClick
+                  ? modalSuitabilityInfo.button.handleClick
+                  : () =>
+                      setModalSuitabilityInfo({
+                        ...modalSuitabilityInfo,
+                        isOpen: false,
+                      })
+              }
+            >
+              {modalSuitabilityInfo.button.buttonName}
+            </ModalButton>
+          )}
+        </ModalButtonWrapper>
+      </Modal>
       <Modal
         modalTitle={fund.apelido}
         isOpen={isModalOpen}
@@ -237,22 +317,14 @@ const FundCard: React.FC<IFundCard> = ({ fund }) => {
                 </Button>
                 {fund.aplicao_liberada && (
                   <Button
+                    loading={suitabilityIsLoading}
+                    loadingColor="white"
                     color="secondary"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
                     data-gtm-subname={fund.apelido}
                     data-gtm-name="investir"
-                    onClick={() => {
-                      handleGiwRedirect(
-                        `portaldecliente/conquista/aplicacao?idFundo=${
-                          fund.id_fundo
-                        }&r=true${
-                          locationState && locationState.idGoal
-                            ? `&idObjetivo=${locationState.idGoal}`
-                            : ''
-                        }`
-                      )
-                    }}
+                    onClick={() => handleClickInvestButton()}
                   >
                     Investir
                   </Button>

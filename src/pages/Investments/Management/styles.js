@@ -417,3 +417,17 @@ export const LockIcon = styled(ConquistaIcon).attrs(() => ({ name: 'lock' }))`
   fill: ${props => props.theme.colors.gray4};
   width: 28px;
 `
+
+export const ModalText = styled(ConquistaText).attrs(() => ({
+  type: 'headline',
+  color: 'gray6',
+}))``
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(ConquistaButton)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
+`
