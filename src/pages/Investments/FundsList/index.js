@@ -43,44 +43,43 @@ const modalSuitabilityInfoInitialState = {
 }
 
 export default function FundsList() {
-  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
-    modalSuitabilityInfoInitialState
-  )
-
-  const dispatch = useDispatch()
-
-  const { addToast } = useToast()
-
-  const fundsStatus = useSelector(state => ({
-    isLoading: state.investmentsList.isLoading,
-    isError: state.investmentsList.isError,
-  }))
-  useFetchInvestmentsList()
-
-  const isMobile = useMedia('xs')
-
   const [filter, setFilter] = useState({
     byCategoriaArena: [],
     byPerfilRisco: [],
   })
-
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
+  const isMobile = useMedia('xs')
+  const filteredFundsList = useFilter(filter)
   const [selectedFundId, setSelectedFundId] = useState(null)
+  const [clickedFundInvestButtonId, setClickedFundInvestButtonId] = useState(
+    null
+  )
+  const [isLayerOpen, setLayerOpen] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
 
   const [mobileFundSort, setMobileFundSort] = useState({
     sortBy: null,
     sortType: null,
   })
+  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
+    modalSuitabilityInfoInitialState
+  )
+  const fundsStatus = useSelector(state => ({
+    isLoading: state.investmentsList.isLoading,
+    isError: state.investmentsList.isError,
+  }))
 
-  const [isLayerOpen, setLayerOpen] = useState(false)
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
+  useFetchInvestmentsList()
 
-  const filteredFundsList = useFilter(filter)
+  function triggerSuitabilityDispatch(onSuccess) {
+    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+  }
 
   const handleClickInvestButton = (fundId = null, hasDetailsFund = false) => {
     const onSuccess = data => {
       setModalSuitabilityInfo({ ...data })
-
       if (data.isValid) {
         setIsDrawerOpen(false)
         setLayerOpen(true)
@@ -90,8 +89,19 @@ export default function FundsList() {
         }
       }
     }
+    triggerSuitabilityDispatch(onSuccess)
+  }
 
-    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+  const onChangeLayerOpen = fundId => {
+    setClickedFundInvestButtonId(fundId)
+    const onSuccess = data => {
+      if (data.isValid) {
+        handleClickInvestButton(fundId)
+      } else {
+        setModalSuitabilityInfo({ ...data })
+      }
+    }
+    triggerSuitabilityDispatch(onSuccess)
   }
 
   function handleChangeFilter(newFilter) {
@@ -182,9 +192,8 @@ export default function FundsList() {
                     isDrawerOpen={isDrawerOpen}
                     onChangeIsDrawerOpen={setIsDrawerOpen}
                     setIsOpenForInvestments={setIsOpenForInvestments}
-                    handleLayerOpen={fundId => {
-                      handleClickInvestButton(fundId)
-                    }}
+                    clickedFundInvestButton={clickedFundInvestButtonId}
+                    handleLayerOpen={fundId => onChangeLayerOpen(fundId)}
                     data={filteredFundsList}
                     fundsType={fundsType}
                     isLoading={fundsStatus.isLoading}

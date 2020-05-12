@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { formatMoney, formatDotToComma } from 'helpers'
-import ConquistaButton from 'components/Button'
+import { useSelector } from 'react-redux'
 
 import Text from 'components/Text'
 
@@ -13,6 +13,7 @@ import {
   FundoOutterWrapper,
   CustomPopover,
   RiskColorTag,
+  SizedInvestButton,
 } from './styles'
 
 const collator = new Intl.Collator(undefined, {
@@ -36,34 +37,48 @@ const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = (column, handleLayerOpen) => (
-  <WrapperContent isTbody>
-    {column.cell.value && column.cell.row.original.aplicao_liberada ? (
-      <ConquistaButton
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        data-gtm-subname={column.cell.row.original.apelido}
-        data-gtm-name="investir"
-        type="button"
-        color="secondary"
-        onClick={event => {
-          event.stopPropagation()
-          handleLayerOpen(column.cell.row.original.id_fundo)
-        }}
-      >
-        Investir
-      </ConquistaButton>
-    ) : (
-      <CustomPopover
-        content="Fundo fechado para aplicações"
-        placement="left"
-        tooltip
-      >
-        <LockIcon />
-      </CustomPopover>
-    )}
-  </WrapperContent>
-)
+const FormatEnabledCell = (
+  column,
+  handleLayerOpen,
+  clickedFundInvestButton
+) => {
+  const suitabilityIsLoading = useSelector(
+    state => state.suitabilityInfo.isLoading
+  )
+  return (
+    <WrapperContent isTbody lineHeight="0">
+      {column.cell.value && column.cell.row.original.aplicao_liberada ? (
+        <SizedInvestButton
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname={column.cell.row.original.apelido}
+          data-gtm-name="investir"
+          type="button"
+          loading={
+            column.cell.row.original.id_fundo === clickedFundInvestButton &&
+            suitabilityIsLoading
+          }
+          loadingColor="white"
+          color="secondary"
+          onClick={event => {
+            event.stopPropagation()
+            handleLayerOpen(column.cell.row.original.id_fundo)
+          }}
+        >
+          Investir
+        </SizedInvestButton>
+      ) : (
+        <CustomPopover
+          content="Fundo fechado para aplicações"
+          placement="left"
+          tooltip
+        >
+          <LockIcon />
+        </CustomPopover>
+      )}
+    </WrapperContent>
+  )
+}
 
 const FormatDefault = column => (
   <WrapperContent>{column.cell.value}</WrapperContent>
@@ -85,7 +100,11 @@ const FormatColumnDotToCommaBold = column => (
   </WrapperContent>
 )
 
-export default function FormatColumns(columns, handleLayerOpen) {
+export default function FormatColumns(
+  columns,
+  handleLayerOpen,
+  clickedFundInvestButton
+) {
   const formatters = {
     fundo: column => ({
       ...column,
@@ -101,7 +120,8 @@ export default function FormatColumns(columns, handleLayerOpen) {
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: cell => FormatEnabledCell(cell, handleLayerOpen),
+      Cell: cell =>
+        FormatEnabledCell(cell, handleLayerOpen, clickedFundInvestButton),
     }),
     minimo_inicial: column => ({
       ...column,

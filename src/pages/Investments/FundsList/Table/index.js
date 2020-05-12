@@ -94,6 +94,7 @@ export default function TableFunds({
   handleLayerOpen,
   setIsOpenForInvestments,
   columns: columnsProps,
+  clickedFundInvestButton,
 }) {
   const {
     getTableProps,
@@ -104,10 +105,11 @@ export default function TableFunds({
   } = useTable(
     {
       // to edit how each column should render see FormatColumns function
-      columns: useMemo(() => FormatColumns(columnsProps, handleLayerOpen), [
-        columnsProps,
-        handleLayerOpen,
-      ]),
+      columns: useMemo(
+        () =>
+          FormatColumns(columnsProps, handleLayerOpen, clickedFundInvestButton),
+        [columnsProps, handleLayerOpen, clickedFundInvestButton]
+      ),
       data,
     },
     useSortBy
@@ -154,6 +156,7 @@ TableFunds.propTypes = {
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
+  clickedFundInvestButton: PropTypes.string.isRequired,
 }
 
 TableFunds.defaultProps = {
