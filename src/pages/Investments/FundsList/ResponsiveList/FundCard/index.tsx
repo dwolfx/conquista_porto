@@ -173,13 +173,12 @@ const FundCard: React.FC<IFundCard> = ({ fund }) => {
       setModalSuitabilityInfo({ ...data })
 
       if (data.isValid) {
-        handleGiwRedirect(
-          `portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
-            locationState && locationState.idGoal
-              ? `&idObjetivo=${locationState.idGoal}`
-              : ''
-          }`
-        )
+        handleGiwRedirect(`
+        portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
+          locationState && locationState.idGoal
+            ? `&idObjetivo=${locationState.idGoal}`
+            : ''
+        }`)
       }
     }
 
