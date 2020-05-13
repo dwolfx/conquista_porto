@@ -24,6 +24,7 @@ export const ButtonStyled = styled.button<IButtonProps>`
   height: ${props => handleSizing(props)};
   justify-content: center;
   outline: none;
+  padding: ${props => props.theme.spacing(1)}px;
   transition: all ease 0.3s;
   width: ${props => handleSizing(props)};
 
@@ -33,7 +34,8 @@ export const ButtonStyled = styled.button<IButtonProps>`
   svg {
     fill: ${props =>
       props.color && props.color !== 'transparent' ? props.theme.colors.white : props.theme.colors.gray6};
-    width: ${props => (props.size === 'small' ? '18px' : '22px')};
+    height: 100%;
+    width: 100%;
   }
 `
 
