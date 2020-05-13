@@ -3,13 +3,13 @@
 exports[`Points renders correctly 1`] = `
 Array [
   <section
-    className="sc-dnqmqq iEXvEP"
+    className="sc-htoDjs bGRhzj"
   >
     <div
-      className="sc-iwsKbI cjjsnI"
+      className="sc-dnqmqq kZTRWF"
     >
       <h1
-        className="sc-gqjmRU jltIha"
+        className="sc-gZMcBi UvUEy"
       >
         Pontos
       </h1>
@@ -20,20 +20,20 @@ Array [
     </div>
     <img
       alt="Grupo de amigos sorrindo"
-      className="sc-gZMcBi eccquI"
+      className="sc-iwsKbI gUzZMk"
       src="banner_pontos.jpg"
     />
   </section>,
   <section
-    className="sc-jzJRlG dIiuEV"
+    className="sc-fjdhpX hQVYZj"
   >
     <p
-      className="sc-kAzzGY gpGnfj"
+      className="sc-cSHVUG BvyjK"
     >
       PONTOS
     </p>
     <div
-      className="slick-slider sc-cSHVUG dsBTqZ slick-initialized"
+      className="slick-slider sc-jzJRlG shUgK slick-initialized"
     >
       
       <div
@@ -70,7 +70,7 @@ Array [
           >
             <div>
               <div
-                className="sc-chPdSV duSJDf"
+                className="sc-kAzzGY jpzhmu"
                 style={
                   Object {
                     "display": "inline-block",
@@ -80,24 +80,24 @@ Array [
                 tabIndex={-1}
               >
                 <p
-                  className="sc-kgoBCf hXcTdY"
+                  className="sc-chPdSV WZGCK"
                   fontSize={18}
                 >
                   Saldo atual
                 </p>
                 <p
-                  className="sc-kgoBCf fFNQal"
+                  className="sc-chPdSV iblRLk"
                   fontSize={34}
                 >
                   16.500
                 </p>
                 <p
-                  className="sc-kAzzGY gpGnfj"
+                  className="sc-cSHVUG BvyjK"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-kGXeez bmirzn"
+                  className="sc-kgoBCf cVVPgD"
                   data-gtm-clicktype="link"
                   data-gtm-name="ver extrato"
                   data-gtm-subname="saldo atual"
@@ -123,7 +123,7 @@ Array [
           >
             <div>
               <div
-                className="sc-chPdSV duSJDf"
+                className="sc-kAzzGY jpzhmu"
                 style={
                   Object {
                     "display": "inline-block",
@@ -133,24 +133,24 @@ Array [
                 tabIndex={-1}
               >
                 <p
-                  className="sc-kgoBCf hXcTdY"
+                  className="sc-chPdSV WZGCK"
                   fontSize={18}
                 >
                   Saldo atual
                 </p>
                 <p
-                  className="sc-kgoBCf fFNQal"
+                  className="sc-chPdSV iblRLk"
                   fontSize={34}
                 >
                   16.500
                 </p>
                 <p
-                  className="sc-kAzzGY gpGnfj"
+                  className="sc-cSHVUG BvyjK"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-kGXeez bmirzn"
+                  className="sc-kgoBCf cVVPgD"
                   data-gtm-clicktype="link"
                   data-gtm-name="ver extrato"
                   data-gtm-subname="saldo atual"
@@ -176,7 +176,7 @@ Array [
           >
             <div>
               <div
-                className="sc-chPdSV duSJDf"
+                className="sc-kAzzGY jpzhmu"
                 style={
                   Object {
                     "display": "inline-block",
@@ -186,24 +186,24 @@ Array [
                 tabIndex={-1}
               >
                 <p
-                  className="sc-kgoBCf hXcTdY"
+                  className="sc-chPdSV WZGCK"
                   fontSize={18}
                 >
                   Saldo atual
                 </p>
                 <p
-                  className="sc-kgoBCf fFNQal"
+                  className="sc-chPdSV iblRLk"
                   fontSize={34}
                 >
                   16.500
                 </p>
                 <p
-                  className="sc-kAzzGY gpGnfj"
+                  className="sc-cSHVUG BvyjK"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-kGXeez bmirzn"
+                  className="sc-kgoBCf cVVPgD"
                   data-gtm-clicktype="link"
                   data-gtm-name="ver extrato"
                   data-gtm-subname="saldo atual"
@@ -221,15 +221,15 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-kpOJdX ChTNU"
+    className="sc-kGXeez jurZNG"
   >
     <p
-      className="sc-dxgOiQ yAHvQ"
+      className="sc-kpOJdX cgldGy"
     >
       Conheça as ofertas e veja o que você pode resgatar com o seu saldo atual.
     </p>
     <button
-      className="sc-gzVnrw bqLjii button-with-right-icon"
+      className="sc-bZQynM dbjJcS button-with-right-icon"
       color="secondary"
       data-gtm-clicktype="link"
       data-gtm-name="resgatar pontos"
@@ -237,7 +237,7 @@ Array [
       data-gtm-type="click"
     >
       <span
-        className="sc-htoDjs hwmomK"
+        className="sc-gzVnrw FdeiP"
       >
         Resgatar Pontos 
         <span>
@@ -247,18 +247,18 @@ Array [
     </button>
   </section>,
   <section
-    className="sc-ckVGcZ fiBVKL"
+    className="sc-dxgOiQ AMZZT"
   >
     <p
-      className="sc-jKJlTe ebIzTb"
+      className="sc-ckVGcZ kHeoTd"
     >
       COMO ACUMULAR PONTOS NO PROGRAMA DE RELACIONAMENTO DO CONQUISTA?
     </p>
     <div
-      className="sc-eNQAEJ WYCdx"
+      className="sc-jKJlTe lfpnMi"
     >
       <div
-        className="sc-hMqMXs jzLvAg"
+        className="sc-eNQAEJ KFvxa"
       >
         <div>
           <svg
@@ -273,7 +273,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-hMqMXs jzLvAg"
+        className="sc-eNQAEJ KFvxa"
       >
         <div>
           <svg
@@ -288,7 +288,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-hMqMXs jzLvAg"
+        className="sc-eNQAEJ KFvxa"
       >
         <div>
           <svg
@@ -303,7 +303,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-hMqMXs jzLvAg"
+        className="sc-eNQAEJ KFvxa"
       >
         <div>
           <svg
@@ -318,7 +318,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-hMqMXs jzLvAg"
+        className="sc-eNQAEJ KFvxa"
       >
         <div>
           <svg
@@ -333,7 +333,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-hMqMXs jzLvAg"
+        className="sc-eNQAEJ KFvxa"
       >
         <div>
           <svg
@@ -350,26 +350,26 @@ Array [
     </div>
   </section>,
   <section
-    className="sc-kEYyzF XImjj"
+    className="sc-hMqMXs fGdihC"
   >
     <div
-      className="sc-kkGfuU epyJVK"
+      className="sc-kEYyzF dZSCbR"
     >
       <h5
-        className="sc-iAyFgw PAGdn"
+        className="sc-kkGfuU fNmyXH"
       >
         Benefícios do Programa de Relacionamento
       </h5>
       <p
-        className="sc-hSdWYo kzokDk"
+        className="sc-iAyFgw dYZdah"
       >
         Você pode trocar os seus pontos por produtos, descontos e diversas vantagens.
       </p>
       <div
-        className="sc-eHgmQL ijgtbz"
+        className="sc-hSdWYo dtYaQa"
       >
         <div
-          className="sc-cvbbAY cUqAai"
+          className="sc-eHgmQL hPKrpd"
         >
           <img
             alt="4 homens posando para foto"
@@ -385,7 +385,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-cvbbAY cUqAai"
+          className="sc-eHgmQL hPKrpd"
         >
           <img
             alt="Mulher feliz fazendo anotações"
@@ -401,7 +401,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-cvbbAY cUqAai"
+          className="sc-eHgmQL hPKrpd"
         >
           <img
             alt="Por do Sol na praia"
@@ -417,7 +417,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-cvbbAY cUqAai"
+          className="sc-eHgmQL hPKrpd"
         >
           <img
             alt="Mapa mundi em cima de uma mesa"
@@ -433,7 +433,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-cvbbAY cUqAai"
+          className="sc-eHgmQL hPKrpd"
         >
           <img
             alt="Rapaz posando para foto tomando café"

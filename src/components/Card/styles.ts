@@ -20,7 +20,7 @@ export const CardHeader = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   display: flex;
-  height: 63px;
+  min-height: 63px;
   padding: 0 14px;
 `
 
@@ -38,6 +38,17 @@ export const CardIcon = styled.div`
   margin-right: ${props => `${props.theme.gutter}px`};
   padding: 7px;
   width: 35px;
+`
+
+export const CardIconInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 21px;
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
 `
 
 export const CardTitle = styled(Text).attrs(() => ({

@@ -5,10 +5,6 @@ interface IContainer {
   noPadding: boolean
 }
 
-interface IBlocks {
-  marginBetweenElements: string
-}
-
 export const Container = styled.div<IContainer>`
   width: 100%;
   height: ${props => {
@@ -27,22 +23,22 @@ export const Container = styled.div<IContainer>`
   padding: ${props => (props.noPadding ? '0' : '0 14px')};
 `
 
-export const StartBlock = styled.div<IBlocks>`
+export const StartBlock = styled.div`
   display: flex;
   align-items: center;
   margin-right: ${props => props.theme.spacing(1)}px;
 
   && > *:not(:last-child) {
-    margin-right: ${props => props.marginBetweenElements};
+    margin-right: ${props => props.theme.spacing(2)}px;
   }
 `
 
-export const EndBlock = styled.div<IBlocks>`
+export const EndBlock = styled.div`
   display: flex;
   align-items: center;
   margin-left: ${props => props.theme.spacing(1)}px;
 
   && > *:not(:first-child) {
-    margin-left: ${props => props.marginBetweenElements};
+    margin-left: ${props => props.theme.spacing(2)}px;
   }
 `

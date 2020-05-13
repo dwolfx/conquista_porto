@@ -21,6 +21,7 @@ import auth from './Auth/sagas'
 import objective from './Objective/sagas'
 import objectiveManagement from './ObjectiveManagement/sagas'
 import suitability from './Suitability/sagas'
+import suitabilityInfo from './SuitabilityInfo/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -44,5 +45,6 @@ export default function* rootSaga() {
     objective,
     objectiveManagement,
     suitability,
+    suitabilityInfo,
   ])
 }

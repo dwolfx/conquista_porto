@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import 'styled-components/macro'
 
+import Text from 'components/Text'
+import Popover from 'components/Popover/index'
 import HorizontalList from 'components/HorizontalList'
 import Icon, { dict } from 'components/IconExporter'
 
@@ -10,12 +12,16 @@ import {
   CardBody,
   CardFooter,
   CardIcon,
+  CardIconInfo,
   CardTitle,
 } from './styles'
 
-const Card:FunctionComponent<IProps> = ({
+const Card: FunctionComponent<IProps> = ({
   children,
   headerIcon,
+  headerIconInfo = false,
+  headerIconInfoMsg = '',
+  headerIconInfoClick = () => {},
   headerTitle,
   headerEndItem: HeaderEndItem,
   footer,
@@ -29,6 +35,7 @@ const Card:FunctionComponent<IProps> = ({
       css={`
         width: 100%;
         padding: 0;
+        height: auto;
       `}
     />
   )
@@ -43,6 +50,24 @@ const Card:FunctionComponent<IProps> = ({
             </CardIcon>
           )}
           <CardHeaderContent />
+          {headerIconInfo && (
+            <CardIconInfo>
+              <Popover
+                tooltip
+                content={() => (
+                  <Text type="body" color="white">
+                    {headerIconInfoMsg}
+                  </Text>
+                )}
+              >
+                <Icon
+                  name="information"
+                  color="blue4"
+                  onClick={() => headerIconInfoClick()}
+                />
+              </Popover>
+            </CardIconInfo>
+          )}
         </CardHeader>
       )}
       <CardBody>{children}</CardBody>
@@ -51,12 +76,14 @@ const Card:FunctionComponent<IProps> = ({
   )
 }
 
-
 interface IProps {
   headerIcon?: keyof typeof dict
+  headerIconInfo?: boolean
+  headerIconInfoMsg?: string
+  headerIconInfoClick?: () => void
   headerTitle?: string
   footer?: React.ReactNode
   headerEndItem?: React.ReactNode
 }
 
-export default Card;
+export default Card

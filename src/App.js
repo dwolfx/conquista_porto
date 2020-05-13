@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react'
 import { HashRouter, useLocation } from 'react-router-dom'
-import Toast from 'components/Toast'
-import { Provider } from 'react-redux'
-import { ThemeProvider } from 'styled-components'
-import { GridThemeProvider } from 'styled-bootstrap-grid'
+import AppProviders from 'AppProviders'
+import ToastContainer from 'components/Toast'
 import 'moment/locale/pt-br'
 import injectExternalScripts from 'ExternalScripts/injectorFunctions'
 import smoothscroll from 'smoothscroll-polyfill'
 
-import store from './store'
 import GlobalStyle from './styles/global'
-import theme from './styles/theme'
 import Routes from './routes'
 
 function ScrollToTopOnMount() {
@@ -27,18 +23,14 @@ injectExternalScripts()
 smoothscroll.polyfill()
 
 const App = () => (
-  <Provider store={store}>
+  <AppProviders>
     <HashRouter>
-      <ThemeProvider theme={theme}>
-        <GridThemeProvider gridTheme={theme.grid}>
-          <ScrollToTopOnMount />
-          <GlobalStyle />
-          <Routes />
-          <Toast />
-        </GridThemeProvider>
-      </ThemeProvider>
+      <ScrollToTopOnMount />
+      <GlobalStyle />
+      <Routes />
+      <ToastContainer />
     </HashRouter>
-  </Provider>
+  </AppProviders>
 )
 
 export default App

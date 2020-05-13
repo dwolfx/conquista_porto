@@ -7,18 +7,17 @@ export default function HorizontalList({
   endItems,
   size = 'default',
   noPadding = false,
-  marginBetweenElements = '14px',
   ...rest
 }: IProps) {
   return (
     <Container size={size} noPadding={noPadding} {...rest}>
-      <StartBlock marginBetweenElements={marginBetweenElements}>
+      <StartBlock>
         {startItems &&
           startItems.map((Item, index) => (
             <React.Fragment key={index.toString()}>{Item}</React.Fragment>
           ))}
       </StartBlock>
-      <EndBlock marginBetweenElements={marginBetweenElements}>
+      <EndBlock>
         {endItems &&
           endItems.map((Item, index) => (
             <React.Fragment key={index.toString()}>{Item}</React.Fragment>

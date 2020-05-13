@@ -8,11 +8,11 @@ import Taxation from './Taxation'
 import { ContentWrapper } from './styles'
 import { GrayLine } from './RiskProfileBar/styles'
 
-export const TabDetails = ({ fund, category }) => (
+export const TabDetails = ({ fund }) => (
   <ContentWrapper>
     <RiskProfileBar riskProfile={fund.perfil_risco} />
     <GrayLine />
-    <Transactions fund={fund} category={category} />
+    <Transactions fund={fund} />
     <GrayLine />
     <Taxation fund={fund} />
   </ContentWrapper>
@@ -22,5 +22,4 @@ export default TabDetails
 
 TabDetails.propTypes = {
   fund: PropTypes.object.isRequired,
-  category: PropTypes.string.isRequired,
 }

@@ -91,8 +91,10 @@ export default function TableFunds({
   isError,
   isFiltering,
   onChangeIsDrawerOpen,
+  handleLayerOpen,
   setIsOpenForInvestments,
   columns: columnsProps,
+  clickedFundInvestButton,
 }) {
   const {
     getTableProps,
@@ -103,7 +105,11 @@ export default function TableFunds({
   } = useTable(
     {
       // to edit how each column should render see FormatColumns function
-      columns: useMemo(() => FormatColumns(columnsProps), [columnsProps]),
+      columns: useMemo(
+        () =>
+          FormatColumns(columnsProps, handleLayerOpen, clickedFundInvestButton),
+        [columnsProps, handleLayerOpen, clickedFundInvestButton]
+      ),
       data,
     },
     useSortBy
@@ -144,15 +150,19 @@ TableFunds.propTypes = {
   columns: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
-  isFiltering: PropTypes.bool.isRequired,
+  isFiltering: PropTypes.bool,
   isDrawerOpen: PropTypes.bool,
+  handleLayerOpen: PropTypes.func.isRequired,
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
+  clickedFundInvestButton: PropTypes.string,
 }
 
 TableFunds.defaultProps = {
   isDrawerOpen: false,
+  isFiltering: false,
+  clickedFundInvestButton: '',
 }
 
 TheadWrapper.propTypes = {
