@@ -13,17 +13,17 @@ const TopBar = ({ currentStep, nickname, numberSteps }) => (
   <SectionBar>
     <Container>
       <Row justifyContent="between" alignItems="center">
-        <Col lgAuto xs={12}>
+        <Col lgAuto mdAuto smAuto xs={12}>
           <TitleBar>
             Criar <span>Objetivo</span>
           </TitleBar>
         </Col>
         {nickname && (
-          <Col lgAuto xs={12}>
+          <Col lgAuto mdAuto smAuto xs={12}>
             <Nickname>#{nickname}</Nickname>
           </Col>
         )}
-        <Col lgAuto xs={12}>
+        <Col lgAuto mdAuto smAuto xs={12}>
           <PageBar>
             Etapa {currentStep} de {numberSteps}
           </PageBar>

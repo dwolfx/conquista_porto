@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
+
 import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
-import Icon from 'components/IconExporter'
 import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 import { CardBody } from 'components/Card/styles'
 
@@ -221,69 +221,6 @@ export const IconLoading = styled.div`
   margin-left: 15px;
   position: relative;
   width: 21px;
-`
-
-export const CardWithCloseButton = styled(Card)`
-  position: relative;
-  margin-bottom: 42px;
-  padding-bottom: 21px;
-`
-
-export const CloseButton = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.theme.colors.gray2};
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  right: 28px;
-  top: -18px;
-  cursor: pointer;
-`
-export const CloseIcon = styled(Icon)`
-  width: 16px;
-  height: 16px;
-`
-
-export const UnmetGoalCards = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding-top: 28px;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    flex-direction: column;
-  }
-`
-
-export const UnmetGoalCard = styled.div`
-  width: 100%;
-  padding: 0 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    padding: 0px;
-  }
-`
-
-export const DivisorContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: ${props => (props.isMobile ? 'row' : 'column')};
-  height: auto;
-  margin: ${props => props.isMobile && '35px 0'};
-
-  p {
-    margin: ${props => props.isMobile && '0 7px'};
-  }
-`
-
-export const SimulateButton = styled(Button)`
-  width: 100%;
-  margin-top: 21px;
 `
 
 export const ProductBannerModal = styled(Modal)`

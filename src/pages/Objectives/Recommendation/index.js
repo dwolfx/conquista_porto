@@ -27,7 +27,7 @@ import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/
 import BottomBar from './BottomBar'
 import WalletSection from './WalletSection'
 import SectionThree from './SectionThree'
-import SuggestionBanner from './SugestionBanner'
+import SuggestionBanner from './SuggestionBanner'
 import RecommendationMessage from './RecommendationMessage'
 import CardEstimatedResults from './CardEstimatedResults'
 
