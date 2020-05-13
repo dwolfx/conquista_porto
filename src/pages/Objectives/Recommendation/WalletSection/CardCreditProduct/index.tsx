@@ -50,7 +50,7 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
   }
 
   return (
-    <Col lg={3}>
+    <Col lg={3} md={3}>
       <s.FullHeightCard
         headerIcon={currentProduct.icon}
         headerTitle={creditProduct.name.split(' ')[0]}

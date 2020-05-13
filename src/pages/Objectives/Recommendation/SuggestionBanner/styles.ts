@@ -28,8 +28,9 @@ export const SimulateButton = styled(Button)`
 
 export const CardWithCloseButton = styled(Card)`
   position: relative;
-  margin-bottom: 42px;
-  padding-bottom: 21px;
+  margin-bottom: ${props => props.theme.spacing(6)}px;
+  padding-top: ${props => props.theme.spacing(5)}px;
+  padding-bottom: ${props => props.theme.spacing(5)}px;
 
   @media ${props => props.theme.mediaQueries.sm} {
     padding-left: ${props => props.theme.spacing(4)}px;

@@ -113,6 +113,7 @@ const SectionThree = ({ additional }) => {
           <Column
             key={product.title}
             lg={renderedProducts.length > 1 ? '6' : '12'}
+            md={renderedProducts.length > 1 ? '6' : '12'}
             xs={12}
           >
             <BannerTips

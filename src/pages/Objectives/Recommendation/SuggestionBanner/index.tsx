@@ -124,7 +124,7 @@ const SuggestionBanner = ({
       </Text>
 
       <HorizontalList
-        size="small"
+        size="medium"
         noPadding
         startItems={[
           <Text type="captionUppercase" color="gray4">
@@ -139,7 +139,7 @@ const SuggestionBanner = ({
         ]}
       />
       <HorizontalList
-        size="small"
+        size="medium"
         noPadding
         startItems={[
           <Text type="captionUppercase" color="gray4">
@@ -166,7 +166,7 @@ const SuggestionBanner = ({
         ]}
       />
       <HorizontalList
-        size="small"
+        size="medium"
         noPadding
         startItems={[
           <Text type="captionUppercase" color="gray4">
@@ -192,7 +192,7 @@ const SuggestionBanner = ({
         ]}
       />
       <HorizontalList
-        size="small"
+        size="medium"
         noPadding
         startItems={[
           <Text type="captionUppercase" color="gray4">
@@ -326,7 +326,7 @@ const SuggestionBanner = ({
           }}
         />
 
-        {isMobile || isTabletVertical && <MacroDivisor />}
+        {(isMobile || isTabletVertical) && <MacroDivisor />}
       </s.UnmetGoalCards>
     </s.CardWithCloseButton>
   ) : null

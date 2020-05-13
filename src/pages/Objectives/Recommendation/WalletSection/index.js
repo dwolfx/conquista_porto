@@ -111,6 +111,7 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
 
       <Col
         lg={combo.length > 1 ? '9' : '12'}
+        md={combo.length > 1 ? '9' : '12'}
         css={`
           margin-bottom: ${isMobile ? '14px' : '0px'};
         `}
