@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { dict } from 'components/IconExporter'
 
 export interface IProps {
-  color?: 'primary' | 'secondary' | 'transparent'
+  color?: 'primary' | 'secondary'
   icon: keyof typeof dict
   size?: 'small' | 'medium' | 'large'
   iconWidth?: number | string
@@ -11,7 +11,7 @@ export interface IProps {
 }
 
 interface IButtonProps {
-  color?: 'primary' | 'secondary' | 'transparent'
+  color?: 'primary' | 'secondary'
   size: 'small' | 'medium' | 'large'
 }
 export const ButtonStyled = styled.button<IButtonProps>`
@@ -24,7 +24,6 @@ export const ButtonStyled = styled.button<IButtonProps>`
   height: ${props => handleSizing(props)};
   justify-content: center;
   outline: none;
-  padding: ${props => props.theme.spacing(1)}px;
   transition: all ease 0.3s;
   width: ${props => handleSizing(props)};
 
@@ -33,9 +32,8 @@ export const ButtonStyled = styled.button<IButtonProps>`
   }
   svg {
     fill: ${props =>
-      props.color && props.color !== 'transparent' ? props.theme.colors.white : props.theme.colors.gray6};
-    height: 100%;
-    width: 100%;
+      props.color ? props.theme.colors.white : props.theme.colors.gray6};
+    width: ${props => (props.size === 'small' ? '21px' : '24px')};
   }
 `
 
@@ -58,8 +56,6 @@ const handleButtonColor = (props: any) => {
       return props.theme.colors.blue4
     case 'secondary':
       return props.theme.colors.green4
-    case 'transparent':
-      return 'transparent'
     default:
       return props.theme.colors.gray2
   }
