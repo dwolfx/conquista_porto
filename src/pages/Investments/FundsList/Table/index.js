@@ -150,7 +150,7 @@ TableFunds.propTypes = {
   columns: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
-  isFiltering: PropTypes.bool.isRequired,
+  isFiltering: PropTypes.bool,
   isDrawerOpen: PropTypes.bool,
   handleLayerOpen: PropTypes.func.isRequired,
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
@@ -161,6 +161,7 @@ TableFunds.propTypes = {
 
 TableFunds.defaultProps = {
   isDrawerOpen: false,
+  isFiltering: false,
   clickedFundInvestButton: '',
 }
 

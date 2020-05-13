@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
+import { useLocation } from 'react-router-dom'
+import { handleGiwRedirect } from 'helpers'
 
 import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
@@ -43,6 +45,7 @@ const modalSuitabilityInfoInitialState = {
 }
 
 export default function FundsList() {
+  const { state: locationState } = useLocation()
   const [filter, setFilter] = useState({
     byCategoriaArena: [],
     byPerfilRisco: [],
@@ -82,7 +85,13 @@ export default function FundsList() {
       setModalSuitabilityInfo({ ...data })
       if (data.isValid) {
         setIsDrawerOpen(false)
-        setLayerOpen(true)
+        // setLayerOpen(true)
+        handleGiwRedirect(`portaldecliente/conquista/aplicacao?idFundo=${fundId}&r=true${
+          locationState && locationState.idGoal
+            ? `&idObjetivo=${locationState.idGoal}`
+            : ''
+        }
+          `)
         setSelectedFundId(fundId)
         if (!hasDetailsFund) {
           dispatch(GetInvestmentDetailsRequest(fundId))
