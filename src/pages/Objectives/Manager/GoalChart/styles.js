@@ -24,17 +24,9 @@ export const ChartContainer = styled.div`
 
 export const ButtonContainer = styled.div``
 
-export const PreviousButton = styled(IconButton).attrs(() => ({
-  icon: 'arrowleft',
-  color: 'secondary',
-  size: 'medium',
-}))``
+export const PreviousButton = styled(IconButton)``
 
-export const NextButton = styled(IconButton).attrs(() => ({
-  icon: 'arrowright',
-  color: 'secondary',
-  size: 'medium',
-}))``
+export const NextButton = styled(IconButton)``
 
 export const ChartItemContainer = styled.div`
   display: flex;
