@@ -237,6 +237,10 @@ export const InvestButton = styled(ConquistaButton)`
   height: 40px;
 `
 
+export const SizedInvestButton = styled(ConquistaButton)`
+  min-width: 112px;
+`
+
 export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
   fill: ${props => props.theme.colors.gray6};
   height: 24px;

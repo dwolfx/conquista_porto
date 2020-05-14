@@ -18,6 +18,11 @@ export const formatMoneyDecimal = (value = 0) => {
   ).replace(UNICODE_NON_BREAKING_SPACE, USUAL_SPACE)
 }
 
+export const capitalize = stringValue => {
+  if (typeof stringValue !== 'string') return ''
+  return stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
+}
+
 export const formatMoneyWithoutCurrencyFlag = value => {
   if (!value) {
     return 0

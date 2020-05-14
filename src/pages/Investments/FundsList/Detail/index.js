@@ -1,7 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { handleGiwRedirect } from 'helpers'
 import Drawer from 'components/Drawer'
 import 'styled-components/macro'
 
@@ -10,6 +8,7 @@ import Button from 'components/Button'
 import Text from 'components/Text'
 
 import { useSelector, useDispatch } from 'react-redux'
+
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
@@ -23,47 +22,32 @@ import TabProfitability from './TabProfitability'
 import TabMoreInfo from './TabMoreInfo'
 import TabDetails from './TabDetails'
 
-const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
+const Detail = ({
+  isOpen,
+  isOpenForInvestments,
+  handleLayerOpen,
+  isLayerOpen,
+  handleClose,
+  hasError,
+}) => {
   const { data: fundDetails, isLoading } = useSelector(
     state => state.investmentDetails
   )
+  const suitabilityIsLoading = useSelector(
+    state => state.suitabilityInfo.isLoading
+  )
   const dispatch = useDispatch()
-  const funds = useSelector(state => state.investmentsList)
-  const categories = funds.data[0]
-
-  const getCategoryName = () => {
-    let name = ''
-    if (categories && fundDetails !== false)
-      categories.forEach(category => {
-        const filteredResult = category.fundos.filter(
-          fundo => fundo.id_fundo === fundDetails.id_fundo
-        )
-        if (filteredResult.length > 0) {
-          name = category.nome_categoria
-        }
-      })
-    return name
-  }
-  const category = getCategoryName()
-
-  const { state: locationState } = useLocation()
   const footerDrawer = () =>
     isOpenForInvestments ? (
       <ButtonSubmit
+        loading={suitabilityIsLoading}
+        loadingColor="white"
         color="secondary"
         onClick={() => {
-          handleGiwRedirect(
-            `portaldecliente/conquista/aplicacao?idFundo=${
-              fundDetails.id_fundo
-            }&r=true${
-              locationState && locationState.idGoal
-                ? `&idObjetivo=${locationState.idGoal}`
-                : ''
-            }`
-          )
+          handleLayerOpen(fundDetails.id_fundo, true)
         }}
       >
-        Investir
+        {isLayerOpen ? 'Voltar' : 'Investir'}
       </ButtonSubmit>
     ) : (
       <LockFundWrapper>
@@ -107,7 +91,7 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
       </TabList>
 
       <TabPanel name="tab-detalhe-fundo">
-        <TabDetails fund={fundDetails} category={category} />
+        <TabDetails fund={fundDetails} />
       </TabPanel>
       <TabPanel name="tab-rentabilidade">
         <TabProfitability fund={fundDetails} />
@@ -120,7 +104,7 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
 
   return (
     <Drawer
-      drawerTitle={!isLoading && fundDetails.apelido}
+      drawerTitle={isLoading ? '' : fundDetails.apelido}
       isOpen={isOpen}
       isLoading={isLoading}
       handleClose={handleClose}
@@ -131,7 +115,6 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
           <Loading
             type="bar"
             legend="Aguarde, estamos buscando as informações detalhadas deste fundo de investimento..."
-            widthBar="100%"
           />
         </EmptyStateWrapper>
       )}
@@ -162,6 +145,8 @@ const Detail = ({ isOpen, isOpenForInvestments, handleClose, hasError }) => {
 Detail.propTypes = {
   isOpen: PropTypes.bool,
   isOpenForInvestments: PropTypes.bool,
+  isLayerOpen: PropTypes.bool,
+  handleLayerOpen: PropTypes.func.isRequired,
   hasError: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
 }
@@ -169,6 +154,7 @@ Detail.propTypes = {
 Detail.defaultProps = {
   isOpen: false,
   isOpenForInvestments: true,
+  isLayerOpen: false,
   hasError: false,
 }
 export default Detail

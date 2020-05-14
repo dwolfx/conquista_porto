@@ -494,6 +494,9 @@ export default function Wallet({
       </Col>
 
       <UnsavedChangesPrompt
+        title="Alterações não salvas"
+        description="As alterações não salvas serão perdidas. Tem certeza que deseja
+        continuar?"
         hasUnsavedChanges={hasUnsavedChanges && !isModalDeleteOpen}
       />
     </>

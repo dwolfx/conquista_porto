@@ -8,7 +8,6 @@ import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
 
 import {
   ChartContainer,
-  ButtonContainer,
   PreviousButton,
   NextButton,
   Chart,
@@ -67,15 +66,13 @@ export default function HorizontalChart({ data, isLoading }) {
       </div>
       <ChartContainer>
         {data.years.length > 1 && (
-          <ButtonContainer>
-            <PreviousButton
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              data-gtm-subname="grafico"
-              data-gtm-name="botao anterior"
-              onClick={handleClickPrevButton}
-            ></PreviousButton>
-          </ButtonContainer>
+          <PreviousButton
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="grafico"
+            data-gtm-name="botao anterior"
+            onClick={handleClickPrevButton}
+          ></PreviousButton>
         )}
 
         <Chart>
@@ -122,15 +119,13 @@ export default function HorizontalChart({ data, isLoading }) {
           </MonthsContainer>
         </Chart>
         {data.years.length > 1 && (
-          <ButtonContainer>
-            <NextButton
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              data-gtm-subname="grafico"
-              data-gtm-name="botao proximo"
-              onClick={handleClickNextButton}
-            ></NextButton>
-          </ButtonContainer>
+          <NextButton
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="grafico"
+            data-gtm-name="botao proximo"
+            onClick={handleClickNextButton}
+          ></NextButton>
         )}
       </ChartContainer>
     </>

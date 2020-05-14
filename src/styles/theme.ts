@@ -25,6 +25,7 @@ export const themeColors = {
   gray5: '#898989',
   gray6: '#272727',
   gray7: '#777777',
+  grayblue1: '#555861',
   white: '#FFFFFF',
   darkBlue1: '#E6F7FF',
   darkBlue2: '#004E70',
@@ -51,6 +52,8 @@ export const shadows = {
   gray3: '0px 4px 8px rgba(39, 39, 39, 0.14)',
   gray4: '0px 7px 21px rgba(39, 39, 39, 0.14)',
   blue1: '0px 3px 6px rgba(0, 173, 239, 0.14)',
+  magenta3: '0px 4px 8px rgba(231, 33, 118, 0.14)',
+  green3: '0px 4px 8px rgba(87, 176, 99, 0.14)',
 }
 
 export const fundRiskColors = {

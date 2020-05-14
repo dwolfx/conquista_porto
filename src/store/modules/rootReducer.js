@@ -20,6 +20,7 @@ import auth from './Auth/reducer'
 import objective from './Objective/reducer'
 import objectiveManagement from './ObjectiveManagement/reducer'
 import suitability from './Suitability/reducer'
+import suitabilityInfo from './SuitabilityInfo/reducer'
 
 export default combineReducers({
   bankData,
@@ -42,4 +43,5 @@ export default combineReducers({
   objective,
   objectiveManagement,
   suitability,
+  suitabilityInfo,
 })

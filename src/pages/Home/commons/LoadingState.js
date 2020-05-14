@@ -10,7 +10,6 @@ export default function LoadingState() {
       <Loading
         type="bar"
         legend="Aguarde, estamos buscando suas informações..."
-        widthBar="100%"
       />
     </LoadingStateObjectivesContainer>
   )

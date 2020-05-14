@@ -331,6 +331,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       />
 
       <UnsavedChangedPrompt
+        title="Alterações não salvas"
+        description="As alterações não salvas serão perdidas. Tem certeza que deseja
+      continuar?"
         hasUnsavedChanges={
           !objectiveManagementData ||
           (objectiveManagementData &&
