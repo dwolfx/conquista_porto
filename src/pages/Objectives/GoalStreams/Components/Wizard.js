@@ -37,7 +37,7 @@ export const WizardFlow = ({ data, objective }) => {
       suitabilityData: state.suitability.data,
     })
   )
-  
+
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
   const deviceColumns = isFirstStep ? '12' : '6'
