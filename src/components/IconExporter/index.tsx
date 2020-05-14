@@ -4,11 +4,9 @@ import { themeColors } from 'styles/theme'
 import { ReactComponent as add } from 'assets/icons/add.svg'
 import { ReactComponent as alertrounded } from 'assets/icons/alert-rounded.svg'
 import { ReactComponent as apps } from 'assets/icons/apps.svg'
-import { ReactComponent as arrowdown } from 'assets/icons/arrow-down2.svg'
+import { ReactComponent as arrowdown } from 'assets/icons/arrow-down.svg'
 import { ReactComponent as arrowleft } from 'assets/icons/arrow-left.svg'
-import { ReactComponent as arrowleft2 } from 'assets/icons/arrow-left-new.svg'
 import { ReactComponent as arrowright } from 'assets/icons/arrow-right.svg'
-import { ReactComponent as arrowright2 } from 'assets/icons/arrow-right-new.svg'
 import { ReactComponent as arrowsortable } from 'assets/icons/arrow-sortable.svg'
 import { ReactComponent as arrowup } from 'assets/icons/arrow-up.svg'
 import { ReactComponent as awesome } from 'assets/icons/awesome.svg'
@@ -100,9 +98,7 @@ export const dict = {
   apps,
   arrowdown,
   arrowleft,
-  arrowleft2,
   arrowright,
-  arrowright2,
   arrowsortable,
   arrowup,
   awesome,

@@ -8,6 +8,7 @@ import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
 import { formatMoney, formatDotToComma, handleGiwRedirect } from 'helpers'
+import { IFund } from '../../Filter/useFilter'
 
 import {
   ArrowDown,
@@ -116,20 +117,6 @@ const Header: React.FC<IHeader> = ({
       </div>
     </HeaderContent>
   )
-}
-
-export interface IFund {
-  perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
-  apelido: string
-  categoria_arena: string
-  minimo_inicial: number
-  resgate_cotizacao: string
-  rentabil_fundo_mes: number
-  rentabil_fundo_12_meses: number
-  rentabil_fundo_ano: number
-  taxa_administracao: number
-  id_fundo: number
-  aplicao_liberada: boolean
 }
 
 interface IFundCard {

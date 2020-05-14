@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Text from 'components/Text'
 
-import ArrowIcon from 'assets/icons/arrow-down2.svg'
+import ArrowIcon from 'assets/icons/arrow-down.svg'
 
 export const AccordionHeader = styled.div`
   display: flex;

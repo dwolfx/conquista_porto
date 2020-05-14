@@ -1,4 +1,4 @@
-import { IFund } from 'pages/Investments/FundsList/ResponsiveList/FundCard'
+import { IFund } from '../Filter/useFilter'
 
 export interface IFundSort {
   sortBy: string | null

@@ -37,6 +37,7 @@ const SimpleHeader = ({ header }) => {
       >
         {headerContent && (
           <TheadText
+            showSortArrows={header.canSort}
             isSorted={header.isSorted}
             isSortedDesc={header.isSortedDesc}
             top="28px"
@@ -82,7 +83,7 @@ const TheadWrapper = ({ header }) =>
   'columns' in header ? (
     <HeaderWithColumns header={header} />
   ) : (
-    <SimpleHeader header={header} />
+    <SimpleHeader header={header} canSort={false} />
   )
 
 export default function TableFunds({
@@ -91,6 +92,7 @@ export default function TableFunds({
   isError,
   isFiltering,
   onChangeIsDrawerOpen,
+  isTablet,
   handleLayerOpen,
   setIsOpenForInvestments,
   columns: columnsProps,
@@ -111,6 +113,7 @@ export default function TableFunds({
         [columnsProps, handleLayerOpen, clickedFundInvestButton]
       ),
       data,
+      disableSortBy: isTablet,
     },
     useSortBy
   )
@@ -152,6 +155,7 @@ TableFunds.propTypes = {
   isError: PropTypes.bool.isRequired,
   isFiltering: PropTypes.bool,
   isDrawerOpen: PropTypes.bool,
+  isTablet: PropTypes.bool.isRequired,
   handleLayerOpen: PropTypes.func.isRequired,
   onChangeIsDrawerOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
