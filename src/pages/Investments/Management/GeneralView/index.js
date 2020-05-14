@@ -1,14 +1,17 @@
-import React, { useContext } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useContext, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { ResponsivePie } from '@nivo/pie'
 import { ThemeContext } from 'styled-components'
 
 import { handleGiwRedirect, formatMoney, formatCpf } from 'helpers'
+import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
+import { useToast } from 'hooks/toast'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
 import ConquistaButton from 'components/Button'
+import Modal from 'components/Modal/ModalNew'
 
 import {
   Container,
@@ -22,13 +25,25 @@ import {
   InfoItem,
   LineDivider,
   FullWidthAccordion,
+  ModalText,
+  ModalButtonWrapper,
+  ModalButton,
 } from './styles'
+
+const modalSuitabilityInfoInitialState = {
+  isOpen: false,
+  title: '',
+  description: '',
+  button: null,
+}
 
 export default function GeneralView() {
   const bankData = useSelector(state => state.bankData.data)
   const generalViewData = useSelector(state => state.investmentPosition.data)
   const theme = useContext(ThemeContext)
   const history = useHistory()
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   const colorGuide = [
     theme.colors.yellow2,
@@ -36,6 +51,14 @@ export default function GeneralView() {
     theme.colors.green4,
     theme.colors.blue4,
   ]
+
+  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
+    modalSuitabilityInfoInitialState
+  )
+
+  const suitabilityIsLoading = useSelector(
+    state => state.suitabilityInfo.isLoading
+  )
 
   const generalViewChartData = () => {
     if (!generalViewData || !generalViewData.length) {
@@ -74,10 +97,56 @@ export default function GeneralView() {
 
   useFetchBankData()
 
+  const handleClickWithdrawButton = () => {
+    const onSuccess = data => {
+      setModalSuitabilityInfo({ ...data })
+
+      if (data.isValid) {
+        handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
+      }
+    }
+
+    dispatch(GetSuitabilityInfoRequest(onSuccess, 'retirar', addToast))
+  }
+
   return (
     <Container>
       {bankData && generalViewData ? (
         <>
+          <Modal
+            modalTitle={modalSuitabilityInfo.title}
+            isOpen={modalSuitabilityInfo.isOpen}
+            handleClose={() =>
+              setModalSuitabilityInfo({
+                ...modalSuitabilityInfo,
+                isOpen: false,
+              })
+            }
+          >
+            <ModalText>{modalSuitabilityInfo.description}</ModalText>
+            <ModalButtonWrapper>
+              {modalSuitabilityInfo.button && (
+                <ModalButton
+                  data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+                  data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+                  data-gtm-clicktype={
+                    modalSuitabilityInfo.button.dataGtmClicktype
+                  }
+                  onClick={
+                    modalSuitabilityInfo.button.handleClick
+                      ? modalSuitabilityInfo.button.handleClick
+                      : () =>
+                          setModalSuitabilityInfo({
+                            ...modalSuitabilityInfo,
+                            isOpen: false,
+                          })
+                  }
+                >
+                  {modalSuitabilityInfo.button.buttonName}
+                </ModalButton>
+              )}
+            </ModalButtonWrapper>
+          </Modal>
           <General>
             <Text fontSize={11} lineHeight={21} weight spacing={1.5}>
               VISÃO GERAL DOS INVESTIMENTOS
@@ -127,13 +196,13 @@ export default function GeneralView() {
               ver extrato &gt;{' '}
             </LinkButton>
             <ConquistaButton
+              loading={suitabilityIsLoading}
+              loadingColor="white"
               data-gtm-subname="conta de investimentos"
               data-gtm-name="retirar"
               data-gtm-type="click"
               data-gtm-clicktype="button"
-              onClick={() =>
-                handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
-              }
+              onClick={() => handleClickWithdrawButton()}
             >
               RETIRAR
             </ConquistaButton>

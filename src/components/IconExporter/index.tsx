@@ -6,6 +6,7 @@ import { ReactComponent as alertrounded } from 'assets/icons/alert-rounded.svg'
 import { ReactComponent as apps } from 'assets/icons/apps.svg'
 import { ReactComponent as arrowdown } from 'assets/icons/arrow-down2.svg'
 import { ReactComponent as arrowleft } from 'assets/icons/arrow-left.svg'
+import { ReactComponent as arrowleft2 } from 'assets/icons/arrow-left-new.svg'
 import { ReactComponent as arrowright } from 'assets/icons/arrow-right.svg'
 import { ReactComponent as arrowright2 } from 'assets/icons/arrow-right-new.svg'
 import { ReactComponent as arrowsortable } from 'assets/icons/arrow-sortable.svg'
@@ -54,6 +55,7 @@ import { ReactComponent as link } from 'assets/icons/link.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
 import { ReactComponent as lock2 } from 'assets/icons/lock2.svg'
 import { ReactComponent as malefemale } from 'assets/icons/male-female.svg'
+import { ReactComponent as filter } from 'assets/icons/filter.svg'
 import {
   ReactComponent as master,
   ReactComponent as mastercard,
@@ -92,12 +94,13 @@ import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
 import { ReactComponent as loading } from 'assets/icons/loading.svg'
 import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
 
-const dict = {
+export const dict = {
   add,
   alertrounded,
   apps,
   arrowdown,
   arrowleft,
+  arrowleft2,
   arrowright,
   arrowright2,
   arrowsortable,
@@ -181,29 +184,20 @@ const dict = {
   usermedic,
   visa,
   wallet,
-}
-
-export default ({
-  color,
-  fill,
-  name,
-  width,
-  ...rest
-}: IProps) => {
-  if (!name) {
-    return null
-  }
-
-  const Icon = dict[name]
-
-  return Icon ? (
-    <Icon width={width} fill={color ? themeColors[color] : fill} {...rest} />
-  ) : null
+  filter,
 }
 
 interface IProps {
+  name: keyof typeof dict
   color?: keyof typeof themeColors
   fill?: string
-  name: keyof typeof dict
-  width?: number
+  width?: number | string
+  onClick?: () => void
+}
+
+export default ({ name, color, width, fill, ...rest }: IProps) => {
+  const Icon = dict[name]
+  return Icon ? (
+    <Icon width={width} fill={color ? themeColors[color] : fill} {...rest} />
+  ) : null
 }

@@ -30,7 +30,7 @@ export default function TopBanner({
           >
             {buttonText}
             {!noBtnIcon && buttonText.toLowerCase() !== 'em breve' && (
-              <span className="icon">&gt;</span>
+              <span className="icon"></span>
             )}
           </Button>
         )}

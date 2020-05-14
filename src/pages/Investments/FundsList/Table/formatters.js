@@ -1,8 +1,7 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { formatMoney, handleGiwRedirect, formatDotToComma } from 'helpers'
-import ConquistaButton from 'components/Button'
+import { formatMoney, formatDotToComma } from 'helpers'
+import { useSelector } from 'react-redux'
 
 import Text from 'components/Text'
 
@@ -14,6 +13,7 @@ import {
   FundoOutterWrapper,
   CustomPopover,
   RiskColorTag,
+  SizedInvestButton,
 } from './styles'
 
 const collator = new Intl.Collator(undefined, {
@@ -37,32 +37,36 @@ const FormatMoneyCell = column => (
   <WrapperContent isTbody>{formatMoney(column.cell.value)}</WrapperContent>
 )
 
-const FormatEnabledCell = column => {
-  const { state: locationState } = useLocation()
+const FormatEnabledCell = (
+  column,
+  handleLayerOpen,
+  clickedFundInvestButton
+) => {
+  const suitabilityIsLoading = useSelector(
+    state => state.suitabilityInfo.isLoading
+  )
   return (
-    <WrapperContent isTbody>
+    <WrapperContent isTbody lineHeight="0">
       {column.cell.value && column.cell.row.original.aplicao_liberada ? (
-        <ConquistaButton
+        <SizedInvestButton
           data-gtm-type="click"
           data-gtm-clicktype="button"
           data-gtm-subname={column.cell.row.original.apelido}
           data-gtm-name="investir"
           type="button"
+          loading={
+            column.cell.row.original.id_fundo === clickedFundInvestButton &&
+            suitabilityIsLoading
+          }
+          loadingColor="white"
           color="secondary"
-          onClick={() => {
-            handleGiwRedirect(
-              `portaldecliente/conquista/aplicacao?idFundo=${
-                column.cell.row.original.id_fundo
-              }&r=true${
-                locationState && locationState.idGoal
-                  ? `&idObjetivo=${locationState.idGoal}`
-                  : ''
-              }`
-            )
+          onClick={event => {
+            event.stopPropagation()
+            handleLayerOpen(column.cell.row.original.id_fundo)
           }}
         >
           Investir
-        </ConquistaButton>
+        </SizedInvestButton>
       ) : (
         <CustomPopover
           content="Fundo fechado para aplicações"
@@ -96,12 +100,15 @@ const FormatColumnDotToCommaBold = column => (
   </WrapperContent>
 )
 
-export default function FormatColumns(columns, toggleModal) {
+export default function FormatColumns(
+  columns,
+  handleLayerOpen,
+  clickedFundInvestButton
+) {
   const formatters = {
     fundo: column => ({
       ...column,
       Cell: FormatFundoCell,
-      toggleModal,
       sortType(
         { original: { apelido: nextNickname } },
         { original: { apelido: currentNickname } }
@@ -113,7 +120,8 @@ export default function FormatColumns(columns, toggleModal) {
     is_fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
-      Cell: cell => FormatEnabledCell(cell),
+      Cell: cell =>
+        FormatEnabledCell(cell, handleLayerOpen, clickedFundInvestButton),
     }),
     minimo_inicial: column => ({
       ...column,

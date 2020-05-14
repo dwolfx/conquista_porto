@@ -3,10 +3,15 @@ import { ThemeContext } from 'styled-components'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
+import { useDispatch, useSelector } from 'react-redux'
+import { useToast } from 'hooks/toast'
+
+import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
 
 import Icon from 'components/IconExporter'
 import DropDown from 'components/DropdownNew'
 import Popover from 'components/Popover'
+import Modal from 'components/Modal/ModalNew'
 
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
@@ -30,14 +35,39 @@ import {
   ButtonWrapper,
   CustomConquistaButton,
   LockIcon,
+  ModalText,
+  ModalButtonWrapper,
+  ModalButton,
 } from './styles'
+
+const modalSuitabilityInfoInitialState = {
+  isOpen: false,
+  title: '',
+  description: '',
+  button: {
+    buttonName: '',
+    dataGtmName: '',
+    dataGtmType: '',
+    dataGtmClicktype: '',
+    handleClick: () => {},
+  },
+}
 
 export default function FundInformation({ fund, idCotista }) {
   const theme = useContext(ThemeContext)
 
   const [incomeValue, setIncomeValue] = useState(null)
   const [selectValue, setSelectValue] = useState('')
+  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
+    modalSuitabilityInfoInitialState
+  )
 
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
+
+  const suitabilityIsLoading = useSelector(
+    state => state.suitabilityInfo.isLoading
+  )
   useEffect(() => {
     setIncomeValue(fund.rendimentos.rendimento[months[0].value].valorrendimento)
   }, [fund])
@@ -132,8 +162,64 @@ export default function FundInformation({ fund, idCotista }) {
     return nodes
   }
 
+  const handleClickInvestButton = () => {
+    const onSuccess = data => {
+      setModalSuitabilityInfo({ ...data })
+
+      if (data.isValid) {
+        handleGiwRedirect(buildGiwUrl(fund, 'investir'))
+      }
+    }
+
+    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+  }
+
+  const handleClickRedeemButton = () => {
+    const onSuccess = data => {
+      setModalSuitabilityInfo({ ...data })
+
+      if (data.isValid) {
+        handleGiwRedirect(buildGiwUrl(fund, 'resgatar'))
+      }
+    }
+
+    dispatch(GetSuitabilityInfoRequest(onSuccess, 'resgatar', addToast))
+  }
+
   return (
     <>
+      <Modal
+        modalTitle={modalSuitabilityInfo.title}
+        isOpen={modalSuitabilityInfo.isOpen}
+        handleClose={() =>
+          setModalSuitabilityInfo({
+            ...modalSuitabilityInfo,
+            isOpen: false,
+          })
+        }
+      >
+        <ModalText>{modalSuitabilityInfo.description}</ModalText>
+        <ModalButtonWrapper>
+          {modalSuitabilityInfo.button && (
+            <ModalButton
+              data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+              data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+              data-gtm-clicktype={modalSuitabilityInfo.button.dataGtmClicktype}
+              onClick={
+                modalSuitabilityInfo.button.handleClick
+                  ? modalSuitabilityInfo.button.handleClick
+                  : () =>
+                      setModalSuitabilityInfo({
+                        ...modalSuitabilityInfo,
+                        isOpen: false,
+                      })
+              }
+            >
+              {modalSuitabilityInfo.button.buttonName}
+            </ModalButton>
+          )}
+        </ModalButtonWrapper>
+      </Modal>
       <PageTitle>{fund.fundo.apelido}</PageTitle>
       <div>
         <TopicsContentRow>
@@ -288,10 +374,12 @@ export default function FundInformation({ fund, idCotista }) {
         <ButtonWrapper>
           {fund.fundo.aplicao_liberada ? (
             <CustomConquistaButton
+              loading={suitabilityIsLoading}
+              loadingColor="white"
               data-gtm-name="investir"
               data-gtm-type="click"
               data-gtm-clicktype="button"
-              onClick={() => handleGiwRedirect(buildGiwUrl(fund, 'investir'))}
+              onClick={() => handleClickInvestButton()}
             >
               INVESTIR
             </CustomConquistaButton>
@@ -307,10 +395,11 @@ export default function FundInformation({ fund, idCotista }) {
             </Popover>
           )}
           <CustomConquistaButton
+            loading={suitabilityIsLoading}
             data-gtm-name="resgatar"
             data-gtm-type="click"
             data-gtm-clicktype="button"
-            onClick={() => handleGiwRedirect(buildGiwUrl(fund, 'resgatar'))}
+            onClick={() => handleClickRedeemButton()}
             outline
           >
             RESGATAR

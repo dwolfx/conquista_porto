@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import Accordion from 'components/Accordion'
+import ConquistaText from 'components/Text'
+import ConquistaButton from 'components/Button'
 
 export const Container = styled.div`
   width: 100%;
@@ -87,4 +89,18 @@ export const InfoItem = styled.li`
     border-radius: 50%;
     margin-left: -1em;
   }
+`
+
+export const ModalText = styled(ConquistaText).attrs(() => ({
+  type: 'headline',
+  color: 'gray6',
+}))``
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(ConquistaButton)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
 `
