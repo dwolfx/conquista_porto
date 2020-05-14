@@ -23,7 +23,7 @@ export const DivisorContainer = styled.div<IDivisor>`
 
 export const SimulateButton = styled(Button)`
   width: 100%;
-  margin-top: 21px;
+  margin-top: ${props => props.theme.spacing(3)}px;
 `
 
 export const CardWithCloseButton = styled(Card)`
@@ -48,7 +48,7 @@ export const CloseButton = styled.div`
   height: 35px;
   border-radius: 50%;
   right: ${props => props.theme.spacing(4)}px;
-  top: -18px;
+  top: ${props => props.theme.spacing(-2.5)}px;
   cursor: pointer;
 
   @media ${props => props.theme.mediaQueries.sm} {
