@@ -4,22 +4,23 @@ import { Link as RouterDomLink } from 'react-router-dom'
 
 import TextComponent from 'components/Text'
 
-import AnbimaGestao from 'assets/images/logo-anbima-gestao.png'
 import AnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
-import AnbimaComoInvestir from 'assets/images/logo-anbima-como-investir.png'
 
 export const GridContainer = styled(Container)`
-  margin: 28px auto;
+  margin: ${props => props.theme.spacing(4)}px auto;
 `
 
 export const GridCol = styled(Col)`
-  padding: 0;
+  padding: 0 ${props => props.theme.spacing(3)}px;
+  @media ${props => props.theme.mediaQueries.smUp} {
+    padding: 0;
+  }
 `
 
 export const GridRow = styled(Row)``
 
 export const TextWrapper = styled.div`
-  margin-bottom: 28px;
+  margin-bottom: ${props => props.theme.spacing(4)}px;
 `
 
 export const Text = styled(TextComponent).attrs(() => ({
@@ -40,19 +41,7 @@ export const LogoAnbimaDistribuicao = styled.img.attrs(() => ({
   src: AnbimaDistribuicao,
   alt: 'Logo Anbima - Distribuição',
 }))`
-  margin-right: 28px;
+  margin-right: ${props => props.theme.spacing(4)}px;
 `
-
-export const LogoAnbimaGestao = styled.img.attrs(() => ({
-  src: AnbimaGestao,
-  alt: 'Logo Anbima - Gestão',
-}))`
-  margin-right: 28px;
-`
-
-export const LogoComoInvestir = styled.img.attrs(() => ({
-  src: AnbimaComoInvestir,
-  alt: 'Como Investir',
-}))``
 
 export const Link = styled(RouterDomLink)``
