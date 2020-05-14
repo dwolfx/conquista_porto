@@ -60,7 +60,7 @@ const SuggestionBanner = ({ suggestion_goal, answer, toggleDrawer }) => {
 
   const MacroDivisor = () => (
     <DivisorContainer isMobile={isMobile}>
-      <Divisor vertical={!isMobile} />
+      <Divisor vertical={!isMobile} customSize="100%" />
       <Text
         type="captionUppercase"
         color="gray4"
@@ -70,7 +70,7 @@ const SuggestionBanner = ({ suggestion_goal, answer, toggleDrawer }) => {
       >
         ou
       </Text>
-      <Divisor vertical={!isMobile} />
+      <Divisor vertical={!isMobile} customSize="100%" />
     </DivisorContainer>
   )
 
