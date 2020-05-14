@@ -10,13 +10,13 @@ export const Container = styled.div<IContainer>`
   height: ${props => {
     switch (props.size) {
       case 'large':
-        return '63px'
+        return `${props.theme.spacing(9)}px`
       case 'medium':
         return `${props.theme.spacing(5)}px`
       case 'small':
-        return '28px'
+        return `${props.theme.spacing(4)}px`
       default:
-        return '49px'
+        return `${props.theme.spacing(7)}px`
     }
   }};
   display: flex;
