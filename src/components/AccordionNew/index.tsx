@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import {
@@ -10,7 +9,14 @@ import {
   AccordionCloseButton,
 } from './styles'
 
-const AccordionNew = ({
+interface IProps {
+  bodyPadding?: string
+  openByDefault: boolean
+  titleNode: React.ReactNode | string
+  triggerCloseOnArrow: boolean
+}
+
+const AccordionNew: React.FC<IProps> = ({
   bodyPadding,
   children,
   openByDefault,
@@ -28,7 +34,7 @@ const AccordionNew = ({
     }, 600)
   }
 
-  const renderGTMPros = (show, isButton) => {
+  const renderGTMPros = (show: boolean, isButton?: boolean) => {
     if (!show) {
       return null
     }
@@ -71,22 +77,6 @@ const AccordionNew = ({
       <AccordionBody>{children}</AccordionBody>
     </AccordionWrapper>
   )
-}
-
-AccordionNew.propTypes = {
-  bodyPadding: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  endHeaderNode: PropTypes.node,
-  openByDefault: PropTypes.bool,
-  titleNode: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-  triggerCloseOnArrow: PropTypes.bool,
-}
-
-AccordionNew.defaultProps = {
-  bodyPadding: '',
-  endHeaderNode: null,
-  openByDefault: false,
-  triggerCloseOnArrow: false,
 }
 
 export default AccordionNew

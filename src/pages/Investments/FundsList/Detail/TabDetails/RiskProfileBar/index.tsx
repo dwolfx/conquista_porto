@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 
 import HorizontalList from 'components/HorizontalList'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
@@ -12,7 +11,11 @@ import {
   RiskText,
 } from './styles'
 
-const RiskProfileBar = ({ riskProfile }) => {
+interface IRiskProfile {
+  riskProfile: string
+}
+
+const RiskProfileBar = ({ riskProfile }: IRiskProfile) => {
   const [risks, setRisk] = useState({
     baixo: false,
     'medio-baixo': false,
@@ -63,11 +66,3 @@ const RiskProfileBar = ({ riskProfile }) => {
 }
 
 export default RiskProfileBar
-
-RiskProfileBar.propTypes = {
-  riskProfile: PropTypes.string,
-}
-
-RiskProfileBar.defaultProps = {
-  riskProfile: '',
-}
