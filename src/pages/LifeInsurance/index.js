@@ -56,7 +56,7 @@ const downloadFileSectionData = [
   {
     title: 'Condições Gerais',
     description:
-      'Confira mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Seguro de Vida da Porto Seguro.',
+      'Confira mais detalhes sobre as condições de contratação e outras informações sobre o Seguro de Vida da Porto Seguro.',
     buttonText: 'Visualizar',
     url:
       'https://www.portoseguro.com.br/NovoInstitucional/static_files/CGs/vida_individual_/vida_e_acidentes_pessoais%20_individual_anual.pdf',
@@ -69,12 +69,12 @@ const moreDetailsData = [
     img: 'carousel-01',
     imgTitle: 'Seguro como proteção familiar',
     imgDescription:
-      'O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um estilo de vida de qualidade aos seus entes queridos, caso você falte um dia.',
+      'O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um padrão de vida de qualidade aos seus entes queridos, caso você falte um dia.',
     imgPath: 'lifeInsurance',
   },
   {
     img: 'carousel-02',
-    imgTitle: 'Coberturas não relacionadas à morte',
+    imgTitle: 'Outras coberturas',
     imgDescription:
       'O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em casos de doenças graves e invalidez por acidente total ou parcial entre outros.',
     imgPath: 'lifeInsurance',
