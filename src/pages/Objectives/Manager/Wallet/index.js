@@ -11,6 +11,7 @@ import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
 import Loading from 'components/Loading'
+import Popover from 'components/Popover'
 import Text from 'components/Text'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
@@ -31,6 +32,7 @@ import useMedia from 'hooks/useMedia'
 import InfoText from 'components/InfoText'
 import FundAccordionHeader from './AccordionHeader'
 
+import ButtonInvest from './ButtonInvest'
 import ObjectivesSlider from './ObjectivesSlider'
 import { getColorGuide, isFundsNotTheSame } from './utils'
 import {
@@ -158,24 +160,23 @@ export default function Wallet({
                           </Col>
                         </Row>
                         <Row>
-                          <Col md="12">
-                            <Button
-                              data-gtm-type="click"
-                              data-gtm-clicktype="button"
-                              data-gtm-subname={fund.name}
-                              data-gtm-name="Investir"
-                              css={`
-                                margin-top: 63px;
-                                width: 100%;
-                              `}
-                              onClick={() => {
-                                handleGiwRedirect(
-                                  `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&idObjetivo=${idGoal}&r=true`
-                                )
-                              }}
-                            >
-                              Investir
-                            </Button>
+                          <Col
+                            md="12"
+                            css={`
+                              margin-top: 63px;
+                            `}
+                          >
+                            {fund.is_fund_active ? (
+                              <Popover
+                                content="Fundo fechado para aplicações"
+                                placement="top"
+                                tooltip
+                              >
+                                <ButtonInvest fund={fund} idGoal={idGoal} />
+                              </Popover>
+                            ) : (
+                              <ButtonInvest fund={fund} idGoal={idGoal} />
+                            )}
                           </Col>
                         </Row>
                       </Col>

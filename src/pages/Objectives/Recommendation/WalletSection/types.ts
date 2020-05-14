@@ -27,5 +27,6 @@ export interface IFund {
   tribute_ir: any
   url_fund_rules_pdf: string
   url_performance_info_pdf: string
+  is_fund_active: true
   'wsdls/profile': 1 | 2 | 3 | 4 | 5
 }
