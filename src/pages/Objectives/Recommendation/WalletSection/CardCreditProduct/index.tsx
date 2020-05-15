@@ -1,17 +1,14 @@
 import React from 'react'
-import { Col, Row } from 'styled-bootstrap-grid'
+import { Row } from 'styled-bootstrap-grid'
 
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 
+import { ICreditProducts } from 'pages/Objectives/Recommendation/types'
+
 import { productCard } from './dataCardCredit'
 import * as s from './styles'
-
-interface IObjectCredit {
-  name: string
-  values: IObjectItem[]
-}
 
 interface IObjectItem {
   name: string
@@ -21,7 +18,7 @@ interface IObjectItem {
 }
 
 interface ICardProps {
-  creditProduct: IObjectCredit
+  creditProduct: ICreditProducts
 }
 
 const singleInfo = (item: IObjectItem, index: number) => (

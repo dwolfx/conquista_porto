@@ -5,7 +5,7 @@ import Text from 'components/Text'
 import { formatMoney } from 'helpers'
 import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
 
-import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
+import { IFund } from 'pages/Objectives/Recommendation/types'
 
 import * as s from './styles'
 

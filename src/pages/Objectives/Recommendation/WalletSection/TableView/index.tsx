@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FullHeightCard } from 'pages/Objectives/Recommendation/styles'
-import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
+import { IFund } from 'pages/Objectives/Recommendation/types'
 
 import { columns, fundsType } from './tableData'
 import * as s from './styles'

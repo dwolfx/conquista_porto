@@ -8,7 +8,7 @@ import { formatMoney } from 'helpers'
 
 import { FullHeightCard } from 'pages/Objectives/Recommendation/styles'
 import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
-import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
+import { IFund } from 'pages/Objectives/Recommendation/types'
 
 interface IProps {
   cardHeader: React.JSXElementConstructor<object>
