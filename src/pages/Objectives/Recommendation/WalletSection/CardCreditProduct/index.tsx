@@ -25,7 +25,7 @@ interface ICardProps {
 }
 
 const singleInfo = (item: IObjectItem, index: number) => (
-  <s.InfoItem key={index}>
+  <s.InfoItem key={index} lg={12} md={12} sm={4} xs={12}>
     <Text type="captionUppercase" color="gray5">
       {item.name}
     </Text>
@@ -50,7 +50,7 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
   }
 
   return (
-    <Col lg={3} md={3}>
+    <Col lg={3} md={3} sm={12} xs={12}>
       <s.FullHeightCard
         headerIcon={currentProduct.icon}
         headerTitle={creditProduct.name.split(' ')[0]}
@@ -59,7 +59,7 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
           <Text type="headline" color="gray6">
             {currentProduct.message}
           </Text>
-          {creditProduct.values.map((item: IObjectItem, index: number) =>
+          {creditProduct.values && creditProduct.values.map((item: IObjectItem, index: number) =>
             singleInfo(item, index)
           )}
           {currentProduct.items.map((item: IObjectItem, index: number) =>
