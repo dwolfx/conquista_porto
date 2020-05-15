@@ -174,7 +174,7 @@ const FundCard: React.FC<IFundCard> = ({ fund }) => {
 
       if (data.isValid) {
         handleGiwRedirect(`
-        portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
+portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
           locationState && locationState.idGoal
             ? `&idObjetivo=${locationState.idGoal}`
             : ''
