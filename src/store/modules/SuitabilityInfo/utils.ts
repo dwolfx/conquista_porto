@@ -55,8 +55,8 @@ export const handleInvestButton = (
           buttonName: 'Definir agora',
         },
       }
-    case suitabilityInfo.codigo_status_cotista === '30' ||
-      suitabilityInfo.codigo_status_cotista === '122':
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -128,8 +128,8 @@ export const handleRedeemButton = (
           buttonName: 'Conversar',
         },
       }
-    case suitabilityInfo.codigo_status_cotista === '30' ||
-      suitabilityInfo.codigo_status_cotista === '122':
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -169,8 +169,8 @@ export const handleWithdrawButton = (
           buttonName: 'Conversar',
         },
       }
-    case suitabilityInfo.codigo_status_cotista === '30' ||
-      suitabilityInfo.codigo_status_cotista === '122':
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
