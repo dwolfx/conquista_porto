@@ -128,7 +128,7 @@ export default function TabMoreInfo({ fund }) {
         >
           <VerticalList
             css={`
-              width: 230px;
+              width: 40%;
             `}
             elements={[
               <Text color="gray5">Informativo de desempenho</Text>,
@@ -146,7 +146,7 @@ export default function TabMoreInfo({ fund }) {
           />
           <VerticalList
             css={`
-              width: 230px;
+              width: 40%;
             `}
             elements={[
               <Text color="gray5">Regulamento do Fundo</Text>,
