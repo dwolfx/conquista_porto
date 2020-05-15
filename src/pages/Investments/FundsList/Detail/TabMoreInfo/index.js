@@ -4,52 +4,44 @@ import PropTypes from 'prop-types'
 import 'styled-components/macro'
 import { Row } from 'styled-bootstrap-grid'
 
+import Icon from 'components/IconExporter'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
-import VerticalList from 'components/VerticalList'
 import ButtonLink from 'components/Button/Link'
+import VerticalList from 'components/VerticalList'
 
 import { formatDotToComma } from 'helpers'
-import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
-import {
-  InformationContainer,
-  VerticalListStyled,
-  FileContainer,
-} from './styles'
+import { ColStyled } from './styles'
 
 export default function TabMoreInfo({ fund }) {
   return (
     <div>
-      <InformationContainer>
+      <div>
         <HorizontalList
           noPadding
           startItems={[
-            <StyledIcon name="information" />,
+            <Icon name="information" width="21px" />,
             <Text color="gray6" type="subheading" bold>
               MAIS INFORMAÇÕES
             </Text>,
           ]}
         />
-        <Row
-          justifyContent="between"
-          css={`
-            margin: 14px 0;
-          `}
-        >
-          <VerticalListStyled
-            width="33%"
-            elements={[
-              <Text type="captionUppercase" color="gray4">
-                DATA DE INÍCIO
-              </Text>,
-              <Text type="headline" color="gray6" bold>
-                {moment(fund.data_inicio).format('DD/MM/YYYY')}
-              </Text>,
-            ]}
-          />
-          {/* <VerticalListStyled
+        <Row justifyContent="between">
+          <ColStyled xs={6} sm={6} md={3}>
+            <VerticalList
+              elements={[
+                <Text type="captionUppercase" color="gray4">
+                  DATA DE INÍCIO
+                </Text>,
+                <Text type="headline" color="gray6" bold>
+                  {moment(fund.data_inicio).format('DD/MM/YYYY')}
+                </Text>,
+              ]}
+            />
+          </ColStyled>
+          {/* <VerticalList
           width="67%"
           elements={[
             <Text type="captionUppercase" color="gray4">
@@ -60,18 +52,19 @@ export default function TabMoreInfo({ fund }) {
             </Text>,
           ]}
         /> */}
-          <VerticalListStyled
-            width="33%"
-            elements={[
-              <Text type="captionUppercase" color="gray4">
-                benchmark
-              </Text>,
-              <Text type="headline" color="gray6" bold>
-                {fund.benchmark.nome}
-              </Text>,
-            ]}
-          />
-          {/* <VerticalListStyled
+          <ColStyled xs={6} sm={6} md={3}>
+            <VerticalList
+              elements={[
+                <Text type="captionUppercase" color="gray4">
+                  benchmark
+                </Text>,
+                <Text type="headline" color="gray6" bold>
+                  {fund.benchmark.nome}
+                </Text>,
+              ]}
+            />
+          </ColStyled>
+          {/* <VerticalList
           width="67%"
           elements={[
             <Text type="captionUppercase" color="gray4">
@@ -82,40 +75,46 @@ export default function TabMoreInfo({ fund }) {
             </Text>,
           ]}
         /> */}
-          <VerticalListStyled
-            width="33%"
-            elements={[
-              <Text type="captionUppercase" color="gray4">
-                taxa de administração
-              </Text>,
-              <Text type="headline" color="gray6" bold>
-                {formatDotToComma(fund.taxa_administracao)}% a.a
-              </Text>,
-            ]}
-          />
-          <VerticalListStyled
-            width="100%"
-            elements={[
-              <Text type="captionUppercase" color="gray4">
-                taxa de performance
-              </Text>,
-              <Text type="headline" color="gray6" bold>
-                {Number(fund.taxa_performance) === 0
-                  ? 'Não há cobrança de performance'
-                  : `${formatDotToComma(
-                      fund.taxa_performance
-                    )}% sobre o que exceder`}
-              </Text>,
-            ]}
-          />
+          <ColStyled xs={6} sm={6} md={3}>
+            <VerticalList
+              elements={[
+                <Text type="captionUppercase" color="gray4">
+                  taxa de administração
+                </Text>,
+                <Text type="headline" color="gray6" bold>
+                  {formatDotToComma(fund.taxa_administracao)}% a.a
+                </Text>,
+              ]}
+            />
+          </ColStyled>
+          <ColStyled lg={12}>
+            <VerticalList
+              elements={[
+                <Text type="captionUppercase" color="gray4">
+                  taxa de performance
+                </Text>,
+                <Text type="headline" color="gray6" bold>
+                  {Number(fund.taxa_performance) === 0
+                    ? 'Não há cobrança de performance'
+                    : `${formatDotToComma(
+                        fund.taxa_performance
+                      )}% sobre o que exceder`}
+                </Text>,
+              ]}
+            />
+          </ColStyled>
         </Row>
-      </InformationContainer>
-      <Divisor />
-      <FileContainer>
+      </div>
+      <Divisor
+        css={`
+          margin: 7px 0 21px 0;
+        `}
+      />
+      <div>
         <HorizontalList
           noPadding
           startItems={[
-            <StyledIcon name="download" />,
+            <Icon name="download" width="21px" />,
             <Text color="gray6" type="subheading" bold>
               ARQUIVOS
             </Text>,
@@ -126,44 +125,42 @@ export default function TabMoreInfo({ fund }) {
             margin: 7px 0;
           `}
         >
-          <VerticalList
-            css={`
-              width: 40%;
-            `}
-            elements={[
-              <Text color="gray5">Informativo de desempenho</Text>,
-              <ButtonLink
-                data-gtm-type="click"
-                data-gtm-clicktype="link"
-                data-gtm-subname="informativo de desempenho"
-                data-gtm-name="baixar arquivo"
-                target="_blank"
-                href={fund.link_infor_desempenho}
-              >
-                Baixar arquivo
-              </ButtonLink>,
-            ]}
-          />
-          <VerticalList
-            css={`
-              width: 40%;
-            `}
-            elements={[
-              <Text color="gray5">Regulamento do Fundo</Text>,
-              <ButtonLink
-                data-gtm-type="click"
-                data-gtm-clicktype="link"
-                data-gtm-subname="regulamento do fundo"
-                data-gtm-name="baixar arquivo"
-                target="_blank"
-                href={fund.link_regulamento}
-              >
-                Baixar arquivo
-              </ButtonLink>,
-            ]}
-          />
+          <ColStyled xs={12} sm={5} md={5}>
+            <VerticalList
+              elements={[
+                <Text color="gray5">Informativo de desempenho</Text>,
+                <ButtonLink
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="informativo de desempenho"
+                  data-gtm-name="baixar arquivo"
+                  target="_blank"
+                  href={fund.link_infor_desempenho}
+                >
+                  Baixar arquivo
+                </ButtonLink>,
+              ]}
+            />
+          </ColStyled>
+          <ColStyled xs={12} sm={5} md={5}>
+            <VerticalList
+              elements={[
+                <Text color="gray5">Regulamento do Fundo</Text>,
+                <ButtonLink
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="regulamento do fundo"
+                  data-gtm-name="baixar arquivo"
+                  target="_blank"
+                  href={fund.link_regulamento}
+                >
+                  Baixar arquivo
+                </ButtonLink>,
+              ]}
+            />
+          </ColStyled>
         </Row>
-      </FileContainer>
+      </div>
     </div>
   )
 }
