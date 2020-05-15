@@ -1,4 +1,4 @@
-import { Col, Row } from 'styled-bootstrap-grid'
+import { Col } from 'styled-bootstrap-grid'
 
 import styled from 'styled-components'
 import Card from 'components/Card'
@@ -39,4 +39,3 @@ export const TextValue = styled(Text)`
   }
 `
 
-export const ListItems = styled(Row)``

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col } from 'styled-bootstrap-grid'
+import { Col, Row } from 'styled-bootstrap-grid'
 
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
