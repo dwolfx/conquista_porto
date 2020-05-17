@@ -18,14 +18,14 @@ const TableBody = ({
   isError,
   rows,
   prepareRow,
-  onChangeIsDrawerOpen,
+  onChangeIsFundDetailOpen,
   setIsOpenForInvestments,
 }) => {
   const dispatch = useDispatch()
 
   const handleOpenDetail = idFundo => {
     dispatch(GetInvestmentDetailsRequest(idFundo))
-    onChangeIsDrawerOpen(prevState => !prevState)
+    onChangeIsFundDetailOpen(prevState => !prevState)
   }
 
   const TbodyRender = () => {

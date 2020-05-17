@@ -91,7 +91,7 @@ export default function TableFunds({
   isLoading,
   isError,
   isFiltering,
-  onChangeIsDrawerOpen,
+  onChangeIsFundDetailOpen,
   isTablet,
   handleLayerOpen,
   setIsOpenForInvestments,
@@ -133,7 +133,7 @@ export default function TableFunds({
           </Thead>
           <Tbody {...getTableBodyProps()}>
             <TableBody
-              onChangeIsDrawerOpen={onChangeIsDrawerOpen}
+              onChangeIsFundDetailOpen={onChangeIsFundDetailOpen}
               setIsOpenForInvestments={setIsOpenForInvestments}
               rows={rows}
               isLoading={isLoading}
@@ -154,17 +154,15 @@ TableFunds.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
   isFiltering: PropTypes.bool,
-  isDrawerOpen: PropTypes.bool,
   isTablet: PropTypes.bool.isRequired,
   handleLayerOpen: PropTypes.func.isRequired,
-  onChangeIsDrawerOpen: PropTypes.func.isRequired,
+  onChangeIsFundDetailOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
   clickedFundInvestButton: PropTypes.string,
 }
 
 TableFunds.defaultProps = {
-  isDrawerOpen: false,
   isFiltering: false,
   clickedFundInvestButton: '',
 }
