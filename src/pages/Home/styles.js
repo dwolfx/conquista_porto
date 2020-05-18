@@ -12,8 +12,6 @@ import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
 import { LegendText } from 'components/Loading/styles'
 
-import { rgba } from 'helpers'
-
 export const GridContainer = styled(Container)``
 
 export const GridRow = styled(Row)`
@@ -22,7 +20,7 @@ export const GridRow = styled(Row)`
   &#t3 {
     height: 430px;
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: ${props => props.theme.spacing(4.5)}px;
 
     @media ${props => props.theme.mediaQueries.md} {
       height: auto;
@@ -112,62 +110,6 @@ export const BannerTipTitle = styled(Text)`
 export const CardPontosFooter = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 100%;
-`
-
-export const OfferBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
-
-export const OfferImageBox = styled.div`
-  border-radius: 8px;
-  height: 230px;
-  margin-top: 14px;
-  margin-bottom: 21px;
-  overflow: hidden;
-  position: relative;
-
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-`
-
-export const OfferCategoryBox = styled.div`
-  align-items: center;
-  background-color: ${props => rgba(props.theme.colors.gray6, 0.63)};
-  bottom: 0;
-  display: flex;
-  height: 35px;
-  padding: 0 14px;
-  position: absolute;
-  width: 100%;
-`
-
-export const OfferCategoryText = styled(Text)`
-  color: ${props => props.theme.colors.white};
-  text-transform: uppercase;
-`
-
-export const OfferTextBox = styled.div`
-  margin: 0 14px 14px;
-`
-
-export const OfferTitle = styled(Text)`
-  color: ${props => props.theme.colors.gray6};
-  margin-bottom: 7px;
-`
-
-export const OfferText = styled(Text).attrs(() => ({
-  bold: true,
-}))`
-  color: ${props => props.theme.colors.gray5};
-`
-
-export const OfferCardButton = styled(Button)`
   width: 100%;
 `
 
@@ -317,12 +259,8 @@ export const PointsExtractListWrapper = styled.div`
 `
 
 export const AdRow = styled(GridRow)`
-  padding-right: 7;
-  padding-left: 7;
-
-  @media ${props => props.theme.mediaQueries.md} {
-    margin-bottom: 0;
-  }
+  margin-bottom: ${props =>
+    props.hasBannerCookie && `${props.theme.spacing(4.5)}px`};
 `
 
 export const TipBannerContainer = styled(Row)`

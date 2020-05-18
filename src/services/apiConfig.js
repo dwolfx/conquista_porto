@@ -12,6 +12,7 @@ const baseURLNamespaceGoalFunds =
 const baseURLNamespacePortopar = process.env.REACT_APP_BASE_URL_PORTOPAR || ''
 const baseURLNamespaceRecommendation =
   process.env.REACT_APP_BASE_URL_RECOMMENDATION || ''
+const baseURLNamespaceRewards = process.env.REACT_APP_BASE_URL_REWARDS || ''
 
 const responseInterceptor = response => response
 
@@ -50,6 +51,7 @@ export {
   baseURLNamespaceGoalFunds,
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
+  baseURLNamespaceRewards,
   responseInterceptor,
   responseErrorInterceptor,
   requestInterceptor,

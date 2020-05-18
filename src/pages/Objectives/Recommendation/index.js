@@ -25,10 +25,11 @@ import {
 import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/action'
 
 import BottomBar from './BottomBar'
-import SectionOne from './SectionOne'
-import SectionTwo from './SectionTwo'
+import WalletSection from './WalletSection'
 import SectionThree from './SectionThree'
 import SuggestionBanner from './SugestionBanner'
+import RecommendationMessage from './RecommendationMessage'
+import CardEstimatedResults from './CardEstimatedResults'
 
 import {
   ValidateInitialInvestment,
@@ -312,11 +313,15 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
             suggestion_goal={suggestion_goal}
           />
 
-          <SectionOne answer={answer} combo={combo} income={income} />
-          <SectionTwo
+          <RecommendationMessage suggestion_goal={suggestion_goal} />
+
+          <CardEstimatedResults answer={answer} combo={combo} income={income} />
+
+          <WalletSection
             combo={combo}
             funds={funds}
             creditProduct={credit_product}
+            isUnmetGoal={!!suggestion_goal}
           />
           <SectionThree additional={additional} />
         </Container>
@@ -367,7 +372,7 @@ Recommendation.defaultProps = {
 Recommendation.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   data: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     answer: PropTypes.shape({
       target_date: PropTypes.string,
       target_value: PropTypes.number,

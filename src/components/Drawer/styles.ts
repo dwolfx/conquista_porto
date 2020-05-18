@@ -72,7 +72,6 @@ export const DrawerContent = styled.div<IDrawerContentProps>`
   padding: 10px 14px 0 14px;
   position: fixed;
   transition: all ease 0.5s;
-  min-width: 390px;
   max-width: 650px;
   top: 0;
   ${props => ({

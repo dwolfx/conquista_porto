@@ -37,6 +37,7 @@ function* postLogin({ credentials: { username, password } }) {
 
     yield put(AuthRequestLoginSuccess(response))
     saveAuthCookie(response)
+    removeCookieValue('hideConquistaHomeBanner')
   } catch (error) {
     yield put(AuthRequestLoginFailure(error.toString()))
   }
@@ -44,7 +45,10 @@ function* postLogin({ credentials: { username, password } }) {
 
 function* postLogout() {
   const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
+
   removeAuthCookie()
+  removeCookieValue('hideConquistaHomeBanner')
+
   if (
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
