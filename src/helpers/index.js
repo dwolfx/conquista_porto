@@ -93,9 +93,27 @@ export const getCookieValue = key => {
 }
 
 export const setCookieValue = (key, value) => {
-  document.cookie = `${key}=${value}`
+  let domain = ''
+
+  if (
+    process.env.REACT_APP_ENV !== 'development' &&
+    process.env.REACT_APP_ENV !== 'local'
+  ) {
+    domain = '.portoseguro.brasil'
+  }
+
+  document.cookie = `${key}=${value};Path=/;Domain=${domain};`
 }
 
 export const removeCookieValue = key => {
-  document.cookie = `${key}=;Path=/;Domain=.portoseguro.brasil;Expires=Thu, 01 Jan 1970 00:00:00 UTC`
+  let domain = ''
+
+  if (
+    process.env.REACT_APP_ENV !== 'development' &&
+    process.env.REACT_APP_ENV !== 'local'
+  ) {
+    domain = '.portoseguro.brasil'
+  }
+
+  document.cookie = `${key}=;Path=/;Domain=${domain};Expires=Thu, 01 Jan 1970 00:00:00 UTC`
 }

@@ -6,7 +6,6 @@ import Card from 'components/Card'
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
-import DivisorComponent from 'components/Divisor'
 import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 import { CardBody } from 'components/Card/styles'
 
@@ -75,6 +74,11 @@ export const ButtonSubmit = styled(Button)`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
+  position: relative;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: auto;
+  }
   & ${CardBody} {
     overflow: visible;
   }
@@ -169,64 +173,8 @@ export const CardContainer = styled.div`
   margin: 28px 14px;
 `
 
-export const InfoContent = styled.div`
-  margin: 22px 0;
-`
-
 export const ButtonContainer = styled.div`
   margin-top: 14px;
-`
-
-export const FundsTable = styled.table`
-  width: 100%;
-  border-spacing: 0px 7px;
-  padding-top: 7px;
-`
-
-export const TableHeader = styled.th`
-  text-align: ${props => props.textAlign && props.textAlign};
-`
-
-export const TableRow = styled.tr`
-  opacity: ${props => (props.shouldOppacity ? 0.3 : 1)};
-  color: ${props => props.theme.colors.gray6};
-`
-
-export const TableData = styled.td`
-  text-align: ${props => `-webkit-${props.textAlign}`};
-  text-align: ${props => `-moz-${props.textAlign}`};
-  width: ${props => (props.width ? props.width : 'unset')};
-
-  && button {
-    margin: 0 auto;
-  }
-`
-export const ResponsiveTableContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-
-  & > p {
-    margin: 0 0 14px 14px;
-  }
-`
-
-export const TableCard = styled.div`
-  padding: 7px 0;
-
-  p {
-    margin-bottom: 7px;
-  }
-`
-
-export const TableDivisor = styled(DivisorComponent)`
-  margin: 21px 0;
-`
-
-export const ResponsiveTableButton = styled(Button)`
-  width: 100%;
-  align-self: center;
 `
 
 export const Wrapper = styled.div`
@@ -245,28 +193,6 @@ export const ErrorMessageContainer = styled.div`
 
   & svg {
     margin-right: 7px;
-  }
-`
-
-export const ContainerFunds = styled.div`
-  display: flex;
-  height: 100%;
-  align-items: center;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    flex-direction: column;
-  }
-`
-
-export const Square = styled.div`
-  width: 7px;
-  height: 7px;
-  background-color: ${props => props.color};
-  border-radius: 2px;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    align-self: center;
-    flex-shrink: 0;
   }
 `
 
@@ -402,7 +328,7 @@ export const ProductBannerItem = styled(Col)`
   }
 `
 
-export const SectionTwoGraphContainer = styled.div`
+export const WalletSectionGraphContainer = styled.div`
   margin-bottom: 35px;
 
   @media ${props => props.theme.mediaQueries.sm} {

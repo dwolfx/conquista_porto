@@ -19,25 +19,14 @@ interface IProps {
   error?: boolean | { icon: keyof typeof dict; message: string }
   label?: string
   className?: string
-  maxLength?: string | number
+  maxLength?: number
+  value?: string
   onChange?: (event: any) => void
   onKeyUp?: (event: any) => void
 }
 
 const NewInput = forwardRef<HTMLInputElement, IProps>(
-  (
-    {
-      prefix,
-      suffix,
-      maxLength = null,
-      label,
-      width,
-      error,
-      className,
-      ...rest
-    },
-    ref
-  ) => {
+  ({ prefix, suffix, label, width, error, className, ...rest }, ref) => {
     const inputRef = (ref || createRef()) as React.RefObject<HTMLInputElement>
 
     return (

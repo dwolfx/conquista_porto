@@ -77,6 +77,7 @@ import { ReactComponent as remove } from 'assets/icons/remove.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
 import { ReactComponent as scale } from 'assets/icons/scale.svg'
 import { ReactComponent as smartphone } from 'assets/icons/smartphone.svg'
+import { ReactComponent as star } from 'assets/icons/star.svg'
 import { ReactComponent as student } from 'assets/icons/student-male.svg'
 import { ReactComponent as tag } from 'assets/icons/tag.svg'
 import { ReactComponent as talkman } from 'assets/icons/talk-man.svg'
@@ -170,6 +171,7 @@ export const dict = {
   scale,
   smartphone,
   spinner,
+  star,
   student,
   tag,
   talkman,

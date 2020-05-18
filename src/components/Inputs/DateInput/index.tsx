@@ -9,12 +9,11 @@ interface IProps {
   newInput?: boolean
   value?: string
   error?: boolean | { icon: keyof typeof dict; message: string }
-  onKeyUp?: () => void
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void
 }
 
 const DateInput = forwardRef<HTMLInputElement, IProps>(
-  ({ newInput = false, onKeyUp = () => {}, ...rest }, ref) => {
+  ({ newInput = false, onChange, ...rest }, ref) => {
     const applyDateMask = (event: any) => {
       const strippedValue = event.target.value.replace(/\D/g, '')
       let newValue = strippedValue
@@ -27,14 +26,14 @@ const DateInput = forwardRef<HTMLInputElement, IProps>(
 
       event.target.value = newValue
 
-      onKeyUp()
+      onChange!(event)
     }
 
     if (newInput) {
       return (
         <NewTextInput
-          onKeyUp={applyDateMask}
-          maxLength="10"
+          onChange={applyDateMask}
+          maxLength={10}
           ref={ref}
           {...rest}
         />
@@ -45,7 +44,7 @@ const DateInput = forwardRef<HTMLInputElement, IProps>(
       <TextInputStyled
         maxLength="10"
         ref={ref}
-        onKeyUp={applyDateMask}
+        onChange={applyDateMask}
         {...rest}
       />
     )
