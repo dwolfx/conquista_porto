@@ -457,6 +457,7 @@ exports[`FundsInfo renders correctly 1`] = `
               data-gtm-name="baixar arquivo"
               data-gtm-subname="informativo de desempenho"
               data-gtm-type="click"
+              disabled={false}
               href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_POLOMACROFIM.pdf"
               target="_blank"
             >
@@ -494,6 +495,7 @@ exports[`FundsInfo renders correctly 1`] = `
               data-gtm-name="baixar arquivo"
               data-gtm-subname="regulamento do fundo"
               data-gtm-type="click"
+              disabled={false}
               href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_POLOMACROFIM.pdf"
               target="_blank"
             >

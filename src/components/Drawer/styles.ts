@@ -19,6 +19,10 @@ export const DrawerBody = styled.div`
   overflow-y: auto;
   height: 100%;
   padding: 28px 14px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0;
+  }
 `
 
 export const DrawerFooter = styled.div`
@@ -29,6 +33,14 @@ export const DrawerFooter = styled.div`
   padding: 0 14px;
   align-items: center;
   margin-top: auto;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    padding: 14px;
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0;
+  }
 `
 
 export const DrawerHeader = styled.div`
@@ -36,6 +48,10 @@ export const DrawerHeader = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px 14px 14px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0;
+  }
 `
 
 export const DrawerTitle = styled(Text).attrs(() => ({
@@ -67,8 +83,14 @@ export const DrawerContent = styled.div<IDrawerContentProps>`
     [props.positionDrawer]: props.isOpen ? '0' : '-100%',
   })}
 
-  @media ${props => props.theme.mediaQueries.md} {
+  @media ${props => props.theme.mediaQueries.lg} {
     max-width: 484px;
+    margin: 0;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    min-width: 100vw;
+    padding: 0;
   }
 `
 

@@ -1,12 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-import FundCard, { IFund } from './FundCard'
+import FundCard from './FundCard'
 import Loading from 'components/Loading'
 import Button from 'components/Button'
 
 import { ListWrapper, EmptyDataText, ErrorText, WrapperContent } from './styles'
 
-import { useDispatch } from 'react-redux'
+import { IFund } from '../Filter/useFilter'
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 
 interface IResponsiveListProps {

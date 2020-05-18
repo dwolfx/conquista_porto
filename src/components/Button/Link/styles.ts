@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Link = styled.a`
+interface IAnchorProps {
+  disabled: boolean
+}
+export const Link = styled.a<IAnchorProps>`
   align-items: center;
   color: ${props =>
     props.disabled ? props.theme.colors.gray4 : props.theme.colors.blue4};

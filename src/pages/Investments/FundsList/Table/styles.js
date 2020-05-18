@@ -124,19 +124,23 @@ export const TheadThWithColumns = styled(TheadTh)`
 export const TheadText = styled.span`
   user-select: none;
 
+  ${props =>
+    props.showSortArrows &&
+    `
   &::after {
     content: '';
     background-image: url(${ArrowSortable});
     background-repeat: no-repeat;
-    background-position: ${props =>
-      props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
+    background-position: ${
+      props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'
+    };
     position: absolute;
     margin-left: 10px;
-    top: ${props =>
-      props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
+    top: ${props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
     width: 10px;
     height: 17px;
   }
+  `}
 `
 
 export const TheadColumn = styled.div`

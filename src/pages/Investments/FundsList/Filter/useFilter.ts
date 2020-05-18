@@ -1,26 +1,45 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
+import { IFilterProps } from './index'
+
 import {
   FILTER_TYPES,
   FILTER_RISKS,
 } from 'pages/Investments/FundsList/constants'
 
-export default function useFilter(filter) {
-  const funds = useSelector(state =>
+export interface IFund {
+  apelido: string
+  aplicao_liberada: boolean
+  categoria_arena: string
+  id_fundo: string
+  perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
+  minimo_inicial: number
+  resgate_cotizacao: string
+  rentabil_fundo_mes: number
+  rentabil_fundo_12_meses: number
+  rentabil_fundo_ano: number
+  taxa_administracao: number
+}
+
+const useFilter = (filter: IFilterProps) => {
+  const funds: IFund[] = useSelector((state: any) =>
     state.investmentsList.data
-      .flatMap(item => item)
-      .reduce((prev, curr) => [...prev, ...curr.fundos], [])
+      .flatMap((item: any) => item)
+      .reduce((prev: any, curr: any) => [...prev, ...curr.fundos], [])
   )
 
-  function filterByCategoriaArena(list, categoriaArena) {
-    return list.filter(fund =>
+  function filterByCategoriaArena(
+    fundsList: IFund[],
+    categoriaArena: string[]
+  ) {
+    return fundsList.filter(fund =>
       categoriaArena.includes(fund.categoria_arena.toLowerCase())
     )
   }
 
-  function sortFundsByRisk(list) {
-    let sortedList = list.sort((itemList1, itemList2) => {
+  function sortFundsByRisk(fundsList: IFund[]) {
+    let sortedList = fundsList.sort((itemList1: IFund, itemList2: IFund) => {
       const indexItemList1 = Object.values(FILTER_RISKS).indexOf(
         itemList1.perfil_risco.toLowerCase()
       )
@@ -34,7 +53,7 @@ export default function useFilter(filter) {
       return 0
     })
 
-    sortedList = sortedList.sort((itemList1, itemList2) => {
+    sortedList = sortedList.sort((itemList1: IFund, itemList2: IFund) => {
       const indexItemList1 = Object.values(FILTER_TYPES).indexOf(
         itemList1.categoria_arena.toLowerCase()
       )
@@ -51,8 +70,8 @@ export default function useFilter(filter) {
     return sortedList
   }
 
-  function filterByPerfilRisco(list, perfilRisco) {
-    return list.filter(fund =>
+  function filterByPerfilRisco(fundsList: IFund[], perfilRisco: string[]) {
+    return fundsList.filter(fund =>
       perfilRisco.includes(fund.perfil_risco.toLowerCase())
     )
   }
@@ -83,3 +102,5 @@ export default function useFilter(filter) {
 
   return formattedFundsList
 }
+
+export default useFilter
