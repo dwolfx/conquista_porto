@@ -38,6 +38,7 @@ import {
   FullHeightCard,
   CardPontosFooter,
   ContainerBox,
+  PointsHorizontal,
   PointsInfo,
   PointDate,
   PointName,
