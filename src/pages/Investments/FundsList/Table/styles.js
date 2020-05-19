@@ -4,7 +4,7 @@ import ConquistaButton from 'components/Button'
 import { fundRiskColors } from 'styles/theme'
 import ArrowSortable from 'assets/icons/arrow-sortable.svg'
 import Popover from 'components/Popover'
-
+import Text from 'components/Text'
 const riskColorsMap = {
   1: fundRiskColors.lowRisk,
   2: fundRiskColors.lowMediumRisk,
@@ -12,11 +12,9 @@ const riskColorsMap = {
   4: fundRiskColors.mediumHighRisk,
   5: fundRiskColors.highRisk,
 }
-
 export const WrapperContent = styled.div`
   line-height: ${props => (props.lineHeight ? props.lineHeight : '36px')};
   white-space: pre-wrap;
-
   ${props =>
     props.isThead &&
     css`
@@ -25,7 +23,6 @@ export const WrapperContent = styled.div`
       flex-direction: column;
       justify-content: center;
     `}
-
   ${props =>
     props.isBold &&
     css`
@@ -33,8 +30,7 @@ export const WrapperContent = styled.div`
       color: ${props.theme.colors.gray6};
     `}
 `
-
-export const InfoTableContent = styled.tr`
+export const InfoTableContent = styled.div`
   margin: auto;
   width: 428px;
   height: 100%;
@@ -46,51 +42,103 @@ export const InfoTableContent = styled.tr`
   padding: 0 35px;
   white-space: pre-line;
   text-align: center;
-`
 
+  @media ${props => props.theme.mediaQueries.lg} {
+    width: 100%;
+    border: 1px solid ${({ theme }) => theme.colors.gray3};
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 0 ${({ theme }) => theme.spacing(34)}px;
+  }
+`
 export const TableWrapper = styled.div`
-  overflow-x: auto;
+  position: relative;
+  overflow: hidden;
   white-space: nowrap;
   height: auto;
+  width: 100%;
 `
-
-export const Table = styled.table`
+export const Table = styled.div`
   border-collapse: collapse;
   height: 69vh;
+  &.sticky {
+    overflow: auto;
+    .header {
+      position: sticky;
+      z-index: 1;
+      width: fit-content;
+    }
+    .header {
+      top: 0;
+    }
+    .body {
+      position: relative;
+      z-index: 0;
+      height: auto;
+      width: fit-content;
+    }
+    [data-sticky-td] {
+      position: sticky;
+    }
+    [data-sticky-first-right-td] {
+      &:before {
+        content: '';
+        box-shadow: ${props => props.theme.shadows.gray3};
+      }
+    }
+  }
 `
-
-export const Thead = styled.thead`
-  width: 1238px;
+export const Thead = styled.div`
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 4;
 `
-export const TheadTr = styled.tr`
-  display: block;
-  padding: 0px 6px;
+export const TheadTr = styled.div`
+  display: flex;
+  justify-content: space-between;
   height: 56px;
   background-color: ${props => props.theme.colors.gray1};
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border: 1px solid ${props => props.theme.colors.gray2};
 `
-
-export const TheadTh = styled.th`
+export const TheadTh = styled.div`
   cursor: ${props => (props.canSort ? 'pointer' : 'default')};
   display: inline-block;
   font-size: 11px;
   letter-spacing: 1px;
   line-height: 15px;
+  background-color: inherit;
   position: relative;
   height: 100%;
-  margin-left: 21px;
-  padding-right: 14px
+  min-width: ${props => {
+    if (props.minWidth) {
+      return typeof props.minWidth === 'string'
+        ? props.minWidth
+        : `${props.minWidth}px`
+    }
+    return 0
+  }};
+  width: ${props => {
+    if (props.width) {
+      return typeof props.width === 'string' ? props.width : `${props.width}px`
+    }
+    return 'auto'
+  }};
+  &:nth-child(2) {
+    padding-right: 0;
+  }
   &:last-child {
-    margin-right: 21px;
+    padding-right: ${props => props.theme.spacing(3)}px;
   }
 `
-
 export const TheadContent = styled.div`
+  align-items: center;
   white-space: pre-wrap;
   height: inherit;
   display: flex;
+  padding-left: ${props => props.theme.spacing(3)}px;
   justify-content: ${props => props.justifyHeader || 'center'};
   align-items: center;
   ${props =>
@@ -100,30 +148,26 @@ export const TheadContent = styled.div`
       padding: 30px 0;
     `};
 `
-
 const getArrowPosition = isSortedDesc =>
   isSortedDesc ? 'right -8px' : 'right 8px'
-
 const getArrowTop = isSortedDesc => (isSortedDesc ? '23px' : '16px')
-
 export const TheadThWithColumns = styled(TheadTh)`
   padding: 12px 0 0;
-
   ${WrapperContent} {
     border-top: 1px solid ${props => props.theme.colors.gray3};
     display: flex;
-    margin-top: 7px;
-
+    margin-top: ${props => props.theme.spacing(1)}px;
     span::after {
       top: 45px;
       right: initial;
     }
   }
 `
-
-export const TheadText = styled.span`
+export const TheadText = styled(Text).attrs(() => ({
+  type: 'subheading',
+  bold: true,
+}))`
   user-select: none;
-
   ${props =>
     props.showSortArrows &&
     `
@@ -142,58 +186,96 @@ export const TheadText = styled.span`
   }
   `}
 `
-
 export const TheadColumn = styled.div`
   display: inline-block;
   width: ${props => props.width};
 `
-
-export const Tbody = styled.tbody`
+export const Tbody = styled.div`
   border: 1px solid ${props => props.theme.colors.gray2};
-  width: 1238px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 100%;
+  height: calc(100% - 56px);
+  overflow: auto;
   display: block;
+  @media ${props => props.theme.mediaQueries.lg} {
+    border-right: 0;
+    overflow: unset;
+  }
+  @media ${props => props.theme.mediaQueries.md} {
+    border-right: 0;
+    overflow: unset;
+  }
 `
-
-export const TbodyTr = styled.tr`
+export const TbodyTr = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   color: ${props => props.theme.colors.gray5};
   font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   padding: 3px 0 3px 3px;
-  display: block;
   width: 100%;
-
   &:hover {
     background-color: ${props => props.theme.colors.gray1};
   }
 `
-
-export const TbodyTd = styled.td`
-  display: inline-block;
+export const TbodyTd = styled.div`
+  background-color: inherit;
+  display: flex;
+  justify-content: ${props => props.align};
   font-size: 14px;
-  padding: 0;
+  padding-left: ${props => props.theme.spacing(3)}px;
   text-align: center;
-  margin-left: 21px;
-  text-align: ${props => props.align || 'center'};
-
+  min-width: ${props => {
+    if (props.minWidth) {
+      return props.minWidth === 'string'
+        ? props.minWidth
+        : `${props.minWidth}px`
+    }
+    return 0
+  }};
+  width: ${props => {
+    if (props.width) {
+      return typeof props.width === 'string' ? props.width : `${props.width}px`
+    }
+    return 0
+  }};
   &:last-child {
-    margin-right: 21px;
+    padding-right: ${props => props.theme.spacing(1)}px;
+    padding-left: ${props => props.theme.spacing(2)}px;
   }
   &:first-child {
     margin-left: 0px;
+    padding-left: 0px;
   }
 `
-
+export const StickyDivisor = styled.div`
+  border-left: 1px solid ${props => props.theme.colors.gray6};
+  height: calc(100% - 7px);
+  opacity: 0.14;
+  position: absolute;
+  width: 2px;
+  z-index: 2;
+  ${props =>
+    props.side === 'left'
+      ? `left: ${props.position}px`
+      : `right: ${props.position}px`};
+  &:before {
+    content: '';
+    background-color: ${props => props.theme.colors.gray6};
+    filter: blur(2px);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 2px;
+    ${props => (props.side === 'right' ? `left: -4px` : `right: -1px`)};
+  }
+`
 export const RiskColorTag = styled.div`
   width: 5px;
   background-color: ${props => riskColorsMap[parseInt(props.borderRisk, 10)]};
   border-radius: 4px;
 `
-
 export const FundoWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -202,12 +284,10 @@ export const FundoWrapper = styled.div`
   padding: 9px 14px 8px 20px;
   width: 100%;
 `
-
 export const FundoOutterWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `
-
 export const LogoImg = styled.div`
   background-image: ${props => `url(${props.bg})`};
   background-size: contain;
@@ -215,7 +295,6 @@ export const LogoImg = styled.div`
   background-position: left, left;
   width: 75px;
 `
-
 export const InformationIcon = styled(IconExporter).attrs(() => ({
   name: 'information',
 }))`
@@ -225,14 +304,12 @@ export const InformationIcon = styled(IconExporter).attrs(() => ({
   margin-left: auto;
   min-width: 25px;
 `
-
 export const FundoNameWrapper = styled.p`
   text-align: left;
   max-width: 220px;
   font-weight: normal;
   white-space: pre-wrap;
 `
-
 export const InvestButton = styled(ConquistaButton)`
   width: 80px;
   min-width: 0;
@@ -240,17 +317,14 @@ export const InvestButton = styled(ConquistaButton)`
   padding: 0;
   height: 40px;
 `
-
 export const SizedInvestButton = styled(ConquistaButton)`
   min-width: 112px;
 `
-
 export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
   fill: ${props => props.theme.colors.gray6};
   height: 24px;
   width: 24px;
 `
-
 export const CustomPopover = styled(Popover)`
   width: 28px;
   display: flex;
