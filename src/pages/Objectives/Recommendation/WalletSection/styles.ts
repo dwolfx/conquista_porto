@@ -48,17 +48,17 @@ export const PercentualInfosContainer = styled(Row)`
 `
 
 export const PercentualText = styled(Text)`
-  &:not(:first-child) {
-    border-left: 1px solid ${props => props.theme.colors.gray6};
-    padding-left: ${props => props.theme.spacing(2)}px;
-    margin-left: ${props => props.theme.spacing(2)}px;
+  &:not(:last-child) {
+    border-right: 1px solid ${props => props.theme.colors.gray6};
+    padding-right: ${props => props.theme.spacing(2)}px;
+    margin-right: ${props => props.theme.spacing(2)}px;
   }
 
   @media ${props => props.theme.mediaQueries.sm} {
-    &:not(:first-child) {
-      border-left: 0;
-      padding-left: 0;
-      margin-left: 0;
+    &:not(:last-child) {
+      border-right: 0;
+      padding-right: 0;
+      margin-right: 0;
     }
   }
 `

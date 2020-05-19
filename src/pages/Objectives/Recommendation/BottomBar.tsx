@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import { formatMoney } from 'helpers'
@@ -41,7 +40,9 @@ const BottomBar = ({
 }: IProps) => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const isLoading = useSelector((state: any) => state.objectiveManagement.isLoading)
+  const isLoading = useSelector(
+    (state: any) => state.objectiveManagement.isLoading
+  )
 
   const [buttonConfirmClicked, setButtonConfirmClicked] = useState(false)
 
@@ -87,7 +88,7 @@ const BottomBar = ({
     <SectionBar>
       <Container>
         <Row justifyContent="end">
-          <Col lgAuto>
+          <Col xlAuto lgAuto mdAuto>
             <ButtonBar
               data-gtm-subname="barra inferior"
               data-gtm-name="editar objetivo"
