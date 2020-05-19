@@ -68,13 +68,17 @@ export const InfoContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+
+  & > p {
+    margin-right: ${props => props.theme.spacing(1)}px;
+  }
 `
 
 export const Popover = styled(PopoverComp)`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: 0 ${props => props.theme.spacing(1)}px;
+  margin-right: ${props => props.theme.spacing(1)}px;
 `
 
 export const InlineContentText = styled.span`

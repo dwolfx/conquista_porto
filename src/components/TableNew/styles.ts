@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 import ArrowSortable from 'assets/icons/arrow-sortable.svg'
-import Popover from 'components/Popover'
 
 interface IWrapper {
   lineHeight?: string
@@ -55,43 +54,32 @@ export const TableWrapper = styled.div`
 
 export const Table = styled.div`
   border-collapse: collapse;
-  height: 69vh;
+  overflow: auto;
   width: 100%;
 
   &.sticky {
-    overflow: auto;
-
     .header {
-      position: sticky;
-      z-index: 1;
       width: fit-content;
     }
 
-    .header {
-      top: 0;
-    }
-
     .body {
-      position: relative;
-      z-index: 0;
       height: auto;
+      position: relative;
+      width: fit-content;
+      z-index: 0;
     }
 
     [data-sticky-td] {
       position: sticky;
     }
-
-    [data-sticky-first-right-td] {
-      &:before {
-        content: '';
-        box-shadow: ${props => props.theme.shadows.gray3};
-      }
-    }
   }
 `
 
 export const Thead = styled.div`
+  position: sticky;
+  top: 0;
   width: 100%;
+  z-index: 1;
 `
 export const TheadTr = styled.div`
   display: flex;
@@ -106,6 +94,7 @@ export const TheadTr = styled.div`
 interface ITheadTh {
   canSort: boolean
   minWidth?: string | number
+  width?: string | number
 }
 
 export const TheadTh = styled.div<ITheadTh>`
@@ -121,9 +110,18 @@ export const TheadTh = styled.div<ITheadTh>`
   padding-right: 14px;
   min-width: ${props => {
     if (props.minWidth) {
-      return props.minWidth === 'string'
+      return typeof props.minWidth === 'string'
         ? props.minWidth
         : `${props.minWidth}px`
+    }
+
+    return 0
+  }};
+  width: ${props => {
+    if (props.width) {
+      return typeof props.width === 'string'
+        ? props.width
+        : `${props.width}px`
     }
 
     return 0
@@ -207,7 +205,6 @@ export const TheadColumn = styled.div<ITheadColumn>`
 
 export const Tbody = styled.div`
   border: 1px solid ${props => props.theme.colors.gray2};
-  width: fit-content;
   height: 100%;
   display: block;
 
@@ -237,8 +234,8 @@ export const TbodyTr = styled.div`
 
 interface ITbodyTd {
   align: string
-  width: string | number | undefined
   minWidth?: string | number | undefined
+  width?: string | number | undefined
 }
 
 export const TbodyTd = styled.div<ITbodyTd>`
@@ -247,16 +244,25 @@ export const TbodyTd = styled.div<ITbodyTd>`
   font-size: 14px;
   justify-content: ${props => props.align || 'center'};
   padding: 0;
+  margin-left: ${props => props.theme.spacing(3)}px;
   min-width: ${props => {
     if (props.minWidth) {
-      return props.minWidth === 'string'
+      return typeof props.minWidth === 'string'
         ? props.minWidth
         : `${props.minWidth}px`
     }
 
     return 0
   }};
-  margin-left: ${props => props.theme.spacing(3)}px;
+  width: ${props => {
+    if (props.width) {
+      return typeof props.width === 'string'
+        ? props.width
+        : `${props.width}px`
+    }
+
+    return 0
+  }};
 
   &:last-child {
     /* margin-right: ${props => props.theme.spacing(2)}px; */
