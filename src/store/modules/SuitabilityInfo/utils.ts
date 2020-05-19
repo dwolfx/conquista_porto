@@ -21,8 +21,7 @@ export const handleInvestButton = (
   bankData: IBankData
 ) => {
   switch (true) {
-    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' ||
-      !suitabilityInfo.id_cotista:
+    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -111,8 +110,7 @@ export const handleRedeemButton = (
   bankData: IBankData
 ) => {
   switch (true) {
-    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' ||
-      !suitabilityInfo.id_cotista:
+    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -152,8 +150,7 @@ export const handleWithdrawButton = (
   bankData: IBankData
 ) => {
   switch (true) {
-    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' ||
-      !suitabilityInfo.id_cotista:
+    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
