@@ -7,6 +7,7 @@ import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
+import * as HorizontalListStyled from 'components/HorizontalList/styles'
 import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
@@ -394,4 +395,18 @@ export const PointsEmptyContainer = styled.div`
   justify-content: center;
   padding: 0 56px;
   text-align: center;
+`
+
+export const HorizontalListTruncateObjective = styled(HorizontalList)`
+  ${HorizontalListStyled.StartBlock} {
+    flex: 1;
+    min-width: 0;
+  }
+`
+
+export const ObjectivePercentageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 112px;
 `
