@@ -15,11 +15,7 @@ import Popover from 'components/Popover'
 import Text from 'components/Text'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
 
-import {
-  formatMoney,
-  handleGiwRedirect,
-  formatMoneyWithoutCurrencyFlag,
-} from 'helpers'
+import { formatMoney, formatMoneyWithoutCurrencyFlag } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
@@ -262,22 +258,17 @@ export default function Wallet({
 
                     <Row>
                       <Col md="12" xs="12">
-                        <Button
-                          data-gtm-type="click"
-                          data-gtm-clicktype="button"
-                          data-gtm-subname={fund.name}
-                          data-gtm-name="Investir"
-                          css={`
-                            width: 100%;
-                          `}
-                          onClick={() => {
-                            handleGiwRedirect(
-                              `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true`
-                            )
-                          }}
-                        >
-                          Investir
-                        </Button>
+                        {fund.is_fund_active ? (
+                          <Popover
+                            content="Fundo fechado para aplicações"
+                            placement="top"
+                            tooltip
+                          >
+                            <ButtonInvest fund={fund} idGoal={idGoal} />
+                          </Popover>
+                        ) : (
+                          <ButtonInvest fund={fund} idGoal={idGoal} />
+                        )}
                       </Col>
                     </Row>
 
