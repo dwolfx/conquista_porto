@@ -1,17 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import ArrowSortable from 'assets/icons/arrow-sortable.svg'
-import IconExporter from 'components/IconExporter'
-import ConquistaButton from 'components/Button'
 import Popover from 'components/Popover'
-
-enum riskColorsMap {
-  lowRisk = 1,
-  lowMediumRisk = 2,
-  mediumRisk = 3,
-  mediumHighRisk = 4,
-  highRisk = 5,
-}
 
 interface IWrapper {
   lineHeight?: string
@@ -41,7 +31,7 @@ export const WrapperContent = styled.div<IWrapper>`
     `}
 `
 
-export const InfoTableContent = styled.tr`
+export const InfoTableContent = styled.div`
   margin: auto;
   width: 428px;
   height: 100%;
@@ -56,24 +46,56 @@ export const InfoTableContent = styled.tr`
 `
 
 export const TableWrapper = styled.div`
-  overflow-x: auto;
+  position: relative;
+  overflow: hidden;
   white-space: nowrap;
   height: auto;
   width: 100%;
 `
 
-export const Table = styled.table`
+export const Table = styled.div`
   border-collapse: collapse;
   height: 69vh;
   width: 100%;
+
+  &.sticky {
+    overflow: auto;
+
+    .header {
+      position: sticky;
+      z-index: 1;
+      width: fit-content;
+    }
+
+    .header {
+      top: 0;
+    }
+
+    .body {
+      position: relative;
+      z-index: 0;
+      height: auto;
+    }
+
+    [data-sticky-td] {
+      position: sticky;
+    }
+
+    [data-sticky-first-right-td] {
+      &:before {
+        content: '';
+        box-shadow: ${props => props.theme.shadows.gray3};
+      }
+    }
+  }
 `
 
-export const Thead = styled.thead`
+export const Thead = styled.div`
   width: 100%;
 `
-export const TheadTr = styled.tr`
-  display: block;
-  padding: 0px 6px;
+export const TheadTr = styled.div`
+  display: flex;
+  padding: 0 0 0 ${props => props.theme.spacing(1)}px;
   height: 56px;
   background-color: ${props => props.theme.colors.gray1};
   border-top-left-radius: 4px;
@@ -83,9 +105,11 @@ export const TheadTr = styled.tr`
 
 interface ITheadTh {
   canSort: boolean
+  minWidth?: string | number
 }
 
-export const TheadTh = styled.th<ITheadTh>`
+export const TheadTh = styled.div<ITheadTh>`
+  background-color: inherit;
   cursor: ${props => (props.canSort ? 'pointer' : 'default')};
   display: inline-block;
   font-size: 11px;
@@ -93,11 +117,20 @@ export const TheadTh = styled.th<ITheadTh>`
   line-height: 15px;
   position: relative;
   height: 100%;
-  margin-left: 21px;
+  margin-left: ${props => props.theme.spacing(3)}px;
   padding-right: 14px;
+  min-width: ${props => {
+    if (props.minWidth) {
+      return props.minWidth === 'string'
+        ? props.minWidth
+        : `${props.minWidth}px`
+    }
+
+    return 0
+  }};
 
   &:last-child {
-    margin-right: 21px;
+    padding-right: ${props => props.theme.spacing(3)}px;
   }
 `
 
@@ -107,11 +140,11 @@ interface ITheadContent {
 }
 
 export const TheadContent = styled.div<ITheadContent>`
-  white-space: pre-wrap;
-  height: inherit;
-  display: flex;
-  justify-content: ${props => props.justifyHeader || 'center'};
   align-items: center;
+  display: flex;
+  height: inherit;
+  justify-content: ${props => props.justifyHeader || 'center'};
+  white-space: pre-wrap;
   ${props =>
     props.isTbody &&
     css`
@@ -131,7 +164,7 @@ export const TheadThWithColumns = styled(TheadTh)`
   ${WrapperContent} {
     border-top: 1px solid ${props => props.theme.colors.gray3};
     display: flex;
-    margin-top: 7px;
+    margin-top: ${props => props.theme.spacing(1)}px;
 
     span::after {
       top: 45px;
@@ -172,23 +205,29 @@ export const TheadColumn = styled.div<ITheadColumn>`
   width: ${props => props.width};
 `
 
-export const Tbody = styled.tbody`
+export const Tbody = styled.div`
   border: 1px solid ${props => props.theme.colors.gray2};
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: fit-content;
   height: 100%;
   display: block;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    border-right: 0;
+  }
+  @media ${props => props.theme.mediaQueries.md} {
+    border-right: 0;
+  }
 `
 
-export const TbodyTr = styled.tr`
+export const TbodyTr = styled.div`
+  align-items: center;
   background-color: ${props => props.theme.colors.white};
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   color: ${props => props.theme.colors.gray5};
+  display: flex;
   font-weight: normal;
   cursor: pointer;
   padding: 3px 0 3px 3px;
-  display: block;
   width: 100%;
 
   &:hover {
@@ -199,93 +238,45 @@ export const TbodyTr = styled.tr`
 interface ITbodyTd {
   align: string
   width: string | number | undefined
+  minWidth?: string | number | undefined
 }
 
-export const TbodyTd = styled.td<ITbodyTd>`
-  display: inline-block;
+export const TbodyTd = styled.div<ITbodyTd>`
+  background-color: inherit;
+  display: flex;
   font-size: 14px;
+  justify-content: ${props => props.align || 'center'};
   padding: 0;
-  text-align: center;
-  margin-left: 21px;
-  text-align: ${props => props.align || 'center'};
+  min-width: ${props => {
+    if (props.minWidth) {
+      return props.minWidth === 'string'
+        ? props.minWidth
+        : `${props.minWidth}px`
+    }
+
+    return 0
+  }};
+  margin-left: ${props => props.theme.spacing(3)}px;
 
   &:last-child {
-    margin-right: 21px;
+    /* margin-right: ${props => props.theme.spacing(2)}px; */
+    padding-right: ${props => props.theme.spacing(1)}px;
+    padding-left: ${props => props.theme.spacing(2)}px;
   }
   &:first-child {
     margin-left: 0px;
   }
 `
 
-interface IRiskColorTag {
-  borderRisk: '1' | '2' | '3' | '4' | '5'
+interface IStickyDivisor {
+  position: number
 }
 
-export const RiskColorTag = styled.div<IRiskColorTag>`
-  width: 5px;
-  background-color: ${props => riskColorsMap[parseInt(props.borderRisk, 10)]};
-  border-radius: 4px;
-`
-
-export const FundoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  line-height: 22px;
-  max-height: 70px;
-  padding: 9px 14px 8px 20px;
-  width: 100%;
-`
-
-export const FundoOutterWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-
-interface ILogoImg {
-  bg: string
-}
-
-export const LogoImg = styled.div<ILogoImg>`
-  background-image: ${props => `url(${props.bg})`};
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left, left;
-  width: 75px;
-`
-
-export const InformationIcon = styled(IconExporter).attrs(() => ({
-  name: 'information',
-}))`
-  cursor: pointer;
-  fill: ${props => props.theme.colors.blue4};
-  height: 25px;
-  margin-left: auto;
-  min-width: 25px;
-`
-
-export const FundoNameWrapper = styled.p`
-  text-align: left;
-  max-width: 220px;
-  font-weight: normal;
-  white-space: pre-wrap;
-`
-
-export const InvestButton = styled(ConquistaButton)`
-  width: 80px;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  height: 40px;
-`
-
-export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
-  fill: ${props => props.theme.colors.gray6};
-  height: 24px;
-  width: 24px;
-`
-
-export const CustomPopover = styled(Popover)`
-  width: 28px;
-  display: flex;
-  margin: 0 auto;
+export const StickyDivisor = styled.div<IStickyDivisor>`
+  box-shadow: ${props => props.theme.shadows.gray3};
+  height: 100%;
+  position: absolute;
+  right: 0;
+  width: ${props => props.position + 7}px;
+  z-index: 2;
 `

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { useTable, useSortBy } from 'react-table'
+import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 import PropTypes from 'prop-types'
 
@@ -15,9 +16,14 @@ import * as s from './styles'
 
 const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
+  const styles = header.styles
+    ? header.styles.header || header.styles
+    : header.width
+
   return (
     <s.TheadTh
-      width={header.widthHeader || header.width}
+      width={styles.width}
+      minWidth={styles.minWidth}
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
@@ -83,6 +89,7 @@ const TableFunds = ({
   isFiltering = false,
   onShowDetails,
   columns: columnsProps,
+  isSticky,
   ...rest
 }) => {
   const {
@@ -100,13 +107,26 @@ const TableFunds = ({
       ]),
       data,
     },
-    useSortBy
+    useSortBy,
+    useSticky
   )
+  const stickyElement = columns.filter(column => column.sticky)
+  console.log(stickyElement)
+
   return (
     <>
       <s.TableWrapper {...rest}>
-        <s.Table {...getTableProps()}>
-          <s.Thead>
+        {isSticky && (
+          <s.StickyDivisor
+            position={stickyElement[0].styles.width}
+            side={stickyElement[0].sticky}
+          />
+        )}
+        <s.Table
+          {...getTableProps()}
+          className={`table ${isSticky ? 'sticky' : ''}`}
+        >
+          <s.Thead className="header">
             <s.TheadTr>
               {columns.map(header => (
                 <TheadWrapper
@@ -116,7 +136,7 @@ const TableFunds = ({
               ))}
             </s.TheadTr>
           </s.Thead>
-          <s.Tbody {...getTableBodyProps()}>
+          <s.Tbody {...getTableBodyProps()} className="body">
             <TableBody
               rows={rows}
               isLoading={isLoading}
@@ -137,6 +157,7 @@ TableFunds.propTypes = {
   isLoading: PropTypes.bool,
   isError: PropTypes.bool,
   isFiltering: PropTypes.bool,
+  isSticky: PropTypes.bool,
   onShowDetails: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func,
   fundsType: PropTypes.array.isRequired,
@@ -146,6 +167,7 @@ TableFunds.defaultProps = {
   isLoading: false,
   isError: false,
   isFiltering: false,
+  isSticky: false,
   setIsOpenForInvestments: () => null,
 }
 
@@ -165,6 +187,16 @@ SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    styles: PropTypes.shape({
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      header: PropTypes.shape({
+        width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      }),
+    }),
     render: PropTypes.func.isRequired,
     isSorted: PropTypes.bool.isRequired,
     isSortedDesc: PropTypes.bool,
