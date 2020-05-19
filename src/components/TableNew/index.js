@@ -111,8 +111,7 @@ const TableFunds = ({
     useSticky
   )
   const stickyElement = columns.filter(column => column.sticky)
-  console.log(stickyElement)
-
+  
   return (
     <>
       <s.TableWrapper {...rest}>
