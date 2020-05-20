@@ -216,7 +216,7 @@ export default function HeaderNew({ crumbs }) {
               data-gtm-name="menu"
             />
           </DropDown>
-          {crumbs.length > 0 && <Icon name="arrowright" />}
+          {crumbs.length > 0 && crumbs[0] && <Icon name="arrowright" />}
           <BreadCrumb crumbs={[...crumbs]} version="new" />
         </LeftBlock>
         <RightBlock>

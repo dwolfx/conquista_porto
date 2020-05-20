@@ -16,6 +16,7 @@ export default function Banner({
   children,
   label,
   hasCloseButton,
+  onClose,
   justify,
   size,
   ...rest
@@ -33,6 +34,10 @@ export default function Banner({
             data-gtm-name="botao fechar"
             onClick={() => {
               setIsOpen(false)
+
+              if (onClose) {
+                onClose()
+              }
             }}
           >
             <CloseIcon name="close" />
@@ -59,6 +64,7 @@ Banner.defaultProps = {
   size: 'sm',
   hasCloseButton: false,
   justify: 'flex-start',
+  onClose: null,
 }
 
 Banner.propTypes = {
@@ -68,4 +74,5 @@ Banner.propTypes = {
   label: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'lg']),
   justify: PropTypes.oneOf(['flex-start', 'flex-end', 'center']),
+  onClose: PropTypes.func,
 }

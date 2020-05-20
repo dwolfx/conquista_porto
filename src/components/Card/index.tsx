@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
@@ -16,7 +16,17 @@ import {
   CardTitle,
 } from './styles'
 
-const Card: FunctionComponent<IProps> = ({
+interface IProps {
+  headerIcon?: keyof typeof dict
+  headerIconInfo?: boolean
+  headerIconInfoMsg?: string
+  headerIconInfoClick?: () => void
+  headerTitle?: string | React.ReactNode
+  footer?: React.ReactNode
+  headerEndItem?: React.ReactNode
+}
+
+const Card: React.FC<IProps> = ({
   children,
   headerIcon,
   headerIconInfo = false,
@@ -27,18 +37,26 @@ const Card: FunctionComponent<IProps> = ({
   footer,
   ...rest
 }) => {
-  const CardHeaderContent = () => (
-    <HorizontalList
-      size="small"
-      startItems={[<CardTitle>{headerTitle}</CardTitle>]}
-      endItems={HeaderEndItem ? [HeaderEndItem] : []}
-      css={`
-        width: 100%;
-        padding: 0;
-        height: auto;
-      `}
-    />
-  )
+  const CardHeaderContent = () => {
+    let HeaderTitle: string | React.ReactNode = <CardTitle>{headerTitle}</CardTitle>
+    
+    if (typeof headerTitle !== 'string') {
+      HeaderTitle = headerTitle
+    }
+
+    return (
+      <HorizontalList
+        size="small"
+        startItems={[HeaderTitle]}
+        endItems={HeaderEndItem ? [HeaderEndItem] : []}
+        css={`
+          width: 100%;
+          padding: 0;
+          height: auto;
+        `}
+      />
+    )
+  }
 
   return (
     <CardWrapper hasFooter={!!footer} {...rest}>
@@ -74,16 +92,6 @@ const Card: FunctionComponent<IProps> = ({
       {footer && <CardFooter>{footer}</CardFooter>}
     </CardWrapper>
   )
-}
-
-interface IProps {
-  headerIcon?: keyof typeof dict
-  headerIconInfo?: boolean
-  headerIconInfoMsg?: string
-  headerIconInfoClick?: () => void
-  headerTitle?: string
-  footer?: React.ReactNode
-  headerEndItem?: React.ReactNode
 }
 
 export default Card

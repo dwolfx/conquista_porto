@@ -8,7 +8,7 @@ import DropDown from 'components/DropdownNew'
 import Loading from 'components/Loading'
 import Text from 'components/Text'
 
-import { categoryGoals } from 'pages/Objectives/GoalStreams/goalTypes'
+import { categoryGoals } from './dataOtherGoals'
 
 import { MenuTag, Container, EmptyStateContainer } from './styles'
 
@@ -38,8 +38,8 @@ export default function OtherGoals({ otherGoals, isLoading }) {
         path: `/objetivos/gerenciar/${item.id}`,
       }))
       const categoryItem = {
-        icon: categoryGoals(key).icon,
-        text: categoryGoals(key).text,
+        icon: categoryGoals[key].icon,
+        text: categoryGoals[key].text,
         children: subItem,
       }
 

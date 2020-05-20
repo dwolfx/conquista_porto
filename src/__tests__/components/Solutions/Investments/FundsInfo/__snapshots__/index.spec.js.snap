@@ -452,7 +452,7 @@ exports[`FundsInfo renders correctly 1`] = `
               Informativo de desempenho
             </p>
             <a
-              className="sc-bdVaJa jGIpiP"
+              className="sc-bdVaJa jdArPQ"
               data-gtm-clicktype="link"
               data-gtm-name="baixar arquivo"
               data-gtm-subname="informativo de desempenho"
@@ -490,7 +490,7 @@ exports[`FundsInfo renders correctly 1`] = `
               REGULAMENTO DO FUNDO
             </p>
             <a
-              className="sc-bdVaJa jGIpiP"
+              className="sc-bdVaJa jdArPQ"
               data-gtm-clicktype="link"
               data-gtm-name="baixar arquivo"
               data-gtm-subname="regulamento do fundo"

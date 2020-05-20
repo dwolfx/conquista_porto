@@ -12,8 +12,10 @@ export const Link = styled.a<IAnchorProps>`
   ${props => props.theme.fontTypes.button}
 
   svg {
-    fill: currentColor;
-    height: 11px;
-    margin-left: 8px;
+    height: 21px;
+    margin-left: 7px;
+    path {
+      fill: currentColor;
+    }
   }
 `

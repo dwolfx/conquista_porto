@@ -1,15 +1,15 @@
 import { handleGiwRedirect } from 'helpers'
 
 interface ISuitabilityInfo {
-  CotistaContaOrdemPortoPar: string
+  CotistaContaOrdemPortoPar?: string
   codigo_status_cotista: string
   id_cotista?: string
-  investidor_profissional: string
-  investidor_qualificado: string
+  investidor_profissional?: string
+  investidor_qualificado?: string
   status_cotista: boolean
-  status_data_vencimento_cadastro: boolean
-  status_data_vigencia_suitability: boolean
-  status_possui_suitability: boolean
+  status_data_vencimento_cadastro?: boolean
+  status_data_vigencia_suitability?: boolean
+  status_possui_suitability?: boolean
 }
 
 interface IBankData {
@@ -21,8 +21,8 @@ export const handleInvestButton = (
   bankData: IBankData
 ) => {
   switch (true) {
-    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' ||
-      !suitabilityInfo.id_cotista:
+    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' &&
+      suitabilityInfo.status_cotista:
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -36,6 +36,21 @@ export const handleInvestButton = (
             window.location.href = `https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${bankData.DadosContaPortoSeguro.cpf}&nome=${bankData.DadosContaPortoSeguro.titular}`
           },
           buttonName: 'Conversar',
+        },
+      }
+    case suitabilityInfo.status_data_vencimento_cadastro:
+      return {
+        isOpen: true,
+        title: 'Falha ao processar solicitação',
+        description:
+          'Seu cadastro está vencido. Para continuar, você precisa atualizá-lo.',
+        button: {
+          dataGtmName: 'atualizar cadastro',
+          dataGtmType: 'click',
+          dataGtmClicktype: 'button',
+          handleClick: () =>
+            handleGiwRedirect(`portaldecliente/conquista/perfil?r=true`),
+          buttonName: 'Atualizar cadastro',
         },
       }
     case !suitabilityInfo.status_possui_suitability:
@@ -55,36 +70,6 @@ export const handleInvestButton = (
           buttonName: 'Definir agora',
         },
       }
-    case suitabilityInfo.codigo_status_cotista === '30' ||
-      suitabilityInfo.codigo_status_cotista === '122':
-      return {
-        isOpen: true,
-        title: 'Falha ao processar solicitação',
-        description:
-          'Seu cadastro está em análise. Em até 48 horas, você poderá investir.',
-        button: {
-          dataGtmName: 'fechar',
-          dataGtmType: 'click',
-          dataGtmClicktype: 'button',
-          handleClick: null,
-          buttonName: 'Fechar',
-        },
-      }
-    case suitabilityInfo.status_data_vencimento_cadastro:
-      return {
-        isOpen: true,
-        title: 'Falha ao processar solicitação',
-        description:
-          'Seu cadastro está vencido. Para continuar, você precisa atualizá-lo.',
-        button: {
-          dataGtmName: 'atualizar cadastro',
-          dataGtmType: 'click',
-          dataGtmClicktype: 'button',
-          handleClick: () =>
-            handleGiwRedirect(`portaldecliente/conquista/perfil?r=true`),
-          buttonName: 'Atualizar cadastro',
-        },
-      }
     case !suitabilityInfo.status_data_vigencia_suitability:
       return {
         isOpen: true,
@@ -102,6 +87,21 @@ export const handleInvestButton = (
           buttonName: 'Refazer',
         },
       }
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
+      return {
+        isOpen: true,
+        title: 'Falha ao processar solicitação',
+        description:
+          'Seu cadastro está em análise. Em até 48 horas, você poderá investir.',
+        button: {
+          dataGtmName: 'fechar',
+          dataGtmType: 'click',
+          dataGtmClicktype: 'button',
+          handleClick: null,
+          buttonName: 'Fechar',
+        },
+      }
     default:
       return { isValid: true }
   }
@@ -111,8 +111,8 @@ export const handleRedeemButton = (
   bankData: IBankData
 ) => {
   switch (true) {
-    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' ||
-      !suitabilityInfo.id_cotista:
+    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' &&
+      suitabilityInfo.status_cotista:
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -128,8 +128,8 @@ export const handleRedeemButton = (
           buttonName: 'Conversar',
         },
       }
-    case suitabilityInfo.codigo_status_cotista === '30' ||
-      suitabilityInfo.codigo_status_cotista === '122':
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -152,8 +152,8 @@ export const handleWithdrawButton = (
   bankData: IBankData
 ) => {
   switch (true) {
-    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' ||
-      !suitabilityInfo.id_cotista:
+    case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' &&
+      suitabilityInfo.status_cotista:
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
@@ -169,8 +169,8 @@ export const handleWithdrawButton = (
           buttonName: 'Conversar',
         },
       }
-    case suitabilityInfo.codigo_status_cotista === '30' ||
-      suitabilityInfo.codigo_status_cotista === '122':
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
       return {
         isOpen: true,
         title: 'Falha ao processar solicitação',
