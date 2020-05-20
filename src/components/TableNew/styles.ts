@@ -119,12 +119,10 @@ export const TheadTh = styled.div<ITheadTh>`
   }};
   width: ${props => {
     if (props.width) {
-      return typeof props.width === 'string'
-        ? props.width
-        : `${props.width}px`
+      return typeof props.width === 'string' ? props.width : `${props.width}px`
     }
 
-    return 0
+    return 'auto'
   }};
 
   &:last-child {
@@ -256,12 +254,10 @@ export const TbodyTd = styled.div<ITbodyTd>`
   }};
   width: ${props => {
     if (props.width) {
-      return typeof props.width === 'string'
-        ? props.width
-        : `${props.width}px`
+      return typeof props.width === 'string' ? props.width : `${props.width}px`
     }
 
-    return 0
+    return 'auto'
   }};
 
   &:last-child {
@@ -276,13 +272,15 @@ export const TbodyTd = styled.div<ITbodyTd>`
 
 interface IStickyDivisor {
   position: number
+  side: 'right' | 'left'
 }
 
 export const StickyDivisor = styled.div<IStickyDivisor>`
   box-shadow: ${props => props.theme.shadows.gray3};
   height: 100%;
   position: absolute;
-  right: 0;
-  width: ${props => props.position + 7}px;
+  width: ${props => props.position}px;
   z-index: 2;
+
+  ${props => (props.side === 'left' ? 'left: 0' : 'right: 0')};
 `

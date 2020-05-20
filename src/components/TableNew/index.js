@@ -16,9 +16,7 @@ import * as s from './styles'
 
 const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
-  const styles = header.styles
-    ? header.styles.header || header.styles
-    : header.width
+  const styles = header.styles ? header.styles.header || header.styles : header
 
   return (
     <s.TheadTh
@@ -110,16 +108,36 @@ const TableFunds = ({
     useSortBy,
     useSticky
   )
-  const stickyElement = columns.filter(column => column.sticky)
-  
+
+  const calculateStickWidth = (acc, cur) => {
+    let curWidth = cur.styles.width
+
+    if (typeof curWidth === 'string') {
+      curWidth = cur.styles.width.replace('px', '')
+    }
+
+    return acc + curWidth
+  }
+
+  const stickyElementRight = columns.filter(column => column.sticky === 'right')
+  const stickyElementRightPosition = stickyElementRight.reduce(
+    (acc, cur) => calculateStickWidth(acc, cur),
+    7
+  )
+  const stickyElementLeft = columns.filter(column => column.sticky === 'left')
+  const stickyElementLeftPosition = stickyElementLeft.reduce(
+    (acc, cur) => calculateStickWidth(acc, cur),
+    0
+  )
+
   return (
     <>
       <s.TableWrapper {...rest}>
         {isSticky && (
-          <s.StickyDivisor
-            position={stickyElement[0].styles.width}
-            side={stickyElement[0].sticky}
-          />
+          <s.StickyDivisor position={stickyElementLeftPosition} side="left" />
+        )}
+        {isSticky && (
+          <s.StickyDivisor position={stickyElementRightPosition} side="right" />
         )}
         <s.Table
           {...getTableProps()}
