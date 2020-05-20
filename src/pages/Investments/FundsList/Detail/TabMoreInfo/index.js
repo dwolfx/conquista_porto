@@ -39,7 +39,7 @@ export default function TabMoreInfo({ fund }) {
           `}
         >
           <VerticalListStyled
-            width="33%"
+            width="50%"
             elements={[
               <Text type="captionUppercase" color="gray4">
                 DATA DE INÍCIO
@@ -49,19 +49,19 @@ export default function TabMoreInfo({ fund }) {
               </Text>,
             ]}
           />
-          {/* <VerticalListStyled
-          width="67%"
-          elements={[
-            <Text type="captionUppercase" color="gray4">
-              gestor
-            </Text>,
-            <Text type="headline" color="gray6" bold>
-              {} ??? qual atributo devemos exibir
-            </Text>,
-          ]}
-        /> */}
           <VerticalListStyled
-            width="33%"
+            width="50%"
+            elements={[
+              <Text type="captionUppercase" color="gray4">
+                gestor
+              </Text>,
+              <Text type="headline" color="gray6" bold>
+                {fund.nome_gestor ? fund.nome_gestor : '-'}
+              </Text>,
+            ]}
+          />
+          <VerticalListStyled
+            width="50%"
             elements={[
               <Text type="captionUppercase" color="gray4">
                 benchmark
@@ -83,7 +83,7 @@ export default function TabMoreInfo({ fund }) {
           ]}
         /> */}
           <VerticalListStyled
-            width="33%"
+            width="50%"
             elements={[
               <Text type="captionUppercase" color="gray4">
                 taxa de administração
@@ -171,6 +171,7 @@ export default function TabMoreInfo({ fund }) {
 TabMoreInfo.propTypes = {
   fund: PropTypes.shape({
     data_inicio: PropTypes.string,
+    nome_gestor: PropTypes.string,
     benchmark: PropTypes.shape({
       nome: PropTypes.string,
     }),
