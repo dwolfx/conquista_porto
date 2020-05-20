@@ -5,7 +5,7 @@ import { ResponsivePie } from '@nivo/pie'
 import { ThemeContext } from 'styled-components'
 
 import { handleGiwRedirect, formatMoney, formatCpf } from 'helpers'
-import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { useToast } from 'hooks/toast'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
@@ -106,7 +106,7 @@ export default function GeneralView() {
       }
     }
 
-    dispatch(GetSuitabilityInfoRequest(onSuccess, 'retirar', addToast))
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'retirar', addToast))
   }
 
   return (

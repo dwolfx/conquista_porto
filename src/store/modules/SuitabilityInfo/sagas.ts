@@ -19,8 +19,27 @@ interface IPayload {
     onErrorToast: (toast: Omit<IToast, 'id'>) => void
   }
 }
+interface IProps {
+  type: string
+  payload: { cpf: string }
+}
+function* getData({ payload }: IProps) {
+  const { cpf } = payload
+  try {
+    const response = yield call(
+      get,
+      `${baseURLNamespaceInvest}/cotista/status?cpf=${cpf}`
+    )
 
-function* getData({ payload }: IPayload) {
+    yield put(GetDataSuccess(response.data))
+  } catch (err) {
+    yield put({
+      ...GetDataFailure(),
+    })
+  }
+}
+
+function* getDataValidate({ payload }: IPayload) {
   const { onSuccess, buttonType, onErrorToast } = payload
   try {
     const suitabilityInfoState = yield select(getSuitabilityInfo)
@@ -66,4 +85,5 @@ function* getData({ payload }: IPayload) {
 
 export default all([
   takeLatest(Types.SUITABILITY_INFO_GET_DATA_REQUEST, getData),
+  takeLatest(Types.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE, getDataValidate),
 ])
