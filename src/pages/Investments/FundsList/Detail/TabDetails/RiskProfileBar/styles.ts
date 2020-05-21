@@ -95,4 +95,8 @@ export const RiskText = styled(TextComponent).attrs(() => ({
 }))`
   margin-top: ${({ theme }) => theme.spacing(1)}px;
   text-transform: capitalize;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    width: max-content;
+  }
 `
