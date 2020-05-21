@@ -126,6 +126,7 @@ export const TheadTh = styled.div<ITheadTh>`
   }};
 
   &:last-child {
+    margin-left: 0;
     padding-right: ${props => props.theme.spacing(3)}px;
   }
 `
@@ -276,11 +277,25 @@ interface IStickyDivisor {
 }
 
 export const StickyDivisor = styled.div<IStickyDivisor>`
-  box-shadow: ${props => props.theme.shadows.gray3};
-  height: 100%;
+  border-left: 1px solid ${props => props.theme.colors.gray6};
+  height: calc(100% - 7px);
+  opacity: 0.14;
   position: absolute;
-  width: ${props => props.position}px;
+  width: 2px;
   z-index: 2;
+  ${props =>
+    props.side === 'left'
+      ? `left: ${props.position}px`
+      : `right: ${props.position}px`};
 
-  ${props => (props.side === 'left' ? 'left: 0' : 'right: 0')};
+  &:before {
+    content: '';
+    background-color: ${props => props.theme.colors.gray6};
+    filter: blur(2px);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 2px;
+    ${props => (props.side === 'right' ? `left: -4px` : `right: -1px`)};
+  }
 `

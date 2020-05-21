@@ -210,8 +210,8 @@ export const columnsSticky = [
       width: 194,
       minWidth: 194,
       header: {
-        width: 184,
-        minWidth: 184,
+        width: 202,
+        minWidth: 202,
       },
     },
     sticky: 'right',

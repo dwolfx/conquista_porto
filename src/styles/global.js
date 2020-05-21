@@ -66,14 +66,14 @@ export default createGlobalStyle`
   }
 
   &::-webkit-scrollbar {
-    height: 10px;
-    width: 10px;
+    height: 7px;
+    width: 7px;
     background-color: ${props => props.theme.colors.gray2};
-    border-radius: 10px;
+    border-radius: 7px;
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 7px;
     background-color: ${props => props.theme.colors.gray5};
   }
 

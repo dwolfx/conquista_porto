@@ -117,11 +117,12 @@ const TableFunds = ({
     if (tableRef) {
       tableRef.current.onscroll = ({ srcElement }) => {
         const { scrollLeft, clientWidth, scrollWidth } = srcElement
-        const pos = scrollLeft / (scrollWidth - clientWidth)
-        if (pos === 0) {
+        const posX = scrollLeft / (scrollWidth - clientWidth)
+
+        if (posX === 0) {
           setShowRightShadow(true)
           setShowLeftShadow(false)
-        } else if (pos > 0 && pos < 1) {
+        } else if (posX > 0 && posX < 1) {
           setShowRightShadow(true)
           setShowLeftShadow(true)
         } else {
@@ -156,10 +157,10 @@ const TableFunds = ({
   return (
     <>
       <s.TableWrapper {...rest}>
-        {isSticky && stickyElementLeftPosition > 0 && showLeftShadow && (
+        {isSticky && !!stickyElementLeftPosition && showLeftShadow && (
           <s.StickyDivisor position={stickyElementLeftPosition} side="left" />
         )}
-        {isSticky && stickyElementRightPosition > 0 && showRightShadow && (
+        {isSticky && !!stickyElementRightPosition && showRightShadow && (
           <s.StickyDivisor position={stickyElementRightPosition} side="right" />
         )}
         <s.Table
