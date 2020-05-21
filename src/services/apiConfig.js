@@ -36,7 +36,7 @@ const responseErrorInterceptor = error => {
     throw Error(errorMessages[400])
   }
 
-  return error
+  return Promise.reject(error.response)
 }
 
 const requestInterceptor = request => {
