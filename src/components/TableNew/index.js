@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useEffect, useRef } from 'react'
 import { useTable, useSortBy } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
@@ -109,6 +109,29 @@ const TableFunds = ({
     useSticky
   )
 
+  const tableRef = useRef()
+  const [showLeftShadow, setShowLeftShadow] = useState(false)
+  const [showRightShadow, setShowRightShadow] = useState(true)
+
+  useEffect(() => {
+    if (tableRef) {
+      tableRef.current.onscroll = ({ srcElement }) => {
+        const { scrollLeft, clientWidth, scrollWidth } = srcElement
+        const pos = scrollLeft / (scrollWidth - clientWidth)
+        if (pos === 0) {
+          setShowRightShadow(true)
+          setShowLeftShadow(false)
+        } else if (pos > 0 && pos < 1) {
+          setShowRightShadow(true)
+          setShowLeftShadow(true)
+        } else {
+          setShowRightShadow(false)
+          setShowLeftShadow(true)
+        }
+      }
+    }
+  }, [tableRef])
+
   const calculateStickWidth = (acc, cur) => {
     let curWidth = cur.styles.width
 
@@ -133,15 +156,16 @@ const TableFunds = ({
   return (
     <>
       <s.TableWrapper {...rest}>
-        {isSticky && (
+        {isSticky && stickyElementLeftPosition > 0 && showLeftShadow && (
           <s.StickyDivisor position={stickyElementLeftPosition} side="left" />
         )}
-        {isSticky && (
+        {isSticky && stickyElementRightPosition > 0 && showRightShadow && (
           <s.StickyDivisor position={stickyElementRightPosition} side="right" />
         )}
         <s.Table
-          {...getTableProps()}
+          ref={tableRef}
           className={`table ${isSticky ? 'sticky' : ''}`}
+          {...getTableProps()}
         >
           <s.Thead className="header">
             <s.TheadTr>

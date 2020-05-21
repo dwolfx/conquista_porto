@@ -1,7 +1,7 @@
 export interface IAdditional {
   credit_card: boolean
-life_security: boolean
-travel_security: boolean
+  life_security: boolean
+  travel_security: boolean
 }
 
 export interface IAnswer {
@@ -69,6 +69,3 @@ export interface IFund {
   url_performance_info_pdf: string
   'wsdls/profile': 1 | 2 | 3 | 4 | 5
 }
-
-
-

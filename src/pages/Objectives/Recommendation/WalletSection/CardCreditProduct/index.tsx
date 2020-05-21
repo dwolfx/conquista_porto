@@ -47,24 +47,23 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
   }
 
   return (
-    <Col lg={3} md={3} sm={12} xs={12}>
-      <s.FullHeightCard
-        headerIcon={currentProduct.icon}
-        headerTitle={creditProduct.name.split(' ')[0]}
-      >
-        <s.CardContainer>
-          <Text type="headline" color="gray6">
-            {currentProduct.message}
-          </Text>
-          {creditProduct.values && creditProduct.values.map((item: IObjectItem, index: number) =>
+    <s.FullHeightCard
+      headerIcon={currentProduct.icon}
+      headerTitle={creditProduct.name.split(' ')[0]}
+    >
+      <s.CardContainer>
+        <Text type="headline" color="gray6">
+          {currentProduct.message}
+        </Text>
+        {creditProduct.values &&
+          creditProduct.values.map((item: IObjectItem, index: number) =>
             singleInfo(item, index)
           )}
-          {currentProduct.items.map((item: IObjectItem, index: number) =>
-            singleInfo(item, index)
-          )}
-        </s.CardContainer>
-      </s.FullHeightCard>
-    </Col>
+        {currentProduct.items.map((item: IObjectItem, index: number) =>
+          singleInfo(item, index)
+        )}
+      </s.CardContainer>
+    </s.FullHeightCard>
   )
 }
 

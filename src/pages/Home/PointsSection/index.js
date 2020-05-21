@@ -44,7 +44,6 @@ import {
   PointName,
   PointNumber,
   PointsList,
-  PointsHorizontal,
   ModalTextWrapper,
   PointsExtractListWrapper,
   PointsButtonWrapper,

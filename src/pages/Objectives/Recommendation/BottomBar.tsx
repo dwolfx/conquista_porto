@@ -88,7 +88,7 @@ const BottomBar = ({
     <SectionBar>
       <Container>
         <Row justifyContent="end">
-          <Col xlAuto lgAuto mdAuto>
+          <Col xlAuto lgAuto mdAuto smAuto>
             <ButtonBar
               data-gtm-subname="barra inferior"
               data-gtm-name="editar objetivo"

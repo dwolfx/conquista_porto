@@ -25,7 +25,7 @@ import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/
 
 import BottomBar from './BottomBar'
 import WalletSection from './WalletSection'
-import SectionThree from './SectionThree'
+import ProductBannerSection from './ProductBanner'
 import SuggestionBanner from './SuggestionBanner'
 import RecommendationMessage from './RecommendationMessage'
 import CardEstimatedResults from './CardEstimatedResults'
@@ -323,7 +323,8 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
             creditProduct={credit_product}
             isUnmetGoal={!!suggestion_goal}
           />
-          <SectionThree additional={additional} />
+
+          <ProductBannerSection additional={additional} />
         </Container>
       </SectionsRecommendation>
 
