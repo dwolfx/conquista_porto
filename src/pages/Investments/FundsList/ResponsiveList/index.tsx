@@ -11,17 +11,26 @@ import { IFund } from '../Filter/useFilter'
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 
 interface IResponsiveListProps {
+  onChangeIsFundDetailOpen: (prevState: Function) => boolean
+  handleLayerOpen: (fundId: string) => void
   data: Array<IFund>
   isLoading: boolean
   isError: boolean
+  setTitle: (title: string) => void
+  setIsOpenForInvestments: () => boolean
 }
 
 const ResponsiveList: React.FC<IResponsiveListProps> = ({
+  onChangeIsFundDetailOpen,
+  handleLayerOpen,
   data,
   isLoading,
   isError,
+  setTitle,
+  setIsOpenForInvestments,
 }) => {
   const dispatch = useDispatch()
+
   const ResponsiveListRender = () => {
     if (isLoading) {
       return (
@@ -65,9 +74,18 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
     }
     return (
       <ListWrapper>
-        {data.map(fund => (
-          <FundCard key={fund.id_fundo} fund={fund} />
-        ))}
+        {data.map(fund => {
+          return (
+            <FundCard
+              onChangeIsFundDetailOpen={onChangeIsFundDetailOpen}
+              handleLayerOpen={handleLayerOpen}
+              key={fund.id_fundo}
+              fund={fund}
+              setTitle={setTitle}
+              setIsOpenForInvestments={setIsOpenForInvestments}
+            />
+          )
+        })}
       </ListWrapper>
     )
   }

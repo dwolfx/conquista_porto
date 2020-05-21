@@ -49,6 +49,10 @@ export const Ul = styled.ul`
   & li:nth-last-child(-n + 3) {
     margin-bottom: 0;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `
 
 export const Li = styled.li`

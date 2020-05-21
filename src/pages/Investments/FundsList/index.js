@@ -31,6 +31,7 @@ import {
 import Detail from './Detail'
 import DrawerFilter from './DrawerFilter'
 import sortFundList from './DrawerFilter/sortFundList'
+import DetailModal from './DetailModal'
 
 const modalSuitabilityInfoInitialState = {
   isOpen: false,
@@ -49,7 +50,6 @@ export default function FundsList() {
   const [selectedFundId, setSelectedFundId] = useState(null)
   const [isLayerOpen, setLayerOpen] = useState(false)
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false)
-  const [isDetailDrawerOpen, setIsDetailDrawerOpen] = useState(false)
   const [isFiltersClean, setIsFiltersClean] = useState(false)
   const [filtersCount, setFiltersCount] = useState(0)
   const [isOpenForInvestments, setIsOpenForInvestments] = useState(true)
@@ -73,6 +73,8 @@ export default function FundsList() {
   const isMobile = useMedia('xs')
   const isTablet = useMedia('lg')
   const filteredFundsList = useFilter(filter)
+  const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
+  const [title, setTitle] = useState('')
 
   const fundsStatus = useSelector(state => ({
     isLoading: state.investmentsList.isLoading,
@@ -108,7 +110,7 @@ export default function FundsList() {
     const onSuccess = data => {
       setModalSuitabilityInfo({ ...data })
       if (data.isValid) {
-        setIsDetailDrawerOpen(false)
+        setIsFundDetailOpen(false)
         // setLayerOpen(true)
         handleGiwRedirect(`portaldecliente/conquista/aplicacao?idFundo=${fundId}&r=true${
           locationState && locationState.idGoal
@@ -206,7 +208,7 @@ export default function FundsList() {
           setSelectedFundId(null)
         }}
         selectedFundId={selectedFundId}
-        handleDrawerOpen={() => setIsDetailDrawerOpen(true)}
+        handleFundDetailOpen={() => setIsFundDetailOpen(true)}
       />
       <GridContainer as="section">
         {isMobile ? (
@@ -219,9 +221,13 @@ export default function FundsList() {
             />
             <Col col={12}>
               <ResponsiveList
+                onChangeIsFundDetailOpen={setIsFundDetailOpen}
+                handleLayerOpen={fundId => onChangeLayerOpen(fundId)}
                 data={mobileFundList(filteredFundsList)}
                 isLoading={fundsStatus.isLoading}
                 isError={fundsStatus.isError}
+                setTitle={setTitle}
+                setIsOpenForInvestments={setIsOpenForInvestments}
               />
             </Col>
           </>
@@ -243,8 +249,7 @@ export default function FundsList() {
                 <Col col={12}>
                   <TableFunds
                     columns={columns}
-                    isDrawerOpen={isDetailDrawerOpen}
-                    onChangeIsDrawerOpen={setIsDetailDrawerOpen}
+                    onChangeIsFundDetailOpen={setIsFundDetailOpen}
                     setIsOpenForInvestments={setIsOpenForInvestments}
                     clickedFundInvestButton={clickedFundInvestButtonId}
                     handleLayerOpen={fundId => onChangeLayerOpen(fundId)}
@@ -261,22 +266,45 @@ export default function FundsList() {
         )}
         <Anbima />
       </GridContainer>
-      <Detail
-        isOpen={isDetailDrawerOpen}
-        isLayerOpen={isLayerOpen}
-        handleLayerOpen={handleClickInvestButton}
-        isOpenForInvestments={isOpenForInvestments}
-        handleClose={() => setIsDetailDrawerOpen(false)}
-      />
-      {(isMobile || isTablet) && (
-        <DrawerFilter
-          filter={filter}
-          onChangeFilter={handleChangeFilter}
-          isDrawerOpen={isFilterDrawerOpen}
-          onChangeIsDrawerOpen={setIsFilterDrawerOpen}
-          sort={mobileFundSort}
-          onChangeSort={handleChangeMobileSort}
-        />
+      {isMobile ? (
+        <>
+          <DetailModal
+            title={title}
+            isOpenForInvestments={isOpenForInvestments}
+            isOpen={isFundDetailOpen}
+            isLayerOpen={isLayerOpen}
+            handleLayerOpen={handleClickInvestButton}
+            handleClose={() => setIsFundDetailOpen(false)}
+          />
+          <DrawerFilter
+            filter={filter}
+            onChangeFilter={handleChangeFilter}
+            isDrawerOpen={isFilterDrawerOpen}
+            onChangeIsDrawerOpen={setIsFilterDrawerOpen}
+            sort={mobileFundSort}
+            onChangeSort={handleChangeMobileSort}
+          />
+        </>
+      ) : (
+        <>
+          <Detail
+            isOpen={isFundDetailOpen}
+            isLayerOpen={isLayerOpen}
+            handleLayerOpen={handleClickInvestButton}
+            isOpenForInvestments={isOpenForInvestments}
+            handleClose={() => setIsFundDetailOpen(false)}
+          />
+          {isTablet && (
+            <DrawerFilter
+              filter={filter}
+              onChangeFilter={handleChangeFilter}
+              isDrawerOpen={isFilterDrawerOpen}
+              onChangeIsDrawerOpen={setIsFilterDrawerOpen}
+              sort={mobileFundSort}
+              onChangeSort={handleChangeMobileSort}
+            />
+          )}
+        </>
       )}
     </>
   )
