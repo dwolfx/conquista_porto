@@ -4,6 +4,11 @@ export interface IAdditional {
   travel_security: boolean
 }
 
+export interface ISuggestion {
+  suggestion_monthly_value: number
+  suggestion_target_date: string
+}
+
 export interface IAnswer {
   goal_type: string
   initial_value: number

@@ -13,21 +13,11 @@ import useMedia from 'hooks/useMedia'
 
 import { PostObjectiveDataRequestBySimulate } from 'store/modules/Objective/action'
 
+import { IAnswer, ISuggestion } from 'pages/Objectives/Recommendation/types'
+
 import * as s from './styles'
 
 interface IState {}
-
-interface IAnswer {
-  initial_value: number
-  target_date: string
-  target_value: number
-  monthly_value: number
-}
-
-interface ISuggestion {
-  suggestion_monthly_value: number
-  suggestion_target_date: string
-}
 
 interface IUnmetGoalCard {
   cardTitle: string

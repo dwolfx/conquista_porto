@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Text from 'components/Text'
 import Button from 'components/Button'
-import products from 'pages/Objectives/Recommendation/productBannerData'
+import products from 'pages/Objectives/Recommendation/ProductBanner/productBannerData'
 import { dataLayerProductSuggestion } from 'GoogleTagManager'
 import useMedia from 'hooks/useMedia'
 
