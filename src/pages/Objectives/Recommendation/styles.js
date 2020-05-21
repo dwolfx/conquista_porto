@@ -4,10 +4,16 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import Banner from 'components/Banner'
 import Button from 'components/Button'
 import Card from 'components/Card'
+import Drawer from 'components/Drawer'
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 import { CardBody } from 'components/Card/styles'
+import {
+  DrawerBody,
+  DrawerHeader,
+  DrawerFooter,
+} from 'components/Drawer/styles'
 
 export const SpacedText = styled(Text)`
   display: flex;
@@ -209,6 +215,8 @@ export const PieChartChildrenContent = styled.div`
 export const FormWrapper = styled.div``
 
 export const ColInput = styled(Col)`
+  padding: 0;
+
   &:not(:first-of-type) {
     margin-top: ${props => (props.error ? '0' : '35px')};
   }
@@ -274,5 +282,24 @@ export const WalletSectionGraphContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+`
+
+export const DrawerForm = styled(Drawer)`
+  min-width: inherit;
+  padding: ${props => `${props.theme.spacing(2)}px`}; 
+
+  ${DrawerHeader} {
+    padding: ${props => `${props.theme.spacing(2)}px`};
+  }
+
+  ${DrawerBody} {
+    padding: ${props =>
+      `${props.theme.spacing(3)}px ${props.theme.spacing(2)}px`};
+  }
+
+  ${DrawerFooter} {
+    padding: ${props =>
+      `${props.theme.spacing(2)}px ${props.theme.spacing(2)}px 0`};
   }
 `

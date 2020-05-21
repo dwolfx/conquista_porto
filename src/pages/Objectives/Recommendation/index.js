@@ -12,7 +12,6 @@ import {
 
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
-import Drawer from 'components/Drawer'
 import InputText from 'components/NewInput'
 import UnsavedChangedPrompt from 'components/Modal/Prompt'
 
@@ -40,6 +39,7 @@ import {
 
 import {
   GridRecommendation,
+  DrawerForm,
   SectionsRecommendation,
   ButtonSubmit,
   FormWrapper,
@@ -220,7 +220,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         numberSteps={totalSteps}
       />
       <SectionsRecommendation>
-        <Drawer
+        <DrawerForm
           drawerTitle="Resumo"
           isOpen={isDrawerOpen}
           handleClose={() => setIsDrawerOpen(false)}
@@ -305,7 +305,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 renderErrorMessage(ValidateTargetDate(formData.target_date)[1])}
             </ColInput>
           </FormWrapper>
-        </Drawer>
+        </DrawerForm>
         <Container>
           <SuggestionBanner
             toggleDrawer={() => setIsDrawerOpen(!isDrawerOpen)}
