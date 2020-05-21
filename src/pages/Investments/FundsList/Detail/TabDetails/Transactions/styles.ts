@@ -12,7 +12,7 @@ export const TransactionsWrapper = styled.div`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     margin: ${({ theme }) => theme.spacing(2)}px
-      ${({ theme }) => theme.spacing(4)}px;
+      ${({ theme }) => theme.spacing(2)}px;
     width: auto;
   }
 `
@@ -49,6 +49,9 @@ export const Ul = styled.ul`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: ${({ theme }) => theme.spacing(1)}px;
+    margin: ${({ theme }) => theme.spacing(1)}px 0
+      ${({ theme }) => theme.spacing(2)}px 0;
   }
 
   & li:nth-last-child(-n + 3) {

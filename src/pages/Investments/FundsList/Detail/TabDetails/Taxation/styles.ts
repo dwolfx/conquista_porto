@@ -12,7 +12,7 @@ export const TaxationWrapper = styled.div`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     margin: ${({ theme }) => theme.spacing(2)}px
-      ${({ theme }) => theme.spacing(4)}px 0;
+      ${({ theme }) => theme.spacing(2)}px 0;
     width: auto;
   }
 `
@@ -52,6 +52,7 @@ export const Ul = styled.ul`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: ${({ theme }) => theme.spacing(1)}px;
   }
 `
 
@@ -77,7 +78,7 @@ export const TaxationInfo = styled.div`
   border-radius: 8px;
   height: ${({ theme }) => theme.spacing(10)}px;
   width: 100%;
-  margin-top: 14px;
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => theme.spacing(3)}px
     ${({ theme }) => theme.spacing(3)}px 0;
   text-align: center;
@@ -85,5 +86,6 @@ export const TaxationInfo = styled.div`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     height: auto;
     padding: ${({ theme }) => theme.spacing(3)}px;
+    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
   }
 `
