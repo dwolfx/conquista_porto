@@ -8,6 +8,7 @@ import creditCard from './CreditCard/sagas'
 import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
+import customerProfile from './CustomerProfile/sagas'
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
 import investmentPosition from './Investment/Position/sagas'
@@ -24,7 +25,6 @@ import suitability from './Suitability/sagas'
 import suitabilityInfo from './SuitabilityInfo/sagas'
 import rewardsRecommendations from './Rewards/Recommendations/sagas'
 import rewardsTypes from './Rewards/Types/sagas'
-import customerProfile from './CustomerProfile/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -35,6 +35,7 @@ export default function* rootSaga() {
     consolidatedPosition,
     consortiumBuilding,
     consortiumVehicle,
+    customerProfile,
     investmentsList,
     investmentDetails,
     investmentPosition,
@@ -51,6 +52,5 @@ export default function* rootSaga() {
     suitabilityInfo,
     rewardsRecommendations,
     rewardsTypes,
-    customerProfile,
   ])
 }

@@ -7,6 +7,7 @@ import creditCard from './CreditCard/reducer'
 import consolidatedPosition from './ConsolidatedPosition/reducer'
 import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
+import customerProfile from './CustomerProfile/reducer'
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
 import investmentPosition from './Investment/Position/reducer'
@@ -23,7 +24,6 @@ import suitability from './Suitability/reducer'
 import suitabilityInfo from './SuitabilityInfo/reducer'
 import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
-import customerProfile from './CustomerProfile/reducer'
 
 export default combineReducers({
   bankData,
@@ -32,6 +32,7 @@ export default combineReducers({
   consortiumBuilding,
   consortiumVehicle,
   creditCard,
+  customerProfile,
   investmentsList,
   investmentDetails,
   investmentPosition,
@@ -49,5 +50,4 @@ export default combineReducers({
   suitabilityInfo,
   rewardsRecommendations,
   rewardsTypes,
-  customerProfile,
 })

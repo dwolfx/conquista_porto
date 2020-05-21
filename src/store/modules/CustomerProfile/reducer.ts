@@ -1,11 +1,7 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: {
-    cpfCnpj: '',
-    customerName: '',
-    customerEmail: '',
-  },
+  data: null,
   status: '',
   hasError: false,
   isLoading: false,
