@@ -24,10 +24,12 @@ export const CardRow = styled(Row)`
   }
 
   &:last-of-type {
+    flex-direction: row-reverse;
     margin: ${({theme}) => `${theme.spacing(5)}px auto 0`};
     max-width: 770px;
 
     @media ${props => props.theme.mediaQueries.sm} {
+      flex-direction: column-reverse;
       margin-top: 0;
     }
   }
