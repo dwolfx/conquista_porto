@@ -287,7 +287,7 @@ export const WalletSectionGraphContainer = styled.div`
 
 export const DrawerForm = styled(Drawer)`
   min-width: inherit;
-  padding: ${props => `${props.theme.spacing(2)}px`}; 
+  padding: ${props => `${props.theme.spacing(2)}px`};
 
   ${DrawerHeader} {
     padding: ${props => `${props.theme.spacing(2)}px`};
