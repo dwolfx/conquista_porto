@@ -6,7 +6,7 @@ import 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { useToast } from 'hooks/toast'
 
-import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 
 import Icon from 'components/IconExporter'
 import DropDown from 'components/DropdownNew'
@@ -171,7 +171,7 @@ export default function FundInformation({ fund, idCotista }) {
       }
     }
 
-    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
   }
 
   const handleClickRedeemButton = () => {
@@ -183,7 +183,7 @@ export default function FundInformation({ fund, idCotista }) {
       }
     }
 
-    dispatch(GetSuitabilityInfoRequest(onSuccess, 'resgatar', addToast))
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'resgatar', addToast))
   }
 
   return (

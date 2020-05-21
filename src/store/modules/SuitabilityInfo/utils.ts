@@ -21,6 +21,21 @@ export const handleInvestButton = (
   bankData: IBankData
 ) => {
   switch (true) {
+    case !suitabilityInfo.status_cotista:
+      return {
+        isOpen: true,
+        title: 'Falha ao processar solicitação',
+        description:
+          'Para investir, você precisa definir o seu perfil investidor.',
+        button: {
+          dataGtmName: 'definir agora',
+          dataGtmType: 'click',
+          dataGtmClicktype: 'button',
+          handleClick: () =>
+            handleGiwRedirect(`portaldecliente/conquista/perfil?r=true`),
+          buttonName: 'Definir agora',
+        },
+      }
     case suitabilityInfo.CotistaContaOrdemPortoPar === 'N' &&
       suitabilityInfo.status_cotista:
       return {

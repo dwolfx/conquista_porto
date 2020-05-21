@@ -23,6 +23,7 @@ interface IAction {
 
 export default function(state = INITIAL_STATE, action: IAction) {
   switch (action.type) {
+    case Types.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE:
     case Types.SUITABILITY_INFO_GET_DATA_REQUEST:
       return {
         ...state,

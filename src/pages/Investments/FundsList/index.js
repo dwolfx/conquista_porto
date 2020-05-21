@@ -4,7 +4,7 @@ import { useToast } from 'hooks/toast'
 import { useLocation } from 'react-router-dom'
 import { handleGiwRedirect } from 'helpers'
 
-import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
@@ -103,7 +103,7 @@ export default function FundsList() {
   }, [filter, mobileFundSort])
 
   function triggerSuitabilityDispatch(onSuccess) {
-    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
   }
 
   const handleClickInvestButton = (fundId = null, hasDetailsFund = false) => {

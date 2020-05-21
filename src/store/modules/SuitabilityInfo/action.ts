@@ -13,13 +13,20 @@ interface ISuitabilityInfo {
   status_possui_suitability: boolean
 }
 
-export function GetSuitabilityInfoRequest(
+export function GetSuitabilityInfoRequest(cpf: string) {
+  return {
+    type: Types.SUITABILITY_INFO_GET_DATA_REQUEST,
+    payload: { cpf },
+  }
+}
+
+export function GetSuitabilityInfoAndValidate(
   onSuccess: Function,
   buttonType: 'investir' | 'retirar' | 'resgatar',
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
 ) {
   return {
-    type: Types.SUITABILITY_INFO_GET_DATA_REQUEST,
+    type: Types.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE,
     payload: { onSuccess, buttonType, onErrorToast },
   }
 }

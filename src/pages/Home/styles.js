@@ -118,18 +118,14 @@ export const PointsInfo = styled.div`
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   display: flex;
-  padding: 14px 0;
+  padding: 14px;
+  flex-wrap: wrap;
 
   p:first-child {
     color: ${props => props.theme.colors.gray5};
-    margin-left: 21px;
   }
   p:last-of-type {
     padding: 0 14px;
-  }
-  button {
-    width: 110px;
-    min-width: 110px;
   }
 `
 
@@ -139,6 +135,18 @@ export const PointsList = styled.div`
 `
 export const PointsButtonWrapper = styled.div`
   margin-left: auto;
+  button {
+    width: 110px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-left: unset;
+    width: 100%;
+    margin-top: ${({ theme }) => theme.spacing(2)}px;
+    button {
+      width: 100%;
+    }
+  }
 `
 
 export const PointDate = styled(Text)`

@@ -13,6 +13,7 @@ import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPosition/action'
 import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsExtractRequest } from 'store/modules/Points/action'
+import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
 
 import SectionOne from './SectionOne'
 import AdvertisementBanner from './AdvertisementBanner'
@@ -35,6 +36,7 @@ const Home = ({ location }) => {
   }
 
   useEffect(() => {
+    dispatch(GetSuitabilityInfoRequest(auth.cpf))
     dispatch(GetCreditCardDataRequest(auth.cpf))
     handleFetchInvestments()
     dispatch(GetVehicleFinancingDataRequest(auth.cpf))
