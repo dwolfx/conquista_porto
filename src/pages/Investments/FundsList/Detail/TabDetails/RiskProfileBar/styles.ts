@@ -9,7 +9,7 @@ export const RiskProfileWrapper = styled.div`
 
   @media ${props => props.theme.mediaQueries.xs} {
     margin: ${({ theme }) => theme.spacing(2)}px
-      ${({ theme }) => theme.spacing(4)}px ${({ theme }) => theme.spacing(4)}px;
+      ${({ theme }) => theme.spacing(2)}px ${({ theme }) => theme.spacing(3)}px;
   }
 `
 
