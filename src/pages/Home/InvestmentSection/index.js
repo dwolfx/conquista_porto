@@ -65,6 +65,10 @@ export default function InvestmentSection({ onFetchInvestments }) {
     bankData: state.bankData.data,
   }))
 
+  const { suitabilityInfo } = useSelector(state => ({
+    suitabilityInfo: state.suitabilityInfo.data,
+  }))
+
   const history = useHistory()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -90,7 +94,6 @@ export default function InvestmentSection({ onFetchInvestments }) {
       }
     )
   }
-
   const renderInvestimentCardContent = () => {
     if (isLoading && !(data && Object.entries(data).length)) {
       return <LoadingState />
@@ -98,7 +101,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
     if (hasError && !(data && Object.entries(data).length)) {
       return <ErrorState onRetry={onFetchInvestments} />
     }
-    if (data) {
+    if (data && suitabilityInfo && suitabilityInfo.status_cotista) {
       return (
         <>
           <ModalAccountPortoInfo

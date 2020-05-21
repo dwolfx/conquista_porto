@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useToast } from 'hooks/toast'
 
-import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
@@ -182,7 +182,7 @@ portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
       }
     }
 
-    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
   }
 
   return (
