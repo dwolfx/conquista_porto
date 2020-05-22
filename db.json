@@ -4242,5 +4242,10 @@
       "name": "PRIMEIRO INVESTIMENTO",
       "quantity": 500
     }
-  ]
+  ],
+  "customerProfile": {
+    "cpfCnpj": "78141054040",
+    "nomeCliente": "Orus Torvalds",
+    "emailCliente": "orus@email.xyz"
+  }
 }

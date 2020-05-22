@@ -1,9 +1,9 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  cpfCnpj: '36275312807',
-  nomeCliente: 'Rubao',
-  emailCliente: 'ricardo.eufrasio@portoseguro.com.br',
+  cpfCnpj: '',
+  nomeCliente: '',
+  emailCliente: '',
 }
 
 interface IAction {

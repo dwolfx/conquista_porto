@@ -6,7 +6,7 @@ interface ICustomerProfile {
   emailCliente: string
 }
 
-export function GetSuitabilityInfoRequest(cpf: string) {
+export function GetCustomerProfileRequest(cpf: string) {
   return {
     type: Types.CUSTOMER_PROFILE_GET_DATA_REQUEST,
     payload: { cpf },
