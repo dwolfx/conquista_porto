@@ -14,7 +14,7 @@ function* getData({ cpf }) {
       ? consolidatedPositionState
       : yield call(
           get,
-          `${baseURLNamespaceInvest}/perfil/dados-cliente?cpfCnpj=${cpf}`
+          `${baseURLNamespaceInvest}/cotistas/posicao-consolidada?cpfCnpj=${cpf}`
         )
 
     if (saldoResponse.data.saldototal > 0) {
