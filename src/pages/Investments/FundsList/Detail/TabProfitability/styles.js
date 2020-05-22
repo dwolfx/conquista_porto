@@ -52,3 +52,9 @@ export const ColStyled = styled(Col)`
 export const RowTitle = styled(Row)`
   margin: ${({ theme }) => theme.spacing(2)}px -7px;
 `
+
+export const ProfitabilityContent = styled.div`
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0px 14px;
+  }
+`

@@ -11,6 +11,8 @@ import TabletView from './TabletView'
 import DesktopView from './DesktopView'
 import { IFundProps } from './interfaces'
 
+import { ProfitabilityContent } from './styles'
+
 export default function TabProfitability({ fund }: IFundProps) {
   const isTablet = useMedia('lg')
 
@@ -19,7 +21,7 @@ export default function TabProfitability({ fund }: IFundProps) {
   const histRentabilFundo = fund.comparativo_hist_rentabil.hist_rentabil_fundo
 
   return (
-    <div>
+    <ProfitabilityContent>
       <HorizontalList
         noPadding
         startItems={[
@@ -40,6 +42,6 @@ export default function TabProfitability({ fund }: IFundProps) {
           histRentabilFundo={histRentabilFundo}
         />
       )}
-    </div>
+    </ProfitabilityContent>
   )
 }
