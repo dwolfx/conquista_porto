@@ -9,15 +9,12 @@ import {
 
 function* getData({ cpf }) {
   try {
-    const { response, err } = yield call(
+    const response = yield call(
       get,
       `${baseURLNamespaceInvest}/cotistas/posicao-consolidada?cpf=${cpf}`
     )
-    if (err || response.status !== 200) {
-      yield put(GetConsolidatedPositionDataFailure())
-    } else {
-      yield put(GetConsolidatedPositionDataSuccess(response.data))
-    }
+
+    yield put(GetConsolidatedPositionDataSuccess(response.data))
   } catch (err) {
     yield put(GetConsolidatedPositionDataFailure())
   }
