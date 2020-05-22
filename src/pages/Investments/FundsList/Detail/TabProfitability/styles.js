@@ -7,7 +7,7 @@ export const TablesContainer = styled.div`
   border: 1px solid ${props => props.theme.colors.gray2};
   border-radius: 4px;
   position: relative;
-  margin: 14px 0;
+  margin: ${({ theme }) => theme.spacing(2)}px 0;
 `
 export const FixedTable = styled.table`
   table-layout: fixed;
@@ -50,11 +50,11 @@ export const ColStyled = styled(Col)`
 `
 
 export const RowTitle = styled(Row)`
-  margin: ${({ theme }) => theme.spacing(2)}px -7px;
+  margin: ${({ theme }) => theme.spacing(2)}px -${({ theme }) => theme.spacing(1)}px;
 `
 
 export const ProfitabilityContent = styled.div`
   @media ${props => props.theme.mediaQueries.xs} {
-    padding: 0px 14px;
+    padding: 0px ${({ theme }) => theme.spacing(2)}px;
   }
 `
