@@ -49,6 +49,7 @@ import {
   PointsButtonWrapper,
   Icon,
   PointsEmptyContainer,
+  HorizontalListTruncateStartBlock,
 } from '../styles'
 
 export default function PointsSection({ points }) {
@@ -220,11 +221,13 @@ export default function PointsSection({ points }) {
   const renderPointsHorizontalList = () =>
     points.detalheExtratoOptemaisTypes &&
     points.detalheExtratoOptemaisTypes.map((item, index) => (
-      <HorizontalList
+      <HorizontalListTruncateStartBlock
         key={`point-${index}-${Math.random() * 100}`}
         startItems={[
           <PointDate>{item.dataCompra}</PointDate>,
-          <PointName type="headline">{item.nomeTransacao}</PointName>,
+          <PointName truncate type="headline">
+            {item.nomeTransacao}
+          </PointName>,
         ]}
         endItems={[
           <PointNumber type="headline" bold>
