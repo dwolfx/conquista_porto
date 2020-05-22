@@ -7,6 +7,8 @@ import PropTypes from 'prop-types'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
+import { formatMoney } from 'helpers'
+
 import {
   GetOtherGoalsDataRequest,
   PostObjectiveManagementDataRequest,
@@ -36,7 +38,21 @@ const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
     }
     dispatch(
       PostObjectiveManagementDataRequest({
-        data,
+        data: {
+          ...data,
+          answer: {
+            ...data.answer,
+            initial_value: formatMoney(data.answer.initial_value, {
+              currency: 'BRL',
+            }),
+            monthly_value: formatMoney(data.answer.monthly_value, {
+              currency: 'BRL',
+            }),
+            target_value: formatMoney(data.answer.target_value, {
+              currency: 'BRL',
+            }),
+          },
+        },
         pushHistory,
         onSuccess: () =>
           dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id })),
