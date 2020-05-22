@@ -21,7 +21,7 @@ import {
   ObjectivesAccordion,
   ObjectiveDivisor,
   LinearProgressBarContent,
-  HorizontalListTruncateObjective,
+  HorizontalListTruncateStartBlock,
   ObjectivePercentageContainer,
 } from './styles'
 
@@ -87,7 +87,7 @@ export default function ObjectiveListContent({ objectives }) {
             key={objective.id}
             bodyPadding="0"
             titleNode={
-              <HorizontalListTruncateObjective
+              <HorizontalListTruncateStartBlock
                 noPadding
                 startItems={[
                   <Text truncate type="headline" color="gray5" bold>

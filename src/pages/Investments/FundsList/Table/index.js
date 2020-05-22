@@ -1,8 +1,15 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useRef, useEffect } from 'react'
 import { useTable, useSortBy } from 'react-table'
+import { useSticky } from 'react-table-sticky'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
+import Loading from 'components/Loading'
+import Button from 'components/Button'
+import Text from 'components/Text'
+
+import { GetInvestmentListRequest } from 'store/modules/Investment/action'
+import { useDispatch } from 'react-redux'
 import FormatColumns from './formatters'
 import TableBody from './TableBody'
 
@@ -11,19 +18,23 @@ import {
   Thead,
   TheadTr,
   TheadTh,
-  TheadThWithColumns,
-  TheadColumn,
   Tbody,
   TheadContent,
   TableWrapper,
   TheadText,
+  StickyDivisor,
+  InfoTableContent,
 } from './styles'
 
 const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
+  const styles = header.styles
+    ? header.styles.header || header.styles
+    : header.width
   return (
     <TheadTh
-      width={header.widthHeader || header.width}
+      width={styles.width}
+      minWidth={styles.minWidth}
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
@@ -50,41 +61,6 @@ const SimpleHeader = ({ header }) => {
     </TheadTh>
   )
 }
-
-const HeaderWithColumns = ({ header }) => (
-  <TheadThWithColumns width={header.width}>
-    {header.Header}
-    <TheadContent>
-      {header.columns.map(headerColumn => (
-        <TheadColumn
-          data-gtm-type="click"
-          data-gtm-clicktype="menu"
-          data-gtm-subname="menu de ordenação dos fundos"
-          data-gtm-name={headerColumn.render('Header')}
-          width={headerColumn.width}
-          key={`inner-header-${headerColumn.Header}`}
-          {...headerColumn.getHeaderProps(headerColumn.getSortByToggleProps())}
-        >
-          <TheadText
-            isSorted={headerColumn.isSorted}
-            isSortedDesc={headerColumn.isSortedDesc}
-            top="28px"
-            right="5px"
-          >
-            {headerColumn.render('Header')}
-          </TheadText>
-        </TheadColumn>
-      ))}
-    </TheadContent>
-  </TheadThWithColumns>
-)
-
-const TheadWrapper = ({ header }) =>
-  'columns' in header ? (
-    <HeaderWithColumns header={header} />
-  ) : (
-    <SimpleHeader header={header} canSort={false} />
-  )
 
 export default function TableFunds({
   data,
@@ -115,33 +91,128 @@ export default function TableFunds({
       data,
       disableSortBy: isTablet,
     },
-    useSortBy
+    useSortBy,
+    useSticky
   )
+  const tableRef = useRef()
+  const dispatch = useDispatch()
+  const [showLeftShadow, setShowLeftShadow] = useState(false)
+  const [showRightShadow, setShowRightShadow] = useState(false)
+
+  // Monitorar o evento de scroll da tabela
+  useEffect(() => {
+    if (tableRef) {
+      tableRef.current.onscroll = ({ srcElement }) => {
+        const { scrollLeft, clientWidth, scrollWidth } = srcElement
+        // Cálculo da posição do scroll horizontal para um float entre 0 e 1
+        const pos = scrollLeft / (scrollWidth - clientWidth)
+        // Condicionalmente adicionando a sombra da coluna
+        if (pos === 0) {
+          setShowRightShadow(true)
+          setShowLeftShadow(false)
+        } else if (pos > 0 && pos < 1) {
+          setShowRightShadow(true)
+          setShowLeftShadow(true)
+        } else {
+          setShowRightShadow(false)
+          setShowLeftShadow(true)
+        }
+      }
+    }
+  }, [tableRef])
+
+  const calculateStickWidth = (acc, cur) => {
+    let curWidth = cur.styles.width
+    if (typeof curWidth === 'string') {
+      curWidth = cur.styles.width.replace('px', '')
+    }
+    return acc + curWidth
+  }
+  const stickyElementRight = columns.filter(column => column.sticky === 'right')
+  const stickyElementRightPosition = stickyElementRight.reduce(
+    (acc, cur) => calculateStickWidth(acc, cur),
+    7
+  )
+  const stickyElementLeft = columns.filter(column => column.sticky === 'left')
+  const stickyElementLeftPosition = stickyElementLeft.reduce(
+    (acc, cur) => calculateStickWidth(acc, cur),
+    0
+  )
+
+  const renderTableContent = () => {
+    if (isLoading) {
+      return (
+        <InfoTableContent>
+          <Loading
+            type="bar"
+            legend="Buscando informações dos fundos de investimentos…"
+          />
+        </InfoTableContent>
+      )
+    }
+
+    if (isError) {
+      return (
+        <InfoTableContent>
+          <Text
+            type="headline"
+            color="magenta2"
+            css={`
+              margin-bottom: 14px;
+            `}
+          >
+            Não foi possível carregar a lista de fundos. Por favor, tente
+            novamente.
+          </Text>
+          <Button onClick={() => dispatch(GetInvestmentListRequest())}>
+            Tentar novamente
+          </Button>
+        </InfoTableContent>
+      )
+    }
+
+    return (
+      <>
+        <Thead className="header">
+          <TheadTr>
+            {columns.map(header => (
+              <SimpleHeader
+                header={header}
+                key={`header-${header.Header}`}
+                canSort={false}
+              />
+            ))}
+          </TheadTr>
+        </Thead>
+        <Tbody {...getTableBodyProps()} className="body">
+          <TableBody
+            onChangeIsFundDetailOpen={onChangeIsFundDetailOpen}
+            setIsOpenForInvestments={setIsOpenForInvestments}
+            rows={rows}
+            isLoading={isLoading}
+            prepareRow={prepareRow}
+            isError={isError}
+            isFiltering={isFiltering}
+          />
+        </Tbody>
+      </>
+    )
+  }
   return (
     <>
       <TableWrapper>
-        <Table {...getTableProps()}>
-          <Thead>
-            <TheadTr>
-              {columns.map(header => (
-                <TheadWrapper
-                  key={`header-with-column-${header.Header}`}
-                  header={header}
-                />
-              ))}
-            </TheadTr>
-          </Thead>
-          <Tbody {...getTableBodyProps()}>
-            <TableBody
-              onChangeIsFundDetailOpen={onChangeIsFundDetailOpen}
-              setIsOpenForInvestments={setIsOpenForInvestments}
-              rows={rows}
-              isLoading={isLoading}
-              prepareRow={prepareRow}
-              isError={isError}
-              isFiltering={isFiltering}
-            />
-          </Tbody>
+        {isTablet && stickyElementLeft.length && showLeftShadow && (
+          <StickyDivisor position={stickyElementLeftPosition} side="left" />
+        )}
+        {isTablet && stickyElementRight.length && showRightShadow && (
+          <StickyDivisor position={stickyElementRightPosition} side="right" />
+        )}
+        <Table
+          ref={tableRef}
+          {...getTableProps()}
+          className={`table ${isTablet ? 'sticky' : ''}`}
+        >
+          {renderTableContent()}
         </Table>
       </TableWrapper>
     </>
@@ -167,22 +238,20 @@ TableFunds.defaultProps = {
   clickedFundInvestButton: '',
 }
 
-TheadWrapper.propTypes = {
-  header: PropTypes.object.isRequired,
-}
-
-HeaderWithColumns.propTypes = {
-  header: PropTypes.shape({
-    columns: PropTypes.array.isRequired,
-    Header: PropTypes.string.isRequired,
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  }).isRequired,
-}
-
 SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    styles: PropTypes.shape({
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      header: PropTypes.shape({
+        width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      }),
+    }),
     render: PropTypes.func.isRequired,
     isSorted: PropTypes.bool.isRequired,
     isSortedDesc: PropTypes.bool,

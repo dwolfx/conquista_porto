@@ -156,7 +156,6 @@ export const PointDate = styled(Text)`
 export const PointName = styled(Text)`
   color: ${props => props.theme.colors.gray5};
   flex: 1%;
-  padding: 0 14px;
 
   @media ${props => props.theme.mediaQueries.md} {
     text-overflow: ellipsis;
@@ -343,7 +342,7 @@ export const PointsEmptyContainer = styled.div`
   text-align: center;
 `
 
-export const HorizontalListTruncateObjective = styled(HorizontalList)`
+export const HorizontalListTruncateStartBlock = styled(HorizontalList)`
   ${HorizontalListStyled.StartBlock} {
     flex: 1;
     min-width: 0;
