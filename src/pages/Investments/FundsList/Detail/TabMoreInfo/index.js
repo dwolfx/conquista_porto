@@ -104,7 +104,7 @@ export default function TabMoreInfo({ fund }) {
                   ? 'Não há cobrança de performance'
                   : `${formatDotToComma(
                       fund.taxa_performance
-                    )}% sobre o que exceder`}
+                    )}% sobre o que exceder o benchmark`}
               </Text>,
             ]}
           />
