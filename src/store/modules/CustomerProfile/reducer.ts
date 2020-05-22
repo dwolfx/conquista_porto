@@ -1,9 +1,14 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  cpfCnpj: '',
-  nomeCliente: '',
-  emailCliente: '',
+  data: {
+    cpfCnpj: '',
+    customerName: '',
+    customerEmail: '',
+  },
+  status: '',
+  hasError: false,
+  isLoading: false,
 }
 
 interface IAction {
@@ -25,7 +30,11 @@ export default function(state = INITIAL_STATE, action: IAction) {
     case Types.CUSTOMER_PROFILE_GET_DATA_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        data: {
+          cpfCnpj: action.payload.cpfCnpj,
+          customerName: action.payload.nomeCliente,
+          customerEmail: action.payload.emailCliente,
+        },
         status: 'loaded',
         isLoading: false,
       }

@@ -4243,9 +4243,19 @@
       "quantity": 500
     }
   ],
-  "customerProfile": {
-    "cpfCnpj": "78141054040",
-    "nomeCliente": "Orus Torvalds",
-    "emailCliente": "orus@email.xyz"
+  "dados-cliente": {
+    "emailCliente": "ricardo.eufrasio@portoseguro.com.br",
+    "estado": "SP",
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
+    "numeroEnderecoResidencial": "11",
+    "numeroTelefone": "996229303",
+    "cpfCnpj": "36275312807",
+    "dddNumeroTelefone": "11",
+    "nomeCliente": "Rubao",
+    "dataNascimento": "1981-11-11T00:00:00-03:00",
+    "cep": "01010010"
   }
 }
