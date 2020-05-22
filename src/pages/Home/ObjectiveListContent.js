@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
-import HorizontalList from 'components/HorizontalList'
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Button from 'components/Button'
 
@@ -22,6 +21,8 @@ import {
   ObjectivesAccordion,
   ObjectiveDivisor,
   LinearProgressBarContent,
+  HorizontalListTruncateStartBlock,
+  ObjectivePercentageContainer,
 } from './styles'
 
 export default function ObjectiveListContent({ objectives }) {
@@ -31,7 +32,7 @@ export default function ObjectiveListContent({ objectives }) {
   const [loadingObjectiveButton, setLoadingObjectiveButton] = useState('')
 
   const horizontalListProgressAndPorcentage = (actual, max, percentage) => (
-    <>
+    <ObjectivePercentageContainer>
       <LinearProgressBarContent>
         <MiniLinearProgressBar atual={actual} max={max} />
       </LinearProgressBarContent>
@@ -46,7 +47,7 @@ export default function ObjectiveListContent({ objectives }) {
       >
         {`${percentage}%`}
       </Text>
-    </>
+    </ObjectivePercentageContainer>
   )
 
   const table = (current, remaining, total) => (
@@ -86,10 +87,10 @@ export default function ObjectiveListContent({ objectives }) {
             key={objective.id}
             bodyPadding="0"
             titleNode={
-              <HorizontalList
+              <HorizontalListTruncateStartBlock
                 noPadding
                 startItems={[
-                  <Text type="headline" color="gray5" textAlign="right" bold>
+                  <Text truncate type="headline" color="gray5" bold>
                     {`#${objective.nickname}`}
                   </Text>,
                 ]}

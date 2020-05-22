@@ -7,6 +7,7 @@ import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
+import * as HorizontalListStyled from 'components/HorizontalList/styles'
 import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
@@ -117,18 +118,14 @@ export const PointsInfo = styled.div`
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
   display: flex;
-  padding: 14px 0;
+  padding: 14px;
+  flex-wrap: wrap;
 
   p:first-child {
     color: ${props => props.theme.colors.gray5};
-    margin-left: 21px;
   }
   p:last-of-type {
     padding: 0 14px;
-  }
-  button {
-    width: 110px;
-    min-width: 110px;
   }
 `
 
@@ -138,6 +135,18 @@ export const PointsList = styled.div`
 `
 export const PointsButtonWrapper = styled.div`
   margin-left: auto;
+  button {
+    width: 110px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-left: unset;
+    width: 100%;
+    margin-top: ${({ theme }) => theme.spacing(2)}px;
+    button {
+      width: 100%;
+    }
+  }
 `
 
 export const PointDate = styled(Text)`
@@ -147,7 +156,6 @@ export const PointDate = styled(Text)`
 export const PointName = styled(Text)`
   color: ${props => props.theme.colors.gray5};
   flex: 1%;
-  padding: 0 14px;
 
   @media ${props => props.theme.mediaQueries.md} {
     text-overflow: ellipsis;
@@ -332,4 +340,18 @@ export const PointsEmptyContainer = styled.div`
   justify-content: center;
   padding: 0 56px;
   text-align: center;
+`
+
+export const HorizontalListTruncateStartBlock = styled(HorizontalList)`
+  ${HorizontalListStyled.StartBlock} {
+    flex: 1;
+    min-width: 0;
+  }
+`
+
+export const ObjectivePercentageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 112px;
 `
