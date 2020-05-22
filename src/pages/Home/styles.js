@@ -250,6 +250,7 @@ export const ModalTextWrapper = styled.div`
   }
 
   margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
+  max-width: 588px;
 `
 
 export const ProductsCol = styled(SectionCol)`
@@ -354,4 +355,19 @@ export const ObjectivePercentageContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 112px;
+`
+
+export const PointsHorizontal = styled(HorizontalList)`
+  @media ${props => props.theme.mediaQueries.sm} {
+    display: block;
+    height: inherit;
+
+    &:not(:first-of-type) {
+      margin-top: ${props => `${props.theme.spacing(4)}px`};
+    }
+
+    ${HorizontalListStyled.EndBlock} {
+      margin: ${props => `${props.theme.spacing(1)}px 0 0`};
+    }
+  }
 `
