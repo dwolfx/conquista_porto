@@ -32,33 +32,29 @@ const TableBody = ({
     if (isLoading) {
       return (
         <InfoTableContent>
-          <td>
-            <Loading
-              type="bar"
-              legend="Buscando informações dos fundos de investimentos…"
-            />
-          </td>
+          <Loading
+            type="bar"
+            legend="Buscando informações dos fundos de investimentos…"
+          />
         </InfoTableContent>
       )
     }
     if (isError) {
       return (
         <InfoTableContent>
-          <td>
-            <Text
-              type="headline"
-              color="magenta2"
-              css={`
-                margin-bottom: 14px;
-              `}
-            >
-              Não foi possível carregar a lista de fundos. Por favor, tente
-              novamente.
-            </Text>
-            <Button onClick={() => dispatch(GetInvestmentListRequest())}>
-              Tentar novamente
-            </Button>
-          </td>
+          <Text
+            type="headline"
+            color="magenta2"
+            css={`
+              margin-bottom: 14px;
+            `}
+          >
+            Não foi possível carregar a lista de fundos. Por favor, tente
+            novamente.
+          </Text>
+          <Button onClick={() => dispatch(GetInvestmentListRequest())}>
+            Tentar novamente
+          </Button>
         </InfoTableContent>
       )
     }
@@ -86,16 +82,20 @@ const TableBody = ({
             setIsOpenForInvestments(row.original.aplicao_liberada)
           }}
         >
-          {row.cells.map(cell => (
-            <TbodyTd
-              borderRisk={cell.row.original.perfil_risco_ordem}
-              width={cell.column.width}
-              align={cell.column.align}
-              {...cell.getCellProps()}
-            >
-              {cell.render('Cell')}
-            </TbodyTd>
-          ))}
+          {row.cells.map(cell => {
+            const styles = cell.column.styles || cell.column
+            return (
+              <TbodyTd
+                borderRisk={cell.row.original.perfil_risco_ordem}
+                width={styles.width}
+                minWidth={styles.minWidth}
+                align={cell.column.align}
+                {...cell.getCellProps()}
+              >
+                {cell.render('Cell')}
+              </TbodyTd>
+            )
+          })}
         </TbodyTr>
       )
     })

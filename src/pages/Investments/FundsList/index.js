@@ -13,7 +13,7 @@ import { Col } from 'styled-bootstrap-grid'
 import Anbima from 'components/Anbima'
 import Filter from './Filter'
 import useFilter from './Filter/useFilter'
-import { columns, fundsType } from './mock'
+import { columns, fundsType, columnsWithSticky } from './mock'
 import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
 import FinancialApplication from '../FinancialApplication'
@@ -248,8 +248,8 @@ export default function FundsList() {
               <ContentWrapper>
                 <Col col={12}>
                   <TableFunds
-                    columns={columns}
                     onChangeIsFundDetailOpen={setIsFundDetailOpen}
+                    columns={isTablet ? columnsWithSticky : columns}
                     setIsOpenForInvestments={setIsOpenForInvestments}
                     clickedFundInvestButton={clickedFundInvestButtonId}
                     handleLayerOpen={fundId => onChangeLayerOpen(fundId)}
