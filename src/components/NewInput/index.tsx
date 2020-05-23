@@ -1,4 +1,4 @@
-import React, { createRef, forwardRef } from 'react'
+import React, { createRef, forwardRef, MutableRefObject } from 'react'
 import { dict } from 'components/IconExporter'
 
 import {
@@ -20,13 +20,26 @@ interface IProps {
   label?: string
   className?: string
   maxLength?: number
+  name?: string
   value?: string
+  placeholder?: string
   onChange?: (event: any) => void
   onKeyUp?: (event: any) => void
 }
 
 const NewInput = forwardRef<HTMLInputElement, IProps>(
-  ({ prefix, suffix, label, width, error, className, ...rest }, ref) => {
+  (
+    {
+      prefix,
+      suffix,
+      label,
+      width,
+      error,
+      className,
+      ...rest
+    },
+    ref
+  ) => {
     const inputRef = (ref || createRef()) as React.RefObject<HTMLInputElement>
 
     return (
@@ -42,7 +55,10 @@ const NewInput = forwardRef<HTMLInputElement, IProps>(
             className={className}
           >
             {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-            <Input ref={inputRef} {...rest} />
+            <Input
+              ref={inputRef}
+              {...rest}
+            />
             {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
           </InputWrapper>
         </InputGroupWrapper>

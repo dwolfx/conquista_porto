@@ -46,7 +46,11 @@ export const RadioInput = styled.input.attrs(() => ({ type: 'radio' }))`
   }
 `
 
-export const RadioLabel = styled.label`
+interface ILabel {
+  disabled: boolean | undefined
+}
+
+export const RadioLabel = styled.label<ILabel>`
   align-items: center;
   color: ${props =>
     props.disabled ? props.theme.colors.gray5 : props.theme.colors.black};
@@ -62,7 +66,17 @@ export const RadioLabel = styled.label`
   }
 `
 
-export const RadioWrapper = styled.div`
+interface IWrapper {
+  itemsAlign: 'flex-start' | 'center' | 'flex-end'
+  itemsDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+  paddingLeft: number
+  paddingRight: number
+  marginLeft: number
+  marginRight: number
+  width: number | string
+}
+
+export const RadioWrapper = styled.div<IWrapper>`
   align-items: ${props => props.itemsAlign};
   display: flex;
   flex-direction: ${props => props.itemsDirection};
@@ -70,7 +84,8 @@ export const RadioWrapper = styled.div`
   padding-right: ${props => `${props.paddingRight}px`};
   margin-left: ${props => `${props.marginLeft}px`};
   margin-right: ${props => `${props.marginRight}px`};
-  width: ${props => `${props.width}%`};
+  width: ${props =>
+    typeof props.width === 'string' ? props.width : `${props.width}%`};
   justify-content: center;
 
   @media ${props => props.theme.mediaQueries.xs} {

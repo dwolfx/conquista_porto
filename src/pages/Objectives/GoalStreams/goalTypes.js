@@ -1,7 +1,0 @@
-export const TRIP = '1'
-export const RETIREMENT = '2'
-export const CAR = '3'
-export const COURSE = '4'
-export const EVENT = '5'
-export const HOME = '6'
-export const SAVE_MONEY = '7'

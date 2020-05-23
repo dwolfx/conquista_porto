@@ -1,4 +1,4 @@
-import { betweenLength, minValue, validateDate } from './validators'
+import { betweenLength, minValue, validateDate, IDateValues } from './validators'
 import {
   CAR,
   COURSE,
@@ -7,7 +7,7 @@ import {
   RETIREMENT,
   SAVE_MONEY,
   TRIP,
-} from './goalTypes'
+} from './types'
 
 const INITIAL_VALUE_NAME = 'initial_value'
 const TARGET_DATE_NAME = 'target_date'
@@ -29,12 +29,12 @@ const HUNDRED_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 100,00'
 const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
 const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
 const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
-const MIN_DATE_VALUES = {
+const MIN_DATE_VALUES: IDateValues = {
   value: 6,
   type: 'months',
   text: 'meses',
 }
-const MAX_DATE_VALUES = {
+const MAX_DATE_VALUES: IDateValues = {
   value: 100,
   type: 'years',
   text: 'anos',
@@ -44,7 +44,7 @@ const firstStep = {
   question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
   name: NICKNAME_NAME,
   type: TEXT_TYPE,
-  validate(value) {
+  validate(value: string) {
     const isBetweenLength = betweenLength(3, 20, value)
     if (!isBetweenLength.min) {
       return MIN_CHARS_ERROR_TEXT
@@ -72,7 +72,7 @@ export default [
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
         ruleText: DATE_TEXT,
-        validate(value) {
+        validate(value: string) {
           return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
@@ -82,7 +82,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -94,7 +94,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -106,7 +106,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
@@ -128,7 +128,7 @@ export default [
         type: DATE_TYPE,
         maxLength: '10',
         ruleText: DATE_TEXT,
-        validate(value) {
+        validate(value: string) {
           return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
@@ -138,7 +138,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -150,7 +150,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -162,7 +162,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
@@ -195,7 +195,7 @@ export default [
         type: DATE_TYPE,
         maxLength: '10',
         ruleText: DATE_TEXT,
-        validate(value) {
+        validate(value: string) {
           return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
@@ -214,7 +214,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -226,7 +226,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -238,7 +238,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
@@ -280,7 +280,7 @@ export default [
         type: DATE_TYPE,
         maxLength: '10',
         ruleText: DATE_TEXT,
-        validate(value) {
+        validate(value: string) {
           return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
@@ -299,7 +299,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -311,7 +311,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -323,7 +323,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
@@ -365,7 +365,7 @@ export default [
         type: DATE_TYPE,
         maxLength: '10',
         ruleText: DATE_TEXT,
-        validate(value) {
+        validate(value: string) {
           return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
@@ -375,7 +375,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -387,7 +387,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -399,7 +399,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
@@ -421,7 +421,7 @@ export default [
         type: DATE_TYPE,
         maxLength: '10',
         ruleText: DATE_TEXT,
-        validate(value) {
+        validate(value: string) {
           return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
@@ -431,7 +431,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -443,7 +443,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -455,7 +455,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
@@ -476,7 +476,7 @@ export default [
         type: DATE_TYPE,
         maxLength: '10',
         ruleText: DATE_TEXT,
-        validate(value) {
+        validate(value: string) {
           return validateDate(value, MIN_DATE_VALUES, MAX_DATE_VALUES)
         },
       },
@@ -486,7 +486,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -498,7 +498,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
@@ -510,7 +510,7 @@ export default [
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
-        validate(value) {
+        validate(value: number) {
           const isValid = minValue(value, HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
