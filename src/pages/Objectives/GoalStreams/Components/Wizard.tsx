@@ -83,7 +83,7 @@ export const WizardFlow = ({ data, objective }: IProps) => {
     if (inputRef && inputRef.current) {
       inputRef.current.focus()
     }
-  }, [currentStep])
+  }, [currentStep, inputRef])
 
   // useEffect to determine isActive
   useEffect(() => {

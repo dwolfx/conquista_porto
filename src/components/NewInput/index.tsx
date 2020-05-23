@@ -1,4 +1,4 @@
-import React, { createRef, forwardRef, MutableRefObject } from 'react'
+import React, { createRef, forwardRef } from 'react'
 import { dict } from 'components/IconExporter'
 
 import {
