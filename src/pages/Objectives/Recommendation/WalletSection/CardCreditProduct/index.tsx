@@ -33,29 +33,38 @@ const singleInfo = (item: IObjectItem, index: number) => (
       {item.value}
       {item.info && (
         <Popover content="A taxa varia de acordo com a quantidade de parcelas contratada.">
-          <Icon width={21} name="information" color="gray4"/>
+          <Icon width={21} name="information" color="gray4" />
         </Popover>
       )}
     </s.TextValue>
   </s.InfoItem>
 )
 
+const CardCreditProduct = ({ creditProduct }: ICardProps) => {
+  const currentProduct =
+    productCard[creditProduct.name] ||
+    productCard[creditProduct.name.split(' ')[0]]
 
-const CardCreditProduct = ({ creditProduct }:ICardProps) => {
+  if (!currentProduct) {
+    return null
+  }
+
   return (
     <Col lg={3}>
       <s.FullHeightCard
-        headerIcon={productCard[creditProduct.name].icon}
+        headerIcon={currentProduct.icon}
         headerTitle={creditProduct.name.split(' ')[0]}
       >
         <s.CardContainer>
-          <Text type="headline" color="gray6">{productCard[creditProduct.name].message}</Text>
-          {creditProduct.values.map((item: IObjectItem, index: number) => (
+          <Text type="headline" color="gray6">
+            {currentProduct.message}
+          </Text>
+          {creditProduct.values.map((item: IObjectItem, index: number) =>
             singleInfo(item, index)
-          ))}
-          {productCard[creditProduct.name].items.map((item: IObjectItem, index: number) => (
+          )}
+          {currentProduct.items.map((item: IObjectItem, index: number) =>
             singleInfo(item, index)
-          ))}
+          )}
         </s.CardContainer>
       </s.FullHeightCard>
     </Col>
