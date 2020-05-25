@@ -1,21 +1,13 @@
 import React from 'react'
-import Loading from 'components/Loading'
 import PropTypes from 'prop-types'
-
-import Button from 'components/Button'
-import Text from 'components/Text'
-
 import 'styled-components/macro'
 
 import { useDispatch } from 'react-redux'
-import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
-import { TbodyTr, TbodyTd, InfoTableContent } from './styles'
+import { TbodyTr, TbodyTd } from './styles'
 
 const TableBody = ({
-  isLoading,
-  isError,
   rows,
   prepareRow,
   onChangeIsFundDetailOpen,
@@ -28,52 +20,9 @@ const TableBody = ({
     onChangeIsFundDetailOpen(prevState => !prevState)
   }
 
-  const TbodyRender = () => {
-    if (isLoading) {
-      return (
-        <InfoTableContent>
-          <Loading
-            type="bar"
-            legend="Buscando informações dos fundos de investimentos…"
-          />
-        </InfoTableContent>
-      )
-    }
-    if (isError) {
-      return (
-        <InfoTableContent>
-          <Text
-            type="headline"
-            color="magenta2"
-            css={`
-              margin-bottom: 14px;
-            `}
-          >
-            Não foi possível carregar a lista de fundos. Por favor, tente
-            novamente.
-          </Text>
-          <Button onClick={() => dispatch(GetInvestmentListRequest())}>
-            Tentar novamente
-          </Button>
-        </InfoTableContent>
-      )
-    }
-
-    if (!rows || rows.length === 0) {
-      return (
-        <InfoTableContent>
-          <td>
-            <Text type="headline" color="gray5">
-              No momento, não temos fundos com essas especificações.
-            </Text>
-          </td>
-        </InfoTableContent>
-      )
-    }
-
-    return rows.map(row => {
+  const TbodyRender = () =>
+    rows.map(row => {
       prepareRow(row)
-
       return (
         <TbodyTr
           {...row.getRowProps()}
@@ -99,7 +48,6 @@ const TableBody = ({
         </TbodyTr>
       )
     })
-  }
 
   return TbodyRender()
 }

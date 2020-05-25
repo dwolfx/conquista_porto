@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { useSelector } from 'react-redux'
 
 import { IFilterProps } from './index'
 
@@ -22,13 +21,7 @@ export interface IFund {
   taxa_administracao: number
 }
 
-const useFilter = (filter: IFilterProps) => {
-  const funds: IFund[] = useSelector((state: any) =>
-    state.investmentsList.data
-      .flatMap((item: any) => item)
-      .reduce((prev: any, curr: any) => [...prev, ...curr.fundos], [])
-  )
-
+const useFilter = (filter: IFilterProps, funds: IFund[]) => {
   function filterByCategoriaArena(
     fundsList: IFund[],
     categoriaArena: string[]

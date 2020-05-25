@@ -72,7 +72,8 @@ export default function FundsList() {
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
   const isTablet = useMedia('lg')
-  const filteredFundsList = useFilter(filter)
+  const funds = useSelector(state => state.investmentsList.data)
+  const filteredFundsList = useFilter(filter, funds)
   const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
   const [title, setTitle] = useState('')
 
@@ -80,6 +81,7 @@ export default function FundsList() {
     isLoading: state.investmentsList.isLoading,
     isError: state.investmentsList.isError,
   }))
+
   useFetchInvestmentsList()
 
   useEffect(() => {
@@ -213,12 +215,16 @@ export default function FundsList() {
       <GridContainer as="section">
         {isMobile ? (
           <>
-            <FloatButton
-              color="primary"
-              onClick={() => setIsFilterDrawerOpen(true)}
-              size="large"
-              icon="filter"
-            />
+            {!fundsStatus.isLoading &&
+              !fundsStatus.isError &&
+              !!funds.length && (
+                <FloatButton
+                  color="primary"
+                  onClick={() => setIsFilterDrawerOpen(true)}
+                  size="large"
+                  icon="filter"
+                />
+              )}
             <Col col={12}>
               <ResponsiveList
                 onChangeIsFundDetailOpen={setIsFundDetailOpen}
@@ -235,6 +241,9 @@ export default function FundsList() {
           <>
             <TableContent>
               <Filter
+                disabled={
+                  !funds.length || fundsStatus.isLoading || fundsStatus.isError
+                }
                 filter={filter}
                 onChangeFilter={handleChangeFilter}
                 onChangeIsDrawerOpen={setIsFilterDrawerOpen}
@@ -255,6 +264,10 @@ export default function FundsList() {
                     handleLayerOpen={fundId => onChangeLayerOpen(fundId)}
                     isTablet={isTablet}
                     data={mobileFundList(filteredFundsList)}
+                    filteredFundListEmpty={
+                      !!funds.length &&
+                      !mobileFundList(filteredFundsList).length
+                    }
                     fundsType={fundsType}
                     isLoading={fundsStatus.isLoading}
                     isError={fundsStatus.isError}
