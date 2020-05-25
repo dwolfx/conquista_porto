@@ -5,8 +5,10 @@ import PropTypes from 'prop-types'
 import Text from 'components/Text'
 import Modal from 'components/Modal/ModalNew'
 import HorizontalList from 'components/HorizontalList'
+import VerticalList from 'components/VerticalList'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 import Button from 'components/Button'
+import useMedia from 'hooks/useMedia'
 
 import {
   ModalTextWrapper,
@@ -21,6 +23,41 @@ export default function ModalAccountPortoInfo({
   bankData,
 }) {
   const history = useHistory()
+  const isMobile = useMedia('xs')
+
+  const ButtonRetirar = () => (
+    <Button
+      outline
+      data-gtm-type="click"
+      data-gtm-clicktype="button"
+      data-gtm-subname="investimentos e resgate"
+      data-gtm-name="retirar"
+      onClick={() => {
+        handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
+      }}
+      css={`
+        margin-top: ${isMobile ? '21px' : '0px'};
+      `}
+    >
+      retirar
+    </Button>
+  )
+
+  const ButtonInvestir = () => (
+    <Button
+      color="secondary"
+      data-gtm-type="click"
+      data-gtm-clicktype="button"
+      data-gtm-subname="investimentos e resgate"
+      data-gtm-name="investir"
+      onClick={() => {
+        history.push('/investimentos/lista-fundos')
+      }}
+    >
+      investir
+    </Button>
+  )
+
   return (
     <Modal
       modalTitle="Conta de investimento"
@@ -31,53 +68,55 @@ export default function ModalAccountPortoInfo({
       <>
         <ModalTextWrapper>
           <ContainerBox>
-            <HorizontalList
-              size="small"
-              startItems={[
-                <Text type="headline" color="gray4" bold>
-                  Saldo disponível
-                </Text>,
-              ]}
-              endItems={[
-                <Text type="headline" color="gray6" bold>
-                  {formatMoney(
-                    bankData && bankData.DadosContaPortoSeguro
-                      ? bankData.DadosContaPortoSeguro.saldo_disponivel
-                      : 0
-                  )}
-                </Text>,
-                <Button
-                  outline
-                  data-gtm-type="click"
-                  data-gtm-clicktype="button"
-                  data-gtm-subname="investimentos e resgate"
-                  data-gtm-name="retirar"
-                  onClick={() => {
-                    handleGiwRedirect(
-                      'portaldecliente/conquista/retirada?r=true'
-                    )
-                  }}
-                >
-                  retirar
-                </Button>,
-                <Button
-                  color="secondary"
-                  data-gtm-type="click"
-                  data-gtm-clicktype="button"
-                  data-gtm-subname="investimentos e resgate"
-                  data-gtm-name="investir"
-                  onClick={() => {
-                    history.push('/investimentos/lista-fundos')
-                  }}
-                >
-                  investir
-                </Button>,
-              ]}
-              css={`
-                width: 100%;
-                padding: 0;
-              `}
-            />
+            {isMobile ? (
+              <VerticalList
+                elements={[
+                  <HorizontalList
+                    noPadding
+                    startItems={[
+                      <Text type="headline" color="gray4" bold>
+                        Saldo disponível
+                      </Text>,
+                    ]}
+                    endItems={[
+                      <Text type="headline" color="gray6" bold>
+                        {formatMoney(
+                          bankData && bankData.DadosContaPortoSeguro
+                            ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                            : 0
+                        )}
+                      </Text>,
+                    ]}
+                  />,
+                  <ButtonRetirar />,
+                  <ButtonInvestir />,
+                ]}
+              />
+            ) : (
+              <HorizontalList
+                size="small"
+                startItems={[
+                  <Text type="headline" color="gray4" bold>
+                    Saldo disponível
+                  </Text>,
+                ]}
+                endItems={[
+                  <Text type="headline" color="gray6" bold>
+                    {formatMoney(
+                      bankData && bankData.DadosContaPortoSeguro
+                        ? bankData.DadosContaPortoSeguro.saldo_disponivel
+                        : 0
+                    )}
+                  </Text>,
+                  <ButtonRetirar />,
+                  <ButtonInvestir />,
+                ]}
+                css={`
+                  width: 100%;
+                  padding: 0;
+                `}
+              />
+            )}
           </ContainerBox>
         </ModalTextWrapper>
         <ModalTextWrapper margin="0 0 14px 0">
