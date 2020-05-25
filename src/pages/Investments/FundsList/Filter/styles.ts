@@ -29,25 +29,26 @@ export const SquareRiskContainer = styled.div`
   display: flex;
 `
 const handleOpacitySquareRisk = ({
-  value,
+  disabled,
   selectedRisk,
 }: ISquareRiskLevelProps) => {
-  if (selectedRisk) {
-    return 1
+  if (!selectedRisk || disabled) {
+    return 0.2
   }
-  return 0.2
+  return 1
 }
 
 interface ISquareRiskLevelProps {
   color: keyof typeof themeColors
   selectedRisk: boolean
   value: string
+  disabled?: boolean
 }
 
 export const SquareRiskLevel = styled.div.attrs(() => ({
   role: 'button',
 }))<ISquareRiskLevelProps>`
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   width: 21px;
   height: 21px;
   margin-right: 4px;

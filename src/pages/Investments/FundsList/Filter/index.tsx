@@ -31,6 +31,7 @@ interface IProps {
   filter: IFilterProps
   filtersCount: number
   isFiltersClean: boolean
+  disabled: boolean
   onChangeIsDrawerOpen: (isOpen: boolean) => void
   onChangeFilter: (filter: IFilterProps) => void
   onChangeSort: (sort: IFundSort) => void
@@ -41,6 +42,7 @@ interface IProps {
 const Filter: React.FC<IProps> = ({
   filter,
   filtersCount,
+  disabled,
   onChangeFilter,
   onChangeIsDrawerOpen,
   onClearFilter,
@@ -84,8 +86,11 @@ const Filter: React.FC<IProps> = ({
         <Row alignItems="center">
           <ButtonLink
             noIcon
+            disabled={disabled}
             onClick={() => {
-              onChangeIsDrawerOpen(true)
+              if (!disabled) {
+                onChangeIsDrawerOpen(true)
+              }
             }}
           >
             ver filtros
@@ -93,10 +98,12 @@ const Filter: React.FC<IProps> = ({
           <VerticalDivisor />
           <ButtonLink
             noIcon
-            disabled={isFiltersClean}
+            disabled={isFiltersClean || disabled}
             onClick={() => {
-              onClearFilter()
-              onClearSort()
+              if (!disabled) {
+                onClearFilter()
+                onClearSort()
+              }
             }}
           >
             limpar filtros
@@ -106,6 +113,7 @@ const Filter: React.FC<IProps> = ({
       ) : (
         <RowFilterByType>
           <ButtonTagStyled
+            disabled={disabled}
             color={
               filter.byCategoriaArena.includes(FILTER_TYPES[1]) ? 'primary' : ''
             }
@@ -116,6 +124,7 @@ const Filter: React.FC<IProps> = ({
             Renda Fixa
           </ButtonTagStyled>
           <ButtonTagStyled
+            disabled={disabled}
             color={
               filter.byCategoriaArena.includes(FILTER_TYPES[2]) ? 'primary' : ''
             }
@@ -126,6 +135,7 @@ const Filter: React.FC<IProps> = ({
             multimercado
           </ButtonTagStyled>
           <ButtonTagStyled
+            disabled={disabled}
             color={
               filter.byCategoriaArena.includes(FILTER_TYPES[3]) ? 'primary' : ''
             }
@@ -136,6 +146,7 @@ const Filter: React.FC<IProps> = ({
             ações
           </ButtonTagStyled>
           <ButtonTagStyled
+            disabled={disabled}
             color={
               filter.byCategoriaArena.includes(FILTER_TYPES[4]) ? 'primary' : ''
             }
@@ -146,6 +157,7 @@ const Filter: React.FC<IProps> = ({
             inv. no exterior
           </ButtonTagStyled>
           <ButtonTagStyled
+            disabled={disabled}
             color={
               filter.byCategoriaArena.includes(FILTER_TYPES[5]) ? 'primary' : ''
             }
@@ -170,61 +182,66 @@ const Filter: React.FC<IProps> = ({
         </Text>
         <SquareRiskContainer>
           <SquareRiskLevel
+            disabled={disabled}
             selectedRisk={
               filter.byPerfilRisco.includes(FILTER_RISKS[1]) || isTablet
             }
             value={FILTER_RISKS[1]}
             color="darkBlue2"
             onClick={() => {
-              if (!isTablet) {
+              if (!isTablet && !disabled) {
                 handleClickFilterByRisk(FILTER_RISKS[1])
               }
             }}
           />
           <SquareRiskLevel
+            disabled={disabled}
             selectedRisk={
               filter.byPerfilRisco.includes(FILTER_RISKS[2]) || isTablet
             }
             value={FILTER_RISKS[2]}
             color="blue4"
             onClick={() => {
-              if (!isTablet) {
+              if (!isTablet && !disabled) {
                 handleClickFilterByRisk(FILTER_RISKS[2])
               }
             }}
           />
           <SquareRiskLevel
+            disabled={disabled}
             selectedRisk={
               filter.byPerfilRisco.includes(FILTER_RISKS[3]) || isTablet
             }
             value={FILTER_RISKS[3]}
             color="green3"
             onClick={() => {
-              if (!isTablet) {
+              if (!isTablet && !disabled) {
                 handleClickFilterByRisk(FILTER_RISKS[3])
               }
             }}
           />
           <SquareRiskLevel
+            disabled={disabled}
             selectedRisk={
               filter.byPerfilRisco.includes(FILTER_RISKS[4]) || isTablet
             }
             value={FILTER_RISKS[4]}
             color="yellow2"
             onClick={() => {
-              if (!isTablet) {
+              if (!isTablet && !disabled) {
                 handleClickFilterByRisk(FILTER_RISKS[4])
               }
             }}
           />
           <SquareRiskLevel
+            disabled={disabled}
             selectedRisk={
               filter.byPerfilRisco.includes(FILTER_RISKS[5]) || isTablet
             }
             value={FILTER_RISKS[5]}
             color="magenta2"
             onClick={() => {
-              if (!isTablet) {
+              if (!isTablet && !disabled) {
                 handleClickFilterByRisk(FILTER_RISKS[5])
               }
             }}
@@ -246,10 +263,14 @@ const Filter: React.FC<IProps> = ({
             <ButtonLink
               noIcon
               disabled={
-                filter.byPerfilRisco.length > 0 &&
+                filter.byPerfilRisco.length === 0 &&
                 filter.byCategoriaArena.length === 0
               }
-              onClick={onClearFilter}
+              onClick={() => {
+                if (!disabled) {
+                  onClearFilter()
+                }
+              }}
             >
               limpar filtros
             </ButtonLink>

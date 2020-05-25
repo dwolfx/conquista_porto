@@ -24,6 +24,8 @@ import {
   TheadText,
   StickyDivisor,
   InfoTableContent,
+  InfoTableContainer,
+  ErrorText,
 } from './styles'
 
 const SimpleHeader = ({ header }) => {
@@ -73,6 +75,7 @@ export default function TableFunds({
   setIsOpenForInvestments,
   columns: columnsProps,
   clickedFundInvestButton,
+  filteredFundListEmpty,
 }) {
   const {
     getTableProps,
@@ -142,32 +145,55 @@ export default function TableFunds({
   const renderTableContent = () => {
     if (isLoading) {
       return (
-        <InfoTableContent>
-          <Loading
-            type="bar"
-            legend="Buscando informações dos fundos de investimentos…"
-          />
-        </InfoTableContent>
+        <InfoTableContainer>
+          <InfoTableContent>
+            <Loading
+              type="bar"
+              legend="Buscando informações dos fundos de investimentos…"
+            />
+          </InfoTableContent>
+        </InfoTableContainer>
       )
     }
 
     if (isError) {
       return (
-        <InfoTableContent>
-          <Text
-            type="headline"
-            color="magenta2"
-            css={`
-              margin-bottom: 14px;
-            `}
-          >
-            Não foi possível carregar a lista de fundos. Por favor, tente
-            novamente.
-          </Text>
-          <Button onClick={() => dispatch(GetInvestmentListRequest())}>
-            Tentar novamente
-          </Button>
-        </InfoTableContent>
+        <InfoTableContainer>
+          <InfoTableContent>
+            <ErrorText>
+              Não foi possível carregar a lista de fundos. Por favor, tente
+              novamente.
+            </ErrorText>
+            <Button onClick={() => dispatch(GetInvestmentListRequest())}>
+              Tentar novamente
+            </Button>
+          </InfoTableContent>
+        </InfoTableContainer>
+      )
+    }
+
+    if (filteredFundListEmpty) {
+      return (
+        <InfoTableContainer>
+          <InfoTableContent>
+            <Text type="headline" color="gray5">
+              No momento, não temos fundos com essas especificações.
+            </Text>
+          </InfoTableContent>
+        </InfoTableContainer>
+      )
+    }
+
+    if (!data || data.length === 0) {
+      return (
+        <InfoTableContainer>
+          <InfoTableContent>
+            <Text type="headline" color="gray5">
+              No momento não possuímos nenhum fundo de investimento em nossa
+              plataforma.
+            </Text>
+          </InfoTableContent>
+        </InfoTableContainer>
       )
     }
 
@@ -189,6 +215,7 @@ export default function TableFunds({
             onChangeIsFundDetailOpen={onChangeIsFundDetailOpen}
             setIsOpenForInvestments={setIsOpenForInvestments}
             rows={rows}
+            isTablet={isTablet}
             isLoading={isLoading}
             prepareRow={prepareRow}
             isError={isError}
@@ -231,6 +258,7 @@ TableFunds.propTypes = {
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
   clickedFundInvestButton: PropTypes.string,
+  filteredFundListEmpty: PropTypes.bool.isRequired,
 }
 
 TableFunds.defaultProps = {

@@ -97,6 +97,9 @@ export const DrawerFilter = ({
     if (newSort.sortBy === field) {
       setIsDesc(null)
       setNewSort({ sortBy: null, sortType: null })
+    } else if (sort.sortType === null) {
+      setIsDesc(false)
+      setNewSort({ sortType: isDesc, sortBy: field })
     } else {
       setNewSort({ sortType: isDesc, sortBy: field })
     }

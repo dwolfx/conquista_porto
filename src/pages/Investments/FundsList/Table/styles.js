@@ -30,26 +30,31 @@ export const WrapperContent = styled.div`
       color: ${props.theme.colors.gray6};
     `}
 `
-export const InfoTableContent = styled.div`
+
+export const ErrorText = styled(Text).attrs(() => ({
+  type: 'headline',
+  color: 'magenta2',
+}))`
+  width: 357px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const InfoTableContainer = styled.div`
   margin: auto;
-  width: 428px;
   height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  border: 1px solid ${({ theme }) => theme.colors.gray3};
+  box-sizing: border-box;
+  border-radius: 4px;
   justify-content: center;
+`
+
+export const InfoTableContent = styled.div`
   padding: 0 35px;
   white-space: pre-line;
   text-align: center;
-
-  @media ${props => props.theme.mediaQueries.lg} {
-    width: 100%;
-    border: 1px solid ${({ theme }) => theme.colors.gray3};
-    box-sizing: border-box;
-    border-radius: 4px;
-    padding: 0 ${({ theme }) => theme.spacing(34)}px;
-  }
 `
 export const TableWrapper = styled.div`
   position: relative;
