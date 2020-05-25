@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
 
-import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
@@ -63,7 +63,7 @@ const ButtonInvest = ({ fund, idGoal }:IButtonProps) => {
         }`)
       }
     }
-    dispatch(GetSuitabilityInfoRequest(onSuccess, 'investir', addToast))
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
   }
 
   return (

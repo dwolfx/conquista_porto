@@ -26,6 +26,11 @@ export const ProductBanner = styled(Banner)`
       margin-bottom: 30px;
     }
   }
+  @media ${props => props.theme.mediaQueries.sm} {
+    &:first-of-type {
+      margin-bottom: 0;
+    }
+  }
 `
 
 export const ProductBannerItemsContainer = styled(Row)`

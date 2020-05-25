@@ -1,5 +1,4 @@
 import React from 'react'
-import { Row } from 'styled-bootstrap-grid'
 
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
