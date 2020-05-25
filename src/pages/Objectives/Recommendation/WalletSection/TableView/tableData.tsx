@@ -15,6 +15,33 @@ const profitabilityExists = (fund: IFund) =>
   fund.profitability[0].value &&
   fund.profitability[0].value[3]
 
+const formatFundoInv = (row: IFund) => (
+  <s.FundoOutterWrapper>
+    <RiskColorTag borderRisk={row['wsdls/profile']} />
+    <s.FundoWrapper>
+      <s.FundoNameWrapper>{row.name}</s.FundoNameWrapper>
+      <Text type="caption" color="gray4" bold textAlign="left">
+        {row.category_name}
+      </Text>
+    </s.FundoWrapper>
+  </s.FundoOutterWrapper>
+)
+
+const formatRent12Meses = (row: IFund) =>
+  profitabilityExists(row)
+    ? `${Intl.NumberFormat('pt-br').format(row.profitability[0].value[3])}%`
+    : '--'
+
+const formatInicialValue = (row: IFund) => formatMoney(row.initial_value)
+
+const formatMonthlyValue = (row: IFund) => formatMoney(row.monthly_value)
+
+const formatActionButton = (row: IFund, onShowDetails: (r: IFund) => void) => (
+  <Button outline onClick={() => onShowDetails(row)}>
+    mais informações
+  </Button>
+)
+
 export const columns = [
   {
     Header: 'FUNDO DE INVESTIMENTO',
@@ -28,24 +55,13 @@ export const columns = [
         minWidth: 185,
       },
     },
-    format: (row: IFund) => (
-      <s.FundoOutterWrapper>
-        <RiskColorTag borderRisk={row['wsdls/profile']} />
-        <s.FundoWrapper>
-          <s.FundoNameWrapper>{row.name}</s.FundoNameWrapper>
-          <Text type="caption" color="gray4" bold textAlign="left">
-            {row.category_name}
-          </Text>
-        </s.FundoWrapper>
-      </s.FundoOutterWrapper>
-    ),
+    format: (row: IFund) => formatFundoInv(row),
   },
   {
     Header: 'RENT. ÚLT. 12 MESES',
     accessor: 'profitability',
     align: 'center',
-    format: (row: IFund) =>
-      profitabilityExists(row) ? `${row.profitability[0].value[3]}%` : '--',
+    format: (row: IFund) => formatRent12Meses(row),
     sort: (a: IFund, b: IFund) => {
       if (profitabilityExists(a)) {
         if (profitabilityExists(b)) {
@@ -71,7 +87,7 @@ export const columns = [
   {
     Header: 'INV. INICIAL',
     accessor: 'initial_value',
-    format: (row: IFund) => formatMoney(row.initial_value),
+    format: (row: IFund) => formatInicialValue(row),
     align: 'center',
     styles: {
       width: '12%',
@@ -85,7 +101,7 @@ export const columns = [
   {
     Header: 'INV. MENSAL',
     accessor: 'monthly_value',
-    format: (row: IFund) => formatMoney(row.monthly_value),
+    format: (row: IFund) => formatMonthlyValue(row),
     align: 'center',
     styles: {
       width: '14%',
@@ -99,11 +115,8 @@ export const columns = [
   {
     Header: '',
     accessor: 'acao',
-    format: (row: IFund, onShowDetails: (r: IFund) => void) => (
-      <Button outline onClick={() => onShowDetails(row)}>
-        mais informações
-      </Button>
-    ),
+    format: (row: IFund, onShowDetails: (r: IFund) => void) =>
+      formatActionButton(row, onShowDetails),
     align: 'center',
     styles: {
       width: '22%',
@@ -129,24 +142,13 @@ export const columnsSticky = [
         minWidth: 185,
       },
     },
-    format: (row: IFund) => (
-      <s.FundoOutterWrapper>
-        <RiskColorTag borderRisk={row['wsdls/profile']} />
-        <s.FundoWrapper>
-          <s.FundoNameWrapper>{row.name}</s.FundoNameWrapper>
-          <Text type="caption" color="gray4" bold textAlign="left">
-            {row.category_name}
-          </Text>
-        </s.FundoWrapper>
-      </s.FundoOutterWrapper>
-    ),
+    format: (row: IFund) => formatFundoInv(row),
   },
   {
     Header: 'RENT. ÚLT. 12 MESES',
     accessor: 'profitability',
     align: 'center',
-    format: (row: IFund) =>
-      profitabilityExists(row) ? `${row.profitability[0].value[3]}%` : '--',
+    format: (row: IFund) => formatRent12Meses(row),
     sort: (a: IFund, b: IFund) => {
       if (profitabilityExists(a)) {
         if (profitabilityExists(b)) {
@@ -172,7 +174,7 @@ export const columnsSticky = [
   {
     Header: 'INV. INICIAL',
     accessor: 'initial_value',
-    format: (row: IFund) => formatMoney(row.initial_value),
+    format: (row: IFund) => formatInicialValue(row),
     align: 'center',
     styles: {
       width: '12%',
@@ -186,7 +188,7 @@ export const columnsSticky = [
   {
     Header: 'INV. MENSAL',
     accessor: 'monthly_value',
-    format: (row: IFund) => formatMoney(row.monthly_value),
+    format: (row: IFund) => formatMonthlyValue(row),
     align: 'center',
     styles: {
       width: '14%',
@@ -200,11 +202,8 @@ export const columnsSticky = [
   {
     Header: '',
     accessor: 'acao',
-    format: (row: IFund, onShowDetails: (r: IFund) => void) => (
-      <Button outline onClick={() => onShowDetails(row)}>
-        mais informações
-      </Button>
-    ),
+    format: (row: IFund, onShowDetails: (r: IFund) => void) =>
+      formatActionButton(row, onShowDetails),
     align: 'center',
     styles: {
       width: 194,
