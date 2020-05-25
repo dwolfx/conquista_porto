@@ -63,7 +63,7 @@ const Modal: React.FC<IProps> = ({
   return ReactDOM.createPortal(
     <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
       <ModalOverlay isOpen={isOpen} onClick={handleClose} />
-      <ModalContainer lg={4} md={6} sm={6} xs={12}>
+      <ModalContainer>
         <ModalHeader>
           {headerIcon && (
             <Icon

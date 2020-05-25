@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { Col } from 'styled-bootstrap-grid'
 import CloseIcon from 'assets/icons/close.svg'
 import DivisorComponent from 'components/Divisor'
 
@@ -33,7 +32,7 @@ export const Divisor = styled(DivisorComponent).attrs(() => ({
   margin: 0 7px;
 `
 
-export const ModalContainer = styled(Col)`
+export const ModalContainer = styled.div`
   padding: 10px ${props => props.theme.spacing(2)}px;
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
