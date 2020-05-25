@@ -23,6 +23,7 @@ import suitability from './Suitability/reducer'
 import suitabilityInfo from './SuitabilityInfo/reducer'
 import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
+import customerProfile from './CustomerProfile/reducer'
 
 export default combineReducers({
   bankData,
@@ -48,4 +49,5 @@ export default combineReducers({
   suitabilityInfo,
   rewardsRecommendations,
   rewardsTypes,
+  customerProfile,
 })

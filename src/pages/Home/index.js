@@ -14,6 +14,7 @@ import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPo
 import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsExtractRequest } from 'store/modules/Points/action'
 import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
+import { GetCustomerProfileRequest } from 'store/modules/CustomerProfile/action'
 
 import SectionOne from './SectionOne'
 import AdvertisementBanner from './AdvertisementBanner'
@@ -36,6 +37,7 @@ const Home = ({ location }) => {
   }
 
   useEffect(() => {
+    dispatch(GetCustomerProfileRequest(auth.cpf))
     dispatch(GetSuitabilityInfoRequest(auth.cpf))
     dispatch(GetCreditCardDataRequest(auth.cpf))
     handleFetchInvestments()
