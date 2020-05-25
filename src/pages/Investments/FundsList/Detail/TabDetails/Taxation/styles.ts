@@ -83,6 +83,11 @@ export const TaxationInfo = styled.div`
     ${({ theme }) => theme.spacing(3)}px 0;
   text-align: center;
 
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    height: auto;
+    padding: ${({ theme }) => theme.spacing(3)}px;
+    margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+  }
   @media ${({ theme }) => theme.mediaQueries.xs} {
     height: auto;
     padding: ${({ theme }) => theme.spacing(3)}px;

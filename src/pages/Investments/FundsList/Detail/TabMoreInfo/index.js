@@ -13,11 +13,11 @@ import VerticalList from 'components/VerticalList'
 
 import { formatDotToComma } from 'helpers'
 
-import { ColStyled } from './styles'
+import { ColStyled, InfoContent } from './styles'
 
 export default function TabMoreInfo({ fund }) {
   return (
-    <div>
+    <InfoContent>
       <div>
         <HorizontalList
           noPadding
@@ -161,7 +161,7 @@ export default function TabMoreInfo({ fund }) {
           </ColStyled>
         </Row>
       </div>
-    </div>
+    </InfoContent>
   )
 }
 
