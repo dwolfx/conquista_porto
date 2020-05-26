@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Row } from 'styled-bootstrap-grid'
+
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
@@ -54,13 +56,14 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
         <Text type="headline" color="gray6">
           {currentProduct.message}
         </Text>
-        {creditProduct.values &&
-          creditProduct.values.map((item: IObjectItem, index: number) =>
+        <Row>
+          {creditProduct.values &&creditProduct.values.map((item: IObjectItem, index: number) =>
+              singleInfo(item, index)
+            )}
+          {currentProduct.items.map((item: IObjectItem, index: number) =>
             singleInfo(item, index)
           )}
-        {currentProduct.items.map((item: IObjectItem, index: number) =>
-          singleInfo(item, index)
-        )}
+        </Row>
       </s.CardContainer>
     </s.FullHeightCard>
   )
