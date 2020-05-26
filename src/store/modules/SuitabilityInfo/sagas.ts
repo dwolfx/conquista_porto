@@ -3,7 +3,7 @@ import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import { GetDataSuccess, GetDataFailure } from './action'
-import { getSuitabilityInfo, getBankData } from './selectors'
+import { getSuitabilityInfo, getCustomerProfile, getAuth } from './selectors'
 import {
   handleInvestButton,
   handleRedeemButton,
@@ -23,6 +23,7 @@ interface IProps {
   type: string
   payload: { cpf: string }
 }
+
 function* getData({ payload }: IProps) {
   const { cpf } = payload
   try {
@@ -43,7 +44,21 @@ function* getDataValidate({ payload }: IPayload) {
   const { onSuccess, buttonType, onErrorToast } = payload
   try {
     const suitabilityInfoState = yield select(getSuitabilityInfo)
-    const bankData = yield select(getBankData)
+    let customerProfile = yield select(getCustomerProfile)
+
+    const auth = yield select(getAuth)
+
+    if (!customerProfile) {
+      const response = yield call(
+        get,
+        `${baseURLNamespaceInvest}/perfil/dados-cliente?cpfCnpj=${auth.cpf}`
+      )
+      customerProfile = {
+        cpfCnpj: response.data.cpfCnpj,
+        customerName: response.data.nomeCliente,
+        customerEmail: response.data.emailCliente,
+      }
+    }
 
     let suitabilityInfo = suitabilityInfoState
       ? { ...suitabilityInfoState }
@@ -52,7 +67,7 @@ function* getDataValidate({ payload }: IPayload) {
     if (!suitabilityInfo) {
       const response = yield call(
         get,
-        `${baseURLNamespaceInvest}/cotista/status?cpf=${bankData.DadosContaPortoSeguro.cpf}`
+        `${baseURLNamespaceInvest}/cotista/status?cpf=${auth.cpf}`
       )
       suitabilityInfo = { ...response.data }
     }
@@ -60,13 +75,13 @@ function* getDataValidate({ payload }: IPayload) {
 
     switch (buttonType) {
       case 'investir':
-        onSuccess(handleInvestButton(suitabilityInfo, bankData))
+        onSuccess(handleInvestButton(suitabilityInfo, customerProfile))
         break
       case 'resgatar':
-        onSuccess(handleRedeemButton(suitabilityInfo, bankData))
+        onSuccess(handleRedeemButton(suitabilityInfo, customerProfile))
         break
       case 'retirar':
-        onSuccess(handleWithdrawButton(suitabilityInfo, bankData))
+        onSuccess(handleWithdrawButton(suitabilityInfo, customerProfile))
         break
       default:
         break
