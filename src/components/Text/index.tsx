@@ -17,7 +17,6 @@ const Text: FunctionComponent<IProps> = ({
   color = 'unset',
   children,
   textAlign = 'unset',
-  truncate = false,
   ...rest
 }) => (
   <TextStyle
