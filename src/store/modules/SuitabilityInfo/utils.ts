@@ -53,6 +53,21 @@ export const handleInvestButton = (
           buttonName: 'Conversar',
         },
       }
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
+      return {
+        isOpen: true,
+        title: 'Falha ao processar solicitação',
+        description:
+          'Seu cadastro está em análise. Em até 48 horas, você poderá investir.',
+        button: {
+          dataGtmName: 'fechar',
+          dataGtmType: 'click',
+          dataGtmClicktype: 'button',
+          handleClick: null,
+          buttonName: 'Fechar',
+        },
+      }
     case suitabilityInfo.status_data_vencimento_cadastro:
       return {
         isOpen: true,
@@ -100,21 +115,6 @@ export const handleInvestButton = (
               `portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true`
             ),
           buttonName: 'Refazer',
-        },
-      }
-    case suitabilityInfo.codigo_status_cotista !== '30' &&
-      suitabilityInfo.codigo_status_cotista !== '122':
-      return {
-        isOpen: true,
-        title: 'Falha ao processar solicitação',
-        description:
-          'Seu cadastro está em análise. Em até 48 horas, você poderá investir.',
-        button: {
-          dataGtmName: 'fechar',
-          dataGtmType: 'click',
-          dataGtmClicktype: 'button',
-          handleClick: null,
-          buttonName: 'Fechar',
         },
       }
     default:
