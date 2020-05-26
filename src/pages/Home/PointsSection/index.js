@@ -10,7 +10,6 @@ import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Text from 'components/Text'
 import Tag from 'components/Tag'
-import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
 import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
 import Popover from 'components/Popover/index'
@@ -44,6 +43,7 @@ import {
   PointName,
   PointNumber,
   PointsList,
+  PointsHorizontal,
   ModalTextWrapper,
   PointsExtractListWrapper,
   PointsButtonWrapper,
@@ -84,6 +84,10 @@ export default function PointsSection({ points }) {
     creditCard: state.creditCard.data,
     rewardsTypes: state.rewardsTypes.data,
   }))
+
+  useEffect(() => {
+    dispatch(GetRewardTypesRequest())
+  }, [])
 
   useEffect(() => {
     setCardsRecommendationData(
@@ -186,13 +190,7 @@ export default function PointsSection({ points }) {
   function redirectToRescuePointsSystem({ url }) {
     window.open(`#/redirect?to=${url}`, '_blank')
   }
-
-  const actionsModalRulesConditions = () => {
-    console.log('foi')
-    dispatch(GetRewardTypesRequest())
-    setIsModalOpen(!isModalOpen)
-  }
-
+  
   const renderPointsFooter = () => {
     if (
       isLoadingExtract ||
@@ -210,7 +208,7 @@ export default function PointsSection({ points }) {
           data-gtm-name="regras e condicoes"
           data-gtm-type="click"
           data-gtm-clicktype="link"
-          onClick={() => actionsModalRulesConditions()}
+          onClick={() => setIsModalOpen(!isModalOpen)}
         >
           Regras e condições
         </ButtonLink>
@@ -258,7 +256,7 @@ export default function PointsSection({ points }) {
         {item.points && (
           <ContainerBox>
             {rewardsTypes.map(itemPoints => (
-              <HorizontalList
+              <PointsHorizontal
                 noPadding
                 startItems={[customText('headline', 'gray6', itemPoints.name)]}
                 endItems={[tag('gray', `${itemPoints.quantity} PONTOS`)]}
