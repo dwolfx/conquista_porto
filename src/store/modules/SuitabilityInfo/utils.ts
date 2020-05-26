@@ -26,14 +26,14 @@ const SCENARIOS_TYPES = {
   NOT_SUITABILITY_AND_NOT_QUOTIST: 'NOT_SUITABILITY_AND_NOT_QUOTIST',
   // PROBLEMA NO PERFIL
   PROFILE_PROBLEM: 'PROFILE_PROBLEM',
+  // CADASTRO EM ANÁLISE
+  REGISTRATION_UNDER_ANALYSIS: 'REGISTRATION_UNDER_ANALYSIS',
   // CADASTRO DO PERFIL VENCIDO
   EXPIRED_PROFILE: 'EXPIRED_PROFILE',
   // NÃO POSSUI SUITABILITY
   NOT_SUITABILITY: 'NOT_SUITABILITY',
   // SUITABILITY VENCIDO
   EXPIRED_SUITABILITY: 'EXPIRED_SUITABILITY',
-  // CADASTRO EM ANÁLISE
-  REGISTRATION_UNDER_ANALYSIS: 'REGISTRATION_UNDER_ANALYSIS',
 }
 
 const getInvestmentModalContent = (
@@ -70,6 +70,19 @@ const getInvestmentModalContent = (
           }&nome=${customerProfile ? customerProfile.customerName : ''}`
         },
         buttonName: 'Conversar',
+      },
+    },
+    REGISTRATION_UNDER_ANALYSIS: {
+      isOpen: true,
+      title: 'Falha ao processar solicitação',
+      description:
+        'Seu cadastro está em análise. Em até 48 horas, você poderá investir.',
+      button: {
+        dataGtmName: 'fechar',
+        dataGtmType: 'click',
+        dataGtmClicktype: 'button',
+        handleClick: null,
+        buttonName: 'Fechar',
       },
     },
     EXPIRED_PROFILE: {
@@ -118,19 +131,6 @@ const getInvestmentModalContent = (
         buttonName: 'Refazer',
       },
     },
-    REGISTRATION_UNDER_ANALYSIS: {
-      isOpen: true,
-      title: 'Falha ao processar solicitação',
-      description:
-        'Seu cadastro está em análise. Em até 48 horas, você poderá investir.',
-      button: {
-        dataGtmName: 'fechar',
-        dataGtmType: 'click',
-        dataGtmClicktype: 'button',
-        handleClick: null,
-        buttonName: 'Fechar',
-      },
-    },
   } as IObjValidate
 
   return objValidateInvestButton[validateCase]
@@ -151,17 +151,17 @@ export const handleInvestButton = (
         SCENARIOS_TYPES.PROFILE_PROBLEM,
         customerProfile
       )
+    case suitabilityInfo.codigo_status_cotista !== '30' &&
+      suitabilityInfo.codigo_status_cotista !== '122':
+      return getInvestmentModalContent(
+        SCENARIOS_TYPES.REGISTRATION_UNDER_ANALYSIS
+      )
     case suitabilityInfo.status_data_vencimento_cadastro:
       return getInvestmentModalContent(SCENARIOS_TYPES.EXPIRED_PROFILE)
     case !suitabilityInfo.status_possui_suitability:
       return getInvestmentModalContent(SCENARIOS_TYPES.NOT_SUITABILITY)
     case !suitabilityInfo.status_data_vigencia_suitability:
       return getInvestmentModalContent(SCENARIOS_TYPES.EXPIRED_SUITABILITY)
-    case suitabilityInfo.codigo_status_cotista !== '30' &&
-      suitabilityInfo.codigo_status_cotista !== '122':
-      return getInvestmentModalContent(
-        SCENARIOS_TYPES.REGISTRATION_UNDER_ANALYSIS
-      )
     default:
       return { isValid: true }
   }
