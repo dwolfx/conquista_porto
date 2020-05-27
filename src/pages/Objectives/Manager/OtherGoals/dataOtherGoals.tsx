@@ -14,7 +14,7 @@ export const categoryGoals:ICategoryGoals = {
   },
   2: {
     icon: 'time',
-    text: 'Aposentadoria',
+    text: 'Aposentar',
   },
   3: {
     icon: 'car2',

@@ -184,7 +184,7 @@
     "life_security": true,
     "credit_card": true
   },
-  "creditProduct": {
+  "credit_product": {
     "name": "Financiamento de Veículo",
     "values": [
       {

@@ -118,8 +118,8 @@ export default [
     goal_type: RETIREMENT,
     enable: false,
     icon: 'time',
-    label: 'Aposentadoria',
-    route: '/aposentadoria',
+    label: 'Aposentar',
+    route: '/aposentar',
     flow: [
       firstStep,
       {

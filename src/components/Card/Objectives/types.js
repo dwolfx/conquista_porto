@@ -20,7 +20,7 @@ export default [
     id: 2,
     icon: 'time',
     title: 'Aposentar',
-    link: '/objetivos/aposentadoria',
+    link: '/objetivos/aposentar',
     goalType: RETIREMENT,
   },
   {
