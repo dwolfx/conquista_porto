@@ -1,5 +1,10 @@
 import { dict } from 'components/IconExporter'
-import { betweenLength, minValue, validateDate, IDateValues } from './validators'
+import {
+  betweenLength,
+  minValue,
+  validateDate,
+  IDateValues,
+} from './validators'
 import {
   CAR,
   COURSE,
@@ -42,7 +47,7 @@ const MAX_DATE_VALUES: IDateValues = {
   text: 'anos',
 }
 
-const firstStep:IData = {
+const firstStep: IData = {
   question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
   name: NICKNAME_NAME,
   type: TEXT_TYPE,
@@ -61,13 +66,13 @@ const firstStep:IData = {
 }
 
 interface IDataObject {
-  goal_type: string,
-  enable: boolean,
-  icon: keyof typeof dict,
-  label: string,
-  route: string,
+  goal_type: string
+  enable: boolean
+  icon: keyof typeof dict
+  label: string
+  route: string
   flow: IData[]
-} 
+}
 
 const dataObject: IDataObject[] = [
   {
@@ -84,7 +89,11 @@ const dataObject: IDataObject[] = [
         type: DATE_TYPE,
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value.toString(), MIN_DATE_VALUES, MAX_DATE_VALUES)
+          return validateDate(
+            value.toString(),
+            MIN_DATE_VALUES,
+            MAX_DATE_VALUES
+          )
         },
       },
       {
@@ -94,7 +103,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -106,7 +115,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -118,7 +127,7 @@ const dataObject: IDataObject[] = [
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -140,7 +149,11 @@ const dataObject: IDataObject[] = [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value.toString(), MIN_DATE_VALUES, MAX_DATE_VALUES)
+          return validateDate(
+            value.toString(),
+            MIN_DATE_VALUES,
+            MAX_DATE_VALUES
+          )
         },
       },
       {
@@ -150,7 +163,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -162,7 +175,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -174,7 +187,7 @@ const dataObject: IDataObject[] = [
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -207,7 +220,11 @@ const dataObject: IDataObject[] = [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value.toString(), MIN_DATE_VALUES, MAX_DATE_VALUES)
+          return validateDate(
+            value.toString(),
+            MIN_DATE_VALUES,
+            MAX_DATE_VALUES
+          )
         },
       },
       {
@@ -226,7 +243,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -238,7 +255,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -250,7 +267,7 @@ const dataObject: IDataObject[] = [
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -292,7 +309,11 @@ const dataObject: IDataObject[] = [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value.toString(), MIN_DATE_VALUES, MAX_DATE_VALUES)
+          return validateDate(
+            value.toString(),
+            MIN_DATE_VALUES,
+            MAX_DATE_VALUES
+          )
         },
       },
       {
@@ -311,7 +332,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -323,7 +344,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -335,7 +356,7 @@ const dataObject: IDataObject[] = [
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -377,7 +398,11 @@ const dataObject: IDataObject[] = [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value.toString(), MIN_DATE_VALUES, MAX_DATE_VALUES)
+          return validateDate(
+            value.toString(),
+            MIN_DATE_VALUES,
+            MAX_DATE_VALUES
+          )
         },
       },
       {
@@ -387,7 +412,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -399,7 +424,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -411,7 +436,7 @@ const dataObject: IDataObject[] = [
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -433,7 +458,11 @@ const dataObject: IDataObject[] = [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value.toString(), MIN_DATE_VALUES, MAX_DATE_VALUES)
+          return validateDate(
+            value.toString(),
+            MIN_DATE_VALUES,
+            MAX_DATE_VALUES
+          )
         },
       },
       {
@@ -443,7 +472,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -455,7 +484,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -467,7 +496,7 @@ const dataObject: IDataObject[] = [
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
       },
@@ -488,7 +517,11 @@ const dataObject: IDataObject[] = [
         maxLength: '10',
         ruleText: DATE_TEXT,
         validate(value) {
-          return validateDate(value.toString(), MIN_DATE_VALUES, MAX_DATE_VALUES)
+          return validateDate(
+            value.toString(),
+            MIN_DATE_VALUES,
+            MAX_DATE_VALUES
+          )
         },
       },
       {
@@ -498,7 +531,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -510,7 +543,7 @@ const dataObject: IDataObject[] = [
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, THOUSAND_MIN_VALUE)
+          const isValid = minValue(value.toString(), THOUSAND_MIN_VALUE)
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
@@ -522,7 +555,7 @@ const dataObject: IDataObject[] = [
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
         placeholder: HUNDRED_MIN_VALUE,
         validate(value) {
-          const isValid = minValue(+value, HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,

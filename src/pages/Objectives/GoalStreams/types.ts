@@ -14,8 +14,10 @@ export interface IData {
   }[]
   question: string
   type: string
-  ruleText?: string,
-  validate?: ((value: string | number) => undefined | string | number) | undefined
+  ruleText?: string
+  validate?:
+    | ((value: string | number) => undefined | string | number)
+    | undefined
   maxLength?: number | string
   placeholder?: string
 }

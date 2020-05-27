@@ -37,12 +37,16 @@ export const maxDate = (
     moment().add(expectedDiff, expectedDiffType || 'month')
   )
 
-export const minValue = (value: number, minimum: string) => {
+export const minValue = (value: string, minimum: string) => {
   const schema = number().min(+removeNonDigit(minimum))
   return schema.isValidSync(removeNonDigit(value.toString()))
 }
 
-export const betweenLength = (minLength: number, maxLength: number, value: string) => {
+export const betweenLength = (
+  minLength: number,
+  maxLength: number,
+  value: string
+) => {
   const min = validateMinLength(value, minLength)
   const max = validateMaxLength(value, maxLength)
   return {
