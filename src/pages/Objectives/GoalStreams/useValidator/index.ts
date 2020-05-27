@@ -69,7 +69,7 @@ export default function useValidator(
   }, [ref])
 
   useLayoutEffect(() => {
-    const message: string | null | undefined = getErrorMessage({
+    const message: string | number | null | undefined = getErrorMessage({
       data,
       currentStep,
       currentValue,
@@ -77,7 +77,7 @@ export default function useValidator(
     setError(
       message && touched
         ? {
-            message,
+            message: message.toString(),
             icon: 'alertrounded',
           }
         : null

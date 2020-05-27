@@ -191,11 +191,6 @@ export default function PointsSection({ points }) {
     window.open(`#/redirect?to=${url}`, '_blank')
   }
 
-  const actionsModalRulesConditions = () => {
-    dispatch(GetRewardTypesRequest())
-    setIsModalOpen(!isModalOpen)
-  }
-
   const renderPointsFooter = () => {
     if (
       isLoadingExtract ||
@@ -213,7 +208,7 @@ export default function PointsSection({ points }) {
           data-gtm-name="regras e condicoes"
           data-gtm-type="click"
           data-gtm-clicktype="link"
-          onClick={() => actionsModalRulesConditions()}
+          onClick={() => setIsModalOpen(!isModalOpen)}
         >
           Regras e condições
         </ButtonLink>
