@@ -190,7 +190,7 @@ export default function PointsSection({ points }) {
   function redirectToRescuePointsSystem({ url }) {
     window.open(`#/redirect?to=${url}`, '_blank')
   }
-  
+
   const renderPointsFooter = () => {
     if (
       isLoadingExtract ||
