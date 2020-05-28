@@ -8,6 +8,10 @@ const handleBgGradient = (
   isDisabled: boolean = false,
   isOutline: boolean
 ) => {
+  if (isOutline && isDisabled) {
+    return colors.gray1
+  }
+
   if (isOutline) {
     return colors.white
   }
@@ -20,7 +24,7 @@ const handleBgGradient = (
           ${colors.blue5} 20%,
           ${colors.blue4}
         )`
-        : colors.blue2
+        : colors.gray2
     case 'secondary':
       return !isDisabled
         ? `linear-gradient(
@@ -28,7 +32,7 @@ const handleBgGradient = (
             ${colors.green5} -35%,
             ${colors.green4}
           )`
-        : colors.green2
+        : colors.gray2
     default:
       return colors.white
   }
@@ -76,6 +80,10 @@ const handleColor = (
   isDisabled: boolean = false,
   isOutline: boolean
 ) => {
+  if (!isOutline && isDisabled) {
+    return colors.gray4
+  }
+
   if (!isOutline) {
     return colors.white
   }
