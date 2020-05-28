@@ -43,7 +43,7 @@ exports[`Header to render 1`] = `
         <svg
           className="sc-bxivhb cnaRML"
         >
-          arrow-down2.svg
+          arrow-down.svg
         </svg>
       </div>
       <div

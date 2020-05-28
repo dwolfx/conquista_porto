@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 36 36" style="enable-background:new 0 0 36 36;" xml:space="preserve">
-<title>arrow-down</title>
-<path d="M35.5,7c-0.6-0.5-1.6-0.4-2.1,0.2L18,25.5L2.6,7.2C2.1,6.5,1.2,6.5,0.5,7c-0.6,0.5-0.7,1.5-0.2,2.1l16.5,19.7
-	c0.3,0.3,0.7,0.5,1.2,0.5c0.4,0,0.9-0.2,1.2-0.5L35.6,9.1C36.2,8.5,36.1,7.5,35.5,7L35.5,7z"/>
+<svg id="Ícone_-_Seta_Baixo" data-name="Ícone - Seta Baixo" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Rectangle_10395" data-name="Rectangle 10395" width="24" height="24" fill="#272727" opacity="0"/>
+  <path id="arrow-down" d="M11.812,6.764a.516.516,0,0,0-.7.067l-5.13,6.1-5.13-6.1a.483.483,0,0,0-.7-.067.516.516,0,0,0-.067.7l5.5,6.562a.552.552,0,0,0,.4.167.615.615,0,0,0,.4-.167l5.463-6.562a.483.483,0,0,0-.033-.7Z" transform="translate(6.02 2.653)" fill="#272727"/>
 </svg>

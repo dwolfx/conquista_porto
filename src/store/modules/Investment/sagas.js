@@ -8,7 +8,11 @@ import { Types } from './types'
 function* getData() {
   try {
     const response = yield call(get, `${baseURLNamespaceInvest}/fundos`)
-    yield put(GetInvestmentListSuccess(response.data))
+    // Normalizar response do backend
+    const normalizedResponse = yield response.data
+      .flatMap(item => item)
+      .reduce((prev, curr) => [...prev, ...curr.fundos], [])
+    yield put(GetInvestmentListSuccess(normalizedResponse))
   } catch (err) {
     yield put(GetInvestmentListFailure())
   }

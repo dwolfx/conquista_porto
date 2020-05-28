@@ -34,6 +34,10 @@ export const DrawerFooter = styled.div`
   align-items: center;
   margin-top: auto;
 
+  @media ${props => props.theme.mediaQueries.lg} {
+    padding: 14px;
+  }
+
   @media ${props => props.theme.mediaQueries.sm} {
     padding: 0;
   }
@@ -45,7 +49,7 @@ export const DrawerHeader = styled.div`
   justify-content: space-between;
   padding: 10px 14px 14px;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.xs} {
     padding: 0;
   }
 `
@@ -78,11 +82,12 @@ export const DrawerContent = styled.div<IDrawerContentProps>`
     [props.positionDrawer]: props.isOpen ? '0' : '-100%',
   })}
 
-  @media ${props => props.theme.mediaQueries.md} {
-    max-width: 100%;
+  @media ${props => props.theme.mediaQueries.lg} {
+    max-width: 484px;
+    margin: 0;
   }
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.xs} {
     min-width: 100vw;
     padding: 0;
   }

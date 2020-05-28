@@ -8,6 +8,7 @@ import creditCard from './CreditCard/sagas'
 import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
+import customerProfile from './CustomerProfile/sagas'
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
 import investmentPosition from './Investment/Position/sagas'
@@ -34,6 +35,7 @@ export default function* rootSaga() {
     consolidatedPosition,
     consortiumBuilding,
     consortiumVehicle,
+    customerProfile,
     investmentsList,
     investmentDetails,
     investmentPosition,

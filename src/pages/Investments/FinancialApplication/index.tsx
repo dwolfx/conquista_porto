@@ -43,7 +43,7 @@ export type IFormData = {
 
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
-  handleDrawerOpen = () => {},
+  handleFundDetailOpen = () => {},
   isOpen = false,
   selectedFundId,
 }) => {
@@ -230,7 +230,7 @@ const LayerInvestment: React.FC<IProps> = ({
       <LayerBodyContainer>
         <GridRowExpanded>
           <GridCol lg={3}>
-            <DetailCard handleDrawerOpen={handleDrawerOpen} />
+            <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
           </GridCol>
           {getBodyContent()}
         </GridRowExpanded>
@@ -266,7 +266,7 @@ const LayerInvestment: React.FC<IProps> = ({
 
 interface IProps {
   handleClose: () => void
-  handleDrawerOpen?: () => void
+  handleFundDetailOpen?: () => void
   isOpen: boolean
 }
 

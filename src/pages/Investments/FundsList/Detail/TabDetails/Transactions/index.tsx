@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { uuid } from 'uuidv4'
 
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
@@ -7,16 +7,23 @@ import Text from 'components/Text'
 import { formatMoney } from 'helpers'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
-import {
-  GrayLine,
-  Li,
-  LiTitle,
-  LiValue,
-  TransactionsWrapper,
-  Ul,
-} from './styles'
+import { Li, LiTitle, LiValue, TransactionsWrapper, Ul } from './styles'
 
-export const Transactions = ({ fund }) => {
+interface IFund {
+  fund: {
+    minimo_inicial: string
+    aplicao_minima: string
+    saldo_minimo?: number | string
+    hora_aplicacao: string
+    aplicacao_cotizacao: string
+    aplicacao_financeiro: string
+    resgate_cotizacao: string
+    resgate_financeiro: string
+    categoria: string
+  }
+}
+
+export const Transactions = ({ fund }: IFund) => {
   const liContent = [
     [
       <LiTitle>Aplicação Inicial</LiTitle>,
@@ -63,45 +70,26 @@ export const Transactions = ({ fund }) => {
   ]
 
   return (
-    <>
-      <TransactionsWrapper>
-        <HorizontalList
-          noPadding
-          startItems={[
-            <StyledIcon name="money" />,
-            <Text color="gray6" type="subheading" bold>
-              MOVIMENTAÇÕES
-            </Text>,
-          ]}
-        />
+    <TransactionsWrapper>
+      <HorizontalList
+        noPadding
+        startItems={[
+          <StyledIcon name="money" />,
+          <Text color="gray6" type="subheading" bold>
+            MOVIMENTAÇÕES
+          </Text>,
+        ]}
+      />
 
-        <Ul>
-          {liContent.map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Li key={`transactions-cell-${index}`}>
-              <VerticalList elements={item} />
-            </Li>
-          ))}
-        </Ul>
-      </TransactionsWrapper>
-      <GrayLine />
-    </>
+      <Ul>
+        {liContent.map((item, index) => (
+          <Li key={uuid()}>
+            <VerticalList elements={item} />
+          </Li>
+        ))}
+      </Ul>
+    </TransactionsWrapper>
   )
 }
 
 export default Transactions
-
-Transactions.propTypes = {
-  fund: PropTypes.shape({
-    aplicao_minima: PropTypes.string,
-    aplicacao_cotizacao: PropTypes.string,
-    aplicacao_financeiro: PropTypes.string,
-    resgate_cotizacao: PropTypes.string,
-    resgate_financeiro: PropTypes.string,
-    hora_aplicacao: PropTypes.string,
-    minimo_inicial: PropTypes.string,
-    saldo_minimo: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    classificacao: PropTypes.string,
-    categoria: PropTypes.string,
-  }).isRequired,
-}

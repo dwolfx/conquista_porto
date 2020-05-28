@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import ConquistaText from 'components/Text'
 import ConquistaButton from 'components/Button'
 import ConquistaModal from 'components/Modal/ModalNew'
+import IconButton from 'components/Button/Icon'
 
 export const GridContainer = styled(Container)`
   background-color: ${props => props.theme.colors.gray1};
@@ -17,6 +18,16 @@ export const TableContent = styled.div`
   padding: 21px;
   margin-top: 14px;
   height: auto;
+`
+
+export const FloatButton = styled(IconButton)`
+  content: '';
+  border-radius: 50%;
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  z-index: 11;
+  border: none;
 `
 
 export const ContentWrapper = styled(Row)``

@@ -16,7 +16,7 @@ interface IButtonProps {
 }
 export const ButtonStyled = styled.button<IButtonProps>`
   align-items: center;
-  background-color: ${props => handleButtonColor(props)};
+  background: ${props => handleButtonColor(props)};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -54,9 +54,11 @@ const handleSizing = (props: IButtonProps) => {
 const handleButtonColor = (props: any) => {
   switch (props.color) {
     case 'primary':
-      return props.theme.colors.blue4
+      return `linear-gradient(90deg, ${props.theme.colors.blue4} 0%,
+        ${props.theme.colors.blue5} 146.43%
+      )`
     case 'secondary':
-      return props.theme.colors.green4
+      return `linear-gradient(90deg, ${props.theme.colors.green3} 0%, ${props.theme.colors.green5} 201.79%);`
     case 'transparent':
       return props.theme.colors.unset
     default:

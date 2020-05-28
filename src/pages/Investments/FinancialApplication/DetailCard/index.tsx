@@ -42,10 +42,10 @@ interface iRootState {
 }
 
 interface IProps {
-  handleDrawerOpen: () => void
+  handleFundDetailOpen: () => void
 }
 
-const DetailCard: React.FC<IProps> = ({ handleDrawerOpen = () => {} }) => {
+const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
   const dispatch = useDispatch()
 
   const { data: fundDetails, isLoading, hasError } = useSelector(
@@ -58,7 +58,7 @@ const DetailCard: React.FC<IProps> = ({ handleDrawerOpen = () => {} }) => {
     <LayerCard
       headerTitle={headerTitle}
       headerIconInfo
-      headerIconInfoClick={handleDrawerOpen}
+      headerIconInfoClick={handleFundDetailOpen}
       headerIconInfoMsg="Mais informações"
     >
       {isLoading && (

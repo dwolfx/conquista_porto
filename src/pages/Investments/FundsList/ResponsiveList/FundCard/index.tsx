@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { useToast } from 'hooks/toast'
 
-import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
-import { formatMoney, formatDotToComma, handleGiwRedirect } from 'helpers'
+import { formatMoney, formatDotToComma } from 'helpers'
 
 import {
   ArrowDown,
@@ -128,12 +126,16 @@ export interface IFund {
   rentabil_fundo_12_meses: number
   rentabil_fundo_ano: number
   taxa_administracao: number
-  id_fundo: number
+  id_fundo: string
   aplicao_liberada: boolean
 }
 
 interface IFundCard {
   fund: IFund
+  onChangeIsFundDetailOpen: (prevState: Function) => void
+  handleLayerOpen: (title: string) => void
+  setTitle: (title: string) => void
+  setIsOpenForInvestments: (aplicao_liberada: boolean) => void
 }
 const modalSuitabilityInfoInitialState = {
   isOpen: false,
@@ -148,7 +150,13 @@ const modalSuitabilityInfoInitialState = {
   },
 }
 
-const FundCard: React.FC<IFundCard> = ({ fund }) => {
+const FundCard: React.FC<IFundCard> = ({
+  fund,
+  onChangeIsFundDetailOpen,
+  handleLayerOpen,
+  setTitle,
+  setIsOpenForInvestments,
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
@@ -156,33 +164,20 @@ const FundCard: React.FC<IFundCard> = ({ fund }) => {
   )
 
   const dispatch = useDispatch()
-  const { addToast } = useToast()
 
   const suitabilityIsLoading = useSelector<any, any>(
     state => state.suitabilityInfo.isLoading
   )
 
-  const { state: locationState } = useLocation()
-
   const handleCloseModal = () => {
     setIsModalOpen(!isModalOpen)
   }
 
-  const handleClickInvestButton = () => {
-    const onSuccess = (data: any) => {
-      setModalSuitabilityInfo({ ...data })
-
-      if (data.isValid) {
-        handleGiwRedirect(`
-portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
-          locationState && locationState.idGoal
-            ? `&idObjetivo=${locationState.idGoal}`
-            : ''
-        }`)
-      }
-    }
-
-    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
+  const handleOpenDetail = (title: string, idFundo: string) => {
+    dispatch(GetInvestmentDetailsRequest(idFundo))
+    setIsOpenForInvestments(fund.aplicao_liberada)
+    setTitle(title)
+    onChangeIsFundDetailOpen((prevState: boolean) => !prevState)
   }
 
   return (
@@ -310,7 +305,9 @@ portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
                   data-gtm-clicktype="button"
                   data-gtm-subname={fund.apelido}
                   data-gtm-name="mais informacoes"
-                  onClick={() => {}}
+                  onClick={() => {
+                    handleOpenDetail(fund.apelido, fund.id_fundo)
+                  }}
                 >
                   Mais informações
                 </Button>
@@ -323,7 +320,7 @@ portaldecliente/conquista/aplicacao?idFundo=${fund.id_fundo}&r=true${
                     data-gtm-clicktype="button"
                     data-gtm-subname={fund.apelido}
                     data-gtm-name="investir"
-                    onClick={() => handleClickInvestButton()}
+                    onClick={() => handleLayerOpen(fund.id_fundo)}
                   >
                     Investir
                   </Button>
