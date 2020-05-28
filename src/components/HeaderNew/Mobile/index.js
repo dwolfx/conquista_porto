@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -19,11 +18,14 @@ import {
   Icon,
 } from './styles'
 
-export default function Mobile({ items, setIsOpen, totalPoints, exitFunc }) {
+export default function Mobile({
+  items,
+  setIsOpen,
+  totalPoints,
+  exitFunc,
+  customerName,
+}) {
   const history = useHistory()
-  const bankData = useSelector(
-    state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
-  )
 
   useEffect(() => {
     const html = document.querySelector('html')
@@ -67,7 +69,7 @@ export default function Mobile({ items, setIsOpen, totalPoints, exitFunc }) {
               {
                 type: 'headline',
                 color: 'gray6',
-                content: bankData && bankData.titular,
+                content: customerName,
               },
               {
                 type: 'caption',
@@ -207,6 +209,7 @@ Mobile.propTypes = {
   setIsOpen: PropTypes.func.isRequired,
   totalPoints: PropTypes.string.isRequired,
   exitFunc: PropTypes.func,
+  customerName: PropTypes.string.isRequired,
 }
 
 Mobile.defaultProps = {
