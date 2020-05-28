@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
-import { useLocation } from 'react-router-dom'
-import { handleGiwRedirect } from 'helpers'
+// import { useLocation } from 'react-router-dom'
+// import { handleGiwRedirect } from 'helpers'
 
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
@@ -67,7 +67,7 @@ export default function FundsList() {
     sortBy: null,
     sortType: null,
   })
-  const { state: locationState } = useLocation()
+  // const { state: locationState } = useLocation()
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
@@ -113,13 +113,14 @@ export default function FundsList() {
       setModalSuitabilityInfo({ ...data })
       if (data.isValid) {
         setIsFundDetailOpen(false)
-        // setLayerOpen(true)
-        handleGiwRedirect(`portaldecliente/conquista/aplicacao?idFundo=${fundId}&r=true${
-          locationState && locationState.idGoal
-            ? `&idObjetivo=${locationState.idGoal}`
-            : ''
-        }
-          `)
+        setLayerOpen(true) // para entregar a sprint precisamos comentar essa linha e descomentar o código abaixo
+
+        // handleGiwRedirect(`portaldecliente/conquista/aplicacao?idFundo=${fundId}&r=true${
+        //   locationState && locationState.idGoal
+        //     ? `&idObjetivo=${locationState.idGoal}`
+        //     : ''
+        // }
+        //   `)
         setSelectedFundId(fundId)
         if (!hasDetailsFund) {
           dispatch(GetInvestmentDetailsRequest(fundId))

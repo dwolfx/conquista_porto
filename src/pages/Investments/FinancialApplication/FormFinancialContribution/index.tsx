@@ -14,6 +14,7 @@ import MoneyInput from 'components/Inputs/Money'
 import DateInput from 'components/Inputs/DateInput'
 
 import { formatMoneyDecimal, formatMoney } from 'helpers'
+import useMedia from 'hooks/useMedia'
 
 import {
   isPastDate,
@@ -53,9 +54,8 @@ const FormFinancialContribution: React.FC<IProps> = ({
   idFundo,
 }) => {
   useFetchBankData()
-  useInvestmentPosition()
-
   const dispatch = useDispatch()
+  const isTabletOrSmaller = useMedia('md')
 
   const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
     bankData: state.bankData,
@@ -85,6 +85,12 @@ const FormFinancialContribution: React.FC<IProps> = ({
     }
   }, [formData, onFormHasChanged, formDataCopy])
 
+  const dispatchPositionData = () => {
+    if (!isTabletOrSmaller) {
+      dispatch(GetPositionDataRequest(auth.cpf))
+    }
+  }
+
   const renderBaseAccountInfo = () => {
     if (bankData.isLoading || investmentPosition.isLoading) {
       return (
@@ -105,8 +111,8 @@ const FormFinancialContribution: React.FC<IProps> = ({
           </Text>
           <IconRetry
             onClick={() => {
-              dispatch(GetPositionDataRequest(auth.cpf))
               dispatch(GetBankDataRequest(auth.cpf))
+              dispatchPositionData()
             }}
           />
         </>
@@ -114,6 +120,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
     }
 
     const chosenInvestmentFund = () =>
+      investmentPosition.data &&
       investmentPosition.data.length !== 0 &&
       investmentPosition.data[0].posicoes.posicao.find(
         (posicao: any) => posicao.fundo.id_carteira === idFundo
@@ -143,21 +150,26 @@ const FormFinancialContribution: React.FC<IProps> = ({
             </Text>,
           ]}
         />
-        <VerticalListStyled
-          elements={[
-            <Text type="captionUppercase" color="gray4" bold>
-              fundo
-            </Text>,
-            <Text type="headline" color="gray6" bold>
-              {formatMoney(
-                investmentPosition.data.length === 0 ? 0 : saldoAtual
-              )}
-            </Text>,
-            <Text type="caption" color="gray5" bold>
-              Saldo e rendimento bruto
-            </Text>,
-          ]}
-        />
+        {!isTabletOrSmaller && (
+          <VerticalListStyled
+            elements={[
+              <Text type="captionUppercase" color="gray4" bold>
+                fundo
+              </Text>,
+              <Text type="headline" color="gray6" bold>
+                {formatMoney(
+                  investmentPosition.data &&
+                    investmentPosition.data.length === 0
+                    ? 0
+                    : saldoAtual
+                )}
+              </Text>,
+              <Text type="caption" color="gray5" bold>
+                Saldo e rendimento bruto
+              </Text>,
+            ]}
+          />
+        )}
       </>
     )
   }
@@ -197,7 +209,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
           <BalanceInfoContainer>{renderBaseAccountInfo()}</BalanceInfoContainer>
           <DivisorStyled margin="21px 0 21px 0" />
           <InputsContainer>
-            <InputContainer>
+            <InputContainer sm={6}>
               <Text type="headline" color="gray6">
                 Quanto você quer investir?
               </Text>
@@ -228,7 +240,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
                 `}
               />
             </InputContainer>
-            <InputContainer>
+            <InputContainer sm={6}>
               <Text type="headline" color="gray6">
                 Quando você deseja investir?
               </Text>
@@ -255,7 +267,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
               />
             </InputContainer>
           </InputsContainer>
-          <DivisorStyled margin="49px 0 21px 0" />
+          <DivisorStyled margin="35px 0 21px 0" />
           <Text bold color="gray5">
             Solicitações enviadas após às 15h serão processadas no próximo dia
             útil.

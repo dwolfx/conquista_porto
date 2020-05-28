@@ -5,6 +5,7 @@ import Loading from 'components/Loading'
 import Icon from 'components/IconExporter'
 import Card from 'components/Card'
 import { CardBody } from 'components/Card/styles'
+import { Col, Row } from 'styled-bootstrap-grid'
 
 export const CardStyled = styled(Card)`
   height: 100%;
@@ -30,13 +31,14 @@ export const DivisorStyled = styled(Divisor)<{ margin: string }>`
   margin: ${props => props.margin};
 `
 
-export const InputsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
+export const InputsContainer = styled(Row)``
 
-export const InputContainer = styled.div`
-  width: 48%;
+export const InputContainer = styled(Col)`
+  @media ${props => props.theme.mediaQueries.xs} {
+    &:nth-child(2) {
+      margin-top: ${({ theme }) => theme.spacing(5)}px;
+    }
+  }
 `
 
 export const LoadingSpinner = styled(Loading)`
