@@ -60,11 +60,7 @@ const LayerInvestment: React.FC<IProps> = ({
 
   useEffect(() => {
     if (selectedFundId && funds.data.length > 0) {
-      const normalizedFundList = funds.data
-        .flatMap((item: any) => item)
-        .reduce((prev: any, curr: any) => [...prev, ...curr.fundos], [])
-
-      const selectedFund = normalizedFundList.find(
+      const selectedFund = funds.data.find(
         (fund: any) => fund.id_fundo === selectedFundId
       )
 
