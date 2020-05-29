@@ -29,7 +29,7 @@ const AdvertisementBanner = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (recommendationState.data && recommendationState.data.length) {
+    if (recommendationState.data.length) {
       const randomPosition = Math.floor(
         Math.random() * (recommendationState.data.length - 1)
       )
@@ -39,7 +39,7 @@ const AdvertisementBanner = () => {
   }, [recommendationState.data])
 
   if (
-    !recommendationState.data ||
+    !recommendationState.data.length ||
     !Object.entries(bannerData).length ||
     hideBanner
   ) {
