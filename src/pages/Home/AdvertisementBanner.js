@@ -25,19 +25,21 @@ const AdvertisementBanner = () => {
   }, [])
 
   useEffect(() => {
-    if (!recommendationState.data.length) {
-      dispatch(GetRewardRecommendationsRequest())
-    } else {
+    dispatch(GetRewardRecommendationsRequest())
+  }, [dispatch])
+
+  useEffect(() => {
+    if (recommendationState.data && recommendationState.data.length) {
       const randomPosition = Math.floor(
         Math.random() * (recommendationState.data.length - 1)
       )
 
       setBannerData(recommendationState.data[randomPosition])
     }
-  }, [dispatch, recommendationState.data])
+  }, [recommendationState.data])
 
   if (
-    !recommendationState.data.length ||
+    !recommendationState.data ||
     !Object.entries(bannerData).length ||
     hideBanner
   ) {
