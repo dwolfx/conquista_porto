@@ -43,7 +43,20 @@ export const GridContainer = styled(Container)`
 export const LayerBodyContainer = styled(Container)`
   height: 78vh;
   padding-top: ${props => props.theme.spacing(4)}px;
-  padding-bottom: 21px;
+  padding-bottom: ${props => props.theme.spacing(3)}px;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    padding-top: ${props => props.theme.spacing(3)}px;
+    padding-bottom: ${props => props.theme.spacing(2)}px;
+  }
+
+  @media ${props => props.theme.mediaQueries.md} {
+    height: auto;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0;
+  }
 `
 export const FooterContainer = styled(Container)``
 

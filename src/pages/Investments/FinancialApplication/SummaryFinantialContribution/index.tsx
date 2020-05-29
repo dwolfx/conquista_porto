@@ -9,14 +9,16 @@ import {
   ContentContainer,
   SummaryContainer,
   ExternalLink,
+  HorizontalListStyled,
+  FlexTextWrapper,
 } from './styles'
-import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 import Checkbox from 'components/Inputs/Checkbox'
 
 import { useToast } from 'hooks/toast'
 import { IFormData } from 'pages/Investments/FinancialApplication'
+import useMedia from 'hooks/useMedia'
 
 interface IProps {
   formData: IFormData | null
@@ -40,6 +42,7 @@ const SummaryFinantialContribution = ({
   // Bloco de código mockado
 
   const { addToast } = useToast()
+  const isMobile = useMedia('xs')
   return (
     <CardStyled
       footer={
@@ -87,19 +90,19 @@ const SummaryFinantialContribution = ({
       }
     >
       <ContentContainer>
-        <HorizontalList
+        <HorizontalListStyled
           startItems={[
-            <Text type="headline" color="gray6" bold>
+            <Text type="headline" color={isMobile ? 'gray5' : 'gray6'} bold>
               Solicitação
             </Text>,
           ]}
         />
-        <Divisor />
+        {!isMobile && <Divisor />}
         <SummaryContainer>
-          <HorizontalList
+          <HorizontalListStyled
             startItems={[
               <Text type="headline" color="gray5">
-                Valor do investimento
+                {isMobile ? 'Valor' : 'Valor do investimento'}
               </Text>,
             ]}
             endItems={[
@@ -108,10 +111,10 @@ const SummaryFinantialContribution = ({
               </Text>,
             ]}
           />
-          <HorizontalList
+          <HorizontalListStyled
             startItems={[
               <Text type="headline" color="gray5">
-                Data do investimento
+                {isMobile ? 'Data' : 'Data do investimento'}
               </Text>,
             ]}
             endItems={[
@@ -121,7 +124,7 @@ const SummaryFinantialContribution = ({
             ]}
           />
         </SummaryContainer>
-        <Divisor />
+        {!isMobile && <Divisor />}
         <CheckboxContainer>
           <Checkbox
             label={
@@ -147,6 +150,17 @@ const SummaryFinantialContribution = ({
             id="checkbox-1"
           />
         </CheckboxContainer>
+        {isMobile && (
+          <>
+            <Divisor />
+            <FlexTextWrapper>
+              <Text bold color="gray5">
+                Solicitações enviadas após às 15h serão processadas no próximo
+                dia útil.
+              </Text>
+            </FlexTextWrapper>
+          </>
+        )}
       </ContentContainer>
     </CardStyled>
   )
