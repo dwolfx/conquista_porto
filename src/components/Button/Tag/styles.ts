@@ -8,7 +8,7 @@ const handleColor = (type: string, disabled?: boolean) => {
     case 'secondary':
       return themeColors.green4
     default:
-      return disabled ? themeColors.gray3 : themeColors.gray5
+      return disabled ? themeColors.gray4 : themeColors.gray5
   }
 }
 
