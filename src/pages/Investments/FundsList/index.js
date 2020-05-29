@@ -164,6 +164,11 @@ export default function FundsList() {
     })
   }
 
+  function handleCleanFilterAndSort() {
+    handleCleanFilter()
+    handleCleanSort()
+  }
+
   const mobileFundList = fundList => {
     if (mobileFundSort.sortType !== null)
       return sortFundList(fundList, mobileFundSort)
@@ -235,6 +240,8 @@ export default function FundsList() {
                 isError={fundsStatus.isError}
                 setTitle={setTitle}
                 setIsOpenForInvestments={setIsOpenForInvestments}
+                filtersCount={filtersCount}
+                handleCleanFilterAndSort={handleCleanFilterAndSort}
               />
             </Col>
           </>
