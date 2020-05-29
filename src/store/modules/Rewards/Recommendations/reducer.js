@@ -1,7 +1,7 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: null,
+  data: [],
   isLoading: false,
   hasError: false,
 }
