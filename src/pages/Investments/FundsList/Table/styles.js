@@ -66,6 +66,8 @@ export const TableWrapper = styled.div`
 export const Table = styled.div`
   border-collapse: collapse;
   height: 69vh;
+  border-radius: 4px;
+  border: 1px solid ${props => props.theme.colors.gray2};
   &.sticky {
     overflow: auto;
     .header {
@@ -104,9 +106,6 @@ export const TheadTr = styled.div`
   justify-content: space-between;
   height: 56px;
   background-color: ${props => props.theme.colors.gray1};
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border: 1px solid ${props => props.theme.colors.gray2};
 `
 export const TheadTh = styled.div`
   cursor: ${props => (props.canSort ? 'pointer' : 'default')};
@@ -196,7 +195,6 @@ export const TheadColumn = styled.div`
   width: ${props => props.width};
 `
 export const Tbody = styled.div`
-  border: 1px solid ${props => props.theme.colors.gray2};
   height: calc(100% - 56px);
   overflow: auto;
   display: block;
@@ -218,10 +216,12 @@ export const TbodyTr = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  padding: 3px 0 3px 3px;
   width: 100%;
   &:hover {
     background-color: ${props => props.theme.colors.gray1};
+  }
+  &:last-child {
+    border: none;
   }
 `
 export const TbodyTd = styled.div`
@@ -250,8 +250,8 @@ export const TbodyTd = styled.div`
     padding-left: ${props => props.theme.spacing(2)}px;
   }
   &:first-child {
+    padding: 3px 0 3px 3px;
     margin-left: 0px;
-    padding-left: 0px;
   }
 `
 export const StickyDivisor = styled.div`
@@ -284,6 +284,7 @@ export const RiskColorTag = styled.div`
 export const FundoWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   line-height: 22px;
   max-height: 70px;
   padding: 9px 14px 8px 20px;
@@ -309,11 +310,12 @@ export const InformationIcon = styled(IconExporter).attrs(() => ({
   margin-left: auto;
   min-width: 25px;
 `
-export const FundoNameWrapper = styled.p`
+export const FundoNameWrapper = styled(Text).attrs(() => ({ type: 'body' }))`
   text-align: left;
   max-width: 220px;
   font-weight: normal;
   white-space: pre-wrap;
+  margin-bottom: 4px;
 `
 export const InvestButton = styled(ConquistaButton)`
   width: 80px;
