@@ -3,7 +3,6 @@ import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import useInvestmentPosition from 'hooks/Investments/useFetchPosition'
 
 import { GetPositionDataRequest } from 'store/modules/Investment/Position/action'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
@@ -268,7 +267,13 @@ const FormFinancialContribution: React.FC<IProps> = ({
             </InputContainer>
           </InputsContainer>
           <DivisorStyled margin="35px 0 21px 0" />
-          <Text bold color="gray5">
+          <Text
+            bold
+            color="gray5"
+            css={`
+              margin-bottom: ${({ theme }: any) => `${theme.spacing(2)}px`};
+            `}
+          >
             Solicitações enviadas após às 15h serão processadas no próximo dia
             útil.
           </Text>
