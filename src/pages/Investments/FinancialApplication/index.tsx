@@ -42,6 +42,12 @@ export type IFormData = {
   isAwareOfTerms: boolean
 }
 
+const FORM_DATA_INTIAL_STATE = {
+  moneyToInvest: '',
+  whenToInvest: '',
+  isAwareOfTerms: false,
+}
+
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
   handleFundDetailOpen = () => {},
@@ -56,43 +62,51 @@ const LayerInvestment: React.FC<IProps> = ({
   const [hasFailed, setHasFailed] = useState<boolean>(false)
   const [errorCount, setErrorCount] = useState<number>(0)
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false)
-  const [formData, setFormData] = useState<IFormData | null>(null)
+  const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
+  const [formDataCopy, setFormDataCopy] = useState<IFormData>(
+    FORM_DATA_INTIAL_STATE
+  )
   const stepCount = 2
+
+  function loadFormData(prevState: any): any {
+    const selectedFund = funds.data.find(
+      (fund: any) => fund.id_fundo === selectedFundId
+    )
+    const canInvestToday = moment(moment(), 'hh:mm:ss').isBefore(
+      moment('15:00:00', 'hh:mm:ss')
+    )
+    return {
+      ...prevState,
+      moneyToInvest: formatMoneyDecimal(
+        Number(selectedFund.minimo_inicial * 100)
+      ),
+      whenToInvest: canInvestToday
+        ? moment().format('DD/MM/YYYY')
+        : moment()
+            .add('1', 'day')
+            .format('DD/MM/YYYY'),
+      isAwareOfTerms: false,
+    }
+  }
 
   useEffect(() => {
     if (selectedFundId && funds.data.length > 0) {
-      const selectedFund = funds.data.find(
-        (fund: any) => fund.id_fundo === selectedFundId
-      )
-
-      const canInvestToday = moment(moment(), 'hh:mm:ss').isBefore(
-        moment('15:00:00', 'hh:mm:ss')
-      )
-
-      setFormData(prevState => ({
-        ...prevState,
-        moneyToInvest: formatMoneyDecimal(
-          Number(selectedFund.minimo_inicial * 100)
-        ),
-        whenToInvest: canInvestToday
-          ? moment().format('DD/MM/YYYY')
-          : moment()
-              .add('1', 'day')
-              .format('DD/MM/YYYY'),
-        isAwareOfTerms: false,
-      }))
+      setFormData(prevState => loadFormData(prevState))
+      setFormDataCopy(prevState => loadFormData(prevState))
     }
   }, [selectedFundId, funds.data])
 
   useEffect(() => {
     if (!selectedFundId) {
       setHasFormChanged(false)
-      setFormData(null)
+      setFormData(FORM_DATA_INTIAL_STATE)
+      setFormDataCopy(FORM_DATA_INTIAL_STATE)
+      setStep(0)
     }
   }, [selectedFundId])
 
   const checkIfPossibleToClose = () => {
-    if (hasFormChanged) {
+    if (hasFormChanged || step === 1) {
       setIsConfirmationModalOpen(true)
     } else {
       resetValues()
@@ -130,11 +144,8 @@ const LayerInvestment: React.FC<IProps> = ({
   const resetValues = () => {
     setHasFailed(false)
     setHasSucceded(false)
-    setFormData({
-      moneyToInvest: '',
-      whenToInvest: '',
-      isAwareOfTerms: false,
-    })
+    setFormData(FORM_DATA_INTIAL_STATE)
+    setFormDataCopy(FORM_DATA_INTIAL_STATE)
     setStep(0)
     setErrorCount(0)
     handleClose()
@@ -151,6 +162,7 @@ const LayerInvestment: React.FC<IProps> = ({
   const layerBody = [
     <FormFinancialContribution
       formData={formData}
+      formDataCopy={formDataCopy}
       nextStep={nextStep}
       onChangeFormData={handleChangeFormData}
       onFormHasChanged={setHasFormChanged}
