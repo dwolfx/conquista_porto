@@ -52,7 +52,7 @@ const firstStep: IData = {
   name: NICKNAME_NAME,
   type: TEXT_TYPE,
   validate(value) {
-    const isBetweenLength = betweenLength(3, 20, value.toString())
+    const isBetweenLength = betweenLength(0, 20, value.toString())
     if (!isBetweenLength.min) {
       return MIN_CHARS_ERROR_TEXT
     }

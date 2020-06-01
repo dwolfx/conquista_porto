@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { Container, Row, Col } from 'styled-bootstrap-grid'
+import { Container, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
 
-import { SectionBar } from 'pages/Objectives/GoalStreams/Components/styles'
+import { SectionBar, Col } from 'pages/Objectives/GoalStreams/Components/styles'
 
 interface IProps {
   currentStep: number
@@ -35,7 +35,7 @@ const TopBar = ({ currentStep, nickname, numberSteps }: IProps) => {
           {nickname && (
             <Col lgAuto mdAuto smAuto xs={12}>
               <Text type="heading4" color="white">
-                #{nickname}
+                {nickname}
               </Text>
             </Col>
           )}

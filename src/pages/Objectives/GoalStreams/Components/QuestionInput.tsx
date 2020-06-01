@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Row, Col } from 'styled-bootstrap-grid'
 
@@ -126,6 +126,14 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
       )
     }
 
+    const [inputCounter, setInputCounter] = useState<number>(0)
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setInputCounter(e.target.value.length)
+
+      onChangeFormData(e)
+    }
+
     return (
       <OutterWrapper question={question} ruleText={ruleText}>
         <InputText
@@ -133,8 +141,8 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
           data-gtm-name={name}
           ref={ref}
           name={name}
-          onChange={onChangeFormData}
-          prefix="#"
+          onChange={handleChange}
+          suffix={<>{inputCounter}/20</>}
           value={formData[name]}
           error={error || false}
           maxLength={20}

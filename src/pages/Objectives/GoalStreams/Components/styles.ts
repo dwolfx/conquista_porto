@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
 import Text from 'components/Text'
-import { Col, Row } from 'styled-bootstrap-grid'
+import { Col as ColBootstrap, Row } from 'styled-bootstrap-grid'
 
 export const Wizard = styled.div`
   background-color: ${props => props.theme.colors.white};
@@ -40,7 +40,7 @@ export const Question = styled(Text).attrs(() => ({ type: 'heading4' }))`
 export const RuleText = styled(Text).attrs(() => ({ type: 'body' }))`
   text-align: center;
 `
-export const ColQuestion = styled(Col)`
+export const ColQuestion = styled(ColBootstrap)`
   min-height: 90px;
 `
 
@@ -64,4 +64,11 @@ export const InputWrapper = styled.div`
 
 export const Form = styled.form`
   width: 100%;
+`
+
+export const Col = styled(ColBootstrap)`
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    display: flex;
+    justify-content: center;
+  }
 `
