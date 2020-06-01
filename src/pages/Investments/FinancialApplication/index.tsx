@@ -27,6 +27,7 @@ import {
   GridRow,
   GridRowExpanded,
   GridCol,
+  GridRowStepBar,
 } from './styles'
 
 interface IProps {
@@ -147,7 +148,6 @@ const LayerInvestment: React.FC<IProps> = ({
     setFormData(prevState => ({ ...prevState, ...newFormData }))
   }
 
-  // ## AQUI ENTRAM OS COMPONENTES DE STEP
   const layerBody = [
     <FormFinancialContribution
       formData={formData}
@@ -169,7 +169,7 @@ const LayerInvestment: React.FC<IProps> = ({
   const getBodyContent = () => {
     if (hasSucceded) {
       return (
-        <GridCol lg={9}>
+        <GridCol md={9}>
           <SuccessCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
@@ -177,13 +177,13 @@ const LayerInvestment: React.FC<IProps> = ({
 
     if (hasFailed) {
       return (
-        <GridCol lg={9}>
+        <GridCol md={9}>
           <ErrorCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
     }
     return (
-      <GridCol lg={9} md={8} sm={12} xs={12}>
+      <GridCol sm={12} md={9}>
         {layerBody[step]}
       </GridCol>
     )
@@ -208,7 +208,7 @@ const LayerInvestment: React.FC<IProps> = ({
     >
       <StepBar>
         <GridContainer>
-          <GridRow>
+          <GridRowStepBar>
             <ColStepBar lg={12}>
               <HorizontalList
                 size="small"
@@ -224,12 +224,12 @@ const LayerInvestment: React.FC<IProps> = ({
                 `}
               />
             </ColStepBar>
-          </GridRow>
+          </GridRowStepBar>
         </GridContainer>
       </StepBar>
       <LayerBodyContainer>
         <GridRowExpanded>
-          <GridCol lg={3} md={4} sm={12} xs={12}>
+          <GridCol sm={12} md={3} alignSelf="stretch">
             <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
           </GridCol>
           {getBodyContent()}
