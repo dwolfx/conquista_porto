@@ -8,7 +8,8 @@ import AvatarComponent from 'components/Avatar'
 import Tag from 'components/Tag'
 
 export const BgWrapper = styled.div`
-  background-color: ${props => props.theme.colors.gray1};
+  background-color: ${props =>
+    props.isScrolled ? props.theme.colors.white : props.theme.colors.gray1};
   width: 100vw;
   position: sticky;
   top: 0;
