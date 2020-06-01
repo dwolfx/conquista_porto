@@ -48,7 +48,11 @@ export const LayerBodyContainer = styled(Container)`
 export const FooterContainer = styled(Container)``
 
 export const GridRowExpanded = styled(Row)`
-  height: 100%;
+  height: auto;
+
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    height: 100%;
+  }
 `
 export const GridRow = styled(Row)``
 export const GridRowNoMargin = styled(Row)`
