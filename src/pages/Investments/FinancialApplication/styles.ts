@@ -41,27 +41,23 @@ export const GridContainer = styled(Container)`
 `
 
 export const LayerBodyContainer = styled(Container)`
-  height: 78vh;
   padding-top: ${props => props.theme.spacing(4)}px;
   padding-bottom: ${props => props.theme.spacing(3)}px;
 
-  @media ${props => props.theme.mediaQueries.lg} {
-    padding-top: ${props => props.theme.spacing(3)}px;
-    padding-bottom: ${props => props.theme.spacing(2)}px;
-  }
-
-  @media ${props => props.theme.mediaQueries.md} {
-    height: auto;
-  }
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    padding: 0;
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    height: 78vh;
   }
 `
-export const FooterContainer = styled(Container)``
+export const FooterContainer = styled(Container)`
+  display: block;
+`
 
 export const GridRowExpanded = styled(Row)`
-  height: 100%;
+  height: auto;
+
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    height: 100%;
+  }
 `
 export const GridRow = styled(Row)``
 export const GridRowNoMargin = styled(Row)`
@@ -73,6 +69,10 @@ export const GridCol = styled(Col)``
 export const StepBar = styled.div`
   background-color: ${props => props.theme.colors.grayblue1};
   height: 56px;
+`
+
+export const GridRowStepBar = styled(Row)`
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const ColStepBar = styled(Col)`
