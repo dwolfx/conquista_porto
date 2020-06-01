@@ -44,13 +44,13 @@ const SuccessCard = ({ onCloseLayer }: IProps) => {
           <s.Icon name="check" color="green3" />
           <s.Title>Solicitação de aplicação recebida com sucesso</s.Title>
         </s.TitleWrapper>
-        <s.InfoText>
+        <s.InfoTextSuccess>
           Para que a informação seja efetivada, é preciso que sua conta de
           investimento tenha saldo suficiente.
           <br />
           Pode levar alguns minutos até que o fundo apareça na sua tela de
           gestão.
-        </s.InfoText>
+        </s.InfoTextSuccess>
         <s.SubTitle>Dados para tranferência (TED)</s.SubTitle>
         <s.AccountWrapper>
           {bankData &&

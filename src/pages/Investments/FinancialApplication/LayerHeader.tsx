@@ -7,8 +7,8 @@ import {
   HeaderColTitle,
   HeaderIconButton,
   GridContainer,
-  GridRowNoMargin,
   GridCol,
+  GridRow,
 } from './styles'
 
 export interface IProps {
@@ -22,7 +22,7 @@ const LayerHeader = (props: IProps) => {
 
   return (
     <GridContainer>
-      <GridRowNoMargin>
+      <GridRow>
         <GridCol lg={12}>
           <HeaderContent>
             <HeaderIconButton
@@ -53,7 +53,7 @@ const LayerHeader = (props: IProps) => {
             />
           </HeaderContent>
         </GridCol>
-      </GridRowNoMargin>
+      </GridRow>
     </GridContainer>
   )
 }
