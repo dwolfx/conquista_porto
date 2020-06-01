@@ -182,7 +182,11 @@ const LayerInvestment: React.FC<IProps> = ({
         </GridCol>
       )
     }
-    return <GridCol lg={9}>{layerBody[step]}</GridCol>
+    return (
+      <GridCol lg={9} md={8} sm={12} xs={12}>
+        {layerBody[step]}
+      </GridCol>
+    )
   }
 
   const getStepCount = () => {
@@ -225,7 +229,7 @@ const LayerInvestment: React.FC<IProps> = ({
       </StepBar>
       <LayerBodyContainer>
         <GridRowExpanded>
-          <GridCol lg={3}>
+          <GridCol lg={3} md={4} sm={12} xs={12}>
             <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
           </GridCol>
           {getBodyContent()}
@@ -233,7 +237,7 @@ const LayerInvestment: React.FC<IProps> = ({
       </LayerBodyContainer>
       <FooterContainer>
         <GridRow>
-          <GridCol lg={12}>
+          <GridCol lg={12} md={12} sm={12} xs={12}>
             <Text color="gray5" type="body">
               Toda transmissão de ordem por meio digital está sujeita a
               interrupções ou atrasos, podendo impedir ou prejudicar o envio de
