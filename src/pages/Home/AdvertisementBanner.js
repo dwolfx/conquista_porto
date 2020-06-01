@@ -31,16 +31,10 @@ const AdvertisementBanner = () => {
   }, [dispatch, hideBanner])
 
   useEffect(() => {
-    let randomPosition = 0
-
     if (recommendationState.data.length) {
-      randomPosition = Math.floor(
+      const randomPosition = Math.floor(
         Math.random() * (recommendationState.data.length - 1)
       )
-    } else {
-      randomPosition =
-        +getCookieValue('positionConquistaRecommendationBanner') ||
-        Math.floor(Math.random() * (recommendationState.data.length - 1))
 
       setCookieValue(
         'positionConquistaRecommendationBanner',
