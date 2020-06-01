@@ -1,3 +1,5 @@
+import { dict } from 'components/IconExporter'
+
 export const TRIP = '1'
 export const RETIREMENT = '2'
 export const CAR = '3'
@@ -12,7 +14,7 @@ export interface IData {
     name: string
     value: string | number
   }[]
-  question: string
+  question: string | any
   type: string
   ruleText?: string
   validate?:
@@ -20,4 +22,13 @@ export interface IData {
     | undefined
   maxLength?: number | string
   placeholder?: string
+}
+
+export interface IDataObject {
+  goal_type: string
+  enable: boolean
+  icon: keyof typeof dict
+  label: string
+  route: string
+  flow: IData[]
 }

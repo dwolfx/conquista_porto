@@ -1,4 +1,3 @@
-import { dict } from 'components/IconExporter'
 import {
   betweenLength,
   minValue,
@@ -14,6 +13,7 @@ import {
   SAVE_MONEY,
   TRIP,
   IData,
+  IDataObject,
 } from './types'
 
 const INITIAL_VALUE_NAME = 'initial_value'
@@ -48,7 +48,7 @@ const MAX_DATE_VALUES: IDateValues = {
 }
 
 const firstStep: IData = {
-  question: 'Oi, qual é o apelido que você quer dar para o seu novo objetivo?',
+  question: 'Olá {{{nome}}}, como você quer chamar o seu novo objetivo?',
   name: NICKNAME_NAME,
   type: TEXT_TYPE,
   validate(value) {
@@ -63,15 +63,6 @@ const firstStep: IData = {
     return undefined
   },
   maxLength: STRING_INPUT_MAX_LENGTH,
-}
-
-interface IDataObject {
-  goal_type: string
-  enable: boolean
-  icon: keyof typeof dict
-  label: string
-  route: string
-  flow: IData[]
 }
 
 const dataObject: IDataObject[] = [

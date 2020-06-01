@@ -1,28 +1,43 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 import { useParams, Redirect, useHistory } from 'react-router'
 
 import Loading from 'components/Loading'
 import Header from 'components/Wizard/Header'
 
+import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 import useSuitability from 'hooks/Suitability/useSuitability'
 
-import { Container } from './Components/styles'
 import { WizardFlow } from './Components/Wizard'
-import dataObjective from './dataObjective'
 
-export default function GoalStreams({ handleSteps }) {
+import dataObjective from './dataObjective'
+import { IData, IDataObject } from './types'
+
+import { Container } from './Components/styles'
+
+interface IProps {
+  handleSteps: (data: IData[] | undefined) => void
+}
+
+export default function GoalStreams({ handleSteps }: IProps) {
   const { objectiveId } = useParams()
   const history = useHistory()
-  const data = dataObjective.find(
+  const data: IDataObject | undefined = dataObjective.find(
     objective => objective.route === `/${objectiveId}`
   )
-  handleSteps(data.flow)
+
+  handleSteps(data?.flow)
+
+  useFetchCustomerProfile()
   const { suitability: suitabilityHook, isLoading } = useSuitability({
     errorPath: '/objetivos',
   })
 
-  if (!suitabilityHook && isLoading) {
+  const customerProfileIsLoading = useSelector<any, any>(
+    state => state.customerProfile.isLoading
+  )
+
+  if ((!suitabilityHook && isLoading) || customerProfileIsLoading) {
     return <Loading />
   }
 
@@ -38,8 +53,4 @@ export default function GoalStreams({ handleSteps }) {
   ) : (
     <Redirect to="/objetivos" />
   )
-}
-
-GoalStreams.propTypes = {
-  handleSteps: PropTypes.func.isRequired,
 }

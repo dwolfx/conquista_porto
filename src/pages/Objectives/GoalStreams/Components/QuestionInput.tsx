@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import { useSelector } from 'react-redux'
 import { Row, Col } from 'styled-bootstrap-grid'
 
 import { dict } from 'components/IconExporter'
@@ -18,21 +19,28 @@ const OutterWrapper: React.FC<IOutterWrapper> = ({
   ruleText,
   question,
   children,
-}) => (
-  <>
-    <Row justifyContent="center">
-      <ColQuestion lg={12} xs={12}>
-        <Question>{question}</Question>
-        {ruleText && <RuleText>{ruleText}</RuleText>}
-      </ColQuestion>
-    </Row>
-    <Row justifyContent="center">
-      <Col xs={12}>
-        <InputWrapper>{children}</InputWrapper>
-      </Col>
-    </Row>
-  </>
-)
+}) => {
+  const dadosCliente = useSelector<any, any>(
+    state => state.customerProfile.data
+  )
+  const nomeCliente = dadosCliente?.customerName.split(' ')[0]
+
+  return (
+    <>
+      <Row justifyContent="center">
+        <ColQuestion lg={12} xs={12}>
+          <Question>{question.replace('{{{nome}}}', nomeCliente)}</Question>
+          {ruleText && <RuleText>{ruleText}</RuleText>}
+        </ColQuestion>
+      </Row>
+      <Row justifyContent="center">
+        <Col xs={12}>
+          <InputWrapper>{children}</InputWrapper>
+        </Col>
+      </Row>
+    </>
+  )
+}
 
 interface IProps {
   formData: any

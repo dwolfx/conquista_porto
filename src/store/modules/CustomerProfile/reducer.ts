@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   data: null,
   status: '',
   hasError: false,
-  isLoading: false,
+  isLoading: true,
 }
 
 interface IAction {
@@ -13,6 +13,8 @@ interface IAction {
     cpfCnpj: string
     nomeCliente: string
     emailCliente: string
+    estado: string
+    dataNascimento: string
   }
 }
 
@@ -30,6 +32,8 @@ export default function(state = INITIAL_STATE, action: IAction) {
           cpfCnpj: action.payload.cpfCnpj,
           customerName: action.payload.nomeCliente,
           customerEmail: action.payload.emailCliente,
+          customerState: action.payload.estado,
+          customerBirthdate: action.payload.dataNascimento,
         },
         status: 'loaded',
         isLoading: false,
