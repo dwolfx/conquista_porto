@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Button from 'components/Button'
-import Icon from 'components/IconExporter'
-import { Container, Row, Col } from 'styled-bootstrap-grid'
+import CardBackground from 'components/CardBackground'
+import { Row } from 'styled-bootstrap-grid'
 
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
@@ -12,12 +11,10 @@ import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'
 import * as s from './styles'
 
 const Board = () => {
-  const { cpf, isLoading } = useSelector<any, any>(
-    state => ({
-      cpf: state.auth.cpf,
-      isLoading: state.suitability.isLoading
-    })
-  )
+  const { cpf, isLoading } = useSelector<any, any>(state => ({
+    cpf: state.auth.cpf,
+    isLoading: state.suitability.isLoading,
+  }))
 
   const [loadingButton, setLoadingButton] = useState<string>('')
   const dispatch = useDispatch()
@@ -26,45 +23,37 @@ const Board = () => {
   const history = useHistory()
 
   return (
-    <Container>
+    <s.BoardWrapper>
       <Row justifyContent="center">
         {dataObjective?.map(card => (
-          <Col key={card.goal_type} lg={3} md={4} sm={6} xs={12}>
-            <s.CardWrapper key={card.goal_type}>
-              <s.CardIcon>
-                <Icon name={card.icon} color="blue4" width="56px" />
-              </s.CardIcon>
-              <s.CardTitle>{card.label}</s.CardTitle>
-              {card.route && (
-                <Button
-                  data-gtm-subname={`card ${card.label}`}
-                  data-gtm-name="escolher"
-                  data-gtm-type="click"
-                  data-gtm-clicktype="button"
-                  outline
-                  loading={isLoading && loadingButton === card.goal_type}
-                  disabled={isLoading && loadingButton === card.goal_type}
-                  onClick={() => {
-                    setLoadingButton(card.goal_type)
-                    dispatch(
-                      GetSuitabilityRequestAndRedirect({
-                        cpf,
-                        link: `${match.path}${card.route}`,
-                        history,
-                        errorPath: '/objetivos',
-                        goalType: card.goal_type,
-                      })
-                    )
-                  }}
-                >
-                  escolher
-                </Button>
-              )}
-            </s.CardWrapper>
-          </Col>
+          <s.ColCard key={card.goal_type} lg={3} md={3} sm={3} xs={12}>
+            <CardBackground
+              key={card.goal_type}
+              background={card.image}
+              icon={card.icon}
+              title={card.label}
+              isLoading={isLoading && loadingButton === card.goal_type}
+              data-gtm-subname={`card ${card.label}`}
+              data-gtm-name="escolher"
+              data-gtm-type="click"
+              data-gtm-clicktype="card"
+              onClick={() => {
+                setLoadingButton(card.goal_type)
+                dispatch(
+                  GetSuitabilityRequestAndRedirect({
+                    cpf,
+                    link: `${match.path}${card.route}`,
+                    history,
+                    errorPath: '/objetivos',
+                    goalType: card.goal_type,
+                  })
+                )
+              }}
+            />
+          </s.ColCard>
         ))}
       </Row>
-    </Container>
+    </s.BoardWrapper>
   )
 }
 

@@ -72,6 +72,7 @@ const dataObject: IDataObject[] = [
     icon: 'plane',
     label: 'Viagem',
     route: '/viagem',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_1.jpg'),
     flow: [
       firstStep,
       {
@@ -131,6 +132,7 @@ const dataObject: IDataObject[] = [
     icon: 'time',
     label: 'Aposentar',
     route: '/aposentar',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_4.jpg'),
     flow: [
       firstStep,
       {
@@ -202,6 +204,7 @@ const dataObject: IDataObject[] = [
     icon: 'car2',
     label: 'Carro',
     route: '/carro',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_3.jpg'),
     flow: [
       firstStep,
       {
@@ -291,6 +294,7 @@ const dataObject: IDataObject[] = [
     icon: 'homewithwindow',
     label: 'Casa',
     route: '/casa',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_2.jpg'),
     flow: [
       firstStep,
       {
@@ -380,6 +384,7 @@ const dataObject: IDataObject[] = [
     icon: 'student',
     label: 'Curso',
     route: '/curso',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_sofa_2.jpg'),
     flow: [
       firstStep,
       {
@@ -440,6 +445,7 @@ const dataObject: IDataObject[] = [
     icon: 'drink',
     label: 'Evento',
     route: '/evento',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_3.jpg'),
     flow: [
       firstStep,
       {
@@ -499,6 +505,7 @@ const dataObject: IDataObject[] = [
     icon: 'money',
     label: 'Poupar',
     route: '/poupar',
+    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_5.jpg'),
     flow: [
       firstStep,
       {

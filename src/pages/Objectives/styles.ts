@@ -18,5 +18,5 @@ export const RegistrationWrapper = styled.div`
 `
 
 export const BoartTitle = styled(Text)`
-  padding: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
+  padding-top: ${props => props.theme.spacing(5)}px;
 `

@@ -30,5 +30,6 @@ export interface IDataObject {
   icon: keyof typeof dict
   label: string
   route: string
+  image: string
   flow: IData[]
 }
