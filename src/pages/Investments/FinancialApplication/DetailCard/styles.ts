@@ -7,12 +7,16 @@ import { themeColors } from 'styles/theme'
 
 export const LayerCard = styled(Card)`
   height: 100%;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 
   @media ${props => props.theme.mediaQueries.smUp} {
     height: auto;
   }
   @media ${props => props.theme.mediaQueries.mdUp} {
     height: 100%;
+  }
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    margin-bottom: 0px;
   }
 `
 

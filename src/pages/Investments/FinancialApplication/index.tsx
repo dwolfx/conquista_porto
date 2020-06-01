@@ -27,6 +27,7 @@ import {
   GridRow,
   GridRowExpanded,
   GridCol,
+  GridRowStepBar,
 } from './styles'
 
 interface IProps {
@@ -147,7 +148,6 @@ const LayerInvestment: React.FC<IProps> = ({
     setFormData(prevState => ({ ...prevState, ...newFormData }))
   }
 
-  // ## AQUI ENTRAM OS COMPONENTES DE STEP
   const layerBody = [
     <FormFinancialContribution
       formData={formData}
@@ -208,7 +208,7 @@ const LayerInvestment: React.FC<IProps> = ({
     >
       <StepBar>
         <GridContainer>
-          <GridRow>
+          <GridRowStepBar>
             <ColStepBar lg={12}>
               <HorizontalList
                 size="small"
@@ -224,7 +224,7 @@ const LayerInvestment: React.FC<IProps> = ({
                 `}
               />
             </ColStepBar>
-          </GridRow>
+          </GridRowStepBar>
         </GridContainer>
       </StepBar>
       <LayerBodyContainer>

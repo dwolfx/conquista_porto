@@ -20,8 +20,6 @@ import {
   EmptyStateWrapper,
 } from './styles'
 
-import { FILTER_RISKS } from '../../FundsList/constants'
-
 interface IData {
   minimo_inicial: string
   perfil_risco: string
