@@ -169,7 +169,7 @@ const LayerInvestment: React.FC<IProps> = ({
   const getBodyContent = () => {
     if (hasSucceded) {
       return (
-        <GridCol lg={9}>
+        <GridCol md={9}>
           <SuccessCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
@@ -177,12 +177,16 @@ const LayerInvestment: React.FC<IProps> = ({
 
     if (hasFailed) {
       return (
-        <GridCol lg={9}>
+        <GridCol md={9}>
           <ErrorCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
     }
-    return <GridCol lg={9}>{layerBody[step]}</GridCol>
+    return (
+      <GridCol sm={12} md={9}>
+        {layerBody[step]}
+      </GridCol>
+    )
   }
 
   const getStepCount = () => {
@@ -225,7 +229,7 @@ const LayerInvestment: React.FC<IProps> = ({
       </StepBar>
       <LayerBodyContainer>
         <GridRowExpanded>
-          <GridCol lg={3}>
+          <GridCol sm={12} md={3} alignSelf="stretch">
             <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
           </GridCol>
           {getBodyContent()}
