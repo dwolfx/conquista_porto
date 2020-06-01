@@ -36,7 +36,9 @@ const ErrorCard = ({ onCloseLayer }: IProps) => {
           <s.Icon name="closerounded" color="magenta2" />
           <s.Title>Não foi possível confirmar sua solicitação.</s.Title>
         </s.TitleWrapper>
-        <s.InfoText>Tente novamente mais tarde, por favor.</s.InfoText>
+        <s.InfoTextError>
+          Tente novamente mais tarde, por favor.
+        </s.InfoTextError>
       </s.ContentWrapper>
     </s.Card>
   )
