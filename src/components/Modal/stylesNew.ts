@@ -43,6 +43,7 @@ export const ModalContainer = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  top: 0;
 
   @media (max-width: 767px) {
     margin: 0px;
@@ -52,6 +53,7 @@ export const ModalContainer = styled.div`
     min-width: unset;
     margin: 0 auto;
     width: calc(100vw - 30px);
+    top: auto;
   }
 `
 
