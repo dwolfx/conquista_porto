@@ -15,6 +15,16 @@ export const CardStyled = styled(Card)`
   }
 `
 
+export const FixedBottom = styled.div`
+  position: fixed;
+  bottom: 0;
+  padding: ${props => props.theme.spacing(2)}px 0;
+  width: 100%;
+  background-color: ${props => props.theme.colors.white};
+  border-top: 1px solid ${props => props.theme.colors.gray3};
+  z-index: 1;
+`
+
 export const BalanceInfoContainer = styled.div`
   display: flex;
   align-items: center;

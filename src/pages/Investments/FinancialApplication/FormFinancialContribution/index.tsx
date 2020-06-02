@@ -35,6 +35,7 @@ import {
   LoadingSpinner,
   IconRetry,
   CardFooter,
+  FixedBottom,
 } from './styles'
 
 interface IProps {
@@ -57,6 +58,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
   useFetchBankData()
   const dispatch = useDispatch()
   const isTabletOrSmaller = useMedia('md')
+  const isMobile = useMedia('xs')
 
   const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
     bankData: state.bankData,
@@ -177,21 +179,24 @@ const FormFinancialContribution: React.FC<IProps> = ({
     return false
   }
 
+  const buttonNext = () => (
+    <Button
+      color="secondary"
+      onClick={nextStep}
+      disabled={isDateInvalid() || isMoneyLessThanAllowed()}
+      css={`
+        width: ${isMobile ? '100%' : 'auto'};
+      `}
+    >
+      Próximo
+    </Button>
+  )
+
   if (formData) {
     return (
       <>
         <CardStyled
-          footer={
-            <CardFooter>
-              <Button
-                color="secondary"
-                onClick={nextStep}
-                disabled={isDateInvalid() || isMoneyLessThanAllowed()}
-              >
-                Próximo
-              </Button>
-            </CardFooter>
-          }
+          footer={!isMobile && <CardFooter>{buttonNext()}</CardFooter>}
         >
           <BalanceInfoContainer>{renderBaseAccountInfo()}</BalanceInfoContainer>
           <DivisorStyled margin="21px 0 21px 0" />
@@ -266,6 +271,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
             útil.
           </Text>
         </CardStyled>
+        {isMobile && <FixedBottom>{buttonNext()}</FixedBottom>}
       </>
     )
   }
