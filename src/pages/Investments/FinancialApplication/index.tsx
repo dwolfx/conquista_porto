@@ -30,7 +30,7 @@ import {
   GridRowStepBar,
   LayerFinancialApplication,
   GridColInfo,
-  MobileSrollContent,
+  MobileScrollContent,
 } from './styles'
 
 interface IProps {
@@ -246,7 +246,7 @@ const LayerInvestment: React.FC<IProps> = ({
           </GridRowStepBar>
         </GridContainer>
       </StepBar>
-      <MobileSrollContent>
+      <MobileScrollContent expandBottomHeight={hasSucceded || hasFailed}>
         <LayerBodyContainer>
           <GridRowExpanded>
             <GridCol sm={12} md={4} lg={3}>
@@ -266,7 +266,7 @@ const LayerInvestment: React.FC<IProps> = ({
             </GridColInfo>
           </GridRow>
         </FooterContainer>
-      </MobileSrollContent>
+      </MobileScrollContent>
       <Modal
         isOpen={isConfirmationModalOpen}
         title="Sair da página?"
