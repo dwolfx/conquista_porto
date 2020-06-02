@@ -45,13 +45,8 @@ export const ModalContainer = styled.div`
   flex-direction: column;
   top: 0;
 
-  @media (max-width: 767px) {
-    margin: 0px;
-  }
-
   @media ${props => props.theme.mediaQueries.xs} {
     min-width: unset;
-    margin: 0 auto;
     width: calc(100vw - 30px);
     top: auto;
   }
