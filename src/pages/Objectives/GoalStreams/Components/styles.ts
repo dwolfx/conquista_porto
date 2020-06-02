@@ -72,3 +72,8 @@ export const Col = styled(ColBootstrap)`
     justify-content: center;
   }
 `
+
+export const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`

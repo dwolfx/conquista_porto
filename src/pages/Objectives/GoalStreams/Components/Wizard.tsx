@@ -101,20 +101,7 @@ export const WizardFlow = ({ data, objective }: IProps) => {
     }
   }
 
-  const WizardContainer = () =>
-    inputRef ? (
-      <WizardStep>
-        <QuestionInput
-          formData={formData}
-          onChangeFormData={handleSingleValue}
-          error={error}
-          ref={inputRef}
-          {...data[currentStep]}
-        />
-      </WizardStep>
-    ) : null
-
-  const WizardButton = () => (
+  const WizardButton = (
     <RowFull>
       {!isFirstStep && (
         <Col lg={6} sm={6} xs={6}>
@@ -159,6 +146,20 @@ export const WizardFlow = ({ data, objective }: IProps) => {
     </RowFull>
   )
 
+  const WizardContainer = () =>
+    inputRef ? (
+      <WizardStep>
+        <QuestionInput
+          formData={formData}
+          onChangeFormData={handleSingleValue}
+          error={error || false}
+          ref={inputRef}
+          button={WizardButton}
+          {...data[currentStep]}
+        />
+      </WizardStep>
+    ) : null
+
   return (
     <Wizard>
       <TopBar
@@ -168,12 +169,7 @@ export const WizardFlow = ({ data, objective }: IProps) => {
       />
       <BodyWizard>
         <Form onSubmit={onFormSubmit}>
-          <RowFull>
-            <Col lg={4} xs={12}>
-              {WizardContainer()}
-              {WizardButton()}
-            </Col>
-          </RowFull>
+          <RowFull>{WizardContainer()}</RowFull>
         </Form>
       </BodyWizard>
     </Wizard>

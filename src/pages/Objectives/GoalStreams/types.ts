@@ -9,19 +9,21 @@ export const HOME = '6'
 export const SAVE_MONEY = '7'
 
 export interface IData {
+  maxLength?: number | string
   name: string
   options?: {
     name: string
     value: string | number
   }[]
-  question: string | any
-  type: string
+  placeholder?: string
+  question: string
   ruleText?: string
+  sideTip?: React.ReactNode
+  tooltip?: React.ReactNode
+  type: string
   validate?:
     | ((value: string | number) => undefined | string | number)
     | undefined
-  maxLength?: number | string
-  placeholder?: string
 }
 
 export interface IDataObject {

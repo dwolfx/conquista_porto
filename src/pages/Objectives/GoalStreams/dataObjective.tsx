@@ -1,3 +1,8 @@
+import React from 'react'
+
+import ImgTip1 from 'assets/images/pages/Objectives/flow-tip1.png'
+
+import * as s from './styles'
 import {
   betweenLength,
   minValue,
@@ -47,6 +52,42 @@ const MAX_DATE_VALUES: IDateValues = {
   text: 'anos',
 }
 
+const contentInitialValue = (
+  <s.TipContent>
+    <s.CardText type="body" color="gray5" bold>
+      Chamamos de investimento inicial, a primeira aplicação feita em um fundo.
+      Ela funciona como uma "entrada".
+    </s.CardText>
+  </s.TipContent>
+)
+
+const renderSideTipInitialValue = (
+  <s.Card headerTitle="Dica" headerIcon="information">
+    <s.CardBodyContainer>
+      <img src={ImgTip1} alt="tip initial investment" />
+      {contentInitialValue}
+    </s.CardBodyContainer>
+  </s.Card>
+)
+
+const contentMonthlyValue = (
+  <s.TipContent>
+    <s.CardText type="body" color="gray5" bold>
+      Se achar o valor sugerido alto, não se preocupe: insira uma quantia menor
+      e nós criaremos um plano adaptado para você a alcançar a meta.
+    </s.CardText>
+  </s.TipContent>
+)
+
+const renderSideTipMonthlyValue = (
+  <s.Card headerTitle="Dica" headerIcon="information">
+    <s.CardBodyContainer>
+      <img src={ImgTip1} alt="tip initial investment" />
+      {contentMonthlyValue}
+    </s.CardBodyContainer>
+  </s.Card>
+)
+
 const firstStep: IData = {
   question: 'Olá {{{nome}}}, como você quer chamar o seu novo objetivo?',
   name: NICKNAME_NAME,
@@ -72,7 +113,7 @@ const dataObject: IDataObject[] = [
     icon: 'plane',
     label: 'Viagem',
     route: '/viagem',
-    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_1.jpg'),
+    image: require('assets/images/pages/Objectives/GoalStreams/card-viagem.jpg'),
     flow: [
       firstStep,
       {
@@ -111,6 +152,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipInitialValue,
+        tooltip: contentInitialValue,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -123,6 +166,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipMonthlyValue,
+        tooltip: contentMonthlyValue,
       },
     ],
   },
@@ -132,7 +177,7 @@ const dataObject: IDataObject[] = [
     icon: 'time',
     label: 'Aposentar',
     route: '/aposentar',
-    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_4.jpg'),
+    image: require('assets/images/pages/Objectives/GoalStreams/card-aposentar.jpg'),
     flow: [
       firstStep,
       {
@@ -172,6 +217,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipInitialValue,
+        tooltip: contentInitialValue,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -184,6 +231,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipMonthlyValue,
+        tooltip: contentMonthlyValue,
       },
       {
         question:
@@ -204,7 +253,7 @@ const dataObject: IDataObject[] = [
     icon: 'car2',
     label: 'Carro',
     route: '/carro',
-    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_3.jpg'),
+    image: require('assets/images/pages/Objectives/GoalStreams/card-carro.jpg'),
     flow: [
       firstStep,
       {
@@ -253,6 +302,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipInitialValue,
+        tooltip: contentInitialValue,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -265,6 +316,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipMonthlyValue,
+        tooltip: contentMonthlyValue,
       },
       {
         question:
@@ -294,7 +347,7 @@ const dataObject: IDataObject[] = [
     icon: 'homewithwindow',
     label: 'Casa',
     route: '/casa',
-    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_2.jpg'),
+    image: require('assets/images/pages/Objectives/GoalStreams/card-casa.jpg'),
     flow: [
       firstStep,
       {
@@ -343,6 +396,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipInitialValue,
+        tooltip: contentInitialValue,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -355,6 +410,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipMonthlyValue,
+        tooltip: contentMonthlyValue,
       },
       {
         question:
@@ -384,7 +441,7 @@ const dataObject: IDataObject[] = [
     icon: 'student',
     label: 'Curso',
     route: '/curso',
-    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_sofa_2.jpg'),
+    image: require('assets/images/pages/Objectives/GoalStreams/card-curso.jpg'),
     flow: [
       firstStep,
       {
@@ -424,6 +481,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipInitialValue,
+        tooltip: contentInitialValue,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -436,6 +495,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipMonthlyValue,
+        tooltip: contentMonthlyValue,
       },
     ],
   },
@@ -445,7 +506,7 @@ const dataObject: IDataObject[] = [
     icon: 'drink',
     label: 'Evento',
     route: '/evento',
-    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_insurance_3.jpg'),
+    image: require('assets/images/pages/Objectives/GoalStreams/card-evento.jpg'),
     flow: [
       firstStep,
       {
@@ -485,6 +546,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipInitialValue,
+        tooltip: contentInitialValue,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -496,6 +559,9 @@ const dataObject: IDataObject[] = [
           const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
+        maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipMonthlyValue,
+        tooltip: contentMonthlyValue,
       },
     ],
   },
@@ -505,7 +571,7 @@ const dataObject: IDataObject[] = [
     icon: 'money',
     label: 'Poupar',
     route: '/poupar',
-    image: require('assets/images/pages/Home/PointsRewards/img_offer_points_nogroup_5.jpg'),
+    image: require('assets/images/pages/Objectives/GoalStreams/card-poupar.jpg'),
     flow: [
       firstStep,
       {
@@ -545,6 +611,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : THOUSAND_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipInitialValue,
+        tooltip: contentInitialValue,
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
@@ -557,6 +625,8 @@ const dataObject: IDataObject[] = [
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
+        sideTip: renderSideTipMonthlyValue,
+        tooltip: contentMonthlyValue,
       },
     ],
   },
