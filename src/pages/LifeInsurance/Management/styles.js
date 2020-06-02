@@ -153,7 +153,7 @@ export const ClientAreaSection = styled.section`
   align-items: center;
   justify-content: space-around;
   height: 220px;
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
 `
 
 export const Modal = styled(ModalDefault)`

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 const defaultStyle = css`
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   font-family: ${props => props.theme.fontTypes.captionUppercase};
   text-align: center;
 
@@ -40,7 +40,7 @@ export const TBody = styled.tbody`
 
 export const Tr = styled.tr`
   @media ${props => props.theme.mediaQueries.sm} {
-    border-bottom: 1px solid ${props => props.theme.colors.gray2};
+    border-bottom: 1px solid ${props => props.theme.colors.gray3};
 
     &:last-child {
       border-bottom: none;

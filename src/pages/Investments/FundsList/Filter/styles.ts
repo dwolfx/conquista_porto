@@ -59,7 +59,7 @@ export const SquareRiskLevel = styled.div.attrs(() => ({
 `
 
 export const VerticalDivisor = styled.div`
-  background-color: ${props => props.theme.colors.gray2};
+  background-color: ${props => props.theme.colors.gray3};
   height: 28px;
   width: 1px;
   margin: 0 21px;

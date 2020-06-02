@@ -67,7 +67,7 @@ export const Table = styled.div`
   border-collapse: collapse;
   height: 69vh;
   border-radius: 4px;
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   &.sticky {
     overflow: auto;
     .header {
@@ -209,7 +209,7 @@ export const Tbody = styled.div`
 `
 export const TbodyTr = styled.div`
   background-color: ${props => props.theme.colors.white};
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   color: ${props => props.theme.colors.gray5};
   font-weight: normal;
   display: flex;
