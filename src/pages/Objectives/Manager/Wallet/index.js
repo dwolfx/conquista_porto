@@ -140,7 +140,7 @@ export default function Wallet({
                           display: flex;
                           flex-direction: column;
                           justify-content: space-between;
-                          border-right: 1px solid ${theme.colors.gray2};
+                          border-right: 1px solid ${theme.colors.gray3};
                         `}
                       >
                         <Row>

@@ -78,7 +78,7 @@ export const TheadTr = styled.tr`
   background-color: ${props => props.theme.colors.gray1};
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
 `
 
 interface ITheadTh {
@@ -173,7 +173,7 @@ export const TheadColumn = styled.div<ITheadColumn>`
 `
 
 export const Tbody = styled.tbody`
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -183,7 +183,7 @@ export const Tbody = styled.tbody`
 
 export const TbodyTr = styled.tr`
   background-color: ${props => props.theme.colors.white};
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   color: ${props => props.theme.colors.gray5};
   font-weight: normal;
   cursor: pointer;

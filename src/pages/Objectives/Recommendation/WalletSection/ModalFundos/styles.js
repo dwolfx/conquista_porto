@@ -55,7 +55,7 @@ export const ButtonTab = styled(Button)`
 
 export const SingleItem = styled.div`
   border-bottom: ${props =>
-    props.borderBottom ? `1px solid ${props.theme.colors.gray2}` : 'none'};
+    props.borderBottom ? `1px solid ${props.theme.colors.gray3}` : 'none'};
   margin-bottom: 42px;
 
   &:last-child {

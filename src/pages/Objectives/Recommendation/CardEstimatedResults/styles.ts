@@ -24,7 +24,7 @@ export const CardRow = styled(Row)`
   }
 
   &:last-of-type {
-    margin: ${({theme}) => `${theme.spacing(5)}px auto 0`};
+    margin: ${({ theme }) => `${theme.spacing(5)}px auto 0`};
     max-width: 770px;
   }
 
@@ -34,16 +34,16 @@ export const CardRow = styled(Row)`
 `
 
 export const BodyCard = styled.div`
-  padding: ${({theme}) => `${theme.spacing(5)}px 0 ${theme.spacing(3)}px`};
+  padding: ${({ theme }) => `${theme.spacing(5)}px 0 ${theme.spacing(3)}px`};
 
   @media ${props => props.theme.mediaQueries.sm} {
-    padding: ${({theme}) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
+    padding: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
   }
 `
 
 export const LabelIncome = styled(Col)`
   background-color: ${props => props.theme.colors.gray1};
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: ${props => props.theme.spacing(1)}px;
   min-width: 175px;
   padding: ${props => props.theme.spacing(2)}px;
@@ -61,10 +61,10 @@ export const LabelIncome = styled(Col)`
 `
 
 export const LabelObjective = styled(Col)`
-  margin: ${({theme}) => `0 ${theme.spacing(3)}px`};
+  margin: ${({ theme }) => `0 ${theme.spacing(3)}px`};
 
   @media ${props => props.theme.mediaQueries.md} {
-    margin: ${({theme}) => `0 ${theme.spacing(2)}px`};
+    margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
   }
 
   @media ${props => props.theme.mediaQueries.sm} {
@@ -83,11 +83,11 @@ export const FeaturedText = styled(Text).attrs(() => ({ type: 'headline' }))`
 `
 
 export const Divider = styled.div`
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   height: 0%;
   max-width: 770px;
   width: 100%;
-  margin: ${({theme}) => `${theme.spacing(5)}px auto 0`};
+  margin: ${({ theme }) => `${theme.spacing(5)}px auto 0`};
 
   @media ${props => props.theme.mediaQueries.sm} {
     margin: 0;

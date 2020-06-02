@@ -163,7 +163,7 @@ export const SuggestedProduct = styled.div`
   width: 100%;
   &:nth-child(2) {
     border-top: 1px solid;
-    border-color: ${props => props.theme.colors.gray2};
+    border-color: ${props => props.theme.colors.gray3};
     padding-top: 12px;
     margin-top: 12px;
   }
@@ -311,7 +311,7 @@ export const ProductBannerItemsContainer = styled(Row)`
 export const ProductBannerItem = styled(Col)`
   display: flex;
   align-items: center;
-  border-right: 1px solid ${props => props.theme.colors.gray2};
+  border-right: 1px solid ${props => props.theme.colors.gray3};
   flex-direction: column;
   height: 150px;
   margin: 17.5px 0;

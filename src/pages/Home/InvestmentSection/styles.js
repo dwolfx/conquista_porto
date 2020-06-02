@@ -131,7 +131,7 @@ export const InvestmentInfosRow = styled(Row)`
 
   &:first-of-type {
     padding-bottom: 7px;
-    border-bottom: 1px solid ${props => props.theme.colors.gray2};
+    border-bottom: 1px solid ${props => props.theme.colors.gray3};
   }
   &:last-of-type {
     padding-top: 7px;
