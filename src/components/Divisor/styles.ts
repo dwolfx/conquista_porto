@@ -6,8 +6,8 @@ export interface IProps {
 export const StyledDivisor = styled.div<IProps>`
   ${props =>
     props.vertical
-      ? `border-left: 1px solid ${props.theme.colors.gray2}`
-      : `border-bottom: 1px solid ${props.theme.colors.gray2}`};
+      ? `border-left: 1px solid ${props.theme.colors.gray3}`
+      : `border-bottom: 1px solid ${props.theme.colors.gray3}`};
   height: ${props => {
     if (props.vertical) {
       return props.customSize && props.customSize

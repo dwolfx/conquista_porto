@@ -8,7 +8,7 @@ interface ICard {
 
 export const CardWrapper = styled.div<ICard>`
   background-color: ${props => props.theme.colors.white};
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ export const CardWrapper = styled.div<ICard>`
 export const CardHeader = styled.div`
   align-items: center;
   background-color: ${props => props.theme.colors.white};
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
   min-height: 63px;
   padding: 0 14px;
@@ -70,7 +70,7 @@ export const CardBody = styled.div`
 export const CardFooter = styled.div`
   align-items: center;
   background-color: ${props => props.theme.colors.white};
-  border-top: 1px solid ${props => props.theme.colors.gray2};
+  border-top: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
   min-height: 63px;
 `

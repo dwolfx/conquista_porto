@@ -4,7 +4,7 @@ import { Col, Row } from 'styled-bootstrap-grid'
 export const TablesContainer = styled.div`
   vertical-align: middle;
   display: flex;
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: 4px;
   position: relative;
   margin: ${({ theme }) => theme.spacing(2)}px 0;
@@ -46,7 +46,7 @@ export const Thead = styled.thead`
 `
 
 export const Tr = styled.tr`
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-left: none;
 `
 

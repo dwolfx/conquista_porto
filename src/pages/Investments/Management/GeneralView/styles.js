@@ -65,7 +65,7 @@ export const LinkButton = styled.p`
 export const LineDivider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${props => props.theme.colors.gray2};
+  background-color: ${props => props.theme.colors.gray3};
   margin: 15px 0px;
 `
 

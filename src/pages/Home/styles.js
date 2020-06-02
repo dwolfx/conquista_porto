@@ -116,7 +116,7 @@ export const CardPontosFooter = styled.div`
 
 export const PointsInfo = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
   padding: 14px;
   flex-wrap: wrap;
