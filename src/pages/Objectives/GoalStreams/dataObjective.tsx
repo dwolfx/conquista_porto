@@ -329,16 +329,6 @@ const dataObject: IDataObject[] = [
           { name: 'Tenho dificuldade', value: 'false' },
         ],
       },
-      {
-        question:
-          'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'would_like_to_receive_before_final_date',
-        type: 'bool',
-        options: [
-          { name: 'Sim', value: 'true' },
-          { name: 'Não', value: 'false' },
-        ],
-      },
     ],
   },
   {
@@ -421,16 +411,6 @@ const dataObject: IDataObject[] = [
         options: [
           { name: 'Consigo guardar', value: 'true' },
           { name: 'Tenho dificuldade', value: 'false' },
-        ],
-      },
-      {
-        question:
-          'Gostaria de tentar receber antes do prazo final (ex: por sorteio)?',
-        name: 'would_like_to_receive_before_final_date',
-        type: 'bool',
-        options: [
-          { name: 'Sim', value: 'true' },
-          { name: 'Não', value: 'false' },
         ],
       },
     ],

@@ -3728,28 +3728,26 @@
     "cod_prog": "001"
   },
   "goal_recommendations": {
-    "goal_type": "6",
+    "goal_type": "3",
     "profile": 3,
-    "nickname": "MinhaVidaMeuJob",
+    "nickname": "Meu Objetivo",
     "target_date": "30/12/2021",
     "is_target_date_flexible": "true",
-    "target_value": "70.000.000,00",
+    "target_value": "1.000,00",
     "initial_value": "5.000,00",
     "monthly_value": "1.000,00",
-    "is_easy_to_save_planned_amount": "true",
-    "would_like_to_receive_before_final_date": "true"
+    "is_easy_to_save_planned_amount": "true"
   },
   "goal_management": {
     "id": 1,
     "answer": {
-      "nickname": "Barcelona",
-      "target_date": "10/02/2022",
-      "target_value": 100,
-      "initial_value": 100,
-      "monthly_value": 10000,
-      "would_like_to_receive_before_final_date": "true",
+      "nickname": "Meu Objetivo",
+      "target_date": "30/12/2021",
+      "target_value": "100",
+      "initial_value": "500",
+      "monthly_value": "100",
       "would_like_to_receive_monthly_income": false,
-      "goal_type": "6",
+      "goal_type": "3",
       "is_easy_to_save_planned_amount": "true",
       "is_target_date_flexible": "true",
       "profile": 3
