@@ -38,7 +38,8 @@ import {
 } from './styles'
 
 interface IProps {
-  formData: IFormData | null
+  formData: IFormData
+  formDataCopy: IFormData
   nextStep: () => void
   onChangeFormData: (formData: IFormData) => void
   onFormHasChanged: (formChanged: boolean) => void
@@ -47,6 +48,7 @@ interface IProps {
 
 const FormFinancialContribution: React.FC<IProps> = ({
   formData,
+  formDataCopy,
   nextStep,
   onChangeFormData,
   onFormHasChanged,
@@ -61,20 +63,6 @@ const FormFinancialContribution: React.FC<IProps> = ({
     investmentPosition: state.investmentPosition,
     auth: state.auth,
   }))
-
-  const [formDataCopy, setFormDataCopy] = useState<IFormData | null>(null) // just a copy. No need to be handled in any way
-
-  useEffect(() => {
-    if (formData && !formDataCopy) {
-      setFormDataCopy(formData)
-    }
-  }, [formData, formDataCopy])
-
-  useEffect(() => {
-    if (!idFundo) {
-      setFormDataCopy(null)
-    }
-  }, [idFundo])
 
   useEffect(() => {
     if (formData && formDataCopy) {

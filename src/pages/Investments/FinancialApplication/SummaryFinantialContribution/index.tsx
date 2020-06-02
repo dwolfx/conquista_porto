@@ -21,7 +21,7 @@ import { IFormData } from 'pages/Investments/FinancialApplication'
 import useMedia from 'hooks/useMedia'
 
 interface IProps {
-  formData: IFormData | null
+  formData: IFormData
   errorCount: number
   previousStep: () => void
   onChangeFormData: (newFormData: IFormData) => void
@@ -57,7 +57,7 @@ const SummaryFinantialContribution = ({
           </StyledButton>
           <StyledButton
             color="secondary"
-            disabled={!formData!.isAwareOfTerms}
+            disabled={formData.isAwareOfTerms}
             loading={isLoading}
             loadingColor="white"
             css={`
@@ -140,11 +140,11 @@ const SummaryFinantialContribution = ({
                 .
               </Text>
             }
-            checked={formData!.isAwareOfTerms}
+            checked={formData.isAwareOfTerms}
             onChange={() =>
               onChangeFormData({
                 ...formData!,
-                isAwareOfTerms: !formData!.isAwareOfTerms,
+                isAwareOfTerms: formData.isAwareOfTerms,
               })
             }
             id="checkbox-1"
