@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
 
