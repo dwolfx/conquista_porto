@@ -7,7 +7,7 @@ export const PanelTab = styled.div``
 
 export const PanelList = styled.div`
   border: 1px solid ${props => props.theme.colors.blue4};
-  border-radius: 7px;
+  border-radius: 4px;
   display: flex;
   margin-bottom: 21px;
 `
@@ -28,11 +28,11 @@ export const SingleTab = styled.div`
   }
 
   &:first-child {
-    border-radius: 7px 0 0 7px;
+    border-radius: 2px 0 0 2px;
   }
 
   &:last-child {
-    border-radius: 0 7px 7px 0;
+    border-radius: 0 2px 2px 0;
   }
 
   &.active {
