@@ -5,7 +5,7 @@ import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/ac
 
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
-import { formatMoney, formatDotToComma } from 'helpers'
+import { formatMoney, formatNumber } from 'helpers'
 
 import {
   ArrowDown,
@@ -122,10 +122,10 @@ export interface IFund {
   categoria_arena: string
   minimo_inicial: number
   resgate_cotizacao: string
-  rentabil_fundo_mes: number
-  rentabil_fundo_12_meses: number
-  rentabil_fundo_ano: number
-  taxa_administracao: number
+  rentabil_fundo_mes: string
+  rentabil_fundo_12_meses: string
+  rentabil_fundo_ano: string
+  taxa_administracao: string
   id_fundo: string
   aplicao_liberada: boolean
 }
@@ -264,9 +264,7 @@ const FundCard: React.FC<IFundCard> = ({
               size="small"
               startItems={[<InfoTitle>Rentabilidade mês</InfoTitle>]}
               endItems={[
-                <InfoValue>
-                  {formatDotToComma(fund.rentabil_fundo_mes)}%
-                </InfoValue>,
+                <InfoValue>{formatNumber(fund.rentabil_fundo_mes)}%</InfoValue>,
               ]}
             />
             {isOpen && (
@@ -276,7 +274,7 @@ const FundCard: React.FC<IFundCard> = ({
                   startItems={[<InfoTitle>Rentabilidade últ. 12m</InfoTitle>]}
                   endItems={[
                     <InfoValue>
-                      {formatDotToComma(fund.rentabil_fundo_12_meses)}%
+                      {formatNumber(fund.rentabil_fundo_12_meses)}%
                     </InfoValue>,
                   ]}
                 />
@@ -285,7 +283,7 @@ const FundCard: React.FC<IFundCard> = ({
                   startItems={[<InfoTitle>Rentabilidade ano</InfoTitle>]}
                   endItems={[
                     <InfoValue>
-                      {formatDotToComma(fund.rentabil_fundo_ano)}%
+                      {formatNumber(fund.rentabil_fundo_ano)}%
                     </InfoValue>,
                   ]}
                 />
@@ -294,7 +292,7 @@ const FundCard: React.FC<IFundCard> = ({
                   startItems={[<InfoTitle>Taxa adm. (a.a.)</InfoTitle>]}
                   endItems={[
                     <InfoValue>
-                      {formatDotToComma(fund.taxa_administracao)}%
+                      {formatNumber(fund.taxa_administracao)}%
                     </InfoValue>,
                   ]}
                 />
