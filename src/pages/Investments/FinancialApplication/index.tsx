@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import 'styled-components/macro'
+import useMedia from 'hooks/useMedia'
 
 import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
@@ -67,6 +68,7 @@ const LayerInvestment: React.FC<IProps> = ({
     FORM_DATA_INTIAL_STATE
   )
   const stepCount = 2
+  const isMobile = useMedia('xs')
 
   function loadFormData(prevState: any): any {
     const selectedFund = funds.data.find(
@@ -262,7 +264,7 @@ const LayerInvestment: React.FC<IProps> = ({
         isOpen={isConfirmationModalOpen}
         title="Sair da página?"
         description="Todas as informações serão perdidas e a solicitação não será finalizada."
-        buttonTextCancel="continuar solicitação"
+        buttonTextCancel={`continuar ${isMobile ? '' : 'solicitação'}`}
         buttonTextConfirm="sair"
         onClose={() => {
           setIsConfirmationModalOpen(false)
