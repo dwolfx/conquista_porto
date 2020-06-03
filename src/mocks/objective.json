@@ -152,12 +152,13 @@
     {
       "id": 1,
       "recommended": true,
-      "name": "Porto Seguro Renda Fixa Referenciado DI Crédito Privado",
+      "name": "Occam Institucional II FIC Multimercado",
       "initial_deposit": 1000,
       "monthly_deposit": 1000,
       "balance": 600,
       "available": -643,
       "invested": 480,
+      "is_fund_active": true,
       "goals": [
         {
           "id": 1,

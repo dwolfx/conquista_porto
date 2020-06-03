@@ -2,6 +2,14 @@ import React from 'react'
 
 import { Container, StartBlock, EndBlock } from './styles'
 
+interface IProps {
+  startItems?: React.ReactNode[]
+  endItems?: React.ReactNode[]
+  size?: 'large' | 'medium' | 'small' | 'default'
+  noPadding?: boolean
+  marginBetweenElements?: string
+}
+
 export default function HorizontalList({
   startItems,
   endItems,
@@ -25,12 +33,4 @@ export default function HorizontalList({
       </EndBlock>
     </Container>
   )
-}
-
-interface IProps {
-  startItems?: React.ReactNode[]
-  endItems?: React.ReactNode[]
-  size?: 'large' | 'small' | 'default'
-  noPadding?: boolean
-  marginBetweenElements?: string
 }

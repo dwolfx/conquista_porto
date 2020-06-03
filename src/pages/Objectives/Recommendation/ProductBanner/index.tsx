@@ -1,71 +1,52 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import useMedia from 'hooks/useMedia'
 import Button from 'components/Button'
-import Icon from 'components/IconExporter'
+import { dict } from 'components/IconExporter'
 import Text from 'components/Text'
 import { dataLayerProductSuggestion } from 'GoogleTagManager'
 
-import products from './productBannerData'
+import { IAdditional } from 'pages/Objectives/Recommendation/types'
 import {
-  BannerTips,
   Column,
   GridRow,
   ButtonContainer,
-  ProductBannerModal,
-  ProductBannerContent,
-  ProductBannerItem,
-  ProductBannerItemsContainer,
-} from './styles'
+} from 'pages/Objectives/Recommendation/styles'
 
-const ModalContent = ({ items, text, isMobile }) => (
-  <ProductBannerContent>
-    <Text
-      type="headline"
-      color="gray6"
-      css={`
-        margin-bottom: 10px;
-        text-align: ${isMobile ? 'center' : 'unset'};
-      `}
-    >
-      {text}
-    </Text>
-    <ProductBannerItemsContainer>
-      {items &&
-        items.map(item => (
-          <ProductBannerItem md="4" key={`product-item-${item.icon}`}>
-            <Icon
-              name={item.icon}
-              color="blue4"
-              css={`
-                max-width: 50px;
-                max-height: 50px;
-              `}
-            />
-            <Text
-              css={`
-                margin-top: 21px;
-              `}
-            >
-              {item.text}
-            </Text>
-          </ProductBannerItem>
-        ))}
-    </ProductBannerItemsContainer>
-  </ProductBannerContent>
-)
+import products, { TAdditionalKey } from './productBannerData'
+import ModalContent from './ModalContent'
+import * as s from './styles'
 
-const SectionThree = ({ additional }) => {
-  const dataLayerProducts = []
+interface IModal {
+  isOpen: boolean
+  title: string
+  text: string
+  items: {
+    icon: keyof typeof dict
+    text: string
+  }[]
+}
+interface ILayerProducts {
+  name: string
+  category: string
+  position: number
+}
+interface IProps {
+  additional: IAdditional
+}
+
+const ProductBanner = ({ additional }: IProps) => {
   const isMobile = useMedia('sm')
+  const isTabletHorizontal = useMedia('lg')
+  
+  const dataLayerProducts: ILayerProducts[] = []
   let dataLayerReturnType = 'erro'
   let dataLayerDescription = 'Não existem produtos sugeridos'
 
   const renderedProducts = Object.entries(additional)
-    .filter(value => value[1] === true)
-    .map(item => products[item[0]])
+    .filter(([, value]) => value === true)
+    .map(([key]: TAdditionalKey[]) => products[key])
 
   renderedProducts.map(
     (product, index) =>
@@ -89,6 +70,7 @@ const SectionThree = ({ additional }) => {
         })) ||
       null
   )
+
   if (dataLayerProducts.length >= 1) {
     dataLayerReturnType = 'sucesso'
     dataLayerDescription = ''
@@ -99,11 +81,16 @@ const SectionThree = ({ additional }) => {
     )
   }
 
-  const [modalState, setModalState] = useState({
+  const [modalState, setModalState] = useState<IModal>({
     isOpen: false,
     title: '',
     text: '',
-    items: [],
+    items: [
+      {
+        icon: 'creditcard',
+        text: '',
+      },
+    ],
   })
 
   return (
@@ -112,36 +99,39 @@ const SectionThree = ({ additional }) => {
         {renderedProducts.map(product => (
           <Column
             key={product.title}
-            lg={renderedProducts.length > 1 ? '6' : '12'}
+            lg={renderedProducts.length > 1 ? 6 : 12}
+            md={renderedProducts.length > 1 ? 6 : 12}
             xs={12}
           >
-            <BannerTips
+            <s.ProductBanner
               size={renderedProducts.length > 1 ? 'sm' : 'lg'}
-              image={product.image}
+              bgImage={product.image}
             >
-              {isMobile ? (
-                <>
-                  <Text bold type="captionUppercase">
-                    {product.category}
-                  </Text>
-                  <Text bold type="heading4">
-                    {product.title}
-                  </Text>
-                  <Text>{product.text}</Text>
-                </>
-              ) : (
-                <>
-                  <Text type="captionUppercase">{product.category}</Text>
-                  <Text type="heading3">{product.title}</Text>
-                  <Text
-                    css={`
-                      width: calc(10 / 12 * 100%);
-                    `}
-                  >
-                    {product.text}
-                  </Text>
-                </>
-              )}
+              <Text bold type="captionUppercase">
+                {product.category}
+              </Text>
+              <Text
+                bold={isMobile}
+                type={
+                  isMobile || isTabletHorizontal
+                    ? 'heading4'
+                    : 'heading3'
+                }
+              >
+                {product.title}
+              </Text>
+              <Text
+                css={
+                  !(isMobile || isTabletHorizontal)
+                    ? `
+                      width: ${(10 / 12) * 100}%;
+                    `
+                    : ''
+                }
+              >
+                {product.text}
+              </Text>
+
               <ButtonContainer>
                 <Button
                   data-gtm-subname={`${product.title}`}
@@ -161,11 +151,11 @@ const SectionThree = ({ additional }) => {
                   Saiba mais
                 </Button>
               </ButtonContainer>
-            </BannerTips>
+            </s.ProductBanner>
           </Column>
         ))}
       </GridRow>
-      <ProductBannerModal
+      <s.ProductBannerModal
         modalTitle={modalState.title}
         alignItems="center"
         isOpen={modalState.isOpen}
@@ -181,39 +171,9 @@ const SectionThree = ({ additional }) => {
           text={modalState.text}
           isMobile={isMobile}
         />
-      </ProductBannerModal>
+      </s.ProductBannerModal>
     </>
   )
 }
 
-SectionThree.propTypes = {
-  additional: PropTypes.object,
-}
-
-SectionThree.defaultProps = {
-  additional: {},
-}
-
-ModalContent.propTypes = {
-  text: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.string,
-      text: PropTypes.string,
-    })
-  ),
-  isMobile: PropTypes.bool,
-}
-
-ModalContent.defaultProps = {
-  text: '',
-  items: [
-    {
-      icon: 'creditcard',
-      text: '',
-    },
-  ],
-  isMobile: false,
-}
-
-export default SectionThree
+export default ProductBanner

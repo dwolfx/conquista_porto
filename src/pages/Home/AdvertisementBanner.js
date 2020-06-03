@@ -21,7 +21,7 @@ const AdvertisementBanner = () => {
   const recommendationState = useSelector(state => state.rewardsRecommendations)
 
   useEffect(() => {
-    setHideBanner(Boolean(getCookieValue('hideConquistaHomeBanner')))
+    setHideBanner(Boolean(getCookieValue('hideConquistaRecommendationBanner')))
   }, [])
 
   useEffect(() => {
@@ -36,7 +36,15 @@ const AdvertisementBanner = () => {
         Math.random() * (recommendationState.data.length - 1)
       )
 
-      setBannerData(recommendationState.data[randomPosition])
+      setCookieValue(
+        'positionConquistaRecommendationBanner',
+        randomPosition + 1
+      )
+      setBannerData(
+        recommendationState.data[
+          (randomPosition + 1) % recommendationState.data.length
+        ]
+      )
     }
   }, [recommendationState.data])
 
@@ -57,7 +65,7 @@ const AdvertisementBanner = () => {
             image={bannerData.icon_name || BannerImg}
             hasCloseButton
             onClose={() => {
-              setCookieValue('hideConquistaHomeBanner', 'true')
+              setCookieValue('hideConquistaRecommendationBanner', 'true')
               setHideBanner(true)
             }}
           >

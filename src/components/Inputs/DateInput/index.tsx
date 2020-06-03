@@ -10,6 +10,8 @@ interface IProps {
   value?: string
   error?: boolean | { icon: keyof typeof dict; message: string }
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void
+  name?: string
+  placeholder?: string
 }
 
 const DateInput = forwardRef<HTMLInputElement, IProps>(

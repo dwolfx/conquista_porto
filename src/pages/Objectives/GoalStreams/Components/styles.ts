@@ -31,11 +31,6 @@ export const ButtonAction = styled(Button)`
   width: 100%;
 `
 
-export const PageBar = styled(Text).attrs(() => ({ type: 'title' }))`
-  color: ${props => props.theme.colors.gray4};
-  text-transform: uppercase;
-`
-
 export const Question = styled(Text).attrs(() => ({ type: 'heading4' }))`
   text-align: center;
   padding: 14px;
@@ -57,23 +52,10 @@ export const BodyWizard = styled.div`
   height: calc(100vh - 151px);
 `
 
-export const Nickname = styled(Text).attrs(() => ({ type: 'heading4' }))`
-  color: ${props => props.theme.colors.white};
-  font-weight: normal;
-  text-transform: none;
-`
-
 export const SectionBar = styled.section`
-  background-color: ${props => props.theme.fundRiskColors.lowRisk};
-  padding: 14px 28px;
-`
-
-export const TitleBar = styled(Text).attrs(() => ({ type: 'heading4' }))`
-  color: ${props => props.theme.colors.gray4};
-  text-transform: none;
-  span {
-    color: ${props => props.theme.colors.white};
-  }
+  background-color: ${props => props.theme.colors.grayblue1};
+  padding: ${props => props.theme.spacing(2)}px
+    ${props => props.theme.spacing(4)}px;
 `
 
 export const InputWrapper = styled.div`
