@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col } from 'styled-bootstrap-grid'
@@ -29,7 +29,7 @@ const getFormEntries = (data: IData[]) =>
 
 export const WizardFlow = ({ data, objective }: IProps) => {
   const history = useHistory()
-  const inputRef = createRef() as React.RefObject<HTMLInputElement>
+  const inputRef = useRef() as React.RefObject<HTMLInputElement>
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
   const [currentStep, setStepIndex] = useState(0)
@@ -107,7 +107,7 @@ export const WizardFlow = ({ data, objective }: IProps) => {
         <QuestionInput
           formData={formData}
           onChangeFormData={handleSingleValue}
-          error={error || false}
+          error={error}
           ref={inputRef}
           {...data[currentStep]}
         />
