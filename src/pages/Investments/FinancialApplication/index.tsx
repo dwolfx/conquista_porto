@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import 'styled-components/macro'
 import useMedia from 'hooks/useMedia'
 
-import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Modal from 'components/Modal/Confirmation'
@@ -29,6 +28,9 @@ import {
   GridRowExpanded,
   GridCol,
   GridRowStepBar,
+  LayerFinancialApplication,
+  GridColInfo,
+  MobileSrollContent,
 } from './styles'
 
 interface IProps {
@@ -186,7 +188,7 @@ const LayerInvestment: React.FC<IProps> = ({
   const getBodyContent = () => {
     if (hasSucceded) {
       return (
-        <GridCol md={9}>
+        <GridCol sm={12} md={8} lg={9}>
           <SuccessCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
@@ -194,13 +196,13 @@ const LayerInvestment: React.FC<IProps> = ({
 
     if (hasFailed) {
       return (
-        <GridCol md={9}>
+        <GridCol sm={12} md={8} lg={9}>
           <ErrorCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
     }
     return (
-      <GridCol sm={12} md={9}>
+      <GridCol sm={12} md={8} lg={9}>
         {layerBody[step]}
       </GridCol>
     )
@@ -218,7 +220,7 @@ const LayerInvestment: React.FC<IProps> = ({
   }
 
   return (
-    <Layer
+    <LayerFinancialApplication
       handleClose={handleClose}
       isOpen={isOpen}
       headerContent={<LayerHeader {...headerAttributes} />}
@@ -244,25 +246,27 @@ const LayerInvestment: React.FC<IProps> = ({
           </GridRowStepBar>
         </GridContainer>
       </StepBar>
-      <LayerBodyContainer>
-        <GridRowExpanded>
-          <GridCol sm={12} md={3} alignSelf="stretch">
-            <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
-          </GridCol>
-          {getBodyContent()}
-        </GridRowExpanded>
-      </LayerBodyContainer>
-      <FooterContainer>
-        <GridRow>
-          <GridCol lg={12} md={12} sm={12} xs={12}>
-            <Text color="gray5" type="body">
-              Toda transmissão de ordem por meio digital está sujeita a
-              interrupções ou atrasos, podendo impedir ou prejudicar o envio de
-              ordens ou a recepção de informações atualizadas.
-            </Text>
-          </GridCol>
-        </GridRow>
-      </FooterContainer>
+      <MobileSrollContent>
+        <LayerBodyContainer>
+          <GridRowExpanded>
+            <GridCol sm={12} md={4} lg={3}>
+              <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
+            </GridCol>
+            {getBodyContent()}
+          </GridRowExpanded>
+        </LayerBodyContainer>
+        <FooterContainer>
+          <GridRow>
+            <GridColInfo col={12}>
+              <Text color="gray5" type="body">
+                Toda transmissão de ordem por meio digital está sujeita a
+                interrupções ou atrasos, podendo impedir ou prejudicar o envio
+                de ordens ou a recepção de informações atualizadas.
+              </Text>
+            </GridColInfo>
+          </GridRow>
+        </FooterContainer>
+      </MobileSrollContent>
       <Modal
         isOpen={isConfirmationModalOpen}
         title="Sair da página?"
@@ -277,7 +281,7 @@ const LayerInvestment: React.FC<IProps> = ({
           handleClose()
         }}
       />
-    </Layer>
+    </LayerFinancialApplication>
   )
 }
 
