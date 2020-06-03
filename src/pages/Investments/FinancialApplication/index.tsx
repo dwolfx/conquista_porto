@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import 'styled-components/macro'
@@ -68,33 +68,36 @@ const LayerInvestment: React.FC<IProps> = ({
   )
   const stepCount = 2
 
-  function loadFormData(prevState: any): any {
-    const selectedFund = funds.data.find(
-      (fund: any) => fund.id_fundo === selectedFundId
-    )
-    const canInvestToday = moment(moment(), 'hh:mm:ss').isBefore(
-      moment('15:00:00', 'hh:mm:ss')
-    )
-    return {
-      ...prevState,
-      moneyToInvest: formatMoneyDecimal(
-        Number(selectedFund.minimo_inicial * 100)
-      ),
-      whenToInvest: canInvestToday
-        ? moment().format('DD/MM/YYYY')
-        : moment()
-            .add('1', 'day')
-            .format('DD/MM/YYYY'),
-      isAwareOfTerms: false,
-    }
-  }
+  const loadFormData = useCallback(
+    (prevState: any): any => {
+      const selectedFund = funds.data.find(
+        (fund: any) => fund.id_fundo === selectedFundId
+      )
+      const canInvestToday = moment(moment(), 'hh:mm:ss').isBefore(
+        moment('15:00:00', 'hh:mm:ss')
+      )
+      return {
+        ...prevState,
+        moneyToInvest: formatMoneyDecimal(
+          Number(selectedFund.minimo_inicial * 100)
+        ),
+        whenToInvest: canInvestToday
+          ? moment().format('DD/MM/YYYY')
+          : moment()
+              .add('1', 'day')
+              .format('DD/MM/YYYY'),
+        isAwareOfTerms: false,
+      }
+    },
+    [funds.data, selectedFundId]
+  )
 
   useEffect(() => {
     if (selectedFundId && funds.data.length > 0) {
       setFormData(prevState => loadFormData(prevState))
       setFormDataCopy(prevState => loadFormData(prevState))
     }
-  }, [selectedFundId, funds.data])
+  }, [selectedFundId, funds.data, loadFormData])
 
   useEffect(() => {
     if (!selectedFundId) {
