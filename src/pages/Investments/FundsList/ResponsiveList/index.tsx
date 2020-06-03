@@ -23,35 +23,41 @@ import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 interface IFilterInformation {
   filtersCount: number
   isFiltersBarHidden: boolean
-  handleCleanUpButtonClick: () => void
+  handleCleanUpButtonClick(): void
+  setIsFiltersBarHidden(hidden: boolean): void
 }
 
 const FilterInformation: React.FC<IFilterInformation> = ({
   filtersCount,
   isFiltersBarHidden,
   handleCleanUpButtonClick,
-}) => (
-  <FiltersInfoContainer hidden={isFiltersBarHidden}>
-    <FiltersInfo>
-      <Text type="subheading" color="gray5">
-        {filtersCount === 1 && '1 FILTRO ATIVO'}
-        {filtersCount > 1 && `${filtersCount} FILTROS ATIVOS`}
-      </Text>
-      <ButtonLink
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        data-gtm-name="limpar"
-        noIcon
-        onClick={() => {
-          handleCleanUpButtonClick()
-        }}
-      >
-        LIMPAR
-      </ButtonLink>
-    </FiltersInfo>
-    <Divisor />
-  </FiltersInfoContainer>
-)
+  setIsFiltersBarHidden,
+}) => {
+  filtersCount <= 0 && setIsFiltersBarHidden(true)
+
+  return (
+    <FiltersInfoContainer hidden={isFiltersBarHidden}>
+      <FiltersInfo>
+        <Text type="subheading" color="gray5">
+          {filtersCount === 1 && '1 FILTRO ATIVO'}
+          {filtersCount > 1 && `${filtersCount} FILTROS ATIVOS`}
+        </Text>
+        <ButtonLink
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-name="limpar"
+          noIcon
+          onClick={() => {
+            handleCleanUpButtonClick()
+          }}
+        >
+          LIMPAR
+        </ButtonLink>
+      </FiltersInfo>
+      <Divisor />
+    </FiltersInfoContainer>
+  )
+}
 
 interface IResponsiveListProps {
   onChangeIsFundDetailOpen: (prevState: Function) => boolean
@@ -139,6 +145,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
             filtersCount={filtersCount}
             isFiltersBarHidden={isFiltersBarHidden}
             handleCleanUpButtonClick={handleCleanUpButtonClick}
+            setIsFiltersBarHidden={setIsFiltersBarHidden}
           />
           <ListWrapper marginTop>
             <WrapperContent hasFilterInfo>
@@ -157,6 +164,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
           filtersCount={filtersCount}
           isFiltersBarHidden={isFiltersBarHidden}
           handleCleanUpButtonClick={handleCleanUpButtonClick}
+          setIsFiltersBarHidden={setIsFiltersBarHidden}
         />
         <ListWrapper marginTop={!isFiltersBarHidden}>
           {data.map(fund => {
