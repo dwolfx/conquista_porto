@@ -1,7 +1,8 @@
-export const formatMoney = (
-  number,
-  options = { currency: 'BRL', style: 'currency' }
-) => new Intl.NumberFormat('pt-BR', options).format(number)
+export const formatMoney = (number, options) =>
+  new Intl.NumberFormat(
+    'pt-BR',
+    options || { currency: 'BRL', style: 'currency' }
+  ).format(number)
 
 const UNICODE_NON_BREAKING_SPACE = String.fromCharCode(160)
 const USUAL_SPACE = String.fromCharCode(32)

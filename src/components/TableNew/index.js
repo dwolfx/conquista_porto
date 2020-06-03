@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useEffect, useRef } from 'react'
 import { useTable, useSortBy } from 'react-table'
+import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 import PropTypes from 'prop-types'
 
@@ -15,9 +16,12 @@ import * as s from './styles'
 
 const SimpleHeader = ({ header }) => {
   const headerContent = header.render('Header')
+  const styles = header.styles ? header.styles.header || header.styles : header
+
   return (
     <s.TheadTh
-      width={header.widthHeader || header.width}
+      width={styles.width}
+      minWidth={styles.minWidth}
       canSort={header.canSort}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
@@ -83,6 +87,7 @@ const TableFunds = ({
   isFiltering = false,
   onShowDetails,
   columns: columnsProps,
+  isSticky,
   ...rest
 }) => {
   const {
@@ -100,13 +105,70 @@ const TableFunds = ({
       ]),
       data,
     },
-    useSortBy
+    useSortBy,
+    useSticky
   )
+
+  const tableRef = useRef()
+  const [showLeftShadow, setShowLeftShadow] = useState(false)
+  const [showRightShadow, setShowRightShadow] = useState(true)
+
+  useEffect(() => {
+    if (tableRef) {
+      tableRef.current.onscroll = ({ srcElement }) => {
+        const { scrollLeft, clientWidth, scrollWidth } = srcElement
+        const posX = scrollLeft / (scrollWidth - clientWidth)
+
+        if (posX === 0) {
+          setShowRightShadow(true)
+          setShowLeftShadow(false)
+        } else if (posX > 0 && posX < 1) {
+          setShowRightShadow(true)
+          setShowLeftShadow(true)
+        } else {
+          setShowRightShadow(false)
+          setShowLeftShadow(true)
+        }
+      }
+    }
+  }, [tableRef])
+
+  const calculateStickWidth = (acc, cur) => {
+    let curWidth = cur.styles.width
+
+    if (typeof curWidth === 'string') {
+      curWidth = cur.styles.width.replace('px', '')
+    }
+
+    return acc + curWidth
+  }
+
+  const stickyElementRight = columns.filter(column => column.sticky === 'right')
+  const stickyElementRightPosition = stickyElementRight.reduce(
+    (acc, cur) => calculateStickWidth(acc, cur),
+    7
+  )
+  const stickyElementLeft = columns.filter(column => column.sticky === 'left')
+  const stickyElementLeftPosition = stickyElementLeft.reduce(
+    (acc, cur) => calculateStickWidth(acc, cur),
+    0
+  )
+
   return (
     <>
       <s.TableWrapper {...rest}>
-        <s.Table {...getTableProps()}>
-          <s.Thead>
+        {isSticky && !!stickyElementLeftPosition && showLeftShadow && (
+          <s.StickyDivisor position={stickyElementLeftPosition} side="left" />
+        )}
+        {isSticky && !!stickyElementRightPosition && showRightShadow && (
+          <s.StickyDivisor position={stickyElementRightPosition} side="right" />
+        )}
+        <s.Table
+          ref={tableRef}
+          className={`table ${isSticky ? 'sticky' : ''}`}
+          {...getTableProps()}
+        >
+          <s.Thead className="header">
             <s.TheadTr>
               {columns.map(header => (
                 <TheadWrapper
@@ -116,7 +178,7 @@ const TableFunds = ({
               ))}
             </s.TheadTr>
           </s.Thead>
-          <s.Tbody {...getTableBodyProps()}>
+          <s.Tbody {...getTableBodyProps()} className="body">
             <TableBody
               rows={rows}
               isLoading={isLoading}
@@ -137,6 +199,7 @@ TableFunds.propTypes = {
   isLoading: PropTypes.bool,
   isError: PropTypes.bool,
   isFiltering: PropTypes.bool,
+  isSticky: PropTypes.bool,
   onShowDetails: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func,
   fundsType: PropTypes.array.isRequired,
@@ -146,6 +209,7 @@ TableFunds.defaultProps = {
   isLoading: false,
   isError: false,
   isFiltering: false,
+  isSticky: false,
   setIsOpenForInvestments: () => null,
 }
 
@@ -165,6 +229,16 @@ SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    styles: PropTypes.shape({
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      header: PropTypes.shape({
+        width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      }),
+    }),
     render: PropTypes.func.isRequired,
     isSorted: PropTypes.bool.isRequired,
     isSortedDesc: PropTypes.bool,

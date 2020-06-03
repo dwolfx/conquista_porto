@@ -1,23 +1,4 @@
-import { ColumnInstance, Row } from 'react-table'
-
-// FormatFundoCell.propTypes = {
-//   cell: PropTypes.shape({
-//     getCellProps: PropTypes.func.isRequired,
-//     row: PropTypes.shape({
-//       original: PropTypes.shape({
-//         url_logo_gestor: PropTypes.string,
-//         apelido: PropTypes.string,
-//         perfil_risco_ordem: PropTypes.string,
-//         categoria_arena: PropTypes.string,
-//         id_fundo: PropTypes.string,
-//       }),
-//     }),
-//   }).isRequired,
-//   id: PropTypes.string.isRequired,
-//   column: PropTypes.shape({
-//     toggleModal: PropTypes.func,
-//   }).isRequired,
-// }
+import { Row } from 'react-table'
 
 type TRow = {
   align: string
@@ -64,8 +45,7 @@ export interface ITheadWrapper {
   header: THeader
 }
 
-type TColumns = {
-}
+type TColumns = {}
 
 export interface ITableFunds {
   columns: TColumns[]

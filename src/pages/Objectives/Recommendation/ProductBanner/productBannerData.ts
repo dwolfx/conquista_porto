@@ -2,7 +2,29 @@ import travelSecurityImg from 'assets/images/pages/Objectives/travelSecurity.png
 import lifeSecurityImg from 'assets/images/pages/Objectives/lifeSecurity.png'
 import creditCardImg from 'assets/images/pages/Objectives/creditCard.png'
 
-export default {
+import { dict } from 'components/IconExporter'
+
+export type TAdditionalKey = 'credit_card' | 'life_security' | 'travel_security'
+
+interface IProps {
+  [key: string]: {
+    category: string
+    title: string
+    text: string
+    image: string
+    productPath: string
+    modalInfos: {
+      title: string
+      text: string
+      items: {
+        icon: keyof typeof dict,
+        text: string
+      }[]
+    }
+  }
+}
+
+const productData: IProps = {
   travel_security: {
     category: 'Seguro Viagem',
     title: 'Leve a tranquilidade na mala',
@@ -119,3 +141,5 @@ export default {
     },
   },
 }
+
+export default productData

@@ -24,8 +24,14 @@ export const CardRow = styled(Row)`
   }
 
   &:last-of-type {
+    flex-direction: row-reverse;
     margin: ${({theme}) => `${theme.spacing(5)}px auto 0`};
     max-width: 770px;
+
+    @media ${props => props.theme.mediaQueries.sm} {
+      flex-direction: column-reverse;
+      margin-top: 0;
+    }
   }
 
   @media ${props => props.theme.mediaQueries.sm} {
@@ -34,7 +40,7 @@ export const CardRow = styled(Row)`
 `
 
 export const BodyCard = styled.div`
-  padding: ${({theme}) => `${theme.spacing(5)}px 0 ${theme.spacing(3)}px`};
+  padding: ${({theme}) => `${theme.spacing(5)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`};
 
   @media ${props => props.theme.mediaQueries.sm} {
     padding: ${({theme}) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
@@ -64,7 +70,7 @@ export const LabelObjective = styled(Col)`
   margin: ${({theme}) => `0 ${theme.spacing(3)}px`};
 
   @media ${props => props.theme.mediaQueries.md} {
-    margin: ${({theme}) => `0 ${theme.spacing(2)}px`};
+    margin: ${({theme}) => `0 ${theme.spacing(1)}px`};
   }
 
   @media ${props => props.theme.mediaQueries.sm} {

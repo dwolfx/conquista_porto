@@ -6,7 +6,7 @@ import {
   RETIREMENT,
   SAVE_MONEY,
   TRIP,
-} from 'pages/Objectives/GoalStreams/goalTypes'
+} from 'pages/Objectives/GoalStreams/types'
 
 export default [
   {

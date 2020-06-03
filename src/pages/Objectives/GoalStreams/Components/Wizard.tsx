@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, createRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import PropTypes from 'prop-types'
 import { Col } from 'styled-bootstrap-grid'
 
 import useValidator from 'pages/Objectives/GoalStreams/useValidator'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import useMedia from 'hooks/useMedia'
 
+import { IData } from '../types'
 import TopBar from './TopBar'
 import QuestionInput from './QuestionInput'
 import {
@@ -19,20 +19,27 @@ import {
   Form,
 } from './styles'
 
-const getFormEntries = (data = []) =>
+interface IProps {
+  data: IData[]
+  objective: string | number
+}
+
+const getFormEntries = (data: IData[]) =>
   data.reduce((acc, cur) => ({ ...acc, [cur.name]: '' }), {})
 
-export const WizardFlow = ({ data, objective }) => {
+export const WizardFlow = ({ data, objective }: IProps) => {
   const history = useHistory()
-  const inputRef = useRef()
+  const inputRef = createRef() as React.RefObject<HTMLInputElement>
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
   const [currentStep, setStepIndex] = useState(0)
-  const [formData, setFormData] = useState(getFormEntries(data))
+  const [formData, setFormData] = useState<{ [key: string]: string }>(
+    getFormEntries(data)
+  )
   const [isActive, setIsActive] = useState(false)
   const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
   const { isLoading, data: objectiveData, suitabilityData } = useSelector(
-    state => ({
+    (state: any) => ({
       ...state.objective,
       suitabilityData: state.suitability.data,
     })
@@ -40,6 +47,7 @@ export const WizardFlow = ({ data, objective }) => {
 
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
+  const deviceColumns = isFirstStep ? 12 : 6
 
   const increment = () => setStepIndex(currentStep + 1)
   const decrement = () => setStepIndex(currentStep - 1)
@@ -57,7 +65,7 @@ export const WizardFlow = ({ data, objective }) => {
     )
   }
 
-  const handleSingleValue = event => {
+  const handleSingleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value },
     } = event
@@ -72,10 +80,10 @@ export const WizardFlow = ({ data, objective }) => {
   }, [history, isLoading, objectiveData])
 
   useEffect(() => {
-    if (inputRef.current !== null) {
+    if (inputRef && inputRef.current) {
       inputRef.current.focus()
     }
-  }, [currentStep])
+  }, [currentStep, inputRef])
 
   // useEffect to determine isActive
   useEffect(() => {
@@ -84,7 +92,7 @@ export const WizardFlow = ({ data, objective }) => {
     setIsActive(!invalid && hasValue)
   }, [setIsActive, formData, data, currentStep, invalid])
 
-  function onFormSubmit(e) {
+  function onFormSubmit(e: any) {
     e.preventDefault()
     if (isLastStep) {
       postFlow()
@@ -93,22 +101,23 @@ export const WizardFlow = ({ data, objective }) => {
     }
   }
 
-  const WizardContainer = () => (
-    <WizardStep>
-      <QuestionInput
-        formData={formData}
-        onChangeFormData={handleSingleValue}
-        error={error}
-        ref={inputRef}
-        {...data[currentStep]}
-      />
-    </WizardStep>
-  )
+  const WizardContainer = () =>
+    inputRef ? (
+      <WizardStep>
+        <QuestionInput
+          formData={formData}
+          onChangeFormData={handleSingleValue}
+          error={error || false}
+          ref={inputRef}
+          {...data[currentStep]}
+        />
+      </WizardStep>
+    ) : null
 
   const WizardButton = () => (
     <RowFull>
       {!isFirstStep && (
-        <Col lg="6" xs="6">
+        <Col lg={6} sm={6} xs={6}>
           <ButtonAction
             type="button"
             data-gtm-name="anterior"
@@ -122,7 +131,7 @@ export const WizardFlow = ({ data, objective }) => {
         </Col>
       )}
       {!isLastStep && (
-        <Col lg={isFirstStep ? '12' : '6'} xs={isFirstStep ? '12' : '6'}>
+        <Col lg={deviceColumns} sm={deviceColumns} xs={deviceColumns}>
           <ButtonAction
             type="submit"
             data-gtm-form="submit"
@@ -134,7 +143,7 @@ export const WizardFlow = ({ data, objective }) => {
         </Col>
       )}
       {isLastStep && (
-        <Col lg="6" xs="6">
+        <Col lg={6} sm={6} xs={6}>
           <ButtonAction
             type="submit"
             data-gtm-form="submit"
@@ -160,7 +169,7 @@ export const WizardFlow = ({ data, objective }) => {
       <BodyWizard>
         <Form onSubmit={onFormSubmit}>
           <RowFull>
-            <Col lg="4" xs="12">
+            <Col lg={4} xs={12}>
               {WizardContainer()}
               {WizardButton()}
             </Col>
@@ -169,28 +178,4 @@ export const WizardFlow = ({ data, objective }) => {
       </BodyWizard>
     </Wizard>
   )
-}
-
-WizardFlow.defaultProps = {
-  data: [],
-  objective: '',
-}
-
-WizardFlow.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      question: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      options: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string.isRequired,
-          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-            .isRequired,
-        })
-      ),
-      validate: PropTypes.func,
-    })
-  ),
-  objective: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
