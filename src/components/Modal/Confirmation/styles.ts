@@ -3,6 +3,9 @@ import Modal from 'components/Modal/ModalNew'
 
 export const ModalStyled = styled(Modal)`
   z-index: 14;
+  > div + div {
+    max-width: 484px;
+  }
 `
 
 export const ButtonContainerModal = styled.div`
