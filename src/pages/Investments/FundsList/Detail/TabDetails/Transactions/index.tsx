@@ -38,7 +38,7 @@ export const Transactions = ({ fund }: IFund) => {
       <LiValue bold>
         {typeof fund.saldo_minimo === 'string' || undefined
           ? '-'
-          : formatMoney(fund.saldo_minimo)}
+          : formatMoney(fund.saldo_minimo || 0)}
       </LiValue>,
     ],
     [

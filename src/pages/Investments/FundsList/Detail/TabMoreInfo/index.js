@@ -11,7 +11,7 @@ import Divisor from 'components/Divisor'
 import ButtonLink from 'components/Button/Link'
 import VerticalList from 'components/VerticalList'
 
-import { formatDotToComma } from 'helpers'
+import { formatNumber } from 'helpers'
 
 import { ColStyled, InfoContent } from './styles'
 
@@ -82,7 +82,7 @@ export default function TabMoreInfo({ fund }) {
                   taxa de administração
                 </Text>,
                 <Text type="headline" color="gray6" bold>
-                  {formatDotToComma(fund.taxa_administracao)}% a.a
+                  {formatNumber(fund.taxa_administracao)}% a.a
                 </Text>,
               ]}
             />
@@ -96,7 +96,7 @@ export default function TabMoreInfo({ fund }) {
                 <Text type="headline" color="gray6" bold>
                   {Number(fund.taxa_performance) === 0
                     ? 'Não há cobrança de performance'
-                    : `${formatDotToComma(
+                    : `${formatNumber(
                         fund.taxa_performance
                       )}% sobre o que exceder o benchmark`}
                 </Text>,
