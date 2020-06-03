@@ -24,6 +24,7 @@ export interface IData {
   validate?:
     | ((value: string | number) => undefined | string | number)
     | undefined
+  description?: string
 }
 
 export interface IDataObject {

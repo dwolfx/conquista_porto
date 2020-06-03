@@ -41,6 +41,8 @@ const HUNDRED_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 100,00'
 const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
 const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
 const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
+const MONTHLY_INVESTMENT_DESCRIPTION = `Essa é uma ótima forma de aumentar a renda continuamente. 
+Sugerimos que você invista pelo menos {{{VALOR}}} para alcançar a meta de {{{VALOR_META}}} em {{{PRAZO}}}.`
 const MIN_DATE_VALUES: IDateValues = {
   value: 6,
   type: 'months',
@@ -157,6 +159,7 @@ const dataObject: IDataObject[] = [
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
+        description: MONTHLY_INVESTMENT_DESCRIPTION,
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
@@ -222,6 +225,7 @@ const dataObject: IDataObject[] = [
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
+        description: MONTHLY_INVESTMENT_DESCRIPTION,
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
@@ -307,6 +311,7 @@ const dataObject: IDataObject[] = [
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
+        description: MONTHLY_INVESTMENT_DESCRIPTION,
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
@@ -391,6 +396,7 @@ const dataObject: IDataObject[] = [
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
+        description: MONTHLY_INVESTMENT_DESCRIPTION,
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
@@ -466,6 +472,7 @@ const dataObject: IDataObject[] = [
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
+        description: MONTHLY_INVESTMENT_DESCRIPTION,
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
@@ -531,6 +538,7 @@ const dataObject: IDataObject[] = [
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
+        description: MONTHLY_INVESTMENT_DESCRIPTION,
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
@@ -596,6 +604,7 @@ const dataObject: IDataObject[] = [
       },
       {
         question: MONTHLY_INVESTMENT_QUESTION,
+        description: MONTHLY_INVESTMENT_DESCRIPTION,
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,

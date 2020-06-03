@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Row, Col } from 'styled-bootstrap-grid'
+import moment from 'moment'
 
 import Icon, { dict } from 'components/IconExporter'
 import Popover from 'components/Popover'
@@ -10,37 +11,76 @@ import DateInput from 'components/Inputs/DateInput'
 import MoneyInput from 'components/Inputs/Money'
 
 import useMedia from 'hooks/useMedia'
+import {
+  formatMoney,
+  formatLocaleStringToNumber,
+  replacePatternToComponent,
+} from 'helpers'
 
 import { IData } from '../types'
 import {
   ColQuestion,
   Question,
-  RuleText,
+  DescriptionText,
   InputWrapper,
   FormWrapper,
 } from './styles'
 
 interface IOutterWrapper {
-  button?: React.ReactNode
-  question: string
-  ruleText?: string
+  question?: string
+  description?: string
+  formData?: any
   sideTip?: React.ReactNode
   tooltip?: React.ReactNode
+  button?: React.ReactNode
 }
 
 const OutterWrapper: React.FC<IOutterWrapper> = ({
-  button,
-  question,
   children,
-  ruleText,
+  formData,
+  question,
+  description,
   sideTip,
   tooltip,
+  button,
 }) => {
   const isMobile = useMedia('xs')
+  const { target_value, target_date, initial_value } = formData
+
   const dadosCliente = useSelector<any, any>(
     state => state.customerProfile.data
   )
+
   const nomeCliente = dadosCliente?.customerName.split(' ')[0]
+  const targetDateDiff = moment(target_date, 'DD/MM/YYYY').diff(
+    moment(),
+    'months'
+  )
+
+  /**
+   * monthlyIncomeRate: fixed value of 4.5% per year
+   * recommendedMonthlyValue: returns the expected monthly value so that the target value is reached
+   */
+  const monthlyIncomeRate = 4.5 / (12 * 100)
+  const recommededMonthlyValue = Math.ceil(
+    (monthlyIncomeRate *
+      (formatLocaleStringToNumber(target_value) -
+        formatLocaleStringToNumber(initial_value) *
+          Math.pow(1 + monthlyIncomeRate, targetDateDiff))) /
+      (Math.pow(1 + monthlyIncomeRate, targetDateDiff) - 1)
+  )
+
+  const questionToDisplay = question?.replace('{{{nome}}}', nomeCliente)
+  const descriptionToDisplay =
+    recommededMonthlyValue > 0
+      ? replacePatternToComponent(
+          description
+            ?.replace('{{{VALOR_META}}}', `R$ ${target_value}`)
+            ?.replace('{{{PRAZO}}}', target_date) || '',
+          /(\{{{VALOR}}})/g,
+          <span>{formatMoney(recommededMonthlyValue)}</span>
+        )
+      : null
 
   return (
     <FormWrapper>
@@ -55,14 +95,18 @@ const OutterWrapper: React.FC<IOutterWrapper> = ({
         <Row justifyContent="center">
           <ColQuestion lg={12} xs={12}>
             <Question>
-              {question.replace('{{{nome}}}', nomeCliente)}{' '}
+              {questionToDisplay}{' '}
               {isMobile && tooltip && (
                 <Popover content={() => tooltip}>
                   <Icon name="information" color="gray4" width={21} />
                 </Popover>
               )}
             </Question>
-            {ruleText && <RuleText>{ruleText}</RuleText>}
+            {descriptionToDisplay && (
+              <DescriptionText type="caption" color="gray5" bold>
+                {descriptionToDisplay}
+              </DescriptionText>
+            )}
           </ColQuestion>
         </Row>
         <Row justifyContent="center">
@@ -106,26 +150,16 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
       name,
       onChangeFormData,
       options,
-      question,
-      ruleText = '',
-      sideTip,
-      tooltip,
       type,
       error,
       placeholder = '',
-      button,
+      ...rest
     },
     ref
   ) => {
     if (type === 'date') {
       return (
-        <OutterWrapper
-          question={question}
-          ruleText={ruleText}
-          sideTip={sideTip}
-          tooltip={tooltip}
-          button={button}
-        >
+        <OutterWrapper formData={formData} {...rest}>
           <DateInput
             data-gtm-form="input"
             data-gtm-name={name}
@@ -142,13 +176,7 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
     }
     if (type === 'bool') {
       return (
-        <OutterWrapper
-          question={question}
-          ruleText={ruleText}
-          sideTip={sideTip}
-          tooltip={tooltip}
-          button={button}
-        >
+        <OutterWrapper formData={formData} {...rest}>
           <RadioInput
             name={name}
             onChange={onChangeFormData}
@@ -160,13 +188,7 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
     }
     if (type === 'number') {
       return (
-        <OutterWrapper
-          question={question}
-          ruleText={ruleText}
-          sideTip={sideTip}
-          tooltip={tooltip}
-          button={button}
-        >
+        <OutterWrapper formData={formData} {...rest}>
           <MoneyInput
             data-gtm-form="input"
             data-gtm-name={name}
@@ -191,13 +213,7 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
     }
 
     return (
-      <OutterWrapper
-        question={question}
-        ruleText={ruleText}
-        sideTip={sideTip}
-        tooltip={tooltip}
-        button={button}
-      >
+      <OutterWrapper formData={formData} {...rest}>
         <InputText
           data-gtm-form="input"
           data-gtm-name={name}

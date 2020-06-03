@@ -33,13 +33,22 @@ export const ButtonAction = styled(Button)`
 
 export const Question = styled(Text).attrs(() => ({ type: 'heading4' }))`
   text-align: center;
-  padding: 14px;
   text-transform: none;
 `
 
 export const RuleText = styled(Text).attrs(() => ({ type: 'body' }))`
   text-align: center;
 `
+
+export const DescriptionText = styled(Text)`
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
+  text-align: center;
+
+  span {
+    color: ${({ theme }) => theme.colors.black};
+  }
+`
+
 export const ColQuestion = styled(ColBootstrap)`
   min-height: 90px;
 `
@@ -59,7 +68,7 @@ export const SectionBar = styled.section`
 `
 
 export const InputWrapper = styled.div`
-  margin: 4rem auto;
+  margin: ${({ theme }) => theme.spacing(6)}px auto;
 `
 
 export const Form = styled.form`
