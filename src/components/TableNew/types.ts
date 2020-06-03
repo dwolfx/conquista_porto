@@ -1,4 +1,4 @@
-import { ColumnInstance, Row } from 'react-table'
+import { Row } from 'react-table'
 
 type TRow = {
   align: string
@@ -45,8 +45,7 @@ export interface ITheadWrapper {
   header: THeader
 }
 
-type TColumns = {
-}
+type TColumns = {}
 
 export interface ITableFunds {
   columns: TColumns[]
