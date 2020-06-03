@@ -10,15 +10,25 @@ import { Col, Row } from 'styled-bootstrap-grid'
 export const CardStyled = styled(Card)`
   height: 100%;
 
+  @media ${props => props.theme.mediaQueries.xs} {
+    border-radius: 0;
+    padding: ${({ theme }) => theme.spacing(3)}px 0 0 0;
+    max-height: max-content;
+  }
+
   ${CardBody} {
     max-width: 1000px;
+
+    @media ${props => props.theme.mediaQueries.xs} {
+      max-height: max-content;
+    }
   }
 `
 
 export const FixedBottom = styled.div`
   position: fixed;
   bottom: 0;
-  padding: ${props => props.theme.spacing(2)}px 0;
+  padding: ${props => props.theme.spacing(2)}px;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
   border-top: 1px solid ${props => props.theme.colors.gray3};
@@ -28,6 +38,7 @@ export const FixedBottom = styled.div`
 export const BalanceInfoContainer = styled.div`
   display: flex;
   align-items: center;
+  padding: 0 ${props => `${props.theme.spacing(3)}px`};
   height: ${props => `${props.theme.spacing(13)}px`};
 `
 
@@ -45,8 +56,11 @@ export const InputsContainer = styled(Row)``
 
 export const InputContainer = styled(Col)`
   @media ${props => props.theme.mediaQueries.xs} {
-    &:nth-child(2) {
-      margin-top: ${({ theme }) => theme.spacing(5)}px;
+    padding: 0 ${props => `${props.theme.spacing(3)}px`};
+    margin: ${({ theme }) => theme.spacing(3)}px 0;
+
+    &:first-child {
+      margin: 0;
     }
   }
 `

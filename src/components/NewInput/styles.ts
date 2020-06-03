@@ -73,10 +73,8 @@ export const ErrorMessage = styled.span`
   bottom: 0;
   color: ${props => props.theme.colors.magenta2};
   display: flex;
-  left: 14px;
-  margin-bottom: -28px;
-  position: absolute;
-  ${props => props.theme.fontTypes.body};
+  margin: ${props => props.theme.spacing(2)}px
+    ${props => props.theme.spacing(2)}px 0;
   width: 100%;
 `
 

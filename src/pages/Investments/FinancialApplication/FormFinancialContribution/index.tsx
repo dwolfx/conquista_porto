@@ -9,6 +9,7 @@ import { GetBankDataRequest } from 'store/modules/BankData/action'
 
 import Text from 'components/Text'
 import Button from 'components/Button'
+import Divisor from 'components/Divisor'
 import MoneyInput from 'components/Inputs/Money'
 import DateInput from 'components/Inputs/DateInput'
 
@@ -37,6 +38,7 @@ import {
   CardFooter,
   FixedBottom,
 } from './styles'
+import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 
 interface IProps {
   formData: IFormData
@@ -259,17 +261,17 @@ const FormFinancialContribution: React.FC<IProps> = ({
               />
             </InputContainer>
           </InputsContainer>
-          <DivisorStyled margin="35px 0 21px 0" />
-          <Text
-            bold
-            color="gray5"
-            css={`
-              margin-bottom: ${({ theme }: any) => `${theme.spacing(2)}px`};
-            `}
-          >
-            Solicitações enviadas após às 15h serão processadas no próximo dia
-            útil.
-          </Text>
+          {isMobile && (
+            <>
+              <Divisor />
+              <FlexTextWrapper>
+                <Text bold color="gray5">
+                  Solicitações enviadas após às 15h serão processadas no próximo
+                  dia útil.
+                </Text>
+              </FlexTextWrapper>
+            </>
+          )}
         </CardStyled>
         {isMobile && <FixedBottom>{buttonNext()}</FixedBottom>}
       </>

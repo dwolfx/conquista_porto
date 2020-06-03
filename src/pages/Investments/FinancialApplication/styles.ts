@@ -17,6 +17,10 @@ export const HeaderContent = styled.div`
   align-items: center;
 `
 
+export const FlexTextWrapper = styled.div`
+  padding: ${({ theme }) => theme.spacing(3)}px;
+`
+
 export const HeaderColTitle = styled.div`
   flex: 1;
   display: flex;
@@ -56,18 +60,18 @@ export const LayerBodyContainer = styled(Container)`
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     padding-top: ${props => props.theme.spacing(3)}px;
-    padding-bottom: ${props => props.theme.spacing(3)}px;
     margin: auto;
     overflow: hidden;
   }
 
   @media ${({ theme }) => theme.mediaQueries.mdUp} {
-    height: 78vh;
+    height: 74vh;
   }
 `
 export const FooterContainer = styled(Container)`
   display: block;
   margin-top: ${({ theme }) => theme.spacing(1)}px;
+
   @media ${props => props.theme.mediaQueries.mdUp} {
     margin-top: 0;
   }
@@ -95,8 +99,11 @@ export const GridCol = styled(Col)`
 `
 
 export const GridColInfo = styled(Col)`
-  padding: 0px ${({ theme }) => theme.spacing(2)}px
-    ${({ theme }) => theme.spacing(2)}px;
+  padding: ${({ theme }) => theme.spacing(2)}px 0;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: ${({ theme }) => theme.spacing(3)}px;
+  }
 `
 
 export const StepBar = styled.div`
@@ -127,7 +134,7 @@ export const MobileScrollContent = styled.div<IMobileScrollContent>`
   ${({ expandBottomHeight }) =>
     expandBottomHeight
       ? css`
-           height: calc(100% - ${({ theme }) => theme.spacing(24)}px);188 202
+          height: calc(100% - ${({ theme }) => theme.spacing(24)}px);
         `
       : css`
           height: calc(100% - 125px);
@@ -138,6 +145,7 @@ export const MobileScrollContent = styled.div<IMobileScrollContent>`
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     overflow: hidden;
+    height: 100%;
     padding-bottom: 0px;
   }
 `

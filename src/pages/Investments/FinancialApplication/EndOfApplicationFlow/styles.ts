@@ -47,9 +47,8 @@ export const Button = styled(ButtonComponent)`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     margin: 0 ${({ theme }) => theme.spacing(2)}px;
-
-    & + & {
-      margin-top: ${({ theme }) => theme.spacing(2)}px;
+    &:last-child {
+      margin-bottom: ${({ theme }) => theme.spacing(1)}px;
     }
   }
 `
@@ -60,7 +59,7 @@ export const ButtonsWrapper = styled.div`
   justify-content: flex-end;
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `
 
@@ -117,6 +116,10 @@ export const InfoTextError = styled(TextComponent).attrs(() => ({
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
     margin-left: ${({ theme }) => theme.spacing(11)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-left: ${({ theme }) => theme.spacing(10)}px;
   }
 `
 
