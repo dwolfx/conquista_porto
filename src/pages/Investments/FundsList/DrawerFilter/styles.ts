@@ -5,19 +5,35 @@ import CloseIcon from 'assets/icons/close.svg'
 import Button from 'components/Button'
 import ButtonTag from 'components/Button/Tag'
 import IconButton from 'components/Button/Icon'
+// import Drawer from 'components/Drawer'
 
 export const ButtonTagStyled = styled(ButtonTag)``
 
 export const FilterDrawerHeader = styled.div`
-  margin: 14px;
   display: flex;
   align-items: center;
   width: 100%;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    margin: 0;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: ${({ theme }) => theme.spacing(2)}px;
+  }
 `
 
 export const FilterDrawerBody = styled.div`
   padding: 0;
-  margin: 28px 21px;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    margin: 0;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: ${({ theme }) => theme.spacing(4)}px
+      ${({ theme }) => theme.spacing(3)}px;
+  }
 `
 
 interface ICustomRow {
@@ -46,7 +62,6 @@ export const PrevButton = styled.div`
     background-color: ${props => props.theme.colors.blue4};
   }
 `
-
 export const ButtonSubmit = styled(Button)`
   width: 100%;
   margin: 0 14px;

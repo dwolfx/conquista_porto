@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { uuid } from 'uuidv4'
 
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
@@ -17,14 +17,26 @@ import {
   Ul,
 } from './styles'
 
-export const Taxation = ({ fund }) => {
-  const renderAliquotas = aliquota =>
+interface IFund {
+  fund: {
+    classificacao: string
+    aliquotas_ir: { aliquota: IAliquota[] }
+    regime_iof: string
+  }
+}
+
+interface IAliquota {
+  faixa: string
+  valor: string
+}
+
+export const Taxation = ({ fund }: IFund) => {
+  const renderAliquotas = (aliquota: IAliquota[]) =>
     aliquota
       ? [aliquota]
           .flatMap(item => item)
-          .map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Li key={`aliquota-${index}`}>
+          .map(item => (
+            <Li key={uuid()}>
               <VerticalList
                 elements={
                   item.faixa.toLowerCase() === 'isento'
@@ -79,8 +91,8 @@ export const Taxation = ({ fund }) => {
       </Ul>
       <TaxationInfo>
         <Text color="gray6" type="captionUppercase" bold>
-          Haverá incidência de iof regressivo caso ocorram resgates
-          <br /> antes de 30 dias corridos da data da aplicação.
+          Haverá incidência de iof regressivo caso ocorram resgates antes de 30
+          dias corridos da data da aplicação.
         </Text>
       </TaxationInfo>
     </TaxationWrapper>
@@ -88,21 +100,3 @@ export const Taxation = ({ fund }) => {
 }
 
 export default Taxation
-
-Taxation.propTypes = {
-  fund: PropTypes.shape({
-    aplicao_minima: PropTypes.string,
-    aplicacao_cotizacao: PropTypes.string,
-    aplicacao_financeiro: PropTypes.string,
-    resgate_cotizacao: PropTypes.string,
-    resgate_financeiro: PropTypes.string,
-    hora_aplicacao: PropTypes.string,
-    minimo_inicial: PropTypes.string,
-    saldo_minimo: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    classificacao: PropTypes.string,
-    aliquotas_ir: PropTypes.shape({
-      aliquota: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    }),
-    regime_iof: PropTypes.string,
-  }).isRequired,
-}

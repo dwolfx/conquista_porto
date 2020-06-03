@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Drawer from 'components/Drawer'
 import 'styled-components/macro'
 
 import Loading from 'components/Loading'
@@ -17,6 +16,7 @@ import {
   EmptyStateWrapper,
   LockFundWrapper,
   LockIcon,
+  DrawerDetail,
 } from './styled'
 import TabProfitability from './TabProfitability'
 import TabMoreInfo from './TabMoreInfo'
@@ -103,7 +103,7 @@ const Detail = ({
   )
 
   return (
-    <Drawer
+    <DrawerDetail
       drawerTitle={isLoading ? '' : fundDetails.apelido}
       isOpen={isOpen}
       isLoading={isLoading}
@@ -138,7 +138,7 @@ const Detail = ({
         </EmptyStateWrapper>
       )}
       {!isLoading && !hasError ? renderTabs() : null}
-    </Drawer>
+    </DrawerDetail>
   )
 }
 

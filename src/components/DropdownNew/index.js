@@ -226,7 +226,7 @@ export default function Dropdown({
                   <ItemText>{item.text}</ItemText>
                   {item.children && (
                     <ItemIconContainer alignToEnd>
-                      <ItemIcon name="arrowright2" />
+                      <ItemIcon name="arrowright" />
                     </ItemIconContainer>
                   )}
                   {isHovering && item.text === selectedItem && (

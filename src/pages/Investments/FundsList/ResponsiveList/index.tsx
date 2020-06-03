@@ -1,26 +1,36 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-import FundCard, { IFund } from './FundCard'
+import FundCard from './FundCard'
 import Loading from 'components/Loading'
 import Button from 'components/Button'
 
 import { ListWrapper, EmptyDataText, ErrorText, WrapperContent } from './styles'
 
-import { useDispatch } from 'react-redux'
+import { IFund } from '../Filter/useFilter'
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 
 interface IResponsiveListProps {
+  onChangeIsFundDetailOpen: (prevState: Function) => boolean
+  handleLayerOpen: (fundId: string) => void
   data: Array<IFund>
   isLoading: boolean
   isError: boolean
+  setTitle: (title: string) => void
+  setIsOpenForInvestments: () => boolean
 }
 
 const ResponsiveList: React.FC<IResponsiveListProps> = ({
+  onChangeIsFundDetailOpen,
+  handleLayerOpen,
   data,
   isLoading,
   isError,
+  setTitle,
+  setIsOpenForInvestments,
 }) => {
   const dispatch = useDispatch()
+
   const ResponsiveListRender = () => {
     if (isLoading) {
       return (
@@ -64,9 +74,18 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
     }
     return (
       <ListWrapper>
-        {data.map(fund => (
-          <FundCard key={fund.id_fundo} fund={fund} />
-        ))}
+        {data.map(fund => {
+          return (
+            <FundCard
+              onChangeIsFundDetailOpen={onChangeIsFundDetailOpen}
+              handleLayerOpen={handleLayerOpen}
+              key={fund.id_fundo}
+              fund={fund}
+              setTitle={setTitle}
+              setIsOpenForInvestments={setIsOpenForInvestments}
+            />
+          )
+        })}
       </ListWrapper>
     )
   }

@@ -19,18 +19,13 @@ function* getData(action) {
 
     const investmentList = yield select(getInvestmentList)
 
-    const categories = investmentList.data[0]
-
     let name = ''
-    if (action.fundId && categories)
-      categories.forEach(category => {
-        const filteredResult = category.fundos.filter(
-          fundo => fundo.id_fundo === action.fundId
-        )
-        if (filteredResult.length > 0) {
-          name = category.nome_categoria
-        }
-      })
+    if (action.fundId) {
+      const foundResult = investmentList.data.find(
+        fundo => fundo.id_fundo === action.fundId
+      )
+      name = foundResult.categoria_arena
+    }
 
     let richedData = { ...response.data }
     if (response.data) {

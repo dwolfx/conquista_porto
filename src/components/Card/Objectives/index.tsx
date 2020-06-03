@@ -17,7 +17,7 @@ export default ({ icon, title, isLoading = false, ...rest }: IProps) => (
         data-gtm-type="click"
         data-gtm-clicktype="button"
         size="small"
-        icon="arrowright2"
+        icon="arrowright"
         isLoading={isLoading}
       />
     </InfosBox>

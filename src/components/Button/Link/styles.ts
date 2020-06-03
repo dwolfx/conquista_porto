@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Link = styled.a`
+interface IAnchorProps {
+  disabled: boolean
+}
+export const Link = styled.a<IAnchorProps>`
   align-items: center;
   color: ${props =>
     props.disabled ? props.theme.colors.gray4 : props.theme.colors.blue4};
@@ -9,8 +12,10 @@ export const Link = styled.a`
   ${props => props.theme.fontTypes.button}
 
   svg {
-    fill: currentColor;
-    height: 11px;
-    margin-left: 8px;
+    height: 21px;
+    margin-left: 7px;
+    path {
+      fill: currentColor;
+    }
   }
 `

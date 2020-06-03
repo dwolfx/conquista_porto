@@ -47,6 +47,7 @@
     "react-slick": "^0.25.2",
     "react-spring": "^8.0.27",
     "react-table": "^7.0.0-beta.12",
+    "react-table-sticky": "^1.1.2",
     "react-toastify": "^5.5.0",
     "redux": "^4.0.4",
     "redux-mock-store": "^1.5.4",

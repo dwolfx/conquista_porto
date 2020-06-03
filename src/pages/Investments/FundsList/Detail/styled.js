@@ -1,6 +1,17 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
 import IconExporter from 'components/IconExporter'
+import Drawer from 'components/Drawer'
+import { DrawerBody } from 'components/Drawer/styles'
+
+export const DrawerDetail = styled(Drawer)`
+  ${DrawerBody} {
+    @media ${props => props.theme.mediaQueries.sm} {
+      padding: ${({ theme }) => theme.spacing(4)}px
+        ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
+`
 
 export const ButtonSubmit = styled(Button)`
   width: 100%;

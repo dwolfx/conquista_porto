@@ -1,16 +1,12 @@
 import styled from 'styled-components'
+import { Col } from 'styled-bootstrap-grid'
 
-import VerticalList from 'components/VerticalList'
-
-export const InformationContainer = styled.div`
-  margin-bottom: 7px;
+export const ColStyled = styled(Col)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const VerticalListStyled = styled(VerticalList)`
-  margin-bottom: 14px;
-  width: ${props => props.width};
-`
-
-export const FileContainer = styled.div`
-  margin-top: 21px;
+export const InfoContent = styled.div`
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: 0px ${({ theme }) => theme.spacing(2)}px;
+  }
 `

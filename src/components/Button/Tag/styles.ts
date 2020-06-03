@@ -8,7 +8,7 @@ const handleColor = (type: string, disabled?: boolean) => {
     case 'secondary':
       return themeColors.green4
     default:
-      return disabled ? themeColors.gray3 : themeColors.gray5
+      return disabled ? themeColors.gray4 : themeColors.gray5
   }
 }
 
@@ -36,7 +36,7 @@ export const Button = styled.button<IButtonProps>`
   border-color: ${props => handleBorderColor(props.color)};
   border-radius: 4px;
   color: ${props => handleColor(props.color, props.disabled)};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   display: flex;
   height: 28px;
   justify-content: center;

@@ -25,8 +25,10 @@ const AdvertisementBanner = () => {
   }, [])
 
   useEffect(() => {
-    dispatch(GetRewardRecommendationsRequest())
-  }, [dispatch])
+    if (!hideBanner) {
+      dispatch(GetRewardRecommendationsRequest())
+    }
+  }, [dispatch, hideBanner])
 
   useEffect(() => {
     if (recommendationState.data.length) {
