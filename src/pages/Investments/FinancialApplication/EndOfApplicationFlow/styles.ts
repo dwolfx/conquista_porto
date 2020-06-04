@@ -32,19 +32,36 @@ export const AccountWrapper = styled.div`
   padding: ${({ theme }) => theme.spacing(3)}px
     ${({ theme }) => theme.spacing(1)}px;
 
-  @media ${props => props.theme.mediaQueries.lg} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     margin-left: ${({ theme }) => theme.spacing(4)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin: 0 ${({ theme }) => theme.spacing(3)}px
+      ${({ theme }) => theme.spacing(4)}px;
   }
 `
 
 export const Button = styled(ButtonComponent)`
   margin-right: ${({ theme }) => theme.spacing(2)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin: 0 ${({ theme }) => theme.spacing(2)}px;
+
+    & + & {
+      margin-top: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
 `
 
 export const ButtonsWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    flex-direction: column;
+  }
 `
 
 export const Icon = styled(ConquistaIcon)`
@@ -58,9 +75,15 @@ export const Card = styled(CardComponent)`
   width: 100%;
   position: absolute;
 
-  @media ${props => props.theme.mediaQueries.md} {
+  @media ${({ theme }) => theme.mediaQueries.md} {
     position: relative;
     height: 52vh;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    height: 100%;
+    border-radius: 0;
+    padding: 10px 0 0;
   }
 `
 
@@ -79,6 +102,10 @@ export const ContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   overflow: auto;
   margin-top: 46px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-top: 11px;
+  }
 `
 
 export const InfoTextError = styled(TextComponent).attrs(() => ({
@@ -88,7 +115,7 @@ export const InfoTextError = styled(TextComponent).attrs(() => ({
   margin: 0 0 ${({ theme }) => theme.spacing(3)}px
     ${({ theme }) => theme.spacing(15)}px;
 
-  @media ${props => props.theme.mediaQueries.lg} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     margin-left: ${({ theme }) => theme.spacing(11)}px;
   }
 `
@@ -100,8 +127,13 @@ export const InfoTextSuccess = styled(TextComponent).attrs(() => ({
   margin: 0 0 ${({ theme }) => theme.spacing(3)}px
     ${({ theme }) => theme.spacing(15)}px;
 
-  @media ${props => props.theme.mediaQueries.lg} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     margin-left: ${({ theme }) => theme.spacing(4)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-right: ${({ theme }) => theme.spacing(3)}px;
+    margin-left: ${({ theme }) => theme.spacing(10)}px;
   }
 `
 
@@ -122,8 +154,14 @@ export const RulesAndConditionsWrapper = styled.div`
   padding: ${({ theme }) => theme.spacing(4)}px
     ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(1)}px;
 
-  @media ${props => props.theme.mediaQueries.lg} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     margin-left: ${({ theme }) => theme.spacing(4)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin: 0 ${({ theme }) => theme.spacing(3)}px
+      ${({ theme }) => theme.spacing(3)}px;
+    padding-bottom: 0;
   }
 `
 
@@ -135,13 +173,21 @@ export const SubTitle = styled(TextComponent).attrs(() => ({
   margin-left: ${({ theme }) => theme.spacing(15)}px;
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 
-  @media ${props => props.theme.mediaQueries.lg} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     margin-left: ${({ theme }) => theme.spacing(4)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-left: ${({ theme }) => theme.spacing(3)}px;
   }
 `
 
 export const TableBox = styled.div`
   min-width: 33%;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    min-width: 100%;
+  }
 `
 
 export const Title = styled(TextComponent).attrs(() => ({
@@ -156,7 +202,21 @@ export const TitleWrapper = styled.div`
   align-items: center;
   margin: 0 0 11px ${({ theme }) => theme.spacing(8)}px;
 
-  @media ${props => props.theme.mediaQueries.lg} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     margin-left: ${({ theme }) => theme.spacing(4)}px;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-left: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+
+export const FixedBottom = styled.div`
+  position: fixed;
+  bottom: 0;
+  padding: ${({ theme }) => theme.spacing(2)}px 0;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-top: 1px solid ${({ theme }) => theme.colors.gray3};
+  z-index: 1;
 `

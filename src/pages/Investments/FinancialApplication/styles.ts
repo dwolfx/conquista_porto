@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import ArrowLeft from 'assets/icons/arrow-left.svg'
 import CloseIcon from 'assets/icons/close.svg'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
@@ -95,7 +95,8 @@ export const GridCol = styled(Col)`
 `
 
 export const GridColInfo = styled(Col)`
-  padding: 0px ${({ theme }) => theme.spacing(2)}px;
+  padding: 0px ${({ theme }) => theme.spacing(2)}px
+    ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const StepBar = styled.div`
@@ -117,9 +118,20 @@ export const LayerCard = styled(Card)`
   height: 100%;
 `
 
-export const MobileSrollContent = styled.div`
+interface IMobileScrollContent {
+  expandBottomHeight: boolean
+}
+
+export const MobileScrollContent = styled.div<IMobileScrollContent>`
   width: 100%;
-  height: calc(100% - 125px);
+  ${({ expandBottomHeight }) =>
+    expandBottomHeight
+      ? css`
+           height: calc(100% - ${({ theme }) => theme.spacing(24)}px);188 202
+        `
+      : css`
+          height: calc(100% - 125px);
+        `};
   overflow: auto;
   margin: 0;
   padding: 0;
