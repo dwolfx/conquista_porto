@@ -1,10 +1,14 @@
 import styled from 'styled-components'
-import { Row as RowSBG } from 'styled-bootstrap-grid'
 
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
-export const BannerWrapper = styled.div`
+interface IBannerWrapper {
+  image?: string
+  size: 'sm' | 'lg'
+}
+
+export const BannerWrapper = styled.div<IBannerWrapper>`
   background-color: ${props => props.theme.colors.gray4};
   background-image: url(${props => !!props.image && props.image});
   background-position: center;
@@ -29,9 +33,10 @@ export const BannerWrapper = styled.div`
     width: 100%;
   }
 
-  @media ${props => props.theme.mediaQueries.sm} {
-    height: auto;
+  @media ${props => props.theme.mediaQueries.md} {
     align-items: center;
+    height: auto;
+    max-width: 100%;
     padding: 28px 21px;
   }
 `
@@ -43,10 +48,6 @@ export const BannerLabel = styled(Text).attrs(() => ({
 `
 
 export const BannerContent = styled.div``
-
-export const Row = styled(RowSBG)`
-  justify-content: ${props => props.justify};
-`
 
 export const CloseButton = styled.div`
   position: absolute;

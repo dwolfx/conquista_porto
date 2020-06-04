@@ -8,6 +8,9 @@ interface IProps {
   prefix?: React.ReactNode
   onChange: (event: any) => void
   value?: string
+  name?: string
+  maxLength?: number
+  placeholder?: string
   error?: boolean | { icon: keyof typeof dict; message: string }
 }
 

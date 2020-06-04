@@ -9,12 +9,17 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
 import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'
-import { CardWrapper, CardTitle, IconWrapper } from './styles'
+import * as s from './styles'
 
 const Board = () => {
-  const cpf = useSelector(state => state.auth.cpf)
-  const isLoading = useSelector(state => state.suitability.isLoading)
-  const [loadingButton, setLoadingButton] = useState('')
+  const { cpf, isLoading } = useSelector<any, any>(
+    state => ({
+      cpf: state.auth.cpf,
+      isLoading: state.suitability.isLoading
+    })
+  )
+
+  const [loadingButton, setLoadingButton] = useState<string>('')
   const dispatch = useDispatch()
 
   const match = useRouteMatch()
@@ -23,13 +28,13 @@ const Board = () => {
   return (
     <Container>
       <Row justifyContent="center">
-        {dataObjective.map(card => (
+        {dataObjective?.map(card => (
           <Col key={card.goal_type} lg={3} md={4} sm={6} xs={12}>
-            <CardWrapper key={card.goal_type}>
-              <IconWrapper>
+            <s.CardWrapper key={card.goal_type}>
+              <s.CardIcon>
                 <Icon name={card.icon} color="blue4" width="56px" />
-              </IconWrapper>
-              <CardTitle>{card.label}</CardTitle>
+              </s.CardIcon>
+              <s.CardTitle>{card.label}</s.CardTitle>
               {card.route && (
                 <Button
                   data-gtm-subname={`card ${card.label}`}
@@ -55,7 +60,7 @@ const Board = () => {
                   escolher
                 </Button>
               )}
-            </CardWrapper>
+            </s.CardWrapper>
           </Col>
         ))}
       </Row>

@@ -69,15 +69,20 @@ const TableBody = ({
 
       return (
         <s.TbodyTr {...row.getRowProps()} onClick={onRowClick}>
-          {row.cells.map(cell => (
-            <s.TbodyTd
-              width={cell.column.width}
-              align={cell.column.align}
-              {...cell.getCellProps()}
-            >
-              {cell.render('Cell')}
-            </s.TbodyTd>
-          ))}
+          {row.cells.map(cell => {
+            const styles = cell.column.styles || cell.column
+
+            return (
+              <s.TbodyTd
+                width={styles.width}
+                minWidth={styles.minWidth}
+                align={cell.column.align}
+                {...cell.getCellProps()}
+              >
+                {cell.render('Cell')}
+              </s.TbodyTd>
+            )
+          })}
         </s.TbodyTr>
       )
     })

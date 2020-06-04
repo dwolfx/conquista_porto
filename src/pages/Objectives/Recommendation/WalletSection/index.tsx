@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -10,37 +8,59 @@ import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
 
-import ModalFundos from './ModalFundos'
-import { GridRow } from '../styles'
-import * as s from './styles'
+import { GridRow } from 'pages/Objectives/Recommendation/styles'
+import {
+  IFund,
+  ICombo,
+  ICreditProducts,
+} from 'pages/Objectives/Recommendation/types'
 
+import ModalFundos from './ModalFundos'
 import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
 import TableView from './TableView'
 import CardCreditProduct from './CardCreditProduct'
 
-const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
+import * as s from './styles'
+
+interface IFundCategories {
+  [key: string]: number
+}
+
+interface IProps {
+  combo?: ICombo[]
+  creditProduct?: ICreditProducts
+  funds: IFund[]
+  isUnmetGoal?: boolean
+}
+
+const WalletSection = ({
+  funds,
+  creditProduct,
+  combo = [],
+  isUnmetGoal = false,
+}: IProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [initialReset, setInitialReset] = useState(true)
-  const [fundDetails, setFundDetails] = useState({})
+  const [fundDetails, setFundDetails] = useState<IFund | undefined>(undefined)
   const isMobile = useMedia('sm')
 
-  const handleOpenDetails = fund => {
+  const handleOpenDetails = (fund: IFund) => {
     setFundDetails(fund)
     setIsModalOpen(true)
     setInitialReset(false)
   }
 
   const handleCloseDetails = () => {
-    setFundDetails({})
+    setFundDetails(undefined)
     setIsModalOpen(false)
     setInitialReset(true)
   }
 
   const PercentualInfos = () => {
-    const fundsCategories = {}
+    const fundsCategories: IFundCategories = {}
 
-    funds.forEach(fund => {
+    funds.forEach((fund: IFund) => {
       if (fund.category_name in fundsCategories) {
         fundsCategories[fund.category_name] += 1
       } else {
@@ -89,7 +109,7 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
       <s.InfoRow>
         <CardInfosText
           isUnmetGoal={isUnmetGoal}
-          productName={creditProduct.name}
+          productName={(creditProduct || {}).name}
         />
       </s.InfoRow>
 
@@ -100,17 +120,17 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
   return (
     <GridRow>
       <Modal
-        modalTitle={fundDetails.name}
+        modalTitle={fundDetails && fundDetails.name}
         alignItems="flex-start"
         isOpen={isModalOpen}
         handleClose={() => handleCloseDetails()}
-        maxWidth="700px"
       >
         <ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
       </Modal>
 
       <Col
-        lg={combo.length > 1 ? '9' : '12'}
+        lg={combo.length > 1 ? 9 : 12}
+        md={combo.length > 1 ? 8 : 12}
         css={`
           margin-bottom: ${isMobile ? '14px' : '0px'};
         `}
@@ -133,35 +153,12 @@ const WalletSection = ({ creditProduct, combo, funds, isUnmetGoal }) => {
       </Col>
 
       {creditProduct && combo.length > 1 && (
-        <CardCreditProduct creditProduct={creditProduct} />
+        <Col lg={3} md={4}>
+          <CardCreditProduct creditProduct={creditProduct} />
+        </Col>
       )}
     </GridRow>
   )
-}
-
-WalletSection.propTypes = {
-  combo: PropTypes.array,
-  creditProduct: PropTypes.object,
-  funds: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      profitability: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-      quotation_apply_days: PropTypes.string,
-      financial_apply_days: PropTypes.string,
-      quotation_rescue_days: PropTypes.string,
-      financial_rescue_days: PropTypes.string,
-      initial_value: PropTypes.number,
-      monthly_value: PropTypes.number,
-      category_name: PropTypes.string,
-    })
-  ).isRequired,
-  isUnmetGoal: PropTypes.bool,
-}
-
-WalletSection.defaultProps = {
-  combo: [],
-  creditProduct: {},
-  isUnmetGoal: false,
 }
 
 export default WalletSection

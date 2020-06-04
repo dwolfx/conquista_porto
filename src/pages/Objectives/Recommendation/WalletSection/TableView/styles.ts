@@ -14,7 +14,7 @@ export const ContainerFunds = styled.div`
 `
 
 export const Table = styled(TableComp)`
-  table {
+  .table {
     max-height: 353px;
     table-layout: auto;
   }

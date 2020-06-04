@@ -1,10 +1,11 @@
 import React from 'react'
 
 import { FullHeightCard } from 'pages/Objectives/Recommendation/styles'
-import { IFund } from 'pages/Objectives/Recommendation/WalletSection/types'
+import { IFund } from 'pages/Objectives/Recommendation/types'
 
-import { columns, fundsType } from './tableData'
+import { columns, columnsSticky, fundsType } from './tableData'
 import * as s from './styles'
+import useMedia from 'hooks/useMedia'
 
 interface IProps {
   cardHeader: React.JSXElementConstructor<object>
@@ -18,24 +19,31 @@ const DesktopView = ({
   cardInfos: CardInfos,
   funds,
   handleOpenDetails,
-}: IProps) => (
-  <FullHeightCard
-    headerIcon="financial"
-    headerTitle={
-      <CardHeader />
-    }
-  >
-    <CardInfos />
+}: IProps) => {
+  const isTabletHorizontal = useMedia('lg')
+  const isTabletVertical = useMedia('md')
+  const columnsToRender = isTabletHorizontal || isTabletVertical ? columnsSticky : columns
 
-    <s.ContainerFunds>
-      <s.Table
-        columns={columns}
-        onShowDetails={(rowDetails: IFund) => handleOpenDetails(rowDetails)}
-        data={funds}
-        fundsType={fundsType}
-      />
-    </s.ContainerFunds>
-  </FullHeightCard>
-)
+  return (
+    <FullHeightCard
+      headerIcon="financial"
+      headerTitle={
+        <CardHeader />
+      }
+    >
+      <CardInfos />
+  
+      <s.ContainerFunds>
+        <s.Table
+          columns={columnsToRender}
+          onShowDetails={(rowDetails: IFund) => handleOpenDetails(rowDetails)}
+          data={funds}
+          fundsType={fundsType}
+          isSticky={isTabletVertical || isTabletHorizontal}
+        />
+      </s.ContainerFunds>
+    </FullHeightCard>
+  )
+}
 
 export default DesktopView

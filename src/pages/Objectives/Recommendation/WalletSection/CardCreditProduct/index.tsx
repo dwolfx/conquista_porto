@@ -1,17 +1,15 @@
 import React from 'react'
-import { Col } from 'styled-bootstrap-grid'
+
+import { Row } from 'styled-bootstrap-grid'
 
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 
+import { ICreditProducts } from 'pages/Objectives/Recommendation/types'
+
 import { productCard } from './dataCardCredit'
 import * as s from './styles'
-
-interface IObjectCredit {
-  name: string
-  values: IObjectItem[]
-}
 
 interface IObjectItem {
   name: string
@@ -21,11 +19,11 @@ interface IObjectItem {
 }
 
 interface ICardProps {
-  creditProduct: IObjectCredit
+  creditProduct: ICreditProducts
 }
 
 const singleInfo = (item: IObjectItem, index: number) => (
-  <s.InfoItem key={index}>
+  <s.InfoItem key={index} lg={12} md={12} sm={4} xs={12}>
     <Text type="captionUppercase" color="gray5">
       {item.name}
     </Text>
@@ -50,24 +48,24 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
   }
 
   return (
-    <Col lg={3}>
-      <s.FullHeightCard
-        headerIcon={currentProduct.icon}
-        headerTitle={creditProduct.name.split(' ')[0]}
-      >
-        <s.CardContainer>
-          <Text type="headline" color="gray6">
-            {currentProduct.message}
-          </Text>
-          {creditProduct.values.map((item: IObjectItem, index: number) =>
-            singleInfo(item, index)
-          )}
+    <s.FullHeightCard
+      headerIcon={currentProduct.icon}
+      headerTitle={creditProduct.name.split(' ')[0]}
+    >
+      <s.CardContainer>
+        <Text type="headline" color="gray6">
+          {currentProduct.message}
+        </Text>
+        <Row>
+          {creditProduct.values &&creditProduct.values.map((item: IObjectItem, index: number) =>
+              singleInfo(item, index)
+            )}
           {currentProduct.items.map((item: IObjectItem, index: number) =>
             singleInfo(item, index)
           )}
-        </s.CardContainer>
-      </s.FullHeightCard>
-    </Col>
+        </Row>
+      </s.CardContainer>
+    </s.FullHeightCard>
   )
 }
 

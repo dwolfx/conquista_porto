@@ -2,9 +2,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-
-import PropTypes from 'prop-types'
-
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import { formatMoney } from 'helpers'
@@ -13,12 +10,39 @@ import {
   GetOtherGoalsDataRequest,
   PostObjectiveManagementDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
+
+import {
+  IAnswer,
+  IFund,
+  IFundTotalIncome,
+  IAdditional,
+  ICreditProducts,
+} from './types'
 import { ButtonBar, SectionBar } from './styles'
 
-const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
+interface IProps {
+  recommendationData: {
+    id: number
+    additional: IAdditional
+    answer: IAnswer
+    credit_product: ICreditProducts
+    funds: IFund[]
+    fund_total_income: IFundTotalIncome
+  }
+  isDrawerOpen?: boolean
+  setIsDrawerOpen?: (newState?: boolean) => void
+}
+
+const BottomBar = ({
+  recommendationData,
+  isDrawerOpen = false,
+  setIsDrawerOpen = () => {},
+}: IProps) => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const isLoading = useSelector(state => state.objectiveManagement.isLoading)
+  const isLoading = useSelector(
+    (state: any) => state.objectiveManagement.isLoading
+  )
 
   const [buttonConfirmClicked, setButtonConfirmClicked] = useState(false)
 
@@ -33,7 +57,7 @@ const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
     }
 
     setButtonConfirmClicked(true)
-    function pushHistory(path) {
+    function pushHistory(path: string) {
       history.push({ pathname: path, state: { pageRecommendation: true } })
     }
     dispatch(
@@ -64,7 +88,7 @@ const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
     <SectionBar>
       <Container>
         <Row justifyContent="end">
-          <Col lgAuto>
+          <Col xlAuto lgAuto mdAuto smAuto>
             <ButtonBar
               data-gtm-subname="barra inferior"
               data-gtm-name="editar objetivo"
@@ -92,24 +116,6 @@ const BottomBar = ({ recommendationData, isDrawerOpen, setIsDrawerOpen }) => {
       </Container>
     </SectionBar>
   )
-}
-
-BottomBar.defaultProps = {
-  isDrawerOpen: false,
-  setIsDrawerOpen: () => {},
-}
-
-BottomBar.propTypes = {
-  recommendationData: PropTypes.shape({
-    id: PropTypes.number,
-    answer: PropTypes.object,
-    fund_total_income: PropTypes.object,
-    funds: PropTypes.array,
-    additional: PropTypes.object,
-    credit_product: PropTypes.object,
-  }).isRequired,
-  isDrawerOpen: PropTypes.bool,
-  setIsDrawerOpen: PropTypes.func,
 }
 
 export default BottomBar

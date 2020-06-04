@@ -8,7 +8,6 @@ import { formatMoneyDecimal } from 'helpers'
 
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
-import Drawer from 'components/Drawer'
 import InputText from 'components/NewInput'
 import UnsavedChangedPrompt from 'components/Modal/Prompt'
 
@@ -22,8 +21,8 @@ import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/
 
 import BottomBar from './BottomBar'
 import WalletSection from './WalletSection'
-import SectionThree from './SectionThree'
-import SuggestionBanner from './SugestionBanner'
+import ProductBannerSection from './ProductBanner'
+import SuggestionBanner from './SuggestionBanner'
 import RecommendationMessage from './RecommendationMessage'
 import CardEstimatedResults from './CardEstimatedResults'
 
@@ -36,6 +35,7 @@ import {
 
 import {
   GridRecommendation,
+  DrawerForm,
   SectionsRecommendation,
   ButtonSubmit,
   FormWrapper,
@@ -228,7 +228,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
         numberSteps={totalSteps}
       />
       <SectionsRecommendation>
-        <Drawer
+        <DrawerForm
           drawerTitle="Resumo"
           isOpen={isDrawerOpen}
           handleClose={() => setIsDrawerOpen(false)}
@@ -313,7 +313,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 renderErrorMessage(ValidateTargetDate(formData.target_date)[1])}
             </ColInput>
           </FormWrapper>
-        </Drawer>
+        </DrawerForm>
         <Container>
           <SuggestionBanner
             toggleDrawer={() => setIsDrawerOpen(!isDrawerOpen)}
@@ -331,7 +331,8 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
             creditProduct={credit_product}
             isUnmetGoal={!!suggestion_goal}
           />
-          <SectionThree additional={additional} />
+
+          <ProductBannerSection additional={additional} />
         </Container>
       </SectionsRecommendation>
 

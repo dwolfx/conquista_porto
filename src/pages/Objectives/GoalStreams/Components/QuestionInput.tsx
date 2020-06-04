@@ -1,36 +1,61 @@
 import React, { forwardRef } from 'react'
-import PropTypes from 'prop-types'
 import { Row, Col } from 'styled-bootstrap-grid'
+
+import { dict } from 'components/IconExporter'
 import InputText from 'components/NewInput'
 import RadioInput from 'components/Inputs/Radio'
 import DateInput from 'components/Inputs/DateInput'
-
 import MoneyInput from 'components/Inputs/Money'
+
 import { ColQuestion, Question, RuleText, InputWrapper } from './styles'
 
-const OutterWrapper = ({ ruleText, question, children }) => (
+interface IOutterWrapper {
+  question: string
+  ruleText: string
+}
+
+const OutterWrapper: React.FC<IOutterWrapper> = ({
+  ruleText,
+  question,
+  children,
+}) => (
   <>
     <Row justifyContent="center">
-      <ColQuestion lg="12" xs="12">
+      <ColQuestion lg={12} xs={12}>
         <Question>{question}</Question>
         {ruleText && <RuleText>{ruleText}</RuleText>}
       </ColQuestion>
     </Row>
     <Row justifyContent="center">
-      <Col xs="12">
+      <Col xs={12}>
         <InputWrapper>{children}</InputWrapper>
       </Col>
     </Row>
   </>
 )
 
-OutterWrapper.propTypes = {
-  question: PropTypes.string.isRequired,
-  ruleText: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+interface IProps {
+  formData: any
+  name: string
+  onChangeFormData: (event: any) => void
+  options?: {
+    name: string
+    value: string | number
+  }[]
+  question: string
+  ruleText?: string
+  type: string
+  error:
+    | {
+        icon: keyof typeof dict
+        message: string
+      }
+    | boolean
+    | null
+  placeholder?: string
 }
 
-const QuestionInput = forwardRef(
+const QuestionInput = forwardRef<HTMLInputElement, IProps>(
   (
     {
       formData,
@@ -38,10 +63,10 @@ const QuestionInput = forwardRef(
       onChangeFormData,
       options,
       question,
-      ruleText,
+      ruleText = '',
       type,
       error,
-      placeholder,
+      placeholder = '',
     },
     ref
   ) => {
@@ -55,7 +80,7 @@ const QuestionInput = forwardRef(
             name={name}
             onChange={onChangeFormData}
             value={formData[name]}
-            error={error}
+            error={error || false}
             newInput
             placeholder="dd/mm/aaaa"
           />
@@ -85,7 +110,7 @@ const QuestionInput = forwardRef(
             name={name}
             onChange={onChangeFormData}
             value={formData[name]}
-            error={error}
+            error={error || false}
             maxLength={14}
             placeholder={placeholder}
           />
@@ -103,7 +128,7 @@ const QuestionInput = forwardRef(
           onChange={onChangeFormData}
           prefix="#"
           value={formData[name]}
-          error={error}
+          error={error || false}
           maxLength={20}
           placeholder="MeuObjetivo"
         />
@@ -111,32 +136,5 @@ const QuestionInput = forwardRef(
     )
   }
 )
-
-QuestionInput.defaultProps = {
-  formData: {},
-  name: '',
-  onChangeFormData: () => {},
-  options: [],
-  question: '',
-  ruleText: '',
-  type: '',
-  error: null,
-  placeholder: '',
-}
-
-QuestionInput.propTypes = {
-  formData: PropTypes.object,
-  name: PropTypes.string,
-  onChangeFormData: PropTypes.func,
-  options: PropTypes.array,
-  question: PropTypes.string,
-  ruleText: PropTypes.string,
-  type: PropTypes.string,
-  error: PropTypes.shape({
-    icon: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-  }),
-  placeholder: PropTypes.string,
-}
 
 export default QuestionInput
