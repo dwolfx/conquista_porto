@@ -8,7 +8,7 @@ import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 
-import { formatMoney, formatMoneyWithoutCurrencyFlag } from 'helpers'
+import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
 
 import { PostObjectiveDataRequestBySimulate } from 'store/modules/Objective/action'
@@ -261,15 +261,9 @@ const SuggestionBanner = ({
                 handleReloadRecommendations(
                   {
                     ...answer,
-                    target_value: formatMoneyWithoutCurrencyFlag(
-                      answer.target_value
-                    ),
-                    initial_value: formatMoneyWithoutCurrencyFlag(
-                      answer.initial_value
-                    ),
-                    monthly_value: formatMoneyWithoutCurrencyFlag(
-                      suggestion_goal.suggestion_monthly_value
-                    ),
+                    target_value: answer.target_value,
+                    initial_value: answer.initial_value,
+                    monthly_value: suggestion_goal.suggestion_monthly_value,
                   },
                   'initialInvestment'
                 )
@@ -298,15 +292,9 @@ const SuggestionBanner = ({
                 handleReloadRecommendations(
                   {
                     ...answer,
-                    target_value: formatMoneyWithoutCurrencyFlag(
-                      answer.target_value
-                    ),
-                    initial_value: formatMoneyWithoutCurrencyFlag(
-                      answer.initial_value
-                    ),
-                    monthly_value: formatMoneyWithoutCurrencyFlag(
-                      answer.monthly_value
-                    ),
+                    target_value: answer.target_value,
+                    initial_value: answer.initial_value,
+                    monthly_value: answer.monthly_value,
                     target_date: suggestion_goal.suggestion_target_date,
                   },
                   'finalDate'
