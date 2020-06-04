@@ -45,10 +45,13 @@ interface IProps {
   question: string
   ruleText?: string
   type: string
-  error: {
-    icon: keyof typeof dict
-    message: string
-  } | boolean | null
+  error:
+    | {
+        icon: keyof typeof dict
+        message: string
+      }
+    | boolean
+    | null
   placeholder?: string
 }
 

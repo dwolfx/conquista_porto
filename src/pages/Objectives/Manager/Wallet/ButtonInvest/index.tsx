@@ -9,12 +9,7 @@ import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 import { handleGiwRedirect } from 'helpers'
 
-import {
-  ButtonBlock,
-  ButtonModal,
-  ButtonWrapper,
-  IconButoon,
-} from './styles'
+import { ButtonBlock, ButtonModal, ButtonWrapper, IconButoon } from './styles'
 
 import 'styled-components/macro'
 
@@ -42,7 +37,7 @@ const modalSuitabilityInfoInitialState = {
   },
 }
 
-const ButtonInvest = ({ fund, idGoal }:IButtonProps) => {
+const ButtonInvest = ({ fund, idGoal }: IButtonProps) => {
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const { state: locationState } = useLocation()
@@ -85,7 +80,9 @@ const ButtonInvest = ({ fund, idGoal }:IButtonProps) => {
               <ButtonModal
                 data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
                 data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
-                data-gtm-clicktype={modalSuitabilityInfo.button.dataGtmClicktype}
+                data-gtm-clicktype={
+                  modalSuitabilityInfo.button.dataGtmClicktype
+                }
                 onClick={
                   modalSuitabilityInfo.button.handleClick
                     ? modalSuitabilityInfo.button.handleClick
@@ -103,7 +100,7 @@ const ButtonInvest = ({ fund, idGoal }:IButtonProps) => {
         </>
       </Modal>
       <ButtonBlock
-        disabled={fund.is_fund_active}
+        disabled={!fund.is_fund_active}
         data-gtm-type="click"
         data-gtm-clicktype="button"
         data-gtm-subname={fund.name}
@@ -111,12 +108,8 @@ const ButtonInvest = ({ fund, idGoal }:IButtonProps) => {
         onClick={() => handleClickInvestButton()}
       >
         <>
-          {fund.is_fund_active && (
-            <IconButoon
-              name="lock2"
-              color="white"
-              width="22"
-            />
+          {!fund.is_fund_active && (
+            <IconButoon name="lock2" color="gray4" width="22" />
           )}
           Investir
         </>
