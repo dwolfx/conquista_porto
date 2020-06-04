@@ -50,6 +50,7 @@ interface ILoadingContent {
 
 export const WrapperContent = styled.div<ILoadingContent>`
   background-color: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: 8px;
   display: flex;
   align-items: center;
