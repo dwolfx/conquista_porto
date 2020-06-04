@@ -88,7 +88,7 @@ export const ErrorIcon = styled(Icon)`
 export const Input = styled.input`
   background-color: inherit;
   border: none;
-  color: inherit;
+  color: ${props => props.theme.colors.gray6};
   font: inherit;
   padding: 0 7px;
   width: inherit;
@@ -100,7 +100,7 @@ export const Input = styled.input`
 
   ::-webkit-input-placeholder {
     color: ${props => props.theme.colors.gray4};
-    font-weight: 300;
+    font-weight: normal;
     ${props => props.theme.fontTypes.headline};
   }
 `
