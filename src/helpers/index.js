@@ -100,7 +100,11 @@ export const setCookieValue = (key, value) => {
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
   ) {
-    domain = '.portoseguro.brasil'
+    // get domain without the subdomain (cliente.portoseguro.com.br / otclienthom.portoseguro.brasil)
+    domain = window.location.hostname.substr(
+      window.location.hostname.indexOf('.portoseguro'),
+      window.location.hostname.length
+    )
   }
 
   document.cookie = `${key}=${value};Path=/;Domain=${domain};`
@@ -113,7 +117,11 @@ export const removeCookieValue = key => {
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
   ) {
-    domain = '.portoseguro.brasil'
+    // get domain without the subdomain (cliente.portoseguro.com.br / otclienthom.portoseguro.brasil)
+    domain = window.location.hostname.substr(
+      window.location.hostname.indexOf('.portoseguro'),
+      window.location.hostname.length
+    )
   }
 
   document.cookie = `${key}=;Path=/;Domain=${domain};Expires=Thu, 01 Jan 1970 00:00:00 UTC`
