@@ -162,7 +162,7 @@ export default function Wallet({
                               margin-top: 63px;
                             `}
                           >
-                            {fund.is_fund_active ? (
+                            {!fund.is_fund_active ? (
                               <Popover
                                 content="Fundo fechado para aplicações"
                                 placement="top"
@@ -258,7 +258,7 @@ export default function Wallet({
 
                     <Row>
                       <Col md="12" xs="12">
-                        {fund.is_fund_active ? (
+                        {!fund.is_fund_active ? (
                           <Popover
                             content="Fundo fechado para aplicações"
                             placement="top"
