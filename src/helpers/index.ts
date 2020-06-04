@@ -8,17 +8,19 @@ type IFormatMoneyOptions = {
 
 export const formatMoney = (
   number: string | number,
-  options: IFormatMoneyOptions = {
+  options?: IFormatMoneyOptions
+) => {
+  const convertedToNumber = Number(number)
+  const defaultOptions = {
     currency: 'BRL',
     style: 'currency',
     fractionDigits: 2,
-  }
-) => {
-  const convertedToNumber = Number(number)
-  return new Intl.NumberFormat('pt-BR', {
     ...options,
-    minimumFractionDigits: options.fractionDigits,
-    maximumFractionDigits: options.fractionDigits,
+  }
+  return new Intl.NumberFormat('pt-BR', {
+    ...defaultOptions,
+    minimumFractionDigits: defaultOptions.fractionDigits,
+    maximumFractionDigits: defaultOptions.fractionDigits,
   }).format(convertedToNumber)
 }
 
@@ -47,8 +49,10 @@ export const formatMoneyWithoutCurrencyFlag = (value: string) => {
 
 interface FormatNumberOptions extends Intl.NumberFormatOptions {}
 
-export const formatNumber = (value: string, options?: FormatNumberOptions) =>
-  new Intl.NumberFormat('pt-BR', options).format(+value)
+export const formatNumber = (
+  value: string | number,
+  options?: FormatNumberOptions
+) => new Intl.NumberFormat('pt-BR', options).format(+value)
 
 export const formatCpf = (value: string) => {
   const numbers = value.replace(/\D/g, '')
