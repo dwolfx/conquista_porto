@@ -39,12 +39,7 @@ export const CardStyled = styled(Card)`
   }
 `
 
-export const FlexTextWrapper = styled.div`
-  padding: ${({ theme }) => theme.spacing(3)}px
-    ${({ theme }) => theme.spacing(3)}px 0;
-`
-
-export const StyledButton = styled(Button)`
+const StyledButton = styled(Button)`
   font-size: 11px;
   line-height: 15px;
   margin-right: ${props => props.theme.spacing(2)}px;
@@ -60,6 +55,32 @@ export const StyledButton = styled(Button)`
   @media ${props => props.theme.mediaQueries.xs} {
     margin: 0;
     width: 100%;
+  }
+`
+
+export const StyledReturnButton = styled(StyledButton).attrs(() => ({
+  outline: true,
+  color: 'primary',
+}))`
+  @media ${props => props.theme.mediaQueries.xs} {
+    flex: 1;
+  }
+`
+
+export const StyledConfirmButton = styled(StyledButton).attrs(() => ({
+  color: 'secondary',
+  loadingColor: 'white',
+}))`
+  @media ${props => props.theme.mediaQueries.xs} {
+    flex: 1;
+  }
+`
+export const StyledRetryButton = styled(StyledButton).attrs(() => ({
+  color: 'secondary',
+  loadingColor: 'white',
+}))`
+  @media ${props => props.theme.mediaQueries.xs} {
+    flex: 2;
   }
 `
 

@@ -22,6 +22,9 @@ export const LayerCard = styled(Card)`
     margin-bottom: 0px;
     height: 100%;
   }
+  @media ${props => props.theme.mediaQueries.xs} {
+    border: 0;
+  }
 `
 
 export const VerticalListMargin = styled(VerticalList)`

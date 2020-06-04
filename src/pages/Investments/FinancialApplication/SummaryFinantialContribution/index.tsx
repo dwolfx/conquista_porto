@@ -4,15 +4,18 @@ import 'styled-components/macro'
 import {
   CardStyled,
   FooterContainer,
-  StyledButton,
+  StyledRetryButton,
+  StyledReturnButton,
+  StyledConfirmButton,
   CheckboxContainer,
   ContentContainer,
   SummaryContainer,
   ExternalLink,
   HorizontalListStyled,
-  FlexTextWrapper,
   FixedBottom,
 } from './styles'
+
+import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 import Checkbox from 'components/Inputs/Checkbox'
@@ -47,45 +50,63 @@ const SummaryFinantialContribution = ({
 
   const navigationButtons = () => (
     <FooterContainer>
-      <StyledButton
-        outline
-        color="primary"
-        onClick={() => previousStep()}
-        disabled={isLoading}
-      >
+      <StyledReturnButton onClick={() => previousStep()} disabled={isLoading}>
         VOLTAR
-      </StyledButton>
-      <StyledButton
-        color="secondary"
-        disabled={!formData!.isAwareOfTerms}
-        loading={isLoading}
-        loadingColor="white"
-        css={`
-          min-width: 133px;
-        `}
-        onClick={() => {
-          // Bloco de código mockado
-          setIsLoading(true)
-          if (formData!.whenToInvest === '31/12/2030') {
+      </StyledReturnButton>
+      {errorCount > 0 ? (
+        <StyledRetryButton
+          disabled={!formData!.isAwareOfTerms}
+          loading={isLoading}
+          onClick={() => {
+            // Bloco de código mockado
+            setIsLoading(true)
+            if (formData!.whenToInvest === '31/12/2030') {
+              return setTimeout(() => {
+                addToast({
+                  type: 'error',
+                  title: 'Erro ao enviar solicitação.',
+                  description: 'Por favor, tente novamente.',
+                })
+                setIsLoading(false)
+                onChangeErrorCount()
+              }, 1500)
+            }
             return setTimeout(() => {
-              addToast({
-                type: 'error',
-                title: 'Erro ao enviar solicitação.',
-                description: 'Por favor, tente novamente.',
-              })
               setIsLoading(false)
-              onChangeErrorCount()
-            }, 1500)
-          }
-          return setTimeout(() => {
-            setIsLoading(false)
-            onChangeRequestStatus('success', true)
-          }, 700)
-        }}
-        // Bloco de código mockado
-      >
-        {errorCount > 0 ? 'TENTAR NOVAMENTE' : 'CONFIRMAR'}
-      </StyledButton>
+              onChangeRequestStatus('success', true)
+            }, 700)
+          }}
+        >
+          TENTAR NOVAMENTE
+        </StyledRetryButton>
+      ) : (
+        <StyledConfirmButton
+          disabled={!formData!.isAwareOfTerms}
+          loading={isLoading}
+          onClick={() => {
+            // Bloco de código mockado
+            setIsLoading(true)
+            if (formData!.whenToInvest === '31/12/2030') {
+              return setTimeout(() => {
+                addToast({
+                  type: 'error',
+                  title: 'Erro ao enviar solicitação.',
+                  description: 'Por favor, tente novamente.',
+                })
+                setIsLoading(false)
+                onChangeErrorCount()
+              }, 1500)
+            }
+            return setTimeout(() => {
+              setIsLoading(false)
+              onChangeRequestStatus('success', true)
+            }, 700)
+          }}
+          // Bloco de código mockado
+        >
+          CONFIRMAR
+        </StyledConfirmButton>
+      )}
     </FooterContainer>
   )
 
