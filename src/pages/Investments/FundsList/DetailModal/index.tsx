@@ -28,6 +28,7 @@ interface IProps {
   isLayerOpen: boolean
   handleClose: () => void
   title: string
+  category: string
   isOpenForInvestments: boolean
 }
 
@@ -37,6 +38,7 @@ const DetailModal = ({
   isLayerOpen,
   handleClose,
   title,
+  category,
   isOpenForInvestments,
 }: IProps) => {
   const { data: fundDetails, isLoading, isError } = useSelector<any, any>(
@@ -117,6 +119,7 @@ const DetailModal = ({
   return (
     <Modal
       modalTitle={isLoading ? title : fundDetails.apelido}
+      modalSubtitle={category}
       isOpen={isOpen}
       handleClose={handleClose}
     >

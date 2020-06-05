@@ -5,6 +5,7 @@ import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import { formatMoney } from 'helpers'
+import useMedia from 'hooks/useMedia'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import { Li, LiTitle, LiValue, TransactionsWrapper, Ul } from './styles'
@@ -24,6 +25,8 @@ interface IFund {
 }
 
 export const Transactions = ({ fund }: IFund) => {
+  const isMobile = useMedia('xs')
+
   const liContent = [
     [
       <LiTitle>Aplicação Inicial</LiTitle>,
@@ -61,13 +64,16 @@ export const Transactions = ({ fund }: IFund) => {
       <LiTitle>Resgate (Financeiro)</LiTitle>,
       <LiValue bold>{fund.resgate_financeiro} (Úteis)</LiValue>,
     ],
-    [
-      <LiTitle>Categoria</LiTitle>,
-      <LiValue bold>
-        {fund.categoria === 'Renda Variável' ? 'Ações' : fund.categoria}
-      </LiValue>,
-    ],
   ]
+
+  const category = [
+    <LiTitle>Categoria</LiTitle>,
+    <LiValue bold>
+      {fund.categoria === 'Renda Variável' ? 'Ações' : fund.categoria}
+    </LiValue>,
+  ]
+
+  !isMobile && liContent.length === 8 && liContent.push(category)
 
   return (
     <TransactionsWrapper>

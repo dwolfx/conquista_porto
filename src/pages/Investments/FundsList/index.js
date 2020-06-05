@@ -76,6 +76,7 @@ export default function FundsList() {
   const filteredFundsList = useFilter(filter, funds)
   const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
   const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
 
   const fundsStatus = useSelector(state => ({
     isLoading: state.investmentsList.isLoading,
@@ -239,6 +240,7 @@ export default function FundsList() {
                 isLoading={fundsStatus.isLoading}
                 isError={fundsStatus.isError}
                 setTitle={setTitle}
+                setCategory={setCategory}
                 setIsOpenForInvestments={setIsOpenForInvestments}
                 filtersCount={filtersCount}
                 handleCleanFilterAndSort={handleCleanFilterAndSort}
@@ -291,6 +293,7 @@ export default function FundsList() {
         <>
           <DetailModal
             title={title}
+            category={category}
             isOpenForInvestments={isOpenForInvestments}
             isOpen={isFundDetailOpen}
             isLayerOpen={isLayerOpen}

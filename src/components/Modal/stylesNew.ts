@@ -38,7 +38,7 @@ export const ModalContainer = styled.div`
   box-shadow: ${props => props.theme.shadows.gray4};
   border-radius: 8px;
   position: fixed;
-  margin: 28px 0;
+  margin: ${props => props.theme.spacing(4)}px 0;
   max-height: calc(100vh - (28px * 2));
   overflow: hidden;
   display: flex;
@@ -47,8 +47,10 @@ export const ModalContainer = styled.div`
 
   @media ${props => props.theme.mediaQueries.xs} {
     min-width: unset;
-    width: calc(100vw - 30px);
+    width: calc(100vw - 28px);
     top: auto;
+    margin: 0;
+    max-height: calc(100vh - (14px * 2));
   }
 `
 
@@ -58,6 +60,15 @@ export const ModalHeader = styled.div`
   padding: ${props => props.theme.spacing(2)}px;
   svg {
     margin-right: 15px;
+  }
+`
+export const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  p {
+    margin-top: 4px;
   }
 `
 

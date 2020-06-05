@@ -135,6 +135,7 @@ interface IFundCard {
   onChangeIsFundDetailOpen: (prevState: Function) => void
   handleLayerOpen: (title: string) => void
   setTitle: (title: string) => void
+  setCategory: (title: string) => void
   setIsOpenForInvestments: (aplicao_liberada: boolean) => void
 }
 const modalSuitabilityInfoInitialState = {
@@ -155,6 +156,7 @@ const FundCard: React.FC<IFundCard> = ({
   onChangeIsFundDetailOpen,
   handleLayerOpen,
   setTitle,
+  setCategory,
   setIsOpenForInvestments,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -173,11 +175,22 @@ const FundCard: React.FC<IFundCard> = ({
     setIsModalOpen(!isModalOpen)
   }
 
-  const handleOpenDetail = (title: string, idFundo: string) => {
+  const handleOpenDetail = (
+    title: string,
+    category: string,
+    idFundo: string
+  ) => {
     dispatch(GetInvestmentDetailsRequest(idFundo))
     setIsOpenForInvestments(fund.aplicao_liberada)
     setTitle(title)
+    setCategory(handleCategory(category))
     onChangeIsFundDetailOpen((prevState: boolean) => !prevState)
+  }
+
+  const handleCategory = (category: string) => {
+    const formattedSubtitle =
+      category.toLowerCase() === 'renda variável' ? 'Ações' : category
+    return formattedSubtitle
   }
 
   return (
@@ -235,11 +248,7 @@ const FundCard: React.FC<IFundCard> = ({
         <CardContent>
           <Header
             title={fund.apelido}
-            category={
-              fund.categoria_arena.toLowerCase() === 'renda variável'
-                ? 'Ações'
-                : fund.categoria_arena
-            }
+            category={handleCategory(fund.categoria_arena)}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             setIsModalOpen={setIsModalOpen}
@@ -304,7 +313,11 @@ const FundCard: React.FC<IFundCard> = ({
                   data-gtm-subname={fund.apelido}
                   data-gtm-name="mais informacoes"
                   onClick={() => {
-                    handleOpenDetail(fund.apelido, fund.id_fundo)
+                    handleOpenDetail(
+                      fund.apelido,
+                      fund.categoria_arena,
+                      fund.id_fundo
+                    )
                   }}
                 >
                   Mais informações
