@@ -68,12 +68,15 @@ const BottomBar = ({
             ...data.answer,
             initial_value: formatMoney(data.answer.initial_value, {
               currency: 'BRL',
+              style: 'decimal',
             }),
             monthly_value: formatMoney(data.answer.monthly_value, {
               currency: 'BRL',
+              style: 'decimal',
             }),
             target_value: formatMoney(data.answer.target_value, {
               currency: 'BRL',
+              style: 'decimal',
             }),
           },
         },
