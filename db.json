@@ -3728,15 +3728,14 @@
     "cod_prog": "001"
   },
   "goal_recommendations": {
-    "goal_type": "3",
+    "goal_type": "2",
     "profile": 3,
-    "nickname": "Meu Objetivo",
+    "nickname": "Aposentar",
     "target_date": "30/12/2021",
-    "is_target_date_flexible": "true",
-    "target_value": "1.000,00",
+    "target_value": "70.000.000,00",
     "initial_value": "5.000,00",
     "monthly_value": "1.000,00",
-    "is_easy_to_save_planned_amount": "true"
+    "would_like_to_receive_monthly_income": "true"
   },
   "goal_management": {
     "id": 1,

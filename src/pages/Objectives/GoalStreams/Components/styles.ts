@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
 import Text from 'components/Text'
+import InputText from 'components/NewInput'
+import { Input } from 'components/NewInput/styles'
 import { Col as ColBootstrap, Row } from 'styled-bootstrap-grid'
 
 export const Wizard = styled.div`
@@ -85,4 +87,12 @@ export const Col = styled(ColBootstrap)`
 export const FormWrapper = styled.div`
   display: flex;
   flex-direction: row;
+`
+
+export const InputNickname = styled(InputText)`
+  ${Input} {
+    ::-webkit-input-placeholder {
+      color: ${props => props.theme.colors.gray5};
+    }
+  }
 `

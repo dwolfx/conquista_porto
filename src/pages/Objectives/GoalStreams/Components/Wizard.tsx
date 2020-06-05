@@ -22,17 +22,19 @@ import {
 interface IProps {
   data: IData[]
   objective: string | number
+  category: string
 }
 
 const getFormEntries = (data: IData[]) =>
   data.reduce((acc, cur) => ({ ...acc, [cur.name]: '' }), {})
 
-export const WizardFlow = ({ data, objective }: IProps) => {
+export const WizardFlow = ({ data, objective, category }: IProps) => {
   const history = useHistory()
   const inputRef = useRef() as React.RefObject<HTMLInputElement>
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
   const [currentStep, setStepIndex] = useState(0)
+  const [valueNickname, setValueNickname] = useState(false)
   const [formData, setFormData] = useState<{ [key: string]: string }>(
     getFormEntries(data)
   )
@@ -49,7 +51,10 @@ export const WizardFlow = ({ data, objective }: IProps) => {
   const isLastStep = currentStep === data.length - 1
   const deviceColumns = isFirstStep ? 12 : 6
 
-  const increment = () => setStepIndex(currentStep + 1)
+  const increment = () => {
+    setValueNickname(true)
+    setStepIndex(currentStep + 1)
+  }
   const decrement = () => setStepIndex(currentStep - 1)
 
   const postFlow = () => {
@@ -74,6 +79,12 @@ export const WizardFlow = ({ data, objective }: IProps) => {
   }
 
   useEffect(() => {
+    if (valueNickname && !formData.nickname) {
+      setFormData({ ...formData, nickname: category })
+    }
+  }, [formData, category, valueNickname])
+
+  useEffect(() => {
     if (objectiveData && Object.keys(objectiveData).length && !isLoading) {
       history.push('/objetivos')
     }
@@ -89,8 +100,8 @@ export const WizardFlow = ({ data, objective }: IProps) => {
   useEffect(() => {
     const { name } = data[currentStep]
     const hasValue = formData[name].toString().trim().length > 0
-    setIsActive(!invalid && hasValue)
-  }, [setIsActive, formData, data, currentStep, invalid])
+    setIsActive((isFirstStep && !hasValue) || (!invalid && hasValue))
+  }, [setIsActive, formData, data, currentStep, invalid, isFirstStep])
 
   function onFormSubmit(e: any) {
     e.preventDefault()
@@ -150,6 +161,8 @@ export const WizardFlow = ({ data, objective }: IProps) => {
     inputRef ? (
       <WizardStep>
         <QuestionInput
+          valueNickname={valueNickname}
+          category={category}
           formData={formData}
           onChangeFormData={handleSingleValue}
           error={error || false}

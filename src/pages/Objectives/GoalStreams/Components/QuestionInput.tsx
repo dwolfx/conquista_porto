@@ -1,11 +1,10 @@
-import React, { forwardRef, useState } from 'react'
+import React, { forwardRef, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Row, Col } from 'styled-bootstrap-grid'
 import moment from 'moment'
 
 import Icon, { dict } from 'components/IconExporter'
 import Popover from 'components/Popover'
-import InputText from 'components/NewInput'
 import RadioInput from 'components/Inputs/Radio'
 import DateInput from 'components/Inputs/DateInput'
 import MoneyInput from 'components/Inputs/Money'
@@ -22,6 +21,7 @@ import {
   ColQuestion,
   Question,
   DescriptionText,
+  InputNickname,
   InputWrapper,
   FormWrapper,
 } from './styles'
@@ -141,6 +141,8 @@ interface IProps extends IData {
     | boolean
     | null
   button?: React.ReactNode
+  category?: string | undefined
+  valueNickname: boolean
 }
 
 const QuestionInput = forwardRef<HTMLInputElement, IProps>(
@@ -153,6 +155,8 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
       type,
       error,
       placeholder = '',
+      category,
+      valueNickname,
       ...rest
     },
     ref
@@ -212,9 +216,14 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
       onChangeFormData(e)
     }
 
+    useEffect(() => {
+      if (valueNickname)
+        setInputCounter(formData[name].length || category?.length)
+    }, [category, formData, name, valueNickname])
+
     return (
       <OutterWrapper formData={formData} {...rest}>
-        <InputText
+        <InputNickname
           data-gtm-form="input"
           data-gtm-name={name}
           ref={ref}
@@ -224,7 +233,7 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
           value={formData[name]}
           error={error || false}
           maxLength={20}
-          placeholder="MeuObjetivo"
+          placeholder={category}
         />
       </OutterWrapper>
     )
