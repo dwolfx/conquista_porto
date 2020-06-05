@@ -186,6 +186,9 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
             onChange={onChangeFormData}
             options={options}
             checkedItem={formData[name]}
+            itemsDirection={
+              name === 'is_easy_to_save_planned_amount' ? 'column' : 'row'
+            }
           />
         </OutterWrapper>
       )

@@ -23,7 +23,7 @@ export const WizardButton = styled.div`
     margin-left: 7px;
   }
 `
-export const RowFull = styled(Row)`
+export const RowFull = styled(Row as any)`
   justify-content: center;
   width: 100%;
   margin: 0;
@@ -51,7 +51,7 @@ export const DescriptionText = styled(Text)`
   }
 `
 
-export const ColQuestion = styled(ColBootstrap)`
+export const ColQuestion = styled(ColBootstrap as any)`
   min-height: 90px;
 `
 
@@ -77,7 +77,7 @@ export const Form = styled.form`
   width: 100%;
 `
 
-export const Col = styled(ColBootstrap)`
+export const Col = styled(ColBootstrap as any)`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     display: flex;
     justify-content: center;

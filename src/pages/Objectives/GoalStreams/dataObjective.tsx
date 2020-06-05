@@ -37,12 +37,19 @@ const THOUSAND_MIN_VALUE = '1.000,00'
 const MAX_CHARS_ERROR_TEXT = 'Máximo 20 caracteres'
 const MIN_CHARS_ERROR_TEXT = 'Mínimo 3 caracteres'
 const DATE_TEXT = 'Mínimo de 6 meses'
-const HUNDRED_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 100,00'
-const THOUSAND_MIN_VALUE_ERROR_TEXT = 'Mínimo de R$ 1.000,00'
-const INITIAL_INVESTMENT_QUESTION = 'Quanto você quer investir inicialmente?'
-const MONTHLY_INVESTMENT_QUESTION = 'Quanto você pretende investir por mês?'
+const DATE_DESCRIPTION =
+  'Pode ser uma estimativa, caso você não tenha uma data exata.'
+const HUNDRED_MIN_VALUE_ERROR_TEXT =
+  'Insira um valor igual ou acima de R$ 100,00, por favor.'
+const THOUSAND_MIN_VALUE_ERROR_TEXT =
+  'Insira um valor a partir de R$ 1.000,00, por favor.'
+const INITIAL_INVESTMENT_QUESTION = 'De quanto será o seu investimento inicial?'
+const MONTHLY_INVESTMENT_QUESTION = 'Quanto você  pretende investir por mês?'
 const MONTHLY_INVESTMENT_DESCRIPTION = `Essa é uma ótima forma de aumentar a renda continuamente. 
 Sugerimos que você invista pelo menos {{{VALOR}}} para alcançar a meta de {{{VALOR_META}}} em {{{PRAZO}}}.`
+const INITIAL_INVESTMENT_DESCRIPTION =
+  'Você pode inserir qualquer valor a partir de R$1.000,00.'
+
 const MIN_DATE_VALUES: IDateValues = {
   value: 6,
   type: 'months',
@@ -119,9 +126,10 @@ const dataObject: IDataObject[] = [
     flow: [
       firstStep,
       {
-        question: 'Qual a data da sua viagem?',
+        question: 'Quando você planeja fazer a viagem?',
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
+        description: DATE_DESCRIPTION,
         ruleText: DATE_TEXT,
         validate(value) {
           return validateDate(
@@ -132,7 +140,9 @@ const dataObject: IDataObject[] = [
         },
       },
       {
-        question: 'Quanto vai custar sua viagem?',
+        question: 'Quanto custará a viagem?',
+        description:
+          'Considere os custos de traslado, hospedagem, alimentação e outros que julgar importante.',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
@@ -147,6 +157,7 @@ const dataObject: IDataObject[] = [
         question: INITIAL_INVESTMENT_QUESTION,
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
+        description: INITIAL_INVESTMENT_DESCRIPTION,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -184,10 +195,11 @@ const dataObject: IDataObject[] = [
     flow: [
       firstStep,
       {
-        question: 'Quando você quer se aposentar?',
+        question: 'Com quantos anos você planeja se aposentar?',
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
         maxLength: '10',
+        description: DATE_DESCRIPTION,
         ruleText: DATE_TEXT,
         validate(value) {
           return validateDate(
@@ -198,7 +210,7 @@ const dataObject: IDataObject[] = [
         },
       },
       {
-        question: 'Quanto você quer atingir ao final desse objetivo?',
+        question: 'Quanto você quer acumular para a sua aposentadoria?',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
@@ -213,6 +225,7 @@ const dataObject: IDataObject[] = [
         question: INITIAL_INVESTMENT_QUESTION,
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
+        description: INITIAL_INVESTMENT_DESCRIPTION,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -261,10 +274,11 @@ const dataObject: IDataObject[] = [
     flow: [
       firstStep,
       {
-        question: 'Quando você quer comprar seu carro?',
+        question: 'Quando você planeja comprar seu carro?',
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
         maxLength: '10',
+        description: DATE_DESCRIPTION,
         ruleText: DATE_TEXT,
         validate(value) {
           return validateDate(
@@ -284,7 +298,7 @@ const dataObject: IDataObject[] = [
         ],
       },
       {
-        question: 'Qual o valor do carro?',
+        question: 'Qual o valor aproximado do carro?',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
@@ -299,6 +313,7 @@ const dataObject: IDataObject[] = [
         question: INITIAL_INVESTMENT_QUESTION,
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
+        description: INITIAL_INVESTMENT_DESCRIPTION,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -325,13 +340,15 @@ const dataObject: IDataObject[] = [
         tooltip: contentMonthlyValue,
       },
       {
-        question:
-          'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
+        question: 'Como é seu comportamento quando precisa guardar dinheiro?',
         name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
-          { name: 'Consigo guardar', value: 'true' },
-          { name: 'Tenho dificuldade', value: 'false' },
+          { name: 'Guardo o que planejo com facilidade', value: 'true' },
+          {
+            name: 'Tenho dificuldade para guardar o que planejo',
+            value: 'false',
+          },
         ],
       },
     ],
@@ -346,10 +363,11 @@ const dataObject: IDataObject[] = [
     flow: [
       firstStep,
       {
-        question: 'Quando você quer comprar seu imóvel?',
+        question: 'Quando você planeja comprar seu imóvel?',
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
         maxLength: '10',
+        description: DATE_DESCRIPTION,
         ruleText: DATE_TEXT,
         validate(value) {
           return validateDate(
@@ -369,7 +387,7 @@ const dataObject: IDataObject[] = [
         ],
       },
       {
-        question: 'Qual o valor do imóvel que você quer?',
+        question: 'Qual o valor aproximado do imóvel?',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
@@ -384,6 +402,7 @@ const dataObject: IDataObject[] = [
         question: INITIAL_INVESTMENT_QUESTION,
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
+        description: INITIAL_INVESTMENT_DESCRIPTION,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -410,13 +429,15 @@ const dataObject: IDataObject[] = [
         tooltip: contentMonthlyValue,
       },
       {
-        question:
-          'Qual destes comportamentos você tem quando tenta guardar dinheiro?',
+        question: 'Como é seu comportamento quando precisa guardar dinheiro?',
         name: 'is_easy_to_save_planned_amount',
         type: 'bool',
         options: [
-          { name: 'Consigo guardar', value: 'true' },
-          { name: 'Tenho dificuldade', value: 'false' },
+          { name: 'Guardo o que planejo com facilidade', value: 'true' },
+          {
+            name: 'Tenho dificuldade para guardar o que planejo',
+            value: 'false',
+          },
         ],
       },
     ],
@@ -431,10 +452,11 @@ const dataObject: IDataObject[] = [
     flow: [
       firstStep,
       {
-        question: 'Quando começa o curso que você quer fazer?',
+        question: 'Quando você planeja fazer o curso?',
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
         maxLength: '10',
+        description: DATE_DESCRIPTION,
         ruleText: DATE_TEXT,
         validate(value) {
           return validateDate(
@@ -445,9 +467,11 @@ const dataObject: IDataObject[] = [
         },
       },
       {
-        question: 'Qual o valor do curso?',
+        question: 'Qual o valor aproximado do curso?',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
+        description:
+          'Se for em outra cidade, considere os custos de traslado, hospedagem, alimentação e outros que julgar importante.',
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -460,6 +484,7 @@ const dataObject: IDataObject[] = [
         question: INITIAL_INVESTMENT_QUESTION,
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
+        description: INITIAL_INVESTMENT_DESCRIPTION,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -501,6 +526,7 @@ const dataObject: IDataObject[] = [
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
         maxLength: '10',
+        description: DATE_DESCRIPTION,
         ruleText: DATE_TEXT,
         validate(value) {
           return validateDate(
@@ -511,9 +537,11 @@ const dataObject: IDataObject[] = [
         },
       },
       {
-        question: 'Quanto vai custar o seu evento?',
+        question: 'Qual o valor aproximado do evento?',
         name: TARGET_VALUE_NAME,
         type: NUMBER_TYPE,
+        description:
+          'Se for em outra cidade, considere os custos de traslado, hospedagem, alimentação e outros que julgar importante.',
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -526,6 +554,7 @@ const dataObject: IDataObject[] = [
         question: INITIAL_INVESTMENT_QUESTION,
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
+        description: INITIAL_INVESTMENT_DESCRIPTION,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {
@@ -563,10 +592,11 @@ const dataObject: IDataObject[] = [
     flow: [
       firstStep,
       {
-        question: 'Quando você quer resgatar se atingir o total?',
+        question: 'Quando você planeja atingir o total?',
         name: TARGET_DATE_NAME,
         type: DATE_TYPE,
         maxLength: '10',
+        description: DATE_DESCRIPTION,
         ruleText: DATE_TEXT,
         validate(value) {
           return validateDate(
@@ -592,6 +622,7 @@ const dataObject: IDataObject[] = [
         question: INITIAL_INVESTMENT_QUESTION,
         name: INITIAL_VALUE_NAME,
         type: NUMBER_TYPE,
+        description: INITIAL_INVESTMENT_DESCRIPTION,
         ruleText: THOUSAND_MIN_VALUE_ERROR_TEXT,
         placeholder: THOUSAND_MIN_VALUE,
         validate(value) {

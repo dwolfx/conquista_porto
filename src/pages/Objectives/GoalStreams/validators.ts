@@ -67,13 +67,13 @@ export const validateDate = (
   maxDataValues: IDateValues
 ) => {
   if (isInvalidDate(value)) {
-    return 'Data inválida'
+    return 'Insira uma data válida, por favor.'
   }
   if (!minDate(value, minDateValues.value, minDateValues.type)) {
-    return `Mínimo de ${minDateValues.value} ${minDateValues.text}`
+    return `Insira um prazo a partir de ${minDateValues.value} ${minDateValues.text}, por favor.`
   }
   if (!maxDate(value, maxDataValues.value, maxDataValues.type)) {
-    return `Máximo de ${maxDataValues.value} ${maxDataValues.text}`
+    return `Insira um prazo menor que ${maxDataValues.value} ${maxDataValues.text}, por favor.`
   }
   return undefined
 }
