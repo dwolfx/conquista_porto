@@ -66,6 +66,7 @@ interface IResponsiveListProps {
   isLoading: boolean
   isError: boolean
   setTitle: (title: string) => void
+  setCategory: (title: string) => void
   setIsOpenForInvestments: () => boolean
   filtersCount: number
   handleCleanFilterAndSort: () => void
@@ -78,6 +79,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
   isLoading,
   isError,
   setTitle,
+  setCategory,
   setIsOpenForInvestments,
   filtersCount,
   handleCleanFilterAndSort,
@@ -175,6 +177,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
                 key={fund.id_fundo}
                 fund={fund}
                 setTitle={setTitle}
+                setCategory={setCategory}
                 setIsOpenForInvestments={setIsOpenForInvestments}
               />
             )
