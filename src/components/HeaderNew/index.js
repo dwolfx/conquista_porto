@@ -166,7 +166,7 @@ export default function HeaderNew({ crumbs }) {
           exitFunc={() => dispatch(AuthRequestLogout(userData.accessToken))}
         />
       )}
-      <BgWrapper isScrolled={isMobile}>
+      <BgWrapper>
         <GridContainer>
           <LeftBlock>
             <ConquistaBeta
