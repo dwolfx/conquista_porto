@@ -172,7 +172,11 @@ export default function GeneralView() {
                 slicesLabelsSkipAngle={10}
                 slicesLabelsTextColor="#000000"
                 sliceLabel={() => null}
-                tooltipFormat={value => `${value}%`}
+                tooltip={({ id, value }) => (
+                  <span>
+                    <strong>{id}:</strong> {value}%
+                  </span>
+                )}
                 animate
                 motionStiffness={90}
                 motionDamping={15}
