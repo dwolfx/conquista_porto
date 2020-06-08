@@ -41,17 +41,19 @@ export default function TabMoreInfo({ fund }) {
               ]}
             />
           </ColStyled>
-          {/* <VerticalList
-          width="67%"
-          elements={[
-            <Text type="captionUppercase" color="gray4">
-              gestor
-            </Text>,
-            <Text type="headline" color="gray6" bold>
-              {} ??? qual atributo devemos exibir
-            </Text>,
-          ]}
-        /> */}
+          <ColStyled xs={6} sm={6} md={3}>
+            <VerticalList
+              elements={[
+                <Text type="captionUppercase" color="gray4">
+                  gestor
+                </Text>,
+                <Text type="headline" color="gray6" bold>
+                  {fund.nome_gestor ? fund.nome_gestor : '-'}
+                </Text>,
+              ]}
+            />
+          </ColStyled>
+
           <ColStyled xs={6} sm={6} md={3}>
             <VerticalList
               elements={[
@@ -168,6 +170,7 @@ export default function TabMoreInfo({ fund }) {
 TabMoreInfo.propTypes = {
   fund: PropTypes.shape({
     data_inicio: PropTypes.string,
+    nome_gestor: PropTypes.string,
     benchmark: PropTypes.shape({
       nome: PropTypes.string,
     }),
