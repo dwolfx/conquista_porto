@@ -5,7 +5,6 @@ import 'styled-components/macro'
 import { Row } from 'styled-bootstrap-grid'
 
 import Icon from 'components/IconExporter'
-import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 import ButtonLink from 'components/Button/Link'
@@ -13,7 +12,7 @@ import VerticalList from 'components/VerticalList'
 
 import { formatNumber } from 'helpers'
 
-import { ColStyled, InfoContent } from './styles'
+import { ColStyled, InfoContent, HorizontalList } from './styles'
 
 export default function TabMoreInfo({ fund }) {
   return (
@@ -29,7 +28,7 @@ export default function TabMoreInfo({ fund }) {
           ]}
         />
         <Row justifyContent="between">
-          <ColStyled xs={6} sm={6} md={3}>
+          <ColStyled xs={12} sm={6} md={3}>
             <VerticalList
               elements={[
                 <Text type="captionUppercase" color="gray4">
@@ -52,7 +51,7 @@ export default function TabMoreInfo({ fund }) {
             </Text>,
           ]}
         /> */}
-          <ColStyled xs={6} sm={6} md={3}>
+          <ColStyled xs={12} sm={6} md={3}>
             <VerticalList
               elements={[
                 <Text type="captionUppercase" color="gray4">
@@ -75,7 +74,7 @@ export default function TabMoreInfo({ fund }) {
             </Text>,
           ]}
         /> */}
-          <ColStyled xs={6} sm={6} md={3}>
+          <ColStyled xs={12} sm={6} md={3}>
             <VerticalList
               elements={[
                 <Text type="captionUppercase" color="gray4">
