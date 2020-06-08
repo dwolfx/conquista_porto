@@ -14,11 +14,11 @@ import {
 export interface IProps {
   step: number
   setStep: (step: number) => void
-  handleClose: () => void
+  handleClose: (actionType: 'BACK' | 'CLOSE') => void
 }
 
 const LayerHeader = (props: IProps) => {
-  const { step, setStep, handleClose } = props
+  const { handleClose } = props
 
   return (
     <GridContainer>
@@ -31,13 +31,7 @@ const LayerHeader = (props: IProps) => {
               data-gtm-type="click"
               data-gtm-clicktype="button"
               icon="ArrowLeft"
-              onClick={() => {
-                if (step === 0) {
-                  handleClose()
-                } else {
-                  setStep(step - 1)
-                }
-              }}
+              onClick={() => handleClose('BACK')}
             />
             <HeaderColTitle>
               <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
@@ -49,7 +43,7 @@ const LayerHeader = (props: IProps) => {
               data-gtm-type="click"
               data-gtm-clicktype="button"
               icon="CloseIcon"
-              onClick={handleClose}
+              onClick={() => handleClose('CLOSE')}
             />
           </HeaderContent>
         </GridCol>
