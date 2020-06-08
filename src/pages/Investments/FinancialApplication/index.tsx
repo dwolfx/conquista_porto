@@ -57,8 +57,6 @@ const LayerInvestment: React.FC<IProps> = ({
   isOpen = false,
   selectedFundId,
 }) => {
-  const funds = useSelector((state: any) => state.investmentsList)
-
   const [step, setStep] = useState(0)
   const [hasFormChanged, setHasFormChanged] = useState(false)
   const [hasSucceded, setHasSucceded] = useState<boolean>(false)
@@ -69,6 +67,8 @@ const LayerInvestment: React.FC<IProps> = ({
   const [formDataCopy, setFormDataCopy] = useState<IFormData>(
     FORM_DATA_INTIAL_STATE
   )
+
+  const funds = useSelector((state: any) => state.investmentsList)
   const stepCount = 2
   const isMobile = useMedia('xs')
 
@@ -112,25 +112,64 @@ const LayerInvestment: React.FC<IProps> = ({
     }
   }, [selectedFundId])
 
-  const checkIfPossibleToClose = () => {
-    if (hasFormChanged || step === 1) {
-      setIsConfirmationModalOpen(true)
-    } else {
+  useEffect(() => {
+    if (errorCount === 5) {
+      setHasFailed(true)
+    }
+  }, [errorCount])
+
+  useEffect(() => {
+    if (hasFailed || hasSucceded) {
+      setHasFormChanged(false)
+      setStep(0)
+    }
+  }, [hasSucceded, hasFailed])
+
+  const resetValues = () => {
+    setHasFailed(false)
+    setHasSucceded(false)
+    setFormData(FORM_DATA_INTIAL_STATE)
+    setFormDataCopy(FORM_DATA_INTIAL_STATE)
+    setStep(0)
+    setErrorCount(0)
+    handleClose()
+  }
+
+  const checkCloseOrBack = (step: number, actionType: string) => {
+    switch (step) {
+      case 0:
+        if (hasFormChanged) {
+          setIsConfirmationModalOpen(true)
+        } else {
+          resetValues()
+        }
+        break
+      case 1:
+        if (actionType === 'BACK') {
+          setStep(step - 1)
+        } else {
+          setIsConfirmationModalOpen(true)
+        }
+        break
+      default:
+        resetValues()
+        break
+    }
+  }
+
+  const handleBackOrClose = (actionType: 'BACK' | 'CLOSE') => {
+    if (hasFailed || hasSucceded) {
       resetValues()
+    } else {
+      checkCloseOrBack(step, actionType)
     }
   }
 
   const headerAttributes = {
     step,
     setStep,
-    handleClose: checkIfPossibleToClose,
+    handleClose: handleBackOrClose,
   }
-
-  useEffect(() => {
-    if (errorCount === 5) {
-      setHasFailed(true)
-    }
-  }, [errorCount])
 
   const nextStep = () => {
     setStep(step + 1)
@@ -146,16 +185,6 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const incrementError = () => {
     setErrorCount(prevState => prevState + 1)
-  }
-
-  const resetValues = () => {
-    setHasFailed(false)
-    setHasSucceded(false)
-    setFormData(FORM_DATA_INTIAL_STATE)
-    setFormDataCopy(FORM_DATA_INTIAL_STATE)
-    setStep(0)
-    setErrorCount(0)
-    handleClose()
   }
 
   const handleRequestStatus = (id: 'success' | 'error', value: boolean) => {
@@ -193,7 +222,6 @@ const LayerInvestment: React.FC<IProps> = ({
         </GridCol>
       )
     }
-
     if (hasFailed) {
       return (
         <GridCol sm={12} md={8} lg={9}>
