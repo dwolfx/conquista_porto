@@ -50,12 +50,13 @@ const ButtonInvest = ({ fund, idGoal }: IButtonProps) => {
     const onSuccess = (data: any) => {
       setModalSuitabilityInfo({ ...data })
       if (data.isValid) {
-        handleGiwRedirect(`
-        portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true${
-          locationState && locationState.idGoal
-            ? `&idObjetivo=${locationState.idGoal}`
-            : ''
-        }`)
+        handleGiwRedirect(
+          `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true${
+            locationState && locationState.idGoal
+              ? `&idObjetivo=${locationState.idGoal}`
+              : ''
+          }`
+        )
       }
     }
     dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
