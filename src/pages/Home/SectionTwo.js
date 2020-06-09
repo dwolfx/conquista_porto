@@ -30,6 +30,7 @@ import {
   ObjectivesContainer,
   BannerTipTitle,
   ObjectivesListContainer,
+  ProductsCol,
 } from './styles'
 
 export default function SectionTwo({ onRedirect }) {
@@ -136,7 +137,7 @@ export default function SectionTwo({ onRedirect }) {
 
   return (
     <>
-      <SectionCol md="5">
+      <ProductsCol md="5">
         <FullHeightCard
           headerIcon="target"
           headerTitle="Objetivos"
@@ -153,7 +154,7 @@ export default function SectionTwo({ onRedirect }) {
         >
           {renderObjectivesBodyCard()}
         </FullHeightCard>
-      </SectionCol>
+      </ProductsCol>
 
       <SectionCol md="7">
         <ObjectivesContainer>
