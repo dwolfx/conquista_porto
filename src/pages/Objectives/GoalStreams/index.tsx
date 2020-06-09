@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, Redirect, useHistory } from 'react-router'
 
@@ -20,6 +20,7 @@ interface IProps {
 }
 
 export default function GoalStreams({ handleSteps }: IProps) {
+  const [currentStep, setStepIndex] = useState(0)
   const { objectiveId } = useParams()
   const history = useHistory()
   const data: IDataObject | undefined = dataObjective.find(
@@ -41,17 +42,33 @@ export default function GoalStreams({ handleSteps }: IProps) {
     return <Loading />
   }
 
+  const handleClick = (step: any) => {
+    if (step === 'increment') {
+      setStepIndex(currentStep + 1)
+    }
+  }
+
+  const showBack = Boolean(currentStep > 0)
+
   return data ? (
     <Container>
       <Header
+        showBackButton={showBack}
         onClose={() => {
-          history.push('/objetivos')
+          history.goBack()
+        }}
+        onBack={() => {
+          if (currentStep > 0) {
+            setStepIndex(currentStep - 1)
+          }
         }}
       />
       <WizardFlow
+        currentStep={currentStep}
         data={data.flow}
         objective={data.goal_type}
         category={data.label}
+        handleChildClick={handleClick}
       />
     </Container>
   ) : (

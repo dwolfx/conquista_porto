@@ -242,7 +242,6 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 name="nickname"
                 error={invalidInput.nickname}
                 onBlur={e => validator(e.target.value, 'nickname')}
-                prefix="#"
                 label="Apelido"
                 onChange={handleSingleValue}
                 value={formData.nickname}

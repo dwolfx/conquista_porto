@@ -23,17 +23,24 @@ interface IProps {
   data: IData[]
   objective: string | number
   category: string
+  currentStep: number
+  handleChildClick: (step: 'increment' | 'decrement') => void
 }
 
 const getFormEntries = (data: IData[]) =>
   data.reduce((acc, cur) => ({ ...acc, [cur.name]: '' }), {})
 
-export const WizardFlow = ({ data, objective, category }: IProps) => {
+export const WizardFlow = ({
+  data,
+  objective,
+  category,
+  currentStep,
+  handleChildClick,
+}: IProps) => {
   const history = useHistory()
   const inputRef = useRef() as React.RefObject<HTMLInputElement>
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
-  const [currentStep, setStepIndex] = useState(0)
   const [valueNickname, setValueNickname] = useState(false)
   const [formData, setFormData] = useState<{ [key: string]: string }>(
     getFormEntries(data)
@@ -49,13 +56,15 @@ export const WizardFlow = ({ data, objective, category }: IProps) => {
 
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
-  const deviceColumns = isFirstStep ? 12 : 6
 
   const increment = () => {
     setValueNickname(true)
-    setStepIndex(currentStep + 1)
+    handleStep('increment')
   }
-  const decrement = () => setStepIndex(currentStep - 1)
+
+  const handleStep = (step: 'increment' | 'decrement') => {
+    handleChildClick(step)
+  }
 
   const postFlow = () => {
     dispatch(
@@ -107,34 +116,19 @@ export const WizardFlow = ({ data, objective, category }: IProps) => {
     e.preventDefault()
     if (isLastStep) {
       postFlow()
-    } else {
-      increment()
     }
   }
 
   const WizardButton = (
     <RowFull>
-      {!isFirstStep && (
-        <Col lg={6} sm={6} xs={6}>
-          <ButtonAction
-            type="button"
-            data-gtm-name="anterior"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            outline
-            onClick={decrement}
-          >
-            Anterior
-          </ButtonAction>
-        </Col>
-      )}
       {!isLastStep && (
-        <Col lg={deviceColumns} sm={deviceColumns} xs={deviceColumns}>
+        <Col lg={12} sm={12} xs={12}>
           <ButtonAction
             type="submit"
             data-gtm-form="submit"
             data-gtm-name="proximo"
             disabled={!isActive}
+            onClick={increment}
           >
             Próximo
           </ButtonAction>

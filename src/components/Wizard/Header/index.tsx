@@ -1,13 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 
 import Logo from 'assets/images/logo-temp.png'
 import Icon from 'components/IconExporter'
 
-import { Container, CloseButton, IconWrapper, Content } from './styles'
+import * as s from './styles'
 
-const HeaderWizard = ({ showBackButton, onClose }) => {
+interface IHeaderWizard {
+  showBackButton?: boolean
+  onClose: () => void
+  onBack?: () => void
+}
+
+const HeaderWizard = ({ showBackButton, onClose, onBack }: IHeaderWizard) => {
   const history = useHistory()
 
   const handleBack = () => {
@@ -15,40 +20,30 @@ const HeaderWizard = ({ showBackButton, onClose }) => {
   }
 
   return (
-    <Container>
+    <s.Container>
       {showBackButton && (
-        <IconWrapper
+        <s.IconWrapper
           data-gtm-subname="header"
           data-gtm-name="botao voltar"
           data-gtm-type="click"
           data-gtm-clicktype="button"
-          onClick={handleBack}
+          onClick={onBack || handleBack}
         >
           <Icon name="arrowleft" width={20} />
-        </IconWrapper>
+        </s.IconWrapper>
       )}
-      <Content>
+      <s.Content>
         <img src={Logo} alt="conquista logo png" />
-      </Content>
-      <CloseButton
+      </s.Content>
+      <s.CloseButton
         data-gtm-subname="header"
         data-gtm-name="botao fechar"
         data-gtm-type="click"
         data-gtm-clicktype="button"
         onClick={onClose}
       />
-    </Container>
+    </s.Container>
   )
-}
-
-HeaderWizard.defaultProps = {
-  showBackButton: true,
-  onClose: () => {},
-}
-
-HeaderWizard.propTypes = {
-  showBackButton: PropTypes.bool,
-  onClose: PropTypes.func,
 }
 
 export default HeaderWizard
