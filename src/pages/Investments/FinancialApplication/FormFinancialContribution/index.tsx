@@ -208,6 +208,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
                 Quanto você quer investir?
               </Text>
               <MoneyInput
+                data-testid="financial-application-money-input"
                 data-gtm-form="input"
                 data-gtm-name="quanto investir"
                 value={formData.moneyToInvest}
