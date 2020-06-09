@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import { formatMoney } from 'helpers'
+import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 import {
   GetOtherGoalsDataRequest,
@@ -40,9 +41,13 @@ const BottomBar = ({
 }: IProps) => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const isLoading = useSelector(
-    (state: any) => state.objectiveManagement.isLoading
-  )
+
+  useFetchCustomerProfile()
+
+  const { isLoading, customerProfile } = useSelector((state: any) => ({
+    isLoading: state.objectiveManagement.isLoading,
+    customerProfile: state.customerProfile.data,
+  }))
 
   const [buttonConfirmClicked, setButtonConfirmClicked] = useState(false)
 
@@ -66,6 +71,7 @@ const BottomBar = ({
           ...data,
           answer: {
             ...data.answer,
+            uf: customerProfile.customerState,
             initial_value: formatMoney(data.answer.initial_value, {
               currency: 'BRL',
               style: 'decimal',

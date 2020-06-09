@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import useValidator from 'pages/Objectives/GoalStreams/useValidator'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
+import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 import useMedia from 'hooks/useMedia'
 
 import { IData } from '../types'
@@ -46,12 +47,19 @@ export const WizardFlow = ({
   )
   const [isActive, setIsActive] = useState(false)
   const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
-  const { isLoading, data: objectiveData, suitabilityData } = useSelector(
-    (state: any) => ({
-      ...state.objective,
-      suitabilityData: state.suitability.data,
-    })
-  )
+
+  useFetchCustomerProfile()
+
+  const {
+    isLoading,
+    data: objectiveData,
+    suitabilityData,
+    customerProfile,
+  } = useSelector((state: any) => ({
+    ...state.objective,
+    suitabilityData: state.suitability.data,
+    customerProfile: state.customerProfile.data,
+  }))
 
   const isFirstStep = currentStep === 0
   const isLastStep = currentStep === data.length - 1
@@ -71,6 +79,7 @@ export const WizardFlow = ({
         data: {
           goal_type: objective,
           profile: +suitabilityData.idperfilinvest,
+          uf: customerProfile.customerState,
           ...formData,
         },
         isMobile,
