@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Col } from 'styled-bootstrap-grid'
 
 import useValidator from 'pages/Objectives/GoalStreams/useValidator'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
@@ -122,31 +121,27 @@ export const WizardFlow = ({
   const WizardButton = (
     <RowFull>
       {!isLastStep && (
-        <Col lg={12} sm={12} xs={12}>
-          <ButtonAction
-            type="submit"
-            data-gtm-form="submit"
-            data-gtm-name="proximo"
-            disabled={!isActive}
-            onClick={increment}
-          >
-            Próximo
-          </ButtonAction>
-        </Col>
+        <ButtonAction
+          type="submit"
+          data-gtm-form="submit"
+          data-gtm-name="proximo"
+          disabled={!isActive}
+          onClick={increment}
+        >
+          Próximo
+        </ButtonAction>
       )}
       {isLastStep && (
-        <Col lg={6} sm={6} xs={6}>
-          <ButtonAction
-            type="submit"
-            data-gtm-form="submit"
-            data-gtm-name="proximo"
-            disabled={!isActive || isLoading}
-            loading={isLoading}
-            loadingColor="white"
-          >
-            Próximo
-          </ButtonAction>
-        </Col>
+        <ButtonAction
+          type="submit"
+          data-gtm-form="submit"
+          data-gtm-name="proximo"
+          disabled={!isActive || isLoading}
+          loading={isLoading}
+          loadingColor="white"
+        >
+          Próximo
+        </ButtonAction>
       )}
     </RowFull>
   )

@@ -12,7 +12,7 @@ export const Wizard = styled.div`
 export const Container = styled.div``
 
 export const WizardStep = styled.div`
-  padding: 0 7px;
+  padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
   width: 100%;
 `
 
@@ -20,10 +20,11 @@ export const WizardButton = styled.div`
   display: flex;
   justify-content: center;
   & > button:nth-child(2) {
-    margin-left: 7px;
+    margin-left: ${({ theme }) => theme.spacing(1)}px;
   }
 `
 export const RowFull = styled(Row as any)`
+  padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
   justify-content: center;
   width: 100%;
   margin: 0;
@@ -69,6 +70,10 @@ export const SectionBar = styled.section`
     ${props => props.theme.spacing(4)}px;
 `
 
+export const InputRow = styled(Row as any)`
+  width: 100%;
+`
+
 export const InputWrapper = styled.div`
   margin: ${({ theme }) => theme.spacing(6)}px auto;
 `
@@ -87,6 +92,14 @@ export const Col = styled(ColBootstrap as any)`
 export const FormWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0;
+`
+
+export const FormCol = styled(Col as any)`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 export const InputNickname = styled(InputText)`
@@ -94,5 +107,15 @@ export const InputNickname = styled(InputText)`
     ::-webkit-input-placeholder {
       color: ${props => props.theme.colors.gray5};
     }
+  }
+`
+
+export const SuggestionTagContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+
+  button {
+    margin-right: ${({ theme }) => theme.spacing(1)}px;
   }
 `

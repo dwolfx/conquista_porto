@@ -25,10 +25,10 @@ const handleBorderColor = (type: string) => {
 
 export interface IButtonProps {
   color: 'primary' | 'secondary' | ''
-  children: React.ReactNode
   disabled?: boolean
-  onClick: () => void
+  onClick?: () => void
 }
+
 export const Button = styled.button<IButtonProps>`
   align-items: center;
   background-color: ${props => props.theme.colors.white};

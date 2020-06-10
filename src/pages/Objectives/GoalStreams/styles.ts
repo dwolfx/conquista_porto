@@ -4,8 +4,8 @@ import CardComp from 'components/Card'
 import Text from 'components/Text'
 
 export const Card = styled(CardComp)`
-  position: absolute;
-  width: ${({ theme }) => `calc(100% - ${theme.spacing(2)}px)`};
+  /* position: absolute;
+  width: ${({ theme }) => `calc(100% - ${theme.spacing(2)}px)`}; */
 `
 
 export const CardBodyContainer = styled.div`

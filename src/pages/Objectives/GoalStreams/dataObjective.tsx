@@ -20,6 +20,7 @@ import {
   TRIP,
   IData,
   IDataObject,
+  ISuggestionValues,
 } from './types'
 
 const INITIAL_VALUE_NAME = 'initial_value'
@@ -61,6 +62,126 @@ const MAX_DATE_VALUES: IDateValues = {
   type: 'years',
   text: 'anos',
 }
+const SUGGESTION_DATE_VALUES_TRIP_EVENT_COURSE: ISuggestionValues[] = [
+  {
+    label: '6 meses',
+    value: {
+      amount: 6,
+      duration: 'months',
+    },
+  },
+  {
+    label: '10 meses',
+    value: {
+      amount: 10,
+      duration: 'months',
+    },
+  },
+  {
+    label: '1 ano',
+    value: {
+      amount: 1,
+      duration: 'year',
+    },
+  },
+  {
+    label: '2 anos',
+    value: {
+      amount: 2,
+      duration: 'years',
+    },
+  },
+]
+const SUGGESTION_DATE_VALUES_HOME_SAVE_MONEY: ISuggestionValues[] = [
+  {
+    label: '6 meses',
+    value: {
+      amount: 6,
+      duration: 'months',
+    },
+  },
+  {
+    label: '1 ano',
+    value: {
+      amount: 1,
+      duration: 'year',
+    },
+  },
+  {
+    label: '5 anos',
+    value: {
+      amount: 5,
+      duration: 'years',
+    },
+  },
+  {
+    label: '10 anos',
+    value: {
+      amount: 10,
+      duration: 'years',
+    },
+  },
+]
+const SUGGESTION_DATE_VALUES_CAR: ISuggestionValues[] = [
+  {
+    label: '6 meses',
+    value: {
+      amount: 6,
+      duration: 'months',
+    },
+  },
+  {
+    label: '1 ano',
+    value: {
+      amount: 1,
+      duration: 'year',
+    },
+  },
+  {
+    label: '2 anos',
+    value: {
+      amount: 2,
+      duration: 'years',
+    },
+  },
+  {
+    label: '3 anos',
+    value: {
+      amount: 3,
+      duration: 'years',
+    },
+  },
+]
+const SUGGESTION_DATE_VALUES_RETIREMENT: ISuggestionValues[] = [
+  {
+    label: `{{{AGE}}} + 5`,
+    value: {
+      amount: 5,
+      duration: 'years',
+    },
+  },
+  {
+    label: `{{{AGE}}} + 10`,
+    value: {
+      amount: 10,
+      duration: 'years',
+    },
+  },
+  {
+    label: `{{{AGE}}} + 20`,
+    value: {
+      amount: 20,
+      duration: 'years',
+    },
+  },
+  {
+    label: `{{{AGE}}} + 30`,
+    value: {
+      amount: 30,
+      duration: 'years',
+    },
+  },
+]
 
 const contentInitialValue = (
   <s.TipContent>
@@ -139,6 +260,7 @@ const dataObject: IDataObject[] = [
             MAX_DATE_VALUES
           )
         },
+        suggestionValues: SUGGESTION_DATE_VALUES_TRIP_EVENT_COURSE,
       },
       {
         question: 'Quanto custará a viagem?',
@@ -209,6 +331,7 @@ const dataObject: IDataObject[] = [
             MAX_DATE_VALUES
           )
         },
+        suggestionValues: SUGGESTION_DATE_VALUES_RETIREMENT,
       },
       {
         question: 'Quanto você quer acumular para a sua aposentadoria?',
@@ -288,6 +411,7 @@ const dataObject: IDataObject[] = [
             MAX_DATE_VALUES
           )
         },
+        suggestionValues: SUGGESTION_DATE_VALUES_CAR,
       },
       {
         question: 'Essa data para você é:',
@@ -377,6 +501,7 @@ const dataObject: IDataObject[] = [
             MAX_DATE_VALUES
           )
         },
+        suggestionValues: SUGGESTION_DATE_VALUES_HOME_SAVE_MONEY,
       },
       {
         question: 'Essa data para você é:',
@@ -466,6 +591,7 @@ const dataObject: IDataObject[] = [
             MAX_DATE_VALUES
           )
         },
+        suggestionValues: SUGGESTION_DATE_VALUES_TRIP_EVENT_COURSE,
       },
       {
         question: 'Qual o valor aproximado do curso?',
@@ -536,6 +662,7 @@ const dataObject: IDataObject[] = [
             MAX_DATE_VALUES
           )
         },
+        suggestionValues: SUGGESTION_DATE_VALUES_TRIP_EVENT_COURSE,
       },
       {
         question: 'Qual o valor aproximado do evento?',
@@ -606,6 +733,7 @@ const dataObject: IDataObject[] = [
             MAX_DATE_VALUES
           )
         },
+        suggestionValues: SUGGESTION_DATE_VALUES_HOME_SAVE_MONEY,
       },
       {
         question: 'Qual valor você pretente atingir?',

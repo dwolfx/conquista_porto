@@ -25,7 +25,9 @@ export const minDate = (
   expectedDiffType: TDateTypes
 ) =>
   moment(value, 'DD/MM/YYYY').isSameOrAfter(
-    moment().add(expectedDiff, expectedDiffType || 'month')
+    moment()
+      .add(expectedDiff, expectedDiffType || 'month')
+      .format('DD/MM/YYYY')
   )
 
 export const maxDate = (
@@ -34,7 +36,9 @@ export const maxDate = (
   expectedDiffType: TDateTypes
 ) =>
   moment(value, 'DD/MM/YYYY').isSameOrBefore(
-    moment().add(expectedDiff, expectedDiffType || 'month')
+    moment()
+      .add(expectedDiff, expectedDiffType || 'month')
+      .format('DD/MM/YYYY')
   )
 
 export const minValue = (value: string, minimum: string) => {

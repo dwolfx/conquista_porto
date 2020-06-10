@@ -8,6 +8,18 @@ export const EVENT = '5'
 export const HOME = '6'
 export const SAVE_MONEY = '7'
 
+export type TDuration = 'month' | 'months' | 'year' | 'years'
+
+export interface ISuggestionValues {
+  label: string
+  value:
+    | {
+        amount: number
+        duration: TDuration
+      }
+    | string
+}
+
 export interface IData {
   maxLength?: number | string
   name: string
@@ -25,6 +37,7 @@ export interface IData {
     | ((value: string | number) => undefined | string | number)
     | undefined
   description?: string
+  suggestionValues?: ISuggestionValues[]
 }
 
 export interface IDataObject {

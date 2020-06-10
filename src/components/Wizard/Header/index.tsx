@@ -29,7 +29,7 @@ const HeaderWizard = ({ showBackButton, onClose, onBack }: IHeaderWizard) => {
           data-gtm-clicktype="button"
           onClick={onBack || handleBack}
         >
-          <Icon name="arrowleft" width={20} />
+          <Icon name="arrowleft" width={28} />
         </s.IconWrapper>
       )}
       <s.Content>

@@ -47,6 +47,7 @@ export const CardWrapper = styled.div<CardWrapper>`
 `
 
 export const CardTitle = styled.div`
+  align-items: center;
   background-color: ${props => rgba(props.theme.colors.gray6, 0.63)};
   display: flex;
   padding: ${props =>
