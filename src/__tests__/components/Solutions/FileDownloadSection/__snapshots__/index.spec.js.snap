@@ -2,20 +2,20 @@
 
 exports[`FileDownloadSection renders correctly 1`] = `
 <div
-  className="sc-bdVaJa dtTGuF"
+  className="sc-AxjAm lhknSu"
   data-name="container"
 >
   <div
-    className="sc-bwzfXH iaYNOa"
+    className="sc-AxirZ OeSHo"
     data-name="row"
   >
     <div
-      className="sc-htpNat sc-bxivhb gLRiCF"
+      className="sc-AxiKw sc-AxhCb iXEQRA"
       data-name="col-md-6 col-lg-6"
     >
       <div>
         <svg
-          className="sc-ifAKCX hFvWti"
+          className="sc-AxhUy gQtHck"
           fill="#272727"
           height="24px"
         >
@@ -24,17 +24,17 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
       <div>
         <p
-          className="sc-EHOje gUDciq"
+          className="sc-AxgMl cWmIcl"
         >
           quadro de rentabilidade
         </p>
         <p
-          className="sc-bZQynM fasgbO"
+          className="sc-AxheI eTagVP"
         >
           Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
         </p>
         <p
-          className="sc-gzVnrw jijAhp"
+          className="sc-Axmtr jBjbSP"
           data-gtm-clicktype="link"
           data-gtm-subname="quadro de rentabilidade"
           data-gtm-type="click"
@@ -46,12 +46,12 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-htpNat sc-bxivhb gLRiCF"
+      className="sc-AxiKw sc-AxhCb iXEQRA"
       data-name="col-md-6 col-lg-6"
     >
       <div>
         <svg
-          className="sc-ifAKCX hFvWti"
+          className="sc-AxhUy gQtHck"
           fill="#272727"
           height="24px"
         >
@@ -60,17 +60,17 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
       <div>
         <p
-          className="sc-EHOje gUDciq"
+          className="sc-AxgMl cWmIcl"
         >
           carta do gestor
         </p>
         <p
-          className="sc-bZQynM fasgbO"
+          className="sc-AxheI eTagVP"
         >
           Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
         </p>
         <p
-          className="sc-gzVnrw jijAhp"
+          className="sc-Axmtr jBjbSP"
           data-gtm-clicktype="link"
           data-gtm-subname="carta do gestor"
           data-gtm-type="click"
