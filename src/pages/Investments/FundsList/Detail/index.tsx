@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import Loading from 'components/Loading'
@@ -22,18 +21,27 @@ import TabProfitability from './TabProfitability'
 import TabMoreInfo from './TabMoreInfo'
 import TabDetails from './TabDetails'
 
-const Detail = ({
-  isOpen,
-  isOpenForInvestments,
+interface DetailProps {
+  isOpen?: boolean
+  isOpenForInvestments?: boolean
+  handleLayerOpen(fundId: string, hasDetailsFund: boolean): void
+  isLayerOpen?: boolean
+  handleClose(): void
+  hasError?: boolean
+}
+
+const Detail: React.FC<DetailProps> = ({
+  isOpen = false,
+  isOpenForInvestments = true,
   handleLayerOpen,
-  isLayerOpen,
+  isLayerOpen = false,
   handleClose,
-  hasError,
+  hasError = false,
 }) => {
-  const { data: fundDetails, isLoading } = useSelector(
+  const { data: fundDetails, isLoading } = useSelector<any, any>(
     state => state.investmentDetails
   )
-  const suitabilityIsLoading = useSelector(
+  const suitabilityIsLoading = useSelector<any, any>(
     state => state.suitabilityInfo.isLoading
   )
   const dispatch = useDispatch()
@@ -142,19 +150,4 @@ const Detail = ({
   )
 }
 
-Detail.propTypes = {
-  isOpen: PropTypes.bool,
-  isOpenForInvestments: PropTypes.bool,
-  isLayerOpen: PropTypes.bool,
-  handleLayerOpen: PropTypes.func.isRequired,
-  hasError: PropTypes.bool,
-  handleClose: PropTypes.func.isRequired,
-}
-
-Detail.defaultProps = {
-  isOpen: false,
-  isOpenForInvestments: true,
-  isLayerOpen: false,
-  hasError: false,
-}
 export default Detail
