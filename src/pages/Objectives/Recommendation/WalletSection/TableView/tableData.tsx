@@ -46,6 +46,7 @@ export const columns = [
   {
     Header: 'FUNDO DE INVESTIMENTO',
     accessor: 'name',
+    align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
       width: '22%',
@@ -90,7 +91,7 @@ export const columns = [
     format: (row: IFund) => formatInicialValue(row),
     align: 'center',
     styles: {
-      width: '12%',
+      width: '13%',
       minWidth: 120,
       header: {
         width: '14%',
@@ -104,11 +105,11 @@ export const columns = [
     format: (row: IFund) => formatMonthlyValue(row),
     align: 'center',
     styles: {
-      width: '14%',
+      width: '12%',
       minWidth: 120,
       header: {
-        width: '14%',
-        minWidth: 120,
+        width: '11%',
+        minWidth: 110,
       },
     },
   },
@@ -119,7 +120,7 @@ export const columns = [
       formatActionButton(row, onShowDetails),
     align: 'center',
     styles: {
-      width: '22%',
+      width: '28%',
       minWidth: 160,
       header: {
         width: '22%',
@@ -133,6 +134,7 @@ export const columnsSticky = [
   {
     Header: 'FUNDO DE INVESTIMENTO',
     accessor: 'name',
+    align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
       width: '24%',
@@ -164,10 +166,10 @@ export const columnsSticky = [
     },
     styles: {
       width: '18%',
-      minWidth: 134,
+      minWidth: 160,
       header: {
         width: '16%',
-        minWidth: 144,
+        minWidth: 160,
       },
     },
   },
@@ -178,10 +180,10 @@ export const columnsSticky = [
     align: 'center',
     styles: {
       width: '12%',
-      minWidth: 120,
+      minWidth: 155,
       header: {
         width: '14%',
-        minWidth: 120,
+        minWidth: 155,
       },
     },
   },
@@ -192,10 +194,10 @@ export const columnsSticky = [
     align: 'center',
     styles: {
       width: '14%',
-      minWidth: 120,
+      minWidth: 105,
       header: {
         width: '14%',
-        minWidth: 120,
+        minWidth: 105,
       },
     },
   },
@@ -209,8 +211,8 @@ export const columnsSticky = [
       width: 194,
       minWidth: 194,
       header: {
-        width: 202,
-        minWidth: 202,
+        width: '34%',
+        minWidth: 210,
       },
     },
     sticky: 'right',

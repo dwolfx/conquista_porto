@@ -45,6 +45,8 @@ export const InfoTableContent = styled.div`
 `
 
 export const TableWrapper = styled.div`
+  border: 1px solid ${props => props.theme.colors.gray2};
+  border-radius: 4px;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -58,10 +60,6 @@ export const Table = styled.div`
   width: 100%;
 
   &.sticky {
-    .header {
-      width: fit-content;
-    }
-
     .body {
       height: auto;
       position: relative;
@@ -86,9 +84,6 @@ export const TheadTr = styled.div`
   padding: 0 0 0 ${props => props.theme.spacing(1)}px;
   height: 56px;
   background-color: ${props => props.theme.colors.gray1};
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border: 1px solid ${props => props.theme.colors.gray2};
 `
 
 interface ITheadTh {
@@ -204,8 +199,8 @@ export const TheadColumn = styled.div<ITheadColumn>`
 
 export const Tbody = styled.div`
   border: 1px solid ${props => props.theme.colors.gray2};
-  height: 100%;
   display: block;
+  height: 100%;
 
   @media ${props => props.theme.mediaQueries.lg} {
     border-right: 0;
@@ -278,7 +273,7 @@ interface IStickyDivisor {
 
 export const StickyDivisor = styled.div<IStickyDivisor>`
   border-left: 1px solid ${props => props.theme.colors.gray6};
-  height: calc(100% - 7px);
+  height: 100%;
   opacity: 0.14;
   position: absolute;
   width: 2px;

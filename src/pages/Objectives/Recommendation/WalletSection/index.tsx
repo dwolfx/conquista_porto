@@ -62,11 +62,18 @@ const WalletSection = ({
 
     funds.forEach((fund: IFund) => {
       if (fund.category_name in fundsCategories) {
-        fundsCategories[fund.category_name] += 1
+        fundsCategories[fund.category_name] +=
+          fund.initial_value + fund.monthly_value
       } else {
-        fundsCategories[fund.category_name] = 1
+        fundsCategories[fund.category_name] =
+          fund.initial_value + fund.monthly_value
       }
     })
+
+    const fundsTotalValues = Object.entries(fundsCategories).reduce(
+      (acc, [, value]) => acc + value,
+      0
+    )
 
     const fundsCategoriesSort = Object.entries(
       fundsCategories
@@ -83,7 +90,7 @@ const WalletSection = ({
             bold
             key={`${key}-${value}%`}
           >
-            {`${((value * 100) / funds.length).toFixed(1)}% em ${key}`}
+            {`${((value * 100) / fundsTotalValues).toFixed(1)}% em ${key}`}
           </s.PercentualText>
         ))}
       </s.PercentualInfosContainer>
