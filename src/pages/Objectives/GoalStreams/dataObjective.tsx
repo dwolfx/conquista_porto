@@ -1,6 +1,7 @@
 import React from 'react'
 
-import ImgTip1 from 'assets/images/pages/Objectives/flow-tip1.png'
+import ImgTipInitial from 'assets/images/pages/Objectives/card-dica-inv-inicial.jpg'
+import ImgTipMonthly from 'assets/images/pages/Objectives/card-dica-inv-mensal.jpg'
 
 import * as s from './styles'
 import {
@@ -73,7 +74,7 @@ const contentInitialValue = (
 const renderSideTipInitialValue = (
   <s.Card headerTitle="Dica" headerIcon="information">
     <s.CardBodyContainer>
-      <img src={ImgTip1} alt="tip initial investment" />
+      <img src={ImgTipInitial} alt="tip initial investment" />
       {contentInitialValue}
     </s.CardBodyContainer>
   </s.Card>
@@ -91,7 +92,7 @@ const contentMonthlyValue = (
 const renderSideTipMonthlyValue = (
   <s.Card headerTitle="Dica" headerIcon="information">
     <s.CardBodyContainer>
-      <img src={ImgTip1} alt="tip initial investment" />
+      <img src={ImgTipMonthly} alt="tip initial investment" />
       {contentMonthlyValue}
     </s.CardBodyContainer>
   </s.Card>

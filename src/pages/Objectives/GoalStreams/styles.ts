@@ -13,6 +13,9 @@ export const CardBodyContainer = styled.div`
   padding-bottom: ${({ theme }) => theme.spacing(2)}px;
 
   img {
+    border-radius: ${({ theme }) => theme.spacing(1)}px;
+    max-height: 145px;
+    object-fit: cover;
     width: 100%;
   }
 `
