@@ -19,6 +19,7 @@ interface IProps {
   isOpen: boolean
   drawerTitle?: string
   positionDrawer?: string
+  isLoading?: boolean
 }
 
 const Drawer: React.FC<IProps> = ({
