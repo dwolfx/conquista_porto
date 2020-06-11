@@ -1,8 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RightContent renders correctly 1`] = `
+.c0 {
+  background-color: white;
+  padding-top: 22px;
+  width: 83%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: none;
+  -webkit-animation: 1s linear;
+  animation: 1s linear;
+}
+
+@media (max-width:1000px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <article
-  className="sc-AxjAm dKlZey"
+  className="c0"
 >
   <span>
     testando

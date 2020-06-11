@@ -1,8 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LinearProgressBar renders correctly (with subtitle) 1`] = `
+.c0 {
+  width: 70%;
+  margin: 70px 0 0 0;
+  background-color: #F1F1F1;
+}
+
+.c0 div:first-child {
+  position: relative;
+  background-color: #00ADEF;
+  height: 28px;
+  width: 83.33333333333333%;
+}
+
+.c0 div:first-child span {
+  position: absolute;
+  margin-left: -32px;
+  left: 100%;
+  display: inline-block;
+  word-break: keep-all;
+  text-align: center;
+  font-size: 12px;
+  width: 60px;
+  height: 28px;
+  line-height: 28px;
+  bottom: calc(100% + 15px);
+  background-color: #EFFBFF;
+  border: 1px solid;
+  border-color: #00ADEF;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.c0 div:first-child span:before {
+  content: '';
+  border-left: 7px solid transparent;
+  border-top: 7px solid;
+  border-top-color: #00ADEF;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c0 div:first-child span:after {
+  content: '';
+  border-left: 7px solid transparent;
+  border-top: 7px solid;
+  border-top-color: #00ADEF;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-right-width: 6px;
+  border-left-width: 6px;
+  border-top: 5px solid;
+  border-top-color: #EFFBFF;
+}
+
+.c0 div:nth-child(2) {
+  position: relative;
+  background-color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  line-height: 18px;
+  font-weight: 300;
+  font-size: 12px;
+  padding-top: 6px;
+}
+
+.c1 {
+  position: absolute;
+  left: 100%;
+  margin-left: 2px;
+  text-transform: uppercase;
+}
+
 <div
-  className="sc-AxjAm vbwjp"
+  className="c0"
   max={12}
   width="70%"
 >
@@ -20,7 +108,7 @@ exports[`LinearProgressBar renders correctly (with subtitle) 1`] = `
       12
        
       <span
-        className="sc-AxirZ gUPtDp"
+        className="c1"
       >
         parcelas
       </span>
@@ -30,8 +118,96 @@ exports[`LinearProgressBar renders correctly (with subtitle) 1`] = `
 `;
 
 exports[`LinearProgressBar renders correctly (without subtitle) 1`] = `
+.c0 {
+  width: 70%;
+  margin: 70px 0 0 0;
+  background-color: #F1F1F1;
+}
+
+.c0 div:first-child {
+  position: relative;
+  background-color: #00ADEF;
+  height: 28px;
+  width: 33.333333333333336%;
+}
+
+.c0 div:first-child span {
+  position: absolute;
+  margin-left: -32px;
+  left: 100%;
+  display: inline-block;
+  word-break: keep-all;
+  text-align: center;
+  font-size: 12px;
+  width: 60px;
+  height: 28px;
+  line-height: 28px;
+  bottom: calc(100% + 15px);
+  background-color: #EFFBFF;
+  border: 1px solid;
+  border-color: #00ADEF;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.c0 div:first-child span:before {
+  content: '';
+  border-left: 7px solid transparent;
+  border-top: 7px solid;
+  border-top-color: #00ADEF;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c0 div:first-child span:after {
+  content: '';
+  border-left: 7px solid transparent;
+  border-top: 7px solid;
+  border-top-color: #00ADEF;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-right-width: 6px;
+  border-left-width: 6px;
+  border-top: 5px solid;
+  border-top-color: #EFFBFF;
+}
+
+.c0 div:nth-child(2) {
+  position: relative;
+  background-color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  line-height: 18px;
+  font-weight: 300;
+  font-size: 12px;
+  padding-top: 6px;
+}
+
+.c1 {
+  position: absolute;
+  left: 100%;
+  margin-left: 2px;
+  text-transform: uppercase;
+}
+
 <div
-  className="sc-AxjAm gpraZc"
+  className="c0"
   max={12}
   width="70%"
 >
@@ -49,7 +225,7 @@ exports[`LinearProgressBar renders correctly (without subtitle) 1`] = `
       12
        
       <span
-        className="sc-AxirZ gUPtDp"
+        className="c1"
       >
         
       </span>

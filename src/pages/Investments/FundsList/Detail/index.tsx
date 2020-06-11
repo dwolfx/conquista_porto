@@ -25,7 +25,7 @@ import {
 interface DetailProps {
   isOpen?: boolean
   isOpenForInvestments?: boolean
-  handleLayerOpen(fundId: string, hasDetailsFund: boolean): void
+  handleLayerOpen?: (fundId: string, hasDetailsFund: boolean) => void
   isLayerOpen?: boolean
   handleClose(): void
   hasError?: boolean
@@ -34,7 +34,7 @@ interface DetailProps {
 const Detail: React.FC<DetailProps> = ({
   isOpen = false,
   isOpenForInvestments = true,
-  handleLayerOpen,
+  handleLayerOpen = () => {},
   isLayerOpen = false,
   handleClose,
   hasError = false,

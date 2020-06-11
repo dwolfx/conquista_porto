@@ -8,7 +8,9 @@ function injectRDScript() {
     'https://d335luupugsy2.cloudfront.net/js/loader-scripts/ea018d40-ab17-4773-9181-14cb8ea96f37-loader.js'
   script.async = true
 
-  document.body.appendChild(script)
+  setTimeout(() => {
+    document.body.appendChild(script)
+  }, 3000)
 }
 
 const HotjarScript = `(function(h, o, t, j, a, r) {
@@ -66,8 +68,8 @@ const tagManagerArgs = {
 }
 
 export default function injectExternalScripts() {
+  TagManager.initialize(tagManagerArgs)
   injectHotjarScript()
   injectCustomDataScript()
   injectRDScript()
-  TagManager.initialize(tagManagerArgs)
 }

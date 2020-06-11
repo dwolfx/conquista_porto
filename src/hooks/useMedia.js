@@ -9,11 +9,13 @@ export default function useMedia(size) {
   const [mediaMatch, setMedia] = useState(
     window.matchMedia(selectedProp).matches
   )
+
   const handleMediaChange = ({ matches }) => {
     if (isMountedRef.current) {
       setMedia(matches)
     }
   }
+
   useEffect(() => {
     isMountedRef.current = true
     window.matchMedia(selectedProp).addListener(handleMediaChange)

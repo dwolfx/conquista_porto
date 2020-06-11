@@ -7,9 +7,9 @@ import Text from 'components/Text'
 
 import { LoadingStateObjectivesContainer } from '../styles'
 
-export default function ErrorState({ onRetry }) {
+export default function ErrorState({ onRetry, ...rest }) {
   return (
-    <LoadingStateObjectivesContainer>
+    <LoadingStateObjectivesContainer {...rest}>
       <Text
         type="headline"
         color="magenta2"

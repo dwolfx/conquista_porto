@@ -11,8 +11,9 @@ const RecommendationCard = ({
   cardTitle,
   hasCreditCard,
   offer,
+  ...rest
 }: IRecommendationCardProps) => (
-  <FullHeightCard headerIcon={cardIcon} headerTitle={cardTitle}>
+  <FullHeightCard headerIcon={cardIcon} headerTitle={cardTitle} {...rest}>
     <s.OfferBox>
       <s.OfferImageBox>
         <img src={offer.image} alt={`${offer.exchangeProduct} pic`} />

@@ -93,9 +93,7 @@ function* postRescuePoints({ payload }) {
       }
     )
 
-    onSuccess({
-      url: `${RESCUE_POINTS_URL_SYSTEM}?token=${data.token}&CodOrg=040`,
-    })
+    onSuccess(`${RESCUE_POINTS_URL_SYSTEM}?token=${data.token}&CodOrg=040`)
   } catch (err) {
     yield put({
       toast: buildToast(

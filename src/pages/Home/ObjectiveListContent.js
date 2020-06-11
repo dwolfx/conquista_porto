@@ -23,6 +23,7 @@ import {
   LinearProgressBarContent,
   HorizontalListTruncateStartBlock,
   ObjectivePercentageContainer,
+  VerticalListStyled,
 } from './styles'
 
 export default function ObjectiveListContent({ objectives }) {
@@ -52,29 +53,41 @@ export default function ObjectiveListContent({ objectives }) {
 
   const table = (current, remaining, total) => (
     <ObjectivesTableContainer>
-      <ObjectivesTableBox>
-        <Text type="captionUppercase" color="gray4">
-          ALCANÇADO
-        </Text>
-        <Text type="headline" color="gray6">
-          {formatMoney(current)}
-        </Text>
+      <ObjectivesTableBox noGutter lg={3} md={12}>
+        <VerticalListStyled
+          elements={[
+            <Text type="captionUppercase" color="gray4">
+              ALCANÇADO
+            </Text>,
+            <Text type="headline" color="gray6">
+              {formatMoney(current)}
+            </Text>,
+          ]}
+        />
       </ObjectivesTableBox>
-      <ObjectivesTableBox>
-        <Text type="captionUppercase" color="gray4">
-          FALTAM
-        </Text>
-        <Text type="headline" color="gray6">
-          {formatMoney(remaining)}
-        </Text>
+      <ObjectivesTableBox noGutter lg={3} md={12}>
+        <VerticalListStyled
+          elements={[
+            <Text type="captionUppercase" color="gray4">
+              FALTAM
+            </Text>,
+            <Text type="headline" color="gray6">
+              {formatMoney(remaining)}
+            </Text>,
+          ]}
+        />
       </ObjectivesTableBox>
-      <ObjectivesTableBox>
-        <Text type="captionUppercase" color="gray4">
-          META
-        </Text>
-        <Text type="headline" color="gray6">
-          {formatMoney(total)}
-        </Text>
+      <ObjectivesTableBox noGutter lg={3} md={12}>
+        <VerticalListStyled
+          elements={[
+            <Text type="captionUppercase" color="gray4">
+              META
+            </Text>,
+            <Text type="headline" color="gray6">
+              {formatMoney(total)}
+            </Text>,
+          ]}
+        />
       </ObjectivesTableBox>
     </ObjectivesTableContainer>
   )

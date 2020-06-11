@@ -1,21 +1,153 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FileDownloadSection renders correctly 1`] = `
+.c0 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c1 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c2 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding: 28px;
+  border-right: 1px solid #DDDDDD;
+}
+
+.c2:last-child {
+  border-right: none;
+}
+
+.c3 {
+  padding-right: 20px;
+}
+
+.c4 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #272727;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 21px;
+}
+
+.c5 {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  text-align: left;
+  color: #272727;
+  margin-top: 12px;
+}
+
+.c6 {
+  font-size: 11px;
+  line-height: 21px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #00ADEF;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.c6:hover {
+  color: #018CB7;
+}
+
+@media (min-width:576px) {
+  .c0 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c0 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    -ms-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width:992px) {
+  .c2 {
+    -ms-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width:980px) {
+  .c2 {
+    border-right: none;
+  }
+}
+
 <div
-  className="sc-AxjAm lhknSu"
+  className="c0"
   data-name="container"
 >
   <div
-    className="sc-AxirZ OeSHo"
+    className="c1"
     data-name="row"
   >
     <div
-      className="sc-AxiKw sc-AxhCb iXEQRA"
+      className="sc-AxiKw c2"
       data-name="col-md-6 col-lg-6"
     >
       <div>
         <svg
-          className="sc-AxhUy gQtHck"
+          className="c3"
           fill="#272727"
           height="24px"
         >
@@ -24,17 +156,17 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
       <div>
         <p
-          className="sc-AxgMl cWmIcl"
+          className="c4"
         >
           quadro de rentabilidade
         </p>
         <p
-          className="sc-AxheI eTagVP"
+          className="c5"
         >
           Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
         </p>
         <p
-          className="sc-Axmtr jBjbSP"
+          className="c6"
           data-gtm-clicktype="link"
           data-gtm-subname="quadro de rentabilidade"
           data-gtm-type="click"
@@ -46,12 +178,12 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-AxiKw sc-AxhCb iXEQRA"
+      className="sc-AxiKw c2"
       data-name="col-md-6 col-lg-6"
     >
       <div>
         <svg
-          className="sc-AxhUy gQtHck"
+          className="c3"
           fill="#272727"
           height="24px"
         >
@@ -60,17 +192,17 @@ exports[`FileDownloadSection renders correctly 1`] = `
       </div>
       <div>
         <p
-          className="sc-AxgMl cWmIcl"
+          className="c4"
         >
           carta do gestor
         </p>
         <p
-          className="sc-AxheI eTagVP"
+          className="c5"
         >
           Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
         </p>
         <p
-          className="sc-Axmtr jBjbSP"
+          className="c6"
           data-gtm-clicktype="link"
           data-gtm-subname="carta do gestor"
           data-gtm-type="click"

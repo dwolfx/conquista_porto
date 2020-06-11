@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RiskDegree RiskDegree to render with active colors 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 10px;
+  height: 20px;
+  margin-top: 34px;
+}
+
+.c0 label {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.c0 label:first-of-type {
+  margin-right: 0.25rem;
+}
+
+.c0 label:last-of-type {
+  margin-left: 0.25rem;
+}
+
+.c1 {
+  background-color: #004E70;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 10px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c1.active {
+  opacity: 1;
+}
+
+.c2 {
+  background-color: #00ADEF;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 8px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c2.active {
+  opacity: 1;
+}
+
+.c3 {
+  background-color: #57B063;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 6px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c3.active {
+  opacity: 1;
+}
+
+.c4 {
+  background-color: #FFCD00;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 4px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c4.active {
+  opacity: 1;
+}
+
+.c5 {
+  background-color: #E72176;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 2px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c5.active {
+  opacity: 1;
+}
+
+<div
+  className="c0"
+>
+  <label>
+    Menor risco
+  </label>
+  <div
+    className="c1 active"
+  />
+  <div
+    className="c2 active"
+  />
+  <div
+    className="c3"
+  />
+  <div
+    className="c4"
+  />
+  <div
+    className="c5"
+  />
+  <label>
+    Maior risco
+  </label>
+</div>
+`;
+
+exports[`RiskDegree RiskDegree to render without any active colors 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 10px;
+  height: 20px;
+  margin-top: 34px;
+}
+
+.c0 label {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.c0 label:first-of-type {
+  margin-right: 0.25rem;
+}
+
+.c0 label:last-of-type {
+  margin-left: 0.25rem;
+}
+
+.c1 {
+  background-color: #004E70;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 10px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c1.active {
+  opacity: 1;
+}
+
+.c2 {
+  background-color: #00ADEF;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 8px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c2.active {
+  opacity: 1;
+}
+
+.c3 {
+  background-color: #57B063;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 6px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c3.active {
+  opacity: 1;
+}
+
+.c4 {
+  background-color: #FFCD00;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 4px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c4.active {
+  opacity: 1;
+}
+
+.c5 {
+  background-color: #E72176;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 2px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c5.active {
+  opacity: 1;
+}
+
+<div
+  className="c0"
+>
+  <label>
+    Menor risco
+  </label>
+  <div
+    className="c1"
+  />
+  <div
+    className="c2"
+  />
+  <div
+    className="c3"
+  />
+  <div
+    className="c4"
+  />
+  <div
+    className="c5"
+  />
+  <label>
+    Maior risco
+  </label>
+</div>
+`;

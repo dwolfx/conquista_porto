@@ -12,6 +12,7 @@ import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
 import { LegendText } from 'components/Loading/styles'
+import VerticalList from 'components/VerticalList'
 
 export const GridContainer = styled(Container)``
 
@@ -287,18 +288,19 @@ export const Icon = styled(ConquistaIcon)`
 `
 export const ObjectivesListContainer = styled.div`
   overflow-y: auto;
-  padding: 0 7px;
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const ObjectivesTableContainer = styled.div`
-  display: flex;
-  align-items: center;
+export const VerticalListStyled = styled(VerticalList)`
+  padding: ${({ theme }) => theme.spacing(1)}px 0;
+`
+
+export const ObjectivesTableContainer = styled(Row)`
   justify-content: space-between;
-  width: 100%;
   margin: 7px 0;
 `
 
-export const ObjectivesTableBox = styled.div`
+export const ObjectivesTableBox = styled(Col)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

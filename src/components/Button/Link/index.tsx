@@ -4,7 +4,7 @@ import Icon from 'components/IconExporter'
 import { Link } from './styles'
 
 interface IProps {
-  noIcon: boolean
+  noIcon?: boolean
   disabled?: boolean
   onClick: () => void
 }

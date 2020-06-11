@@ -36,12 +36,16 @@ import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
 import { ReactComponent as dollarsign } from 'assets/icons/dollar-sign.svg'
 import { ReactComponent as download } from 'assets/icons/download.svg'
 import { ReactComponent as drink } from 'assets/icons/drink.svg'
+import { ReactComponent as eyeclosed } from 'assets/icons/eye-closed.svg'
+import { ReactComponent as eyeopen } from 'assets/icons/eye-open.svg'
+import { ReactComponent as filter } from 'assets/icons/filter.svg'
 import { ReactComponent as financial } from 'assets/icons/financial.svg'
 import { ReactComponent as fingerprint } from 'assets/icons/finger-print.svg'
 import { ReactComponent as flag } from 'assets/icons/flag.svg'
 import { ReactComponent as forward } from 'assets/icons/forward.svg'
 import { ReactComponent as gear } from 'assets/icons/gear.svg'
 import { ReactComponent as globe } from 'assets/icons/globe.svg'
+import { ReactComponent as grid } from 'assets/icons/grid.svg'
 import { ReactComponent as home } from 'assets/icons/home.svg'
 import { ReactComponent as homewithwindow } from 'assets/icons/home-with-window.svg'
 import { ReactComponent as hospital } from 'assets/icons/hospital.svg'
@@ -50,10 +54,11 @@ import { ReactComponent as information } from 'assets/icons/information.svg'
 import { ReactComponent as leave } from 'assets/icons/leave.svg'
 import { ReactComponent as linechart } from 'assets/icons/line-chart.svg'
 import { ReactComponent as link } from 'assets/icons/link.svg'
+import { ReactComponent as list } from 'assets/icons/list.svg'
+import { ReactComponent as loading } from 'assets/icons/loading.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
 import { ReactComponent as lock2 } from 'assets/icons/lock2.svg'
 import { ReactComponent as malefemale } from 'assets/icons/male-female.svg'
-import { ReactComponent as filter } from 'assets/icons/filter.svg'
 import {
   ReactComponent as master,
   ReactComponent as mastercard,
@@ -62,11 +67,11 @@ import { ReactComponent as menu } from 'assets/icons/menu.svg'
 import { ReactComponent as money } from 'assets/icons/money.svg'
 import { ReactComponent as monitoranalytics } from 'assets/icons/monitor-analytics.svg'
 import { ReactComponent as pdf } from 'assets/icons/pdf.svg'
-import { ReactComponent as phone } from 'assets/icons/phone.svg'
 import { ReactComponent as personaccident } from 'assets/icons/person-accident.svg'
 import { ReactComponent as persongroup } from 'assets/icons/person-group.svg'
 import { ReactComponent as persongroup2 } from 'assets/icons/person-group2.svg'
 import { ReactComponent as petpaw } from 'assets/icons/pet-paw.svg'
+import { ReactComponent as phone } from 'assets/icons/phone.svg'
 import { ReactComponent as piechart } from 'assets/icons/pie-chart.svg'
 import { ReactComponent as plane } from 'assets/icons/plane.svg'
 import { ReactComponent as refresh } from 'assets/icons/refresh.svg'
@@ -75,6 +80,7 @@ import { ReactComponent as remove } from 'assets/icons/remove.svg'
 import { ReactComponent as safebox } from 'assets/icons/safe-box.svg'
 import { ReactComponent as scale } from 'assets/icons/scale.svg'
 import { ReactComponent as smartphone } from 'assets/icons/smartphone.svg'
+import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
 import { ReactComponent as star } from 'assets/icons/star.svg'
 import { ReactComponent as student } from 'assets/icons/student-male.svg'
 import { ReactComponent as tag } from 'assets/icons/tag.svg'
@@ -90,8 +96,6 @@ import { ReactComponent as user } from 'assets/icons/user.svg'
 import { ReactComponent as usermedic } from 'assets/icons/user-medic.svg'
 import { ReactComponent as visa } from 'assets/icons/visa.svg'
 import { ReactComponent as wallet } from 'assets/icons/wallet.svg'
-import { ReactComponent as loading } from 'assets/icons/loading.svg'
-import { ReactComponent as spinner } from 'assets/icons/spinner.svg'
 
 export const dict = {
   add,
@@ -129,12 +133,16 @@ export const dict = {
   dollarsign,
   download,
   drink,
+  eyeclosed,
+  eyeopen,
+  filter,
   financial,
   fingerprint,
   flag,
   forward,
   gear,
   globe,
+  grid,
   home,
   homewithwindow,
   hospital,
@@ -143,9 +151,10 @@ export const dict = {
   leave,
   linechart,
   link,
+  list,
+  loading,
   lock,
   lock2,
-  loading,
   malefemale,
   master,
   mastercard,
@@ -153,11 +162,11 @@ export const dict = {
   money,
   monitoranalytics,
   pdf,
-  phone,
   personaccident,
   persongroup,
   persongroup2,
   petpaw,
+  phone,
   piechart,
   plane,
   refresh,
@@ -182,7 +191,6 @@ export const dict = {
   usermedic,
   visa,
   wallet,
-  filter,
 }
 
 interface IProps {
