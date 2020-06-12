@@ -71,16 +71,20 @@ const OutterWrapper = React.forwardRef<HTMLInputElement, IProps>(
     )
 
     const questionToDisplay = question?.replace('{{{nome}}}', nomeCliente)
-    const descriptionToDisplay =
-      recommededMonthlyValue > 0
-        ? replacePatternToComponent(
-            description
-              ?.replace('{{{VALOR_META}}}', `R$ ${target_value}`)
-              ?.replace('{{{PRAZO}}}', target_date) || '',
-            /(\{{{VALOR}}})/g,
-            <span>{formatMoney(recommededMonthlyValue)}</span>
-          )
-        : description?.split('.')[0]
+    let descriptionToDisplay = description
+
+    if (descriptionToDisplay && descriptionToDisplay.indexOf('{{{') > 0) {
+      descriptionToDisplay =
+        recommededMonthlyValue > 0
+          ? replacePatternToComponent(
+              description
+                ?.replace('{{{VALOR_META}}}', `R$ ${target_value}`)
+                ?.replace('{{{PRAZO}}}', target_date) || '',
+              /(\{{{VALOR}}})/g,
+              <span>{formatMoney(Math.max(recommededMonthlyValue, 100))}</span>
+            )
+          : `${description?.split('.')[0]}.`
+    }
 
     return (
       <s.FormWrapper>
