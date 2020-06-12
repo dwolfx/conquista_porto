@@ -1,7 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
+import FontOpenSans from 'assets/fonts/OpenSans-Regular.ttf'
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+  @font-face {
+    font-family: 'Open Sans';
+    src: url(${FontOpenSans});
+  }
 
   *{
     padding: 0;
@@ -9,7 +13,6 @@ export default createGlobalStyle`
     box-sizing: border-box;
     outline: 0;
     font-family: 'Open Sans', sans-serif;
-
   }
 
   *::before,
