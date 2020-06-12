@@ -15,10 +15,10 @@ export interface IFund {
   perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
   minimo_inicial: number
   resgate_cotizacao: string
-  rentabil_fundo_mes: number
-  rentabil_fundo_12_meses: number
-  rentabil_fundo_ano: number
-  taxa_administracao: number
+  rentabil_fundo_mes: string
+  rentabil_fundo_12_meses: string
+  rentabil_fundo_ano: string
+  taxa_administracao: string
 }
 
 const useFilter = (filter: IFilterProps, funds: IFund[]) => {

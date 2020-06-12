@@ -73,10 +73,8 @@ export const ErrorMessage = styled.span`
   bottom: 0;
   color: ${props => props.theme.colors.magenta2};
   display: flex;
-  left: 14px;
-  margin-bottom: -28px;
-  position: absolute;
-  ${props => props.theme.fontTypes.body};
+  margin: ${props => props.theme.spacing(2)}px
+    ${props => props.theme.spacing(2)}px 0;
   width: 100%;
 `
 
@@ -88,7 +86,7 @@ export const ErrorIcon = styled(Icon)`
 export const Input = styled.input`
   background-color: inherit;
   border: none;
-  color: inherit;
+  color: ${props => props.theme.colors.gray6};
   font: inherit;
   padding: 0 7px;
   width: inherit;
@@ -100,7 +98,7 @@ export const Input = styled.input`
 
   ::-webkit-input-placeholder {
     color: ${props => props.theme.colors.gray4};
-    font-weight: 300;
+    font-weight: normal;
     ${props => props.theme.fontTypes.headline};
   }
 `

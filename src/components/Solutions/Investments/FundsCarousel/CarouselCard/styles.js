@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CarouselCardWrapper = styled.div`
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   background-color: ${props => props.theme.colors.white};
   border-radius: 0.5em;
   box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { ThemeContext } from 'styled-components'
 
 import Icon, { dict } from '../IconExporter'
+import Text from 'components/Text'
 
 import {
   ModalOverlay,
@@ -12,12 +13,14 @@ import {
   ModalHeader,
   ModalTitle,
   ModalWrapper,
+  TitleWrapper,
   ChildrenWrapper,
 } from './stylesNew'
 
 interface IProps {
   headerIcon?: keyof typeof dict
   modalTitle?: string
+  modalSubtitle?: string
   handleClose: () => void
   isOpen: boolean
   alignItems?: string
@@ -26,6 +29,7 @@ interface IProps {
 const Modal: React.FC<IProps> = ({
   headerIcon = null,
   modalTitle = '',
+  modalSubtitle = '',
   handleClose,
   isOpen,
   alignItems = '',
@@ -72,7 +76,16 @@ const Modal: React.FC<IProps> = ({
               name={headerIcon}
             />
           )}
-          <ModalTitle>{modalTitle}</ModalTitle>
+          {!!modalSubtitle ? (
+            <TitleWrapper>
+              <ModalTitle>{modalTitle}</ModalTitle>
+              <Text bold color="gray4">
+                {modalSubtitle}
+              </Text>
+            </TitleWrapper>
+          ) : (
+            <ModalTitle>{modalTitle}</ModalTitle>
+          )}
           <CloseButton
             data-gtm-subname={`modal ${modalTitle}`}
             data-gtm-name="botao fechar"

@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import useInvestmentPosition from 'hooks/Investments/useFetchPosition'
 
 import { GetPositionDataRequest } from 'store/modules/Investment/Position/action'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 
 import Text from 'components/Text'
 import Button from 'components/Button'
+import Divisor from 'components/Divisor'
 import MoneyInput from 'components/Inputs/Money'
 import DateInput from 'components/Inputs/DateInput'
 
 import { formatMoneyDecimal, formatMoney } from 'helpers'
+import useMedia from 'hooks/useMedia'
 
 import {
   isPastDate,
@@ -35,10 +36,13 @@ import {
   LoadingSpinner,
   IconRetry,
   CardFooter,
+  FixedBottom,
 } from './styles'
+import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 
 interface IProps {
-  formData: IFormData | null
+  formData: IFormData
+  formDataCopy: IFormData
   nextStep: () => void
   onChangeFormData: (formData: IFormData) => void
   onFormHasChanged: (formChanged: boolean) => void
@@ -47,35 +51,22 @@ interface IProps {
 
 const FormFinancialContribution: React.FC<IProps> = ({
   formData,
+  formDataCopy,
   nextStep,
   onChangeFormData,
   onFormHasChanged,
   idFundo,
 }) => {
   useFetchBankData()
-  useInvestmentPosition()
-
   const dispatch = useDispatch()
+  const isTabletOrSmaller = useMedia('md')
+  const isMobile = useMedia('xs')
 
   const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
     auth: state.auth,
   }))
-
-  const [formDataCopy, setFormDataCopy] = useState<IFormData | null>(null) // just a copy. No need to be handled in any way
-
-  useEffect(() => {
-    if (formData && !formDataCopy) {
-      setFormDataCopy(formData)
-    }
-  }, [formData, formDataCopy])
-
-  useEffect(() => {
-    if (!idFundo) {
-      setFormDataCopy(null)
-    }
-  }, [idFundo])
 
   useEffect(() => {
     if (formData && formDataCopy) {
@@ -84,6 +75,12 @@ const FormFinancialContribution: React.FC<IProps> = ({
       }
     }
   }, [formData, onFormHasChanged, formDataCopy])
+
+  const dispatchPositionData = () => {
+    if (!isTabletOrSmaller) {
+      dispatch(GetPositionDataRequest(auth.cpf))
+    }
+  }
 
   const renderBaseAccountInfo = () => {
     if (bankData.isLoading || investmentPosition.isLoading) {
@@ -105,8 +102,8 @@ const FormFinancialContribution: React.FC<IProps> = ({
           </Text>
           <IconRetry
             onClick={() => {
-              dispatch(GetPositionDataRequest(auth.cpf))
               dispatch(GetBankDataRequest(auth.cpf))
+              dispatchPositionData()
             }}
           />
         </>
@@ -114,6 +111,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
     }
 
     const chosenInvestmentFund = () =>
+      investmentPosition.data &&
       investmentPosition.data.length !== 0 &&
       investmentPosition.data[0].posicoes.posicao.find(
         (posicao: any) => posicao.fundo.id_carteira === idFundo
@@ -143,21 +141,26 @@ const FormFinancialContribution: React.FC<IProps> = ({
             </Text>,
           ]}
         />
-        <VerticalListStyled
-          elements={[
-            <Text type="captionUppercase" color="gray4" bold>
-              fundo
-            </Text>,
-            <Text type="headline" color="gray6" bold>
-              {formatMoney(
-                investmentPosition.data.length === 0 ? 0 : saldoAtual
-              )}
-            </Text>,
-            <Text type="caption" color="gray5" bold>
-              Saldo e rendimento bruto
-            </Text>,
-          ]}
-        />
+        {!isTabletOrSmaller && (
+          <VerticalListStyled
+            elements={[
+              <Text type="captionUppercase" color="gray4" bold>
+                fundo
+              </Text>,
+              <Text type="headline" color="gray6" bold>
+                {formatMoney(
+                  investmentPosition.data &&
+                    investmentPosition.data.length === 0
+                    ? 0
+                    : saldoAtual
+                )}
+              </Text>,
+              <Text type="caption" color="gray5" bold>
+                Saldo e rendimento bruto
+              </Text>,
+            ]}
+          />
+        )}
       </>
     )
   }
@@ -178,30 +181,34 @@ const FormFinancialContribution: React.FC<IProps> = ({
     return false
   }
 
+  const buttonNext = () => (
+    <Button
+      color="secondary"
+      onClick={nextStep}
+      disabled={isDateInvalid() || isMoneyLessThanAllowed()}
+      css={`
+        width: ${isMobile ? '100%' : 'auto'};
+      `}
+    >
+      Próximo
+    </Button>
+  )
+
   if (formData) {
     return (
       <>
         <CardStyled
-          footer={
-            <CardFooter>
-              <Button
-                color="secondary"
-                onClick={nextStep}
-                disabled={isDateInvalid() || isMoneyLessThanAllowed()}
-              >
-                Próximo
-              </Button>
-            </CardFooter>
-          }
+          footer={!isMobile && <CardFooter>{buttonNext()}</CardFooter>}
         >
           <BalanceInfoContainer>{renderBaseAccountInfo()}</BalanceInfoContainer>
           <DivisorStyled margin="21px 0 21px 0" />
           <InputsContainer>
-            <InputContainer>
+            <InputContainer sm={6}>
               <Text type="headline" color="gray6">
                 Quanto você quer investir?
               </Text>
               <MoneyInput
+                data-testid="financial-application-money-input"
                 data-gtm-form="input"
                 data-gtm-name="quanto investir"
                 value={formData.moneyToInvest}
@@ -228,7 +235,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
                 `}
               />
             </InputContainer>
-            <InputContainer>
+            <InputContainer sm={6}>
               <Text type="headline" color="gray6">
                 Quando você deseja investir?
               </Text>
@@ -255,12 +262,19 @@ const FormFinancialContribution: React.FC<IProps> = ({
               />
             </InputContainer>
           </InputsContainer>
-          <DivisorStyled margin="49px 0 21px 0" />
-          <Text bold color="gray5">
-            Solicitações enviadas após às 15h serão processadas no próximo dia
-            útil.
-          </Text>
+          {isMobile && (
+            <>
+              <Divisor />
+              <FlexTextWrapper>
+                <Text bold color="gray5">
+                  Solicitações enviadas após às 15h serão processadas no próximo
+                  dia útil.
+                </Text>
+              </FlexTextWrapper>
+            </>
+          )}
         </CardStyled>
+        {isMobile && <FixedBottom>{buttonNext()}</FixedBottom>}
       </>
     )
   }

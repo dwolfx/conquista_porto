@@ -2,7 +2,7 @@ import React from 'react'
 
 import Text from 'components/Text'
 
-import { formatDotToComma } from 'helpers'
+import { formatNumber } from 'helpers'
 import { IProps } from './interfaces'
 
 import {
@@ -21,7 +21,7 @@ export default function DesktopView({
 }: IProps) {
   const printFieldText = (text: string) => text || '---'
   const printFieldTextWithPercent = (text: string) =>
-    text && text !== '-' ? `${formatDotToComma(text)}%` : '---'
+    text && text !== '-' ? `${formatNumber(text)}%` : '---'
   return (
     <TablesContainer>
       <FixedTable>

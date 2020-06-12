@@ -2,7 +2,7 @@
 
 exports[`LinearProgressBar renders correctly (with subtitle) 1`] = `
 <div
-  className="sc-bdVaJa eujWEU"
+  className="sc-AxjAm vbwjp"
   max={12}
   width="70%"
 >
@@ -20,7 +20,7 @@ exports[`LinearProgressBar renders correctly (with subtitle) 1`] = `
       12
        
       <span
-        className="sc-bwzfXH fxjqSh"
+        className="sc-AxirZ gUPtDp"
       >
         parcelas
       </span>
@@ -31,7 +31,7 @@ exports[`LinearProgressBar renders correctly (with subtitle) 1`] = `
 
 exports[`LinearProgressBar renders correctly (without subtitle) 1`] = `
 <div
-  className="sc-bdVaJa dNhbEi"
+  className="sc-AxjAm gpraZc"
   max={12}
   width="70%"
 >
@@ -49,7 +49,7 @@ exports[`LinearProgressBar renders correctly (without subtitle) 1`] = `
       12
        
       <span
-        className="sc-bwzfXH fxjqSh"
+        className="sc-AxirZ gUPtDp"
       >
         
       </span>

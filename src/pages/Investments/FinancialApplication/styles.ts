@@ -1,12 +1,24 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import ArrowLeft from 'assets/icons/arrow-left.svg'
 import CloseIcon from 'assets/icons/close.svg'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 import Card from 'components/Card'
+import Layer from 'components/Layer'
+import { ChildrenWrapper } from 'components/Layer/styles'
+
+export const LayerFinancialApplication = styled(Layer)`
+  ${ChildrenWrapper} {
+    overflow: hidden;
+  }
+`
 
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
+`
+
+export const FlexTextWrapper = styled.div`
+  padding: ${({ theme }) => theme.spacing(3)}px;
 `
 
 export const HeaderColTitle = styled.div`
@@ -41,25 +53,66 @@ export const GridContainer = styled(Container)`
 `
 
 export const LayerBodyContainer = styled(Container)`
-  height: 78vh;
-  padding-top: ${props => props.theme.spacing(4)}px;
-  padding-bottom: 21px;
+  padding: 0px;
+  margin: 0;
+  overflow: auto;
+  height: auto;
+
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    padding-top: ${props => props.theme.spacing(3)}px;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.mdUp} {
+    height: 74vh;
+  }
 `
-export const FooterContainer = styled(Container)``
+export const FooterContainer = styled(Container)`
+  display: block;
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
+
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    margin-top: 0;
+  }
+`
 
 export const GridRowExpanded = styled(Row)`
-  height: 100%;
+  height: auto;
+  margin: 0;
+
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    height: 100%;
+    margin: 0px -${({ theme }) => theme.spacing(1)}px;
+  }
 `
 export const GridRow = styled(Row)``
 export const GridRowNoMargin = styled(Row)`
   margin: 0px;
 `
 
-export const GridCol = styled(Col)``
+export const GridCol = styled(Col)`
+  padding: 0px;
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    padding: 0px ${({ theme }) => theme.spacing(1)}px;
+  }
+`
+
+export const GridColInfo = styled(Col)`
+  padding: ${({ theme }) => theme.spacing(2)}px 0;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    padding: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
 
 export const StepBar = styled.div`
   background-color: ${props => props.theme.colors.grayblue1};
   height: 56px;
+`
+
+export const GridRowStepBar = styled(Row)`
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const ColStepBar = styled(Col)`
@@ -68,14 +121,31 @@ export const ColStepBar = styled(Col)`
   align-items: center;
 `
 
-export const LayerContent = styled.div`
-  width: 100%;
-  padding: ${props => props.theme.spacing(4)}px 0px
-    ${props => props.theme.spacing(3)}px;
-  display: flex;
-  height: 76vh;
-`
-
 export const LayerCard = styled(Card)`
   height: 100%;
+`
+
+interface IMobileScrollContent {
+  expandBottomHeight: boolean
+}
+
+export const MobileScrollContent = styled.div<IMobileScrollContent>`
+  width: 100%;
+  ${({ expandBottomHeight }) =>
+    expandBottomHeight
+      ? css`
+          height: calc(100% - ${({ theme }) => theme.spacing(24)}px);
+        `
+      : css`
+          height: calc(100% - 125px);
+        `};
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    overflow: hidden;
+    height: 100%;
+    padding-bottom: 0px;
+  }
 `

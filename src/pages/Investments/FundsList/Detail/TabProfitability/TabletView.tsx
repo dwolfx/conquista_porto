@@ -6,7 +6,7 @@ import VerticalList from 'components/VerticalList'
 import Divisor from 'components/Divisor'
 
 import { ColStyled, RowTitle } from './styles'
-import { formatDotToComma } from 'helpers'
+import { formatNumber } from 'helpers'
 
 import { IProps } from './interfaces'
 
@@ -16,7 +16,7 @@ export default function TabletView({
 }: IProps) {
   const printFieldText = (text: string) => text || '---'
   const printFieldTextWithPercent = (text: string) =>
-    text && text !== '-' ? `${formatDotToComma(text)}%` : '---'
+    text && text !== '-' ? `${formatNumber(text)}%` : '---'
 
   return (
     <>

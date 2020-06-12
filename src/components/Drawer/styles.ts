@@ -26,7 +26,7 @@ export const DrawerBody = styled.div`
 `
 
 export const DrawerFooter = styled.div`
-  border-top: 1px solid ${props => props.theme.colors.gray2};
+  border-top: 1px solid ${props => props.theme.colors.gray3};
   height: 63px;
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@ export const DrawerFooter = styled.div`
 `
 
 export const DrawerHeader = styled.div`
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
   justify-content: space-between;
   padding: 10px 14px 14px;

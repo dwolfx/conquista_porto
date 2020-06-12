@@ -28,24 +28,15 @@ interface IProps {
 }
 
 const NewInput = forwardRef<HTMLInputElement, IProps>(
-  (
-    {
-      prefix,
-      suffix,
-      label,
-      width,
-      error,
-      className,
-      ...rest
-    },
-    ref
-  ) => {
+  ({ prefix, suffix, label, width, error, className, ...rest }, ref) => {
     const inputRef = (ref || createRef()) as React.RefObject<HTMLInputElement>
 
     return (
-      <InputFieldGroup {...rest}>
+      <InputFieldGroup>
         <InputGroupWrapper>
-          {label && <InputLabel>{label}</InputLabel>}
+          {label && (
+            <InputLabel data-testid="new-input-label">{label}</InputLabel>
+          )}
           <InputWrapper
             onClick={() => {
               inputRef.current?.focus()
@@ -53,12 +44,10 @@ const NewInput = forwardRef<HTMLInputElement, IProps>(
             width={width}
             error={error}
             className={className}
+            data-testid="new-input-addon"
           >
             {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-            <Input
-              ref={inputRef}
-              {...rest}
-            />
+            <Input ref={inputRef} data-testid="new-input-input" {...rest} />
             {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
           </InputWrapper>
         </InputGroupWrapper>

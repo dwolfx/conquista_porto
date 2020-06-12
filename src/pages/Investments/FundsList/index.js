@@ -76,6 +76,7 @@ export default function FundsList() {
   const filteredFundsList = useFilter(filter, funds)
   const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
   const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
 
   const fundsStatus = useSelector(state => ({
     isLoading: state.investmentsList.isLoading,
@@ -112,8 +113,9 @@ export default function FundsList() {
     const onSuccess = data => {
       setModalSuitabilityInfo({ ...data })
       if (data.isValid) {
-        setIsFundDetailOpen(false)
-        // setLayerOpen(true)
+        // setIsFundDetailOpen(false)
+        // setLayerOpen(true) // para entregar a sprint precisamos comentar essa linha e descomentar o código abaixo
+
         handleGiwRedirect(`portaldecliente/conquista/aplicacao?idFundo=${fundId}&r=true${
           locationState && locationState.idGoal
             ? `&idObjetivo=${locationState.idGoal}`
@@ -161,6 +163,11 @@ export default function FundsList() {
       sortBy: null,
       sortType: null,
     })
+  }
+
+  function handleCleanFilterAndSort() {
+    handleCleanFilter()
+    handleCleanSort()
   }
 
   const mobileFundList = fundList => {
@@ -233,7 +240,10 @@ export default function FundsList() {
                 isLoading={fundsStatus.isLoading}
                 isError={fundsStatus.isError}
                 setTitle={setTitle}
+                setCategory={setCategory}
                 setIsOpenForInvestments={setIsOpenForInvestments}
+                filtersCount={filtersCount}
+                handleCleanFilterAndSort={handleCleanFilterAndSort}
               />
             </Col>
           </>
@@ -283,6 +293,7 @@ export default function FundsList() {
         <>
           <DetailModal
             title={title}
+            category={category}
             isOpenForInvestments={isOpenForInvestments}
             isOpen={isFundDetailOpen}
             isLayerOpen={isLayerOpen}

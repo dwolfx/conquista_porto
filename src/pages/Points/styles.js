@@ -40,7 +40,7 @@ export const Point = styled.div`
   width: 230px !important;
   height: 200px;
   margin: 0 4px 35px 4px;
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: 8px;
   box-shadow: 1px 45px 40px -50px rgba(0, 0, 0, 0.4);
   background-color: ${props => props.theme.colors.white};

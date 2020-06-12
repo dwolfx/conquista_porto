@@ -2,13 +2,13 @@
 
 exports[`BulletsSection renders correctly 1`] = `
 <section
-  className="sc-bdVaJa fyuDkl"
+  className="sc-AxjAm clWFYd"
 >
   <div
-    className="sc-bwzfXH goVfva"
+    className="sc-AxirZ cllJUb"
   >
     <div
-      className="sc-htpNat bHzOwE"
+      className="sc-AxiKw bDCAQa"
     >
       <img
         alt=""
@@ -16,7 +16,7 @@ exports[`BulletsSection renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-bxivhb beQMVC"
+      className="sc-AxhCb eJAVzu"
     >
       <div>
         Por que investir em Fundos?
@@ -27,7 +27,7 @@ exports[`BulletsSection renders correctly 1`] = `
         </li>
       </ul>
       <p
-        className="sc-ifAKCX cIkCex"
+        className="sc-AxhUy eclLto"
       >
         
       </p>

@@ -2,21 +2,21 @@
 
 exports[`MakeSenseSection renders correctly 1`] = `
 <section
-  className="sc-htoDjs exOgNv"
+  className="sc-AxmLO fSPhnM"
 >
   <div
-    className="sc-dnqmqq gzQJVH"
+    className="sc-fzozJi ldNrYF"
   >
     Quando faz sentido investir?
   </div>
   <div
-    className="sc-iwsKbI cSFLES"
+    className="sc-fzoLsD gvpCgK"
   >
     <div
-      className="sc-gZMcBi ljvEcB"
+      className="sc-fzpans NyBGa"
     >
       <div
-        className="sc-gqjmRU dcKzbe"
+        className="sc-fzplWN earLCc"
       >
         <svg>
           male-female.svg
@@ -24,17 +24,17 @@ exports[`MakeSenseSection renders correctly 1`] = `
          
       </div>
       <p
-        className="sc-VigVT jUbhZV"
+        className="sc-fznyAO fOqbbN"
       >
         Quando você quiser uma gestão profissional para
       buscar as melhores opções do mercado para seu dinheiro.
       </p>
     </div>
     <div
-      className="sc-gZMcBi ljvEcB"
+      className="sc-fzpans NyBGa"
     >
       <div
-        className="sc-gqjmRU dcKzbe"
+        className="sc-fzplWN earLCc"
       >
         <svg>
           bar-chart.svg
@@ -42,17 +42,17 @@ exports[`MakeSenseSection renders correctly 1`] = `
          
       </div>
       <p
-        className="sc-VigVT jUbhZV"
+        className="sc-fznyAO fOqbbN"
       >
         Quando você quiser buscar um rendimento melhor do que o da poupança,
       sem correr, necessariamente, um risco maior.
       </p>
     </div>
     <div
-      className="sc-gZMcBi ljvEcB"
+      className="sc-fzpans NyBGa"
     >
       <div
-        className="sc-gqjmRU dcKzbe"
+        className="sc-fzplWN earLCc"
       >
         <svg>
           safe-box.svg
@@ -60,7 +60,7 @@ exports[`MakeSenseSection renders correctly 1`] = `
          
       </div>
       <p
-        className="sc-VigVT jUbhZV"
+        className="sc-fznyAO fOqbbN"
       >
         Quando você quiser se organizar para buscar seus sonhos,
       economizando seu dinheiro e esperando rendimentos melhores.
@@ -68,12 +68,12 @@ exports[`MakeSenseSection renders correctly 1`] = `
     </div>
   </div>
   <h2
-    className="sc-jTzLTM iQLaPB"
+    className="sc-fznKkj jdeyfd"
   >
     
   </h2>
   <div
-    className="slick-slider sc-bxivhb bBNSdY slick-initialized"
+    className="slick-slider sc-AxhCb bVPawP slick-initialized"
   >
     
     <div
@@ -110,21 +110,21 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX bWFNap"
+              className="sc-AxhUy hnjvvl"
             >
               <svg>
                 talk-man.svg
               </svg>
               <div
-                className="sc-gzVnrw ibZhkv"
+                className="sc-Axmtr hBVTto"
               >
                 <h1
-                  className="sc-EHOje jxqLV"
+                  className="sc-AxgMl dpdnkh"
                 >
                   Gerente de conta
                 </h1>
                 <p
-                  className="sc-bZQynM duloxe"
+                  className="sc-AxheI jlKiAV"
                 >
                   Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.
                 </p>
@@ -147,21 +147,21 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX bWFNap"
+              className="sc-AxhUy hnjvvl"
             >
               <svg>
                 diamond.svg
               </svg>
               <div
-                className="sc-gzVnrw ibZhkv"
+                className="sc-Axmtr hBVTto"
               >
                 <h1
-                  className="sc-EHOje jxqLV"
+                  className="sc-AxgMl dpdnkh"
                 >
                   Programa de Relacionamento
                 </h1>
                 <p
-                  className="sc-bZQynM duloxe"
+                  className="sc-AxheI jlKiAV"
                 >
                   Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.
                 </p>
@@ -184,21 +184,21 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX bWFNap"
+              className="sc-AxhUy hnjvvl"
             >
               <svg>
                 call-center.svg
               </svg>
               <div
-                className="sc-gzVnrw ibZhkv"
+                className="sc-Axmtr hBVTto"
               >
                 <h1
-                  className="sc-EHOje jxqLV"
+                  className="sc-AxgMl dpdnkh"
                 >
                   Chat inteligente
                 </h1>
                 <p
-                  className="sc-bZQynM duloxe"
+                  className="sc-AxheI jlKiAV"
                 >
                   Para te ajudar com informações e dicas em qualquer momento.
                 </p>
@@ -221,21 +221,21 @@ exports[`MakeSenseSection renders correctly 1`] = `
         >
           <div>
             <div
-              className="sc-ifAKCX bWFNap"
+              className="sc-AxhUy hnjvvl"
             >
               <svg>
                 apps.svg
               </svg>
               <div
-                className="sc-gzVnrw ibZhkv"
+                className="sc-Axmtr hBVTto"
               >
                 <h1
-                  className="sc-EHOje jxqLV"
+                  className="sc-AxgMl dpdnkh"
                 >
                   Facilidade
                 </h1>
                 <p
-                  className="sc-bZQynM duloxe"
+                  className="sc-AxheI jlKiAV"
                 >
                   A contratação é rápida e descomplicada, feita para facilitar sua vida.
                 </p>
