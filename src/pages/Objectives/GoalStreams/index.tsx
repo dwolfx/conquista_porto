@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams, Redirect, useHistory } from 'react-router'
+import { useParams, Redirect, useHistory, useLocation } from 'react-router'
 
 import Loading from 'components/Loading'
 import Header from 'components/Wizard/Header'
@@ -16,6 +16,7 @@ import { IData, IDataObject } from './types'
 import { Container } from './Components/styles'
 
 interface IProps {
+  location?: boolean
   handleSteps: (data: IData[] | undefined) => void
 }
 
@@ -23,6 +24,7 @@ export default function GoalStreams({ handleSteps }: IProps) {
   const [currentStep, setStepIndex] = useState(0)
   const { objectiveId } = useParams()
   const history = useHistory()
+  const location = useLocation()
   const data: IDataObject | undefined = dataObjective.find(
     objective => objective.route === `/${objectiveId}`
   )
@@ -48,7 +50,7 @@ export default function GoalStreams({ handleSteps }: IProps) {
     }
   }
 
-  const showBack = Boolean(currentStep > 0)
+  const showBack = Boolean(currentStep > 0) || location?.state?.pageBoard
 
   return data ? (
     <Container>
@@ -59,8 +61,9 @@ export default function GoalStreams({ handleSteps }: IProps) {
         }}
         onBack={() => {
           if (currentStep > 0) {
-            setStepIndex(currentStep - 1)
+            return setStepIndex(currentStep - 1)
           }
+          history.goBack()
         }}
       />
       <WizardFlow

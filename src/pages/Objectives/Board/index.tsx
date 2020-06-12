@@ -42,7 +42,10 @@ const Board = () => {
                 dispatch(
                   GetSuitabilityRequestAndRedirect({
                     cpf,
-                    link: `${match.path}${card.route}`,
+                    link: {
+                      pathname: `${match.path}${card.route}`,
+                      state: { pageBoard: true },
+                    },
                     history,
                     errorPath: '/objetivos',
                     goalType: card.goal_type,
