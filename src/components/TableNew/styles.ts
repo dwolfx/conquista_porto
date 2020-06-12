@@ -45,6 +45,8 @@ export const InfoTableContent = styled.div`
 `
 
 export const TableWrapper = styled.div`
+  border: 1px solid ${props => props.theme.colors.gray2};
+  border-radius: 4px;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -58,10 +60,6 @@ export const Table = styled.div`
   width: 100%;
 
   &.sticky {
-    .header {
-      width: fit-content;
-    }
-
     .body {
       height: auto;
       position: relative;
@@ -183,11 +181,11 @@ export const TheadText = styled.span<ITheadText>`
     background-image: url(${ArrowSortable});
     background-repeat: no-repeat;
     background-position: ${props =>
-      props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
+    props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
     position: absolute;
     margin-left: 10px;
     top: ${props =>
-      props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
+    props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
     width: 10px;
     height: 17px;
   }
@@ -206,6 +204,7 @@ export const Tbody = styled.div`
   border: 1px solid ${props => props.theme.colors.gray3};
   height: 100%;
   display: block;
+  height: 100%;
 
   @media ${props => props.theme.mediaQueries.lg} {
     border-right: 0;
@@ -278,7 +277,7 @@ interface IStickyDivisor {
 
 export const StickyDivisor = styled.div<IStickyDivisor>`
   border-left: 1px solid ${props => props.theme.colors.gray6};
-  height: calc(100% - 7px);
+  height: 100%;
   opacity: 0.14;
   position: absolute;
   width: 2px;

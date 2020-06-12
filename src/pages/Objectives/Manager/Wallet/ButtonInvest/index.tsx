@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
 
@@ -40,7 +39,6 @@ const modalSuitabilityInfoInitialState = {
 const ButtonInvest = ({ fund, idGoal }: IButtonProps) => {
   const dispatch = useDispatch()
   const { addToast } = useToast()
-  const { state: locationState } = useLocation()
 
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
     modalSuitabilityInfoInitialState
@@ -51,11 +49,7 @@ const ButtonInvest = ({ fund, idGoal }: IButtonProps) => {
       setModalSuitabilityInfo({ ...data })
       if (data.isValid) {
         handleGiwRedirect(
-          `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true${
-            locationState && locationState.idGoal
-              ? `&idObjetivo=${locationState.idGoal}`
-              : ''
-          }`
+          `portaldecliente/conquista/aplicacao?idFundo=${fund.id}&r=true&idObjetivo=${idGoal}`
         )
       }
     }
