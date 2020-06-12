@@ -51,7 +51,10 @@ export const DrawerFilter = ({
   onChangeIsDrawerOpen,
 }: IProps) => {
   const [isDesc, setIsDesc] = useState<boolean | null>(null)
-  const [disabled, setDisabled] = useState<boolean>(false)
+  const [applyButtonDisabled, setApplyButtonDisabled] = useState<boolean>(false)
+  const [cleanUpButtonDisabled, setCleanUpButtonDisabled] = useState<boolean>(
+    false
+  )
   const [newFilters, setNewFilters] = useState<IFilterProps>({
     byCategoriaArena: [],
     byPerfilRisco: [],
@@ -60,6 +63,13 @@ export const DrawerFilter = ({
     sortBy: null,
     sortType: null,
   })
+
+  const initialFilterAndSort = {
+    byCategoriaArena: [],
+    byPerfilRisco: [],
+    sortBy: null,
+    sortType: null,
+  }
 
   const isMobile = useMedia('xs')
 
@@ -76,9 +86,13 @@ export const DrawerFilter = ({
     const newFilterAndNewSort = { ...newFilters, ...newSort, sortType: isDesc }
 
     isFiltersEqual(filterAndSort, newFilterAndNewSort)
-      ? setDisabled(true)
-      : setDisabled(false)
-  }, [filter, sort, newFilters, newSort, isDesc])
+      ? setApplyButtonDisabled(true)
+      : setApplyButtonDisabled(false)
+
+    isFiltersEqual(initialFilterAndSort, newFilterAndNewSort)
+      ? setCleanUpButtonDisabled(true)
+      : setCleanUpButtonDisabled(false)
+  }, [filter, sort, newFilters, newSort, isDesc, initialFilterAndSort])
 
   const submitNewFilters = () => {
     onChangeFilter({ ...newFilters })
@@ -144,13 +158,30 @@ export const DrawerFilter = ({
     setNewSort({ ...sort })
   }
 
+  const handleRemoveFilters = () => {
+    setIsDesc(null)
+    setNewFilters({
+      byCategoriaArena: [],
+      byPerfilRisco: [],
+    })
+    setNewSort({
+      sortBy: null,
+      sortType: null,
+    })
+  }
+
   return (
     <Drawer
       isOpen={isDrawerOpen}
       header={isMobile ? DrawerHeader(handleCloseFilters) : null}
       drawerTitle={!isMobile ? 'Filtros' : undefined}
       handleClose={!isMobile ? handleCloseFilters : undefined}
-      footer={DrawerFooter(submitNewFilters, disabled)}
+      footer={DrawerFooter(
+        submitNewFilters,
+        handleRemoveFilters,
+        applyButtonDisabled,
+        cleanUpButtonDisabled
+      )}
     >
       <FilterDrawerBody>
         <div>
@@ -381,14 +412,30 @@ const DrawerHeader = (handleCloseFilters: () => void) => (
   </FilterDrawerHeader>
 )
 
-const DrawerFooter = (submitNewFilters: () => void, disabled: boolean) => (
-  <ButtonSubmit
-    color="secondary"
-    onClick={() => submitNewFilters()}
-    disabled={disabled}
-  >
-    APLICAR FILTROS
-  </ButtonSubmit>
-)
+const DrawerFooter = (
+  submitNewFilters: () => void,
+  handleRemoveFilters: () => void,
+  applyButtonDisabled: boolean,
+  cleanUpButtonDisabled: boolean
+) => {
+  return (
+    <>
+      <ButtonSubmit
+        outline={!cleanUpButtonDisabled}
+        onClick={() => handleRemoveFilters()}
+        disabled={cleanUpButtonDisabled}
+      >
+        LIMPAR
+      </ButtonSubmit>
+      <ButtonSubmit
+        color="secondary"
+        onClick={() => submitNewFilters()}
+        disabled={applyButtonDisabled}
+      >
+        APLICAR
+      </ButtonSubmit>
+    </>
+  )
+}
 
 export default DrawerFilter

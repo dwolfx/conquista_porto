@@ -12,10 +12,7 @@ const RecommendationCard = ({
   hasCreditCard,
   offer,
 }: IRecommendationCardProps) => (
-  <FullHeightCard
-    headerIcon={cardIcon}
-    headerTitle={cardTitle}
-  >
+  <FullHeightCard headerIcon={cardIcon} headerTitle={cardTitle}>
     <s.OfferBox>
       <s.OfferImageBox>
         <img src={offer.image} alt={`${offer.exchangeProduct} pic`} />
@@ -37,7 +34,7 @@ const RecommendationCard = ({
         ) : (
           <s.OfferText>
             {Intl.NumberFormat().format(offer.points)} pontos você troca por{' '}
-            {formatMoney(offer.exchangeValue)} no {offer.exchangeProduct}
+            {formatMoney(offer.exchangeValue || 0)} no {offer.exchangeProduct}
           </s.OfferText>
         )}
       </s.OfferTextBox>

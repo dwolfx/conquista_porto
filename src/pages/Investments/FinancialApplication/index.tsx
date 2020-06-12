@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import 'styled-components/macro'
+import useMedia from 'hooks/useMedia'
 
-import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Modal from 'components/Modal/Confirmation'
@@ -27,6 +27,10 @@ import {
   GridRow,
   GridRowExpanded,
   GridCol,
+  GridRowStepBar,
+  LayerFinancialApplication,
+  GridColInfo,
+  MobileScrollContent,
 } from './styles'
 
 interface IProps {
@@ -41,38 +45,42 @@ export type IFormData = {
   isAwareOfTerms: boolean
 }
 
+const FORM_DATA_INTIAL_STATE = {
+  moneyToInvest: '',
+  whenToInvest: '',
+  isAwareOfTerms: false,
+}
+
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
   handleFundDetailOpen = () => {},
   isOpen = false,
   selectedFundId,
 }) => {
-  const funds = useSelector((state: any) => state.investmentsList)
-
   const [step, setStep] = useState(0)
   const [hasFormChanged, setHasFormChanged] = useState(false)
   const [hasSucceded, setHasSucceded] = useState<boolean>(false)
   const [hasFailed, setHasFailed] = useState<boolean>(false)
   const [errorCount, setErrorCount] = useState<number>(0)
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false)
-  const [formData, setFormData] = useState<IFormData | null>(null)
+  const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
+  const [formDataCopy, setFormDataCopy] = useState<IFormData>(
+    FORM_DATA_INTIAL_STATE
+  )
+
+  const funds = useSelector((state: any) => state.investmentsList)
   const stepCount = 2
+  const isMobile = useMedia('xs')
 
-  useEffect(() => {
-    if (selectedFundId && funds.data.length > 0) {
-      const normalizedFundList = funds.data
-        .flatMap((item: any) => item)
-        .reduce((prev: any, curr: any) => [...prev, ...curr.fundos], [])
-
-      const selectedFund = normalizedFundList.find(
+  const loadFormData = useCallback(
+    (prevState: any): any => {
+      const selectedFund = funds.data.find(
         (fund: any) => fund.id_fundo === selectedFundId
       )
-
       const canInvestToday = moment(moment(), 'hh:mm:ss').isBefore(
         moment('15:00:00', 'hh:mm:ss')
       )
-
-      setFormData(prevState => ({
+      return {
         ...prevState,
         moneyToInvest: formatMoneyDecimal(
           Number(selectedFund.minimo_inicial * 100)
@@ -83,36 +91,85 @@ const LayerInvestment: React.FC<IProps> = ({
               .add('1', 'day')
               .format('DD/MM/YYYY'),
         isAwareOfTerms: false,
-      }))
+      }
+    },
+    [funds.data, selectedFundId]
+  )
+
+  useEffect(() => {
+    if (selectedFundId && funds.data.length > 0) {
+      setFormData(prevState => loadFormData(prevState))
+      setFormDataCopy(prevState => loadFormData(prevState))
     }
-  }, [selectedFundId, funds.data])
+  }, [selectedFundId, funds.data, loadFormData])
 
   useEffect(() => {
     if (!selectedFundId) {
       setHasFormChanged(false)
-      setFormData(null)
+      setFormData(FORM_DATA_INTIAL_STATE)
+      setFormDataCopy(FORM_DATA_INTIAL_STATE)
+      setStep(0)
     }
   }, [selectedFundId])
-
-  const checkIfPossibleToClose = () => {
-    if (hasFormChanged) {
-      setIsConfirmationModalOpen(true)
-    } else {
-      resetValues()
-    }
-  }
-
-  const headerAttributes = {
-    step,
-    setStep,
-    handleClose: checkIfPossibleToClose,
-  }
 
   useEffect(() => {
     if (errorCount === 5) {
       setHasFailed(true)
     }
   }, [errorCount])
+
+  useEffect(() => {
+    if (hasFailed || hasSucceded) {
+      setHasFormChanged(false)
+      setStep(0)
+    }
+  }, [hasSucceded, hasFailed])
+
+  const resetValues = () => {
+    setHasFailed(false)
+    setHasSucceded(false)
+    setFormData(FORM_DATA_INTIAL_STATE)
+    setFormDataCopy(FORM_DATA_INTIAL_STATE)
+    setStep(0)
+    setErrorCount(0)
+    handleClose()
+  }
+
+  const checkCloseOrBack = (step: number, actionType: string) => {
+    switch (step) {
+      case 0:
+        if (hasFormChanged) {
+          setIsConfirmationModalOpen(true)
+        } else {
+          resetValues()
+        }
+        break
+      case 1:
+        if (actionType === 'BACK') {
+          setStep(step - 1)
+        } else {
+          setIsConfirmationModalOpen(true)
+        }
+        break
+      default:
+        resetValues()
+        break
+    }
+  }
+
+  const handleBackOrClose = (actionType: 'BACK' | 'CLOSE') => {
+    if (hasFailed || hasSucceded) {
+      resetValues()
+    } else {
+      checkCloseOrBack(step, actionType)
+    }
+  }
+
+  const headerAttributes = {
+    step,
+    setStep,
+    handleClose: handleBackOrClose,
+  }
 
   const nextStep = () => {
     setStep(step + 1)
@@ -130,19 +187,6 @@ const LayerInvestment: React.FC<IProps> = ({
     setErrorCount(prevState => prevState + 1)
   }
 
-  const resetValues = () => {
-    setHasFailed(false)
-    setHasSucceded(false)
-    setFormData({
-      moneyToInvest: '',
-      whenToInvest: '',
-      isAwareOfTerms: false,
-    })
-    setStep(0)
-    setErrorCount(0)
-    handleClose()
-  }
-
   const handleRequestStatus = (id: 'success' | 'error', value: boolean) => {
     id === 'success' ? setHasSucceded(value) : setHasFailed(value)
   }
@@ -151,10 +195,10 @@ const LayerInvestment: React.FC<IProps> = ({
     setFormData(prevState => ({ ...prevState, ...newFormData }))
   }
 
-  // ## AQUI ENTRAM OS COMPONENTES DE STEP
   const layerBody = [
     <FormFinancialContribution
       formData={formData}
+      formDataCopy={formDataCopy}
       nextStep={nextStep}
       onChangeFormData={handleChangeFormData}
       onFormHasChanged={setHasFormChanged}
@@ -173,20 +217,23 @@ const LayerInvestment: React.FC<IProps> = ({
   const getBodyContent = () => {
     if (hasSucceded) {
       return (
-        <GridCol lg={9}>
+        <GridCol sm={12} md={8} lg={9}>
           <SuccessCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
     }
-
     if (hasFailed) {
       return (
-        <GridCol lg={9}>
+        <GridCol sm={12} md={8} lg={9}>
           <ErrorCard onCloseLayer={() => resetValues()} />
         </GridCol>
       )
     }
-    return <GridCol lg={9}>{layerBody[step]}</GridCol>
+    return (
+      <GridCol sm={12} md={8} lg={9}>
+        {layerBody[step]}
+      </GridCol>
+    )
   }
 
   const getStepCount = () => {
@@ -201,14 +248,14 @@ const LayerInvestment: React.FC<IProps> = ({
   }
 
   return (
-    <Layer
+    <LayerFinancialApplication
       handleClose={handleClose}
       isOpen={isOpen}
       headerContent={<LayerHeader {...headerAttributes} />}
     >
       <StepBar>
         <GridContainer>
-          <GridRow>
+          <GridRowStepBar>
             <ColStepBar lg={12}>
               <HorizontalList
                 size="small"
@@ -224,33 +271,35 @@ const LayerInvestment: React.FC<IProps> = ({
                 `}
               />
             </ColStepBar>
-          </GridRow>
+          </GridRowStepBar>
         </GridContainer>
       </StepBar>
-      <LayerBodyContainer>
-        <GridRowExpanded>
-          <GridCol lg={3}>
-            <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
-          </GridCol>
-          {getBodyContent()}
-        </GridRowExpanded>
-      </LayerBodyContainer>
-      <FooterContainer>
-        <GridRow>
-          <GridCol lg={12}>
-            <Text color="gray5" type="body">
-              Toda transmissão de ordem por meio digital está sujeita a
-              interrupções ou atrasos, podendo impedir ou prejudicar o envio de
-              ordens ou a recepção de informações atualizadas.
-            </Text>
-          </GridCol>
-        </GridRow>
-      </FooterContainer>
+      <MobileScrollContent expandBottomHeight={hasSucceded || hasFailed}>
+        <LayerBodyContainer>
+          <GridRowExpanded>
+            <GridCol sm={12} md={4} lg={3}>
+              <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
+            </GridCol>
+            {getBodyContent()}
+          </GridRowExpanded>
+        </LayerBodyContainer>
+        <FooterContainer>
+          <GridRow>
+            <GridColInfo col={12}>
+              <Text color="gray5" type="body">
+                Toda transmissão de ordem por meio digital está sujeita a
+                interrupções ou atrasos, podendo impedir ou prejudicar o envio
+                de ordens ou a recepção de informações atualizadas.
+              </Text>
+            </GridColInfo>
+          </GridRow>
+        </FooterContainer>
+      </MobileScrollContent>
       <Modal
         isOpen={isConfirmationModalOpen}
         title="Sair da página?"
         description="Todas as informações serão perdidas e a solicitação não será finalizada."
-        buttonTextCancel="continuar solicitação"
+        buttonTextCancel={`continuar ${isMobile ? '' : 'solicitação'}`}
         buttonTextConfirm="sair"
         onClose={() => {
           setIsConfirmationModalOpen(false)
@@ -260,7 +309,7 @@ const LayerInvestment: React.FC<IProps> = ({
           handleClose()
         }}
       />
-    </Layer>
+    </LayerFinancialApplication>
   )
 }
 

@@ -12,7 +12,7 @@
     "build:prod": "env-cmd -f .env react-scripts build",
     "extract": "env-cmd -f .env node extractBundle.js",
     "extractQa": "env-cmd -f .env.development node extractBundle.js",
-    "test": "cross-env CI=true react-scripts test -u --forceExit",
+    "test": "cross-env CI=true react-scripts test -u --forceExit --coverage --coverageDirectory=output/coverage/jest",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js, css, html, json}\"",
     "lint": "eslint \"src/**/*.{js, css, html, json}\"",
@@ -36,6 +36,7 @@
     "dotenv": "^8.2.0",
     "env-cmd": "^10.0.1",
     "immer": "^5.0.0",
+    "js-cookie": "^2.2.1",
     "moment": "^2.24.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -55,14 +56,17 @@
     "slick-carousel": "^1.8.1",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-bootstrap-grid": "^3.0.5",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.1.1",
     "typescript": "^3.7.2",
     "uuidv4": "^6.0.7",
     "yup": "^0.28.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^10.2.0",
+    "@types/js-cookie": "^2.2.6",
     "@types/react-table": "^7.0.16",
-    "@types/styled-components": "^4.1.20",
+    "@types/styled-components": "^5.1.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-styled-components": "^1.10.7",
     "body-parser": "^1.19.0",
@@ -80,6 +84,7 @@
     "express": "^4.17.1",
     "husky": "^3.0.9",
     "jest-sonar-reporter": "^2.0.0",
+    "jest-styled-components": "^7.0.2",
     "json-server": "^0.15.1",
     "nodemon": "^2.0.2",
     "prettier": "^1.18.2",
@@ -109,5 +114,11 @@
     "reportPath": "coverage",
     "reportFile": "sonar-report.xml",
     "indent": 4
+  },
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
   }
 }

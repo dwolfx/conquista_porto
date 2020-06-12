@@ -161,7 +161,7 @@ export const SuggestedProduct = styled.div`
   width: 100%;
   &:nth-child(2) {
     border-top: 1px solid;
-    border-color: ${props => props.theme.colors.gray2};
+    border-color: ${props => props.theme.colors.gray3};
     padding-top: 12px;
     margin-top: 12px;
   }

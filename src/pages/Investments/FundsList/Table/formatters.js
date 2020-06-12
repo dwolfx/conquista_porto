@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { formatMoney, formatDotToComma } from 'helpers'
+import { formatMoney, formatNumber } from 'helpers'
 import { useSelector } from 'react-redux'
 
 import Text from 'components/Text'
@@ -87,7 +87,7 @@ const FormatDefault = column => (
 const FormatColumnDotToComma = column => (
   <WrapperContent>
     {column.cell.value.toString() !== '-'
-      ? `${formatDotToComma(column.cell.value)}%`
+      ? `${formatNumber(column.cell.value)}%`
       : column.cell.value.toString()}
   </WrapperContent>
 )
@@ -95,7 +95,7 @@ const FormatColumnDotToComma = column => (
 const FormatColumnDotToCommaBold = column => (
   <WrapperContent isBold>
     {column.cell.value.toString() !== '-'
-      ? `${formatDotToComma(column.cell.value)}%`
+      ? `${formatNumber(column.cell.value)}%`
       : column.cell.value.toString()}
   </WrapperContent>
 )

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
 import { Link } from 'react-router-dom'
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
@@ -129,11 +130,11 @@ const content8 = [
 ]
 
 const Footer = () => {
-  const bankData = useSelector(
-    state => state.bankData.data && state.bankData.data.DadosContaPortoSeguro
-  )
-
   const [breakpoint, setBreakpoint] = useState('')
+
+  useCustomerProfile()
+  const customerProfile = useSelector(state => state.customerProfile.data)
+
   function checkResolution() {
     const windowWidth = window.innerWidth
     setBreakpoint(windowWidth <= 480 ? 'sm' : 'lg')
@@ -156,7 +157,7 @@ const Footer = () => {
             <ListWrapper>
               <VerticalList elements={content1} />
 
-              {bankData && (
+              {customerProfile && (
                 <VerticalList
                   elements={[
                     <Title bold>CHAT ONLINE</Title>,
@@ -165,7 +166,7 @@ const Footer = () => {
                       data-gtm-clicktype={gtmClickType}
                       data-gtm-subname="chat"
                       data-gtm-name="Converse agora com um atendente"
-                      hrefValue={`https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${bankData.cpf}&nome=${bankData.titular}`}
+                      hrefValue={`https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${customerProfile.cpfCnpj}&nome=${customerProfile.customerName}`}
                       target="_blank"
                     >
                       Converse agora com um atendente

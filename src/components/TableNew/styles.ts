@@ -84,6 +84,9 @@ export const TheadTr = styled.div`
   padding: 0 0 0 ${props => props.theme.spacing(1)}px;
   height: 56px;
   background-color: ${props => props.theme.colors.gray1};
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 1px solid ${props => props.theme.colors.gray3};
 `
 
 interface ITheadTh {
@@ -178,11 +181,11 @@ export const TheadText = styled.span<ITheadText>`
     background-image: url(${ArrowSortable});
     background-repeat: no-repeat;
     background-position: ${props =>
-      props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
+    props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
     position: absolute;
     margin-left: 10px;
     top: ${props =>
-      props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
+    props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
     width: 10px;
     height: 17px;
   }
@@ -198,7 +201,8 @@ export const TheadColumn = styled.div<ITheadColumn>`
 `
 
 export const Tbody = styled.div`
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
+  height: 100%;
   display: block;
   height: 100%;
 
@@ -213,7 +217,7 @@ export const Tbody = styled.div`
 export const TbodyTr = styled.div`
   align-items: center;
   background-color: ${props => props.theme.colors.white};
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   color: ${props => props.theme.colors.gray5};
   display: flex;
   font-weight: normal;

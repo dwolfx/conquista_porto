@@ -1,0 +1,128 @@
+import Cookies from 'js-cookie'
+
+type IFormatMoneyOptions = {
+  currency?: string
+  style?: string
+  fractionDigits?: number
+}
+
+export const formatMoney = (
+  number: string | number,
+  options?: IFormatMoneyOptions
+) => {
+  const convertedToNumber = Number(number)
+  const defaultOptions = {
+    currency: 'BRL',
+    style: 'currency',
+    fractionDigits: 2,
+    ...options,
+  }
+  return new Intl.NumberFormat('pt-BR', {
+    ...defaultOptions,
+    minimumFractionDigits: defaultOptions.fractionDigits,
+    maximumFractionDigits: defaultOptions.fractionDigits,
+  }).format(convertedToNumber)
+}
+
+export const formatMoneyDecimal = (value: number | string = 0) => {
+  const options = {
+    currency: 'BRL',
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+    style: 'decimal',
+  }
+  return String(new Intl.NumberFormat('pt-BR', options).format(+value / 100))
+}
+
+export const capitalize = (stringValue: string) => {
+  if (typeof stringValue !== 'string') return ''
+  return stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
+}
+
+export const formatMoneyWithoutCurrencyFlag = (value: string) => {
+  if (!value) {
+    return 0
+  }
+
+  return value.toLocaleString()
+}
+
+interface FormatNumberOptions extends Intl.NumberFormatOptions {}
+
+export const formatNumber = (
+  value: string | number,
+  options?: FormatNumberOptions
+) => new Intl.NumberFormat('pt-BR', options).format(+value)
+
+export const formatCpf = (value: string) => {
+  const numbers = value.replace(/\D/g, '')
+
+  if (numbers.length < 11) {
+    return value
+  }
+
+  return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
+}
+
+const hexToRgb = (hex: string) => {
+  // if hex has only 3 codes, duplicate. ex: #fab => #ffaabb
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+  const newHex = hex.replace(
+    shorthandRegex,
+    (m, r, g, b) => r + r + g + g + b + b
+  )
+
+  // result must be 6 codes and is separated in 3 groups (red, green and blue)
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(newHex)
+  // each group will be transformed to an integer (base 10) and will be add to the rgb format
+  // if result dont exists, the color will return null
+
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null
+}
+
+export const rgba = (hex: string, alpha: number | string) => {
+  const color: {
+    r: number
+    g: number
+    b: number
+  } | null = hexToRgb(hex)
+  return `rgba(${color?.r}, ${color?.g}, ${color?.b}, ${alpha})`
+}
+
+export function handleGiwRedirect(link: string) {
+  window.location.href = `${window.location.origin}/${link}`
+}
+
+export const getCookieValue = (key: string) => {
+  return Cookies.get(key)
+}
+
+export const setCookieValue = (key: string, value: string) => {
+  let domain = ''
+
+  if (
+    process.env.REACT_APP_ENV !== 'development' &&
+    process.env.REACT_APP_ENV !== 'local'
+  ) {
+    domain = '.portoseguro.brasil'
+  }
+  Cookies.set(key, value, { domain })
+}
+
+export const removeCookieValue = (key: string) => {
+  let domain = ''
+
+  if (
+    process.env.REACT_APP_ENV !== 'development' &&
+    process.env.REACT_APP_ENV !== 'local'
+  ) {
+    domain = '.portoseguro.brasil'
+  }
+  Cookies.remove(key, { domain })
+}

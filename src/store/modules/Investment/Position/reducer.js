@@ -3,7 +3,7 @@ import { Types } from './types'
 const INITIAL_STATE = {
   data: null,
   hasError: false,
-  isLoading: true,
+  isLoading: false,
 }
 
 export default function(state = INITIAL_STATE, action) {

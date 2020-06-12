@@ -5,7 +5,7 @@ import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 
-import { formatDotToComma } from 'helpers'
+import { formatNumber } from 'helpers'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import {
@@ -43,7 +43,7 @@ export const Taxation = ({ fund }: IFund) => {
                     ? [<LiTitle>IR</LiTitle>, <LiValue bold>Isento</LiValue>]
                     : [
                         <LiTitle>{item.faixa}</LiTitle>,
-                        <LiValue bold>{formatDotToComma(item.valor)}%</LiValue>,
+                        <LiValue bold>{formatNumber(item.valor)}%</LiValue>,
                       ]
                 }
               />

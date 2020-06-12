@@ -5,7 +5,7 @@ import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/ac
 
 import HorizontalList from 'components/HorizontalList'
 import Modal from 'components/Modal/ModalNew'
-import { formatMoney, formatDotToComma } from 'helpers'
+import { formatMoney, formatNumber } from 'helpers'
 
 import {
   ArrowDown,
@@ -122,10 +122,10 @@ export interface IFund {
   categoria_arena: string
   minimo_inicial: number
   resgate_cotizacao: string
-  rentabil_fundo_mes: number
-  rentabil_fundo_12_meses: number
-  rentabil_fundo_ano: number
-  taxa_administracao: number
+  rentabil_fundo_mes: string
+  rentabil_fundo_12_meses: string
+  rentabil_fundo_ano: string
+  taxa_administracao: string
   id_fundo: string
   aplicao_liberada: boolean
 }
@@ -135,6 +135,7 @@ interface IFundCard {
   onChangeIsFundDetailOpen: (prevState: Function) => void
   handleLayerOpen: (title: string) => void
   setTitle: (title: string) => void
+  setCategory: (title: string) => void
   setIsOpenForInvestments: (aplicao_liberada: boolean) => void
 }
 const modalSuitabilityInfoInitialState = {
@@ -155,6 +156,7 @@ const FundCard: React.FC<IFundCard> = ({
   onChangeIsFundDetailOpen,
   handleLayerOpen,
   setTitle,
+  setCategory,
   setIsOpenForInvestments,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -173,11 +175,22 @@ const FundCard: React.FC<IFundCard> = ({
     setIsModalOpen(!isModalOpen)
   }
 
-  const handleOpenDetail = (title: string, idFundo: string) => {
+  const handleOpenDetail = (
+    title: string,
+    category: string,
+    idFundo: string
+  ) => {
     dispatch(GetInvestmentDetailsRequest(idFundo))
     setIsOpenForInvestments(fund.aplicao_liberada)
     setTitle(title)
+    setCategory(handleCategory(category))
     onChangeIsFundDetailOpen((prevState: boolean) => !prevState)
+  }
+
+  const handleCategory = (category: string) => {
+    const formattedSubtitle =
+      category.toLowerCase() === 'renda variável' ? 'Ações' : category
+    return formattedSubtitle
   }
 
   return (
@@ -235,11 +248,7 @@ const FundCard: React.FC<IFundCard> = ({
         <CardContent>
           <Header
             title={fund.apelido}
-            category={
-              fund.categoria_arena.toLowerCase() === 'renda variável'
-                ? 'Ações'
-                : fund.categoria_arena
-            }
+            category={handleCategory(fund.categoria_arena)}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             setIsModalOpen={setIsModalOpen}
@@ -264,9 +273,7 @@ const FundCard: React.FC<IFundCard> = ({
               size="small"
               startItems={[<InfoTitle>Rentabilidade mês</InfoTitle>]}
               endItems={[
-                <InfoValue>
-                  {formatDotToComma(fund.rentabil_fundo_mes)}%
-                </InfoValue>,
+                <InfoValue>{formatNumber(fund.rentabil_fundo_mes)}%</InfoValue>,
               ]}
             />
             {isOpen && (
@@ -276,7 +283,7 @@ const FundCard: React.FC<IFundCard> = ({
                   startItems={[<InfoTitle>Rentabilidade últ. 12m</InfoTitle>]}
                   endItems={[
                     <InfoValue>
-                      {formatDotToComma(fund.rentabil_fundo_12_meses)}%
+                      {formatNumber(fund.rentabil_fundo_12_meses)}%
                     </InfoValue>,
                   ]}
                 />
@@ -285,7 +292,7 @@ const FundCard: React.FC<IFundCard> = ({
                   startItems={[<InfoTitle>Rentabilidade ano</InfoTitle>]}
                   endItems={[
                     <InfoValue>
-                      {formatDotToComma(fund.rentabil_fundo_ano)}%
+                      {formatNumber(fund.rentabil_fundo_ano)}%
                     </InfoValue>,
                   ]}
                 />
@@ -294,7 +301,7 @@ const FundCard: React.FC<IFundCard> = ({
                   startItems={[<InfoTitle>Taxa adm. (a.a.)</InfoTitle>]}
                   endItems={[
                     <InfoValue>
-                      {formatDotToComma(fund.taxa_administracao)}%
+                      {formatNumber(fund.taxa_administracao)}%
                     </InfoValue>,
                   ]}
                 />
@@ -306,7 +313,11 @@ const FundCard: React.FC<IFundCard> = ({
                   data-gtm-subname={fund.apelido}
                   data-gtm-name="mais informacoes"
                   onClick={() => {
-                    handleOpenDetail(fund.apelido, fund.id_fundo)
+                    handleOpenDetail(
+                      fund.apelido,
+                      fund.categoria_arena,
+                      fund.id_fundo
+                    )
                   }}
                 >
                   Mais informações

@@ -65,6 +65,10 @@ export const PrevButton = styled.div`
 export const ButtonSubmit = styled(Button)`
   width: 100%;
   margin: 0 14px;
+
+  & + button {
+    margin-left: 0;
+  }
 `
 
 export const CloseButton = styled.div`

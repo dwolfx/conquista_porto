@@ -4,7 +4,7 @@ import { Col, Row } from 'styled-bootstrap-grid'
 export const TablesContainer = styled.div`
   vertical-align: middle;
   display: flex;
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
   border-radius: 4px;
   position: relative;
   margin: ${({ theme }) => theme.spacing(2)}px 0;
@@ -16,6 +16,10 @@ export const FixedTable = styled.table`
   top: 0;
   left: 0;
   border-collapse: collapse;
+
+  thead tr {
+    border-right: none;
+  }
 `
 
 export const ContentTable = styled.table`
@@ -23,14 +27,27 @@ export const ContentTable = styled.table`
   border-collapse: collapse;
   overflow-x: scroll;
   table-layout: fixed;
+
+  thead > tr {
+    border-right: none;
+  }
+
+  tbody > tr {
+    border-right: none;
+  }
 `
 
 export const Thead = styled.thead`
   background-color: ${props => props.theme.colors.gray1};
+
+  > tr {
+    border-top: none;
+  }
 `
 
 export const Tr = styled.tr`
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${props => props.theme.colors.gray3};
+  border-left: none;
 `
 
 export const Th = styled.th`
@@ -43,6 +60,10 @@ export const Th = styled.th`
 
 export const Td = styled.td`
   text-align: center;
+
+  &:last-child {
+    border-right: none;
+  }
 `
 
 export const ColStyled = styled(Col)`

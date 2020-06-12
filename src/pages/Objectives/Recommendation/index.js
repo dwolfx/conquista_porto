@@ -4,11 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Container } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
-import {
-  formatMoneyDecimal,
-  formatMoneyWithoutCurrencyFlag,
-  formatDateMask,
-} from 'helpers'
+import { formatMoneyDecimal } from 'helpers'
 
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
@@ -121,9 +117,9 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
       PostObjectiveDataRequest({
         data: {
           ...formData,
-          initial_value: formatMoneyWithoutCurrencyFlag(formData.initial_value),
-          monthly_value: formatMoneyWithoutCurrencyFlag(formData.monthly_value),
-          target_value: formatMoneyWithoutCurrencyFlag(formData.target_value),
+          initial_value: formData.initial_value,
+          monthly_value: formData.monthly_value,
+          target_value: formData.target_value,
         },
         onSuccess: () => setIsDrawerOpen(false),
       })
@@ -133,6 +129,18 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
   const moneyMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
     event.target.value = formatMoneyDecimal(strippedValue) // eslint-disable-line no-param-reassign
+  }
+
+  const formatDateMask = event => {
+    const strippedValue = event.target.value.replace(/\D/g, '')
+    let newValue = strippedValue
+    if (strippedValue.length < 5) {
+      newValue = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
+    } else {
+      newValue = strippedValue.replace(/(\d{2})(\d{2})(\d{1})/g, '$1/$2/$3')
+    }
+    // eslint-disable-next-line no-param-reassign
+    event.target.value = newValue
   }
 
   const renderErrorMessage = message => (
@@ -252,7 +260,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 prefix="R$"
                 label="Investimento inicial"
                 onChange={handleSingleValue}
-                value={formatMoneyWithoutCurrencyFlag(formData.initial_value)}
+                value={formData.initial_value}
                 maxLength={14}
               />
               {invalidInput.initial_value &&
@@ -270,7 +278,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 prefix="R$"
                 label="Investimento mensal"
                 onChange={handleSingleValue}
-                value={formatMoneyWithoutCurrencyFlag(formData.monthly_value)}
+                value={formData.monthly_value}
                 maxLength={14}
               />
               {invalidInput.monthly_value &&
@@ -286,7 +294,7 @@ const Recommendation = ({ data, isLoading, totalSteps }) => {
                 prefix="R$"
                 label="Meta financeira"
                 onChange={handleSingleValue}
-                value={formatMoneyWithoutCurrencyFlag(formData.target_value)}
+                value={formData.target_value}
                 maxLength={14}
               />
             </ColInput>

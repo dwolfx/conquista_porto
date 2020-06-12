@@ -14,14 +14,13 @@ import { handleGiwRedirect } from 'helpers'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
 
 import useFetchPointsBalance from 'hooks/Points/useFetchPointsBalance'
-import useFetchBankData from 'hooks/BankData/useFetchBankData'
+import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
 
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
 import {
   BgWrapper,
   GridContainer,
-  // MobileContainer,
   LeftBlock,
   RightBlock,
   Icon,
@@ -42,8 +41,8 @@ export default function HeaderNew({ crumbs }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
-  const { bankData, balanceData, points } = useSelector(state => ({
-    bankData: state.bankData.data && state.bankData.data.DadosContaPortoSeguro,
+  const { customerProfile, balanceData, points } = useSelector(state => ({
+    customerProfile: state.customerProfile,
     balanceData: state.points.balanceData,
     points: state.points.data && state.points.data.detalheExtratoOptemaisTypes,
   }))
@@ -73,7 +72,7 @@ export default function HeaderNew({ crumbs }) {
     )
   }, [balanceData])
 
-  useFetchBankData()
+  useCustomerProfile()
   useFetchPointsBalance()
 
   const dropdownGtmItemsTitle = 'dropdown menu header'
@@ -155,6 +154,9 @@ export default function HeaderNew({ crumbs }) {
       {isMobileOpen && (
         <MobileHeader
           items={items}
+          customerName={
+            customerProfile.data ? customerProfile.data.customerName : ''
+          }
           setIsOpen={setIsMobileOpen}
           totalPoints={
             !!points &&
@@ -164,7 +166,7 @@ export default function HeaderNew({ crumbs }) {
           exitFunc={() => dispatch(AuthRequestLogout(userData.accessToken))}
         />
       )}
-      <BgWrapper isScrolled={isMobile}>
+      <BgWrapper>
         <GridContainer>
           <LeftBlock>
             <ConquistaBeta
@@ -255,7 +257,7 @@ export default function HeaderNew({ crumbs }) {
                 data-gtm-subname="header"
                 data-gtm-name="nome do usuario"
               >
-                {bankData && bankData.titular}
+                {customerProfile.data && customerProfile.data.customerName}
               </Name>
               {!!balanceData.consultaPontosResponseType &&
                 !!pointsAmountBalance && (

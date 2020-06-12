@@ -14,7 +14,12 @@ export const BgWrapper = styled.div`
   top: 0;
   z-index: 11;
   border-bottom: ${props =>
-    props.isScrolled ? `1px solid ${props.theme.colors.gray2}` : 'none'};
+    props.isScrolled ? `1px solid ${props.theme.colors.gray3}` : 'none'};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    background-color: ${props => props.theme.colors.white};
+    border-bottom: 1px solid ${props => props.theme.colors.gray3};
+  }
 `
 
 export const GridContainer = styled(Container)`

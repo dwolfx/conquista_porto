@@ -44,7 +44,7 @@ export const Card = styled.div`
   justify-content: center;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
-  border: ${props => `1px solid ${props.theme.colors.gray2}`};
+  border: ${props => `1px solid ${props.theme.colors.gray3}`};
   padding: 21px;
 `
 
@@ -57,6 +57,6 @@ export const Text = styled.p`
 export const Line = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${props => props.theme.colors.gray2};
+  background-color: ${props => props.theme.colors.gray3};
   margin-bottom: 17px;
 `

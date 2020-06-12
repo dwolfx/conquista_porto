@@ -20,6 +20,8 @@ export const Input = styled.input.attrs({ type: 'checkbox' })`
       bottom: 0;
       border: 1px solid ${props => props.theme.colors.gray4};
       box-sizing: border-box;
+      top: 50%;
+      transform: translateY(-50%);
       border-radius: 4px;
     }
   }
@@ -31,13 +33,13 @@ export const Input = styled.input.attrs({ type: 'checkbox' })`
   &:checked + ${Label}:after {
     content: '';
     position: absolute;
-    left: 6px;
-    top: 2px;
+    left: 5px;
     width: 6px;
     height: 12px;
     border-right: solid 3px ${props => props.theme.colors.blue4};
     border-bottom: solid 3px ${props => props.theme.colors.blue4};
-    transform: rotate(45deg);
+    transform: rotate(45deg) translateY(-50%) translateX(-50%);
+    top: 50%;
   }
 
   &:disabled + ${Label}:before {

@@ -2,267 +2,267 @@
 
 exports[`Header to render 1`] = `
 <div
-  className="sc-dnqmqq bijFdr"
+  className="sc-fzozJi iqLmAT"
 >
   <div
-    className="sc-jTzLTM fHWjDA"
+    className="sc-fznKkj ilHwPr"
   >
     <a
-      className="sc-fjdhpX hdHfQQ"
+      className="sc-fznZeY ilmJvh"
       href="/objetivos"
       onClick={[Function]}
     >
       <svg
-        className="sc-ifAKCX cJgWXQ"
+        className="sc-AxhUy bodQME"
       >
         target.svg
       </svg>
       <p
-        className="sc-gzVnrw bBpTFh"
+        className="sc-Axmtr hMizFU"
       >
         Objetivos
       </p>
     </a>
     <div
-      className="sc-iwsKbI fExAuH"
+      className="sc-fzoLsD eZdvlW"
     >
       <div
-        className="sc-jzJRlG iZLztz"
+        className="sc-fzokOt bZvctW"
         onClick={[Function]}
       >
         <svg
-          className="sc-ifAKCX cJgWXQ"
+          className="sc-AxhUy bodQME"
         >
           apps.svg
         </svg>
         <p
-          className="sc-gzVnrw bBpTFh"
+          className="sc-Axmtr hMizFU"
         >
           Soluções
         </p>
         <svg
-          className="sc-bxivhb cnaRML"
+          className="sc-AxhCb eHBuiN"
         >
           arrow-down.svg
         </svg>
       </div>
       <div
-        className="sc-bdVaJa EXKLM sc-kAzzGY eEYxSW"
+        className="sc-AxjAm iFRHBp sc-fzqNJr dopCyV"
       >
         <div
-          className="sc-htpNat fwFulr"
+          className="sc-AxiKw cqzKRk"
           onClick={[Function]}
         />
         <div
-          className="sc-bwzfXH eXcrqi"
+          className="sc-AxirZ lcZvKO"
           width="300px"
         >
           <div
-            className="sc-VigVT dzTYZV"
+            className="sc-fznyAO etTXmh"
           >
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/cartao-credito"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   credit-card.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Cartão de Crédito
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
               </svg>
             </a>
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/consorcio-imovel"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   home-with-window.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Consórcio de Imóvel
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
               </svg>
             </a>
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/consorcio-veiculo"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   car.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Consórcio de Veículo
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
               </svg>
             </a>
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/financiamento-veiculo"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   money.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Financiamento de Veículo
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
               </svg>
             </a>
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/investimentos"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   bar-chart.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Investimentos
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
               </svg>
             </a>
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/previdencia-privada"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   time.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Previdência Privada
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
               </svg>
             </a>
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/seguro-vida"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   person-group.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Seguro de Vida
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
               </svg>
             </a>
             <a
-              className="sc-gqjmRU cQJgac"
+              className="sc-fzplWN hfmLLf"
               href="/seguro-viagem"
               onClick={[Function]}
             >
               <div
-                className="sc-htoDjs fSWyTn"
+                className="sc-AxmLO dcMmFm"
               >
                 <svg
-                  className="sc-EHOje dzkomp"
+                  className="sc-AxgMl hNhsTC"
                 >
                   plane.svg
                 </svg>
               </div>
               <p
-                className="sc-gZMcBi irRfsX"
+                className="sc-fzpans fIYbSD"
               >
                 Seguro Viagem
               </p>
               <svg
-                className="sc-bZQynM kDnRhT"
+                className="sc-AxheI gZSrJu"
                 size={11}
               >
                 arrow-right.svg
@@ -273,33 +273,33 @@ exports[`Header to render 1`] = `
       </div>
     </div>
     <a
-      className="sc-fjdhpX hdHfQQ"
+      className="sc-fznZeY ilmJvh"
       href="/pontos"
       onClick={[Function]}
     >
       <svg
-        className="sc-ifAKCX cJgWXQ"
+        className="sc-AxhUy bodQME"
       >
         diamond.svg
       </svg>
       <p
-        className="sc-gzVnrw bBpTFh"
+        className="sc-Axmtr hMizFU"
       >
         Pontos
       </p>
     </a>
     <a
-      className="sc-fjdhpX hdHfQQ"
+      className="sc-fznZeY ilmJvh"
       href="/"
       onClick={[Function]}
     >
       <svg
-        className="sc-ifAKCX cJgWXQ"
+        className="sc-AxhUy bodQME"
       >
         idea.svg
       </svg>
       <p
-        className="sc-gzVnrw bBpTFh"
+        className="sc-Axmtr hMizFU"
       >
         Recomendações
       </p>
