@@ -152,7 +152,7 @@ export const WizardFlow = ({
 
   const WizardContainer = () =>
     inputRef ? (
-      <WizardStep>
+      <WizardStep name={data[currentStep].name}>
         <QuestionInput
           valueNickname={valueNickname}
           category={category}

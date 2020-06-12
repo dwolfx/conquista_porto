@@ -1,9 +1,22 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Button from 'components/Button'
 import Text from 'components/Text'
 import InputText from 'components/NewInput'
 import { Input, ErrorMessage } from 'components/NewInput/styles'
+import { RadioWrapper } from 'components/Inputs/Radio/styles'
 import { Col as ColBootstrap, Row } from 'styled-bootstrap-grid'
+
+interface IWizard {
+  name: string
+}
+
+const hasRadioStyle = css`
+  ${RadioWrapper} {
+    align-items: flex-start;
+    max-width: 330px;
+    margin: 0 auto;
+  }
+`
 
 export const Wizard = styled.div`
   background-color: ${props => props.theme.colors.white};
@@ -11,9 +24,11 @@ export const Wizard = styled.div`
 
 export const Container = styled.div``
 
-export const WizardStep = styled.div`
+export const WizardStep = styled.div<IWizard>`
   padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
   width: 100%;
+
+  ${props => props.name === 'is_easy_to_save_planned_amount' && hasRadioStyle}
 `
 
 export const WizardButton = styled.div`
