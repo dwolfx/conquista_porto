@@ -11,6 +11,7 @@ import LoadingState from 'pages/Home/commons/LoadingState'
 import ErrorState from 'pages/Home/commons/ErrorState'
 
 import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPosition/action'
+import { DisplayInformation } from 'store/modules/Investment/Position/action'
 import { formatMoney } from 'helpers'
 import {
   PieChartContainer,
@@ -113,12 +114,14 @@ const ChartPosition: React.FC = () => {
       percent: 0,
     }
   )
-  const [hideValues, setHideValues] = useState<boolean>(false)
 
-  const { auth, consolidatedPosition } = useSelector((state: any) => ({
-    auth: state.auth,
-    consolidatedPosition: state.consolidatedPosition,
-  }))
+  const { auth, consolidatedPosition, displayInformation } = useSelector(
+    (state: any) => ({
+      auth: state.auth,
+      consolidatedPosition: state.consolidatedPosition,
+      displayInformation: state.investmentPosition.displayInformation,
+    })
+  )
   const { data, isLoading, hasError } = consolidatedPosition
 
   const handleFetchInvestments = useCallback(() => {
@@ -192,11 +195,9 @@ const ChartPosition: React.FC = () => {
           endItems={[
             <IconExporter
               color="blue4"
-              name={hideValues ? 'olhoaberto' : 'olhofechado'}
+              name={displayInformation ? 'eyeopen' : 'eyeclosed'}
               width="21px"
-              onClick={() => {
-                setHideValues(prevState => !prevState)
-              }}
+              onClick={() => dispatch(DisplayInformation(!displayInformation))}
               css={`
                 cursor: pointer;
               `}
@@ -219,7 +220,7 @@ const ChartPosition: React.FC = () => {
           >
             <ChartMiddleInfoContent
               pieChartInfo={pieChartInfo}
-              hide={hideValues}
+              hide={displayInformation}
             />
           </PieChart>
         </PieChartContainer>
