@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
+
 import { HashRouter, useLocation } from 'react-router-dom'
 import AppProviders from 'AppProviders'
 import ToastContainer from 'components/Toast'
@@ -23,14 +25,24 @@ injectExternalScripts()
 smoothscroll.polyfill()
 
 const App = () => (
-  <AppProviders>
-    <HashRouter>
-      <ScrollToTopOnMount />
-      <GlobalStyle />
-      <Routes />
-      <ToastContainer />
-    </HashRouter>
-  </AppProviders>
+  <>
+    <Helmet>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap"
+        as="font"
+      />
+    </Helmet>
+
+    <AppProviders>
+      <HashRouter>
+        <ScrollToTopOnMount />
+        <GlobalStyle />
+        <Routes />
+        <ToastContainer />
+      </HashRouter>
+    </AppProviders>
+  </>
 )
 
 export default App
