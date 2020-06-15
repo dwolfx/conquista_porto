@@ -3,34 +3,37 @@ import styled from 'styled-components'
 import CloseIcon from 'assets/icons/close.svg'
 
 export const Container = styled.div`
+  background-color: ${props => props.theme.colors.white};
   align-items: center;
-  border-bottom: 1px solid rgba(210, 210, 210, 0.4);
+  border-bottom: 1px solid ${props => props.theme.colors.gray3};
   flex-direction: row;
   display: flex;
-  padding: 28px;
+  padding: ${props => props.theme.spacing(4)}px;
 `
 
 export const IconWrapper = styled.div`
   cursor: pointer;
+  position: absolute;
   width: 30px;
 `
 
 export const CloseButton = styled.a`
   border-radius: 50%;
   cursor: pointer;
-  height: 32px;
-  position: relative;
-  width: 32px;
+  height: ${props => props.theme.spacing(4)}px;
+  position: absolute;
+  right: ${({ theme }) => theme.spacing(4)}px;
+  width: ${props => props.theme.spacing(4)}px;
 
   &:after {
     content: '';
     background-color: ${props => props.theme.colors.black};
-    height: 24px;
+    height: ${props => props.theme.spacing(3)}px;
     left: calc(50% - 12px);
     mask-image: url(${CloseIcon});
     position: absolute;
     top: calc(50% - 12px);
-    width: 24px;
+    width: ${props => props.theme.spacing(3)}px;
   }
 `
 
@@ -39,6 +42,6 @@ export const Content = styled.div`
   text-align: center;
 
   img {
-    width: 140px;
+    width: ${props => props.theme.spacing(20)}px;
   }
 `

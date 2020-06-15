@@ -18,7 +18,6 @@ export interface IAnswer {
   nickname: string
   target_date: string
   target_value: number
-  would_like_to_receive_before_final_date: boolean
   would_like_to_receive_monthly_income: boolean
 }
 

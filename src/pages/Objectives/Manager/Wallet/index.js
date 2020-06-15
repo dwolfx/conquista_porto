@@ -187,7 +187,7 @@ export default function Wallet({
                                       background-color: ${theme.colors.blue4};
                                     `}
                                   />
-                                  #{goalName}
+                                  {goalName}
                                 </Text>
                                 <Text>
                                   {formatMoney(fundListCopy[index].invested)}
@@ -210,7 +210,7 @@ export default function Wallet({
                                             )};
                                           `}
                                         />
-                                        #{goal.name}
+                                        {goal.name}
                                       </Text>
                                       <Text>{formatMoney(goal.value)}</Text>
                                     </div>
@@ -344,7 +344,7 @@ export default function Wallet({
                                   background-color: ${theme.colors.blue4};
                                 `}
                               />
-                              #{goalName}
+                              {goalName}
                             </Text>
                             <Text>
                               {formatMoney(fundListCopy[index].invested)}
@@ -364,7 +364,7 @@ export default function Wallet({
                                       background-color: ${getColorGuide(key)};
                                     `}
                                   />
-                                  #{goal.name}
+                                  {goal.name}
                                 </Text>
                                 <Text>{formatMoney(goal.value)}</Text>
                               </div>

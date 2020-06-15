@@ -1,5 +1,4 @@
-import React, { forwardRef } from 'react'
-import { Row, Col } from 'styled-bootstrap-grid'
+import React, { useState, useEffect } from 'react'
 
 import { dict } from 'components/IconExporter'
 import InputText from 'components/NewInput'
@@ -7,44 +6,17 @@ import RadioInput from 'components/Inputs/Radio'
 import DateInput from 'components/Inputs/DateInput'
 import MoneyInput from 'components/Inputs/Money'
 
-import { ColQuestion, Question, RuleText, InputWrapper } from './styles'
+import { IData } from 'pages/Objectives/GoalStreams/types'
 
-interface IOutterWrapper {
-  question: string
-  ruleText: string
-}
+import OutterWrapper from './OutterWrapper'
 
-const OutterWrapper: React.FC<IOutterWrapper> = ({
-  ruleText,
-  question,
-  children,
-}) => (
-  <>
-    <Row justifyContent="center">
-      <ColQuestion lg={12} xs={12}>
-        <Question>{question}</Question>
-        {ruleText && <RuleText>{ruleText}</RuleText>}
-      </ColQuestion>
-    </Row>
-    <Row justifyContent="center">
-      <Col xs={12}>
-        <InputWrapper>{children}</InputWrapper>
-      </Col>
-    </Row>
-  </>
-)
-
-interface IProps {
+interface IProps extends IData {
   formData: any
-  name: string
   onChangeFormData: (event: any) => void
   options?: {
     name: string
     value: string | number
   }[]
-  question: string
-  ruleText?: string
-  type: string
   error:
     | {
         icon: keyof typeof dict
@@ -52,33 +24,44 @@ interface IProps {
       }
     | boolean
     | null
-  placeholder?: string
+  button?: React.ReactNode
+  category?: string | undefined
+  valueNickname: boolean
 }
 
-const QuestionInput = forwardRef<HTMLInputElement, IProps>(
+const QuestionInput = React.forwardRef<HTMLInputElement, IProps>(
   (
     {
       formData,
       name,
       onChangeFormData,
       options,
-      question,
-      ruleText = '',
       type,
       error,
       placeholder = '',
+      category,
+      valueNickname,
+      ...rest
     },
     ref
   ) => {
     if (type === 'date') {
       return (
-        <OutterWrapper question={question} ruleText={ruleText}>
+        <OutterWrapper
+          formData={formData}
+          onTagClick={onChangeFormData}
+          ref={ref}
+          type={type}
+          {...rest}
+        >
           <DateInput
             data-gtm-form="input"
             data-gtm-name={name}
             ref={ref}
             name={name}
-            onChange={onChangeFormData}
+            onChange={(e: any) => {
+              onChangeFormData(e)
+            }}
             value={formData[name]}
             error={error || false}
             newInput
@@ -89,20 +72,22 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
     }
     if (type === 'bool') {
       return (
-        <OutterWrapper question={question} ruleText={ruleText}>
+        <OutterWrapper formData={formData} ref={ref} type={type} {...rest}>
           <RadioInput
             name={name}
             onChange={onChangeFormData}
             options={options}
             checkedItem={formData[name]}
+            itemsDirection={
+              name === 'is_easy_to_save_planned_amount' ? 'column' : 'row'
+            }
           />
         </OutterWrapper>
       )
     }
-
     if (type === 'number') {
       return (
-        <OutterWrapper question={question} ruleText={ruleText}>
+        <OutterWrapper formData={formData} ref={ref} type={type} {...rest}>
           <MoneyInput
             data-gtm-form="input"
             data-gtm-name={name}
@@ -118,19 +103,32 @@ const QuestionInput = forwardRef<HTMLInputElement, IProps>(
       )
     }
 
+    const [inputCounter, setInputCounter] = useState<number>(0)
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setInputCounter(e.target.value.length)
+
+      onChangeFormData(e)
+    }
+
+    useEffect(() => {
+      if (valueNickname)
+        setInputCounter(formData[name].length || category?.length)
+    }, [category, formData, name, valueNickname])
+
     return (
-      <OutterWrapper question={question} ruleText={ruleText}>
+      <OutterWrapper formData={formData} ref={ref} type={type} {...rest}>
         <InputText
           data-gtm-form="input"
           data-gtm-name={name}
           ref={ref}
           name={name}
-          onChange={onChangeFormData}
-          prefix="#"
+          onChange={handleChange}
+          suffix={<>{inputCounter}/20</>}
           value={formData[name]}
           error={error || false}
           maxLength={20}
-          placeholder="MeuObjetivo"
+          placeholder={category}
         />
       </OutterWrapper>
     )

@@ -24,18 +24,26 @@ export const minDate = (
   expectedDiff: number,
   expectedDiffType: TDateTypes
 ) =>
-  moment(value, 'DD/MM/YYYY').isSameOrAfter(
-    moment().add(expectedDiff, expectedDiffType || 'month')
-  )
+  moment(value, 'DD/MM/YYYY')
+    .startOf('day')
+    .isSameOrAfter(
+      moment()
+        .add(expectedDiff, expectedDiffType || 'month')
+        .startOf('day')
+    )
 
 export const maxDate = (
   value: string,
   expectedDiff: number,
   expectedDiffType: TDateTypes
 ) =>
-  moment(value, 'DD/MM/YYYY').isSameOrBefore(
-    moment().add(expectedDiff, expectedDiffType || 'month')
-  )
+  moment(value, 'DD/MM/YYYY')
+    .startOf('day')
+    .isSameOrBefore(
+      moment()
+        .add(expectedDiff, expectedDiffType || 'month')
+        .startOf('day')
+    )
 
 export const minValue = (value: string, minimum: string) => {
   const schema = number().min(+removeNonDigit(minimum))
@@ -67,13 +75,13 @@ export const validateDate = (
   maxDataValues: IDateValues
 ) => {
   if (isInvalidDate(value)) {
-    return 'Data inválida'
+    return 'Insira uma data válida, por favor.'
   }
   if (!minDate(value, minDateValues.value, minDateValues.type)) {
-    return `Mínimo de ${minDateValues.value} ${minDateValues.text}`
+    return `Insira um prazo a partir de ${minDateValues.value} ${minDateValues.text}, por favor.`
   }
   if (!maxDate(value, maxDataValues.value, maxDataValues.type)) {
-    return `Máximo de ${maxDataValues.value} ${maxDataValues.text}`
+    return `Insira um prazo menor que ${maxDataValues.value} ${maxDataValues.text}, por favor.`
   }
   return undefined
 }
