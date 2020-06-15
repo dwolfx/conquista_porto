@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Button from 'components/Button'
 import Text from 'components/Text'
 import InputText from 'components/NewInput'
-import { Input } from 'components/NewInput/styles'
+import { Input, ErrorMessage } from 'components/NewInput/styles'
 import { Col as ColBootstrap, Row } from 'styled-bootstrap-grid'
 
 export const Wizard = styled.div`
@@ -76,6 +76,12 @@ export const InputRow = styled(Row as any)`
 
 export const InputWrapper = styled.div`
   margin: ${({ theme }) => theme.spacing(6)}px auto;
+
+  ${ErrorMessage} {
+    bottom: auto;
+    position: absolute;
+    top: ${({ theme }) => `calc(100% - ${theme.spacing(1)}px)`};
+  }
 `
 
 export const Form = styled.form`
@@ -87,6 +93,12 @@ export const Col = styled(ColBootstrap as any)`
     display: flex;
     justify-content: center;
   }
+`
+
+export const NicknameCol = styled(Col as any)`
+  position: absolute;
+  text-align: center;
+  width: 100%;
 `
 
 export const FormWrapper = styled.div`

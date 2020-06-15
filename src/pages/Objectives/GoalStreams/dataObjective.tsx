@@ -34,7 +34,8 @@ const DATE_TYPE = 'date'
 const NUMBER_TYPE = 'number'
 const VALUE_INPUT_MAX_LENGTH = 25
 const STRING_INPUT_MAX_LENGTH = 20
-const HUNDRED_MIN_VALUE = '100,00'
+const HUNDRED_MIN_VALUE = 100
+const HUNDRED_MIN_VALUE_TEXT = '100,00'
 const THOUSAND_MIN_VALUE = '1.000,00'
 const MAX_CHARS_ERROR_TEXT = 'Máximo 20 caracteres'
 const MIN_CHARS_ERROR_TEXT = 'Mínimo 3 caracteres'
@@ -42,7 +43,7 @@ const DATE_TEXT = 'Mínimo de 6 meses'
 const DATE_DESCRIPTION =
   'Pode ser uma estimativa, caso você não tenha uma data exata.'
 const HUNDRED_MIN_VALUE_ERROR_TEXT =
-  'Insira um valor igual ou acima de R$ 100,00, por favor.'
+  'Insira um valor a partir de R$ 100,00, por favor.'
 const THOUSAND_MIN_VALUE_ERROR_TEXT =
   'Insira um valor a partir de R$ 1.000,00, por favor.'
 const INITIAL_INVESTMENT_QUESTION = 'De quanto será o seu investimento inicial?'
@@ -297,14 +298,15 @@ const dataObject: IDataObject[] = [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
+        placeholder: HUNDRED_MIN_VALUE_TEXT,
         validate(value) {
-          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE_TEXT)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
         sideTip: renderSideTipMonthlyValue,
         tooltip: contentMonthlyValue,
+        minValue: HUNDRED_MIN_VALUE,
       },
     ],
   },
@@ -366,14 +368,15 @@ const dataObject: IDataObject[] = [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
+        placeholder: HUNDRED_MIN_VALUE_TEXT,
         validate(value) {
-          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE_TEXT)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
         sideTip: renderSideTipMonthlyValue,
         tooltip: contentMonthlyValue,
+        minValue: HUNDRED_MIN_VALUE,
       },
       {
         question:
@@ -455,14 +458,15 @@ const dataObject: IDataObject[] = [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
+        placeholder: HUNDRED_MIN_VALUE_TEXT,
         validate(value) {
-          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE_TEXT)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
         sideTip: renderSideTipMonthlyValue,
         tooltip: contentMonthlyValue,
+        minValue: HUNDRED_MIN_VALUE,
       },
       {
         question: 'Como é seu comportamento quando precisa guardar dinheiro?',
@@ -545,14 +549,15 @@ const dataObject: IDataObject[] = [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
+        placeholder: HUNDRED_MIN_VALUE_TEXT,
         validate(value) {
-          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE_TEXT)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
         sideTip: renderSideTipMonthlyValue,
         tooltip: contentMonthlyValue,
+        minValue: HUNDRED_MIN_VALUE,
       },
       {
         question: 'Como é seu comportamento quando precisa guardar dinheiro?',
@@ -628,14 +633,15 @@ const dataObject: IDataObject[] = [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
+        placeholder: HUNDRED_MIN_VALUE_TEXT,
         validate(value) {
-          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE_TEXT)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
         sideTip: renderSideTipMonthlyValue,
         tooltip: contentMonthlyValue,
+        minValue: HUNDRED_MIN_VALUE,
       },
     ],
   },
@@ -699,14 +705,15 @@ const dataObject: IDataObject[] = [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
+        placeholder: HUNDRED_MIN_VALUE_TEXT,
         validate(value) {
-          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE_TEXT)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
         sideTip: renderSideTipMonthlyValue,
         tooltip: contentMonthlyValue,
+        minValue: HUNDRED_MIN_VALUE,
       },
     ],
   },
@@ -768,14 +775,15 @@ const dataObject: IDataObject[] = [
         name: MONTHLY_NAME,
         type: NUMBER_TYPE,
         ruleText: HUNDRED_MIN_VALUE_ERROR_TEXT,
-        placeholder: HUNDRED_MIN_VALUE,
+        placeholder: HUNDRED_MIN_VALUE_TEXT,
         validate(value) {
-          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE)
+          const isValid = minValue(value.toString(), HUNDRED_MIN_VALUE_TEXT)
           return isValid ? undefined : HUNDRED_MIN_VALUE_ERROR_TEXT
         },
         maxLength: VALUE_INPUT_MAX_LENGTH,
         sideTip: renderSideTipMonthlyValue,
         tooltip: contentMonthlyValue,
+        minValue: HUNDRED_MIN_VALUE,
       },
     ],
   },

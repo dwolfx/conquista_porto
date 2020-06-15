@@ -24,22 +24,26 @@ export const minDate = (
   expectedDiff: number,
   expectedDiffType: TDateTypes
 ) =>
-  moment(value, 'DD/MM/YYYY').isSameOrAfter(
-    moment()
-      .add(expectedDiff, expectedDiffType || 'month')
-      .format('DD/MM/YYYY')
-  )
+  moment(value, 'DD/MM/YYYY')
+    .startOf('day')
+    .isSameOrAfter(
+      moment()
+        .add(expectedDiff, expectedDiffType || 'month')
+        .startOf('day')
+    )
 
 export const maxDate = (
   value: string,
   expectedDiff: number,
   expectedDiffType: TDateTypes
 ) =>
-  moment(value, 'DD/MM/YYYY').isSameOrBefore(
-    moment()
-      .add(expectedDiff, expectedDiffType || 'month')
-      .format('DD/MM/YYYY')
-  )
+  moment(value, 'DD/MM/YYYY')
+    .startOf('day')
+    .isSameOrBefore(
+      moment()
+        .add(expectedDiff, expectedDiffType || 'month')
+        .startOf('day')
+    )
 
 export const minValue = (value: string, minimum: string) => {
   const schema = number().min(+removeNonDigit(minimum))

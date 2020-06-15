@@ -41,6 +41,7 @@ const OutterWrapper = React.forwardRef<HTMLInputElement, IProps>(
       suggestionValues,
       type,
       onTagClick,
+      minValue,
     },
     ref
   ) => {
@@ -71,9 +72,12 @@ const OutterWrapper = React.forwardRef<HTMLInputElement, IProps>(
     )
 
     const questionToDisplay = question?.replace('{{{nome}}}', nomeCliente)
-    let descriptionToDisplay = description
+    let descriptionToDisplay: string | React.ReactNode | undefined = description
 
-    if (descriptionToDisplay && descriptionToDisplay.indexOf('{{{') > 0) {
+    if (description && description.indexOf('{{{') > 0) {
+      // if the value is above 0, show the full custom message, replacing the text variables by the value of each.
+      // the recommended monthly value will be between the minValue and the recommededMonthlyValue calculated
+      // if recommededMonthlyValue <= 0, the text that will be showed it'll be only the first part of the text.
       descriptionToDisplay =
         recommededMonthlyValue > 0
           ? replacePatternToComponent(
@@ -81,7 +85,9 @@ const OutterWrapper = React.forwardRef<HTMLInputElement, IProps>(
                 ?.replace('{{{VALOR_META}}}', `R$ ${target_value}`)
                 ?.replace('{{{PRAZO}}}', target_date) || '',
               /(\{{{VALOR}}})/g,
-              <span>{formatMoney(Math.max(recommededMonthlyValue, 100))}</span>
+              <span>
+                {formatMoney(Math.max(recommededMonthlyValue, minValue || 0))}
+              </span>
             )
           : `${description?.split('.')[0]}.`
     }

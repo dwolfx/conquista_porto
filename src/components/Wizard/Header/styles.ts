@@ -13,6 +13,7 @@ export const Container = styled.div`
 
 export const IconWrapper = styled.div`
   cursor: pointer;
+  position: absolute;
   width: 30px;
 `
 
@@ -20,7 +21,8 @@ export const CloseButton = styled.a`
   border-radius: 50%;
   cursor: pointer;
   height: ${props => props.theme.spacing(4)}px;
-  position: relative;
+  position: absolute;
+  right: ${({ theme }) => theme.spacing(4)}px;
   width: ${props => props.theme.spacing(4)}px;
 
   &:after {

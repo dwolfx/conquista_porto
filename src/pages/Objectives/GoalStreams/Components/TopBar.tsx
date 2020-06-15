@@ -5,7 +5,11 @@ import 'styled-components/macro'
 
 import Text from 'components/Text'
 
-import { SectionBar, Col } from 'pages/Objectives/GoalStreams/Components/styles'
+import {
+  SectionBar,
+  Col,
+  NicknameCol,
+} from 'pages/Objectives/GoalStreams/Components/styles'
 
 interface IProps {
   currentStep: number
@@ -18,7 +22,13 @@ const TopBar = ({ currentStep, nickname, numberSteps }: IProps) => {
 
   return (
     <SectionBar>
-      <Row justifyContent="between" alignItems="center">
+      <Row
+        justifyContent="between"
+        alignItems="center"
+        css={`
+          position: relative;
+        `}
+      >
         <Col lgAuto mdAuto smAuto xs={12}>
           <Text type="heading4" color="gray4">
             Criar{' '}
@@ -32,11 +42,11 @@ const TopBar = ({ currentStep, nickname, numberSteps }: IProps) => {
           </Text>
         </Col>
         {nickname && (
-          <Col lgAuto mdAuto smAuto xs={12}>
+          <NicknameCol>
             <Text type="heading4" color="white">
               {nickname}
             </Text>
-          </Col>
+          </NicknameCol>
         )}
         <Col lgAuto mdAuto smAuto xs={12}>
           <Text
