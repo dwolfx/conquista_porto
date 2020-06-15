@@ -1,12 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import FontOpenSans from 'assets/fonts/OpenSans-Regular.ttf'
 
 export default createGlobalStyle`
-  @font-face {
-    font-family: 'Open Sans';
-    src: url(${FontOpenSans});
-  }
-
   *{
     padding: 0;
     margin: 0;
