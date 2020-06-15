@@ -57,7 +57,7 @@ export default function GoalStreams({ handleSteps }: IProps) {
       <Header
         showBackButton={showBack}
         onClose={() => {
-          history.goBack()
+          history.push('/')
         }}
         onBack={() => {
           if (currentStep > 0) {

@@ -83,6 +83,10 @@ export const WizardFlow = ({
       target: { name, value },
     } = event
 
+    if (name === 'nickname') {
+      setValueNickname(false)
+    }
+
     setFormData({ ...formData, [name]: value })
   }
 

@@ -121,7 +121,7 @@ export default function Manager({ location }) {
               alignItems={isMobile ? 'start' : 'center'}
             >
               <Text type="heading3" color="gray6">
-                {!isLoading ? `#${objectiveData.nickname}` : <Loading />}
+                {!isLoading ? `${objectiveData.nickname}` : <Loading />}
               </Text>
               <FlexContainer
                 direction="row"
