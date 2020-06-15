@@ -8,7 +8,6 @@
     "monthly_value": 300,
     "is_easy_to_save_planned_amount": false,
     "is_target_date_flexible": false,
-    "would_like_to_receive_before_final_date": false,
     "would_like_to_receive_monthly_income": false,
     "goal_type": 1
   },
@@ -17,7 +16,7 @@
       "title": "Investimentos",
       "values": {
         "Investimento Inicial": "R$ 1.000,00",
-        "Investimento Mensal": "R$ 300,00"        
+        "Investimento Mensal": "R$ 300,00"
       },
       "total_value": 4153.16
     }
@@ -200,7 +199,7 @@
           "value": {
             "1": 0.05,
             "2": 0.39,
-            "3": 3.50,
+            "3": 3.5,
             "4": 11.92,
             "5": 21.33
           }

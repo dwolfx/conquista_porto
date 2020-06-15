@@ -1,17 +1,26 @@
 import styled from 'styled-components'
 
-import Card from 'components/Card'
-import Text from 'components/Text'
+import { Col } from 'styled-bootstrap-grid'
 
-export const CardIcon = styled.div``
+export const BoardWrapper = styled.div`
+  padding: ${props =>
+    `0 ${props.theme.spacing(6)}px ${props.theme.spacing(5)}px`};
+  width: 100%;
 
-export const CardWrapper = styled(Card)`
-  flex: 1;
-  margin: ${props => `0 ${props.theme.spacing(1)}px ${props.theme.spacing(5)}px`};
-  padding: ${props => `${props.theme.spacing(3)}px`};
-  text-align: center;
+  @media ${props => props.theme.mediaQueries.md} {
+    padding: ${props =>
+      `${props.theme.spacing(2)}px ${props.theme.spacing(3)}px`};
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: ${props => props.theme.spacing(2)}px;
+  }
 `
 
-export const CardTitle = styled(Text).attrs(() => ({ type: 'headline' }))`
-  margin: ${props => `${props.theme.spacing(3)}px 0`};
+export const ColCard = styled(Col)`
+  margin-top: ${props => props.theme.spacing(5)}px;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    margin-top: ${props => props.theme.spacing(3)}px;
+  }
 `

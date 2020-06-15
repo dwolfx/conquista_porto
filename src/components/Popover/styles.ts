@@ -114,6 +114,6 @@ export const Arrow = styled.div<IArrow>`
   }
 `
 
-export const ChildrenWrapper = styled.div`
+export const ChildrenWrapper = styled.span`
   cursor: pointer;
 `

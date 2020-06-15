@@ -91,7 +91,7 @@ export default function ObjectiveListContent({ objectives }) {
                 noPadding
                 startItems={[
                   <Text truncate type="headline" color="gray5" bold>
-                    {`#${objective.nickname}`}
+                    {`${objective.nickname}`}
                   </Text>,
                 ]}
                 endItems={[

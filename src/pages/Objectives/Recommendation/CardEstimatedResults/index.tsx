@@ -21,7 +21,6 @@ interface IAnswer {
   target_value: number
   initial_value: number
   monthly_value: number
-  would_like_to_receive_before_final_date?: boolean
   would_like_to_receive_monthly_income?: boolean
   goal_type?: string
   is_easy_to_save_planned_amount?: boolean
@@ -45,7 +44,7 @@ interface ICardProps {
   income: IIncome
 }
 
-const CardEstimatedResults = ({ answer, income }:ICardProps) => {
+const CardEstimatedResults = ({ answer, income }: ICardProps) => {
   const positionIncome = Object.values(income)
   return (
     <GridRow>
