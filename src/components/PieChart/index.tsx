@@ -1,31 +1,57 @@
 import React, { useContext, useReducer, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { CSSProp, DefaultTheme, ThemeContext } from 'styled-components'
+import 'styled-components/macro'
 
 import useMedia from 'hooks/useMedia'
 
-import { ResponsivePie } from '@nivo/pie'
+import { ResponsivePie, PieCanvasProps } from '@nivo/pie'
 import { ChartContainer, MiddleContent } from './styles'
 
-export default function PieChart({
+interface IProps extends PieCanvasProps {
+  data: any
+  height: any
+  onMouseEnter?: any
+  onMouseLeave?: any
+  onSliceClick?: any
+  width: any
+  hideLegend?: any
+  marginLegend?: any
+  middleContentCSS?: CSSProp<DefaultTheme>
+}
+
+type ChartDataType = {
+  id: string | number
+  color: string
+  percent: string
+  value: number
+  label: string
+}
+
+type ChartActionDataType = {
+  type: string
+  payload?: ChartDataType
+}
+
+const PieChart: React.FC<IProps> = ({
   children,
-  data,
+  data = null,
   height,
-  onMouseEnter,
-  onMouseLeave,
-  onSliceClick,
+  onMouseEnter = null,
+  onMouseLeave = null,
+  onSliceClick = null,
   width,
-  hideLegend,
-  marginLegend,
+  hideLegend = false,
+  marginLegend = -28,
+  middleContentCSS,
   ...rest
-}) {
-  const chartReducer = (state = data, action) => {
+}) => {
+  const chartReducer = (state = data, action: ChartActionDataType) => {
     const { payload, type } = action
     switch (type) {
       case 'click': {
-        if (payload.color.endsWith('33')) {
+        if (payload?.color.endsWith('33')) {
           return [
-            ...data.map(item => {
+            ...data.map((item: ChartDataType) => {
               if (item.id !== payload.id) {
                 return { ...item, color: `${item.color}33` }
               }
@@ -40,7 +66,7 @@ export default function PieChart({
           return state
         }
         return [
-          ...state.map(item => {
+          ...state.map((item: ChartDataType) => {
             if (item.id !== payload.id) {
               return { ...item, color: `${item.color}33` }
             }
@@ -55,7 +81,7 @@ export default function PieChart({
     }
   }
 
-  function handleMouseEnter(payload, event) {
+  function handleMouseEnter(payload: any, event: any) {
     // eslint-disable-next-line no-param-reassign
     event.target.style.cursor = 'pointer'
     if (!preventOnMouse) {
@@ -64,7 +90,7 @@ export default function PieChart({
     }
   }
 
-  function handleLegendMouseEnter(payload, event) {
+  function handleLegendMouseEnter(payload: any, event: any) {
     // eslint-disable-next-line no-param-reassign
     event.target.style.cursor = 'pointer'
     if (!preventOnMouse) {
@@ -82,18 +108,22 @@ export default function PieChart({
     }
   }
 
-  function fireOnMouseEnter(id) {
+  function fireOnMouseEnter(id: string | number) {
     if (onMouseEnter) {
-      const filterResult = chartData.find(element => element.id === id)
+      const filterResult = chartData.find(
+        (element: ChartDataType) => element.id === id
+      )
       onMouseEnter(filterResult)
     }
   }
 
-  function handleClick(payload) {
+  function handleClick(payload: any) {
     dispatch({ type: 'click', payload })
     setPreventOnMouse(payload.color.endsWith('33') ? true : !preventOnMouse)
     if (onSliceClick) {
-      const filterResult = chartData.find(element => element.id === payload.id)
+      const filterResult = chartData.find(
+        (element: ChartDataType) => element.id === payload.id
+      )
       onSliceClick(filterResult)
     }
   }
@@ -124,7 +154,7 @@ export default function PieChart({
         }
         colors={
           chartData.length > 0
-            ? chartData.map(item => item.color)
+            ? chartData.map((item: ChartDataType) => item.color)
             : [theme.colors.gray2]
         }
         innerRadius={0.94}
@@ -164,35 +194,11 @@ export default function PieChart({
             : []
         }
       />
-      {children && <MiddleContent>{children}</MiddleContent>}
+      {children && (
+        <MiddleContent css={middleContentCSS}>{children}</MiddleContent>
+      )}
     </ChartContainer>
   )
 }
 
-PieChart.defaultProps = {
-  children: null,
-  data: null,
-  onMouseEnter: null,
-  onMouseLeave: null,
-  onSliceClick: null,
-  hideLegend: false,
-  marginLegend: -28,
-}
-
-PieChart.propTypes = {
-  children: PropTypes.node,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
-      color: PropTypes.string,
-    })
-  ),
-  height: PropTypes.string.isRequired,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-  onSliceClick: PropTypes.func,
-  width: PropTypes.string.isRequired,
-  hideLegend: PropTypes.bool,
-  marginLegend: PropTypes.number,
-}
+export default PieChart
