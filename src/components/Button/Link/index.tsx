@@ -4,7 +4,8 @@ import Icon from 'components/IconExporter'
 import { Link } from './styles'
 
 interface IProps {
-  noIcon?: boolean
+  noIcon: boolean
+  noIconPadding?: boolean
   disabled?: boolean
   onClick: () => void
   dataTestId?: string
@@ -13,13 +14,18 @@ interface IProps {
 const ButtonLink: React.FC<IProps> = ({
   children,
   noIcon = false,
+  noIconPadding = false,
   disabled = false,
   onClick,
-  dataTestId,
   ...rest
 }) => {
   return (
-    <Link disabled={disabled} onClick={onClick} data-testid={dataTestId} {...rest}>
+    <Link
+      disabled={disabled}
+      noIconPadding={noIconPadding}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
       {!noIcon && <Icon name="arrowright" />}
     </Link>

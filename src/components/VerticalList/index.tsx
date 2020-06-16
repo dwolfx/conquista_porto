@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 
 import { Container, ListElements } from './styles'
 
-export default function VerticalList({ elements, ...rest }) {
+interface IProps {
+  elements: React.ReactNode[]
+}
+export default function VerticalList({ elements, ...rest }: IProps) {
   return (
     <Container {...rest}>
       <ListElements>
