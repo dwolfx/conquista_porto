@@ -5,7 +5,7 @@ import IconList from 'assets/icons/list.svg'
 import IconGrid from 'assets/icons/grid.svg'
 
 export const RowContent = styled.div`
-  margin: 0;
+  margin: 0 0 14px 0;
   padding: 0;
   display: flex;
   justify-content: space-between;

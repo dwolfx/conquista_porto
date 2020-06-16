@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 
 import ChartPosition from './ChartPosition'
 import InvestorAccount from './InvestorAccount'
+import InvestedFundsList from './InvestedFundsList'
 import { RowContent, LeftContent, MainContent } from './styles'
 import Modal from 'components/Modal/Confirmation'
-import FundsFilter from './FundsFilter'
 import { TFundsLayout } from '../filters'
+
 export interface IModalProps {
   isOpen: boolean
   title: string
@@ -33,21 +34,24 @@ export const modalSuitabilityInfoInitialState: IModalProps = {
   },
 }
 interface IProps {
-  filterData: string[] | []
-  fundsLayout: TFundsLayout
-  onHandleChangeLayout: (newStateLayout: TFundsLayout) => void
+  filters: string[] | []
+  viewMode: TFundsLayout
+  filteredInvestedFunds: any[]
+  onHandleChangeView: (newStateLayout: TFundsLayout) => void
   onHandleChangeFilter: (newStateFilters: string[]) => void
 }
 
 const Desktop: React.FC<IProps> = ({
-  filterData,
-  fundsLayout,
-  onHandleChangeLayout,
+  filters,
+  viewMode,
+  filteredInvestedFunds,
+  onHandleChangeView,
   onHandleChangeFilter,
 }) => {
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState<IModalProps>(
     modalSuitabilityInfoInitialState
   )
+
   return (
     <>
       <RowContent>
@@ -58,14 +62,14 @@ const Desktop: React.FC<IProps> = ({
           />
         </LeftContent>
         <MainContent xl={9}>
-          <FundsFilter
-            filters={filterData}
-            fundsLayout={fundsLayout}
+          <InvestedFundsList
+            filters={filters}
+            filteredFunds={filteredInvestedFunds}
+            viewMode={viewMode}
             isNextPriorButtonsVisible
-            onHandleChangeLayout={onHandleChangeLayout}
             onHandleChangeFilter={onHandleChangeFilter}
+            onHandleChangeView={onHandleChangeView}
           />
-          {/* Informações do fundo e saldos, Tabela de rentabilidade... */}
         </MainContent>
       </RowContent>
       <Modal

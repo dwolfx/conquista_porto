@@ -10,19 +10,19 @@ import { TFundsLayout } from './filters'
 import { GridContainer } from './styles'
 
 const ManagementInvestments: React.FC = ({ ...rest }) => {
-  const [fundsLayout, setFundsLayout] = useState<TFundsLayout>('CARDS')
+  const [viewMode, setViewMode] = useState<TFundsLayout>('CARDS')
   const [filters, setFilters] = useState<string[]>([])
   const isMobile = useMedia('xs')
   const isTablet = useMedia('lg')
 
   useFetchPosition()
 
-  const fundsListFiltered = useFilter(filters)
+  const filteredInvestedFunds = useFilter(filters)
   /* esta lista será utilizada nos demais components */
-  console.log(fundsListFiltered)
+  console.log(filteredInvestedFunds)
 
-  const handleChangeFundsLayout = (layoutCheanged: TFundsLayout) => {
-    setFundsLayout(layoutCheanged)
+  const handleChangeFundsView = (layoutCheanged: TFundsLayout) => {
+    setViewMode(layoutCheanged)
   }
 
   const handleChangeFilter = (newFilter: string[]) => {
@@ -38,9 +38,10 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
     }
     return (
       <DesktopComponent
-        filterData={filters}
-        fundsLayout={fundsLayout}
-        onHandleChangeLayout={handleChangeFundsLayout}
+        filters={filters}
+        viewMode={viewMode}
+        filteredInvestedFunds={filteredInvestedFunds}
+        onHandleChangeView={handleChangeFundsView}
         onHandleChangeFilter={handleChangeFilter}
       />
     )

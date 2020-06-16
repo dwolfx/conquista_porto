@@ -26,3 +26,10 @@ export function DisplayInformation(displayInformation) {
     displayInformation,
   }
 }
+
+export function SetIdFund(idFund) {
+  return {
+    type: Types.SET_ID_FUND,
+    idFund,
+  }
+}

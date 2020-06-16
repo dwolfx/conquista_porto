@@ -1,6 +1,6 @@
 import React from 'react'
-import IconFilter from 'components/Button/Icon'
 import { TFundsLayout } from '../../filters'
+import IconFilter from 'components/Button/Icon'
 
 import {
   LeftContent,
@@ -16,17 +16,17 @@ import {
 import { FUNDS_FILTER_TYPES } from '../../filters'
 interface IProps {
   filters: any
-  fundsLayout: TFundsLayout
+  viewMode: TFundsLayout
   isNextPriorButtonsVisible: boolean
-  onHandleChangeLayout: (newStateLayout: TFundsLayout) => void
+  onHandleChangeView: (newStateLayout: TFundsLayout) => void
   onHandleChangeFilter: (newStateFilters: string[]) => void
 }
 
 const FundsFilter: React.FC<IProps> = ({
   filters,
-  fundsLayout,
+  viewMode,
   isNextPriorButtonsVisible,
-  onHandleChangeLayout,
+  onHandleChangeView,
   onHandleChangeFilter,
 }) => {
   const handleFilters = (category: string) => {
@@ -93,16 +93,16 @@ const FundsFilter: React.FC<IProps> = ({
           data-gtm-name="botao fundos layout cards"
           data-gtm-type="click"
           data-gtm-clicktype="button"
-          backgroundcolor={fundsLayout === 'CARDS' ? 'primary' : 'secondary'}
-          onClick={() => onHandleChangeLayout('CARDS')}
+          backgroundcolor={viewMode === 'CARDS' ? 'primary' : 'secondary'}
+          onClick={() => onHandleChangeView('CARDS')}
         />
         <ButtonLayoutList
           data-gtm-subname="fundos filtros"
           data-gtm-name="botao fundos layout lista"
           data-gtm-type="click"
           data-gtm-clicktype="button"
-          backgroundcolor={fundsLayout === 'LIST' ? 'primary' : 'secondary'}
-          onClick={() => onHandleChangeLayout('LIST')}
+          backgroundcolor={viewMode === 'LIST' ? 'primary' : 'secondary'}
+          onClick={() => onHandleChangeView('LIST')}
         />
         {isNextPriorButtonsVisible && (
           <PriorNextFundsButtons>
