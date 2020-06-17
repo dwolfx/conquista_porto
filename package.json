@@ -12,6 +12,8 @@
     "build:prod": "env-cmd -f .env react-scripts build",
     "extract": "env-cmd -f .env node extractBundle.js",
     "extractQa": "env-cmd -f .env.development node extractBundle.js",
+    "test:watch": "react-scripts test --watch-all",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "test": "cross-env CI=true react-scripts test -u --forceExit --coverage --coverageDirectory=output/coverage/jest",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js, css, html, json}\"",
@@ -120,7 +122,8 @@
   "jest": {
     "coverageReporters": [
       "text",
-      "cobertura"
+      "cobertura",
+      "lcov"
     ]
   }
 }

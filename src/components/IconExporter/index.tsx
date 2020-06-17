@@ -36,6 +36,8 @@ import { ReactComponent as diamond } from 'assets/icons/diamond.svg'
 import { ReactComponent as dollarsign } from 'assets/icons/dollar-sign.svg'
 import { ReactComponent as download } from 'assets/icons/download.svg'
 import { ReactComponent as drink } from 'assets/icons/drink.svg'
+import { ReactComponent as eyeclosed } from 'assets/icons/eye-closed.svg'
+import { ReactComponent as eyeopen } from 'assets/icons/eye-open.svg'
 import { ReactComponent as filter } from 'assets/icons/filter.svg'
 import { ReactComponent as financial } from 'assets/icons/financial.svg'
 import { ReactComponent as fingerprint } from 'assets/icons/finger-print.svg'
@@ -62,8 +64,6 @@ import {
 import { ReactComponent as menu } from 'assets/icons/menu.svg'
 import { ReactComponent as money } from 'assets/icons/money.svg'
 import { ReactComponent as monitoranalytics } from 'assets/icons/monitor-analytics.svg'
-import { ReactComponent as olhoaberto } from 'assets/icons/olho-aberto.svg'
-import { ReactComponent as olhofechado } from 'assets/icons/olho-fechado.svg'
 import { ReactComponent as pdf } from 'assets/icons/pdf.svg'
 import { ReactComponent as personaccident } from 'assets/icons/person-accident.svg'
 import { ReactComponent as persongroup } from 'assets/icons/person-group.svg'
@@ -131,6 +131,8 @@ export const dict = {
   dollarsign,
   download,
   drink,
+  eyeclosed,
+  eyeopen,
   filter,
   financial,
   fingerprint,
@@ -155,8 +157,6 @@ export const dict = {
   menu,
   money,
   monitoranalytics,
-  olhoaberto,
-  olhofechado,
   pdf,
   personaccident,
   persongroup,

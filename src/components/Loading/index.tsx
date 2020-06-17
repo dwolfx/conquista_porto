@@ -30,7 +30,7 @@ const Loading: React.FC<IProps> = ({
   }
 
   return (
-    <ComponentContainer>
+    <ComponentContainer {...rest}>
       {legend && (
         <LegendText type="headline" color="gray5" placement={placement}>
           {legend}

@@ -2,6 +2,7 @@ import { Types } from './types'
 
 const INITIAL_STATE = {
   data: null,
+  displayInformation: false,
   hasError: false,
   isLoading: false,
 }
@@ -24,6 +25,11 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         isLoading: false,
         hasError: true,
+      }
+    case Types.DISPLAY_INFORMATION:
+      return {
+        ...state,
+        displayInformation: action.displayInformation,
       }
     default:
       return state

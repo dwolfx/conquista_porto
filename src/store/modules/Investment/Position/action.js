@@ -19,3 +19,10 @@ export function GetPositionDataFailure() {
     type: Types.ADD_FAILURE,
   }
 }
+
+export function DisplayInformation(displayInformation) {
+  return {
+    type: Types.DISPLAY_INFORMATION,
+    displayInformation,
+  }
+}
