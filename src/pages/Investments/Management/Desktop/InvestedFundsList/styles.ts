@@ -7,6 +7,10 @@ import { CardFooter, CardBody } from 'components/Card/styles'
 import HorizontalList from 'components/HorizontalList'
 import Carousel from 'components/Carousel'
 
+export const Container = styled.div`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
 export const CardStyled = styled(Card)`
   padding: 0;
   max-height: 308px;
@@ -34,7 +38,7 @@ export const ButtonStyled = styled(Button)`
 
 export const ButtonVertical = styled(IconButton)`
   border-radius: 4px;
-  margin-right: 14px;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
   width: 49px !important;
   height: 112px;
 `

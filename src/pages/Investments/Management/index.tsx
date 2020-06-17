@@ -18,8 +18,6 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   useFetchPosition()
 
   const filteredInvestedFunds = useFilter(filters)
-  /* esta lista será utilizada nos demais components */
-  console.log(filteredInvestedFunds)
 
   const handleChangeFundsView = (layoutCheanged: TFundsLayout) => {
     setViewMode(layoutCheanged)

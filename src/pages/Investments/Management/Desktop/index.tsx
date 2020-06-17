@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
+import Modal from 'components/Modal/Confirmation'
+import Card from 'components/Card'
+
 import ChartPosition from './ChartPosition'
 import InvestorAccount from './InvestorAccount'
 import InvestedFundsList from './InvestedFundsList'
 import { RowContent, LeftContent, MainContent } from './styles'
-import Modal from 'components/Modal/Confirmation'
 import { TFundsLayout } from '../filters'
+import LastTransations from './LastTransactions'
 
 export interface IModalProps {
   isOpen: boolean
@@ -70,6 +73,9 @@ const Desktop: React.FC<IProps> = ({
             onHandleChangeFilter={onHandleChangeFilter}
             onHandleChangeView={onHandleChangeView}
           />
+          <Card>
+            <LastTransations />
+          </Card>
         </MainContent>
       </RowContent>
       <Modal

@@ -13,7 +13,6 @@ window.matchMedia =
   }
 
 const sagaMiddleware = createSagaMiddleware()
-
 export const storeFactory = (initialState?: any) => {
   const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore)
   return createStoreWithMiddleware(appReducer, initialState)

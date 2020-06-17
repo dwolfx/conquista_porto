@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
-
+import { useSelector, useDispatch } from 'react-redux'
 import { Settings } from 'react-slick'
 
 import VerticalList from 'components/VerticalList'
-import { TFundsLayout } from '../../filters'
-
 import Text from 'components/Text'
 import Carousel from 'components/Carousel'
+
+import { SetIdFund } from 'store/modules/Investment/Position/action'
+
+import { TFundsLayout } from '../../filters'
+import FundsFilter from '../FundsFilter'
+
 import {
+  Container,
   CardStyled,
   FundItem,
   HorizontalListStyled,
@@ -17,9 +22,6 @@ import {
   Chip,
   ButtonVertical,
 } from './styles'
-import FundsFilter from '../FundsFilter'
-import { useSelector, useDispatch } from 'react-redux'
-import { SetIdFund } from 'store/modules/Investment/Position/action'
 
 interface IProps {
   filters: any
@@ -102,8 +104,9 @@ const InvestedFundsList = ({
   const onHandleChangeIdFund = (idFund: string) => {
     dispatch(SetIdFund(idFund))
   }
+
   return (
-    <>
+    <Container>
       <FundsFilter
         filters={filters}
         viewMode={viewMode}
@@ -177,7 +180,7 @@ const InvestedFundsList = ({
           ))}
         </CardStyled>
       )}
-    </>
+    </Container>
   )
 }
 
