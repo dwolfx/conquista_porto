@@ -96,6 +96,12 @@ export const InputWrapper = styled.div`
     bottom: auto;
     position: absolute;
     top: ${({ theme }) => `calc(100% - ${theme.spacing(1)}px)`};
+
+    @media ${({ theme }) => theme.mediaQueries.xs} {
+      bottom: unset;
+      position: relative;
+      top: unset;
+    }
   }
 `
 
@@ -114,6 +120,11 @@ export const NicknameCol = styled(Col as any)`
   position: absolute;
   text-align: center;
   width: 100%;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+    position: static;
+  }
 `
 
 export const FormWrapper = styled.div`
@@ -144,5 +155,17 @@ export const SuggestionTagContainer = styled.div`
 
   button {
     margin-right: ${({ theme }) => theme.spacing(1)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: ${({ theme }) =>
+      `0 -${theme.spacing(1)}px 0 -${theme.spacing(1)}px`};
+
+    button {
+      margin: ${({ theme }) => `0 ${theme.spacing(1)}px ${theme.spacing(1)}px`};
+      width: ${({ theme }) => `calc(50% - ${theme.spacing(2)}px)`};
+    }
   }
 `
