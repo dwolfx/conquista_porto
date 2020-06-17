@@ -1,12 +1,13 @@
 import React from 'react'
 
+import ChartPosition from './ChartPosition'
 import { RowContent, LeftContent, MainContent } from './styles'
 
 const Desktop: React.FC = () => {
   return (
     <RowContent>
       <LeftContent xl={3}>
-        {/* Gráfico de posição e informações da conta de investidor */}
+        <ChartPosition />
       </LeftContent>
       <MainContent xl={9}>
         {/* Informações do fundo e saldos, Tabela de rentabilidade... */}

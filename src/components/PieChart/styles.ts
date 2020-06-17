@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ChartContainer = styled.div`
+export const ChartContainer = styled.div<{ width: string, height: string }>`
   width: ${props => props.width};
   height: ${props => props.height};
   position: relative;
