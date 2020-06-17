@@ -55,7 +55,7 @@ export interface ITableFunds {
   isDrawerOpen?: boolean
   isFiltering?: boolean
   isLoading: boolean
-  onShowDetails: (param: any) => void
+  onRowClick: (param: any) => void
 }
 
 export interface ITableBody {
@@ -63,8 +63,7 @@ export interface ITableBody {
   isError: boolean
   isFiltering: boolean
   onError: () => void
-  onRowClick: () => void
-  onShowDetails: (param: any) => void
+  onRowClick: (param: any) => void
   prepareRow: (row: Row<TRow>) => void
   rows: Row<TRow>[]
 }

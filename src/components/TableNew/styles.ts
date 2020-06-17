@@ -62,6 +62,7 @@ export const Table = styled.div`
   &.sticky {
     .body {
       height: auto;
+      min-width: 100%;
       position: relative;
       width: fit-content;
       z-index: 0;
@@ -81,7 +82,6 @@ export const Thead = styled.div`
 `
 export const TheadTr = styled.div`
   display: flex;
-  padding: 0 0 0 ${props => props.theme.spacing(1)}px;
   height: 56px;
   background-color: ${props => props.theme.colors.gray1};
   border-top-left-radius: 4px;
@@ -97,36 +97,33 @@ interface ITheadTh {
 
 export const TheadTh = styled.div<ITheadTh>`
   background-color: inherit;
-  cursor: ${props => (props.canSort ? 'pointer' : 'default')};
+  cursor: ${({ canSort }) => (canSort ? 'pointer' : 'default')};
   display: inline-block;
   font-size: 11px;
   letter-spacing: 1px;
   line-height: 15px;
   position: relative;
   height: 100%;
-  margin-left: ${props => props.theme.spacing(3)}px;
-  padding-right: 14px;
-  min-width: ${props => {
-    if (props.minWidth) {
-      return typeof props.minWidth === 'string'
-        ? props.minWidth
-        : `${props.minWidth}px`
+  padding-left: ${({ theme }) => theme.spacing(3)}px;
+  padding-right: ${({ theme }) => theme.spacing(1)}px;
+  min-width: ${({ minWidth, theme }) => {
+    if (minWidth) {
+      return typeof minWidth === 'string'
+        ? `calc(${minWidth} + ${theme.spacing(4)}px)`
+        : `${minWidth + theme.spacing(4)}px`
     }
 
     return 0
   }};
-  width: ${props => {
-    if (props.width) {
-      return typeof props.width === 'string' ? props.width : `${props.width}px`
+  width: ${({ width, theme }) => {
+    if (width) {
+      return typeof width === 'string'
+        ? `calc(${width} + ${theme.spacing(4)}px)`
+        : `${width + theme.spacing(4)}px`
     }
 
     return 'auto'
   }};
-
-  &:last-child {
-    margin-left: 0;
-    padding-right: ${props => props.theme.spacing(3)}px;
-  }
 `
 
 interface ITheadContent {
@@ -181,11 +178,11 @@ export const TheadText = styled.span<ITheadText>`
     background-image: url(${ArrowSortable});
     background-repeat: no-repeat;
     background-position: ${props =>
-    props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
+      props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
     position: absolute;
     margin-left: 10px;
     top: ${props =>
-    props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
+      props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
     width: 10px;
     height: 17px;
   }
@@ -227,6 +224,9 @@ export const TbodyTr = styled.div`
 
   &:hover {
     background-color: ${props => props.theme.colors.gray1};
+  }
+  &:last-of-type {
+    border-bottom: unset;
   }
 `
 
@@ -284,8 +284,8 @@ export const StickyDivisor = styled.div<IStickyDivisor>`
   z-index: 2;
   ${props =>
     props.side === 'left'
-      ? `left: ${props.position}px`
-      : `right: ${props.position}px`};
+      ? `left: ${props.position}`
+      : `right: ${props.position}`};
 
   &:before {
     content: '';

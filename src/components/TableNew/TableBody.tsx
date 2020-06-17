@@ -5,7 +5,7 @@ import Button from 'components/Button'
 import Loading from 'components/Loading'
 import Text from 'components/Text'
 
-// import { ITableBody } from './types'
+import { ITableBody } from './types'
 import * as s from './styles'
 
 const TableBody = ({
@@ -16,7 +16,7 @@ const TableBody = ({
   onError,
   onRowClick,
   isFiltering,
-}) => {
+}: ITableBody) => {
   const TbodyRender = () => {
     if (isLoading) {
       return (
@@ -64,12 +64,15 @@ const TableBody = ({
       )
     }
 
-    return rows.map(row => {
+    return rows.map((row: any) => {
       prepareRow(row)
 
       return (
-        <s.TbodyTr {...row.getRowProps()} onClick={onRowClick}>
-          {row.cells.map(cell => {
+        <s.TbodyTr
+          {...row.getRowProps()}
+          onClick={() => onRowClick(row.original)}
+        >
+          {row.cells.map((cell: any) => {
             const styles = cell.column.styles || cell.column
 
             return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Col } from 'styled-bootstrap-grid'
+import { Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
@@ -18,6 +18,7 @@ import {
 import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
 import TableView from './TableView'
+import TableLabel from './TableView/Label'
 import CardCreditProduct from './CardCreditProduct'
 
 import * as s from './styles'
@@ -112,15 +113,38 @@ const WalletSection = ({
 
   const cardInfos = () => (
     <>
-      <s.InfoRow>
-        <CardInfosText
-          isUnmetGoal={isUnmetGoal}
-          productName={(creditProduct || {}).name}
-        />
-      </s.InfoRow>
+      <Row>
+        <Col lg={12}>
+          <s.InfoRow>
+            <CardInfosText
+              isUnmetGoal={isUnmetGoal}
+              productName={(creditProduct || {}).name}
+            />
+          </s.InfoRow>
+        </Col>
+      </Row>
 
-      <PercentualInfos />
+      <s.LabelRow alignItems="center">
+        <Col lg={6} md={7} sm={5} xs={12}>
+          <PercentualInfos />
+        </Col>
+
+        {!isMobile ? (
+          <Col lg={6} md={5} sm={7}>
+            <TableLabel />
+          </Col>
+        ) : null}
+      </s.LabelRow>
     </>
+  )
+
+  const totalInitialInvestment = funds.reduce(
+    (acc, cur) => acc + cur.initial_value,
+    0
+  )
+  const totalMontlyInvestment = funds.reduce(
+    (acc, cur) => acc + cur.monthly_value,
+    0
   )
 
   return (
@@ -135,8 +159,7 @@ const WalletSection = ({
       </Modal>
 
       <Col
-        lg={combo.length > 1 ? 9 : 12}
-        md={combo.length > 1 ? 8 : 12}
+        lg={combo.length > 1 ? 8 : 12}
         css={`
           margin-bottom: ${isMobile ? '14px' : '0px'};
         `}
@@ -147,6 +170,8 @@ const WalletSection = ({
             cardInfos={cardInfos}
             funds={funds}
             handleOpenDetails={handleOpenDetails}
+            totalInitialInvestment={totalInitialInvestment}
+            totalMontlyInvestment={totalMontlyInvestment}
           />
         ) : (
           <TableView
@@ -154,14 +179,31 @@ const WalletSection = ({
             cardInfos={cardInfos}
             funds={funds}
             handleOpenDetails={handleOpenDetails}
+            totalInitialInvestment={totalInitialInvestment}
+            totalMontlyInvestment={totalMontlyInvestment}
           />
         )}
       </Col>
 
       {creditProduct && combo.length > 1 && (
-        <Col lg={3} md={4}>
-          <CardCreditProduct creditProduct={creditProduct} />
-        </Col>
+        <>
+          <Col lg={1}>
+            <Row
+              alignItems="center"
+              justifyContent="center"
+              css={`
+                height: 100%;
+              `}
+            >
+              <s.IconContainer>
+                <Icon name="add" color="gray4" width={49} />
+              </s.IconContainer>
+            </Row>
+          </Col>
+          <Col lg={3}>
+            <CardCreditProduct creditProduct={creditProduct} />
+          </Col>
+        </>
       )}
     </GridRow>
   )

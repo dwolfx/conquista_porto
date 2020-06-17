@@ -10,7 +10,6 @@ export const FullHeightCard = styled(Card)`
 
   @media ${props => props.theme.mediaQueries.md} {
     height: inherit;
-    margin-top: ${props => props.theme.spacing(6)}px;
   }
 
   @media ${props => props.theme.mediaQueries.sm} {
@@ -19,11 +18,11 @@ export const FullHeightCard = styled(Card)`
 `
 
 export const CardContainer = styled.div`
-  margin: ${({theme}) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
+  margin: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
 `
 
 export const InfoItem = styled(Col)`
-  margin-top:  ${props => props.theme.spacing(5)}px;
+  margin-top: ${props => props.theme.spacing(5)}px;
 
   @media ${props => props.theme.mediaQueries.md} {
     margin-top: ${props => props.theme.spacing(3)}px;
@@ -38,4 +37,3 @@ export const TextValue = styled(Text)`
     margin-left: ${props => props.theme.spacing(2)}px;
   }
 `
-

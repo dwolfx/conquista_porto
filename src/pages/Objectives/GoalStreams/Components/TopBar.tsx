@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Row } from 'styled-bootstrap-grid'
+import { Row, Container } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
@@ -22,44 +22,46 @@ const TopBar = ({ currentStep, nickname, numberSteps }: IProps) => {
 
   return (
     <SectionBar>
-      <Row
-        justifyContent="between"
-        alignItems="center"
-        css={`
-          position: relative;
-        `}
-      >
-        <Col lgAuto mdAuto smAuto xs={12}>
-          <Text type="heading4" color="gray4">
-            Criar{' '}
-            <span
+      <Container>
+        <Row
+          justifyContent="between"
+          alignItems="center"
+          css={`
+            position: relative;
+          `}
+        >
+          <Col lgAuto mdAuto smAuto xs={12}>
+            <Text type="heading4" color="gray4">
+              Criar{' '}
+              <span
+                css={`
+                  color: ${theme.colors.white};
+                `}
+              >
+                Objetivo
+              </span>
+            </Text>
+          </Col>
+          {nickname && (
+            <NicknameCol>
+              <Text type="heading4" color="white">
+                {nickname}
+              </Text>
+            </NicknameCol>
+          )}
+          <Col lgAuto mdAuto smAuto xs={12}>
+            <Text
+              type="title"
+              color="white"
               css={`
-                color: ${theme.colors.white};
+                text-transform: uppercase;
               `}
             >
-              Objetivo
-            </span>
-          </Text>
-        </Col>
-        {nickname && (
-          <NicknameCol>
-            <Text type="heading4" color="white">
-              {nickname}
+              Etapa {currentStep} de {numberSteps}
             </Text>
-          </NicknameCol>
-        )}
-        <Col lgAuto mdAuto smAuto xs={12}>
-          <Text
-            type="title"
-            color="white"
-            css={`
-              text-transform: uppercase;
-            `}
-          >
-            Etapa {currentStep} de {numberSteps}
-          </Text>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Container>
     </SectionBar>
   )
 }

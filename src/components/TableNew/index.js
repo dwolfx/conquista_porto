@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import FormatColumns from './formatters'
 import TableBody from './TableBody'
-// import { IHeaderWithColumns, ISimpleHeader, ITheadWrapper } from './types'
+// import { IHeaderWithColumns, ISimpleHeader, ITheadWrapper, ITableFunds } from './types'
 import * as s from './styles'
 
 /**
@@ -85,7 +85,7 @@ const TableFunds = ({
   isLoading,
   isError,
   isFiltering = false,
-  onShowDetails,
+  onRowClick,
   columns: columnsProps,
   isSticky,
   ...rest
@@ -99,9 +99,9 @@ const TableFunds = ({
   } = useTable(
     {
       // to edit how each column should render see FormatColumns function
-      columns: useMemo(() => FormatColumns(columnsProps, onShowDetails), [
+      columns: useMemo(() => FormatColumns(columnsProps, onRowClick), [
         columnsProps,
-        onShowDetails,
+        onRowClick,
       ]),
       data,
     },
@@ -109,6 +109,7 @@ const TableFunds = ({
     useSticky
   )
 
+  // const tableRef = useRef() as React.RefObject<HTMLDivElement>
   const tableRef = useRef()
   const [showLeftShadow, setShowLeftShadow] = useState(false)
   const [showRightShadow, setShowRightShadow] = useState(true)
@@ -134,24 +135,31 @@ const TableFunds = ({
   }, [tableRef])
 
   const calculateStickWidth = (acc, cur) => {
-    let curWidth = cur.styles.width
+    let pixelValue = acc.split('+')[1].replace(/\D/g, '')
+    let percentageValue = acc.split('+')[0].replace(/\D/g, '')
 
-    if (typeof curWidth === 'string') {
-      curWidth = cur.styles.width.replace('px', '')
+    if (typeof cur.styles.width === 'string') {
+      if (cur.styles.width.indexOf('%')) {
+        percentageValue += +cur.styles.width.replace('%', '')
+      } else {
+        pixelValue += +cur.styles.width.replace('px', '')
+      }
+    } else {
+      pixelValue += cur.styles.width
     }
 
-    return acc + curWidth
+    return `calc(${percentageValue}% + ${pixelValue}px)`
   }
 
   const stickyElementRight = columns.filter(column => column.sticky === 'right')
   const stickyElementRightPosition = stickyElementRight.reduce(
     (acc, cur) => calculateStickWidth(acc, cur),
-    7
+    'calc(0% + 7px)'
   )
   const stickyElementLeft = columns.filter(column => column.sticky === 'left')
   const stickyElementLeftPosition = stickyElementLeft.reduce(
     (acc, cur) => calculateStickWidth(acc, cur),
-    0
+    'calc(0% + 0px)'
   )
 
   return (
@@ -185,6 +193,7 @@ const TableFunds = ({
               prepareRow={prepareRow}
               isError={isError}
               isFiltering={isFiltering}
+              onRowClick={onRowClick}
             />
           </s.Tbody>
         </s.Table>
@@ -200,7 +209,7 @@ TableFunds.propTypes = {
   isError: PropTypes.bool,
   isFiltering: PropTypes.bool,
   isSticky: PropTypes.bool,
-  onShowDetails: PropTypes.func.isRequired,
+  onRowClick: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func,
   fundsType: PropTypes.array.isRequired,
 }

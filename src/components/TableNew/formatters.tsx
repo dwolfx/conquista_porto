@@ -7,7 +7,7 @@ const FormatDefault = ({ cell }: { cell: ICell }) => (
   <WrapperContent>{cell.value}</WrapperContent>
 )
 
-export default function FormatColumns(columns: IColumn[], onShowDetails: any) {
+export default function FormatColumns(columns: IColumn[], onRowClick: any) {
   const formatters: any = {
     default: (column: IColumn) => ({
       ...column,
@@ -20,15 +20,17 @@ export default function FormatColumns(columns: IColumn[], onShowDetails: any) {
       return {
         ...column,
         Cell: (cell: ICell) => {
-          return column.format(cell.row.original, onShowDetails)
+          return column.format(cell.row.original, onRowClick)
         },
         sortType(rowA: any, rowB: any) {
           if (column.sort) {
             return column.sort(rowA.original, rowB.original)
           }
 
-          return rowA.original[column.accessor] > rowB.original[column.accessor] ? 1 : -1
-        }
+          return rowA.original[column.accessor] > rowB.original[column.accessor]
+            ? 1
+            : -1
+        },
       }
     }
 

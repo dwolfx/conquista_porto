@@ -20,10 +20,10 @@ interface IRiskColorTag {
 
 export const RiskColorTag = styled.div<IRiskColorTag>`
   width: 5px;
-  background-color: ${props => riskColorsMap[props.borderRisk]};
+  background-color: ${({ borderRisk }) => riskColorsMap[borderRisk]};
   border-radius: 4px;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     height: calc(100% - 8px);
     left: 4px;
     position: absolute;
@@ -37,25 +37,27 @@ export const InfoContent = styled.div`
 
 export const InfoRow = styled(Row)`
   display: flex;
-  margin-top: ${props => props.theme.spacing(3)}px;
-  padding: 0 ${props => props.theme.spacing(4)}px;
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
+  padding: 0 ${({ theme }) => theme.spacing(3)}px;
 `
 
 export const PercentualInfosContainer = styled(Row)`
   display: flex;
-  margin-bottom: ${props => props.theme.spacing(2.5)}px;
-  margin-top: ${props => props.theme.spacing(6)}px;
-  padding: 0 ${props => props.theme.spacing(4)}px;
+  padding: 0 ${({ theme }) => theme.spacing(3)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: column;
+  }
 `
 
 export const PercentualText = styled(Text)`
   &:not(:last-child) {
-    border-right: 1px solid ${props => props.theme.colors.gray6};
-    padding-right: ${props => props.theme.spacing(2)}px;
-    margin-right: ${props => props.theme.spacing(2)}px;
+    border-right: 1px solid ${({ theme }) => theme.colors.gray6};
+    padding-right: ${({ theme }) => theme.spacing(2)}px;
+    margin-right: ${({ theme }) => theme.spacing(2)}px;
   }
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.md} {
     &:not(:last-child) {
       border-right: 0;
       padding-right: 0;
@@ -71,7 +73,7 @@ export const InfoContainer = styled.div`
   flex-wrap: wrap;
 
   & > p {
-    margin-right: ${props => props.theme.spacing(1)}px;
+    margin-right: ${({ theme }) => theme.spacing(1)}px;
   }
 `
 
@@ -79,7 +81,7 @@ export const Popover = styled(PopoverComp)`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-right: ${props => props.theme.spacing(1)}px;
+  margin-right: ${({ theme }) => theme.spacing(1)}px;
 `
 
 export const InlineContentText = styled.span`
@@ -91,3 +93,24 @@ export const TextUnderlined = styled(Text)`
 `
 
 export const ModalFundos = styled(ModalFundosCmp)``
+
+export const LabelRow = styled(Row)`
+  margin-bottom: ${({ theme }) => theme.spacing(2.5)}px;
+  margin-top: ${({ theme }) => theme.spacing(6)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: ${({ theme }) => theme.spacing(7)}px;
+    margin-top: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+
+export const IconContainer = styled.div`
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin-bottom: ${({ theme }) => theme.spacing(6)}px;
+    margin-top: ${({ theme }) => theme.spacing(6)}px;
+  }
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+    margin-top: ${({ theme }) => theme.spacing(0)}px;
+  }
+`

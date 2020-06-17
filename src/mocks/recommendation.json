@@ -1,5 +1,5 @@
 {
-  "id": "625",
+  "id": "608",
   "answer": {
     "nickname": "Viagem",
     "target_date": "06/06/2021",
@@ -113,6 +113,12 @@
       "annual_rate": 4.5
     }
   ],
+  "credit_product": {
+    "name": "Financiamento de Veículo",
+    "values": [
+      { "name": "Valor a Contratar", "value": "R$ 66.068,32", "checked": false }
+    ]
+  },
   "additional": {
     "travel_security": true,
     "life_security": false,

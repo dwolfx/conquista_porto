@@ -25,7 +25,19 @@ const Objectives = () => {
   // Use only for tests with recomendation
   // const dispatch = useDispatch()
   // useEffect(() => {
-  //   dispatch(PostObjectiveDataRequest({ data: {} }))
+  //   dispatch(
+  //     PostObjectiveDataRequest({
+  //       data: {
+  //         goal_type: '1',
+  //         profile: 3,
+  //         nickname: 'Viagem',
+  //         target_date: '16/04/2021',
+  //         target_value: '100.000,00',
+  //         initial_value: '90.000,00',
+  //         monthly_value: '758,00',
+  //       },
+  //     })
+  //   )
   // }, [dispatch])
 
   const handleSteps = (data: IData[] | undefined) => {
