@@ -41,7 +41,8 @@ export const OfferTitle = styled(Text).attrs(() => ({
   flex: 1;
   padding-right: 10px;
   margin-right: 20px;
-  @media ${props => props.theme.mediaQueries.sm} {
+
+  @media ${props => props.theme.mediaQueries.lg} {
     margin-right: 0;
   }
 `

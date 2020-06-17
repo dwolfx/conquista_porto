@@ -206,7 +206,7 @@ const contentMonthlyValue = (
   <s.TipContent>
     <s.CardText type="body" color="gray5" bold>
       Se achar o valor sugerido alto, não se preocupe: insira uma quantia menor
-      e nós criaremos um plano adaptado para você a alcançar a meta.
+      e nós criaremos um plano adaptado para você alcançar a meta.
     </s.CardText>
   </s.TipContent>
 )
