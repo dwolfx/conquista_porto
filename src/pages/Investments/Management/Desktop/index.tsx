@@ -9,6 +9,9 @@ import InvestedFundsList from './InvestedFundsList'
 import { RowContent, LeftContent, MainContent } from './styles'
 import { TFundsLayout } from '../types'
 import LastTransations from './LastTransactions'
+import FundInfoPanel from './FundInfoPanel'
+
+import useSelectedPosition from 'hooks/useSelectedPosition'
 
 export interface IModalProps {
   isOpen: boolean
@@ -54,6 +57,7 @@ const Desktop: React.FC<IProps> = ({
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState<IModalProps>(
     modalSuitabilityInfoInitialState
   )
+  const position = useSelectedPosition()
 
   return (
     <>
@@ -73,7 +77,12 @@ const Desktop: React.FC<IProps> = ({
             onHandleChangeFilter={onHandleChangeFilter}
             onHandleChangeView={onHandleChangeView}
           />
-          <Card>
+          <Card
+            headerTitle={position && position.fundo && position.fundo.apelido}
+          >
+            <FundInfoPanel
+              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
+            />
             <LastTransations />
           </Card>
         </MainContent>

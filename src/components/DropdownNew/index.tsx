@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { dict } from 'components/IconExporter'
 import { useHistory } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { mobileItemsPropTypes } from 'components/HeaderNew/Mobile'
 
 import {
   Container,
@@ -15,6 +14,30 @@ import {
   ItemIconContainer,
 } from './styles'
 
+interface IChildSecondProp {
+  icon?: keyof typeof dict
+  text?: string
+  path?: string
+}
+
+export interface IItemsProps {
+  icon?: keyof typeof dict
+  text?: string
+  path?: string
+  children?: IChildSecondProp[]
+}
+
+interface IProps {
+  items?: IItemsProps[]
+  nodes?: React.ReactNode[]
+  containerPadding?: string
+  redirectPath?: string
+  customWidth?: string
+  openingSide?: string
+  disabled?: boolean
+  title?: string
+}
+
 /**
  * ### HOW TO USE ###
  *
@@ -26,7 +49,7 @@ import {
  *
  * # The props it requires #
  *  It's an array of objects which contains the following structure:
- *  items: [
+ *  items: IItemsProps[] = [
  *    {
  *      icon: 'arrowup', (valid icon name, check IconExporter component)
         text: 'test', (the text that will be displayed at the dropdown list)
@@ -45,56 +68,67 @@ import {
         ],
  *    },
  *  ]
+ * 
+ * OR
+ * 
+ * node: React.ReactNode[] = [
+      <div key="item1">ItemTest1</div>,
+    <div key="item2">ItemTest2</div>,
+  ]
  */
 
-export default function Dropdown({
+const Dropdown: React.FC<IProps> = ({
   items,
   children,
   nodes,
-  customWidth,
-  containerPadding,
-  redirectPath,
-  openingSide,
-  disabled,
-  ...rest
-}) {
+  customWidth = null,
+  containerPadding = '14px',
+  redirectPath = null,
+  openingSide = 'right',
+  disabled = false,
+  title = '',
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
-  const [childrenElements, setChildrenElements] = useState(null)
-  const [selectedItem, setSelectedItem] = useState(null)
+  const [childrenElements, setChildrenElements] = useState<Object[] | null>(
+    null
+  )
+  const [selectedItem, setSelectedItem] = useState<string | null>(null)
 
   const history = useHistory()
-  const containerRef = useRef(null)
+  const containerRef = useRef(null) as React.RefObject<HTMLElement>
 
   function checkElementOut() {
-    const elementBounding = containerRef.current.getBoundingClientRect()
+    if (containerRef && containerRef.current && containerRef.current.style) {
+      const elementBounding = containerRef.current.getBoundingClientRect()
 
-    if (elementBounding.top < 0) {
-      containerRef.current.style.top = '0px'
-    }
+      if (elementBounding.top < 0) {
+        containerRef.current.style.top = '0px'
+      }
 
-    if (elementBounding.left < 0) {
-      containerRef.current.style.left = '0px'
-    }
+      if (elementBounding.left < 0) {
+        containerRef.current.style.left = '0px'
+      }
 
-    if (
-      elementBounding.bottom >
-      (window.innerHeight || document.documentElement.clientHeight)
-    ) {
-      const offsetDifference =
-        elementBounding.bottom -
+      if (
+        elementBounding.bottom >
         (window.innerHeight || document.documentElement.clientHeight)
-      containerRef.current.style.top = `-${offsetDifference}px`
-    }
+      ) {
+        const offsetDifference =
+          elementBounding.bottom -
+          (window.innerHeight || document.documentElement.clientHeight)
+        containerRef.current.style.top = `-${offsetDifference}px`
+      }
 
-    if (
-      elementBounding.right >
-      (window.innerWidth || document.documentElement.clientWidth)
-    ) {
-      const offsetDifference =
-        elementBounding.right -
+      if (
+        elementBounding.right >
         (window.innerWidth || document.documentElement.clientWidth)
-      containerRef.current.style.left = `-${offsetDifference}px`
+      ) {
+        const offsetDifference =
+          elementBounding.right -
+          (window.innerWidth || document.documentElement.clientWidth)
+        containerRef.current.style.left = `-${offsetDifference}px`
+      }
     }
   }
 
@@ -102,11 +136,14 @@ export default function Dropdown({
     if (isOpen) checkElementOut()
   }, [isOpen])
 
-  function handleDropDown(value) {
+  function handleDropDown(value: boolean) {
     setIsOpen(value)
   }
 
-  const handleMountChildren = (elements, subMenuTitle) => {
+  const handleMountChildren = (
+    elements: Array<Object> | undefined = [],
+    subMenuTitle: string | undefined = ''
+  ) => {
     setSelectedItem(subMenuTitle)
     setIsHovering(true)
 
@@ -116,7 +153,7 @@ export default function Dropdown({
     }
 
     setChildrenElements(
-      elements.map(item => (
+      elements.map((item: IItemsProps) => (
         <ItemWrapper
           data-gtm-type="click"
           data-gtm-clicktype="link"
@@ -136,7 +173,7 @@ export default function Dropdown({
     )
   }
 
-  function handleClick(path) {
+  function handleClick(path?: string | undefined) {
     if (path) {
       handleDropDown(false)
       history.push(path)
@@ -209,7 +246,7 @@ export default function Dropdown({
                 <ItemWrapper
                   data-gtm-type="click"
                   data-gtm-clicktype={item.children ? 'sub-menu' : 'link'}
-                  data-gtm-subname={rest.title}
+                  data-gtm-subname={title}
                   data-gtm-name={item.text}
                   key={item.text}
                   onMouseEnter={() =>
@@ -247,22 +284,38 @@ export default function Dropdown({
       </>
     )
   }
+
+  return (
+    <>
+      <RelativeHolder disabled={disabled}>
+        <div
+          role="button"
+          onClick={() => {
+            handleDropDown(true)
+          }}
+        >
+          {children}
+        </div>
+        <Container
+          ref={containerRef}
+          isOpen={isOpen}
+          onMouseLeave={() => handleMountChildren()}
+        >
+          <Wrapper
+            containerPadding={containerPadding}
+            customWidth={customWidth}
+          >
+            Skeleton needed
+          </Wrapper>
+        </Container>
+      </RelativeHolder>
+      <Backdrop
+        isOpen={isOpen}
+        id="backdrop"
+        onClick={() => handleDropDown(false)}
+      />
+    </>
+  )
 }
 
-Dropdown.propTypes = {
-  items: mobileItemsPropTypes,
-  children: PropTypes.element.isRequired,
-  containerPadding: PropTypes.string,
-  redirectPath: PropTypes.string,
-  customWidth: PropTypes.string,
-  openingSide: PropTypes.string,
-  disabled: PropTypes.bool,
-}
-
-Dropdown.defaultProps = {
-  containerPadding: '14px',
-  redirectPath: null,
-  customWidth: null,
-  openingSide: 'right',
-  disabled: false,
-}
+export default Dropdown

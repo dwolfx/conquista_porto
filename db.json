@@ -4566,16 +4566,17 @@
   "goal_recommendations": {
     "goal_type": "3",
     "profile": 3,
-    "nickname": "Carro",
-    "target_date": "11/06/2023",
+    "uf": "SP",
+    "nickname": "Teste",
+    "target_date": "10/12/2050",
     "is_target_date_flexible": "true",
-    "target_value": "1.000,00",
+    "target_value": "20.000,00",
     "initial_value": "5.000,00",
-    "monthly_value": "1.000,00",
+    "monthly_value": "200,00",
     "is_easy_to_save_planned_amount": "true"
   },
   "goal_management": {
-    "id": 1,
+    "id": "625",
     "answer": {
       "nickname": "Viagem",
       "target_date": "30/12/2021",
@@ -4590,47 +4591,178 @@
       "uf": "SP"
     },
     "fund_total_income": {
-      "0": 1000,
-      "1": 1503.7,
-      "2": 2009.25,
-      "3": 2516.69,
-      "4": 3026,
-      "5": 3537.19,
-      "6": 4050.28,
-      "7": 4565.27
+      "0": 12000,
+      "1": 14054.98,
+      "2": 16119.2,
+      "3": 18192.71,
+      "4": 20275.55,
+      "5": 22367.74,
+      "6": 24469.33,
+      "7": 26580.39,
+      "8": 28700.94,
+      "9": 30831.05,
+      "10": 32970.74,
+      "11": 35120.09,
+      "12": 37279.1,
+      "13": 39447.86,
+      "14": 41626.39,
+      "15": 43814.75,
+      "16": 46012.98,
+      "17": 48221.14,
+      "18": 50439.26,
+      "19": 52667.41,
+      "20": 54905.62,
+      "21": 57153.95,
+      "22": 59412.44,
+      "23": 61681.16,
+      "24": 63960.12,
+      "25": 66249.4,
+      "26": 68549.05,
+      "27": 70859.12,
+      "28": 73179.64,
+      "29": 75510.67,
+      "30": 77852.29,
+      "31": 80204.52,
+      "32": 82567.42,
+      "33": 84941.04,
+      "34": 87325.44,
+      "35": 89720.65,
+      "36": 92126.75,
+      "37": 94543.79,
+      "38": 96971.8,
+      "39": 99410.88,
+      "40": 101861.03,
+      "41": 104322.31,
+      "42": 106794.83,
+      "43": 109278.59,
+      "44": 111773.66,
+      "45": 114280.09,
+      "46": 116797.96,
+      "47": 119327.3,
+      "48": 121868.18,
+      "49": 124420.65,
+      "50": 126984.77,
+      "51": 129560.58,
+      "52": 132148.18,
+      "53": 134747.59,
+      "54": 137358.87
     },
     "funds": [
       {
-        "fund_id": 51380129,
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Multimercado",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 1000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000000000000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 100,
-        "name": "Occam Institucional II FIC Multimercado",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 5,
-        "profitability": {
-          "fundos": {
-            "12": 7.03
+        "fund_id": 51380023,
+        "name": "Arx Income FI Ações",
+        "category_name": "Renda Variável",
+        "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "1": 12.27,
+              "2": -25.92,
+              "3": -3.46,
+              "4": 8.68,
+              "5": 42.34
+            }
+          },
+          {
+            "name": "IBOVESPA",
+            "value": {
+              "1": 13.9,
+              "2": -28.08,
+              "3": -14.28,
+              "4": 8.36,
+              "5": 32.62
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "2": 2.16,
+              "3": 10.82,
+              "4": 0.32,
+              "5": 9.72
+            }
           }
-        },
+        ],
+        "min_initial_value": 500,
+        "min_value_to_apply": 100,
+        "wsdls/profile": 5,
+        "min_movement": 100,
+        "min_balance": 100,
+        "time_limit": "23:59",
         "quotation_apply_days": "D+0",
+        "financial_apply_days": "D+0",
+        "quotation_rescue_days": "D+1 (Úteis)",
+        "financial_rescue_days": "D+2 (Úteis)",
+        "manager": "ARX Investimentos",
+        "initial_date": "17/06/1999",
+        "benchmark": "IBOVESPA",
+        "adm_tax": 3,
+        "performance_rate": 0,
+        "classification": "Ações",
+        "tribute_ir": {
+          "1": 15
+        },
+        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
+        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf",
+        "iof": "Isento",
+        "initial_value": 900,
+        "monthly_value": 100,
+        "annual_rate": 9.5,
+        "profile_risk": "alto",
+        "is_fund_active": true
+      },
+      {
+        "fund_id": 51380026,
+        "name": "Occam Institucional II FIC Multimercado",
+        "category_name": "Multimercado",
+        "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "1": 0.38,
+              "2": 0.7,
+              "3": 5.95,
+              "4": 13.84,
+              "5": 24.68
+            }
+          },
+          {
+            "name": "CDI",
+            "value": {
+              "1": 0.3,
+              "2": 1.49,
+              "3": 4.83,
+              "4": 11.51,
+              "5": 20.07
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "1": 125.73,
+              "2": 46.95,
+              "3": 123.12,
+              "4": 120.24,
+              "5": 122.95
+            }
+          }
+        ],
+        "min_initial_value": 1000,
+        "min_value_to_apply": 100,
+        "wsdls/profile": 3,
+        "min_movement": 0,
+        "min_balance": 100,
+        "time_limit": "23:59",
+        "quotation_apply_days": "D+0",
+        "financial_apply_days": "D+0",
         "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
+        "financial_rescue_days": "D+1 (Úteis)",
+        "manager": "Occam Brasil",
+        "initial_date": "06/07/2012",
+        "benchmark": "CDI",
+        "adm_tax": 1,
+        "performance_rate": 20,
+        "classification": "Longo Prazo",
         "tribute_ir": {
           "180": 22.5,
           "360": 20,
@@ -4639,346 +4771,137 @@
         },
         "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
         "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf",
+        "iof": "Regime Regressivo",
+        "initial_value": 3000,
+        "monthly_value": 500,
+        "annual_rate": 7,
+        "profile_risk": "medio",
         "is_fund_active": true
       },
       {
-        "adm_tax": 0,
-        "benchmark": "CDI",
+        "fund_id": 51380022,
+        "name": "Arx Elbrus Debêntures Incentivadas FI Multimercado Crédito Privado",
         "category_name": "Renda Fixa",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 5000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
+        "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "1": -0.24,
+              "2": 1.78,
+              "3": 7.72
+            }
+          },
+          {
+            "name": "IMA-B 5",
+            "value": {
+              "1": 0.46,
+              "2": -0.12,
+              "3": 7.15
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "2": 1.9,
+              "3": 0.57
+            }
+          }
+        ],
         "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 500,
-        "name": "Brasil Plural Crédito Corporativo II FIC Renda Fixa Crédito Privado LP",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
+        "min_value_to_apply": 500,
         "wsdls/profile": 4,
+        "min_movement": 500,
+        "min_balance": 1000,
+        "time_limit": "23:59",
+        "quotation_apply_days": "D+0",
+        "financial_apply_days": "D+0",
+        "quotation_rescue_days": "D+30 (Corridos)",
+        "financial_rescue_days": "D+1 (Úteis)",
+        "manager": "ARX Investimentos",
+        "initial_date": "24/08/2018",
+        "benchmark": "IMA-B 5",
+        "adm_tax": 0.7,
+        "performance_rate": 20,
+        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
+        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
+        "iof": "Regime Regressivo",
+        "initial_value": 3100,
+        "monthly_value": 500,
+        "annual_rate": 4.5,
+        "profile_risk": "medio-alto",
+        "is_fund_active": true
+      },
+      {
+        "fund_id": 5105,
+        "name": "Porto Seguro FI Referenciado DI Credito Privado",
+        "category_name": "Renda Fixa",
         "profitability": [
           {
             "name": "fundo",
             "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
+              "1": 0.28,
+              "2": -1.96,
+              "3": 1.17,
+              "4": 7.71,
+              "5": 16.39
             }
           },
           {
-            "name": "Ibovespa",
+            "name": "CDI",
             "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "4": 11.92,
-              "5": 21.33
+              "1": 0.3,
+              "2": 1.49,
+              "3": 4.83,
+              "4": 11.51,
+              "5": 20.07
             }
           },
           {
             "name": "variacao",
             "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
+              "1": 91.79,
+              "3": 24.3,
+              "4": 67.04,
+              "5": 81.66
             }
           }
         ],
-        "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Renda Fixa",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 3000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
         "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 300,
-        "name": "BTG Pactual Crédito Corporativo 30 FIC Renda Fixa Crédito Privado LP",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 3,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
-            }
-          }
-        ],
-        "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Renda Fixa",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 4000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 400,
-        "name": "Brasil Plural Debêntures Incentivadas 45 FIC Multimercado Crédito Privado",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
+        "min_value_to_apply": 100,
         "wsdls/profile": 2,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "3": 5.24,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "5": 103.87
-            }
-          }
-        ],
+        "min_movement": 100,
+        "min_balance": 1000,
+        "time_limit": "23:59",
         "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Multimercado",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
         "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 2000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 200,
-        "name": "Capitânia Top Crédito Privado FIC FIRF",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 1,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "3": 5.24,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
-            }
-          }
-        ],
-        "quotation_apply_days": "D+0",
         "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
+        "financial_rescue_days": "D+0 (Úteis)",
+        "manager": "PortoSeguro Investimentos",
+        "initial_date": "28/02/2014",
         "benchmark": "CDI",
-        "category_name": "Ações",
+        "adm_tax": 0.4,
+        "performance_rate": 0,
         "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 6000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 600,
-        "name": "Porto Seguro DI Crédito Privado",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 3,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "3": 5.24,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
-            }
-          }
-        ],
-        "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
         "tribute_ir": {
           "180": 22.5,
           "360": 20,
           "720": 17.5,
           "721": 15
         },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
+        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
+        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
+        "iof": "Regime Regressivo",
+        "initial_value": 5000,
+        "monthly_value": 900,
+        "annual_rate": 4.5,
+        "profile_risk": "medio-baixo",
+        "is_fund_active": true
       }
     ],
     "additional": {
-      "travel_security": true,
+      "travel_security": false,
       "life_security": false,
-      "credit_card": true
-    },
-    "credit_product": {
-      "name": "Consórcio de Veículo",
-      "values": [
-        {
-          "name": "Valor a Contratar",
-          "value": "R$ 69.999,00"
-        }
-      ]
+      "credit_card": false
     }
   },
   "suitability": {
