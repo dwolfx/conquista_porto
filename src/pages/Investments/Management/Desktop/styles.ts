@@ -4,6 +4,7 @@ import ConquistaText from 'components/Text'
 import ConquistaButton from 'components/Button'
 
 export const RowContent = styled(Row)`
+  padding: 0 ${({ theme }) => theme.spacing(1)}px;
   margin-right: 0;
   margin-left: 0;
 `

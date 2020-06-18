@@ -45,6 +45,7 @@ import { ReactComponent as flag } from 'assets/icons/flag.svg'
 import { ReactComponent as forward } from 'assets/icons/forward.svg'
 import { ReactComponent as gear } from 'assets/icons/gear.svg'
 import { ReactComponent as globe } from 'assets/icons/globe.svg'
+import { ReactComponent as grid } from 'assets/icons/grid.svg'
 import { ReactComponent as home } from 'assets/icons/home.svg'
 import { ReactComponent as homewithwindow } from 'assets/icons/home-with-window.svg'
 import { ReactComponent as hospital } from 'assets/icons/hospital.svg'
@@ -53,6 +54,7 @@ import { ReactComponent as information } from 'assets/icons/information.svg'
 import { ReactComponent as leave } from 'assets/icons/leave.svg'
 import { ReactComponent as linechart } from 'assets/icons/line-chart.svg'
 import { ReactComponent as link } from 'assets/icons/link.svg'
+import { ReactComponent as list } from 'assets/icons/list.svg'
 import { ReactComponent as loading } from 'assets/icons/loading.svg'
 import { ReactComponent as lock } from 'assets/icons/lock.svg'
 import { ReactComponent as lock2 } from 'assets/icons/lock2.svg'
@@ -140,6 +142,7 @@ export const dict = {
   forward,
   gear,
   globe,
+  grid,
   home,
   homewithwindow,
   hospital,
@@ -148,6 +151,7 @@ export const dict = {
   leave,
   linechart,
   link,
+  list,
   loading,
   lock,
   lock2,
