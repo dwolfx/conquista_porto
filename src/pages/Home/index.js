@@ -15,6 +15,7 @@ import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsExtractRequest } from 'store/modules/Points/action'
 import { GetSuitabilityInfoRequest } from 'store/modules/SuitabilityInfo/action'
 import { GetCustomerProfileRequest } from 'store/modules/CustomerProfile/action'
+import { GetBankDataRequest } from 'store/modules/BankData/action'
 
 import SectionOne from './SectionOne'
 import AdvertisementBanner from './AdvertisementBanner'
@@ -47,6 +48,7 @@ const Home = ({ location }) => {
     dispatch(GetLifeInsuranceDataRequest(auth.cpf))
     dispatch(GetTripInsuranceDataRequest(auth.cpf))
     dispatch(GetPointsExtractRequest(auth.cpf))
+    dispatch(GetBankDataRequest(auth.cpf))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth])
 
