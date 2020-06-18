@@ -15,7 +15,11 @@ const hasAvatarStyle = css`
   }
 `
 
-export const AvatarWrapper = styled.div`
+interface IAvatarWrapper {
+  hasAvatar?: Boolean
+}
+
+export const AvatarWrapper = styled.div<IAvatarWrapper>`
   border-radius: 50%;
   height: 35px;
   overflow: hidden;

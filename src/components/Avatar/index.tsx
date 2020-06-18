@@ -1,11 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import Icon from 'components/IconExporter'
 
 import { AvatarWrapper } from './styles'
 
-export default function Avatar({ avatarUrl, ...rest }) {
+interface IProps {
+  avatarUrl: string
+}
+
+const Avatar: React.FC<IProps> = ({ avatarUrl, ...rest }) => {
   return (
     <AvatarWrapper
       data-gtm-type="click"
@@ -17,16 +20,10 @@ export default function Avatar({ avatarUrl, ...rest }) {
       {avatarUrl ? (
         <img src={avatarUrl} alt="user pic" />
       ) : (
-        <Icon name="user" />
+        <Icon data-testid="icon-user" name="user" />
       )}
     </AvatarWrapper>
   )
 }
 
-Avatar.defaultProps = {
-  avatarUrl: '',
-}
-
-Avatar.propTypes = {
-  avatarUrl: PropTypes.string,
-}
+export default Avatar

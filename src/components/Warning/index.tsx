@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { ReactComponent as AlertIcon } from '../../assets/icons/alert-rounded.svg'
@@ -13,11 +12,13 @@ import {
   WarningButtonWrapper,
 } from './styles'
 
-export default function({ warnings }) {
+type TWarnings = any
+
+export default function({ warnings }: TWarnings) {
   const themeContext = useContext(ThemeContext)
   return (
     warnings &&
-    warnings.map((item, index) => (
+    warnings.map((item: any, index: any) => (
       <WarningWrapper key={`warning-#${index}`}>
         <WarningContentWrapper>
           <WarningIcon>
