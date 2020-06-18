@@ -3,6 +3,7 @@ import useMedia from 'hooks/useMedia'
 import DesktopComponent from './Desktop'
 import MobileComponent from './Mobile'
 import TabletComponent from './Tablet'
+import Anbima from 'components/Anbima'
 
 import { GridContainer } from './styles'
 
@@ -23,6 +24,7 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   return (
     <GridContainer as="section" {...rest}>
       {renderResponsiveContent()}
+      <Anbima />
     </GridContainer>
   )
 }
