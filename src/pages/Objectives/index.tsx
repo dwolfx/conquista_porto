@@ -8,13 +8,14 @@ import Board from './Board'
 import GoalStreams from './GoalStreams'
 import Recommendation from './Recommendation'
 
+import { IData } from './GoalStreams/types'
 import { Container, RegistrationWrapper, BoartTitle } from './styles'
 
 const Objectives = () => {
   const [totalSteps, setTotalSteps] = useState(0)
   const match = useRouteMatch()
   const history = useHistory()
-  const { data: objectiveData, isLoading } = useSelector(
+  const { data: objectiveData, isLoading } = useSelector<any, any>(
     state => state.objective
   )
   const dontHaveRecommendation = Boolean(
@@ -27,8 +28,8 @@ const Objectives = () => {
   //   dispatch(PostObjectiveDataRequest({ data: {} }))
   // }, [dispatch])
 
-  const handleSteps = data => {
-    setTotalSteps(data.length)
+  const handleSteps = (data: IData[] | undefined) => {
+    setTotalSteps((data || []).length)
   }
 
   return (
@@ -44,11 +45,10 @@ const Objectives = () => {
               document.documentElement.scrollTop = 0
               document.body.scrollTop = 0
             }}
-            showBackButton={dontHaveRecommendation}
           />
           {dontHaveRecommendation ? (
             <RegistrationWrapper>
-              <BoartTitle>Criar objetivo</BoartTitle>
+              <BoartTitle type="heading3">Criar objetivo</BoartTitle>
               <Board />
             </RegistrationWrapper>
           ) : (

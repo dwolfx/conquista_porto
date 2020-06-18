@@ -110,8 +110,13 @@ export const setCookieValue = (key: string, value: string) => {
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
   ) {
-    domain = '.portoseguro.brasil'
+    // get domain without the subdomain (cliente.portoseguro.com.br / otclienthom.portoseguro.brasil)
+    domain = window.location.hostname.substr(
+      window.location.hostname.indexOf('.portoseguro'),
+      window.location.hostname.length
+    )
   }
+
   Cookies.set(key, value, { domain })
 }
 
@@ -122,7 +127,38 @@ export const removeCookieValue = (key: string) => {
     process.env.REACT_APP_ENV !== 'development' &&
     process.env.REACT_APP_ENV !== 'local'
   ) {
-    domain = '.portoseguro.brasil'
+    // get domain without the subdomain (cliente.portoseguro.com.br / otclienthom.portoseguro.brasil)
+    domain = window.location.hostname.substr(
+      window.location.hostname.indexOf('.portoseguro'),
+      window.location.hostname.length
+    )
   }
+
   Cookies.remove(key, { domain })
+}
+
+export const formatLocaleStringToNumber = (value: string) =>
+  +value.replace(/\./g, '').replace(',', '.')
+
+export const replacePatternToComponent = (
+  text: string,
+  pattern: RegExp,
+  Component: React.ReactNode
+) => {
+  const splitText = text.split(pattern)
+  const matches = text.match(pattern)
+
+  if (splitText.length <= 1) {
+    return text
+  }
+
+  return splitText.reduce((acc: React.ReactNode[], cur: string) => {
+    if (!cur) return acc
+
+    if (matches?.includes(cur)) {
+      return [...acc, Component]
+    }
+
+    return [...acc, cur]
+  }, [])
 }
