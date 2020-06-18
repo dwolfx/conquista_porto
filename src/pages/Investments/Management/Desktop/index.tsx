@@ -4,7 +4,8 @@ import ChartPosition from './ChartPosition'
 import InvestorAccount from './InvestorAccount'
 import { RowContent, LeftContent, MainContent } from './styles'
 import Modal from 'components/Modal/Confirmation'
-
+import FundsFilter from './FundsFilter'
+import { TFundsLayout } from '../filters'
 export interface IModalProps {
   isOpen: boolean
   title: string
@@ -31,8 +32,19 @@ export const modalSuitabilityInfoInitialState: IModalProps = {
     handleClick: null,
   },
 }
+interface IProps {
+  filterData: string[] | []
+  fundsLayout: TFundsLayout
+  onHandleChangeLayout: (newStateLayout: TFundsLayout) => void
+  onHandleChangeFilter: (newStateFilters: string[]) => void
+}
 
-const Desktop: React.FC = () => {
+const Desktop: React.FC<IProps> = ({
+  filterData,
+  fundsLayout,
+  onHandleChangeLayout,
+  onHandleChangeFilter,
+}) => {
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState<IModalProps>(
     modalSuitabilityInfoInitialState
   )
@@ -46,6 +58,13 @@ const Desktop: React.FC = () => {
           />
         </LeftContent>
         <MainContent xl={9}>
+          <FundsFilter
+            filters={filterData}
+            fundsLayout={fundsLayout}
+            isNextPriorButtonsVisible
+            onHandleChangeLayout={onHandleChangeLayout}
+            onHandleChangeFilter={onHandleChangeFilter}
+          />
           {/* Informações do fundo e saldos, Tabela de rentabilidade... */}
         </MainContent>
       </RowContent>
