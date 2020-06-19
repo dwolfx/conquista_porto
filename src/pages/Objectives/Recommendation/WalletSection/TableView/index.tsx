@@ -5,7 +5,7 @@ import 'styled-components/macro'
 import Text from 'components/Text'
 
 import { FullHeightCard } from 'pages/Objectives/Recommendation/styles'
-import { IFund } from 'pages/Objectives/Recommendation/types'
+import { IFunds } from 'store/modules/Objective/types'
 
 import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
@@ -16,8 +16,8 @@ import * as s from './styles'
 interface IProps {
   cardHeader: React.JSXElementConstructor<object>
   cardInfos: React.JSXElementConstructor<object>
-  funds: IFund[]
-  handleOpenDetails: (fund: IFund) => void
+  funds: IFunds[]
+  handleOpenDetails: (fund: IFunds) => void
   totalInitialInvestment: number
   totalMontlyInvestment: number
 }
@@ -40,7 +40,7 @@ const TableView = ({
       <s.ContainerFunds>
         <s.Table
           columns={columnsToRender}
-          onRowClick={(rowDetails: IFund) => {
+          onRowClick={(rowDetails: IFunds) => {
             handleOpenDetails(rowDetails)
           }}
           data={funds}

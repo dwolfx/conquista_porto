@@ -3,15 +3,9 @@ import { Row, Col } from 'styled-bootstrap-grid'
 
 import Button from 'components/Button'
 import Card from 'components/Card'
-import Drawer from 'components/Drawer'
 import Text from 'components/Text'
 import SpinWhite from 'assets/images/pages/Objectives/spin-white.png'
 import { CardBody } from 'components/Card/styles'
-import {
-  DrawerBody,
-  DrawerHeader,
-  DrawerFooter,
-} from 'components/Drawer/styles'
 
 export const SpacedText = styled(Text)`
   display: flex;
@@ -33,18 +27,22 @@ export const SpacedValue = styled.div`
 
 export const GridRecommendation = styled.div``
 
-export const GridRow = styled(Row)`
+interface IGridRow {
+  height?: string
+  justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between'
+}
+export const GridRow = styled(Row)<IGridRow>`
   margin-bottom: 42px;
-  height: ${props => props.height};
-  justify-content: ${props => props.justifyContent};
+  height: ${({ height }) => height};
+  justify-content: ${({ justifyContent }) => justifyContent};
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     margin-bottom: 14px;
   }
 `
 
 export const Column = styled(Col)`
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     &:not(:first-of-type) {
       margin-top: 14px;
     }
@@ -52,19 +50,19 @@ export const Column = styled(Col)`
 `
 
 export const SectionsRecommendation = styled.div`
-  background-color: ${props => props.theme.colors.gray1};
+  background-color: ${({ theme }) => theme.colors.gray1};
   padding: 42px 0 55px;
 `
 
 export const SectionBar = styled.section`
-  background-color: ${props => props.theme.colors.gray2};
+  background-color: ${({ theme }) => theme.colors.gray2};
   bottom: 0;
   padding: 10px 0;
   position: fixed;
   width: 100%;
   z-index: 2;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     z-index: 11;
   }
 `
@@ -74,15 +72,11 @@ export const ButtonBar = styled(Button)`
   min-width: auto;
 `
 
-export const ButtonSubmit = styled(Button)`
-  width: 100%;
-`
-
 export const FullHeightCard = styled(Card)`
   height: 100%;
   position: relative;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     height: auto;
   }
   & ${CardBody} {
@@ -117,7 +111,7 @@ export const SliderTextBox = styled.div`
   flex: 1;
 
   p:last-of-type {
-    color: ${props => props.theme.colors.gray5};
+    color: ${({ theme }) => theme.colors.gray5};
     flex: 1;
   }
 `
@@ -126,7 +120,7 @@ export const PieChartContainer = styled.div`
   height: 100%;
   width: 100%;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     height: 305px;
     width: 236px;
     margin: 0 auto;
@@ -137,22 +131,30 @@ export const PieChartChildrenContainer = styled.div`
   text-align: center;
 `
 
-export const SectionRow = styled(Row)`
+interface IRow {
+  padding: string
+}
+
+export const SectionRow = styled(Row)<IRow>`
   height: 100%;
-  padding: ${props => props.padding};
+  padding: ${({ padding }) => padding};
 `
 
-export const CardRow = styled(Row)`
-  padding: ${props => props.padding};
+export const CardRow = styled(Row)<IRow>`
+  padding: ${({ padding }) => padding};
 `
 
-export const SectionCol = styled(Col)`
+interface ISectionCol {
+  display: 'block' | 'flex' | 'none'
+}
+
+export const SectionCol = styled(Col)<ISectionCol>`
   height: 100%;
-  display: ${props => props.display};
+  display: ${({ display }) => display};
   justify-content: center;
   flex-direction: column;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     margin-bottom: 14px;
   }
 `
@@ -175,23 +177,19 @@ export const ButtonContainer = styled.div`
   margin-top: 14px;
 `
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: ${props => props.direction || 'row'};
-  align-items: ${props => props.align || 'flex-start'};
-  justify-content: ${props => props.justify || 'flex-start'};
-  margin: ${props => props.margin};
-`
+interface IWrapper {
+  direction: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+  align: 'flex-start' | 'flex-end' | 'center'
+  justify: 'flex-start' | 'flex-end' | 'center' | 'space-between'
+  margin: string
+}
 
-export const ErrorMessageContainer = styled.div`
+export const Wrapper = styled.div<IWrapper>`
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 7px 0 7px 14px;
-
-  & svg {
-    margin-right: 7px;
-  }
+  flex-direction: ${({ direction }) => direction || 'row'};
+  align-items: ${({ align }) => align || 'flex-start'};
+  justify-content: ${({ justify }) => justify || 'flex-start'};
+  margin: ${({ margin }) => margin};
 `
 
 export const PieChartChildrenContent = styled.div`
@@ -199,16 +197,6 @@ export const PieChartChildrenContent = styled.div`
   width: 80%;
   * {
     margin: 7px 0;
-  }
-`
-
-export const FormWrapper = styled.div``
-
-export const ColInput = styled(Col)`
-  padding: 0;
-
-  &:not(:first-of-type) {
-    margin-top: ${props => (props.error ? '0' : '35px')};
   }
 `
 
@@ -230,24 +218,5 @@ export const WalletSectionGraphContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-`
-
-export const DrawerForm = styled(Drawer)`
-  min-width: inherit;
-  padding: ${props => `${props.theme.spacing(2)}px`};
-
-  ${DrawerHeader} {
-    padding: ${props => `${props.theme.spacing(2)}px`};
-  }
-
-  ${DrawerBody} {
-    padding: ${props =>
-      `${props.theme.spacing(3)}px ${props.theme.spacing(2)}px`};
-  }
-
-  ${DrawerFooter} {
-    padding: ${props =>
-      `${props.theme.spacing(2)}px ${props.theme.spacing(2)}px 0`};
   }
 `

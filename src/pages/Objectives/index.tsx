@@ -15,7 +15,7 @@ const Objectives = () => {
   const [totalSteps, setTotalSteps] = useState(0)
   const match = useRouteMatch()
   const history = useHistory()
-  const { data: objectiveData, isLoading } = useSelector<any, any>(
+  const { data: objectiveData } = useSelector<any, any>(
     state => state.objective
   )
   const dontHaveRecommendation = Boolean(
@@ -25,19 +25,7 @@ const Objectives = () => {
   // Use only for tests with recomendation
   // const dispatch = useDispatch()
   // useEffect(() => {
-  //   dispatch(
-  //     PostObjectiveDataRequest({
-  //       data: {
-  //         goal_type: '1',
-  //         profile: 3,
-  //         nickname: 'Viagem',
-  //         target_date: '16/04/2021',
-  //         target_value: '100.000,00',
-  //         initial_value: '90.000,00',
-  //         monthly_value: '758,00',
-  //       },
-  //     })
-  //   )
+  //   dispatch(PostObjectiveDataRequest({}))
   // }, [dispatch])
 
   const handleSteps = (data: IData[] | undefined) => {
@@ -64,11 +52,7 @@ const Objectives = () => {
               <Board />
             </RegistrationWrapper>
           ) : (
-            <Recommendation
-              data={objectiveData}
-              isLoading={isLoading}
-              totalSteps={totalSteps + 1}
-            />
+            <Recommendation data={objectiveData} totalSteps={totalSteps + 1} />
           )}
         </Container>
       </Route>

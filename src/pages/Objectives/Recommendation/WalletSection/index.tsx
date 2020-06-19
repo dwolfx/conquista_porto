@@ -9,11 +9,7 @@ import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 
 import { GridRow } from 'pages/Objectives/Recommendation/styles'
-import {
-  IFund,
-  ICombo,
-  ICreditProducts,
-} from 'pages/Objectives/Recommendation/types'
+import { IFunds, ICreditProduct } from 'store/modules/Objective/types'
 
 import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
@@ -28,24 +24,22 @@ interface IFundCategories {
 }
 
 interface IProps {
-  combo?: ICombo[]
-  creditProduct?: ICreditProducts
-  funds: IFund[]
+  creditProduct?: ICreditProduct
+  funds: IFunds[]
   isUnmetGoal?: boolean
 }
 
 const WalletSection = ({
   funds,
   creditProduct,
-  combo = [],
   isUnmetGoal = false,
 }: IProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [initialReset, setInitialReset] = useState(true)
-  const [fundDetails, setFundDetails] = useState<IFund | undefined>(undefined)
+  const [fundDetails, setFundDetails] = useState<IFunds | undefined>(undefined)
   const isMobile = useMedia('sm')
 
-  const handleOpenDetails = (fund: IFund) => {
+  const handleOpenDetails = (fund: IFunds) => {
     setFundDetails(fund)
     setIsModalOpen(true)
     setInitialReset(false)
@@ -60,7 +54,7 @@ const WalletSection = ({
   const PercentualInfos = () => {
     const fundsCategories: IFundCategories = {}
 
-    funds.forEach((fund: IFund) => {
+    funds.forEach((fund: IFunds) => {
       if (fund.arena_category in fundsCategories) {
         fundsCategories[fund.arena_category] +=
           fund.initial_value + fund.monthly_value
@@ -159,7 +153,7 @@ const WalletSection = ({
       </Modal>
 
       <Col
-        lg={combo.length > 1 ? 8 : 12}
+        lg={creditProduct ? 8 : 12}
         css={`
           margin-bottom: ${isMobile ? '14px' : '0px'};
         `}
@@ -185,7 +179,7 @@ const WalletSection = ({
         )}
       </Col>
 
-      {creditProduct && combo.length > 1 && (
+      {creditProduct && (
         <>
           <Col lg={1}>
             <Row

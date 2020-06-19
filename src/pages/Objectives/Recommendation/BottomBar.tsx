@@ -11,34 +11,16 @@ import {
   GetOtherGoalsDataRequest,
   PostObjectiveManagementDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
+import { IRecommendations } from 'store/modules/Objective/types'
 
-import {
-  IAnswer,
-  IFund,
-  IFundTotalIncome,
-  IAdditional,
-  ICreditProducts,
-} from './types'
 import { ButtonBar, SectionBar } from './styles'
 
 interface IProps {
-  recommendationData: {
-    id: number
-    additional: IAdditional
-    answer: IAnswer
-    credit_product: ICreditProducts
-    funds: IFund[]
-    fund_total_income: IFundTotalIncome
-  }
-  isDrawerOpen?: boolean
-  setIsDrawerOpen?: (newState?: boolean) => void
+  recommendationData: IRecommendations
+  openDrawer: () => void
 }
 
-const BottomBar = ({
-  recommendationData,
-  isDrawerOpen = false,
-  setIsDrawerOpen = () => {},
-}: IProps) => {
+const BottomBar = ({ recommendationData, openDrawer }: IProps) => {
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -104,7 +86,7 @@ const BottomBar = ({
               data-gtm-type="click"
               data-gtm-clicktype="button"
               color="primary"
-              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+              onClick={openDrawer}
             >
               Editar objetivo
             </ButtonBar>

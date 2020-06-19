@@ -7,12 +7,12 @@ import { dict } from 'components/IconExporter'
 import Text from 'components/Text'
 import { dataLayerProductSuggestion } from 'GoogleTagManager'
 
-import { IAdditional } from 'pages/Objectives/Recommendation/types'
 import {
   Column,
   GridRow,
   ButtonContainer,
 } from 'pages/Objectives/Recommendation/styles'
+import { IAdditional } from 'store/modules/Objective/types'
 
 import products, { TAdditionalKey } from './productBannerData'
 import ModalContent from './ModalContent'

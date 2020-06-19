@@ -12,12 +12,9 @@ import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
 
 import { PostObjectiveDataRequestBySimulate } from 'store/modules/Objective/action'
-
-import { IAnswer, ISuggestion } from 'pages/Objectives/Recommendation/types'
+import { IAnswer, ISuggestion } from 'store/modules/Objective/types'
 
 import * as s from './styles'
-
-interface IState {}
 
 interface IUnmetGoalCard {
   cardTitle: string

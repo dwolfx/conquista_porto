@@ -1,5 +1,5 @@
 {
-  "id": "608",
+  "id": "626",
   "answer": {
     "nickname": "Viagem",
     "target_date": "06/06/2021",
@@ -9,7 +9,7 @@
     "uf": "SP",
     "is_easy_to_save_planned_amount": false,
     "is_target_date_flexible": false,
-    "would_like_to_receive_before_final_date": false,
+    "would_like_to_receive_before_final_date": true,
     "would_like_to_receive_monthly_income": false,
     "goal_type": 1,
     "profile": 4
@@ -113,12 +113,6 @@
       "annual_rate": 4.5
     }
   ],
-  "credit_product": {
-    "name": "Financiamento de Veículo",
-    "values": [
-      { "name": "Valor a Contratar", "value": "R$ 66.068,32", "checked": false }
-    ]
-  },
   "additional": {
     "travel_security": true,
     "life_security": false,

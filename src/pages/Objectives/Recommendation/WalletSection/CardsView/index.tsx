@@ -9,13 +9,13 @@ import { formatMoney } from 'helpers'
 
 import { FullHeightCard } from 'pages/Objectives/Recommendation/styles'
 import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
-import { IFund } from 'pages/Objectives/Recommendation/types'
+import { IFunds } from 'store/modules/Objective/types'
 
 interface IProps {
   cardHeader: React.JSXElementConstructor<object>
   cardInfos: React.JSXElementConstructor<object>
-  funds: IFund[]
-  handleOpenDetails: (fund: IFund) => void
+  funds: IFunds[]
+  handleOpenDetails: (fund: IFunds) => void
   totalInitialInvestment: number
   totalMontlyInvestment: number
 }
@@ -31,7 +31,7 @@ const CardsView = ({
   const theme = useContext(ThemeContext)
 
   const renderFundsCards = () =>
-    funds.map((fund: IFund) => (
+    funds.map((fund: IFunds) => (
       <FullHeightCard
         headerTitle={fund.name}
         footer={
