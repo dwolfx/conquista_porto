@@ -6,7 +6,11 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import styled from 'styled-components'
 
-export default Slider
+export const SliderCustomizable = styled(Slider)`
+  .slick-track {
+    float: left;
+  }
+`
 
 export const ForwardIcon = styled(forward)`
   height: 16px;

@@ -1,7 +1,12 @@
 import React from 'react'
 import { Settings } from 'react-slick'
 
-import Slider, { ChangePageButton, ForwardIcon, BackwardIcon } from './styles'
+import {
+  ChangePageButton,
+  ForwardIcon,
+  BackwardIcon,
+  SliderCustomizable,
+} from './styles'
 
 export const NextArrow = () => {
   return (
@@ -35,12 +40,10 @@ interface IProps {
 
 const Carousel: React.FC<IProps> = ({ children, settings = {}, ...rest }) => {
   const sliderSettings = { ...defaultSettings, ...settings }
-  // let sliderRef: Slider
-  // sliderRef.+
   return (
-    <Slider {...rest} {...sliderSettings}>
+    <SliderCustomizable {...rest} {...sliderSettings}>
       {children}
-    </Slider>
+    </SliderCustomizable>
   )
 }
 

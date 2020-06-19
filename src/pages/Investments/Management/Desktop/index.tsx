@@ -7,7 +7,7 @@ import ChartPosition from './ChartPosition'
 import InvestorAccount from './InvestorAccount'
 import InvestedFundsList from './InvestedFundsList'
 import { RowContent, LeftContent, MainContent } from './styles'
-import { TFundsLayout } from '../filters'
+import { TFundsLayout } from '../types'
 import LastTransations from './LastTransactions'
 
 export interface IModalProps {

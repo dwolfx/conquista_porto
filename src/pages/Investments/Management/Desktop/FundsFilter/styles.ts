@@ -3,6 +3,7 @@ import ButtonTag from 'components/Button/Tag'
 import ButtonLink from 'components/Button/Link'
 import IconList from 'assets/icons/list.svg'
 import IconGrid from 'assets/icons/grid.svg'
+import { TFundsLayout } from 'pages/Investments/Management/types'
 
 export const RowContent = styled.div`
   margin: 0 0 14px 0;
@@ -16,9 +17,19 @@ export const LeftContent = styled.div`
   display: flex;
   align-items: center;
 `
-export const RightContent = styled.div`
+interface IRightContentProps {
+  viewMode: TFundsLayout
+}
+export const RightContent = styled.div<IRightContentProps>`
   display: flex;
+  margin-right: ${({ theme }) => theme.spacing(16)}px;
   align-items: center;
+
+  ${({ viewMode }) => {
+    if (viewMode === 'LIST') {
+      return `margin: 0;`
+    }
+  }}
 `
 
 export const ButtonTagStyled = styled(ButtonTag)`
