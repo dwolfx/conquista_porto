@@ -1,10 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Settings } from 'react-slick'
 
 import Slider, { ChangePageButton, ForwardIcon, BackwardIcon } from './styles'
 
-export function NextArrow() {
+export const NextArrow = () => {
   return (
     <ChangePageButton>
       <ForwardIcon />
@@ -12,7 +11,7 @@ export function NextArrow() {
   )
 }
 
-export function PreviousArrow() {
+export const PreviousArrow = () => {
   return (
     <ChangePageButton>
       <BackwardIcon />
@@ -20,7 +19,7 @@ export function PreviousArrow() {
   )
 }
 
-export const defaultSettings = {
+export const defaultSettings: Settings = {
   dots: true,
   infinite: true,
   speed: 500,
@@ -30,20 +29,19 @@ export const defaultSettings = {
   prevArrow: PreviousArrow(),
 }
 
-export default function Carousel({ children, settings, ...props }) {
+interface IProps {
+  settings: Settings
+}
+
+const Carousel: React.FC<IProps> = ({ children, settings = {}, ...rest }) => {
   const sliderSettings = { ...defaultSettings, ...settings }
+  // let sliderRef: Slider
+  // sliderRef.+
   return (
-    <Slider {...props} {...sliderSettings}>
+    <Slider {...rest} {...sliderSettings}>
       {children}
     </Slider>
   )
 }
 
-Carousel.defaultProps = {
-  settings: {},
-}
-
-Carousel.propTypes = {
-  children: PropTypes.node.isRequired,
-  settings: PropTypes.shape(Settings),
-}
+export default Carousel
