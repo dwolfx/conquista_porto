@@ -20,6 +20,7 @@ import WalletSection from './WalletSection'
 import ProductBannerSection from './ProductBanner'
 import SuggestionBanner from './SuggestionBanner'
 import RecommendationMessage from './RecommendationMessage'
+import InformativeHeader from './InformativeHeader'
 import CardEstimatedResults from './CardEstimatedResults'
 
 import * as s from './styles'
@@ -115,9 +116,14 @@ const Recommendation = ({ data, totalSteps }: IProps) => {
             suggestion_goal={suggestion_goal}
           />
 
+          <InformativeHeader answer={answer} />
+
           <RecommendationMessage suggestion_goal={suggestion_goal} />
 
-          <CardEstimatedResults answer={answer} income={income} />
+          <CardEstimatedResults
+            answerTargetValue={answer.target_value}
+            income={income}
+          />
 
           <WalletSection
             funds={funds}

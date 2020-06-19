@@ -30,12 +30,11 @@ export const RecommendationText = styled.div<IRecommendationText>`
 
   margin: ${({ theme }) => theme.spacing(4)}px 0;
 
-  width: ${({ hasSuggestionGoal, theme }) =>
-    hasSuggestionGoal ? `${theme.spacing(61)}px` : `100%`};
+  width: ${({ hasSuggestionGoal }) => (hasSuggestionGoal ? `427px` : `100%`)};
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
-    width: ${({ hasSuggestionGoal, theme }) =>
-      hasSuggestionGoal ? `${theme.spacing(47)}px` : `${theme.spacing(36)}px`};
+    width: ${({ hasSuggestionGoal }) =>
+      hasSuggestionGoal ? `329px` : `259px`};
     flex-direction: column;
   }
 `
