@@ -151,14 +151,19 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
               </>,
             ]}
           />
-          <ButtonBlock
-            outline
-            color="primary"
-            data-testid="button-draw"
-            onClick={handleClickWithdrawButton}
-          >
-            RETIRAR
-          </ButtonBlock>
+          {Number(
+            bankData.DadosContaPortoSeguro &&
+              bankData.DadosContaPortoSeguro.saldo_disponivel
+          ) > 0 && (
+            <ButtonBlock
+              outline
+              color="primary"
+              data-testid="button-draw"
+              onClick={handleClickWithdrawButton}
+            >
+              retirar
+            </ButtonBlock>
+          )}
           {renderExtractLink('saldo')}
         </InfoContainer>
         <Divisor />
