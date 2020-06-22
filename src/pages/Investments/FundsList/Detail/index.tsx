@@ -1,14 +1,17 @@
 import React from 'react'
 import 'styled-components/macro'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Loading from 'components/Loading'
 import Button from 'components/Button'
 import Text from 'components/Text'
 
-import { useSelector, useDispatch } from 'react-redux'
-
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+
+import TabProfitability from './TabProfitability'
+import TabMoreInfo from './TabMoreInfo'
+import TabDetails from './TabDetails'
 
 import {
   ButtonSubmit,
@@ -16,10 +19,8 @@ import {
   LockFundWrapper,
   LockIcon,
   DrawerDetail,
-} from './styled'
-import TabProfitability from './TabProfitability'
-import TabMoreInfo from './TabMoreInfo'
-import TabDetails from './TabDetails'
+  CloseButton,
+} from './styles'
 
 interface DetailProps {
   isOpen?: boolean
@@ -110,9 +111,31 @@ const Detail: React.FC<DetailProps> = ({
     </Tabs>
   )
 
+  const headerTitle = () => (
+    <>
+      <div>
+        <Text type="heading4" color="gray6" bold>
+          {isLoading ? '' : fundDetails.apelido}
+        </Text>
+        <Text type="body" color="gray4" bold>
+          {fundDetails.categoria === 'Renda Variável'
+            ? 'Ações'
+            : fundDetails.categoria}
+        </Text>
+      </div>
+      <CloseButton
+        data-gtm-subname={`menu ${fundDetails.apelido}`}
+        data-gtm-name="botao fechar"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        onClick={handleClose}
+      />
+    </>
+  )
+
   return (
     <DrawerDetail
-      drawerTitle={isLoading ? '' : fundDetails.apelido}
+      header={headerTitle()}
       isOpen={isOpen}
       isLoading={isLoading}
       handleClose={handleClose}
