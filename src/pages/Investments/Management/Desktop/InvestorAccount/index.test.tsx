@@ -58,6 +58,31 @@ describe('Investor Account', () => {
       )
       expect(getByTestId('info-settle-ballance')).toBeDefined()
     })
+    test('It does not display the "Retirar" button when there is no available amount', () => {
+      const store = storeFactory({
+        bankData: {
+          isLoading: false,
+          hasError: false,
+          data: {
+            DadosContaPortoSeguro: {
+              saldo_liquidar: '0',
+              saldo_disponivel: '0',
+            },
+          },
+        },
+      })
+      const { queryByText } = render(
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <MemoryRouter>
+              <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+            </MemoryRouter>
+          </ThemeProvider>
+        </Provider>
+      )
+
+      expect(queryByText(/retirar/gi)).not.toBeInTheDocument()
+    })
   })
   describe('Error scenario', () => {
     test('It shows total ballance message error', () => {
