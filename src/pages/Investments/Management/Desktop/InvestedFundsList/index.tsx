@@ -1,27 +1,17 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
-import { Settings } from 'react-slick'
+import 'styled-components/macro'
 
-import VerticalList from 'components/VerticalList'
-import Text from 'components/Text'
-import Carousel from 'components/Carousel'
-
-import { SetIdFund } from 'store/modules/Investment/Position/action'
-
-import { TFundsLayout } from '../../filters'
-import FundsFilter from '../FundsFilter'
-
+import FundsFilter from 'pages/Investments/Management/Desktop/FundsFilter'
+import { TFundsLayout } from 'pages/Investments/Management/types'
 import {
-  Container,
-  CardStyled,
-  FundItem,
-  HorizontalListStyled,
-  ButtonStyled,
-  Chip,
-  ButtonVertical,
-} from './styles'
+  SetIdFund,
+  GetPositionDataRequest,
+} from 'store/modules/Investment/Position/action'
+
+import FundsCarousel from './FundsCarousel'
+import FundsList from './FundsList'
+import { ContainerCard, LoadingStyled, ErrorText, ButtonStyled } from './styles'
 
 interface IProps {
   filters: any
@@ -31,62 +21,6 @@ interface IProps {
   onHandleChangeView: (newStateLayout: TFundsLayout) => void
   onHandleChangeFilter: (newStateFilters: string[]) => void
 }
-
-export const customSettings: Settings = {
-  dots: false,
-  arrows: false,
-  variableWidth: true,
-  infinite: false,
-  swipeToSlide: false,
-  speed: 500,
-  className: 'spacing-card',
-  slidesToShow: 3,
-  slidesToScroll: 1,
-}
-
-const CustomSlides = ({
-  fund,
-  selectedFund,
-  onChangeSelectedFund,
-  ...rest
-}: {
-  fund: any
-  selectedFund: string
-  onChangeSelectedFund: (id: string) => void
-}) => {
-  return (
-    <Chip
-      onClick={() => onChangeSelectedFund(fund.id_carteira)}
-      selected={selectedFund === fund.id_carteira}
-    >
-      <VerticalList
-        elements={[
-          <Text type="captionUppercase" bold color="gray6">
-            {fund.categoria_arena}
-          </Text>,
-          <Text
-            type="caption"
-            bold
-            color={selectedFund === fund.id_carteira ? 'blue4' : 'gray5'}
-          >
-            {fund.apelido}
-          </Text>,
-        ]}
-        css={`
-          padding: 0;
-        `}
-      />
-      <Text
-        type="body"
-        bold
-        color={selectedFund === fund.id_carteira ? 'gray6' : 'gray5'}
-      >
-        R$ 96.52
-      </Text>
-    </Chip>
-  )
-}
-
 const InvestedFundsList = ({
   filters,
   filteredFunds,
@@ -95,93 +29,78 @@ const InvestedFundsList = ({
   onHandleChangeView,
   onHandleChangeFilter,
 }: IProps) => {
-  const history = useHistory()
-  const { idFund } = useSelector((state: any) => ({
-    idFund: state.investmentPosition.idFund,
-  }))
   const dispatch = useDispatch()
+  const { idFund, displayInformation, hasError, isLoading, auth } = useSelector(
+    (state: any) => ({
+      idFund: state.investmentPosition.idFund,
+      displayInformation: state.investmentPosition.displayInformation,
+      hasError: state.investmentPosition.hasError,
+      isLoading: state.investmentPosition.isLoading,
+      auth: state.auth,
+    })
+  )
 
   const onHandleChangeIdFund = (idFund: string) => {
     dispatch(SetIdFund(idFund))
   }
 
-  return (
-    <Container>
-      <FundsFilter
-        filters={filters}
-        viewMode={viewMode}
-        isNextPriorButtonsVisible={isNextPriorButtonsVisible}
-        onHandleChangeView={onHandleChangeView}
-        onHandleChangeFilter={onHandleChangeFilter}
-      />
-      {viewMode === 'CARDS' ? (
-        <Carousel settings={customSettings}>
-          <ButtonVertical
-            color="primary"
-            icon="add"
-            onClick={() => history.push('/investimentos/lista-fundos')}
+  const renderContent = () => {
+    if (isLoading) {
+      return (
+        <ContainerCard>
+          <LoadingStyled
+            data-testid="loading-account-info"
+            type="bar"
+            legend="Aguarde, estamos buscando suas informações..."
           />
-          {filteredFunds.map((fund: any) => (
-            <CustomSlides
-              key={`fund-chip-${fund.id_carteira}`}
-              fund={fund}
-              selectedFund={idFund}
-              onChangeSelectedFund={() =>
-                onHandleChangeIdFund(fund.id_carteira)
-              }
-            />
-          ))}
-        </Carousel>
-      ) : (
-        <CardStyled
-          footer={
-            <ButtonStyled
-              color="primary"
-              onClick={() => history.push('/investimentos/lista-fundos')}
-            >
-              Adicionar fundo
-            </ButtonStyled>
-          }
-        >
-          {filteredFunds.map((fund: any) => (
-            <FundItem
-              key={`fund-${fund.id_carteira}`}
-              selected={idFund === fund.id_carteira}
-              onClick={() => onHandleChangeIdFund(fund.id_carteira)}
-            >
-              <HorizontalListStyled
-                startItems={[
-                  <VerticalList
-                    elements={[
-                      <Text type="captionUppercase" bold color="gray6">
-                        {fund.categoria_arena}
-                      </Text>,
-                      <Text
-                        type="body"
-                        bold
-                        color={idFund === fund.id_carteira ? 'blue4' : 'gray5'}
-                      >
-                        {fund.apelido}
-                      </Text>,
-                    ]}
-                  />,
-                ]}
-                endItems={[
-                  <Text
-                    type="body"
-                    bold
-                    color={idFund === fund.id_carteira ? 'gray6' : 'gray5'}
-                  >
-                    R$ 96.52
-                  </Text>,
-                ]}
-              />
-            </FundItem>
-          ))}
-        </CardStyled>
-      )}
-    </Container>
-  )
+        </ContainerCard>
+      )
+    }
+
+    if (hasError) {
+      return (
+        <ContainerCard>
+          <ErrorText>Não foi possível carregar a suas informações.</ErrorText>
+          <ButtonStyled
+            onClick={() => dispatch(GetPositionDataRequest(auth.cpf))}
+            loading={isLoading}
+            loadingColor="white"
+          >
+            Tentar novamente
+          </ButtonStyled>
+        </ContainerCard>
+      )
+    }
+
+    return (
+      <>
+        <FundsFilter
+          filters={filters}
+          viewMode={viewMode}
+          isNextPriorButtonsVisible={isNextPriorButtonsVisible}
+          onHandleChangeView={onHandleChangeView}
+          onHandleChangeFilter={onHandleChangeFilter}
+        />
+        {viewMode === 'CARDS' ? (
+          <FundsCarousel
+            displayInformation={displayInformation}
+            idFund={idFund}
+            onHandleChangeIdFund={onHandleChangeIdFund}
+            filteredFunds={filteredFunds}
+          />
+        ) : (
+          <FundsList
+            displayInformation={displayInformation}
+            idFund={idFund}
+            onHandleChangeIdFund={onHandleChangeIdFund}
+            filteredFunds={filteredFunds}
+          />
+        )}
+      </>
+    )
+  }
+
+  return renderContent()
 }
 
 export default InvestedFundsList

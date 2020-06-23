@@ -6,7 +6,7 @@ import DesktopComponent from './Desktop'
 import MobileComponent from './Mobile'
 import TabletComponent from './Tablet'
 import Anbima from 'components/Anbima'
-import { TFundsLayout } from './filters'
+import { TFundsLayout } from './types'
 import { GridContainer } from './styles'
 
 const ManagementInvestments: React.FC = ({ ...rest }) => {
@@ -18,7 +18,6 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   useFetchPosition()
 
   const filteredInvestedFunds = useFilter(filters)
-
   const handleChangeFundsView = (layoutCheanged: TFundsLayout) => {
     setViewMode(layoutCheanged)
   }

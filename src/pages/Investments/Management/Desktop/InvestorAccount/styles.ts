@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
+import Button from 'components/Button'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import VerticalList from 'components/VerticalList'
-import Button from 'components/Button'
 import HorizontalList from 'components/HorizontalList'
 import Card from 'components/Card'
 import { CardBody } from 'components/Card/styles'

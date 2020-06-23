@@ -1,19 +1,18 @@
 import React from 'react'
-import { TFundsLayout } from '../../filters'
-import IconFilter from 'components/Button/Icon'
-
+import {
+  TFundsLayout,
+  FUNDS_FILTER_TYPES,
+} from 'pages/Investments/Management/types'
 import {
   LeftContent,
   RightContent,
   RowContent,
   ButtonTagStyled,
   ButtonClear,
-  PriorNextFundsButtons,
   ButtonLayoutGrid,
   ButtonLayoutList,
 } from './styles'
 
-import { FUNDS_FILTER_TYPES } from '../../filters'
 interface IProps {
   filters: any
   viewMode: TFundsLayout
@@ -25,7 +24,6 @@ interface IProps {
 const FundsFilter: React.FC<IProps> = ({
   filters,
   viewMode,
-  isNextPriorButtonsVisible,
   onHandleChangeView,
   onHandleChangeFilter,
 }) => {
@@ -87,7 +85,7 @@ const FundsFilter: React.FC<IProps> = ({
           limpar filtros
         </ButtonClear>
       </LeftContent>
-      <RightContent>
+      <RightContent viewMode={viewMode}>
         <ButtonLayoutGrid
           data-gtm-subname="fundos filtros"
           data-gtm-name="botao fundos layout cards"
@@ -104,22 +102,6 @@ const FundsFilter: React.FC<IProps> = ({
           backgroundcolor={viewMode === 'LIST' ? 'primary' : 'secondary'}
           onClick={() => onHandleChangeView('LIST')}
         />
-        {isNextPriorButtonsVisible && (
-          <PriorNextFundsButtons>
-            <IconFilter
-              icon="arrowleft"
-              size="small"
-              isLoading={false}
-              onClick={() => {}}
-            />
-            <IconFilter
-              icon="arrowright"
-              size="small"
-              isLoading={false}
-              onClick={() => {}}
-            />
-          </PriorNextFundsButtons>
-        )}
       </RightContent>
     </RowContent>
   )
