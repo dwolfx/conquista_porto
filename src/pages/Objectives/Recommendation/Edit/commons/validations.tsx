@@ -14,6 +14,14 @@ export const ValidateNickname = (value: string) => {
   return [false, errorMessage]
 }
 
+export const ValidateTargetValue = (value: number) => {
+  if (value >= 1000) {
+    return [true]
+  }
+
+  return [false, 'Mínimo de R$ 1.000,00']
+}
+
 export const ValidateInitialInvestment = (value: number) => {
   if (value >= 1000) {
     return [true]
@@ -53,5 +61,8 @@ export const ValidateTargetDate = (value: string) => {
   }
 
   const isValid = minDate(value, 180) && maxDate(value, 100)
-  return isValid ? [true] : [false, 'Mínimo de 6 meses']
+  const textValidation = !minDate(value, 180)
+    ? 'Mínimo de 6 meses'
+    : 'Máximo de 100 anos'
+  return isValid ? [true] : [false, textValidation]
 }

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container, Row, Col } from 'styled-bootstrap-grid'
+import { Container, Row } from 'styled-bootstrap-grid'
 
 import { formatMoney } from 'helpers'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
@@ -17,10 +17,9 @@ import { ButtonBar, SectionBar } from './styles'
 
 interface IProps {
   recommendationData: IRecommendations
-  openDrawer: () => void
 }
 
-const BottomBar = ({ recommendationData, openDrawer }: IProps) => {
+const BottomBar = ({ recommendationData }: IProps) => {
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -78,31 +77,19 @@ const BottomBar = ({ recommendationData, openDrawer }: IProps) => {
   return (
     <SectionBar>
       <Container>
-        <Row justifyContent="end">
-          <Col xlAuto lgAuto mdAuto smAuto>
-            <ButtonBar
-              data-gtm-subname="barra inferior"
-              data-gtm-name="editar objetivo"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              color="primary"
-              onClick={openDrawer}
-            >
-              Editar objetivo
-            </ButtonBar>
-            <ButtonBar
-              data-gtm-subname="barra inferior"
-              data-gtm-name="continuar"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              color="secondary"
-              onClick={submitToManagement}
-              loading={isLoading && buttonConfirmClicked}
-              disabled={isLoading && buttonConfirmClicked}
-            >
-              Continuar
-            </ButtonBar>
-          </Col>
+        <Row justifyContent="end" alignItems="center">
+          <ButtonBar
+            data-gtm-subname="barra inferior"
+            data-gtm-name="próximo"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            color="secondary"
+            onClick={submitToManagement}
+            loading={isLoading && buttonConfirmClicked}
+            disabled={isLoading && buttonConfirmClicked}
+          >
+            Próximo
+          </ButtonBar>
         </Row>
       </Container>
     </SectionBar>

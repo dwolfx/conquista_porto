@@ -12,9 +12,12 @@ import { IData } from './GoalStreams/types'
 import { Container, RegistrationWrapper, BoartTitle } from './styles'
 
 const Objectives = () => {
-  const [totalSteps, setTotalSteps] = useState(0)
   const match = useRouteMatch()
   const history = useHistory()
+
+  const [totalSteps, setTotalSteps] = useState(0)
+  const [isEditingRecommendation, setIsEditingRecommendation] = useState(false)
+
   const { data: objectiveData } = useSelector<any, any>(
     state => state.objective
   )
@@ -41,9 +44,13 @@ const Objectives = () => {
         <Container>
           <Header
             onClose={() => {
-              history.push('/')
-              document.documentElement.scrollTop = 0
-              document.body.scrollTop = 0
+              if (isEditingRecommendation) {
+                setIsEditingRecommendation(false)
+              } else {
+                history.push('/')
+                document.documentElement.scrollTop = 0
+                document.body.scrollTop = 0
+              }
             }}
           />
           {dontHaveRecommendation ? (
@@ -52,7 +59,12 @@ const Objectives = () => {
               <Board />
             </RegistrationWrapper>
           ) : (
-            <Recommendation data={objectiveData} totalSteps={totalSteps + 1} />
+            <Recommendation
+              data={objectiveData}
+              totalSteps={totalSteps + 1}
+              isEditing={isEditingRecommendation}
+              setIsEditing={setIsEditingRecommendation}
+            />
           )}
         </Container>
       </Route>

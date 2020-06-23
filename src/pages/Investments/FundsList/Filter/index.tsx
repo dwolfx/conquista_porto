@@ -276,7 +276,7 @@ const Filter: React.FC<IProps> = ({
                   onClearFilter()
                 }
               }}
-              dataTestId="clear-filter"
+              data-testid="clear-filter"
             >
               limpar filtros
             </ButtonLink>

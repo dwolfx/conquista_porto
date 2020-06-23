@@ -3,7 +3,7 @@ import React from 'react'
 import { Col, Row } from 'styled-bootstrap-grid'
 import AccordionNew from 'components/AccordionNew'
 import VerticalList from 'components/VerticalList'
-// import ButtonLink from 'components/Button/Link'
+import ButtonLink from 'components/Button/Link'
 
 import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
@@ -20,9 +20,14 @@ interface IAnswer {
 
 interface IInformativeHeader {
   answer: IAnswer
+  openEdit: () => void
 }
 
-const InformativeHeader = ({ answer, ...rest }: IInformativeHeader) => {
+const InformativeHeader = ({
+  answer,
+  openEdit,
+  ...rest
+}: IInformativeHeader) => {
   const isVerticalTablet = useMedia('md')
   const isMobile = useMedia('sm')
 
@@ -30,16 +35,16 @@ const InformativeHeader = ({ answer, ...rest }: IInformativeHeader) => {
     <s.ObjectiveName data-testid="header-title">
       {answer.nickname}
     </s.ObjectiveName>,
-    // <ButtonLink
-    //   data-gtm-type="click"
-    //   data-gtm-clicktype="link"
-    //   data-gtm-name="Editar objetivo"
-    //   noIcon={false}
-    //   noIconPadding
-    //   onClick={() => {}}
-    // >
-    //   Editar objetivo
-    // </ButtonLink>,
+    <ButtonLink
+      data-gtm-type="click"
+      data-gtm-clicktype="link"
+      data-gtm-name="Editar objetivo"
+      noIcon={false}
+      noIconPadding
+      onClick={openEdit}
+    >
+      Editar objetivo
+    </ButtonLink>,
   ]
 
   const targetDate = [

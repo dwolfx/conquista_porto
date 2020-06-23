@@ -25,9 +25,9 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
         </Text>
         <s.InlineContentText>
           <s.Popover content={fundosTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
+            <s.DashedText type="headline" color="gray6">
               fundos
-            </s.TextUnderlined>
+            </s.DashedText>
           </s.Popover>
           <s.Popover
             content={fundosTooltipText}
@@ -49,9 +49,9 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
           Os investimentos inicial e mensal serão distribuídos nestes
           <s.InlineContentText>
             <s.Popover content={fundosTooltipText}>
-              <s.TextUnderlined type="headline" color="gray6">
+              <s.DashedText type="headline" color="gray6">
                 fundos
-              </s.TextUnderlined>
+              </s.DashedText>
             </s.Popover>
             <s.Popover
               content={fundosTooltipText}
@@ -65,9 +65,9 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
           e poderão ser utilizados como
           <s.InlineContentText>
             <s.Popover content={lanceTooltipText}>
-              <s.TextUnderlined type="headline" color="gray6">
+              <s.DashedText type="headline" color="gray6">
                 lance
-              </s.TextUnderlined>
+              </s.DashedText>
             </s.Popover>
             <s.Popover
               content={lanceTooltipText}
@@ -89,9 +89,9 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
         </Text>
         <s.InlineContentText>
           <s.Popover content={fundosTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
+            <s.DashedText type="headline" color="gray6">
               fundos
-            </s.TextUnderlined>
+            </s.DashedText>
           </s.Popover>
           <s.Popover
             content={fundosTooltipText}
@@ -107,9 +107,9 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
         </Text>
         <s.InlineContentText>
           <s.Popover content={lanceTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
+            <s.DashedText type="headline" color="gray6">
               lance
-            </s.TextUnderlined>
+            </s.DashedText>
           </s.Popover>
           <s.Popover
             content={lanceTooltipText}
@@ -132,9 +132,9 @@ export default ({ isUnmetGoal = false, productName = '' }: IProps) => {
         </Text>
         <s.InlineContentText>
           <s.Popover content={fundosTooltipText}>
-            <s.TextUnderlined type="headline" color="gray6">
+            <s.DashedText type="headline" color="gray6">
               fundos.
-            </s.TextUnderlined>
+            </s.DashedText>
           </s.Popover>
           <s.Popover
             content={fundosTooltipText}

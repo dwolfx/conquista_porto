@@ -3,7 +3,6 @@ import { Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
-import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
@@ -16,6 +15,8 @@ import CardsView from './CardsView'
 import TableView from './TableView'
 import TableLabel from './TableView/Label'
 import CardCreditProduct from './CardCreditProduct'
+import DetailModal from 'pages/Objectives/Recommendation/WalletSection/DetailModal'
+import Detail from 'pages/Objectives/Recommendation/WalletSection/Detail'
 
 import * as s from './styles'
 
@@ -35,20 +36,18 @@ const WalletSection = ({
   isUnmetGoal = false,
 }: IProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [initialReset, setInitialReset] = useState(true)
   const [fundDetails, setFundDetails] = useState<IFunds | undefined>(undefined)
-  const isMobile = useMedia('sm')
+  const isVerticalTablet = useMedia('sm')
+  const isMobile = useMedia('xs')
 
   const handleOpenDetails = (fund: IFunds) => {
     setFundDetails(fund)
     setIsModalOpen(true)
-    setInitialReset(false)
   }
 
   const handleCloseDetails = () => {
     setFundDetails(undefined)
     setIsModalOpen(false)
-    setInitialReset(true)
   }
 
   const PercentualInfos = () => {
@@ -123,7 +122,7 @@ const WalletSection = ({
           <PercentualInfos />
         </Col>
 
-        {!isMobile ? (
+        {!isVerticalTablet ? (
           <Col lg={6} md={5} sm={7}>
             <TableLabel />
           </Col>
@@ -143,22 +142,29 @@ const WalletSection = ({
 
   return (
     <GridRow>
-      <Modal
-        modalTitle={fundDetails && fundDetails.name}
-        alignItems="flex-start"
-        isOpen={isModalOpen}
-        handleClose={() => handleCloseDetails()}
-      >
-        <s.ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
-      </Modal>
+      {fundDetails ? (
+        isMobile ? (
+          <DetailModal
+            fundDetails={fundDetails}
+            isOpen={isModalOpen}
+            handleClose={() => handleCloseDetails()}
+          />
+        ) : (
+          <Detail
+            fundDetails={fundDetails}
+            isOpen={isModalOpen}
+            handleClose={() => handleCloseDetails()}
+          />
+        )
+      ) : null}
 
       <Col
         lg={creditProduct ? 8 : 12}
         css={`
-          margin-bottom: ${isMobile ? '14px' : '0px'};
+          margin-bottom: ${isVerticalTablet ? '14px' : '0px'};
         `}
       >
-        {isMobile ? (
+        {isVerticalTablet ? (
           <CardsView
             cardHeader={cardHeader}
             cardInfos={cardInfos}

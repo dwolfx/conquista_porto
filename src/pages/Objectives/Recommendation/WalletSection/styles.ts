@@ -3,7 +3,6 @@ import { Row } from 'styled-bootstrap-grid'
 
 import PopoverComp from 'components/Popover'
 import Text from 'components/Text'
-import ModalFundosCmp from './ModalFundos'
 import { fundRiskColors } from 'styles/theme'
 
 const riskColorsMap = {
@@ -92,8 +91,6 @@ export const TextUnderlined = styled(Text)`
   text-decoration: underline;
 `
 
-export const ModalFundos = styled(ModalFundosCmp)``
-
 export const LabelRow = styled(Row)`
   margin-bottom: ${({ theme }) => theme.spacing(2.5)}px;
   margin-top: ${({ theme }) => theme.spacing(6)}px;
@@ -113,4 +110,10 @@ export const IconContainer = styled.div`
     margin-bottom: ${({ theme }) => theme.spacing(2)}px;
     margin-top: ${({ theme }) => theme.spacing(0)}px;
   }
+`
+
+export const DashedText = styled(Text)`
+  display: inline;
+  border-bottom: 1px dashed ${({ theme }) => theme.colors.gray4};
+  margin-right: ${({ theme }) => theme.spacing(1)}px;
 `

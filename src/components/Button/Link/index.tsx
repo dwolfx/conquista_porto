@@ -7,25 +7,18 @@ interface IProps {
   noIcon?: boolean
   noIconPadding?: boolean
   disabled?: boolean
-  onClick: () => void
-  dataTestId?: string
 }
 
-const ButtonLink: React.FC<IProps> = ({
+const ButtonLink: React.FC<IProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   children,
   noIcon = false,
   noIconPadding = false,
   disabled = false,
-  onClick,
   ...rest
 }) => {
   return (
-    <Link
-      disabled={disabled}
-      noIconPadding={noIconPadding}
-      onClick={onClick}
-      {...rest}
-    >
+    <Link disabled={disabled} noIconPadding={noIconPadding} {...rest}>
       {children}
       {!noIcon && <Icon name="arrowright" />}
     </Link>

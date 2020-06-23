@@ -7,31 +7,35 @@ import UnsavedChangedPrompt from 'components/Modal/Prompt'
 
 import TopBar from 'pages/Objectives/GoalStreams/Components/TopBar'
 
-import {
-  CleanObjectiveData,
-  PostObjectiveDataRequest,
-} from 'store/modules/Objective/action'
+import { CleanObjectiveData } from 'store/modules/Objective/action'
 import { IRecommendations, IAnswer } from 'store/modules/Objective/types'
 import { CleanObjectiveManagementData } from 'store/modules/ObjectiveManagement/action'
 
+import EditSuggestion from './Edit/Suggestion'
 import EditDrawer from './Edit/Drawer'
 import BottomBar from './BottomBar'
 import WalletSection from './WalletSection'
 import ProductBannerSection from './ProductBanner'
-import SuggestionBanner from './SuggestionBanner'
-import InformativeHeader from './InformativeHeader'
 import RecommendationMessage from './RecommendationMessage'
 import SuggestedPlanDetail from './SuggestedPlanDetail'
 import CardEstimatedResults from './CardEstimatedResults'
+import InformativeHeader from './InformativeHeader'
 
 import * as s from './styles'
 
 interface IProps {
   data: IRecommendations
   totalSteps: number
+  isEditing: boolean
+  setIsEditing: (state: boolean) => void
 }
 
-const Recommendation = ({ data, totalSteps }: IProps) => {
+const Recommendation = ({
+  data,
+  totalSteps,
+  isEditing,
+  setIsEditing,
+}: IProps) => {
   const {
     answer,
     income,
@@ -81,17 +85,22 @@ const Recommendation = ({ data, totalSteps }: IProps) => {
     })
   }, [answer, suitabilityData])
 
-  const submitToRecommendation = () => {
-    dispatch(
-      PostObjectiveDataRequest({
-        data: {
-          ...formData,
-          initial_value: formData!.initial_value,
-          monthly_value: formData!.monthly_value,
-          target_value: formData!.target_value,
-        },
-        onSuccess: () => setIsDrawerOpen(false),
-      })
+  if (isEditing && suggestion_goal) {
+    return (
+      <s.GridRecommendation>
+        <TopBar
+          nickname={answer.nickname}
+          currentStep={totalSteps}
+          numberSteps={totalSteps}
+        />
+        <EditSuggestion
+          answer={answer}
+          formData={formData}
+          setFormData={setFormData}
+          suggestionData={suggestion_goal}
+          onClose={() => setIsEditing(false)}
+        />
+      </s.GridRecommendation>
     )
   }
 
@@ -100,7 +109,6 @@ const Recommendation = ({ data, totalSteps }: IProps) => {
       <EditDrawer
         isDrawerOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
-        onConfirmation={() => submitToRecommendation()}
         formData={formData}
         setFormData={setFormData}
       />
@@ -111,13 +119,16 @@ const Recommendation = ({ data, totalSteps }: IProps) => {
       />
       <s.SectionsRecommendation>
         <Container>
-          <SuggestionBanner
-            toggleDrawer={() => setIsDrawerOpen(!isDrawerOpen)}
+          <InformativeHeader
             answer={answer}
-            suggestion_goal={suggestion_goal}
+            openEdit={() => {
+              if (suggestion_goal) {
+                setIsEditing(true)
+              } else {
+                setIsDrawerOpen(true)
+              }
+            }}
           />
-
-          <InformativeHeader answer={answer} />
 
           <RecommendationMessage suggestion_goal={suggestion_goal} />
 
@@ -142,10 +153,7 @@ const Recommendation = ({ data, totalSteps }: IProps) => {
         </Container>
       </s.SectionsRecommendation>
 
-      <BottomBar
-        recommendationData={data}
-        openDrawer={() => setIsDrawerOpen(true)}
-      />
+      <BottomBar recommendationData={data} />
 
       <UnsavedChangedPrompt
         title="Alterações não salvas"

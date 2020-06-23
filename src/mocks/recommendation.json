@@ -118,6 +118,20 @@
     "life_security": false,
     "credit_card": false
   },
+  "suggestion_goal": {
+    "suggestion_target_date": "17/12/2037",
+    "suggestion_monthly_value": 22290
+  },
+  "credit_product": {
+    "name": "Financiamento de Veículo",
+    "values": [
+      {
+        "name": "Valor a Contratar",
+        "value": "R$ 478.688,72",
+        "checked": false
+      }
+    ]
+  },
   "fund_total_income": {
     "0": 1000.0,
     "1": 1103.74,

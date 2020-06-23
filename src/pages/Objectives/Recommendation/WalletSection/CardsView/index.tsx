@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
+import { uuid } from 'uuidv4'
+
 import Button from 'components/Button'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
@@ -33,6 +35,7 @@ const CardsView = ({
   const renderFundsCards = () =>
     funds.map((fund: IFunds) => (
       <FullHeightCard
+        key={uuid()}
         headerTitle={fund.name}
         footer={
           <div

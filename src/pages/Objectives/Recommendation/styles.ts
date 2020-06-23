@@ -25,7 +25,10 @@ export const SpacedValue = styled.div`
   }
 `
 
-export const GridRecommendation = styled.div``
+export const GridRecommendation = styled.div`
+  background-color: ${({ theme }) => theme.colors.gray1};
+  min-height: calc(100vh - 93px);
+`
 
 interface IGridRow {
   height?: string
@@ -51,7 +54,7 @@ export const Column = styled(Col)`
 
 export const SectionsRecommendation = styled.div`
   background-color: ${({ theme }) => theme.colors.gray1};
-  padding: 42px 0 55px;
+  padding: ${({ theme }) => `${theme.spacing(3)}px  0 ${theme.spacing(6)}px`};
 `
 
 export const SectionBar = styled.section`
@@ -69,7 +72,7 @@ export const SectionBar = styled.section`
 
 export const ButtonBar = styled(Button)`
   margin-left: 14px;
-  min-width: auto;
+  width: 112px;
 `
 
 export const FullHeightCard = styled(Card)`

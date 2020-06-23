@@ -62,9 +62,12 @@ router.render = (req, res) => {
       answer: {
         ...recommendationMock.answer,
         ...req.body,
-        initial_value: parseFloat(req.body.initial_value) * 100,
-        monthly_value: parseFloat(req.body.monthly_value) * 100,
-        target_value: parseFloat(req.body.target_value) * 100,
+        initial_value:
+          req.body.initial_value || recommendationMock.answer.initial_value,
+        monthly_value:
+          req.body.monthly_value || recommendationMock.answer.monthly_value,
+        target_value:
+          req.body.target_value || recommendationMock.answer.target_value,
       },
     })
   }

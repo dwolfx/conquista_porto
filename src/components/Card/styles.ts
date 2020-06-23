@@ -20,8 +20,14 @@ export const CardHeader = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
-  min-height: 63px;
+  height: 63px;
   padding: 0 14px;
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    height: auto;
+    padding-bottom: ${({ theme }) => theme.spacing(2)}px;
+    padding-top: ${({ theme }) => theme.spacing(2)}px;
+  }
 `
 
 export const CardIcon = styled.div`
@@ -55,10 +61,7 @@ export const CardIconInfo = styled.div`
   }
 `
 
-export const CardTitle = styled(Text).attrs(() => ({
-  type: 'headline',
-  bold: true,
-}))``
+export const CardTitle = styled(Text)``
 
 export const CardBody = styled.div`
   display: flex;
