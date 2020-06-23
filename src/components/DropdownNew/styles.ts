@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import ConquistaIcon from 'components/IconExporter'
 
-export const RelativeHolder = styled.div`
+export const RelativeHolder = styled.div<{ disabled: boolean }>`
   position: relative;
   width: auto;
   height: auto;
@@ -12,8 +12,12 @@ export const RelativeHolder = styled.div`
       pointer-events: none;
     `}
 `
+interface IContainerProps {
+  isOpen: boolean
+  ref: any
+}
 
-export const Container = styled.div`
+export const Container = styled.div<IContainerProps>`
   transform-origin: top center;
   transform: ${props => (props.isOpen ? 'scaleY(1)' : 'scaleY(0)')};
   transition: all 0.2s ease-out;
@@ -28,7 +32,13 @@ export const Container = styled.div`
   }
 `
 
-export const Wrapper = styled.div`
+interface IWrapperProps {
+  customWidth?: string | null
+  containerPadding?: string
+  openingSide?: string
+}
+
+export const Wrapper = styled.div<IWrapperProps>`
   width: ${props => (props.customWidth ? props.customWidth : '301px')};
   height: fit-content;
   display: flex;
@@ -41,7 +51,7 @@ export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
 `
 
-export const Backdrop = styled.div`
+export const Backdrop = styled.div<{ isOpen: boolean }>`
   width: 100%;
   height: 100%;
   position: fixed;
@@ -66,7 +76,7 @@ export const ItemWrapper = styled.div`
   }
 `
 
-export const ItemIconContainer = styled.div`
+export const ItemIconContainer = styled.div<{ alignToEnd?: boolean }>`
   margin: ${props => (props.alignToEnd ? '0px 21px' : '0px 0px 0px 21px')};
 `
 
