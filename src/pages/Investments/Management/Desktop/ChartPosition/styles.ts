@@ -8,7 +8,6 @@ import { StartBlock } from 'components/HorizontalList/styles'
 
 export const ChartCard = styled(Card)`
   height: 359px;
-  width: 310px;
   ${CardBody} {
     flex-direction: column;
     align-items: center;
@@ -17,6 +16,7 @@ export const ChartCard = styled(Card)`
 `
 
 export const HorizontalListPieChartTitle = styled(HorizontalList)`
+  padding: 0 ${({ theme }) => theme.spacing(1)}px;
   ${StartBlock} {
     margin: 0;
   }

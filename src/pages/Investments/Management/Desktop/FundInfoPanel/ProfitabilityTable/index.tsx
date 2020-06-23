@@ -48,132 +48,139 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
     text && text !== '-' ? `${formatNumber(text)}%` : '---'
 
   return (
-    <TableGridContent>
-      <Cell className="align-left header">
-        <Text type="subheading" color="gray6">
-          HISTÓRICO DE RENTABILIDADE
-        </Text>
-      </Cell>
-      <Cell className="header">
-        <Text type="subheading" color="gray6">
-          MÊS ANTERIOR
-        </Text>
-      </Cell>
-      <Cell className="header">
-        <Text type="subheading" color="gray6">
-          ANO
-        </Text>
-      </Cell>
-      <Cell className="header">
-        <Text type="subheading" color="gray6">
-          ÚLT. 12M
-        </Text>
-      </Cell>
-      <Cell className="header">
-        <Text type="subheading" color="gray6">
-          24M
-        </Text>
-      </Cell>
-      <Cell className="header">
-        <Text type="subheading" color="gray6">
-          36M
-        </Text>
-      </Cell>
-      <Cell className="align-left">
-        <Text bold type="body" color="gray5">
-          Rentabilidade em %*
-        </Text>
-      </Cell>
-      <Cell>
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_fundo.rentabil_mes_anteiror
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_fundo.rentabil_ano
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_fundo.rentabil_12_meses
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_fundo.rentabil_24_meses
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_fundo.rentabil_36_meses
-            )}
-        </Text>
-      </Cell>
-      <Cell className="align-left">
-        <Text bold type="body" color="gray5">
-          ${`Referência em 
-          ${profitability &&
-            printFieldText(
-              profitability.hist_rentabil_benchmark.benchmark.nome
-            )}*`}
-        </Text>
-      </Cell>
-      <Cell>
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_benchmark.rentabil_mes_anteiror
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_benchmark.rentabil_Ano
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_benchmark.rentabil_12_meses
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_benchmark.rentabil_24_meses
-            )}
-        </Text>
-      </Cell>
-      <Cell className="with-border">
-        <Text type="subheading" color="gray6">
-          {profitability &&
-            printFieldTextWithPercent(
-              profitability.hist_rentabil_benchmark.rentabil_36_meses
-            )}
-        </Text>
-      </Cell>
-    </TableGridContent>
+    <>
+      <TableGridContent>
+        <Cell className="align-left header">
+          <Text type="subheading" color="gray6">
+            HISTÓRICO DE RENTABILIDADE
+          </Text>
+        </Cell>
+        <Cell className="header">
+          <Text type="subheading" color="gray6">
+            MÊS ANTERIOR
+          </Text>
+        </Cell>
+        <Cell className="header">
+          <Text type="subheading" color="gray6">
+            ANO
+          </Text>
+        </Cell>
+        <Cell className="header">
+          <Text type="subheading" color="gray6">
+            ÚLT. 12M
+          </Text>
+        </Cell>
+        <Cell className="header">
+          <Text type="subheading" color="gray6">
+            24M
+          </Text>
+        </Cell>
+        <Cell className="header">
+          <Text type="subheading" color="gray6">
+            36M
+          </Text>
+        </Cell>
+        <Cell className="align-left">
+          <Text bold type="body" color="gray5">
+            Rentabilidade em %*
+          </Text>
+        </Cell>
+        <Cell>
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_fundo.rentabil_mes_anteiror
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_fundo.rentabil_ano
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_fundo.rentabil_12_meses
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_fundo.rentabil_24_meses
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_fundo.rentabil_36_meses
+              )}
+          </Text>
+        </Cell>
+        <Cell className="align-left">
+          <Text bold type="body" color="gray5">
+            {`Referência em 
+            ${profitability &&
+              printFieldText(
+                profitability.hist_rentabil_benchmark.benchmark.nome
+              )}*`}
+          </Text>
+        </Cell>
+        <Cell>
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_benchmark.rentabil_mes_anteiror
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_benchmark.rentabil_Ano
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_benchmark.rentabil_12_meses
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_benchmark.rentabil_24_meses
+              )}
+          </Text>
+        </Cell>
+        <Cell className="with-border">
+          <Text type="subheading" color="gray6">
+            {profitability &&
+              printFieldTextWithPercent(
+                profitability.hist_rentabil_benchmark.rentabil_36_meses
+              )}
+          </Text>
+        </Cell>
+      </TableGridContent>
+      {/*<Text type="caption" bold color="gray6">
+        *O CDI é uma referência do mercado para quanto seu dinheiro pode render.
+        A referência é dada com base no valor ganho pelos bancos de um dia para
+        outro.
+        </Text>*/}
+    </>
   )
 }
 
