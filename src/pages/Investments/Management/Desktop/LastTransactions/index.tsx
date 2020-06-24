@@ -15,7 +15,7 @@ import Divisor from 'components/Divisor'
 
 import Table from './Table'
 
-import { Container } from './styles'
+import { Container, TextAccordionHeader } from './styles'
 
 const LastTransations = () => {
   const dispatch = useDispatch()
@@ -97,7 +97,9 @@ const LastTransations = () => {
 
   return (
     <Accordion
-      titleNode="Últimas Movimentações"
+      titleNode={
+        <TextAccordionHeader>Últimas Movimentações</TextAccordionHeader>
+      }
       openByDefault
       triggerCloseOnArrow
     >

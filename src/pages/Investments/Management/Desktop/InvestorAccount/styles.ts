@@ -19,7 +19,6 @@ export const CardStyled = styled(Card)`
   margin-top: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(1)}px`};
   min-height: 287px;
-  width: 310px;
 
   ${CardBody} {
     justify-content: center;

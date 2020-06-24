@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { ThemeContext } from 'styled-components'
+import 'styled-components/macro'
 
 import moment from 'moment'
 import VerticalList from 'components/VerticalList'
@@ -31,6 +32,7 @@ import {
   ButtonContent,
   DropdownLineContent,
   ButtonCustom,
+  ButtonsWrapper,
 } from './styles'
 
 export const months = [
@@ -365,7 +367,14 @@ const FundInformation = ({
       </AccordionFundInfo>
       <RowLineInfo alignItems="center">
         <Col col={4}>
-          <Text type="headline" bold color="gray5">
+          <Text
+            type="headline"
+            bold
+            color="gray5"
+            css={`
+              margin-left: 7px;
+            `}
+          >
             Rendimento Bruto
           </Text>
         </Col>
@@ -400,7 +409,7 @@ const FundInformation = ({
         </Col>
       </RowLineInfo>
       <Row justifyContent="center">
-        <Col xlAuto lgAuto mdAuto smAuto>
+        <ButtonsWrapper xlAuto lgAuto mdAuto smAuto>
           <ButtonCustom
             data-gtm-subname="painel de informações de fundo"
             data-gtm-name="resgatar"
@@ -422,7 +431,7 @@ const FundInformation = ({
           >
             Investir
           </ButtonCustom>
-        </Col>
+        </ButtonsWrapper>
       </Row>
     </>
   )

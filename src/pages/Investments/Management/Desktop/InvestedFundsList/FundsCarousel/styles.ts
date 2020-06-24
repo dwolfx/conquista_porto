@@ -23,6 +23,7 @@ export const Chip = styled(Card)<IChipProps>`
   border: 1px solid #dddddd;
   background-color: white;
   border-radius: 4px;
+  cursor: pointer;
   width: 238px;
   margin-right: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => theme.spacing(2)}px;

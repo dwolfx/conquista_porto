@@ -36,6 +36,7 @@ interface IBorderRiskProps {
 
 export const RiskColorTag = styled.div<IBorderRiskProps>`
   width: 5px;
+  margin-left: ${({ theme }) => theme.spacing(1)}px;
   height: 50px;
   background-color: ${({ borderRisk }) => riskColorsMap[borderRisk]};
   border-radius: 4px;
@@ -55,7 +56,11 @@ export const RowAccordion = styled(Row)`
 `
 
 export const ColIncome = styled(Col)`
-  padding-left: ${({ theme }) => theme.spacing(5)}px;
+  padding-left: 33px;
+`
+
+export const ButtonsWrapper = styled(Col)`
+  margin: ${({ theme }) => theme.spacing(2)}px 0;
 `
 
 export const ColPadding = styled(Col)`
