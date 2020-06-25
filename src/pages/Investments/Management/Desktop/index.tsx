@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import Modal from 'components/Modal/Confirmation'
 import Card from 'components/Card'
@@ -11,6 +12,9 @@ import InvestorAccount from '../components/InvestorAccount'
 import InvestedFundsList from './InvestedFundsList'
 import { IModalProps, TFundsLayout } from '../types'
 import FundInfoPanel from './FundInfoPanel'
+import Detail from '../../FundsList/Detail'
+
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import { RowContent, LeftContent, MainContent } from './styles'
 
@@ -41,10 +45,18 @@ const Desktop: React.FC<IProps> = ({
   onHandleChangeView,
   onHandleChangeFilter,
 }) => {
+  const dispatch = useDispatch()
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState<IModalProps>(
     modalSuitabilityInfoInitialState
   )
+  const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
+
   const position = useSelectedPosition()
+
+  const handleOpenDetailFund = () => {
+    dispatch(GetInvestmentDetailsRequest(position.fundo.id_carteira))
+    setIsFundDetailOpen(true)
+  }
 
   return (
     <>
@@ -66,6 +78,9 @@ const Desktop: React.FC<IProps> = ({
           />
           <Card
             headerTitle={position && position.fundo && position.fundo.apelido}
+            headerIconInfo
+            headerIconInfoClick={handleOpenDetailFund}
+            headerIconInfoMsg="Mais informações"
           >
             <FundInfoPanel
               onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
@@ -88,6 +103,12 @@ const Desktop: React.FC<IProps> = ({
         }
         onConfirmation={() => modalSuitabilityInfo.button.handleClick()}
       ></Modal>
+      <Detail
+        isOpen={isFundDetailOpen}
+        handleClose={() => setIsFundDetailOpen(false)}
+        handleLayerOpen={() => setIsFundDetailOpen(false)}
+        isLayerOpen={true}
+      />
     </>
   )
 }
