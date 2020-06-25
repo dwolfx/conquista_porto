@@ -2,31 +2,18 @@ import React, { useState } from 'react'
 
 import Modal from 'components/Modal/Confirmation'
 import Card from 'components/Card'
+import useSelectedPosition from 'hooks/useSelectedPosition'
+import { IModalProps } from 'pages/Investments/Management/styles'
 
 import ChartPosition from '../components/ChartPosition'
 import LastTransations from '../components/LastTransactions'
+import InvestorAccount from '../components/InvestorAccount'
 
-import InvestorAccount from './InvestorAccount'
 import InvestedFundsList from './InvestedFundsList'
-import { RowContent, LeftContent, MainContent } from './styles'
 import { TFundsLayout } from '../types'
 import FundInfoPanel from './FundInfoPanel'
 
-import useSelectedPosition from 'hooks/useSelectedPosition'
-
-export interface IModalProps {
-  isOpen: boolean
-  title: string
-  description: string
-  button: IButton
-}
-interface IButton {
-  dataGtmName: string
-  dataGtmType: string
-  dataGtmClicktype: string
-  handleClick: any
-  buttonName: string
-}
+import { RowContent, LeftContent, MainContent } from './styles'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,

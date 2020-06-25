@@ -31,7 +31,15 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
       return <MobileComponent />
     }
     if (isTablet) {
-      return <TabletComponent />
+      return (
+        <TabletComponent
+          filters={filters}
+          viewMode={viewMode}
+          filteredInvestedFunds={filteredInvestedFunds}
+          onHandleChangeView={handleChangeFundsView}
+          onHandleChangeFilter={handleChangeFilter}
+        />
+      )
     }
     return (
       <DesktopComponent
