@@ -12,18 +12,11 @@ import {
   Tr,
   Td,
   Th,
-} from './styles'
+} from '../styles'
 
-interface IProfitability {
-  profitability: {
-    name: string
-    value: {
-      [index: number]: number
-    }
-  }[]
-}
+import { IProps } from '../'
 
-export default function DesktopView({ profitability }: IProfitability) {
+export default function DesktopView({ profitability }: IProps) {
   const tableFirstRow = profitability[0]
   const tableSecondRow = profitability[1]
   const tableThirdRow = profitability[2]

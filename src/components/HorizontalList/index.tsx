@@ -1,4 +1,5 @@
 import React from 'react'
+import { uuid } from 'uuidv4'
 
 import { Container, StartBlock, EndBlock } from './styles'
 
@@ -19,19 +20,20 @@ export default function HorizontalList({
 }: IProps) {
   return (
     <Container size={size} noPadding={noPadding} {...rest}>
-      <StartBlock>
-        {startItems &&
-          startItems.map((Item, index) => (
-            <React.Fragment key={index.toString()}>{Item}</React.Fragment>
+      {startItems ? (
+        <StartBlock hasEndBlock={Boolean(endItems && !!endItems.length)}>
+          {startItems.map(Item => (
+            <React.Fragment key={uuid()}>{Item}</React.Fragment>
           ))}
-      </StartBlock>
-      {endItems && (
-        <EndBlock>
-          {endItems.map((Item, index) => (
-              <React.Fragment key={index.toString()}>{Item}</React.Fragment>
-            ))}
+        </StartBlock>
+      ) : null}
+      {endItems ? (
+        <EndBlock hasStartBlock={Boolean(startItems && !!startItems.length)}>
+          {endItems.map(Item => (
+            <React.Fragment key={uuid()}>{Item}</React.Fragment>
+          ))}
         </EndBlock>
-      )}
+      ) : null}
     </Container>
   )
 }

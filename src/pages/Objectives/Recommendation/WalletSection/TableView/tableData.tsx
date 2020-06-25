@@ -35,13 +35,13 @@ const formatRent12Meses = (row: IFund) => (
 )
 
 const formatInicialValue = (row: IFund) => (
-  <Text color="gray6" bold>
+  <Text type="title" color="gray6" bold>
     {formatMoney(row.initial_value)}
   </Text>
 )
 
 const formatMonthlyValue = (row: IFund) => (
-  <Text color="gray6" bold>
+  <Text type="title" color="gray6" bold>
     {formatMoney(row.monthly_value)}
   </Text>
 )

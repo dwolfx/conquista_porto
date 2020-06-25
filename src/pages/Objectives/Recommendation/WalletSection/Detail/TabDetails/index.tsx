@@ -13,11 +13,14 @@ interface IFund {
 
 export const TabDetails = ({ fund }: IFund) => (
   <ContentWrapper>
-    <RiskProfileBar riskProfile={fund.profile_risk} />
+    <RiskProfileBar
+      data-testid="risk-profile-bar"
+      riskProfile={fund.profile_risk}
+    />
     <GrayLine />
-    <Transactions fund={fund} />
+    <Transactions data-testid="transactions" fund={fund} />
     <GrayLine />
-    <Taxation fund={fund} />
+    <Taxation data-testid="taxation" fund={fund} />
   </ContentWrapper>
 )
 

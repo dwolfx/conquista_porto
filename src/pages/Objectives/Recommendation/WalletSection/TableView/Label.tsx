@@ -18,12 +18,7 @@ export default function TableLabel({ isInteractive, ...rest }: IProps) {
   const isMobile = useMedia('xs')
 
   return !isMobile ? (
-    <Row
-      justifyContent="end"
-      css={`
-        padding: 0 28px;
-      `}
-    >
+    <Row justifyContent="end">
       <Text type="title" color="gray5" bold>
         Baixo Risco
       </Text>

@@ -5,6 +5,8 @@ import Button from 'components/Button'
 import TableComp from 'components/TableNew'
 import Text from 'components/Text'
 
+import { TheadText } from 'components/TableNew/styles'
+
 import { themeColors } from 'styles/theme'
 
 export const ContainerFunds = styled.div`
@@ -23,6 +25,15 @@ export const Table = styled(TableComp)`
   .table {
     max-height: 353px;
     table-layout: auto;
+  }
+
+  ${TheadText} {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.colors.gray6};
   }
 `
 

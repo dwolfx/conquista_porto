@@ -9,6 +9,7 @@ import { formatMoney } from 'helpers'
 import { ICreditProduct } from 'store/modules/Objective/types'
 
 import { productCard } from './dataCardCredit'
+import { PopoverContentContainer } from '../styles'
 import * as s from './styles'
 
 interface IObjectItem {
@@ -29,14 +30,12 @@ const singleInfo = (creditCardProductsInfos: IObjectItem[]) =>
           <Text type="captionUppercase" color="gray5">
             {item.name}
           </Text>
-          <s.TextValue type="headline" color="gray6">
+          <s.TextValue type="headline" color="gray6" bold>
             {isNaN(+item.value) ? item.value : formatMoney(item.value)}
             {item.info && (
               <Popover
                 content={
-                  <s.PopoverContentContainer>
-                    {item.info}
-                  </s.PopoverContentContainer>
+                  <PopoverContentContainer>{item.info}</PopoverContentContainer>
                 }
               >
                 <Icon width={21} name="information" color="gray4" />

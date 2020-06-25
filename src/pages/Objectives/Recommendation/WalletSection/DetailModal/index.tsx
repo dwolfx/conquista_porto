@@ -42,7 +42,7 @@ const DetailModal = ({ fundDetails, isOpen, handleClose }: IProps) => {
         triggerCloseOnArrow
       >
         <Divisor />
-        <TabProfitability fund={fundDetails} />
+        <TabProfitability profitability={fundDetails.profitability} />
       </Accordion>
       <Divisor />
       <Accordion

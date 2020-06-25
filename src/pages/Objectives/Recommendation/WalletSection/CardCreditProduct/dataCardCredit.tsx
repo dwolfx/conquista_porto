@@ -44,9 +44,9 @@ export const productCard: IProductCard = {
   Financiamento: {
     icon: 'money',
     message: (
-      <Text type="headline" color="gray6">
+      <>
         O financiamento servirá como complemento para você alcançar o objetivo.
-      </Text>
+      </>
     ),
     items: [
       {
@@ -63,7 +63,7 @@ export const productCard: IProductCard = {
   'Consórcio de Veículo': {
     icon: 'car2',
     message: (
-      <Text type="headline" color="gray6">
+      <>
         Você pode usar os rendimentos da sua carteira para dar{' '}
         <Popover
           content={
@@ -72,9 +72,7 @@ export const productCard: IProductCard = {
             </PopoverContentContainer>
           }
         >
-          <DashedText type="headline" color="gray6">
-            lances
-          </DashedText>
+          <DashedText>lances</DashedText>
         </Popover>{' '}
         <Popover
           content={
@@ -86,7 +84,7 @@ export const productCard: IProductCard = {
           <InformationIcon />
         </Popover>{' '}
         no consórcio.
-      </Text>
+      </>
     ),
     items: [
       {
@@ -103,7 +101,7 @@ export const productCard: IProductCard = {
   'Consórcio de Imóvel': {
     icon: 'homewithwindow',
     message: (
-      <Text type="headline" color="gray6">
+      <>
         Você pode usar os rendimentos da sua carteira para dar{' '}
         <Popover
           content={
@@ -112,9 +110,7 @@ export const productCard: IProductCard = {
             </PopoverContentContainer>
           }
         >
-          <DashedText type="headline" color="gray6">
-            lances
-          </DashedText>
+          <DashedText>lances</DashedText>
         </Popover>{' '}
         <Popover
           content={
@@ -126,7 +122,7 @@ export const productCard: IProductCard = {
           <InformationIcon />
         </Popover>{' '}
         no consórcio.
-      </Text>
+      </>
     ),
     items: [
       {

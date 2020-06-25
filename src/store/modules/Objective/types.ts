@@ -79,7 +79,7 @@ export interface ICreditProduct {
   name: string
   values: {
     name: string
-    value: string | number
+    value: number
     checked: boolean
   }[]
 }

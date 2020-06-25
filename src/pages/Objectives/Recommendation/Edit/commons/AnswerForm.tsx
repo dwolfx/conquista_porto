@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
@@ -94,6 +94,12 @@ export default function AnswerForm({
     })
   }
 
+  const [inputCounter, setInputCounter] = useState<number>(0)
+
+  useEffect(() => {
+    if (values.nickname) setInputCounter(values.nickname.length)
+  }, [values.nickname])
+
   return (
     <s.FormWrapper
       data-gtm-type="form"
@@ -110,6 +116,7 @@ export default function AnswerForm({
           label="Apelido"
           onChange={handleSingleValue}
           value={values!.nickname}
+          suffix={<>{inputCounter}/20</>}
         />
 
         {!ValidateNickname(values.nickname)[0] &&
@@ -128,6 +135,7 @@ export default function AnswerForm({
           label="Data alvo"
           onChange={handleSingleValue}
           value={values!.target_date}
+          maxLength={10}
         />
 
         {!ValidateTargetDate(values!.target_date)[0] &&

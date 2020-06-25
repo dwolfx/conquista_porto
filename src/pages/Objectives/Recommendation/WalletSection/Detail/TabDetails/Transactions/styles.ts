@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import ConquistaIcon from 'components/IconExporter'
 import TextComponent from 'components/Text'
 
 export const TransactionsWrapper = styled.div`
@@ -15,26 +14,6 @@ export const TransactionsWrapper = styled.div`
       ${({ theme }) => theme.spacing(2)}px;
     width: auto;
   }
-`
-
-export const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: ${({ theme }) => theme.spacing(4)}px;
-  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
-`
-
-export const MoneyIcon = styled(ConquistaIcon).attrs(() => ({
-  name: 'money',
-}))`
-  width: ${({ theme }) => theme.spacing(3)}px;
-`
-
-export const Title = styled(TextComponent).attrs(() => ({
-  type: 'subheading',
-}))`
-  margin-left: ${({ theme }) => theme.spacing(2)}px;
-  text-transform: uppercase;
 `
 
 export const Ul = styled.ul`

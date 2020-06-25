@@ -12,22 +12,23 @@ import DesktopView from './DesktopView'
 
 import { ProfitabilityContent } from './styles'
 
-export interface IFundProps {
-  fund: {
-    profitability: {
-      name: string
-      value: {
-        [key: number]: number
-      }
-    }[]
-  }
+export interface IProps {
+  profitability: {
+    name: string
+    value: {
+      [key: number]: number | undefined
+    }
+  }[]
 }
 
-export default function TabProfitability({ fund }: IFundProps) {
+export const TabProfitability: React.FC<IProps> = ({
+  profitability,
+  ...rest
+}) => {
   const isTablet = useMedia('lg')
 
   return (
-    <ProfitabilityContent>
+    <ProfitabilityContent {...rest}>
       <HorizontalList
         noPadding
         startItems={[
@@ -38,10 +39,12 @@ export default function TabProfitability({ fund }: IFundProps) {
         ]}
       />
       {isTablet ? (
-        <TabletView profitability={fund.profitability} />
+        <TabletView profitability={profitability} />
       ) : (
-        <DesktopView profitability={fund.profitability} />
+        <DesktopView profitability={profitability} />
       )}
     </ProfitabilityContent>
   )
 }
+
+export default TabProfitability

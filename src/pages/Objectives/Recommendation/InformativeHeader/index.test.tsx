@@ -18,7 +18,7 @@ const answer = {
   monthly_value: 10010,
 }
 
-describe('show answer prop values', () => {
+describe('Recommendation Information Header', () => {
   describe('show answer prop values', () => {
     it('should be able to show answer nickname', () => {
       const { getByTestId } = setup(<InformativeHeader answer={answer} />)

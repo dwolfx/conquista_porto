@@ -56,7 +56,7 @@ const Detail: React.FC<DetailProps> = ({
         <TabDetails fund={fundDetails} />
       </TabPanel>
       <TabPanel name="tab-rentabilidade">
-        <TabProfitability fund={fundDetails} />
+        <TabProfitability profitability={fundDetails.profitability} />
       </TabPanel>
       <TabPanel name="tab-informacoes">
         <TabMoreInfo fund={fundDetails} />

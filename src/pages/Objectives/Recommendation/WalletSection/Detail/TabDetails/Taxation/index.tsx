@@ -1,4 +1,5 @@
 import React from 'react'
+import { uuid } from 'uuidv4'
 
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
@@ -26,60 +27,38 @@ interface ITributeIR {
 
 interface IFund {
   fund: {
-    tribute_ir: ITributeIR | undefined
+    tribute_ir: null | ITributeIR | undefined
     classification: string
     iof: string
   }
 }
 
-export const Taxation = ({ fund }: IFund) => {
-  const renderAliquotas = (tribute_ir: ITributeIR) => (
-    <>
-      {tribute_ir[180] && (
-        <Li>
+export const Taxation = ({ fund, ...rest }: IFund) => {
+  const labels = {
+    1: '',
+    180: 'Até 180 dias',
+    360: 'de 181 dias a 360 dias',
+    720: 'DE 361 DIAS A 720 DIAS',
+    721: 'ACIMA DE 720',
+  }
+
+  const renderAliquotas = (tribute_ir: ITributeIR | null) =>
+    tribute_ir !== null &&
+    Object.entries(tribute_ir).map(([key, value]) => {
+      return key !== '1' ? (
+        <Li key={uuid()}>
           <VerticalList
             elements={[
-              <LiTitle>Até 180 dias</LiTitle>,
-              <LiValue bold>{formatNumber(tribute_ir[180])}%</LiValue>,
+              <LiTitle>{(labels as any)[key]}</LiTitle>,
+              <LiValue bold>{formatNumber(value)}%</LiValue>,
             ]}
           />
         </Li>
-      )}
-      {tribute_ir[360] && (
-        <Li>
-          <VerticalList
-            elements={[
-              <LiTitle>De 181 dias a 360 dias</LiTitle>,
-              <LiValue bold>{formatNumber(tribute_ir[360])}%</LiValue>,
-            ]}
-          />
-        </Li>
-      )}
-      {tribute_ir[720] && (
-        <Li>
-          <VerticalList
-            elements={[
-              <LiTitle>De 361 dias a 720 dias</LiTitle>,
-              <LiValue bold>{formatNumber(tribute_ir[720])}%</LiValue>,
-            ]}
-          />
-        </Li>
-      )}
-      {tribute_ir[721] && (
-        <Li>
-          <VerticalList
-            elements={[
-              <LiTitle>Acima de 720</LiTitle>,
-              <LiValue bold>{formatNumber(tribute_ir[721])}%</LiValue>,
-            ]}
-          />
-        </Li>
-      )}
-    </>
-  )
+      ) : null
+    })
 
   return (
-    <TaxationWrapper>
+    <TaxationWrapper {...rest}>
       <HorizontalList
         noPadding
         startItems={[
@@ -100,11 +79,7 @@ export const Taxation = ({ fund }: IFund) => {
             />
           </Li>
         )}
-        {fund &&
-        fund.tribute_ir !== undefined &&
-        fund.tribute_ir[1] === undefined
-          ? renderAliquotas(fund.tribute_ir)
-          : null}
+        {fund && !!fund.tribute_ir && renderAliquotas(fund.tribute_ir)}
         {fund.iof && (
           <VerticalList
             elements={[

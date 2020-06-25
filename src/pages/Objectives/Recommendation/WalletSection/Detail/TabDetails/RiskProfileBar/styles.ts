@@ -1,6 +1,5 @@
 import styled, { DefaultTheme } from 'styled-components'
 
-import ConquistaIcon from 'components/IconExporter'
 import TextComponent from 'components/Text'
 
 export const RiskProfileWrapper = styled.div`
@@ -11,26 +10,6 @@ export const RiskProfileWrapper = styled.div`
     margin: ${({ theme }) => theme.spacing(2)}px
       ${({ theme }) => theme.spacing(2)}px ${({ theme }) => theme.spacing(3)}px;
   }
-`
-
-export const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: ${({ theme }) => theme.spacing(4)}px;
-  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
-`
-
-export const FlagIcon = styled(ConquistaIcon).attrs(() => ({
-  name: 'flag',
-}))`
-  height: ${({ theme }) => theme.spacing(3)}px;
-`
-
-export const Title = styled(TextComponent).attrs(() => ({
-  type: 'subheading',
-}))`
-  margin-left: ${({ theme }) => theme.spacing(2)}px;
-  text-transform: uppercase;
 `
 
 export const RiskClassification = styled.div`

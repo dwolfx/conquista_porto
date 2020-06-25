@@ -47,6 +47,10 @@ export const WizardFlow = ({
     getFormEntries(data)
   )
   const [isActive, setIsActive] = useState(false)
+  const [
+    generateRecommendationClicked,
+    setGenerateRecommendationClicked,
+  ] = useState(false)
   const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
 
   useFetchCustomerProfile()
@@ -67,6 +71,7 @@ export const WizardFlow = ({
 
   const increment = () => {
     setValueNickname(true)
+    setGenerateRecommendationClicked(false)
     handleStep('increment')
   }
 
@@ -75,6 +80,8 @@ export const WizardFlow = ({
   }
 
   const postFlow = () => {
+    setGenerateRecommendationClicked(true)
+
     const formDataFormatted = Object.entries(formData)
       .map(([key, value]) => {
         const type = data.filter(item => item.name === key)[0].type
@@ -168,8 +175,8 @@ export const WizardFlow = ({
           type="submit"
           data-gtm-form="submit"
           data-gtm-name="proximo"
-          disabled={!isActive || isLoading}
-          loading={isLoading}
+          disabled={(!isActive || isLoading) && generateRecommendationClicked}
+          loading={isLoading && generateRecommendationClicked}
           loadingColor="white"
         >
           Próximo

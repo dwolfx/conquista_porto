@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 import HorizontalList from 'components/HorizontalList'
-import { StyledIcon } from 'pages/Investments/FundsList/styles'
 import Text from 'components/Text'
+import Icon from 'components/IconExporter'
+
 import {
   Bar,
   RiskClassification,
@@ -15,7 +16,7 @@ interface IRiskProfile {
   riskProfile: string
 }
 
-const RiskProfileBar = ({ riskProfile }: IRiskProfile) => {
+const RiskProfileBar = ({ riskProfile, ...rest }: IRiskProfile) => {
   const [risks, setRisk] = useState({
     baixo: false,
     'medio-baixo': false,
@@ -29,11 +30,11 @@ const RiskProfileBar = ({ riskProfile }: IRiskProfile) => {
   }, [riskProfile])
 
   return (
-    <RiskProfileWrapper>
+    <RiskProfileWrapper {...rest}>
       <HorizontalList
         noPadding
         startItems={[
-          <StyledIcon name="flag" />,
+          <Icon name="flag" width={21} />,
           <Text color="gray6" type="subheading" bold>
             PERFIL DE RISCO
           </Text>,
@@ -42,23 +43,23 @@ const RiskProfileBar = ({ riskProfile }: IRiskProfile) => {
       <RiskClassification>
         <Bar riskColor="lowRisk" selected={risks.baixo}>
           <RiskColor />
-          <RiskText>Risco baixo</RiskText>
+          <RiskText data-testid="low-risk">Risco baixo</RiskText>
         </Bar>
         <Bar riskColor="lowMediumRisk" selected={risks['medio-baixo']}>
-          <RiskColor />
+          <RiskColor data-testid="low-medium-risk" />
           <RiskText>Risco médio-baixo</RiskText>
         </Bar>
         <Bar riskColor="mediumRisk" selected={risks.medio}>
-          <RiskColor />
+          <RiskColor data-testid="medium-risk" />
           <RiskText>Risco médio</RiskText>
         </Bar>
         <Bar riskColor="mediumHighRisk" selected={risks['medio-alto']}>
-          <RiskColor />
+          <RiskColor data-testid="medium-high-risk" />
           <RiskText>Risco médio-alto</RiskText>
         </Bar>
         <Bar riskColor="highRisk" selected={risks.alto}>
           <RiskColor />
-          <RiskText>Risco alto</RiskText>
+          <RiskText data-testid="high-risk">Risco alto</RiskText>
         </Bar>
       </RiskClassification>
     </RiskProfileWrapper>

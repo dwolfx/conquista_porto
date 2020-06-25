@@ -55,8 +55,15 @@ const Popover: React.FC<IProps> = ({
     }
   }
 
-  const renderContent =
-    typeof content !== 'function' ? () => <Text>{content}</Text> : content
+  const renderContent = () => {
+    if (typeof content === 'function') {
+      return content()
+    } else if (typeof content === 'string') {
+      return <Text>{content}</Text>
+    }
+
+    return content
+  }
 
   const renderPopover = (
     ref: React.Ref<any>,

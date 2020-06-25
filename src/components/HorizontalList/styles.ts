@@ -25,22 +25,29 @@ export const Container = styled.div<IContainer>`
   padding: ${props => (props.noPadding ? '0' : '0 14px')};
 `
 
-export const StartBlock = styled.div`
+interface IBlocks {
+  hasStartBlock?: boolean
+  hasEndBlock?: boolean
+}
+
+export const StartBlock = styled.div<IBlocks>`
   display: flex;
   align-items: center;
-  margin-right: ${props => props.theme.spacing(1)}px;
+  margin-right: ${({ theme, hasEndBlock }) =>
+    hasEndBlock ? `${theme.spacing(1)}px` : 0};
 
   && > *:not(:last-child) {
-    margin-right: ${props => props.theme.spacing(2)}px;
+    margin-right: ${({ theme }) => theme.spacing(2)}px;
   }
 `
 
-export const EndBlock = styled.div`
+export const EndBlock = styled.div<IBlocks>`
   display: flex;
   align-items: center;
-  margin-left: ${props => props.theme.spacing(1)}px;
+  margin-left: ${({ theme, hasStartBlock }) =>
+    hasStartBlock ? `${theme.spacing(1)}px` : 0};
 
   && > *:not(:first-child) {
-    margin-left: ${props => props.theme.spacing(2)}px;
+    margin-left: ${({ theme }) => theme.spacing(2)}px;
   }
 `

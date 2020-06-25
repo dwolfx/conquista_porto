@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { Col, Row } from 'styled-bootstrap-grid'
+import {
+  Container as ContainerBootstrap,
+  Col,
+  Row,
+} from 'styled-bootstrap-grid'
 
 import AccordionCmp from 'components/AccordionNew'
 import { AccordionHeader } from 'components/AccordionNew/styles'
@@ -7,6 +11,10 @@ import Button from 'components/Button'
 import Card from 'components/Card'
 import DivisorCmp from 'components/Divisor'
 import Text from 'components/Text'
+
+export const Container = styled(ContainerBootstrap)`
+  padding-bottom: ${({ theme }) => theme.spacing(4)}px;
+`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;

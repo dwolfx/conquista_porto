@@ -5,19 +5,12 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import VerticalList from 'components/VerticalList'
 import Divisor from 'components/Divisor'
 
-import { ColStyled, RowTitle } from './styles'
+import { ColStyled, RowTitle } from '../styles'
 import { formatNumber } from 'helpers'
 
-interface IProfitability {
-  profitability: {
-    name: string
-    value: {
-      [index: number]: number
-    }
-  }[]
-}
+import { IProps } from '../'
 
-export default function TabletView({ profitability }: IProfitability) {
+export default function TabletView({ profitability }: IProps) {
   const tableFirstRow = profitability[0]
   const tableSecondRow = profitability[1]
   const tableThirdRow = profitability[2]

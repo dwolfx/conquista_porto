@@ -14,7 +14,7 @@ export const GridCol = styled(Col)`
 `
 
 interface IRecommendationText {
-  hasSuggestionGoal: boolean
+  firstCaseText?: boolean
 }
 
 export const RecommendationText = styled.div<IRecommendationText>`
@@ -22,19 +22,18 @@ export const RecommendationText = styled.div<IRecommendationText>`
   justify-content: center;
   align-items: center;
 
-  ${({ hasSuggestionGoal }) =>
-    hasSuggestionGoal &&
+  ${({ firstCaseText }) =>
+    firstCaseText &&
     css`
       flex-direction: column;
     `};
 
   margin: ${({ theme }) => theme.spacing(4)}px 0;
 
-  width: ${({ hasSuggestionGoal }) => (hasSuggestionGoal ? `427px` : `100%`)};
+  width: ${({ firstCaseText }) => (firstCaseText ? `427px` : `100%`)};
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
-    width: ${({ hasSuggestionGoal }) =>
-      hasSuggestionGoal ? `329px` : `259px`};
+    width: ${({ firstCaseText }) => (firstCaseText ? `329px` : `259px`)};
     flex-direction: column;
   }
 `

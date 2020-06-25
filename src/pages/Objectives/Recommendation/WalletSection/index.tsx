@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Col, Row } from 'styled-bootstrap-grid'
+import { uuid } from 'uuidv4'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
@@ -77,12 +78,7 @@ const WalletSection = ({
     return (
       <s.PercentualInfosContainer>
         {fundsCategoriesSort.map(([key, value]) => (
-          <s.PercentualText
-            type="headline"
-            color="gray6"
-            bold
-            key={`${key}-${value}%`}
-          >
+          <s.PercentualText type="headline" color="gray6" bold key={uuid()}>
             {`${((value * 100) / fundsTotalValues).toFixed(1)}% em ${key}`}
           </s.PercentualText>
         ))}
@@ -118,14 +114,14 @@ const WalletSection = ({
       </Row>
 
       <s.LabelRow alignItems="center">
-        <Col lg={6} md={7} sm={5} xs={12}>
+        <s.PercetualInfosWrapper>
           <PercentualInfos />
-        </Col>
+        </s.PercetualInfosWrapper>
 
         {!isVerticalTablet ? (
-          <Col lg={6} md={5} sm={7}>
+          <s.LabelInfosWrapper>
             <TableLabel />
-          </Col>
+          </s.LabelInfosWrapper>
         ) : null}
       </s.LabelRow>
     </>

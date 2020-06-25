@@ -73,7 +73,8 @@ const Recommendation = ({
     ) {
       dispatch(CleanObjectiveManagementData())
     }
-  }, [dispatch, objectiveManagementData])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     setFormData({
@@ -122,7 +123,7 @@ const Recommendation = ({
           <InformativeHeader
             answer={answer}
             openEdit={() => {
-              if (suggestion_goal) {
+              if (suggestion_goal && !credit_product) {
                 setIsEditing(true)
               } else {
                 setIsDrawerOpen(true)
@@ -130,7 +131,12 @@ const Recommendation = ({
             }}
           />
 
-          <RecommendationMessage suggestion_goal={suggestion_goal} />
+          <RecommendationMessage
+            suggestion_goal={suggestion_goal}
+            incomeMedianValue={income.median}
+            answerTargetValue={answer.target_value}
+            creditProduct={credit_product}
+          />
 
           <CardEstimatedResults
             answerTargetValue={answer.target_value}

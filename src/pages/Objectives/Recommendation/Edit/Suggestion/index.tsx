@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container, Row } from 'styled-bootstrap-grid'
+import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
@@ -36,7 +36,6 @@ export default function EditSuggestion({
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
   const isTabletVertical = useMedia('md')
-  // const isTabletHorizontal = useMedia('lg')
 
   const [activeButton, setActiveButton] = useState<string | null>(null)
   const [error, setError] = useState<boolean>(false)
@@ -51,8 +50,9 @@ export default function EditSuggestion({
     profile: 0,
   })
 
-  const { isLoadingBySimulate, suitabilityData } = useSelector(
+  const { isLoading, isLoadingBySimulate, suitabilityData } = useSelector(
     (state: any) => ({
+      isLoading: state.objective.isLoading,
       isLoadingBySimulate: state.objective.isLoadingBySimulate,
       suitabilityData: state.suitability.data,
     })
@@ -65,8 +65,8 @@ export default function EditSuggestion({
   const buttons = {
     recalculate: (
       <s.FooterButton
-        loading={isLoadingBySimulate && activeButton === 'recalculate'}
-        disabled={error}
+        loading={isLoading && activeButton === 'recalculate'}
+        disabled={error || isLoading || isLoadingBySimulate}
         onClick={() => {
           setActiveButton('recalculate')
           dispatch(
@@ -76,6 +76,7 @@ export default function EditSuggestion({
                 initial_value: editValues!.initial_value,
                 monthly_value: editValues!.monthly_value,
                 target_value: editValues!.target_value,
+                profile: +suitabilityData.idperfilinvest,
               },
               onSuccess: () => {
                 setFormData(editValues)
@@ -92,6 +93,7 @@ export default function EditSuggestion({
       <s.FooterButton
         outline
         loading={isLoadingBySimulate && activeButton === 'monthly_value'}
+        disabled={isLoading || isLoadingBySimulate}
         onClick={() => {
           setActiveButton('monthly_value')
           dispatch(
@@ -114,6 +116,7 @@ export default function EditSuggestion({
       <s.FooterButton
         outline
         loading={isLoadingBySimulate && activeButton === 'target_date'}
+        disabled={isLoading || isLoadingBySimulate}
         onClick={() => {
           setActiveButton('target_date')
           dispatch(
@@ -135,9 +138,9 @@ export default function EditSuggestion({
   }
 
   return (
-    <Container>
+    <s.Container>
       <Row>
-        <s.SectionTitleCol lg={4} lgOffset={4} md={6} mdOffset={3}>
+        <s.SectionTitleCol>
           <Text type="heading4" color="gray6" textAlign="center">
             Você pode editar os valores ou escolher uma de nossas sugestões.
           </Text>
@@ -163,6 +166,6 @@ export default function EditSuggestion({
           setError={setError}
         />
       )}
-    </Container>
+    </s.Container>
   )
 }

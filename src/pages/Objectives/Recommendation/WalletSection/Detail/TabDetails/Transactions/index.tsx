@@ -1,6 +1,7 @@
 import React from 'react'
 import { uuid } from 'uuidv4'
 
+import Icon from 'components/IconExporter'
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
@@ -8,7 +9,6 @@ import Text from 'components/Text'
 import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
 
-import { StyledIcon } from 'pages/Investments/FundsList/styles'
 import { IFunds } from 'store/modules/Objective/types'
 
 import { Li, LiTitle, LiValue, TransactionsWrapper, Ul } from './styles'
@@ -17,7 +17,7 @@ interface IFund {
   fund: IFunds
 }
 
-export const Transactions = ({ fund }: IFund) => {
+export const Transactions = ({ fund, ...rest }: IFund) => {
   const isMobile = useMedia('xs')
 
   const liContent = [
@@ -32,9 +32,9 @@ export const Transactions = ({ fund }: IFund) => {
     [
       <LiTitle>Saldo Mín.</LiTitle>,
       <LiValue bold>
-        {typeof fund.min_balance === 'string' || undefined
+        {typeof fund.min_balance === 'string' || fund.min_balance === undefined
           ? '-'
-          : formatMoney(fund.min_balance || 0)}
+          : formatMoney(fund.min_balance)}
       </LiValue>,
     ],
     [
@@ -69,11 +69,11 @@ export const Transactions = ({ fund }: IFund) => {
   !isMobile && liContent.length === 8 && liContent.push(category)
 
   return (
-    <TransactionsWrapper>
+    <TransactionsWrapper {...rest}>
       <HorizontalList
         noPadding
         startItems={[
-          <StyledIcon name="money" />,
+          <Icon name="money" width={21} />,
           <Text color="gray6" type="subheading" bold>
             MOVIMENTAÇÕES
           </Text>,

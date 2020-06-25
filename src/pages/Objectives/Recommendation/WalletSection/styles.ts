@@ -62,16 +62,15 @@ export const PercentualInfosContainer = styled(Row)`
 export const PercentualText = styled(Text)`
   &:nth-child(2n) {
     border-left: 1px solid ${({ theme }) => theme.colors.gray6};
-    flex: 1;
     padding-left: ${({ theme }) => theme.spacing(2)}px;
     margin-left: ${({ theme }) => theme.spacing(2)}px;
   }
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    &:not(:last-child) {
-      border-right: 0;
-      padding-right: 0;
-      margin-right: 0;
+    &:nth-child(2n) {
+      border-left: 0;
+      padding-left: 0;
+      margin-left: 0;
     }
   }
 `
@@ -87,14 +86,19 @@ export const InfoContainer = styled.div`
   }
 `
 
-export const Popover = styled(PopoverComp)`
+interface IPopover {
+  noMargin?: boolean
+}
+
+export const Popover = styled(PopoverComp)<IPopover>`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-right: ${({ theme }) => theme.spacing(1)}px;
+  margin-right: ${({ noMargin, theme }) =>
+    noMargin ? 0 : `${theme.spacing(1)}px`};
 `
 
-export const InlineContentText = styled.span`
+export const InlineContentText = styled(Text)`
   display: inline-flex;
 `
 
@@ -123,8 +127,14 @@ export const IconContainer = styled.div`
   }
 `
 
-export const DashedText = styled(Text)`
+export const DashedText = styled.span`
+  color: inherit;
   display: inline;
+  font-size: inherit;
   border-bottom: 1px dashed ${({ theme }) => theme.colors.gray4};
   /* margin-right: ${({ theme }) => theme.spacing(1)}px; */
+`
+
+export const PopoverContentContainer = styled.div`
+  max-width: 360px;
 `
