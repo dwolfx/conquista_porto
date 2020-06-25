@@ -1,12 +1,19 @@
 import React from 'react'
 
-// import { Container } from './styles';
+import { RowContent, LeftContent, MainContent } from './styles'
 
 const Tablet: React.FC = () => {
   return (
-    <div>
-      <h1>Tablet</h1>
-    </div>
+    <>
+      <RowContent>
+        <LeftContent data-testid="left-content" md={4} sm={5}>
+          CONTENT
+        </LeftContent>
+        <MainContent data-testid="main-content" md={8} sm={7}>
+          CONTENT
+        </MainContent>
+      </RowContent>
+    </>
   )
 }
 
