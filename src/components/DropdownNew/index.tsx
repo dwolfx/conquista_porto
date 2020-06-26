@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { dict } from 'components/IconExporter'
 import { useHistory } from 'react-router-dom'
 
@@ -68,9 +68,9 @@ interface IProps {
         ],
  *    },
  *  ]
- * 
+ *
  * OR
- * 
+ *
  * node: React.ReactNode[] = [
       <div key="item1">ItemTest1</div>,
     <div key="item2">ItemTest2</div>,
@@ -98,7 +98,7 @@ const Dropdown: React.FC<IProps> = ({
   const history = useHistory()
   const containerRef = useRef(null) as React.RefObject<HTMLElement>
 
-  function checkElementOut() {
+  const checkElementOut = useCallback(() => {
     if (containerRef && containerRef.current && containerRef.current.style) {
       const elementBounding = containerRef.current.getBoundingClientRect()
 
@@ -130,11 +130,11 @@ const Dropdown: React.FC<IProps> = ({
         containerRef.current.style.left = `-${offsetDifference}px`
       }
     }
-  }
+  }, [containerRef])
 
   useEffect(() => {
     if (isOpen) checkElementOut()
-  }, [isOpen])
+  }, [isOpen, checkElementOut])
 
   function handleDropDown(value: boolean) {
     setIsOpen(value)
