@@ -1,14 +1,154 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BulletsSection renders correctly 1`] = `
+.c0 {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  background-color: #F1F1F1;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.c2 {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.c2 img {
+  width: 450px;
+}
+
+.c3 {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.c3 div {
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+}
+
+.c3 ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 28px;
+}
+
+.c3 li {
+  position: relative;
+  font-size: 18px;
+  padding-left: 28px;
+  line-height: 28px;
+  font-weight: 300;
+  color: black;
+  margin-bottom: 14px;
+}
+
+.c3 li:before {
+  content: '■';
+  color: #00ADEF;
+  position: absolute;
+  right: calc(100% + 10px);
+  font-size: 14px;
+}
+
+.c4 {
+  margin-left: 50px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+@media (min-width:1206px) {
+  .c1 {
+    width: 1200px;
+  }
+}
+
+@media (max-width:780px) {
+  .c1 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width:1200px) {
+  .c2 img {
+    width: 400px;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 img {
+    padding-right: 70px;
+  }
+}
+
+@media (max-width:768px) {
+  .c2 img {
+    width: 300px;
+  }
+}
+
+@media (max-width:768px) {
+  .c3 {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width:980px) {
+  .c3 div {
+    font-size: 22px;
+  }
+}
+
+@media (max-width:768px) {
+  .c3 div {
+    text-align: center;
+  }
+}
+
+@media (max-width:1000px) {
+  .c3 li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width:980px) {
+  .c3 li {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
 <section
-  className="sc-AxjAm clWFYd"
+  className="c0"
 >
   <div
-    className="sc-AxirZ cllJUb"
+    className="c1"
   >
     <div
-      className="sc-AxiKw bDCAQa"
+      className="c2"
     >
       <img
         alt=""
@@ -16,7 +156,7 @@ exports[`BulletsSection renders correctly 1`] = `
       />
     </div>
     <div
-      className="sc-AxhCb eJAVzu"
+      className="c3"
     >
       <div>
         Por que investir em Fundos?
@@ -27,7 +167,7 @@ exports[`BulletsSection renders correctly 1`] = `
         </li>
       </ul>
       <p
-        className="sc-AxhUy eclLto"
+        className="c4"
       >
         
       </p>

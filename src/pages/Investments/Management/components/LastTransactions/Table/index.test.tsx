@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-import '@testing-library/jest-dom'
 
 import { renderWithReduxAndTheme, within } from 'testUtils'
 

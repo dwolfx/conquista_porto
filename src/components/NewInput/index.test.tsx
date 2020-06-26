@@ -2,8 +2,6 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
-import '@testing-library/jest-dom'
-import 'jest-styled-components'
 
 import { dict } from 'components/IconExporter'
 import NewInput from '.'

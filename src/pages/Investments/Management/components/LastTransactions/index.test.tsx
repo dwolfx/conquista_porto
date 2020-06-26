@@ -1,5 +1,4 @@
 import React from 'react'
-import '@testing-library/jest-dom'
 import { MemoryRouter, Route, RouteProps } from 'react-router-dom'
 
 import {

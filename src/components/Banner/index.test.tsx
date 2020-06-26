@@ -1,8 +1,6 @@
 import React from 'react'
 import { renderWithReduxAndTheme } from 'testUtils'
 import theme from 'styles/theme'
-import '@testing-library/jest-dom'
-import 'jest-styled-components'
 
 import Banner from '.'
 import targetImg from 'assets/images/pages/Objectives/Manager/target.png'

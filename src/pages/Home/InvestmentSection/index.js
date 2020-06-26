@@ -204,9 +204,9 @@ export default function InvestmentSection({ onFetchInvestments }) {
               padding-bottom: 14px;
             `}
           >
-            Uma carteira de investimento com diferentes ativos é a chave para
-            bons rendimentos. Na Lista de Fundos, você pode selecionar o que
-            mais combina com seu perfil.
+            No Conquista, você pode criar a própria carteira ou receber
+            sugestões para o seu perfil investidor. Conheça nossos produtos e
+            comece a investir!
           </Text>
           <SliderBoxButton
             data-gtm-subname="card investimentos diversificando com menos riscos"
@@ -216,7 +216,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
             color="secondary"
             onClick={() => history.push('/investimentos')}
           >
-            CONHECER
+            investir
           </SliderBoxButton>
         </SliderTextBox>
       </SliderBox>

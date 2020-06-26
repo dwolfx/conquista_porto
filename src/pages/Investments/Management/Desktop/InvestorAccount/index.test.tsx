@@ -3,10 +3,8 @@ import { MemoryRouter, Route, RouteProps } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { render, fireEvent, act } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
-import '@testing-library/jest-dom'
 import { storeFactory } from 'setupTests'
 import theme from 'styles/theme'
-import 'jest-styled-components'
 
 import InvestorAccount from '.'
 

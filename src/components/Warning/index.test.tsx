@@ -1,7 +1,5 @@
 import React from 'react'
 import { renderWithReduxAndTheme } from 'testUtils'
-import '@testing-library/jest-dom'
-import 'jest-styled-components'
 
 import Warning from 'components/Warning'
 
