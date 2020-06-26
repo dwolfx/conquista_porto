@@ -40,6 +40,16 @@ export const InfoRow = styled(Row)`
   padding: 0 ${({ theme }) => theme.spacing(3)}px;
 `
 
+export const PercetualInfosWrapper = styled.div`
+  flex: 1;
+  padding-left: ${({ theme }) => theme.spacing(1)}px;
+  padding-right: ${({ theme }) => theme.spacing(1)}px;
+`
+
+export const LabelInfosWrapper = styled.div`
+  padding-right: ${({ theme }) => theme.spacing(4)}px;
+`
+
 export const PercentualInfosContainer = styled(Row)`
   display: flex;
   padding: 0 ${({ theme }) => theme.spacing(3)}px;
@@ -50,10 +60,11 @@ export const PercentualInfosContainer = styled(Row)`
 `
 
 export const PercentualText = styled(Text)`
-  &:not(:last-child) {
-    border-right: 1px solid ${({ theme }) => theme.colors.gray6};
-    padding-right: ${({ theme }) => theme.spacing(2)}px;
-    margin-right: ${({ theme }) => theme.spacing(2)}px;
+  &:nth-child(2n) {
+    border-left: 1px solid ${({ theme }) => theme.colors.gray6};
+    flex: 1;
+    padding-left: ${({ theme }) => theme.spacing(2)}px;
+    margin-left: ${({ theme }) => theme.spacing(2)}px;
   }
 
   @media ${({ theme }) => theme.mediaQueries.md} {
@@ -115,5 +126,5 @@ export const IconContainer = styled.div`
 export const DashedText = styled(Text)`
   display: inline;
   border-bottom: 1px dashed ${({ theme }) => theme.colors.gray4};
-  margin-right: ${({ theme }) => theme.spacing(1)}px;
+  /* margin-right: ${({ theme }) => theme.spacing(1)}px; */
 `

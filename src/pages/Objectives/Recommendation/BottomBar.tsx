@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row } from 'styled-bootstrap-grid'
 
-import { formatMoney } from 'helpers'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 import {
@@ -53,18 +52,9 @@ const BottomBar = ({ recommendationData }: IProps) => {
           answer: {
             ...data.answer,
             uf: customerProfile.customerState,
-            initial_value: formatMoney(data.answer.initial_value, {
-              currency: 'BRL',
-              style: 'decimal',
-            }),
-            monthly_value: formatMoney(data.answer.monthly_value, {
-              currency: 'BRL',
-              style: 'decimal',
-            }),
-            target_value: formatMoney(data.answer.target_value, {
-              currency: 'BRL',
-              style: 'decimal',
-            }),
+            initial_value: data.answer.initial_value,
+            monthly_value: data.answer.monthly_value,
+            target_value: data.answer.target_value,
           },
         },
         pushHistory,

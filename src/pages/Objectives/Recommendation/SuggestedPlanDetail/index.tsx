@@ -4,19 +4,10 @@ import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 
 import useMedia from 'hooks/useMedia'
+import { ICreditProduct } from 'store/modules/Objective/types'
+
 import { formatMoney } from 'helpers'
 import * as s from './styles'
-
-interface ICreditProductsValues {
-  checked: boolean
-  name: string
-  value: string
-}
-
-interface ICreditProduct {
-  name: string
-  values: ICreditProductsValues[]
-}
 
 interface ISuggestedPlanDetail {
   creditProduct: ICreditProduct | undefined
@@ -66,7 +57,9 @@ const SuggestedPlanDetail = ({
                 ]}
                 endItems={[
                   <Text type="headline" bold color="gray6">
-                    {creditProduct?.values[0].value}
+                    {isNaN(+creditProduct?.values[0].value)
+                      ? creditProduct?.values[0].value
+                      : formatMoney(creditProduct?.values[0].value)}
                   </Text>,
                 ]}
               />
@@ -92,7 +85,9 @@ const SuggestedPlanDetail = ({
                       : 'Consórcio'}
                   </Text>,
                   <Text type="headline" bold color="gray6">
-                    {creditProduct?.values[0].value}
+                    {isNaN(+creditProduct?.values[0].value)
+                      ? creditProduct?.values[0].value
+                      : formatMoney(creditProduct?.values[0].value)}
                   </Text>,
                 ]}
               />

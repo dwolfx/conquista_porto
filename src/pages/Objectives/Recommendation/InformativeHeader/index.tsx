@@ -20,7 +20,7 @@ interface IAnswer {
 
 interface IInformativeHeader {
   answer: IAnswer
-  openEdit: () => void
+  openEdit?: () => void
 }
 
 const InformativeHeader = ({
@@ -35,16 +35,18 @@ const InformativeHeader = ({
     <s.ObjectiveName data-testid="header-title">
       {answer.nickname}
     </s.ObjectiveName>,
-    <ButtonLink
-      data-gtm-type="click"
-      data-gtm-clicktype="link"
-      data-gtm-name="Editar objetivo"
-      noIcon={false}
-      noIconPadding
-      onClick={openEdit}
-    >
-      Editar objetivo
-    </ButtonLink>,
+    openEdit && (
+      <ButtonLink
+        data-gtm-type="click"
+        data-gtm-clicktype="link"
+        data-gtm-name="Editar objetivo"
+        noIcon={false}
+        noIconPadding
+        onClick={openEdit}
+      >
+        Editar objetivo
+      </ButtonLink>
+    ),
   ]
 
   const targetDate = [

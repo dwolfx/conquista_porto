@@ -1,42 +1,51 @@
 import React from 'react'
-
-import { Row } from 'styled-bootstrap-grid'
+import { uuid } from 'uuidv4'
 
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 
-import { ICreditProducts } from 'pages/Objectives/Recommendation/types'
+import { formatMoney } from 'helpers'
+import { ICreditProduct } from 'store/modules/Objective/types'
 
 import { productCard } from './dataCardCredit'
 import * as s from './styles'
 
 interface IObjectItem {
   name: string
-  value: string
-  info?: boolean
+  value: string | number
   checked?: boolean
+  info?: React.ReactNode
 }
 
 interface ICardProps {
-  creditProduct: ICreditProducts
+  creditProduct: ICreditProduct
 }
 
-const singleInfo = (item: IObjectItem, index: number) => (
-  <s.InfoItem key={index} lg={12} md={12} sm={4} xs={12}>
-    <Text type="captionUppercase" color="gray5">
-      {item.name}
-    </Text>
-    <s.TextValue type="headline" color="gray6">
-      {item.value}
-      {item.info && (
-        <Popover content="A taxa varia de acordo com a quantidade de parcelas contratada.">
-          <Icon width={21} name="information" color="gray4" />
-        </Popover>
-      )}
-    </s.TextValue>
-  </s.InfoItem>
-)
+const singleInfo = (creditCardProductsInfos: IObjectItem[]) =>
+  creditCardProductsInfos
+    ? creditCardProductsInfos.map(item => (
+        <s.InfoItem key={uuid()}>
+          <Text type="captionUppercase" color="gray5">
+            {item.name}
+          </Text>
+          <s.TextValue type="headline" color="gray6">
+            {isNaN(+item.value) ? item.value : formatMoney(item.value)}
+            {item.info && (
+              <Popover
+                content={
+                  <s.PopoverContentContainer>
+                    {item.info}
+                  </s.PopoverContentContainer>
+                }
+              >
+                <Icon width={21} name="information" color="gray4" />
+              </Popover>
+            )}
+          </s.TextValue>
+        </s.InfoItem>
+      ))
+    : null
 
 const CardCreditProduct = ({ creditProduct }: ICardProps) => {
   const currentProduct =
@@ -56,14 +65,10 @@ const CardCreditProduct = ({ creditProduct }: ICardProps) => {
         <Text type="headline" color="gray6">
           {currentProduct.message}
         </Text>
-        <Row>
-          {creditProduct.values &&creditProduct.values.map((item: IObjectItem, index: number) =>
-              singleInfo(item, index)
-            )}
-          {currentProduct.items.map((item: IObjectItem, index: number) =>
-            singleInfo(item, index)
-          )}
-        </Row>
+        <s.InfoRow justifyContent="between">
+          {singleInfo(creditProduct.values)}
+          {singleInfo(currentProduct.items)}
+        </s.InfoRow>
       </s.CardContainer>
     </s.FullHeightCard>
   )
