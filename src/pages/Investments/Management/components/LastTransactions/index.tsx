@@ -6,20 +6,25 @@ import { useHistory } from 'react-router-dom'
 
 import { GetBankExtractFundRequest } from 'store/modules/BankExtractFund/action'
 
+import useMedia from 'hooks/useMedia'
+
 import ErrorState from 'pages/Home/commons/ErrorState'
 import LoadingState from 'pages/Home/commons/LoadingState'
 
 import Accordion from 'components/AccordionNew'
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
+import Button from 'components/Button'
 
 import Table from './Table'
+import List from './List'
 
 import { Container, TextAccordionHeader } from './styles'
 
 const LastTransations = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const isTabletVerticalOrSmaller = useMedia('sm')
   const { auth, bankExtractFund, investmentPosition } = useSelector(
     ({ auth, bankExtractFund, investmentPosition }: any) => ({
       auth,
@@ -61,6 +66,11 @@ const LastTransations = () => {
         </Container>
       )
     }
+
+    const lastFiveTransactions = bankExtractFund.data[0]
+      ? bankExtractFund.data[0].operacoes.operacao.slice(0, 5)
+      : []
+
     return (
       <div
         css={`
@@ -69,28 +79,44 @@ const LastTransations = () => {
             ${theme.spacing(0)}px ${theme.spacing(2)}px`};
         `}
       >
-        <Container>
-          <Table
-            data={
-              bankExtractFund.data[0]
-                ? bankExtractFund.data[0].operacoes.operacao
-                : []
-            }
-          />
-        </Container>
-        <ButtonLink
-          onClick={() => {
-            history.push(
-              `/investimentos/extrato?idFundo=${investmentPosition.idFund}`
-            )
-          }}
-          css={`
-            padding-top: ${({ theme }: { theme: DefaultTheme }) =>
-              theme.spacing(4)}px;
-          `}
-        >
-          ver extrato
-        </ButtonLink>
+        {isTabletVerticalOrSmaller ? (
+          <div
+            css={`
+              text-align: center;
+            `}
+          >
+            <List data={lastFiveTransactions} />
+            <Button
+              outline
+              onClick={() => {
+                history.push(
+                  `/investimentos/extrato?idFundo=${investmentPosition.idFund}`
+                )
+              }}
+            >
+              ver extrato
+            </Button>
+          </div>
+        ) : (
+          <>
+            <Container>
+              <Table data={lastFiveTransactions} />
+            </Container>
+            <ButtonLink
+              onClick={() => {
+                history.push(
+                  `/investimentos/extrato?idFundo=${investmentPosition.idFund}`
+                )
+              }}
+              css={`
+                margin-top: ${({ theme }: { theme: DefaultTheme }) =>
+                  theme.spacing(4)}px;
+              `}
+            >
+              ver extrato
+            </ButtonLink>
+          </>
+        )}
       </div>
     )
   }

@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import Modal from 'components/Modal/Confirmation'
 import Card from 'components/Card'
 
-import ChartPosition from './ChartPosition'
+import ChartPosition from '../components/ChartPosition'
+import LastTransations from '../components/LastTransactions'
+
 import InvestorAccount from './InvestorAccount'
 import InvestedFundsList from './InvestedFundsList'
 import { RowContent, LeftContent, MainContent } from './styles'
 import { TFundsLayout } from '../types'
-import LastTransations from './LastTransactions'
 import FundInfoPanel from './FundInfoPanel'
 
 import useSelectedPosition from 'hooks/useSelectedPosition'
