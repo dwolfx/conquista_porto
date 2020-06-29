@@ -10,7 +10,7 @@ import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Dropdown from 'components/DropdownNew'
 
-import { IModalProps } from 'pages/Investments/Management/Desktop'
+import { IModalProps } from 'pages/Investments/Management/types'
 
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { useToast } from 'hooks/toast'
