@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
@@ -116,6 +116,10 @@ const FundInformation = ({
 
   const [incomeValue, setIncomeValue] = useState<any | null>(null)
   const [selectValue, setSelectValue] = useState('')
+
+  const { displayInformation } = useSelector((state: any) => ({
+    displayInformation: state.investmentPosition.displayInformation,
+  }))
 
   const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
 
@@ -303,7 +307,16 @@ const FundInformation = ({
               />
             </Col>
             <ColIncome col={4}>
-              <Text type="headline" bold color="gray6">
+              <Text
+                type="headline"
+                bold
+                color="gray6"
+                css={`
+                  -webkit-text-security: ${displayInformation
+                    ? 'disc'
+                    : 'none'};
+                `}
+              >
                 {getUpdatedBalance().valorsaldo}
               </Text>
             </ColIncome>
@@ -320,7 +333,15 @@ const FundInformation = ({
                   </Text>,
                 ]}
                 endItems={[
-                  <Text type="body" color="gray5">
+                  <Text
+                    type="body"
+                    color="gray5"
+                    css={`
+                      -webkit-text-security: ${displayInformation
+                        ? 'disc'
+                        : 'none'};
+                    `}
+                  >
                     {formatMoney(calculatedBalance().saldoBruto) || '--'}
                   </Text>,
                 ]}
@@ -332,7 +353,15 @@ const FundInformation = ({
                   </Text>,
                 ]}
                 endItems={[
-                  <Text type="body" color="gray5">
+                  <Text
+                    type="body"
+                    color="gray5"
+                    css={`
+                      -webkit-text-security: ${displayInformation
+                        ? 'disc'
+                        : 'none'};
+                    `}
+                  >
                     {getTributacao('IOF')}
                   </Text>,
                 ]}
@@ -344,7 +373,15 @@ const FundInformation = ({
                   </Text>,
                 ]}
                 endItems={[
-                  <Text type="body" color="gray5">
+                  <Text
+                    type="body"
+                    color="gray5"
+                    css={`
+                      -webkit-text-security: ${displayInformation
+                        ? 'disc'
+                        : 'none'};
+                    `}
+                  >
                     {getTributacao('IR')}
                   </Text>,
                 ]}
@@ -356,7 +393,15 @@ const FundInformation = ({
                   </Text>,
                 ]}
                 endItems={[
-                  <Text type="headline" color="gray6">
+                  <Text
+                    type="headline"
+                    color="gray6"
+                    css={`
+                      -webkit-text-security: ${displayInformation
+                        ? 'disc'
+                        : 'none'};
+                    `}
+                  >
                     {formatMoney(calculatedBalance().saldoLiquido)}
                   </Text>,
                 ]}
@@ -379,7 +424,14 @@ const FundInformation = ({
           </Text>
         </Col>
         <ColPadding col={4}>
-          <Text type="headline" bold color="gray6">
+          <Text
+            type="headline"
+            bold
+            color="gray6"
+            css={`
+              -webkit-text-security: ${displayInformation ? 'disc' : 'none'};
+            `}
+          >
             {formatMoney(incomeValue) || '--'}
           </Text>
         </ColPadding>
