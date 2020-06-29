@@ -1,8 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs Tabs to render 1`] = `
+.c0 {
+  background-image: linear-gradient( to bottom, #FFFFFF 0%, #F1F1F1 100% );
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+  height: 3rem;
+  font-size: 10px;
+  font-weight: 700;
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  margin-top: 0.75rem;
+  padding-top: 1.75em;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.c0:first-of-type {
+  border-radius: 6px 0 0 0;
+}
+
+.c0:last-of-type {
+  border-radius: 0 6px 0 0;
+}
+
+.c0.active {
+  border-radius: 6px 6px 0 0;
+  background-image: linear-gradient( to bottom, #FFFFFF 0%, #F1F1F1 100% );
+  height: 3.75rem;
+  margin-top: 0;
+  padding-top: 2em;
+  border-bottom: 4px solid #00ADEF;
+}
+
 <div
-  className="sc-AxjAm eSuVNU"
+  className="c0"
 >
   Primeira tab
 </div>

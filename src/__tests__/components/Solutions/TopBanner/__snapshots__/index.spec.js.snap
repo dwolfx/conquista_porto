@@ -1,14 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopBanner renders correctly 1`] = `
+.c0 {
+  height: 340px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #898989;
+}
+
+.c1 {
+  text-align: center;
+  z-index: 1;
+}
+
+.c1 p {
+  max-width: 989px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 28px;
+  color: white;
+}
+
+.c1 .button-with-right-icon span.icon {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  font-size: 13px;
+}
+
+.c3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.3;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c2 {
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+  color: white;
+}
+
 <section
-  className="sc-AxmLO bohepV"
+  className="c0"
 >
   <div
-    className="sc-fzozJi ghJUps"
+    className="c1"
   >
     <h1
-      className="sc-fzpans hjHiXE"
+      className="c2"
     >
       Fundos de Investimentos
     </h1>
@@ -19,7 +83,7 @@ exports[`TopBanner renders correctly 1`] = `
   </div>
   <img
     alt="Homem pesquisando investimentos em um website em seu computador"
-    className="sc-fzoLsD huQBEw"
+    className="c3"
     src="banner_investimentos.jpg"
   />
 </section>

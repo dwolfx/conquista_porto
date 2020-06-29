@@ -1,8 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { renderWithReduxAndTheme } from 'testUtils'
-import '@testing-library/jest-dom'
-import 'jest-styled-components'
 
 import Anbima from '.'
 

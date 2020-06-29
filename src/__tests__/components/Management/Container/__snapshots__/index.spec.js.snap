@@ -1,8 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container renders correctly 1`] = `
+.c0 {
+  margin: 0 auto;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  width: 1200px;
+}
+
+@media (max-width:1000px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+@media (min-width:990px) {
+  .c0 {
+    width: 984px;
+  }
+}
+
+@media (min-width:1206px) {
+  .c0 {
+    width: 1200px;
+  }
+}
+
 <section
-  className="sc-AxjAm eQTJPM"
+  className="c0"
 >
   <span>
     testando
