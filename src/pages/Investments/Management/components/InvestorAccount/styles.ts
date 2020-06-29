@@ -1,18 +1,24 @@
 import styled from 'styled-components'
 
 import Button from 'components/Button'
-import Text from 'components/Text'
-import Icon from 'components/IconExporter'
-import VerticalList from 'components/VerticalList'
-import HorizontalList from 'components/HorizontalList'
 import Card from 'components/Card'
-import { CardBody } from 'components/Card/styles'
+import HorizontalList from 'components/HorizontalList'
+import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
+import Text from 'components/Text'
+import VerticalList from 'components/VerticalList'
+
+import { CardBody } from 'components/Card/styles'
 import { LegendText } from 'components/Loading/styles'
 
 export const CustomHorizontalList = styled(HorizontalList)`
   padding: 0;
   height: auto;
+
+  @media ${props => props.theme.mediaQueries.md} {
+    padding: ${({ theme }) => theme.spacing(3)}px
+      ${({ theme }) => theme.spacing(2)}px 0;
+  }
 `
 
 export const CardStyled = styled(Card)`
@@ -33,6 +39,10 @@ export const CustomVerticalList = styled(VerticalList)`
 export const InfoContainer = styled.div`
   padding: ${({ theme }) =>
     `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
+
+  @media ${props => props.theme.mediaQueries.md} {
+    padding: 0;
+  }
 `
 
 export const TextCaption = styled(Text).attrs(() => ({
@@ -57,9 +67,18 @@ export const TextHeadline = styled(Text).attrs(() => ({
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `
 
+export const ButtonsWrapper = styled.div`
+  display: flex;
+`
+
 export const ButtonBlock = styled(Button)`
   width: 100%;
+  white-space: nowrap;
   margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+
+  &:first-child {
+    margin-right: ${({ theme }) => theme.spacing(2)}px;
+  }
 `
 
 export const LoadingStyled = styled(Loading)`

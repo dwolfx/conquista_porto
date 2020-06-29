@@ -1,16 +1,17 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import ButtonLink from 'components/Button/Link'
 import Divisor from 'components/Divisor'
-import { formatMoney, handleGiwRedirect } from 'helpers'
-import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { useToast } from 'hooks/toast'
-import { IModalProps } from 'pages/Investments/Management/Desktop'
+import useMedia from 'hooks/useMedia'
+import useFetchBankData from 'hooks/BankData/useFetchBankData'
+import { IModalProps } from 'pages/Investments/Management/styles'
+import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
   CardStyled,
@@ -22,6 +23,7 @@ import {
   CustomVerticalList,
   CustomHorizontalList,
   ButtonBlock,
+  ButtonsWrapper,
   IconRetry,
 } from './styles'
 
@@ -40,6 +42,7 @@ enum InvestorAccountInfo {
 
 const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
   useFetchBankData()
+  const isTablet = useMedia('md')
   const history = useHistory()
   const dispatch = useDispatch()
   const { addToast } = useToast()
@@ -155,16 +158,29 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
             bankData.DadosContaPortoSeguro &&
               bankData.DadosContaPortoSeguro.saldo_disponivel
           ) > 0 && (
-            <ButtonBlock
-              outline
-              color="primary"
-              data-testid="button-draw"
-              onClick={handleClickWithdrawButton}
-            >
-              retirar
-            </ButtonBlock>
+            <ButtonsWrapper>
+              {isTablet && (
+                <ButtonBlock
+                  outline
+                  color="primary"
+                  onClick={() => {
+                    history.push('/investimentos/extrato')
+                  }}
+                >
+                  ver extrato
+                </ButtonBlock>
+              )}
+              <ButtonBlock
+                outline
+                color="primary"
+                data-testid="button-draw"
+                onClick={handleClickWithdrawButton}
+              >
+                retirar
+              </ButtonBlock>
+            </ButtonsWrapper>
           )}
-          {renderExtractLink('saldo')}
+          {!isTablet && renderExtractLink('saldo')}
         </InfoContainer>
         <Divisor />
         <InfoContainer>
@@ -183,7 +199,19 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
               />,
             ]}
           />
-          {renderExtractLink('retirar')}
+          {!isTablet ? (
+            renderExtractLink('retirar')
+          ) : (
+            <ButtonBlock
+              outline
+              color="primary"
+              onClick={() => {
+                history.push('/investimentos/extrato')
+              }}
+            >
+              ver extrato
+            </ButtonBlock>
+          )}
         </InfoContainer>
       </>
     )
