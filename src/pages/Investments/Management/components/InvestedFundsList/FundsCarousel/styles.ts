@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import IconButton from 'components/Button/Icon'
+
 import Card from 'components/Card'
 import { CardBody } from 'components/Card/styles'
 
@@ -48,14 +49,17 @@ export const Chip = styled(Card)<IChipProps>`
   }
 `
 
-export const ChangePageButton = styled.button`
+const ChangePageButton = styled(IconButton).attrs(() => ({
+  size: 'small',
+  isLoading: false,
+}))`
   &.slick-prev {
     left: 868px;
     top: -28px;
   }
 
   &.slick-next {
-    right: 7px;
+    right: 0;
     top: -28px;
   }
 
@@ -64,3 +68,10 @@ export const ChangePageButton = styled.button`
     content: '';
   }
 `
+export const NextButton = styled(ChangePageButton).attrs(() => ({
+  icon: 'arrowright',
+}))``
+
+export const PrevButton = styled(ChangePageButton).attrs(() => ({
+  icon: 'arrowleft',
+}))``

@@ -1,39 +1,30 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 
 import Carousel from 'components/Carousel'
-import IconFilter from 'components/Button/Icon'
-
-import { Settings } from 'react-slick'
-
-import { useHistory } from 'react-router-dom'
 import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
+
 import { formatMoney } from 'helpers'
 import {
   ButtonVertical,
-  ChangePageButton,
+  NextButton,
+  PrevButton,
   Chip,
   ContentContainer,
 } from './styles'
 
-export const CustomNextArrow = () => {
-  return (
-    <ChangePageButton>
-      <IconFilter icon="arrowright" size="small" isLoading={false} />
-    </ChangePageButton>
-  )
+const CustomNextArrow = () => {
+  return <NextButton />
 }
 
-export const CustomPreviousArrow = () => {
-  return (
-    <ChangePageButton>
-      <IconFilter icon="arrowleft" size="small" isLoading={false} />
-    </ChangePageButton>
-  )
+const CustomPreviousArrow = () => {
+  return <PrevButton />
 }
 
-export const customSettings: Settings = {
+let customSettings = {
   dots: false,
   arrows: true,
   variableWidth: true,
@@ -51,7 +42,6 @@ const CustomSlides = ({
   displayInformation,
   selectedFund,
   onChangeSelectedFund,
-  ...rest
 }: {
   fund: any
   displayInformation: boolean
@@ -111,6 +101,25 @@ const FundsCarousel = ({
   onHandleChangeIdFund,
 }: IFundsCarousel) => {
   const history = useHistory()
+  const isTabletHorizontal = useMedia('mdUp')
+  const isTabletVertical = useMedia('md')
+
+  if (isTabletHorizontal) {
+    customSettings = {
+      ...customSettings,
+      slidesToShow: 2,
+      arrows: false,
+    }
+  }
+
+  if (isTabletVertical) {
+    customSettings = {
+      ...customSettings,
+      slidesToShow: 1,
+      arrows: false,
+    }
+  }
+
   return (
     <ContentContainer>
       <Carousel data-testid="test-carousel" settings={customSettings}>

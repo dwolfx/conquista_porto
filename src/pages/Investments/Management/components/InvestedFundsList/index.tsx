@@ -12,6 +12,7 @@ import {
 import FundsCarousel from './FundsCarousel'
 import FundsList from './FundsList'
 import { ContainerCard, LoadingStyled, ErrorText, ButtonStyled } from './styles'
+import useMedia from 'hooks/useMedia'
 
 interface IProps {
   filters: any
@@ -30,6 +31,7 @@ const InvestedFundsList = ({
   onHandleChangeFilter,
 }: IProps) => {
   const dispatch = useDispatch()
+  const isTablet = useMedia('lg')
   const { idFund, displayInformation, hasError, isLoading, auth } = useSelector(
     (state: any) => ({
       idFund: state.investmentPosition.idFund,
@@ -74,13 +76,15 @@ const InvestedFundsList = ({
 
     return (
       <>
-        <FundsFilter
-          filters={filters}
-          viewMode={viewMode}
-          isNextPriorButtonsVisible={isNextPriorButtonsVisible}
-          onHandleChangeView={onHandleChangeView}
-          onHandleChangeFilter={onHandleChangeFilter}
-        />
+        {!isTablet && (
+          <FundsFilter
+            filters={filters}
+            viewMode={viewMode}
+            isNextPriorButtonsVisible={isNextPriorButtonsVisible}
+            onHandleChangeView={onHandleChangeView}
+            onHandleChangeFilter={onHandleChangeFilter}
+          />
+        )}
         {viewMode === 'CARDS' ? (
           <FundsCarousel
             displayInformation={displayInformation}
