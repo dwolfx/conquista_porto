@@ -10,7 +10,7 @@ import Text from 'components/Text'
 import ErrorState from 'pages/Home/commons/ErrorState'
 import LoadingState from 'pages/Home/commons/LoadingState'
 
-import { IModalProps } from 'pages/Investments/Management/Desktop'
+import { IModalProps } from 'pages/Investments/Management/types'
 
 import { GetPositionDataRequest } from 'store/modules/Investment/Position/action'
 

@@ -10,7 +10,7 @@ import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { IModalProps } from 'pages/Investments/Management/styles'
+import { IModalProps } from 'pages/Investments/Management/types'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {

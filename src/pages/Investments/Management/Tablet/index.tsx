@@ -4,8 +4,7 @@ import Modal from 'components/Modal/Confirmation'
 
 import { RowContent, LeftContent, MainContent } from './styles'
 import InvestorAccount from 'pages/Investments/Management/components/InvestorAccount'
-import { TFundsLayout } from '../types'
-import { IModalProps } from '../Desktop'
+import { IModalProps, TFundsLayout } from '../types'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,

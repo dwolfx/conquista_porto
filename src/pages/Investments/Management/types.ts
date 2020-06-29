@@ -7,3 +7,18 @@ export const FUNDS_FILTER_TYPES = {
   4: 'investimento no exterior',
   5: 'cambial',
 }
+
+export interface IModalProps {
+  isOpen: boolean
+  title: string
+  description: string
+  button: IButton
+}
+
+interface IButton {
+  dataGtmName: string
+  dataGtmType: string
+  dataGtmClicktype: string
+  handleClick: any
+  buttonName: string
+}
