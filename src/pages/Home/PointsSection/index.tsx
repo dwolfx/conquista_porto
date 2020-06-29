@@ -1,8 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-array-index-key */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import PropTypes from 'prop-types'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
@@ -13,6 +11,7 @@ import Tag from 'components/Tag'
 import Modal from 'components/Modal/ModalNew'
 import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
 import Popover from 'components/Popover/index'
+import { dict } from 'components/IconExporter'
 
 import {
   GetPointsExtractRequest,
@@ -29,6 +28,7 @@ import {
   pointsRewardsDataWithCreditCard,
   pointsRewardsDataWithoutCreditCard,
 } from './pointsCardsData'
+
 import { pointsRulesConditions } from './modalPointsData'
 import PointsOfferCard from './RecommendationCard'
 
@@ -52,18 +52,18 @@ import {
   HorizontalListTruncateStartBlock,
 } from '../styles'
 
-export default function PointsSection({ points }) {
+export default function PointsSection({ points }: any) {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [belowOffer, setBelowOffer] = useState(null)
-  const [aboveOffer, setAboveOffer] = useState(null)
+  const [belowOffer, setBelowOffer] = useState<any | null>(null)
+  const [aboveOffer, setAboveOffer] = useState<any | null>(null)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
   const [
     firstRecommendationCardIcon,
     setFirstRecommendationCardIcon,
-  ] = useState('star')
-  const [lastRecommendationCardIcon, setLastRecommendationCardIcon] = useState(
-    'idea'
-  )
+  ] = useState<keyof typeof dict>('star')
+  const [lastRecommendationCardIcon, setLastRecommendationCardIcon] = useState<
+    keyof typeof dict
+  >('idea')
   const [cardsRecommendationData, setCardsRecommendationData] = useState(
     pointsRewardsDataWithoutCreditCard
   )
@@ -78,89 +78,14 @@ export default function PointsSection({ points }) {
     auth,
     creditCard,
     rewardsTypes,
-  } = useSelector(state => ({
+  } = useSelector((state: any) => ({
     ...state.points,
     auth: state.auth,
     creditCard: state.creditCard.data,
     rewardsTypes: state.rewardsTypes.data,
   }))
 
-  useEffect(() => {
-    dispatch(GetRewardTypesRequest())
-  }, [])
-
-  useEffect(() => {
-    setCardsRecommendationData(
-      creditCard && creditCard.length
-        ? pointsRewardsDataWithCreditCard
-        : pointsRewardsDataWithoutCreditCard
-    )
-  }, [creditCard])
-
-  useEffect(() => {
-    setPointsAmountBalance(
-      balanceData.consultaPontosResponseType
-        ? balanceData.consultaPontosResponseType.saldoAtual
-        : 0
-    )
-  }, [balanceData])
-
-  useEffect(() => {
-    if (points && aboveOffer && belowOffer) {
-      if (pointsAmountBalance) {
-        const maxPoints = [...cardsRecommendationData].slice(-1)[0].points
-        let newBelowOffer
-        let newAboveOffer
-
-        if (pointsAmountBalance > maxPoints) {
-          // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
-          // aboveOffer must be higher than belowOffer
-          const lastGroupIndex = [...cardsRecommendationData].reduce(
-            (acc, cur) => (cur.group > acc ? cur.group : acc),
-            cardsRecommendationData[0].group
-          )
-          const higherGroupData = [...cardsRecommendationData].filter(
-            item => item.group === lastGroupIndex
-          )
-
-          newBelowOffer =
-            higherGroupData[
-              Math.floor(Math.random() * (higherGroupData.length - 1))
-            ]
-          newAboveOffer = [...higherGroupData]
-            .reverse()
-            .reduce(
-              (acc, cur) => (cur.points > newBelowOffer.points ? cur : acc),
-              newBelowOffer
-            )
-        } else {
-          // if current points are below the maximum offer, get the offer below the current points and one above the current
-          newBelowOffer = [...cardsRecommendationData].reduce(
-            (acc, cur) => (cur.points <= pointsAmountBalance ? cur : acc),
-            belowOffer
-          )
-          newAboveOffer = [...cardsRecommendationData]
-            .reverse()
-            .reduce(
-              (acc, cur) =>
-                cur.points > pointsAmountBalance &&
-                belowOffer.points !== cur.points
-                  ? cur
-                  : acc,
-              aboveOffer
-            )
-        }
-
-        setBelowOffer(newBelowOffer)
-        setAboveOffer(newAboveOffer)
-      }
-    } else {
-      setBelowOffer(cardsRecommendationData[0])
-      setAboveOffer(cardsRecommendationData[1])
-    }
-  }, [points, pointsAmountBalance])
-
-  useEffect(() => {
+  const handleFirstAndLastRecommendationCardIcon = useCallback(() => {
     let firstIcon = (belowOffer || cardsRecommendationData[0]).icon
     let lastIcon = (aboveOffer || cardsRecommendationData[1]).icon
 
@@ -184,10 +109,92 @@ export default function PointsSection({ points }) {
 
     setFirstRecommendationCardIcon(firstIcon)
     setLastRecommendationCardIcon(lastIcon)
-  }, [pointsAmountBalance, aboveOffer, belowOffer, creditCard])
+  }, [
+    aboveOffer,
+    belowOffer,
+    cardsRecommendationData,
+    creditCard,
+    pointsAmountBalance,
+  ])
+
+  useEffect(() => {
+    dispatch(GetRewardTypesRequest())
+  }, [dispatch])
+
+  useEffect(() => {
+    setCardsRecommendationData(
+      creditCard && creditCard.length
+        ? pointsRewardsDataWithCreditCard
+        : pointsRewardsDataWithoutCreditCard
+    )
+  }, [creditCard])
+
+  useEffect(() => {
+    setPointsAmountBalance(
+      balanceData.consultaPontosResponseType
+        ? balanceData.consultaPontosResponseType.saldoAtual
+        : 0
+    )
+  }, [balanceData])
+
+  useEffect(() => {
+    if (pointsAmountBalance) {
+      const maxPoints = [...cardsRecommendationData].slice(-1)[0].points
+      let newBelowOffer: any
+      let newAboveOffer
+
+      if (pointsAmountBalance > maxPoints) {
+        // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
+        // aboveOffer must be higher than belowOffer
+        const lastGroupIndex = [...cardsRecommendationData].reduce(
+          (acc, cur) => (cur.group > acc ? cur.group : acc),
+          cardsRecommendationData[0].group
+        )
+        const higherGroupData = [...cardsRecommendationData].filter(
+          item => item.group === lastGroupIndex
+        )
+
+        newBelowOffer =
+          higherGroupData[
+            Math.floor(Math.random() * (higherGroupData.length - 1))
+          ]
+        newAboveOffer = [...higherGroupData]
+          .reverse()
+          .reduce(
+            (acc, cur) => (cur.points > newBelowOffer.points ? cur : acc),
+            newBelowOffer
+          )
+      } else {
+        // if current points are below the maximum offer, get the offer below the current points and one above the current
+        newBelowOffer = [...cardsRecommendationData].reduce(
+          (acc, cur) => (cur.points <= pointsAmountBalance ? cur : acc),
+          belowOffer
+        )
+        newAboveOffer = [...cardsRecommendationData]
+          .reverse()
+          .reduce(
+            (acc, cur) =>
+              cur.points > pointsAmountBalance &&
+              belowOffer?.points !== cur.points
+                ? cur
+                : acc,
+            aboveOffer
+          )
+      }
+      setBelowOffer(newBelowOffer)
+      setAboveOffer(newAboveOffer)
+    }
+    handleFirstAndLastRecommendationCardIcon()
+  }, [
+    pointsAmountBalance,
+    aboveOffer,
+    belowOffer,
+    cardsRecommendationData,
+    handleFirstAndLastRecommendationCardIcon,
+  ])
 
   useDataLayerProducts(belowOffer, aboveOffer)
-  function redirectToRescuePointsSystem({ url }) {
+  function redirectToRescuePointsSystem(url: string) {
     window.open(`#/redirect?to=${url}`, '_blank')
   }
 
@@ -218,7 +225,7 @@ export default function PointsSection({ points }) {
 
   const renderPointsHorizontalList = () =>
     points.detalheExtratoOptemaisTypes &&
-    points.detalheExtratoOptemaisTypes.map((item, index) => (
+    points.detalheExtratoOptemaisTypes.map((item: any, index: number) => (
       <HorizontalListTruncateStartBlock
         key={`point-${index}-${Math.random() * 100}`}
         startItems={[
@@ -236,13 +243,6 @@ export default function PointsSection({ points }) {
     ))
 
   const renderModalContent = () => {
-    const customText = (type, color, text) => (
-      <Text type={type} color={color} bold>
-        {text}
-      </Text>
-    )
-    const tag = (color, text) => <Tag color={color} text={text} />
-
     return pointsRulesConditions.map(item => (
       <React.Fragment key={item.id}>
         <ModalTextWrapper>
@@ -255,11 +255,17 @@ export default function PointsSection({ points }) {
         </ModalTextWrapper>
         {item.points && (
           <ContainerBox>
-            {rewardsTypes.map(itemPoints => (
+            {rewardsTypes.map((itemPoints: any) => (
               <PointsHorizontal
                 noPadding
-                startItems={[customText('headline', 'gray6', itemPoints.name)]}
-                endItems={[tag('gray', `${itemPoints.quantity} PONTOS`)]}
+                startItems={[
+                  <Text type="headline" color="gray6" bold>
+                    {itemPoints.name}
+                  </Text>,
+                ]}
+                endItems={[
+                  <Tag color="gray" text={`${itemPoints.quantity} PONTOS`} />,
+                ]}
                 key={itemPoints.id}
               />
             ))}
@@ -379,7 +385,7 @@ export default function PointsSection({ points }) {
       >
         {renderModalContent()}
       </Modal>
-      <SectionCol md="5">
+      <SectionCol md={5}>
         <PointsExtractListWrapper>
           <FullHeightCard
             headerIcon="diamond"
@@ -406,13 +412,13 @@ export default function PointsSection({ points }) {
         </PointsExtractListWrapper>
       </SectionCol>
 
-      <SectionCol md="7">
+      <SectionCol md={7}>
         <Row
           css={`
             height: 100%;
           `}
         >
-          <SectionCol md="6">
+          <SectionCol md={6}>
             <PointsOfferCard
               offer={belowOffer || cardsRecommendationData[0]}
               cardIcon={firstRecommendationCardIcon}
@@ -420,12 +426,12 @@ export default function PointsSection({ points }) {
               cardTitle={
                 pointsAmountBalance >
                 (belowOffer || cardsRecommendationData[0]).points
-                  ? 'Troque seus pontos'
+                  ? 'Você já pode trocar'
                   : 'Acumule mais pontos'
               }
             />
           </SectionCol>
-          <SectionCol md="6">
+          <SectionCol md={6}>
             <PointsOfferCard
               offer={aboveOffer || cardsRecommendationData[1]}
               cardIcon={lastRecommendationCardIcon}
@@ -433,7 +439,7 @@ export default function PointsSection({ points }) {
               cardTitle={
                 pointsAmountBalance >
                 (aboveOffer || cardsRecommendationData[1]).points
-                  ? 'Troque seus pontos'
+                  ? 'Mais alguns pontos'
                   : 'Acumule mais pontos'
               }
             />
@@ -442,20 +448,4 @@ export default function PointsSection({ points }) {
       </SectionCol>
     </>
   )
-}
-
-PointsSection.defaultProps = {
-  points: null,
-}
-
-PointsSection.propTypes = {
-  points: PropTypes.shape({
-    detalheExtratoOptemaisTypes: PropTypes.arrayOf(
-      PropTypes.shape({
-        dataCompra: PropTypes.string,
-        nomeTransacao: PropTypes.string,
-        pontoGanho: PropTypes.string,
-      })
-    ),
-  }),
 }
