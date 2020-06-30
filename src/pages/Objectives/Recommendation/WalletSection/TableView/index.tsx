@@ -20,6 +20,7 @@ interface IProps {
   handleOpenDetails: (fund: IFunds) => void
   totalInitialInvestment: number
   totalMontlyInvestment: number
+  setEditingWallet: (state: boolean) => void
 }
 
 const TableView = ({
@@ -29,6 +30,7 @@ const TableView = ({
   handleOpenDetails,
   totalInitialInvestment,
   totalMontlyInvestment,
+  setEditingWallet,
 }: IProps) => {
   const isTabletVertical = useMedia('md')
   const columnsToRender = isTabletVertical ? columnsSticky : columns
@@ -97,7 +99,7 @@ const TableView = ({
           </s.TotalValuesRow>
         )}
 
-        <s.EditButton outline onClick={() => null}>
+        <s.EditButton outline onClick={() => setEditingWallet(true)}>
           Editar composição
         </s.EditButton>
       </s.ContainerFunds>

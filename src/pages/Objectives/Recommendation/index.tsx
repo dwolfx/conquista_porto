@@ -20,21 +20,26 @@ import RecommendationMessage from './RecommendationMessage'
 import SuggestedPlanDetail from './SuggestedPlanDetail'
 import CardEstimatedResults from './CardEstimatedResults'
 import InformativeHeader from './InformativeHeader'
+import WalletEdit from './Edit/Wallet'
 
 import * as s from './styles'
 
 interface IProps {
   data: IRecommendations
   totalSteps: number
-  isEditing: boolean
-  setIsEditing: (state: boolean) => void
+  isEditingSuggestion: boolean
+  isEditingWallet: boolean
+  setIsEditingSuggestion: (state: boolean) => void
+  setIsEditingWallet: (state: boolean) => void
 }
 
 const Recommendation = ({
   data,
   totalSteps,
-  isEditing,
-  setIsEditing,
+  isEditingSuggestion,
+  isEditingWallet,
+  setIsEditingSuggestion,
+  setIsEditingWallet,
 }: IProps) => {
   const {
     answer,
@@ -86,7 +91,11 @@ const Recommendation = ({
     })
   }, [answer, suitabilityData])
 
-  if (isEditing && suggestion_goal) {
+  if (isEditingWallet) {
+    return <WalletEdit />
+  }
+
+  if (isEditingSuggestion && suggestion_goal) {
     return (
       <s.GridRecommendation>
         <TopBar
@@ -99,7 +108,7 @@ const Recommendation = ({
           formData={formData}
           setFormData={setFormData}
           suggestionData={suggestion_goal}
-          onClose={() => setIsEditing(false)}
+          onClose={() => setIsEditingSuggestion(false)}
         />
       </s.GridRecommendation>
     )
@@ -124,7 +133,7 @@ const Recommendation = ({
             answer={answer}
             openEdit={() => {
               if (suggestion_goal && !credit_product) {
-                setIsEditing(true)
+                setIsEditingSuggestion(true)
               } else {
                 setIsDrawerOpen(true)
               }
@@ -153,6 +162,7 @@ const Recommendation = ({
             funds={funds}
             creditProduct={credit_product}
             isUnmetGoal={!!suggestion_goal}
+            setEditingWallet={setIsEditingWallet}
           />
 
           <ProductBannerSection additional={additional} />

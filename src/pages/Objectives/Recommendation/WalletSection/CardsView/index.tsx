@@ -20,6 +20,7 @@ interface IProps {
   handleOpenDetails: (fund: IFunds) => void
   totalInitialInvestment: number
   totalMontlyInvestment: number
+  setEditingWallet: (state: boolean) => void
 }
 
 const CardsView = ({
@@ -29,6 +30,7 @@ const CardsView = ({
   handleOpenDetails,
   totalInitialInvestment,
   totalMontlyInvestment,
+  setEditingWallet,
 }: IProps) => {
   const theme = useContext(ThemeContext)
 

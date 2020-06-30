@@ -16,7 +16,14 @@ const Objectives = () => {
   const history = useHistory()
 
   const [totalSteps, setTotalSteps] = useState(0)
-  const [isEditingRecommendation, setIsEditingRecommendation] = useState(false)
+  const [
+    isEditingRecommendationWallet,
+    setIsEditingRecommendationWallet,
+  ] = useState<boolean>(false)
+  const [
+    isEditingRecommendationSuggestion,
+    setIsEditingRecommendationSuggestion,
+  ] = useState<boolean>(false)
 
   const { data: objectiveData } = useSelector<any, any>(
     state => state.objective
@@ -44,8 +51,10 @@ const Objectives = () => {
         <Container>
           <Header
             onClose={() => {
-              if (isEditingRecommendation) {
-                setIsEditingRecommendation(false)
+              if (isEditingRecommendationSuggestion) {
+                setIsEditingRecommendationSuggestion(false)
+              } else if (isEditingRecommendationWallet) {
+                setIsEditingRecommendationWallet(false)
               } else {
                 history.push('/')
                 document.documentElement.scrollTop = 0
@@ -62,8 +71,10 @@ const Objectives = () => {
             <Recommendation
               data={objectiveData}
               totalSteps={totalSteps + 1}
-              isEditing={isEditingRecommendation}
-              setIsEditing={setIsEditingRecommendation}
+              isEditingSuggestion={isEditingRecommendationSuggestion}
+              isEditingWallet={isEditingRecommendationWallet}
+              setIsEditingSuggestion={setIsEditingRecommendationSuggestion}
+              setIsEditingWallet={setIsEditingRecommendationWallet}
             />
           )}
         </Container>

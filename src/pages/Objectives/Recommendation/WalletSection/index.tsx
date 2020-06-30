@@ -29,12 +29,14 @@ interface IProps {
   creditProduct?: ICreditProduct
   funds: IFunds[]
   isUnmetGoal?: boolean
+  setEditingWallet: (state: boolean) => void
 }
 
 const WalletSection = ({
   funds,
   creditProduct,
   isUnmetGoal = false,
+  setEditingWallet,
 }: IProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [fundDetails, setFundDetails] = useState<IFunds | undefined>(undefined)
@@ -168,6 +170,7 @@ const WalletSection = ({
             handleOpenDetails={handleOpenDetails}
             totalInitialInvestment={totalInitialInvestment}
             totalMontlyInvestment={totalMontlyInvestment}
+            setEditingWallet={setEditingWallet}
           />
         ) : (
           <TableView
@@ -177,6 +180,7 @@ const WalletSection = ({
             handleOpenDetails={handleOpenDetails}
             totalInitialInvestment={totalInitialInvestment}
             totalMontlyInvestment={totalMontlyInvestment}
+            setEditingWallet={setEditingWallet}
           />
         )}
       </Col>
