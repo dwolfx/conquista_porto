@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import Modal from 'components/Modal/Confirmation'
 
 import { RowContent, LeftContent, MainContent } from './styles'
-import InvestorAccount from 'pages/Investments/Management/components/InvestorAccount'
+import InvestorAccount from '../components/InvestorAccount'
+import InvestedFundsList from '../components/InvestedFundsList'
 import { IModalProps, TFundsLayout } from '../types'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
@@ -45,7 +46,14 @@ const Tablet: React.FC<IProps> = ({
           />
         </LeftContent>
         <MainContent data-testid="main-content" md={8} sm={7}>
-          CONTENT
+          <InvestedFundsList
+            filters={filters}
+            filteredFunds={filteredInvestedFunds}
+            viewMode={viewMode}
+            isNextPriorButtonsVisible
+            onHandleChangeFilter={onHandleChangeFilter}
+            onHandleChangeView={onHandleChangeView}
+          />
         </MainContent>
       </RowContent>
       <Modal

@@ -8,6 +8,10 @@ import { CardBody, CardFooter } from 'components/Card/styles'
 
 export const ButtonStyled = styled(Button)`
   padding: 10px ${({ theme }) => theme.spacing(16)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    padding: 10px ${({ theme }) => theme.spacing(9)}px;
+  }
 `
 export const CardStyled = styled(Card)`
   padding: 0;
