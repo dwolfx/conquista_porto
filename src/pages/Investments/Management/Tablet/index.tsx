@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import useSelectedPosition from 'hooks/useSelectedPosition'
-
 import Modal from 'components/Modal/Confirmation'
 import Card from 'components/Card'
+import ChartPosition from '../components/ChartPosition'
+
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import Detail from '../../FundsList/Detail'
 
-import { RowContent, LeftContent, MainContent } from './styles'
+import LastTransations from '../components/LastTransactions'
 import InvestorAccount from '../components/InvestorAccount'
 import InvestedFundsList from '../components/InvestedFundsList'
 import { IModalProps, TFundsLayout } from '../types'
 
 import FundInfoPanel from './FundInfoPanel'
-
-import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import { RowContent, LeftContent, MainContent } from './styles'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,
@@ -50,15 +51,28 @@ const Tablet: React.FC<IProps> = ({
   const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
   const position = useSelectedPosition()
 
+  const { isLoading, hasError } = useSelector((state: any) => ({
+    isLoading: state.investmentPosition.isLoading,
+    hasError: state.investmentPosition.hasError,
+  }))
+
   const handleOpenDetailFund = () => {
     dispatch(GetInvestmentDetailsRequest(position.fundo.id_carteira))
     setIsFundDetailOpen(true)
+  }
+
+  const getFundTitle = () => {
+    if (isLoading || hasError) {
+      return null
+    }
+    return position && position.fundo && position.fundo.apelido
   }
 
   return (
     <>
       <RowContent>
         <LeftContent data-testid="left-content" md={4} sm={5}>
+          <ChartPosition />
           <InvestorAccount
             onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
           />
@@ -73,14 +87,15 @@ const Tablet: React.FC<IProps> = ({
             onHandleChangeView={onHandleChangeView}
           />
           <Card
-            headerTitle={position && position.fundo && position.fundo.apelido}
-            headerIconInfo
+            headerTitle={getFundTitle()}
+            headerIconInfo={!isLoading}
             headerIconInfoClick={handleOpenDetailFund}
             headerIconInfoMsg="Mais informações"
           >
             <FundInfoPanel
               onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
             />
+            <LastTransations />
           </Card>
         </MainContent>
       </RowContent>

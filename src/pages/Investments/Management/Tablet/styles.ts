@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { Col, Row } from 'styled-bootstrap-grid'
 
 export const RowContent = styled(Row)`

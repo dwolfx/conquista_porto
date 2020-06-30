@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 const useSelectedPosition = () => {
-  const [position, setPosition] = useState<any | null>(null)
+  const [position, setPosition] = useState<any>(null)
 
   const { investmentPosition } = useSelector(({ investmentPosition }: any) => ({
     investmentPosition,
@@ -21,13 +21,8 @@ const useSelectedPosition = () => {
       investmentPosition.data.length !== 0
     ) {
       setPosition(chosenInvestmentFund())
-    } else if (!investmentPosition.idFund) {
-      setPosition(null)
     } else {
-      setPosition({
-        isLoading: investmentPosition.isLoading,
-        hasError: investmentPosition.hasError,
-      })
+      setPosition(null)
     }
   }, [investmentPosition])
 

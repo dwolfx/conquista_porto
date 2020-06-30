@@ -101,7 +101,7 @@ const FundsCarousel = ({
   onHandleChangeIdFund,
 }: IFundsCarousel) => {
   const history = useHistory()
-  const isTabletHorizontal = useMedia('mdUp')
+  const isTabletHorizontal = useMedia('lg')
   const isTabletVertical = useMedia('md')
 
   if (isTabletHorizontal) {
@@ -117,6 +117,14 @@ const FundsCarousel = ({
       ...customSettings,
       slidesToShow: 1,
       arrows: false,
+    }
+  }
+
+  if (!isTabletHorizontal && !isTabletVertical) {
+    customSettings = {
+      ...customSettings,
+      arrows: true,
+      slidesToShow: 3,
     }
   }
 

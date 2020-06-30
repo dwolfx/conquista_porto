@@ -15,6 +15,18 @@ export const ContainerCard = styled(Card)`
   ${CardBody} {
     align-items: center;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.mdUp} {
+    text-align: center;
+    padding: ${({ theme }) => `${theme.spacing(18)}px`};
+    margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    text-align: center;
+    padding: ${({ theme }) => `${theme.spacing(17)}px ${theme.spacing(8)}px`};
+    margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+  }
 `
 export const LoadingStyled = styled(Loading)`
   ${LegendText} {

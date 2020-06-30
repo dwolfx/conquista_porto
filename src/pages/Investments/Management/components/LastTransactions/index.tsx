@@ -9,7 +9,6 @@ import { GetBankExtractFundRequest } from 'store/modules/BankExtractFund/action'
 import useMedia from 'hooks/useMedia'
 
 import ErrorState from 'pages/Home/commons/ErrorState'
-import LoadingState from 'pages/Home/commons/LoadingState'
 
 import Accordion from 'components/AccordionNew'
 import ButtonLink from 'components/Button/Link'
@@ -19,7 +18,12 @@ import Button from 'components/Button'
 import Table from './Table'
 import List from './List'
 
-import { Container, TextAccordionHeader } from './styles'
+import {
+  InfoContainer,
+  TextAccordionHeader,
+  LoadingStyled,
+  Container,
+} from './styles'
 
 const LastTransations = () => {
   const dispatch = useDispatch()
@@ -51,19 +55,23 @@ const LastTransations = () => {
   const renderContent = () => {
     if (bankExtractFund.isLoading) {
       return (
-        <Container>
-          <LoadingState data-testid="lasttransations-loading-component" />
-        </Container>
+        <InfoContainer>
+          <LoadingStyled
+            data-testid="lasttransations-loading-component"
+            type="bar"
+            legend="Aguarde, estamos buscando suas informações..."
+          />
+        </InfoContainer>
       )
     }
     if (bankExtractFund.hasError) {
       return (
-        <Container>
+        <InfoContainer>
           <ErrorState
             data-testid="lasttransations-error-component"
             onRetry={handleBankExtractFundRequest}
           />
-        </Container>
+        </InfoContainer>
       )
     }
 
