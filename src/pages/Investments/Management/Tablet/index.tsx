@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import useSelectedPosition from 'hooks/useSelectedPosition'
 
 import Modal from 'components/Modal/Confirmation'
+import Card from 'components/Card'
+import Detail from '../../FundsList/Detail'
 
 import { RowContent, LeftContent, MainContent } from './styles'
 import InvestorAccount from '../components/InvestorAccount'
 import InvestedFundsList from '../components/InvestedFundsList'
 import { IModalProps, TFundsLayout } from '../types'
+
+import FundInfoPanel from './FundInfoPanel'
+
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,
@@ -37,6 +46,15 @@ const Tablet: React.FC<IProps> = ({
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState<IModalProps>(
     modalSuitabilityInfoInitialState
   )
+  const dispatch = useDispatch()
+  const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
+  const position = useSelectedPosition()
+
+  const handleOpenDetailFund = () => {
+    dispatch(GetInvestmentDetailsRequest(position.fundo.id_carteira))
+    setIsFundDetailOpen(true)
+  }
+
   return (
     <>
       <RowContent>
@@ -54,6 +72,16 @@ const Tablet: React.FC<IProps> = ({
             onHandleChangeFilter={onHandleChangeFilter}
             onHandleChangeView={onHandleChangeView}
           />
+          <Card
+            headerTitle={position && position.fundo && position.fundo.apelido}
+            headerIconInfo
+            headerIconInfoClick={handleOpenDetailFund}
+            headerIconInfoMsg="Mais informações"
+          >
+            <FundInfoPanel
+              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
+            />
+          </Card>
         </MainContent>
       </RowContent>
       <Modal
@@ -70,6 +98,12 @@ const Tablet: React.FC<IProps> = ({
         }
         onConfirmation={() => modalSuitabilityInfo.button.handleClick()}
       ></Modal>
+      <Detail
+        isOpen={isFundDetailOpen}
+        handleClose={() => setIsFundDetailOpen(false)}
+        handleLayerOpen={() => setIsFundDetailOpen(false)}
+        isLayerOpen={true}
+      />
     </>
   )
 }
