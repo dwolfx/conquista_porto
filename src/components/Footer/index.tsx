@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
 import { Link } from 'react-router-dom'
 import VerticalList from 'components/VerticalList'
-import HorizontalList from 'components/HorizontalList'
 import LinkText from './LinkText'
+import Divisor from 'components/Divisor'
+import useMedia from 'hooks/useMedia'
+
 import {
-  BorderTop,
   GridContainer,
   GridRow,
   GridCol,
@@ -18,12 +19,14 @@ import {
   Title,
   UppercaseBlueText,
   FooterWrapper,
+  OmbudsmantContainerPhones,
+  OmbudsmantLinkPhone,
 } from './styles'
 
 const gtmType = 'click'
 const gtmClickType = 'rodape'
 
-const content1 = [
+const messageElements = [
   <Title>MENSAGENS</Title>,
   <LinkText
     data-gtm-type={gtmType}
@@ -36,13 +39,30 @@ const content1 = [
   </LinkText>,
 ]
 
-const content3 = [
+const getChatElements = (customerProfile: any) => {
+  return [
+    <Title bold>CHAT ONLINE</Title>,
+    <LinkText
+      data-gtm-type={gtmType}
+      data-gtm-clicktype={gtmClickType}
+      data-gtm-subname="chat"
+      data-gtm-name="Converse agora com um atendente"
+      hrefValue={`https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${customerProfile.cpfCnpj}&nome=${customerProfile.customerName}`}
+      target="_blank"
+    >
+      Converse agora com um atendente
+    </LinkText>,
+  ]
+}
+
+const supportElements = [
   <Title bold>CENTRAL DE ATENDIMENTO</Title>,
   <LogoText>
     Para assuntos relacionados a plataforma Conquista ligue: (11) 3366 3200
   </LogoText>,
 ]
-const content4 = [
+
+const sacElements = [
   <Title>SAC</Title>,
   <LinkText
     data-gtm-type={gtmType}
@@ -54,7 +74,7 @@ const content4 = [
     0800 727 2763
   </LinkText>,
 ]
-const content5 = [
+const specialSupportElements = [
   <Title>ATENDIMENTO PARA DEFICIENTES AUDITIVOS</Title>,
   <LinkText
     data-gtm-type={gtmType}
@@ -66,31 +86,30 @@ const content5 = [
     0800 727 8736
   </LinkText>,
 ]
-const content6 = [
+
+const ombudsmantElements = [
   <Title>OUVIDORIA</Title>,
-  <HorizontalList
-    noPadding
-    startItems={[
-      <LinkText
-        data-gtm-type={gtmType}
-        data-gtm-clicktype={gtmClickType}
-        data-gtm-subname="ouvidoria"
-        data-gtm-name="0800-727-1184"
-        hrefValue="tel:0800 727 1184"
-      >
-        0800 727 1184
-      </LinkText>,
-      <LinkText
-        data-gtm-type={gtmType}
-        data-gtm-clicktype={gtmClickType}
-        data-gtm-subname="ouvidoria"
-        data-gtm-name="(11)-3366-3184"
-        hrefValue="tel:(11) 3366 3184"
-      >
-        (11) 3366 3184
-      </LinkText>,
-    ]}
-  />,
+  <OmbudsmantContainerPhones>
+    <OmbudsmantLinkPhone
+      data-gtm-type={gtmType}
+      data-gtm-clicktype={gtmClickType}
+      data-gtm-subname="ouvidoria"
+      data-gtm-name="0800-727-1184"
+      hrefValue="tel:0800 727 1184"
+      data-testid="link-phone"
+    >
+      0800 727 1184
+    </OmbudsmantLinkPhone>
+    <OmbudsmantLinkPhone
+      data-gtm-type={gtmType}
+      data-gtm-clicktype={gtmClickType}
+      data-gtm-subname="ouvidoria"
+      data-gtm-name="(11)-3366-3184"
+      hrefValue="tel:(11) 3366 3184"
+    >
+      (11) 3366 3184
+    </OmbudsmantLinkPhone>
+  </OmbudsmantContainerPhones>,
   <LinkText
     data-gtm-type={gtmType}
     data-gtm-clicktype={gtmClickType}
@@ -101,15 +120,14 @@ const content6 = [
     ouvidoria@portoseguro.com.br
   </LinkText>,
 ]
-const content7 = [
+const serviceElements = [
   <Title>DIAS E HORÁRIOS</Title>,
   <LogoText>
-    Para todos os contatos, atendimento de segunda a sexta,
-    <br />
-    das 8h15 às 18h30, exceto feriados.
+    Para todos os contatos, atendimento de segunda a sexta, das 8h15 às 18h30,
+    exceto feriados.
   </LogoText>,
 ]
-const content8 = [
+const platformElements = [
   <LogoTitle>UMA PLATAFORMA</LogoTitle>,
   <Logo
     data-gtm-type={gtmType}
@@ -129,70 +147,49 @@ const content8 = [
   </Link>,
 ]
 
-const Footer = () => {
-  const [breakpoint, setBreakpoint] = useState('')
+const Footer: React.FC = () => {
+  const isMobile = useMedia('sm')
+  const isTablet = useMedia('lg')
 
   useCustomerProfile()
-  const customerProfile = useSelector(state => state.customerProfile.data)
-
-  function checkResolution() {
-    const windowWidth = window.innerWidth
-    setBreakpoint(windowWidth <= 480 ? 'sm' : 'lg')
-  }
-  useEffect(() => {
-    checkResolution()
-    window.addEventListener('resize', checkResolution)
-
-    return function unMount() {
-      window.removeEventListener('resize', checkResolution)
-    }
-  }, [])
+  const customerProfile = useSelector(
+    (state: any) => state.customerProfile.data
+  )
 
   return (
     <FooterWrapper>
-      <BorderTop />
-      <GridContainer>
+      <Divisor />
+      <GridContainer data-testid="container-footer">
         <GridRow>
-          <GridCol lg="4">
+          <GridCol lg={4} sm={6} xs={12}>
             <ListWrapper>
-              <VerticalList elements={content1} />
-
+              <VerticalList elements={messageElements} />
               {customerProfile && (
-                <VerticalList
-                  elements={[
-                    <Title bold>CHAT ONLINE</Title>,
-                    <LinkText
-                      data-gtm-type={gtmType}
-                      data-gtm-clicktype={gtmClickType}
-                      data-gtm-subname="chat"
-                      data-gtm-name="Converse agora com um atendente"
-                      hrefValue={`https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${customerProfile.cpfCnpj}&nome=${customerProfile.customerName}`}
-                      target="_blank"
-                    >
-                      Converse agora com um atendente
-                    </LinkText>,
-                  ]}
-                />
+                <VerticalList elements={getChatElements(customerProfile)} />
               )}
-
-              <VerticalList elements={content3} />
-              <VerticalList elements={content4} />
+              <VerticalList elements={sacElements} />
+              <VerticalList elements={supportElements} />
             </ListWrapper>
           </GridCol>
-          <GridCol lg="4">
+          {isMobile && <Divisor />}
+          <GridCol lg={4} sm={6} xs={12}>
             <ListWrapper>
-              <VerticalList elements={content5} />
-              <VerticalList elements={content6} />
-              <VerticalList elements={content7} />
+              <VerticalList elements={specialSupportElements} />
+              <VerticalList elements={ombudsmantElements} />
+              <VerticalList elements={serviceElements} />
             </ListWrapper>
           </GridCol>
-          <GridCol lg="4">
-            <VerticalList elements={content8} />
+          {(isTablet || isMobile) && <Divisor />}
+          <GridCol lg={4} sm={12} md={12} xs={12}>
+            <ListWrapper>
+              <VerticalList elements={platformElements} />
+            </ListWrapper>
           </GridCol>
         </GridRow>
+        {(isMobile || isTablet) && <Divisor />}
         <GridRow>
-          <GridCol lg="12">
-            {breakpoint === 'sm' ? (
+          <ListWrapper>
+            {isMobile ? (
               <>
                 <Text>
                   &copy; 2020 Porto Seguro Cia. de Seguros
@@ -206,7 +203,7 @@ const Footer = () => {
                 reservados
               </Text>
             )}
-          </GridCol>
+          </ListWrapper>
         </GridRow>
       </GridContainer>
     </FooterWrapper>

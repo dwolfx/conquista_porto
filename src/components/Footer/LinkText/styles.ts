@@ -7,6 +7,4 @@ export const BlueText = styled(ComponentText).attrs(() => ({
   bold: true,
 }))`
   color: ${props => props.theme.colors.blue4};
-  margin: ${props => props.margin};
-  text-transform: ${props => props.uppercase && 'uppercase'};
 `
