@@ -7,16 +7,18 @@ import NotificationBellComponent from 'components/NotificationBell'
 import AvatarComponent from 'components/Avatar'
 import Tag from 'components/Tag'
 
-export const BgWrapper = styled.div`
+interface BgWrapperProps {
+  isScrolled?: boolean
+}
+
+export const BgWrapper = styled.div<BgWrapperProps>`
   background-color: ${props => props.theme.colors.gray1};
   width: 100vw;
   position: sticky;
   top: 0;
   z-index: 11;
-  border-bottom: ${props =>
-    props.isScrolled ? `1px solid ${props.theme.colors.gray3}` : 'none'};
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${props => props.theme.mediaQueries.md} {
     background-color: ${props => props.theme.colors.white};
     border-bottom: 1px solid ${props => props.theme.colors.gray3};
   }

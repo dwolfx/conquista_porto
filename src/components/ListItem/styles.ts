@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+interface ContainerProps {
+  height?: string
+  margin?: string
+}
+
+export const Container = styled.div<ContainerProps>`
   width: 100%;
   height: ${props => (props.height ? props.height : '49px')};
   display: flex;
@@ -20,7 +25,12 @@ export const StartBox = styled.div`
 
 export const EndBox = styled(StartBox)``
 
-export const TextWrapper = styled.div`
+interface TextWrapperProps {
+  hasStartIcon?: boolean
+  hasEndIcon?: boolean
+}
+
+export const TextWrapper = styled.div<TextWrapperProps>`
   width: 100%;
   margin-left: ${props => (props.hasStartIcon ? '0' : '84px')};
   margin-right: ${props => (props.hasEndIcon ? '0' : '21px')};
