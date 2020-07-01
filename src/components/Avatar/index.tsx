@@ -5,7 +5,8 @@ import Icon from 'components/IconExporter'
 import { AvatarWrapper } from './styles'
 
 interface IProps {
-  avatarUrl: string
+  avatarUrl?: string
+  onClick?: () => void
 }
 
 const Avatar: React.FC<IProps> = ({ avatarUrl, ...rest }) => {

@@ -136,7 +136,7 @@ const FundInformation = ({
       position.rendimentos.rendimento[months[0].value].valorrendimento
     )
     setSelectValue(isVerticalTablet ? months[0].compactName : months[0].name)
-  }, [position])
+  }, [position, isVerticalTablet])
 
   const getTributacao = (tipoTributacao = '', moneyFormatted = true) => {
     const valorTributacao = position.tributacoes

@@ -1,10 +1,26 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import { handleGiwRedirect } from 'helpers'
+import { themeColors, fontTypes } from 'styles/theme'
 
 import Text from 'components/Text'
 import { Container, StartBox, EndBox, TextWrapper } from './styles'
+
+type TextProperty = {
+  type?: keyof typeof fontTypes
+  color?: keyof typeof themeColors
+  content: string
+}
+
+interface IProps {
+  StartIcon?: any
+  EndIcon?: any
+  text: TextProperty[]
+  margin?: string
+  height?: string
+  path?: string
+  callbackClickFn?: () => void
+}
 
 export default function ListItem({
   StartIcon,
@@ -15,10 +31,10 @@ export default function ListItem({
   path,
   callbackClickFn,
   ...rest
-}) {
+}: IProps) {
   const history = useHistory()
 
-  function handleClick(pathToRedirect) {
+  function handleClick(pathToRedirect: string) {
     history.push(pathToRedirect)
     if (callbackClickFn) callbackClickFn()
   }
@@ -47,29 +63,4 @@ export default function ListItem({
       {EndIcon && <EndBox>{EndIcon.type ? EndIcon : <EndIcon />}</EndBox>}
     </Container>
   )
-}
-
-ListItem.propTypes = {
-  StartIcon: PropTypes.node,
-  EndIcon: PropTypes.node,
-  text: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string,
-      color: PropTypes.string,
-      content: PropTypes.string,
-    })
-  ).isRequired,
-  margin: PropTypes.string,
-  height: PropTypes.string,
-  path: PropTypes.string,
-  callbackClickFn: PropTypes.func,
-}
-
-ListItem.defaultProps = {
-  StartIcon: null,
-  EndIcon: null,
-  margin: null,
-  height: null,
-  path: null,
-  callbackClickFn: PropTypes.func,
 }

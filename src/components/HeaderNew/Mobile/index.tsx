@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 import Button from 'components/Button/IconText'
-import Accordion from 'components/Accordion'
 import ListItem from 'components/ListItem'
+import AccordionNew from 'components/AccordionNew'
+import { IItemsProps } from 'components/DropdownNew'
+
 import {
   Container,
   ProfileContainer,
@@ -18,21 +19,30 @@ import {
   Icon,
 } from './styles'
 
+interface IProps {
+  items: IItemsProps[]
+  totalPoints?: string | boolean
+  setIsOpen: (isOpen: boolean) => void
+  exitFunc: () => void
+  customerName: string
+}
+
 export default function Mobile({
   items,
   setIsOpen,
   totalPoints,
   exitFunc,
   customerName,
-}) {
+  ...rest
+}: IProps) {
   const history = useHistory()
 
   useEffect(() => {
     const html = document.querySelector('html')
-    html.classList.add('noOverflow')
+    html?.classList.add('noOverflow')
 
     return () => {
-      html.classList.remove('noOverflow')
+      html?.classList.remove('noOverflow')
     }
   }, [])
 
@@ -42,7 +52,7 @@ export default function Mobile({
   }
 
   return (
-    <Container>
+    <Container {...rest}>
       <Content>
         <Header>
           <ConquistaBeta
@@ -85,31 +95,15 @@ export default function Mobile({
             callbackClickFn={() => setIsOpen(false)}
           />
         </ProfileContainer>
-        {/* <NotificationContainer>
-          <ListItem
-            StartIcon={NotificationBellIcon}
-            text={[
-              {
-                type: 'headline',
-                color: 'blue4',
-                content: 'Novas notificações disponíveis',
-              },
-            ]}
-            path="/notificacoes"
-            callbackClickFn={() => setIsOpen(false)}
-            data-gtm-type="click"
-            data-gtm-clicktype="link"
-            data-gtm-subname="responsive header menu"
-            data-gtm-name="novas notificações disponiveis"
-          />
-        </NotificationContainer> */}
         <ProductsContainer>
-          {items.map(item => {
+          {items.map((item: any) => {
             const startIcon = <Icon name={item.icon} color="gray5" />
 
             if (item.children) {
               return (
-                <Accordion
+                <AccordionNew
+                  openByDefault={false}
+                  triggerCloseOnArrow
                   titleNode={
                     <ListItem
                       StartIcon={startIcon}
@@ -126,12 +120,8 @@ export default function Mobile({
                       data-gtm-name={item.text}
                     />
                   }
-                  noBackground
-                  isGrayArrow
-                  noBodyPadding
-                  padding="0px"
                 >
-                  {item.children.map(child => (
+                  {item.children.map((child: any) => (
                     <ListItem
                       text={[
                         {
@@ -148,7 +138,7 @@ export default function Mobile({
                       data-gtm-name={child.text}
                     />
                   ))}
-                </Accordion>
+                </AccordionNew>
               )
             }
 
@@ -187,31 +177,4 @@ export default function Mobile({
       </Footer>
     </Container>
   )
-}
-
-export const mobileItemsPropTypes = PropTypes.arrayOf(
-  PropTypes.shape({
-    icon: PropTypes.string,
-    text: PropTypes.string,
-    path: PropTypes.string,
-    children: PropTypes.arrayOf(
-      PropTypes.shape({
-        icon: PropTypes.string,
-        text: PropTypes.string,
-        path: PropTypes.string,
-      })
-    ),
-  })
-)
-
-Mobile.propTypes = {
-  items: mobileItemsPropTypes.isRequired,
-  setIsOpen: PropTypes.func.isRequired,
-  totalPoints: PropTypes.string.isRequired,
-  exitFunc: PropTypes.func,
-  customerName: PropTypes.string.isRequired,
-}
-
-Mobile.defaultProps = {
-  exitFunc: () => {},
 }

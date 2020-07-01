@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
-import DropDown from 'components/DropdownNew'
+import DropDown, { IItemsProps } from 'components/DropdownNew'
 
 import { handleGiwRedirect } from 'helpers'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
@@ -18,6 +17,7 @@ import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
 
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
+
 import {
   BgWrapper,
   GridContainer,
@@ -34,20 +34,26 @@ import {
   Avatar,
 } from './styles'
 
-export default function HeaderNew({ crumbs }) {
+interface IProps {
+  crumbs: string[]
+}
+
+export default function HeaderNew({ crumbs }: IProps) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const isMobile = useMedia('sm')
+  const isTabletOrLower = useMedia('md')
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
-  const { customerProfile, balanceData, points } = useSelector(state => ({
-    customerProfile: state.customerProfile,
-    balanceData: state.points.balanceData,
-    points: state.points.data && state.points.data.detalheExtratoOptemaisTypes,
-  }))
-
-  const userData = useSelector(state => state.auth)
+  const { customerProfile, balanceData, points, userData } = useSelector(
+    (state: any) => ({
+      customerProfile: state.customerProfile,
+      balanceData: state.points.balanceData,
+      points:
+        state.points.data && state.points.data.detalheExtratoOptemaisTypes,
+      userData: state.auth,
+    })
+  )
 
   function checkScroll() {
     if (window.scrollY > 0) {
@@ -76,7 +82,7 @@ export default function HeaderNew({ crumbs }) {
   useFetchPointsBalance()
 
   const dropdownGtmItemsTitle = 'dropdown menu header'
-  const items = [
+  const items: IItemsProps[] = [
     {
       icon: 'home',
       text: 'Início',
@@ -128,29 +134,13 @@ export default function HeaderNew({ crumbs }) {
         },
       ],
     },
-    // Temporary comment
-    // {
-    //   icon: 'target',
-    //   text: 'Objetivos',
-    //   path: '/objetivos',
-    // },
-    // {
-    //   icon: 'diamond',
-    //   text: 'Pontos',
-    //   path: '/pontos',
-    // },
-    // {
-    //   icon: 'idea',
-    //   text: 'Recomendações',
-    //   path: '/',
-    // },
   ]
 
   const dropdownNodesTitle = 'Dropdown notificações header'
   const nodes = [NotificationsContent]
 
   const renderResponsideHeader = () => (
-    <>
+    <div data-testid="header-hamburguer">
       {isMobileOpen && (
         <MobileHeader
           items={items}
@@ -190,11 +180,11 @@ export default function HeaderNew({ crumbs }) {
           </RightBlock>
         </GridContainer>
       </BgWrapper>
-    </>
+    </div>
   )
 
   const renderFullHeader = () => (
-    <BgWrapper isScrolled={isScrolled}>
+    <BgWrapper isScrolled={isScrolled} data-testid="header-desktop">
       <GridContainer>
         <LeftBlock>
           <ConquistaBeta
@@ -284,14 +274,5 @@ export default function HeaderNew({ crumbs }) {
       </GridContainer>
     </BgWrapper>
   )
-
-  return <>{isMobile ? renderResponsideHeader() : renderFullHeader()}</>
-}
-
-HeaderNew.propTypes = {
-  crumbs: PropTypes.arrayOf(PropTypes.string),
-}
-
-HeaderNew.defaultProps = {
-  crumbs: [],
+  return isTabletOrLower ? renderResponsideHeader() : renderFullHeader()
 }
