@@ -26,7 +26,7 @@ export const CardWrapper = styled.div<CardWrapper>`
   align-items: ${props => `flex-${props.align}`};
   border-radius: 8px;
   display: flex;
-  height: 250px;
+  height: 220px;
   overflow: hidden;
   position: relative;
 
