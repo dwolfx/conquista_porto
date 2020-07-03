@@ -26,7 +26,7 @@ function* postLogin({ credentials: { username, password } }) {
       )}&password=${password}&grant_type=password&client_id=${clientId}&client_secret=${clientSecret}&social=13213`
     const {
       data: { access_token: accessToken, erro },
-    } = yield call(axiosInstance.post, loginUrl, data)
+    } = yield call(axiosInstance.post, `${loginUrl}/clientes/login`, data)
 
     if (erro) throw erro.mensagemErro
 
