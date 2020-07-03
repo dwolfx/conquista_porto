@@ -16,7 +16,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js, css, html, json}\"",
     "lint": "eslint \"src/**/*.{js, css, html, json}\"",
-    "localAPI": "node localAPI"
+    "localAPI": "cross-env NODE_TLS_REJECT_UNAUTHORIZED='0' node localAPI"
   },
   "dependencies": {
     "@nivo/bar": "^0.61.1",
