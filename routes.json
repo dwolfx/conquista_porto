@@ -15,6 +15,11 @@
   "/invest/programa-pontos/extrato\\?cpf=:cpf": "/pontos?cpf=:cpf",
   "/invest/programa-pontos/consultar-pontos\\?cpf=:cpf": "/pontos_consultar?cpf=:cpf",
   "/cotistas/posicao-consolidada\\?cpf=:cpf": "/posicao-consolidada?cpf=:cpf",
+  "/invest/atlas/fundo/grade": "/fundos_lista",
+  "/invest/atlas/fundo/detalhes/:idFundo": "/fundo_detalhe",
+  "/invest/atlas/cotista/posicao/:cpf": "/posicao2",
+  "/invest/atlas/fundo/rentabilidade/:idFundo": "/rentabilidade",
+  "/invest/atlas/fundo/rentabilidade/comparativo/:idFundo": "/comparativo_rentabilidade",
   "/conta/extrato\\?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/extrato?cpfCnpj=:cpfCnpj&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/notificacao/buscar/:cpf": "/notificacoes",
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
@@ -40,5 +45,6 @@
   "/invest/aws/cotista/aplicacoes": "/financial_post",
   "/invest/aws/cotista/aplicacoes?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao": "/financial_application",
   "/invest/aws/cotista/aplicacoes/resumo?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&valor=:valor&aceite_termo_adesao=:aceite_termo_adesao": "/financial_application_is_aware_of_terms",
-  "/invest/aws/cotista/aplicacoes/enquadramento?CodigoCanal=:CodigoCanal&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&tipo_operacao=:tipo_operacao&valor_bruto=:valor_bruto&id_fundo=:id_fundo": "/alignment_terms_data"
+  "/invest/aws/cotista/aplicacoes/enquadramento?CodigoCanal=:CodigoCanal&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&tipo_operacao=:tipo_operacao&valor_bruto=:valor_bruto&id_fundo=:id_fundo": "/alignment_terms_data",
+  "/invest/atlas/cotista/ultimas/movimentacoes": "/ultimas_movimentacoes"
 }

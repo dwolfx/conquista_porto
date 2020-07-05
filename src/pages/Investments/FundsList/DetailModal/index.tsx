@@ -65,7 +65,7 @@ const DetailModal = ({
           loadingColor="white"
           color="secondary"
           onClick={() => {
-            handleLayerOpen(fundDetails.id_fundo, true)
+            handleLayerOpen(fundDetails.id_carteira, true)
           }}
         >
           {isLayerOpen ? 'Voltar' : 'Investir'}
@@ -147,14 +147,14 @@ const DetailModal = ({
             data-gtm-subname={title}
             data-gtm-name="tentar novamente"
             onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(fundDetails.id_fundo))
+              dispatch(GetInvestmentDetailsRequest(fundDetails.id_carteira))
             }
           >
             Tentar novamente
           </ButtonTryAgain>
         </EmptyStateWrapper>
       )}
-      {fundDetails.id_fundo && !isLoading && !isError
+      {fundDetails.id_carteira && !isLoading && !isError
         ? renderModalBody()
         : null}
     </Modal>

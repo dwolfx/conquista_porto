@@ -21,7 +21,7 @@ interface IFund {
     contagem_dias_resgate: string
     resgate_cotizacao: string
     resgate_financeiro: string
-    categoria: string
+    categoria_arena: string
   }
 }
 
@@ -35,14 +35,12 @@ export const Transactions = ({ fund }: IFund) => {
     ],
     [
       <LiTitle>Movimentação Mín.</LiTitle>,
-      <LiValue bold>
-        {formatMoney(fund.aplicao_minima)}
-      </LiValue>,
+      <LiValue bold>{formatMoney(fund.aplicao_minima)}</LiValue>,
     ],
     [
       <LiTitle>Saldo Mín.</LiTitle>,
       <LiValue bold>
-        {formatMoney(fund.saldo_minimo || 0)}
+        {fund.saldo_minimo ? '-' : formatMoney(fund.saldo_minimo || 0)}
       </LiValue>,
     ],
     [
@@ -59,7 +57,9 @@ export const Transactions = ({ fund }: IFund) => {
     ],
     [
       <LiTitle>Resgate (Cotização)</LiTitle>,
-      <LiValue bold>{`${fund.resgate_cotizacao} (${fund.contagem_dias_resgate})`}</LiValue>,
+      <LiValue
+        bold
+      >{`${fund.resgate_cotizacao} (${fund.contagem_dias_resgate})`}</LiValue>,
     ],
     [
       <LiTitle>Resgate (Financeiro)</LiTitle>,
@@ -70,7 +70,9 @@ export const Transactions = ({ fund }: IFund) => {
   const category = [
     <LiTitle>Categoria</LiTitle>,
     <LiValue bold>
-      {fund.categoria === 'Renda Variável' ? 'Ações' : fund.categoria}
+      {fund.categoria_arena === 'Renda Variável'
+        ? 'Ações'
+        : fund.categoria_arena}
     </LiValue>,
   ]
 

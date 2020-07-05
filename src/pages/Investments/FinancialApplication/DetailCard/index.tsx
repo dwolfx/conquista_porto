@@ -27,7 +27,7 @@ interface IData {
   nome_carteira: string
   resgate_cotizacao: string
   aplicao_minima: string
-  id_fundo: string
+  id_carteira: string
   categoria: string
 }
 
@@ -81,7 +81,7 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
               margin-top: 14px;
             `}
             onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(fundDetails.id_fundo))
+              dispatch(GetInvestmentDetailsRequest(fundDetails.id_carteira))
             }
           >
             Tentar novamente

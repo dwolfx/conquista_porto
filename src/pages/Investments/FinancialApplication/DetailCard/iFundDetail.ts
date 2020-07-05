@@ -17,6 +17,6 @@ export interface IFundDetail {
   rentabil_fundo_12_meses: string
   categoria_arena: string
   taxa_administracao: string
-  id_fundo: string
+  id_carteira: number
   fundo_investidor_profissional: string
 }

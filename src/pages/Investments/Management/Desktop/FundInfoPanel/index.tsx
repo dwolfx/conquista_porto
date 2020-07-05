@@ -24,8 +24,10 @@ const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
-  const { auth } = useSelector((state: any) => ({
+  const { auth, isLoading, hasError } = useSelector((state: any) => ({
     auth: state.auth,
+    isLoading: state.investmentPosition.isLoading,
+    hasError: state.investmentPosition.hasError,
   }))
 
   const handleFetchPosition = useCallback(() => {
@@ -33,17 +35,7 @@ const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
   }, [dispatch, auth.cpf])
 
   const renderContent = () => {
-    if (!position) {
-      return (
-        <Container>
-          <Text type="headline" color="gray5">
-            Não há fundo selecionado
-          </Text>
-        </Container>
-      )
-    }
-
-    if (position.isLoading) {
+    if (isLoading) {
       return (
         <Container>
           <LoadingState data-testid="fundInfo-loading-component" />
@@ -51,7 +43,7 @@ const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
       )
     }
 
-    if (position.hasError) {
+    if (hasError) {
       return (
         <Container>
           <ErrorState
@@ -62,15 +54,23 @@ const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
       )
     }
 
+    if (!position) {
+      return (
+        <Container>
+          <Text type="headline" color="gray5">
+            Não há fundo selecionado
+          </Text>
+        </Container>
+      )
+    }
+
     return (
       <>
         <FundInfo
           position={position}
           onChangeModalSuitabilityInfo={onChangeModalSuitabilityInfo}
         />
-        <ProfitabilityTable
-          profitability={position.fundo.comparativo_hist_rentabil}
-        />
+        <ProfitabilityTable fundId={position.id} />
       </>
     )
   }

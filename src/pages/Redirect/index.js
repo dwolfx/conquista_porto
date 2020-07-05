@@ -51,7 +51,7 @@ export default function Redirect({ history }) {
 
   useEffect(() => {
     if (counter <= 0) navigate()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [counter])
 
   return (

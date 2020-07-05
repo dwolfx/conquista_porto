@@ -117,7 +117,7 @@ const Header: React.FC<IHeader> = ({
 }
 
 export interface IFund {
-  perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
+  perfil_risco: number
   apelido: string
   categoria_arena: string
   minimo_inicial: number
@@ -126,14 +126,14 @@ export interface IFund {
   rentabil_fundo_12_meses: string
   rentabil_fundo_ano: string
   taxa_administracao: string
-  id_fundo: string
+  id_carteira: number
   aplicao_liberada: boolean
 }
 
 interface IFundCard {
   fund: IFund
   onChangeIsFundDetailOpen: (prevState: Function) => void
-  handleLayerOpen: (title: string) => void
+  handleLayerOpen: (title: number) => void
   setTitle: (title: string) => void
   setCategory: (title: string) => void
   setIsOpenForInvestments: (aplicao_liberada: boolean) => void
@@ -161,7 +161,7 @@ const FundCard: React.FC<IFundCard> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [clickedFund, setClickedFund] = useState<string>('')
+  const [clickedFund, setClickedFund] = useState<number | undefined>()
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
     modalSuitabilityInfoInitialState
   )
@@ -178,7 +178,7 @@ const FundCard: React.FC<IFundCard> = ({
 
   useEffect(() => {
     if (!suitabilityIsLoading) {
-      setClickedFund('')
+      setClickedFund(undefined)
     }
   }, [suitabilityIsLoading])
 
@@ -189,9 +189,9 @@ const FundCard: React.FC<IFundCard> = ({
   const handleOpenDetail = (
     title: string,
     category: string,
-    idFundo: string
+    idCarteira: number
   ) => {
-    dispatch(GetInvestmentDetailsRequest(idFundo))
+    dispatch(GetInvestmentDetailsRequest(idCarteira))
     setIsOpenForInvestments(fund.aplicao_liberada)
     setTitle(title)
     setCategory(handleCategory(category))
@@ -327,7 +327,7 @@ const FundCard: React.FC<IFundCard> = ({
                     handleOpenDetail(
                       fund.apelido,
                       fund.categoria_arena,
-                      fund.id_fundo
+                      fund.id_carteira
                     )
                   }}
                 >
@@ -337,7 +337,7 @@ const FundCard: React.FC<IFundCard> = ({
                   <Button
                     loading={
                       (suitabilityIsLoading || financialApplicationLoading) &&
-                      clickedFund === fund.id_fundo
+                      clickedFund === fund.id_carteira
                     }
                     loadingColor="white"
                     color="secondary"
@@ -346,8 +346,8 @@ const FundCard: React.FC<IFundCard> = ({
                     data-gtm-subname={fund.apelido}
                     data-gtm-name="investir"
                     onClick={() => {
-                      handleLayerOpen(fund.id_fundo)
-                      setClickedFund(fund.id_fundo)
+                      handleLayerOpen(fund.id_carteira)
+                      setClickedFund(fund.id_carteira)
                     }}
                   >
                     Investir

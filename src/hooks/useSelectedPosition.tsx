@@ -4,15 +4,16 @@ import { useSelector } from 'react-redux'
 const useSelectedPosition = () => {
   const [position, setPosition] = useState<any>(null)
 
-  const { investmentPosition } = useSelector(({ investmentPosition }: any) => ({
-    investmentPosition,
-  }))
+  const { investmentPosition } = useSelector(
+    ({ investmentPosition }: any) => ({
+      investmentPosition,
+    })
+  )
 
   useEffect(() => {
     const chosenInvestmentFund = () =>
-      investmentPosition.data[0].posicoes.posicao.find(
-        (posicao: any) =>
-          posicao.fundo.id_carteira === investmentPosition.idFund
+      investmentPosition.data.find(
+        (fundo: any) => fundo.id === investmentPosition.idFund
       )
 
     if (

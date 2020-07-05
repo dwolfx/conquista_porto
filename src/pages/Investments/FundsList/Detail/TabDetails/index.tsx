@@ -22,10 +22,10 @@ interface IFund {
     contagem_dias_resgate: string
     resgate_cotizacao: string
     resgate_financeiro: string
-    categoria: string
+    categoria_arena: string
     perfil_risco: string
     classificacao: string
-    aliquotas_ir: { aliquota: IAliquota[] }
+    aliquotas_ir: IAliquota[]
     regime_iof: string
   }
 }

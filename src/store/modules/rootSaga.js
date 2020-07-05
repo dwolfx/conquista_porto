@@ -16,7 +16,11 @@ import {
 } from './Investment/FinancialApplication/sagas'
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
+import investmentPositionOld from './Investment/Position_old/sagas'
 import investmentPosition from './Investment/Position/sagas'
+import comparativeProfitability from './Investment/ComparativeProfitability/sagas'
+import lastTransaction from './Investment/LastTransaction/sagas'
+import income from './Investment/Income/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import points from './Points/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
@@ -48,7 +52,10 @@ export default function* rootSaga() {
     financialApplicationPostData,
     investmentsList,
     investmentDetails,
+    investmentPositionOld,
     investmentPosition,
+    comparativeProfitability,
+    income,
     lifeInsurance,
     points,
     privateWelfare,
@@ -64,5 +71,6 @@ export default function* rootSaga() {
     rewardsTypes,
     virtualKeyboard,
     token2fa,
+    lastTransaction,
   ])
 }

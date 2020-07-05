@@ -6,6 +6,7 @@ import ArrowSortable from 'assets/icons/arrow-sortable.svg'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 const riskColorsMap = {
+  0: fundRiskColors.noneRisk,
   1: fundRiskColors.lowRisk,
   2: fundRiskColors.lowMediumRisk,
   3: fundRiskColors.mediumRisk,

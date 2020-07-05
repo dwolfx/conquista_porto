@@ -7,30 +7,21 @@ const useFilter = (filters: string[]) => {
     fundsList: state.investmentPosition.data,
     idFund: state.investmentPosition.idFund,
   }))
-  let filteredData = []
+
+  let filteredList = []
+
   if (fundsList && fundsList.length > 0) {
-    filteredData = fundsList
-      .map((iP: any) =>
-        iP.posicoes.posicao
-          .map((pos: any) => ({ saldo_atual: pos.saldo_atual, ...pos.fundo }))
-          .map((fundo: any) => fundo)
+    if (!idFund) dispatch(SetIdFund(fundsList[0].id))
+
+    if (filters && filters.length > 0) {
+      filteredList = fundsList.filter((fund: any) =>
+        filters.includes(fund.categoria.toLowerCase())
       )
-      .reduce((flat: any) => flat)
-    if (!idFund) {
-      dispatch(SetIdFund(filteredData[0].id_carteira))
+    } else {
+      filteredList = fundsList
     }
   }
-  if (
-    filteredData &&
-    filteredData.length > 0 &&
-    filters &&
-    filters.length > 0
-  ) {
-    return filteredData.filter((fund: any) =>
-      filters.includes(fund.categoria_arena.toLowerCase())
-    )
-  }
-  return filteredData
+  return filteredList
 }
 
 export default useFilter

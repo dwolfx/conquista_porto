@@ -57,7 +57,7 @@ const Detail: React.FC<DetailProps> = ({
         loadingColor="white"
         color="secondary"
         onClick={() => {
-          handleLayerOpen(fundDetails.id_fundo, true)
+          handleLayerOpen(fundDetails.id_carteira, true)
         }}
       >
         {isLayerOpen ? 'Voltar' : 'Investir'}
@@ -122,9 +122,9 @@ const Detail: React.FC<DetailProps> = ({
           {isLoading ? '' : fundDetails.apelido}
         </Text>
         <Text type="body" color="gray4" bold>
-          {fundDetails.categoria === 'Renda Variável'
+          {fundDetails.categoria_arena === 'Renda Variável'
             ? 'Ações'
-            : fundDetails.categoria}
+            : fundDetails.categoria_arena}
         </Text>
       </div>
       <CloseButton
@@ -165,7 +165,7 @@ const Detail: React.FC<DetailProps> = ({
               margin-top: 14px;
             `}
             onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(fundDetails.id_fundo))
+              dispatch(GetInvestmentDetailsRequest(fundDetails.id_carteira))
             }
           >
             Tentar novamente

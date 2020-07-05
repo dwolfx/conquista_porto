@@ -15,7 +15,10 @@ import {
 } from './Investment/FinancialApplication/reducer'
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
+import investmentPositionOld from './Investment/Position_old/reducer'
 import investmentPosition from './Investment/Position/reducer'
+import comparativeProfitability from './Investment/ComparativeProfitability/reducer'
+import income from './Investment/Income/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
@@ -31,6 +34,7 @@ import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
 import virtualKeyboard from './VirtualKeyboard/reducer'
 import token2fa from './2FAToken/reducer'
+import lastTransaction from './Investment/LastTransaction/reducer'
 
 export default combineReducers({
   alignmentTerms,
@@ -45,7 +49,10 @@ export default combineReducers({
   financialApplicationPostData,
   investmentsList,
   investmentDetails,
+  investmentPositionOld,
   investmentPosition,
+  comparativeProfitability,
+  income,
   privateWelfare,
   lifeInsurance,
   consolidatedPosition,
@@ -62,4 +69,5 @@ export default combineReducers({
   rewardsTypes,
   virtualKeyboard,
   token2fa,
+  lastTransaction,
 })

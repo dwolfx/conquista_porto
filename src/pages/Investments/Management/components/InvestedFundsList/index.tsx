@@ -42,7 +42,7 @@ const InvestedFundsList = ({
     })
   )
 
-  const onHandleChangeIdFund = (idFund: string) => {
+  const onHandleChangeIdFund = (idFund: number) => {
     dispatch(SetIdFund(idFund))
   }
 

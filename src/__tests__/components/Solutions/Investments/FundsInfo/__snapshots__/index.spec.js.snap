@@ -805,7 +805,7 @@ exports[`FundsInfo renders correctly 1`] = `
       className="c8"
     />
     <div
-      className="c9 active"
+      className="c9"
     />
     <label>
       Maior risco

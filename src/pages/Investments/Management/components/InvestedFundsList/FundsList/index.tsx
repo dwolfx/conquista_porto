@@ -4,7 +4,6 @@ import 'styled-components/macro'
 
 import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
-import { formatMoney } from 'helpers'
 
 import {
   CardStyled,
@@ -15,9 +14,9 @@ import {
 
 interface IProps {
   filteredFunds: any[]
-  idFund: string
+  idFund: number
   displayInformation: boolean
-  onHandleChangeIdFund: (idFund: string) => void
+  onHandleChangeIdFund: (idFund: number) => void
 }
 const FundsList = ({
   filteredFunds,
@@ -40,27 +39,27 @@ const FundsList = ({
     >
       {filteredFunds.map((fund: any) => (
         <FundItem
-          key={`fund-${fund.id_carteira}`}
+          key={`fund-${fund.id}`}
           data-testid="fund-list-item"
-          selected={idFund === fund.id_carteira}
+          selected={idFund === fund.id}
           itemsLength={filteredFunds.length}
-          onClick={() => onHandleChangeIdFund(fund.id_carteira)}
+          onClick={() => onHandleChangeIdFund(fund.id)}
         >
           <HorizontalListStyled
             startItems={[
               <VerticalList
                 elements={[
                   <Text type="captionUppercase" bold color="gray6">
-                    {fund.categoria_arena === 'Renda Variável'
+                    {fund.categoria === 'Renda Variável'
                       ? 'Ações'
-                      : fund.categoria_arena}
+                      : fund.categoria}
                   </Text>,
                   <Text
                     type="body"
                     bold
-                    color={idFund === fund.id_carteira ? 'blue4' : 'gray5'}
+                    color={idFund === fund.id ? 'blue4' : 'gray5'}
                   >
-                    {fund.apelido}
+                    {fund.fundo}
                   </Text>,
                 ]}
               />,
@@ -69,14 +68,15 @@ const FundsList = ({
               <Text
                 type="body"
                 bold
-                color={idFund === fund.id_carteira ? 'gray6' : 'gray5'}
+                color={idFund === fund.id ? 'gray6' : 'gray5'}
                 css={`
                   -webkit-text-security: ${displayInformation
                     ? 'disc'
                     : 'none'};
                 `}
               >
-                {formatMoney(fund.saldo_atual)}
+                {/*formatMoney(fund.saldo_atual)*/}
+                {fund.saldoBruto}
               </Text>,
             ]}
           />

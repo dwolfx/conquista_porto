@@ -108,7 +108,7 @@ const LayerInvestment: React.FC<IProps> = ({
   const loadFormData = useCallback(
     (prevState: any): any => {
       const selectedFund = funds.data.find(
-        (fund: any) => fund.id_fundo === selectedFundId
+        (fund: any) => fund.id_carteira === selectedFundId
       )
 
       return {

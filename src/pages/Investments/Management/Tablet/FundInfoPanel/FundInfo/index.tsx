@@ -4,7 +4,6 @@ import { Settings } from 'react-slick'
 import { ThemeContext } from 'styled-components'
 import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-import moment from 'moment'
 
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
@@ -16,6 +15,8 @@ import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { IModalProps } from 'pages/Investments/Management/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
+import { GetIncomesDataRequest } from 'store/modules/Investment/Income/action'
+import IIncome from 'store/modules/Investment/Income/iIncomes'
 
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
@@ -39,24 +40,36 @@ export const months = [
   {
     name: 'Último Mês',
     compactName: 'Últ. M',
-    value: 0,
+    value: 1,
   },
   {
     name: '12 meses',
     compactName: '12 M',
-    value: 1,
+    value: 12,
   },
   {
     name: '24 meses',
     compactName: '24 M',
-    value: 2,
+    value: 24,
   },
   {
     name: '36 meses',
     compactName: '36 M',
-    value: 3,
+    value: 36,
   },
 ]
+
+export const riskMap: IRiskMap = {
+  15: 'Baixo',
+  16: 'Baixo-médio',
+  17: 'Médio',
+  18: 'Médio-alto',
+  19: 'Alto',
+}
+
+interface IRiskMap {
+  [key: number]: string
+}
 
 interface IValidProps {
   isValid: boolean
@@ -72,41 +85,24 @@ interface IBalance {
   data: string
 }
 
-interface IIncome {
-  datainicio: string
-  datafim: string
-  meses: string
-  valorrendimento: string
-}
-
 interface IFundInformationProps {
   onChangeModalSuitabilityInfo: (data: IModalProps) => void
   position: {
-    fundo: {
-      apelido: string
-      perfil_risco: string
-      perfil_risco_ordem: string
-      aplicao_minima: string
-      aplicacao_cotizacao: string
-      contagem_dias_resgate: string
-      id_carteira: string
-      nome_gestor: string
-    }
-    saldo_atual: string
-    saldo_bloqueado: string
-    tributacoes: {
-      tributacao: ITributacao[]
-    }
-    historico_saldos_fundo: {
-      saldos: {
-        saldo: IBalance[] | IBalance
-      }
-    }
-    rendimentos: {
-      rendimento: IIncome[]
-    }
-    idCotista: string
+    fundo: string
+    id_cotista: string
     categoria_arena: string
+    perfil_risco: number
+    aplicao_minima: number
+    aplicacao_cotizacao?: string
+    contagem_dias_resgate: string
+    id: number
+    nome_gestor: string
+    saldo_bruto: string
+    valor_ir: string
+    valor_iof: string
+    saldo_liquido: string
+    data_historico_formatada: string
+    dias_conversao_resgate: number
   }
 }
 
@@ -122,70 +118,37 @@ const FundInformation = ({
   const [incomeValue, setIncomeValue] = useState<any | null>(null)
   const [selectValue, setSelectValue] = useState('')
 
-  const { displayInformation } = useSelector((state: any) => ({
-    displayInformation: state.investmentPosition.displayInformation,
-  }))
+  const { displayInformation, incomeIsLoading, income } = useSelector(
+    (state: any) => ({
+      displayInformation: state.investmentPosition.displayInformation,
+      incomeIsLoading: state.income.isLoading,
+      income: state.income.data,
+    })
+  )
 
-  const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
+  const borderRiskNumber = position.perfil_risco
+
+  const getMonth = (mes: number) => {
+    let result = income.find((element: IIncome) => element.meses === mes)
+
+    return result || {}
+  }
 
   useEffect(() => {
-    setIncomeValue(
-      position.rendimentos.rendimento[months[0].value].valorrendimento
-    )
-    setSelectValue(isVerticalTablet ? months[0].compactName : months[0].name)
-  }, [position, isVerticalTablet])
+    dispatch(GetIncomesDataRequest(position.id))
+  }, [position, dispatch])
 
-  const getTributacao = (tipoTributacao = '', moneyFormatted = true) => {
-    const valorTributacao = position.tributacoes
-      ? position.tributacoes.tributacao.find(
-          t => t.tipo === tipoTributacao.toUpperCase()
-        )
-      : 0
-    if (!moneyFormatted) {
-      return valorTributacao && (parseFloat(valorTributacao.valor) || 0)
+  useEffect(() => {
+    if (!incomeIsLoading && income) {
+      setIncomeValue(getMonth(months[0].value).rendimento)
+      setSelectValue(months[0].name)
     }
-    return valorTributacao ? formatMoney(valorTributacao.valor) : '--'
-  }
-
-  const calculatedBalance = () => {
-    const iof = getTributacao('IOF', false) || 0
-    const ir = getTributacao('IR', false) || 0
-
-    const tributacaoSum = +iof + +ir
-
-    const saldoBruto = parseFloat(position.saldo_atual)
-      ? parseFloat(position.saldo_atual)
-      : 0
-    const saldoBloqueado = parseFloat(position.saldo_bloqueado)
-      ? parseFloat(position.saldo_bloqueado)
-      : 0
-    const saldoDisponivel = saldoBruto - saldoBloqueado
-    const saldoLiquido = saldoDisponivel - tributacaoSum
-
-    return {
-      saldoBruto,
-      saldoBloqueado,
-      saldoDisponivel,
-      saldoLiquido,
-    }
-  }
-
-  const getUpdatedBalance = () => {
-    let lastBalance = position.historico_saldos_fundo.saldos.saldo
-    if (Array.isArray(lastBalance)) {
-      lastBalance = lastBalance[lastBalance.length - 1]
-    }
-    return {
-      valorsaldo: lastBalance ? formatMoney(lastBalance.valorsaldo) : '--',
-      data: lastBalance ? moment(lastBalance.data).format('DD/MM/YYYY') : '--',
-    }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [income, incomeIsLoading])
 
   const handleSelectChange = (item: any) => {
-    setSelectValue(isVerticalTablet ? item.compactName : item.name)
-    setIncomeValue(
-      position.rendimentos.rendimento[months[item.value].value].valorrendimento
-    )
+    setSelectValue(item.name)
+    setIncomeValue(getMonth(item.value).rendimento)
   }
 
   const getGiwPath = (type: string) => {
@@ -201,12 +164,10 @@ const FundInformation = ({
 
   const buildGiwUrl = (action: string) => {
     return `portaldecliente/conquista/${getGiwPath(action)}?idFundo=${
-      position.fundo.id_carteira
-    }&idCotista=${position.idCotista}&nomeFundo=${
-      position.fundo.apelido
-    }&tipoFundo=${position.categoria_arena}&brand=${
-      position.fundo.nome_gestor
-    }&r=true`
+      position.id
+    }&id_cotista=${position.id_cotista}&nomeFundo=${position.fundo}&tipoFundo=${
+      position.categoria_arena
+    }&brand=${position.nome_gestor}&r=true`
   }
 
   const handleClickInvestButton = () => {
@@ -272,7 +233,7 @@ const FundInformation = ({
                     Perfil de Risco
                   </Text>,
                   <Text type="headline" bold color="gray6">
-                    {position.fundo.perfil_risco}
+                    {riskMap[position.perfil_risco]}
                   </Text>,
                 ]}
               />
@@ -285,7 +246,7 @@ const FundInformation = ({
                   Movimentação Mín.
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {formatMoney(position.fundo.aplicao_minima)}
+                  {formatMoney(position.aplicao_minima)}
                 </Text>,
               ]}
             />
@@ -297,7 +258,7 @@ const FundInformation = ({
                   Resgate (Cotização)
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {`${position.fundo.aplicacao_cotizacao} (${position.fundo.contagem_dias_resgate})`}
+                  {`${position.dias_conversao_resgate} (${position.contagem_dias_resgate})`}
                 </Text>,
               ]}
             />
@@ -327,10 +288,10 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {getUpdatedBalance().valorsaldo}
+                    {position.saldo_bruto}
                   </Text>,
                   <Text type="caption" bold color="gray6">
-                    Atualizado em {getUpdatedBalance().data}
+                    Atualizado em {position.data_historico_formatada}
                   </Text>,
                 ]}
               />
@@ -357,7 +318,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {formatMoney(calculatedBalance().saldoBruto) || '--'}
+                    {position.saldo_bruto || '--'}
                   </Text>,
                 ]}
               />,
@@ -377,7 +338,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {getTributacao('IOF')}
+                    {position.valor_iof}
                   </Text>,
                 ]}
               />,
@@ -397,7 +358,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {getTributacao('IR')}
+                    {position.valor_ir}
                   </Text>,
                 ]}
               />,
@@ -417,7 +378,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {formatMoney(calculatedBalance().saldoLiquido)}
+                    {position.saldo_liquido}
                   </Text>,
                 ]}
               />,

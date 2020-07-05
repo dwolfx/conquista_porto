@@ -20,7 +20,7 @@ import {
 interface IFund {
   fund: {
     classificacao: string
-    aliquotas_ir: { aliquota: IAliquota[] }
+    aliquotas_ir: IAliquota[]
     regime_iof: string
   }
 }
@@ -33,22 +33,20 @@ interface IAliquota {
 export const Taxation = ({ fund }: IFund) => {
   const renderAliquotas = (aliquota: IAliquota[]) =>
     aliquota
-      ? [aliquota]
-          .flatMap(item => item)
-          .map(item => (
-            <Li key={uuid()}>
-              <VerticalList
-                elements={
-                  item.faixa.toLowerCase() === 'isento'
-                    ? [<LiTitle>IR</LiTitle>, <LiValue bold>Isento</LiValue>]
-                    : [
-                        <LiTitle>{item.faixa}</LiTitle>,
-                        <LiValue bold>{formatNumber(item.valor)}%</LiValue>,
-                      ]
-                }
-              />
-            </Li>
-          ))
+      ? aliquota.map(item => (
+          <Li key={uuid()}>
+            <VerticalList
+              elements={
+                item.faixa.toLowerCase() === 'isento'
+                  ? [<LiTitle>IR</LiTitle>, <LiValue bold>Isento</LiValue>]
+                  : [
+                      <LiTitle>{item.faixa}</LiTitle>,
+                      <LiValue bold>{formatNumber(item.valor)}%</LiValue>,
+                    ]
+              }
+            />
+          </Li>
+        ))
       : null
 
   return (
@@ -73,9 +71,7 @@ export const Taxation = ({ fund }: IFund) => {
             />
           </Li>
         )}
-        {fund && fund.aliquotas_ir && fund.aliquotas_ir.aliquota
-          ? renderAliquotas(fund.aliquotas_ir.aliquota)
-          : null}
+        {fund && fund.aliquotas_ir ? renderAliquotas(fund.aliquotas_ir) : null}
         {fund.regime_iof && (
           <VerticalList
             elements={[
