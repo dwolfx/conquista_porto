@@ -3,7 +3,6 @@ import useMedia from 'hooks/useMedia'
 import useFilter from './useFilter'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
 import DesktopComponent from './Desktop'
-import MobileComponent from './Mobile'
 import TabletComponent from './Tablet'
 import Anbima from 'components/Anbima'
 import { TFundsLayout } from './types'
@@ -12,7 +11,6 @@ import { GridContainer } from './styles'
 const ManagementInvestments: React.FC = ({ ...rest }) => {
   const [viewMode, setViewMode] = useState<TFundsLayout>('CARDS')
   const [filters, setFilters] = useState<string[]>([])
-  const isMobile = useMedia('xs')
   const isTablet = useMedia('lg')
 
   useFetchPosition()
@@ -27,9 +25,6 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   }
 
   const renderResponsiveContent = () => {
-    if (isMobile) {
-      return <MobileComponent />
-    }
     if (isTablet) {
       return (
         <TabletComponent

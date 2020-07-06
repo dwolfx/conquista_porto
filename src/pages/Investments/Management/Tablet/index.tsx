@@ -69,13 +69,13 @@ const Tablet: React.FC<IProps> = ({
   return (
     <>
       <RowContent>
-        <LeftContent data-testid="left-content" md={4} sm={5}>
+        <LeftContent data-testid="left-content" md={4} sm={5} xs={12}>
           <ChartPosition />
           <InvestorAccount
             onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
           />
         </LeftContent>
-        <MainContent data-testid="main-content" md={8} sm={7}>
+        <MainContent data-testid="main-content" md={8} sm={7} xs={12}>
           <InvestedFundsList
             filters={filters}
             filteredFunds={filteredInvestedFunds}
