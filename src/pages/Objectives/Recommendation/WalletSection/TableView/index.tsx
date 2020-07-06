@@ -10,7 +10,7 @@ import { IFunds } from 'store/modules/Objective/types'
 import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
 
-import { columns, columnsSticky, fundsType } from './tableData'
+import { columns, columnsSticky } from './tableData'
 import * as s from './styles'
 
 interface IProps {
@@ -46,7 +46,6 @@ const TableView = ({
             handleOpenDetails(rowDetails)
           }}
           data={funds}
-          fundsType={fundsType}
           isSticky={isTabletVertical}
         />
 

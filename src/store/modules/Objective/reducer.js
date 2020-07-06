@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   objectives: null,
   isLoading: false,
   hasError: false,
-  isLoadingList: false,
+  isLoadingList: true,
   isLoadingBySimulate: false,
 }
 

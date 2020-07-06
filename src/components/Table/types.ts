@@ -15,7 +15,7 @@ export interface ICell {
 export interface IColumn {
   accessor: string
   format: (row: any, toogleFunc?: any) => any
-  sort: (valueA: any, valueB: any) => void
+  sort?: (valueA: any, valueB: any) => void
 }
 
 interface THeader {
@@ -47,23 +47,23 @@ export interface ITheadWrapper {
 
 type TColumns = {}
 
-export interface ITableFunds {
-  columns: TColumns[]
-  data: []
-  fundsType: []
-  isError: boolean
-  isDrawerOpen?: boolean
+export interface ITable {
+  autoResetTable?: boolean
+  columns: any[]
+  data: any[]
+  isLoading?: boolean
+  isError?: boolean
   isFiltering?: boolean
-  isLoading: boolean
-  onRowClick: (param: any) => void
+  isSticky?: boolean
+  onRowClick?: (param: any) => void
 }
 
 export interface ITableBody {
   isLoading: boolean
   isError: boolean
   isFiltering: boolean
-  onError: () => void
-  onRowClick: (param: any) => void
-  prepareRow: (row: Row<TRow>) => void
-  rows: Row<TRow>[]
+  onError?: () => void
+  onRowClick?: (param: any) => void
+  prepareRow: (row: Row<object>) => void
+  rows: Row<object>[]
 }

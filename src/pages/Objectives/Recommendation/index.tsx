@@ -92,7 +92,11 @@ const Recommendation = ({
   }, [answer, suitabilityData])
 
   if (isEditingWallet) {
-    return <WalletEdit />
+    return (
+      <s.GridRecommendation>
+        <WalletEdit />
+      </s.GridRecommendation>
+    )
   }
 
   if (isEditingSuggestion && suggestion_goal) {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import CloseIcon from 'assets/icons/close.svg'
+import CloseIcon from 'components/IconExporter'
 import DivisorComponent from 'components/Divisor'
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
@@ -79,16 +79,12 @@ export const ModalTitle = styled.h3`
   flex: 1;
 `
 
-export const CloseButton = styled.div`
-  background-color: ${props => props.theme.colors.gray5};
+export const CloseButton = styled(CloseIcon)`
   cursor: pointer;
-  height: ${props => props.theme.spacing(4)}px;
-  mask-image: url(${CloseIcon});
   transition: all ease 0.3s;
-  width: ${props => props.theme.spacing(4)}px;
 
   &:hover {
-    background-color: ${props => props.theme.colors.blue4};
+    fill: ${props => props.theme.colors.blue4};
   }
 `
 

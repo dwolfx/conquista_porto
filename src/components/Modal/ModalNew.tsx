@@ -92,6 +92,10 @@ const Modal: React.FC<IProps> = ({
             data-gtm-type="click"
             data-gtm-clicktype="button"
             onClick={handleClose}
+            name="close"
+            color="gray4"
+            width={28}
+            height={28}
           />
         </ModalHeader>
         <Divisor />

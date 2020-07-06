@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import CloseIcon from 'assets/icons/close.svg'
+import Icon from 'components/IconExporter'
 
 export const Container = styled.div`
   background-color: ${props => props.theme.colors.white};
@@ -17,24 +17,10 @@ export const IconWrapper = styled.div`
   width: 30px;
 `
 
-export const CloseButton = styled.a`
-  border-radius: 50%;
+export const CloseButton = styled(Icon)`
   cursor: pointer;
-  height: ${props => props.theme.spacing(4)}px;
   position: absolute;
   right: ${({ theme }) => theme.spacing(4)}px;
-  width: ${props => props.theme.spacing(4)}px;
-
-  &:after {
-    content: '';
-    background-color: ${props => props.theme.colors.black};
-    height: ${props => props.theme.spacing(3)}px;
-    left: calc(50% - 12px);
-    mask-image: url(${CloseIcon});
-    position: absolute;
-    top: calc(50% - 12px);
-    width: ${props => props.theme.spacing(3)}px;
-  }
 `
 
 export const Content = styled.div`

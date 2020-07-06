@@ -41,6 +41,10 @@ const HeaderWizard = ({ showBackButton, onClose, onBack }: IHeaderWizard) => {
         data-gtm-type="click"
         data-gtm-clicktype="button"
         onClick={onClose}
+        name="close"
+        color="gray4"
+        width={35}
+        height={35}
       />
     </s.Container>
   )

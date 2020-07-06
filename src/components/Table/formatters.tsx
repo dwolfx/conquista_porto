@@ -17,11 +17,12 @@ export default function FormatColumns(columns: IColumn[], onRowClick: any) {
 
   return columns.map(column => {
     if (column.format) {
+      const FormatedCell = ({ cell }: any) =>
+        column.format(cell.row.original, onRowClick)
+
       return {
         ...column,
-        Cell: (cell: ICell) => {
-          return column.format(cell.row.original, onRowClick)
-        },
+        Cell: FormatedCell,
         sortType(rowA: any, rowB: any) {
           if (column.sort) {
             return column.sort(rowA.original, rowB.original)

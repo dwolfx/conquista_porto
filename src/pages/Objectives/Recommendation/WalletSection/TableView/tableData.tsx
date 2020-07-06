@@ -53,11 +53,11 @@ export const columns = [
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: '25%',
-      minWidth: 208,
+      width: '22%',
+      minWidth: 228,
       header: {
-        width: '25%',
-        minWidth: 185,
+        width: '22%',
+        minWidth: 205,
       },
     },
     format: (row: IFund) => formatFundoInv(row),
@@ -81,11 +81,11 @@ export const columns = [
       return -1
     },
     styles: {
-      width: '25%',
-      minWidth: 144,
+      width: '18%',
+      minWidth: 164,
       header: {
-        width: '25%',
-        minWidth: 144,
+        width: '16%',
+        minWidth: 164,
       },
     },
   },
@@ -95,11 +95,11 @@ export const columns = [
     format: (row: IFund) => formatInicialValue(row),
     align: 'center',
     styles: {
-      width: '25%',
-      minWidth: 120,
+      width: '13%',
+      minWidth: 140,
       header: {
-        width: '25%',
-        minWidth: 120,
+        width: '14%',
+        minWidth: 140,
       },
     },
   },
@@ -109,11 +109,11 @@ export const columns = [
     format: (row: IFund) => formatMonthlyValue(row),
     align: 'center',
     styles: {
-      width: '25%',
-      minWidth: 120,
+      width: '12%',
+      minWidth: 140,
       header: {
-        width: '25%',
-        minWidth: 110,
+        width: '11%',
+        minWidth: 130,
       },
     },
   },
@@ -126,11 +126,11 @@ export const columnsSticky = [
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: 208,
-      minWidth: 208,
+      width: '24%',
+      minWidth: 228,
       header: {
-        width: 208,
-        minWidth: 185,
+        width: '22%',
+        minWidth: 205,
       },
     },
     format: (row: IFund) => formatFundoInv(row),
@@ -155,11 +155,11 @@ export const columnsSticky = [
       return -1
     },
     styles: {
-      width: '25%',
-      minWidth: 188,
+      width: '18%',
+      minWidth: 180,
       header: {
-        width: '25%',
-        minWidth: 188,
+        width: '16%',
+        minWidth: 180,
       },
     },
   },
@@ -169,11 +169,11 @@ export const columnsSticky = [
     format: (row: IFund) => formatInicialValue(row),
     align: 'center',
     styles: {
-      width: '25%',
-      minWidth: 170,
+      width: '12%',
+      minWidth: 175,
       header: {
-        width: '25%',
-        minWidth: 155,
+        width: '14%',
+        minWidth: 175,
       },
     },
   },
@@ -183,11 +183,11 @@ export const columnsSticky = [
     format: (row: IFund) => formatMonthlyValue(row),
     align: 'center',
     styles: {
-      width: '25%',
-      minWidth: 133,
+      width: '14%',
+      minWidth: 125,
       header: {
-        width: '25%',
-        minWidth: 133,
+        width: '14%',
+        minWidth: 125,
       },
     },
   },

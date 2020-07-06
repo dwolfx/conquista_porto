@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { Row } from 'styled-bootstrap-grid'
 
 import Button from 'components/Button'
-import TableComp from 'components/TableNew'
+import TableComp from 'components/Table'
 import Text from 'components/Text'
 
-import { TheadText } from 'components/TableNew/styles'
+import { TheadText } from 'components/Table/styles'
 
 import { themeColors } from 'styles/theme'
 

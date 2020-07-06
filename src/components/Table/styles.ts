@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import ArrowSortable from 'assets/icons/arrow-sortable.svg'
+import Text from 'components/Text'
 
 interface IWrapper {
   lineHeight?: string
@@ -45,7 +45,7 @@ export const InfoTableContent = styled.div`
 `
 
 export const TableWrapper = styled.div`
-  border: 1px solid ${props => props.theme.colors.gray2};
+  border: 1px solid ${({ theme }) => theme.colors.gray2};
   border-radius: 4px;
   position: relative;
   overflow: hidden;
@@ -83,14 +83,14 @@ export const Thead = styled.div`
 export const TheadTr = styled.div`
   display: flex;
   height: 56px;
-  background-color: ${props => props.theme.colors.gray1};
+  background-color: ${({ theme }) => theme.colors.gray1};
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  border: 1px solid ${props => props.theme.colors.gray3};
+  border: 1px solid ${({ theme }) => theme.colors.gray3};
 `
 
 interface ITheadTh {
-  canSort: boolean
+  canSort?: boolean
   minWidth?: string | number
   width?: string | number
 }
@@ -99,9 +99,6 @@ export const TheadTh = styled.div<ITheadTh>`
   background-color: inherit;
   cursor: ${({ canSort }) => (canSort ? 'pointer' : 'default')};
   display: inline-block;
-  font-size: 11px;
-  letter-spacing: 1px;
-  line-height: 15px;
   position: relative;
   height: 100%;
   padding-left: ${({ theme }) => theme.spacing(3)}px;
@@ -127,8 +124,8 @@ export const TheadTh = styled.div<ITheadTh>`
 `
 
 interface ITheadContent {
-  justifyHeader: string
-  isTbody: boolean
+  justifyHeader?: string
+  isTbody?: boolean
 }
 
 export const TheadContent = styled.div<ITheadContent>`
@@ -145,18 +142,13 @@ export const TheadContent = styled.div<ITheadContent>`
     `};
 `
 
-const getArrowPosition = (isSortedDesc: boolean) =>
-  isSortedDesc ? 'right -8px' : 'right 8px'
-
-const getArrowTop = (isSortedDesc: boolean) => (isSortedDesc ? '23px' : '16px')
-
 export const TheadThWithColumns = styled(TheadTh)`
   padding: 12px 0 0;
 
   ${WrapperContent} {
-    border-top: 1px solid ${props => props.theme.colors.gray3};
+    border-top: 1px solid ${({ theme }) => theme.colors.gray3};
     display: flex;
-    margin-top: ${props => props.theme.spacing(1)}px;
+    margin-top: ${({ theme }) => theme.spacing(1)}px;
 
     span::after {
       top: 45px;
@@ -165,26 +157,29 @@ export const TheadThWithColumns = styled(TheadTh)`
   }
 `
 
-interface ITheadText {
+interface ITheadIcon {
   isSorted: boolean
   isSortedDesc: boolean
 }
 
-export const TheadText = styled.span<ITheadText>`
+export const TheadText = styled(Text)`
   user-select: none;
+  text-transform: uppercase;
+`
 
-  &::after {
-    content: '';
-    background-image: url(${ArrowSortable});
-    background-repeat: no-repeat;
-    background-position: ${props =>
-      props.isSorted ? getArrowPosition(props.isSortedDesc) : 'right center'};
+export const IconContainer = styled.div<ITheadIcon>`
+  align-items: center;
+  display: flex;
+  height: ${({ isSorted }) => (isSorted ? '10px' : '21px')};
+  margin-left: ${({ theme }) => theme.spacing(1)}px;
+  overflow: hidden;
+  position: relative;
+  width: 21px;
+
+  svg {
     position: absolute;
-    margin-left: 10px;
-    top: ${props =>
-      props.isSorted ? getArrowTop(props.isSortedDesc) : '19px'};
-    width: 10px;
-    height: 17px;
+    top: ${({ isSortedDesc, isSorted }) =>
+      isSortedDesc && isSorted ? '-10px' : '0'};
   }
 `
 
@@ -198,32 +193,37 @@ export const TheadColumn = styled.div<ITheadColumn>`
 `
 
 export const Tbody = styled.div`
-  border: 1px solid ${props => props.theme.colors.gray3};
+  border: 1px solid ${({ theme }) => theme.colors.gray3};
   height: 100%;
   display: block;
   height: 100%;
 
-  @media ${props => props.theme.mediaQueries.lg} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     border-right: 0;
   }
-  @media ${props => props.theme.mediaQueries.md} {
+  @media ${({ theme }) => theme.mediaQueries.md} {
     border-right: 0;
   }
 `
 
-export const TbodyTr = styled.div`
+interface ITbodyTr {
+  hasClickOnRow: boolean
+}
+
+export const TbodyTr = styled.div<ITbodyTr>`
   align-items: center;
-  background-color: ${props => props.theme.colors.white};
-  border-bottom: 1px solid ${props => props.theme.colors.gray3};
-  color: ${props => props.theme.colors.gray5};
+  background-color: ${({ theme }) => theme.colors.white};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
+  color: ${({ theme }) => theme.colors.gray5};
   display: flex;
   font-weight: normal;
-  cursor: pointer;
+  cursor: ${({ hasClickOnRow }) => (hasClickOnRow ? 'pointer' : 'default')};
   padding: 3px 0 3px 3px;
   width: 100%;
 
   &:hover {
-    background-color: ${props => props.theme.colors.gray1};
+    background-color: ${({ theme, hasClickOnRow }) =>
+      hasClickOnRow ? theme.colors.gray1 : 'transparent'};
   }
   &:last-of-type {
     border-bottom: unset;
@@ -242,7 +242,7 @@ export const TbodyTd = styled.div<ITbodyTd>`
   font-size: 14px;
   justify-content: ${props => props.align || 'center'};
   padding: 0;
-  margin-left: ${props => props.theme.spacing(3)}px;
+  margin-left: ${({ theme }) => theme.spacing(3)}px;
   min-width: ${props => {
     if (props.minWidth) {
       return typeof props.minWidth === 'string'
@@ -261,9 +261,9 @@ export const TbodyTd = styled.div<ITbodyTd>`
   }};
 
   &:last-child {
-    /* margin-right: ${props => props.theme.spacing(2)}px; */
-    padding-right: ${props => props.theme.spacing(1)}px;
-    padding-left: ${props => props.theme.spacing(2)}px;
+    /* margin-right: ${({ theme }) => theme.spacing(2)}px; */
+    padding-right: ${({ theme }) => theme.spacing(1)}px;
+    padding-left: ${({ theme }) => theme.spacing(2)}px;
   }
   &:first-child {
     margin-left: 0px;
@@ -271,12 +271,12 @@ export const TbodyTd = styled.div<ITbodyTd>`
 `
 
 interface IStickyDivisor {
-  position: number
+  position: string
   side: 'right' | 'left'
 }
 
 export const StickyDivisor = styled.div<IStickyDivisor>`
-  border-left: 1px solid ${props => props.theme.colors.gray6};
+  border-left: 1px solid ${({ theme }) => theme.colors.gray6};
   height: 100%;
   opacity: 0.14;
   position: absolute;
@@ -289,7 +289,7 @@ export const StickyDivisor = styled.div<IStickyDivisor>`
 
   &:before {
     content: '';
-    background-color: ${props => props.theme.colors.gray6};
+    background-color: ${({ theme }) => theme.colors.gray6};
     filter: blur(2px);
     height: 100%;
     position: absolute;

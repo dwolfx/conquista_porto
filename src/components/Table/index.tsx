@@ -2,11 +2,12 @@ import React, { useMemo, useState, useEffect, useRef } from 'react'
 import { useTable, useSortBy } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
-import PropTypes from 'prop-types'
+
+import Icon from 'components/IconExporter'
 
 import FormatColumns from './formatters'
 import TableBody from './TableBody'
-// import { IHeaderWithColumns, ISimpleHeader, ITheadWrapper, ITableFunds } from './types'
+import { ITable } from './types'
 import * as s from './styles'
 
 /**
@@ -14,7 +15,7 @@ import * as s from './styles'
  * @author: Hugo Cicarelli <hugo.cicarelli@sciensa.com>
  */
 
-const SimpleHeader = ({ header }) => {
+const SimpleHeader = ({ header }: any) => {
   const headerContent = header.render('Header')
   const styles = header.styles ? header.styles.header || header.styles : header
 
@@ -33,23 +34,28 @@ const SimpleHeader = ({ header }) => {
         data-gtm-name={headerContent}
       >
         {headerContent && (
-          <s.TheadText
-            isSorted={header.isSorted}
-            isSortedDesc={header.isSortedDesc}
-          >
-            {headerContent}
-          </s.TheadText>
+          <>
+            <s.TheadText type="subheading" color="gray6" bold>
+              {headerContent}
+            </s.TheadText>
+            <s.IconContainer
+              isSorted={header.isSorted}
+              isSortedDesc={header.isSortedDesc}
+            >
+              <Icon name="arrowsortable" color="gray4" />
+            </s.IconContainer>
+          </>
         )}
       </s.TheadContent>
     </s.TheadTh>
   )
 }
 
-const HeaderWithColumns = ({ header }) => (
+const HeaderWithColumns = ({ header }: any) => (
   <s.TheadThWithColumns width={header.width}>
     {header.Header}
     <s.TheadContent>
-      {header.columns.map(headerColumn => (
+      {header.columns.map((headerColumn: any) => (
         <s.TheadColumn
           data-gtm-type="click"
           data-gtm-clicktype="menu"
@@ -59,37 +65,30 @@ const HeaderWithColumns = ({ header }) => (
           key={`inner-header-${headerColumn.Header}`}
           {...headerColumn.getHeaderProps(headerColumn.getSortByToggleProps())}
         >
-          <s.TheadText
-            isSorted={headerColumn.isSorted}
-            isSortedDesc={headerColumn.isSortedDesc}
-            top="28px"
-            right="5px"
-          >
-            {headerColumn.render('Header')}
-          </s.TheadText>
+          <s.TheadText>{headerColumn.render('Header')}</s.TheadText>
         </s.TheadColumn>
       ))}
     </s.TheadContent>
   </s.TheadThWithColumns>
 )
 
-const TheadWrapper = ({ header }) =>
+const TheadWrapper = ({ header }: any) =>
   'columns' in header ? (
     <HeaderWithColumns header={header} />
   ) : (
     <SimpleHeader header={header} />
   )
 
-const TableFunds = ({
-  data,
-  isLoading,
-  isError,
-  isFiltering = false,
-  onRowClick,
+const Table = ({
   columns: columnsProps,
-  isSticky,
+  data,
+  isError = false,
+  isFiltering = false,
+  isLoading = false,
+  isSticky = false,
+  onRowClick,
   ...rest
-}) => {
+}: ITable) => {
   const {
     getTableProps,
     columns,
@@ -109,14 +108,13 @@ const TableFunds = ({
     useSticky
   )
 
-  // const tableRef = useRef() as React.RefObject<HTMLDivElement>
-  const tableRef = useRef()
+  const tableRef = useRef() as React.RefObject<HTMLDivElement>
   const [showLeftShadow, setShowLeftShadow] = useState(false)
   const [showRightShadow, setShowRightShadow] = useState(true)
 
   useEffect(() => {
-    if (tableRef) {
-      tableRef.current.onscroll = ({ srcElement }) => {
+    if (tableRef?.current?.onscroll) {
+      tableRef.current.onscroll = ({ srcElement }: any) => {
         const { scrollLeft, clientWidth, scrollWidth } = srcElement
         const posX = scrollLeft / (scrollWidth - clientWidth)
 
@@ -134,7 +132,7 @@ const TableFunds = ({
     }
   }, [tableRef])
 
-  const calculateStickWidth = (acc, cur) => {
+  const calculateStickWidth = (acc: string, cur: any) => {
     let pixelValue = acc.split('+')[1].replace(/\D/g, '')
     let percentageValue = acc.split('+')[0].replace(/\D/g, '')
 
@@ -151,25 +149,21 @@ const TableFunds = ({
     return `calc(${percentageValue}% + ${pixelValue}px)`
   }
 
-  const stickyElementRight = columns.filter(column => column.sticky === 'right')
-  const stickyElementRightPosition = stickyElementRight.reduce(
-    (acc, cur) => calculateStickWidth(acc, cur),
-    'calc(0% + 7px)'
-  )
-  const stickyElementLeft = columns.filter(column => column.sticky === 'left')
-  const stickyElementLeftPosition = stickyElementLeft.reduce(
-    (acc, cur) => calculateStickWidth(acc, cur),
-    'calc(0% + 0px)'
-  )
+  const stickyElementRight = columns
+    .filter((column: any) => column.sticky === 'right')
+    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 7px)')
+  const stickyElementLeft = columns
+    .filter((column: any) => column.sticky === 'left')
+    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 0px)')
 
   return (
     <>
       <s.TableWrapper {...rest}>
-        {isSticky && !!stickyElementLeftPosition && showLeftShadow && (
-          <s.StickyDivisor position={stickyElementLeftPosition} side="left" />
+        {isSticky && !!stickyElementLeft && showLeftShadow && (
+          <s.StickyDivisor position={stickyElementLeft} side="left" />
         )}
-        {isSticky && !!stickyElementRightPosition && showRightShadow && (
-          <s.StickyDivisor position={stickyElementRightPosition} side="right" />
+        {isSticky && !!stickyElementRight && showRightShadow && (
+          <s.StickyDivisor position={stickyElementRight} side="right" />
         )}
         <s.Table
           ref={tableRef}
@@ -202,61 +196,4 @@ const TableFunds = ({
   )
 }
 
-TableFunds.propTypes = {
-  data: PropTypes.array.isRequired,
-  columns: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool,
-  isError: PropTypes.bool,
-  isFiltering: PropTypes.bool,
-  isSticky: PropTypes.bool,
-  onRowClick: PropTypes.func.isRequired,
-  setIsOpenForInvestments: PropTypes.func,
-  fundsType: PropTypes.array.isRequired,
-}
-
-TableFunds.defaultProps = {
-  isLoading: false,
-  isError: false,
-  isFiltering: false,
-  isSticky: false,
-  setIsOpenForInvestments: () => null,
-}
-
-TheadWrapper.propTypes = {
-  header: PropTypes.object.isRequired,
-}
-
-HeaderWithColumns.propTypes = {
-  header: PropTypes.shape({
-    columns: PropTypes.array.isRequired,
-    Header: PropTypes.string.isRequired,
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  }).isRequired,
-}
-
-SimpleHeader.propTypes = {
-  header: PropTypes.shape({
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    styles: PropTypes.shape({
-      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      header: PropTypes.shape({
-        width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      }),
-    }),
-    render: PropTypes.func.isRequired,
-    isSorted: PropTypes.bool.isRequired,
-    isSortedDesc: PropTypes.bool,
-    getSortByToggleProps: PropTypes.func.isRequired,
-    getHeaderProps: PropTypes.func.isRequired,
-    canSort: PropTypes.bool.isRequired,
-    justifyHeader: PropTypes.string,
-    align: PropTypes.string,
-  }).isRequired,
-}
-
-export default TableFunds
+export default Table
