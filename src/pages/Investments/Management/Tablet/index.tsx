@@ -1,21 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import useSelectedPosition from 'hooks/useSelectedPosition'
 import Modal from 'components/Modal/Confirmation'
 import Card from 'components/Card'
 import ChartPosition from '../components/ChartPosition'
-
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import Detail from '../../FundsList/Detail'
-
 import LastTransations from '../components/LastTransactions'
 import InvestorAccount from '../components/InvestorAccount'
 import InvestedFundsList from '../components/InvestedFundsList'
 import { IModalProps, TFundsLayout } from '../types'
-
 import FundInfoPanel from './FundInfoPanel'
-import { RowContent, LeftContent, MainContent } from './styles'
+import { RowContent, LeftContent, MainContent, FloatButton } from './styles'
+import DrawerFilter from './DrawerFilter'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,
@@ -49,6 +46,7 @@ const Tablet: React.FC<IProps> = ({
   )
   const dispatch = useDispatch()
   const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
+  const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false)
   const position = useSelectedPosition()
 
   const { isLoading, hasError } = useSelector((state: any) => ({
@@ -118,6 +116,22 @@ const Tablet: React.FC<IProps> = ({
         handleClose={() => setIsFundDetailOpen(false)}
         handleLayerOpen={() => setIsFundDetailOpen(false)}
         isLayerOpen={true}
+      />
+      {!isLoading && !hasError && (
+        <FloatButton
+          color="primary"
+          onClick={() => setIsFilterDrawerOpen(true)}
+          size="large"
+          icon="filter"
+        />
+      )}
+      <DrawerFilter
+        filters={filters}
+        viewMode={viewMode}
+        onHandleChangeView={onHandleChangeView}
+        isDrawerOpen={isFilterDrawerOpen}
+        onChangeIsDrawerOpen={setIsFilterDrawerOpen}
+        onHandleChangeFilter={onHandleChangeFilter}
       />
     </>
   )
