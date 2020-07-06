@@ -14,11 +14,12 @@ interface IAliquota {
 interface IFund {
   fund: {
     minimo_inicial: string
-    aplicao_minima: string
-    saldo_minimo?: number | string
+    aplicacao_minima: string
+    saldo_minimo: string
     hora_aplicacao: string
     aplicacao_cotizacao: string
     aplicacao_financeiro: string
+    contagem_dias_resgate: string
     resgate_cotizacao: string
     resgate_financeiro: string
     categoria: string

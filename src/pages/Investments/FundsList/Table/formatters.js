@@ -27,7 +27,9 @@ const FormatFundoCell = ({ cell }) => (
     <FundoWrapper {...cell.getCellProps()}>
       <FundoNameWrapper>{cell.row.original.apelido}</FundoNameWrapper>
       <Text type="caption" color="gray4" bold textAlign="left">
-        {cell.row.original.categoria_arena}
+        {cell.row.original.categoria_arena.toLowerCase() === 'renda variável'
+          ? 'Ações'
+          : cell.row.original.categoria_arena}
       </Text>
     </FundoWrapper>
   </FundoOutterWrapper>

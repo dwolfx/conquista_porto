@@ -32,6 +32,7 @@ import {
   MenuTag,
   NotificationBell,
   Avatar,
+  FixedHeaderContainer,
 } from './styles'
 
 export default function HeaderNew({ crumbs }) {
@@ -150,7 +151,7 @@ export default function HeaderNew({ crumbs }) {
   const nodes = [NotificationsContent]
 
   const renderResponsideHeader = () => (
-    <>
+    <FixedHeaderContainer data-testid="header-hamburguer">
       {isMobileOpen && (
         <MobileHeader
           items={items}
@@ -190,7 +191,7 @@ export default function HeaderNew({ crumbs }) {
           </RightBlock>
         </GridContainer>
       </BgWrapper>
-    </>
+    </FixedHeaderContainer>
   )
 
   const renderFullHeader = () => (
