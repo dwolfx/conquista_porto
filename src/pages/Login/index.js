@@ -56,6 +56,7 @@ export default function Login() {
                 name="username"
                 value={credentials.username}
                 onChange={handleInputOnChange('username')}
+                data-testId='cpf-input'
               />
             </Col>
             <Col>
@@ -64,6 +65,7 @@ export default function Login() {
                 name="password"
                 type="password"
                 value={credentials.password}
+                dataTestId="password-input"
                 onChange={handleInputOnChange('password')}
               />
             </Col>
@@ -75,7 +77,9 @@ export default function Login() {
               </Col>
             )}
             <Col>
-              <Button onClick={handleSubmit}>Login</Button>
+              <Button onClick={handleSubmit} data-testId="login-button">
+                Login
+              </Button>
             </Col>
           </FormWrapper>
         </Col>

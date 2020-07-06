@@ -120,6 +120,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[1])
             }}
+            data-testId="renda-fixa"
           >
             Renda Fixa
           </ButtonTagStyled>
@@ -131,6 +132,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[2])
             }}
+            data-testId="multimercado"
           >
             multimercado
           </ButtonTagStyled>
@@ -142,6 +144,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[3])
             }}
+            data-testId="acoes"
           >
             ações
           </ButtonTagStyled>
@@ -153,6 +156,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[4])
             }}
+            data-testId="exterior"
           >
             inv. no exterior
           </ButtonTagStyled>
@@ -164,6 +168,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[5])
             }}
+            data-testId="cambial"
           >
             cambial
           </ButtonTagStyled>
@@ -180,7 +185,7 @@ const Filter: React.FC<IProps> = ({
         >
           Baixo Risco
         </Text>
-        <SquareRiskContainer>
+        <SquareRiskContainer data-testid="fund-filter-risk">
           <SquareRiskLevel
             disabled={disabled}
             selectedRisk={
@@ -271,6 +276,7 @@ const Filter: React.FC<IProps> = ({
                   onClearFilter()
                 }
               }}
+              dataTestId="clear-filter"
             >
               limpar filtros
             </ButtonLink>

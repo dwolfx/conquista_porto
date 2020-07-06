@@ -1,6 +1,7 @@
 export const columns = [
   {
     Header: 'TÍTULO',
+    dataTestId: 'th-title',
     accessor: 'fundo',
     justifyHeader: 'flex-start',
     styles: {
@@ -13,6 +14,7 @@ export const columns = [
   },
   {
     Header: 'APLIC. MIN.',
+    dataTestId: 'th-min',
     accessor: 'minimo_inicial',
     justifyHeader: 'center',
     align: 'flex-end',
@@ -25,6 +27,7 @@ export const columns = [
   },
   {
     Header: 'RESGATE (COT.)',
+    dataTestId: 'th-resgate',
     accessor: 'resgate_cotizacao',
     align: 'center',
     styles: {
@@ -36,6 +39,7 @@ export const columns = [
   },
   {
     Header: 'TAXA ADM. (a.a.)',
+    dataTestId: 'th-taxa',
     accessor: 'taxa_administracao',
     align: 'center',
     styles: {
@@ -47,6 +51,7 @@ export const columns = [
   },
   {
     Header: 'RENT. MÊS',
+    dataTestId: 'th-rent-mes',
     accessor: 'rentabil_fundo_mes',
     align: 'center',
     styles: {
@@ -58,6 +63,7 @@ export const columns = [
   },
   {
     Header: 'RENT. ANO',
+    dataTestId: 'th-rent-ano',
     accessor: 'rentabil_fundo_ano',
     align: 'center',
     styles: {
@@ -69,6 +75,7 @@ export const columns = [
   },
   {
     Header: 'RENT. ÚLT. 12M',
+    dataTestId: 'th-rent-12',
     accessor: 'rentabil_fundo_12_meses',
     align: 'center',
     styles: {
@@ -80,6 +87,7 @@ export const columns = [
   },
   {
     Header: '',
+    dataTestId: '',
     align: 'center',
     accessor: 'is_fundo_ativo',
     styles: {

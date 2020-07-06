@@ -15,6 +15,7 @@ interface IProps {
   type?: 'spinner' | 'bar'
   legend?: string
   placement?: 'top' | 'bottom'
+  dataTestId?: 'loading'
 }
 
 const Loading: React.FC<IProps> = ({

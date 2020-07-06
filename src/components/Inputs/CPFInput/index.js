@@ -42,6 +42,7 @@ const CPFInput = ({ value, onChange, ...props }) => {
       value={internalValue}
       onChange={onChange}
       error={error}
+      // dataTestId="cpf-input"
       {...props}
     />
   )

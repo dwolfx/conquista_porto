@@ -13,6 +13,7 @@ interface IProps {
   onClick?: () => void
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
+  dataTestId?: 'button'
 }
 
 const Button: React.FC<IProps> = ({
