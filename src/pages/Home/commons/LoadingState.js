@@ -4,9 +4,9 @@ import Loading from 'components/Loading'
 
 import { LoadingStateObjectivesContainer } from '../styles'
 
-export default function LoadingState() {
+export default function LoadingState({ ...rest }) {
   return (
-    <LoadingStateObjectivesContainer>
+    <LoadingStateObjectivesContainer {...rest}>
       <Loading
         type="bar"
         legend="Aguarde, estamos buscando suas informações..."

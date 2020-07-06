@@ -1,8 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LeftNav renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-height: 1870px;
+  overflow-y: auto;
+  width: 17%;
+  padding-right: 30px;
+}
+
+@media (max-width:1000px) {
+  .c0 {
+    width: 100%;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding-left: 30px;
+  }
+}
+
 <nav
-  className="sc-AxjAm jISQxx"
+  className="c0"
 >
   <span>
     testando

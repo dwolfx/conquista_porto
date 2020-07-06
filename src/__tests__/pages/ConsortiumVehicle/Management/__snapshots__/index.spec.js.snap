@@ -2,18 +2,549 @@
 
 exports[`ManagementConsortiumVehicle renders correctly 1`] = `
 Array [
-  <section
-    className="sc-fznWOq dkqscg"
+  .c22 {
+  width: 70%;
+  margin: 70px 0 0 0;
+  background-color: #F1F1F1;
+}
+
+.c22 div:first-child {
+  position: relative;
+  background-color: #00ADEF;
+  height: 28px;
+  width: 75%;
+}
+
+.c22 div:first-child span {
+  position: absolute;
+  margin-left: -32px;
+  left: 100%;
+  display: inline-block;
+  word-break: keep-all;
+  text-align: center;
+  font-size: 12px;
+  width: 60px;
+  height: 28px;
+  line-height: 28px;
+  bottom: calc(100% + 15px);
+  background-color: #EFFBFF;
+  border: 1px solid;
+  border-color: #00ADEF;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.c22 div:first-child span:before {
+  content: '';
+  border-left: 7px solid transparent;
+  border-top: 7px solid;
+  border-top-color: #00ADEF;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c22 div:first-child span:after {
+  content: '';
+  border-left: 7px solid transparent;
+  border-top: 7px solid;
+  border-top-color: #00ADEF;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-right-width: 6px;
+  border-left-width: 6px;
+  border-top: 5px solid;
+  border-top-color: #EFFBFF;
+}
+
+.c22 div:nth-child(2) {
+  position: relative;
+  background-color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  line-height: 18px;
+  font-weight: 300;
+  font-size: 12px;
+  padding-top: 6px;
+}
+
+.c23 {
+  position: absolute;
+  left: 100%;
+  margin-left: 2px;
+  text-transform: uppercase;
+}
+
+.c0 {
+  margin: 0 auto;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  width: 1200px;
+}
+
+.c5 {
+  background: white;
+  width: 100%;
+  list-style-type: none;
+  margin-bottom: 30px;
+  position: relative;
+  padding: 14px;
+  cursor: pointer;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 150px;
+  -webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+}
+
+.c5::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 100%;
+  top: calc(50% - 11px);
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 12px solid white;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 22px;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-height: 1870px;
+  overflow-y: auto;
+  width: 17%;
+  padding-right: 30px;
+}
+
+.c9 {
+  background-color: white;
+  padding-top: 22px;
+  width: 83%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: block;
+  -webkit-animation: eLJzSJ 1s linear;
+  animation: eLJzSJ 1s linear;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 28px 30px;
+}
+
+.c3 {
+  border: 2px solid #DDDDDD;
+  background-color: #F1F1F1;
+  padding: 8px;
+  margin-bottom: 30px;
+  padding: 14px;
+  cursor: pointer;
+  width: 100%;
+  height: 120px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c3:hover {
+  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.3);
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+
+.c10 {
+  font-weight: 300;
+  color: #000;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  word-wrap: break-word;
+  font-size: 22px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.c12 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c12 svg {
+  margin-right: 16px;
+}
+
+.c13 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #272727;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 21px;
+}
+
+.c14 {
+  font-weight: 300;
+  color: #272727;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 24px;
+  word-break: break-word;
+  font-size: 14px;
+}
+
+.c15 {
+  padding-top: 22px;
+}
+
+.c16 {
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c17 {
+  width: 50%;
+  padding: 22px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c17:first-child {
+  border-right: 1px solid #DDDDDD;
+}
+
+.c4 {
+  text-align: left;
+  font-weight: 300;
+  color: #BABABA;
+  line-height: 24px;
+  margin: 0;
+  font-size: 14px;
+  word-break: break-word;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+}
+
+.c6 {
+  text-align: center;
+  font-weight: 300;
+  color: #000;
+  line-height: 19px;
+  margin: 0 0 14px 0;
+  font-size: 14px;
+  word-break: break-word;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+}
+
+.c7 {
+  text-align: left;
+  font-weight: 600;
+  color: #000;
+  line-height: 24px;
+  margin: 0 0 7px 0;
+  font-size: 11px;
+  word-break: break-word;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+}
+
+.c8 {
+  text-align: left;
+  font-weight: 300;
+  color: #000;
+  line-height: 24px;
+  margin: 0;
+  font-size: 14px;
+  word-break: break-word;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+}
+
+.c18 {
+  text-align: center;
+  font-weight: 300;
+  color: #000;
+  line-height: 32px;
+  margin: 0 0 7px 0;
+  font-size: 22px;
+  word-break: break-word;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+}
+
+.c19 {
+  text-align: left;
+  font-weight: 300;
+  color: #000;
+  line-height: 24px;
+  margin: 0;
+  font-size: 18px;
+  word-break: break-word;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+}
+
+.c21 {
+  text-align: center;
+  font-weight: 300;
+  color: #000;
+  line-height: 28px;
+  margin: 0 0 14px 0;
+  font-size: 18px;
+  word-break: break-word;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+}
+
+.c20 {
+  margin: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c20 button {
+  margin-top: 62px;
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:1000px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+@media (min-width:990px) {
+  .c0 {
+    width: 984px;
+  }
+}
+
+@media (min-width:1206px) {
+  .c0 {
+    width: 1200px;
+  }
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+  .c5::after {
+    top: 100%;
+    left: calc(50% - 11px);
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 12px solid white;
+    border-bottom: 11px solid transparent;
+  }
+}
+
+@media (max-width:1000px) {
+  .c5 {
+    margin-left: 22px;
+    width: 150px;
+  }
+}
+
+@media (max-width:1000px) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:1000px) {
+  .c2 {
+    width: 100%;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding-left: 30px;
+  }
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+  .c9 {
+    width: 100%;
+  }
+}
+
+@media (max-width:1000px) {
+  .c3 {
+    width: 150px;
+  }
+}
+
+<section
+    className="c0"
   >
     <div
-      className="sc-fzqBkg NIKoT"
+      className="c1"
       id="consortium-vehicle-top-page"
     >
       <nav
-        className="sc-fzqPZZ lhvNhf"
+        className="c2"
       >
         <div
-          className="sc-fzpkJw eroAHr"
+          className="c3"
           data-gtm-clicktype="card"
           data-gtm-name="adicionar"
           data-gtm-subname="card custodia visualizar"
@@ -27,14 +558,14 @@ Array [
             add.svg
           </svg>
           <span
-            className="sc-fzoYHE gAyVUN"
+            className="c4"
             fontSize="14px"
           >
             Adicionar
           </span>
         </div>
         <div
-          className="sc-fzolEj ewQxrA"
+          className="c5"
           data-gtm-clicktype="card"
           data-gtm-name="contrato 1"
           data-gtm-subname="card custodia visualizar"
@@ -42,13 +573,13 @@ Array [
           onClick={[Function]}
         >
           <span
-            className="sc-fzoYHE fNgIfl"
+            className="c6"
             fontSize="14px"
           >
             Contrato 1
           </span>
           <span
-            className="sc-fzoYHE bZOlxv"
+            className="c7"
             fontSize="11px"
             fontWeight={600}
             letterSpacing="1.5px"
@@ -56,7 +587,7 @@ Array [
             STATUS
           </span>
           <span
-            className="sc-fzoYHE ghCfry"
+            className="c8"
             fontSize="14px"
           >
             Contemplado
@@ -64,19 +595,19 @@ Array [
         </div>
       </nav>
       <article
-        className="sc-fzoxKX gguUhW"
+        className="c9"
       >
         <h4
-          className="sc-fznzOf kACULn"
+          className="c10"
         >
           Contrato 
           1
         </h4>
         <div
-          className="sc-fzoKki hURbaZ"
+          className="c11"
         >
           <div
-            className="sc-fzoant fMYKAk"
+            className="c12"
           >
             <svg
               fill="#00ADEF"
@@ -86,19 +617,19 @@ Array [
             </svg>
             <div>
               <p
-                className="sc-fzomME ftEHrw"
+                className="c13"
               >
                 Cota
               </p>
               <span
-                className="sc-fzqAbL jvIbpx"
+                className="c14"
               >
                 500
               </span>
             </div>
           </div>
           <div
-            className="sc-fzoant fMYKAk"
+            className="c12"
           >
             <svg
               fill="#00ADEF"
@@ -108,19 +639,19 @@ Array [
             </svg>
             <div>
               <p
-                className="sc-fzomME ftEHrw"
+                className="c13"
               >
                 grupo
               </p>
               <span
-                className="sc-fzqAbL jvIbpx"
+                className="c14"
               >
                 x398
               </span>
             </div>
           </div>
           <div
-            className="sc-fzoant fMYKAk"
+            className="c12"
           >
             <svg
               fill="#00ADEF"
@@ -130,12 +661,12 @@ Array [
             </svg>
             <div>
               <p
-                className="sc-fzomME ftEHrw"
+                className="c13"
               >
                 Crédito contratado
               </p>
               <span
-                className="sc-fzqAbL jvIbpx"
+                className="c14"
               >
                 R$ 40.000,00
               </span>
@@ -143,53 +674,53 @@ Array [
           </div>
         </div>
         <article
-          className="sc-fzqMAW ggoKCW"
+          className="c15"
         >
           <div
-            className="sc-fzoydu iccqfX"
+            className="c16"
           >
             <div
-              className="sc-fzoJMP ibFlAq"
+              className="c17"
             >
               <span
-                className="sc-fzoYHE kaTRHT"
+                className="c18"
                 fontSize="22px"
               >
                 Valor para quitação
               </span>
               <span
-                className="sc-fzoYHE dpKGOW"
+                className="c19"
               >
                 R$ 27.200,00
               </span>
             </div>
             <div
-              className="sc-fzoJMP ibFlAq"
+              className="c17"
             >
               <span
-                className="sc-fzoYHE kaTRHT"
+                className="c18"
                 fontSize="22px"
               >
                 Valor da parcela atual
               </span>
               <span
-                className="sc-fzoYHE dpKGOW"
+                className="c19"
               >
                 R$ 675,00
               </span>
             </div>
           </div>
           <div
-            className="sc-fzpkqZ gKBACK"
+            className="c20"
           >
             <span
-              className="sc-fzoYHE bCaYrT"
+              className="c21"
               fontSize="18px"
             >
               Evolução do pagamento
             </span>
             <div
-              className="sc-AxjAm cZAiJi"
+              className="c22"
               max={12}
               width="70%"
             >
@@ -207,7 +738,7 @@ Array [
                   12
                    
                   <span
-                    className="sc-AxirZ gUPtDp"
+                    className="c23"
                   >
                     parcelas
                   </span>
@@ -219,19 +750,225 @@ Array [
       </article>
     </div>
   </section>,
-  <section
-    className="sc-fznxsB giJDcM"
+  .c4 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c4:hover:active {
+  pointer-events: auto;
+}
+
+.c4:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c4:hover:before {
+  width: 100%;
+}
+
+.c4:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c4:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c0 {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  background-color: #004E70;
+}
+
+.c1 {
+  text-align: center;
+}
+
+.c2 {
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+  color: white;
+}
+
+.c3 {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+}
+
+.c6 {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  font-size: 13px;
+}
+
+@media (min-width:1206px) {
+  .c1 {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (min-width:990px) {
+
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+<section
+    className="c0"
   >
     <div
-      className="sc-fznJRM jRDCBp"
+      className="c1"
     >
       <h1
-        className="sc-fznWqX bwHLMM"
+        className="c2"
       >
         Parcelas que cabem no seu bolso.
       </h1>
       <p
-        className="sc-fzoiQi gnPpbz"
+        className="c3"
       >
         Com o Conquista, você planeja a compra do seu carro novo ou seminovo.
         <br />
@@ -241,7 +978,7 @@ Array [
       <br />
       <br />
       <button
-        className="sc-fzoXzr kQFsxk"
+        className="c4"
         color="secondary"
         data-gtm-clicktype="button"
         data-gtm-name="SIMULAR E CONTRATAR"
@@ -250,13 +987,13 @@ Array [
         onClick={[Function]}
       >
         <span
-          className="sc-fzpjYC lfaxFW"
+          className="c5"
         >
           <span>
             SIMULAR E CONTRATAR
              
             <span
-              className="Management___StyledSpan-sc-1e2f1dc-0 kfvwLz"
+              className="c6"
             >
               &gt;
             </span>
@@ -265,19 +1002,183 @@ Array [
       </button>
     </div>
   </section>,
-  <section
-    className="sc-fzpans lbgtYp"
+  .c3 .slick-track {
+  float: left;
+}
+
+.c5 {
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5em;
+  background-color: #FFFFFF;
+  box-shadow: 1px 45px 40px -50px rgba(0,0,0,0.4);
+  margin: 46px auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 22.5em;
+  width: 24em;
+}
+
+.c6 {
+  height: 5em;
+}
+
+.c9 {
+  color: #000;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 32px;
+  word-break: break-word;
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.c10 {
+  color: #272727;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 24px;
+  word-break: break-word;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.c8 {
+  padding: 30px;
+}
+
+.c7 {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+}
+
+.c1 {
+  padding: 1.75em 0;
+  margin: 0 auto;
+  max-width: 75em;
+  width: 100%;
+}
+
+.c2 {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.c4 .slick-dots {
+  position: relative;
+  bottom: 0;
+  margin: 1em 0 0;
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:980px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (min-width:990px) {
+
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+<section
+    className="c0"
   >
     <div
-      className="sc-fzplWN bBOstT"
+      className="c1"
     >
       <h1
-        className="sc-fznyAO HhsRa"
+        className="c2"
       >
         SAIBA MAIS:
       </h1>
       <div
-        className="slick-slider sc-fznKkj fTMqWZ slick-initialized"
+        className="slick-slider c3 c4 slick-initialized"
       >
         
         <div
@@ -314,26 +1215,26 @@ Array [
             >
               <div>
                 <div
-                  className="sc-AxgMl dCUSwU"
+                  className="c5"
                 >
                   <div
-                    className="sc-AxheI kbnvwo"
+                    className="c6"
                   >
                     <img
-                      className="sc-fzoLsD eTnVRn"
+                      className="c7"
                       src={null}
                     />
                   </div>
                   <div
-                    className="sc-fzozJi jkzCAr"
+                    className="c8"
                   >
                     <p
-                      className="sc-Axmtr cUWJFt"
+                      className="c9"
                     >
                       Tente um lance
                     </p>
                     <p
-                      className="sc-AxmLO kxyMXs"
+                      className="c10"
                     >
                       Você não precisa contar apenas com a sorte para ser contemplado no consórcio. Todos os meses, há a possibilidade de você dar um lance maior do que o valor ofertado por outros participantes do seu grupo para conquistar o seu sonho.
                     </p>
@@ -356,26 +1257,26 @@ Array [
             >
               <div>
                 <div
-                  className="sc-AxgMl dCUSwU"
+                  className="c5"
                 >
                   <div
-                    className="sc-AxheI kbnvwo"
+                    className="c6"
                   >
                     <img
-                      className="sc-fzoLsD eTnVRn"
+                      className="c7"
                       src={null}
                     />
                   </div>
                   <div
-                    className="sc-fzozJi jkzCAr"
+                    className="c8"
                   >
                     <p
-                      className="sc-Axmtr cUWJFt"
+                      className="c9"
                     >
                       Valor do consórcio como parte do lance
                     </p>
                     <p
-                      className="sc-AxmLO kxyMXs"
+                      className="c10"
                     >
                       Para conseguir dar um lance mais alto e aumentar suas chances de ser contemplado, você pode usar parte do valor do consórcio como complemento ao que foi ofertado. Cada consórcio tem suas regras, basta se informar sobre a existência desse benefício.
                     </p>
@@ -398,26 +1299,26 @@ Array [
             >
               <div>
                 <div
-                  className="sc-AxgMl dCUSwU"
+                  className="c5"
                 >
                   <div
-                    className="sc-AxheI kbnvwo"
+                    className="c6"
                   >
                     <img
-                      className="sc-fzoLsD eTnVRn"
+                      className="c7"
                       src={null}
                     />
                   </div>
                   <div
-                    className="sc-fzozJi jkzCAr"
+                    className="c8"
                   >
                     <p
-                      className="sc-Axmtr cUWJFt"
+                      className="c9"
                     >
                       Escolha qualquer veículo
                     </p>
                     <p
-                      className="sc-AxmLO kxyMXs"
+                      className="c10"
                     >
                       Ao fazer um consórcio, será utilizado um veículo específico como referência. No entanto, como o valor obtido com o consórcio é em dinheiro, você pode usá-lo para adquirir qualquer outro veículo sem restrição de modelo.
                     </p>
@@ -432,21 +1333,205 @@ Array [
       </div>
     </div>
   </section>,
-  <div
-    className="sc-fzqARJ ftqhuF"
+  .c0 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c1 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c2 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding: 28px;
+  border-right: 1px solid #DDDDDD;
+}
+
+.c2:last-child {
+  border-right: none;
+}
+
+.c3 {
+  padding-right: 20px;
+}
+
+.c4 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #272727;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 21px;
+}
+
+.c5 {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  text-align: left;
+  color: #272727;
+  margin-top: 12px;
+}
+
+.c6 {
+  font-size: 11px;
+  line-height: 21px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #00ADEF;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.c6:hover {
+  color: #018CB7;
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (min-width:576px) {
+  .c0 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c0 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    -ms-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width:992px) {
+  .c2 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width:980px) {
+  .c2 {
+    border-right: none;
+  }
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (min-width:990px) {
+
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+@media (max-width:1000px) {
+
+}
+
+<div
+    className="c0"
     data-name="container"
   >
     <div
-      className="sc-fzqNqU iTsNdX"
+      className="c1"
       data-name="row"
     >
       <div
-        className="sc-fzoyTs sc-fzoNJl haMJob"
+        className="sc-fzoNJl c2"
         data-name="col-md-6 col-lg-12"
       >
         <div>
           <svg
-            className="sc-fzoXWK kkxKJm"
+            className="c3"
             fill="#272727"
             height="24px"
           >
@@ -455,17 +1540,17 @@ Array [
         </div>
         <div>
           <p
-            className="sc-fzpmMD ctnENy"
+            className="c4"
           >
             CONDIÇÕES GERAIS
           </p>
           <p
-            className="sc-fznxKY dzBzky"
+            className="c5"
           >
             Mais detalhes sobre as condições de contratação, taxas de juros e outras informações sobre o Consórcio de Veículos da Porto Seguro.
           </p>
           <p
-            className="sc-fznMAR gCjJUp"
+            className="c6"
             data-gtm-clicktype="link"
             data-gtm-name="BAIXAR ARQUIVO"
             data-gtm-subname="CONDIÇÕES GERAIS"

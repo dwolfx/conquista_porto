@@ -1,195 +1,967 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FundsInfo renders correctly 1`] = `
+.c38 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #00ADEF;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c38 svg {
+  height: 21px;
+  margin-left: 7px;
+}
+
+.c38 svg path {
+  fill: currentColor;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 30px;
+}
+
+.c11 {
+  color: #272727;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  padding-bottom: 15px;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: auto;
+  padding: 0 3px;
+  width: 100%;
+}
+
+.c13 {
+  display: table;
+  table-layout: fixed;
+  width: 900px;
+  height: 100%;
+  border-collapse: collapse;
+}
+
+.c16 tr:nth-child(odd) {
+  background-color: #F1F1F1;
+}
+
+.c14 {
+  background-color: #FFFFFF;
+}
+
+.c14 td:nth-child(1) {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+  text-transform: uppercase;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+}
+
+.c15 {
+  display: table-cell;
+  background-color: #BABABA;
+  padding: 20px;
+  border: 1px solid #DDDDDD;
+  color: #272727;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.c17 {
+  display: table-cell;
+  padding: 8px;
+  border: 1px solid #BABABA;
+  color: #272727;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 300;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  line-height: 14px;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: #004E70;
+  color: #FFFFFF;
+}
+
+.c19 {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  height: 51px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  line-height: 21px;
+  text-transform: uppercase;
+  padding: 15px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 15px 30px 30px 30px;
+  border-bottom: 1px solid #FFFFFF;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c22 {
+  width: 160px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c23 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18.9px;
+}
+
+.c24 {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.c27 {
+  width: 598px;
+  background-color: #F1F1F1;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 7px 30px;
+}
+
+.c30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c28 {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  line-height: 21px;
+  text-transform: uppercase;
+  height: 36px;
+}
+
+.c31 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.c32 {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.c39 {
+  width: 295px;
+  background-color: #F1F1F1;
+}
+
+.c41 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 15px 30px 15px 60px;
+}
+
+.c42 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 46px;
+}
+
+.c40 {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  line-height: 21px;
+  text-transform: uppercase;
+  height: 36px;
+  padding: 0px 30px 15px 60px;
+}
+
+.c43 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.c44 {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 10px;
+  height: 20px;
+  margin-top: 34px;
+}
+
+.c3 label {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.c3 label:first-of-type {
+  margin-right: 0.25rem;
+}
+
+.c3 label:last-of-type {
+  margin-left: 0.25rem;
+}
+
+.c5 {
+  background-color: #004E70;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 10px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c5.active {
+  opacity: 1;
+}
+
+.c6 {
+  background-color: #00ADEF;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 8px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c6.active {
+  opacity: 1;
+}
+
+.c7 {
+  background-color: #57B063;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 6px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c7.active {
+  opacity: 1;
+}
+
+.c8 {
+  background-color: #FFCD00;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 4px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c8.active {
+  opacity: 1;
+}
+
+.c9 {
+  background-color: #E72176;
+  display: inline-block;
+  margin: 0 0.25rem;
+  margin-top: 2px;
+  opacity: 0.1;
+  width: 24px;
+}
+
+.c9.active {
+  opacity: 1;
+}
+
+.c36 {
+  color: unset;
+  text-align: unset;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 11px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 900px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.c26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 600px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-right: 2px solid #DDDDDD;
+}
+
+.c25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding-top: 30px;
+  background-color: #F1F1F1;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  font-size: 22px;
+  font-weight: 300;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  padding: 30px;
+  text-align: center;
+}
+
+.c45 {
+  font-size: 10px;
+  font-weight: 400;
+  height: 22px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px 30px 52px 30px;
+}
+
+.c4 {
+  margin-bottom: 30px;
+}
+
+.c2 {
+  color: #272727;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+}
+
+.c33 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #F1F1F1;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.c34 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 20px;
+}
+
+.c35 {
+  margin-right: 20px;
+}
+
+.c37 {
+  text-transform: uppercase;
+}
+
+@media (max-width:900px) {
+  .c12 {
+    display: block;
+  }
+}
+
+@media (max-width:767px) {
+  .c12 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width:490px) {
+  .c12 {
+    display: block;
+    padding: 0 3px;
+  }
+}
+
+@media (max-width:900px) {
+  .c20 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:767px) {
+  .c20 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+@media (max-width:660px) {
+  .c20 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width:900px) {
+  .c22 {
+    width: 160px;
+  }
+}
+
+@media (max-width:900px) {
+  .c27 {
+    width: 332px;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width:767px) {
+  .c27 {
+    width: 100%;
+  }
+}
+
+@media (max-width:489px) {
+  .c29 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+  }
+}
+
+@media (max-width:489px) {
+  .c30 {
+    width: 100%;
+  }
+}
+
+@media (max-width:900px) {
+  .c39 {
+    width: 154px;
+  }
+}
+
+@media (max-width:489px) {
+  .c39 {
+    width: 100%;
+  }
+}
+
+@media (max-width:900px) {
+  .c41 {
+    padding: 10px 15px 10px 15px;
+  }
+}
+
+@media (max-width:489px) {
+  .c41 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width:489px) {
+  .c42 {
+    text-align: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width:900px) {
+  .c40 {
+    padding: 0px 20px 15px 20px;
+  }
+}
+
+@media (max-width:489px) {
+  .c40 {
+    text-align: center;
+  }
+}
+
+@media (max-width:900px) {
+  .c0 {
+    width: 490px;
+  }
+}
+
+@media (max-width:767px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+@media (max-width:489px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
+@media (max-width:900px) {
+  .c26 {
+    width: 334px;
+  }
+
+  .c26 section div {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:801px) {
+  .c26 section {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+@media (max-width:767px) {
+  .c26 {
+    width: 66%;
+  }
+}
+
+@media (max-width:489px) {
+  .c26 {
+    width: 100%;
+  }
+}
+
+@media (max-width:900px) {
+  .c25 {
+    width: 490px;
+  }
+}
+
+@media (max-width:767px) {
+  .c25 {
+    width: 100%;
+  }
+}
+
+@media (max-width:489px) {
+  .c25 {
+    width: 100%;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:489px) {
+  .c45 {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c4 {
+    display: none;
+  }
+}
+
 <div
-  className="sc-fzpmMD dUXokz"
+  className="c0"
 >
   <h2
-    className="sc-fznWOq iEbRjz"
+    className="c1"
   >
     POLO MACRO FI MULTIMERCADO
   </h2>
   <h5
-    className="sc-fzqPZZ ibJWZr"
+    className="c2"
   >
     Perfil de Risco
   </h5>
   <div
-    className="sc-fzoyTs jdIpls sc-fzqBkg hujwVR"
+    className="c3 c4"
   >
     <label>
       Menor risco
     </label>
     <div
-      className="sc-fzoNJl fbtmve"
+      className="c5"
     />
     <div
-      className="sc-fzoNJl ktkZhL"
+      className="c6"
     />
     <div
-      className="sc-fzoNJl iVVQKm"
+      className="c7"
     />
     <div
-      className="sc-fzoNJl fvetpq"
+      className="c8"
     />
     <div
-      className="sc-fzoNJl fgFdwv active"
+      className="c9 active"
     />
     <label>
       Maior risco
     </label>
   </div>
   <div
-    className="sc-AxirZ cBEXZx"
+    className="c10"
   >
     <h5
-      className="sc-AxiKw bqcBjK"
+      className="c11"
     >
       Rentabilidade Histórica
     </h5>
     <div
-      className="sc-AxhCb brWXuj"
+      className="c12"
     >
       <table
-        className="sc-AxhUy fiYRhw"
+        className="c13"
       >
         <thead
-          className="sc-AxgMl fFPQpl"
+          className=""
         >
           <tr
-            className="sc-Axmtr bNDfqv"
+            className="c14"
           >
             <th
-              className="sc-AxmLO lcCLtT"
+              className="c15"
             />
             <th
-              className="sc-AxmLO lcCLtT"
+              className="c15"
             >
               Mês Anterior
             </th>
             <th
-              className="sc-AxmLO lcCLtT"
+              className="c15"
             >
               Ano
             </th>
             <th
-              className="sc-AxmLO lcCLtT"
+              className="c15"
             >
               Últ 12m
             </th>
             <th
-              className="sc-AxmLO lcCLtT"
+              className="c15"
             >
               Últ 24m
             </th>
             <th
-              className="sc-AxmLO lcCLtT"
+              className="c15"
             >
               Últ 36m
             </th>
           </tr>
         </thead>
         <tbody
-          className="sc-AxheI jFcecu"
+          className="c16"
         >
           <tr
-            className="sc-Axmtr bNDfqv"
+            className="c14"
           >
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               Fundo (%)
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               -3.78
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               7.81
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               16.80
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               24.05
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               48.49
             </td>
           </tr>
           <tr
-            className="sc-Axmtr bNDfqv"
+            className="c14"
           >
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               % CDI
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               0.50
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               4.67
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               6.28
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               13.35
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               26.45
             </td>
           </tr>
           <tr
-            className="sc-Axmtr bNDfqv"
+            className="c14"
           >
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               Variação
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               ---
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               167.41
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               267.64
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               180.12
             </td>
             <td
-              className="sc-fzozJi VdOTK"
+              className="c17"
             >
               183.33
             </td>
@@ -199,75 +971,75 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </div>
   <section
-    className="sc-fzoLsD DjHBX"
+    className="c18"
   >
     <h5
-      className="sc-fzpans dpBBuf"
+      className="c19"
     >
       Movimentações
     </h5>
     <div
-      className="sc-fzplWN gwVGGO"
+      className="c20"
     >
       <div
-        className="sc-fznyAO fLvARN"
+        className="c21"
       >
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Aplicação Inicial
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
             R$ 5.000,00
           </div>
         </div>
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Movimentação Mín.
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
             R$ 5.000,00
           </div>
         </div>
       </div>
       <div
-        className="sc-fznyAO fLvARN"
+        className="c21"
       >
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Saldo Mín.
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
             -
           </div>
         </div>
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Horário Limite da Aplic.
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
             23:53
           </div>
@@ -275,35 +1047,35 @@ exports[`FundsInfo renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-fzplWN gwVGGO"
+      className="c20"
     >
       <div
-        className="sc-fznyAO fLvARN"
+        className="c21"
       >
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Aplicação (Cotização)
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
              Úteis
           </div>
         </div>
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Aplicação (Financeiro)
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
             D+0
              Úteis
@@ -311,33 +1083,33 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-fznyAO fLvARN"
+        className="c21"
       >
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Resgate (Cotização)
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
             D+30
              Corridos
           </div>
         </div>
         <div
-          className="sc-fznKkj JXALD"
+          className="c22"
         >
           <div
-            className="sc-fznZeY evzNHO"
+            className="c23"
           >
             Resgate (Financeiro)
           </div>
           <div
-            className="sc-fzokOt jnWBKJ"
+            className="c24"
           >
             D+1
              Úteis
@@ -347,79 +1119,79 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </section>
   <section
-    className="sc-fznMAR jTRjHM"
+    className="c25"
   >
     <div
-      className="sc-fznxKY gsiejs"
+      className="c26"
     >
       <div
-        className="sc-fzqBZW amAkk"
+        className="c27"
       >
         <h4
-          className="sc-fzoLag HxSoQ"
+          className="c28"
         >
           Detalhes do Fundo
         </h4>
         <div
-          className="sc-fzqNJr fsvSQV"
+          className="c29"
         >
           <div
-            className="sc-fzoyAV brIFOe"
+            className="c30"
           >
             <h5
-              className="sc-fzoXzr fNAhbF"
+              className="c31"
             >
               Data de início
             </h5>
             <p
-              className="sc-fzpjYC gWOIVg"
+              className="c32"
             >
               29/12/2009
             </p>
           </div>
           <div
-            className="sc-fzoyAV brIFOe"
+            className="c30"
           >
             <h5
-              className="sc-fzoXzr fNAhbF"
+              className="c31"
             >
               Benchmark
             </h5>
             <p
-              className="sc-fzpjYC gWOIVg"
+              className="c32"
             >
               CDI
             </p>
           </div>
         </div>
         <div
-          className="sc-fzqNJr fsvSQV"
+          className="c29"
         >
           <div
-            className="sc-fzoyAV brIFOe"
+            className="c30"
           >
             <h5
-              className="sc-fzoXzr fNAhbF"
+              className="c31"
             >
               Taxa de administração
             </h5>
             <p
-              className="sc-fzpjYC gWOIVg"
+              className="c32"
             >
               2.00
               % a.a
             </p>
           </div>
           <div
-            className="sc-fzoyAV brIFOe"
+            className="c30"
           >
             <h5
-              className="sc-fzoXzr fNAhbF"
+              className="c31"
             >
               Taxa de performance
             </h5>
             <p
-              className="sc-fzpjYC gWOIVg"
+              className="c32"
             >
               20.00
               % sobre o que exceder
@@ -428,13 +1200,13 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-fzoxKX jGpOfP"
+        className="c33"
       >
         <div
-          className="sc-fzoKki cLHXTW"
+          className="c34"
         >
           <div
-            className="sc-fzoYkl gfTuFX"
+            className="c35"
           >
             <svg
               fill="#272727"
@@ -445,14 +1217,14 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-fzoXWK ihjSVp sc-fzpkJw gpYqiz"
+              className="c36 c37"
               color="unset"
               type="subheading"
             >
               Informativo de desempenho
             </p>
             <a
-              className="sc-AxjAm cgiMkW"
+              className="c38"
               data-gtm-clicktype="link"
               data-gtm-name="baixar arquivo"
               data-gtm-subname="informativo de desempenho"
@@ -469,10 +1241,10 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
         </div>
         <div
-          className="sc-fzoKki cLHXTW"
+          className="c34"
         >
           <div
-            className="sc-fzoYkl gfTuFX"
+            className="c35"
           >
             <svg
               fill="#272727"
@@ -483,14 +1255,14 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div>
             <p
-              className="sc-fzoXWK ihjSVp sc-fzpkJw gpYqiz"
+              className="c36 c37"
               color="unset"
               type="subheading"
             >
               REGULAMENTO DO FUNDO
             </p>
             <a
-              className="sc-AxjAm cgiMkW"
+              className="c38"
               data-gtm-clicktype="link"
               data-gtm-name="baixar arquivo"
               data-gtm-subname="regulamento do fundo"
@@ -509,44 +1281,44 @@ exports[`FundsInfo renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-fznxsB dsGZyq"
+      className="c39"
     >
       <h4
-        className="sc-fzoiQi ipethb"
+        className="c40"
       >
         Tributação (IR)
       </h4>
       <div
-        className="sc-fznJRM iyfgmY"
+        className="c41"
       >
         <div
-          className="sc-fznWqX cotqqy"
+          className="c42"
         >
           <h5
-            className="sc-fzqARJ bZTncC"
+            className="c43"
           >
             Classificação
           </h5>
           <p
-            className="sc-fzqNqU fSYSwp"
+            className="c44"
           >
             Longo Prazo
           </p>
         </div>
       </div>
       <div
-        className="sc-fznJRM iyfgmY"
+        className="c41"
       >
         <div
-          className="sc-fznWqX cotqqy"
+          className="c42"
         >
           <h5
-            className="sc-fzqARJ bZTncC"
+            className="c43"
           >
             Até 180 dias
           </h5>
           <p
-            className="sc-fzqNqU fSYSwp"
+            className="c44"
           >
             22.5
             %
@@ -554,18 +1326,18 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-fznJRM iyfgmY"
+        className="c41"
       >
         <div
-          className="sc-fznWqX cotqqy"
+          className="c42"
         >
           <h5
-            className="sc-fzqARJ bZTncC"
+            className="c43"
           >
             De 181 dias a 360 dias
           </h5>
           <p
-            className="sc-fzqNqU fSYSwp"
+            className="c44"
           >
             20
             %
@@ -573,18 +1345,18 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-fznJRM iyfgmY"
+        className="c41"
       >
         <div
-          className="sc-fznWqX cotqqy"
+          className="c42"
         >
           <h5
-            className="sc-fzqARJ bZTncC"
+            className="c43"
           >
             De 361 dias a 720 dias
           </h5>
           <p
-            className="sc-fzqNqU fSYSwp"
+            className="c44"
           >
             17.5
             %
@@ -592,18 +1364,18 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-fznJRM iyfgmY"
+        className="c41"
       >
         <div
-          className="sc-fznWqX cotqqy"
+          className="c42"
         >
           <h5
-            className="sc-fzqARJ bZTncC"
+            className="c43"
           >
             Acima de 720 dias
           </h5>
           <p
-            className="sc-fzqNqU fSYSwp"
+            className="c44"
           >
             15
             %
@@ -611,18 +1383,18 @@ exports[`FundsInfo renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="sc-fznJRM iyfgmY"
+        className="c41"
       >
         <div
-          className="sc-fznWqX cotqqy"
+          className="c42"
         >
           <h5
-            className="sc-fzqARJ bZTncC"
+            className="c43"
           >
             IOF
           </h5>
           <p
-            className="sc-fzqNqU fSYSwp"
+            className="c44"
           >
             Regime Regressivo
           </p>
@@ -631,7 +1403,7 @@ exports[`FundsInfo renders correctly 1`] = `
     </div>
   </section>
   <p
-    className="sc-fzolEj DDFOu"
+    className="c45"
   >
     HAVERÁ INCIDÊNCIA DE IOF REGRESSIVO CASO OCORRAM RESGATES ANTES DE 30 DIAS CORRIDOS DA DATA DA APLICAÇÃO.
   </p>
