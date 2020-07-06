@@ -41,7 +41,7 @@ interface IProps {
 export default function HeaderNew({ crumbs }: IProps) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const isTabletOrLower = useMedia('md')
+  const shouldDisplayHeaderHamburguer = useMedia('lg')
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
@@ -274,5 +274,7 @@ export default function HeaderNew({ crumbs }: IProps) {
       </GridContainer>
     </BgWrapper>
   )
-  return isTabletOrLower ? renderResponsideHeader() : renderFullHeader()
+  return shouldDisplayHeaderHamburguer
+    ? renderResponsideHeader()
+    : renderFullHeader()
 }

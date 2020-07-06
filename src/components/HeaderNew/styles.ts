@@ -18,7 +18,7 @@ export const BgWrapper = styled.div<BgWrapperProps>`
   top: 0;
   z-index: 11;
 
-  @media ${props => props.theme.mediaQueries.md} {
+  @media ${props => props.theme.mediaQueries.lg} {
     background-color: ${props => props.theme.colors.white};
     border-bottom: 1px solid ${props => props.theme.colors.gray3};
   }
