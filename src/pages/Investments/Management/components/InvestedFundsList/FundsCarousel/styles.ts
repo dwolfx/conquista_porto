@@ -14,6 +14,7 @@ export const ButtonVertical = styled(IconButton)`
 
 export const ContentContainer = styled.div`
   margin-bottom: 14px;
+  display: flex;
 `
 
 interface IChipProps {
@@ -54,7 +55,7 @@ const ChangePageButton = styled(IconButton).attrs(() => ({
   isLoading: false,
 }))`
   &.slick-prev {
-    left: 868px;
+    left: 804px;
     top: -28px;
   }
 

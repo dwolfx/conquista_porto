@@ -130,13 +130,19 @@ const FundsCarousel = ({
 
   return (
     <ContentContainer>
-      <Carousel data-testid="test-carousel" settings={customSettings}>
-        <ButtonVertical
-          color="primary"
-          icon="add"
-          data-testid="button-add-fund"
-          onClick={() => history.push('/investimentos/lista-fundos')}
-        />
+      <ButtonVertical
+        color="primary"
+        icon="add"
+        data-testid="button-add-fund"
+        onClick={() => history.push('/investimentos/lista-fundos')}
+      />
+      <Carousel
+        data-testid="test-carousel"
+        settings={customSettings}
+        css={`
+          width: calc(100% - 63px);
+        `}
+      >
         {filteredFunds.map((fund: any) => (
           <CustomSlides
             key={`fund-chip-${fund.id_carteira}`}
