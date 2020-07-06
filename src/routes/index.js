@@ -9,8 +9,7 @@ import {
 import { useSelector } from 'react-redux'
 import 'styled-components/macro'
 
-import HeaderNew from 'components/HeaderNew'
-// import Header from 'components/Header'
+import Header from 'components/Header'
 import Footer from 'components/Footer'
 import Loading from 'components/Loading'
 
@@ -38,6 +37,7 @@ import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
+import Withdraw from 'pages/Withdraw'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
@@ -100,7 +100,7 @@ const DefaultRoute = ({
 
   return (
     <>
-      <HeaderNew crumbs={crumbs} />
+      <Header crumbs={crumbs} />
       <main className="main-content">
         <Route
           {...rest}
@@ -357,6 +357,12 @@ export default function Routes({ ...props }) {
         exact
         component={ObjectivesManager}
         pageTitle="Objetivos - Gerenciar"
+      />
+      <Route
+        path="/conta/retirar"
+        exact
+        component={Withdraw}
+        pageTitle="Retirar"
       />
       <Route
         path="/objetivos"
