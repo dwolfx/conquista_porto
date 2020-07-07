@@ -6,7 +6,7 @@ import IconGrid from 'assets/icons/grid.svg'
 import { TFundsLayout } from 'pages/Investments/Management/types'
 
 export const RowContent = styled.div`
-  margin: 0 0 14px 0;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -35,9 +35,14 @@ export const RightContent = styled.div<IRightContentProps>`
 export const ButtonTagStyled = styled(ButtonTag)`
   margin-right: ${({ theme }) => theme.spacing(1)}px;
 `
+interface IButtonClearFilters {
+  hasFilter: boolean
+}
 
-export const ButtonClear = styled(ButtonLink)`
+export const ButtonClearFilters = styled(ButtonLink)<IButtonClearFilters>`
   margin-left: ${({ theme }) => theme.spacing(1)}px;
+  color: ${props =>
+    props.hasFilter ? props.theme.colors.blue4 : props.theme.colors.gray4};
 `
 export const PriorNextFundsButtons = styled.div`
   padding: 0;
@@ -55,7 +60,7 @@ interface IButtonLayoutProps {
   backgroundcolor: 'primary' | 'secondary'
 }
 
-export const ButtonLayoutGrid = styled.div<IButtonLayoutProps>`
+export const ButtonViewModeGrid = styled.div<IButtonLayoutProps>`
   background-color: ${props =>
     props.backgroundcolor === 'primary'
       ? props.theme.colors.blue4
@@ -68,7 +73,7 @@ export const ButtonLayoutGrid = styled.div<IButtonLayoutProps>`
   margin-left: ${({ theme }) => theme.spacing(4)}px;
 `
 
-export const ButtonLayoutList = styled.div<IButtonLayoutProps>`
+export const ButtonViewModeList = styled.div<IButtonLayoutProps>`
   background-color: ${props =>
     props.backgroundcolor === 'primary'
       ? props.theme.colors.blue4

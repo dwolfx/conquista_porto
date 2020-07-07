@@ -8,9 +8,9 @@ import {
   RightContent,
   RowContent,
   ButtonTagStyled,
-  ButtonClear,
-  ButtonLayoutGrid,
-  ButtonLayoutList,
+  ButtonClearFilters,
+  ButtonViewModeGrid,
+  ButtonViewModeList,
 } from './styles'
 
 interface IProps {
@@ -42,10 +42,17 @@ const FundsFilter: React.FC<IProps> = ({
   }
 
   const handleFilterColors = (category: string) => {
-    if (filters.includes(category)) {
-      return 'primary'
-    }
-    return ''
+    return filters.includes(category) ? 'primary' : ''
+  }
+
+  const handleButtonViewModeColors = (buttonViewMode: TFundsLayout) => {
+    return viewMode === buttonViewMode ? 'primary' : 'secondary'
+  }
+
+  const dataGTM = {
+    'data-gtm-subname': 'fundos filtros',
+    'data-gtm-type': 'click',
+    'data-gtm-clicktype': 'button',
   }
 
   return (
@@ -54,52 +61,64 @@ const FundsFilter: React.FC<IProps> = ({
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[1])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[1])}
+          {...dataGTM}
+          data-gtm-name="botao filtro categoria renda fixa"
         >
           renda fixa
         </ButtonTagStyled>
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[2])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[2])}
+          {...dataGTM}
+          data-gtm-name="botao filtro categoria multimercado"
         >
           multimercado
         </ButtonTagStyled>
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[3])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[3])}
+          {...dataGTM}
+          data-gtm-name="botao filtro categoria acoes"
         >
           ações
         </ButtonTagStyled>
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[4])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[4])}
+          {...dataGTM}
+          data-gtm-name="botao filtro categoria inv. no exterior"
         >
           inv. no exterior
         </ButtonTagStyled>
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[5])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[5])}
+          {...dataGTM}
+          data-gtm-name="botao filtro categoria cambial"
         >
           cambial
         </ButtonTagStyled>
-        <ButtonClear noIcon onClick={handleClearFilters}>
+        <ButtonClearFilters
+          noIcon
+          onClick={handleClearFilters}
+          hasFilter={filters.length > 0}
+          {...dataGTM}
+          data-gtm-name="botao filtro categoria limpar filtros"
+        >
           limpar filtros
-        </ButtonClear>
+        </ButtonClearFilters>
       </LeftContent>
       <RightContent viewMode={viewMode}>
-        <ButtonLayoutGrid
-          data-gtm-subname="fundos filtros"
+        <ButtonViewModeGrid
+          {...dataGTM}
           data-gtm-name="botao fundos layout cards"
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          backgroundcolor={viewMode === 'CARDS' ? 'primary' : 'secondary'}
+          backgroundcolor={handleButtonViewModeColors('CARDS')}
           onClick={() => onHandleChangeView('CARDS')}
         />
-        <ButtonLayoutList
-          data-gtm-subname="fundos filtros"
+        <ButtonViewModeList
+          {...dataGTM}
           data-gtm-name="botao fundos layout lista"
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          backgroundcolor={viewMode === 'LIST' ? 'primary' : 'secondary'}
+          backgroundcolor={handleButtonViewModeColors('LIST')}
           onClick={() => onHandleChangeView('LIST')}
         />
       </RightContent>
