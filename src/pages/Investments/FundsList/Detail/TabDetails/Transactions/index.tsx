@@ -13,11 +13,12 @@ import { Li, LiTitle, LiValue, TransactionsWrapper, Ul } from './styles'
 interface IFund {
   fund: {
     minimo_inicial: string
-    aplicao_minima: string
-    saldo_minimo?: number | string
+    aplicacao_minima: string
+    saldo_minimo: string
     hora_aplicacao: string
     aplicacao_cotizacao: string
     aplicacao_financeiro: string
+    contagem_dias_resgate: string
     resgate_cotizacao: string
     resgate_financeiro: string
     categoria: string
@@ -34,14 +35,14 @@ export const Transactions = ({ fund }: IFund) => {
     ],
     [
       <LiTitle>Movimentação Mín.</LiTitle>,
-      <LiValue bold>{formatMoney(fund.aplicao_minima)}</LiValue>,
+      <LiValue bold>
+        {formatMoney(fund.aplicacao_minima)}
+      </LiValue>,
     ],
     [
       <LiTitle>Saldo Mín.</LiTitle>,
       <LiValue bold>
-        {typeof fund.saldo_minimo === 'string' || undefined
-          ? '-'
-          : formatMoney(fund.saldo_minimo || 0)}
+        {formatMoney(fund.saldo_minimo || 0)}
       </LiValue>,
     ],
     [
@@ -58,7 +59,7 @@ export const Transactions = ({ fund }: IFund) => {
     ],
     [
       <LiTitle>Resgate (Cotização)</LiTitle>,
-      <LiValue bold>{fund.resgate_cotizacao} (Corridos)</LiValue>,
+      <LiValue bold>{`${fund.resgate_cotizacao} (${fund.contagem_dias_resgate})`}</LiValue>,
     ],
     [
       <LiTitle>Resgate (Financeiro)</LiTitle>,
