@@ -7,6 +7,7 @@ import TransactionHeader from 'components/Header/TransactionsHeader'
 import Text from 'components/Text'
 
 import * as s from './styles'
+import WithdrawCard from './WithdrawCard'
 
 const Withdraw = () => {
   const history = useHistory()
@@ -42,11 +43,7 @@ const Withdraw = () => {
             </s.FullHeightCard>
           </Col>
           <Col md={9}>
-            <s.FullHeightCard>
-              <Text type="heading2" color="magenta1" bold>
-                Banco
-              </Text>
-            </s.FullHeightCard>
+            <WithdrawCard />
           </Col>
         </Row>
       </s.Container>

@@ -58,7 +58,7 @@ const TransactionHeader = ({
                     data-gtm-clicktype="button"
                     icon="ArrowLeft"
                     onClick={() => !!onBack && onBack()}
-                    data-testid="back button"
+                    data-testid="back-button"
                   />
                 )}
                 <s.HeaderColTitle>
@@ -76,7 +76,7 @@ const TransactionHeader = ({
                   data-gtm-clicktype="button"
                   icon="CloseIcon"
                   onClick={() => !!onClose && onClose()}
-                  data-testid="close button"
+                  data-testid="close-button"
                 />
               </s.HeaderContent>
             </s.GridCol>
@@ -94,7 +94,7 @@ const TransactionHeader = ({
                     <Text
                       color="gray4"
                       type="headline"
-                      data-testid="section name"
+                      data-testid="section-name"
                     >
                       {stepsBarProps.title}
                     </Text>,

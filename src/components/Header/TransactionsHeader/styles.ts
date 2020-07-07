@@ -52,7 +52,8 @@ export const GridRowNoMargin = styled(Row)`
 `
 
 export const GridCol = styled(Col)`
-  padding: 0px;
+  padding: 0 ${({ theme }) => theme.spacing(3)}px;
+
   @media ${props => props.theme.mediaQueries.mdUp} {
     padding: 0px ${({ theme }) => theme.spacing(2)}px;
   }
@@ -71,4 +72,8 @@ export const ColStepBar = styled(Col)`
   height: 56px;
   display: flex;
   align-items: center;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  }
 `
