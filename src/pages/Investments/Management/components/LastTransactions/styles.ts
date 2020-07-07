@@ -5,6 +5,15 @@ import Loading from 'components/Loading'
 import { LegendText } from 'components/Loading/styles'
 
 export const Container = styled.div`
+  padding-top: ${({ theme }) => `${theme.spacing(3)}px`};
+  padding-left: ${({ theme }) => `${theme.spacing(2)}px`};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding-left: 0;
+  }
+`
+
+export const TableContainer = styled.div`
   max-height: 300px;
   min-height: 170px;
   display: flex;
