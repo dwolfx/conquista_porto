@@ -38,7 +38,7 @@ const SimpleHeader = ({ header }) => {
       width={styles.width}
       minWidth={styles.minWidth}
       canSort={header.canSort}
-      data-testId={header.dataTestId}
+      data-testid={header.dataTestId}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
       <TheadContent
@@ -151,7 +151,7 @@ export default function TableFunds({
             <Loading
               type="bar"
               legend="Buscando informações dos fundos de investimentos…"
-              data-testId="funds-loading"
+              data-testid="funds-loading"
             />
           </InfoTableContent>
         </InfoTableContainer>

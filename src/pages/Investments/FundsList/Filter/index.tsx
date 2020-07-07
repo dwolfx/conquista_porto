@@ -120,7 +120,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[1])
             }}
-            data-testId="renda-fixa"
+            data-testid="renda-fixa"
           >
             Renda Fixa
           </ButtonTagStyled>
@@ -132,7 +132,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[2])
             }}
-            data-testId="multimercado"
+            data-testid="multimercado"
           >
             multimercado
           </ButtonTagStyled>
@@ -144,7 +144,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[3])
             }}
-            data-testId="acoes"
+            data-testid="acoes"
           >
             ações
           </ButtonTagStyled>
@@ -156,7 +156,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[4])
             }}
-            data-testId="exterior"
+            data-testid="exterior"
           >
             inv. no exterior
           </ButtonTagStyled>
@@ -168,7 +168,7 @@ const Filter: React.FC<IProps> = ({
             onClick={() => {
               handleClickFilterByType(FILTER_TYPES[5])
             }}
-            data-testId="cambial"
+            data-testid="cambial"
           >
             cambial
           </ButtonTagStyled>

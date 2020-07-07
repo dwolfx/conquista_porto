@@ -4,18 +4,25 @@ import { Col, Row } from 'styled-bootstrap-grid'
 
 export const RowContent = styled(Row)`
   padding: 0 ${({ theme }) => theme.spacing(1)}px;
-  margin-right: 0;
-  margin-left: 0;
+  margin-top: ${({ theme }) => `${theme.spacing(9)}px;`}
 `
 
 export const LeftContent = styled(Col)`
   margin-top: ${({ theme }) => theme.spacing(4)}px;
   margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  }
 `
 
 export const MainContent = styled(Col)`
   margin-top: ${({ theme }) => theme.spacing(4)}px;
   margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-top: 0;
+  }
 `
 export const FloatButton = styled(IconButton)`
   content: '';

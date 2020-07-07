@@ -33,3 +33,12 @@ interface IButton {
   handleClick: any
   buttonName: string
 }
+
+export interface IValidProps {
+  isValid: boolean
+}
+
+export enum InvestorAccountInfoEnum {
+  INFO_TOTAL_BALANCE = 'info-total-ballance',
+  INFO_SETTLE_BALANCE = 'info-settle-ballance',
+}
