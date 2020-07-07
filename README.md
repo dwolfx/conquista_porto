@@ -7,12 +7,30 @@ In the project directory, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.<br />
+Runs the app pointing to the .env.development file.
+It will run pointing to the API Proxy configured (http://api-proxy.conquista.sciensa.click).
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn local`
+
+Runs the app in development mode.<br />
+Runs the app pointing to the .env.local file.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `yarn localAPI`
+
+Runs a NODE server, which act as a proxy, redirecting auth login calls to PORTO
+api.
+
+### `yarn raise-db`
+
+Runs a fake API, which we can simulate real API calls.
+
+### `yarn test:watch`
 
 Launches the test runner in the interactive watch mode.<br />
 
@@ -70,9 +88,10 @@ bugfix/PCNE-01
 
 ## Pull Request Guidelines
 
+- It's OK to merge a PR if, and only if it has 2 approvals.
 - It's OK to have multiple small commits as you work on the PR - GitHub will automatically squash it before merging.
-- Make sure npm test passes.
+- Make sure npm test passes. (VERY IMPORTANT)
 - If adding a new feature:
-  - Add accompanying test case.
+- Add accompanying test case. (DO NOT FORGET)
 - If fixing bug:
-  - Add appropriate test coverage if applicable.
+- Add appropriate test coverage if applicable. (DO NOT FORGET)
