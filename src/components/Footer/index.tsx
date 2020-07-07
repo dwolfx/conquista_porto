@@ -1,26 +1,28 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
-import { Link } from 'react-router-dom'
-import VerticalList from 'components/VerticalList'
+import { useLocation } from 'react-router'
 import LinkText from './LinkText'
 import Divisor from 'components/Divisor'
+import VerticalList from 'components/VerticalList'
 import useMedia from 'hooks/useMedia'
+import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
+import { Link } from 'react-router-dom'
 
 import {
+  GridCol,
   GridContainer,
   GridRow,
-  GridCol,
+  GridRowCopyright,
+  FooterWrapper,
   ListWrapper,
   Logo,
   LogoText,
   LogoTitle,
+  OmbudsmantContainerPhones,
+  OmbudsmantLinkPhone,
   Text,
   Title,
   UppercaseBlueText,
-  FooterWrapper,
-  OmbudsmantContainerPhones,
-  OmbudsmantLinkPhone,
 } from './styles'
 
 const gtmType = 'click'
@@ -150,7 +152,7 @@ const platformElements = [
 const Footer: React.FC = () => {
   const isMobile = useMedia('sm')
   const isTablet = useMedia('lg')
-
+  const location = useLocation()
   useCustomerProfile()
   const customerProfile = useSelector(
     (state: any) => state.customerProfile.data
@@ -187,7 +189,7 @@ const Footer: React.FC = () => {
           </GridCol>
         </GridRow>
         {(isMobile || isTablet) && <Divisor />}
-        <GridRow>
+        <GridRowCopyright locationPageHome={location.pathname}>
           <ListWrapper>
             {isMobile ? (
               <>
@@ -204,7 +206,7 @@ const Footer: React.FC = () => {
               </Text>
             )}
           </ListWrapper>
-        </GridRow>
+        </GridRowCopyright>
       </GridContainer>
     </FooterWrapper>
   )
