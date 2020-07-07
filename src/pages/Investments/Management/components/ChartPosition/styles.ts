@@ -23,7 +23,7 @@ export const HorizontalListPieChartTitle = styled(HorizontalList)`
 `
 
 export const PieChartContainer = styled.div`
-  height: 290px;
+  height: 300px;
   width: 230px;
 `
 

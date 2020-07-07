@@ -2,8 +2,6 @@ import React, { useContext, useReducer, useState, useEffect } from 'react'
 import { CSSProp, DefaultTheme, ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
-import useMedia from 'hooks/useMedia'
-
 import { ResponsivePie, PieCanvasProps } from '@nivo/pie'
 import { ChartContainer, MiddleContent } from './styles'
 
@@ -41,7 +39,7 @@ const PieChart: React.FC<IProps> = ({
   onSliceClick = null,
   width,
   hideLegend = false,
-  marginLegend = -28,
+  marginLegend = 0,
   middleContentCSS,
   ...rest
 }) => {
@@ -131,7 +129,6 @@ const PieChart: React.FC<IProps> = ({
   const theme = useContext(ThemeContext)
   const [chartData, dispatch] = useReducer(chartReducer, data)
   const [preventOnMouse, setPreventOnMouse] = useState(false)
-  const isMobile = useMedia('sm')
 
   useEffect(() => {
     dispatch({ type: 'mouseLeave' })
@@ -177,7 +174,7 @@ const PieChart: React.FC<IProps> = ({
                   direction: 'row',
                   symbolSize: 14,
                   itemWidth: 20,
-                  translateY: isMobile ? 0 : marginLegend,
+                  translateY: marginLegend,
                   itemHeight: 18,
                   itemsSpacing: 7,
                   itemTextColor: 'transparent',

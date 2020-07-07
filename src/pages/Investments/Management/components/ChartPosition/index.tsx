@@ -133,7 +133,7 @@ const ChartPosition: React.FC = () => {
       setPieChartInfo(
         payload || {
           value:
-            consolidatedPosition.data && consolidatedPosition.data.saldototal,
+            consolidatedPosition.data && consolidatedPosition.data.saldo_total,
           percent: 0,
         }
       )
@@ -147,7 +147,7 @@ const ChartPosition: React.FC = () => {
 
   useEffect(() => {
     if (consolidatedPosition.data) {
-      settingPieChartInfo({ value: consolidatedPosition.data.saldototal })
+      settingPieChartInfo({ value: consolidatedPosition.data.saldo_total })
     }
   }, [consolidatedPosition.data, settingPieChartInfo])
 
@@ -162,14 +162,14 @@ const ChartPosition: React.FC = () => {
 
     let result = []
 
-    if (data && data.saldototal && data.categorias) {
+    if (data && data.saldo_total && data.categorias) {
       result = data.categorias.sort((a: any, b: any) => b.valor - a.valor)
       result = result.map((item: any, index: number) => ({
         id: `${index}`,
         label: item.nome,
         value: item.valor,
         color: colorsPriority[index],
-        percent: ((item.valor / data.saldototal) * 100).toFixed(2),
+        percent: ((item.valor / data.saldo_total) * 100).toFixed(2),
       }))
     }
 
