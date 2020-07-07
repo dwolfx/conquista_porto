@@ -19,10 +19,11 @@ import Table from './Table'
 import List from './List'
 
 import {
+  Container,
   InfoContainer,
   TextAccordionHeader,
   LoadingStyled,
-  Container,
+  TableContainer,
 } from './styles'
 
 const LastTransations = () => {
@@ -80,13 +81,7 @@ const LastTransations = () => {
       : []
 
     return (
-      <div
-        css={`
-          padding: ${({ theme }: { theme: DefaultTheme }) =>
-            `${theme.spacing(3)}px ${theme.spacing(0)}px
-            ${theme.spacing(0)}px ${theme.spacing(2)}px`};
-        `}
-      >
+      <Container>
         {isTabletVerticalOrSmaller ? (
           <div
             css={`
@@ -107,9 +102,9 @@ const LastTransations = () => {
           </div>
         ) : (
           <>
-            <Container>
+            <TableContainer>
               <Table data={lastFiveTransactions} />
-            </Container>
+            </TableContainer>
             <ButtonLink
               onClick={() => {
                 history.push(
@@ -125,7 +120,7 @@ const LastTransations = () => {
             </ButtonLink>
           </>
         )}
-      </div>
+      </Container>
     )
   }
 
