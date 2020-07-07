@@ -1,6 +1,4 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
-import saldoMin from 'components/Solutions/Investments/FundsInfo/TransactionsSection/funds-db'
-
 import { get, baseURLNamespaceInvest } from 'services/api'
 import { getInvestmentList } from './selectors'
 
@@ -31,7 +29,6 @@ function* getData(action) {
     if (response.data) {
       richedData = {
         ...richedData,
-        saldo_minimo: saldoMin[action.fundId] ? saldoMin[action.fundId] : '-',
         categoria: name,
       }
     }

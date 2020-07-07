@@ -9,7 +9,7 @@ interface IFiltersInfoContainer {
 export const FiltersInfoContainer = styled.div<IFiltersInfoContainer>`
   width: 100%;
   right: 0px;
-  top: 72px;
+  top: 73px;
   z-index: 1;
   position: fixed;
   background-color: ${({ theme }) => theme.colors.white};
@@ -33,7 +33,7 @@ interface ListWrapperProps {
 }
 
 export const ListWrapper = styled.div<ListWrapperProps>`
-  margin-top: ${props => props.theme.spacing(2)}px;
+  margin-top: ${props => props.theme.spacing(13)}px;
   padding: 0 ${props => props.theme.spacing(1)}px;
 
   ${props =>
