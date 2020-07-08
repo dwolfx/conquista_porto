@@ -4,7 +4,7 @@ import TextComponent from 'components/Text'
 
 export const Container = styled.div`
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
+    padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(1)}px 0`};
   }
 `
 

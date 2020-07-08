@@ -10,13 +10,15 @@ import { formatMoney } from 'helpers'
 import * as s from './styles'
 
 interface IAccountBalance {
-  accountBalanceValue?: number
+  accountBalanceValue: string | null
+  reloadOnClickFunction(): void
   hasError: boolean
   isLoading: boolean
 }
 
 const AccountBalance = ({
   accountBalanceValue,
+  reloadOnClickFunction,
   hasError,
   isLoading,
   ...rest
@@ -54,7 +56,9 @@ const AccountBalance = ({
           css={`
             cursor: pointer;
           `}
-          onClick={() => {}}
+          onClick={() => {
+            reloadOnClickFunction()
+          }}
         />
       </s.Wrapper>
     )

@@ -4,10 +4,11 @@ import { renderWithReduxAndTheme } from 'testUtils'
 import AccountBalance from '.'
 
 describe('AccountBalance', () => {
-  it('should display formated account balance value', () => {
+  it('should display formatted account balance value', () => {
     const { getByText } = renderWithReduxAndTheme(
       <AccountBalance
-        accountBalanceValue={9785.0}
+        reloadOnClickFunction={() => {}}
+        accountBalanceValue="9785.0"
         hasError={false}
         isLoading={false}
       />
@@ -17,7 +18,12 @@ describe('AccountBalance', () => {
   })
   it('should display error state if the hasError value is true', () => {
     const { getByText } = renderWithReduxAndTheme(
-      <AccountBalance hasError={true} isLoading={false} />
+      <AccountBalance
+        reloadOnClickFunction={() => {}}
+        accountBalanceValue={null}
+        hasError={true}
+        isLoading={false}
+      />
     )
 
     expect(
@@ -28,7 +34,12 @@ describe('AccountBalance', () => {
   })
   it('should display error state if the isLoading value is false and accountBalanceValue null', () => {
     const { getByText } = renderWithReduxAndTheme(
-      <AccountBalance hasError={false} isLoading={false} />
+      <AccountBalance
+        reloadOnClickFunction={() => {}}
+        accountBalanceValue={null}
+        hasError={false}
+        isLoading={false}
+      />
     )
 
     expect(
@@ -39,7 +50,12 @@ describe('AccountBalance', () => {
   })
   it('should display loading state if the isLoading value is true', () => {
     const { getByText } = renderWithReduxAndTheme(
-      <AccountBalance hasError={false} isLoading={true} />
+      <AccountBalance
+        reloadOnClickFunction={() => {}}
+        accountBalanceValue={null}
+        hasError={false}
+        isLoading={true}
+      />
     )
 
     expect(

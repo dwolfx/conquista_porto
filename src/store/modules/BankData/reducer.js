@@ -13,6 +13,7 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: true,
+        hasError: false,
       }
     case Types.BANK_DATA_GET_DATA_SUCCESS:
       return {

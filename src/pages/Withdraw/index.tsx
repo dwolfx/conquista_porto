@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
+import useMedia from 'hooks/useMedia'
 import TransactionHeader from 'components/Header/TransactionsHeader'
 import Text from 'components/Text'
 
@@ -11,6 +12,7 @@ import WithdrawCard from './WithdrawCard'
 
 const Withdraw = () => {
   const history = useHistory()
+  const isMobile = useMedia('xs')
 
   const maxSteps = 4
   const [step, setStep] = useState<number>(1)
@@ -35,16 +37,18 @@ const Withdraw = () => {
       />
       <s.Container>
         <Row>
-          <Col md={3}>
-            <s.FullHeightCard>
-              <Text type="headline" color="magenta1" bold>
-                Banco
-              </Text>
-            </s.FullHeightCard>
-          </Col>
-          <Col md={9}>
-            <WithdrawCard />
-          </Col>
+          {!isMobile && (
+            <Col md={3}>
+              <s.FullHeightCard>
+                <Text type="headline" color="magenta1" bold>
+                  Banco
+                </Text>
+              </s.FullHeightCard>
+            </Col>
+          )}
+          <s.Col md={9}>
+            <WithdrawCard step={step} setStep={setStep} />
+          </s.Col>
         </Row>
       </s.Container>
     </>
