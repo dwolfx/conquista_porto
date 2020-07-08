@@ -475,7 +475,7 @@ const FundInformation = ({
           </Dropdown>
         </Col>
       </RowLineInfo>
-      <Row justifyContent="center">
+      <RowWithoutPadding justifyContent="center">
         <ButtonsWrapper xlAuto lgAuto mdAuto smAuto>
           <ButtonCustom
             data-gtm-subname="painel de informações de fundo"
@@ -499,7 +499,7 @@ const FundInformation = ({
             Investir
           </ButtonCustom>
         </ButtonsWrapper>
-      </Row>
+      </RowWithoutPadding>
     </>
   )
 }

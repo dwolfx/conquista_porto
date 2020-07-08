@@ -37,6 +37,22 @@ export const ColContent = styled.div`
   @media ${props => props.theme.mediaQueries.md} {
     min-width: 200px;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    min-width: 190px;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    min-width: 180px;
+  }
+
+  @media (max-width: 390px) {
+    min-width: 155px;
+  }
+
+  @media (max-width: 322px) {
+    min-width: 130px;
+  }
 `
 
 interface IBorderRiskProps {
@@ -66,6 +82,12 @@ export const RowWithoutPadding = styled(Row)`
 
 export const ButtonsWrapper = styled(Col)`
   margin: ${({ theme }) => theme.spacing(2)}px 0;
+  text-align: center;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: 0;
+    padding: 0;
+  }
 `
 
 export const AccordionContent = styled.div`
@@ -105,4 +127,8 @@ export const ButtonCustom = styled(Button)`
   min-width: 169px;
   margin: ${({ theme }) => theme.spacing(2)}px
     ${({ theme }) => theme.spacing(1)}px;
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    min-width: calc(50% - 14px);
+  }
 `
