@@ -8,6 +8,17 @@ export const FUNDS_FILTER_TYPES = {
   5: 'cambial',
 }
 
+export const GTM_DATA_FUNDS_FILTROS = {
+  'data-gtm-subname': 'fundos filtros',
+  'data-gtm-type': 'click',
+  'data-gtm-clicktype': 'button',
+}
+
+export const GTM_DATA_FUNDS_FILTROS_DRAWER = {
+  'data-gtm-subname': 'fundos filtros drawer',
+  'data-gtm-type': 'click',
+  'data-gtm-clicktype': 'button',
+}
 export interface IModalProps {
   isOpen: boolean
   title: string

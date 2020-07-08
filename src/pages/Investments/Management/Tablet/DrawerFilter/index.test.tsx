@@ -72,7 +72,7 @@ describe('DrawerFilter', () => {
     expect(getByText('investimento no exterior')).toBeDefined()
     expect(getByText('cambial')).toBeDefined()
   })
-  it('Should render apply and clear controls', () => {
+  it('Should render apply and clear footer controls', () => {
     const { getByText } = renderWithReduxAndTheme(
       <MemoryRouter>
         <DrawerFilter
@@ -88,5 +88,23 @@ describe('DrawerFilter', () => {
     )
     expect(getByText('LIMPAR')).toBeDefined()
     expect(getByText('APLICAR')).toBeDefined()
+  })
+  it('Should render back and close header controls', () => {
+    window.resizeTo(400, 600)
+    const { queryByText } = renderWithReduxAndTheme(
+      <MemoryRouter>
+        <DrawerFilter
+          filters={[]}
+          viewMode={'CARDS'}
+          onHandleChangeView={() => {}}
+          isDrawerOpen={true}
+          onChangeIsDrawerOpen={() => {}}
+          onHandleChangeFilter={() => {}}
+        />
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    expect(queryByText('botao fechar drawer filtros')).toBeDefined()
+    expect(queryByText('botao voltar drawer filtros')).toBeDefined()
   })
 })

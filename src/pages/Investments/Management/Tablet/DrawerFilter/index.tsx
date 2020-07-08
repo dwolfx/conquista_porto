@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import Header from './header'
 import Footer from './footer'
 import Divisor from 'components/Divisor'
+import useMedia from 'hooks/useMedia'
 import IconViewList from 'assets/icons/list.svg'
 import IconViewGrid from 'assets/icons/grid.svg'
 
 import {
   TFundsLayout,
   FUNDS_FILTER_TYPES,
+  GTM_DATA_FUNDS_FILTROS_DRAWER,
 } from 'pages/Investments/Management/types'
 
 import {
@@ -49,6 +52,8 @@ const Filter: React.FC<IProps> = ({
     'CARDS'
   )
 
+  const isMobile = useMedia('xs')
+
   const initialFilter: string[] = ['CARDS']
 
   const isFiltersEqualPrevious = (
@@ -83,10 +88,7 @@ const Filter: React.FC<IProps> = ({
   }
 
   const handleFilterColors = (category: string) => {
-    if (selectedFilters.includes(category)) {
-      return 'primary'
-    }
-    return ''
+    return selectedFilters.includes(category) ? 'primary' : ''
   }
 
   const applyFiltersAndViewMode = (
@@ -111,7 +113,7 @@ const Filter: React.FC<IProps> = ({
   return (
     <Drawer
       isOpen={isDrawerOpen}
-      header={null}
+      header={isMobile ? Header(handleCloseFilters) : null}
       drawerTitle={'Filtros'}
       handleClose={handleCloseFilters}
       footer={
@@ -130,15 +132,13 @@ const Filter: React.FC<IProps> = ({
           <TitleContent>Visualizar</TitleContent>
           <ViewModeRow>
             <ViewModeGroupButton
+              {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+              data-gtm-name="botao fundos drawer layout cards"
               textColor={selectedViewMode === 'CARDS' ? 'primary' : 'secondary'}
               onClick={() => handleViewMode('CARDS')}
             >
               <span>grade</span>
               <ButtonViewMode
-                data-gtm-subname="fundos filtros"
-                data-gtm-name="botao fundos layout cards"
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
                 backgroundcolor={
                   selectedViewMode === 'CARDS' ? 'primary' : 'secondary'
                 }
@@ -146,15 +146,13 @@ const Filter: React.FC<IProps> = ({
               />
             </ViewModeGroupButton>
             <ViewModeGroupButton
+              {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+              data-gtm-name="botao fundos drawer layout list"
               textColor={selectedViewMode === 'LIST' ? 'primary' : 'secondary'}
               onClick={() => handleViewMode('LIST')}
             >
               <span>lista</span>
               <ButtonViewMode
-                data-gtm-subname="fundos filtros"
-                data-gtm-name="botao fundos layout list"
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
                 backgroundcolor={
                   selectedViewMode === 'LIST' ? 'primary' : 'secondary'
                 }
@@ -169,18 +167,24 @@ const Filter: React.FC<IProps> = ({
           <FundsType>
             <FundsTypeRow>
               <ButtonTagStyled
+                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+                data-gtm-name="botao filtro drawer categoria renda fixa"
                 color={handleFilterColors(FUNDS_FILTER_TYPES[1])}
                 onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[1])}
               >
                 renda fixa
               </ButtonTagStyled>
               <ButtonTagStyled
+                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+                data-gtm-name="botao filtro drawer categoria multimercado"
                 color={handleFilterColors(FUNDS_FILTER_TYPES[2])}
                 onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[2])}
               >
                 multimercado
               </ButtonTagStyled>
               <ButtonTagStyled
+                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+                data-gtm-name="botao filtro drawer categoria acoes"
                 color={handleFilterColors(FUNDS_FILTER_TYPES[3])}
                 onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[3])}
               >
@@ -189,12 +193,16 @@ const Filter: React.FC<IProps> = ({
             </FundsTypeRow>
             <FundsTypeRow>
               <ButtonTagStyled
+                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+                data-gtm-name="botao filtro drawer categoria investimento no exterior"
                 color={handleFilterColors(FUNDS_FILTER_TYPES[4])}
                 onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[4])}
               >
                 investimento no exterior
               </ButtonTagStyled>
               <ButtonTagStyled
+                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+                data-gtm-name="botao filtro drawer categoria cambial"
                 color={handleFilterColors(FUNDS_FILTER_TYPES[5])}
                 onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[5])}
               >
