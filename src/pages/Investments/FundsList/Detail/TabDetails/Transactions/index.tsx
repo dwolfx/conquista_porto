@@ -13,7 +13,7 @@ import { Li, LiTitle, LiValue, TransactionsWrapper, Ul } from './styles'
 interface IFund {
   fund: {
     minimo_inicial: string
-    aplicacao_minima: string
+    aplicao_minima: string
     saldo_minimo: string
     hora_aplicacao: string
     aplicacao_cotizacao: string
@@ -36,7 +36,7 @@ export const Transactions = ({ fund }: IFund) => {
     [
       <LiTitle>Movimentação Mín.</LiTitle>,
       <LiValue bold>
-        {formatMoney(fund.aplicacao_minima)}
+        {formatMoney(fund.aplicao_minima)}
       </LiValue>,
     ],
     [

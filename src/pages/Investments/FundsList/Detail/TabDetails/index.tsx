@@ -14,7 +14,7 @@ interface IAliquota {
 interface IFund {
   fund: {
     minimo_inicial: string
-    aplicacao_minima: string
+    aplicao_minima: string
     saldo_minimo: string
     hora_aplicacao: string
     aplicacao_cotizacao: string
