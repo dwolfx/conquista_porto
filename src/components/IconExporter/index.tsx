@@ -196,14 +196,16 @@ export const dict = {
 interface IProps {
   name: keyof typeof dict
   color?: keyof typeof themeColors
-  fill?: string
-  width?: number | string
-  onClick?: () => void
 }
 
-export default ({ name, color, width, fill, ...rest }: IProps) => {
+export default ({
+  name,
+  color,
+  fill,
+  ...rest
+}: IProps & React.SVGAttributes<SVGElement>) => {
   const Icon = dict[name]
   return Icon ? (
-    <Icon width={width} fill={color ? themeColors[color] : fill} {...rest} />
+    <Icon fill={color ? themeColors[color] : fill} {...rest} />
   ) : null
 }
