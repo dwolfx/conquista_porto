@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
-import DrawerFilter from 'components/Drawer'
-import { DrawerBody, DrawerFooter } from 'components/Drawer/styles'
-import Text from 'components/Text'
-import { Row } from 'styled-bootstrap-grid'
 import ButtonTag from 'components/Button/Tag'
-
+import DrawerFilter from 'components/Drawer'
+import Text from 'components/Text'
+import ArrowLeft from 'assets/icons/arrow-left.svg'
+import CloseIcon from 'assets/icons/close.svg'
+import { Row } from 'styled-bootstrap-grid'
+import { DrawerBody, DrawerFooter } from 'components/Drawer/styles'
 interface IButtonViewModeProps {
   iconViewMode: any
   backgroundcolor: 'primary' | 'secondary'
@@ -83,8 +84,50 @@ export const FundsType = styled.div`
   max-width: 404px;
   margin-top: ${({ theme }) => theme.spacing(2)}px;
 `
-
 export const FundsTypeRow = styled(Row)`
   margin-bottom: ${({ theme }) => theme.spacing(1)}px;
   padding: 0;
+`
+export const FilterDrawerHeader = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin: 0;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: ${({ theme }) => theme.spacing(2)}px;
+  }
+`
+export const HeaderColTitle = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+export const PrevButton = styled.div`
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  mask-image: url(${ArrowLeft});
+  background-color: ${({ theme }) => theme.colors.gray4};
+  transition: all ease 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.blue4};
+  }
+`
+export const CloseButton = styled.div`
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  mask-image: url(${CloseIcon});
+  background-color: ${({ theme }) => theme.colors.gray4};
+  transition: all ease 0.3s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.blue4};
+  }
 `

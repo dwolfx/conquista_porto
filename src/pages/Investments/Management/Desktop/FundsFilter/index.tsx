@@ -2,6 +2,7 @@ import React from 'react'
 import {
   TFundsLayout,
   FUNDS_FILTER_TYPES,
+  GTM_DATA_FUNDS_FILTROS,
 } from 'pages/Investments/Management/types'
 import {
   LeftContent,
@@ -49,19 +50,13 @@ const FundsFilter: React.FC<IProps> = ({
     return viewMode === buttonViewMode ? 'primary' : 'secondary'
   }
 
-  const dataGTM = {
-    'data-gtm-subname': 'fundos filtros',
-    'data-gtm-type': 'click',
-    'data-gtm-clicktype': 'button',
-  }
-
   return (
     <RowContent>
       <LeftContent>
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[1])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[1])}
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao filtro categoria renda fixa"
         >
           renda fixa
@@ -69,7 +64,7 @@ const FundsFilter: React.FC<IProps> = ({
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[2])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[2])}
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao filtro categoria multimercado"
         >
           multimercado
@@ -77,7 +72,7 @@ const FundsFilter: React.FC<IProps> = ({
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[3])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[3])}
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao filtro categoria acoes"
         >
           ações
@@ -85,7 +80,7 @@ const FundsFilter: React.FC<IProps> = ({
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[4])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[4])}
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao filtro categoria inv. no exterior"
         >
           inv. no exterior
@@ -93,7 +88,7 @@ const FundsFilter: React.FC<IProps> = ({
         <ButtonTagStyled
           color={handleFilterColors(FUNDS_FILTER_TYPES[5])}
           onClick={() => handleFilters(FUNDS_FILTER_TYPES[5])}
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao filtro categoria cambial"
         >
           cambial
@@ -102,7 +97,7 @@ const FundsFilter: React.FC<IProps> = ({
           noIcon
           onClick={handleClearFilters}
           hasFilter={filters.length > 0}
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao filtro categoria limpar filtros"
         >
           limpar filtros
@@ -110,13 +105,13 @@ const FundsFilter: React.FC<IProps> = ({
       </LeftContent>
       <RightContent viewMode={viewMode}>
         <ButtonViewModeGrid
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao fundos layout cards"
           backgroundcolor={handleButtonViewModeColors('CARDS')}
           onClick={() => onHandleChangeView('CARDS')}
         />
         <ButtonViewModeList
-          {...dataGTM}
+          {...GTM_DATA_FUNDS_FILTROS}
           data-gtm-name="botao fundos layout lista"
           backgroundcolor={handleButtonViewModeColors('LIST')}
           onClick={() => onHandleChangeView('LIST')}
