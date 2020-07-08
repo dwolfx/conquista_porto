@@ -22,7 +22,7 @@ interface IChipProps {
   selected: boolean
 }
 export const Chip = styled(Card)<IChipProps>`
-  border: 1px solid #dddddd;
+  border: 1px solid ${({ theme }) => theme.colors.gray3};
   background-color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -35,9 +35,11 @@ export const Chip = styled(Card)<IChipProps>`
     selected
       ? css`
           box-shadow: ${({ theme }) => theme.shadows.blue1};
+          border: 1px solid ${({ theme }) => theme.colors.blue2};
         `
       : css`
           box-shadow: none;
+          border: 1px solid ${({ theme }) => theme.shadows.gray3};
         `};
 
   &:hover {

@@ -39,8 +39,7 @@ interface IFundItemProps {
 export const FundItem = styled.div<IFundItemProps>`
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray1};
   cursor: pointer;
-  padding: 0 35px 0 7px;
-  padding: ${({ theme }) => `0 ${theme.spacing(5)}px 0 ${theme.spacing(1)}px`}
+  padding: ${({ theme }) => `0 ${theme.spacing(5)}px 0 ${theme.spacing(1)}px;`}
     ${({ selected }) =>
       selected
         ? css`
