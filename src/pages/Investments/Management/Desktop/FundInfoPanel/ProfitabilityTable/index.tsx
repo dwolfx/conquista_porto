@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Text from 'components/Text'
-import { TableGridContent, Cell } from './styles'
+import { TableGridContent, Cell, CellHeader } from './styles'
 import { formatNumber } from 'helpers'
 
 interface IProfitabilityTableProps {
@@ -50,42 +50,42 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
   return (
     <>
       <TableGridContent>
-        <Cell className="align-left header">
+        <CellHeader alignLeft borderBottom>
           <Text type="subheading" color="gray6">
             HISTÓRICO DE RENTABILIDADE
           </Text>
-        </Cell>
-        <Cell className="header">
+        </CellHeader>
+        <CellHeader borderBottom>
           <Text type="subheading" color="gray6">
             MÊS ANTERIOR
           </Text>
-        </Cell>
-        <Cell className="header">
+        </CellHeader>
+        <CellHeader borderBottom>
           <Text type="subheading" color="gray6">
             ANO
           </Text>
-        </Cell>
-        <Cell className="header">
+        </CellHeader>
+        <CellHeader borderBottom>
           <Text type="subheading" color="gray6">
             ÚLT. 12M
           </Text>
-        </Cell>
-        <Cell className="header">
+        </CellHeader>
+        <CellHeader borderBottom>
           <Text type="subheading" color="gray6">
             24M
           </Text>
-        </Cell>
-        <Cell className="header">
+        </CellHeader>
+        <CellHeader borderBottom>
           <Text type="subheading" color="gray6">
             36M
           </Text>
-        </Cell>
-        <Cell className="align-left">
+        </CellHeader>
+        <Cell alignLeft borderBottom>
           <Text bold type="body" color="gray5">
             Rentabilidade em %*
           </Text>
         </Cell>
-        <Cell>
+        <Cell borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -93,7 +93,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -101,7 +101,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -109,7 +109,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -117,7 +117,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -125,7 +125,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="align-left">
+        <Cell alignLeft>
           <Text bold type="body" color="gray5">
             {`Referência em 
             ${profitability &&
@@ -142,7 +142,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -150,7 +150,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -158,7 +158,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -166,7 +166,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell className="with-border">
+        <Cell borderLeft>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(

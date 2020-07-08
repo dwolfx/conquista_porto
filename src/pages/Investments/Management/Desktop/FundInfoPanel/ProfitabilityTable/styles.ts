@@ -10,22 +10,39 @@ export const TableGridContent = styled.div`
   grid-template-rows: 57px repeat(2, 49px);
 `
 
-export const Cell = styled.div`
+interface ICellProps {
+  borderLeft?: boolean
+  borderBottom?: boolean
+  alignLeft?: boolean
+}
+export const Cell = styled.div<ICellProps>`
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &.header {
-    background-color: ${({ theme }) => theme.colors.gray1};
-  }
+  ${({ alignLeft, theme }) => {
+    if (alignLeft) {
+      return `
+        justify-content: left;
+        padding-left: ${theme.spacing(4)}px;
+      `
+    }
+  }}
 
-  &.align-left {
-    justify-content: left;
-    padding-left: ${({ theme }) => theme.spacing(4)}px;
-  }
+  ${({ borderLeft, theme }) => {
+    if (borderLeft) {
+      return `border-left: 1px solid ${theme.colors.gray2};`
+    }
+  }}
 
-  &.with-border {
-    border-left: 1px solid ${({ theme }) => theme.colors.gray2};
-  }
+  ${({ borderBottom, theme }) => {
+    if (borderBottom) {
+      return `border-bottom: 1px solid ${theme.colors.gray2};`
+    }
+  }}
+`
+
+export const CellHeader = styled(Cell)`
+  background-color: ${({ theme }) => theme.colors.gray1};
 `

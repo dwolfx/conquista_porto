@@ -1,25 +1,22 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Settings } from 'react-slick'
 import { ThemeContext } from 'styled-components'
+import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-
 import moment from 'moment'
+
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Dropdown from 'components/DropdownNew'
 import Carousel from 'components/Carousel'
-import { Settings } from 'react-slick'
-
 import useMedia from 'hooks/useMedia'
-
-import { IModalProps } from 'pages/Investments/Management/types'
-
-import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { useToast } from 'hooks/toast'
+import { IModalProps } from 'pages/Investments/Management/types'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 
-import { Row, Col } from 'styled-bootstrap-grid'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
