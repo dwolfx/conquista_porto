@@ -7,8 +7,9 @@ import useMedia from 'hooks/useMedia'
 import TransactionHeader from 'components/Header/TransactionsHeader'
 import Text from 'components/Text'
 
-import * as s from './styles'
+import ExitModal from './ExitModal'
 import WithdrawCard from './WithdrawCard'
+import * as s from './styles'
 
 const Withdraw = () => {
   const history = useHistory()
@@ -19,6 +20,10 @@ const Withdraw = () => {
 
   return (
     <>
+      <ExitModal
+        hasUnsavedChanges={true}
+        onConfirmation={() => history.push('')}
+      />
       <TransactionHeader
         onBack={() =>
           step !== 1
