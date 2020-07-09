@@ -15,7 +15,7 @@ import {
   ContainerResendTokenButtons,
   Footer,
   InputStyled,
-} from './styles'
+} from '../styles'
 
 interface IProps {
   onPrevious: () => void
