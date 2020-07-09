@@ -1,0 +1,69 @@
+import { all, takeLatest, call, put, select } from 'redux-saga/effects'
+
+import { get, baseURLNamespaceInvestAws } from 'services/api'
+
+import {
+  GetWithdrawSummarySuccess,
+  GetWithdrawSummaryFailure,
+  GetWithdrawDetailsSuccess,
+  GetWithdrawDetailsFailure,
+} from './actions'
+import { getAuth, getSuitabilityInfo } from './selectors'
+import { Types, ISummaryRequest } from './types'
+
+function* getWithdrawDetails({ onSuccess, onError }: any) {
+  try {
+    const { cpf } = yield select(getAuth)
+    const { id_cotista } = yield select(getSuitabilityInfo)
+
+    if (id_cotista) {
+      const { data } = yield call(
+        get,
+        `${baseURLNamespaceInvestAws}/cotista/retiradas?id_cotista=${id_cotista}&cpf_cnpj=${cpf}`
+      )
+
+      yield put(GetWithdrawDetailsSuccess(data.dadosRetirada))
+
+      if (onSuccess) {
+        onSuccess(data.dadosRetirada)
+      }
+    }
+  } catch (err) {
+    yield put(GetWithdrawDetailsFailure())
+
+    if (onError) {
+      onError(err)
+    }
+  }
+}
+
+function* getWithdrawSummary({
+  payload: { data, onSuccess, onError },
+}: ISummaryRequest) {
+  try {
+    const { cpf } = yield select(getAuth)
+    const { id_cotista } = yield select(getSuitabilityInfo)
+
+    const response = yield call(
+      get,
+      `${baseURLNamespaceInvestAws}/cotista/retiradas/resumo?cpf_cnpj=${cpf}&id_cotista=${id_cotista}&valor_operacao=${data.valor_operacao}`
+    )
+
+    yield put(GetWithdrawSummarySuccess(response?.data?.resumo_retirada))
+
+    if (onSuccess) {
+      onSuccess(response?.data?.resumo_retirada)
+    }
+  } catch (err) {
+    yield put(GetWithdrawSummaryFailure())
+
+    if (onError) {
+      onError(err)
+    }
+  }
+}
+
+export default all([
+  takeLatest(Types.GET_WITHDRAW_DETAILS_REQUEST, getWithdrawDetails),
+  takeLatest(Types.GET_WITHDRAW_SUMMARY_REQUEST, getWithdrawSummary),
+])

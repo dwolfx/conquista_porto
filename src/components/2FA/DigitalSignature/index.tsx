@@ -138,7 +138,7 @@ const DigitalSignature = ({
           data-gtm-name="autenticacao assinature eletronica"
         />
         <VirtualKeyboard>
-          {keyboardData?.data.map(handleVirtualKeyboardKey)}
+          {keyboardData?.data?.map(handleVirtualKeyboardKey)}
           <Key
             role="button"
             onClick={() => {

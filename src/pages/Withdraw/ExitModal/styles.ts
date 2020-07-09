@@ -7,7 +7,9 @@ export const ModalStyled = styled(Prompt)`
   padding: ${({ theme }) => theme.spacing(2)}px;
 
   ${ModalContainer} {
-    width: 418px;
+    @media ${props => props.theme.mediaQueries.smUp} {
+      width: 418px;
+    }
   }
 
   ${ButtonContainerModal} {

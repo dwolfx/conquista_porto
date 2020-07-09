@@ -1,22 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Col, Row } from 'styled-bootstrap-grid'
+import { useDispatch } from 'react-redux'
+import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
-import useMedia from 'hooks/useMedia'
 import TransactionHeader from 'components/Header/TransactionsHeader'
-import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 
+import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
-import WithdrawCard from './WithdrawCard'
+import MainContent from './MainContent'
 import * as s from './styles'
 
 const Withdraw = () => {
   const history = useHistory()
   const isMobile = useMedia('xs')
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   const maxSteps = 4
   const [step, setStep] = useState<number>(1)
+
+  useEffect(() => {
+    dispatch(GetSuitabilityInfoAndValidate(() => null, 'retirar', addToast))
+  }, [dispatch, addToast])
 
   return (
     <>
@@ -43,16 +52,12 @@ const Withdraw = () => {
       <s.Container>
         <Row>
           {!isMobile && (
-            <Col md={3}>
-              <s.FullHeightCard>
-                <Text type="headline" color="magenta1" bold>
-                  Banco
-                </Text>
-              </s.FullHeightCard>
-            </Col>
+            <s.Col md={3}>
+              <AccountDetail />
+            </s.Col>
           )}
           <s.Col md={9}>
-            <WithdrawCard step={step} setStep={setStep} />
+            <MainContent step={step} setStep={setStep} maxSteps={maxSteps} />
           </s.Col>
         </Row>
       </s.Container>

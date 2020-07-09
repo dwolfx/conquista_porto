@@ -7,7 +7,6 @@ interface IProps {
   itemsAlign?: 'flex-start' | 'center' | 'flex-end'
   marginLeft?: number
   marginRight?: number
-  onChange?: (event: any) => void
   options?:
     | {
         value: string | number
@@ -22,6 +21,7 @@ interface IProps {
   value?: string | number
   width?: number | string
   checkedItem?: string
+  showLabel?: boolean
 }
 
 const RadioComponent = ({
@@ -37,8 +37,9 @@ const RadioComponent = ({
   value,
   width = 'auto',
   checkedItem,
+  showLabel = true,
   ...rest
-}: IProps) => {
+}: IProps & React.HTMLAttributes<HTMLInputElement>) => {
   const renderOptions = () =>
     options &&
     options.map((item, index) => (
@@ -54,7 +55,7 @@ const RadioComponent = ({
           checked={checkedItem === item.value}
           {...rest}
         />
-        {item.name}
+        {showLabel && item.name}
       </RadioLabel>
     ))
 

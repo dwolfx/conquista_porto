@@ -44,9 +44,9 @@ const TransactionHeader = ({
   }
 
   return (
-    <>
+    <div {...rest}>
       <s.HeaderWrapper>
-        <s.GridContainer {...rest}>
+        <s.GridContainer>
           <s.GridRow>
             <s.GridCol lg={12}>
               <s.HeaderContent>
@@ -110,7 +110,7 @@ const TransactionHeader = ({
           </s.GridContainer>
         </s.StepBar>
       )}
-    </>
+    </div>
   )
 }
 
