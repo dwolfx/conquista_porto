@@ -10,7 +10,7 @@ describe('Bank Cards component', () => {
       <BankCards
         bankInfos={[]}
         bankSelected={''}
-        setBankSelected={() => null}
+        onBankSelectedChange={() => null}
         isLoading={false}
         hasError={false}
         onError={() => null}

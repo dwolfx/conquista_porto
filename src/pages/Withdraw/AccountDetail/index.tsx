@@ -1,45 +1,48 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import Divisor from 'components/Divisor'
-import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
+import { get, baseURLNamespaceInvest } from 'services/api'
 
 import DetailContent from './AccountDetailContent'
 import Error from './AccountDetailError'
 import Loading from './AccountDetailLoading'
 import RulesModal from './RulesModal'
-
 import * as S from './styles'
 
 export default function AccountDetail() {
-  const dispatch = useDispatch()
-
   const [modalIsOpen, setModalIsOpen] = useState(false)
-
-  const { cpf, id_cotista, details, hasError, isLoading } = useSelector<
-    any,
-    any
-  >(state => ({
+  const [error, setError] = useState(false)
+  const [content, setContent] = useState({})
+  const { id_cotista, cpf } = useSelector((state: any) => ({
+    id_cotista: state.suitabilityInfo?.data?.id_cotista,
     cpf: state.auth.cpf,
-    id_cotista: state.suitabilityInfo.data?.id_cotista,
-    details: state.withdraw.detailsData?.conta_porto_seguro,
-    hasError: state.withdraw.hasErrorDetails,
-    isLoading: state.withdraw.isLoadingDetaisl,
   }))
 
-  const getAccountDetail = useCallback(() => {
-    if (id_cotista) {
-      dispatch(GetWithdrawDetailsRequest({}))
+  const isLoading = () => content === null && !error
+  const contentIsNotEmpty = () => Object.keys(content).length > 0
+
+  const getAccountDetail = useCallback(async () => {
+    setContent({})
+    setError(false)
+
+    try {
+      const endpoint = `${baseURLNamespaceInvest}/aws/cotista/retiradas`
+
+      if (id_cotista) {
+        const { data } = await get(
+          `${endpoint}?id_cotista=${id_cotista}&cpf_cnpj=${cpf}`
+        )
+        setContent({ cpf_cnpj: cpf, ...data.dadosRetirada.conta_porto_seguro })
+      }
+    } catch (error) {
+      setError(true)
     }
-  }, [dispatch, id_cotista])
+  }, [cpf, id_cotista])
 
   useEffect(() => {
     getAccountDetail()
   }, [getAccountDetail])
-
-  const onError = () => getAccountDetail()
-
-  const contentIsNotEmpty = () => details && Object.keys(details).length > 0
 
   return (
     <>
@@ -49,9 +52,9 @@ export default function AccountDetail() {
       />
       <S.LayerCard>
         <S.CardContent>
-          {isLoading && <Loading />}
-          {hasError && <Error onClick={onError} />}
-          {contentIsNotEmpty() && <DetailContent cpf_cnpj={cpf} {...details} />}
+          {isLoading() && <Loading />}
+          {error && <Error onClick={() => getAccountDetail()} />}
+          {contentIsNotEmpty() && <DetailContent {...content} />}
         </S.CardContent>
         <S.CardFooter>
           <Divisor />
