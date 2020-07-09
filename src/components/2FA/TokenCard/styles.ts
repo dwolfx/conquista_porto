@@ -1,0 +1,53 @@
+import styled from 'styled-components'
+
+import CardUnstyled from 'components/Card'
+import { CardBody } from 'components/Card/styles'
+import NewInput from 'components/NewInput'
+
+export const Container = styled.div`
+  padding: ${({ theme }) => theme.spacing(3)}px;
+`
+
+export const Card = styled(CardUnstyled)`
+  height: 100%;
+  position: relative;
+  @media ${props => props.theme.mediaQueries.xs} {
+    border-radius: 0;
+    padding-top: ${({ theme }) => theme.spacing(3)}px;
+    max-height: max-content;
+  }
+
+  ${CardBody} {
+    @media ${props => props.theme.mediaQueries.xs} {
+      max-height: max-content;
+    }
+  }
+`
+
+export const ContainerSecuritySeal = styled.div`
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
+`
+
+export const ContainerResendTokenButtons = styled.div`
+  display: flex;
+  margin-top: ${({ theme }) => `${theme.spacing(3)}px`};
+`
+
+export const Footer = styled.div`
+  text-align: end;
+  padding: ${props => props.theme.spacing(2)}px;
+  width: 100%;
+  background-color: ${props => props.theme.colors.white};
+  border-top: 1px solid ${props => props.theme.colors.gray3};
+
+  button {
+    :first-child {
+      margin-right: ${props => props.theme.spacing(2)}px;
+    }
+  }
+`
+
+export const InputStyled = styled(NewInput)`
+  margin-top: ${props => props.theme.spacing(3)}px;
+  width: 300px;
+`
