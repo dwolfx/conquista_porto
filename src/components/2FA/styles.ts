@@ -33,6 +33,29 @@ export const ContainerResendTokenButtons = styled.div`
   margin-top: ${({ theme }) => `${theme.spacing(3)}px`};
 `
 
+export const VirtualKeyboard = styled.div`
+  display: flex;
+  margin-top: ${({ theme }) => `${theme.spacing(3)}px`};
+`
+
+export const Key = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: ${({ theme }) => `${theme.spacing(2)}px`};
+
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+  border: 1px solid ${props => props.theme.colors.gray3};
+
+  :hover {
+    border-color: ${props => props.theme.colors.blue2};
+    box-shadow: ${props => props.theme.shadows.blue1};
+  }
+`
+
 export const Footer = styled.div`
   text-align: end;
   padding: ${props => props.theme.spacing(2)}px;

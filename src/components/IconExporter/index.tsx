@@ -10,6 +10,7 @@ import { ReactComponent as arrowright } from 'assets/icons/arrow-right.svg'
 import { ReactComponent as arrowsortable } from 'assets/icons/arrow-sortable.svg'
 import { ReactComponent as arrowup } from 'assets/icons/arrow-up.svg'
 import { ReactComponent as awesome } from 'assets/icons/awesome.svg'
+import { ReactComponent as backspace } from 'assets/icons/backspace.svg'
 import { ReactComponent as backward } from 'assets/icons/backward.svg'
 import { ReactComponent as baggage } from 'assets/icons/baggage.svg'
 import { ReactComponent as barchart } from 'assets/icons/bar-chart.svg'
@@ -107,6 +108,7 @@ export const dict = {
   arrowsortable,
   arrowup,
   awesome,
+  backspace,
   backward,
   baggage,
   barchart,
