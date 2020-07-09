@@ -19,5 +19,5 @@ export const isTodayAndBefore15pm = (value: string | Moment) =>
   )
 
 export const formatMoneyToNumber = (str: string) => {
-  return +str.replace('.', '').replace(',', '.')
+  return +str.replace(/\./g, '').replace(',', '.')
 }

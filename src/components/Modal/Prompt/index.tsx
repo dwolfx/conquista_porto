@@ -57,6 +57,10 @@ const PromptModal: React.FC<IProps> = ({
         <ButtonContainerModal>
           <Button
             outline
+            data-gtm-subname={`prompt ${title}`}
+            data-gtm-name={`botao ${buttonTextCancel}`}
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
             onClick={() => {
               setIsModalUnsavedOpen(false)
             }}
@@ -64,6 +68,10 @@ const PromptModal: React.FC<IProps> = ({
             {buttonTextCancel}
           </Button>
           <Button
+            data-gtm-subname={`prompt ${title}`}
+            data-gtm-name={`botao ${buttonTextConfirm}`}
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
             onClick={() => {
               setConfirmedUnsavedChanges(true)
               setIsModalUnsavedOpen(false)
