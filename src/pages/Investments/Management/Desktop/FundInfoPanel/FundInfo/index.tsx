@@ -1,21 +1,20 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components'
+import { Row, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-
 import moment from 'moment'
+
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Dropdown from 'components/DropdownNew'
-
 import { IModalProps } from 'pages/Investments/Management/types'
-
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { useToast } from 'hooks/toast'
 
-import { Row, Col } from 'styled-bootstrap-grid'
+import { RISK_FILTER_TYPES } from '../../../types'
 import { formatMoney, handleGiwRedirect } from 'helpers'
 
 import {
@@ -257,7 +256,7 @@ const FundInformation = ({
                   Perfil de Risco
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {position.fundo.perfil_risco}
+                  {RISK_FILTER_TYPES[position.fundo.perfil_risco as keyof typeof RISK_FILTER_TYPES]}
                 </Text>,
               ]}
             />

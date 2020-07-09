@@ -1,5 +1,13 @@
 export type TFundsLayout = 'CARDS' | 'LIST'
 
+export const RISK_FILTER_TYPES = {
+  'baixo': 'Baixo',
+  'medio-baixo': 'Médio Baixo',
+  'medio': 'Médio',
+  'medio-alto': 'Médio Alto',
+  'alto': 'Alto'
+}
+
 export const FUNDS_FILTER_TYPES = {
   1: 'renda fixa',
   2: 'multimercado',
