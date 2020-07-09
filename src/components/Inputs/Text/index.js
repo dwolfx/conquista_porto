@@ -44,7 +44,7 @@ export default function Text({
         type={type || 'text'}
         onChange={onChange}
         value={value}
-        data-testId={dataTestId}
+        data-testid={dataTestId}
         {...rest}
       />
     </InputWrapper>

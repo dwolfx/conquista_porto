@@ -1583,10 +1583,10 @@
       },
       "conta": "47",
       "nome_banco": "Banco Portopar",
-      "saldo_liquidar": "0",
+      "saldo_liquidar": "1003.40",
       "agencia": "0001",
       "codigo_banco": "306",
-      "saldo_disponivel": "99.89",
+      "saldo_disponivel": "1324000.43",
       "cpf": "33244452809",
       "encargos_acumulados": "0",
       "valores_bloqueados": {

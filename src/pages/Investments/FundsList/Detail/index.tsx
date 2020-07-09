@@ -69,7 +69,7 @@ const Detail: React.FC<DetailProps> = ({
 
   const renderTabs = () => (
     <Tabs name="tab-detalhe" initialValue="tab-detalhe-fundo" initialReset>
-      <TabList data-testId="drawer-tabs">
+      <TabList data-testid="drawer-tabs">
         <Tab
           name="tab-detalhe-fundo"
           data-gtm-type="click"

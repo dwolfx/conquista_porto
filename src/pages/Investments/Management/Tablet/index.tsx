@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import useSelectedPosition from 'hooks/useSelectedPosition'
-import Modal from 'components/Modal/Confirmation'
+
 import Card from 'components/Card'
-import ChartPosition from '../components/ChartPosition'
+import Modal from 'components/Modal/Confirmation'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
-import Detail from '../../FundsList/Detail'
-import LastTransations from '../components/LastTransactions'
-import InvestorAccount from '../components/InvestorAccount'
+import useSelectedPosition from 'hooks/useSelectedPosition'
+import useMedia from 'hooks/useMedia'
+
+import ChartPosition from '../components/ChartPosition'
 import InvestedFundsList from '../components/InvestedFundsList'
+import InvestorAccount from '../components/InvestorAccount'
+import LastTransations from '../components/LastTransactions'
+import InvestorAccountMobile from './InvestorAccountMobile'
+import Detail from '../../FundsList/Detail'
 import { IModalProps, TFundsLayout } from '../types'
+
 import FundInfoPanel from './FundInfoPanel'
-import { RowContent, LeftContent, MainContent, FloatButton } from './styles'
 import DrawerFilter from './DrawerFilter'
+import { RowContent, LeftContent, MainContent, FloatButton } from './styles'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,
@@ -48,6 +53,7 @@ const Tablet: React.FC<IProps> = ({
   const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false)
   const position = useSelectedPosition()
+  const isMobile = useMedia('xs')
 
   const { isLoading, hasError } = useSelector((state: any) => ({
     isLoading: state.investmentPosition.isLoading,
@@ -71,9 +77,11 @@ const Tablet: React.FC<IProps> = ({
       <RowContent>
         <LeftContent data-testid="left-content" md={4} sm={5} xs={12}>
           <ChartPosition />
-          <InvestorAccount
-            onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-          />
+          {isMobile ? (
+            <InvestorAccountMobile onChangeModalSuitabilityInfo={setModalSuitabilityInfo}/>
+          ) : (
+            <InvestorAccount onChangeModalSuitabilityInfo={setModalSuitabilityInfo}/>
+          )}
         </LeftContent>
         <MainContent data-testid="main-content" md={8} sm={7} xs={12}>
           <InvestedFundsList

@@ -10,8 +10,9 @@ import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { IModalProps } from 'pages/Investments/Management/types'
 import { formatMoney, handleGiwRedirect } from 'helpers'
+
+import { IModalProps, IValidProps, InvestorAccountInfoEnum } from '../../types'
 
 import {
   CardStyled,
@@ -31,20 +32,11 @@ interface IProps {
   onChangeModalSuitabilityInfo: (data: IModalProps) => void
 }
 
-interface IValidProps {
-  isValid: boolean
-}
-
-enum InvestorAccountInfo {
-  INFO_TOTAL_BALANCE = 'info-total-ballance',
-  INFO_SETTLE_BALANCE = 'info-settle-ballance',
-}
-
 const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
   useFetchBankData()
   const isTablet = useMedia('md')
-  const history = useHistory()
   const dispatch = useDispatch()
+  const history = useHistory()
   const { addToast } = useToast()
   const {
     bankData,
@@ -62,7 +54,7 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
 
   const renderBallanceInfo = (
     bankDataPayload: any,
-    id: InvestorAccountInfo
+    id: InvestorAccountInfoEnum
   ) => {
     if (hasError) {
       return (
@@ -73,7 +65,7 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
     }
     const { DadosContaPortoSeguro } = bankDataPayload
     const value =
-      InvestorAccountInfo.INFO_TOTAL_BALANCE === id
+      InvestorAccountInfoEnum.INFO_TOTAL_BALANCE === id
         ? DadosContaPortoSeguro.saldo_disponivel
         : DadosContaPortoSeguro.saldo_liquidar
     return (
@@ -137,7 +129,7 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
                   <>
                     {renderBallanceInfo(
                       bankData,
-                      InvestorAccountInfo.INFO_TOTAL_BALANCE
+                      InvestorAccountInfoEnum.INFO_TOTAL_BALANCE
                     )}
                   </>,
                 ]}
@@ -192,7 +184,7 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
                   <>
                     {renderBallanceInfo(
                       bankData,
-                      InvestorAccountInfo.INFO_SETTLE_BALANCE
+                      InvestorAccountInfoEnum.INFO_SETTLE_BALANCE
                     )}
                   </>,
                 ]}

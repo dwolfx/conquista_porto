@@ -13,6 +13,9 @@ export const ChartCard = styled(Card)`
     align-items: center;
     justify-content: space-between;
   }
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  }
 `
 
 export const HorizontalListPieChartTitle = styled(HorizontalList)`
