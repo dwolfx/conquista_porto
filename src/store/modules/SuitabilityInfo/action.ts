@@ -11,6 +11,7 @@ interface ISuitabilityInfo {
   status_data_vencimento_cadastro: boolean
   status_data_vigencia_suitability: boolean
   status_possui_suitability: boolean
+  isValid?: boolean
 }
 
 export function GetSuitabilityInfoRequest(cpf: string) {
@@ -21,7 +22,7 @@ export function GetSuitabilityInfoRequest(cpf: string) {
 }
 
 export function GetSuitabilityInfoAndValidate(
-  onSuccess: Function,
+  onSuccess: Function | null,
   buttonType: 'investir' | 'retirar' | 'resgatar',
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
 ) {

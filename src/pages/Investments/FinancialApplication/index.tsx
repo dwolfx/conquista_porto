@@ -37,6 +37,7 @@ interface IProps {
   handleClose: () => void
   isOpen: boolean
   selectedFundId: string
+  isAwareOfTerms: boolean
 }
 
 export type IFormData = {
@@ -45,18 +46,18 @@ export type IFormData = {
   isAwareOfTerms: boolean
 }
 
-const FORM_DATA_INTIAL_STATE = {
-  moneyToInvest: '',
-  whenToInvest: '',
-  isAwareOfTerms: false,
-}
-
 const LayerInvestment: React.FC<IProps> = ({
   handleClose = () => {},
   handleFundDetailOpen = () => {},
   isOpen = false,
   selectedFundId,
+  isAwareOfTerms,
 }) => {
+  const FORM_DATA_INTIAL_STATE = {
+    moneyToInvest: '',
+    whenToInvest: '',
+    isAwareOfTerms,
+  }
   const [step, setStep] = useState(0)
   const [hasFormChanged, setHasFormChanged] = useState(false)
   const [hasSucceded, setHasSucceded] = useState<boolean>(false)
@@ -68,32 +69,34 @@ const LayerInvestment: React.FC<IProps> = ({
     FORM_DATA_INTIAL_STATE
   )
 
-  const funds = useSelector((state: any) => state.investmentsList)
+  const { funds, finantialApplicationData } = useSelector((state: any) => ({
+    funds: state.investmentsList,
+    finantialApplicationData: state.finantialApplicationGetData.data,
+  }))
+
   const stepCount = 2
   const isMobile = useMedia('xs')
+
+  let operationDate = moment(
+    finantialApplicationData.dados_para_aplicacao.data_operacao
+  ).format('DD/MM/YYYY')
 
   const loadFormData = useCallback(
     (prevState: any): any => {
       const selectedFund = funds.data.find(
         (fund: any) => fund.id_fundo === selectedFundId
       )
-      const canInvestToday = moment(moment(), 'hh:mm:ss').isBefore(
-        moment('15:00:00', 'hh:mm:ss')
-      )
+
       return {
         ...prevState,
         moneyToInvest: formatMoneyDecimal(
           Number(selectedFund.minimo_inicial * 100)
         ),
-        whenToInvest: canInvestToday
-          ? moment().format('DD/MM/YYYY')
-          : moment()
-              .add('1', 'day')
-              .format('DD/MM/YYYY'),
-        isAwareOfTerms: false,
+        whenToInvest: operationDate,
+        isAwareOfTerms,
       }
     },
-    [funds.data, selectedFundId]
+    [funds.data, selectedFundId, isAwareOfTerms, operationDate]
   )
 
   useEffect(() => {
@@ -110,7 +113,7 @@ const LayerInvestment: React.FC<IProps> = ({
       setFormDataCopy(FORM_DATA_INTIAL_STATE)
       setStep(0)
     }
-  }, [selectedFundId])
+  }, [selectedFundId, FORM_DATA_INTIAL_STATE])
 
   useEffect(() => {
     if (errorCount === 5) {
@@ -197,6 +200,8 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const layerBody = [
     <FormFinancialContribution
+      finantialApplication={finantialApplicationData}
+      hasCheckbox={!isAwareOfTerms}
       formData={formData}
       formDataCopy={formDataCopy}
       nextStep={nextStep}
@@ -206,7 +211,6 @@ const LayerInvestment: React.FC<IProps> = ({
     />,
     <SummaryFinantialContribution
       formData={formData}
-      onChangeFormData={handleChangeFormData}
       previousStep={previousStep}
       onChangeRequestStatus={handleRequestStatus}
       errorCount={errorCount}
@@ -247,7 +251,7 @@ const LayerInvestment: React.FC<IProps> = ({
     return []
   }
 
-  return (
+  return finantialApplicationData?.dados_para_aplicacao ? (
     <LayerFinancialApplication
       handleClose={handleClose}
       isOpen={isOpen}
@@ -310,7 +314,7 @@ const LayerInvestment: React.FC<IProps> = ({
         }}
       />
     </LayerFinancialApplication>
-  )
+  ) : null
 }
 
 interface IProps {

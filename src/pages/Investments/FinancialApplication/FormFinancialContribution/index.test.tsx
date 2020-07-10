@@ -24,6 +24,16 @@ describe('FormFinancialContribution', () => {
       moneyToInvest: '5.000,00',
       whenToInvest: '20/10/2030',
     }
+    const idFundo = '5105'
+    const finantialApplication = {
+      dados_para_aplicacao: {
+        fundo: {
+          hora_aplicacao: '23:59',
+          link_termo_adesao: '#',
+        },
+        data_operacao: '2030-10-20T00:00:00-03:00',
+      },
+    }
 
     const formDataCopy = { ...formData }
 
@@ -38,11 +48,14 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
+              finantialApplication={finantialApplication}
+              hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}
               nextStep={mockNextStep}
               formData={formData}
               formDataCopy={formDataCopy}
+              idFundo={idFundo}
             />
           </ThemeProvider>
         </Provider>
@@ -55,11 +68,14 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
+              finantialApplication={finantialApplication}
+              hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}
               nextStep={mockNextStep}
               formData={formData}
               formDataCopy={formDataCopy}
+              idFundo={idFundo}
             />
           </ThemeProvider>
         </Provider>
@@ -72,11 +88,14 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
+              finantialApplication={finantialApplication}
+              hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}
               nextStep={mockNextStep}
               formData={formData}
               formDataCopy={formDataCopy}
+              idFundo={idFundo}
             />
           </ThemeProvider>
         </Provider>
@@ -91,11 +110,14 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
+              finantialApplication={finantialApplication}
+              hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}
               nextStep={mockNextStep}
               formData={formData}
               formDataCopy={formDataCopy}
+              idFundo={idFundo}
             />
           </ThemeProvider>
         </Provider>

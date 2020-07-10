@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
+import moment from 'moment'
+import { useToast } from 'hooks/toast'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
@@ -12,55 +14,73 @@ import Button from 'components/Button'
 import Divisor from 'components/Divisor'
 import MoneyInput from 'components/Inputs/Money'
 import DateInput from 'components/Inputs/DateInput'
+import Checkbox from 'components/Inputs/Checkbox'
 
 import { formatMoneyDecimal, formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
 
-import {
-  isPastDate,
-  isToday,
-  isTodayAndBefore15pm,
-  isInvalidDate,
-  formatMoneyToNumber,
-} from './utils'
+import { isPastDate, isInvalidDate, formatMoneyToNumber } from './utils'
 
 import { IFormData } from 'pages/Investments/FinancialApplication'
 
 import {
   CardStyled,
+  CheckboxContainer,
   BalanceInfoContainer,
   VerticalListStyled,
   InputsContainer,
   InputContainer,
   DivisorStyled,
+  ExternalLink,
   LoadingSpinner,
   IconRetry,
   CardFooter,
   FixedBottom,
 } from './styles'
 import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
+import { GetFinantialApplicationDataRequest } from 'store/modules/Investment/FinantialApplication/action'
 
 interface IProps {
+  hasCheckbox: boolean
   formData: IFormData
   formDataCopy: IFormData
   nextStep: () => void
   onChangeFormData: (formData: IFormData) => void
   onFormHasChanged: (formChanged: boolean) => void
-  idFundo?: string
+  idFundo: string
+  finantialApplication: {
+    dados_para_aplicacao: {
+      fundo: {
+        hora_aplicacao: string
+        link_termo_adesao: string
+      }
+      data_operacao: string
+    }
+  }
 }
 
 const FormFinancialContribution: React.FC<IProps> = ({
+  hasCheckbox,
   formData,
   formDataCopy,
   nextStep,
   onChangeFormData,
   onFormHasChanged,
   idFundo,
+  finantialApplication,
 }) => {
   useFetchBankData()
   const dispatch = useDispatch()
   const isTabletOrSmaller = useMedia('md')
   const isMobile = useMedia('xs')
+  const { addToast } = useToast()
+
+  const finantialData = finantialApplication.dados_para_aplicacao
+  const { limitHour, link, operationDate } = {
+    limitHour: finantialData.fundo.hora_aplicacao,
+    link: finantialData.fundo.link_termo_adesao,
+    operationDate: finantialData.data_operacao,
+  }
 
   const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
     bankData: state.bankData,
@@ -167,9 +187,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
 
   const isDateInvalid = () =>
     isInvalidDate(formData!.whenToInvest) ||
-    isPastDate(formData!.whenToInvest) ||
-    (isToday(formData!.whenToInvest) &&
-      !isTodayAndBefore15pm(formData!.whenToInvest))
+    isPastDate(formData!.whenToInvest, operationDate)
 
   const isMoneyLessThanAllowed = () => {
     if (formDataCopy && formData) {
@@ -181,11 +199,26 @@ const FormFinancialContribution: React.FC<IProps> = ({
     return false
   }
 
+  const handleClickButtonNext = () => {
+    dispatch(
+      GetFinantialApplicationDataRequest({
+        data: {
+          id_fundo: idFundo,
+          data_operacao: moment().format('YYYY-MM-DD'),
+        },
+        onSuccess: () => nextStep(),
+        onErrorToast: addToast,
+      })
+    )
+  }
+
   const buttonNext = () => (
     <Button
       color="secondary"
-      onClick={nextStep}
-      disabled={isDateInvalid() || isMoneyLessThanAllowed()}
+      onClick={handleClickButtonNext}
+      disabled={
+        isDateInvalid() || isMoneyLessThanAllowed() || !formData.isAwareOfTerms
+      }
       css={`
         width: ${isMobile ? '100%' : 'auto'};
       `}
@@ -262,16 +295,41 @@ const FormFinancialContribution: React.FC<IProps> = ({
               />
             </InputContainer>
           </InputsContainer>
-          {isMobile && (
-            <>
-              <Divisor />
-              <FlexTextWrapper>
-                <Text bold color="gray5">
-                  Solicitações enviadas após às 15h serão processadas no próximo
-                  dia útil.
-                </Text>
-              </FlexTextWrapper>
-            </>
+          <Divisor />
+          <FlexTextWrapper>
+            <Text bold color="gray5">
+              Solicitações enviadas após às {limitHour}h serão processadas no
+              próximo dia útil.
+            </Text>
+          </FlexTextWrapper>
+          <Divisor />
+          {hasCheckbox && (
+            <CheckboxContainer>
+              <Checkbox
+                label={
+                  <Text type="body" color="gray5" bold>
+                    Confirmo que li e concordo com todas as informações contidas
+                    no{' '}
+                    <ExternalLink
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      termo de adesão
+                    </ExternalLink>
+                    .
+                  </Text>
+                }
+                checked={formData!.isAwareOfTerms}
+                onChange={() =>
+                  onChangeFormData({
+                    ...formData!,
+                    isAwareOfTerms: !formData!.isAwareOfTerms,
+                  })
+                }
+                id="checkbox-1"
+              />
+            </CheckboxContainer>
           )}
         </CardStyled>
         {isMobile && <FixedBottom>{buttonNext()}</FixedBottom>}

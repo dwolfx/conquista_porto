@@ -7,10 +7,8 @@ import {
   StyledRetryButton,
   StyledReturnButton,
   StyledConfirmButton,
-  CheckboxContainer,
   ContentContainer,
   SummaryContainer,
-  ExternalLink,
   HorizontalListStyled,
   FixedBottom,
 } from './styles'
@@ -18,7 +16,6 @@ import {
 import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
-import Checkbox from 'components/Inputs/Checkbox'
 
 import { useToast } from 'hooks/toast'
 import { IFormData } from 'pages/Investments/FinancialApplication'
@@ -28,7 +25,6 @@ interface IProps {
   formData: IFormData
   errorCount: number
   previousStep: () => void
-  onChangeFormData: (newFormData: IFormData) => void
   onChangeRequestStatus: (id: 'success' | 'error', value: boolean) => void
   onChangeErrorCount: () => void
 }
@@ -37,7 +33,6 @@ const SummaryFinantialContribution = ({
   formData,
   errorCount,
   previousStep,
-  onChangeFormData,
   onChangeRequestStatus,
   onChangeErrorCount,
 }: IProps) => {
@@ -148,40 +143,13 @@ const SummaryFinantialContribution = ({
               ]}
             />
           </SummaryContainer>
-          {!isMobile && <Divisor />}
-          <CheckboxContainer>
-            <Checkbox
-              label={
-                <Text type="body" color="gray5" bold>
-                  Confirmo que li e concordo com todas as informações contidas
-                  no{' '}
-                  <ExternalLink
-                    href="https://google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    termo de adesão
-                  </ExternalLink>
-                  .
-                </Text>
-              }
-              checked={formData!.isAwareOfTerms}
-              onChange={() =>
-                onChangeFormData({
-                  ...formData!,
-                  isAwareOfTerms: !formData!.isAwareOfTerms,
-                })
-              }
-              id="checkbox-1"
-            />
-          </CheckboxContainer>
           {isMobile && (
             <>
               <Divisor />
               <FlexTextWrapper>
-                <Text bold color="gray5">
-                  Solicitações enviadas após às 15h serão processadas no próximo
-                  dia útil.
+                <Text bold color="gray6">
+                  Devido ao horário a data do investimento foi atualizada para o
+                  próximo dia útil.
                 </Text>
               </FlexTextWrapper>
             </>

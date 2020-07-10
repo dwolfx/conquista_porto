@@ -96,17 +96,6 @@ export const FooterContainer = styled.div`
   }
 `
 
-export const CheckboxContainer = styled.div`
-  margin: ${({ theme }) => theme.spacing(3)}px 0
-    ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(1)}px;
-  display: flex;
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    margin: ${({ theme }) => theme.spacing(3)}px 0
-      ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(3)}px;
-  }
-`
-
 export const ContentContainer = styled.div`
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
   @media ${props => props.theme.mediaQueries.lg} {
@@ -119,12 +108,4 @@ export const ContentContainer = styled.div`
 
 export const SummaryContainer = styled.div`
   padding: ${({ theme }) => theme.spacing(1)}px 0;
-`
-
-export const ExternalLink = styled.a`
-  color: ${({ theme }) => theme.colors.blue4};
-
-  &:hover {
-    text-decoration: underline;
-  }
 `
