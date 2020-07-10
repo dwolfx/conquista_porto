@@ -13,6 +13,7 @@ import InvestorAccount from '../components/InvestorAccount'
 import LastTransations from '../components/LastTransactions'
 import InvestorAccountMobile from './InvestorAccountMobile'
 import Detail from '../../FundsList/Detail'
+import DetailModal from '../../FundsList/DetailModal'
 import { IModalProps, TFundsLayout } from '../types'
 
 import FundInfoPanel from './FundInfoPanel'
@@ -72,15 +73,23 @@ const Tablet: React.FC<IProps> = ({
     return position && position.fundo && position.fundo.apelido
   }
 
+  const handleFundDetailClose = () => {
+    setIsFundDetailOpen(false)
+  }
+
   return (
     <>
       <RowContent>
         <LeftContent data-testid="left-content" md={4} sm={5} xs={12}>
           <ChartPosition />
           {isMobile ? (
-            <InvestorAccountMobile onChangeModalSuitabilityInfo={setModalSuitabilityInfo}/>
+            <InvestorAccountMobile
+              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
+            />
           ) : (
-            <InvestorAccount onChangeModalSuitabilityInfo={setModalSuitabilityInfo}/>
+            <InvestorAccount
+              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
+            />
           )}
         </LeftContent>
         <MainContent data-testid="main-content" md={8} sm={7} xs={12}>
@@ -119,12 +128,24 @@ const Tablet: React.FC<IProps> = ({
         }
         onConfirmation={() => modalSuitabilityInfo.button.handleClick()}
       ></Modal>
-      <Detail
-        isOpen={isFundDetailOpen}
-        handleClose={() => setIsFundDetailOpen(false)}
-        handleLayerOpen={() => setIsFundDetailOpen(false)}
-        isLayerOpen={true}
-      />
+      {isMobile ? (
+        <DetailModal
+          title={position?.fundo?.apelido}
+          category={position?.fundo?.categoria_arena}
+          isOpenForInvestments={true}
+          isOpen={isFundDetailOpen}
+          isLayerOpen={true}
+          handleLayerOpen={handleFundDetailClose}
+          handleClose={handleFundDetailClose}
+        />
+      ) : (
+        <Detail
+          isOpen={isFundDetailOpen}
+          handleClose={handleFundDetailClose}
+          handleLayerOpen={handleFundDetailClose}
+          isLayerOpen={true}
+        />
+      )}
       {!isLoading && !hasError && (
         <FloatButton
           color="primary"
