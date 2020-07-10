@@ -10,7 +10,12 @@ import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import { Li, LiTitle, LiValue, TransactionsWrapper, Ul } from './styles'
 
-interface IFund {
+interface IAliquota {
+  faixa: string
+  valor: string
+}
+
+interface IProps {
   fund: {
     minimo_inicial: string
     aplicao_minima: string
@@ -22,10 +27,13 @@ interface IFund {
     resgate_cotizacao: string
     resgate_financeiro: string
     categoria: string
+    perfil_risco: string
+    classificacao: string
+    aliquotas_ir: { aliquota: IAliquota[] }
+    regime_iof: string
   }
 }
-
-export const Transactions = ({ fund }: IFund) => {
+export const Transactions = ({ fund }: IProps) => {
   const isMobile = useMedia('xs')
 
   const liContent = [

@@ -1,8 +1,3 @@
-export interface IProps {
-  histRentabilBenchmark: IHistRentabilBenchmark
-  histRentabilFundo: IHistRentabilFundo
-}
-
 export interface IFundProps {
   fund: {
     comparativo_hist_rentabil: {

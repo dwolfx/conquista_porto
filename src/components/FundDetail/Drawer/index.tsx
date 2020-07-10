@@ -5,13 +5,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import Loading from 'components/Loading'
 import Button from 'components/Button'
 import Text from 'components/Text'
-
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
-import TabProfitability from './TabProfitability'
-import TabMoreInfo from './TabMoreInfo'
-import TabDetails from './TabDetails'
+import TabProfitability from '../Tabs/TabProfitability'
+import TabMoreInfo from '../Tabs/TabMoreInfo'
+import TabDetails from '../Tabs/TabDetails'
 
 import {
   ButtonSubmit,
@@ -22,7 +21,7 @@ import {
   CloseButton,
 } from './styles'
 
-interface DetailProps {
+interface IProps {
   isOpen?: boolean
   isOpenForInvestments?: boolean
   handleLayerOpen?: (fundId: string, hasDetailsFund: boolean) => void
@@ -30,8 +29,7 @@ interface DetailProps {
   handleClose(): void
   hasError?: boolean
 }
-
-const Detail: React.FC<DetailProps> = ({
+const FundDetailDrawer: React.FC<IProps> = ({
   isOpen = false,
   isOpenForInvestments = true,
   handleLayerOpen = () => {},
@@ -55,6 +53,10 @@ const Detail: React.FC<DetailProps> = ({
       <ButtonSubmit
         loading={suitabilityIsLoading || financialApplicationIsLoading}
         loadingColor="white"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        data-gtm-subname="Aplicar em um fundo"
+        data-gtm-name="Lista de fundos"
         color="secondary"
         onClick={() => {
           isLayerOpen
@@ -75,7 +77,7 @@ const Detail: React.FC<DetailProps> = ({
 
   const renderTabs = () => (
     <Tabs name="tab-detalhe" initialValue="tab-detalhe-fundo" initialReset>
-      <TabList data-testid="drawer-tabs">
+      <TabList ariaLabel="Detalhes do fundo" data-testid="drawer-tabs">
         <Tab
           name="tab-detalhe-fundo"
           data-gtm-type="click"
@@ -151,6 +153,7 @@ const Detail: React.FC<DetailProps> = ({
         <EmptyStateWrapper>
           <Loading
             type="bar"
+            data-testid="test-loading-component"
             legend="Aguarde, estamos buscando as informações detalhadas deste fundo de investimento..."
           />
         </EmptyStateWrapper>
@@ -163,6 +166,10 @@ const Detail: React.FC<DetailProps> = ({
             investimento.
           </Text>
           <Button
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="Tentar carregar informações novamente"
+            data-gtm-name="Lista de fundos"
             css={`
               margin-top: 14px;
             `}
@@ -179,4 +186,4 @@ const Detail: React.FC<DetailProps> = ({
   )
 }
 
-export default Detail
+export default FundDetailDrawer

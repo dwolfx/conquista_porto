@@ -4,6 +4,7 @@ import 'styled-components/macro'
 
 import Text from 'components/Text'
 import Modal from 'components/Modal/ModalNew'
+import FundDetailDrawer from 'components/FundDetail/Drawer'
 import Card from 'components/Card'
 import useSelectedPosition from 'hooks/useSelectedPosition'
 
@@ -15,7 +16,6 @@ import InvestedFundsList from '../components/InvestedFundsList'
 
 import { IModalProps, TFundsLayout } from '../types'
 import FundInfoPanel from './FundInfoPanel'
-import Detail from '../../FundsList/Detail'
 
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
@@ -190,7 +190,7 @@ const Desktop: React.FC<IProps> = ({
           handleFundDetailOpen={() => setIsFundDetailOpen(true)}
         />
       )}
-      <Detail
+      <FundDetailDrawer
         isOpen={isFundDetailOpen}
         handleClose={() => setIsFundDetailOpen(false)}
         handleLayerOpen={() => setIsFundDetailOpen(false)}

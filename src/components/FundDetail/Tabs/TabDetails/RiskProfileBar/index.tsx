@@ -11,11 +11,10 @@ import {
   RiskText,
 } from './styles'
 
-interface IRiskProfile {
+interface IProps {
   riskProfile: string
 }
-
-const RiskProfileBar = ({ riskProfile }: IRiskProfile) => {
+const RiskProfileBar = ({ riskProfile }: IProps) => {
   const [risks, setRisk] = useState({
     baixo: false,
     'medio-baixo': false,

@@ -11,7 +11,7 @@ interface IAliquota {
   valor: string
 }
 
-interface IFund {
+interface IProps {
   fund: {
     minimo_inicial: string
     aplicao_minima: string
@@ -29,8 +29,7 @@ interface IFund {
     regime_iof: string
   }
 }
-
-export const TabDetails = ({ fund }: IFund) => (
+export const TabDetails = ({ fund }: IProps) => (
   <ContentWrapper>
     <RiskProfileBar riskProfile={fund.perfil_risco} />
     <GrayLine />

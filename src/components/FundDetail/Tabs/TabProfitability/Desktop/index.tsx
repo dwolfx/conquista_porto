@@ -3,7 +3,8 @@ import React from 'react'
 import Text from 'components/Text'
 
 import { formatNumber } from 'helpers'
-import { IProps } from './interfaces'
+
+import { IHistRentabilBenchmark, IHistRentabilFundo } from '../../../types'
 
 import {
   TablesContainer,
@@ -15,7 +16,11 @@ import {
   Th,
 } from './styles'
 
-export default function DesktopView({
+interface IProps {
+  histRentabilBenchmark: IHistRentabilBenchmark
+  histRentabilFundo: IHistRentabilFundo
+}
+export default function Desktop({
   histRentabilBenchmark,
   histRentabilFundo,
 }: IProps) {

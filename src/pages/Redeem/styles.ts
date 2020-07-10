@@ -18,7 +18,7 @@ export const Container = styled(ContainerBootstrap)`
   }
 `
 
-export const Col = styled(ColBootstrap)`
+export const CustomCol = styled(ColBootstrap)`
   height: calc(100vh - 192px);
 
   @media ${({ theme }) => theme.mediaQueries.xs} {

@@ -6,11 +6,14 @@ import VerticalList from 'components/VerticalList'
 import Divisor from 'components/Divisor'
 
 import { ColStyled, RowTitle } from './styles'
+import { IHistRentabilBenchmark, IHistRentabilFundo } from '../../../types'
 import { formatNumber } from 'helpers'
 
-import { IProps } from './interfaces'
-
-export default function TabletView({
+interface IProps {
+  histRentabilBenchmark: IHistRentabilBenchmark
+  histRentabilFundo: IHistRentabilFundo
+}
+export default function Tablet({
   histRentabilBenchmark,
   histRentabilFundo,
 }: IProps) {

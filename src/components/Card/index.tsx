@@ -83,6 +83,7 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
                 <Icon
                   name="information"
                   color="blue4"
+                  role="button" aria-label="header-icon"
                   onClick={() => headerIconInfoClick()}
                 />
               </Popover>

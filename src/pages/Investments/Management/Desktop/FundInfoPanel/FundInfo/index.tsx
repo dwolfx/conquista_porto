@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -126,6 +127,7 @@ const FundInformation = ({
   const themeContext = useContext(ThemeContext)
   const dispatch = useDispatch()
   const { addToast } = useToast()
+  const history = useHistory()
 
   const [investButtonIsLoading, setInvestButtonIsLoading] = useState<boolean>(
     false
@@ -369,15 +371,16 @@ const FundInformation = ({
   }
 
   const handleClickRedeemButton = () => {
-    const onSuccess = (modalProps: IModalProps | IValidProps) => {
-      onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
+    history.push('/conta/resgatar')
+    // const onSuccess = (modalProps: IModalProps | IValidProps) => {
+    //   onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
 
-      if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect(buildGiwUrl('resgatar'))
-      }
-    }
+    //   if ((modalProps as IValidProps).isValid) {
+    //     handleGiwRedirect(buildGiwUrl('resgatar'))
+    //   }
+    // }
 
-    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'resgatar', addToast))
+    // dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'resgatar', addToast))
   }
 
   function renderSelectItems(closeFunc: Function) {

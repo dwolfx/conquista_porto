@@ -2,14 +2,14 @@ import React from 'react'
 import 'styled-components/macro'
 import Text from 'components/Text'
 
-import useMedia from 'hooks/useMedia'
 
 import HorizontalList from 'components/HorizontalList'
-
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
-import TabletView from './TabletView'
-import DesktopView from './DesktopView'
-import { IFundProps } from './interfaces'
+import useMedia from 'hooks/useMedia'
+
+import Tablet from './Tablet'
+import Desktop from './Desktop'
+import { IFundProps } from '../../types'
 
 import { ProfitabilityContent } from './styles'
 
@@ -32,12 +32,12 @@ export default function TabProfitability({ fund }: IFundProps) {
         ]}
       />
       {isTablet ? (
-        <TabletView
+        <Tablet
           histRentabilBenchmark={histRentabilBenchmark}
           histRentabilFundo={histRentabilFundo}
         />
       ) : (
-        <DesktopView
+        <Desktop
           histRentabilBenchmark={histRentabilBenchmark}
           histRentabilFundo={histRentabilFundo}
         />

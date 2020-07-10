@@ -1,24 +1,28 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useToast } from 'hooks/toast'
 import moment from 'moment'
+import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
-import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
+import FundDetailDrawer from 'components/FundDetail/Drawer'
+import FundDetailModal from 'components/FundDetail/Modal'
+import Anbima from 'components/Anbima'
+import Text from 'components/Text'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
-import { Col } from 'styled-bootstrap-grid'
+import { useToast } from 'hooks/toast'
 
-import Text from 'components/Text'
-import Anbima from 'components/Anbima'
 import Filter from './Filter'
 import useFilter from './Filter/useFilter'
 import { columns, fundsType, columnsWithSticky } from './helper'
 import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
 import FinancialApplication from '../FinancialApplication'
+import DrawerFilter from './DrawerFilter'
+import sortFundList from './DrawerFilter/sortFundList'
 
 import {
   GridContainer,
@@ -30,10 +34,6 @@ import {
   ModalButton,
   FloatButton,
 } from './styles'
-import Detail from './Detail'
-import DrawerFilter from './DrawerFilter'
-import sortFundList from './DrawerFilter/sortFundList'
-import DetailModal from './DetailModal'
 
 const modalSuitabilityInfoInitialState = {
   isOpen: false,
@@ -399,7 +399,7 @@ export default function FundsList() {
       </GridContainer>
       {isMobile ? (
         <>
-          <DetailModal
+          <FundDetailModal
             title={title}
             category={category}
             isOpenForInvestments={isOpenForInvestments}
@@ -419,7 +419,7 @@ export default function FundsList() {
         </>
       ) : (
         <>
-          <Detail
+          <FundDetailDrawer
             isOpen={isFundDetailOpen}
             isLayerOpen={isLayerOpen}
             handleLayerOpen={onChangeLayerOpen}

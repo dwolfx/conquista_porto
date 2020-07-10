@@ -81,6 +81,7 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
   }
 
   const handleClickWithdrawButton = () => {
+    // history.push('/conta/resgatar')
     const onSuccess = (modalProps: IModalProps | IValidProps) => {
       onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
       if ((modalProps as IValidProps).isValid) {

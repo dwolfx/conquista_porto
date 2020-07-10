@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { ThemeContext } from 'styled-components/macro'
 import 'styled-components/macro'
-import { useSelector, useDispatch } from 'react-redux'
-
-import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import { Col, Row } from 'styled-bootstrap-grid'
 import Loading from 'components/Loading'
@@ -10,49 +9,40 @@ import Button from 'components/Button'
 import Divisor from 'components/Divisor'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
+import useFetchFundDetails from 'hooks/Investments/useFetchFundDetails'
 
 import { formatMoney, capitalize } from 'helpers'
 
 import SquareRisk from './SquareRisk'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+
 import {
   LayerCard,
   VerticalListMargin,
   ContentLayerCard,
   EmptyStateWrapper,
+  TextTitle,
+  TextValue,
 } from './styles'
 
-interface IData {
-  minimo_inicial: string
-  perfil_risco: string
-  nome_carteira: string
-  resgate_cotizacao: string
-  aplicao_minima: string
-  id_fundo: string
-  categoria: string
-}
-
-interface iInvestmentDetails {
-  data: IData
-  isLoading: boolean
-  hasError: boolean
-}
-
-interface iRootState {
-  investmentDetails: iInvestmentDetails
-}
-
 interface IProps {
-  handleFundDetailOpen: () => void
+  handleFundDetailOpen?: () => void
 }
-
-const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
+const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
+  useFetchFundDetails()
   const dispatch = useDispatch()
-
-  const { data: fundDetails, isLoading, hasError } = useSelector(
-    (state: iRootState) => state.investmentDetails
+  const themeContext = useContext(ThemeContext)
+  let { data: fundDetails, isLoading, hasError, idFund } = useSelector(
+    (state: any) => {
+      return {
+        ...state.investmentDetails,
+        data: Object.keys(state.investmentDetails.data).length ? state.investmentDetails.data : null,
+        idFund: state.investmentPosition.idFund
+      }
+    }
   )
 
-  const headerTitle = !isLoading && !hasError ? fundDetails.nome_carteira : ''
+  const headerTitle = !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
 
   return (
     <LayerCard
@@ -61,16 +51,17 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
       headerIconInfoClick={handleFundDetailOpen}
       headerIconInfoMsg="Mais informações"
     >
-      {isLoading && (
+      {isLoading && !fundDetails && (
         <EmptyStateWrapper>
           <Loading
+            data-testid="test-loading-component"
             type="bar"
             legend="Buscando informações do fundo de investimento..."
           />
         </EmptyStateWrapper>
       )}
 
-      {hasError && (
+      {hasError && !isLoading && !fundDetails && (
         <EmptyStateWrapper>
           <Text type="headline" color="magenta2">
             Não foi possível carregar as informações deste fundo de
@@ -78,28 +69,28 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
           </Text>
           <Button
             css={`
-              margin-top: 14px;
+              margin-top: ${themeContext.spacing(2)};
             `}
             onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(fundDetails.id_fundo))
+              dispatch(GetInvestmentDetailsRequest(idFund))
             }
           >
             Tentar novamente
           </Button>
         </EmptyStateWrapper>
       )}
-      {!isLoading && !hasError ? (
+      {!isLoading && !hasError && fundDetails ? (
         <ContentLayerCard>
           <Row>
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <Text color="gray4" type="captionUppercase">
+                  <TextTitle>
                     Aplicação inicial mínima
-                  </Text>,
-                  <Text bold color="gray6" type="headline">
+                  </TextTitle>,
+                  <TextValue>
                     {formatMoney(fundDetails.minimo_inicial)}
-                  </Text>,
+                  </TextValue>,
                 ]}
               />
             </Col>
@@ -109,12 +100,12 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <Text color="gray4" type="captionUppercase">
+                  <TextTitle>
                     Movimentação mínima
-                  </Text>,
-                  <Text bold color="gray6" type="headline">
+                  </TextTitle>,
+                  <TextValue>
                     {formatMoney(fundDetails.aplicao_minima)}
-                  </Text>,
+                  </TextValue>,
                 ]}
               />
             </Col>
@@ -124,12 +115,12 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <Text color="gray4" type="captionUppercase">
+                  <TextTitle>
                     Resgate (Cotização)
-                  </Text>,
-                  <Text bold color="gray6" type="headline">
+                  </TextTitle>,
+                  <TextValue>
                     {fundDetails.resgate_cotizacao}
-                  </Text>,
+                  </TextValue>,
                 ]}
               />
             </Col>
@@ -139,9 +130,9 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <Text color="gray4" type="captionUppercase">
+                  <TextTitle>
                     Categoria
-                  </Text>,
+                  </TextTitle>,
                   <Text bold color="gray6" type="headline">
                     {fundDetails.categoria.toLowerCase() === 'renda variável'
                       ? 'Ações'
@@ -156,30 +147,22 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <Text color="gray4" type="captionUppercase">
+                  <TextTitle>
                     Nível de Risco
-                  </Text>,
+                  </TextTitle>,
                   <HorizontalList
                     noPadding
                     size="small"
                     startItems={[
-                      <Text
-                        bold
-                        color="gray6"
-                        type="headline"
-                        css={`
-                          width: max-content;
-                        `}
+                      <TextValue
+                        css={`width: max-content;`}
                       >
                         {capitalize(fundDetails.perfil_risco)}
-                      </Text>,
+                      </TextValue>,
                       <SquareRisk
                         perfilRisco={fundDetails.perfil_risco}
                         tabletVersion
                       />,
-                    ]}
-                    endItems={[
-                      <SquareRisk perfilRisco={fundDetails.perfil_risco} />,
                     ]}
                   />,
                 ]}
@@ -192,4 +175,4 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
   )
 }
 
-export default DetailCard
+export default FundDetailCard

@@ -44,7 +44,7 @@ ${({ theme, marginTop }) =>
   ${props =>
     props.marginTop &&
     css`
-      margin-top: ${props => props.theme.spacing(8)}px;
+      margin-top: ${props => props.theme.spacing(19)}px;
     `}
 `
 

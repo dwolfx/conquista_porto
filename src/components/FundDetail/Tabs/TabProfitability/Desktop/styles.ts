@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Col, Row } from 'styled-bootstrap-grid'
 
 export const TablesContainer = styled.div`
   vertical-align: middle;
@@ -63,19 +62,5 @@ export const Td = styled.td`
 
   &:last-child {
     border-right: none;
-  }
-`
-
-export const ColStyled = styled(Col)`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-`
-
-export const RowTitle = styled(Row)`
-  margin: ${({ theme }) => theme.spacing(2)}px -${({ theme }) => theme.spacing(1)}px;
-`
-
-export const ProfitabilityContent = styled.div`
-  @media ${props => props.theme.mediaQueries.xs} {
-    padding: 0px ${({ theme }) => theme.spacing(2)}px;
   }
 `

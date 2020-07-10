@@ -1,14 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
-
 import Loading from 'components/Loading'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
-import TabDetails from 'pages/Investments/FundsList/Detail/TabDetails'
-import TabMoreInfo from 'pages/Investments/FundsList/Detail/TabMoreInfo'
-import TabProfitability from 'pages/Investments/FundsList/Detail/TabProfitability'
+import TabDetails from '../Tabs/TabDetails'
+import TabMoreInfo from '../Tabs/TabMoreInfo'
+import TabProfitability from '../Tabs/TabProfitability'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
 import {
   Accordion,
@@ -24,34 +23,38 @@ import {
 
 interface IProps {
   isOpen: boolean
-  handleLayerOpen: (fundId: string, hasDetailsFund: boolean) => void
-  isLayerOpen: boolean
+  handleLayerOpen?: (fundId: string, hasDetailsFund: boolean) => void
+  isLayerOpen?: boolean
   handleClose: () => void
   title: string
   category?: string
-  isOpenForInvestments: boolean
+  isOpenForInvestments?: boolean
 }
-
-const DetailModal = ({
+const FundDetailModal = ({
   isOpen,
-  handleLayerOpen,
-  isLayerOpen,
+  handleLayerOpen = () => {},
+  isLayerOpen = false,
   handleClose,
   title,
   category,
   isOpenForInvestments,
 }: IProps) => {
-  const { data: fundDetails, isLoading, isError } = useSelector<any, any>(
-    state => state.investmentDetails
-  )
-  const { suitabilityIsLoading, finatialApplicationIsLoading } = useSelector<
-    any,
-    any
-  >(state => ({
-    suitabilityIsLoading: state.suitabilityInfo.isLoading,
-    finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
-  }))
   const dispatch = useDispatch()
+  const { 
+     data: fundDetails,
+     isLoading,
+     isError,
+     suitabilityIsLoading,
+     finatialApplicationIsLoading
+    } = useSelector<any, any>(state => ({
+      data: state.investmentDetails.data,
+      isLoading: state.investmentDetails.isLoading,
+      isError: state.investmentDetails.isError,
+      suitabilityIsLoading: state.suitabilityInfo.isLoading,
+      finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
+    }))
+
+
   const ModalFooter = () =>
     isOpenForInvestments ? (
       <>
@@ -163,4 +166,4 @@ const DetailModal = ({
   )
 }
 
-export default DetailModal
+export default FundDetailModal

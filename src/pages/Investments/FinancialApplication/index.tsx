@@ -6,6 +6,7 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
+import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
 import Anbima from 'components/Anbima'
 
@@ -20,7 +21,6 @@ import SuccessCard from './EndOfApplicationFlow/SuccessCard'
 import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 
 import { formatMoneyDecimal, formatLocaleStringToNumber } from 'helpers'
-import DetailCard from './DetailCard'
 
 import {
   BodyWrapper,
@@ -37,6 +37,7 @@ import {
   GridColInfo,
   MobileScrollContent,
 } from './styles'
+import FundCard from '../FundsList/ResponsiveList/FundCard'
 
 interface IProps {
   handleClose: () => void
@@ -378,7 +379,7 @@ const LayerInvestment: React.FC<IProps> = ({
           <LayerBodyContainer>
             <GridRowExpanded>
               <GridCol sm={12} md={4} lg={3}>
-                <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
+                <FundDetailCard handleFundDetailOpen={handleFundDetailOpen} />
               </GridCol>
               {getBodyContent()}
             </GridRowExpanded>

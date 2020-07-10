@@ -1,15 +1,21 @@
 import styled from 'styled-components'
-import Card from 'components/Card'
-import VerticalList from 'components/VerticalList'
+import { themeColors } from 'styles/theme'
 import { Container } from 'styled-bootstrap-grid'
 
-import { themeColors } from 'styles/theme'
+import Card from 'components/Card'
+import Text from 'components/Text'
+import VerticalList from 'components/VerticalList'
+import { CardBody } from 'components/Card/styles'
 
 export const LayerCard = styled(Card)`
   height: 100%;
   max-height: 62px;
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
   border-radius: 0px;
+
+  ${CardBody} {
+    overflow-y: auto;
+  }
 
   @media ${props => props.theme.mediaQueries.smUp} {
     height: auto;
@@ -45,23 +51,11 @@ interface ISquareRiskProps {
   value: string
   selectedRisk: string
 }
-
 const handleOpacitySquareRisk = ({ value, selectedRisk }: ISquareRiskProps) => {
-  if (!selectedRisk) {
+  if (!selectedRisk || value === selectedRisk) {
     return 1
   }
-  if (value === selectedRisk) {
-    return 1
-  }
-
   return 0.3
-}
-
-const handleScaling = ({ value, selectedRisk }: ISquareRiskProps) => {
-  if (value === selectedRisk) {
-    return 'scale(1.17)'
-  }
-  return 'none'
 }
 
 const handleDisplay = ({ value, selectedRisk }: ISquareRiskProps) => {
@@ -72,24 +66,24 @@ const handleDisplay = ({ value, selectedRisk }: ISquareRiskProps) => {
 }
 
 export const SquareRiskLevel = styled.div<ISquareRiskProps>`
-  width: ${props => props.theme.spacing(3)}px;
-  height: ${props => props.theme.spacing(3)}px;
+  width: ${({ theme }) => theme.spacing(3)}px;
+  height: ${({ theme }) => theme.spacing(3)}px;
   margin-right: 4px;
-  background-color: ${props => props.theme.colors[props.color]};
+  background-color: ${({ theme, color }) => theme.colors[color]};
   border-radius: 4px;
   transition: all 0.3s ease;
-  transform: ${handleScaling};
   opacity: ${handleOpacitySquareRisk};
-  @media ${props => props.theme.mediaQueries.smUp} {
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
     display: ${handleDisplay};
   }
-  @media ${props => props.theme.mediaQueries.mdUp} {
+  @media ${({ theme }) => theme.mediaQueries.mdUp} {
     display: block;
   }
 `
 
 export const ContentLayerCard = styled(Container)`
   margin-top: ${props => props.theme.spacing(1)}px;
+  
 `
 
 export const EmptyStateWrapper = styled.div`
@@ -102,3 +96,14 @@ export const EmptyStateWrapper = styled.div`
   width: 240px;
   margin: auto;
 `
+
+export const TextTitle = styled(Text).attrs(() => ({
+  type: 'captionUppercase',
+  color: 'gray4'
+}))``
+
+export const TextValue = styled(Text).attrs(() => ({
+  type: 'headline',
+  bold: true,
+  color: 'gray6'
+}))``

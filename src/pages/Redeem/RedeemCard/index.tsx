@@ -11,8 +11,9 @@ import {
 interface IRedeemCard {
   step: number
   setStep: (step: number) => void
+  onChangeFundDetailOpen: (isOpen: boolean) => void
 }
-const RedeemCard = ({ step, setStep }: IRedeemCard) => {
+const RedeemCard = ({ step, setStep, onChangeFundDetailOpen }: IRedeemCard) => {
   const isMobile = useMedia('xs')
 
   const nextStep = () => {
@@ -59,7 +60,7 @@ const RedeemCard = ({ step, setStep }: IRedeemCard) => {
   return isMobile ? (
     <CardStyled
       headerIconInfo
-      headerIconInfoClick={() => {}}
+      headerIconInfoClick={() => onChangeFundDetailOpen(true)}
       headerTitle="Informações"
       footer={cardFooter()}
     >
