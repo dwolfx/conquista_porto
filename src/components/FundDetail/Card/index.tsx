@@ -133,11 +133,11 @@ const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
                   <TextTitle>
                     Categoria
                   </TextTitle>,
-                  <Text bold color="gray6" type="headline">
+                  <TextValue bold color="gray6" type="headline">
                     {fundDetails.categoria.toLowerCase() === 'renda variável'
                       ? 'Ações'
                       : fundDetails.categoria}
-                  </Text>,
+                  </TextValue>,
                 ]}
               />
             </Col>

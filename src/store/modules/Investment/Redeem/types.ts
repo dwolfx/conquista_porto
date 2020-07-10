@@ -11,7 +11,6 @@ export const Types = {
 export interface IGetRedeemRequest {
   id_fundo: string
   data_operacao: string
-  valor: string
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
 }
 

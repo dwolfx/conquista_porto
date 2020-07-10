@@ -46,33 +46,27 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   )
 
   const maxSteps = 4
-  // const [isLoadingNextButton, setIsLoadingNextButton] = useState<boolean>(false)
   const goBackHandler = () =>
     step !== 1 ? setStep(currentStep => currentStep - 1) : history.goBack()
 
   const nextStep = () => {
-    // setIsLoadingNextButton(alignmentTermsIsLoading)
-    if (step === 1) {
-      dispatch(
-        GetRedeemAlignmentTermsRequest({
-          data: {
-            data_operacao: moment(new Date(), 'DD/MM/YYYY').format(
-              'YYYY-MM-DD'
-            ),
-            valor_bruto: formatLocaleStringToNumber('1000.9'),
-            id_fundo: selectedFundId,
-          },
-          onSuccess: (alignmentData: any) => {
-            alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
-              'Desenquadrado' && setIsAlignmentTermOpenModal(true)
+    dispatch(
+      GetRedeemAlignmentTermsRequest({
+        data: {
+          data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
+          valor_bruto: formatLocaleStringToNumber('1000.9'),
+          id_fundo: selectedFundId,
+        },
+        onSuccess: (alignmentData: any) => {
+          alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
+            'Desenquadrado' && setIsAlignmentTermOpenModal(true)
 
-            alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
-              'Enquadrado' && setStep(step + 1)
-          },
-          onErrorToast: addToast,
-        })
-      )
-    }
+          alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
+            'Enquadrado' && setStep(step + 1)
+        },
+        onErrorToast: addToast,
+      })
+    )
   }
 
   const previousStep = () => {

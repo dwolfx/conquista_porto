@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
@@ -8,6 +8,8 @@ import Divisor from 'components/Divisor'
 import ButtonTag from 'components/Button/Tag'
 import MoneyInput from 'components/Inputs/Money'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
+import { useToast } from 'hooks/toast'
+import useMedia from 'hooks/useMedia'
 
 import BaseAccountInfo from '../components/BaseAccountInfo'
 import BaseFormStep from '../components/BaseFormStep'
@@ -20,8 +22,15 @@ import {
   SimulationWrapper,
   CalculationWrapper,
   InformationsWrapper,
+  ButtonStyled,
+  CalculationOverlay,
+  InputWrapper,
+  HorizontalListStyled,
 } from './styles'
-import HorizontalList from 'components/HorizontalList'
+import { formatMoney, formatNumber, formatMoneyDecimal } from 'helpers'
+import { formatMoneyToNumber } from 'pages/Investments/FinancialApplication/FormFinancialContribution/utils'
+import { GetRedeemSummaryRequest } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
+import moment from 'moment'
 
 interface IFormData {
   moneyToRedeem: string
@@ -46,11 +55,42 @@ const BallanceRedeem = ({
 }: IBallanceRedeem) => {
   useFetchBankData()
 
+  type TButtonOption = 'manter' | 'tudo' | null
+
   const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
-  const { bankData, investmentPosition } = useSelector((state: any) => ({
+  const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(null)
+  const dispatch = useDispatch()
+  const isMobile = useMedia('xs')
+  const { addToast } = useToast()
+  const { bankData, investmentPosition, redeemData, redeemSummaryData, isRedeemSummaryLoading } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
+    redeemData: state.redeemData.data,
+    isRedeemSummaryLoading: state.redeemSummaryData.isLoading,
+    redeemSummaryData: state.redeemSummaryData.data
   }))
+
+  const calcMinimalBallance = () => {
+    if (redeemData) {
+      const minFundBallance = Number(redeemData.dados_para_resgate.fundo.saldo_minimo)
+      const currentBallance = Number(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
+      return formatNumber(currentBallance - minFundBallance)
+    }
+    return formatNumber('0')
+  }
+
+  const resetValue = () => {
+    setRedeemOptionButton(null)
+    setFormData(FORM_DATA_INTIAL_STATE)
+  }
+
+  const isMoneyLessThanAllowed = () => {
+    if (formData && redeemData) {
+      return formatMoneyToNumber(formData.moneyToRedeem) >
+        Number(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
+    }
+    return false
+  }
 
   const cardBody = () => (
     <>
@@ -63,17 +103,35 @@ const BallanceRedeem = ({
       </BalanceInfoContainer>
       <Divisor />
       <Row>
-        <RedeemFormContainer sm={8} md={5} xs={12}>
+        <RedeemFormContainer sm={8} md={7} xs={12}>
           <Text type="headline" bold color="gray5">
             Quanto você quer resgatar?
           </Text>
           <ButtonsBallanceWrapper>
-            <ButtonTag color="primary" onClick={() => console.log('tudo')}>
+            <ButtonTag 
+              color={redeemOptionButton === 'tudo' ? 'primary' : ''}
+              onClick={() => {
+                if (redeemOptionButton === 'tudo') {
+                  return resetValue()
+                }
+                setRedeemOptionButton('tudo')
+                setFormData({
+                  moneyToRedeem: formatNumber(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
+                })
+              }}>
               tudo
             </ButtonTag>
             <ButtonTag
-              color=""
-              onClick={() => console.log('manter')}
+              color={redeemOptionButton === 'manter' ? 'primary' : ''}
+              onClick={() => {
+                if (redeemOptionButton === 'manter') {
+                  return resetValue()
+                }
+                setRedeemOptionButton('manter')
+                setFormData({
+                  moneyToRedeem: calcMinimalBallance()
+                })
+              }}
               css={`
                 margin-left: 7px;
               `}
@@ -81,18 +139,48 @@ const BallanceRedeem = ({
               manter saldo mínimo
             </ButtonTag>
           </ButtonsBallanceWrapper>
-          <MoneyInput
-            data-testid="financial-application-money-input"
-            data-gtm-form="input"
-            data-gtm-name="quanto investir"
-            value={formData.moneyToRedeem}
-            placeholder="1000,00"
-            onChange={({ target }) => {
-              setFormData({
-                moneyToRedeem: target.value,
-              })
-            }}
-          />
+          <InputWrapper>
+            <MoneyInput
+              data-testid="financial-application-money-input"
+              data-gtm-form="input"
+              data-gtm-name="quanto investir"
+              value={formData.moneyToRedeem}
+              placeholder="1000,00"
+              onChange={({ target }) => {
+                setFormData({
+                  moneyToRedeem: target.value,
+                })
+              }}
+              error={
+                isMoneyLessThanAllowed() && {
+                  icon: 'alertrounded',
+                  message: `O valor não pode ser menor do que ${formatMoneyDecimal(
+                    Number(
+                      redeemData!.dados_para_resgate.posicao_cotista_fundo.saldo_atual
+                        .toString()
+                        .replace(/\D/g, '')
+                    )
+                  )}`,
+                }
+              }
+            />
+            <ButtonStyled
+              data-gtm-subname="simulacao de resgate"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-name="simular"
+              color="primary"
+              disabled={isMoneyLessThanAllowed() || formData.moneyToRedeem === ''}
+              onClick={() => dispatch(GetRedeemSummaryRequest({
+                id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
+                data_operacao: moment(new Date()).format('YYYY-MM-DD'),
+                valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
+                onErrorToast: addToast
+              }))}
+            >
+              simular
+            </ButtonStyled>
+          </InputWrapper>
         </RedeemFormContainer>
       </Row>
       <Divisor />
@@ -101,55 +189,84 @@ const BallanceRedeem = ({
           Simulação
         </Text>
         <CalculationWrapper>
-          <HorizontalList
-            startItems={[
-              <Text type="headline" color="gray5">
-                Valor Bruto do Resgate
-              </Text>,
-            ]}
-            endItems={[
-              <Text type="headline" color="gray6">
-                R$ 9.875,00
-              </Text>,
-            ]}
-          />
-          <HorizontalList
-            startItems={[
-              <Text type="headline" color="gray5">
-                IOF*
-              </Text>,
-            ]}
-            endItems={[
-              <Text type="headline" color="gray6">
-                R$ 197,50
-              </Text>,
-            ]}
-          />
-          <HorizontalList
-            startItems={[
-              <Text type="headline" color="gray5">
-                IR*
-              </Text>,
-            ]}
-            endItems={[
-              <Text type="headline" color="gray6">
-                R$ 1.481,25
-              </Text>,
-            ]}
-          />
-        </CalculationWrapper>
-        <HorizontalList
+          <CalculationOverlay isOpen={isRedeemSummaryLoading}>
+            {isRedeemSummaryLoading && <Text type="headline" bold color="gray5">Carregando...</Text>}
+          </CalculationOverlay>
+          <div
+           css={`
+           padding: 14px;
+           `}
+          >
+            <HorizontalListStyled
+              startItems={[
+                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
+                  Valor Bruto do Resgate
+                </Text>,
+              ]}
+              endItems={[
+                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
+                  {
+                    (redeemSummaryData && 
+                      redeemSummaryData.dados_para_aplicacao && 
+                    formatMoney(redeemSummaryData.dados_para_aplicacao.valor_bruto)) || 
+                    formatMoney(0)
+                  }
+                </Text>,
+              ]}
+            />
+            <HorizontalListStyled
+              startItems={[
+                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
+                  IOF*
+                </Text>,
+              ]}
+              endItems={[
+                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
+                  {
+                    (redeemSummaryData &&
+                    redeemSummaryData.dados_para_aplicacao && 
+                    formatMoney(redeemSummaryData.dados_para_aplicacao.valor_iof)) ||
+                    formatMoney(0)  
+                  }
+                </Text>,
+              ]}
+            />
+            <HorizontalListStyled
+              startItems={[
+                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
+                  IR*
+                </Text>,
+              ]}
+              endItems={[
+                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
+                  {
+                    (redeemSummaryData && 
+                    redeemSummaryData.dados_para_aplicacao && 
+                    formatMoney(redeemSummaryData.dados_para_aplicacao.valor_ir)) || 
+                    formatMoney(0)  
+                  }
+                </Text>,
+              ]}
+            />
+          </div>
+          </CalculationWrapper>
+        <HorizontalListStyled
           css={`
-            padding: 0 28px;
+            padding: 0 28px !important;
           `}
           startItems={[
-            <Text type="headline" color="gray5">
+            <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
               Valor líquido do resgate
             </Text>,
           ]}
           endItems={[
-            <Text type="headline" color="gray6">
-              R$ 8.196,25
+            <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
+              {
+                (redeemSummaryData &&
+                redeemSummaryData.dados_para_aplicacao &&
+                formatMoney(redeemSummaryData.dados_para_aplicacao.valor_liquido)) ||
+                formatMoney(0)
+              }
             </Text>,
           ]}
         />
@@ -159,14 +276,14 @@ const BallanceRedeem = ({
         <Text
           type="body"
           bold
-          color="gray6"
+          color={isMobile ? 'gray5' : 'gray6'}
           css={`
             margin-bottom: 14px;
           `}
         >
           O valor será creditado na sua conta de investimento.
         </Text>
-        <Text type="body" bold color="gray6">
+        <Text type="body" bold color={isMobile ? 'gray5' : 'gray6'}>
           O valor final de uma solicitação de resgate pode mudar, para mais ou
           para menos, dependendo da variação do valor das cotas que você possuir
           no momento da efetivação.
@@ -179,7 +296,12 @@ const BallanceRedeem = ({
     <BaseFormStep
       cardBody={cardBody()}
       cardFooter={
-        <CardFooter step={step} prevStep={previousStep} nextStep={nextStep} />
+        <CardFooter 
+          step={step} 
+          prevStep={previousStep} 
+          nextStep={nextStep} 
+          isNextDisabled={isMoneyLessThanAllowed() || formData.moneyToRedeem === ''}
+        />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}
     />

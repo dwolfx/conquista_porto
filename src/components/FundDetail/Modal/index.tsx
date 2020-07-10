@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Loading from 'components/Loading'
@@ -42,18 +42,30 @@ const FundDetailModal = ({
   const dispatch = useDispatch()
   const { 
      data: fundDetails,
+     idFund,
      isLoading,
      isError,
      suitabilityIsLoading,
      finatialApplicationIsLoading
     } = useSelector<any, any>(state => ({
       data: state.investmentDetails.data,
+      idFund: state.investmentPosition.idFund,
       isLoading: state.investmentDetails.isLoading,
       isError: state.investmentDetails.isError,
       suitabilityIsLoading: state.suitabilityInfo.isLoading,
       finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
     }))
 
+  const handleFetchFundDetails = useCallback(() => {
+    if (!!(!Object.keys(fundDetails).length && idFund)) {
+      // console.log({ fundDetails, idFund, status: !!(!Object.keys(fundDetails).length && idFund) })
+      dispatch(GetInvestmentDetailsRequest(idFund))
+    }
+  }, [fundDetails, idFund, dispatch])
+
+  useEffect(() => {
+    handleFetchFundDetails()
+  }, [handleFetchFundDetails])
 
   const ModalFooter = () =>
     isOpenForInvestments ? (

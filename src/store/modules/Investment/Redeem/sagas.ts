@@ -7,7 +7,7 @@ import { getSuitabilityInfo, getAuth } from './selectors';
 
 
 function* getRedeemData({
-  payload: { data_operacao, id_fundo, valor, onErrorToast }
+  payload: { data_operacao, id_fundo, onErrorToast }
 }: IGetRedeemRequestData) {
 
   const { id_cotista } = yield select(getSuitabilityInfo)
@@ -15,30 +15,19 @@ function* getRedeemData({
 
   try {
     const params = `cpf_cnpj=${cpf}&id_cotista=${id_cotista}&data_operacao=${data_operacao}&id_fundo=${id_fundo}`
-    const [responseRedeem, responseRedeemSummary]: any = yield all([
-      call(
+    const responseRedeem = yield call(
         get,
         `${baseURLNamespaceInvest}/aws/cotista/resgates?${params}`
-      ),
-      call(
-        get,
-        `${baseURLNamespaceInvest}/aws/cotista/resgates/resumo?tipo_resgate=2&valor=${valor}&${params}`
       )
-    ])
     yield put(RedeemLayerToggleOpen())
-
-    const enrichedResponse = {
-      ...responseRedeem.data,
-      ...responseRedeemSummary.data
-    }
-    yield put(GetRedeemSuccess(enrichedResponse))
+    yield put(GetRedeemSuccess(responseRedeem.data))
   } catch (err) {
-    yield put(GetRedeemFailure(err))
-    onErrorToast({
-      type: 'error',
-      description: 'Por favor, tente novamente.',
-      title: 'Erro ao enviar solicitação.',
-    })
+      yield put(GetRedeemFailure(err))
+      onErrorToast({
+        type: 'error',
+        description: 'Por favor, tente novamente.',
+        title: 'Erro ao enviar solicitação.',
+      })
   }
 }
 

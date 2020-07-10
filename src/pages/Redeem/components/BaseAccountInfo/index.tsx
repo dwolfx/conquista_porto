@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import moment from 'moment'
+
 import Text from 'components/Text'
 import VerticalListStyled from 'components/VerticalList'
-import useMedia from 'hooks/useMedia'
-
+import { useToast } from 'hooks/toast' 
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import { formatMoney } from 'helpers'
-import { GetBankDataRequest } from 'store/modules/BankData/action'
-import { GetPositionDataRequest } from 'store/modules/Investment/Position/action'
 
 import { LoadingSpinner, IconRetry } from './styles'
 
@@ -18,31 +18,12 @@ interface IProps {
 
 const BaseAccountInfo = ({ idFundo, isLoading, hasError }: IProps) => {
   const dispatch = useDispatch()
-  const isTabletOrSmaller = useMedia('md')
+  const { addToast } = useToast()
 
-  const { investmentPosition, auth } = useSelector((state: any) => ({
-    investmentPosition: state.investmentPosition,
-    auth: state.auth,
+  const { redeemData } = useSelector((state: any) => ({
+    redeemData: state.redeemData.data,
+
   }))
-
-  const dispatchPositionData = () => {
-    if (!isTabletOrSmaller) {
-      dispatch(GetPositionDataRequest(auth.cpf))
-    }
-  }
-
-  const chosenInvestmentFund = () =>
-    investmentPosition.data &&
-    investmentPosition.data.length !== 0 &&
-    investmentPosition.data[0].posicoes.posicao.find(
-      (posicao: any) => posicao.fundo.id_carteira === idFundo
-    )
-
-  const fund: any = chosenInvestmentFund()
-  let saldoAtual = ''
-  if (fund) {
-    saldoAtual = fund.saldo_atual
-  }
 
   if (isLoading) {
     return (
@@ -63,8 +44,11 @@ const BaseAccountInfo = ({ idFundo, isLoading, hasError }: IProps) => {
         </Text>
         <IconRetry
           onClick={() => {
-            dispatch(GetBankDataRequest(auth.cpf))
-            dispatchPositionData()
+            dispatch(GetRedeemRequest({
+              id_fundo: idFundo,
+              data_operacao: moment(new Date()).format('YYYY-MM-DD'),
+              onErrorToast: addToast
+            }))
           }}
         />
       </>
@@ -79,10 +63,8 @@ const BaseAccountInfo = ({ idFundo, isLoading, hasError }: IProps) => {
             fundo
           </Text>,
           <Text type="headline" color="gray6" bold>
-            {formatMoney(
-              investmentPosition.data && investmentPosition.data.length === 0
-                ? 0
-                : saldoAtual
+            {redeemData && formatMoney(
+              redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
             )}
           </Text>,
           <Text type="caption" color="gray5" bold>

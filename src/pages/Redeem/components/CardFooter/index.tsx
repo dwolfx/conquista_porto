@@ -6,9 +6,10 @@ interface ICardFooter {
   step: number
   prevStep: () => void
   nextStep: () => void
+  isNextDisabled: boolean
 }
 
-const CardFooter = ({ step, prevStep, nextStep }: ICardFooter) => {
+const CardFooter = ({ step, prevStep, nextStep, isNextDisabled }: ICardFooter) => {
   return (
     <ButtonsStepWrapper>
       {step > 1 && (
@@ -30,6 +31,7 @@ const CardFooter = ({ step, prevStep, nextStep }: ICardFooter) => {
         data-gtm-clicktype="button"
         data-gtm-name="proximo"
         color="secondary"
+        disabled={isNextDisabled}
         onClick={nextStep}
       >
         Próximo

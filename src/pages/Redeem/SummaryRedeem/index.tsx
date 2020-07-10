@@ -167,7 +167,7 @@ const SummaryRedeem = ({
     <BaseFormStep
       cardBody={cardBody()}
       cardFooter={
-        <CardFooter step={step} prevStep={previousStep} nextStep={nextStep} />
+        <CardFooter step={step} prevStep={previousStep} nextStep={nextStep} isNextDisabled={false} />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}
     />

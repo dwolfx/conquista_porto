@@ -26,6 +26,7 @@ export const Container = styled(ContainerBootstrap)`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     margin-top: 0;
+    margin-bottom: 84px;
   }
 `
 
