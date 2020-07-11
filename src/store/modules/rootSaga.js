@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { all } from 'redux-saga/effects'
 
-import alignmentTerms from './Investment/FinantialApplication/AlignmentTerms/sagas'
+import alignmentTerms from './Investment/FinancialApplication/AlignmentTerms/sagas'
 import bankData from './BankData/sagas'
 import bankExtract from './BankExtract/sagas'
 import bankExtractFund from './BankExtractFund/sagas'
@@ -11,13 +11,12 @@ import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import customerProfile from './CustomerProfile/sagas'
 import {
-  finantialApplicationGetData,
-  finantialApplicationPostData,
-} from './Investment/FinantialApplication/sagas'
+  financialApplicationGetData,
+  financialApplicationPostData,
+} from './Investment/FinancialApplication/sagas'
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
 import investmentPosition from './Investment/Position/sagas'
-import isAwareOfTerms from './Investment/FinantialApplication/IsAwareOfTerms/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import points from './Points/sagas'
 import privateWelfare from './PrivateWelfare/sagas'
@@ -45,12 +44,11 @@ export default function* rootSaga() {
     consortiumBuilding,
     consortiumVehicle,
     customerProfile,
-    finantialApplicationGetData,
-    finantialApplicationPostData,
+    financialApplicationGetData,
+    financialApplicationPostData,
     investmentsList,
     investmentDetails,
     investmentPosition,
-    isAwareOfTerms,
     lifeInsurance,
     points,
     privateWelfare,

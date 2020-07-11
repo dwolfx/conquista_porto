@@ -49,7 +49,7 @@ const DetailModal = ({
     any
   >(state => ({
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
-    finatialApplicationIsLoading: state.finantialApplicationGetData.isLoading,
+    finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
   }))
   const dispatch = useDispatch()
   const ModalFooter = () =>

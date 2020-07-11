@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import alignmentTerms from './Investment/FinantialApplication/AlignmentTerms/reducer'
+import alignmentTerms from './Investment/FinancialApplication/AlignmentTerms/reducer'
 import bankData from './BankData/reducer'
 import bankExtract from './BankExtract/reducer'
 import bankExtractFund from './BankExtractFund/reducer'
@@ -10,13 +10,12 @@ import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import customerProfile from './CustomerProfile/reducer'
 import {
-  finantialApplicationGetData,
-  finantialApplicationPostData,
-} from './Investment/FinantialApplication/reducer'
+  financialApplicationGetData,
+  financialApplicationPostData,
+} from './Investment/FinancialApplication/reducer'
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
 import investmentPosition from './Investment/Position/reducer'
-import isAwareOfTerms from './Investment/FinantialApplication/IsAwareOfTerms/reducer'
 import privateWelfare from './PrivateWelfare/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
@@ -42,12 +41,11 @@ export default combineReducers({
   consortiumVehicle,
   creditCard,
   customerProfile,
-  finantialApplicationGetData,
-  finantialApplicationPostData,
+  financialApplicationGetData,
+  financialApplicationPostData,
   investmentsList,
   investmentDetails,
   investmentPosition,
-  isAwareOfTerms,
   privateWelfare,
   lifeInsurance,
   consolidatedPosition,

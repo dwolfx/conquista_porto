@@ -42,18 +42,18 @@ const Detail: React.FC<DetailProps> = ({
   const { data: fundDetails, isLoading } = useSelector<any, any>(
     state => state.investmentDetails
   )
-  const { suitabilityIsLoading, finatialApplicationIsLoading } = useSelector<
+  const { suitabilityIsLoading, financialApplicationIsLoading } = useSelector<
     any,
     any
   >(state => ({
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
-    finatialApplicationIsLoading: state.finantialApplicationGetData.isLoading,
+    financialApplicationIsLoading: state.financialApplicationGetData.isLoading,
   }))
   const dispatch = useDispatch()
   const footerDrawer = () =>
     isOpenForInvestments ? (
       <ButtonSubmit
-        loading={suitabilityIsLoading || finatialApplicationIsLoading}
+        loading={suitabilityIsLoading || financialApplicationIsLoading}
         loadingColor="white"
         color="secondary"
         onClick={() => {

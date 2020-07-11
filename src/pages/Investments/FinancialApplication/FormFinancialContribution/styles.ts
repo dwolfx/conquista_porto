@@ -1,11 +1,13 @@
 import styled from 'styled-components'
-import VerticalList from 'components/VerticalList'
+import { Col, Row } from 'styled-bootstrap-grid'
+
+import ButtonCmp from 'components/Button'
+import Card from 'components/Card'
+import { CardBody } from 'components/Card/styles'
 import Divisor from 'components/Divisor'
 import Loading from 'components/Loading'
 import Icon from 'components/IconExporter'
-import Card from 'components/Card'
-import { CardBody } from 'components/Card/styles'
-import { Col, Row } from 'styled-bootstrap-grid'
+import VerticalList from 'components/VerticalList'
 
 export const CardStyled = styled(Card)`
   height: 100%;
@@ -92,12 +94,12 @@ export const CardFooter = styled.div`
 export const CheckboxContainer = styled.div`
   display: flex;
 
-  margin: ${({ theme }) => theme.spacing(3)}px 0
-    ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(1)}px;
+  margin: ${({ theme }) =>
+    `${theme.spacing(3)}px 0 ${theme.spacing(3)}px ${theme.spacing(1)}px`};
 
   @media ${props => props.theme.mediaQueries.xs} {
-    margin: ${({ theme }) => theme.spacing(3)}px 0
-      ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(3)}px;
+    margin: ${({ theme }) =>
+      `${theme.spacing(3)}px 0 ${theme.spacing(3)}px ${theme.spacing(3)}px`};
   }
 `
 
@@ -107,4 +109,13 @@ export const ExternalLink = styled.a`
   &:hover {
     text-decoration: underline;
   }
+`
+
+interface IButton {
+  isMobile?: boolean
+}
+
+export const Button = styled(ButtonCmp)<IButton>`
+  width: ${({ isMobile }) => (isMobile ? '100%' : 'auto')};
+  min-width: 112px;
 `

@@ -12,7 +12,7 @@ const objectiveMock = require('./src/mocks/objective.json')
 const objectiveMock2 = require('./src/mocks/objective2.json')
 const objectivesMock = require('./src/mocks/objectives.json')
 const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
-const finantialApplicationMock = require('./src/mocks/finantialApplication.json')
+const financialApplicationMock = require('./src/mocks/financialApplication.json')
 
 server.use(middlewares)
 
@@ -95,7 +95,7 @@ router.render = (req, res) => {
   }
   if (req.originalUrl.endsWith('/cotista/aplicacoes')) {
     if (req.method === 'POST') {
-      return res.jsonp({ ...finantialApplicationMock })
+      return res.jsonp({ ...financialApplicationMock })
     }
   }
 

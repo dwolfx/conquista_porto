@@ -37,8 +37,8 @@
   "/auth2/cadastro-dispositivo\\?cpf=:cpf&organizacao=:organizacao": "/personal_data_2fa?cpf=:cpf&organizacao=:organizacao",
   "/perfil/dados-cliente?cpfCnpj=:cpfCnpj": "/dados-cliente",
   "/teclado-virtual": "/virtual-keyboard",
-  "/invest/aws/cotista/aplicacoes": "/finantial_post",
-  "/invest/aws/cotista/aplicacoes?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao": "/finantial_application",
-  "/invest/aws/cotista/aplicacoes/resumo?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&valor=:valor&aceite_termo_adesao=:aceite_termo_adesao": "/finantial_application_is_aware_of_terms",
+  "/invest/aws/cotista/aplicacoes": "/financial_post",
+  "/invest/aws/cotista/aplicacoes?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao": "/financial_application",
+  "/invest/aws/cotista/aplicacoes/resumo?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&valor=:valor&aceite_termo_adesao=:aceite_termo_adesao": "/financial_application_is_aware_of_terms",
   "/invest/aws/cotista/aplicacoes/enquadramento?CodigoCanal=:CodigoCanal&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&tipo_operacao=:tipo_operacao&valor_bruto=:valor_bruto&id_fundo=:id_fundo": "/alignment_terms_data"
 }

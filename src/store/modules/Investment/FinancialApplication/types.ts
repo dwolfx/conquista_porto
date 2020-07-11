@@ -1,36 +1,36 @@
 import { IToast } from 'hooks/toast'
 
 export const Types = {
-  DATA_GET_REQUEST: 'FINANTIAL_APPLICATION_DATA_GET_REQUEST',
-  DATA_GET_SUCCESS: 'FINANTIAL_APPLICATION_DATA_GET_SUCCESS',
-  DATA_GET_FAILURE: 'FINANTIAL_APPLICATION_DATA_GET_FAILURE',
+  DATA_GET_REQUEST: 'FINANCIAL_APPLICATION_DATA_GET_REQUEST',
+  DATA_GET_SUCCESS: 'FINANCIAL_APPLICATION_DATA_GET_SUCCESS',
+  DATA_GET_FAILURE: 'FINANCIAL_APPLICATION_DATA_GET_FAILURE',
   IS_AWARE_OF_TERMS_DATA_GET_REQUEST: 'IS_AWARE_OF_TERMS_DATA_GET_REQUEST',
   IS_AWARE_OF_TERMS_DATA_GET_SUCCESS: 'IS_AWARE_OF_TERMS_DATA_GET_SUCCESS',
   IS_AWARE_OF_TERMS_DATA_GET_FAILURE: 'IS_AWARE_OF_TERMS_DATA_GET_FAILURE',
   ALIGNMENT_TERMS_DATA_GET_REQUEST: 'ALIGNMENT_TERMS_DATA_GET_REQUEST',
   ALIGNMENT_TERMS_DATA_GET_SUCCESS: 'ALIGNMENT_TERMS_DATA_GET_SUCCESS',
   ALIGNMENT_TERMS_DATA_GET_FAILURE: 'ALIGNMENT_TERMS_DATA_GET_FAILURE',
-  DATA_POST_REQUEST: 'FINANTIAL_APPLICATION_DATA_POST_REQUEST',
-  DATA_POST_SUCCESS: 'FINANTIAL_APPLICATION_DATA_POST_SUCCESS',
-  DATA_POST_FAILURE: 'FINANTIAL_APPLICATION_DATA_POST_FAILURE',
+  DATA_POST_REQUEST: 'FINANCIAL_APPLICATION_DATA_POST_REQUEST',
+  DATA_POST_SUCCESS: 'FINANCIAL_APPLICATION_DATA_POST_SUCCESS',
+  DATA_POST_FAILURE: 'FINANCIAL_APPLICATION_DATA_POST_FAILURE',
 }
 
-interface IFinantialApplicationData {
+interface IFinancialApplicationData {
   id_fundo: string
   data_operacao: string
 }
-export interface IGetFinantialApplicationData {
-  data: IFinantialApplicationData
-  onSuccess: (data: IGetFinantialApplicationDataResponse) => void
+export interface IGetFinancialApplicationData {
+  data: IFinancialApplicationData
+  onSuccess: (data: IGetFinancialApplicationDataResponse) => void
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
 }
 
-export interface IGetFinantialApplicationPayload {
+export interface IGetFinancialApplicationPayload {
   type: keyof typeof Types
-  payload: IGetFinantialApplicationData
+  payload: IGetFinancialApplicationData
 }
 
-export interface IGetFinantialApplicationDataResponse {
+export interface IGetFinancialApplicationDataResponse {
   Message: {
     TipoCritica: string
     Mensagem: string
@@ -76,46 +76,9 @@ export interface IGetFinantialApplicationDataResponse {
   }
 }
 
-export interface IGetFinantialApplicationAction {
+export interface IGetFinancialApplicationAction {
   type: keyof typeof Types
-  payload: IGetFinantialApplicationDataResponse
-}
-
-export interface IGetIsAwareOfTermsData {
-  data: {
-    id_fundo: string
-    data_operacao: string
-    valor: number
-    aceite_termo_adesao: 'N' | 'S'
-  }
-  onErrorToast: (toast: Omit<IToast, 'id'>) => void
-}
-
-export interface IGetIsAwareOfTermsPayload {
-  type: keyof typeof Types
-  payload: IGetIsAwareOfTermsData
-}
-
-export interface IGetIsAwareOfTermsResponse {
-  Message: {
-    TipoCritica: string
-    Mensagem: string
-  }
-  dados_para_aplicacao: {
-    conta_grafica: {
-      codigo_banco: string
-      nome_banco: string
-      agencia: string
-      conta: string
-      digito_conta: string
-      nome: string
-      cpf_cnpj: string
-    }
-  }
-}
-export interface IisAwareOfTermsAction {
-  type: keyof typeof Types
-  payload: IGetIsAwareOfTermsResponse
+  payload: IGetFinancialApplicationDataResponse
 }
 
 export interface IGetAlignmentTermsData {
@@ -124,6 +87,8 @@ export interface IGetAlignmentTermsData {
     valor_bruto: number
     id_fundo: string
   }
+  onSuccess: (data: IGetAlignmentTermsResponse) => void
+  onErrorToast: (toast: Omit<IToast, 'id'>) => void
 }
 
 export interface IGetAlignmentTermsPayload {
@@ -138,11 +103,13 @@ interface IFund {
 }
 
 export interface IGetAlignmentTermsResponse {
-  status_enquadramento: string
-  nota_rating_cotista: number
-  nota_rating_carteira: number
-  fundos_desenquadrados: {
-    fundo_desenquadrado: Array<IFund>
+  enquadramento_ordem_cotista: {
+    status_enquadramento: string
+    nota_rating_cotista: number
+    nota_rating_carteira: number
+    fundos_desenquadrados: {
+      fundo_desenquadrado: Array<IFund>
+    }
   }
 }
 
@@ -151,22 +118,24 @@ export interface IAlignmentTermsAction {
   payload: IGetAlignmentTermsResponse
 }
 
-export interface IPostFinantialApplicationData {
+export interface IPostFinancialApplicationData {
   data: {
     id_fundo: string
     valor: number
     data: string
     ciencia_desenquadramento: 'N' | 'S'
+    aceite_termo_adesao: 'N' | 'S'
   }
-  onErrorToast: (toast: Omit<IToast, 'id'>) => void
+  onSuccess: () => void
+  onError: () => void
 }
 
-export interface IPostFinantialApplicationPayload {
+export interface IPostFinancialApplicationPayload {
   type: keyof typeof Types
-  payload: IPostFinantialApplicationData
+  payload: IPostFinancialApplicationData
 }
 
-export interface IPostFinantialApplicationDataResponse {
+export interface IPostFinancialApplicationDataResponse {
   Message: {
     TipoCritica: string
     Mensagem: string
@@ -180,9 +149,9 @@ export interface IPostFinantialApplicationDataResponse {
   id_fundo: number
 }
 
-export interface IPostFinantialApplicationAction {
+export interface IPostFinancialApplicationAction {
   type: keyof typeof Types
-  payload: IPostFinantialApplicationDataResponse
+  payload: IPostFinancialApplicationDataResponse
 }
 export interface IError {
   message: {
@@ -192,5 +161,6 @@ export interface IError {
 }
 export interface IState {
   suitabilityInfo: { data: Object }
+  financialApplicationGetData: { data: Object }
   auth: Object
 }

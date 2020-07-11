@@ -1,13 +1,13 @@
 {
-  "finantial_post": {
-    "id_fundo": 5105,
-    "id_cotista": 0,
+  "financial_post": {
+    "data": "2020-07-20",
     "valor": 1000,
-    "data": "2020-07-15",
-    "cpf_cnpj": "33244452809",
-    "ciencia_desenquadramento": "S"
+    "id_fundo": "51380060",
+    "ciencia_desenquadramento": "S",
+    "cpf_cnpj": "37282985812",
+    "id_cotista": "2000121268"
   },
-  "finantial_application_is_aware_of_terms": {
+  "financial_application_is_aware_of_terms": {
     "Message": {
       "TipoCritica": "SUCESSO",
       "Mensagem": "SUCESSO"
@@ -25,25 +25,27 @@
     }
   },
   "alignment_terms_data": {
-    "status_enquadramento": "Desenquadrado",
-    "nota_rating_cotista": 3.3,
-    "nota_rating_carteira": 4.090905499356974,
-    "fundos_desenquadrados": {
-      "fundo_desenquadrado": [
-        {
-          "id_carteira": 5094,
-          "nome_fundo": "Porto Seguro Selecta FIC FIA",
-          "nota_rating": 5
-        },
-        {
-          "id_carteira": 5112,
-          "nome_fundo": "Porto Seguro Alocação FIC FIM",
-          "nota_rating": 4
-        }
-      ]
+    "enquadramento_ordem_cotista": {
+      "status_enquadramento": "Desenquadrado",
+      "nota_rating_cotista": 3.3,
+      "nota_rating_carteira": 4.090905499356974,
+      "fundos_desenquadrados": {
+        "fundo_desenquadrado": [
+          {
+            "id_carteira": 5094,
+            "nome_fundo": "Porto Seguro Selecta FIC FIA",
+            "nota_rating": 5
+          },
+          {
+            "id_carteira": 5112,
+            "nome_fundo": "Porto Seguro Alocação FIC FIM",
+            "nota_rating": 4
+          }
+        ]
+      }
     }
   },
-  "finantial_application": {
+  "financial_application": {
     "Message": {
       "TipoCritica": "SUCESSO",
       "Mensagem": "SUCESSO"
@@ -81,7 +83,7 @@
       },
       "id_cotista": 2000112690,
       "saldo_conta": 0,
-      "aderente_fundo": true,
+      "aderente_fundo": false,
       "fechado_aplicacao": false,
       "data_prevista_cotizacao": "2020-07-09T00:00:00-03:00",
       "data_prevista_liquidacao": "2020-07-09T00:00:00-03:00",
@@ -1675,7 +1677,7 @@
       "saldo_liquidar": "1003.40",
       "agencia": "0001",
       "codigo_banco": "306",
-      "saldo_disponivel": "1324000.43",
+      "saldo_disponivel": "50.43",
       "cpf": "33244452809",
       "encargos_acumulados": "0",
       "valores_bloqueados": {

@@ -1,7 +1,7 @@
 import {
   Types,
-  IGetFinantialApplicationAction,
-  IPostFinantialApplicationAction,
+  IGetFinancialApplicationAction,
+  IPostFinancialApplicationAction,
 } from './types'
 
 const INITIAL_STATE = {
@@ -10,9 +10,9 @@ const INITIAL_STATE = {
   hasError: false,
 }
 
-export const finantialApplicationGetData = function(
+export const financialApplicationGetData = function(
   state = INITIAL_STATE,
-  action: IGetFinantialApplicationAction
+  action: IGetFinancialApplicationAction
 ) {
   switch (action.type) {
     case Types.DATA_GET_REQUEST:
@@ -38,9 +38,9 @@ export const finantialApplicationGetData = function(
   }
 }
 
-export const finantialApplicationPostData = function(
+export const financialApplicationPostData = function(
   state = INITIAL_STATE,
-  action: IPostFinantialApplicationAction
+  action: IPostFinancialApplicationAction
 ) {
   switch (action.type) {
     case Types.DATA_POST_REQUEST:

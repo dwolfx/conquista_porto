@@ -47,7 +47,7 @@ const FormatEnabledCell = (
   const { suitabilityIsLoading, finatialApplicationIsLoading } = useSelector(
     state => ({
       suitabilityIsLoading: state.suitabilityInfo.isLoading,
-      finatialApplicationIsLoading: state.finantialApplicationGetData.isLoading,
+      finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
     })
   )
   return (

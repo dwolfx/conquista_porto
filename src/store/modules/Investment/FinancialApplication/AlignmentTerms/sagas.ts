@@ -9,7 +9,7 @@ import {
 } from './action'
 
 function* getAlignmentTermsData({
-  payload: { data },
+  payload: { data, onSuccess, onErrorToast },
 }: IGetAlignmentTermsPayload) {
   // data_operacao = YYYY-MM-DD
   const { data_operacao, valor_bruto, id_fundo } = data
@@ -23,8 +23,17 @@ function* getAlignmentTermsData({
       `${baseURLNamespaceInvest}/aws/cotista/aplicacoes/enquadramento?CodigoCanal=1&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${data_operacao}&tipo_operacao=1&valor_bruto=${valor_bruto}&id_fundo=${id_fundo}`
     )
     yield put(GetAlignmentTermsDataSuccess(response.data))
+
+    if (onSuccess) {
+      onSuccess(response.data)
+    }
   } catch (err) {
     yield put(GetAlignmentTermsDataFailure(err))
+    onErrorToast({
+      type: 'error',
+      description: 'Por favor, tente novamente.',
+      title: 'Erro ao enviar solicitação.',
+    })
   }
 }
 

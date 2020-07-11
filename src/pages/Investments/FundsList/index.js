@@ -2,14 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
 import moment from 'moment'
-// import { useLocation } from 'react-router-dom'
-// import { handleGiwRedirect } from 'helpers'
-import {
-  GetFinantialApplicationDataRequest,
-  // PostFinantialApplicationDataRequest,
-} from 'store/modules/Investment/FinantialApplication/action'
-// import { GetIsAwareOfTermsDataRequest } from 'store/modules/Investment/FinantialApplication/IsAwareOfTerms/action'
-// import { GetAlignmentTermsDataRequest } from 'store/modules/Investment/FinantialApplication/AlignmentTerms/action'
+import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
@@ -78,17 +71,16 @@ export default function FundsList() {
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
   const isTablet = useMedia('lg')
-  const funds = useSelector(state => state.investmentsList.data)
+  const { funds, fundsStatus, suitabilityData } = useSelector(state => ({
+    funds: state.investmentsList.data,
+    fundsStatus: state.investmentsList,
+    suitabilityData: state.suitabilityInfo.data,
+  }))
   const filteredFundsList = useFilter(filter, funds)
   const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [isAwareOfTerms, setIsAwareOfTerms] = useState(false)
-
-  const { fundsStatus, suitabilityData } = useSelector(state => ({
-    fundsStatus: state.investmentsList,
-    suitabilityData: state.suitabilityInfo.data,
-  }))
 
   useFetchInvestmentsList()
 
@@ -123,22 +115,23 @@ export default function FundsList() {
     setFiltersCount(totalFiltersCount)
   }, [filter, mobileFundSort])
 
-  const triggerFinantialApplication = (fundId, date, onSuccess) => {
+  const triggerFinancialApplication = (fundId, date, onSuccess) => {
     if (suitabilityData) {
       dispatch(
-        GetFinantialApplicationDataRequest({
+        GetFinancialApplicationDataRequest({
           data: {
             id_fundo: fundId,
             data_operacao: date,
           },
           onSuccess,
+          onErrorToast: addToast,
         })
       )
     }
   }
 
   const handleClickInvestButton = (fundId = null, hasDetailsFund = false) => {
-    const onSuccessFinantial = finantialData => {
+    const onSuccessFinancial = financialData => {
       if (suitabilityData.isValid) {
         setIsFundDetailOpen(false)
 
@@ -147,18 +140,18 @@ export default function FundsList() {
           dispatch(GetInvestmentDetailsRequest(fundId))
         }
 
-        setIsAwareOfTerms(finantialData.dados_para_aplicacao.aderente_fundo)
+        setIsAwareOfTerms(financialData.dados_para_aplicacao.aderente_fundo)
 
         // if fund return closed (fechado_aplicacao === true) and the operation date is the same as today,
-        // do another request to finantial application endpoint with the date of tomorrow (today date + 1), so that the API return the correct operation date.
+        // do another request to financial application endpoint with the date of tomorrow (today date + 1), so that the API return the correct operation date.
         // TODO: remove this when the API returns correctly data_operacao value.
         if (
-          finantialData.dados_para_aplicacao.fechado_aplicacao &&
-          moment(finantialData.dados_para_aplicacao.data_operacao).isSame(
+          financialData.dados_para_aplicacao.fechado_aplicacao &&
+          moment(financialData.dados_para_aplicacao.data_operacao).isSame(
             moment().format('YYYY-MM-DD')
           )
         ) {
-          triggerFinantialApplication(
+          triggerFinancialApplication(
             fundId,
             moment()
               .add(1, 'day')
@@ -175,10 +168,10 @@ export default function FundsList() {
 
     setModalSuitabilityInfo({ ...suitabilityData })
     if (suitabilityData.isValid) {
-      triggerFinantialApplication(
+      triggerFinancialApplication(
         fundId,
         moment().format('YYYY-MM-DD'),
-        onSuccessFinantial
+        onSuccessFinancial
       )
     }
   }

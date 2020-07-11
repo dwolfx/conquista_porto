@@ -25,7 +25,7 @@ describe('FormFinancialContribution', () => {
       whenToInvest: '20/10/2030',
     }
     const idFundo = '5105'
-    const finantialApplication = {
+    const financialApplication = {
       dados_para_aplicacao: {
         fundo: {
           hora_aplicacao: '23:59',
@@ -48,7 +48,7 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
-              finantialApplication={finantialApplication}
+              financialApplication={financialApplication}
               hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}
@@ -68,7 +68,7 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
-              finantialApplication={finantialApplication}
+              financialApplication={financialApplication}
               hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}
@@ -88,7 +88,7 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
-              finantialApplication={finantialApplication}
+              financialApplication={financialApplication}
               hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}
@@ -110,7 +110,7 @@ describe('FormFinancialContribution', () => {
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <FormFinancialContribution
-              finantialApplication={finantialApplication}
+              financialApplication={financialApplication}
               hasCheckbox
               onChangeFormData={mockOnChangeFormData}
               onFormHasChanged={mockOnFormHasChanged}

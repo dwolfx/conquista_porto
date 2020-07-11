@@ -168,9 +168,13 @@ const FundCard: React.FC<IFundCard> = ({
 
   const dispatch = useDispatch()
 
-  const suitabilityIsLoading = useSelector<any, any>(
-    state => state.suitabilityInfo.isLoading
-  )
+  const { suitabilityIsLoading, financialApplicationLoading } = useSelector<
+    any,
+    any
+  >(state => ({
+    suitabilityIsLoading: state.suitabilityInfo.isLoading,
+    financialApplicationLoading: state.financialApplicationGetData.isLoading,
+  }))
 
   useEffect(() => {
     if (!suitabilityIsLoading) {
@@ -332,7 +336,8 @@ const FundCard: React.FC<IFundCard> = ({
                 {fund.aplicao_liberada && (
                   <Button
                     loading={
-                      suitabilityIsLoading && clickedFund === fund.id_fundo
+                      (suitabilityIsLoading || financialApplicationLoading) &&
+                      clickedFund === fund.id_fundo
                     }
                     loadingColor="white"
                     color="secondary"

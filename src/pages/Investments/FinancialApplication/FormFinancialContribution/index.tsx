@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react'
-import 'styled-components/macro'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
-import { useToast } from 'hooks/toast'
+import 'styled-components/macro'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-
 import { GetPositionDataRequest } from 'store/modules/Investment/Position/action'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 
 import Text from 'components/Text'
-import Button from 'components/Button'
 import Divisor from 'components/Divisor'
 import MoneyInput from 'components/Inputs/Money'
 import DateInput from 'components/Inputs/DateInput'
@@ -18,12 +15,16 @@ import Checkbox from 'components/Inputs/Checkbox'
 
 import { formatMoneyDecimal, formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 
-import { isPastDate, isInvalidDate, formatMoneyToNumber } from './utils'
-
+import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 import { IFormData } from 'pages/Investments/FinancialApplication'
 
+import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
+
+import { isPastDate, isInvalidDate, formatMoneyToNumber } from './utils'
 import {
+  Button,
   CardStyled,
   CheckboxContainer,
   BalanceInfoContainer,
@@ -37,8 +38,6 @@ import {
   CardFooter,
   FixedBottom,
 } from './styles'
-import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
-import { GetFinantialApplicationDataRequest } from 'store/modules/Investment/FinantialApplication/action'
 
 interface IProps {
   hasCheckbox: boolean
@@ -48,7 +47,7 @@ interface IProps {
   onChangeFormData: (formData: IFormData) => void
   onFormHasChanged: (formChanged: boolean) => void
   idFundo: string
-  finantialApplication: {
+  financialApplication: {
     dados_para_aplicacao: {
       fundo: {
         hora_aplicacao: string
@@ -57,9 +56,11 @@ interface IProps {
       data_operacao: string
     }
   }
+  nextButtonLoading: boolean
+  operationDate: string
 }
 
-const FormFinancialContribution: React.FC<IProps> = ({
+const FormFinancialContribution = ({
   hasCheckbox,
   formData,
   formDataCopy,
@@ -67,25 +68,36 @@ const FormFinancialContribution: React.FC<IProps> = ({
   onChangeFormData,
   onFormHasChanged,
   idFundo,
-  finantialApplication,
-}) => {
+  financialApplication,
+  nextButtonLoading,
+  operationDate,
+}: IProps) => {
   useFetchBankData()
   const dispatch = useDispatch()
+  const { addToast } = useToast()
   const isTabletOrSmaller = useMedia('md')
   const isMobile = useMedia('xs')
-  const { addToast } = useToast()
 
-  const finantialData = finantialApplication.dados_para_aplicacao
-  const { limitHour, link, operationDate } = {
-    limitHour: finantialData.fundo.hora_aplicacao,
-    link: finantialData.fundo.link_termo_adesao,
-    operationDate: finantialData.data_operacao,
+  const [showError, setShowError] = useState(false)
+
+  const financialData = financialApplication.dados_para_aplicacao
+  const { limitHour, link } = {
+    limitHour: financialData.fundo.hora_aplicacao,
+    link: financialData.fundo.link_termo_adesao,
   }
 
-  const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
+  const {
+    bankData,
+    investmentPosition,
+    auth,
+    financialApplicationLoading,
+    alignmentTermsLoading,
+  } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
     auth: state.auth,
+    financialApplicationLoading: state.financialApplicationGetData.isLoading,
+    alignmentTermsLoading: state.alignmentTerms.isLoading,
   }))
 
   useEffect(() => {
@@ -187,7 +199,10 @@ const FormFinancialContribution: React.FC<IProps> = ({
 
   const isDateInvalid = () =>
     isInvalidDate(formData!.whenToInvest) ||
-    isPastDate(formData!.whenToInvest, operationDate)
+    isPastDate(
+      formData!.whenToInvest,
+      financialApplication.dados_para_aplicacao.data_operacao
+    )
 
   const isMoneyLessThanAllowed = () => {
     if (formDataCopy && formData) {
@@ -200,16 +215,29 @@ const FormFinancialContribution: React.FC<IProps> = ({
   }
 
   const handleClickButtonNext = () => {
-    dispatch(
-      GetFinantialApplicationDataRequest({
-        data: {
-          id_fundo: idFundo,
-          data_operacao: moment().format('YYYY-MM-DD'),
-        },
-        onSuccess: () => nextStep(),
-        onErrorToast: addToast,
-      })
-    )
+    if (
+      !moment(formData.whenToInvest, 'DD/MM/YYYY').isSame(
+        moment(financialApplication.dados_para_aplicacao.data_operacao)
+      )
+    ) {
+      dispatch(
+        GetFinancialApplicationDataRequest({
+          data: {
+            id_fundo: idFundo,
+            data_operacao: moment(formData.whenToInvest, 'DD/MM/YYYY').format(
+              'YYYY-MM-DD'
+            ),
+          },
+          onSuccess: () => {
+            setShowError(false)
+            nextStep()
+          },
+          onErrorToast: addToast,
+        })
+      )
+    } else {
+      nextStep()
+    }
   }
 
   const buttonNext = () => (
@@ -217,11 +245,24 @@ const FormFinancialContribution: React.FC<IProps> = ({
       color="secondary"
       onClick={handleClickButtonNext}
       disabled={
-        isDateInvalid() || isMoneyLessThanAllowed() || !formData.isAwareOfTerms
+        (isDateInvalid() && showError) ||
+        isMoneyLessThanAllowed() ||
+        !formData.isAwareOfTerms ||
+        bankData.isLoading ||
+        bankData.hasError ||
+        investmentPosition.isLoading ||
+        investmentPosition.hasError ||
+        financialApplicationLoading ||
+        nextButtonLoading ||
+        alignmentTermsLoading
       }
-      css={`
-        width: ${isMobile ? '100%' : 'auto'};
-      `}
+      loading={
+        financialApplicationLoading ||
+        nextButtonLoading ||
+        alignmentTermsLoading
+      }
+      loadingColor="white"
+      isMobile={isMobile}
     >
       Próximo
     </Button>
@@ -277,6 +318,7 @@ const FormFinancialContribution: React.FC<IProps> = ({
                 data-gtm-form="input"
                 data-gtm-name="quando investir"
                 onChange={({ target }: any) => {
+                  setShowError(true)
                   onChangeFormData({
                     ...formData,
                     whenToInvest: target.value,
@@ -284,7 +326,8 @@ const FormFinancialContribution: React.FC<IProps> = ({
                 }}
                 value={formData.whenToInvest}
                 error={
-                  isDateInvalid() && {
+                  isDateInvalid() &&
+                  showError && {
                     icon: 'alertrounded',
                     message: 'Digite uma data válida',
                   }
