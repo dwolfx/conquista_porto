@@ -85,6 +85,13 @@ router.render = (req, res) => {
       return res.status(204).jsonp({})
     }
   }
+  if (req.originalUrl.endsWith('/teclado-virtual')) {
+    if (req.method === 'POST') {
+      return res
+        .status(200)
+        .jsonp('[{"a":"6,7"},{"b":"2,1"},{"c":"4,9"},{"d":"8,3"},{"e":"0,5"}]]')
+    }
+  }
 
   return res.jsonp(res.locals.data)
 }

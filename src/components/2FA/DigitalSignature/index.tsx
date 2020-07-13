@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import Text from 'components/Text'
 import Button from 'components/Button'
@@ -21,24 +22,7 @@ interface IProps {
 }
 
 const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
-  const payload = [
-    {
-      a: '1,7',
-    },
-    {
-      b: '0,2',
-    },
-    {
-      c: '5,8',
-    },
-    {
-      d: '9,4',
-    },
-    {
-      e: '6,3',
-    },
-  ]
-
+  const { data } = useSelector((state: any) => state.virtualKeyboard)
   const [signature, setSignature] = useState<string>('')
 
   const handleVirtualKeyboardKey = (item: any) => {
@@ -46,6 +30,7 @@ const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
     return (
       <Key
         key={key}
+        role="button"
         onClick={() => {
           if (signature.length < 6) {
             setSignature(prevState => `${prevState}${key}`)
@@ -77,8 +62,9 @@ const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
           data-gtm-name="autenticacao assinature eletronica"
         />
         <VirtualKeyboard>
-          {payload.map(handleVirtualKeyboardKey)}
+          {data && data.map(handleVirtualKeyboardKey)}
           <Key
+            role="button"
             onClick={() => {
               if (signature.length > 0) {
                 setSignature(prevState =>
@@ -107,6 +93,7 @@ const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
         </Button>
         <Button
           color="secondary"
+          disabled={signature.length < 6}
           onClick={onConfirm}
           data-gtm-type="click"
           data-gtm-clicktype="button"
