@@ -1,0 +1,66 @@
+import React from 'react'
+
+import userEvent from '@testing-library/user-event'
+import { renderWithReduxAndTheme } from 'testUtils'
+import { storeFactory } from 'setupTests'
+
+import DigitalSignature from '.'
+
+const defaultStore = {
+  virtualKeyboard: {
+    data: [
+      { a: '6,7' },
+      { b: '2,1' },
+      { c: '4,9' },
+      { d: '8,3' },
+      { e: '0,5' },
+    ],
+  },
+}
+
+const setup = (initialState: any = defaultStore) => {
+  const store = storeFactory(initialState)
+
+  return renderWithReduxAndTheme(
+    <DigitalSignature onPrevious={() => {}} onConfirm={() => {}} />,
+    { store }
+  )
+}
+
+describe('DigitalSignature', () => {
+  it('should render with 5 buttons', () => {
+    const { getByText } = setup()
+    defaultStore.virtualKeyboard.data.forEach((item: any) => {
+      const [key] = Object.keys(item)
+      expect(getByText(item[key].replace(',', ' ou '))).toBeInTheDocument()
+    })
+  })
+
+  test('if "confirmar" button becomes disabled when has less than 6 digits typed', () => {
+    const { getByText, getByRole } = setup()
+    const buttonNode = getByRole('button', { name: 'confirmar' })
+    userEvent.click(getByText('6 ou 7'))
+    userEvent.click(getByText('2 ou 1'))
+    userEvent.click(getByText('4 ou 9'))
+    userEvent.click(getByText('4 ou 9'))
+    userEvent.click(getByText('8 ou 3'))
+    expect(buttonNode).toBeDisabled()
+
+    userEvent.click(getByText('4 ou 9'))
+    expect(buttonNode).toBeEnabled()
+  })
+
+  test('if delete button is actually working', () => {
+    const { getByText, getByRole } = setup()
+    const buttonNode = getByRole('button', { name: 'confirmar' })
+    userEvent.click(getByText('6 ou 7'))
+    userEvent.click(getByText('2 ou 1'))
+    userEvent.click(getByText('4 ou 9'))
+    userEvent.click(getByText('4 ou 9'))
+    userEvent.click(getByText('8 ou 3'))
+    userEvent.click(getByText('4 ou 9'))
+    expect(buttonNode).toBeEnabled()
+    userEvent.click(getByText('backspace.svg'))
+    expect(buttonNode).toBeDisabled()
+  })
+})

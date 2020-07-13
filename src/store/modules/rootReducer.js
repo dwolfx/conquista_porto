@@ -24,6 +24,7 @@ import suitability from './Suitability/reducer'
 import suitabilityInfo from './SuitabilityInfo/reducer'
 import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
+import virtualKeyboard from './VirtualKeyboard/reducer'
 
 export default combineReducers({
   bankData,
@@ -50,4 +51,5 @@ export default combineReducers({
   suitabilityInfo,
   rewardsRecommendations,
   rewardsTypes,
+  virtualKeyboard,
 })

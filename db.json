@@ -5013,5 +5013,6 @@
     "nomeCliente": "Rubao",
     "dataNascimento": "1981-11-11T00:00:00-03:00",
     "cep": "01010010"
-  }
+  },
+  "virtual-keyboard": {}
 }

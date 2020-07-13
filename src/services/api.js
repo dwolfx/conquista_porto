@@ -7,6 +7,7 @@ import {
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
   baseURLNamespaceRewards,
+  baseURLNamespaceAuth2,
   responseInterceptor,
   responseErrorInterceptor,
   requestInterceptor,
@@ -48,4 +49,5 @@ export {
   baseURLNamespaceRewards,
   baseURLNamespaceInvest,
   baseURLNamespacePortopar,
+  baseURLNamespaceAuth2,
 }
