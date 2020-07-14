@@ -5014,5 +5014,27 @@
     "dataNascimento": "1981-11-11T00:00:00-03:00",
     "cep": "01010010"
   },
-  "virtual-keyboard": {}
+  "virtual_keyboard": {
+    "usuario": "33244452809",
+    "organizacao": "CLIENTES_HML"
+  },
+  "token_sms_email": {
+    "usuario": "33244452809",
+    "organizacao": "CLIENTES_HML",
+    "tipo": "email_otp"
+  },
+  "personal_data_2fa": [
+    {
+      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..RHjW8kd_yPr3I4RMYdc7Xw.dyW3YqgAGXb39pUGQY1Rhw.O-J7ZjDuhVpcd-D-GBh9YQ",
+      "name": "assinatura"
+    },
+    {
+      "value": "16955255825",
+      "name": "sms_otp"
+    },
+    {
+      "value": "ph@sciensa.com.br",
+      "name": "email_otp"
+    }
+  ]
 }
