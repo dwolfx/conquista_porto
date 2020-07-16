@@ -18,6 +18,7 @@ import {
   CustomCol,
   Container,
 } from './styles'
+import { useSelector } from 'react-redux'
 
 const Redeem = () => {
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
@@ -25,6 +26,9 @@ const Redeem = () => {
   const history = useHistory()
   const isMobile = useMedia('xs')
   const themeContext = useContext(ThemeContext)
+  const { idFund } = useSelector((state: any) => ({
+    idFund: state.investmentPosition.idFund
+  }))
 
   const maxSteps = 4
 
@@ -37,11 +41,12 @@ const Redeem = () => {
       step={step}
       setStep={setStep}
       onChangeFundDetailOpen={setFundDetailOpen}
+      idFundo={idFund}
     />
   ]
 
   const getBodyContent = () => {
-    return stepsContent[step]
+    return stepsContent[step - 1] //Step index
   }
 
   return (
