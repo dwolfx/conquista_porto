@@ -129,7 +129,6 @@ const LastTransations = () => {
       titleNode={
         <TextAccordionHeader>Últimas Movimentações</TextAccordionHeader>
       }
-      openByDefault
       triggerCloseOnArrow
     >
       <Divisor />
