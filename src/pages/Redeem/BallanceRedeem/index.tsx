@@ -8,12 +8,12 @@ import {
   CardStyled,
 } from './styles'
 
-interface IRedeemCard {
+interface IBallanceRedeem {
   step: number
   setStep: (step: number) => void
   onChangeFundDetailOpen: (isOpen: boolean) => void
 }
-const RedeemCard = ({ step, setStep, onChangeFundDetailOpen }: IRedeemCard) => {
+const BallanceRedeem = ({ step, setStep, onChangeFundDetailOpen }: IBallanceRedeem) => {
   const isMobile = useMedia('xs')
 
   const nextStep = () => {
@@ -71,4 +71,4 @@ const RedeemCard = ({ step, setStep, onChangeFundDetailOpen }: IRedeemCard) => {
   )
 }
 
-export default RedeemCard
+export default BallanceRedeem

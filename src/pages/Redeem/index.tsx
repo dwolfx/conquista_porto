@@ -11,7 +11,8 @@ import TransactionHeader from 'components/Header/TransactionsHeader'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 
-import RedeemCard from './RedeemCard'
+//Steps
+import BallanceRedeem from './BallanceRedeem'
 
 import {
   CustomCol,
@@ -20,20 +21,33 @@ import {
 
 const Redeem = () => {
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
-  const themeContext = useContext(ThemeContext)
+  const [step, setStep] = useState<number>(1)
   const history = useHistory()
   const isMobile = useMedia('xs')
+  const themeContext = useContext(ThemeContext)
 
   const maxSteps = 4
-  const [step, setStep] = useState<number>(1)
+
+  const goBackHandler = () => step !== 1
+    ? setStep(currentStep => currentStep - 1)
+    : history.goBack()
+
+  const stepsContent = [
+    <BallanceRedeem 
+      step={step}
+      setStep={setStep}
+      onChangeFundDetailOpen={setFundDetailOpen}
+    />
+  ]
+
+  const getBodyContent = () => {
+    return stepsContent[step]
+  }
+
   return (
     <>
     <TransactionHeader
-      onBack={() =>
-        step !== 1
-          ? setStep(currentStep => currentStep - 1)
-          : history.goBack()
-      }
+      onBack={goBackHandler}
       onClose={() => history.push('/')}
       showBackButton={step !== 1}
       showStepsBar
@@ -52,11 +66,7 @@ const Redeem = () => {
           </CustomCol>
         )}
         <CustomCol md={8} lg={9}>
-          <RedeemCard 
-            step={step}
-            setStep={setStep}
-            onChangeFundDetailOpen={setFundDetailOpen}
-          />
+          {getBodyContent()}
         </CustomCol>
       </Row>
       <Row
