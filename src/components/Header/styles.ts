@@ -26,7 +26,7 @@ export const BgWrapper = styled.div<BgWrapperProps>`
 
 export const FixedHeaderContainer = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 `
 
 export const GridContainer = styled(Container)`
