@@ -38,7 +38,7 @@ const Home = ({ location }) => {
   }
 
   useEffect(() => {
-    dispatch(GetCustomerProfileRequest(auth.cpf))
+    dispatch(GetCustomerProfileRequest())
     dispatch(GetSuitabilityInfoRequest(auth.cpf))
     dispatch(GetCreditCardDataRequest(auth.cpf))
     handleFetchInvestments()

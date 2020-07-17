@@ -6,10 +6,9 @@ interface ICustomerProfile {
   emailCliente: string
 }
 
-export function GetCustomerProfileRequest(cpfCnpj: string) {
+export function GetCustomerProfileRequest() {
   return {
     type: Types.CUSTOMER_PROFILE_GET_DATA_REQUEST,
-    payload: { cpfCnpj },
   }
 }
 
