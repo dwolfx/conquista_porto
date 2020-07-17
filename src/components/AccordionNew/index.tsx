@@ -11,7 +11,7 @@ import {
 
 interface IProps {
   bodyPadding?: string
-  openByDefault: boolean
+  openByDefault?: boolean
   titleNode: React.ReactNode | string
   triggerCloseOnArrow: boolean
 }
@@ -19,7 +19,7 @@ interface IProps {
 const AccordionNew: React.FC<IProps> = ({
   bodyPadding,
   children,
-  openByDefault,
+  openByDefault = false,
   titleNode,
   triggerCloseOnArrow,
   ...rest
