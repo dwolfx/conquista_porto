@@ -32,5 +32,7 @@
   "/rewards/recommendations": "/recommendations_rewards",
   "/rewards/types": "/rewards_types",
   "/perfil/dados-cliente?cpfCnpj=:cpfCnpj": "/dados-cliente",
-  "/teclado-virtual": "/virtual-keyboard"
+  "/auth2/teclado-virtual": "/virtual_keyboard",
+  "/auth2/otp": "/token_sms_email",
+  "/auth2/cadastro-dispositivo\\?cpf=:cpf&organizacao=:organizacao": "/personal_data_2fa?cpf=:cpf&organizacao=:organizacao"
 }
