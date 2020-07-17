@@ -41,12 +41,17 @@ const LastTransations = () => {
   const handleBankExtractFundRequest = useCallback(() => {
     // este ternário existe apenas enquanto aguardamos a definição da estória que define o fundo selecionado inicialmente
     // vai ser removido
-    dispatch(
-      GetBankExtractFundRequest(
-        { idFundo: investmentPosition.idFund ? investmentPosition.idFund : 1 },
-        auth.cpf
+    if (investmentPosition.idFund) {
+      dispatch(
+        GetBankExtractFundRequest(
+          {
+            idFundo: investmentPosition.idFund,
+            tipoFiltro: 30,
+          },
+          auth.cpf
+        )
       )
-    )
+    }
   }, [dispatch, auth.cpf, investmentPosition.idFund])
 
   useEffect(() => {
@@ -54,7 +59,7 @@ const LastTransations = () => {
   }, [handleBankExtractFundRequest])
 
   const renderContent = () => {
-    if (bankExtractFund.isLoading) {
+    if (bankExtractFund.isLoading || investmentPosition.isLoading) {
       return (
         <InfoContainer>
           <LoadingStyled
