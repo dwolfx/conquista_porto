@@ -31,5 +31,5 @@
   "/goal/goals/bytype/:id": "/goal_bytype",
   "/rewards/recommendations": "/recommendations_rewards",
   "/rewards/types": "/rewards_types",
-  "/perfil/dados-cliente?cpfCnpj=:cpfCnpj": "/dados-cliente"
+  "/invest/aws/cliente/dados": "/dados-cliente"
 }
