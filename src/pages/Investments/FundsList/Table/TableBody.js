@@ -30,6 +30,7 @@ const TableBody = ({
             handleOpenDetail(row.original.id_fundo)
             setIsOpenForInvestments(row.original.aplicao_liberada)
           }}
+          data-testid="fund-row"
         >
           {row.cells.map(cell => {
             const styles = cell.column.styles || cell.column

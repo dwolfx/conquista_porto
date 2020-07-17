@@ -18,7 +18,7 @@ function* getData(action) {
     const investmentList = yield select(getInvestmentList)
 
     let name = ''
-    if (action.fundId) {
+    if (action.fundId && investmentList.data.length > 0) {
       const foundResult = investmentList.data.find(
         fundo => fundo.id_fundo === action.fundId
       )

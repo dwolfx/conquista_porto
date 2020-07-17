@@ -38,6 +38,7 @@ const SimpleHeader = ({ header }) => {
       width={styles.width}
       minWidth={styles.minWidth}
       canSort={header.canSort}
+      data-testid={header.dataTestId}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
       <TheadContent
@@ -150,6 +151,7 @@ export default function TableFunds({
             <Loading
               type="bar"
               legend="Buscando informações dos fundos de investimentos…"
+              data-testid="funds-loading"
             />
           </InfoTableContent>
         </InfoTableContainer>
@@ -270,6 +272,7 @@ SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    dataTestId: PropTypes.string.isRequired,
     minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     styles: PropTypes.shape({

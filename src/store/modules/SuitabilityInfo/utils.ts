@@ -67,7 +67,7 @@ const getInvestmentModalContent = (
         handleClick: () => {
           window.location.href = `https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${
             customerProfile ? customerProfile.cpfCnpj : ''
-          }&nome=${customerProfile ? customerProfile.customerName : ''}`
+            }&nome=${customerProfile ? customerProfile.customerName : ''}`
         },
         buttonName: 'Conversar',
       },
@@ -184,7 +184,7 @@ const getRedeemModalContent = (
         handleClick: () => {
           window.location.href = `https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${
             customerProfile ? customerProfile.cpfCnpj : ''
-          }&nome=${customerProfile ? customerProfile.customerName : ''}`
+            }&nome=${customerProfile ? customerProfile.customerName : ''}`
         },
         buttonName: 'Conversar',
       },
@@ -242,7 +242,7 @@ const getWithdrawModalContent = (
         handleClick: () => {
           window.location.href = `https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${
             customerProfile ? customerProfile.cpfCnpj : ''
-          }&nome=${customerProfile ? customerProfile.customerName : ''}`
+            }&nome=${customerProfile ? customerProfile.customerName : ''}`
         },
         buttonName: 'Conversar',
       },

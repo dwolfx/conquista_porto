@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { dict } from 'components/IconExporter'
 
 export interface IProps {
-  color?: 'primary' | 'secondary'
+  color?: 'primary' | 'secondary' | 'transparent'
   icon: keyof typeof dict
   size?: 'small' | 'medium' | 'large'
   iconWidth?: number | string
@@ -54,11 +54,9 @@ const handleSizing = (props: IButtonProps) => {
 const handleButtonColor = (props: any) => {
   switch (props.color) {
     case 'primary':
-      return `linear-gradient(90deg, ${props.theme.colors.blue4} 0%,
-        ${props.theme.colors.blue5} 146.43%
-      )`
+      return `linear-gradient(90deg, ${props.theme.colors.blue4} 0%, ${props.theme.colors.blue5} 146.43%)`
     case 'secondary':
-      return `linear-gradient(90deg, ${props.theme.colors.green3} 0%, ${props.theme.colors.green5} 201.79%);`
+      return `linear-gradient(90deg, ${props.theme.colors.green3} 0%, ${props.theme.colors.green5} 201.79%)`
     case 'transparent':
       return props.theme.colors.unset
     default:

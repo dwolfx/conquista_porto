@@ -44,8 +44,11 @@ const FormatEnabledCell = (
   handleLayerOpen,
   clickedFundInvestButton
 ) => {
-  const suitabilityIsLoading = useSelector(
-    state => state.suitabilityInfo.isLoading
+  const { suitabilityIsLoading, finatialApplicationIsLoading } = useSelector(
+    state => ({
+      suitabilityIsLoading: state.suitabilityInfo.isLoading,
+      finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
+    })
   )
   return (
     <WrapperContent isTbody lineHeight="0">
@@ -58,7 +61,7 @@ const FormatEnabledCell = (
           type="button"
           loading={
             column.cell.row.original.id_fundo === clickedFundInvestButton &&
-            suitabilityIsLoading
+            (suitabilityIsLoading || finatialApplicationIsLoading)
           }
           loadingColor="white"
           color="secondary"

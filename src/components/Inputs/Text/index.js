@@ -24,6 +24,7 @@ export default function Text({
   error,
   value,
   isLabelFixed,
+  dataTestId,
   ...rest
 }) {
   return (
@@ -43,6 +44,7 @@ export default function Text({
         type={type || 'text'}
         onChange={onChange}
         value={value}
+        data-testid={dataTestId}
         {...rest}
       />
     </InputWrapper>
@@ -63,7 +65,9 @@ Text.propTypes = {
   isLabelFixed: PropTypes.bool,
   error: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  dataTestId: PropTypes.string,
 }
+
 Text.defaultProps = {
   label: '',
   type: 'text',
@@ -78,4 +82,5 @@ Text.defaultProps = {
   isLabelFixed: false,
   error: false,
   value: '',
+  dataTestId: 'input',
 }

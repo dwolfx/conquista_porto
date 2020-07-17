@@ -1,11 +1,13 @@
 import styled from 'styled-components'
-import VerticalList from 'components/VerticalList'
+import { Col, Row } from 'styled-bootstrap-grid'
+
+import ButtonCmp from 'components/Button'
+import Card from 'components/Card'
+import { CardBody } from 'components/Card/styles'
 import Divisor from 'components/Divisor'
 import Loading from 'components/Loading'
 import Icon from 'components/IconExporter'
-import Card from 'components/Card'
-import { CardBody } from 'components/Card/styles'
-import { Col, Row } from 'styled-bootstrap-grid'
+import VerticalList from 'components/VerticalList'
 
 export const CardStyled = styled(Card)`
   height: 100%;
@@ -52,7 +54,9 @@ export const DivisorStyled = styled(Divisor)<{ margin: string }>`
   margin: ${props => props.margin};
 `
 
-export const InputsContainer = styled(Row)``
+export const InputsContainer = styled(Row)`
+  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+`
 
 export const InputContainer = styled(Col)`
   @media ${props => props.theme.mediaQueries.xs} {
@@ -85,4 +89,33 @@ export const CardFooter = styled.div`
   width: 100%;
   text-align: right;
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+
+  margin: ${({ theme }) =>
+    `${theme.spacing(3)}px 0 ${theme.spacing(3)}px ${theme.spacing(1)}px`};
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: ${({ theme }) =>
+      `${theme.spacing(3)}px 0 ${theme.spacing(3)}px ${theme.spacing(3)}px`};
+  }
+`
+
+export const ExternalLink = styled.a`
+  color: ${({ theme }) => theme.colors.blue4};
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+interface IButton {
+  isMobile?: boolean
+}
+
+export const Button = styled(ButtonCmp)<IButton>`
+  width: ${({ isMobile }) => (isMobile ? '100%' : 'auto')};
+  min-width: 112px;
 `

@@ -45,8 +45,8 @@ const Home = ({ location }) => {
     dispatch(GetVehicleFinancingDataRequest(auth.cpf))
     dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
     dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
-    dispatch(GetLifeInsuranceDataRequest(auth.cpf))
-    dispatch(GetTripInsuranceDataRequest(auth.cpf))
+    dispatch(GetLifeInsuranceDataRequest())
+    dispatch(GetTripInsuranceDataRequest())
     dispatch(GetPointsExtractRequest(auth.cpf))
     dispatch(GetBankDataRequest(auth.cpf))
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -86,7 +86,7 @@ const Home = ({ location }) => {
       {/* <ManagerObjective /> */}
       <Wrapper>
         <GridRow>
-          <GridCol md="1" id="menu">
+          <GridCol md="1" sm="7" id="menu">
             <Menu scrollFunc={scrollPage} ref1={row1} ref2={row2} ref3={row3} />
           </GridCol>
           <GridCol md="11">

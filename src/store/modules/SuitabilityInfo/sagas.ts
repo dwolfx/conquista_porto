@@ -75,20 +75,28 @@ function* getDataValidate({ payload }: IPayload) {
       )
       suitabilityInfo = { ...response.data }
     }
-    yield put(GetDataSuccess(suitabilityInfo))
+
+    let handleButton: { isValid?: boolean } = {}
 
     switch (buttonType) {
       case 'investir':
-        onSuccess(handleInvestButton(suitabilityInfo, customerProfile))
+        handleButton = handleInvestButton(suitabilityInfo, customerProfile)
         break
       case 'resgatar':
-        onSuccess(handleRedeemButton(suitabilityInfo, customerProfile))
+        handleButton = handleRedeemButton(suitabilityInfo, customerProfile)
         break
       case 'retirar':
-        onSuccess(handleWithdrawButton(suitabilityInfo, customerProfile))
+        handleButton = handleWithdrawButton(suitabilityInfo, customerProfile)
         break
       default:
+        handleButton = { isValid: false }
         break
+    }
+
+    yield put(GetDataSuccess({ ...suitabilityInfo, ...handleButton }))
+
+    if (onSuccess) {
+      onSuccess(handleButton)
     }
   } catch (err) {
     yield put({

@@ -6,8 +6,8 @@
   "/previdencia\\?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal": "/previdencia_privada?cpfCnpj=:cpfCnpj&codigoCanal=:codigoCanal",
   "/produtos/financiamento\\?cpf=:cpf&codigoCanal=:codigoCanal": "/financiamento_veiculo?cpf=:cpf&codigoCanal=:codigoCanal",
   "/invest/conta/dados\\?cpf=:cpf&codigoCanal=:codigoCanal": "/conta_porto?cpf=:cpf&codigoCanal=:codigoCanal",
-  "/invest/produtos/vida\\?cpfCnpj=:cpf&codigoCanal=:codigoCanal&tipoSeguro=VIDA": "/seguro_vida",
-  "/invest/produtos/vida\\?cpfCnpj=:cpf&codigoCanal=:codigoCanal&tipoSeguro=VIAGEM": "/seguro_viagem",
+  "/invest/portovida/produto\\?codigo-canal=:codigoCanal&tipo-seguro=VIDA": "/seguro_vida",
+  "/invest/portovida/produto\\?codigo-canal=:codigoCanal&tipo-seguro=VIAGEM": "/seguro_viagem",
   "/invest/financiamentos/auto\\?Cpf=:Cpf&codigoCanal=:codigoCanal": "/financiamento_veiculo?Cpf=:Cpf&codigoCanal=:codigoCanal",
   "/invest/fundos": "/fundos_lista",
   "/invest/fundos/:fundId\\?codigoCanal=:codigoCanal": "/fundo_detalhe",
@@ -31,5 +31,14 @@
   "/goal/goals/bytype/:id": "/goal_bytype",
   "/rewards/recommendations": "/recommendations_rewards",
   "/rewards/types": "/rewards_types",
-  "/invest/aws/cliente/dados": "/dados-cliente"
+  "/invest/aws/cliente/dados": "/dados-cliente",
+  "/auth2/teclado-virtual": "/virtual_keyboard",
+  "/auth2/otp": "/token_sms_email",
+  "/auth2/cadastro-dispositivo\\?cpf=:cpf&organizacao=:organizacao": "/personal_data_2fa?cpf=:cpf&organizacao=:organizacao",
+  "/perfil/dados-cliente?cpfCnpj=:cpfCnpj": "/dados-cliente",
+  "/teclado-virtual": "/virtual-keyboard",
+  "/invest/aws/cotista/aplicacoes": "/financial_post",
+  "/invest/aws/cotista/aplicacoes?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao": "/financial_application",
+  "/invest/aws/cotista/aplicacoes/resumo?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&valor=:valor&aceite_termo_adesao=:aceite_termo_adesao": "/financial_application_is_aware_of_terms",
+  "/invest/aws/cotista/aplicacoes/enquadramento?CodigoCanal=:CodigoCanal&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&tipo_operacao=:tipo_operacao&valor_bruto=:valor_bruto&id_fundo=:id_fundo": "/alignment_terms_data"
 }

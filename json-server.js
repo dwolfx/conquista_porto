@@ -12,6 +12,7 @@ const objectiveMock = require('./src/mocks/objective.json')
 const objectiveMock2 = require('./src/mocks/objective2.json')
 const objectivesMock = require('./src/mocks/objectives.json')
 const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
+const financialApplicationMock = require('./src/mocks/financialApplication.json')
 
 server.use(middlewares)
 
@@ -83,6 +84,18 @@ router.render = (req, res) => {
     }
     if (req.method === 'DELETE') {
       return res.status(204).jsonp({})
+    }
+  }
+  if (req.originalUrl.endsWith('/teclado-virtual')) {
+    if (req.method === 'POST') {
+      return res
+        .status(200)
+        .jsonp('[{"a":"6,7"},{"b":"2,1"},{"c":"4,9"},{"d":"8,3"},{"e":"0,5"}]]')
+    }
+  }
+  if (req.originalUrl.endsWith('/cotista/aplicacoes')) {
+    if (req.method === 'POST') {
+      return res.jsonp({ ...financialApplicationMock })
     }
   }
 

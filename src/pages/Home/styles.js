@@ -12,6 +12,7 @@ import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
 import AccordionNewComponent from 'components/AccordionNew'
 import { LegendText } from 'components/Loading/styles'
+import VerticalList from 'components/VerticalList'
 
 export const GridContainer = styled(Container)``
 
@@ -25,7 +26,7 @@ export const GridRow = styled(Row)`
 
     @media ${props => props.theme.mediaQueries.md} {
       height: auto;
-      margin-bottom: 14px;
+      margin-bottom: ${({ theme }) => theme.spacing(2)}px;
     }
   }
   &#t3 {
@@ -34,20 +35,26 @@ export const GridRow = styled(Row)`
 `
 
 export const HorizontalListWithMargin = styled(HorizontalList)`
-  margin-bottom: 7px;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
 `
 
 export const GridCol = styled(Col)`
   &#menu {
     transition: all 0.35s ease-in-out;
-
+    padding: 0 ${({ theme }) => theme.spacing(2)}px;
     @media ${props => props.theme.mediaQueries.md} {
-      bottom: 14px;
+      max-width: 560px;
+      bottom: ${({ theme }) => theme.spacing(2)}px;
+      left: 0;
+      right: 0;
       height: 63px;
-      margin-left: 7px;
+      margin-left: auto;
+      margin-right: auto;
       position: fixed;
-      width: calc(100% - 14px);
       z-index: 1;
+    }
+    @media ${props => props.theme.mediaQueries.sm} {
+      max-width: 490px;
     }
   }
 `
@@ -68,7 +75,7 @@ export const SectionCol = styled(Col)`
   }
 
   @media ${props => props.theme.mediaQueries.md} {
-    margin-bottom: 14px;
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   }
 
   @media all and (-moz-images-in-menus: 0) {
@@ -79,6 +86,10 @@ export const SectionCol = styled(Col)`
 
 export const Wrapper = styled.div`
   margin: 30px auto;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    margin: ${({ theme }) => theme.spacing(13)}px auto;
+  }
 `
 
 export const FullHeightCard = styled(Card)`
@@ -99,8 +110,8 @@ export const BannerTips = styled(Banner)`
 export const BannerTipTitle = styled(Text)`
   ${props => props.theme.fontTypes.heading3};
   font-weight: normal;
-  margin-bottom: 7px;
-  margin-top: 7px;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
 
   @media ${props => props.theme.mediaQueries.md} {
     ${props => props.theme.fontTypes.heading4};
@@ -125,7 +136,7 @@ export const PointsInfo = styled.div`
     color: ${props => props.theme.colors.gray5};
   }
   p:last-of-type {
-    padding: 0 14px;
+    padding: 0 ${({ theme }) => theme.spacing(2)}px;
   }
 `
 
@@ -166,12 +177,12 @@ export const PointName = styled(Text)`
 `
 
 export const PointNumber = styled(Text)`
-  margin-right: 14px;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const EmptyProductItemRow = styled.div`
   width: 100%;
-  padding: 7px 0px;
+  padding: ${({ theme }) => theme.spacing(1)}px 0px;
 `
 
 export const EmptyBody = styled.div`
@@ -190,7 +201,7 @@ export const EmptyText = styled(Text)`
 
 export const EmptyButton = styled(Button)`
   padding: 0;
-  margin-top: 14px;
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
   min-width: 0;
 `
 
@@ -201,7 +212,7 @@ export const ProductItem = styled.div`
 
 export const ProductItemRow = styled.div`
   width: 100%;
-  padding: 14px 0 0 14px;
+  padding: ${({ theme }) => `${theme.spacing(2)}px 0 0 ${theme.spacing(2)}px`};
 `
 
 export const LinearProgressBarContent = styled.div`
@@ -234,19 +245,19 @@ export const BannerButton = styled(Button)`
 `
 
 export const ContainerBox = styled.div`
-  padding: 28px 21px;
-  margin-bottom: 28px;
+  padding: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(3)}px`};
+  margin-bottom: ${({ theme }) => theme.spacing(4)}px;
   background-color: ${props => props.theme.colors.gray1};
   border-radius: 8px;
 `
 
 export const ModalContentWrapper = styled.div`
-  padding: 28px;
+  padding: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const ModalTextWrapper = styled.div`
   p:first-of-type {
-    margin-bottom: 7px;
+    margin-bottom: ${({ theme }) => theme.spacing(1)}px;
   }
 
   margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
@@ -274,12 +285,12 @@ export const AdRow = styled(GridRow)`
 
 export const TipBannerContainer = styled(Row)`
   height: 50%;
-  padding-top: 7px;
+  padding-top: ${({ theme }) => theme.spacing(1)}px;
 `
 
 export const ObjectivesContainer = styled(Row)`
   height: 50%;
-  padding-bottom: 7px;
+  padding-bottom: ${({ theme }) => theme.spacing(1)}px;
 `
 export const Icon = styled(ConquistaIcon)`
   width: 21px;
@@ -287,18 +298,19 @@ export const Icon = styled(ConquistaIcon)`
 `
 export const ObjectivesListContainer = styled.div`
   overflow-y: auto;
-  padding: 0 7px;
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const ObjectivesTableContainer = styled.div`
-  display: flex;
-  align-items: center;
+export const VerticalListStyled = styled(VerticalList)`
+  padding: ${({ theme }) => theme.spacing(1)}px 0;
+`
+
+export const ObjectivesTableContainer = styled(Row)`
   justify-content: space-between;
-  width: 100%;
-  margin: 7px 0;
+  margin: ${({ theme }) => theme.spacing(1)}px 0;
 `
 
-export const ObjectivesTableBox = styled.div`
+export const ObjectivesTableBox = styled(Col)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -311,7 +323,7 @@ export const ObjectivesAccordion = styled(AccordionNewComponent)`
 `
 
 export const ObjectiveDivisor = styled(DivisorComponent)`
-  margin: 14px 0;
+  margin: ${({ theme }) => theme.spacing(2)}px 0;
 `
 
 export const LoadingStateObjectivesContainer = styled.div`
@@ -320,7 +332,7 @@ export const LoadingStateObjectivesContainer = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  padding: 0 35px;
+  padding: 0 ${({ theme }) => theme.spacing(5)}px;
 
   ${LegendText} {
     text-align: center;
@@ -330,7 +342,7 @@ export const LoadingStateObjectivesContainer = styled.div`
 export const ErrorText = styled.span`
   color: ${props => props.theme.colors.magenta2};
   display: block;
-  margin-top: 7px;
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
   ${props => props.theme.fontTypes.captionUppercase}
 `
 
@@ -339,7 +351,7 @@ export const PointsEmptyContainer = styled.div`
   display: flex;
   height: 100%;
   justify-content: center;
-  padding: 0 56px;
+  padding: 0 ${({ theme }) => theme.spacing(8)}px;
   text-align: center;
 `
 

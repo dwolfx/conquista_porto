@@ -4,20 +4,32 @@ export const isInvalidDate = (value: string | Moment) =>
   !moment(value, 'DD/MM/YYYY', true).isValid()
 
 export const isToday = (value: string | Moment) =>
-  moment(moment(value, 'DD/MM/YYYY').format('DD/MM/YYYY')).isSame(
-    moment().format('DD/MM/YYYY')
-  )
+  moment().isSame(moment(value, 'DD/MM/YYYY').format('YYYY-MM-DD'), 'day')
 
-export const isPastDate = (value: string | Moment) =>
-  moment(moment(value, 'DD/MM/YYYY').format('DD/MM/YYYY')).isBefore(
-    moment().format('DD/MM/YYYY')
-  )
+export const isPastDate = (
+  inputValue: string | Moment,
+  operationDate: string | Moment
+) => {
+  const date1 = moment(inputValue, 'DD/MM/YYYY').format('YYYY-MM-DD')
+  const date2 = moment(operationDate).format('YYYY-MM-DD')
 
-export const isTodayAndBefore15pm = (value: string | Moment) =>
-  moment(moment(value, 'DD/MM/YYYY'), 'hh:mm:ss').isBefore(
-    moment('15:00:00', 'hh:mm:ss')
+  return moment(date1).isBefore(date2)
+}
+
+export const isWeekend = (value: string | Moment) => {
+  // 6 = Saturday, 0 = Sunday
+  const dayNumber = moment(
+    moment(value, 'DD/MM/YYYY').format('YYYY-MM-DD')
+  ).day()
+
+  return dayNumber === 6 || dayNumber === 0
+}
+
+export const isBeforeLimitHour = (hour: string) =>
+  moment().isBefore(
+    moment(moment(hour, 'hh:mm').format('HH:mm:ss'), 'HH:mm:ss')
   )
 
 export const formatMoneyToNumber = (str: string) => {
-  return +str.replace('.', '').replace(',', '.')
+  return +str.replace(/\./g, '').replace(',', '.')
 }

@@ -41,14 +41,14 @@ const graphValuesGenerator = (data, theme) => {
 
   let result = []
 
-  if (data.saldo_total && data.categorias) {
+  if (data.saldototal && data.categorias) {
     result = data.categorias.sort((a, b) => b.valor - a.valor)
     result = result.map((item, index) => ({
       id: `${index}`,
       label: item.nome,
       value: item.valor,
       color: colorsPriority[index],
-      percent: ((item.valor / data.saldo_total) * 100).toFixed(2),
+      percent: ((item.valor / data.saldototal) * 100).toFixed(2),
     }))
   }
 
@@ -81,7 +81,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
 
   useEffect(() => {
     setPieChartInfo({
-      value: (data && data.saldo_total) || 0,
+      value: (data && data.saldototal) || 0,
       percent: 0,
     })
   }, [data])
@@ -89,7 +89,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
   function settingPieChartInfo(payload) {
     setPieChartInfo(
       payload || {
-        value: (data && data.saldo_total) || 0,
+        value: (data && data.saldototal) || 0,
         percent: 0,
       }
     )
@@ -204,9 +204,9 @@ export default function InvestmentSection({ onFetchInvestments }) {
               padding-bottom: 14px;
             `}
           >
-            Uma carteira de investimento com diferentes ativos é a chave para
-            bons rendimentos. Na Lista de Fundos, você pode selecionar o que
-            mais combina com seu perfil.
+            No Conquista, você pode criar a própria carteira ou receber
+            sugestões para o seu perfil investidor. Conheça nossos produtos e
+            comece a investir!
           </Text>
           <SliderBoxButton
             data-gtm-subname="card investimentos diversificando com menos riscos"
@@ -216,7 +216,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
             color="secondary"
             onClick={() => history.push('/investimentos')}
           >
-            CONHECER
+            investir
           </SliderBoxButton>
         </SliderTextBox>
       </SliderBox>

@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
 
 function* postLogin({ credentials: { username, password } }) {
   try {
-    const loginUrl = process.env.REACT_APP_BASE_URL_LOGIN
+    const loginUrl = process.env.REACT_APP_BASE_URL_AUTH2
     const clientId = process.env.REACT_APP_CLIENT_ID
     const clientSecret = process.env.REACT_APP_SECRET_ID
 
@@ -26,7 +26,7 @@ function* postLogin({ credentials: { username, password } }) {
       )}&password=${password}&grant_type=password&client_id=${clientId}&client_secret=${clientSecret}&social=13213`
     const {
       data: { access_token: accessToken, erro },
-    } = yield call(axiosInstance.post, loginUrl, data)
+    } = yield call(axiosInstance.post, `${loginUrl}/clientes/login`, data)
 
     if (erro) throw erro.mensagemErro
 

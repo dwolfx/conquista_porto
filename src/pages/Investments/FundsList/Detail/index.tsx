@@ -1,14 +1,17 @@
 import React from 'react'
 import 'styled-components/macro'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Loading from 'components/Loading'
 import Button from 'components/Button'
 import Text from 'components/Text'
 
-import { useSelector, useDispatch } from 'react-redux'
-
 import { TabList, Tab, Tabs, TabPanel } from 'components/Tab/NewTab'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+
+import TabProfitability from './TabProfitability'
+import TabMoreInfo from './TabMoreInfo'
+import TabDetails from './TabDetails'
 
 import {
   ButtonSubmit,
@@ -16,15 +19,13 @@ import {
   LockFundWrapper,
   LockIcon,
   DrawerDetail,
-} from './styled'
-import TabProfitability from './TabProfitability'
-import TabMoreInfo from './TabMoreInfo'
-import TabDetails from './TabDetails'
+  CloseButton,
+} from './styles'
 
 interface DetailProps {
   isOpen?: boolean
   isOpenForInvestments?: boolean
-  handleLayerOpen(fundId: string, hasDetailsFund: boolean): void
+  handleLayerOpen?: (fundId: string, hasDetailsFund: boolean) => void
   isLayerOpen?: boolean
   handleClose(): void
   hasError?: boolean
@@ -33,7 +34,7 @@ interface DetailProps {
 const Detail: React.FC<DetailProps> = ({
   isOpen = false,
   isOpenForInvestments = true,
-  handleLayerOpen,
+  handleLayerOpen = () => {},
   isLayerOpen = false,
   handleClose,
   hasError = false,
@@ -41,14 +42,18 @@ const Detail: React.FC<DetailProps> = ({
   const { data: fundDetails, isLoading } = useSelector<any, any>(
     state => state.investmentDetails
   )
-  const suitabilityIsLoading = useSelector<any, any>(
-    state => state.suitabilityInfo.isLoading
-  )
+  const { suitabilityIsLoading, financialApplicationIsLoading } = useSelector<
+    any,
+    any
+  >(state => ({
+    suitabilityIsLoading: state.suitabilityInfo.isLoading,
+    financialApplicationIsLoading: state.financialApplicationGetData.isLoading,
+  }))
   const dispatch = useDispatch()
   const footerDrawer = () =>
     isOpenForInvestments ? (
       <ButtonSubmit
-        loading={suitabilityIsLoading}
+        loading={suitabilityIsLoading || financialApplicationIsLoading}
         loadingColor="white"
         color="secondary"
         onClick={() => {
@@ -68,7 +73,7 @@ const Detail: React.FC<DetailProps> = ({
 
   const renderTabs = () => (
     <Tabs name="tab-detalhe" initialValue="tab-detalhe-fundo" initialReset>
-      <TabList>
+      <TabList data-testid="drawer-tabs">
         <Tab
           name="tab-detalhe-fundo"
           data-gtm-type="click"
@@ -110,9 +115,31 @@ const Detail: React.FC<DetailProps> = ({
     </Tabs>
   )
 
+  const headerTitle = () => (
+    <>
+      <div>
+        <Text type="heading4" color="gray6" bold>
+          {isLoading ? '' : fundDetails.apelido}
+        </Text>
+        <Text type="body" color="gray4" bold>
+          {fundDetails.categoria === 'Renda Variável'
+            ? 'Ações'
+            : fundDetails.categoria}
+        </Text>
+      </div>
+      <CloseButton
+        data-gtm-subname={`menu ${fundDetails.apelido}`}
+        data-gtm-name="botao fechar"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        onClick={handleClose}
+      />
+    </>
+  )
+
   return (
     <DrawerDetail
-      drawerTitle={isLoading ? '' : fundDetails.apelido}
+      header={headerTitle()}
       isOpen={isOpen}
       isLoading={isLoading}
       handleClose={handleClose}

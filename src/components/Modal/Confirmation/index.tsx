@@ -13,6 +13,7 @@ interface IProps {
   buttonTextConfirm?: string
   onConfirmation: () => void
   onClose: () => void
+  onCloseHeaderButton?: () => void
 }
 
 const ConfirmationModal: React.FC<IProps> = ({
@@ -23,13 +24,17 @@ const ConfirmationModal: React.FC<IProps> = ({
   buttonTextConfirm = 'Confirmar',
   onConfirmation,
   onClose,
+  onCloseHeaderButton,
   ...rest
 }) => {
+  const handleClose = () => {
+    onCloseHeaderButton ? onCloseHeaderButton() : onClose()
+  }
   return (
     <>
       <ModalStyled
         isOpen={isOpen}
-        handleClose={onClose}
+        handleClose={handleClose}
         modalTitle={title}
         {...rest}
       >

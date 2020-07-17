@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
-import { useLocation } from 'react-router-dom'
-import { handleGiwRedirect } from 'helpers'
+import moment from 'moment'
+import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
@@ -13,7 +13,7 @@ import { Col } from 'styled-bootstrap-grid'
 import Anbima from 'components/Anbima'
 import Filter from './Filter'
 import useFilter from './Filter/useFilter'
-import { columns, fundsType, columnsWithSticky } from './mock'
+import { columns, fundsType, columnsWithSticky } from './helper'
 import TableFunds from './Table'
 import ResponsiveList from './ResponsiveList'
 import FinancialApplication from '../FinancialApplication'
@@ -67,23 +67,33 @@ export default function FundsList() {
     sortBy: null,
     sortType: null,
   })
-  const { state: locationState } = useLocation()
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
   const isTablet = useMedia('lg')
-  const funds = useSelector(state => state.investmentsList.data)
+  const { funds, fundsStatus, suitabilityData } = useSelector(state => ({
+    funds: state.investmentsList.data,
+    fundsStatus: state.investmentsList,
+    suitabilityData: state.suitabilityInfo.data,
+  }))
   const filteredFundsList = useFilter(filter, funds)
   const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
-
-  const fundsStatus = useSelector(state => ({
-    isLoading: state.investmentsList.isLoading,
-    isError: state.investmentsList.isError,
-  }))
+  const [isAwareOfTerms, setIsAwareOfTerms] = useState(false)
 
   useFetchInvestmentsList()
+
+  const triggerSuitabilityDispatch = useCallback(
+    onSuccess => {
+      dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
+    },
+    [addToast, dispatch]
+  )
+
+  useEffect(() => {
+    triggerSuitabilityDispatch(null)
+  }, [triggerSuitabilityDispatch])
 
   useEffect(() => {
     if (
@@ -105,40 +115,71 @@ export default function FundsList() {
     setFiltersCount(totalFiltersCount)
   }, [filter, mobileFundSort])
 
-  function triggerSuitabilityDispatch(onSuccess) {
-    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
+  const triggerFinancialApplication = (fundId, date, onSuccess) => {
+    if (suitabilityData) {
+      dispatch(
+        GetFinancialApplicationDataRequest({
+          data: {
+            id_fundo: fundId,
+            data_operacao: date,
+          },
+          onSuccess,
+          onErrorToast: addToast,
+        })
+      )
+    }
   }
 
   const handleClickInvestButton = (fundId = null, hasDetailsFund = false) => {
-    const onSuccess = data => {
-      setModalSuitabilityInfo({ ...data })
-      if (data.isValid) {
-        // setIsFundDetailOpen(false)
-        // setLayerOpen(true) // para entregar a sprint precisamos comentar essa linha e descomentar o código abaixo
+    const onSuccessFinancial = financialData => {
+      if (suitabilityData.isValid) {
+        setIsFundDetailOpen(false)
 
-        handleGiwRedirect(`portaldecliente/conquista/aplicacao?idFundo=${fundId}&r=true${
-          locationState && locationState.idGoal
-            ? `&idObjetivo=${locationState.idGoal}`
-            : ''
-        }
-          `)
         setSelectedFundId(fundId)
         if (!hasDetailsFund) {
           dispatch(GetInvestmentDetailsRequest(fundId))
         }
+
+        setIsAwareOfTerms(financialData.dados_para_aplicacao.aderente_fundo)
+
+        // if fund return closed (fechado_aplicacao === true) and the operation date is the same as today,
+        // do another request to financial application endpoint with the date of tomorrow (today date + 1), so that the API return the correct operation date.
+        // TODO: remove this when the API returns correctly data_operacao value.
+        if (
+          financialData.dados_para_aplicacao.fechado_aplicacao &&
+          moment(financialData.dados_para_aplicacao.data_operacao).isSame(
+            moment().format('YYYY-MM-DD')
+          )
+        ) {
+          triggerFinancialApplication(
+            fundId,
+            moment()
+              .add(1, 'day')
+              .format('YYYY-MM-DD'),
+            () => {
+              setLayerOpen(true)
+            }
+          )
+        } else {
+          setLayerOpen(true)
+        }
       }
     }
-    triggerSuitabilityDispatch(onSuccess)
+
+    setModalSuitabilityInfo({ ...suitabilityData })
+    if (suitabilityData.isValid) {
+      triggerFinancialApplication(
+        fundId,
+        moment().format('YYYY-MM-DD'),
+        onSuccessFinancial
+      )
+    }
   }
 
   const onChangeLayerOpen = fundId => {
     setClickedFundInvestButtonId(fundId)
-    const onSuccess = data => {
-      if (data.isValid) {
-        handleClickInvestButton(fundId)
-      } else {
-        setModalSuitabilityInfo({ ...data })
-      }
+    const onSuccess = () => {
+      handleClickInvestButton(fundId)
     }
     triggerSuitabilityDispatch(onSuccess)
   }
@@ -210,15 +251,18 @@ export default function FundsList() {
           )}
         </ModalButtonWrapper>
       </Modal>
-      <FinancialApplication
-        isOpen={isLayerOpen}
-        handleClose={() => {
-          setLayerOpen(false)
-          setSelectedFundId(null)
-        }}
-        selectedFundId={selectedFundId}
-        handleFundDetailOpen={() => setIsFundDetailOpen(true)}
-      />
+      {isLayerOpen && (
+        <FinancialApplication
+          isAwareOfTerms={isAwareOfTerms}
+          isOpen={isLayerOpen}
+          handleClose={() => {
+            setLayerOpen(false)
+            setSelectedFundId(null)
+          }}
+          selectedFundId={selectedFundId}
+          handleFundDetailOpen={() => setIsFundDetailOpen(true)}
+        />
+      )}
       <GridContainer as="section">
         {isMobile ? (
           <>

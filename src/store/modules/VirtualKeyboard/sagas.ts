@@ -1,0 +1,82 @@
+import { all, takeLatest, call, put, select } from 'redux-saga/effects'
+
+import { post, put as putAxios, baseURLNamespaceAuth2 } from 'services/api'
+import {
+  PostVirtualKeyboardDataSuccess,
+  PostVirtualKeyboardDataFailure,
+  PutVirtualKeyboardDataSuccess,
+  PutVirtualKeyboardDataFailure,
+} from './action'
+
+import { Types } from './types'
+import { getAuth } from './selectors'
+
+function handleOrganizacao() {
+  const env = process.env.REACT_APP_ENV
+  let organizacao
+  if (env === 'production') {
+    organizacao = 'CLIENTES_PROD'
+  } else {
+    organizacao = 'CLIENTES_HML'
+  }
+
+  return organizacao
+}
+
+function* postData() {
+  try {
+    // este comentário marca o início da escrita de um código cheio de tristeza...
+    /**
+     * eu tenho praticamente certeza de que não deveria ser necessário enviar esses
+     * atributos no payload... mas como não opinamos nisso, segue a vida né?
+     */
+    const auth = yield select(getAuth)
+    const response = yield call(
+      post,
+      `${baseURLNamespaceAuth2}/teclado-virtual`,
+      {
+        usuario: auth.cpf,
+        organizacao: handleOrganizacao(),
+      }
+    )
+    const regex = /]]/gi
+    const parsedResponse = JSON.parse(response.data.replace(regex, ']'))
+    /**
+     Sim... o response do nosso querido serviço que gera o teclado virtual nos retorna uma chave extra no array.
+     Se me perguntarem o por que disso, eu jamais conseguirei explicar.
+     Acontece que a vida (ou melhor, essa API maravilhosa) nos dá pedra, e pede como resultado
+     um foguete que vai até o Sol buscar água.
+
+    ...fim da história
+     */
+    yield put(PostVirtualKeyboardDataSuccess(parsedResponse))
+  } catch (err) {
+    yield put(PostVirtualKeyboardDataFailure())
+  }
+}
+
+interface IPayload {
+  type: string
+  payload: {
+    signature: string
+  }
+}
+
+function* putData({ payload }: IPayload) {
+  try {
+    const auth = yield select(getAuth)
+    yield call(putAxios, `${baseURLNamespaceAuth2}/teclado-virtual`, {
+      usuario: auth.cpf,
+      organizacao: handleOrganizacao(),
+      resposta: payload.signature,
+    })
+    yield put(PutVirtualKeyboardDataSuccess())
+  } catch (err) {
+    yield put(PutVirtualKeyboardDataFailure())
+  }
+}
+
+export default all([
+  takeLatest(Types.POST_REQUEST, postData),
+  takeLatest(Types.PUT_REQUEST, putData),
+])

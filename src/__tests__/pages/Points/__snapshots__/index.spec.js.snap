@@ -2,14 +2,126 @@
 
 exports[`Points renders correctly 1`] = `
 Array [
-  <section
-    className="sc-AxmLO bohepV"
+  .c0 {
+  height: 340px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #898989;
+}
+
+.c1 {
+  text-align: center;
+  z-index: 1;
+}
+
+.c1 p {
+  max-width: 989px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 28px;
+  color: white;
+}
+
+.c1 .button-with-right-icon span.icon {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  font-size: 13px;
+}
+
+.c3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.3;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c2 {
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+  color: white;
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:600px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:770px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+<section
+    className="c0"
   >
     <div
-      className="sc-fzozJi ghJUps"
+      className="c1"
     >
       <h1
-        className="sc-fzpans hjHiXE"
+        className="c2"
       >
         Pontos
       </h1>
@@ -20,20 +132,181 @@ Array [
     </div>
     <img
       alt="Grupo de amigos sorrindo"
-      className="sc-fzoLsD huQBEw"
+      className="c3"
       src="banner_pontos.jpg"
     />
   </section>,
-  <section
-    className="sc-fznZeY gVrySe"
+  .c2 .slick-track {
+  float: left;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 28px 0;
+  background-color: #F1F1F1;
+}
+
+.c3 {
+  margin-top: 14px;
+  width: 740px;
+}
+
+.c3 .slick-dots {
+  position: relative;
+}
+
+.c1 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #272727;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 21px;
+}
+
+.c4 {
+  width: 230px !important;
+  height: 200px;
+  margin: 0 4px 35px 4px;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  box-shadow: 1px 45px 40px -50px rgba(0,0,0,0.4);
+  background-color: #FFFFFF;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c5 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #000;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  word-wrap: break-word;
+}
+
+.c6 {
+  font-size: 34px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #00ADEF;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  word-wrap: break-word;
+}
+
+.c7 {
+  font-size: 11px;
+  line-height: 21px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #00ADEF;
+}
+
+.c7:hover {
+  color: #018CB7;
+}
+
+@media (max-width:768px) {
+  .c3 {
+    width: 490px;
+  }
+}
+
+@media (max-width:600px) {
+  .c3 {
+    width: 240px;
+  }
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:770px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+<section
+    className="c0"
   >
     <p
-      className="sc-fzqBZW feDYcg"
+      className="c1"
     >
       PONTOS
     </p>
     <div
-      className="slick-slider sc-fzokOt ghNEcU slick-initialized"
+      className="slick-slider c2 c3 slick-initialized"
     >
       
       <div
@@ -70,7 +343,7 @@ Array [
           >
             <div>
               <div
-                className="sc-fzqNJr gClLLd"
+                className="c4"
                 style={
                   Object {
                     "display": "inline-block",
@@ -80,24 +353,24 @@ Array [
                 tabIndex={-1}
               >
                 <p
-                  className="sc-fzoyAV eFtzon"
+                  className="c5"
                   fontSize={18}
                 >
                   Saldo atual
                 </p>
                 <p
-                  className="sc-fzoyAV bLSHRb"
+                  className="c6"
                   fontSize={34}
                 >
                   16.500
                 </p>
                 <p
-                  className="sc-fzqBZW feDYcg"
+                  className="c1"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-fzoLag kwEKhT"
+                  className="c7"
                   data-gtm-clicktype="link"
                   data-gtm-name="ver extrato"
                   data-gtm-subname="saldo atual"
@@ -123,7 +396,7 @@ Array [
           >
             <div>
               <div
-                className="sc-fzqNJr gClLLd"
+                className="c4"
                 style={
                   Object {
                     "display": "inline-block",
@@ -133,24 +406,24 @@ Array [
                 tabIndex={-1}
               >
                 <p
-                  className="sc-fzoyAV eFtzon"
+                  className="c5"
                   fontSize={18}
                 >
                   Saldo atual
                 </p>
                 <p
-                  className="sc-fzoyAV bLSHRb"
+                  className="c6"
                   fontSize={34}
                 >
                   16.500
                 </p>
                 <p
-                  className="sc-fzqBZW feDYcg"
+                  className="c1"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-fzoLag kwEKhT"
+                  className="c7"
                   data-gtm-clicktype="link"
                   data-gtm-name="ver extrato"
                   data-gtm-subname="saldo atual"
@@ -176,7 +449,7 @@ Array [
           >
             <div>
               <div
-                className="sc-fzqNJr gClLLd"
+                className="c4"
                 style={
                   Object {
                     "display": "inline-block",
@@ -186,24 +459,24 @@ Array [
                 tabIndex={-1}
               >
                 <p
-                  className="sc-fzoyAV eFtzon"
+                  className="c5"
                   fontSize={18}
                 >
                   Saldo atual
                 </p>
                 <p
-                  className="sc-fzoyAV bLSHRb"
+                  className="c6"
                   fontSize={34}
                 >
                   16.500
                 </p>
                 <p
-                  className="sc-fzqBZW feDYcg"
+                  className="c1"
                 >
                   PONTOS
                 </p>
                 <p
-                  className="sc-fzoLag kwEKhT"
+                  className="c7"
                   data-gtm-clicktype="link"
                   data-gtm-name="ver extrato"
                   data-gtm-subname="saldo atual"
@@ -220,16 +493,185 @@ Array [
       
     </div>
   </section>,
-  <section
-    className="sc-fzoXzr Kvdyl"
+  .c2 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c2:hover:active {
+  pointer-events: auto;
+}
+
+.c2:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c2:hover:before {
+  width: 100%;
+}
+
+.c2:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c2:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c0 {
+  padding: 28px 0;
+  background-color: #004E70;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 300px;
+}
+
+.c1 {
+  color: white;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  word-wrap: break-word;
+  padding: 0 30px;
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:600px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:770px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+<section
+    className="c0"
   >
     <p
-      className="sc-fzpjYC imrQpz"
+      className="c1"
     >
       Conheça as ofertas e veja o que você pode resgatar com o seu saldo atual.
     </p>
     <button
-      className="sc-AxheI fWkGtS button-with-right-icon"
+      className="c2 button-with-right-icon"
       color="secondary"
       data-gtm-clicktype="link"
       data-gtm-name="resgatar pontos"
@@ -237,7 +679,7 @@ Array [
       data-gtm-type="click"
     >
       <span
-        className="sc-Axmtr hThrxM"
+        className="c3"
       >
         Resgatar Pontos 
         <span>
@@ -246,19 +688,152 @@ Array [
       </span>
     </button>
   </section>,
-  <section
-    className="sc-fznxsB igsPwl"
+  .c0 {
+  padding: 28px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #272727;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 21px;
+  text-align: center;
+}
+
+.c2 {
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-color: #DDDDDD;
+  border-style: solid;
+  padding: 30px;
+}
+
+.c3 p {
+  font-weight: 300;
+  margin-left: 38px;
+  color: #272727;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 24px;
+  word-break: break-word;
+  font-size: 14px;
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:600px) {
+
+}
+
+@media (max-width:768px) {
+  .c2 {
+    display: initial;
+  }
+}
+
+@media (max-width:770px) {
+  .c3 {
+    border-width: 1px 0 0 0;
+  }
+
+  .c3:last-child {
+    border-bottom-width: 1px;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    border-width: 1px 1px 1px 0;
+  }
+
+  .c3:nth-child(1) {
+    border-bottom: none;
+  }
+
+  .c3:nth-child(2) {
+    border-bottom: none;
+  }
+
+  .c3:nth-child(3) {
+    border-bottom: none;
+    border-right: none;
+  }
+}
+
+@media (min-width:1206px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+@media (max-width:800px) {
+
+}
+
+<section
+    className="c0"
   >
     <p
-      className="sc-fznJRM fqvUQo"
+      className="c1"
     >
       COMO ACUMULAR PONTOS NO PROGRAMA DE RELACIONAMENTO DO CONQUISTA?
     </p>
     <div
-      className="sc-fznWqX fDYHia"
+      className="c2"
     >
       <div
-        className="sc-fzoiQi cFsURp"
+        className="c3"
       >
         <div>
           <svg
@@ -273,7 +848,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-fzoiQi cFsURp"
+        className="c3"
       >
         <div>
           <svg
@@ -288,7 +863,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-fzoiQi cFsURp"
+        className="c3"
       >
         <div>
           <svg
@@ -303,7 +878,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-fzoiQi cFsURp"
+        className="c3"
       >
         <div>
           <svg
@@ -318,7 +893,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-fzoiQi cFsURp"
+        className="c3"
       >
         <div>
           <svg
@@ -333,7 +908,7 @@ Array [
         </p>
       </div>
       <div
-        className="sc-fzoiQi cFsURp"
+        className="c3"
       >
         <div>
           <svg
@@ -349,27 +924,188 @@ Array [
       </div>
     </div>
   </section>,
-  <section
-    className="sc-fzqARJ dhstmC"
+  .c0 {
+  padding: 28px 0;
+  background-color: #F1F1F1;
+}
+
+.c1 {
+  margin: 0 auto;
+}
+
+.c2 {
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+  color: #000;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  word-wrap: break-word;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.c3 {
+  text-align: center;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #000;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  word-wrap: break-word;
+  margin-bottom: 14px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c5 {
+  width: 20%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 14px;
+}
+
+.c5 p {
+  text-align: center;
+  margin-bottom: 7px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #000;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  word-wrap: break-word;
+}
+
+.c5 p:last-child {
+  line-height: 24px;
+  word-break: break-word;
+  font-size: 14px;
+}
+
+.c5 img {
+  border-radius: 8px;
+  width: 100%;
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:600px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
+@media (max-width:770px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:1206px) {
+  .c1 {
+    width: 1200px;
+  }
+}
+
+@media (max-width:767px) {
+  .c2 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+
+@media (max-width:767px) {
+  .c3 {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 22px;
+  }
+}
+
+@media (max-width:800px) {
+  .c4 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:800px) {
+  .c5 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: auto;
+    margin: 8px 30px;
+  }
+}
+
+@media (max-width:800px) {
+  .c5 p {
+    text-align: left;
+  }
+}
+
+@media (max-width:800px) {
+  .c5 img {
+    margin-right: 28px;
+    width: 20%;
+  }
+}
+
+<section
+    className="c0"
   >
     <div
-      className="sc-fzqNqU kOIbLI"
+      className="c1"
     >
       <h5
-        className="sc-fzoyTs eHAXvB"
+        className="c2"
       >
         Benefícios do Programa de Relacionamento
       </h5>
       <p
-        className="sc-fzoNJl jyebgu"
+        className="c3"
       >
         Você pode trocar os seus pontos por produtos, descontos e diversas vantagens.
       </p>
       <div
-        className="sc-fzoXWK ssbpX"
+        className="c4"
       >
         <div
-          className="sc-fzpmMD lepWVH"
+          className="c5"
         >
           <img
             alt="4 homens posando para foto"
@@ -385,7 +1121,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-fzpmMD lepWVH"
+          className="c5"
         >
           <img
             alt="Mulher feliz fazendo anotações"
@@ -401,7 +1137,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-fzpmMD lepWVH"
+          className="c5"
         >
           <img
             alt="Por do Sol na praia"
@@ -417,7 +1153,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-fzpmMD lepWVH"
+          className="c5"
         >
           <img
             alt="Mapa mundi em cima de uma mesa"
@@ -433,7 +1169,7 @@ Array [
           </div>
         </div>
         <div
-          className="sc-fzpmMD lepWVH"
+          className="c5"
         >
           <img
             alt="Rapaz posando para foto tomando café"

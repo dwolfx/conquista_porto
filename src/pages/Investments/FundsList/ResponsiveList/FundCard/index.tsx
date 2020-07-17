@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
@@ -161,15 +161,26 @@ const FundCard: React.FC<IFundCard> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [clickedFund, setClickedFund] = useState<string>('')
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
     modalSuitabilityInfoInitialState
   )
 
   const dispatch = useDispatch()
 
-  const suitabilityIsLoading = useSelector<any, any>(
-    state => state.suitabilityInfo.isLoading
-  )
+  const { suitabilityIsLoading, financialApplicationLoading } = useSelector<
+    any,
+    any
+  >(state => ({
+    suitabilityIsLoading: state.suitabilityInfo.isLoading,
+    financialApplicationLoading: state.financialApplicationGetData.isLoading,
+  }))
+
+  useEffect(() => {
+    if (!suitabilityIsLoading) {
+      setClickedFund('')
+    }
+  }, [suitabilityIsLoading])
 
   const handleCloseModal = () => {
     setIsModalOpen(!isModalOpen)
@@ -324,14 +335,20 @@ const FundCard: React.FC<IFundCard> = ({
                 </Button>
                 {fund.aplicao_liberada && (
                   <Button
-                    loading={suitabilityIsLoading}
+                    loading={
+                      (suitabilityIsLoading || financialApplicationLoading) &&
+                      clickedFund === fund.id_fundo
+                    }
                     loadingColor="white"
                     color="secondary"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
                     data-gtm-subname={fund.apelido}
                     data-gtm-name="investir"
-                    onClick={() => handleLayerOpen(fund.id_fundo)}
+                    onClick={() => {
+                      handleLayerOpen(fund.id_fundo)
+                      setClickedFund(fund.id_fundo)
+                    }}
                   >
                     Investir
                   </Button>

@@ -1,4 +1,95 @@
 {
+  "financial_post": {
+    "data": "2020-07-20",
+    "valor": 1000,
+    "id_fundo": "51380060",
+    "ciencia_desenquadramento": "S",
+    "cpf_cnpj": "37282985812",
+    "id_cotista": "2000121268"
+  },
+  "financial_application_is_aware_of_terms": {
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
+    "dados_para_aplicacao": {
+      "conta_grafica": {
+        "codigo_banco": "306",
+        "nome_banco": "Porto Seguro",
+        "agencia": "0001",
+        "conta": "27",
+        "digito_conta": "2",
+        "nome": "Rafael Rodrigues",
+        "cpf_cnpj": "33244452809"
+      }
+    }
+  },
+  "alignment_terms_data": {
+    "enquadramento_ordem_cotista": {
+      "status_enquadramento": "Desenquadrado",
+      "nota_rating_cotista": 3.3,
+      "nota_rating_carteira": 4.090905499356974,
+      "fundos_desenquadrados": {
+        "fundo_desenquadrado": [
+          {
+            "id_carteira": 5094,
+            "nome_fundo": "Porto Seguro Selecta FIC FIA",
+            "nota_rating": 5
+          },
+          {
+            "id_carteira": 5112,
+            "nome_fundo": "Porto Seguro Alocação FIC FIM",
+            "nota_rating": 4
+          }
+        ]
+      }
+    }
+  },
+  "financial_application": {
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
+    "dados_para_aplicacao": {
+      "fundo": {
+        "id_carteira": 5112,
+        "apelido": "Porto Seguro Alocação FIC FIM",
+        "nome_carteira": "Porto Seguro Alocação FIC FIM",
+        "perfil_risco": "medio-alto",
+        "data_inicio": "2013-03-28T00:00:00-03:00",
+        "minimo_inicial": 1000,
+        "aplicacao_minima": 1000,
+        "resgate_minimo": 1000,
+        "saldo_minimo": 1000,
+        "hora_aplicacao": "15:00",
+        "hora_resgate": "23:59",
+        "aplicacao_cotizacao": "D+0",
+        "aplicacao_financeiro": "D+0",
+        "resgate_cotizacao": "D+32 (Corridos)",
+        "resgate_financeiro": "D+2 (Úteis)",
+        "categoria_arena": "03-Multimercado",
+        "taxa_administracao": 0.5,
+        "taxa_performance": 0,
+        "classificacao": "medio-alto",
+        "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf",
+        "tipo_cota": "Fechamento",
+        "aviso_data_fundo": true,
+        "aplicacao_liberada": true,
+        "resgate_liberado": false
+      },
+      "posicao_cotista_fundo": {
+        "saldo_atual": 31905.05,
+        "data_historico": "2020-03-23T00:00:00"
+      },
+      "id_cotista": 2000112690,
+      "saldo_conta": 0,
+      "aderente_fundo": false,
+      "fechado_aplicacao": false,
+      "data_prevista_cotizacao": "2020-07-09T00:00:00-03:00",
+      "data_prevista_liquidacao": "2020-07-09T00:00:00-03:00",
+      "data_operacao": "2020-07-20T00:00:00-03:00"
+    }
+  },
   "suitability_info": {
     "status_cotista": true,
     "CotistaContaOrdemPortoPar": "S",
@@ -11,7 +102,7 @@
     "status_data_vencimento_cadastro": false
   },
   "posicao-consolidada": {
-    "saldo_total": 1000
+    "saldototal": 1000
   },
   "cartao_credito": [],
   "financiamento_veiculo": {
@@ -1583,10 +1674,10 @@
       },
       "conta": "47",
       "nome_banco": "Banco Portopar",
-      "saldo_liquidar": "0",
+      "saldo_liquidar": "1003.40",
       "agencia": "0001",
       "codigo_banco": "306",
-      "saldo_disponivel": "99.89",
+      "saldo_disponivel": "50.43",
       "cpf": "33244452809",
       "encargos_acumulados": "0",
       "valores_bloqueados": {
@@ -3079,7 +3170,7 @@
             "valor_bruto": "1111.11",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605051"
+            "id_operacao": "1063205051"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3088,25 +3179,7 @@
             "valor_bruto": "1098.73",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10604977"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "10604332977"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3124,7 +3197,7 @@
             "valor_bruto": "1111.11",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605022"
+            "id_operacao": "106050022"
           },
           {
             "data_operacao": "2020-04-07T00:00:00-03:00",
@@ -3133,7 +3206,7 @@
             "valor_bruto": "1111.11",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605019"
+            "id_operacao": "120605019"
           },
           {
             "data_operacao": "2020-04-09T00:00:00-03:00",
@@ -3160,7 +3233,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "106045062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3169,7 +3242,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "1060523062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3178,7 +3251,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "1060545062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3187,7 +3260,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "10605534062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3196,7 +3269,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "10605776062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3205,7 +3278,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "106057756062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3214,7 +3287,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "1060345062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3223,7 +3296,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "10654305062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3232,7 +3305,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "1060543232062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3241,7 +3314,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "106050213162"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3250,7 +3323,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "101231605062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3259,7 +3332,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "10606545062"
           },
           {
             "data_operacao": "2020-04-13T00:00:00-03:00",
@@ -3268,133 +3341,7 @@
             "valor_bruto": "1000.00",
             "tipo_movimentacao_operacao": "1",
             "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
-          },
-          {
-            "data_operacao": "2020-04-13T00:00:00-03:00",
-            "data_liquidacao": "2020-04-13T00:00:00-03:00",
-            "tipo_operacao": "Aplicação",
-            "valor_bruto": "1000.00",
-            "tipo_movimentacao_operacao": "1",
-            "id_fundo": "51380060",
-            "id_operacao": "10605062"
+            "id_operacao": "10606455645062"
           }
         ]
       }
@@ -3503,17 +3450,17 @@
   "posicao": [
     {
       "conta_porto_seguro": {
-        "id_conta": "193791",
+        "id_conta": "193239",
         "cheque_especial": {
           "limite": "0",
           "data_vencimento": "0001-01-03T00:00:00-03:00"
         },
-        "conta": "47",
+        "conta": "27",
         "nome_banco": "Banco Portopar",
         "saldo_liquidar": "0",
         "agencia": "0001",
         "codigo_banco": "306",
-        "saldo_disponivel": "10000",
+        "saldo_disponivel": "0",
         "cpf": "33244452809",
         "encargos_acumulados": "0",
         "valores_bloqueados": {
@@ -3522,7 +3469,7 @@
           "indeterminado": "0",
           "em_48horas": "0"
         },
-        "digito_conta": "7",
+        "digito_conta": "2",
         "titular": "Rafael Rodrigues"
       },
       "posicoes": {
@@ -3531,28 +3478,810 @@
             "rendimentos": {
               "rendimento": [
                 {
-                  "datainicio": "2020-01-01T00:00:00-03:00",
-                  "datafim": "2020-01-16T23:59:59.999-03:00",
+                  "datainicio": "2020-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-23T23:59:59.999-03:00",
                   "meses": "1",
-                  "valorrendimento": "0.18"
+                  "valorrendimento": "-9.35"
+                },
+                {
+                  "datainicio": "2019-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-23T23:59:59.999-03:00",
+                  "meses": "12",
+                  "valorrendimento": "-28849.62"
+                },
+                {
+                  "datainicio": "2018-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-23T23:59:59.999-03:00",
+                  "meses": "24",
+                  "valorrendimento": "-27556.91"
+                },
+                {
+                  "datainicio": "2017-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-23T23:59:59.999-03:00",
+                  "meses": "36",
+                  "valorrendimento": "-27556.91"
+                }
+              ]
+            },
+            "categoria_arena": "03-Multimercado",
+            "historico_saldos_fundo": {
+              "id_carteira": "5112",
+              "saldos": {
+                "saldo": [
+                  {
+                    "valorsaldo": "33886.11",
+                    "data": "2019-12-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "31659.74",
+                    "data": "2020-01-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "31914.40",
+                    "data": "2020-02-28T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "31905.05",
+                    "data": "2020-03-23T00:00:00-03:00"
+                  }
+                ]
+              }
+            },
+            "saldo_atual": "31905.05",
+            "ultimas_operacoes": {
+              "operacao": [
+                {
+                  "data_operacao": "2020-06-03T00:00:00-03:00",
+                  "data_liquidacao": "2020-07-08T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Bruto",
+                  "valor_bruto": "5000.00",
+                  "id_fundo": "5112",
+                  "id_operacao": "10608363"
+                },
+                {
+                  "data_operacao": "2020-06-01T00:00:00-03:00",
+                  "data_liquidacao": "2020-06-01T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "2000.00",
+                  "id_fundo": "5112",
+                  "id_operacao": "10608352"
+                },
+                {
+                  "data_operacao": "2020-06-01T00:00:00-03:00",
+                  "data_liquidacao": "2020-06-01T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "1500.00",
+                  "id_fundo": "5112",
+                  "id_operacao": "10608351"
+                },
+                {
+                  "data_operacao": "2020-06-01T00:00:00-03:00",
+                  "data_liquidacao": "2020-06-01T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "1000.00",
+                  "id_fundo": "5112",
+                  "id_operacao": "10608350"
+                },
+                {
+                  "data_operacao": "2020-05-13T00:00:00-03:00",
+                  "data_liquidacao": "2020-06-17T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Bruto",
+                  "valor_bruto": "1000.00",
+                  "id_fundo": "5112",
+                  "id_operacao": "10608302"
+                },
+                {
+                  "data_operacao": "2020-05-13T00:00:00-03:00",
+                  "data_liquidacao": "2020-05-13T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "2000.00",
+                  "id_fundo": "5112",
+                  "id_operacao": "10608301"
+                }
+              ]
+            },
+            "fundo": {
+              "data_inicio": "2013-03-28T00:00:00-03:00",
+              "valor_patrimonio_liq": "65572971.83",
+              "taxa_performance": "0.00",
+              "apelido": "Porto Seguro Alocação FIC FIM",
+              "contagem_dias_resgate": "Corridos",
+              "minimo_inicial": "1000.0",
+              "nome_gestor": "PortoSeguro Investimentos",
+              "hora_resgate": "23:59",
+              "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/InformativoDesempenho_PS_Alocacao.pdf",
+              "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/InformativoDesempenho_PS_Alocacao.pdf",
+              "categoria_ambima": "Multimercado Alocação Dinâmicos",
+              "is_fundo_ativo": true,
+              "aplicao_liberada": true,
+              "aviso_data_fundo": true,
+              "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf",
+              "resgate_minimo": "1000.0",
+              "url_logo_gestor": "https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png",
+              "aliquotas_ir": {
+                "aliquota": [
+                  {
+                    "valor": "22.5",
+                    "faixa": "Até 180 dias"
+                  },
+                  {
+                    "valor": "20",
+                    "faixa": "De 181 dias a 360 dias"
+                  },
+                  {
+                    "valor": "17.5",
+                    "faixa": "De 361 dias a 720 dias"
+                  },
+                  {
+                    "valor": "15",
+                    "faixa": "Acima de 720 dias"
+                  }
+                ]
+              },
+              "resgate_liberado": false,
+              "categoria_arena": "Multimercado",
+              "id_carteira": "5112",
+              "regime_iof": "Regime Regressivo",
+              "classificacao": "Longo Prazo",
+              "aplicacao_financeiro": "D+0",
+              "nome_carteira": "Porto Seguro Alocação FIC FIM",
+              "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/Regulamento_PS_Alocacao.pdf",
+              "perfil_risco": "medio-alto",
+              "resgate_cotizacao": "D+32 (Corridos)",
+              "nome_empresa": "PortoSeguro Investimentos",
+              "benchmark": {
+                "nome": "CDI",
+                "id": "1"
+              },
+              "comparativo_hist_rentabil": {
+                "hist_rentabil_benchmark": {
+                  "rentabil_Ano": "1.02",
+                  "rentabil_24_meses": "12.14",
+                  "rentabil_12_meses": "5.45",
+                  "rentabil_36_meses": "21.57",
+                  "rentabil_dia": "0.01",
+                  "rentabil_mes_anteiror": "0.29",
+                  "benchmark": {
+                    "nome": "CDI",
+                    "id": "1"
+                  },
+                  "rentabil_mes": "0.34"
+                },
+                "hist_rentabil_fundo": {
+                  "rel_fundo_benchmark_mes_ant": "-",
+                  "rentabil_ano": "-3.01",
+                  "rentabil_12_meses": "6.53",
+                  "rentabil_36_meses": "25.29",
+                  "rel_fundo_benchmark_mes": "-",
+                  "rel_fundo_benchmark_dia": "-",
+                  "rentabil_mes_anteiror": "-0.71",
+                  "rel_fundo_benchmark_24_meses": "105.04",
+                  "rel_fundo_benchmark_ano": "-",
+                  "rentabil_24_meses": "12.75",
+                  "rel_fundo_benchmark_36_meses": "117.24",
+                  "id_carteira": "5112",
+                  "rentabil_dia": "-0.02",
+                  "rentabil_mes": "-2.95",
+                  "rel_fundo_benchmark_12_meses": "119.78"
+                },
+                "data_referencia": "2020-03-23T00:00:00-03:00"
+              },
+              "tipo_cota": "Fechamento",
+              "hora_aplicacao": "23:59",
+              "resgate_financeiro": "D+2 (Úteis)",
+              "perfil_risco_ordem": "4",
+              "saldo_minimo": "1000.0",
+              "taxa_administracao": "0.50",
+              "aplicacao_cotizacao": "D+0",
+              "aplicao_minima": "1000.0"
+            },
+            "tributacoes": {
+              "tributacao": [
+                {
+                  "tipo": "IR",
+                  "valor": "0.00"
+                },
+                {
+                  "tipo": "IOF",
+                  "valor": "0.00"
+                }
+              ]
+            }
+          },
+          {
+            "rendimentos": {
+              "rendimento": [
+                {
+                  "datainicio": "2020-01-01T00:00:00-03:00",
+                  "datafim": "2020-01-17T23:59:59.999-03:00",
+                  "meses": "1",
+                  "valorrendimento": "98.92"
                 },
                 {
                   "datainicio": "2019-01-01T00:00:00-03:00",
-                  "datafim": "2020-01-16T23:59:59.999-03:00",
+                  "datafim": "2020-01-17T23:59:59.999-03:00",
                   "meses": "12",
-                  "valorrendimento": "-2.33"
+                  "valorrendimento": "3337.22"
                 },
                 {
                   "datainicio": "2018-01-01T00:00:00-03:00",
-                  "datafim": "2020-01-16T23:59:59.999-03:00",
+                  "datafim": "2020-01-17T23:59:59.999-03:00",
                   "meses": "24",
-                  "valorrendimento": "-2.33"
+                  "valorrendimento": "3337.22"
                 },
                 {
                   "datainicio": "2017-01-01T00:00:00-03:00",
-                  "datafim": "2020-01-16T23:59:59.999-03:00",
+                  "datafim": "2020-01-17T23:59:59.999-03:00",
                   "meses": "36",
-                  "valorrendimento": "-2.33"
+                  "valorrendimento": "3337.22"
+                }
+              ]
+            },
+            "categoria_arena": "02-Renda Variável",
+            "historico_saldos_fundo": {
+              "id_carteira": "5094",
+              "saldos": {
+                "saldo": [
+                  {
+                    "valorsaldo": "3238.30",
+                    "data": "2019-12-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "3337.22",
+                    "data": "2020-01-17T00:00:00-03:00"
+                  }
+                ]
+              }
+            },
+            "saldo_atual": "3337.22",
+            "ultimas_operacoes": {
+              "operacao": [
+                {
+                  "data_operacao": "2020-06-15T00:00:00-03:00",
+                  "data_liquidacao": "2020-06-15T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "100.00",
+                  "id_fundo": "5094",
+                  "id_operacao": "10608377"
+                },
+                {
+                  "data_operacao": "2019-09-13T00:00:00-03:00",
+                  "data_liquidacao": "2019-09-13T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "2900.00",
+                  "id_fundo": "5094",
+                  "id_operacao": "10549168"
+                }
+              ]
+            },
+            "fundo": {
+              "data_inicio": "2013-07-31T00:00:00-03:00",
+              "valor_patrimonio_liq": "79743742.67",
+              "taxa_performance": "20.00",
+              "apelido": "Porto Seguro Selecta FIC FIA",
+              "contagem_dias_resgate": "Corridos",
+              "minimo_inicial": "1000.0",
+              "nome_gestor": "PortoSeguro Investimentos",
+              "hora_resgate": "23:59",
+              "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
+              "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
+              "categoria_ambima": "Ações Ativos Livre",
+              "is_fundo_ativo": true,
+              "aplicao_liberada": true,
+              "aviso_data_fundo": true,
+              "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/TCR_PS_%20Selecta.pdf",
+              "resgate_minimo": "100.0",
+              "url_logo_gestor": "https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png",
+              "aliquotas_ir": {
+                "aliquota": {
+                  "valor": "15",
+                  "faixa": "Alíquota Única"
+                }
+              },
+              "resgate_liberado": true,
+              "categoria_arena": "Renda Variável",
+              "id_carteira": "5094",
+              "regime_iof": "Regime Regressivo",
+              "classificacao": "Ações",
+              "aplicacao_financeiro": "D+0",
+              "nome_carteira": "Porto Seguro Selecta FIC FIA",
+              "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/Regulamento_PS_Selecta.pdf",
+              "perfil_risco": "alto",
+              "resgate_cotizacao": "D+15 (Corridos)",
+              "nome_empresa": "PortoSeguro Investimentos",
+              "benchmark": {
+                "nome": "IBOVESPA",
+                "id": "70"
+              },
+              "comparativo_hist_rentabil": {
+                "hist_rentabil_benchmark": {
+                  "rentabil_Ano": "-1.63",
+                  "rentabil_24_meses": "33.97",
+                  "rentabil_12_meses": "16.81",
+                  "rentabil_36_meses": "75.91",
+                  "rentabil_dia": "1.52",
+                  "rentabil_mes_anteiror": "6.85",
+                  "benchmark": {
+                    "nome": "IBOVESPA",
+                    "id": "70"
+                  },
+                  "rentabil_mes": "-1.63"
+                },
+                "hist_rentabil_fundo": {
+                  "rel_fundo_benchmark_mes_ant": "0.34",
+                  "rentabil_ano": "3.05",
+                  "rentabil_12_meses": "35.40",
+                  "rentabil_36_meses": "82.14",
+                  "rel_fundo_benchmark_mes": "4.68",
+                  "rel_fundo_benchmark_dia": "-",
+                  "rentabil_mes_anteiror": "7.19",
+                  "rel_fundo_benchmark_24_meses": "12.27",
+                  "rel_fundo_benchmark_ano": "4.68",
+                  "rentabil_24_meses": "46.24",
+                  "rel_fundo_benchmark_36_meses": "6.23",
+                  "id_carteira": "5094",
+                  "rentabil_dia": "1.42",
+                  "rentabil_mes": "3.05",
+                  "rel_fundo_benchmark_12_meses": "18.59"
+                },
+                "data_referencia": "2020-01-17T00:00:00-03:00"
+              },
+              "tipo_cota": "Fechamento",
+              "hora_aplicacao": "23:59",
+              "resgate_financeiro": "D+2 (Úteis)",
+              "perfil_risco_ordem": "5",
+              "saldo_minimo": "0.0",
+              "taxa_administracao": "2.00",
+              "aplicacao_cotizacao": "D+0",
+              "aplicao_minima": "100.0"
+            },
+            "tributacoes": {
+              "tributacao": [
+                {
+                  "tipo": "IR",
+                  "valor": "65.58"
+                },
+                {
+                  "tipo": "IOF",
+                  "valor": "0.00"
+                }
+              ]
+            }
+          },
+          {
+            "rendimentos": {
+              "rendimento": [
+                {
+                  "datainicio": "2020-01-01T00:00:00-03:00",
+                  "datafim": "2020-01-15T23:59:59.999-03:00",
+                  "meses": "1",
+                  "valorrendimento": "0.00"
+                },
+                {
+                  "datainicio": "2019-01-01T00:00:00-03:00",
+                  "datafim": "2020-01-15T23:59:59.999-03:00",
+                  "meses": "12",
+                  "valorrendimento": "40493.14"
+                },
+                {
+                  "datainicio": "2018-01-01T00:00:00-03:00",
+                  "datafim": "2020-01-15T23:59:59.999-03:00",
+                  "meses": "24",
+                  "valorrendimento": "40493.14"
+                },
+                {
+                  "datainicio": "2017-01-01T00:00:00-03:00",
+                  "datafim": "2020-01-15T23:59:59.999-03:00",
+                  "meses": "36",
+                  "valorrendimento": "40493.14"
+                }
+              ]
+            },
+            "categoria_arena": "01-Renda Fixa",
+            "historico_saldos_fundo": {
+              "id_carteira": "5071",
+              "saldos": {
+                "saldo": [
+                  {
+                    "valorsaldo": "0.00",
+                    "data": "2019-12-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "0.00",
+                    "data": "2020-01-15T00:00:00-03:00"
+                  }
+                ]
+              }
+            },
+            "saldo_atual": "0.00",
+            "ultimas_operacoes": {
+              "operacao": [
+                {
+                  "data_operacao": "2019-12-26T00:00:00-03:00",
+                  "data_liquidacao": "2019-12-27T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Total",
+                  "valor_bruto": "10061.35",
+                  "id_fundo": "5071",
+                  "id_operacao": "10546000"
+                },
+                {
+                  "data_operacao": "2019-12-02T00:00:00-03:00",
+                  "data_liquidacao": "2019-12-03T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Bruto",
+                  "valor_bruto": "10400.00",
+                  "id_fundo": "5071",
+                  "id_operacao": "10361479"
+                },
+                {
+                  "data_operacao": "2019-11-29T00:00:00-03:00",
+                  "data_liquidacao": "2019-12-04T00:00:00-03:00",
+                  "tipo_operacao": "Come Cotas",
+                  "valor_bruto": "36.64",
+                  "id_fundo": "5071",
+                  "id_operacao": "10454630"
+                },
+                {
+                  "data_operacao": "2019-11-29T00:00:00-03:00",
+                  "data_liquidacao": "2019-12-04T00:00:00-03:00",
+                  "tipo_operacao": "Come Cotas",
+                  "valor_bruto": "0.41",
+                  "id_fundo": "5071",
+                  "id_operacao": "10454629"
+                },
+                {
+                  "data_operacao": "2019-11-04T00:00:00-03:00",
+                  "data_liquidacao": "2019-11-05T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Bruto",
+                  "valor_bruto": "20000.00",
+                  "id_fundo": "5071",
+                  "id_operacao": "10310246"
+                },
+                {
+                  "data_operacao": "2019-09-13T00:00:00-03:00",
+                  "data_liquidacao": "2019-09-13T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "20000.00",
+                  "id_fundo": "5071",
+                  "id_operacao": "10493279"
+                }
+              ]
+            },
+            "fundo": {
+              "data_inicio": "1998-07-06T00:00:00-03:00",
+              "valor_patrimonio_liq": "1539702109.76",
+              "taxa_performance": "20.00",
+              "apelido": "Porto Seguro Clássico FIC RF LP",
+              "contagem_dias_resgate": "Úteis",
+              "minimo_inicial": "3000.0",
+              "nome_gestor": "PortoSeguro Investimentos",
+              "hora_resgate": "17:00",
+              "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/InformativoDesempenho_PS_Classico.pdf",
+              "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/InformativoDesempenho_PS_Classico.pdf",
+              "categoria_ambima": "RF Duração Livre Grau de Invest.",
+              "is_fundo_ativo": true,
+              "aplicao_liberada": true,
+              "aviso_data_fundo": true,
+              "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/TCR_PS_Classico.pdf",
+              "resgate_minimo": "100.0",
+              "url_logo_gestor": "https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png",
+              "aliquotas_ir": {
+                "aliquota": [
+                  {
+                    "valor": "22.5",
+                    "faixa": "Até 180 dias"
+                  },
+                  {
+                    "valor": "20",
+                    "faixa": "De 181 dias a 360 dias"
+                  },
+                  {
+                    "valor": "17.5",
+                    "faixa": "De 361 dias a 720 dias"
+                  },
+                  {
+                    "valor": "15",
+                    "faixa": "Acima de 720 dias"
+                  }
+                ]
+              },
+              "resgate_liberado": true,
+              "categoria_arena": "Renda Fixa",
+              "id_carteira": "5071",
+              "regime_iof": "Regime Regressivo",
+              "classificacao": "Longo Prazo",
+              "aplicacao_financeiro": "D+0",
+              "nome_carteira": "Porto Seguro Clássico RF FICFI LP",
+              "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/Regulamento_PS_Classico.pdf",
+              "perfil_risco": "medio-baixo",
+              "resgate_cotizacao": "D+0 (Úteis)",
+              "nome_empresa": "PortoSeguro Investimentos",
+              "benchmark": {
+                "nome": "CDI",
+                "id": "1"
+              },
+              "comparativo_hist_rentabil": {
+                "hist_rentabil_benchmark": {
+                  "rentabil_Ano": "0.38",
+                  "rentabil_24_meses": "12.54",
+                  "rentabil_12_meses": "5.79",
+                  "rentabil_36_meses": "23.13",
+                  "rentabil_dia": "0.02",
+                  "rentabil_mes_anteiror": "0.38",
+                  "benchmark": {
+                    "nome": "CDI",
+                    "id": "1"
+                  },
+                  "rentabil_mes": "0.38"
+                },
+                "hist_rentabil_fundo": {
+                  "rel_fundo_benchmark_mes_ant": "135.61",
+                  "rentabil_ano": "0.25",
+                  "rentabil_12_meses": "7.10",
+                  "rentabil_36_meses": "25.78",
+                  "rel_fundo_benchmark_mes": "67.26",
+                  "rel_fundo_benchmark_dia": "169.50",
+                  "rentabil_mes_anteiror": "0.51",
+                  "rel_fundo_benchmark_24_meses": "113.59",
+                  "rel_fundo_benchmark_ano": "67.26",
+                  "rentabil_24_meses": "14.25",
+                  "rel_fundo_benchmark_36_meses": "111.49",
+                  "id_carteira": "5071",
+                  "rentabil_dia": "0.03",
+                  "rentabil_mes": "0.25",
+                  "rel_fundo_benchmark_12_meses": "122.61"
+                },
+                "data_referencia": "2020-01-15T00:00:00-03:00"
+              },
+              "tipo_cota": "Fechamento",
+              "hora_aplicacao": "17:00",
+              "resgate_financeiro": "D+1 (Úteis)",
+              "perfil_risco_ordem": "2",
+              "saldo_minimo": "1000.0",
+              "taxa_administracao": "0.50",
+              "aplicacao_cotizacao": "D+0",
+              "aplicao_minima": "100.0"
+            },
+            "tributacoes": {
+              "tributacao": [
+                {
+                  "tipo": "IR",
+                  "valor": "0.00"
+                },
+                {
+                  "tipo": "IOF",
+                  "valor": "0.00"
+                }
+              ]
+            }
+          },
+          {
+            "saldo_bloqueado": "0.000000000000000000000000",
+            "rendimentos": {
+              "rendimento": [
+                {
+                  "datainicio": "2019-12-01T00:00:00-03:00",
+                  "datafim": "2019-12-19T23:59:59.999-03:00",
+                  "meses": "1",
+                  "valorrendimento": "0.00"
+                },
+                {
+                  "datainicio": "2018-12-01T00:00:00-03:00",
+                  "datafim": "2019-12-19T23:59:59.999-03:00",
+                  "meses": "12",
+                  "valorrendimento": "3532.87"
+                },
+                {
+                  "datainicio": "2017-12-01T00:00:00-03:00",
+                  "datafim": "2019-12-19T23:59:59.999-03:00",
+                  "meses": "24",
+                  "valorrendimento": "105556.22"
+                },
+                {
+                  "datainicio": "2016-12-01T00:00:00-03:00",
+                  "datafim": "2019-12-19T23:59:59.999-03:00",
+                  "meses": "36",
+                  "valorrendimento": "105556.22"
+                }
+              ]
+            },
+            "categoria_arena": "01-Renda Fixa",
+            "historico_saldos_fundo": {
+              "id_carteira": "5105",
+              "saldos": {
+                "saldo": {
+                  "valorsaldo": "0.00",
+                  "data": "2019-12-19T00:00:00-03:00"
+                }
+              }
+            },
+            "saldo_atual": "0.00",
+            "ultimas_operacoes": {
+              "operacao": [
+                {
+                  "data_operacao": "2019-12-02T00:00:00-03:00",
+                  "data_liquidacao": "2019-12-02T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Total",
+                  "valor_bruto": "2016.46",
+                  "id_fundo": "5105",
+                  "id_operacao": "10361473"
+                },
+                {
+                  "data_operacao": "2019-11-29T00:00:00-03:00",
+                  "data_liquidacao": "2019-12-04T00:00:00-03:00",
+                  "tipo_operacao": "Come Cotas",
+                  "valor_bruto": "2.84",
+                  "id_fundo": "5105",
+                  "id_operacao": "10361332"
+                },
+                {
+                  "data_operacao": "2019-05-24T00:00:00-03:00",
+                  "data_liquidacao": "2019-05-24T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Total",
+                  "valor_bruto": "5844.21",
+                  "id_fundo": "5105",
+                  "id_operacao": "10051486"
+                },
+                {
+                  "data_operacao": "2019-05-03T00:00:00-03:00",
+                  "data_liquidacao": "2019-05-03T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Líquido",
+                  "valor_bruto": "10062.59",
+                  "id_fundo": "5105",
+                  "id_operacao": "10040713"
+                },
+                {
+                  "data_operacao": "2019-04-22T00:00:00-03:00",
+                  "data_liquidacao": "2019-04-22T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Líquido",
+                  "valor_bruto": "15088.20",
+                  "id_fundo": "5105",
+                  "id_operacao": "9964117"
+                },
+                {
+                  "data_operacao": "2019-04-04T00:00:00-03:00",
+                  "data_liquidacao": "2019-04-04T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Líquido",
+                  "valor_bruto": "10053.36",
+                  "id_fundo": "5105",
+                  "id_operacao": "961099"
+                }
+              ]
+            },
+            "fundo": {
+              "data_inicio": "2014-02-28T00:00:00-03:00",
+              "valor_patrimonio_liq": "1902065243.83",
+              "taxa_performance": "0.00",
+              "apelido": "Porto Seguro FI RF Ref. DI CP",
+              "contagem_dias_resgate": "Úteis",
+              "minimo_inicial": "1000.0",
+              "nome_gestor": "PortoSeguro Investimentos",
+              "hora_resgate": "23:59",
+              "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
+              "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
+              "categoria_ambima": "RF Duração Baixa Crédito Livre",
+              "is_fundo_ativo": true,
+              "aplicao_liberada": false,
+              "aviso_data_fundo": true,
+              "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/TCR%20-%20Porto%20Seguro%20DI%20Credito%20Privado.pdf",
+              "resgate_minimo": "100.0",
+              "url_logo_gestor": "https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png",
+              "aliquotas_ir": {
+                "aliquota": [
+                  {
+                    "valor": "22.5",
+                    "faixa": "Até 180 dias"
+                  },
+                  {
+                    "valor": "20",
+                    "faixa": "De 181 dias a 360 dias"
+                  },
+                  {
+                    "valor": "17.5",
+                    "faixa": "De 361 dias a 720 dias"
+                  },
+                  {
+                    "valor": "15",
+                    "faixa": "Acima de 720 dias"
+                  }
+                ]
+              },
+              "resgate_liberado": false,
+              "categoria_arena": "Renda Fixa",
+              "id_carteira": "5105",
+              "regime_iof": "Regime Regressivo",
+              "classificacao": "Longo Prazo",
+              "aplicacao_financeiro": "D+0",
+              "nome_carteira": "Porto Seguro FI Referenciado DI Credito Privado",
+              "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
+              "perfil_risco": "medio-baixo",
+              "resgate_cotizacao": "D+0 (Úteis)",
+              "nome_empresa": "PortoSeguro Investimentos",
+              "benchmark": {
+                "nome": "CDI",
+                "id": "1"
+              },
+              "comparativo_hist_rentabil": {
+                "hist_rentabil_benchmark": {
+                  "rentabil_Ano": "5.97",
+                  "rentabil_24_meses": "12.77",
+                  "rentabil_12_meses": "5.97",
+                  "rentabil_36_meses": "24.00",
+                  "rentabil_dia": "0.02",
+                  "rentabil_mes_anteiror": "0.38",
+                  "benchmark": {
+                    "nome": "CDI",
+                    "id": "1"
+                  },
+                  "rentabil_mes": "0.38"
+                },
+                "hist_rentabil_fundo": {
+                  "rel_fundo_benchmark_mes_ant": "54.82",
+                  "rentabil_ano": "5.42",
+                  "rentabil_12_meses": "5.62",
+                  "rentabil_36_meses": "24.47",
+                  "rel_fundo_benchmark_mes": "40.48",
+                  "rel_fundo_benchmark_dia": "92.46",
+                  "rentabil_mes_anteiror": "0.21",
+                  "rel_fundo_benchmark_24_meses": "97.64",
+                  "rel_fundo_benchmark_ano": "90.89",
+                  "rentabil_24_meses": "12.47",
+                  "rel_fundo_benchmark_36_meses": "101.97",
+                  "id_carteira": "5105",
+                  "rentabil_dia": "0.02",
+                  "rentabil_mes": "0.15",
+                  "rel_fundo_benchmark_12_meses": "94.13"
+                },
+                "data_referencia": "2019-12-19T00:00:00-03:00"
+              },
+              "tipo_cota": "Abertura",
+              "hora_aplicacao": "23:59",
+              "resgate_financeiro": "D+0 (Úteis)",
+              "perfil_risco_ordem": "2",
+              "saldo_minimo": "1000.0",
+              "taxa_administracao": "0.40",
+              "aplicacao_cotizacao": "D+0",
+              "aplicao_minima": "100.0"
+            },
+            "tributacoes": {
+              "tributacao": [
+                {
+                  "tipo": "IR",
+                  "valor": "0.00"
+                },
+                {
+                  "tipo": "IOF",
+                  "valor": "0.00"
+                }
+              ]
+            }
+          },
+          {
+            "saldo_bloqueado": "0.000000000000000000000000",
+            "rendimentos": {
+              "rendimento": [
+                {
+                  "datainicio": "2020-05-01T00:00:00-03:00",
+                  "datafim": "2020-05-11T23:59:59.999-03:00",
+                  "meses": "1",
+                  "valorrendimento": "-139.66"
+                },
+                {
+                  "datainicio": "2019-05-01T00:00:00-03:00",
+                  "datafim": "2020-05-11T23:59:59.999-03:00",
+                  "meses": "12",
+                  "valorrendimento": "-258.98"
+                },
+                {
+                  "datainicio": "2018-05-01T00:00:00-03:00",
+                  "datafim": "2020-05-11T23:59:59.999-03:00",
+                  "meses": "24",
+                  "valorrendimento": "-258.98"
+                },
+                {
+                  "datainicio": "2017-05-01T00:00:00-03:00",
+                  "datafim": "2020-05-11T23:59:59.999-03:00",
+                  "meses": "36",
+                  "valorrendimento": "-258.98"
                 }
               ]
             },
@@ -3562,86 +4291,84 @@
               "saldos": {
                 "saldo": [
                   {
-                    "valorsaldo": "200.04",
-                    "data": "2019-09-30T00:00:00-03:00"
-                  },
-                  {
-                    "valorsaldo": "198.10",
-                    "data": "2019-10-31T00:00:00-03:00"
-                  },
-                  {
-                    "valorsaldo": "193.96",
-                    "data": "2019-11-29T00:00:00-03:00"
-                  },
-                  {
-                    "valorsaldo": "194.98",
+                    "valorsaldo": "5309.10",
                     "data": "2019-12-31T00:00:00-03:00"
                   },
                   {
-                    "valorsaldo": "195.34",
-                    "data": "2020-01-16T00:00:00-03:00"
+                    "valorsaldo": "5333.26",
+                    "data": "2020-01-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "5330.12",
+                    "data": "2020-02-28T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "5199.19",
+                    "data": "2020-03-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "5184.96",
+                    "data": "2020-04-30T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "0.00",
+                    "data": "2020-05-11T00:00:00-03:00"
                   }
                 ]
               }
             },
-            "saldo_atual": "97.67",
+            "saldo_atual": "0.00",
             "ultimas_operacoes": {
               "operacao": [
                 {
-                  "data_operacao": "2019-10-22T00:00:00-03:00",
-                  "data_liquidacao": "2019-10-22T00:00:00-03:00",
-                  "tipo_operacao": "Aplicação",
-                  "valor_bruto": "555.55",
+                  "data_operacao": "2020-04-29T00:00:00-03:00",
+                  "data_liquidacao": "2020-05-07T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Total",
+                  "valor_bruto": "5189.29",
                   "id_fundo": "51380013",
-                  "id_operacao": "10295979"
+                  "id_operacao": "10608097"
                 },
                 {
-                  "data_operacao": "2019-09-23T00:00:00-03:00",
-                  "data_liquidacao": "2019-09-23T00:00:00-03:00",
+                  "data_operacao": "2019-10-01T00:00:00-03:00",
+                  "data_liquidacao": "2019-10-01T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "350.00",
+                  "id_fundo": "51380013",
+                  "id_operacao": "10275996"
+                },
+                {
+                  "data_operacao": "2019-09-11T00:00:00-03:00",
+                  "data_liquidacao": "2019-09-11T00:00:00-03:00",
                   "tipo_operacao": "Aplicação",
                   "valor_bruto": "100.00",
                   "id_fundo": "51380013",
-                  "id_operacao": "10268754"
+                  "id_operacao": "10257242"
                 },
                 {
-                  "data_operacao": "2019-09-23T00:00:00-03:00",
-                  "data_liquidacao": "2019-09-23T00:00:00-03:00",
+                  "data_operacao": "2019-09-05T00:00:00-03:00",
+                  "data_liquidacao": "2019-09-05T00:00:00-03:00",
                   "tipo_operacao": "Aplicação",
-                  "valor_bruto": "100.00",
+                  "valor_bruto": "5000.00",
                   "id_fundo": "51380013",
-                  "id_operacao": "10268753"
-                },
-                {
-                  "data_operacao": "2019-09-18T00:00:00-03:00",
-                  "data_liquidacao": "2019-09-18T00:00:00-03:00",
-                  "tipo_operacao": "Aplicação",
-                  "valor_bruto": "100.00",
-                  "id_fundo": "51380013",
-                  "id_operacao": "10263519"
-                },
-                {
-                  "data_operacao": "2019-09-03T00:00:00-03:00",
-                  "data_liquidacao": "2019-09-03T00:00:00-03:00",
-                  "tipo_operacao": "Aplicação",
-                  "valor_bruto": "100.00",
-                  "id_fundo": "51380013",
-                  "id_operacao": "10243696"
+                  "id_operacao": "10250161"
                 }
               ]
             },
             "fundo": {
               "data_inicio": "2017-08-15T00:00:00-03:00",
+              "valor_patrimonio_liq": "71719.92",
               "taxa_performance": "0.00",
               "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
               "contagem_dias_resgate": "Úteis",
               "minimo_inicial": "100.0",
-              "hora_resgate": "13:00",
+              "nome_gestor": "RB Capital Asset",
+              "hora_resgate": "23:59",
               "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
               "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
               "categoria_ambima": "Multimercados Estrategia Especifica",
               "is_fundo_ativo": true,
               "aplicao_liberada": true,
-              "aviso_data_fundo": false,
+              "aviso_data_fundo": true,
               "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
               "resgate_minimo": "100.0",
               "url_logo_gestor": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_RB.png",
@@ -3654,65 +4381,265 @@
               "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_RBVITORIADEBENTURESINCENTIVADASFICFIM.pdf",
               "perfil_risco": "medio",
               "resgate_cotizacao": "D+4 (Úteis)",
-              "nome_empresa": "Padrão",
+              "nome_empresa": "RB Capital Asset",
               "benchmark": {
                 "nome": "CDI",
                 "id": "1"
               },
               "comparativo_hist_rentabil": {
                 "hist_rentabil_benchmark": {
-                  "rentabil_Ano": "0.19",
-                  "rentabil_24_meses": "12.33",
-                  "rentabil_12_meses": "5.59",
+                  "rentabil_Ano": "1.49",
+                  "rentabil_24_meses": "11.51",
+                  "rentabil_12_meses": "4.83",
                   "rentabil_36_meses": "-",
-                  "rentabil_dia": "0.02",
-                  "rentabil_mes_anteiror": "0.38",
+                  "rentabil_dia": "0.01",
+                  "rentabil_mes_anteiror": "0.30",
                   "benchmark": {
                     "nome": "CDI",
                     "id": "1"
                   },
-                  "rentabil_mes": "0.19"
+                  "rentabil_mes": "0.17"
                 },
                 "hist_rentabil_fundo": {
-                  "rel_fundo_benchmark_mes_ant": "140.17",
-                  "rentabil_ano": "0.13",
-                  "rentabil_12_meses": "1.75",
+                  "rel_fundo_benchmark_mes_ant": "-",
+                  "rentabil_ano": "-2.20",
+                  "rentabil_12_meses": "-2.99",
                   "rentabil_36_meses": "-",
-                  "rel_fundo_benchmark_mes": "69.62",
-                  "rel_fundo_benchmark_dia": "146.12",
-                  "rentabil_mes_anteiror": "0.53",
-                  "rel_fundo_benchmark_24_meses": "88.69",
-                  "rel_fundo_benchmark_ano": "69.62",
-                  "rentabil_24_meses": "10.94",
+                  "rel_fundo_benchmark_mes": "81.17",
+                  "rel_fundo_benchmark_dia": "-",
+                  "rentabil_mes_anteiror": "-0.27",
+                  "rel_fundo_benchmark_24_meses": "48.52",
+                  "rel_fundo_benchmark_ano": "-",
+                  "rentabil_24_meses": "5.58",
                   "rel_fundo_benchmark_36_meses": "-",
                   "id_carteira": "51380013",
-                  "rentabil_dia": "0.02",
-                  "rentabil_mes": "0.13",
-                  "rel_fundo_benchmark_12_meses": "31.33"
+                  "rentabil_dia": "0.00",
+                  "rentabil_mes": "0.14",
+                  "rel_fundo_benchmark_12_meses": "-"
                 },
-                "data_referencia": "2020-01-14T00:00:00-03:00"
+                "data_referencia": "2020-05-11T00:00:00-03:00"
               },
               "tipo_cota": "Fechamento",
-              "hora_aplicacao": "13:00",
+              "hora_aplicacao": "23:59",
               "resgate_financeiro": "D+5 (Úteis)",
               "perfil_risco_ordem": "3",
               "saldo_minimo": "100.0",
               "taxa_administracao": "0.30",
               "aplicacao_cotizacao": "D+0",
               "aplicao_minima": "100.0"
+            },
+            "tributacoes": {
+              "tributacao": [
+                {
+                  "tipo": "IR",
+                  "valor": "0.00"
+                },
+                {
+                  "tipo": "IOF",
+                  "valor": "0.00"
+                }
+              ]
+            }
+          },
+          {
+            "rendimentos": {
+              "rendimento": [
+                {
+                  "datainicio": "2020-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-25T23:59:59.999-03:00",
+                  "meses": "1",
+                  "valorrendimento": "0.00"
+                },
+                {
+                  "datainicio": "2019-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-25T23:59:59.999-03:00",
+                  "meses": "12",
+                  "valorrendimento": "-0.92"
+                },
+                {
+                  "datainicio": "2018-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-25T23:59:59.999-03:00",
+                  "meses": "24",
+                  "valorrendimento": "-0.92"
+                },
+                {
+                  "datainicio": "2017-03-01T00:00:00-03:00",
+                  "datafim": "2020-03-25T23:59:59.999-03:00",
+                  "meses": "36",
+                  "valorrendimento": "-0.92"
+                }
+              ]
+            },
+            "categoria_arena": "01-Renda Fixa",
+            "historico_saldos_fundo": {
+              "id_carteira": "51380057",
+              "saldos": {
+                "saldo": [
+                  {
+                    "valorsaldo": "98.90",
+                    "data": "2019-12-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "0.00",
+                    "data": "2020-01-31T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "0.00",
+                    "data": "2020-02-28T00:00:00-03:00"
+                  },
+                  {
+                    "valorsaldo": "0.00",
+                    "data": "2020-03-25T00:00:00-03:00"
+                  }
+                ]
+              }
+            },
+            "saldo_atual": "0.00",
+            "ultimas_operacoes": {
+              "operacao": [
+                {
+                  "data_operacao": "2019-12-02T00:00:00-03:00",
+                  "data_liquidacao": "2020-01-17T00:00:00-03:00",
+                  "tipo_operacao": "Resgate Total",
+                  "valor_bruto": "99.09",
+                  "id_fundo": "51380057",
+                  "id_operacao": "10361476"
+                },
+                {
+                  "data_operacao": "2019-10-01T00:00:00-03:00",
+                  "data_liquidacao": "2019-10-01T00:00:00-03:00",
+                  "tipo_operacao": "Aplicação",
+                  "valor_bruto": "100.00",
+                  "id_fundo": "51380057",
+                  "id_operacao": "10275995"
+                }
+              ]
+            },
+            "fundo": {
+              "data_inicio": "2019-04-01T00:00:00-03:00",
+              "valor_patrimonio_liq": "31729091.19",
+              "taxa_performance": "20.00",
+              "apelido": "BR Plural Deb. Inc. Hedge 45 FICFIM CP",
+              "contagem_dias_resgate": "Corridos",
+              "minimo_inicial": "100.0",
+              "nome_gestor": "Brasil Capital",
+              "hora_resgate": "23:59",
+              "link_lamina": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_BRASILPLURALDEBENTURESINCENTIVADASHEDGE45FICFIM.pdf",
+              "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_BRASILPLURALDEBENTURESINCENTIVADASHEDGE45FICFIM.pdf",
+              "categoria_ambima": "Multimercados Livre",
+              "is_fundo_ativo": true,
+              "aplicao_liberada": true,
+              "aviso_data_fundo": true,
+              "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_BRASILPLURALDEBENTURESINCENTIVADASHEDGE45FICFIM.pdf",
+              "resgate_minimo": "100.0",
+              "url_logo_gestor": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_BRASILPLURAL.png",
+              "resgate_liberado": true,
+              "categoria_arena": "Renda Fixa",
+              "id_carteira": "51380057",
+              "regime_iof": "Regime Regressivo",
+              "aplicacao_financeiro": "D+0",
+              "nome_carteira": "Brasil Plural Debêntures Incentivadas Hedge 45 FIC Multimercado Crédito Privado",
+              "link_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_BRASILPLURALDEBENTURESINCENTIVADASHEDGE45FICFIM.pdf",
+              "perfil_risco": "medio",
+              "resgate_cotizacao": "D+45 (Corridos)",
+              "nome_empresa": "Brasil Capital",
+              "benchmark": {
+                "nome": "CDI",
+                "id": "1"
+              },
+              "comparativo_hist_rentabil": {
+                "hist_rentabil_benchmark": {
+                  "rentabil_Ano": "1.02",
+                  "rentabil_24_meses": "-",
+                  "rentabil_12_meses": "5.45",
+                  "rentabil_36_meses": "-",
+                  "rentabil_dia": "0.01",
+                  "rentabil_mes_anteiror": "0.29",
+                  "benchmark": {
+                    "nome": "CDI",
+                    "id": "1"
+                  },
+                  "rentabil_mes": "0.34"
+                },
+                "hist_rentabil_fundo": {
+                  "rel_fundo_benchmark_mes_ant": "-",
+                  "rentabil_ano": "-0.18",
+                  "rentabil_12_meses": "1.01",
+                  "rentabil_36_meses": "-",
+                  "rel_fundo_benchmark_mes": "-",
+                  "rel_fundo_benchmark_dia": "-",
+                  "rentabil_mes_anteiror": "-0.14",
+                  "rel_fundo_benchmark_24_meses": "-",
+                  "rel_fundo_benchmark_ano": "-",
+                  "rentabil_24_meses": "-",
+                  "rel_fundo_benchmark_36_meses": "-",
+                  "id_carteira": "51380057",
+                  "rentabil_dia": "-0.30",
+                  "rentabil_mes": "-0.60",
+                  "rel_fundo_benchmark_12_meses": "18.56"
+                },
+                "data_referencia": "2020-03-25T00:00:00-03:00"
+              },
+              "tipo_cota": "Fechamento",
+              "hora_aplicacao": "23:59",
+              "resgate_financeiro": "D+1 (Úteis)",
+              "perfil_risco_ordem": "3",
+              "saldo_minimo": "100.0",
+              "taxa_administracao": "1.00",
+              "aplicacao_cotizacao": "D+0",
+              "aplicao_minima": "100.0"
+            },
+            "tributacoes": {
+              "tributacao": [
+                {
+                  "tipo": "IR",
+                  "valor": "0.00"
+                },
+                {
+                  "tipo": "IOF",
+                  "valor": "0.00"
+                }
+              ]
             }
           }
         ]
       },
-      "id_cotista": "2000120330",
+      "id_cotista": "2000112690",
       "visao_geral": {
-        "total": "97.67",
+        "total": "35242.27",
         "fundos": {
-          "fundo": {
-            "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
-            "nome_fundo": "RB Capital Vitória Debêntures Incentivadas FIC Multimercado Crédito Privado",
-            "percentual": "100.00"
-          }
+          "fundo": [
+            {
+              "apelido": "Porto Seguro Clássico FIC RF LP",
+              "nome_fundo": "Porto Seguro Clássico RF FICFI LP",
+              "percentual": "0.00"
+            },
+            {
+              "apelido": "Porto Seguro Selecta FIC FIA",
+              "nome_fundo": "Porto Seguro Selecta FIC FIA",
+              "percentual": "9.47"
+            },
+            {
+              "apelido": "Porto Seguro FI RF Ref. DI CP",
+              "nome_fundo": "Porto Seguro FI Referenciado DI Credito Privado",
+              "percentual": "0.00"
+            },
+            {
+              "apelido": "Porto Seguro Alocação FIC FIM",
+              "nome_fundo": "Porto Seguro Alocação FIC FIM",
+              "percentual": "90.53"
+            },
+            {
+              "apelido": "RB Capital Vitória Deb. Inc. FIC FIM CP",
+              "nome_fundo": "RB Capital Vitória Debêntures Incentivadas FIC Multimercado Crédito Privado",
+              "percentual": "0.00"
+            },
+            {
+              "apelido": "BR Plural Deb. Inc. Hedge 45 FICFIM CP",
+              "nome_fundo": "Brasil Plural Debêntures Incentivadas Hedge 45 FIC Multimercado Crédito Privado",
+              "percentual": "0.00"
+            }
+          ]
         }
       }
     }
@@ -3728,18 +4655,20 @@
     "cod_prog": "001"
   },
   "goal_recommendations": {
-    "goal_type": "3",
-    "profile": 3,
-    "nickname": "Carro",
-    "target_date": "11/06/2023",
-    "is_target_date_flexible": "true",
-    "target_value": "1.000,00",
-    "initial_value": "5.000,00",
-    "monthly_value": "1.000,00",
-    "is_easy_to_save_planned_amount": "true"
+    "nickname": "ObjetivoAndre",
+    "target_date": "29/01/2021",
+    "target_value": "1.000.000,00",
+    "initial_value": "1.000,00",
+    "monthly_value": "300,00",
+    "is_easy_to_save_planned_amount": false,
+    "is_target_date_flexible": false,
+    "would_like_to_receive_monthly_income": false,
+    "uf": "SP",
+    "goal_type": 1,
+    "profile": 3
   },
   "goal_management": {
-    "id": 1,
+    "id": "625",
     "answer": {
       "nickname": "Viagem",
       "target_date": "30/12/2021",
@@ -3754,47 +4683,178 @@
       "uf": "SP"
     },
     "fund_total_income": {
-      "0": 1000,
-      "1": 1503.7,
-      "2": 2009.25,
-      "3": 2516.69,
-      "4": 3026,
-      "5": 3537.19,
-      "6": 4050.28,
-      "7": 4565.27
+      "0": 12000,
+      "1": 14054.98,
+      "2": 16119.2,
+      "3": 18192.71,
+      "4": 20275.55,
+      "5": 22367.74,
+      "6": 24469.33,
+      "7": 26580.39,
+      "8": 28700.94,
+      "9": 30831.05,
+      "10": 32970.74,
+      "11": 35120.09,
+      "12": 37279.1,
+      "13": 39447.86,
+      "14": 41626.39,
+      "15": 43814.75,
+      "16": 46012.98,
+      "17": 48221.14,
+      "18": 50439.26,
+      "19": 52667.41,
+      "20": 54905.62,
+      "21": 57153.95,
+      "22": 59412.44,
+      "23": 61681.16,
+      "24": 63960.12,
+      "25": 66249.4,
+      "26": 68549.05,
+      "27": 70859.12,
+      "28": 73179.64,
+      "29": 75510.67,
+      "30": 77852.29,
+      "31": 80204.52,
+      "32": 82567.42,
+      "33": 84941.04,
+      "34": 87325.44,
+      "35": 89720.65,
+      "36": 92126.75,
+      "37": 94543.79,
+      "38": 96971.8,
+      "39": 99410.88,
+      "40": 101861.03,
+      "41": 104322.31,
+      "42": 106794.83,
+      "43": 109278.59,
+      "44": 111773.66,
+      "45": 114280.09,
+      "46": 116797.96,
+      "47": 119327.3,
+      "48": 121868.18,
+      "49": 124420.65,
+      "50": 126984.77,
+      "51": 129560.58,
+      "52": 132148.18,
+      "53": 134747.59,
+      "54": 137358.87
     },
     "funds": [
       {
-        "fund_id": 51380129,
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Multimercado",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 1000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000000000000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 100,
-        "name": "Occam Institucional II FIC Multimercado",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 5,
-        "profitability": {
-          "fundos": {
-            "12": 7.03
+        "fund_id": 51380023,
+        "name": "Arx Income FI Ações",
+        "category_name": "Renda Variável",
+        "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "1": 12.27,
+              "2": -25.92,
+              "3": -3.46,
+              "4": 8.68,
+              "5": 42.34
+            }
+          },
+          {
+            "name": "IBOVESPA",
+            "value": {
+              "1": 13.9,
+              "2": -28.08,
+              "3": -14.28,
+              "4": 8.36,
+              "5": 32.62
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "2": 2.16,
+              "3": 10.82,
+              "4": 0.32,
+              "5": 9.72
+            }
           }
-        },
+        ],
+        "min_initial_value": 500,
+        "min_value_to_apply": 100,
+        "wsdls/profile": 5,
+        "min_movement": 100,
+        "min_balance": 100,
+        "time_limit": "23:59",
         "quotation_apply_days": "D+0",
+        "financial_apply_days": "D+0",
+        "quotation_rescue_days": "D+1 (Úteis)",
+        "financial_rescue_days": "D+2 (Úteis)",
+        "manager": "ARX Investimentos",
+        "initial_date": "17/06/1999",
+        "benchmark": "IBOVESPA",
+        "adm_tax": 3,
+        "performance_rate": 0,
+        "classification": "Ações",
+        "tribute_ir": {
+          "1": 15
+        },
+        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
+        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf",
+        "iof": "Isento",
+        "initial_value": 900,
+        "monthly_value": 100,
+        "annual_rate": 9.5,
+        "profile_risk": "alto",
+        "is_fund_active": true
+      },
+      {
+        "fund_id": 51380026,
+        "name": "Occam Institucional II FIC Multimercado",
+        "category_name": "Multimercado",
+        "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "1": 0.38,
+              "2": 0.7,
+              "3": 5.95,
+              "4": 13.84,
+              "5": 24.68
+            }
+          },
+          {
+            "name": "CDI",
+            "value": {
+              "1": 0.3,
+              "2": 1.49,
+              "3": 4.83,
+              "4": 11.51,
+              "5": 20.07
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "1": 125.73,
+              "2": 46.95,
+              "3": 123.12,
+              "4": 120.24,
+              "5": 122.95
+            }
+          }
+        ],
+        "min_initial_value": 1000,
+        "min_value_to_apply": 100,
+        "wsdls/profile": 3,
+        "min_movement": 0,
+        "min_balance": 100,
+        "time_limit": "23:59",
+        "quotation_apply_days": "D+0",
+        "financial_apply_days": "D+0",
         "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
+        "financial_rescue_days": "D+1 (Úteis)",
+        "manager": "Occam Brasil",
+        "initial_date": "06/07/2012",
+        "benchmark": "CDI",
+        "adm_tax": 1,
+        "performance_rate": 20,
+        "classification": "Longo Prazo",
         "tribute_ir": {
           "180": 22.5,
           "360": 20,
@@ -3803,346 +4863,137 @@
         },
         "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
         "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf",
+        "iof": "Regime Regressivo",
+        "initial_value": 3000,
+        "monthly_value": 500,
+        "annual_rate": 7,
+        "profile_risk": "medio",
         "is_fund_active": true
       },
       {
-        "adm_tax": 0,
-        "benchmark": "CDI",
+        "fund_id": 51380022,
+        "name": "Arx Elbrus Debêntures Incentivadas FI Multimercado Crédito Privado",
         "category_name": "Renda Fixa",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 5000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
+        "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "1": -0.24,
+              "2": 1.78,
+              "3": 7.72
+            }
+          },
+          {
+            "name": "IMA-B 5",
+            "value": {
+              "1": 0.46,
+              "2": -0.12,
+              "3": 7.15
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "2": 1.9,
+              "3": 0.57
+            }
+          }
+        ],
         "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 500,
-        "name": "Brasil Plural Crédito Corporativo II FIC Renda Fixa Crédito Privado LP",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
+        "min_value_to_apply": 500,
         "wsdls/profile": 4,
+        "min_movement": 500,
+        "min_balance": 1000,
+        "time_limit": "23:59",
+        "quotation_apply_days": "D+0",
+        "financial_apply_days": "D+0",
+        "quotation_rescue_days": "D+30 (Corridos)",
+        "financial_rescue_days": "D+1 (Úteis)",
+        "manager": "ARX Investimentos",
+        "initial_date": "24/08/2018",
+        "benchmark": "IMA-B 5",
+        "adm_tax": 0.7,
+        "performance_rate": 20,
+        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
+        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
+        "iof": "Regime Regressivo",
+        "initial_value": 3100,
+        "monthly_value": 500,
+        "annual_rate": 4.5,
+        "profile_risk": "medio-alto",
+        "is_fund_active": true
+      },
+      {
+        "fund_id": 5105,
+        "name": "Porto Seguro FI Referenciado DI Credito Privado",
+        "category_name": "Renda Fixa",
         "profitability": [
           {
             "name": "fundo",
             "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
+              "1": 0.28,
+              "2": -1.96,
+              "3": 1.17,
+              "4": 7.71,
+              "5": 16.39
             }
           },
           {
-            "name": "Ibovespa",
+            "name": "CDI",
             "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "4": 11.92,
-              "5": 21.33
+              "1": 0.3,
+              "2": 1.49,
+              "3": 4.83,
+              "4": 11.51,
+              "5": 20.07
             }
           },
           {
             "name": "variacao",
             "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
+              "1": 91.79,
+              "3": 24.3,
+              "4": 67.04,
+              "5": 81.66
             }
           }
         ],
-        "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Renda Fixa",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 3000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
         "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 300,
-        "name": "BTG Pactual Crédito Corporativo 30 FIC Renda Fixa Crédito Privado LP",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 3,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
-            }
-          }
-        ],
-        "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Renda Fixa",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 4000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 400,
-        "name": "Brasil Plural Debêntures Incentivadas 45 FIC Multimercado Crédito Privado",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
+        "min_value_to_apply": 100,
         "wsdls/profile": 2,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "3": 5.24,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "5": 103.87
-            }
-          }
-        ],
+        "min_movement": 100,
+        "min_balance": 1000,
+        "time_limit": "23:59",
         "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
-        "benchmark": "CDI",
-        "category_name": "Multimercado",
-        "classification": "Longo Prazo",
-        "cnpj": "string",
         "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 2000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 200,
-        "name": "Capitânia Top Crédito Privado FIC FIRF",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 1,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "3": 5.24,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
-            }
-          }
-        ],
-        "quotation_apply_days": "D+0",
         "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
-        "tribute_ir": {
-          "180": 22.5,
-          "360": 20,
-          "720": 17.5,
-          "721": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
-      },
-      {
-        "adm_tax": 0,
+        "financial_rescue_days": "D+0 (Úteis)",
+        "manager": "PortoSeguro Investimentos",
+        "initial_date": "28/02/2014",
         "benchmark": "CDI",
-        "category_name": "Ações",
+        "adm_tax": 0.4,
+        "performance_rate": 0,
         "classification": "Longo Prazo",
-        "cnpj": "string",
-        "financial_apply_days": "D+0",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "initial_date": "06/07/2012",
-        "initial_value": 6000,
-        "iof": "Regime Regressivo",
-        "manager": "string",
-        "min_balance": 0,
-        "min_initial_value": 1000,
-        "min_movement": 0,
-        "min_value_to_apply": 0,
-        "monthly_value": 600,
-        "name": "Porto Seguro DI Crédito Privado",
-        "performance_rate": 20,
-        "pl": 0,
-        "pl_last_year": 0,
-        "wsdls/profile": 3,
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": -5.62,
-              "2": 6.32,
-              "3": 5.13,
-              "4": 11.99,
-              "5": 22.16
-            }
-          },
-          {
-            "name": "Ibovespa",
-            "value": {
-              "1": 0.05,
-              "2": 0.39,
-              "3": 5.24,
-              "4": 11.92,
-              "5": 21.33
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 80.87,
-              "2": 1612.53,
-              "3": 97.87,
-              "4": 100.64,
-              "5": 103.87
-            }
-          }
-        ],
-        "quotation_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "time_limit": "13:00",
         "tribute_ir": {
           "180": 22.5,
           "360": 20,
           "720": 17.5,
           "721": 15
         },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf"
+        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
+        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
+        "iof": "Regime Regressivo",
+        "initial_value": 5000,
+        "monthly_value": 900,
+        "annual_rate": 4.5,
+        "profile_risk": "medio-baixo",
+        "is_fund_active": true
       }
     ],
     "additional": {
-      "travel_security": true,
+      "travel_security": false,
       "life_security": false,
-      "credit_card": true
-    },
-    "credit_product": {
-      "name": "Consórcio de Veículo",
-      "values": [
-        {
-          "name": "Valor a Contratar",
-          "value": "R$ 69.999,00"
-        }
-      ]
+      "credit_card": false
     }
   },
   "suitability": {
@@ -4253,5 +5104,28 @@
     "nomeCliente": "Rubao",
     "dataNascimento": "1981-11-11T00:00:00-03:00",
     "cep": "01010010"
-  }
+  },
+  "virtual_keyboard": {
+    "usuario": "33244452809",
+    "organizacao": "CLIENTES_HML"
+  },
+  "token_sms_email": {
+    "usuario": "33244452809",
+    "organizacao": "CLIENTES_HML",
+    "tipo": "email_otp"
+  },
+  "personal_data_2fa": [
+    {
+      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..RHjW8kd_yPr3I4RMYdc7Xw.dyW3YqgAGXb39pUGQY1Rhw.O-J7ZjDuhVpcd-D-GBh9YQ",
+      "name": "assinatura"
+    },
+    {
+      "value": "16955255825",
+      "name": "sms_otp"
+    },
+    {
+      "value": "ph@sciensa.com.br",
+      "name": "email_otp"
+    }
+  ]
 }

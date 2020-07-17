@@ -1,0 +1,685 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer snapshot tests Should to render a Footer component 1`] = `
+.c8 {
+  color: unset;
+  text-align: unset;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c10 {
+  color: #00ADEF;
+}
+
+.c1 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c6 {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 7px 14px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.c7.c7 > * {
+  margin-bottom: 7px;
+}
+
+.c7.c7 :last-child {
+  margin-bottom: 0px;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+  width: 100%;
+}
+
+.c2 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 42px;
+  padding-bottom: 42px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.c3 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c18 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c14 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.c17 {
+  color: #00ADEF;
+  margin: 7px 0 0;
+  text-transform: uppercase;
+}
+
+.c5 {
+  margin-bottom: 7px;
+}
+
+.c16 {
+  width: 150px;
+  height: auto;
+  margin-top: 7px;
+}
+
+.c15 {
+  color: #BABABA;
+  text-transform: uppercase;
+}
+
+.c11 {
+  color: #BABABA;
+  margin-top: 0;
+}
+
+.c19 {
+  color: #898989;
+  margin: 42px 14px 0;
+}
+
+.c9 {
+  color: #898989;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c13 {
+  margin-right: 14px;
+  padding: 0;
+}
+
+@media (min-width:576px) {
+  .c2 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c2 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c2 {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width:1280px) {
+  .c2 {
+    margin-top: 7px;
+    margin-bottom: 28px;
+    padding: 0;
+    max-width: none;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    margin-top: 7px;
+    margin-bottom: 0;
+    padding: 0;
+    max-width: none;
+  }
+}
+
+@media (max-width:480px) {
+  .c3 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c18 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width:980px) {
+  .c18 {
+    padding-bottom: 84px;
+  }
+}
+
+@media (max-width:575px) {
+  .c4 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:576px) {
+  .c4 {
+    -ms-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width:992px) {
+  .c4 {
+    -ms-flex: 0 0 33.333333%;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media (max-width:1280px) {
+  .c4 {
+    padding: 14px 7px;
+  }
+}
+
+@media (max-width:575px) {
+  .c14 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:576px) {
+  .c14 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:768px) {
+  .c14 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:992px) {
+  .c14 {
+    -ms-flex: 0 0 33.333333%;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media (max-width:1280px) {
+  .c14 {
+    padding: 14px 7px;
+  }
+}
+
+@media (max-width:1280px) {
+  .c5 {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c5 {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c19 {
+    margin: 28px 14px 0;
+  }
+}
+
+@media (max-width:480px) {
+  .c19 {
+    margin: 21px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    />
+    <div
+      class="sc-AxgMl c2"
+      data-name="container"
+      data-testid="container-footer"
+    >
+      <div
+        class="sc-AxheI c3"
+        data-name="row"
+      >
+        <div
+          class="sc-Axmtr c4"
+          data-name="col-xs-12 col-sm-6 col-lg-4"
+        >
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c9"
+                  color="unset"
+                  type="body"
+                >
+                  MENSAGENS
+                </p>
+                <a
+                  data-gtm-clicktype="rodape"
+                  data-gtm-name="suporte.conquista@portoseguro.com.br"
+                  data-gtm-subname="mensagens"
+                  data-gtm-type="click"
+                  href="mailto:suporte.conquista@portoseguro.com.br"
+                >
+                  <p
+                    class="c8 c10"
+                    color="unset"
+                    type="body"
+                  >
+                    suporte.conquista@portoseguro.com.br
+                  </p>
+                </a>
+              </div>
+            </div>
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c9"
+                  color="unset"
+                  type="body"
+                >
+                  CHAT ONLINE
+                </p>
+                <a
+                  data-gtm-clicktype="rodape"
+                  data-gtm-name="Converse agora com um atendente"
+                  data-gtm-subname="chat"
+                  data-gtm-type="click"
+                  href="https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=36275312807&nome=Rubao Teste"
+                  target="_blank"
+                >
+                  <p
+                    class="c8 c10"
+                    color="unset"
+                    type="body"
+                  >
+                    Converse agora com um atendente
+                  </p>
+                </a>
+              </div>
+            </div>
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c9"
+                  color="unset"
+                  type="body"
+                >
+                  SAC
+                </p>
+                <a
+                  data-gtm-clicktype="rodape"
+                  data-gtm-name="0800-727-2763"
+                  data-gtm-subname="sac"
+                  data-gtm-type="click"
+                  href="tel:0800 727 2763"
+                >
+                  <p
+                    class="c8 c10"
+                    color="unset"
+                    type="body"
+                  >
+                    0800 727 2763
+                  </p>
+                </a>
+              </div>
+            </div>
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c9"
+                  color="unset"
+                  type="body"
+                >
+                  CENTRAL DE ATENDIMENTO
+                </p>
+                <p
+                  class="c8 c11"
+                  color="unset"
+                  type="body"
+                >
+                  Para assuntos relacionados a plataforma Conquista ligue: (11) 3366 3200
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-Axmtr c4"
+          data-name="col-xs-12 col-sm-6 col-lg-4"
+        >
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c9"
+                  color="unset"
+                  type="body"
+                >
+                  ATENDIMENTO PARA DEFICIENTES AUDITIVOS
+                </p>
+                <a
+                  data-gtm-clicktype="rodape"
+                  data-gtm-name="0800 727 8736"
+                  data-gtm-subname="atendimento deficientes auditivos"
+                  data-gtm-type="click"
+                  href="tel:0800 727 8736"
+                >
+                  <p
+                    class="c8 c10"
+                    color="unset"
+                    type="body"
+                  >
+                    0800 727 8736
+                  </p>
+                </a>
+              </div>
+            </div>
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c9"
+                  color="unset"
+                  type="body"
+                >
+                  OUVIDORIA
+                </p>
+                <div
+                  class="c12"
+                >
+                  <a
+                    class="c13"
+                    data-gtm-clicktype="rodape"
+                    data-gtm-name="0800-727-1184"
+                    data-gtm-subname="ouvidoria"
+                    data-gtm-type="click"
+                    data-testid="link-phone"
+                    href="tel:0800 727 1184"
+                  >
+                    <p
+                      class="c8 c10"
+                      color="unset"
+                      type="body"
+                    >
+                      0800 727 1184
+                    </p>
+                  </a>
+                  <a
+                    class="c13"
+                    data-gtm-clicktype="rodape"
+                    data-gtm-name="(11)-3366-3184"
+                    data-gtm-subname="ouvidoria"
+                    data-gtm-type="click"
+                    href="tel:(11) 3366 3184"
+                  >
+                    <p
+                      class="c8 c10"
+                      color="unset"
+                      type="body"
+                    >
+                      (11) 3366 3184
+                    </p>
+                  </a>
+                </div>
+                <a
+                  data-gtm-clicktype="rodape"
+                  data-gtm-name="ouvidoria@portoseguro.com.br"
+                  data-gtm-subname="ouvidoria"
+                  data-gtm-type="click"
+                  href="mailto:ouvidoria@portoseguro.com.br"
+                >
+                  <p
+                    class="c8 c10"
+                    color="unset"
+                    type="body"
+                  >
+                    ouvidoria@portoseguro.com.br
+                  </p>
+                </a>
+              </div>
+            </div>
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c9"
+                  color="unset"
+                  type="body"
+                >
+                  DIAS E HORÁRIOS
+                </p>
+                <p
+                  class="c8 c11"
+                  color="unset"
+                  type="body"
+                >
+                  Para todos os contatos, atendimento de segunda a sexta, das 8h15 às 18h30, exceto feriados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-Axmtr c14"
+          data-name="col-xs-12 col-sm-12 col-md-12 col-lg-4"
+        >
+          <div
+            class="c5"
+          >
+            <div
+              class="c6"
+            >
+              <div
+                class="c7"
+              >
+                <p
+                  class="c8 c15"
+                  color="unset"
+                  type="body"
+                >
+                  UMA PLATAFORMA
+                </p>
+                <img
+                  alt="Logo Conquista Beta"
+                  class="c16"
+                  data-gtm-clicktype="rodape"
+                  data-gtm-name="Logo Porto-Seguro"
+                  data-gtm-subname="uma plataforma"
+                  data-gtm-type="click"
+                  src="logo-institucional.svg"
+                />
+                <a
+                  data-gtm-clicktype="rodape"
+                  data-gtm-name="política de privacidade"
+                  data-gtm-subname="uma plataforma"
+                  data-gtm-type="click"
+                  href="/redirect?to=https://www.portoseguro.com.br/politica-de-privacidade"
+                  target="_blank"
+                >
+                  <p
+                    class="c8 c17"
+                    color="unset"
+                    type="body"
+                  >
+                    POLÍTICA DE PRIVACIDADE
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-AxheI c18"
+        data-name="row"
+      >
+        <div
+          class="c5"
+        >
+          <p
+            class="c8 c19"
+            color="unset"
+            type="body"
+          >
+            © 2020 Porto Seguro Cia. de Seguros - Todos os direitos reservados
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

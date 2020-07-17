@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import useMedia from 'hooks/useMedia'
 
 import VerticalList from 'components/VerticalList'
+import { formatCpf } from 'helpers'
 
 import { IProps } from '../styles'
 
@@ -95,7 +96,7 @@ const SuccessCard = ({ onCloseLayer }: IProps) => {
                       elements={[
                         <s.AccountInfoTitle>CPF</s.AccountInfoTitle>,
                         <s.AccountInfoText>
-                          {bankData.DadosContaPortoSeguro.cpf}
+                          {formatCpf(bankData.DadosContaPortoSeguro.cpf)}
                         </s.AccountInfoText>,
                       ]}
                     />

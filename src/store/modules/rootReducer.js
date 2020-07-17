@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 
+import alignmentTerms from './Investment/FinancialApplication/AlignmentTerms/reducer'
 import bankData from './BankData/reducer'
 import bankExtract from './BankExtract/reducer'
 import bankExtractFund from './BankExtractFund/reducer'
@@ -8,6 +9,10 @@ import consolidatedPosition from './ConsolidatedPosition/reducer'
 import consortiumBuilding from './ConsortiumBuilding/reducer'
 import consortiumVehicle from './ConsortiumVehicle/reducer'
 import customerProfile from './CustomerProfile/reducer'
+import {
+  financialApplicationGetData,
+  financialApplicationPostData,
+} from './Investment/FinancialApplication/reducer'
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
 import investmentPosition from './Investment/Position/reducer'
@@ -24,8 +29,11 @@ import suitability from './Suitability/reducer'
 import suitabilityInfo from './SuitabilityInfo/reducer'
 import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
+import virtualKeyboard from './VirtualKeyboard/reducer'
+import token2fa from './2FAToken/reducer'
 
 export default combineReducers({
+  alignmentTerms,
   bankData,
   bankExtract,
   bankExtractFund,
@@ -33,6 +41,8 @@ export default combineReducers({
   consortiumVehicle,
   creditCard,
   customerProfile,
+  financialApplicationGetData,
+  financialApplicationPostData,
   investmentsList,
   investmentDetails,
   investmentPosition,
@@ -50,4 +60,6 @@ export default combineReducers({
   suitabilityInfo,
   rewardsRecommendations,
   rewardsTypes,
+  virtualKeyboard,
+  token2fa,
 })

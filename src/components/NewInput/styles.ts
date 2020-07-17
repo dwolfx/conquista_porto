@@ -1,19 +1,18 @@
 import styled, { css } from 'styled-components'
 import Icon from 'components/IconExporter'
 
-const inputDefaultStyle = css<{ width?: string | number }>`
+const inputDefaultStyle = css`
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
   height: 56px;
-  width: ${props => `${props.width ? props.width : 100}%`};
   align-items: center;
   display: flex;
-  padding: 0 7px;
+  padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
 
   #prefix {
-    padding-left: 7px;
+    padding-left: ${({ theme }) => `${theme.spacing(1)}px`};
   }
   #suffix {
-    padding-right: 7px;
+    padding-right: ${({ theme }) => `${theme.spacing(1)}px`};
   }
   :focus-within {
     border-bottom: 2px solid ${props => props.theme.colors.blue4};
@@ -53,10 +52,10 @@ export const InputWrapper = styled.div<IInputWrapperProps>`
   position: relative;
 `
 
-export const InputLabel = styled.div`
+export const InputLabel = styled.label`
   color: ${props => props.theme.colors.gray5};
-  padding-left: 14px;
-  padding-top: 7px;
+  padding-left: ${({ theme }) => `${theme.spacing(2)}px`};
+  padding-top: ${({ theme }) => `${theme.spacing(1)}px`};
   ${props => props.theme.fontTypes.captionUppercase};
 `
 
@@ -88,8 +87,8 @@ export const Input = styled.input`
   border: none;
   color: ${props => props.theme.colors.gray6};
   font: inherit;
-  padding: 0 7px;
-  width: inherit;
+  padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
+  width: 100%;
 
   &:-webkit-autofill {
     box-shadow: none;
