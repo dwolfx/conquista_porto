@@ -102,7 +102,7 @@
     "status_data_vencimento_cadastro": false
   },
   "posicao-consolidada": {
-    "saldo_total": 1000
+    "saldototal": 1000
   },
   "cartao_credito": [],
   "financiamento_veiculo": {
