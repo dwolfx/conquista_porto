@@ -4,6 +4,7 @@ import {
   baseURLNamespaceGoal,
   baseURLNamespaceGoalFunds,
   baseURLNamespaceInvest,
+  baseURLNamespaceInvestAws,
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
   baseURLNamespaceRewards,
@@ -48,6 +49,7 @@ export {
   baseURLNamespaceRecommendation,
   baseURLNamespaceRewards,
   baseURLNamespaceInvest,
+  baseURLNamespaceInvestAws,
   baseURLNamespacePortopar,
   baseURLNamespaceAuth2,
 }
