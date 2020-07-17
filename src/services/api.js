@@ -5,6 +5,7 @@ import {
   baseURLNamespaceGoalFunds,
   baseURLNamespaceInvest,
   baseURLNamespaceInvestAws,
+  baseURLNamespaceInvestPortovida,
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
   baseURLNamespaceRewards,
@@ -50,6 +51,7 @@ export {
   baseURLNamespaceRewards,
   baseURLNamespaceInvest,
   baseURLNamespaceInvestAws,
+  baseURLNamespaceInvestPortovida,
   baseURLNamespacePortopar,
   baseURLNamespaceAuth2,
 }

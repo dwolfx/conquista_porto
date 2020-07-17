@@ -6,11 +6,10 @@ import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 export default function useFetchLifeInsurance() {
   const dispatch = useDispatch()
   const data = useSelector(state => state.lifeInsurance.data)
-  const auth = useSelector(state => state.auth)
 
   useEffect(() => {
     if (!data) {
-      dispatch(GetLifeInsuranceDataRequest(auth.cpf))
+      dispatch(GetLifeInsuranceDataRequest())
     }
-  }, [dispatch, data, auth])
+  }, [dispatch, data])
 }

@@ -45,8 +45,8 @@ const Home = ({ location }) => {
     dispatch(GetVehicleFinancingDataRequest(auth.cpf))
     dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
     dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
-    dispatch(GetLifeInsuranceDataRequest(auth.cpf))
-    dispatch(GetTripInsuranceDataRequest(auth.cpf))
+    dispatch(GetLifeInsuranceDataRequest())
+    dispatch(GetTripInsuranceDataRequest())
     dispatch(GetPointsExtractRequest(auth.cpf))
     dispatch(GetBankDataRequest(auth.cpf))
     // eslint-disable-next-line react-hooks/exhaustive-deps
