@@ -37,7 +37,7 @@ describe('LastTransactions', () => {
       expect(getByTestId('lasttransations-error-component')).toBeInTheDocument()
     })
     it('should retry the request and get loading again', () => {
-      const store = storeFactory()
+      const store = storeFactory({ investmentPosition: { idFund: '1' } })
       const { getByTestId, getByText } = renderWithProviders(store)
       store.dispatch(GetBankExtractFundFailure())
       expect(getByTestId('lasttransations-error-component')).toBeInTheDocument()
@@ -50,7 +50,8 @@ describe('LastTransactions', () => {
   })
   describe('Loading state', () => {
     it('should render the loading component when request has started', () => {
-      const { getByTestId } = renderWithProviders()
+      const store = storeFactory({ investmentPosition: { idFund: '1' } })
+      const { getByTestId } = renderWithProviders(store)
       expect(
         getByTestId('lasttransations-loading-component')
       ).toBeInTheDocument()
