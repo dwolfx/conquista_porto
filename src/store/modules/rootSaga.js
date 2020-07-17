@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { all } from 'redux-saga/effects'
 
+import alignmentTerms from './Investment/FinancialApplication/AlignmentTerms/sagas'
 import bankData from './BankData/sagas'
 import bankExtract from './BankExtract/sagas'
 import bankExtractFund from './BankExtractFund/sagas'
@@ -9,6 +10,10 @@ import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
 import customerProfile from './CustomerProfile/sagas'
+import {
+  financialApplicationGetData,
+  financialApplicationPostData,
+} from './Investment/FinancialApplication/sagas'
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
 import investmentPosition from './Investment/Position/sagas'
@@ -30,6 +35,7 @@ import token2fa from './2FAToken/sagas'
 
 export default function* rootSaga() {
   return yield all([
+    alignmentTerms,
     bankData,
     bankExtract,
     bankExtractFund,
@@ -38,6 +44,8 @@ export default function* rootSaga() {
     consortiumBuilding,
     consortiumVehicle,
     customerProfile,
+    financialApplicationGetData,
+    financialApplicationPostData,
     investmentsList,
     investmentDetails,
     investmentPosition,

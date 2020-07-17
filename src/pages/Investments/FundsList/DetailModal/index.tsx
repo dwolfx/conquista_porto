@@ -44,9 +44,13 @@ const DetailModal = ({
   const { data: fundDetails, isLoading, isError } = useSelector<any, any>(
     state => state.investmentDetails
   )
-  const suitabilityIsLoading = useSelector<any, any>(
-    state => state.suitabilityInfo.isLoading
-  )
+  const { suitabilityIsLoading, finatialApplicationIsLoading } = useSelector<
+    any,
+    any
+  >(state => ({
+    suitabilityIsLoading: state.suitabilityInfo.isLoading,
+    finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
+  }))
   const dispatch = useDispatch()
   const ModalFooter = () =>
     isOpenForInvestments ? (
@@ -57,7 +61,7 @@ const DetailModal = ({
           data-gtm-clicktype="button"
           data-gtm-subname={fundDetails.apelido}
           data-gtm-name={isLayerOpen ? 'Voltar' : 'Investir'}
-          loading={suitabilityIsLoading}
+          loading={suitabilityIsLoading || finatialApplicationIsLoading}
           loadingColor="white"
           color="secondary"
           onClick={() => {

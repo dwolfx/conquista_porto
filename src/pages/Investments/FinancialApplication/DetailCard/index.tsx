@@ -1,4 +1,5 @@
 import React from 'react'
+import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
@@ -142,7 +143,9 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
                     Categoria
                   </Text>,
                   <Text bold color="gray6" type="headline">
-                    {fundDetails.categoria}
+                    {fundDetails.categoria.toLowerCase() === 'renda variável'
+                      ? 'Ações'
+                      : fundDetails.categoria}
                   </Text>,
                 ]}
               />
@@ -160,7 +163,14 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
                     noPadding
                     size="small"
                     startItems={[
-                      <Text bold color="gray6" type="headline">
+                      <Text
+                        bold
+                        color="gray6"
+                        type="headline"
+                        css={`
+                          width: max-content;
+                        `}
+                      >
                         {capitalize(fundDetails.perfil_risco)}
                       </Text>,
                       <SquareRisk

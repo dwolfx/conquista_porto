@@ -1,0 +1,13 @@
+{
+  "Message": {
+    "TipoCritica": "SUCESSO",
+    "Mensagem": "SUCESSO"
+  },
+  "status_operacao": true,
+  "mesagem": "Operação realizada com sucesso.",
+  "id_cotista": 2000112690,
+  "cpf_cnpj": "33244452809",
+  "valor": 1007,
+  "data": "2020-07-08",
+  "id_fundo": 5112
+}

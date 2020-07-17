@@ -79,7 +79,7 @@ export const DrawerContent = styled.div<IDrawerContentProps>`
   max-width: 650px;
   top: 0;
   ${props => ({
-    [props.positionDrawer]: props.isOpen ? '0' : '-100%',
+    [props.positionDrawer]: props.isOpen ? '0' : 'calc(-100% - 7px)',
   })}
 
   @media ${props => props.theme.mediaQueries.lg} {

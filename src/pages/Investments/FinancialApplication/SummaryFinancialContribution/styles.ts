@@ -66,21 +66,13 @@ export const StyledReturnButton = styled(StyledButton).attrs(() => ({
     flex: 1;
   }
 `
+interface IConfirmButton {
+  retryAction: boolean
+}
 
-export const StyledConfirmButton = styled(StyledButton).attrs(() => ({
-  color: 'secondary',
-  loadingColor: 'white',
-}))`
+export const StyledConfirmButton = styled(StyledButton)<IConfirmButton>`
   @media ${props => props.theme.mediaQueries.xs} {
-    flex: 1;
-  }
-`
-export const StyledRetryButton = styled(StyledButton).attrs(() => ({
-  color: 'secondary',
-  loadingColor: 'white',
-}))`
-  @media ${props => props.theme.mediaQueries.xs} {
-    flex: 2;
+    flex: ${props => (props.retryAction ? 2 : 1)};
   }
 `
 
@@ -96,17 +88,6 @@ export const FooterContainer = styled.div`
   }
 `
 
-export const CheckboxContainer = styled.div`
-  margin: ${({ theme }) => theme.spacing(3)}px 0
-    ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(1)}px;
-  display: flex;
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    margin: ${({ theme }) => theme.spacing(3)}px 0
-      ${({ theme }) => theme.spacing(3)}px ${({ theme }) => theme.spacing(3)}px;
-  }
-`
-
 export const ContentContainer = styled.div`
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
   @media ${props => props.theme.mediaQueries.lg} {
@@ -119,12 +100,11 @@ export const ContentContainer = styled.div`
 
 export const SummaryContainer = styled.div`
   padding: ${({ theme }) => theme.spacing(1)}px 0;
-`
+  margin-bottom: ${({ theme }) => theme.spacing(3)}px;
 
-export const ExternalLink = styled.a`
-  color: ${({ theme }) => theme.colors.blue4};
-
-  &:hover {
-    text-decoration: underline;
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    background-color: ${({ theme }) => theme.colors.gray1};
+    border-radius: 8px;
+    margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
   }
 `
