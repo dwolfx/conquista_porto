@@ -41,14 +41,14 @@ const graphValuesGenerator = (data, theme) => {
 
   let result = []
 
-  if (data.saldo_total && data.categorias) {
+  if (data.saldototal && data.categorias) {
     result = data.categorias.sort((a, b) => b.valor - a.valor)
     result = result.map((item, index) => ({
       id: `${index}`,
       label: item.nome,
       value: item.valor,
       color: colorsPriority[index],
-      percent: ((item.valor / data.saldo_total) * 100).toFixed(2),
+      percent: ((item.valor / data.saldototal) * 100).toFixed(2),
     }))
   }
 
@@ -81,7 +81,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
 
   useEffect(() => {
     setPieChartInfo({
-      value: (data && data.saldo_total) || 0,
+      value: (data && data.saldototal) || 0,
       percent: 0,
     })
   }, [data])
@@ -89,7 +89,7 @@ export default function InvestmentSection({ onFetchInvestments }) {
   function settingPieChartInfo(payload) {
     setPieChartInfo(
       payload || {
-        value: (data && data.saldo_total) || 0,
+        value: (data && data.saldototal) || 0,
         percent: 0,
       }
     )
