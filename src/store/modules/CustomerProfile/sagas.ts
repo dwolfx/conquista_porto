@@ -1,21 +1,13 @@
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get, baseURLNamespaceInvestAws } from 'services/api'
 import { GetDataSuccess, GetDataFailure } from './action'
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 import { Types } from './types'
 
-interface IPayload {
-  type: string
-  payload: {
-    cpfCnpj: string
-  }
-}
-
-function* getData({ payload }: IPayload) {
-  const { cpfCnpj } = payload
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/perfil/dados-cliente?cpfCnpj=${cpfCnpj}`
+      `${baseURLNamespaceInvestAws}/cliente/dados`
     )
     yield put(GetDataSuccess(response.data))
   } catch (err) {

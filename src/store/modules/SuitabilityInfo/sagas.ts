@@ -1,6 +1,10 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 
-import { get, baseURLNamespaceInvest } from 'services/api'
+import {
+  get,
+  baseURLNamespaceInvest,
+  baseURLNamespaceInvestAws,
+} from 'services/api'
 import { Types } from './types'
 import { GetDataSuccess, GetDataFailure } from './action'
 import { getSuitabilityInfo, getCustomerProfile, getAuth } from './selectors'
@@ -51,7 +55,7 @@ function* getDataValidate({ payload }: IPayload) {
     if (!customerProfile) {
       const response = yield call(
         get,
-        `${baseURLNamespaceInvest}/perfil/dados-cliente?cpfCnpj=${auth.cpf}`
+        `${baseURLNamespaceInvestAws}/cliente/dados`
       )
       customerProfile = {
         cpfCnpj: response.data.cpfCnpj,

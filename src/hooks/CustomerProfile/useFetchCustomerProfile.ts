@@ -4,14 +4,13 @@ import { GetCustomerProfileRequest } from 'store/modules/CustomerProfile/action'
 
 export default function useFetchCustomerProfile() {
   const dispatch = useDispatch()
-  const { customerProfile, cpf } = useSelector<any, any>(state => ({
+  const { customerProfile } = useSelector<any, any>(state => ({
     customerProfile: state.customerProfile,
-    cpf: state.auth.cpf,
   }))
 
   useEffect(() => {
     if (!customerProfile.data) {
-      dispatch(GetCustomerProfileRequest(cpf))
+      dispatch(GetCustomerProfileRequest())
     }
-  }, [dispatch, customerProfile.data, cpf])
+  }, [dispatch, customerProfile.data])
 }
