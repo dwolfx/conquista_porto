@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 
-import { get, post, baseURLNamespaceInvest } from 'services/api'
+import { get, post, baseURLNamespaceInvestAws } from 'services/api'
 import {
   Types,
   IGetFinancialApplicationPayload,
@@ -64,7 +64,7 @@ function* getFinancialApplicationData({
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/aws/cotista/aplicacoes?id_fundo=${id_fundo}&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${data_operacao}`
+      `${baseURLNamespaceInvestAws}/cotista/aplicacoes?id_fundo=${id_fundo}&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${data_operacao}`
     )
 
     yield put(GetFinancialApplicationDataSuccess(response.data))
@@ -93,13 +93,13 @@ function* postFinancialApplicationData({
     if (aceite_termo_adesao === 'S') {
       yield call(
         get,
-        `${baseURLNamespaceInvest}/aws/cotista/aplicacoes/resumo?id_fundo=${otherData.id_fundo}&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${otherData.data}&valor=${otherData.valor}&aceite_termo_adesao=${aceite_termo_adesao}`
+        `${baseURLNamespaceInvestAws}/cotista/aplicacoes/resumo?id_fundo=${otherData.id_fundo}&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${otherData.data}&valor=${otherData.valor}&aceite_termo_adesao=${aceite_termo_adesao}`
       )
     }
 
     const response = yield call(
       post,
-      `${baseURLNamespaceInvest}/aws/cotista/aplicacoes`,
+      `${baseURLNamespaceInvestAws}/cotista/aplicacoes`,
       { ...otherData, cpf_cnpj: cpf, id_cotista: id_cotista }
     )
 
