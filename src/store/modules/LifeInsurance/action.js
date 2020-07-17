@@ -1,9 +1,8 @@
 import { Types } from './types'
 
-export function GetLifeInsuranceDataRequest(cpf) {
+export function GetLifeInsuranceDataRequest() {
   return {
     type: Types.GET_DATA_REQUEST,
-    cpf,
   }
 }
 

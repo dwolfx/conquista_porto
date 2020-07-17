@@ -1,17 +1,17 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get, baseURLNamespaceInvestPortovida } from 'services/api'
 import { Types } from './types'
 import {
   GetTripInsuranceDataSuccess,
   GetTripInsuranceDataFailure,
 } from './action'
 
-function* getData({ cpf }) {
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/produtos/vida?cpfCnpj=${cpf}&codigoCanal=1&tipoSeguro=VIAGEM`
+      `${baseURLNamespaceInvestPortovida}/produto?codigo-canal=0&tipo-seguro=VIAGEM`
     )
 
     let responseData = response.data
