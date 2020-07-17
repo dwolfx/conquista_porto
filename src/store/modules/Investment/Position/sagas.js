@@ -17,7 +17,7 @@ function* getData({ cpf }) {
           `${baseURLNamespaceInvest}/cotistas/posicao-consolidada?cpf=${cpf}`
         )
 
-    if (saldoResponse.data.saldo_total > 0) {
+    if (saldoResponse.data.saldototal > 0) {
       const response = yield call(
         get,
         `${baseURLNamespaceInvest}/cotistas/posicao?cpf=${cpf}&codigoCanal=0`
