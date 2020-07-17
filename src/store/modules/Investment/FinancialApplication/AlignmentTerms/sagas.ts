@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get, baseURLNamespaceInvestAws } from 'services/api'
 import { Types, IGetAlignmentTermsPayload } from '../types'
 import { getAuth, getSuitabilityInfo } from '../selectors'
 import {
@@ -20,7 +20,7 @@ function* getAlignmentTermsData({
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/aws/cotista/aplicacoes/enquadramento?CodigoCanal=1&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${data_operacao}&tipo_operacao=1&valor_bruto=${valor_bruto}&id_fundo=${id_fundo}`
+      `${baseURLNamespaceInvestAws}/cotista/aplicacoes/enquadramento?CodigoCanal=1&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${data_operacao}&tipo_operacao=1&valor_bruto=${valor_bruto}&id_fundo=${id_fundo}`
     )
     yield put(GetAlignmentTermsDataSuccess(response.data))
 
