@@ -9,18 +9,14 @@ import Divisor from 'components/Divisor'
 import ButtonTag from 'components/Button/Tag'
 import MoneyInput from 'components/Inputs/Money'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { GetBankDataRequest } from 'store/modules/BankData/action'
-import { GetPositionDataRequest } from 'store/modules/Investment/Position/action'
-import { formatMoney } from 'helpers'
+
+import BaseAccountInfo from '../components/BaseAccountInfo'
 
 import {
   ButtonStyled,
   ButtonsStepWrapper,
   CardStyled,
-  IconRetry,
-  LoadingSpinner,
   RedeemFormContainer,
-  VerticalListStyled,
   BalanceInfoContainer,
   ButtonsBallanceWrapper,
   SimulationWrapper,
@@ -30,7 +26,6 @@ import {
 } from './styles'
 import HorizontalList from 'components/HorizontalList'
 import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
-
 
 interface IFormData {
   moneyToRedeem: string
@@ -46,7 +41,13 @@ interface IBallanceRedeem {
   previousStep: () => void
   idFundo: string
 }
-const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, idFundo }: IBallanceRedeem) => {
+const BallanceRedeem = ({
+  step,
+  nextStep,
+  previousStep,
+  onChangeFundDetailOpen,
+  idFundo,
+}: IBallanceRedeem) => {
   useFetchBankData()
   useFetchSuitabilityInfo()
   const dispatch = useDispatch()
@@ -54,87 +55,19 @@ const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, 
   const isMobile = useMedia('xs')
 
   const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
-  const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
+  const { bankData, investmentPosition } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
-    auth: state.auth,
   }))
-
-  const renderBaseAccountInfo = (idFundo: string) => {
-    if (bankData.isLoading || investmentPosition.isLoading) {
-      return (
-        <>
-          <Text type="headline" color="gray5">
-            Buscando informações de saldo...
-          </Text>
-          <LoadingSpinner />
-        </>
-      )
-    }
-
-    if (investmentPosition.hasError || bankData.hasError) {
-      return (
-        <>
-          <Text type="headline" color="magenta2">
-            Não foi possível carregar o saldo. Por favor, tente novamente.
-          </Text>
-          <IconRetry
-            onClick={() => {
-              dispatch(GetBankDataRequest(auth.cpf))
-              dispatchPositionData()
-            }}
-          />
-        </>
-      )
-    }
-
-    const chosenInvestmentFund = () =>
-      investmentPosition.data &&
-      investmentPosition.data.length !== 0 &&
-      investmentPosition.data[0].posicoes.posicao.find(
-        (posicao: any) => posicao.fundo.id_carteira === idFundo
-      )
-
-    const fund: any = chosenInvestmentFund()
-    let saldoAtual = ''
-    if (fund) {
-      saldoAtual = fund.saldo_atual
-    }
-
-    return (
-      <>
-        <VerticalListStyled
-          elements={[
-            <Text type="captionUppercase" color="gray4" bold>
-              fundo
-            </Text>,
-            <Text type="headline" color="gray6" bold>
-              {formatMoney(
-                investmentPosition.data &&
-                  investmentPosition.data.length === 0
-                  ? 0
-                  : saldoAtual
-              )}
-            </Text>,
-            <Text type="caption" color="gray5" bold>
-              Saldo e rendimento bruto
-            </Text>,
-          ]}
-        />
-      </>
-    )
-  }
-
-  const dispatchPositionData = () => {
-    if (!isTabletOrSmaller) {
-      dispatch(GetPositionDataRequest(auth.cpf))
-    }
-  }
 
   const cardBody = () => (
     <>
       <BalanceInfoContainer>
-        {renderBaseAccountInfo(idFundo)}
+        <BaseAccountInfo
+          idFundo={idFundo}
+          isLoading={bankData.isLoading || investmentPosition.isLoading}
+          hasError={investmentPosition.hasError || bankData.hasError}
+        />
       </BalanceInfoContainer>
       <Divisor />
       <Row>
@@ -143,14 +76,18 @@ const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, 
             Quanto você quer resgatar?
           </Text>
           <ButtonsBallanceWrapper>
-            <ButtonTag color="primary" onClick={() => console.log('tudo')}>tudo</ButtonTag>
+            <ButtonTag color="primary" onClick={() => console.log('tudo')}>
+              tudo
+            </ButtonTag>
             <ButtonTag
               color=""
               onClick={() => console.log('manter')}
               css={`
                 margin-left: 7px;
               `}
-              >manter saldo mínimo</ButtonTag>
+            >
+              manter saldo mínimo
+            </ButtonTag>
           </ButtonsBallanceWrapper>
           <MoneyInput
             data-testid="financial-application-money-input"
@@ -162,8 +99,8 @@ const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, 
               setFormData({
                 moneyToRedeem: target.value,
               })
-            }} 
-            />
+            }}
+          />
         </RedeemFormContainer>
       </Row>
       <Divisor />
@@ -172,40 +109,40 @@ const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, 
           Simulação
         </Text>
         <CalculationWrapper>
-          <HorizontalList 
+          <HorizontalList
             startItems={[
               <Text type="headline" color="gray5">
                 Valor Bruto do Resgate
-              </Text>
+              </Text>,
             ]}
             endItems={[
               <Text type="headline" color="gray6">
                 R$ 9.875,00
-              </Text>
+              </Text>,
             ]}
           />
-          <HorizontalList 
+          <HorizontalList
             startItems={[
               <Text type="headline" color="gray5">
                 IOF*
-              </Text>
+              </Text>,
             ]}
             endItems={[
               <Text type="headline" color="gray6">
                 R$ 197,50
-              </Text>
+              </Text>,
             ]}
           />
-          <HorizontalList 
+          <HorizontalList
             startItems={[
               <Text type="headline" color="gray5">
                 IR*
-              </Text>
+              </Text>,
             ]}
             endItems={[
               <Text type="headline" color="gray6">
                 R$ 1.481,25
-              </Text>
+              </Text>,
             ]}
           />
         </CalculationWrapper>
@@ -216,32 +153,34 @@ const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, 
           startItems={[
             <Text type="headline" color="gray5">
               Valor líquido do resgate
-            </Text>
+            </Text>,
           ]}
           endItems={[
             <Text type="headline" color="gray6">
               R$ 8.196,25
-            </Text>
+            </Text>,
           ]}
         />
       </SimulationWrapper>
       <Divisor />
       <InformationsWrapper>
-        <Text 
-          type="body" 
-          bold 
+        <Text
+          type="body"
+          bold
           color="gray6"
           css={`
             margin-bottom: 14px;
           `}
-          >
+        >
           O valor será creditado na sua conta de investimento.
         </Text>
         <Text type="body" bold color="gray6">
-          O valor final de uma solicitação de resgate pode mudar, para mais ou para menos, dependendo da variação do valor das cotas que você possuir no momento da efetivação.
+          O valor final de uma solicitação de resgate pode mudar, para mais ou
+          para menos, dependendo da variação do valor das cotas que você possuir
+          no momento da efetivação.
         </Text>
       </InformationsWrapper>
-      </>
+    </>
   )
 
   const cardFooter = () => (
@@ -281,12 +220,10 @@ const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, 
       >
         {cardBody()}
       </CardStyled>
-    <FixedBottom>{cardFooter()}</FixedBottom>
+      <FixedBottom>{cardFooter()}</FixedBottom>
     </>
   ) : (
-    <CardStyled footer={cardFooter()}>
-      {cardBody()}
-    </CardStyled>
+    <CardStyled footer={cardFooter()}>{cardBody()}</CardStyled>
   )
 }
 

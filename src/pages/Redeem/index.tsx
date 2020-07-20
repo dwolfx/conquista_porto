@@ -17,10 +17,7 @@ import { formatLocaleStringToNumber } from 'helpers'
 //Steps
 import BallanceRedeem from './BallanceRedeem'
 
-import {
-  CustomCol,
-  Container,
-} from './styles'
+import { CustomCol, Container } from './styles'
 
 import { useSelector, useDispatch } from 'react-redux'
 import AlignmentTerms from 'components/Investment/AlignmentTerms'
@@ -41,25 +38,22 @@ const Redeem = () => {
   const isMobile = useMedia('xs')
   const themeContext = useContext(ThemeContext)
   const { idFund } = useSelector((state: any) => ({
-    idFund: state.investmentPosition.idFund
+    idFund: state.investmentPosition.idFund,
   }))
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const maxSteps = 4
 
-  const goBackHandler = () => step !== 1
-    ? setStep(currentStep => currentStep - 1)
-    : history.goBack()
+  const goBackHandler = () =>
+    step !== 1 ? setStep(currentStep => currentStep - 1) : history.goBack()
 
   const nextStep = () => {
     // setIsLoadingNextButton(alignmentTermsIsLoading)
     dispatch(
       GetRedeemAlignmentTermsRequest({
         data: {
-          data_operacao: moment(new Date(), 'DD/MM/YYYY').format(
-            'YYYY-MM-DD'
-          ),
-          valor_bruto: formatLocaleStringToNumber("1000.9"),
+          data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
+          valor_bruto: formatLocaleStringToNumber('1000.9'),
           id_fundo: idFund,
         },
         onSuccess: (alignmentData: any) => {
@@ -83,13 +77,13 @@ const Redeem = () => {
   }
 
   const stepsContent = [
-    <BallanceRedeem 
+    <BallanceRedeem
       step={step}
       nextStep={nextStep}
       previousStep={previousStep}
       onChangeFundDetailOpen={setFundDetailOpen}
       idFundo={idFund}
-    />
+    />,
   ]
 
   const getBodyContent = () => {
@@ -121,18 +115,18 @@ const Redeem = () => {
 
   return (
     <>
-    <TransactionHeader
-      onBack={goBackHandler}
-      onClose={() => history.push('/')}
-      showBackButton={step !== 1}
-      showStepsBar
-      stepsBarProps={{
-        title: 'Resgatar',
-        step,
-        maxSteps,
-        setStep,
-      }}
-    />      
+      <TransactionHeader
+        onBack={goBackHandler}
+        onClose={() => history.push('/')}
+        showBackButton={step !== 1}
+        showStepsBar
+        stepsBarProps={{
+          title: 'Resgatar',
+          step,
+          maxSteps,
+          setStep,
+        }}
+      />
       {isAlignmentTermOpen ? (
         <AlignmentTerms
           acceptAlignmentTerms={acceptAlignmentTerms}
@@ -145,11 +139,12 @@ const Redeem = () => {
           <Row>
             {!isMobile && (
               <CustomCol md={4} lg={3}>
-                <FundDetailCard handleFundDetailOpen={() => setFundDetailOpen(true)}/>
+                <FundDetailCard
+                  handleFundDetailOpen={() => setFundDetailOpen(true)}
+                />
               </CustomCol>
             )}
             <CustomCol md={8} lg={9}>
-    
               {getBodyContent()}
             </CustomCol>
           </Row>
@@ -159,40 +154,44 @@ const Redeem = () => {
             `}
           >
             <Col md={12}>
-              <Text type="body" bold color="gray5">Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.</Text>
+              <Text type="body" bold color="gray5">
+                Toda transmissão de ordem por meio digital está sujeita a
+                interrupções ou atrasos, podendo impedir ou prejudicar o envio
+                de ordens ou a recepção de informações atualizadas.
+              </Text>
             </Col>
           </Row>
-      </Container>
+        </Container>
       )}
-    {isMobile ? (
-      <FundDetailModal 
-        isOpen={isFundDetailOpen} 
-        handleClose={() => setFundDetailOpen(false)} 
-        isLayerOpen
-        title="Andre" 
-       />
-    ) : (
-      <FundDetailDrawer 
-        isOpen={isFundDetailOpen}
-        isLayerOpen
-        handleClose={() => setFundDetailOpen(false)}
+      {isMobile ? (
+        <FundDetailModal
+          isOpen={isFundDetailOpen}
+          handleClose={() => setFundDetailOpen(false)}
+          isLayerOpen
+          title="Andre"
+        />
+      ) : (
+        <FundDetailDrawer
+          isOpen={isFundDetailOpen}
+          isLayerOpen
+          handleClose={() => setFundDetailOpen(false)}
+        />
+      )}
+      <Modal
+        isOpen={isAlignmentTermModalOpen}
+        title="Risco acima do seu perfil"
+        description="Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento."
+        buttonTextCancel="ver termo"
+        buttonTextConfirm="cancelar"
+        onClose={() => {
+          handleAlignmentTermCloseModal()
+          setIsAlignmentTermOpen(true)
+          setAcceptAlignmentTerms(false)
+        }}
+        onConfirmation={handleAlignmentTermCloseModal}
+        onCloseHeaderButton={handleAlignmentTermCloseModal}
       />
-    )}
-    <Modal
-      isOpen={isAlignmentTermModalOpen}
-      title="Risco acima do seu perfil"
-      description="Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento."
-      buttonTextCancel="ver termo"
-      buttonTextConfirm="cancelar"
-      onClose={() => {
-        handleAlignmentTermCloseModal()
-        setIsAlignmentTermOpen(true)
-        setAcceptAlignmentTerms(false)
-      }}
-      onConfirmation={handleAlignmentTermCloseModal}
-      onCloseHeaderButton={handleAlignmentTermCloseModal}
-    />
-  </>
+    </>
   )
 }
 
