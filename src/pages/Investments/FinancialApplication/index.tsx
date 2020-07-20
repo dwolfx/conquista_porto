@@ -9,10 +9,10 @@ import Text from 'components/Text'
 import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
 import Anbima from 'components/Anbima'
+import AlignmentTerms from 'components/Investment/AlignmentTerms'
 
 import { GetAlignmentTermsDataRequest } from 'store/modules/Investment/FinancialApplication/AlignmentTerms/action'
 
-import AlignmentTerms from './AlignmentTerms'
 import LayerHeader from './LayerHeader'
 import FormFinancialContribution from './FormFinancialContribution'
 import SummaryFinancialContribution from './SummaryFinancialContribution'
@@ -37,7 +37,6 @@ import {
   GridColInfo,
   MobileScrollContent,
 } from './styles'
-import FundCard from '../FundsList/ResponsiveList/FundCard'
 
 interface IProps {
   handleClose: () => void

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useMedia from 'hooks/useMedia'
 import { useSelector, useDispatch } from 'react-redux'
-import { Col, Row } from 'styled-bootstrap-grid'
+import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
@@ -14,7 +14,6 @@ import { GetPositionDataRequest } from 'store/modules/Investment/Position/action
 import { formatMoney } from 'helpers'
 
 import {
-  BodyWrapper,
   ButtonStyled,
   ButtonsStepWrapper,
   CardStyled,
@@ -30,6 +29,7 @@ import {
   FixedBottom,
 } from './styles'
 import HorizontalList from 'components/HorizontalList'
+import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
 
 
 interface IFormData {
@@ -41,28 +41,24 @@ const FORM_DATA_INTIAL_STATE = {
 
 interface IBallanceRedeem {
   step: number
-  setStep: (step: number) => void
   onChangeFundDetailOpen: (isOpen: boolean) => void
+  nextStep: () => void
+  previousStep: () => void
   idFundo: string
 }
-const BallanceRedeem = ({ step, setStep, onChangeFundDetailOpen, idFundo }: IBallanceRedeem) => {
+const BallanceRedeem = ({ step, nextStep, previousStep, onChangeFundDetailOpen, idFundo }: IBallanceRedeem) => {
   useFetchBankData()
+  useFetchSuitabilityInfo()
   const dispatch = useDispatch()
   const isTabletOrSmaller = useMedia('md')
   const isMobile = useMedia('xs')
+
   const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
   const { bankData, investmentPosition, auth } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
     auth: state.auth,
   }))
-
-  const nextStep = () => {
-    setStep(step + 1)
-  }
-  const prevStep = () => {
-    setStep(step - 1)
-  }
 
   const renderBaseAccountInfo = (idFundo: string) => {
     if (bankData.isLoading || investmentPosition.isLoading) {
@@ -257,7 +253,7 @@ const BallanceRedeem = ({ step, setStep, onChangeFundDetailOpen, idFundo }: IBal
           data-gtm-clicktype="button"
           data-gtm-name="voltar"
           outline
-          onClick={prevStep}
+          onClick={previousStep}
           disabled={false}
         >
           Voltar

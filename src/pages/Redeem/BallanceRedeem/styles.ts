@@ -6,7 +6,6 @@ import CardComponent from 'components/Card'
 import { CardBody } from 'components/Card/styles'
 import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
-import Text from 'components/Text'
 
 import VerticalList from 'components/VerticalList'
 

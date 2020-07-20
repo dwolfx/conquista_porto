@@ -2,6 +2,7 @@
 import { all } from 'redux-saga/effects'
 
 import alignmentTerms from './Investment/FinancialApplication/AlignmentTerms/sagas'
+import redeemAlignmentTerms from './Investment/Redeem/AlignmentTerms/sagas'
 import bankData from './BankData/sagas'
 import bankExtract from './BankExtract/sagas'
 import bankExtractFund from './BankExtractFund/sagas'
@@ -62,6 +63,7 @@ export default function* rootSaga() {
     suitability,
     suitabilityInfo,
     rewardsRecommendations,
+    redeemAlignmentTerms,
     rewardsTypes,
     virtualKeyboard,
     token2fa,
