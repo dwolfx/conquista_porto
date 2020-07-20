@@ -1,8 +1,9 @@
 import { Types } from './types'
 
-export function GetInvestmentListRequest() {
+export function GetInvestmentListRequest(payload) {
   return {
     type: Types.INVESTMENT_LIST_ADD_REQUEST,
+    payload,
   }
 }
 

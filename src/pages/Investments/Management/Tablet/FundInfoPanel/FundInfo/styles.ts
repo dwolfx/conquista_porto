@@ -81,6 +81,7 @@ export const RowWithoutPadding = styled(Row)`
 `
 
 export const ButtonsWrapper = styled(Col)`
+  display: flex;
   margin: ${({ theme }) => theme.spacing(2)}px 0;
   text-align: center;
 

@@ -7,6 +7,7 @@ import TextComponent from 'components/Text'
 
 export interface IProps {
   onCloseLayer: () => void
+  handleCloseButton: () => void
 }
 
 export const AccountInfoText = styled(TextComponent).attrs(() => ({

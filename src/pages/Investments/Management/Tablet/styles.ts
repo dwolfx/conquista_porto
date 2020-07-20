@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import IconButton from 'components/Button/Icon'
 import { Col, Row } from 'styled-bootstrap-grid'
+import ConquistaButton from 'components/Button'
 
 export const RowContent = styled(Row)`
   padding: 0 ${({ theme }) => theme.spacing(1)}px;
+  margin-top: ${({ theme }) => `${theme.spacing(9)}px;`};
 `
 
 export const LeftContent = styled(Col)`
@@ -26,4 +28,13 @@ export const FloatButton = styled(IconButton)`
   right: 14px;
   z-index: 11;
   border: none;
+`
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(ConquistaButton)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
 `

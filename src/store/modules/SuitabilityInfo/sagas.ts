@@ -36,7 +36,7 @@ function* getData({ payload }: IProps) {
       `${baseURLNamespaceInvest}/cotista/status?cpf=${cpf}`
     )
 
-    yield put(GetDataSuccess(response.data))
+    yield put(GetDataSuccess({ ...response.data, isValid: false }))
   } catch (err) {
     yield put({
       ...GetDataFailure(),
@@ -76,27 +76,28 @@ function* getDataValidate({ payload }: IPayload) {
       suitabilityInfo = { ...response.data }
     }
 
-    let handleButton: { isValid?: boolean } = {}
+    let isValid: { isValid: boolean } | {} = {
+      isValid: false,
+    }
 
     switch (buttonType) {
       case 'investir':
-        handleButton = handleInvestButton(suitabilityInfo, customerProfile)
+        isValid = handleInvestButton(suitabilityInfo, customerProfile)
         break
       case 'resgatar':
-        handleButton = handleRedeemButton(suitabilityInfo, customerProfile)
+        isValid = handleRedeemButton(suitabilityInfo, customerProfile)
         break
       case 'retirar':
-        handleButton = handleWithdrawButton(suitabilityInfo, customerProfile)
+        isValid = handleWithdrawButton(suitabilityInfo, customerProfile)
         break
       default:
-        handleButton = { isValid: false }
+        isValid = { isValid: false }
         break
     }
-
-    yield put(GetDataSuccess({ ...suitabilityInfo, ...handleButton }))
+    yield put(GetDataSuccess({ ...suitabilityInfo, ...isValid }))
 
     if (onSuccess) {
-      onSuccess(handleButton)
+      onSuccess({ ...suitabilityInfo, ...isValid })
     }
   } catch (err) {
     yield put({
