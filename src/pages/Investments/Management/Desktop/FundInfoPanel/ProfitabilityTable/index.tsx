@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { handleVariance } from 'pages/Investments/Management/utils'
 import Text from 'components/Text'
 import { TableGridContent, Cell, CellHeader } from './styles'
 import { formatNumber } from 'helpers'
@@ -125,16 +126,17 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell alignLeft>
+
+        <Cell alignLeft borderBottom>
           <Text bold type="body" color="gray5">
-            {`Referência em 
+            {`Referência em
             ${profitability &&
               printFieldText(
                 profitability.hist_rentabil_benchmark.benchmark.nome
               )}*`}
           </Text>
         </Cell>
-        <Cell>
+        <Cell borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -142,7 +144,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell borderLeft>
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -150,7 +152,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell borderLeft>
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -158,7 +160,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell borderLeft>
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
@@ -166,12 +168,63 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
               )}
           </Text>
         </Cell>
-        <Cell borderLeft>
+        <Cell borderLeft borderBottom>
           <Text type="subheading" color="gray6">
             {profitability &&
               printFieldTextWithPercent(
                 profitability.hist_rentabil_benchmark.rentabil_36_meses
               )}
+          </Text>
+        </Cell>
+
+        <Cell alignLeft>
+          <Text bold type="body" color="gray5">
+            Variação (P.P.)
+          </Text>
+        </Cell>
+        <Cell>
+          <Text type="subheading" color="gray6">
+            {handleVariance(
+              profitability?.hist_rentabil_benchmark.benchmark.nome,
+              profitability?.hist_rentabil_fundo.rentabil_mes_anteiror,
+              profitability?.hist_rentabil_benchmark.rentabil_mes_anteiror
+            )}
+          </Text>
+        </Cell>
+        <Cell borderLeft>
+          <Text type="subheading" color="gray6">
+            {handleVariance(
+              profitability?.hist_rentabil_benchmark.benchmark.nome,
+              profitability?.hist_rentabil_fundo.rentabil_ano,
+              profitability?.hist_rentabil_benchmark.rentabil_Ano
+            )}
+          </Text>
+        </Cell>
+        <Cell borderLeft>
+          <Text type="subheading" color="gray6">
+            {handleVariance(
+              profitability?.hist_rentabil_benchmark.benchmark.nome,
+              profitability?.hist_rentabil_fundo.rentabil_12_meses,
+              profitability?.hist_rentabil_benchmark.rentabil_12_meses
+            )}
+          </Text>
+        </Cell>
+        <Cell borderLeft>
+          <Text type="subheading" color="gray6">
+            {handleVariance(
+              profitability?.hist_rentabil_benchmark.benchmark.nome,
+              profitability?.hist_rentabil_fundo.rentabil_24_meses,
+              profitability?.hist_rentabil_benchmark.rentabil_24_meses
+            )}
+          </Text>
+        </Cell>
+        <Cell borderLeft>
+          <Text type="subheading" color="gray6">
+            {handleVariance(
+              profitability?.hist_rentabil_benchmark.benchmark.nome,
+              profitability?.hist_rentabil_fundo.rentabil_36_meses,
+              profitability?.hist_rentabil_benchmark.rentabil_36_meses
+            )}
           </Text>
         </Cell>
       </TableGridContent>
