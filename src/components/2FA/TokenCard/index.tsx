@@ -5,6 +5,7 @@ import { DefaultTheme } from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { Post2FATokenDataRequest } from 'store/modules/2FAToken/action'
 import { useToast } from 'hooks/toast'
+import useMedia from 'hooks/useMedia'
 
 import Text from 'components/Text'
 import Button from 'components/Button'
@@ -27,6 +28,7 @@ interface IProps {
 
 const TokenCard = ({ onPrevious, onNext, ...rest }: IProps) => {
   const dispatch = useDispatch()
+  const isTablet = useMedia('lg')
   const [token, setToken] = useState<string>('')
   const data = useSelector((state: any) =>
     state.token2fa.data.find((item: any) => item.name === 'sms_otp')
@@ -71,22 +73,41 @@ const TokenCard = ({ onPrevious, onNext, ...rest }: IProps) => {
           >
             reenviar
           </Button>
-          <ButtonLink
-            onClick={() => {
-              dispatch(Post2FATokenDataRequest('email_otp', addToast))
-            }}
-            noIcon
-            css={`
-              margin-left: ${({ theme }: { theme: DefaultTheme }) =>
-                `${theme.spacing(3)}px`};
-            `}
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            data-gtm-subname="autenticacao do token"
-            data-gtm-name="botao reenviar email"
-          >
-            enviar por e-mail
-          </ButtonLink>
+          {isTablet ? (
+            <Button
+              outline
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="autenticacao do token"
+              data-gtm-name="botao reenviar email"
+              css={`
+                margin-left: ${({ theme }: { theme: DefaultTheme }) =>
+                  `${theme.spacing(2)}px`};
+              `}
+              onClick={() => {
+                dispatch(Post2FATokenDataRequest('email_otp', addToast))
+              }}
+            >
+              enviar por e-mail
+            </Button>
+          ) : (
+            <ButtonLink
+              onClick={() => {
+                dispatch(Post2FATokenDataRequest('email_otp', addToast))
+              }}
+              noIcon
+              css={`
+                margin-left: ${({ theme }: { theme: DefaultTheme }) =>
+                  `${theme.spacing(3)}px`};
+              `}
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="autenticacao do token"
+              data-gtm-name="botao reenviar email"
+            >
+              enviar por e-mail
+            </ButtonLink>
+          )}
         </ContainerResendTokenButtons>
         <ContainerSecuritySeal>
           <SecuritySeal />
