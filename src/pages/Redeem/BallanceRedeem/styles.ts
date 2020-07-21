@@ -1,33 +1,11 @@
 import { Col } from 'styled-bootstrap-grid'
 import styled from 'styled-components'
 
-import ButtonComponent from 'components/Button'
-import CardComponent from 'components/Card'
-import { CardBody } from 'components/Card/styles'
-
 import VerticalList from 'components/VerticalList'
 
-export const CardStyled = styled(CardComponent)`
-  height: 100%;
-  padding: ${({ theme }) => `${theme.spacing(5)}px ${theme.spacing(5)}px 0`};
-
-  @media ${({ theme }) => theme.mediaQueries.xs} {
-    border-radius: 0;
-    padding: 0;
-  }
-
-  ${CardBody} {
-    overflow-y: auto;
-
-    @media ${({ theme }) => theme.mediaQueries.xs} {
-      overflow: none;
-    }
-  }
-`
-
 export const RedeemFormContainer = styled(Col)`
-  padding: 0 14px;
-  margin: 28px 0;
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
+  margin: ${({ theme }) => theme.spacing(4)}px 0;
   @media ${props => props.theme.mediaQueries.xs} {
     padding: 0 ${props => `${props.theme.spacing(3)}px`};
     margin: ${({ theme }) => theme.spacing(3)}px 0;
@@ -38,30 +16,9 @@ export const RedeemFormContainer = styled(Col)`
   }
 `
 
-export const ButtonsStepWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
-  width: 100%;
-
-  @media ${({ theme }) => theme.mediaQueries.xs} {
-    justify-content: center;
-  }
-`
-
-export const FixedBottom = styled.div`
-  position: fixed;
-  bottom: 0;
-  padding: ${props => props.theme.spacing(2)}px;
-  width: 100%;
-  background-color: ${props => props.theme.colors.white};
-  border-top: 1px solid ${props => props.theme.colors.gray3};
-  z-index: 1;
-`
-
 export const ButtonsBallanceWrapper = styled.div`
   display: flex;
-  margin: 21px 0 14px;
+  margin: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(2)}px`};
 `
 
 export const BalanceInfoContainer = styled.div`
@@ -71,19 +28,9 @@ export const BalanceInfoContainer = styled.div`
   margin-bottom: ${props => `${props.theme.spacing(3)}px`};
 `
 
-export const ButtonStyled = styled(ButtonComponent)`
-  @media ${({ theme }) => theme.mediaQueries.xs} {
-    width: 100%;
-  }
-
-  & + & {
-    margin-left: ${({ theme }) => theme.spacing(1)}px;
-  }
-`
-
 export const SimulationWrapper = styled.div`
-  margin-top: 14px;
-  padding: 14px;
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
+  padding: ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const VerticalListStyled = styled(VerticalList)`
@@ -95,12 +42,12 @@ export const CalculationWrapper = styled.div`
   display: block;
   background-color: ${({ theme }) => theme.colors.gray1};
   border-radius: 8px;
-  margin: 14px 0;
-  padding: 14px;
+  margin: ${({ theme }) => theme.spacing(2)}px 0;
+  padding: ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const InformationsWrapper = styled.div`
   display: block;
-  padding: 14px;
-  margin: 14px 0 35px;
+  padding: ${({ theme }) => theme.spacing(2)}px;
+  margin: ${({ theme }) => `${theme.spacing(2)}px 0 ${theme.spacing(7)}px`};
 `

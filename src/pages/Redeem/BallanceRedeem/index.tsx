@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import useMedia from 'hooks/useMedia'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
@@ -11,18 +10,16 @@ import MoneyInput from 'components/Inputs/Money'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 
 import BaseAccountInfo from '../components/BaseAccountInfo'
+import BaseFormStep from '../components/BaseFormStep'
+import CardFooter from '../components/CardFooter'
 
 import {
-  ButtonStyled,
-  ButtonsStepWrapper,
-  CardStyled,
   RedeemFormContainer,
   BalanceInfoContainer,
   ButtonsBallanceWrapper,
   SimulationWrapper,
   CalculationWrapper,
   InformationsWrapper,
-  FixedBottom,
 } from './styles'
 import HorizontalList from 'components/HorizontalList'
 import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
@@ -50,9 +47,6 @@ const BallanceRedeem = ({
 }: IBallanceRedeem) => {
   useFetchBankData()
   useFetchSuitabilityInfo()
-  const dispatch = useDispatch()
-  const isTabletOrSmaller = useMedia('md')
-  const isMobile = useMedia('xs')
 
   const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
   const { bankData, investmentPosition } = useSelector((state: any) => ({
@@ -183,47 +177,14 @@ const BallanceRedeem = ({
     </>
   )
 
-  const cardFooter = () => (
-    <ButtonsStepWrapper>
-      {step > 1 && (
-        <ButtonStyled
-          data-gtm-subname="card de retirada"
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-name="voltar"
-          outline
-          onClick={previousStep}
-          disabled={false}
-        >
-          Voltar
-        </ButtonStyled>
-      )}
-      <ButtonStyled
-        data-gtm-subname="card de retirada"
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        data-gtm-name="proximo"
-        color="secondary"
-        onClick={nextStep}
-      >
-        Próximo
-      </ButtonStyled>
-    </ButtonsStepWrapper>
-  )
-
-  return isMobile ? (
-    <>
-      <CardStyled
-        headerIconInfo
-        headerIconInfoClick={() => onChangeFundDetailOpen(true)}
-        headerTitle="Informações"
-      >
-        {cardBody()}
-      </CardStyled>
-      <FixedBottom>{cardFooter()}</FixedBottom>
-    </>
-  ) : (
-    <CardStyled footer={cardFooter()}>{cardBody()}</CardStyled>
+  return (
+    <BaseFormStep
+      cardBody={cardBody()}
+      cardFooter={
+        <CardFooter step={step} prevStep={previousStep} nextStep={nextStep} />
+      }
+      onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}
+    />
   )
 }
 

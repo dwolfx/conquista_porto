@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
@@ -16,14 +17,14 @@ import { formatLocaleStringToNumber } from 'helpers'
 
 //Steps
 import BallanceRedeem from './BallanceRedeem'
+import ResumeRedeem from './ResumeRedeem'
 
-import { CustomCol, Container } from './styles'
-
-import { useSelector, useDispatch } from 'react-redux'
 import AlignmentTerms from 'components/Investment/AlignmentTerms'
 import moment from 'moment'
 import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
 import { useToast } from 'hooks/toast'
+
+import { CustomCol, Container } from './styles'
 
 const Redeem = () => {
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
@@ -81,6 +82,12 @@ const Redeem = () => {
       step={step}
       nextStep={nextStep}
       previousStep={previousStep}
+      onChangeFundDetailOpen={setFundDetailOpen}
+      idFundo={idFund}
+    />,
+    <ResumeRedeem
+      step={step}
+      setStep={setStep}
       onChangeFundDetailOpen={setFundDetailOpen}
       idFundo={idFund}
     />,
