@@ -104,8 +104,8 @@ export default function ManagementLifeInsurance() {
   }
 
   const handleCoberturaMorte = item => {
-    const coberturas = Array.isArray(item.CoberturasBasicas.CoberturaBasica)
-      ? item.CoberturasBasicas.CoberturaBasica
+    const coberturas = Array.isArray(item.CoberturasBasicas)
+      ? item.CoberturasBasicas
       : [item.CoberturasBasicas.CoberturaBasica]
 
     const coberturaPorMorte = coberturas.find(
@@ -121,16 +121,16 @@ export default function ManagementLifeInsurance() {
 
   const addedInsurancePoliciesDetailed = () => {
     const {
-      GrupoCobertura: gruposCobertura,
-    } = selectedLifeInsurance.GruposCobertura
+      GruposCobertura: gruposCobertura,
+    } = selectedLifeInsurance
 
     const normalizedPayload = gruposCobertura.map(grupoCobertura => ({
       nome: grupoCobertura.Nome,
       coberturasRisco: Array.isArray(
-        grupoCobertura.CoberturasRisco.CoberturaRisco
+        grupoCobertura.CoberturasRisco
       )
-        ? grupoCobertura.CoberturasRisco.CoberturaRisco
-        : [grupoCobertura.CoberturasRisco.CoberturaRisco],
+        ? grupoCobertura.CoberturasRisco
+        : [grupoCobertura.CoberturasRisco],
     }))
 
     return (
@@ -156,9 +156,9 @@ export default function ManagementLifeInsurance() {
                 onClick={() => {
                   handleGiwRedirect(
                     `portaldecliente/conquista/seguro-de-vida/simular?r=true${
-                      (locationState || {}).idGoal
-                        ? `&idObjetivo=${(locationState || {}).idGoal}`
-                        : ''
+                    (locationState || {}).idGoal
+                      ? `&idObjetivo=${(locationState || {}).idGoal}`
+                      : ''
                     }`
                   )
                 }}
@@ -201,7 +201,7 @@ export default function ManagementLifeInsurance() {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(item.DtFinalVigencia, 'YYYY-MM-DD-HH-mm').format(
+                    {moment(item.DtFinalVigencia).format(
                       'DD-MM-YYYY'
                     )}
                   </Text>
@@ -324,9 +324,9 @@ export default function ManagementLifeInsurance() {
 }
 
 const BeneficiarioContent = ({ data }) => {
-  const beneficiaries = Array.isArray(data.Beneficiarios.Beneficiario)
-    ? data.Beneficiarios.Beneficiario
-    : [data.Beneficiarios.Beneficiario]
+  const beneficiaries = Array.isArray(data.Beneficiarios)
+    ? data.Beneficiarios
+    : [data.Beneficiarios]
   return (
     <>
       <Text
@@ -364,11 +364,11 @@ const ParcelContainer = ({ data }) =>
       <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
     </div>
   ) : (
-    <div>
-      <TopicTitle>Forma de pagamento</TopicTitle>
-      <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
-    </div>
-  )
+      <div>
+        <TopicTitle>Forma de pagamento</TopicTitle>
+        <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
+      </div>
+    )
 
 const ListItem = ({ data }) => (
   <Fragment key={data.nome}>

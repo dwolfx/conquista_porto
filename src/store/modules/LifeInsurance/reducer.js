@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   hasError: false,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.GET_DATA_REQUEST:
       return {

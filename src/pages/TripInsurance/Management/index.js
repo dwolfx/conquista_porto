@@ -68,7 +68,7 @@ export default function ManagementTripInsurance() {
   }
 
   if (tripInsurance.data && selectedTripInsurance) {
-    const morteAcidental = selectedTripInsurance.CoberturasBasicas.CoberturaBasica.find(
+    const morteAcidental = selectedTripInsurance.CoberturasBasicas.find(
       item => item.Nome.toLowerCase() === 'morte acidental'
     )
     return (
@@ -84,9 +84,9 @@ export default function ManagementTripInsurance() {
                 onClick={() => {
                   handleGiwRedirect(
                     `portaldecliente/conquista/seguro-viagem/simular?r=true${
-                      (locationState || {}).idGoal
-                        ? `&idObjetivo=${(locationState || {}).idGoal}`
-                        : ''
+                    (locationState || {}).idGoal
+                      ? `&idObjetivo=${(locationState || {}).idGoal}`
+                      : ''
                     }`
                   )
                 }}
@@ -129,7 +129,7 @@ export default function ManagementTripInsurance() {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(item.DtFinalVigencia, 'YYYY-MM-DD-HH-mm').format(
+                    {moment(item.DtFinalVigencia).format(
                       'DD-MM-YYYY'
                     )}
                   </Text>
@@ -201,13 +201,11 @@ export default function ManagementTripInsurance() {
                     </Text>
                     <Text>
                       {moment(
-                        selectedTripInsurance.DtInicioVigencia,
-                        'YYYY-MM-DD-HH-mm'
+                        selectedTripInsurance.DtInicioVigencia
                       ).format('DD/MM/YYYY')}{' '}
                       até{' '}
                       {moment(
-                        selectedTripInsurance.DtFinalVigencia,
-                        'YYYY-MM-DD-HH-mm'
+                        selectedTripInsurance.DtFinalVigencia
                       ).format('DD/MM/YYYY')}
                     </Text>
                   </Period>
@@ -264,7 +262,6 @@ export default function ManagementTripInsurance() {
                   font-size: 13px;
                 `}
               >
-                &gt;
               </span>
             </span>
           }
@@ -531,11 +528,11 @@ const ParcelContainer = ({ data }) =>
       <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
     </div>
   ) : (
-    <div>
-      <TopicTitle>Forma de pagamento</TopicTitle>
-      <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
-    </div>
-  )
+      <div>
+        <TopicTitle>Forma de pagamento</TopicTitle>
+        <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
+      </div>
+    )
 
 ParcelContainer.propTypes = {
   data: PropTypes.object.isRequired,
