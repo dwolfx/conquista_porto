@@ -14,12 +14,12 @@ import { Types, ISummaryRequest } from './types'
 function* getWithdrawDetails({ onSuccess, onError }: any) {
   try {
     const { cpf } = yield select(getAuth)
-    const { id_cotista } = yield select(getSuitabilityInfo)
+    let suitabilityInfo = yield select(getSuitabilityInfo)
 
-    if (id_cotista) {
+    if (suitabilityInfo?.id_cotista) {
       const { data } = yield call(
         get,
-        `${baseURLNamespaceInvestAws}/cotista/retiradas?id_cotista=${id_cotista}&cpf_cnpj=${cpf}`
+        `${baseURLNamespaceInvestAws}/cotista/retiradas?id_cotista=${suitabilityInfo.id_cotista}&cpf_cnpj=${cpf}`
       )
 
       yield put(GetWithdrawDetailsSuccess(data.dadosRetirada))
@@ -49,7 +49,12 @@ function* getWithdrawSummary({
       `${baseURLNamespaceInvestAws}/cotista/retiradas/resumo?cpf_cnpj=${cpf}&id_cotista=${id_cotista}&valor_operacao=${data.valor_operacao}`
     )
 
-    yield put(GetWithdrawSummarySuccess(response?.data?.resumo_retirada))
+    yield put(
+      GetWithdrawSummarySuccess({
+        ...response?.data?.resumo_retirada,
+        valor_operacao: data.valor_operacao,
+      })
+    )
 
     if (onSuccess) {
       onSuccess(response?.data?.resumo_retirada)
