@@ -84,9 +84,9 @@ export default function ManagementTripInsurance() {
                 onClick={() => {
                   handleGiwRedirect(
                     `portaldecliente/conquista/seguro-viagem/simular?r=true${
-                    (locationState || {}).idGoal
-                      ? `&idObjetivo=${(locationState || {}).idGoal}`
-                      : ''
+                      (locationState || {}).idGoal
+                        ? `&idObjetivo=${(locationState || {}).idGoal}`
+                        : ''
                     }`
                   )
                 }}
@@ -129,9 +129,7 @@ export default function ManagementTripInsurance() {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(item.DtFinalVigencia).format(
-                      'DD-MM-YYYY'
-                    )}
+                    {moment(item.DtFinalVigencia).format('DD-MM-YYYY')}
                   </Text>
                 </ManageableItem>
               ))}
@@ -200,13 +198,13 @@ export default function ManagementTripInsurance() {
                       Período
                     </Text>
                     <Text>
-                      {moment(
-                        selectedTripInsurance.DtInicioVigencia
-                      ).format('DD/MM/YYYY')}{' '}
+                      {moment(selectedTripInsurance.DtInicioVigencia).format(
+                        'DD/MM/YYYY'
+                      )}{' '}
                       até{' '}
-                      {moment(
-                        selectedTripInsurance.DtFinalVigencia
-                      ).format('DD/MM/YYYY')}
+                      {moment(selectedTripInsurance.DtFinalVigencia).format(
+                        'DD/MM/YYYY'
+                      )}
                     </Text>
                   </Period>
                 </PeriodContainer>
@@ -261,8 +259,7 @@ export default function ManagementTripInsurance() {
                   right: 12px;
                   font-size: 13px;
                 `}
-              >
-              </span>
+              ></span>
             </span>
           }
           onClick={() =>
@@ -528,11 +525,11 @@ const ParcelContainer = ({ data }) =>
       <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
     </div>
   ) : (
-      <div>
-        <TopicTitle>Forma de pagamento</TopicTitle>
-        <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
-      </div>
-    )
+    <div>
+      <TopicTitle>Forma de pagamento</TopicTitle>
+      <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
+    </div>
+  )
 
 ParcelContainer.propTypes = {
   data: PropTypes.object.isRequired,

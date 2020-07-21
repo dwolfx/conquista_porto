@@ -120,15 +120,11 @@ export default function ManagementLifeInsurance() {
   }
 
   const addedInsurancePoliciesDetailed = () => {
-    const {
-      GruposCobertura: gruposCobertura,
-    } = selectedLifeInsurance
+    const { GruposCobertura: gruposCobertura } = selectedLifeInsurance
 
     const normalizedPayload = gruposCobertura.map(grupoCobertura => ({
       nome: grupoCobertura.Nome,
-      coberturasRisco: Array.isArray(
-        grupoCobertura.CoberturasRisco
-      )
+      coberturasRisco: Array.isArray(grupoCobertura.CoberturasRisco)
         ? grupoCobertura.CoberturasRisco
         : [grupoCobertura.CoberturasRisco],
     }))
@@ -156,9 +152,9 @@ export default function ManagementLifeInsurance() {
                 onClick={() => {
                   handleGiwRedirect(
                     `portaldecliente/conquista/seguro-de-vida/simular?r=true${
-                    (locationState || {}).idGoal
-                      ? `&idObjetivo=${(locationState || {}).idGoal}`
-                      : ''
+                      (locationState || {}).idGoal
+                        ? `&idObjetivo=${(locationState || {}).idGoal}`
+                        : ''
                     }`
                   )
                 }}
@@ -201,9 +197,7 @@ export default function ManagementLifeInsurance() {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(item.DtFinalVigencia).format(
-                      'DD-MM-YYYY'
-                    )}
+                    {moment(item.DtFinalVigencia).format('DD-MM-YYYY')}
                   </Text>
                 </ManageableItem>
               ))}
@@ -364,11 +358,11 @@ const ParcelContainer = ({ data }) =>
       <TopicValue>{formatMoney(data.FormaPagamento.ValorParcela)}</TopicValue>
     </div>
   ) : (
-      <div>
-        <TopicTitle>Forma de pagamento</TopicTitle>
-        <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
-      </div>
-    )
+    <div>
+      <TopicTitle>Forma de pagamento</TopicTitle>
+      <TopicValue>{data.descricaoFormaPagamento}</TopicValue>
+    </div>
+  )
 
 const ListItem = ({ data }) => (
   <Fragment key={data.nome}>

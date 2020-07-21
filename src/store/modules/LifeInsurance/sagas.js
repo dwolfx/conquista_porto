@@ -7,7 +7,6 @@ import {
   GetLifeInsuranceDataFailure,
 } from './action'
 
-
 function* getData() {
   try {
     const response = yield call(
@@ -17,11 +16,9 @@ function* getData() {
 
     let responseData = response.data
 
-
     if (responseData.Message && !responseData.ProdutosVida) {
       responseData = []
     }
-
 
     yield put(GetLifeInsuranceDataSuccess(responseData.ProdutosVida || []))
   } catch (err) {

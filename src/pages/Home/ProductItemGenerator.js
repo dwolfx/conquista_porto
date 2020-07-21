@@ -24,47 +24,45 @@ import {
 const ProductItemGenerator = (
   productList = {},
   type = 'notImplemented',
-  history = () => { },
+  history = () => {},
   onRetry
 ) => {
   if (type === 'notImplemented') return []
 
-
   const { data, hasError, isLoading } = productList
   const atualItemDetail = itemDetail[type]
 
-
   return data && data.length > 0
     ? data.map((product, index) => {
-      const id = `${type}-${Date.now().toPrecision() + index}`
+        const id = `${type}-${Date.now().toPrecision() + index}`
 
-      return (
-        <React.Fragment key={id}>
-          <ProductItem>
-            <ProductItemRow>
-              <Text type="headline">{atualItemDetail.title}</Text>
-            </ProductItemRow>
-            {atualItemDetail.subTitle(product)}
-            {atualItemDetail.bottomLine(
-              product,
-              history,
-              atualItemDetail.title
-            )}
-          </ProductItem>
-        </React.Fragment>
-      )
-    })
+        return (
+          <React.Fragment key={id}>
+            <ProductItem>
+              <ProductItemRow>
+                <Text type="headline">{atualItemDetail.title}</Text>
+              </ProductItemRow>
+              {atualItemDetail.subTitle(product)}
+              {atualItemDetail.bottomLine(
+                product,
+                history,
+                atualItemDetail.title
+              )}
+            </ProductItem>
+          </React.Fragment>
+        )
+      })
     : [
-      <React.Fragment key={`empty-${Math.random()}`}>
-        <EmptyProductItem
-          atualItemDetail={atualItemDetail}
-          hasData={Boolean(data)}
-          hasError={hasError}
-          isLoading={isLoading}
-          onRetry={onRetry}
-        />
-      </React.Fragment>,
-    ]
+        <React.Fragment key={`empty-${Math.random()}`}>
+          <EmptyProductItem
+            atualItemDetail={atualItemDetail}
+            hasData={Boolean(data)}
+            hasError={hasError}
+            isLoading={isLoading}
+            onRetry={onRetry}
+          />
+        </React.Fragment>,
+      ]
 }
 
 const itemDetail = {
@@ -77,7 +75,7 @@ const itemDetail = {
         <Text type="captionUppercase">
           {`FATURA EM ABERTO ${
             product.Fatura.Status ? product.Fatura.Status : ''
-            }`}
+          }`}
         </Text>
       </ProductItemRow>
     ),
