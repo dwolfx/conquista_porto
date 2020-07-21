@@ -16,19 +16,11 @@ function* getData() {
 
     let responseData = response.data
 
-    if (response.data.Mensagem) {
+    if (response?.data?.Mensagem) {
       responseData = []
     }
 
-    try {
-      responseData = [responseData.ProdutosViagem.Viagem].flatMap(
-        product => product
-      )
-    } catch (err) {
-      responseData = []
-    }
-
-    yield put(GetTripInsuranceDataSuccess(responseData))
+    yield put(GetTripInsuranceDataSuccess(responseData.ProdutosViagem || []))
   } catch (err) {
     yield put(GetTripInsuranceDataFailure())
   }
