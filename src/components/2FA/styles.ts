@@ -6,6 +6,10 @@ import NewInput from 'components/NewInput'
 
 export const Container = styled.div`
   padding: ${({ theme }) => theme.spacing(3)}px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: ${({ theme }) => theme.spacing(3)}px 0;
+  }
 `
 
 export const Card = styled(CardUnstyled)`
@@ -54,6 +58,16 @@ export const Key = styled.div`
     border-color: ${props => props.theme.colors.blue2};
     box-shadow: ${props => props.theme.shadows.blue1};
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-right: ${({ theme }) => `${theme.spacing(1)}px`};
+    width: 56px;
+    height: 56px;
+
+    :last-child {
+      margin-right: 0;
+    }
+  }
 `
 
 export const Footer = styled.div`
@@ -66,6 +80,13 @@ export const Footer = styled.div`
   button {
     :first-child {
       margin-right: ${props => props.theme.spacing(2)}px;
+    }
+  }
+  @media ${props => props.theme.mediaQueries.sm} {
+    display: flex;
+    padding: ${props => props.theme.spacing(2)}px 0;
+    button {
+      width: 50%;
     }
   }
 `
