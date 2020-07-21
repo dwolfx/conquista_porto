@@ -115,9 +115,7 @@ const Redeem = () => {
 
   const handleConfirmNextStep = () => {
     setIsAlignmentTermOpen(false)
-    if (step === 0) {
-      setStep(step + 1)
-    }
+    setStep(step + 1)
   }
 
   return (
