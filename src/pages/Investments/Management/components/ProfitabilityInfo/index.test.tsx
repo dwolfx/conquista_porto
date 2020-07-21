@@ -49,7 +49,7 @@ describe('It renders correcly', () => {
     const render = setup(
       <ProfitabilityInfo profitability={profitabilityMock} />
     )
-    expect(render.getAllByTestId('test-card-profitability')).toHaveLength(2)
+    expect(render.getAllByTestId('test-card-profitability')).toHaveLength(3)
   })
   test('It renders values', () => {
     const render = setup(

@@ -1,6 +1,8 @@
 import React from 'react'
-import { Col, Row } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
+import { Row } from 'styled-bootstrap-grid'
 import { formatNumber } from 'helpers'
+import { handleVariance } from '../../utils'
 
 import {
   CardStyled,
@@ -9,6 +11,7 @@ import {
   TextHeader,
   TextTitle,
   TextValue,
+  StyledCol,
 } from './styles'
 
 interface IProps {
@@ -53,7 +56,7 @@ const ProfitabilityInfo = ({ profitability }: IProps) => {
 
   return (
     <Row>
-      <Col md={6} sm={12}>
+      <StyledCol md={6} sm={12}>
         <CardStyled data-testid="test-card-profitability">
           <TextHeader>rentabilidade em %*</TextHeader>
           <VerticalListStyled
@@ -94,11 +97,11 @@ const ProfitabilityInfo = ({ profitability }: IProps) => {
             ]}
           />
         </CardStyled>
-      </Col>
-      <Col md={6} sm={12}>
+      </StyledCol>
+      <StyledCol md={6} sm={12}>
         <CardStyled data-testid="test-card-profitability">
           <TextHeader>
-            {`Referência em 
+            {`Referência em
             ${profitability &&
               printFieldText(
                 profitability.hist_rentabil_benchmark.benchmark.nome
@@ -143,7 +146,57 @@ const ProfitabilityInfo = ({ profitability }: IProps) => {
             ]}
           />
         </CardStyled>
-      </Col>
+      </StyledCol>
+      <StyledCol md={12}>
+        <CardStyled data-testid="test-card-profitability">
+          <TextHeader>Variância (P.P.)</TextHeader>
+          <VerticalListStyled
+            elements={[
+              <HorizonalListStyled
+                startItems={[<TextTitle>MẼS ANTERIOR</TextTitle>]}
+                endItems={[
+                  <TextValue>
+                    {profitability &&
+                      handleVariance(
+                        profitability?.hist_rentabil_benchmark.benchmark.nome,
+                        profitability?.hist_rentabil_fundo
+                          .rentabil_mes_anteiror,
+                        profitability?.hist_rentabil_benchmark
+                          .rentabil_mes_anteiror
+                      )}
+                  </TextValue>,
+                ]}
+              />,
+              <HorizonalListStyled
+                startItems={[<TextTitle>ANO</TextTitle>]}
+                endItems={[
+                  <TextValue>
+                    {profitability &&
+                      handleVariance(
+                        profitability?.hist_rentabil_benchmark.benchmark.nome,
+                        profitability?.hist_rentabil_fundo.rentabil_ano,
+                        profitability?.hist_rentabil_benchmark.rentabil_Ano
+                      )}
+                  </TextValue>,
+                ]}
+              />,
+              <HorizonalListStyled
+                startItems={[<TextTitle>ÚLT. 12M</TextTitle>]}
+                endItems={[
+                  <TextValue>
+                    {profitability &&
+                      handleVariance(
+                        profitability?.hist_rentabil_benchmark.benchmark.nome,
+                        profitability?.hist_rentabil_fundo.rentabil_12_meses,
+                        profitability?.hist_rentabil_benchmark.rentabil_12_meses
+                      )}
+                  </TextValue>,
+                ]}
+              />,
+            ]}
+          />
+        </CardStyled>
+      </StyledCol>
     </Row>
   )
 }
