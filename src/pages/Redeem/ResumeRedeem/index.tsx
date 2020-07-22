@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
+import ModalAccountInfo from '../components/ModalAccountInfo'
 import Text from 'components/Text'
 import BaseAccountInfo from '../components/BaseAccountInfo'
 import BaseFormStep from '../components/BaseFormStep'
@@ -12,34 +13,30 @@ import {
   SimulationWrapper,
   CalculationWrapper,
   DateWrapper,
-  WrapperExternalLink,
-  ExternalLink,
+  WrapperAccountInfoLink,
+  AccountInfoLink,
 } from './styles'
 
 interface IResumeRedeem {
   step: number
-  setStep: (step: number) => void
+  nextStep: () => void
+  previousStep: () => void
   onChangeFundDetailOpen: (isOpen: boolean) => void
   idFundo: string
 }
 
 const ResumeRedeem = ({
   step,
-  setStep,
+  nextStep,
+  previousStep,
   onChangeFundDetailOpen,
   idFundo,
 }: IResumeRedeem) => {
+  const [isModalAccountInfoOpen, setIsModalAccountInfoOpen] = useState(false)
   const { bankData, investmentPosition } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
   }))
-
-  const nextStep = () => {
-    setStep(step + 1)
-  }
-  const prevStep = () => {
-    setStep(step - 1)
-  }
 
   const cardBody = () => (
     <>
@@ -142,15 +139,20 @@ const ResumeRedeem = ({
         </DateWrapper>
       </SimulationWrapper>
       <Divisor />
-      <WrapperExternalLink>
+      <WrapperAccountInfoLink>
         <Text type="body" color="gray5" bold>
           O valor resgatado será creditado na sua{' '}
-          <ExternalLink href="/" target="_blank" rel="noopener noreferrer">
+          <AccountInfoLink onClick={() => setIsModalAccountInfoOpen(true)}>
             Conta de Investimento
-          </ExternalLink>
+          </AccountInfoLink>
           .
         </Text>
-      </WrapperExternalLink>
+      </WrapperAccountInfoLink>
+      <ModalAccountInfo
+        isOpen={isModalAccountInfoOpen}
+        onChangeModalOpen={() => setIsModalAccountInfoOpen(false)}
+        bankData={bankData?.data}
+      />
     </>
   )
 
@@ -158,7 +160,7 @@ const ResumeRedeem = ({
     <BaseFormStep
       cardBody={cardBody()}
       cardFooter={
-        <CardFooter step={step} prevStep={prevStep} nextStep={nextStep} />
+        <CardFooter step={step} prevStep={previousStep} nextStep={nextStep} />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}
     />

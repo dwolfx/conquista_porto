@@ -68,6 +68,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
         onErrorToast: addToast,
       })
     )
+    setStep(step + 1)
   }
 
   const previousStep = () => {
@@ -88,7 +89,8 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
     />,
     <ResumeRedeem
       step={step}
-      setStep={setStep}
+      nextStep={nextStep}
+      previousStep={previousStep}
       onChangeFundDetailOpen={setFundDetailOpen}
       idFundo={selectedFundId}
     />,

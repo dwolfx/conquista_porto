@@ -27,11 +27,12 @@ export const CalculationWrapper = styled.div`
   padding: ${({ theme }) => theme.spacing(2)}px;
 `
 
-export const WrapperExternalLink = styled.div`
+export const WrapperAccountInfoLink = styled.div`
   padding: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
 `
 
-export const ExternalLink = styled.a`
+export const AccountInfoLink = styled.div`
+  cursor: pointer;
   color: ${({ theme }) => theme.colors.blue4};
 
   &:hover {
