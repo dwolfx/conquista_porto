@@ -176,7 +176,7 @@ FormatFundoCell.propTypes = {
       original: PropTypes.shape({
         url_logo_gestor: PropTypes.string,
         apelido: PropTypes.string,
-        perfil_risco_ordem: PropTypes.string,
+        perfil_risco_ordem: PropTypes.number,
         categoria_arena: PropTypes.string,
         id_carteira: PropTypes.number,
       }),

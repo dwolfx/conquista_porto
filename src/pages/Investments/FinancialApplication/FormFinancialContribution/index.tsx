@@ -144,9 +144,8 @@ const FormFinancialContribution = ({
 
     const chosenInvestmentFund = () =>
       investmentPosition.data &&
-      investmentPosition.data.length !== 0 &&
-      investmentPosition.data[0].posicoes.posicao.find(
-        (posicao: any) => posicao.fundo.id_carteira === idFundo
+      investmentPosition.data.fundos.find(
+        (posicao: any) => posicao.id_carteira === idFundo
       )
 
     const fund: any = chosenInvestmentFund()

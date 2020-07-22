@@ -28,7 +28,7 @@ interface IData {
   resgate_cotizacao: string
   aplicao_minima: string
   id_carteira: string
-  categoria: string
+  categoria_arena: string
 }
 
 interface iInvestmentDetails {
@@ -143,9 +143,10 @@ const DetailCard: React.FC<IProps> = ({ handleFundDetailOpen = () => {} }) => {
                     Categoria
                   </Text>,
                   <Text bold color="gray6" type="headline">
-                    {fundDetails.categoria.toLowerCase() === 'renda variável'
+                    {fundDetails.categoria_arena.toLowerCase() ===
+                    'renda variável'
                       ? 'Ações'
-                      : fundDetails.categoria}
+                      : fundDetails.categoria_arena}
                   </Text>,
                 ]}
               />
