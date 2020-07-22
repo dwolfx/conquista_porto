@@ -30,9 +30,9 @@ interface IProps {
   selectedFundId: string
 }
 
-const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
-  const history = useHistory()  
-  const dispatch = useDispatch()  
+const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
+  const history = useHistory()
+  const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
@@ -68,7 +68,6 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
         onErrorToast: addToast,
       })
     )
-    setStep(step + 1)
   }
 
   const previousStep = () => {
@@ -126,18 +125,19 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
       isOpen={isOpen}
       handleClose={handleClose}
       headerContent={
-      <TransactionHeader
-        onBack={goBackHandler}
-        onClose={handleClose}
-        showBackButton={step !== 1}
-        showStepsBar
-        stepsBarProps={{
-          title: 'Resgatar',
-          step,
-          maxSteps,
-          setStep,
-        }}
-      />}
+        <TransactionHeader
+          onBack={goBackHandler}
+          onClose={handleClose}
+          showBackButton={step !== 1}
+          showStepsBar
+          stepsBarProps={{
+            title: 'Resgatar',
+            step,
+            maxSteps,
+            setStep,
+          }}
+        />
+      }
     >
       {isAlignmentTermOpen ? (
         <AlignmentTerms

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
 import ModalAccountInfo from '../components/ModalAccountInfo'
@@ -33,10 +34,13 @@ const ResumeRedeem = ({
   idFundo,
 }: IResumeRedeem) => {
   const [isModalAccountInfoOpen, setIsModalAccountInfoOpen] = useState(false)
-  const { bankData, investmentPosition } = useSelector((state: any) => ({
-    bankData: state.bankData,
-    investmentPosition: state.investmentPosition,
-  }))
+  const { bankData, investmentPosition, redeemData } = useSelector(
+    (state: any) => ({
+      bankData: state.bankData,
+      investmentPosition: state.investmentPosition,
+      redeemData: state.redeemData.data,
+    })
+  )
 
   const cardBody = () => (
     <>
@@ -120,7 +124,9 @@ const ResumeRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                20/01/2020
+                {moment(
+                  redeemData?.dados_para_resgate?.data_prevista_conversão
+                ).format('DD/MM/YYYY')}
               </Text>,
             ]}
           />
@@ -132,7 +138,9 @@ const ResumeRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                20/01/2020
+                {moment(
+                  redeemData?.dados_para_resgate?.data_prevista_liquidacao
+                ).format('DD/MM/YYYY')}
               </Text>,
             ]}
           />
@@ -145,7 +153,6 @@ const ResumeRedeem = ({
           <AccountInfoLink onClick={() => setIsModalAccountInfoOpen(true)}>
             Conta de Investimento
           </AccountInfoLink>
-          .
         </Text>
       </WrapperAccountInfoLink>
       <ModalAccountInfo

@@ -31,7 +31,7 @@ export const WrapperAccountInfoLink = styled.div`
   padding: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
 `
 
-export const AccountInfoLink = styled.div`
+export const AccountInfoLink = styled.span`
   cursor: pointer;
   color: ${({ theme }) => theme.colors.blue4};
 
