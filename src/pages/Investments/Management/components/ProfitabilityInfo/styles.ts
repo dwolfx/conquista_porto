@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { Col } from 'styled-bootstrap-grid'
+
 import Card from 'components/Card'
 import VerticalList from 'components/VerticalList'
 import HorizonalList from 'components/HorizontalList'
@@ -41,4 +43,12 @@ export const HorizonalListStyled = styled(HorizonalList)`
   padding: 0;
   margin: 0 !important;
   height: 35px;
+`
+
+export const StyledCol = styled(Col)`
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    :last-child {
+      margin-top: 14px;
+    }
+  }
 `
