@@ -87,8 +87,8 @@ export const SectionCol = styled(Col)`
 export const Wrapper = styled.div`
   margin: 30px auto;
 
-  @media ${props => props.theme.mediaQueries.lg} {
-    margin: ${({ theme }) => theme.spacing(13)}px auto;
+  @media ${props => props.theme.mediaQueries.md} {
+    margin: 0;
   }
 `
 

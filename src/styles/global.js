@@ -66,6 +66,10 @@ export default createGlobalStyle`
     justify-content: center;
     flex-direction: column;
     background-color: ${props => props.theme.colors.gray1};
+
+    @media screen and (max-width: 1280px) {
+      margin-top: 14px;
+    }
   }
 
   &::-webkit-scrollbar {
