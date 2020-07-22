@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -21,7 +20,7 @@ import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import { useToast } from 'hooks/toast'
 
 import { RISK_FILTER_TYPES } from '../../../types'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 
 import {
   VerticalListStyled,
@@ -41,6 +40,7 @@ import {
   CustomPopover,
   LockIcon,
 } from './styles'
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 
 export const months = [
   {
@@ -125,9 +125,9 @@ const FundInformation = ({
   setIsInvestorLevelModalOpen,
 }: IFundInformationProps) => {
   const themeContext = useContext(ThemeContext)
+
   const dispatch = useDispatch()
   const { addToast } = useToast()
-  const history = useHistory()
 
   const [investButtonIsLoading, setInvestButtonIsLoading] = useState<boolean>(
     false
@@ -140,6 +140,8 @@ const FundInformation = ({
     financialApplicationLoading,
     funds,
     fundsError,
+    idFund,
+    isRedeemLoading,
     fundsIsLoading,
     suitabilityIsLoading,
     suitabilityStoreData,
@@ -151,6 +153,8 @@ const FundInformation = ({
     fundsIsLoading: state.investmentsList.isError,
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
+    idFund: state.investmentPosition.idFund,
+    isRedeemLoading: state.redeemData.isLoading,
   }))
 
   const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
@@ -371,16 +375,23 @@ const FundInformation = ({
   }
 
   const handleClickRedeemButton = () => {
-    history.push('/conta/resgatar')
-    // const onSuccess = (modalProps: IModalProps | IValidProps) => {
-    //   onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
+    const onSuccess = (modalProps: IModalProps | IValidProps) => {
+      onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
 
-    //   if ((modalProps as IValidProps).isValid) {
-    //     handleGiwRedirect(buildGiwUrl('resgatar'))
-    //   }
-    // }
-
-    // dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'resgatar', addToast))
+      if ((modalProps as IValidProps).isValid) {
+        dispatch(
+          GetRedeemRequest({
+            data_operacao: moment(new Date(), 'DD/MM/YYYY').format(
+              'YYYY-MM-DD'
+            ),
+            id_fundo: idFund,
+            valor: '1000',
+            onErrorToast: addToast,
+          })
+        )
+      }
+    }
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'resgatar', addToast))
   }
 
   function renderSelectItems(closeFunc: Function) {

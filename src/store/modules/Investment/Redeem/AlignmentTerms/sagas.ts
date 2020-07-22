@@ -37,5 +37,5 @@ function* getRedeemAlignmentTermsData({
 }
 
 export default all([
-  takeLatest(Types.DATA_TERMS_REQUEST, getRedeemAlignmentTermsData),
+  takeLatest(Types.REDEEM_TERMS_DATA_REQUEST, getRedeemAlignmentTermsData),
 ])

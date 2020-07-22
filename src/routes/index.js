@@ -38,7 +38,6 @@ import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
-import Redeem from 'pages/Redeem'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
@@ -364,12 +363,6 @@ export default function Routes({ ...props }) {
         exact
         component={Withdraw}
         pageTitle="Retirar"
-      />
-      <Route
-        path="/conta/resgatar"
-        exact
-        component={Redeem}
-        pageTitle="Resgatar"
       />
       <Route
         path="/objetivos"

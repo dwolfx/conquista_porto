@@ -22,7 +22,6 @@ import {
   InformationsWrapper,
 } from './styles'
 import HorizontalList from 'components/HorizontalList'
-import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
 
 interface IFormData {
   moneyToRedeem: string
@@ -46,7 +45,6 @@ const BallanceRedeem = ({
   idFundo,
 }: IBallanceRedeem) => {
   useFetchBankData()
-  useFetchSuitabilityInfo()
 
   const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
   const { bankData, investmentPosition } = useSelector((state: any) => ({

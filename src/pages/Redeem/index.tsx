@@ -1,32 +1,42 @@
 import React, { useState, useContext } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
+import moment from 'moment'
 import 'styled-components/macro'
 
-import Modal from 'components/Modal/Confirmation'
+import AlignmentTerms from 'components/Investment/AlignmentTerms'
 import FundDetailCard from 'components/FundDetail/Card'
-import FundDetailModal from 'components/FundDetail/Modal'
+import Modal from 'components/Modal/Confirmation'
 import FundDetailDrawer from 'components/FundDetail/Drawer'
-import TransactionHeader from 'components/Header/TransactionsHeader'
+import FundDetailModal from 'components/FundDetail/Modal'
+import Layer from 'components/Layer'
 import Text from 'components/Text'
+import TransactionHeader from 'components/Header/TransactionsHeader'
+import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
 import useMedia from 'hooks/useMedia'
-
+import { useToast } from 'hooks/toast'
 import { formatLocaleStringToNumber } from 'helpers'
 
 //Steps
 import BallanceRedeem from './BallanceRedeem'
 import ResumeRedeem from './ResumeRedeem'
 
-import AlignmentTerms from 'components/Investment/AlignmentTerms'
-import moment from 'moment'
-import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
-import { useToast } from 'hooks/toast'
-
 import { CustomCol, Container } from './styles'
 
-const Redeem = () => {
+interface IProps {
+  handleClose: () => void
+  isOpen: boolean
+  selectedFundId: string
+}
+
+const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
+  const history = useHistory()  
+  const dispatch = useDispatch()  
+  const themeContext = useContext(ThemeContext)
+  const { addToast } = useToast()
+  const isMobile = useMedia('xs')
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
   const [step, setStep] = useState<number>(1)
   const [isAlignmentTermOpen, setIsAlignmentTermOpen] = useState(false)
@@ -35,14 +45,6 @@ const Redeem = () => {
     false
   )
   // const [isLoadingNextButton, setIsLoadingNextButton] = useState<boolean>(false)
-  const history = useHistory()
-  const isMobile = useMedia('xs')
-  const themeContext = useContext(ThemeContext)
-  const { idFund } = useSelector((state: any) => ({
-    idFund: state.investmentPosition.idFund,
-  }))
-  const dispatch = useDispatch()
-  const { addToast } = useToast()
   const maxSteps = 4
 
   const goBackHandler = () =>
@@ -55,7 +57,7 @@ const Redeem = () => {
         data: {
           data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
           valor_bruto: formatLocaleStringToNumber('1000.9'),
-          id_fundo: idFund,
+          id_fundo: selectedFundId,
         },
         onSuccess: (alignmentData: any) => {
           alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
@@ -83,13 +85,13 @@ const Redeem = () => {
       nextStep={nextStep}
       previousStep={previousStep}
       onChangeFundDetailOpen={setFundDetailOpen}
-      idFundo={idFund}
+      idFundo={selectedFundId}
     />,
     <ResumeRedeem
       step={step}
       setStep={setStep}
       onChangeFundDetailOpen={setFundDetailOpen}
-      idFundo={idFund}
+      idFundo={selectedFundId}
     />,
   ]
 
@@ -119,7 +121,10 @@ const Redeem = () => {
   }
 
   return (
-    <>
+    <Layer
+      isOpen={isOpen}
+      handleClose={handleClose}
+      headerContent={
       <TransactionHeader
         onBack={goBackHandler}
         onClose={() => history.push('/')}
@@ -131,7 +136,8 @@ const Redeem = () => {
           maxSteps,
           setStep,
         }}
-      />
+      />}
+    >
       {isAlignmentTermOpen ? (
         <AlignmentTerms
           acceptAlignmentTerms={acceptAlignmentTerms}
@@ -173,7 +179,7 @@ const Redeem = () => {
           isOpen={isFundDetailOpen}
           handleClose={() => setFundDetailOpen(false)}
           isLayerOpen
-          title="Andre"
+          title="Detalhes do fundo"
         />
       ) : (
         <FundDetailDrawer
@@ -196,7 +202,7 @@ const Redeem = () => {
         onConfirmation={handleAlignmentTermCloseModal}
         onCloseHeaderButton={handleAlignmentTermCloseModal}
       />
-    </>
+    </Layer>
   )
 }
 

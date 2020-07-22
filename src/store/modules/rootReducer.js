@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 
 import alignmentTerms from './Investment/FinancialApplication/AlignmentTerms/reducer'
-import redeemAlignmentTerms from './Investment/Redeem/AlignmentTerms/reducer'
 import bankData from './BankData/reducer'
 import bankExtract from './BankExtract/reducer'
 import bankExtractFund from './BankExtractFund/reducer'
@@ -28,6 +27,8 @@ import objective from './Objective/reducer'
 import objectiveManagement from './ObjectiveManagement/reducer'
 import suitability from './Suitability/reducer'
 import suitabilityInfo from './SuitabilityInfo/reducer'
+import redeemData from './Investment/Redeem/reducer'
+import redeemAlignmentTerms from './Investment/Redeem/AlignmentTerms/reducer'
 import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
 import virtualKeyboard from './VirtualKeyboard/reducer'
@@ -60,9 +61,10 @@ export default combineReducers({
   objectiveManagement,
   suitability,
   suitabilityInfo,
+  redeemData,
+  redeemAlignmentTerms,
   rewardsRecommendations,
   rewardsTypes,
-  redeemAlignmentTerms,
   virtualKeyboard,
   token2fa,
   withdraw,

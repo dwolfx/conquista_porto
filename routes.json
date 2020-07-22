@@ -38,6 +38,8 @@
   "/auth2/assinatura-eletronica": "/assinatura_eletronica",
   "/perfil/dados-cliente?cpfCnpj=:cpfCnpj": "/dados-cliente",
   "/teclado-virtual": "/virtual-keyboard",
+  "/invest/aws/cotista/resgates\\?cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&data_operacao=:data_operacao&id_fundo=:id_fundo": "/redeem_get",
+  "/invest/aws/cotista/resgates/resumo\\?tipo_resgate=:tipo_resgate&valor=:valor&cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&data_operacao=:data_operacao&id_fundo=:id_fundo": "/redeem_summary_get",
   "/invest/aws/cotista/resgates/enquadramento\\?cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&data_operacao=:data_operacao&tipo_operacao=:tipo_operacao&valor_bruto=:valor_bruto&id_fundo=:id_fundo": "/alignment_terms_data",
   "/invest/aws/cotista/aplicacoes": "/financial_post",
   "/invest/aws/cotista/aplicacoes\\?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao": "/financial_application",

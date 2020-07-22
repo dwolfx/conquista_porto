@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
-import Text from 'components/Text'
 import Modal from 'components/Modal/ModalNew'
 import FundDetailDrawer from 'components/FundDetail/Drawer'
 import Card from 'components/Card'
+import Text from 'components/Text'
 import useSelectedPosition from 'hooks/useSelectedPosition'
 
 import FinancialApplication from '../../FinancialApplication'

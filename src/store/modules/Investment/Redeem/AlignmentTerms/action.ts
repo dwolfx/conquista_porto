@@ -4,7 +4,7 @@ import { IError } from '../types'
 
 export function GetRedeemAlignmentTermsRequest(payload: IGetRedeemAlignmentTermsData) {
   return {
-    type: Types.DATA_TERMS_REQUEST,
+    type: Types.REDEEM_TERMS_DATA_REQUEST,
     payload
   }
 }
@@ -13,14 +13,14 @@ export function GetRedeemAlignmentTermsSuccess(
   payload: IGetAlignmentTermsResponse
 ) {
   return {
-    type: Types.DATA_TERMS_SUCCESS,
+    type: Types.REDEEM_TERMS_DATA_SUCCESS,
     payload,
   }
 }
 
 export function GetRedeemAlignmentTermsFailure({ message }: IError) {
   return {
-    type: Types.DATA_TERMS_FAILURE,
+    type: Types.REDEEM_TERMS_DATA_FAILURE,
     message,
   }
 }

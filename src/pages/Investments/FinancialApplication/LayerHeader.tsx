@@ -19,7 +19,6 @@ export interface IProps {
 
 const LayerHeader = (props: IProps) => {
   const { handleClose } = props
-
   return (
     <GridContainer>
       <GridRow>
