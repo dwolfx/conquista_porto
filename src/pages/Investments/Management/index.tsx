@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Anbima from 'components/Anbima'
@@ -10,7 +10,7 @@ import DesktopComponent from './Desktop'
 import TabletComponent from './Tablet'
 import { TFundsLayout } from './types'
 import { GridContainer } from './styles'
-import { RedeemLayerToggle } from 'store/modules/Investment/Redeem/action'
+import { RedeemLayerToggleClose } from 'store/modules/Investment/Redeem/action'
 import Redeem from 'pages/Redeem'
 import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
 
@@ -26,14 +26,6 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
 
   useFetchPosition()
   useFetchSuitabilityInfo()
-
-  useEffect(() => {
-    return () => {
-      if (isLayerOpen) {
-        dispatch(RedeemLayerToggle())
-      }
-    }
-  }, [dispatch, isLayerOpen])
 
   const filteredInvestedFunds = useFilter(filters)
   const handleChangeFundsView = (layoutCheanged: TFundsLayout) => {
@@ -75,7 +67,7 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
       </GridContainer>
       <Redeem 
         isOpen={isLayerOpen}
-        handleClose={() => dispatch(RedeemLayerToggle())}
+        handleClose={() => dispatch(RedeemLayerToggleClose())}
         selectedFundId={idFund}
       />
     </>

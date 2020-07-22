@@ -2,7 +2,7 @@ import { call, all, select, takeLatest, put } from 'redux-saga/effects'
 import { get, baseURLNamespaceInvest } from 'services/api'
 
 import { IGetRedeemRequestData, Types } from "./types";
-import { GetRedeemSuccess, GetRedeemFailure, RedeemLayerToggle } from './action';
+import { GetRedeemSuccess, GetRedeemFailure, RedeemLayerToggleOpen } from './action';
 import { getSuitabilityInfo, getAuth } from './selectors';
 
 
@@ -25,7 +25,7 @@ function* getRedeemData({
         `${baseURLNamespaceInvest}/aws/cotista/resgates/resumo?tipo_resgate=2&valor=${valor}&${params}`
       )
     ])
-    yield put(RedeemLayerToggle())
+    yield put(RedeemLayerToggleOpen())
 
     const enrichedResponse = {
       ...responseRedeem.data,

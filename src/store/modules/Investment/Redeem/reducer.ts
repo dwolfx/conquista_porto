@@ -31,10 +31,15 @@ export default function(
         isLoading: false,
         hasError: true,
       }
-    case Types.REDEEM_LAYER_TOGGLE:
+    case Types.REDEEM_LAYER_OPEN:
       return {
         ...state,
-        isLayerOpen: !state.isLayerOpen
+        isLayerOpen: true
+      }
+    case Types.REDEEM_LAYER_CLOSE:
+      return {
+        ...state,
+        isLayerOpen: false
       }
     default:
       return state

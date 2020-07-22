@@ -11,7 +11,6 @@ import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
 import FundDetailDrawer from 'components/FundDetail/Drawer'
 import FundDetailModal from 'components/FundDetail/Modal'
-import Layer from 'components/Layer'
 import Text from 'components/Text'
 import TransactionHeader from 'components/Header/TransactionsHeader'
 import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
@@ -23,7 +22,7 @@ import { formatLocaleStringToNumber } from 'helpers'
 import BallanceRedeem from './BallanceRedeem'
 import ResumeRedeem from './ResumeRedeem'
 
-import { CustomCol, Container } from './styles'
+import { CustomCol, Container, LayerStyled } from './styles'
 
 interface IProps {
   handleClose: () => void
@@ -44,9 +43,9 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
   const [isAlignmentTermModalOpen, setIsAlignmentTermOpenModal] = useState(
     false
   )
-  // const [isLoadingNextButton, setIsLoadingNextButton] = useState<boolean>(false)
-  const maxSteps = 4
 
+  const maxSteps = 4
+  // const [isLoadingNextButton, setIsLoadingNextButton] = useState<boolean>(false)
   const goBackHandler = () =>
     step !== 1 ? setStep(currentStep => currentStep - 1) : history.goBack()
 
@@ -121,13 +120,13 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
   }
 
   return (
-    <Layer
+    <LayerStyled
       isOpen={isOpen}
       handleClose={handleClose}
       headerContent={
       <TransactionHeader
         onBack={goBackHandler}
-        onClose={() => history.push('/')}
+        onClose={handleClose}
         showBackButton={step !== 1}
         showStepsBar
         stepsBarProps={{
@@ -202,7 +201,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId })  => {
         onConfirmation={handleAlignmentTermCloseModal}
         onCloseHeaderButton={handleAlignmentTermCloseModal}
       />
-    </Layer>
+    </LayerStyled>
   )
 }
 

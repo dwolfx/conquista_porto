@@ -1,10 +1,21 @@
 import styled from 'styled-components'
+
+import Card from 'components/Card'
+import Layer from 'components/Layer'
+import { LayerHeader } from 'components/Layer/styles'
+
 import {
   Container as ContainerBootstrap,
   Col as ColBootstrap,
 } from 'styled-bootstrap-grid'
 
-import Card from 'components/Card'
+
+export const LayerStyled = styled(Layer)`
+  ${LayerHeader} {
+    display: block;
+    padding: 0;
+  }
+`
 
 export const HeaderWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};

@@ -17,6 +17,7 @@ import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/Fin
 import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/FinancialApplication/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import { useToast } from 'hooks/toast'
 
 import { RISK_FILTER_TYPES } from '../../../types'
@@ -40,7 +41,6 @@ import {
   CustomPopover,
   LockIcon,
 } from './styles'
-import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 
 export const months = [
   {

@@ -21,8 +21,14 @@ export function GetRedeemFailure({ message }: IError) {
   }
 }
 
-export function RedeemLayerToggle() {
+export function RedeemLayerToggleOpen() {
   return {
-    type: Types.REDEEM_LAYER_TOGGLE
+    type: Types.REDEEM_LAYER_OPEN
+  }
+}
+
+export function RedeemLayerToggleClose() {
+  return {
+    type: Types.REDEEM_LAYER_CLOSE
   }
 }
