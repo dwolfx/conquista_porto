@@ -11,6 +11,7 @@ export default function(state = INITIAL_STATE, action) {
     case Types.GET_REQUEST: {
       return {
         ...state,
+        data: [],
         hasError: false,
         isLoading: true,
       }
