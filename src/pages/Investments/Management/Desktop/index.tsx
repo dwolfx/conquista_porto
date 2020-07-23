@@ -187,6 +187,7 @@ const Desktop: React.FC<IProps> = ({
             setSelectedFundId('')
           }}
           selectedFundId={selectedFundId}
+          handleFundDetailOpen={() => setIsFundDetailOpen(true)}
         />
       )}
       <Detail

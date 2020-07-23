@@ -14,6 +14,10 @@ import Loading from 'components/Loading'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 import UnsavedChangesPrompt from 'components/Modal/Prompt'
+import Modal from 'components/Modal/ModalNew'
+import FinancialApplication from 'pages/Investments/FinancialApplication'
+import Detail from 'pages/Investments/FundsList/Detail'
+import DetailModal from 'pages/Investments/FundsList/DetailModal'
 
 import { formatMoney, formatMoneyWithoutCurrencyFlag } from 'helpers'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
@@ -39,6 +43,8 @@ import {
   InfoMobileRow,
   FooterContainer,
   BlockButton,
+  ModalButton,
+  ModalButtonWrapper,
 } from './styles'
 
 export default function Wallet({
@@ -53,6 +59,14 @@ export default function Wallet({
 
   const [fundListCopy, setFundListCopy] = useState([])
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [isLayerOpen, setLayerOpen] = useState(false)
+  const [selectedFundId, setSelectedFundId] = useState('')
+  const [isAwareOfTerms, setIsAwareOfTerms] = useState(false)
+  const [isInvestorLevelModalOpen, setIsInvestorLevelModalOpen] = useState(
+    false
+  )
+  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState({})
+  const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
 
   const history = useHistory()
   const dispatch = useDispatch()
@@ -168,10 +182,33 @@ export default function Wallet({
                                 placement="top"
                                 tooltip
                               >
-                                <ButtonInvest fund={fund} idGoal={idGoal} />
+                                <div />
+                                <ButtonInvest
+                                  fund={fund}
+                                  onChangeModalSuitabilityInfo={
+                                    setModalSuitabilityInfo
+                                  }
+                                  setLayerOpen={setLayerOpen}
+                                  setIsAwareOfTerms={setIsAwareOfTerms}
+                                  setIsInvestorLevelModalOpen={
+                                    setIsInvestorLevelModalOpen
+                                  }
+                                  setSelectedFundId={setSelectedFundId}
+                                />
                               </Popover>
                             ) : (
-                              <ButtonInvest fund={fund} idGoal={idGoal} />
+                              <ButtonInvest
+                                fund={fund}
+                                onChangeModalSuitabilityInfo={
+                                  setModalSuitabilityInfo
+                                }
+                                setLayerOpen={setLayerOpen}
+                                setIsAwareOfTerms={setIsAwareOfTerms}
+                                setIsInvestorLevelModalOpen={
+                                  setIsInvestorLevelModalOpen
+                                }
+                                setSelectedFundId={setSelectedFundId}
+                              />
                             )}
                           </Col>
                         </Row>
@@ -264,10 +301,32 @@ export default function Wallet({
                             placement="top"
                             tooltip
                           >
-                            <ButtonInvest fund={fund} idGoal={idGoal} />
+                            <ButtonInvest
+                              fund={fund}
+                              onChangeModalSuitabilityInfo={
+                                setModalSuitabilityInfo
+                              }
+                              setLayerOpen={setLayerOpen}
+                              setIsAwareOfTerms={setIsAwareOfTerms}
+                              setIsInvestorLevelModalOpen={
+                                setIsInvestorLevelModalOpen
+                              }
+                              setSelectedFundId={setSelectedFundId}
+                            />
                           </Popover>
                         ) : (
-                          <ButtonInvest fund={fund} idGoal={idGoal} />
+                          <ButtonInvest
+                            fund={fund}
+                            onChangeModalSuitabilityInfo={
+                              setModalSuitabilityInfo
+                            }
+                            setLayerOpen={setLayerOpen}
+                            setIsAwareOfTerms={setIsAwareOfTerms}
+                            setIsInvestorLevelModalOpen={
+                              setIsInvestorLevelModalOpen
+                            }
+                            setSelectedFundId={setSelectedFundId}
+                          />
                         )}
                       </Col>
                     </Row>
@@ -423,8 +482,107 @@ export default function Wallet({
     </Button>
   ) : null
 
+  const handleFundDetailClose = () => {
+    setIsFundDetailOpen(false)
+  }
+
   return (
     <>
+      <Modal
+        modalTitle={modalSuitabilityInfo.title}
+        isOpen={modalSuitabilityInfo.isOpen}
+        handleClose={() =>
+          setModalSuitabilityInfo({
+            ...modalSuitabilityInfo,
+            isOpen: false,
+          })
+        }
+      >
+        <Text type="headline" color="gray6">
+          {modalSuitabilityInfo.description}
+        </Text>
+        <ModalButtonWrapper>
+          {modalSuitabilityInfo.button && (
+            <ModalButton
+              data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+              data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+              data-gtm-clicktype={modalSuitabilityInfo.button.dataGtmClicktype}
+              onClick={
+                modalSuitabilityInfo.button.handleClick
+                  ? modalSuitabilityInfo.button.handleClick
+                  : () =>
+                      setModalSuitabilityInfo({
+                        ...modalSuitabilityInfo,
+                        isOpen: false,
+                      })
+              }
+            >
+              {modalSuitabilityInfo.button.buttonName}
+            </ModalButton>
+          )}
+        </ModalButtonWrapper>
+      </Modal>
+      <Modal
+        modalTitle="Nível de investidor"
+        isOpen={isInvestorLevelModalOpen}
+        handleClose={() => setIsInvestorLevelModalOpen(false)}
+      >
+        <Text
+          type="headline"
+          color="gray6"
+          css={`
+            max-width: 362px;
+          `}
+        >
+          Para investir, você precisa ter um nível mais avançado. Selecione
+          outro fundo, por favor.
+        </Text>
+        <ModalButtonWrapper>
+          <ModalButton
+            data-gtm-subname="Modal nivel de investidor"
+            data-gtm-name="ok"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={() => setIsInvestorLevelModalOpen(false)}
+          >
+            OK
+          </ModalButton>
+        </ModalButtonWrapper>
+      </Modal>
+      {isLayerOpen && selectedFundId && (
+        <FinancialApplication
+          isAwareOfTerms={isAwareOfTerms}
+          isOpen={isLayerOpen}
+          handleClose={() => {
+            setLayerOpen(false)
+            setSelectedFundId('')
+          }}
+          selectedFundId={selectedFundId}
+          handleFundDetailOpen={() => setIsFundDetailOpen(true)}
+        />
+      )}
+      {isMobile ? (
+        <>
+          <DetailModal
+            title=""
+            isOpenForInvestments
+            isOpen={isFundDetailOpen}
+            isLayerOpen
+            handleLayerOpen={handleFundDetailClose}
+            handleClose={handleFundDetailClose}
+          />
+        </>
+      ) : (
+        <>
+          <Detail
+            isOpen={isFundDetailOpen}
+            isLayerOpen
+            handleLayerOpen={handleFundDetailClose}
+            handleClose={handleFundDetailClose}
+            isOpenForInvestments
+          />
+        </>
+      )}
       <Col
         css={`
           padding: 0;

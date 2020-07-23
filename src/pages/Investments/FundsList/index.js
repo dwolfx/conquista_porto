@@ -405,7 +405,7 @@ export default function FundsList() {
             isOpenForInvestments={isOpenForInvestments}
             isOpen={isFundDetailOpen}
             isLayerOpen={isLayerOpen}
-            handleLayerOpen={handleClickInvestButton}
+            handleLayerOpen={onChangeLayerOpen}
             handleClose={() => setIsFundDetailOpen(false)}
           />
           <DrawerFilter
@@ -422,7 +422,7 @@ export default function FundsList() {
           <Detail
             isOpen={isFundDetailOpen}
             isLayerOpen={isLayerOpen}
-            handleLayerOpen={handleClickInvestButton}
+            handleLayerOpen={onChangeLayerOpen}
             isOpenForInvestments={isOpenForInvestments}
             handleClose={() => setIsFundDetailOpen(false)}
           />
