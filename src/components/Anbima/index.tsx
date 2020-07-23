@@ -103,9 +103,7 @@ const Anbima = () => (
           >
             <LogoAnbimaGestao />
           </a>
-          <a>
-            <LogoAnbimaDistribuicao />
-          </a>
+          <LogoAnbimaDistribuicao />
           <a href="https://comoinvestir.anbima.com.br/" target="blank">
             <LogoAnbimaInvestir />
           </a>
