@@ -51,30 +51,36 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
 
   const nextStep = () => {
     // setIsLoadingNextButton(alignmentTermsIsLoading)
-    dispatch(
-      GetRedeemAlignmentTermsRequest({
-        data: {
-          data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
-          valor_bruto: formatLocaleStringToNumber('1000.9'),
-          id_fundo: selectedFundId,
-        },
-        onSuccess: (alignmentData: any) => {
-          alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
-            'Desenquadrado' && setIsAlignmentTermOpenModal(true)
+    if (step === 1) {
+      dispatch(
+        GetRedeemAlignmentTermsRequest({
+          data: {
+            data_operacao: moment(new Date(), 'DD/MM/YYYY').format(
+              'YYYY-MM-DD'
+            ),
+            valor_bruto: formatLocaleStringToNumber('1000.9'),
+            id_fundo: selectedFundId,
+          },
+          onSuccess: (alignmentData: any) => {
+            alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
+              'Desenquadrado' && setIsAlignmentTermOpenModal(true)
 
-          alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
-            'Enquadrado' && setStep(step + 1)
-        },
-        onErrorToast: addToast,
-      })
-    )
+            alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
+              'Enquadrado' && setStep(step + 1)
+          },
+          onErrorToast: addToast,
+        })
+      )
+    }
   }
 
   const previousStep = () => {
     if (step === 0) {
       // resetValues()
     } else {
-      setStep(step - 1)
+      if (step > 1 && step <= maxSteps) {
+        setStep(step - 1)
+      }
     }
   }
 
@@ -106,8 +112,8 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const handleCloseAlignmentTerm = () => {
     setIsAlignmentTermOpen(false)
     setAcceptAlignmentTerms(false)
-    if (step !== 0) {
-      setStep(0)
+    if (step !== 1) {
+      setStep(1)
     }
   }
 
@@ -117,7 +123,9 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
 
   const handleConfirmNextStep = () => {
     setIsAlignmentTermOpen(false)
-    setStep(step + 1)
+    if (step >= 1 && step <= maxSteps) {
+      setStep(step + 1)
+    }
   }
 
   return (
