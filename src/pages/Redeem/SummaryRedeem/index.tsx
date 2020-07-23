@@ -8,7 +8,7 @@ import Text from 'components/Text'
 import BaseAccountInfo from '../components/BaseAccountInfo'
 import BaseFormStep from '../components/BaseFormStep'
 import CardFooter from '../components/CardFooter'
-
+import { formatMoney } from 'helpers'
 import {
   BalanceInfoContainer,
   SimulationWrapper,
@@ -18,7 +18,7 @@ import {
   AccountInfoLink,
 } from './styles'
 
-interface IResumeRedeem {
+interface ISummaryRedeem {
   step: number
   nextStep: () => void
   previousStep: () => void
@@ -26,13 +26,13 @@ interface IResumeRedeem {
   idFundo: string
 }
 
-const ResumeRedeem = ({
+const SummaryRedeem = ({
   step,
   nextStep,
   previousStep,
   onChangeFundDetailOpen,
   idFundo,
-}: IResumeRedeem) => {
+}: ISummaryRedeem) => {
   const [isModalAccountInfoOpen, setIsModalAccountInfoOpen] = useState(false)
   const { bankData, investmentPosition, redeemData } = useSelector(
     (state: any) => ({
@@ -65,7 +65,7 @@ const ResumeRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                R$ 9.875,00
+                {formatMoney(redeemData?.dados_para_aplicacao?.valor_bruto)}
               </Text>,
             ]}
           />
@@ -77,7 +77,7 @@ const ResumeRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                R$ 197,50
+                {formatMoney(redeemData?.dados_para_aplicacao?.valor_iof)}
               </Text>,
             ]}
           />
@@ -89,7 +89,7 @@ const ResumeRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                R$ 1.481,25
+                {formatMoney(redeemData?.dados_para_aplicacao?.valor_ir)}
               </Text>,
             ]}
           />
@@ -105,7 +105,7 @@ const ResumeRedeem = ({
           ]}
           endItems={[
             <Text type="headline" color="gray6">
-              R$ 8.196,25
+              {formatMoney(redeemData?.dados_para_aplicacao?.valor_liquido)}
             </Text>,
           ]}
         />
@@ -174,4 +174,4 @@ const ResumeRedeem = ({
   )
 }
 
-export default ResumeRedeem
+export default SummaryRedeem

@@ -20,7 +20,7 @@ import { formatLocaleStringToNumber } from 'helpers'
 
 //Steps
 import BallanceRedeem from './BallanceRedeem'
-import ResumeRedeem from './ResumeRedeem'
+import SummaryRedeem from './SummaryRedeem'
 
 import { CustomCol, Container, LayerStyled } from './styles'
 
@@ -86,7 +86,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       onChangeFundDetailOpen={setFundDetailOpen}
       idFundo={selectedFundId}
     />,
-    <ResumeRedeem
+    <SummaryRedeem
       step={step}
       nextStep={nextStep}
       previousStep={previousStep}
