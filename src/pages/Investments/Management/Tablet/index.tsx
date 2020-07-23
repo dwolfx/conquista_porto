@@ -214,6 +214,7 @@ const Tablet: React.FC<IProps> = ({
             setSelectedFundId('')
           }}
           selectedFundId={selectedFundId}
+          handleFundDetailOpen={() => setIsFundDetailOpen(true)}
         />
       )}
       {isMobile ? (
