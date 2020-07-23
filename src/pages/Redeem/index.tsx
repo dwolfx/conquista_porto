@@ -21,6 +21,7 @@ import { formatLocaleStringToNumber } from 'helpers'
 //Steps
 import BallanceRedeem from './BallanceRedeem'
 import SummaryRedeem from './SummaryRedeem'
+// import CardSuccessError from './components/CardSuccessError'
 
 import { CustomCol, Container, LayerStyled } from './styles'
 
@@ -94,11 +95,18 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
     />,
     <SummaryRedeem
       step={step}
-      nextStep={nextStep}
+      nextStep={() => setStep(step + 1)}
       previousStep={previousStep}
       onChangeFundDetailOpen={setFundDetailOpen}
       idFundo={selectedFundId}
     />,
+    // <CardSuccessError
+    //   successOrError="SUCCESS"
+    //   textMessage="SUCCESS_FUND_CLOSED"
+    //   days="XX"
+    //   onHandleHomePage={() => {}}
+    //   onHandleManagerPage={() => {}}
+    // />,
   ]
 
   const getBodyContent = () => {
