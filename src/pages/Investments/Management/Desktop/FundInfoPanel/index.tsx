@@ -18,9 +18,17 @@ import { Container } from './styles'
 
 interface IProps {
   onChangeModalSuitabilityInfo: (data: IModalProps) => void
+  setLayerOpen: (isLayerOpen: boolean) => void
+  setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
+  setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void
 }
 
-const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
+const FundInfoPanel = ({
+  onChangeModalSuitabilityInfo,
+  setLayerOpen,
+  setIsAwareOfTerms,
+  setIsInvestorLevelModalOpen,
+}: IProps) => {
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
@@ -67,6 +75,9 @@ const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
         <FundInfo
           position={position}
           onChangeModalSuitabilityInfo={onChangeModalSuitabilityInfo}
+          setLayerOpen={setLayerOpen}
+          setIsAwareOfTerms={setIsAwareOfTerms}
+          setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
         />
         <ProfitabilityTable
           profitability={position.fundo.comparativo_hist_rentabil}

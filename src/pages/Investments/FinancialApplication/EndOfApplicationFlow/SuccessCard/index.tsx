@@ -10,7 +10,7 @@ import { IProps } from '../styles'
 
 import * as s from '../styles'
 
-const SuccessCard = ({ onCloseLayer }: IProps) => {
+const SuccessCard = ({ onCloseLayer, handleCloseButton }: IProps) => {
   const history = useHistory()
   const isMobile = useMedia('sm')
 
@@ -25,7 +25,11 @@ const SuccessCard = ({ onCloseLayer }: IProps) => {
         data-gtm-clicktype="button"
         data-gtm-name="gerenciar investimentos"
         outline
-        onClick={() => history.push('/investimentos/visualizar')}
+        onClick={() => {
+          history.location.pathname === '/investimentos/visualizar'
+            ? handleCloseButton()
+            : history.push('/investimentos/visualizar')
+        }}
       >
         Gerenciar Investimentos
       </s.Button>

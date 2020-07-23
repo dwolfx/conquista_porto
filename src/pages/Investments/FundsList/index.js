@@ -2,14 +2,16 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useToast } from 'hooks/toast'
 import moment from 'moment'
-import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
+import 'styled-components/macro'
 
+import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useMedia from 'hooks/useMedia'
 import { Col } from 'styled-bootstrap-grid'
 
+import Text from 'components/Text'
 import Anbima from 'components/Anbima'
 import Filter from './Filter'
 import useFilter from './Filter/useFilter'
@@ -71,16 +73,19 @@ export default function FundsList() {
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
   const isTablet = useMedia('lg')
-  const { funds, fundsStatus, suitabilityData } = useSelector(state => ({
+  const { funds, fundsStatus, suitabilityStoreData } = useSelector(state => ({
     funds: state.investmentsList.data,
     fundsStatus: state.investmentsList,
-    suitabilityData: state.suitabilityInfo.data,
+    suitabilityStoreData: state.suitabilityInfo.data,
   }))
   const filteredFundsList = useFilter(filter, funds)
   const [isFundDetailOpen, setIsFundDetailOpen] = useState(false)
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [isAwareOfTerms, setIsAwareOfTerms] = useState(false)
+  const [isInvestorLevelModalOpen, setIsInvestorLevelModalOpen] = useState(
+    false
+  )
 
   useFetchInvestmentsList()
 
@@ -115,7 +120,12 @@ export default function FundsList() {
     setFiltersCount(totalFiltersCount)
   }, [filter, mobileFundSort])
 
-  const triggerFinancialApplication = (fundId, date, onSuccess) => {
+  const triggerFinancialApplication = (
+    suitabilityData,
+    fundId,
+    date,
+    onSuccess
+  ) => {
     if (suitabilityData) {
       dispatch(
         GetFinancialApplicationDataRequest({
@@ -130,15 +140,14 @@ export default function FundsList() {
     }
   }
 
-  const handleClickInvestButton = (fundId = null, hasDetailsFund = false) => {
+  const handleClickInvestButton = (fundId, suitabilityData) => {
     const onSuccessFinancial = financialData => {
-      if (suitabilityData.isValid) {
+      if (suitabilityData && suitabilityData.isValid) {
         setIsFundDetailOpen(false)
 
         setSelectedFundId(fundId)
-        if (!hasDetailsFund) {
-          dispatch(GetInvestmentDetailsRequest(fundId))
-        }
+
+        dispatch(GetInvestmentDetailsRequest(fundId))
 
         setIsAwareOfTerms(financialData.dados_para_aplicacao.aderente_fundo)
 
@@ -152,6 +161,7 @@ export default function FundsList() {
           )
         ) {
           triggerFinancialApplication(
+            suitabilityData,
             fundId,
             moment()
               .add(1, 'day')
@@ -167,21 +177,48 @@ export default function FundsList() {
     }
 
     setModalSuitabilityInfo({ ...suitabilityData })
-    if (suitabilityData.isValid) {
-      triggerFinancialApplication(
-        fundId,
-        moment().format('YYYY-MM-DD'),
-        onSuccessFinancial
-      )
+
+    if (suitabilityData && suitabilityData.isValid) {
+      const fundInfo = funds.filter(fund => fund.id_fundo === fundId)
+
+      const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
+        fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
+        fundForQualifiedInvestor: fundInfo[0].fundo_investidor_qualificado,
+      }
+
+      const { professionalInvestor, qualifiedInvestor } = {
+        professionalInvestor: suitabilityData.investidor_profissional,
+        qualifiedInvestor: suitabilityData.investidor_qualificado,
+      }
+
+      if (
+        (qualifiedInvestor === 'S' && fundForProfessionalInvestor === 'N') ||
+        professionalInvestor === 'S' ||
+        (fundForProfessionalInvestor === 'N' &&
+          fundForQualifiedInvestor === 'N')
+      ) {
+        triggerFinancialApplication(
+          suitabilityData,
+          fundId,
+          moment().format('YYYY-MM-DD'),
+          onSuccessFinancial
+        )
+      } else {
+        setIsInvestorLevelModalOpen(true)
+      }
     }
   }
 
   const onChangeLayerOpen = fundId => {
     setClickedFundInvestButtonId(fundId)
-    const onSuccess = () => {
-      handleClickInvestButton(fundId)
+    if (!suitabilityStoreData) {
+      const onSuccess = onSuccessSuitabilityData => {
+        handleClickInvestButton(fundId, onSuccessSuitabilityData)
+      }
+      triggerSuitabilityDispatch(onSuccess)
+    } else {
+      handleClickInvestButton(fundId, suitabilityStoreData)
     }
-    triggerSuitabilityDispatch(onSuccess)
   }
 
   function handleChangeFilter(newFilter) {
@@ -249,6 +286,33 @@ export default function FundsList() {
               {modalSuitabilityInfo.button.buttonName}
             </ModalButton>
           )}
+        </ModalButtonWrapper>
+      </Modal>
+      <Modal
+        modalTitle="Nível de investidor"
+        isOpen={isInvestorLevelModalOpen}
+        handleClose={() => setIsInvestorLevelModalOpen(false)}
+      >
+        <Text
+          type="headline"
+          color="gray6"
+          css={`
+            max-width: 362px;
+          `}
+        >
+          Para investir, você precisa ter um nível mais avançado. Selecione
+          outro fundo, por favor.
+        </Text>
+        <ModalButtonWrapper>
+          <ModalButton
+            data-gtm-subname="Modal nivel de investidor"
+            data-gtm-name="ok"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={() => setIsInvestorLevelModalOpen(false)}
+          >
+            OK
+          </ModalButton>
         </ModalButtonWrapper>
       </Modal>
       {isLayerOpen && (

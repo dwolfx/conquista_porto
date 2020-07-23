@@ -1,4 +1,4 @@
-import { Types } from './types'
+import { Types, ISuitabilityInfo } from './types'
 
 const INITIAL_STATE = {
   data: null,
@@ -8,17 +8,7 @@ const INITIAL_STATE = {
 }
 interface IAction {
   type: keyof typeof Types
-  payload: {
-    CotistaContaOrdemPortoPar: string
-    codigo_status_cotista: string
-    id_cotista?: string
-    investidor_profissional: string
-    investidor_qualificado: string
-    status_cotista: boolean
-    status_data_vencimento_cadastro: boolean
-    status_data_vigencia_suitability: boolean
-    status_possui_suitability: boolean
-  }
+  payload: ISuitabilityInfo
 }
 
 export default function(state = INITIAL_STATE, action: IAction) {

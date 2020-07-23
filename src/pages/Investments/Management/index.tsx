@@ -48,10 +48,12 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   }
 
   return (
-    <GridContainer as="section" {...rest}>
-      {renderResponsiveContent()}
-      <Anbima />
-    </GridContainer>
+    <>
+      <GridContainer as="section" {...rest}>
+        {renderResponsiveContent()}
+        <Anbima />
+      </GridContainer>
+    </>
   )
 }
 

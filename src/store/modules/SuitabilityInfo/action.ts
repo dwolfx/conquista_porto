@@ -1,18 +1,5 @@
-import { Types } from './types'
+import { Types, ISuitabilityInfo } from './types'
 import { IToast } from 'hooks/toast'
-
-interface ISuitabilityInfo {
-  CotistaContaOrdemPortoPar: string
-  codigo_status_cotista: string
-  id_cotista?: string
-  investidor_profissional: string
-  investidor_qualificado: string
-  status_cotista: boolean
-  status_data_vencimento_cadastro: boolean
-  status_data_vigencia_suitability: boolean
-  status_possui_suitability: boolean
-  isValid?: boolean
-}
 
 export function GetSuitabilityInfoRequest(cpf: string) {
   return {
@@ -22,7 +9,7 @@ export function GetSuitabilityInfoRequest(cpf: string) {
 }
 
 export function GetSuitabilityInfoAndValidate(
-  onSuccess: Function | null,
+  onSuccess: null | Function,
   buttonType: 'investir' | 'retirar' | 'resgatar',
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
 ) {
