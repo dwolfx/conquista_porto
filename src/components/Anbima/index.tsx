@@ -7,6 +7,8 @@ import {
   GridRow,
   Link,
   LogoAnbimaDistribuicao,
+  LogoAnbimaGestao,
+  LogoAnbimaInvestir,
   Text,
   TextWrapper,
 } from './styled'
@@ -95,7 +97,18 @@ const Anbima = () => (
           <Text>.</Text>
         </TextWrapper>
         <div>
-          <LogoAnbimaDistribuicao />
+          <a
+            href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+            target="blank"
+          >
+            <LogoAnbimaGestao />
+          </a>
+          <a>
+            <LogoAnbimaDistribuicao />
+          </a>
+          <a href="https://comoinvestir.anbima.com.br/" target="blank">
+            <LogoAnbimaInvestir />
+          </a>
         </div>
       </GridCol>
     </GridRow>
