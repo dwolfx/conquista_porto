@@ -143,12 +143,12 @@ function* validateTokenNSignature({ payload }: IValidateTokenSignature) {
   const { type, value: token } = yield select(getToken)
 
   try {
-    yield* validateToken({
+    yield call(validateToken, {
       type: Types.VALIDATE_REQUEST,
       payload: { type, token },
     })
 
-    yield validateSignature({
+    yield call(validateSignature, {
       type: KeyboardTypes.VALIDATE_REQUEST,
       payload: { signature, onError },
     })

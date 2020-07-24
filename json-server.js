@@ -106,6 +106,25 @@ router.render = (req, res) => {
     }
   }
 
+  if (req.originalUrl.endsWith('/otp')) {
+    if (req.method === 'PUT') {
+      return res.status(200).jsonp('{}')
+    }
+  }
+
+  if (req.originalUrl.endsWith('/teclado-virtual')) {
+    if (req.method === 'PUT') {
+      // test success screen on token/signature flow
+      return res.status(200).jsonp('{}')
+
+      // test error screen on token/signature flow (retries = 0 / status 400)
+      // return res.status(400).jsonp({
+      //   msg: 'Assinatura eletrônica incorreta',
+      //   retries: 0,
+      // })
+    }
+  }
+
   return res.jsonp(res.locals.data)
 }
 
