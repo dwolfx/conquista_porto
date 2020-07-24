@@ -85,9 +85,19 @@ const LastTransations = () => {
       bankExtractFund.data[0] &&
       typeof bankExtractFund.data[0].operacoes !== 'string'
     ) {
-      lastFiveTransactions =
+      if (
         bankExtractFund.data[0] &&
-        bankExtractFund.data[0].operacoes.operacao.slice(0, 5)
+        Array.isArray(bankExtractFund.data[0].operacoes.operacao)
+      ) {
+        lastFiveTransactions = bankExtractFund.data[0].operacoes.operacao.slice(
+          0,
+          5
+        )
+      } else {
+        lastFiveTransactions = [
+          { ...bankExtractFund.data[0].operacoes.operacao },
+        ]
+      }
     }
 
     return (

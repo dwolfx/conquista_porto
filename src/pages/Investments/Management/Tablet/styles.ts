@@ -5,7 +5,6 @@ import ConquistaButton from 'components/Button'
 
 export const RowContent = styled(Row)`
   padding: 0 ${({ theme }) => theme.spacing(1)}px;
-  margin-top: ${({ theme }) => `${theme.spacing(9)}px;`};
 `
 
 export const LeftContent = styled(Col)`
