@@ -9,9 +9,10 @@ import Divisor from 'components/Divisor'
 import { formatLocaleStringToNumber } from 'helpers'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 
 import { post, baseURLNamespaceInvestAws } from 'services/api'
-import { GetBankDataRequest } from 'store/modules/BankData/action'
+import { Run2FAInitialRequest } from 'store/modules/2FAToken/action'
 
 import AccountDetail from '../AccountDetail'
 import AccountBalance from './AccountBalance'
@@ -26,9 +27,14 @@ interface IProps {
   maxSteps: number
   step: number
   setStep: (step: number) => void
+  onError: () => void
 }
 
-const MainContent = ({ step, setStep, maxSteps }: IProps) => {
+interface IFooter {
+  nextStepAction?: () => void
+}
+
+const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [hasError, setError] = useState(false)
@@ -39,13 +45,14 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
   })
 
   const isMobile = useMedia('xs')
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   useFetchBankData()
-  const dispatch = useDispatch()
-  const { bankData, cpf, id_cotista } = useSelector<any, any>(state => ({
-    bankData: state.bankData,
+  const { withdrawInfos, cpf, id_cotista } = useSelector<any, any>(state => ({
     cpf: state.auth.cpf,
     id_cotista: state.suitabilityInfo.data?.id_cotista,
+    withdrawInfos: state.withdraw,
   }))
 
   const handlePostWithdraw = useCallback(async () => {
@@ -59,13 +66,8 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
       id_conta_liquidacao: formData.bankId,
     })
       .then(() => setIsSuccess(true))
-      .catch(() => setError(true))
       .finally(() => setIsLoading(false))
   }, [id_cotista, formData, cpf])
-
-  const handleAccountBalanceReloadClick = () => {
-    dispatch(GetBankDataRequest(cpf))
-  }
 
   const nextStep = () => {
     if (step === maxSteps) {
@@ -82,7 +84,7 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
     setFormData(prevState => ({ ...prevState, ...newFormData }))
   }
 
-  const cardFooter = () => (
+  const cardFooter = ({ nextStepAction }: IFooter) => (
     <s.ButtonWrapper>
       {step > 1 && (
         <s.Button
@@ -103,8 +105,19 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
         data-gtm-clicktype="button"
         data-gtm-name="proximo"
         color="secondary"
-        onClick={nextStep}
-        disabled={!isInputValueValid || isLoading}
+        onClick={() => {
+          if (nextStepAction) {
+            nextStepAction()
+          }
+        }}
+        disabled={
+          !isInputValueValid ||
+          isLoading ||
+          withdrawInfos.isLoadingDetails ||
+          withdrawInfos.isLoadingSummary ||
+          withdrawInfos.hasErrorDetails ||
+          withdrawInfos.hasErrorSummary
+        }
         loading={isLoading}
         loadingColor="white"
       >
@@ -114,15 +127,19 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
   )
 
   const stepsContent = [
-    <s.Card footer={cardFooter()}>
+    <s.Card
+      footer={cardFooter({
+        nextStepAction: nextStep,
+      })}
+    >
       <s.BodyWrapper>
         <AccountBalance
           accountBalanceValue={
-            bankData?.data?.DadosContaPortoSeguro?.saldo_disponivel
+            withdrawInfos.detailsData?.conta_porto_seguro?.saldo_disponivel
           }
-          reloadOnClickFunction={handleAccountBalanceReloadClick}
-          hasError={bankData.hasError}
-          isLoading={bankData.isLoading}
+          reloadOnClickFunction={onError}
+          hasError={withdrawInfos.hasErrorDetails}
+          isLoading={withdrawInfos.isLoadingDetails}
         />
         <s.Divisor />
         <FormWithdraw
@@ -130,7 +147,7 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
           onChangeFormData={handleChangeFormData}
           setIsInputValueValid={setIsInputValueValid}
           accountBalanceValue={
-            bankData?.data?.DadosContaPortoSeguro?.saldo_disponivel
+            withdrawInfos.detailsData?.conta_porto_seguro?.saldo_disponivel
           }
         />
         <s.Divisor />
@@ -141,15 +158,20 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
         </s.TextContainer>
       </s.BodyWrapper>
     </s.Card>,
-    <s.Card footer={cardFooter()}>
+    <s.Card
+      footer={cardFooter({
+        nextStepAction: () =>
+          dispatch(Run2FAInitialRequest({ addToast, onSuccess: nextStep })),
+      })}
+    >
       <s.BodyWrapper>
         <AccountBalance
           accountBalanceValue={
-            bankData?.data?.DadosContaPortoSeguro?.saldo_disponivel
+            withdrawInfos.detailsData?.conta_porto_seguro?.saldo_disponivel
           }
-          reloadOnClickFunction={handleAccountBalanceReloadClick}
-          hasError={bankData.hasError}
-          isLoading={bankData.isLoading}
+          reloadOnClickFunction={onError}
+          hasError={withdrawInfos.hasErrorDetails}
+          isLoading={withdrawInfos.isLoadingDetails}
         />
         <s.Divisor />
         <Summary
@@ -170,8 +192,8 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
     />,
     <s.DigitalSignature
       onConfirm={handlePostWithdraw}
+      onError={() => setError(true)}
       onPrevious={() => setStep(--step)}
-      onError={() => null}
     />,
   ]
 
@@ -187,9 +209,9 @@ const MainContent = ({ step, setStep, maxSteps }: IProps) => {
         openByDefault={false}
       >
         <Divisor />
-        <AccountDetail />
+        <AccountDetail onError={onError} />
       </s.Accordion>
-      <s.Card footer={cardFooter()}>{stepsContent[step - 1]}</s.Card>
+      <s.Card footer={cardFooter({})}>{stepsContent[step - 1]}</s.Card>
     </>
   ) : (
     <>{stepsContent[step - 1]}</>

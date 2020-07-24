@@ -3460,7 +3460,7 @@
         "saldo_liquidar": "0",
         "agencia": "0001",
         "codigo_banco": "306",
-        "saldo_disponivel": "0",
+        "saldo_disponivel": "2976166.11",
         "cpf": "33244452809",
         "encargos_acumulados": "0",
         "valores_bloqueados": {
@@ -5047,11 +5047,11 @@
   },
   "assinatura_eletronica": {},
   "virtual_keyboard": {
-    "usuario": "33244452809",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML"
   },
   "token_sms_email": {
-    "usuario": "33244452809",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML",
     "tipo": "sms_otp",
     "otp_token": "00000"
@@ -5073,8 +5073,8 @@
   "retiradas_post": {
     "id_cotista": "2000121268",
     "cpf_cnpj": "37282985812",
-    "data_operacao": "2020-07-21",
-    "valor_operacao": "10,00",
+    "data_operacao": "2020-07-22",
+    "valor_operacao": "0,10",
     "id_conta_liquidacao": "218633"
   },
   "invest_aws_cotista_retiradas": {
@@ -5091,7 +5091,7 @@
         "conta": "27",
         "digito_conta": "2",
         "titular": "Rafael Rodrigues",
-        "saldo_disponivel": "0",
+        "saldo_disponivel": "2976166.11",
         "encargos_acumulados": "0",
         "cheque_especial": {
           "limite": "0",

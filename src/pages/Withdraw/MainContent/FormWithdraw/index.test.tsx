@@ -7,6 +7,7 @@ describe('FormWitdraw', () => {
   const accountBalance = '1000'
   let formData = {
     withdrawValue: '',
+    bankId: '',
   }
 
   const mockOnChangeFormData = jest.fn(newState => {

@@ -26,12 +26,14 @@ const Summary = ({ value, bankSelected, onBankSelectedChange }: IProps) => {
   }))
 
   const getSummaryInfos = useCallback(() => {
-    dispatch(
-      GetWithdrawSummaryRequest({
-        data: { valor_operacao: value },
-      })
-    )
-  }, [dispatch, value])
+    if (value !== summaryInfos.summaryData?.valor_operacao) {
+      dispatch(
+        GetWithdrawSummaryRequest({
+          data: { valor_operacao: value },
+        })
+      )
+    }
+  }, [dispatch, value, summaryInfos.summaryData])
 
   useEffect(() => {
     getSummaryInfos()

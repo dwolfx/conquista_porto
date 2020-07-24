@@ -11,7 +11,7 @@ interface IState {
 
 const INITIAL_STATE: IState = {
   hasErrorDetails: false,
-  isLoadingDetails: false,
+  isLoadingDetails: true,
   detailsData: {},
   hasErrorSummary: false,
   isLoadingSummary: false,

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
@@ -8,6 +8,7 @@ import TransactionHeader from 'components/Header/TransactionsHeader'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
+import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
 import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
@@ -23,9 +24,25 @@ const Withdraw = () => {
   const maxSteps = 4
   const [step, setStep] = useState<number>(1)
 
+  const { id_cotista } = useSelector<any, any>(state => ({
+    id_cotista: state.suitabilityInfo.data?.id_cotista,
+  }))
+
   useEffect(() => {
     dispatch(GetSuitabilityInfoAndValidate(() => null, 'retirar', addToast))
   }, [dispatch, addToast])
+
+  const getAccountDetail = useCallback(() => {
+    if (id_cotista) {
+      dispatch(GetWithdrawDetailsRequest())
+    }
+  }, [dispatch, id_cotista])
+
+  useEffect(() => {
+    getAccountDetail()
+  }, [getAccountDetail])
+
+  const onError = () => getAccountDetail()
 
   return (
     <>
@@ -53,11 +70,16 @@ const Withdraw = () => {
         <Row>
           {!isMobile && (
             <s.Col md={3}>
-              <AccountDetail />
+              <AccountDetail onError={onError} />
             </s.Col>
           )}
           <s.Col md={9}>
-            <MainContent step={step} setStep={setStep} maxSteps={maxSteps} />
+            <MainContent
+              step={step}
+              setStep={setStep}
+              maxSteps={maxSteps}
+              onError={onError}
+            />
           </s.Col>
         </Row>
       </s.Container>
