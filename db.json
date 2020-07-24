@@ -81,7 +81,7 @@
         "saldo_atual": 31905.05,
         "data_historico": "2020-03-23T00:00:00"
       },
-      "id_cotista": 2000112690,
+      "id_cotista": 2000143425,
       "saldo_conta": 0,
       "aderente_fundo": false,
       "fechado_aplicacao": false,
@@ -96,7 +96,7 @@
     "investidor_qualificado": "N",
     "investidor_profissional": "N",
     "codigo_status_cotista": "122",
-    "id_cotista": "2000121268",
+    "id_cotista": "2000143425",
     "status_possui_suitability": true,
     "status_data_vigencia_suitability": true,
     "status_data_vencimento_cadastro": false
@@ -4604,7 +4604,7 @@
           }
         ]
       },
-      "id_cotista": "2000112690",
+      "id_cotista": "2000143425",
       "visao_geral": {
         "total": "35242.27",
         "fundos": {
@@ -5045,10 +5045,14 @@
     "dataNascimento": "1981-11-11T00:00:00-03:00",
     "cep": "01010010"
   },
-  "assinatura_eletronica": {},
-  "virtual_keyboard": {
+  "assinatura_eletronica": {
     "usuario": "37282985812",
     "organizacao": "CLIENTES_HML"
+  },
+  "virtual_keyboard": {
+    "usuario": "37282985812",
+    "organizacao": "CLIENTES_HML",
+    "resposta": "dddddd"
   },
   "token_sms_email": {
     "usuario": "37282985812",
@@ -5073,8 +5077,8 @@
   "retiradas_post": {
     "id_cotista": "2000121268",
     "cpf_cnpj": "37282985812",
-    "data_operacao": "2020-07-22",
-    "valor_operacao": "0,10",
+    "data_operacao": "2020-07-24",
+    "valor_operacao": "100,00",
     "id_conta_liquidacao": "218633"
   },
   "invest_aws_cotista_retiradas": {
