@@ -21,7 +21,6 @@ function* getData({ payload, cpf }) {
     )
 
     const responseData = response.data[0]
-
     const normalizedData = {
       ...responseData,
       operacoes: {
