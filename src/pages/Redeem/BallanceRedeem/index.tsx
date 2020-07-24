@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
+import moment from 'moment'
 
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
@@ -10,6 +11,8 @@ import MoneyInput from 'components/Inputs/Money'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
+import { formatMoneyToNumber } from 'pages/Investments/FinancialApplication/FormFinancialContribution/utils'
+import { GetRedeemSummaryRequest } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
 
 import BaseAccountInfo from '../components/BaseAccountInfo'
 import BaseFormStep from '../components/BaseFormStep'
@@ -28,36 +31,33 @@ import {
   HorizontalListStyled,
 } from './styles'
 import { formatMoney, formatNumber, formatMoneyDecimal } from 'helpers'
-import { formatMoneyToNumber } from 'pages/Investments/FinancialApplication/FormFinancialContribution/utils'
-import { GetRedeemSummaryRequest } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
-import moment from 'moment'
+import { IFormData } from '..'
 
-interface IFormData {
-  moneyToRedeem: string
-}
-const FORM_DATA_INTIAL_STATE = {
-  moneyToRedeem: '',
-}
 
 interface IBallanceRedeem {
+  formData: IFormData,
+  onChangeFormData: (form: IFormData) => void,
   step: number
   onChangeFundDetailOpen: (isOpen: boolean) => void
   nextStep: () => void
   previousStep: () => void
   idFundo: string
+  resetValue: () => void
 }
 const BallanceRedeem = ({
+  formData,
+  onChangeFormData,
   step,
   nextStep,
   previousStep,
   onChangeFundDetailOpen,
   idFundo,
+  resetValue,
 }: IBallanceRedeem) => {
   useFetchBankData()
 
   type TButtonOption = 'manter' | 'tudo' | null
 
-  const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
   const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(null)
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
@@ -77,11 +77,6 @@ const BallanceRedeem = ({
       return formatNumber(currentBallance - minFundBallance)
     }
     return formatNumber('0')
-  }
-
-  const resetValue = () => {
-    setRedeemOptionButton(null)
-    setFormData(FORM_DATA_INTIAL_STATE)
   }
 
   const isMoneyLessThanAllowed = () => {
@@ -115,7 +110,8 @@ const BallanceRedeem = ({
                   return resetValue()
                 }
                 setRedeemOptionButton('tudo')
-                setFormData({
+                onChangeFormData({
+                  ...formData,
                   moneyToRedeem: formatNumber(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
                 })
               }}>
@@ -128,7 +124,8 @@ const BallanceRedeem = ({
                   return resetValue()
                 }
                 setRedeemOptionButton('manter')
-                setFormData({
+                onChangeFormData({
+                  ...formData,
                   moneyToRedeem: calcMinimalBallance()
                 })
               }}
@@ -147,7 +144,8 @@ const BallanceRedeem = ({
               value={formData.moneyToRedeem}
               placeholder="1000,00"
               onChange={({ target }) => {
-                setFormData({
+                onChangeFormData({
+                  ...formData,
                   moneyToRedeem: target.value,
                 })
               }}

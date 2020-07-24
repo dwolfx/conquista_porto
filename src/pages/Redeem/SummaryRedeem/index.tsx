@@ -34,11 +34,11 @@ const SummaryRedeem = ({
   idFundo,
 }: ISummaryRedeem) => {
   const [isModalAccountInfoOpen, setIsModalAccountInfoOpen] = useState(false)
-  const { bankData, investmentPosition, redeemData } = useSelector(
+  const { bankData, investmentPosition, redeemSummaryData } = useSelector(
     (state: any) => ({
       bankData: state.bankData,
       investmentPosition: state.investmentPosition,
-      redeemData: state.redeemData.data,
+      redeemSummaryData: state.redeemSummaryData.data,
     })
   )
 
@@ -65,7 +65,7 @@ const SummaryRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                {formatMoney(redeemData?.dados_para_aplicacao?.valor_bruto)}
+                {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_bruto)}
               </Text>,
             ]}
           />
@@ -77,7 +77,7 @@ const SummaryRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                {formatMoney(redeemData?.dados_para_aplicacao?.valor_iof)}
+                {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_iof)}
               </Text>,
             ]}
           />
@@ -89,7 +89,7 @@ const SummaryRedeem = ({
             ]}
             endItems={[
               <Text type="headline" color="gray6">
-                {formatMoney(redeemData?.dados_para_aplicacao?.valor_ir)}
+                {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_ir)}
               </Text>,
             ]}
           />
@@ -105,7 +105,7 @@ const SummaryRedeem = ({
           ]}
           endItems={[
             <Text type="headline" color="gray6">
-              {formatMoney(redeemData?.dados_para_aplicacao?.valor_liquido)}
+              {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_liquido)}
             </Text>,
           ]}
         />
@@ -125,7 +125,7 @@ const SummaryRedeem = ({
             endItems={[
               <Text type="headline" color="gray6">
                 {moment(
-                  redeemData?.dados_para_resgate?.data_prevista_conversão
+                  redeemSummaryData?.dados_para_resgate?.data_prevista_conversão
                 ).format('DD/MM/YYYY')}
               </Text>,
             ]}
@@ -139,7 +139,7 @@ const SummaryRedeem = ({
             endItems={[
               <Text type="headline" color="gray6">
                 {moment(
-                  redeemData?.dados_para_resgate?.data_prevista_liquidacao
+                  redeemSummaryData?.dados_para_resgate?.data_prevista_liquidacao
                 ).format('DD/MM/YYYY')}
               </Text>,
             ]}

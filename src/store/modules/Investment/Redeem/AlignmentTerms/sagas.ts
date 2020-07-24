@@ -1,6 +1,6 @@
 import { call, select, all, takeLatest, put } from 'redux-saga/effects'
 
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get, baseURLNamespaceInvestAws } from 'services/api'
 import { Types } from './types'
 import { IGetRedeemAlignmentTermsPayload } from './types'
 import { getAuth, getSuitabilityInfo } from '../selectors'
@@ -19,7 +19,7 @@ function* getRedeemAlignmentTermsData({
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/aws/cotista/resgates/enquadramento?cpf_cnpj=${cpf}&id_cotista=${id_cotista}&data_operacao=${data_operacao}&tipo_operacao=2&valor_bruto=${valor_bruto}&id_fundo=${id_fundo}`
+      `${baseURLNamespaceInvestAws}/cotista%E2%80%8B/enquadramento/resgate?cpf_cnpj=${cpf}&id_cotista=${id_cotista}&data_operacao=${data_operacao}&tipo_operacao=2&valor_bruto=${valor_bruto}&id_fundo=${id_fundo}&CodigoCanal=1`
     )
     yield put(GetRedeemAlignmentTermsSuccess(response.data))
 
