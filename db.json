@@ -5105,7 +5105,7 @@
         },
         "saldo_liquidar": "0"
       },
-      "fechado_retirada": "false",
+      "fechado_retirada": false,
       "horario_inicio_permitido_retirada": "06:30:00",
       "horario_fim_permitido_retirada": "20:59:00"
     }
