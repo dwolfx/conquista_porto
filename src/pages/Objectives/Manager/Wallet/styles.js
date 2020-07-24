@@ -89,3 +89,12 @@ export const BlockButton = styled(Button)`
   margin-bottom: 14px;
   width: 100%;
 `
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(Button)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
+`

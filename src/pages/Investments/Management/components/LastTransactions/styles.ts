@@ -15,10 +15,9 @@ export const Container = styled.div`
 
 export const TableContainer = styled.div`
   max-height: 300px;
-  min-height: 170px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 `
 
 export const TextAccordionHeader = styled(Text).attrs(() => ({

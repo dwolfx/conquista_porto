@@ -9,7 +9,7 @@ import Divisor from 'components/Divisor'
 import Text from 'components/Text'
 import { FlexTextWrapper } from '../../styles'
 
-const ErrorCard = ({ onCloseLayer }: IProps) => {
+const ErrorCard = ({ onCloseLayer, handleCloseButton }: IProps) => {
   const history = useHistory()
   const isMobile = useMedia('sm')
 
@@ -20,15 +20,26 @@ const ErrorCard = ({ onCloseLayer }: IProps) => {
         data-gtm-clicktype="button"
         outline
         data-gtm-name="gerenciar investimentos"
-        onClick={() => history.push('/investimentos/visualizar')}
+        onClick={() => {
+          history.location.pathname === '/investimentos/visualizar' ||
+          history.location.pathname.includes('/objetivos/gerenciar')
+            ? handleCloseButton()
+            : history.push('/investimentos/visualizar')
+        }}
       >
-        Gerenciar Investimentos
+        {history.location.pathname.includes('/objetivos/gerenciar')
+          ? 'Gerenciar Objetivos'
+          : 'Gerenciar Investimentos'}
       </s.Button>
       <s.Button
         data-gtm-type="click"
         data-gtm-clicktype="button"
         data-gtm-name="lista de fundos"
-        onClick={() => onCloseLayer()}
+        onClick={() =>
+          history.location.pathname === '/investimentos/lista-fundos'
+            ? onCloseLayer()
+            : history.push('/investimentos/lista-fundos')
+        }
       >
         Lista de Fundos
       </s.Button>

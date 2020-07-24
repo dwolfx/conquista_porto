@@ -22,7 +22,11 @@ const setup = (initialState: any = defaultStore) => {
   const store = storeFactory(initialState)
 
   return renderWithReduxAndTheme(
-    <DigitalSignature onPrevious={() => {}} onConfirm={() => {}} />,
+    <DigitalSignature
+      onPrevious={() => {}}
+      onConfirm={() => {}}
+      onError={() => null}
+    />,
     { store }
   )
 }

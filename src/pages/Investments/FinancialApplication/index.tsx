@@ -299,14 +299,20 @@ const LayerInvestment: React.FC<IProps> = ({
     if (hasSucceded) {
       return (
         <GridCol sm={12} md={8} lg={9}>
-          <SuccessCard onCloseLayer={() => resetValues()} />
+          <SuccessCard
+            onCloseLayer={() => resetValues()}
+            handleCloseButton={handleClose}
+          />
         </GridCol>
       )
     }
     if (hasFailed) {
       return (
         <GridCol sm={12} md={8} lg={9}>
-          <ErrorCard onCloseLayer={() => resetValues()} />
+          <ErrorCard
+            onCloseLayer={() => resetValues()}
+            handleCloseButton={handleClose}
+          />
         </GridCol>
       )
     }

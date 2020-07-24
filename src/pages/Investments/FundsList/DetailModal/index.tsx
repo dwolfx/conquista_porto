@@ -28,7 +28,7 @@ interface IProps {
   isLayerOpen: boolean
   handleClose: () => void
   title: string
-  category: string
+  category?: string
   isOpenForInvestments: boolean
 }
 
@@ -65,7 +65,9 @@ const DetailModal = ({
           loadingColor="white"
           color="secondary"
           onClick={() => {
-            handleLayerOpen(fundDetails.id_fundo, true)
+            isLayerOpen
+              ? handleClose()
+              : handleLayerOpen(fundDetails.id_fundo, true)
           }}
         >
           {isLayerOpen ? 'Voltar' : 'Investir'}
@@ -123,7 +125,7 @@ const DetailModal = ({
   return (
     <Modal
       modalTitle={isLoading ? title : fundDetails.apelido}
-      modalSubtitle={category}
+      modalSubtitle={category || fundDetails.categoria}
       isOpen={isOpen}
       handleClose={handleClose}
     >

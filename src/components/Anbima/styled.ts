@@ -5,6 +5,8 @@ import { Link as RouterDomLink } from 'react-router-dom'
 import TextComponent from 'components/Text'
 
 import AnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
+import AnbimaGestao from 'assets/images/logo-anbima-gestao.png'
+import AnbimaInvestir from 'assets/images/logo-anbima-como-investir.png'
 
 export const GridContainer = styled(Container)`
   margin: ${props => props.theme.spacing(4)}px auto;
@@ -40,6 +42,20 @@ export const BlueText = styled(TextComponent).attrs(() => ({
 export const LogoAnbimaDistribuicao = styled.img.attrs(() => ({
   src: AnbimaDistribuicao,
   alt: 'Logo Anbima - Distribuição',
+}))`
+  margin-right: ${props => props.theme.spacing(4)}px;
+`
+
+export const LogoAnbimaGestao = styled.img.attrs(() => ({
+  src: AnbimaGestao,
+  alt: 'Logo Anbima - Gestao',
+}))`
+  margin-right: ${props => props.theme.spacing(4)}px;
+`
+
+export const LogoAnbimaInvestir = styled.img.attrs(() => ({
+  src: AnbimaInvestir,
+  alt: 'Logo Anbima - Investir',
 }))`
   margin-right: ${props => props.theme.spacing(4)}px;
 `

@@ -13,7 +13,7 @@ const useFilter = (filters: string[]) => {
       .map((iP: any) =>
         iP.posicoes.posicao
           .map((pos: any) => ({ saldo_atual: pos.saldo_atual, ...pos.fundo }))
-          .map((fundo: any) => fundo)
+          .filter((fundo: any) => Number(fundo.saldo_atual) !== 0)
       )
       .reduce((flat: any) => flat)
     if (!idFund) {

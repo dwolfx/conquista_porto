@@ -7,7 +7,7 @@ export const TableGridContent = styled.div`
     `0 ${theme.spacing(1)}px ${theme.spacing(3)}px ${theme.spacing(1)}px`};
   display: grid;
   grid-template-columns: 1fr repeat(5, 105px);
-  grid-template-rows: 57px repeat(2, 49px);
+  grid-template-rows: 57px repeat(3, 49px);
 `
 
 interface ICellProps {
