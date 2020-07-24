@@ -231,27 +231,6 @@ const FundInformation = ({
     )
   }
 
-  const getGiwPath = (type: string) => {
-    const paths: {
-      [key: string]: string
-    } = {
-      investir: 'aplicacao',
-      resgatar: 'resgate',
-    }
-
-    return paths[type]
-  }
-
-  const buildGiwUrl = (action: string) => {
-    return `portaldecliente/conquista/${getGiwPath(action)}?idFundo=${
-      position.fundo.id_carteira
-    }&idCotista=${position.idCotista}&nomeFundo=${
-      position.fundo.apelido
-    }&tipoFundo=${position.categoria_arena}&brand=${
-      position.fundo.nome_gestor
-    }&r=true`
-  }
-
   const triggerSuitabilityDispatch = (onSuccess: null | Function) => {
     dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
   }

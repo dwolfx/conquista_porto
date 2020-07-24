@@ -23,7 +23,7 @@ import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/act
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 
 import {
   VerticalListStyled,
@@ -232,27 +232,6 @@ const FundInformation = ({
     setIncomeValue(
       position.rendimentos.rendimento[months[item.value].value].valorrendimento
     )
-  }
-
-  const getGiwPath = (type: string) => {
-    const paths: {
-      [key: string]: string
-    } = {
-      investir: 'aplicacao',
-      resgatar: 'resgate',
-    }
-
-    return paths[type]
-  }
-
-  const buildGiwUrl = (action: string) => {
-    return `portaldecliente/conquista/${getGiwPath(action)}?idFundo=${
-      position.fundo.id_carteira
-    }&idCotista=${position.idCotista}&nomeFundo=${
-      position.fundo.apelido
-    }&tipoFundo=${position.categoria_arena}&brand=${
-      position.fundo.nome_gestor
-    }&r=true`
   }
 
   const triggerSuitabilityDispatch = (onSuccess: null | Function) => {
