@@ -32,6 +32,7 @@ import rewardsRecommendations from './Rewards/Recommendations/sagas'
 import rewardsTypes from './Rewards/Types/sagas'
 import virtualKeyboard from './VirtualKeyboard/sagas'
 import token2fa from './2FAToken/sagas'
+import withdraw from './Withdraw/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -64,5 +65,6 @@ export default function* rootSaga() {
     rewardsTypes,
     virtualKeyboard,
     token2fa,
+    withdraw,
   ])
 }

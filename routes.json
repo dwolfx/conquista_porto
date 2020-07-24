@@ -40,5 +40,8 @@
   "/invest/aws/cotista/aplicacoes": "/financial_post",
   "/invest/aws/cotista/aplicacoes\\?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao": "/financial_application",
   "/invest/aws/cotista/aplicacoes/resumo\\?id_fundo=:id_fundo&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&valor=:valor&aceite_termo_adesao=:aceite_termo_adesao": "/financial_application_is_aware_of_terms",
-  "/invest/aws/cotista/aplicacoes/enquadramento\\?CodigoCanal=:CodigoCanal&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&tipo_operacao=:tipo_operacao&valor_bruto=:valor_bruto&id_fundo=:id_fundo": "/alignment_terms_data"
+  "/invest/aws/cotista/aplicacoes/enquadramento\\?CodigoCanal=:CodigoCanal&id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj&data_operacao=:data_operacao&tipo_operacao=:tipo_operacao&valor_bruto=:valor_bruto&id_fundo=:id_fundo": "/alignment_terms_data",
+  "/invest/aws/cotista/retiradas?id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj": "/invest_aws_cotista_retiradas",
+  "/invest/aws/cotista/retiradas": "/retiradas_post",
+  "/invest/aws/cotista/retiradas/resumo?cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&valor_operacao=:valor_operacao": "/retiradas-resumo"
 }

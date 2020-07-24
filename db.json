@@ -81,7 +81,7 @@
         "saldo_atual": 31905.05,
         "data_historico": "2020-03-23T00:00:00"
       },
-      "id_cotista": 2000112690,
+      "id_cotista": 2000143425,
       "saldo_conta": 0,
       "aderente_fundo": false,
       "fechado_aplicacao": false,
@@ -96,7 +96,7 @@
     "investidor_qualificado": "N",
     "investidor_profissional": "N",
     "codigo_status_cotista": "122",
-    "id_cotista": "2000121268",
+    "id_cotista": "2000143425",
     "status_possui_suitability": true,
     "status_data_vigencia_suitability": true,
     "status_data_vencimento_cadastro": false
@@ -3460,7 +3460,7 @@
         "saldo_liquidar": "0",
         "agencia": "0001",
         "codigo_banco": "306",
-        "saldo_disponivel": "0",
+        "saldo_disponivel": "2976166.11",
         "cpf": "33244452809",
         "encargos_acumulados": "0",
         "valores_bloqueados": {
@@ -4604,7 +4604,7 @@
           }
         ]
       },
-      "id_cotista": "2000112690",
+      "id_cotista": "2000143425",
       "visao_geral": {
         "total": "35242.27",
         "fundos": {
@@ -4655,206 +4655,61 @@
     "cod_prog": "001"
   },
   "goal_recommendations": {
-    "nickname": "ObjetivoAndre",
-    "target_date": "29/01/2021",
-    "target_value": "1.000.000,00",
-    "initial_value": "1.000,00",
-    "monthly_value": "300,00",
-    "is_easy_to_save_planned_amount": false,
-    "is_target_date_flexible": false,
-    "would_like_to_receive_monthly_income": false,
+    "goal_type": "1",
+    "profile": 3,
     "uf": "SP",
-    "goal_type": 1,
-    "profile": 3
+    "nickname": "Viagem",
+    "target_date": "13/01/2021",
+    "target_value": "1.111,11",
+    "initial_value": "1.111,11",
+    "monthly_value": "111,11"
   },
   "goal_management": {
-    "id": "625",
+    "id": "89",
     "answer": {
-      "nickname": "Viagem",
-      "target_date": "30/12/2021",
-      "target_value": "100",
-      "initial_value": "500",
-      "monthly_value": "100",
-      "would_like_to_receive_monthly_income": false,
-      "goal_type": "1",
+      "nickname": "ObjetivoAndre",
+      "target_date": "29/01/2021",
+      "target_value": "1.000.000,00",
+      "initial_value": "1.000,00",
+      "monthly_value": "300,00",
       "is_easy_to_save_planned_amount": false,
       "is_target_date_flexible": false,
-      "profile": 3,
-      "uf": "SP"
-    },
-    "fund_total_income": {
-      "0": 12000,
-      "1": 14054.98,
-      "2": 16119.2,
-      "3": 18192.71,
-      "4": 20275.55,
-      "5": 22367.74,
-      "6": 24469.33,
-      "7": 26580.39,
-      "8": 28700.94,
-      "9": 30831.05,
-      "10": 32970.74,
-      "11": 35120.09,
-      "12": 37279.1,
-      "13": 39447.86,
-      "14": 41626.39,
-      "15": 43814.75,
-      "16": 46012.98,
-      "17": 48221.14,
-      "18": 50439.26,
-      "19": 52667.41,
-      "20": 54905.62,
-      "21": 57153.95,
-      "22": 59412.44,
-      "23": 61681.16,
-      "24": 63960.12,
-      "25": 66249.4,
-      "26": 68549.05,
-      "27": 70859.12,
-      "28": 73179.64,
-      "29": 75510.67,
-      "30": 77852.29,
-      "31": 80204.52,
-      "32": 82567.42,
-      "33": 84941.04,
-      "34": 87325.44,
-      "35": 89720.65,
-      "36": 92126.75,
-      "37": 94543.79,
-      "38": 96971.8,
-      "39": 99410.88,
-      "40": 101861.03,
-      "41": 104322.31,
-      "42": 106794.83,
-      "43": 109278.59,
-      "44": 111773.66,
-      "45": 114280.09,
-      "46": 116797.96,
-      "47": 119327.3,
-      "48": 121868.18,
-      "49": 124420.65,
-      "50": 126984.77,
-      "51": 129560.58,
-      "52": 132148.18,
-      "53": 134747.59,
-      "54": 137358.87
+      "would_like_to_receive_monthly_income": false,
+      "uf": "SP",
+      "goal_type": 1
     },
     "funds": [
       {
-        "fund_id": 51380023,
-        "name": "Arx Income FI Ações",
-        "category_name": "Renda Variável",
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": 12.27,
-              "2": -25.92,
-              "3": -3.46,
-              "4": 8.68,
-              "5": 42.34
-            }
-          },
-          {
-            "name": "IBOVESPA",
-            "value": {
-              "1": 13.9,
-              "2": -28.08,
-              "3": -14.28,
-              "4": 8.36,
-              "5": 32.62
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "2": 2.16,
-              "3": 10.82,
-              "4": 0.32,
-              "5": 9.72
-            }
-          }
-        ],
-        "min_initial_value": 500,
-        "min_value_to_apply": 100,
-        "wsdls/profile": 5,
-        "min_movement": 100,
-        "min_balance": 100,
-        "time_limit": "23:59",
-        "quotation_apply_days": "D+0",
-        "financial_apply_days": "D+0",
-        "quotation_rescue_days": "D+1 (Úteis)",
-        "financial_rescue_days": "D+2 (Úteis)",
-        "manager": "ARX Investimentos",
-        "initial_date": "17/06/1999",
-        "benchmark": "IBOVESPA",
-        "adm_tax": 3,
-        "performance_rate": 0,
-        "classification": "Ações",
-        "tribute_ir": {
-          "1": 15
-        },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf",
-        "iof": "Isento",
-        "initial_value": 900,
-        "monthly_value": 100,
-        "annual_rate": 9.5,
-        "profile_risk": "alto",
-        "is_fund_active": true
-      },
-      {
-        "fund_id": 51380026,
-        "name": "Occam Institucional II FIC Multimercado",
-        "category_name": "Multimercado",
-        "profitability": [
-          {
-            "name": "fundo",
-            "value": {
-              "1": 0.38,
-              "2": 0.7,
-              "3": 5.95,
-              "4": 13.84,
-              "5": 24.68
-            }
-          },
-          {
-            "name": "CDI",
-            "value": {
-              "1": 0.3,
-              "2": 1.49,
-              "3": 4.83,
-              "4": 11.51,
-              "5": 20.07
-            }
-          },
-          {
-            "name": "variacao",
-            "value": {
-              "1": 125.73,
-              "2": 46.95,
-              "3": 123.12,
-              "4": 120.24,
-              "5": 122.95
-            }
-          }
-        ],
-        "min_initial_value": 1000,
-        "min_value_to_apply": 100,
-        "wsdls/profile": 3,
-        "min_movement": 0,
-        "min_balance": 100,
-        "time_limit": "23:59",
-        "quotation_apply_days": "D+0",
-        "financial_apply_days": "D+0",
-        "quotation_rescue_days": "D+0 (Úteis)",
-        "financial_rescue_days": "D+1 (Úteis)",
-        "manager": "Occam Brasil",
-        "initial_date": "06/07/2012",
+        "fund_id": 51380129,
+        "adm_tax": 0,
         "benchmark": "CDI",
-        "adm_tax": 1,
-        "performance_rate": 20,
+        "category_name": "Multimercado",
         "classification": "Longo Prazo",
+        "cnpj": "string",
+        "financial_apply_days": "D+0",
+        "financial_rescue_days": "D+1 (Úteis)",
+        "initial_date": "06/07/2012",
+        "initial_value": 1000,
+        "iof": "Regime Regressivo",
+        "manager": "string",
+        "min_balance": 0,
+        "min_initial_value": 1000000000000,
+        "min_movement": 0,
+        "min_value_to_apply": 0,
+        "monthly_value": 100,
+        "name": "Occam Institucional II FIC Multimercado",
+        "performance_rate": 20,
+        "pl": 0,
+        "pl_last_year": 0,
+        "wsdls/profile": 5,
+        "profitability": {
+          "fundos": {
+            "12": 7.03
+          }
+        },
+        "quotation_apply_days": "D+0",
+        "quotation_rescue_days": "D+0 (Úteis)",
+        "time_limit": "13:00",
         "tribute_ir": {
           "180": 22.5,
           "360": 20,
@@ -4863,65 +4718,110 @@
         },
         "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
         "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-        "iof": "Regime Regressivo",
-        "initial_value": 3000,
-        "monthly_value": 500,
-        "annual_rate": 7,
-        "profile_risk": "medio",
         "is_fund_active": true
       },
       {
-        "fund_id": 51380022,
-        "name": "Arx Elbrus Debêntures Incentivadas FI Multimercado Crédito Privado",
+        "fund_id": 5071,
+        "name": "Porto Seguro Clássico RF FICFI LP",
+        "category_name": "Renda Fixa",
+        "profitability": null,
+        "min_initial_value": 3000,
+        "min_value_to_apply": 100,
+        "profile": 2,
+        "min_movement": 100,
+        "min_balance": 1000,
+        "time_limit": "15:00",
+        "quotation_apply_days": "D+0",
+        "financial_apply_days": "D+0",
+        "quotation_rescue_days": "D+0 (Úteis)",
+        "financial_rescue_days": "D+1 (Úteis)",
+        "cnpj": null,
+        "manager": null,
+        "pl": null,
+        "pl_last_year": null,
+        "initial_date": "06/07/1998",
+        "benchmark": "CDI",
+        "adm_tax": 0.5,
+        "performance_rate": 20,
+        "classification": "Longo Prazo",
+        "tribute_ir": {
+          "180": 22.5,
+          "360": 20,
+          "720": 17.5,
+          "721": 15
+        },
+        "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/InformativoDesempenho_PS_Classico.pdf\n                            ",
+        "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/Regulamento_PS_Classico.pdf\n                            ",
+        "iof": "Regime Regressivo",
+        "initial_value": 200,
+        "monthly_value": 60
+      },
+      {
+        "fund_id": 51380065,
+        "name": "AZ Quest Valore FI Renda Fixa Crédito Privado",
         "category_name": "Renda Fixa",
         "profitability": [
           {
             "name": "fundo",
             "value": {
-              "1": -0.24,
-              "2": 1.78,
-              "3": 7.72
+              "1": -5.62,
+              "2": 6.32,
+              "3": 5.13,
+              "4": 11.99,
+              "5": 22.16
             }
           },
           {
-            "name": "IMA-B 5",
+            "name": "Ibovespa",
             "value": {
-              "1": 0.46,
-              "2": -0.12,
-              "3": 7.15
+              "1": 0.05,
+              "2": 0.39,
+              "3": 3.5,
+              "4": 11.92,
+              "5": 21.33
             }
           },
           {
             "name": "variacao",
             "value": {
-              "2": 1.9,
-              "3": 0.57
+              "1": 80.87,
+              "2": 1612.53,
+              "3": 97.87,
+              "4": 100.64,
+              "5": 103.87
             }
           }
         ],
-        "min_initial_value": 1000,
-        "min_value_to_apply": 500,
-        "wsdls/profile": 4,
-        "min_movement": 500,
-        "min_balance": 1000,
-        "time_limit": "23:59",
+        "min_initial_value": 5000,
+        "min_value_to_apply": 300,
+        "profile": 2,
+        "min_movement": 300,
+        "min_balance": 300,
+        "time_limit": "13:00",
         "quotation_apply_days": "D+0",
         "financial_apply_days": "D+0",
-        "quotation_rescue_days": "D+30 (Corridos)",
+        "quotation_rescue_days": "D+4 (Corridos)",
         "financial_rescue_days": "D+1 (Úteis)",
-        "manager": "ARX Investimentos",
-        "initial_date": "24/08/2018",
-        "benchmark": "IMA-B 5",
-        "adm_tax": 0.7,
-        "performance_rate": 20,
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
+        "cnpj": null,
+        "manager": null,
+        "pl": null,
+        "pl_last_year": null,
+        "initial_date": "28/04/2014",
+        "benchmark": "CDI",
+        "adm_tax": 1,
+        "performance_rate": 0,
+        "classification": "Longo Prazo",
+        "tribute_ir": {
+          "180": 22.5,
+          "360": 20,
+          "720": 17.5,
+          "721": 15
+        },
+        "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_AZQUESTVALOREFIRF.pdf\n                            ",
+        "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_AZQUESTVALOREFIRF.pdf\n                            ",
         "iof": "Regime Regressivo",
-        "initial_value": 3100,
-        "monthly_value": 500,
-        "annual_rate": 4.5,
-        "profile_risk": "medio-alto",
-        "is_fund_active": true
+        "initial_value": 200,
+        "monthly_value": 60
       },
       {
         "fund_id": 5105,
@@ -4931,44 +4831,47 @@
           {
             "name": "fundo",
             "value": {
-              "1": 0.28,
-              "2": -1.96,
-              "3": 1.17,
-              "4": 7.71,
-              "5": 16.39
+              "1": -5.62,
+              "2": 6.32,
+              "3": 5.13,
+              "4": 11.99,
+              "5": 22.16
             }
           },
           {
-            "name": "CDI",
+            "name": "Ibovespa",
             "value": {
-              "1": 0.3,
-              "2": 1.49,
-              "3": 4.83,
-              "4": 11.51,
-              "5": 20.07
+              "1": 0.05,
+              "2": 0.39,
+              "3": 5.24,
+              "4": 11.92,
+              "5": 21.33
             }
           },
           {
             "name": "variacao",
             "value": {
-              "1": 91.79,
-              "3": 24.3,
-              "4": 67.04,
-              "5": 81.66
+              "1": 80.87,
+              "2": 1612.53,
+              "3": 97.87,
+              "5": 103.87
             }
           }
         ],
         "min_initial_value": 1000,
         "min_value_to_apply": 100,
-        "wsdls/profile": 2,
+        "profile": 2,
         "min_movement": 100,
         "min_balance": 1000,
-        "time_limit": "23:59",
+        "time_limit": "15:00",
         "quotation_apply_days": "D+0",
         "financial_apply_days": "D+0",
         "quotation_rescue_days": "D+0 (Úteis)",
         "financial_rescue_days": "D+0 (Úteis)",
-        "manager": "PortoSeguro Investimentos",
+        "cnpj": null,
+        "manager": null,
+        "pl": null,
+        "pl_last_year": null,
         "initial_date": "28/02/2014",
         "benchmark": "CDI",
         "adm_tax": 0.4,
@@ -4980,21 +4883,58 @@
           "720": 17.5,
           "721": 15
         },
-        "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
-        "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
+        "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf\n                            ",
+        "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf\n                            ",
         "iof": "Regime Regressivo",
-        "initial_value": 5000,
-        "monthly_value": 900,
-        "annual_rate": 4.5,
-        "profile_risk": "medio-baixo",
-        "is_fund_active": true
+        "initial_value": 200,
+        "monthly_value": 60
+      },
+      {
+        "fund_id": 6000,
+        "name": "PORTO SEGURO IMAB5 FICFI RENDA FIXA",
+        "category_name": "Renda Fixa",
+        "profitability": [
+          {
+            "name": "fundo",
+            "value": {
+              "4": 11.99,
+              "5": 22.16
+            }
+          },
+          {
+            "name": "Ibovespa",
+            "value": {
+              "1": 0.05,
+              "2": 0.39,
+              "3": 5.24,
+              "4": 11.92,
+              "5": 21.33
+            }
+          },
+          {
+            "name": "variacao",
+            "value": {
+              "1": 80.87,
+              "2": 1612.53,
+              "3": 97.87,
+              "4": 100.64,
+              "5": 103.87
+            }
+          }
+        ],
+        "url_performance_info_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/InformativoDesempenho_PS_IMAB5.pdf\n                            ",
+        "url_fund_rules_pdf": "\n                                https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/renda-fixa/Regulamento_PS_IMAB5.pdf\n                            ",
+        "iof": "Regime Regressivo",
+        "initial_value": 200,
+        "monthly_value": 60
       }
     ],
     "additional": {
       "travel_security": false,
-      "life_security": false,
-      "credit_card": false
-    }
+      "life_security": true,
+      "credit_card": true
+    },
+    "credit_product": null
   },
   "suitability": {
     "idpessoa": 632,
@@ -5105,13 +5045,17 @@
     "dataNascimento": "1981-11-11T00:00:00-03:00",
     "cep": "01010010"
   },
-  "assinatura_eletronica": {},
-  "virtual_keyboard": {
-    "usuario": "33244452809",
+  "assinatura_eletronica": {
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML"
   },
+  "virtual_keyboard": {
+    "usuario": "37282985812",
+    "organizacao": "CLIENTES_HML",
+    "resposta": "dddddd"
+  },
   "token_sms_email": {
-    "usuario": "33244452809",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML",
     "tipo": "sms_otp",
     "otp_token": "00000"
@@ -5129,5 +5073,154 @@
       "value": "ph@sciensa.com.br",
       "name": "email_otp"
     }
-  ]
+  ],
+  "retiradas_post": {
+    "id_cotista": "2000121268",
+    "cpf_cnpj": "37282985812",
+    "data_operacao": "2020-07-24",
+    "valor_operacao": "100,00",
+    "id_conta_liquidacao": "218633"
+  },
+  "invest_aws_cotista_retiradas": {
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
+    "dadosRetirada": {
+      "conta_porto_seguro": {
+        "id_conta": "193239",
+        "codigo_banco": "306",
+        "nome_banco": "Banco Porto Seguro",
+        "agencia": "0001",
+        "conta": "27",
+        "digito_conta": "2",
+        "titular": "Rafael Rodrigues",
+        "saldo_disponivel": "2976166.11",
+        "encargos_acumulados": "0",
+        "cheque_especial": {
+          "limite": "0",
+          "data_vencimento": "0001-01-03T00:00:00-03:00"
+        },
+        "valores_bloqueados": {
+          "em_24horas": "0",
+          "em_48horas": "0",
+          "indeterminado": "0",
+          "judicial": "0"
+        },
+        "saldo_liquidar": "0"
+      },
+      "fechado_retirada": false,
+      "horario_inicio_permitido_retirada": "06:30:00",
+      "horario_fim_permitido_retirada": "20:59:00"
+    }
+  },
+  "retiradas-resumo": {
+    "Message": {
+      "TipoCritica": "SUCESSO",
+      "Mensagem": "SUCESSO"
+    },
+    "resumo_retirada": {
+      "conta_porto_seguro": {
+        "saldo_disponivel": "2976166.11",
+        "id_conta": "245236",
+        "cheque_especial": {
+          "limite": "0",
+          "data_vencimento": "0001-01-03T00:00:00-03:00"
+        },
+        "conta": "1965",
+        "nome_banco": "Banco Porto Seguro",
+        "encargos_acumulados": "0",
+        "valores_bloqueados": {
+          "judicial": "0",
+          "em_24horas": "0",
+          "indeterminado": "0",
+          "em_48horas": "0"
+        },
+        "digito_conta": "8",
+        "saldo_liquidar": "0",
+        "agencia": "0001",
+        "titular": "Rafael Soares Claus",
+        "codigo_banco": "306"
+      },
+      "data_solicitacao": "2020-07-17T16:17:36.268-03:00",
+      "fechado_retirada": false,
+      "contas_liquidacao": {
+        "conta_liquidacao": [
+          {
+            "principal": false,
+            "id_conta": "218633",
+            "conta": "2895",
+            "nome_banco": "Itaú Unibanco S.A.",
+            "digito_conta": "2",
+            "agencia": "7954",
+            "codigo_banco": "341"
+          },
+          {
+            "principal": true,
+            "id_conta": "220165",
+            "conta": "78085",
+            "nome_banco": "Itaú Unibanco S.A.",
+            "digito_conta": "6",
+            "agencia": "4194",
+            "codigo_banco": "341"
+          },
+          {
+            "principal": true,
+            "id_conta": "237293",
+            "conta": "1126321",
+            "nome_banco": "Nu Pagamentos S.A.",
+            "digito_conta": "9",
+            "agencia": "0001",
+            "codigo_banco": "260"
+          },
+          {
+            "principal": false,
+            "id_conta": "237294",
+            "conta": "78085",
+            "nome_banco": "Itaú Unibanco S.A.",
+            "digito_conta": "6",
+            "agencia": "4194",
+            "codigo_banco": "341"
+          },
+          {
+            "principal": true,
+            "id_conta": "245280",
+            "conta": "1126321",
+            "nome_banco": "Nu Pagamentos S.A.",
+            "digito_conta": "9",
+            "agencia": "0001",
+            "codigo_banco": "260"
+          },
+          {
+            "principal": false,
+            "id_conta": "245281",
+            "conta": "78085",
+            "nome_banco": "Itaú Unibanco S.A.",
+            "digito_conta": "6",
+            "agencia": "4194",
+            "codigo_banco": "341"
+          },
+          {
+            "principal": false,
+            "id_conta": "245282",
+            "conta": "2895",
+            "nome_banco": "Itaú Unibanco S.A.",
+            "digito_conta": "2",
+            "agencia": "7954",
+            "codigo_banco": "341"
+          },
+          {
+            "principal": true,
+            "id_conta": "245403",
+            "conta": "1126321",
+            "nome_banco": "Nu Pagamentos S.A.",
+            "digito_conta": "9",
+            "agencia": "0001",
+            "codigo_banco": "260"
+          }
+        ]
+      },
+      "hora_limite_retirada_ted": "17"
+    }
+  }
 }

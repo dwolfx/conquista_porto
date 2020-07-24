@@ -31,6 +31,7 @@ import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
 import virtualKeyboard from './VirtualKeyboard/reducer'
 import token2fa from './2FAToken/reducer'
+import withdraw from './Withdraw/reducer'
 
 export default combineReducers({
   alignmentTerms,
@@ -62,4 +63,5 @@ export default combineReducers({
   rewardsTypes,
   virtualKeyboard,
   token2fa,
+  withdraw,
 })

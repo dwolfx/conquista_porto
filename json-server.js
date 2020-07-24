@@ -13,6 +13,7 @@ const objectiveMock2 = require('./src/mocks/objective2.json')
 const objectivesMock = require('./src/mocks/objectives.json')
 const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
 const financialApplicationMock = require('./src/mocks/financialApplication.json')
+const withdrawPOSTMock = require('./src/mocks/withdrawPOST.json')
 
 server.use(middlewares)
 
@@ -96,6 +97,31 @@ router.render = (req, res) => {
   if (req.originalUrl.endsWith('/cotista/aplicacoes')) {
     if (req.method === 'POST') {
       return res.jsonp({ ...financialApplicationMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/cotista/retiradas')) {
+    if (req.method === 'POST') {
+      return res.jsonp({ ...withdrawPOSTMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/otp')) {
+    if (req.method === 'PUT') {
+      return res.status(200).jsonp('{}')
+    }
+  }
+
+  if (req.originalUrl.endsWith('/teclado-virtual')) {
+    if (req.method === 'PUT') {
+      // test success screen on token/signature flow
+      return res.status(200).jsonp('{}')
+
+      // test error screen on token/signature flow (retries = 0 / status 400)
+      // return res.status(400).jsonp({
+      //   msg: 'Assinatura eletrônica incorreta',
+      //   retries: 0,
+      // })
     }
   }
 
