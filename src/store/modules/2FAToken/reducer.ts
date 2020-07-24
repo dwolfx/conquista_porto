@@ -4,6 +4,10 @@ const INITIAL_STATE = {
   isLoading: false,
   isLoadingGetInfo: false,
   hasError: false,
+  token: {
+    value: '',
+    type: 'sms_otp',
+  },
   data: [
     {
       value:
@@ -58,6 +62,11 @@ export default function(state = INITIAL_STATE, action: any) {
         ...state,
         isLoadingGetInfo: false,
         hasError: true,
+      }
+    case Types.SAVE_TOKEN:
+      return {
+        ...state,
+        token: { ...action.payload },
       }
     default:
       return state

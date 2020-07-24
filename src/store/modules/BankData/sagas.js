@@ -10,6 +10,10 @@ function* getData({ cpf }) {
       get,
       `${baseURLNamespaceInvest}/conta/dados?cpf=${cpf}&codigoCanal=0`
     )
+
+    if (!response.data.DadosContaPortoSeguro) {
+      throw Error()
+    }
     yield put(GetDataSuccess(response.data))
   } catch (err) {
     yield put(GetDataFailure())

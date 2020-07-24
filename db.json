@@ -5105,6 +5105,7 @@
     "dataNascimento": "1981-11-11T00:00:00-03:00",
     "cep": "01010010"
   },
+  "assinatura_eletronica": {},
   "virtual_keyboard": {
     "usuario": "33244452809",
     "organizacao": "CLIENTES_HML"
@@ -5112,7 +5113,8 @@
   "token_sms_email": {
     "usuario": "33244452809",
     "organizacao": "CLIENTES_HML",
-    "tipo": "email_otp"
+    "tipo": "sms_otp",
+    "otp_token": "00000"
   },
   "personal_data_2fa": [
     {
