@@ -27,6 +27,9 @@ import objective from './Objective/reducer'
 import objectiveManagement from './ObjectiveManagement/reducer'
 import suitability from './Suitability/reducer'
 import suitabilityInfo from './SuitabilityInfo/reducer'
+import redeemData from './Investment/Redeem/reducer'
+import redeemSummaryData from './Investment/Redeem/SummaryRedeem/reducer'
+import redeemAlignmentTerms from './Investment/Redeem/AlignmentTerms/reducer'
 import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
 import virtualKeyboard from './VirtualKeyboard/reducer'
@@ -59,6 +62,9 @@ export default combineReducers({
   objectiveManagement,
   suitability,
   suitabilityInfo,
+  redeemData,
+  redeemSummaryData,
+  redeemAlignmentTerms,
   rewardsRecommendations,
   rewardsTypes,
   virtualKeyboard,

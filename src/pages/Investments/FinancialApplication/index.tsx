@@ -3,15 +3,16 @@ import moment from 'moment'
 import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 import { useToast } from 'hooks/toast'
-import useMedia from 'hooks/useMedia'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
+import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
 import Anbima from 'components/Anbima'
+import AlignmentTerms from 'components/Investment/AlignmentTerms'
+import useMedia from 'hooks/useMedia'
 
 import { GetAlignmentTermsDataRequest } from 'store/modules/Investment/FinancialApplication/AlignmentTerms/action'
 
-import AlignmentTerms from './AlignmentTerms'
 import LayerHeader from './LayerHeader'
 import FormFinancialContribution from './FormFinancialContribution'
 import SummaryFinancialContribution from './SummaryFinancialContribution'
@@ -20,7 +21,6 @@ import SuccessCard from './EndOfApplicationFlow/SuccessCard'
 import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 
 import { formatMoneyDecimal, formatLocaleStringToNumber } from 'helpers'
-import DetailCard from './DetailCard'
 
 import {
   BodyWrapper,
@@ -378,7 +378,7 @@ const LayerInvestment: React.FC<IProps> = ({
           <LayerBodyContainer>
             <GridRowExpanded>
               <GridCol sm={12} md={4} lg={3}>
-                <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
+                <FundDetailCard handleFundDetailOpen={handleFundDetailOpen} />
               </GridCol>
               {getBodyContent()}
             </GridRowExpanded>

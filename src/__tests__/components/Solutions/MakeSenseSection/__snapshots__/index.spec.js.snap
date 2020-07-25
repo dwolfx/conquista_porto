@@ -207,7 +207,10 @@ exports[`MakeSenseSection renders correctly 1`] = `
       <div
         className="c4"
       >
-        <svg>
+        <svg
+          aria-label="malefemale"
+          role="img"
+        >
           male-female.svg
         </svg>
          
@@ -225,7 +228,10 @@ exports[`MakeSenseSection renders correctly 1`] = `
       <div
         className="c4"
       >
-        <svg>
+        <svg
+          aria-label="barchart"
+          role="img"
+        >
           bar-chart.svg
         </svg>
          
@@ -243,7 +249,10 @@ exports[`MakeSenseSection renders correctly 1`] = `
       <div
         className="c4"
       >
-        <svg>
+        <svg
+          aria-label="safebox"
+          role="img"
+        >
           safe-box.svg
         </svg>
          
@@ -301,7 +310,10 @@ exports[`MakeSenseSection renders correctly 1`] = `
             <div
               className="c9"
             >
-              <svg>
+              <svg
+                aria-label="talkman"
+                role="img"
+              >
                 talk-man.svg
               </svg>
               <div
@@ -338,7 +350,10 @@ exports[`MakeSenseSection renders correctly 1`] = `
             <div
               className="c9"
             >
-              <svg>
+              <svg
+                aria-label="diamond"
+                role="img"
+              >
                 diamond.svg
               </svg>
               <div
@@ -375,7 +390,10 @@ exports[`MakeSenseSection renders correctly 1`] = `
             <div
               className="c9"
             >
-              <svg>
+              <svg
+                aria-label="callcenter"
+                role="img"
+              >
                 call-center.svg
               </svg>
               <div
@@ -412,7 +430,10 @@ exports[`MakeSenseSection renders correctly 1`] = `
             <div
               className="c9"
             >
-              <svg>
+              <svg
+                aria-label="apps"
+                role="img"
+              >
                 apps.svg
               </svg>
               <div

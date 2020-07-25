@@ -14,6 +14,7 @@ const objectivesMock = require('./src/mocks/objectives.json')
 const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
 const financialApplicationMock = require('./src/mocks/financialApplication.json')
 const withdrawPOSTMock = require('./src/mocks/withdrawPOST.json')
+const redeemPOSTMock = require('./src/mocks/redeemPOST.json')
 
 server.use(middlewares)
 
@@ -103,6 +104,12 @@ router.render = (req, res) => {
   if (req.originalUrl.endsWith('/cotista/retiradas')) {
     if (req.method === 'POST') {
       return res.jsonp({ ...withdrawPOSTMock })
+    }
+  }
+
+  if (req.originalUrl.endsWith('/cotista/resgates')) {
+    if (req.method === 'POST') {
+      return res.jsonp({ ...redeemPOSTMock })
     }
   }
 

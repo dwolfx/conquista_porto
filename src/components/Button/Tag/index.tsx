@@ -4,7 +4,7 @@ import { Button, IButtonProps } from './styles'
 
 const ButtonTag: React.FC<IButtonProps &
   React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
-  color = 'primary',
+  color = '',
   children,
   ...rest
 }) => {

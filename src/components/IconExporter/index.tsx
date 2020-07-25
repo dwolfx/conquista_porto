@@ -208,6 +208,6 @@ export default ({
 }: IProps & React.SVGAttributes<SVGElement>) => {
   const Icon = dict[name]
   return Icon ? (
-    <Icon fill={color ? themeColors[color] : fill} {...rest} />
+    <Icon role="img" aria-label={name} fill={color ? themeColors[color] : fill} {...rest} />
   ) : null
 }

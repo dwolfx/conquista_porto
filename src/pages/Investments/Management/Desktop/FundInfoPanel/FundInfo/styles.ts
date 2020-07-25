@@ -63,6 +63,7 @@ export const ColIncome = styled(Col)`
 
 export const ButtonsWrapper = styled(Col)`
   display: flex;
+  align-items: center;
   margin: ${({ theme }) => theme.spacing(2)}px 0;
 `
 

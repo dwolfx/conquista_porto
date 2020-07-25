@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import IconButton from 'components/Button/Icon'
-import { Col, Row } from 'styled-bootstrap-grid'
 import ConquistaButton from 'components/Button'
+import { Col, Row } from 'styled-bootstrap-grid'
 
 export const RowContent = styled(Row)`
   padding: 0 ${({ theme }) => theme.spacing(1)}px;

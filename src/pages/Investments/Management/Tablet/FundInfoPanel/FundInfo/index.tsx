@@ -21,8 +21,9 @@ import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/Fin
 import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/FinancialApplication/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 
 import {
   VerticalListStyled,
@@ -141,6 +142,7 @@ const FundInformation = ({
 
   const {
     displayInformation,
+    idFund,
     financialApplicationLoading,
     funds,
     fundsError,
@@ -149,6 +151,7 @@ const FundInformation = ({
     suitabilityStoreData,
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
+    idFund: state.investmentPosition.idFund,
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
     funds: state.investmentsList.data,
     fundsError: state.investmentsList.isError,
@@ -229,27 +232,6 @@ const FundInformation = ({
     setIncomeValue(
       position.rendimentos.rendimento[months[item.value].value].valorrendimento
     )
-  }
-
-  const getGiwPath = (type: string) => {
-    const paths: {
-      [key: string]: string
-    } = {
-      investir: 'aplicacao',
-      resgatar: 'resgate',
-    }
-
-    return paths[type]
-  }
-
-  const buildGiwUrl = (action: string) => {
-    return `portaldecliente/conquista/${getGiwPath(action)}?idFundo=${
-      position.fundo.id_carteira
-    }&idCotista=${position.idCotista}&nomeFundo=${
-      position.fundo.apelido
-    }&tipoFundo=${position.categoria_arena}&brand=${
-      position.fundo.nome_gestor
-    }&r=true`
   }
 
   const triggerSuitabilityDispatch = (onSuccess: null | Function) => {
@@ -379,7 +361,11 @@ const FundInformation = ({
       onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
 
       if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect(buildGiwUrl('resgatar'))
+        dispatch(GetRedeemRequest({
+          data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
+          id_fundo: idFund,
+          onErrorToast: addToast
+        }))
       }
     }
 

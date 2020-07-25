@@ -17,10 +17,11 @@ import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/Fin
 import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/FinancialApplication/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import { useToast } from 'hooks/toast'
 
 import { RISK_FILTER_TYPES } from '../../../types'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 
 import {
   VerticalListStyled,
@@ -124,6 +125,7 @@ const FundInformation = ({
   setIsInvestorLevelModalOpen,
 }: IFundInformationProps) => {
   const themeContext = useContext(ThemeContext)
+
   const dispatch = useDispatch()
   const { addToast } = useToast()
 
@@ -138,6 +140,8 @@ const FundInformation = ({
     financialApplicationLoading,
     funds,
     fundsError,
+    idFund,
+    isRedeemLoading,
     fundsIsLoading,
     suitabilityIsLoading,
     suitabilityStoreData,
@@ -149,6 +153,8 @@ const FundInformation = ({
     fundsIsLoading: state.investmentsList.isError,
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
+    idFund: state.investmentPosition.idFund,
+    isRedeemLoading: state.redeemData.isLoading,
   }))
 
   const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
@@ -223,27 +229,6 @@ const FundInformation = ({
     setIncomeValue(
       position.rendimentos.rendimento[months[item.value].value].valorrendimento
     )
-  }
-
-  const getGiwPath = (type: string) => {
-    const paths: {
-      [key: string]: string
-    } = {
-      investir: 'aplicacao',
-      resgatar: 'resgate',
-    }
-
-    return paths[type]
-  }
-
-  const buildGiwUrl = (action: string) => {
-    return `portaldecliente/conquista/${getGiwPath(action)}?idFundo=${
-      position.fundo.id_carteira
-    }&idCotista=${position.idCotista}&nomeFundo=${
-      position.fundo.apelido
-    }&tipoFundo=${position.categoria_arena}&brand=${
-      position.fundo.nome_gestor
-    }&r=true`
   }
 
   const triggerSuitabilityDispatch = (onSuccess: null | Function) => {
@@ -373,10 +358,17 @@ const FundInformation = ({
       onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
 
       if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect(buildGiwUrl('resgatar'))
+        dispatch(
+          GetRedeemRequest({
+            data_operacao: moment(new Date(), 'DD/MM/YYYY').format(
+              'YYYY-MM-DD'
+            ),
+            id_fundo: idFund,
+            onErrorToast: addToast,
+          })
+        )
       }
     }
-
     dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'resgatar', addToast))
   }
 
