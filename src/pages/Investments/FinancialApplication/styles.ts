@@ -12,6 +12,13 @@ export const LayerFinancialApplication = styled(Layer)`
   }
 `
 
+export const BodyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: ${({ theme }) => theme.spacing(9)}px;
+`
+
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
@@ -55,17 +62,11 @@ export const GridContainer = styled(Container)`
 export const LayerBodyContainer = styled(Container)`
   padding: 0px;
   margin: 0;
-  overflow: auto;
-  height: auto;
+  overflow: hidden;
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     padding-top: ${props => props.theme.spacing(3)}px;
     margin: auto;
-    overflow: hidden;
-  }
-
-  @media ${({ theme }) => theme.mediaQueries.mdUp} {
-    height: 74vh;
   }
 `
 export const FooterContainer = styled(Container)`
@@ -127,10 +128,20 @@ export const LayerCard = styled(Card)`
 
 interface IMobileScrollContent {
   expandBottomHeight: boolean
+  isAlignmentTermOpen: boolean
 }
 
 export const MobileScrollContent = styled.div<IMobileScrollContent>`
   width: 100%;
+  ${({ isAlignmentTermOpen }) =>
+    isAlignmentTermOpen
+      ? css`
+          overflow: hidden;
+        `
+      : css`
+          overflow: auto;
+        `}
+
   ${({ expandBottomHeight }) =>
     expandBottomHeight
       ? css`
@@ -139,13 +150,10 @@ export const MobileScrollContent = styled.div<IMobileScrollContent>`
       : css`
           height: calc(100% - 125px);
         `};
-  overflow: auto;
   margin: 0;
   padding: 0;
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
-    overflow: hidden;
-    height: 100%;
     padding-bottom: 0px;
   }
 `

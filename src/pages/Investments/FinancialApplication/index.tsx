@@ -7,6 +7,7 @@ import useMedia from 'hooks/useMedia'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import Modal from 'components/Modal/Confirmation'
+import Anbima from 'components/Anbima'
 
 import { GetAlignmentTermsDataRequest } from 'store/modules/Investment/FinancialApplication/AlignmentTerms/action'
 
@@ -22,6 +23,7 @@ import { formatMoneyDecimal, formatLocaleStringToNumber } from 'helpers'
 import DetailCard from './DetailCard'
 
 import {
+  BodyWrapper,
   StepBar,
   ColStepBar,
   GridContainer,
@@ -336,7 +338,7 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const getBodySteps = () => {
     return (
-      <>
+      <BodyWrapper>
         <StepBar>
           <GridContainer>
             <GridRowStepBar>
@@ -358,7 +360,10 @@ const LayerInvestment: React.FC<IProps> = ({
             </GridRowStepBar>
           </GridContainer>
         </StepBar>
-        <MobileScrollContent expandBottomHeight={hasSucceded || hasFailed}>
+        <MobileScrollContent
+          expandBottomHeight={hasSucceded || hasFailed}
+          isAlignmentTermOpen={isAlignmentTermOpen}
+        >
           <LayerBodyContainer>
             <GridRowExpanded>
               <GridCol sm={12} md={4} lg={3}>
@@ -377,11 +382,21 @@ const LayerInvestment: React.FC<IProps> = ({
                 </Text>
               </GridColInfo>
             </GridRow>
+            <GridRow>
+              <Anbima noMarginTop />
+            </GridRow>
           </FooterContainer>
         </MobileScrollContent>
-      </>
+      </BodyWrapper>
     )
   }
+
+  useEffect(() => {
+    const html = document.querySelector<HTMLInputElement>('html')
+    if (isAlignmentTermOpen) {
+      html!.style.overflowY = 'hidden'
+    }
+  }, [isAlignmentTermOpen])
 
   return financialApplicationData?.dados_para_aplicacao ? (
     <LayerFinancialApplication
