@@ -76,6 +76,8 @@ export const ButtonWrapper = styled.div`
 `
 
 export const Button = styled(ButtonComponent)`
+  min-width: 112px;
+
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
   }

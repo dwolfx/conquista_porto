@@ -286,7 +286,7 @@ const FormFinancialContribution = ({
                 data-gtm-form="input"
                 data-gtm-name="quanto investir"
                 value={formData.moneyToInvest}
-                onChange={({ target }) => {
+                onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
                   onChangeFormData({
                     ...formData,
                     moneyToInvest: target.value,

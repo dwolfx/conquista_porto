@@ -11,7 +11,6 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import Text from 'components/Text'
-import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import SecuritySeal from 'components/SecuritySeal'
 
@@ -22,6 +21,7 @@ import {
   ContainerResendTokenButtons,
   Footer,
   InputStyled,
+  Button,
 } from '../styles'
 
 interface IProps {

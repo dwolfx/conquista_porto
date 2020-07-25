@@ -82,7 +82,6 @@ export function* validateSignature({
     yield put(PutVirtualKeyboardDataFailure())
 
     if (retries === 0) {
-      console.log(retries)
       // counter started over
       yield fork(generateNewSignature)
 
