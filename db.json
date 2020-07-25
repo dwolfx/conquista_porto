@@ -5125,12 +5125,12 @@
     "organizacao": "CLIENTES_HML"
   },
   "virtual_keyboard": {
-    "usuario": "33244452809=",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML",
     "resposta": "aaaaaa"
   },
   "token_sms_email": {
-    "usuario": "33244452809=",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML",
     "tipo": "sms_otp",
     "otp_token": "12345"
@@ -5151,7 +5151,7 @@
   ],
   "resgates_post": {
     "id_cotista": "2000143425",
-    "cpf_cnpj": "33244452809=",
+    "cpf_cnpj": "37282985812",
     "id_fundo": "5094",
     "data_operacao": "2020-07-25",
     "valor": "2.002,23",

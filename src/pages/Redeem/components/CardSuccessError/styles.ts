@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   @media ${props => props.theme.mediaQueries.lg} {
     min-height: 150px;
   }
