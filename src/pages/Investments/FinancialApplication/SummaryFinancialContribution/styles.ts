@@ -71,6 +71,7 @@ interface IConfirmButton {
 }
 
 export const StyledConfirmButton = styled(StyledButton)<IConfirmButton>`
+  min-width: 128px;
   @media ${props => props.theme.mediaQueries.xs} {
     flex: ${props => (props.retryAction ? 2 : 1)};
   }
@@ -105,6 +106,6 @@ export const SummaryContainer = styled.div`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     background-color: ${({ theme }) => theme.colors.gray1};
     border-radius: 8px;
-    margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
+    margin: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(3)}px`};
   }
 `

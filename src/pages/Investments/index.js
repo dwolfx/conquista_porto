@@ -8,6 +8,7 @@ import MakeSenseSection from 'components/Solutions/MakeSenseSection'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import FundsCarouselSection from 'components/Solutions/Investments/FundsCarousel/index'
+import Anbima from 'components/Anbima'
 
 import RedHairGirlImage from 'assets/images/red_hair_girl.jpg'
 import BannerInvestimentosImage from 'assets/images/banner_investimentos.jpg'
@@ -151,6 +152,7 @@ export default function Investments({ history }) {
       </SectionCustomPicture>
       <FundsCarouselSection />
       <FileDownloadSection data={downloadFileSectionData} />
+      <Anbima />
     </>
   )
 }
