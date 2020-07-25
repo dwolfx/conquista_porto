@@ -16,7 +16,11 @@ export const SectionCol = styled(Col)`
   }
 `
 
-export const ModalTextWrapper = styled.div`
+interface IModalTextWrapper {
+  margin?: string
+}
+
+export const ModalTextWrapper = styled.div<IModalTextWrapper>`
   margin: ${props => (props.margin ? props.margin : '0 0 28px 0')};
 `
 

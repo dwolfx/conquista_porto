@@ -99,6 +99,11 @@ const TokenCard = ({ onPrevious, onNext, ...rest }: IProps) => {
               })
             )
           }
+          onKeyUp={({ keyCode }) => {
+            if (keyCode === 13) {
+              onNext()
+            }
+          }}
         />
         <ContainerResendTokenButtons>
           <Button

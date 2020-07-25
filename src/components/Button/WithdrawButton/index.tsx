@@ -1,9 +1,11 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
-import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
+import { useHistory } from 'react-router-dom'
+import moment from 'moment'
 
 import Button from 'components/Button'
+import { useToast } from 'hooks/toast'
+import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
 interface IProps {
   loading?: boolean
@@ -20,30 +22,53 @@ const WithdrawButton: React.FC<IProps> = ({
   ...rest
 }) => {
   const dispatch = useDispatch()
+  const history = useHistory()
+  const { addToast } = useToast()
 
-  const { id_cotista, withdrawClosed, hasError, isLoading } = useSelector<
-    any,
-    any
-  >(state => ({
-    id_cotista: state.suitabilityInfo.data?.id_cotista,
-    withdrawClosed: state.withdraw.detailsData?.fechado_retirada,
-    hasError: state.withdraw.hasErrorDetails,
+  const [isButtonClicked, setButtonClicked] = useState(false)
+
+  const { withdrawDetails, isLoading } = useSelector<any, any>(state => ({
+    withdrawDetails: state.withdraw.detailsData,
     isLoading: state.withdraw.isLoadingDetails,
   }))
 
   const getAccountDetail = useCallback(() => {
-    if (id_cotista && !withdrawClosed) {
-      dispatch(GetWithdrawDetailsRequest({}))
-    }
-  }, [dispatch, id_cotista, withdrawClosed])
+    dispatch(
+      GetWithdrawDetailsRequest({
+        onSuccess: () => setButtonClicked(false),
+        addToast,
+      })
+    )
+  }, [dispatch, addToast])
 
   useEffect(() => {
-    if (!withdrawClosed && !isLoading && !hasError) {
-      getAccountDetail()
+    if (Object.entries(withdrawDetails).length && isButtonClicked) {
+      if (withdrawDetails.fechado_retirada) {
+        addToast({
+          description: `Tente novamente amanhã a partir das ${moment(
+            withdrawDetails.horario_inicio_permitido_retirada,
+            'H:mm:ss'
+          ).format('H:mm')}`,
+          title: `Não é possivel fazer retirada após as ${moment(
+            withdrawDetails.horario_fim_permitido_retirada,
+            'H:mm:ss'
+          ).format('H:mm')}`,
+          type: 'error',
+        })
+      } else {
+        history.push({
+          pathname: '/conta/retirar',
+          state: {
+            accessFromButton: true,
+          },
+        })
+      }
     }
-  }, [getAccountDetail, withdrawClosed, isLoading, hasError])
+  }, [withdrawDetails, addToast, history, isButtonClicked])
 
   const handleClick = () => {
+    setButtonClicked(true)
+
     if (onClick) {
       onClick()
     }
@@ -54,9 +79,9 @@ const WithdrawButton: React.FC<IProps> = ({
     <Button
       color="primary"
       outline
-      loading={loading}
+      loading={isLoading && isButtonClicked}
       loadingColor="blue4"
-      disabled={disabled ? disabled || withdrawClosed : withdrawClosed}
+      disabled={disabled || (isLoading && isButtonClicked)}
       data-gtm-type="click"
       data-gtm-clicktype="button"
       data-gtm-subname={gtmSubname}

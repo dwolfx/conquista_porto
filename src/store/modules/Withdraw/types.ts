@@ -1,3 +1,5 @@
+import { IToast } from 'hooks/toast'
+
 export const Types = {
   GET_WITHDRAW_SUMMARY_REQUEST: 'GET_WITHDRAW_SUMMARY_REQUEST',
   GET_WITHDRAW_SUMMARY_SUCCESS: 'GET_WITHDRAW_SUMMARY_SUCCESS',
@@ -10,6 +12,7 @@ export const Types = {
 export interface IDetailsPayload {
   onSuccess?: (data?: any) => void
   onError?: (err?: any) => void
+  addToast?: (toast: Omit<IToast, 'id'>) => void
 }
 
 export interface IDetailsResponse {}

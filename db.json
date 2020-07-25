@@ -5159,10 +5159,10 @@
     "tipo_resgate": "2"
   },
   "retiradas_post": {
-    "id_cotista": "2000121268",
+    "id_cotista": "2000143425",
     "cpf_cnpj": "37282985812",
-    "data_operacao": "2020-07-24",
-    "valor_operacao": "100,00",
+    "data_operacao": "2020-07-25",
+    "valor_operacao": "10,00",
     "id_conta_liquidacao": "218633"
   },
   "invest_aws_cotista_retiradas": {

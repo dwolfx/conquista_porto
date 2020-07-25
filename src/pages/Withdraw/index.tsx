@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
+import moment from 'moment'
 import 'styled-components/macro'
 
 import TransactionHeader from 'components/Header/TransactionsHeader'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
 import AccountDetail from './AccountDetail'
@@ -17,37 +17,61 @@ import * as s from './styles'
 
 const Withdraw = () => {
   const history = useHistory()
+  const { state: stateLocation } = useLocation()
   const isMobile = useMedia('xs')
   const dispatch = useDispatch()
   const { addToast } = useToast()
 
   const maxSteps = 4
   const [step, setStep] = useState<number>(1)
+  const [showPrompt, setShowPrompt] = useState<boolean>(true)
 
-  const { id_cotista } = useSelector<any, any>(state => ({
+  const { withdrawDetails } = useSelector<any, any>(state => ({
     id_cotista: state.suitabilityInfo.data?.id_cotista,
+    withdrawDetails: state.withdraw.detailsData,
   }))
 
-  useEffect(() => {
-    dispatch(GetSuitabilityInfoAndValidate(() => null, 'retirar', addToast))
-  }, [dispatch, addToast])
-
   const getAccountDetail = useCallback(() => {
-    if (id_cotista) {
+    if (!stateLocation?.accessFromButton) {
       dispatch(GetWithdrawDetailsRequest())
     }
-  }, [dispatch, id_cotista])
+  }, [dispatch, stateLocation])
 
   useEffect(() => {
     getAccountDetail()
   }, [getAccountDetail])
+
+  useEffect(() => {
+    if (
+      Object.entries(withdrawDetails).length &&
+      withdrawDetails.fechado_retirada
+    ) {
+      setShowPrompt(false)
+
+      history.goBack()
+
+      return () => {
+        addToast({
+          description: `Tente novamente amanhã a partir das ${moment(
+            withdrawDetails.horario_inicio_permitido_retirada,
+            'H:mm:ss'
+          ).format('H:mm')}`,
+          title: `Não é possivel fazer retirada após as ${moment(
+            withdrawDetails.horario_fim_permitido_retirada,
+            'H:mm:ss'
+          ).format('H:mm')}`,
+          type: 'error',
+        })
+      }
+    }
+  }, [withdrawDetails, addToast, history])
 
   const onError = () => getAccountDetail()
 
   return (
     <>
       <ExitModal
-        hasUnsavedChanges={true}
+        hasUnsavedChanges={showPrompt}
         onConfirmation={() => history.push('')}
       />
       <TransactionHeader
@@ -79,6 +103,7 @@ const Withdraw = () => {
               setStep={setStep}
               maxSteps={maxSteps}
               onError={onError}
+              setPrompt={setShowPrompt}
             />
           </s.Col>
         </Row>
