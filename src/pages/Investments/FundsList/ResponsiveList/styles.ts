@@ -33,7 +33,12 @@ interface ListWrapperProps {
 }
 
 export const ListWrapper = styled.div<ListWrapperProps>`
-  margin-top: ${props => props.theme.spacing(13)}px;
+${({ theme, marginTop }) =>
+  marginTop &&
+  css`
+    margin-top: ${theme.spacing(13)}px;
+  `}
+  
   padding: 0 ${props => props.theme.spacing(1)}px;
 
   ${props =>
