@@ -563,6 +563,12 @@ const FundInformation = ({
                   </Text>,
                 ]}
               />,
+              <Text color="gray5">
+                O saldo refere-se a data exibida e será atualizado no decorrer
+                do dia. Resgates parciais poderão ser convertidos em totais,
+                caso resulte em saldo inferior ao valor mínimo de permanência,
+                conforme disposto nas regras de movimentação deste fundo.
+              </Text>,
             ]}
           />
         </AccordionContent>
