@@ -13,6 +13,7 @@ export const Types = {
   RUN_INITIAL_REQUEST: '2FA_RUN_INITIAL_REQUEST',
   VALIDATE_TOKEN_SIGNATURE: '2FA_VALIDATE_TOKEN_SIGNATURE',
   SAVE_TOKEN: '2FA_SAVE_TOKEN',
+  SET_LOADING: '2FA_SET_LOADING',
 }
 
 export interface IPropsPostData {
@@ -31,4 +32,17 @@ export interface IGeneratePayload {
 export interface IGenerate {
   payload: IGeneratePayload
   type: string
+}
+
+export interface IValidateTokenSignaturePayload {
+  signature: string
+  onSuccess: () => void
+  onError: () => void
+  addToast: (toast: Omit<IToast, 'id'>) => void
+  goToPreviousStep: () => void
+}
+
+export interface IValidateTokenSignature {
+  type: string
+  payload: IValidateTokenSignaturePayload
 }

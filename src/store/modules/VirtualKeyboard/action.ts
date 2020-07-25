@@ -37,3 +37,10 @@ export function PutVirtualKeyboardDataFailure() {
     type: Types.VALIDATE_FAILURE,
   }
 }
+
+export function SetKeyboardLoading(payload: boolean) {
+  return {
+    type: Types.SET_LOADING,
+    payload,
+  }
+}

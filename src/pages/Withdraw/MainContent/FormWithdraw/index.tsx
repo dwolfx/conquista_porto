@@ -1,7 +1,5 @@
 import React from 'react'
 
-import MoneyInput from 'components/Inputs/Money'
-
 import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 
 import { IFormData } from '../types'
@@ -12,11 +10,20 @@ interface IFormWithdraw {
   onChangeFormData: (formData: IFormData) => void
   setIsInputValueValid: (isValueValid: boolean) => void
   accountBalanceValue: string
+  onEnterPress?: () => void
+  blocked?: boolean
 }
 
 const FormWithdraw = React.forwardRef<HTMLInputElement, IFormWithdraw>(
   (
-    { formData, onChangeFormData, setIsInputValueValid, accountBalanceValue },
+    {
+      formData,
+      onChangeFormData,
+      setIsInputValueValid,
+      accountBalanceValue,
+      onEnterPress,
+      blocked,
+    },
     ref
   ) => {
     const innerRef =
@@ -37,17 +44,22 @@ const FormWithdraw = React.forwardRef<HTMLInputElement, IFormWithdraw>(
         <s.LabelText type="headline" color="gray6">
           Quanto você quer retirar?
         </s.LabelText>
-        <MoneyInput
+        <s.MoneyInput
           ref={innerRef}
           data-gtm-form="input"
           data-gtm-name="quanto retirar"
           value={formData.withdrawValue}
           placeholder="0,00"
-          onChange={({ target }) => {
+          onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
             onChangeFormData({
               ...formData,
               withdrawValue: target.value === '0,00' ? '' : target.value,
             })
+          }}
+          onKeyUp={({ keyCode }: React.KeyboardEvent) => {
+            if (keyCode === 13 && onEnterPress) {
+              onEnterPress()
+            }
           }}
           error={
             isAmountGreaterThanAccountBalance() && {
@@ -57,6 +69,7 @@ const FormWithdraw = React.forwardRef<HTMLInputElement, IFormWithdraw>(
               )}`,
             }
           }
+          blocked={blocked}
         />
       </s.InputWrapper>
     )

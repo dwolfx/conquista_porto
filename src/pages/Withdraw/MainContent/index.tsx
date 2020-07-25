@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 import 'styled-components/macro'
@@ -35,6 +35,11 @@ interface IFooter {
 }
 
 const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
+  const dispatch = useDispatch()
+  const isMobile = useMedia('xs')
+  const inputRef = useRef() as React.RefObject<HTMLInputElement>
+  const { addToast } = useToast()
+
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [hasError, setError] = useState(false)
@@ -44,16 +49,26 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
     bankId: '',
   })
 
-  const isMobile = useMedia('xs')
-  const dispatch = useDispatch()
-  const { addToast } = useToast()
-
   useFetchBankData()
-  const { withdrawInfos, cpf, id_cotista } = useSelector<any, any>(state => ({
+  const {
+    withdrawInfos,
+    cpf,
+    id_cotista,
+    isTokenLoading,
+    isKeyboardLoading,
+  } = useSelector<any, any>(state => ({
     cpf: state.auth.cpf,
     id_cotista: state.suitabilityInfo.data?.id_cotista,
+    isTokenLoading: state.token2fa.isLoadingGetInfo,
+    isKeyboardLoading: state.virtualKeyboard.isLoading,
     withdrawInfos: state.withdraw,
   }))
+
+  useEffect(() => {
+    if (!withdrawInfos.isLoadingDetails && inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [withdrawInfos.isLoadingDetails, inputRef])
 
   const handlePostWithdraw = useCallback(async () => {
     setIsLoading(true)
@@ -66,13 +81,19 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
       id_conta_liquidacao: formData.bankId,
     })
       .then(() => setIsSuccess(true))
+      .catch(() => setError(true))
       .finally(() => setIsLoading(false))
   }, [id_cotista, formData, cpf])
 
   const nextStep = () => {
-    if (step === maxSteps) {
-      handlePostWithdraw()
-    } else {
+    if (
+      isInputValueValid &&
+      !isLoading &&
+      !withdrawInfos.isLoadingDetails &&
+      !withdrawInfos.isLoadingSummary &&
+      !withdrawInfos.hasErrorDetails &&
+      !withdrawInfos.hasErrorSummary
+    ) {
       setStep(++step)
     }
   }
@@ -116,9 +137,11 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
           withdrawInfos.isLoadingDetails ||
           withdrawInfos.isLoadingSummary ||
           withdrawInfos.hasErrorDetails ||
-          withdrawInfos.hasErrorSummary
+          withdrawInfos.hasErrorSummary ||
+          isTokenLoading ||
+          isKeyboardLoading
         }
-        loading={isLoading}
+        loading={isLoading || isTokenLoading || isKeyboardLoading}
         loadingColor="white"
       >
         Próximo
@@ -149,6 +172,11 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
           accountBalanceValue={
             withdrawInfos.detailsData?.conta_porto_seguro?.saldo_disponivel
           }
+          onEnterPress={nextStep}
+          blocked={
+            withdrawInfos.hasErrorDetails || withdrawInfos.isLoadingDetails
+          }
+          ref={inputRef}
         />
         <s.Divisor />
         <s.TextContainer>

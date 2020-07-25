@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
-import Button from 'components/Button'
 import SecuritySeal from 'components/SecuritySeal'
 import IconExporter from 'components/IconExporter'
 
@@ -18,6 +17,7 @@ import {
   Key,
   Footer,
   InputStyled,
+  Button,
 } from '../styles'
 
 interface IProps {
@@ -109,6 +109,7 @@ const DigitalSignature = ({
                   onError,
                   onSuccess: onConfirm,
                   addToast,
+                  goToPreviousStep: onPrevious,
                 })
               )
             }}

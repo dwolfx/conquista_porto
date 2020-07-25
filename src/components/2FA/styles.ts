@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import ButtonCmp from 'components/Button'
 import CardUnstyled from 'components/Card'
 import { CardBody } from 'components/Card/styles'
 import NewInput from 'components/NewInput'
@@ -94,4 +95,8 @@ export const Footer = styled.div`
 export const InputStyled = styled(NewInput)`
   margin-top: ${props => props.theme.spacing(3)}px;
   width: 300px;
+`
+
+export const Button = styled(ButtonCmp)`
+  min-width: 112px;
 `

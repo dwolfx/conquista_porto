@@ -26,6 +26,11 @@ export default function(state = INITIAL_STATE, action: any) {
         isLoading: false,
         hasError: true,
       }
+    case Types.SET_LOADING:
+      return {
+        ...state,
+        isLoading: action.payload,
+      }
     default:
       return state
   }

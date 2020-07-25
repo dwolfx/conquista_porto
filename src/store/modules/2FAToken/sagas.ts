@@ -1,7 +1,7 @@
 import { all, takeLatest, call, put, select, fork } from 'redux-saga/effects'
 
-import { IToast } from 'hooks/toast'
 import { get, post, put as putAxios, baseURLNamespaceAuth2 } from 'services/api'
+import { SetKeyboardLoading } from '../VirtualKeyboard/action'
 import {
   generateKeyboard,
   validateSignature,
@@ -15,9 +15,15 @@ import {
   Put2FATokenDataFailure,
   Get2FADataSuccess,
   Get2FADataFailure,
+  SetTokenLoading,
 } from './action'
 import { getAuth, getToken } from './selectors'
-import { Types, IGenerate, IPropsPostData } from './types'
+import {
+  Types,
+  IGenerate,
+  IPropsPostData,
+  IValidateTokenSignature,
+} from './types'
 
 function handleOrganizacao() {
   const env = process.env.REACT_APP_ENV
@@ -112,6 +118,12 @@ function* run2FAInitialRequest({
     type: Types.POST_REQUEST,
     payload: { type: 'sms_otp' },
   })
+  yield put(
+    SetTokenLoading({
+      isLoadingGetInfo: true,
+    })
+  )
+  yield put(SetKeyboardLoading(true))
 
   try {
     yield all([getTokenData(), generateKeyboard()])
@@ -125,24 +137,28 @@ function* run2FAInitialRequest({
       title: 'Um erro inesperado ocorreu.',
       type: 'error',
     })
-  }
-}
-
-interface IValidateTokenSignature {
-  type: string
-  payload: {
-    signature: string
-    onSuccess: () => void
-    onError: () => void
-    addToast: (toast: Omit<IToast, 'id'>) => void
+  } finally {
+    yield put(
+      SetTokenLoading({
+        isLoadingGetInfo: false,
+      })
+    )
+    yield put(SetKeyboardLoading(false))
   }
 }
 
 function* validateTokenNSignature({ payload }: IValidateTokenSignature) {
-  const { signature, onSuccess, onError, addToast } = payload
+  const { signature, onSuccess, onError, addToast, goToPreviousStep } = payload
   const { type, value: token } = yield select(getToken)
 
   try {
+    yield put(
+      SetTokenLoading({
+        isLoading: true,
+      })
+    )
+    yield put(SetKeyboardLoading(true))
+
     yield call(validateToken, {
       type: Types.VALIDATE_REQUEST,
       payload: { type, token },
@@ -160,6 +176,15 @@ function* validateTokenNSignature({ payload }: IValidateTokenSignature) {
       title: 'Um erro inesperado ocorreu.',
       type: 'error',
     })
+
+    goToPreviousStep()
+  } finally {
+    yield put(
+      SetTokenLoading({
+        isLoading: false,
+      })
+    )
+    yield put(SetKeyboardLoading(false))
   }
 }
 
