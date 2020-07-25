@@ -4,7 +4,9 @@ import Button from 'components/Button'
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 144px;
+  align-items: center;
+  min-height: 150px;
+  padding: ${({ theme }) => theme.spacing(3)}px;
 `
 
 export const WrapperText = styled.div`
@@ -21,6 +23,12 @@ export const Controls = styled.div`
 
   @media ${props => props.theme.mediaQueries.xs} {
     justify-content: space-between;
+    flex-direction: column;
+    button {
+      :first-child {
+        margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+      }
+    }
   }
 `
 
@@ -28,7 +36,6 @@ export const ButtonsCtrls = styled(Button)`
   margin-left: ${({ theme }) => theme.spacing(1)}px;
 
   @media ${props => props.theme.mediaQueries.xs} {
-    width: calc(50% - 7px);
     margin-left: 0;
   }
 `

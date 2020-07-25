@@ -5,7 +5,7 @@ import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import moment from 'moment'
 import 'styled-components/macro'
-
+import Anbima from 'components/Anbima'
 import AlignmentTerms from 'components/Investment/AlignmentTerms'
 import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
@@ -18,7 +18,6 @@ import { Run2FAInitialRequest } from 'store/modules/2FAToken/action'
 import { baseURLNamespaceInvestAws, post } from 'services/api'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { formatLocaleStringToNumber } from 'helpers'
 
 //Steps
 import BallanceRedeem from './BallanceRedeem'
@@ -136,6 +135,15 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       }
     }
   }
+  const handleHomePage = () => {
+    history.push('/')
+    handleClose()
+  }
+
+  const handleInvestiments = () => {
+    history.push('/investimentos')
+    handleClose()
+  }
 
   const stepsContent = [
     <BallanceRedeem
@@ -172,8 +180,8 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       successOrError={getStatus()}
       textMessage={'DEFAULT'}
       days=""
-      onHandleHomePage={() => {}}
-      onHandleManagerPage={() => {}}
+      onHandleHomePage={handleHomePage}
+      onHandleManagerPage={handleInvestiments}
     />,
   ]
 
@@ -267,6 +275,9 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
                 de ordens ou a recepção de informações atualizadas.
               </Text>
             </Col>
+          </Row>
+          <Row>
+            <Anbima />
           </Row>
         </Container>
       )}

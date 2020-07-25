@@ -11,7 +11,6 @@ import {
   Col as ColBootstrap,
 } from 'styled-bootstrap-grid'
 
-
 export const LayerStyled = styled(Layer)`
   ${LayerHeader} {
     display: block;
@@ -35,8 +34,10 @@ export const Container = styled(ContainerBootstrap)`
 export const CustomCol = styled(ColBootstrap)`
   height: calc(100vh - 192px);
 
-  @media ${({ theme }) => theme.mediaQueries.xs} {
+  @media ${({ theme }) => theme.mediaQueries.lg} {
     height: auto;
+  }
+  @media ${({ theme }) => theme.mediaQueries.xs} {
     padding: 0;
   }
 `
@@ -52,4 +53,3 @@ export const TokenCard = styled(TokenCardCmp)`
 export const DigitalSignature = styled(DigitalSignatureCmp)`
   padding: ${({ theme }) => `${theme.spacing(5)}px ${theme.spacing(5)}px 0`};
 `
-
