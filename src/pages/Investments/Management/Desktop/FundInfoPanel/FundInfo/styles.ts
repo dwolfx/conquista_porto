@@ -3,8 +3,10 @@ import { fundRiskColors } from 'styles/theme'
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
 import AccordionNewComponent from 'components/AccordionNew'
+import IconExporter from 'components/IconExporter'
 import { Row, Col } from 'styled-bootstrap-grid'
 import Button from 'components/Button'
+import Popover from 'components/Popover'
 
 interface IRiskColorsMap {
   [key: number]: string
@@ -27,7 +29,7 @@ export const RowLineInfo = styled(Row)`
 export const ColContent = styled.div`
   display: flex;
   align-items: center;
-  flexdirection: row;
+  flex-direction: row;
 `
 
 interface IBorderRiskProps {
@@ -105,4 +107,24 @@ export const ButtonCustom = styled(Button)`
   min-width: 169px;
   margin: ${({ theme }) => theme.spacing(2)}px
     ${({ theme }) => theme.spacing(1)}px;
+`
+
+export const LockFundWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: ${({ theme }) => theme.spacing(1)}px;
+`
+
+export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
+  fill: ${props => props.theme.colors.gray6};
+  height: 21px;
+  width: 21px;
+
+  margin-right: ${({ theme }) => theme.spacing(1)}px;
+`
+
+export const CustomPopover = styled(Popover)`
+  display: flex;
+  align-items: center;
 `

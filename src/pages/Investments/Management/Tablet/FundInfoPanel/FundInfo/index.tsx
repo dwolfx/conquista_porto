@@ -38,6 +38,8 @@ import {
   ButtonCustom,
   ButtonsWrapper,
   CaroselContent,
+  LockIcon,
+  CustomPopover,
 } from './styles'
 
 export const months = [
@@ -96,6 +98,7 @@ interface IFundInformationProps {
       contagem_dias_resgate: string
       id_carteira: string
       nome_gestor: string
+      resgate_liberado: boolean
     }
     saldo_atual: string
     saldo_bloqueado: string
@@ -623,18 +626,28 @@ const FundInformation = ({
         </Col>
       </RowLineInfo>
       <RowWithoutPadding justifyContent="center">
-        <ButtonsWrapper xlAuto lgAuto mdAuto smAuto>
-          <ButtonCustom
-            data-gtm-subname="painel de informações de fundo"
-            data-gtm-name="resgatar"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            color="primary"
-            outline={true}
-            onClick={handleClickRedeemButton}
-          >
-            Resgatar
-          </ButtonCustom>
+        <ButtonsWrapper>
+          {!position.fundo.resgate_liberado ? (
+            <CustomPopover
+              content="Fundo fechado para resgates"
+              placement="bottom"
+              tooltip
+            >
+              <LockIcon />
+            </CustomPopover>
+          ) : (
+            <ButtonCustom
+              data-gtm-subname="painel de informações de fundo"
+              data-gtm-name="resgatar"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              color="primary"
+              outline={true}
+              onClick={handleClickRedeemButton}
+            >
+              Resgatar
+            </ButtonCustom>
+          )}
           <ButtonCustom
             loading={investButtonIsLoading}
             loadingColor="white"
