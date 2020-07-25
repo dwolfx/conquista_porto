@@ -33,10 +33,9 @@ import {
 import { formatMoney, formatNumber, formatMoneyDecimal } from 'helpers'
 import { IFormData } from '..'
 
-
 interface IBallanceRedeem {
-  formData: IFormData,
-  onChangeFormData: (form: IFormData) => void,
+  formData: IFormData
+  onChangeFormData: (form: IFormData) => void
   step: number
   onChangeFundDetailOpen: (isOpen: boolean) => void
   nextStep: () => void
@@ -58,22 +57,34 @@ const BallanceRedeem = ({
 
   type TButtonOption = 'manter' | 'tudo' | null
 
-  const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(null)
+  const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(
+    null
+  )
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const { addToast } = useToast()
-  const { bankData, investmentPosition, redeemData, redeemSummaryData, isRedeemSummaryLoading } = useSelector((state: any) => ({
+  const {
+    bankData,
+    investmentPosition,
+    redeemData,
+    redeemSummaryData,
+    isRedeemSummaryLoading,
+  } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
     redeemData: state.redeemData.data,
     isRedeemSummaryLoading: state.redeemSummaryData.isLoading,
-    redeemSummaryData: state.redeemSummaryData.data
+    redeemSummaryData: state.redeemSummaryData.data,
   }))
 
   const calcMinimalBallance = () => {
     if (redeemData) {
-      const minFundBallance = Number(redeemData.dados_para_resgate.fundo.saldo_minimo)
-      const currentBallance = Number(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
+      const minFundBallance = Number(
+        redeemData.dados_para_resgate.fundo.saldo_minimo
+      )
+      const currentBallance = Number(
+        redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
+      )
       return formatNumber(currentBallance - minFundBallance)
     }
     return formatNumber('0')
@@ -81,8 +92,10 @@ const BallanceRedeem = ({
 
   const isMoneyLessThanAllowed = () => {
     if (formData && redeemData) {
-      return formatMoneyToNumber(formData.moneyToRedeem) >
+      return (
+        formatMoneyToNumber(formData.moneyToRedeem) >
         Number(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
+      )
     }
     return false
   }
@@ -103,7 +116,7 @@ const BallanceRedeem = ({
             Quanto você quer resgatar?
           </Text>
           <ButtonsBallanceWrapper>
-            <ButtonTag 
+            <ButtonTag
               color={redeemOptionButton === 'tudo' ? 'primary' : ''}
               onClick={() => {
                 if (redeemOptionButton === 'tudo') {
@@ -112,9 +125,13 @@ const BallanceRedeem = ({
                 setRedeemOptionButton('tudo')
                 onChangeFormData({
                   ...formData,
-                  moneyToRedeem: formatNumber(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
+                  moneyToRedeem: formatNumber(
+                    redeemData.dados_para_resgate.posicao_cotista_fundo
+                      .saldo_atual
+                  ),
                 })
-              }}>
+              }}
+            >
               tudo
             </ButtonTag>
             <ButtonTag
@@ -126,7 +143,7 @@ const BallanceRedeem = ({
                 setRedeemOptionButton('manter')
                 onChangeFormData({
                   ...formData,
-                  moneyToRedeem: calcMinimalBallance()
+                  moneyToRedeem: calcMinimalBallance(),
                 })
               }}
               css={`
@@ -143,7 +160,7 @@ const BallanceRedeem = ({
               data-gtm-name="quanto investir"
               value={formData.moneyToRedeem}
               placeholder="1000,00"
-              onChange={({ target }) => {
+              onChange={({ target }: any) => {
                 onChangeFormData({
                   ...formData,
                   moneyToRedeem: target.value,
@@ -168,13 +185,21 @@ const BallanceRedeem = ({
               data-gtm-clicktype="button"
               data-gtm-name="simular"
               color="primary"
-              disabled={isMoneyLessThanAllowed() || formData.moneyToRedeem === ''}
-              onClick={() => dispatch(GetRedeemSummaryRequest({
-                id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
-                data_operacao: moment(new Date()).format('YYYY-MM-DD'),
-                valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
-                onErrorToast: addToast
-              }))}
+              disabled={
+                isMoneyLessThanAllowed() || formData.moneyToRedeem === ''
+              }
+              onClick={() =>
+                dispatch(
+                  GetRedeemSummaryRequest({
+                    id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
+                    data_operacao: moment(new Date()).format('YYYY-MM-DD'),
+                    valor: formatMoneyToNumber(
+                      formData.moneyToRedeem
+                    ).toString(),
+                    onErrorToast: addToast,
+                  })
+                )
+              }
             >
               simular
             </ButtonStyled>
@@ -188,83 +213,119 @@ const BallanceRedeem = ({
         </Text>
         <CalculationWrapper>
           <CalculationOverlay isOpen={isRedeemSummaryLoading}>
-            {isRedeemSummaryLoading && <Text type="headline" bold color="gray5">Carregando...</Text>}
+            {isRedeemSummaryLoading && (
+              <Text type="headline" bold color="gray5">
+                Carregando...
+              </Text>
+            )}
           </CalculationOverlay>
           <div
-           css={`
-           padding: 14px;
-           `}
+            css={`
+              padding: 14px;
+            `}
           >
             <HorizontalListStyled
               startItems={[
-                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
+                <Text
+                  type={isMobile ? 'body' : 'headline'}
+                  bold={isMobile}
+                  color="gray5"
+                >
                   Valor Bruto do Resgate
                 </Text>,
               ]}
               endItems={[
-                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
-                  {
-                    (redeemSummaryData && 
-                      redeemSummaryData.dados_para_aplicacao && 
-                    formatMoney(redeemSummaryData.dados_para_aplicacao.valor_bruto)) || 
-                    formatMoney(0)
-                  }
+                <Text
+                  type={isMobile ? 'body' : 'headline'}
+                  bold={isMobile}
+                  color="gray6"
+                >
+                  {(redeemSummaryData &&
+                    redeemSummaryData.dados_para_aplicacao &&
+                    formatMoney(
+                      redeemSummaryData.dados_para_aplicacao.valor_bruto
+                    )) ||
+                    formatMoney(0)}
                 </Text>,
               ]}
             />
             <HorizontalListStyled
               startItems={[
-                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
+                <Text
+                  type={isMobile ? 'body' : 'headline'}
+                  bold={isMobile}
+                  color="gray5"
+                >
                   IOF*
                 </Text>,
               ]}
               endItems={[
-                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
-                  {
-                    (redeemSummaryData &&
-                    redeemSummaryData.dados_para_aplicacao && 
-                    formatMoney(redeemSummaryData.dados_para_aplicacao.valor_iof)) ||
-                    formatMoney(0)  
-                  }
+                <Text
+                  type={isMobile ? 'body' : 'headline'}
+                  bold={isMobile}
+                  color="gray6"
+                >
+                  {(redeemSummaryData &&
+                    redeemSummaryData.dados_para_aplicacao &&
+                    formatMoney(
+                      redeemSummaryData.dados_para_aplicacao.valor_iof
+                    )) ||
+                    formatMoney(0)}
                 </Text>,
               ]}
             />
             <HorizontalListStyled
               startItems={[
-                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
+                <Text
+                  type={isMobile ? 'body' : 'headline'}
+                  bold={isMobile}
+                  color="gray5"
+                >
                   IR*
                 </Text>,
               ]}
               endItems={[
-                <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
-                  {
-                    (redeemSummaryData && 
-                    redeemSummaryData.dados_para_aplicacao && 
-                    formatMoney(redeemSummaryData.dados_para_aplicacao.valor_ir)) || 
-                    formatMoney(0)  
-                  }
+                <Text
+                  type={isMobile ? 'body' : 'headline'}
+                  bold={isMobile}
+                  color="gray6"
+                >
+                  {(redeemSummaryData &&
+                    redeemSummaryData.dados_para_aplicacao &&
+                    formatMoney(
+                      redeemSummaryData.dados_para_aplicacao.valor_ir
+                    )) ||
+                    formatMoney(0)}
                 </Text>,
               ]}
             />
           </div>
-          </CalculationWrapper>
+        </CalculationWrapper>
         <HorizontalListStyled
           css={`
             padding: 0 28px !important;
           `}
           startItems={[
-            <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray5">
+            <Text
+              type={isMobile ? 'body' : 'headline'}
+              bold={isMobile}
+              color="gray5"
+            >
               Valor líquido do resgate
             </Text>,
           ]}
           endItems={[
-            <Text type={isMobile ? 'body' : 'headline'} bold={isMobile} color="gray6">
-              {
-                (redeemSummaryData &&
+            <Text
+              type={isMobile ? 'body' : 'headline'}
+              bold={isMobile}
+              color="gray6"
+            >
+              {(redeemSummaryData &&
                 redeemSummaryData.dados_para_aplicacao &&
-                formatMoney(redeemSummaryData.dados_para_aplicacao.valor_liquido)) ||
-                formatMoney(0)
-              }
+                formatMoney(
+                  redeemSummaryData.dados_para_aplicacao.valor_liquido
+                )) ||
+                formatMoney(0)}
             </Text>,
           ]}
         />
@@ -294,11 +355,13 @@ const BallanceRedeem = ({
     <BaseFormStep
       cardBody={cardBody()}
       cardFooter={
-        <CardFooter 
-          step={step} 
-          prevStep={previousStep} 
-          nextStep={nextStep} 
-          isNextDisabled={isMoneyLessThanAllowed() || formData.moneyToRedeem === ''}
+        <CardFooter
+          step={step}
+          prevStep={previousStep}
+          nextStep={nextStep}
+          isNextDisabled={
+            isMoneyLessThanAllowed() || formData.moneyToRedeem === ''
+          }
         />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}

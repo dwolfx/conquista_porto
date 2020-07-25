@@ -5,7 +5,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 150px;
+  @media ${props => props.theme.mediaQueries.lg} {
+    min-height: 150px;
+  }
   padding: ${({ theme }) => theme.spacing(3)}px;
 `
 

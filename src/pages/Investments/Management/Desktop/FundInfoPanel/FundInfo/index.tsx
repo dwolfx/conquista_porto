@@ -364,7 +364,6 @@ const FundInformation = ({
               'YYYY-MM-DD'
             ),
             id_fundo: idFund,
-            valor: '1000',
             onErrorToast: addToast,
           })
         )
