@@ -10,6 +10,8 @@ import { useToast } from 'hooks/toast'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
+import Anbima from 'components/Anbima'
+
 import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
 import MainContent from './MainContent'
@@ -81,6 +83,9 @@ const Withdraw = () => {
               onError={onError}
             />
           </s.Col>
+        </Row>
+        <Row>
+          <Anbima />
         </Row>
       </s.Container>
     </>

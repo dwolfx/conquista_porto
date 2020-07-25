@@ -57,7 +57,7 @@ export const TextContainer = styled.div`
 export const BodyWrapper = styled.div`
   overflow: auto;
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    height: calc(100vh - 256px);
+    height: calc(100% - 256px);
   }
 `
 
@@ -72,6 +72,28 @@ export const ButtonWrapper = styled.div`
   }
   button:last-of-type {
     margin-left: ${({ theme }) => theme.spacing(2)}px;
+  }
+`
+
+export const MessageButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: ${({ theme }) => `${theme.spacing(2)}px`};
+  width: 100%;
+
+  button:last-of-type {
+    margin-left: ${({ theme }) => theme.spacing(2)}px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    button:last-of-type {
+      margin-top: ${({ theme }) => `${theme.spacing(2)}px`};
+      margin-left: 0;
+    }
   }
 `
 
@@ -96,10 +118,31 @@ export const MessageContainer = styled.div`
 
 export const MessageContent = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 283px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    flex-direction: column;
+    :first-child {
+      align-items: flex-start;
+    }
+  }
 `
 
 export const MessageIconContainer = styled.div`
   margin-right: ${({ theme }) => theme.spacing(3)}px;
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-bottom: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+
+export const TextWrapper = styled.div`
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 225px;
+  }
+
+  height: auto;
 `
 
 export const TokenCard = styled(TokenCardCmp)`

@@ -97,6 +97,7 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
       setStep(++step)
     }
   }
+
   const prevStep = () => {
     setStep(--step)
   }
@@ -239,7 +240,7 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
         <Divisor />
         <AccountDetail onError={onError} />
       </s.Accordion>
-      <s.Card footer={cardFooter({})}>{stepsContent[step - 1]}</s.Card>
+      <s.Card>{stepsContent[step - 1]}</s.Card>
     </>
   ) : (
     <>{stepsContent[step - 1]}</>
