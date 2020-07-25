@@ -7,10 +7,7 @@ const INITIAL_STATE = {
   isLayerOpen: false,
 }
 
-export default function(
-  state = INITIAL_STATE,
-  action: any
-) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.REDEEM_DATA_GET_REQUEST:
       return {
@@ -19,7 +16,6 @@ export default function(
         hasError: false,
       }
     case Types.REDEEM_DATA_GET_SUCCESS:
-      console.log(action.payload)
       return {
         ...state,
         data: action.payload,
@@ -34,12 +30,12 @@ export default function(
     case Types.REDEEM_LAYER_OPEN:
       return {
         ...state,
-        isLayerOpen: true
+        isLayerOpen: true,
       }
     case Types.REDEEM_LAYER_CLOSE:
       return {
         ...state,
-        isLayerOpen: false
+        isLayerOpen: false,
       }
     default:
       return state

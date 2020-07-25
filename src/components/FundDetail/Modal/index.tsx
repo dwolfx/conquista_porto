@@ -40,25 +40,24 @@ const FundDetailModal = ({
   isOpenForInvestments,
 }: IProps) => {
   const dispatch = useDispatch()
-  const { 
-     data: fundDetails,
-     idFund,
-     isLoading,
-     isError,
-     suitabilityIsLoading,
-     finatialApplicationIsLoading
-    } = useSelector<any, any>(state => ({
-      data: state.investmentDetails.data,
-      idFund: state.investmentPosition.idFund,
-      isLoading: state.investmentDetails.isLoading,
-      isError: state.investmentDetails.isError,
-      suitabilityIsLoading: state.suitabilityInfo.isLoading,
-      finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
-    }))
+  const {
+    data: fundDetails,
+    idFund,
+    isLoading,
+    isError,
+    suitabilityIsLoading,
+    finatialApplicationIsLoading,
+  } = useSelector<any, any>(state => ({
+    data: state.investmentDetails.data,
+    idFund: state.investmentPosition.idFund,
+    isLoading: state.investmentDetails.isLoading,
+    isError: state.investmentDetails.isError,
+    suitabilityIsLoading: state.suitabilityInfo.isLoading,
+    finatialApplicationIsLoading: state.financialApplicationGetData.isLoading,
+  }))
 
   const handleFetchFundDetails = useCallback(() => {
     if (!!(!Object.keys(fundDetails).length && idFund)) {
-      // console.log({ fundDetails, idFund, status: !!(!Object.keys(fundDetails).length && idFund) })
       dispatch(GetInvestmentDetailsRequest(idFund))
     }
   }, [fundDetails, idFund, dispatch])

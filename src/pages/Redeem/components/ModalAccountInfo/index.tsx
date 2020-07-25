@@ -1,7 +1,6 @@
 import React from 'react'
 import Modal from 'components/Modal/ModalNew'
 import HorizontalList from 'components/HorizontalList'
-// import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 import { formatMoney } from 'helpers'
