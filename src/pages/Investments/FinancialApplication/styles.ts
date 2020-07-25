@@ -145,10 +145,19 @@ export const MobileScrollContent = styled.div<IMobileScrollContent>`
   ${({ expandBottomHeight }) =>
     expandBottomHeight
       ? css`
-          height: calc(100% - ${({ theme }) => theme.spacing(24)}px);
+          height: 100%;
+          @media ${({ theme }) => theme.mediaQueries.sm} {
+            height: calc(100% - 125px);
+          }
+          @media ${({ theme }) => theme.mediaQueries.xs} {
+            height: calc(100% - ${({ theme }) => theme.spacing(24)}px);
+          }
         `
       : css`
-          height: calc(100% - 125px);
+          height: 100%;
+          @media ${({ theme }) => theme.mediaQueries.xs} {
+            height: calc(100% - 125px);
+          }
         `};
   margin: 0;
   padding: 0;

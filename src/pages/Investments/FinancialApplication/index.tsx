@@ -86,10 +86,13 @@ const LayerInvestment: React.FC<IProps> = ({
   const {
     funds,
     financialApplicationData,
+    financialApplicationFundData,
     alignmentTermsIsLoading,
   } = useSelector((state: any) => ({
     funds: state.investmentsList,
     financialApplicationData: state.financialApplicationGetData.data,
+    financialApplicationFundData:
+      state.financialApplicationGetData.data.dados_para_aplicacao.fundo,
     alignmentTermsIsLoading: state.alignmentTerms.isLoading,
   }))
 
@@ -115,14 +118,22 @@ const LayerInvestment: React.FC<IProps> = ({
 
       return {
         ...prevState,
-        moneyToInvest: formatMoneyDecimal(
-          Number(selectedFund.minimo_inicial * 100)
-        ),
+        moneyToInvest: isAwareOfTerms
+          ? formatMoneyDecimal(
+              Number(financialApplicationFundData.aplicacao_minima * 100)
+            )
+          : formatMoneyDecimal(Number(selectedFund.minimo_inicial * 100)),
         whenToInvest: operationDate,
         isAwareOfTerms,
       }
     },
-    [funds.data, selectedFundId, isAwareOfTerms, operationDate]
+    [
+      funds.data,
+      selectedFundId,
+      isAwareOfTerms,
+      operationDate,
+      financialApplicationFundData,
+    ]
   )
 
   useEffect(() => {
