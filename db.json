@@ -102,24 +102,22 @@
     }
   },
   "alignment_terms_data": {
-    "enquadramento_ordem_cotista": {
-      "status_enquadramento": "Desenquadrado",
-      "nota_rating_cotista": 3.3,
-      "nota_rating_carteira": 4.090905499356974,
-      "fundos_desenquadrados": {
-        "fundo_desenquadrado": [
-          {
-            "id_carteira": 5094,
-            "nome_fundo": "Porto Seguro Selecta FIC FIA",
-            "nota_rating": 5
-          },
-          {
-            "id_carteira": 5112,
-            "nome_fundo": "Porto Seguro Alocação FIC FIM",
-            "nota_rating": 4
-          }
-        ]
-      }
+    "status_enquadramento": "Desenquadrado",
+    "nota_rating_cotista": 3.3,
+    "nota_rating_carteira": 4.090905499356974,
+    "fundos_desenquadrados": {
+      "fundo_desenquadrado": [
+        {
+          "id_carteira": 5094,
+          "nome_fundo": "Porto Seguro Selecta FIC FIA",
+          "nota_rating": 5
+        },
+        {
+          "id_carteira": 5112,
+          "nome_fundo": "Porto Seguro Alocação FIC FIM",
+          "nota_rating": 4
+        }
+      ]
     }
   },
   "financial_application": {
@@ -5127,15 +5125,15 @@
     "organizacao": "CLIENTES_HML"
   },
   "virtual_keyboard": {
-    "usuario": "36961128874",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML",
     "resposta": "eeeeee"
   },
   "token_sms_email": {
-    "usuario": "36961128874",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML",
     "tipo": "sms_otp",
-    "otp_token": "23213"
+    "otp_token": "12345"
   },
   "personal_data_2fa": [
     {
@@ -5151,6 +5149,15 @@
       "name": "email_otp"
     }
   ],
+  "resgates_post": {
+    "id_cotista": "2000143425",
+    "cpf_cnpj": "37282985812",
+    "id_fundo": "5094",
+    "data_operacao": "2020-07-25",
+    "valor": "2.002,23",
+    "ciencia_desenquadramento": "S",
+    "tipo_resgate": "2"
+  },
   "retiradas_post": {
     "id_cotista": "2000121268",
     "cpf_cnpj": "37282985812",

@@ -3,7 +3,7 @@ import { IToast } from 'hooks/toast'
 export const Types = {
   REDEEM_TERMS_DATA_REQUEST: 'REDEEM_TERMS_DATA_REQUEST',
   REDEEM_TERMS_DATA_SUCCESS: 'REDEEM_TERMS_DATA_SUCCESS',
-  REDEEM_TERMS_DATA_FAILURE: 'REDEEM_TERMS_DATA_FAILURE'
+  REDEEM_TERMS_DATA_FAILURE: 'REDEEM_TERMS_DATA_FAILURE',
 }
 
 export interface IGetRedeemAlignmentTermsPayload {
@@ -19,7 +19,7 @@ export interface IGetRedeemAlignmentTermsAction {
 export interface IGetRedeemAlignmentTermsData {
   data: {
     data_operacao: string
-    valor_bruto: number
+    valor_bruto: string
     id_fundo: string
   }
   onSuccess: (data: IGetRedeemAlignmentTermsResponse) => void

@@ -25,14 +25,13 @@ import BallanceRedeem from './BallanceRedeem'
 import SummaryRedeem from './SummaryRedeem'
 import CardSuccessError from './components/CardSuccessError'
 
-import { 
-  CustomCol, 
-  Container, 
+import {
+  CustomCol,
+  Container,
   DigitalSignature,
   LayerStyled,
-  TokenCard 
+  TokenCard,
 } from './styles'
-
 
 export type IFormData = {
   moneyToRedeem: string
@@ -41,7 +40,7 @@ export type IFormData = {
 
 export const FORM_DATA_INTIAL_STATE = {
   moneyToRedeem: '',
-  alignmentAware: 'N'
+  alignmentAware: 'N',
 }
 
 interface IProps {
@@ -57,7 +56,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(false)
+  const [hasError, setError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
   const [step, setStep] = useState<number>(1)
@@ -66,27 +65,18 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const [isAlignmentTermModalOpen, setIsAlignmentTermOpenModal] = useState(
     false
   )
-  const {  cpf, id_cotista, idFund } = useSelector((state: any) => ({
+  const { cpf, id_cotista, idFund } = useSelector((state: any) => ({
     cpf: state.auth.cpf,
     id_cotista: state.suitabilityInfo.data?.id_cotista,
-    idFund: state.investmentPosition.idFund
+    idFund: state.investmentPosition.idFund,
   }))
 
-  const maxSteps = 4
+  const maxSteps = 5
   const goBackHandler = () =>
     step !== 1 ? setStep(currentStep => currentStep - 1) : history.goBack()
 
-  const handlePostWithdraw = useCallback(async () => {
+  const handlePostRedeem = useCallback(async () => {
     setIsLoading(true)
-
-    // "id_fundo": "5105",
-    // "id_cotista": "2000143425",
-    // "cpf_cnpj": "37282985812",
-    // "valor": "1000",
-    // "data": "2020-07-09",
-    // "tipo_resgate": "2",
-    // "ciencia_desenquadramento": "S"
-
     await post(`${baseURLNamespaceInvestAws}/cotista/resgates`, {
       id_cotista,
       cpf_cnpj: cpf,
@@ -94,9 +84,10 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       data_operacao: moment().format('YYYY-MM-DD'),
       valor: formData.moneyToRedeem,
       ciencia_desenquadramento: formData.alignmentAware,
-      tipo_resgate: '2'
+      tipo_resgate: '2',
     })
       .then(() => setIsSuccess(true))
+      .catch(() => setError(true))
       .finally(() => setIsLoading(false))
   }, [id_cotista, idFund, cpf, formData])
 
@@ -105,7 +96,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       return 'SUCCESS'
     }
     return 'ERROR'
- }
+  }
 
   const resetValue = () => {
     setStep(1)
@@ -117,15 +108,15 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       GetRedeemAlignmentTermsRequest({
         data: {
           data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
-          valor_bruto: formatLocaleStringToNumber('10000'),
+          valor_bruto: formData?.moneyToRedeem,
           id_fundo: selectedFundId,
         },
         onSuccess: (alignmentData: any) => {
-          alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
-            'Desenquadrado' && setIsAlignmentTermOpenModal(true)
+          alignmentData.status_enquadramento === 'Desenquadrado' &&
+            setIsAlignmentTermOpenModal(true)
 
-          alignmentData.enquadramento_ordem_cotista.status_enquadramento ===
-            'Enquadrado' && setStep(step + 1)
+          alignmentData.status_enquadramento === 'Enquadrado' &&
+            setStep(step + 1)
         },
         onErrorToast: addToast,
       })
@@ -159,28 +150,36 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
     />,
     <SummaryRedeem
       step={step}
-      nextStep={() => dispatch(Run2FAInitialRequest({ addToast, onSuccess: () => setStep(step + 1) }))}
+      nextStep={() =>
+        dispatch(
+          Run2FAInitialRequest({ addToast, onSuccess: () => setStep(step + 1) })
+        )
+      }
       previousStep={previousStep}
       onChangeFundDetailOpen={setFundDetailOpen}
       idFundo={selectedFundId}
     />,
-    <TokenCard 
+    <TokenCard
       onNext={() => setStep(step + 1)}
       onPrevious={() => setStep(step - 1)}
     />,
-    <DigitalSignature 
-      onConfirm={handlePostWithdraw}
+    <DigitalSignature
+      onConfirm={handlePostRedeem}
       onPrevious={() => setStep(step - 1)}
       onError={() => setError(true)}
     />,
     <CardSuccessError
       successOrError={getStatus()}
-      textMessage="SUCCESS_FUND_CLOSED"
-      days="XX"
+      textMessage={'DEFAULT'}
+      days=""
       onHandleHomePage={() => {}}
       onHandleManagerPage={() => {}}
     />,
   ]
+
+  if ((isSuccess || hasError) && step === 4) {
+    setStep(5)
+  }
 
   const getBodyContent = () => {
     return stepsContent[step - 1] //Step index
@@ -213,11 +212,17 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   return (
     <LayerStyled
       isOpen={isOpen}
-      handleClose={handleClose}
+      handleClose={() => {
+        resetValue()
+        handleClose()
+      }}
       headerContent={
         <TransactionHeader
           onBack={goBackHandler}
-          onClose={handleClose}
+          onClose={() => {
+            resetValue()
+            handleClose()
+          }}
           showBackButton={step !== 1}
           showStepsBar
           stepsBarProps={{

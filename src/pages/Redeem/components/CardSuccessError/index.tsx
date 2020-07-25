@@ -7,7 +7,7 @@ import { ThemeContext } from 'styled-components/macro'
 import { Container, WrapperText, Controls, ButtonsCtrls } from './styles'
 
 type TSuccessOrError = 'SUCCESS' | 'ERROR'
-type TTextMessage = 'SUCCESS' | 'SUCCESS_FUND_CLOSED' | 'ERROR'
+type TTextMessage = 'SUCCESS' | 'SUCCESS_FUND_CLOSED' | 'ERROR' | 'DEFAULT'
 
 interface ISuccessError {
   successOrError: TSuccessOrError
@@ -39,6 +39,7 @@ const SuccessError = ({
       SUCCESS: `Em ${days} dias, o dinheiro estará disponível na sua conta de investimento.`,
       SUCCESS_FUND_CLOSED: `Como já passamos do horário de movimentação do fundo, o prazo para o dinheiro ficar na sua conta é de ${days} dias.`,
       ERROR: 'Tente novamente mais tarde por favor.',
+      DEFAULT: '',
     }
     return objTypeText[textMessage]
   }
