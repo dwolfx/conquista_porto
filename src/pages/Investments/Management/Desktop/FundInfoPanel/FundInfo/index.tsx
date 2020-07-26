@@ -11,11 +11,17 @@ import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Dropdown from 'components/DropdownNew'
 import { IModalProps } from 'pages/Investments/Management/types'
+import { GetInvestmentListRequest } from 'store/modules/Investment/action'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
+import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/FinancialApplication/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
+import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import { useToast } from 'hooks/toast'
 
 import { RISK_FILTER_TYPES } from '../../../types'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 
 import {
   VerticalListStyled,
@@ -32,6 +38,8 @@ import {
   DropdownLineContent,
   ButtonCustom,
   ButtonsWrapper,
+  CustomPopover,
+  LockIcon,
 } from './styles'
 
 export const months = [
@@ -86,6 +94,7 @@ interface IFundInformationProps {
       contagem_dias_resgate: string
       id_carteira: string
       nome_gestor: string
+      resgate_liberado: boolean
     }
     saldo_atual: string
     saldo_bloqueado: string
@@ -103,24 +112,64 @@ interface IFundInformationProps {
     idCotista: string
     categoria_arena: string
   }
+  setLayerOpen: (isLayerOpen: boolean) => void
+  setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
+  setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void
 }
 
 const FundInformation = ({
   position,
   onChangeModalSuitabilityInfo,
+  setLayerOpen,
+  setIsAwareOfTerms,
+  setIsInvestorLevelModalOpen,
 }: IFundInformationProps) => {
   const themeContext = useContext(ThemeContext)
+
   const dispatch = useDispatch()
   const { addToast } = useToast()
 
+  const [investButtonIsLoading, setInvestButtonIsLoading] = useState<boolean>(
+    false
+  )
   const [incomeValue, setIncomeValue] = useState<any | null>(null)
   const [selectValue, setSelectValue] = useState('')
 
-  const { displayInformation } = useSelector((state: any) => ({
+  const {
+    displayInformation,
+    financialApplicationLoading,
+    funds,
+    fundsError,
+    idFund,
+    isRedeemLoading,
+    fundsIsLoading,
+    suitabilityIsLoading,
+    suitabilityStoreData,
+  } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
+    financialApplicationLoading: state.financialApplicationGetData.isLoading,
+    funds: state.investmentsList.data,
+    fundsError: state.investmentsList.isError,
+    fundsIsLoading: state.investmentsList.isError,
+    suitabilityIsLoading: state.suitabilityInfo.isLoading,
+    suitabilityStoreData: state.suitabilityInfo.data,
+    idFund: state.investmentPosition.idFund,
+    isRedeemLoading: state.redeemData.isLoading,
   }))
 
   const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
+
+  useFetchInvestmentsList()
+
+  useEffect(() => {
+    if (
+      !suitabilityIsLoading &&
+      !financialApplicationLoading &&
+      !fundsIsLoading
+    ) {
+      setInvestButtonIsLoading(false)
+    }
+  }, [suitabilityIsLoading, financialApplicationLoading, fundsIsLoading])
 
   useEffect(() => {
     setIncomeValue(
@@ -182,37 +231,126 @@ const FundInformation = ({
     )
   }
 
-  const getGiwPath = (type: string) => {
-    const paths: {
-      [key: string]: string
-    } = {
-      investir: 'aplicacao',
-      resgatar: 'resgate',
+  const triggerSuitabilityDispatch = (onSuccess: null | Function) => {
+    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
+  }
+
+  const triggerFinancialApplication = (
+    suitabilityData: any,
+    fundId: string,
+    date: string,
+    onSuccess: (data: IGetFinancialApplicationDataResponse) => void
+  ) => {
+    if (suitabilityData) {
+      dispatch(
+        GetFinancialApplicationDataRequest({
+          data: {
+            id_fundo: fundId,
+            data_operacao: date,
+          },
+          onSuccess,
+          onErrorToast: addToast,
+        })
+      )
     }
-
-    return paths[type]
   }
 
-  const buildGiwUrl = (action: string) => {
-    return `portaldecliente/conquista/${getGiwPath(action)}?idFundo=${
-      position.fundo.id_carteira
-    }&idCotista=${position.idCotista}&nomeFundo=${
-      position.fundo.apelido
-    }&tipoFundo=${position.categoria_arena}&brand=${
-      position.fundo.nome_gestor
-    }&r=true`
-  }
+  const handleClickInvestButton = (
+    fundId: string,
+    suitabilityData: any,
+    fundsResponse: any
+  ) => {
+    const onSuccessFinancial = (
+      financialData: IGetFinancialApplicationDataResponse
+    ) => {
+      if (suitabilityData && suitabilityData.isValid) {
+        dispatch(GetInvestmentDetailsRequest(fundId))
 
-  const handleClickInvestButton = () => {
-    const onSuccess = (modalProps: IModalProps | IValidProps) => {
-      onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
+        setIsAwareOfTerms(financialData.dados_para_aplicacao.aderente_fundo)
 
-      if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect(buildGiwUrl('investir'))
+        if (
+          financialData.dados_para_aplicacao.fechado_aplicacao &&
+          moment(financialData.dados_para_aplicacao.data_operacao).isSame(
+            moment().format('YYYY-MM-DD')
+          )
+        ) {
+          triggerFinancialApplication(
+            suitabilityData,
+            fundId,
+            moment()
+              .add(1, 'day')
+              .format('YYYY-MM-DD'),
+            () => {
+              setLayerOpen(true)
+            }
+          )
+        } else {
+          setLayerOpen(true)
+        }
       }
     }
 
-    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'investir', addToast))
+    onChangeModalSuitabilityInfo({ ...suitabilityData })
+
+    if (suitabilityData && suitabilityData.isValid) {
+      const fundInfo = fundsResponse.filter(
+        (fund: { id_fundo: string }) => fund.id_fundo === fundId
+      )
+      const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
+        fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
+        fundForQualifiedInvestor: fundInfo[0].fundo_investidor_qualificado,
+      }
+
+      const { professionalInvestor, qualifiedInvestor } = {
+        professionalInvestor: suitabilityData.investidor_profissional,
+        qualifiedInvestor: suitabilityData.investidor_qualificado,
+      }
+      if (
+        (qualifiedInvestor === 'S' && fundForProfessionalInvestor === 'N') ||
+        professionalInvestor === 'S' ||
+        (fundForProfessionalInvestor === 'N' &&
+          fundForQualifiedInvestor === 'N')
+      ) {
+        triggerFinancialApplication(
+          suitabilityData,
+          fundId,
+          moment().format('YYYY-MM-DD'),
+          onSuccessFinancial
+        )
+      } else {
+        setIsInvestorLevelModalOpen(true)
+      }
+    }
+  }
+
+  const onChangeLayerOpen = (fundId: string) => {
+    const onSuccessInvestmentList = (fundsResponse: any) => {
+      if (!suitabilityStoreData || !suitabilityStoreData.isValid) {
+        const onSuccess = (onSuccessSuitabilityData: Object) => {
+          handleClickInvestButton(
+            fundId,
+            onSuccessSuitabilityData,
+            fundsResponse
+          )
+        }
+        triggerSuitabilityDispatch(onSuccess)
+      } else {
+        handleClickInvestButton(fundId, suitabilityStoreData, fundsResponse)
+      }
+    }
+
+    if (fundsError || !funds) {
+      dispatch(
+        GetInvestmentListRequest({
+          onSuccess: onSuccessInvestmentList,
+          onErrorToast: addToast,
+        })
+      )
+    }
+
+    if (funds.length > 0) {
+      onSuccessInvestmentList(funds)
+    }
   }
 
   const handleClickRedeemButton = () => {
@@ -220,10 +358,17 @@ const FundInformation = ({
       onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
 
       if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect(buildGiwUrl('resgatar'))
+        dispatch(
+          GetRedeemRequest({
+            data_operacao: moment(new Date(), 'DD/MM/YYYY').format(
+              'YYYY-MM-DD'
+            ),
+            id_fundo: idFund,
+            onErrorToast: addToast,
+          })
+        )
       }
     }
-
     dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'resgatar', addToast))
   }
 
@@ -256,7 +401,12 @@ const FundInformation = ({
                   Perfil de Risco
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {RISK_FILTER_TYPES[position.fundo.perfil_risco as keyof typeof RISK_FILTER_TYPES]}
+                  {
+                    RISK_FILTER_TYPES[
+                      position.fundo
+                        .perfil_risco as keyof typeof RISK_FILTER_TYPES
+                    ]
+                  }
                 </Text>,
               ]}
             />
@@ -405,6 +555,12 @@ const FundInformation = ({
                   </Text>,
                 ]}
               />,
+              <Text color="gray5">
+                O saldo refere-se a data exibida e será atualizado no decorrer
+                do dia. Resgates parciais poderão ser convertidos em totais,
+                caso resulte em saldo inferior ao valor mínimo de permanência,
+                conforme disposto nas regras de movimentação deste fundo.
+              </Text>,
             ]}
           />
         </AccordionContent>
@@ -461,24 +617,39 @@ const FundInformation = ({
       </RowLineInfo>
       <Row justifyContent="center">
         <ButtonsWrapper xlAuto lgAuto mdAuto smAuto>
+          {!position.fundo.resgate_liberado ? (
+            <CustomPopover
+              content="Fundo fechado para resgates"
+              placement="left"
+              tooltip
+            >
+              <LockIcon />
+            </CustomPopover>
+          ) : (
+            <ButtonCustom
+              data-gtm-subname="painel de informações de fundo"
+              data-gtm-name="resgatar"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              color="primary"
+              outline={true}
+              onClick={handleClickRedeemButton}
+            >
+              Resgatar
+            </ButtonCustom>
+          )}
           <ButtonCustom
-            data-gtm-subname="painel de informações de fundo"
-            data-gtm-name="resgatar"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            color="primary"
-            outline={true}
-            onClick={handleClickRedeemButton}
-          >
-            Resgatar
-          </ButtonCustom>
-          <ButtonCustom
+            loading={investButtonIsLoading}
+            loadingColor="white"
             data-gtm-subname="painel de informações de fundo"
             data-gtm-name="investir"
             data-gtm-type="click"
             data-gtm-clicktype="button"
             color="secondary"
-            onClick={handleClickInvestButton}
+            onClick={() => {
+              onChangeLayerOpen(position.fundo.id_carteira)
+              setInvestButtonIsLoading(true)
+            }}
           >
             Investir
           </ButtonCustom>

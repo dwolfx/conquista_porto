@@ -21,19 +21,26 @@ export function PostVirtualKeyboardDataFailure() {
 
 export function PutVirtualKeyboardDataRequest(payload: string) {
   return {
-    type: Types.PUT_REQUEST,
+    type: Types.VALIDATE_REQUEST,
     payload,
   }
 }
 
 export function PutVirtualKeyboardDataSuccess() {
   return {
-    type: Types.PUT_SUCCESS,
+    type: Types.VALIDATE_SUCCESS,
   }
 }
 
 export function PutVirtualKeyboardDataFailure() {
   return {
-    type: Types.PUT_FAILURE,
+    type: Types.VALIDATE_FAILURE,
+  }
+}
+
+export function SetKeyboardLoading(payload: boolean) {
+  return {
+    type: Types.SET_LOADING,
+    payload,
   }
 }

@@ -25,7 +25,8 @@ export const BgWrapper = styled.div<BgWrapperProps>`
 `
 
 export const FixedHeaderContainer = styled.div`
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 2;
 `
 

@@ -14,7 +14,6 @@ interface TabContextData {
   activeTab: string
   changeTab(name: string): void
 }
-
 const TabContext = createContext<TabContextData>({} as TabContextData)
 
 interface TabsProps {
@@ -23,7 +22,6 @@ interface TabsProps {
   initialReset: boolean
   children: ReactNode[]
 }
-
 export const Tabs: React.FC<TabsProps> = ({
   name,
   initialValue = '',
@@ -48,15 +46,17 @@ export const Tabs: React.FC<TabsProps> = ({
   )
 }
 
-export const TabList: React.FC = ({ children, ...restProps }) => (
-  <PanelList {...restProps}>{children}</PanelList>
+interface TablistProps {
+  ariaLabel?: string
+}
+export const TabList: React.FC<TablistProps> = ({ children, ariaLabel = "label", ...restProps }) => (
+  <PanelList role="tablist" aria-label={ariaLabel} {...restProps}>{children}</PanelList>
 )
 
 interface TabPanelProps {
   name: string
   children: ReactNode
 }
-
 export const TabPanel: React.FC<TabPanelProps> = ({
   name,
   children,
@@ -65,7 +65,7 @@ export const TabPanel: React.FC<TabPanelProps> = ({
   const tabContext = useContext(TabContext)
 
   return tabContext.activeTab === name ? (
-    <PanelTab {...restProps}>{children}</PanelTab>
+    <PanelTab role="tabpanel" aria-labelledby={name} {...restProps}>{children}</PanelTab>
   ) : null
 }
 
@@ -79,7 +79,6 @@ interface TabProps {
     color: keyof typeof themeColors
   }
 }
-
 export const Tab: React.FC<TabProps> = ({
   name,
   className = '',
@@ -95,9 +94,8 @@ export const Tab: React.FC<TabProps> = ({
     tabContext.changeTab(name)
     onClick && onClick(event)
   }
-
   return (
-    <SingleTab className={classNames} onClick={handleClick} {...restProps}>
+    <SingleTab role="tab" aria-controls={name} aria-label={name} aria-selected={tabContext.activeTab === name} className={classNames} onClick={handleClick} {...restProps}>
       {children || (icon && <Icon name={icon.name} color={icon.color} />)}
     </SingleTab>
   )

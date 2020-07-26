@@ -4,8 +4,6 @@ import {
   Col as ColBootstrap,
 } from 'styled-bootstrap-grid'
 
-import Card from 'components/Card'
-
 export const HeaderWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `
@@ -25,8 +23,4 @@ export const Col = styled(ColBootstrap)`
     height: auto;
     padding: 0;
   }
-`
-
-export const FullHeightCard = styled(Card)`
-  height: 100%;
 `

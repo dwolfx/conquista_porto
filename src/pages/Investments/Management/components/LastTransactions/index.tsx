@@ -39,8 +39,6 @@ const LastTransations = () => {
   )
 
   const handleBankExtractFundRequest = useCallback(() => {
-    // este ternário existe apenas enquanto aguardamos a definição da estória que define o fundo selecionado inicialmente
-    // vai ser removido
     if (investmentPosition.idFund) {
       dispatch(
         GetBankExtractFundRequest(
@@ -81,9 +79,26 @@ const LastTransations = () => {
       )
     }
 
-    const lastFiveTransactions = bankExtractFund.data[0]
-      ? bankExtractFund.data[0].operacoes.operacao.slice(0, 5)
-      : []
+    let lastFiveTransactions = []
+
+    if (
+      bankExtractFund.data[0] &&
+      typeof bankExtractFund.data[0].operacoes !== 'string'
+    ) {
+      if (
+        bankExtractFund.data[0] &&
+        Array.isArray(bankExtractFund.data[0].operacoes.operacao)
+      ) {
+        lastFiveTransactions = bankExtractFund.data[0].operacoes.operacao.slice(
+          0,
+          5
+        )
+      } else {
+        lastFiveTransactions = [
+          { ...bankExtractFund.data[0].operacoes.operacao },
+        ]
+      }
+    }
 
     return (
       <Container>
@@ -127,6 +142,13 @@ const LastTransations = () => {
         )}
       </Container>
     )
+  }
+
+  if (
+    bankExtractFund.data[0] &&
+    typeof bankExtractFund.data[0].operacoes === 'string'
+  ) {
+    return <noscript />
   }
 
   return (

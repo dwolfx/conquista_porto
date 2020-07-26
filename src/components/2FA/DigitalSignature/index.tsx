@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import 'styled-components/macro'
 
 import Text from 'components/Text'
-import Button from 'components/Button'
 import SecuritySeal from 'components/SecuritySeal'
 import IconExporter from 'components/IconExporter'
+
+import { useToast } from 'hooks/toast'
+import { ValidateTokenNSignature } from 'store/modules/2FAToken/action'
 
 import {
   Card,
@@ -14,16 +17,29 @@ import {
   Key,
   Footer,
   InputStyled,
+  Button,
 } from '../styles'
 
 interface IProps {
   onPrevious: () => void
   onConfirm: () => void
+  onError: () => void
 }
 
-const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
-  const { data } = useSelector((state: any) => state.virtualKeyboard)
+const DigitalSignature = ({
+  onPrevious,
+  onConfirm,
+  onError,
+  ...rest
+}: IProps) => {
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
+
   const [signature, setSignature] = useState<string>('')
+  const { keyboardData, tokenData } = useSelector((state: any) => ({
+    keyboardData: state.virtualKeyboard,
+    tokenData: state.token2fa,
+  }))
 
   const handleVirtualKeyboardKey = (item: any) => {
     const [key] = Object.keys(item)
@@ -37,7 +53,13 @@ const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
           }
         }}
       >
-        <Text type="caption" color="gray5">
+        <Text
+          type="caption"
+          color="gray5"
+          css={`
+            user-select: none;
+          `}
+        >
           {item[key].replace(',', ' ou ')}
         </Text>
       </Key>
@@ -45,7 +67,62 @@ const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
   }
 
   return (
-    <Card {...rest}>
+    <Card
+      {...rest}
+      footer={
+        <Footer>
+          <Button
+            outline
+            onClick={onPrevious}
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="assinatura eletronica"
+            data-gtm-name="botao voltar tela anterior"
+          >
+            voltar
+          </Button>
+          <Button
+            color="secondary"
+            disabled={
+              signature.length < 6 ||
+              tokenData.isLoading ||
+              keyboardData.isLoading
+            }
+            loading={tokenData.isLoading || keyboardData.isLoading}
+            loadingColor="white"
+            onClick={() => {
+              /**
+               * - clicou:
+               *   - valida token
+               *   - valida assinatura
+               *   - ok?
+               *     - onConfirm (request POST de retirar/assinatura)
+               *   - não ok?
+               *     - incrementa state de error
+               *     - previousStep (volta pra tela do token)
+               * - state de error === 5
+               *   - onError
+               * */
+              dispatch(
+                ValidateTokenNSignature({
+                  signature,
+                  onError,
+                  onSuccess: onConfirm,
+                  addToast,
+                  goToPreviousStep: onPrevious,
+                })
+              )
+            }}
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            data-gtm-subname="assinatura eletronica"
+            data-gtm-name="botao confirmacao"
+          >
+            confirmar
+          </Button>
+        </Footer>
+      }
+    >
       <Container>
         <Text type="headline" color="gray6">
           Agora, insira sua assinatura eletrônica através do teclado virtual
@@ -62,7 +139,7 @@ const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
           data-gtm-name="autenticacao assinature eletronica"
         />
         <VirtualKeyboard>
-          {data && data.map(handleVirtualKeyboardKey)}
+          {keyboardData?.data?.map(handleVirtualKeyboardKey)}
           <Key
             role="button"
             onClick={() => {
@@ -80,29 +157,6 @@ const DigitalSignature = ({ onPrevious, onConfirm, ...rest }: IProps) => {
           <SecuritySeal />
         </ContainerSecuritySeal>
       </Container>
-      <Footer>
-        <Button
-          outline
-          onClick={onPrevious}
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname="assinatura eletronica"
-          data-gtm-name="botao voltar tela anterior"
-        >
-          voltar
-        </Button>
-        <Button
-          color="secondary"
-          disabled={signature.length < 6}
-          onClick={onConfirm}
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          data-gtm-subname="assinatura eletronica"
-          data-gtm-name="botao confirmacao"
-        >
-          confirmar
-        </Button>
-      </Footer>
     </Card>
   )
 }

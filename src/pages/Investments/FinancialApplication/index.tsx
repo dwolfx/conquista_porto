@@ -3,14 +3,16 @@ import moment from 'moment'
 import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 import { useToast } from 'hooks/toast'
-import useMedia from 'hooks/useMedia'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
+import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
+import Anbima from 'components/Anbima'
+import AlignmentTerms from 'components/Investment/AlignmentTerms'
+import useMedia from 'hooks/useMedia'
 
 import { GetAlignmentTermsDataRequest } from 'store/modules/Investment/FinancialApplication/AlignmentTerms/action'
 
-import AlignmentTerms from './AlignmentTerms'
 import LayerHeader from './LayerHeader'
 import FormFinancialContribution from './FormFinancialContribution'
 import SummaryFinancialContribution from './SummaryFinancialContribution'
@@ -19,9 +21,9 @@ import SuccessCard from './EndOfApplicationFlow/SuccessCard'
 import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 
 import { formatMoneyDecimal, formatLocaleStringToNumber } from 'helpers'
-import DetailCard from './DetailCard'
 
 import {
+  BodyWrapper,
   StepBar,
   ColStepBar,
   GridContainer,
@@ -84,10 +86,13 @@ const LayerInvestment: React.FC<IProps> = ({
   const {
     funds,
     financialApplicationData,
+    financialApplicationFundData,
     alignmentTermsIsLoading,
   } = useSelector((state: any) => ({
     funds: state.investmentsList,
     financialApplicationData: state.financialApplicationGetData.data,
+    financialApplicationFundData:
+      state.financialApplicationGetData.data.dados_para_aplicacao.fundo,
     alignmentTermsIsLoading: state.alignmentTerms.isLoading,
   }))
 
@@ -113,14 +118,22 @@ const LayerInvestment: React.FC<IProps> = ({
 
       return {
         ...prevState,
-        moneyToInvest: formatMoneyDecimal(
-          Number(selectedFund.minimo_inicial * 100)
-        ),
+        moneyToInvest: isAwareOfTerms
+          ? formatMoneyDecimal(
+              Number(financialApplicationFundData.aplicacao_minima * 100)
+            )
+          : formatMoneyDecimal(Number(selectedFund.minimo_inicial * 100)),
         whenToInvest: operationDate,
         isAwareOfTerms,
       }
     },
-    [funds.data, selectedFundId, isAwareOfTerms, operationDate]
+    [
+      funds.data,
+      selectedFundId,
+      isAwareOfTerms,
+      operationDate,
+      financialApplicationFundData,
+    ]
   )
 
   useEffect(() => {
@@ -299,14 +312,20 @@ const LayerInvestment: React.FC<IProps> = ({
     if (hasSucceded) {
       return (
         <GridCol sm={12} md={8} lg={9}>
-          <SuccessCard onCloseLayer={() => resetValues()} />
+          <SuccessCard
+            onCloseLayer={() => resetValues()}
+            handleCloseButton={handleClose}
+          />
         </GridCol>
       )
     }
     if (hasFailed) {
       return (
         <GridCol sm={12} md={8} lg={9}>
-          <ErrorCard onCloseLayer={() => resetValues()} />
+          <ErrorCard
+            onCloseLayer={() => resetValues()}
+            handleCloseButton={handleClose}
+          />
         </GridCol>
       )
     }
@@ -330,7 +349,7 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const getBodySteps = () => {
     return (
-      <>
+      <BodyWrapper>
         <StepBar>
           <GridContainer>
             <GridRowStepBar>
@@ -352,11 +371,14 @@ const LayerInvestment: React.FC<IProps> = ({
             </GridRowStepBar>
           </GridContainer>
         </StepBar>
-        <MobileScrollContent expandBottomHeight={hasSucceded || hasFailed}>
+        <MobileScrollContent
+          expandBottomHeight={hasSucceded || hasFailed}
+          isAlignmentTermOpen={isAlignmentTermOpen}
+        >
           <LayerBodyContainer>
             <GridRowExpanded>
               <GridCol sm={12} md={4} lg={3}>
-                <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
+                <FundDetailCard handleFundDetailOpen={handleFundDetailOpen} />
               </GridCol>
               {getBodyContent()}
             </GridRowExpanded>
@@ -371,11 +393,21 @@ const LayerInvestment: React.FC<IProps> = ({
                 </Text>
               </GridColInfo>
             </GridRow>
+            <GridRow>
+              <Anbima noMarginTop />
+            </GridRow>
           </FooterContainer>
         </MobileScrollContent>
-      </>
+      </BodyWrapper>
     )
   }
+
+  useEffect(() => {
+    const html = document.querySelector<HTMLInputElement>('html')
+    if (isAlignmentTermOpen) {
+      html!.style.overflowY = 'hidden'
+    }
+  }, [isAlignmentTermOpen])
 
   return financialApplicationData?.dados_para_aplicacao ? (
     <LayerFinancialApplication

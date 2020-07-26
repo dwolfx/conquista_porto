@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import IconButton from 'components/Button/Icon'
+import ConquistaButton from 'components/Button'
 import { Col, Row } from 'styled-bootstrap-grid'
 
 export const RowContent = styled(Row)`
   padding: 0 ${({ theme }) => theme.spacing(1)}px;
-  margin-top: ${({ theme }) => `${theme.spacing(9)}px;`}
 `
 
 export const LeftContent = styled(Col)`
-  margin-top: ${({ theme }) => theme.spacing(4)}px;
   margin-bottom: ${({ theme }) => theme.spacing(4)}px;
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
@@ -17,13 +16,9 @@ export const LeftContent = styled(Col)`
 `
 
 export const MainContent = styled(Col)`
-  margin-top: ${({ theme }) => theme.spacing(4)}px;
   margin-bottom: ${({ theme }) => theme.spacing(4)}px;
-
-  @media ${({ theme }) => theme.mediaQueries.sm} {
-    margin-top: 0;
-  }
 `
+
 export const FloatButton = styled(IconButton)`
   content: '';
   border-radius: 50%;
@@ -32,4 +27,13 @@ export const FloatButton = styled(IconButton)`
   right: 14px;
   z-index: 11;
   border: none;
+`
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(ConquistaButton)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
 `

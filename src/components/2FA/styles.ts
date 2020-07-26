@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 
+import ButtonCmp from 'components/Button'
 import CardUnstyled from 'components/Card'
 import { CardBody } from 'components/Card/styles'
 import NewInput from 'components/NewInput'
 
 export const Container = styled.div`
+  flex: 1;
   padding: ${({ theme }) => theme.spacing(3)}px;
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: ${({ theme }) => theme.spacing(3)}px 0;
+  }
 `
 
 export const Card = styled(CardUnstyled)`
@@ -54,18 +60,34 @@ export const Key = styled.div`
     border-color: ${props => props.theme.colors.blue2};
     box-shadow: ${props => props.theme.shadows.blue1};
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    margin-right: ${({ theme }) => `${theme.spacing(1)}px`};
+    width: 56px;
+    height: 56px;
+
+    :last-child {
+      margin-right: 0;
+    }
+  }
 `
 
 export const Footer = styled.div`
-  text-align: end;
-  padding: ${props => props.theme.spacing(2)}px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
   width: 100%;
-  background-color: ${props => props.theme.colors.white};
-  border-top: 1px solid ${props => props.theme.colors.gray3};
 
   button {
     :first-child {
       margin-right: ${props => props.theme.spacing(2)}px;
+    }
+  }
+  @media ${props => props.theme.mediaQueries.sm} {
+    display: flex;
+    padding: ${props => props.theme.spacing(2)}px 0;
+    button {
+      width: 50%;
     }
   }
 `
@@ -73,4 +95,8 @@ export const Footer = styled.div`
 export const InputStyled = styled(NewInput)`
   margin-top: ${props => props.theme.spacing(3)}px;
   width: 300px;
+`
+
+export const Button = styled(ButtonCmp)`
+  min-width: 112px;
 `

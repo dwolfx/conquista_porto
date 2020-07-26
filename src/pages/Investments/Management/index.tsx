@@ -1,19 +1,31 @@
 import React, { useState } from 'react'
-import useMedia from 'hooks/useMedia'
-import useFilter from './useFilter'
+import { useSelector, useDispatch } from 'react-redux'
+
+import Anbima from 'components/Anbima'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
+import useMedia from 'hooks/useMedia'
+
+import useFilter from './useFilter'
 import DesktopComponent from './Desktop'
 import TabletComponent from './Tablet'
-import Anbima from 'components/Anbima'
 import { TFundsLayout } from './types'
 import { GridContainer } from './styles'
+import { RedeemLayerToggleClose } from 'store/modules/Investment/Redeem/action'
+import Redeem from 'pages/Redeem'
+import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
 
 const ManagementInvestments: React.FC = ({ ...rest }) => {
   const [viewMode, setViewMode] = useState<TFundsLayout>('CARDS')
+  const dispatch = useDispatch()
   const [filters, setFilters] = useState<string[]>([])
   const isTablet = useMedia('lg')
+  const { idFund, isLayerOpen } = useSelector((state: any) => ({
+    idFund: state.investmentPosition.idFund,
+    isLayerOpen: state.redeemData.isLayerOpen
+  }))
 
   useFetchPosition()
+  useFetchSuitabilityInfo()
 
   const filteredInvestedFunds = useFilter(filters)
   const handleChangeFundsView = (layoutCheanged: TFundsLayout) => {
@@ -48,10 +60,17 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   }
 
   return (
-    <GridContainer as="section" {...rest}>
-      {renderResponsiveContent()}
-      <Anbima />
-    </GridContainer>
+    <>
+      <GridContainer as="section" {...rest}>
+        {renderResponsiveContent()}
+        <Anbima />
+      </GridContainer>
+      <Redeem 
+        isOpen={isLayerOpen}
+        handleClose={() => dispatch(RedeemLayerToggleClose())}
+        selectedFundId={idFund}
+      />
+    </>
   )
 }
 

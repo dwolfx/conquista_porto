@@ -38,7 +38,11 @@ const responseErrorInterceptor = error => {
     throw Error(errorMessages[404])
   } else if (error.response.status === 400) {
     dataLayerErrorInfo(errorMessages[400])
-    throw Error(errorMessages[400])
+    throw Error(
+      error.response.data
+        ? JSON.stringify(error.response.data)
+        : errorMessages[400]
+    )
   }
 
   return Promise.reject(error.response)
