@@ -113,7 +113,7 @@ const SummaryFinancialContribution = ({
           <HorizontalListStyled
             startItems={[
               <Text type="headline" color={isMobile ? 'gray5' : 'gray6'} bold>
-                Solicitação
+                {isMobile ? 'Resumo da Solicitação' : 'Solicitação'}
               </Text>,
             ]}
           />

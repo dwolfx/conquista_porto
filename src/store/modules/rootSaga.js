@@ -28,10 +28,14 @@ import objective from './Objective/sagas'
 import objectiveManagement from './ObjectiveManagement/sagas'
 import suitability from './Suitability/sagas'
 import suitabilityInfo from './SuitabilityInfo/sagas'
+import { redeemGetData } from './Investment/Redeem/sagas'
+import redeemSummaryGetData from './Investment/Redeem/SummaryRedeem/sagas'
+import redeemAlignmentTerms from './Investment/Redeem/AlignmentTerms/sagas'
 import rewardsRecommendations from './Rewards/Recommendations/sagas'
 import rewardsTypes from './Rewards/Types/sagas'
 import virtualKeyboard from './VirtualKeyboard/sagas'
 import token2fa from './2FAToken/sagas'
+import withdraw from './Withdraw/sagas'
 
 export default function* rootSaga() {
   return yield all([
@@ -60,9 +64,13 @@ export default function* rootSaga() {
     objectiveManagement,
     suitability,
     suitabilityInfo,
+    redeemGetData,
+    redeemSummaryGetData,
+    redeemAlignmentTerms,
     rewardsRecommendations,
     rewardsTypes,
     virtualKeyboard,
     token2fa,
+    withdraw,
   ])
 }

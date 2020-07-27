@@ -14,25 +14,21 @@ interface IProps {
   error?: boolean | { icon: keyof typeof dict; message: string }
 }
 
-const MoneyInput = forwardRef<HTMLInputElement, IProps>(
-  ({ onChange, prefix = 'R$', ...rest }, ref) => {
-    const onChangeHandler = (event: any) => {
-      const formattedValue = formatMoneyDecimal(
-        event.target.value.replace(/[\D]/g, '')
-      )
-      event.target.value = formattedValue
-      onChange(event)
-    }
-
-    return (
-      <TextInput
-        ref={ref}
-        prefix={prefix}
-        onChange={onChangeHandler}
-        {...rest}
-      />
+const MoneyInput = forwardRef<
+  HTMLInputElement,
+  IProps & React.HTMLAttributes<HTMLInputElement>
+>(({ onChange, prefix = 'R$', ...rest }, ref) => {
+  const onChangeHandler = (event: any) => {
+    const formattedValue = formatMoneyDecimal(
+      event.target.value.replace(/[\D]/g, '')
     )
+    event.target.value = formattedValue
+    onChange(event)
   }
-)
+
+  return (
+    <TextInput ref={ref} prefix={prefix} onChange={onChangeHandler} {...rest} />
+  )
+})
 
 export default MoneyInput

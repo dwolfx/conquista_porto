@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
-import Text from 'components/Text'
 import Modal from 'components/Modal/ModalNew'
 import Card from 'components/Card'
+import FundDetailDrawer from 'components/FundDetail/Drawer'
+import FundDetailModal from 'components/FundDetail/Modal'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import Text from 'components/Text'
 import useSelectedPosition from 'hooks/useSelectedPosition'
 import useMedia from 'hooks/useMedia'
 
@@ -15,8 +17,6 @@ import InvestedFundsList from '../components/InvestedFundsList'
 import InvestorAccount from '../components/InvestorAccount'
 import LastTransations from '../components/LastTransactions'
 import InvestorAccountMobile from './InvestorAccountMobile'
-import Detail from '../../FundsList/Detail'
-import DetailModal from '../../FundsList/DetailModal'
 import { IModalProps, TFundsLayout } from '../types'
 
 import FundInfoPanel from './FundInfoPanel'
@@ -109,15 +109,7 @@ const Tablet: React.FC<IProps> = ({
       <RowContent>
         <LeftContent data-testid="left-content" md={4} sm={5} xs={12}>
           <ChartPosition />
-          {isMobile ? (
-            <InvestorAccountMobile
-              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-            />
-          ) : (
-            <InvestorAccount
-              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-            />
-          )}
+          {isMobile ? <InvestorAccountMobile /> : <InvestorAccount />}
         </LeftContent>
         <MainContent data-testid="main-content" md={8} sm={7} xs={12}>
           <InvestedFundsList
@@ -218,7 +210,7 @@ const Tablet: React.FC<IProps> = ({
         />
       )}
       {isMobile ? (
-        <DetailModal
+        <FundDetailModal
           title={position?.fundo?.apelido}
           category={position?.fundo?.categoria_arena}
           isOpenForInvestments={true}
@@ -228,7 +220,7 @@ const Tablet: React.FC<IProps> = ({
           handleClose={handleFundDetailClose}
         />
       ) : (
-        <Detail
+        <FundDetailDrawer
           isOpen={isFundDetailOpen}
           handleClose={handleFundDetailClose}
           handleLayerOpen={handleFundDetailClose}

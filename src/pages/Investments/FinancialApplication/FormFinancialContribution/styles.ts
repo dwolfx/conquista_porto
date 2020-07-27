@@ -15,14 +15,14 @@ export const CardStyled = styled(Card)`
   @media ${props => props.theme.mediaQueries.xs} {
     border-radius: 0;
     padding: ${({ theme }) => theme.spacing(3)}px 0 0 0;
-    max-height: max-content;
+    max-height: 100vh;
   }
 
   ${CardBody} {
     max-width: 1000px;
 
     @media ${props => props.theme.mediaQueries.xs} {
-      max-height: max-content;
+      max-height: 100vh;
     }
   }
 `

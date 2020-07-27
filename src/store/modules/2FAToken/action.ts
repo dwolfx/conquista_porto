@@ -1,4 +1,8 @@
-import { Types, IGeneratePayload } from './types'
+import {
+  Types,
+  IGeneratePayload,
+  IValidateTokenSignaturePayload,
+} from './types'
 import { IToast } from 'hooks/toast'
 
 export function Post2FATokenDataRequest(
@@ -71,7 +75,9 @@ export function Run2FAInitialRequest(payload: IGeneratePayload) {
   }
 }
 
-export function ValidateTokenNSignature(payload: any) {
+export function ValidateTokenNSignature(
+  payload: IValidateTokenSignaturePayload
+) {
   return {
     type: Types.VALIDATE_TOKEN_SIGNATURE,
     payload,
@@ -84,6 +90,17 @@ export function SaveToken(payload: {
 }) {
   return {
     type: Types.SAVE_TOKEN,
+    payload,
+  }
+}
+
+export function SetTokenLoading(
+  payload: {
+    [key in 'isLoading' | 'isLoadingGetInfo']?: boolean
+  }
+) {
+  return {
+    type: Types.SET_LOADING,
     payload,
   }
 }

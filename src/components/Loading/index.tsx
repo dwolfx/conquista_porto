@@ -18,14 +18,14 @@ interface IProps {
   dataTestId?: 'loading'
 }
 
-const Loading: React.FC<IProps> = ({
+const Loading = ({
   color = 'blue4',
   width = 28,
   type = 'spinner',
   legend = '',
   placement = 'top',
   ...rest
-}) => {
+}: IProps) => {
   if (type === 'spinner') {
     return <IconAnimated name="spinner" color={color} width={width} {...rest} />
   }

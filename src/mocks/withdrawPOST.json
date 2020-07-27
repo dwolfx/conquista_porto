@@ -1,0 +1,61 @@
+{
+  "result": {
+    "movimentacao": {
+      "docnum": "1",
+      "tipPes1": "F",
+      "ispbdest": "60701190",
+      "sistema": "2",
+      "conta": "19658",
+      "histcod": "51",
+      "observ": "Resgate fundo portal arena",
+      "bcodest": "341",
+      "nomTitDest1": "Rafael Soares Claus",
+      "agencia": "1",
+      "ctadest": "780856",
+      "cpfcnpjDest1": "37282985812",
+      "refer": "1594653063782",
+      "cpfcnpjDest2": "0",
+      "empresa": "1",
+      "agedest": "4194",
+      "movval": "10",
+      "finMsg": "110"
+    },
+    "conta_liquidacao": {
+      "principal": true,
+      "id_conta": "220165",
+      "conta": "78085",
+      "nome_banco": "Itaú Unibanco S.A.",
+      "digito_conta": "6",
+      "agencia": "4194",
+      "codigo_banco": "341"
+    },
+    "valor": "10",
+    "id_cotista": "2000143425",
+    "conta_portoseguro": {
+      "saldo_disponivel": "2976436.11",
+      "id_conta": "245236",
+      "cheque_especial": {
+        "limite": "0",
+        "data_vencimento": "0001-01-03T00:00:00-03:00"
+      },
+      "conta": "1965",
+      "nome_banco": "Banco Porto Seguro",
+      "encargos_acumulados": "0",
+      "valores_bloqueados": {
+        "judicial": "0",
+        "em_24horas": "0",
+        "indeterminado": "0",
+        "em_48horas": "0"
+      },
+      "digito_conta": "8",
+      "saldo_liquidar": "0",
+      "agencia": "0001",
+      "titular": "Rafael Soares Claus",
+      "codigo_banco": "306"
+    }
+  },
+  "Message": {
+    "TipoCritica": "SUCESSO",
+    "Mensagem": "SUCESSO"
+  }
+}

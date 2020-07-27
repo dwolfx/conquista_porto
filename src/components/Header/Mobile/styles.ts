@@ -12,7 +12,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 20;

@@ -68,6 +68,11 @@ export default function(state = INITIAL_STATE, action: any) {
         ...state,
         token: { ...action.payload },
       }
+    case Types.SET_LOADING:
+      return {
+        ...state,
+        ...action.payload,
+      }
     default:
       return state
   }

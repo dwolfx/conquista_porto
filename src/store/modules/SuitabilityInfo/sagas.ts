@@ -44,7 +44,7 @@ function* getData({ payload }: IProps) {
   }
 }
 
-function* getDataValidate({ payload }: IPayload) {
+export function* getDataValidate({ payload }: IPayload) {
   const { onSuccess, buttonType, onErrorToast } = payload
   try {
     const suitabilityInfoState = yield select(getSuitabilityInfo)

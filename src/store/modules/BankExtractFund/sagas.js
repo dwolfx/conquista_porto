@@ -19,19 +19,7 @@ function* getData({ payload, cpf }) {
       get,
       `${baseURLNamespaceInvest}/fundos/movimentacoes?${query.toString()}`
     )
-
-    const responseData = response.data[0]
-    const normalizedData = {
-      ...responseData,
-      operacoes: {
-        ...responseData.operacoes,
-        operacao: Array.isArray(responseData.operacoes.operacao)
-          ? [...responseData.operacoes.operacao]
-          : [{ ...responseData.operacoes.operacao }],
-      },
-    }
-
-    yield put(GetBankExtractFundSuccess([normalizedData]))
+    yield put(GetBankExtractFundSuccess(response.data))
   } catch (err) {
     yield put({
       ...GetBankExtractFundFailure(),

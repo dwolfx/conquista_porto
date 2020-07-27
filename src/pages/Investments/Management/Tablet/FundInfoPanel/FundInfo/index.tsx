@@ -21,8 +21,9 @@ import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/Fin
 import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/FinancialApplication/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 
 import {
   VerticalListStyled,
@@ -38,6 +39,8 @@ import {
   ButtonCustom,
   ButtonsWrapper,
   CaroselContent,
+  LockIcon,
+  CustomPopover,
 } from './styles'
 
 export const months = [
@@ -96,6 +99,7 @@ interface IFundInformationProps {
       contagem_dias_resgate: string
       id_carteira: string
       nome_gestor: string
+      resgate_liberado: boolean
     }
     saldo_atual: string
     saldo_bloqueado: string
@@ -138,20 +142,24 @@ const FundInformation = ({
 
   const {
     displayInformation,
+    idFund,
     financialApplicationLoading,
     funds,
     fundsError,
     fundsIsLoading,
     suitabilityIsLoading,
     suitabilityStoreData,
+    isRedeemLoading,
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
+    idFund: state.investmentPosition.idFund,
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
     funds: state.investmentsList.data,
     fundsError: state.investmentsList.isError,
     fundsIsLoading: state.investmentsList.isError,
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
+    isRedeemLoading: state.redeemData.isLoading,
   }))
 
   const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
@@ -226,27 +234,6 @@ const FundInformation = ({
     setIncomeValue(
       position.rendimentos.rendimento[months[item.value].value].valorrendimento
     )
-  }
-
-  const getGiwPath = (type: string) => {
-    const paths: {
-      [key: string]: string
-    } = {
-      investir: 'aplicacao',
-      resgatar: 'resgate',
-    }
-
-    return paths[type]
-  }
-
-  const buildGiwUrl = (action: string) => {
-    return `portaldecliente/conquista/${getGiwPath(action)}?idFundo=${
-      position.fundo.id_carteira
-    }&idCotista=${position.idCotista}&nomeFundo=${
-      position.fundo.apelido
-    }&tipoFundo=${position.categoria_arena}&brand=${
-      position.fundo.nome_gestor
-    }&r=true`
   }
 
   const triggerSuitabilityDispatch = (onSuccess: null | Function) => {
@@ -376,7 +363,11 @@ const FundInformation = ({
       onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
 
       if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect(buildGiwUrl('resgatar'))
+        dispatch(GetRedeemRequest({
+          data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
+          id_fundo: idFund,
+          onErrorToast: addToast
+        }))
       }
     }
 
@@ -571,6 +562,12 @@ const FundInformation = ({
                   </Text>,
                 ]}
               />,
+              <Text color="gray5">
+                O saldo refere-se a data exibida e será atualizado no decorrer
+                do dia. Resgates parciais poderão ser convertidos em totais,
+                caso resulte em saldo inferior ao valor mínimo de permanência,
+                conforme disposto nas regras de movimentação deste fundo.
+              </Text>,
             ]}
           />
         </AccordionContent>
@@ -623,18 +620,30 @@ const FundInformation = ({
         </Col>
       </RowLineInfo>
       <RowWithoutPadding justifyContent="center">
-        <ButtonsWrapper xlAuto lgAuto mdAuto smAuto>
-          <ButtonCustom
-            data-gtm-subname="painel de informações de fundo"
-            data-gtm-name="resgatar"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            color="primary"
-            outline={true}
-            onClick={handleClickRedeemButton}
-          >
-            Resgatar
-          </ButtonCustom>
+        <ButtonsWrapper>
+          {!position.fundo.resgate_liberado ? (
+            <CustomPopover
+              content="Fundo fechado para resgates"
+              placement="bottom"
+              tooltip
+            >
+              <LockIcon />
+            </CustomPopover>
+          ) : (
+            <ButtonCustom
+              data-gtm-subname="painel de informações de fundo"
+              data-gtm-name="resgatar"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              color="primary"
+              loading={isRedeemLoading}
+              disabled={isRedeemLoading}
+              outline={true}
+              onClick={handleClickRedeemButton}
+            >
+              Resgatar
+            </ButtonCustom>
+          )}
           <ButtonCustom
             loading={investButtonIsLoading}
             loadingColor="white"

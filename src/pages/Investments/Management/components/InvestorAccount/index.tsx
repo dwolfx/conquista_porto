@@ -1,18 +1,17 @@
 import React from 'react'
-import 'styled-components/macro'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import 'styled-components/macro'
 
 import ButtonLink from 'components/Button/Link'
+import WithdrawButton from 'components/Button/WithdrawButton'
 import Divisor from 'components/Divisor'
-import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
-import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
 
-import { IModalProps, IValidProps, InvestorAccountInfoEnum } from '../../types'
+import { InvestorAccountInfoEnum } from '../../types'
 
 import {
   CardStyled,
@@ -28,16 +27,12 @@ import {
   IconRetry,
 } from './styles'
 
-interface IProps {
-  onChangeModalSuitabilityInfo: (data: IModalProps) => void
-}
-
-const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
+const InvestorAccount = () => {
   useFetchBankData()
   const isTablet = useMedia('md')
   const dispatch = useDispatch()
   const history = useHistory()
-  const { addToast } = useToast()
+
   const {
     bankData,
     auth,
@@ -78,16 +73,6 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
         {formatMoney(value)}
       </TextHeadline>
     )
-  }
-
-  const handleClickWithdrawButton = () => {
-    const onSuccess = (modalProps: IModalProps | IValidProps) => {
-      onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
-      if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
-      }
-    }
-    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'retirar', addToast))
   }
 
   const renderExtractLink = (id: string) => (
@@ -162,14 +147,12 @@ const InvestorAccount = ({ onChangeModalSuitabilityInfo }: IProps) => {
                   ver extrato
                 </ButtonBlock>
               )}
-              <ButtonBlock
-                outline
-                color="primary"
-                data-testid="button-draw"
-                onClick={handleClickWithdrawButton}
-              >
-                retirar
-              </ButtonBlock>
+              <WithdrawButton
+                gtmSubname="investimentos gerenciar"
+                css={`
+                  width: 100%;
+                `}
+              />
             </ButtonsWrapper>
           )}
           {!isTablet && renderExtractLink('saldo')}
