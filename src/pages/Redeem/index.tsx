@@ -14,6 +14,7 @@ import FundDetailModal from 'components/FundDetail/Modal'
 import Text from 'components/Text'
 import TransactionHeader from 'components/Header/TransactionsHeader'
 import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
+import { ClearReddemSummary } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
 import { Run2FAInitialRequest } from 'store/modules/2FAToken/action'
 import { baseURLNamespaceInvestAws, post } from 'services/api'
 import useMedia from 'hooks/useMedia'
@@ -97,9 +98,10 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
     return 'ERROR'
   }
 
-  const resetValue = () => {
+  const resetValues = () => {
     setStep(1)
     setFormData(FORM_DATA_INTIAL_STATE)
+    dispatch(ClearReddemSummary())
   }
 
   const nextStep = () => {
@@ -127,21 +129,20 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   }
 
   const previousStep = () => {
-    if (step === 0) {
-      resetValue()
-    } else {
-      if (step > 1 && step <= maxSteps) {
-        setStep(step - 1)
-      }
+    if (step > 1 && step <= maxSteps) {
+      setStep(step - 1)
     }
   }
+
   const handleHomePage = () => {
     history.push('/')
+    resetValues()
     handleClose()
   }
 
   const handleInvestiments = () => {
     history.push('/investimentos')
+    resetValues()
     handleClose()
   }
 
@@ -154,7 +155,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       previousStep={previousStep}
       onChangeFundDetailOpen={setFundDetailOpen}
       idFundo={selectedFundId}
-      resetValue={resetValue}
+      resetValue={resetValues}
     />,
     <SummaryRedeem
       step={step}
@@ -221,14 +222,14 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
     <LayerStyled
       isOpen={isOpen}
       handleClose={() => {
-        resetValue()
+        resetValues()
         handleClose()
       }}
       headerContent={
         <TransactionHeader
           onBack={goBackHandler}
           onClose={() => {
-            resetValue()
+            resetValues()
             handleClose()
           }}
           showBackButton={step !== 1}

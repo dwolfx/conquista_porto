@@ -26,6 +26,8 @@ export default function (state = INITIAL_STATE, action: any) {
         isLoading: false,
         hasError: true
       }
+    case Types.REDDEM_SUMMARY_CLEAR_DATA:
+      return INITIAL_STATE
     default:
       return state
   }
