@@ -21,3 +21,9 @@ export function GetRedeemSummaryFailure({ message }: IError) {
     message
   }
 }
+
+export function ClearReddemSummary() {
+  return {
+    type: Types.REDDEM_SUMMARY_CLEAR_DATA
+  }
+}
