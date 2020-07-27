@@ -101,7 +101,28 @@
       }
     }
   },
-  "alignment_terms_data": {
+  "alignment_terms_data_application": {
+    "enquadramento_ordem_cotista": {
+      "status_enquadramento": "Desenquadrado",
+      "nota_rating_cotista": 3.3,
+      "nota_rating_carteira": 4.090905499356974,
+      "fundos_desenquadrados": {
+        "fundo_desenquadrado": [
+          {
+            "id_carteira": 5094,
+            "nome_fundo": "Porto Seguro Selecta FIC FIA",
+            "nota_rating": 5
+          },
+          {
+            "id_carteira": 5112,
+            "nome_fundo": "Porto Seguro Alocação FIC FIM",
+            "nota_rating": 4
+          }
+        ]
+      }
+    }
+  },
+  "alignment_terms_data_redeem": {
     "status_enquadramento": "Desenquadrado",
     "nota_rating_cotista": 3.3,
     "nota_rating_carteira": 4.090905499356974,
@@ -157,7 +178,7 @@
         "data_historico": "2020-03-23T00:00:00"
       },
       "id_cotista": 2000143425,
-      "saldo_conta": 0,
+      "saldo_conta": 1987123.99,
       "aderente_fundo": false,
       "fechado_aplicacao": false,
       "data_prevista_cotizacao": "2020-07-09T00:00:00-03:00",
@@ -5159,10 +5180,10 @@
     "tipo_resgate": "2"
   },
   "retiradas_post": {
-    "id_cotista": "2000121268",
+    "id_cotista": "2000143425",
     "cpf_cnpj": "37282985812",
-    "data_operacao": "2020-07-24",
-    "valor_operacao": "100,00",
+    "data_operacao": "2020-07-25",
+    "valor_operacao": "10,00",
     "id_conta_liquidacao": "218633"
   },
   "invest_aws_cotista_retiradas": {

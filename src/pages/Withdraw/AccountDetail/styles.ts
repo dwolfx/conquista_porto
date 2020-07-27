@@ -37,4 +37,5 @@ export const CardFooter = styled.div`
 export const FullButton = styled(Button)`
   margin: ${props => props.theme.spacing(2)}px;
   margin-bottom: ${props => props.theme.spacing(1)}px;
+  width: 100%;
 `

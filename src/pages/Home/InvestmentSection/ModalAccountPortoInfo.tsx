@@ -1,13 +1,16 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
-import PropTypes from 'prop-types'
+
 import Text from 'components/Text'
 import Modal from 'components/Modal/ModalNew'
 import HorizontalList from 'components/HorizontalList'
 import VerticalList from 'components/VerticalList'
-import { formatMoney, handleGiwRedirect } from 'helpers'
+
+import { formatMoney } from 'helpers'
+
 import Button from 'components/Button'
+import WithdrawButton from 'components/Button/WithdrawButton'
 import useMedia from 'hooks/useMedia'
 
 import {
@@ -17,31 +20,30 @@ import {
   TableBox,
 } from './styles'
 
+interface IProps {
+  isOpen: boolean
+  onChangeModalOpen: Function
+  bankData?: {
+    DadosContaPortoSeguro: {
+      titular: string
+      cpf: string
+      saldo_disponivel: string
+      digito_conta: string
+      conta: string
+      codigo_banco: string
+      nome_banco: string
+      agencia: string
+    }
+  }
+}
+
 export default function ModalAccountPortoInfo({
   isOpen,
   onChangeModalOpen,
   bankData,
-}) {
+}: IProps) {
   const history = useHistory()
   const isMobile = useMedia('xs')
-
-  const ButtonRetirar = () => (
-    <Button
-      outline
-      data-gtm-type="click"
-      data-gtm-clicktype="button"
-      data-gtm-subname="investimentos e resgate"
-      data-gtm-name="retirar"
-      onClick={() => {
-        handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
-      }}
-      css={`
-        margin-top: ${isMobile ? '21px' : '0px'};
-      `}
-    >
-      retirar
-    </Button>
-  )
 
   const ButtonInvestir = () => (
     <Button
@@ -88,7 +90,7 @@ export default function ModalAccountPortoInfo({
                       </Text>,
                     ]}
                   />,
-                  <ButtonRetirar />,
+                  <WithdrawButton gtmSubname="botao retirar modal" />,
                   <ButtonInvestir />,
                 ]}
               />
@@ -108,7 +110,7 @@ export default function ModalAccountPortoInfo({
                         : 0
                     )}
                   </Text>,
-                  <ButtonRetirar />,
+                  <WithdrawButton gtmSubname="botao retirar modal" />,
                   <ButtonInvestir />,
                 ]}
                 css={`
@@ -198,25 +200,4 @@ export default function ModalAccountPortoInfo({
       </>
     </Modal>
   )
-}
-
-ModalAccountPortoInfo.defaultProps = {
-  bankData: null,
-}
-
-ModalAccountPortoInfo.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onChangeModalOpen: PropTypes.func.isRequired,
-  bankData: PropTypes.shape({
-    DadosContaPortoSeguro: PropTypes.shape({
-      titular: PropTypes.string,
-      cpf: PropTypes.string,
-      saldo_disponivel: PropTypes.string,
-      digito_conta: PropTypes.string,
-      conta: PropTypes.string,
-      codigo_banco: PropTypes.string,
-      nome_banco: PropTypes.string,
-      agencia: PropTypes.string,
-    }),
-  }),
 }

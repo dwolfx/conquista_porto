@@ -43,7 +43,7 @@ export default function MessageCard({ type }: IProps) {
   return (
     <s.Card
       footer={
-        <s.ButtonWrapper>
+        <s.MessageButtonWrapper>
           <s.Button
             data-gtm-subname={`card de retirada - ${labelType[type]}`}
             data-gtm-type="click"
@@ -63,7 +63,7 @@ export default function MessageCard({ type }: IProps) {
           >
             Gerenciar investimentos
           </s.Button>
-        </s.ButtonWrapper>
+        </s.MessageButtonWrapper>
       }
     >
       <s.MessageContainer>
@@ -75,14 +75,14 @@ export default function MessageCard({ type }: IProps) {
               color={type === 'success' ? 'green3' : 'magenta2'}
             />
           </s.MessageIconContainer>
-          <div>
+          <s.TextWrapper>
             <Text type="headline" color="gray6" bold>
               {messages[type].title}
             </Text>
             <Text type="body" color="gray5" bold>
               {messages[type].title}
             </Text>
-          </div>
+          </s.TextWrapper>
         </s.MessageContent>
       </s.MessageContainer>
     </s.Card>

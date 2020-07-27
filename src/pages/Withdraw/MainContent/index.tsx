@@ -28,13 +28,14 @@ interface IProps {
   step: number
   setStep: (step: number) => void
   onError: () => void
+  setPrompt: (prompt: boolean) => void
 }
 
 interface IFooter {
   nextStepAction?: () => void
 }
 
-const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
+const MainContent = ({ step, setStep, onError, setPrompt }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const inputRef = useRef() as React.RefObject<HTMLInputElement>
@@ -82,8 +83,11 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
     })
       .then(() => setIsSuccess(true))
       .catch(() => setError(true))
-      .finally(() => setIsLoading(false))
-  }, [id_cotista, formData, cpf])
+      .finally(() => {
+        setIsLoading(false)
+        setPrompt(false)
+      })
+  }, [id_cotista, formData, cpf, setPrompt])
 
   const nextStep = () => {
     if (
@@ -97,6 +101,7 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
       setStep(++step)
     }
   }
+
   const prevStep = () => {
     setStep(--step)
   }
@@ -134,9 +139,10 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
         disabled={
           !isInputValueValid ||
           isLoading ||
-          withdrawInfos.isLoadingDetails ||
-          withdrawInfos.isLoadingSummary ||
+          (Object.keys(withdrawInfos).length &&
+            withdrawInfos.isLoadingDetails) ||
           withdrawInfos.hasErrorDetails ||
+          withdrawInfos.isLoadingSummary ||
           withdrawInfos.hasErrorSummary ||
           isTokenLoading ||
           isKeyboardLoading
@@ -239,7 +245,7 @@ const MainContent = ({ step, setStep, maxSteps, onError }: IProps) => {
         <Divisor />
         <AccountDetail onError={onError} />
       </s.Accordion>
-      <s.Card footer={cardFooter({})}>{stepsContent[step - 1]}</s.Card>
+      <s.Card>{stepsContent[step - 1]}</s.Card>
     </>
   ) : (
     <>{stepsContent[step - 1]}</>

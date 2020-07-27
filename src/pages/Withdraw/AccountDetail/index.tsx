@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import Divisor from 'components/Divisor'
-
 import DetailContent from './AccountDetailContent'
 import Error from './AccountDetailError'
 import Loading from './AccountDetailLoading'
@@ -25,7 +23,8 @@ export default function AccountDetail({ onError }: IProps) {
     })
   )
 
-  const contentIsNotEmpty = () => details && Object.keys(details).length > 0
+  const contentIsNotEmpty = () =>
+    details && Object.keys(details).length > 0 && !isLoading && !hasError
 
   return (
     <>
@@ -33,18 +32,18 @@ export default function AccountDetail({ onError }: IProps) {
         isOpen={modalIsOpen}
         handleClose={() => setModalIsOpen(false)}
       />
-      <S.LayerCard>
+      <S.LayerCard
+        footer={
+          <S.FullButton outline onClick={() => setModalIsOpen(true)}>
+            Regras e Condições
+          </S.FullButton>
+        }
+      >
         <S.CardContent>
           {isLoading && <Loading />}
           {hasError && <Error onClick={onError} />}
           {contentIsNotEmpty() && <DetailContent cpf_cnpj={cpf} {...details} />}
         </S.CardContent>
-        <S.CardFooter>
-          <Divisor />
-          <S.FullButton outline onClick={() => setModalIsOpen(true)}>
-            Regras e Condições
-          </S.FullButton>
-        </S.CardFooter>
       </S.LayerCard>
     </>
   )

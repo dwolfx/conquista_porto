@@ -1,6 +1,8 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceInvestAws } from 'services/api'
+import { getDataValidate } from 'store/modules/SuitabilityInfo/sagas'
+import { Types as SuitabilityTypes } from 'store/modules/SuitabilityInfo/types'
 
 import {
   GetWithdrawSummarySuccess,
@@ -11,12 +13,23 @@ import {
 import { getAuth, getSuitabilityInfo } from './selectors'
 import { Types, ISummaryRequest } from './types'
 
-function* getWithdrawDetails({ onSuccess, onError }: any) {
+function* getWithdrawDetails({ onSuccess, onError, addToast }: any) {
   try {
     const { cpf } = yield select(getAuth)
     let suitabilityInfo = yield select(getSuitabilityInfo)
 
-    if (suitabilityInfo?.id_cotista) {
+    yield call(getDataValidate, {
+      type: SuitabilityTypes.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE,
+      payload: {
+        onSuccess: () => null,
+        buttonType: 'retirar',
+        onErrorToast: addToast,
+      },
+    })
+
+    suitabilityInfo = yield select(getSuitabilityInfo)
+
+    if (suitabilityInfo?.id_cotista && suitabilityInfo?.isValid) {
       const { data } = yield call(
         get,
         `${baseURLNamespaceInvestAws}/cotista/retiradas?id_cotista=${suitabilityInfo.id_cotista}&cpf_cnpj=${cpf}`
