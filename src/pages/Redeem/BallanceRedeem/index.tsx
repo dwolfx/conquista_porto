@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
+import { ThemeContext } from 'styled-components/macro'
+import { Row } from 'styled-bootstrap-grid'
 import moment from 'moment'
 
 import Text from 'components/Text'
@@ -13,10 +14,12 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import { formatMoneyToNumber } from 'pages/Investments/FinancialApplication/FormFinancialContribution/utils'
 import { GetRedeemSummaryRequest } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
+import { formatMoney, formatNumber, formatMoneyDecimal } from 'helpers'
 
 import BaseAccountInfo from '../components/BaseAccountInfo'
 import BaseFormStep from '../components/BaseFormStep'
 import CardFooter from '../components/CardFooter'
+import { IFormData } from '..'
 
 import {
   RedeemFormContainer,
@@ -30,8 +33,6 @@ import {
   InputWrapper,
   HorizontalListStyled,
 } from './styles'
-import { formatMoney, formatNumber, formatMoneyDecimal } from 'helpers'
-import { IFormData } from '..'
 
 interface IBallanceRedeem {
   formData: IFormData
@@ -62,6 +63,7 @@ const BallanceRedeem = ({
   )
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
+  const themeContext = useContext(ThemeContext)
   const { addToast } = useToast()
   const {
     bankData,
@@ -147,7 +149,7 @@ const BallanceRedeem = ({
                 })
               }}
               css={`
-                margin-left: 7px;
+                margin-left: ${themeContext.spacing(1)}px;
               `}
             >
               manter saldo mínimo
@@ -185,6 +187,8 @@ const BallanceRedeem = ({
               data-gtm-clicktype="button"
               data-gtm-name="simular"
               color="primary"
+              loading={isRedeemSummaryLoading}
+              loadingColor="white"
               disabled={
                 isMoneyLessThanAllowed() || formData.moneyToRedeem === ''
               }
@@ -221,7 +225,7 @@ const BallanceRedeem = ({
           </CalculationOverlay>
           <div
             css={`
-              padding: 14px;
+              padding: ${themeContext.spacing(2)}px;
             `}
           >
             <HorizontalListStyled
@@ -303,7 +307,7 @@ const BallanceRedeem = ({
         </CalculationWrapper>
         <HorizontalListStyled
           css={`
-            padding: 0 28px !important;
+            padding: 0 ${themeContext.spacing(4)}px !important;
           `}
           startItems={[
             <Text
@@ -337,7 +341,7 @@ const BallanceRedeem = ({
           bold
           color={isMobile ? 'gray5' : 'gray6'}
           css={`
-            margin-bottom: 14px;
+            margin-bottom: ${themeContext.spacing(2)}px;
           `}
         >
           O valor será creditado na sua conta de investimento.
