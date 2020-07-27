@@ -101,7 +101,28 @@
       }
     }
   },
-  "alignment_terms_data": {
+  "alignment_terms_data_application": {
+    "enquadramento_ordem_cotista": {
+      "status_enquadramento": "Desenquadrado",
+      "nota_rating_cotista": 3.3,
+      "nota_rating_carteira": 4.090905499356974,
+      "fundos_desenquadrados": {
+        "fundo_desenquadrado": [
+          {
+            "id_carteira": 5094,
+            "nome_fundo": "Porto Seguro Selecta FIC FIA",
+            "nota_rating": 5
+          },
+          {
+            "id_carteira": 5112,
+            "nome_fundo": "Porto Seguro Alocação FIC FIM",
+            "nota_rating": 4
+          }
+        ]
+      }
+    }
+  },
+  "alignment_terms_data_redeem": {
     "status_enquadramento": "Desenquadrado",
     "nota_rating_cotista": 3.3,
     "nota_rating_carteira": 4.090905499356974,
