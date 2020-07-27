@@ -16,7 +16,8 @@ interface IProps {
   dataTestId?: 'button'
 }
 
-const Button: React.FC<IProps> = ({
+const Button: React.FC<IProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
   color = 'primary',
   outline = false,

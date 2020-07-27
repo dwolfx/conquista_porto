@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import moment from 'moment'
@@ -27,52 +27,50 @@ const WithdrawButton: React.FC<IProps> = ({
 
   const [isButtonClicked, setButtonClicked] = useState(false)
 
-  const { withdrawDetails, isLoading } = useSelector<any, any>(state => ({
-    withdrawDetails: state.withdraw.detailsData,
+  const { isLoading, availableBalance } = useSelector<any, any>(state => ({
     isLoading: state.withdraw.isLoadingDetails,
+    availableBalance:
+      state.bankData.data?.DadosContaPortoSeguro?.saldo_disponivel,
   }))
-
-  const getAccountDetail = useCallback(() => {
-    dispatch(
-      GetWithdrawDetailsRequest({
-        onSuccess: () => setButtonClicked(false),
-        addToast,
-      })
-    )
-  }, [dispatch, addToast])
-
-  useEffect(() => {
-    if (Object.entries(withdrawDetails).length && isButtonClicked) {
-      if (withdrawDetails.fechado_retirada) {
-        addToast({
-          description: `Tente novamente amanhã a partir das ${moment(
-            withdrawDetails.horario_inicio_permitido_retirada,
-            'H:mm:ss'
-          ).format('H:mm')}`,
-          title: `Não é possivel fazer retirada após as ${moment(
-            withdrawDetails.horario_fim_permitido_retirada,
-            'H:mm:ss'
-          ).format('H:mm')}`,
-          type: 'error',
-        })
-      } else {
-        history.push({
-          pathname: '/conta/retirar',
-          state: {
-            accessFromButton: true,
-          },
-        })
-      }
-    }
-  }, [withdrawDetails, addToast, history, isButtonClicked])
 
   const handleClick = () => {
     setButtonClicked(true)
 
+    dispatch(
+      GetWithdrawDetailsRequest({
+        onSuccess: withdrawData => {
+          if (Object.entries(withdrawData).length) {
+            if (withdrawData.fechado_retirada) {
+              addToast({
+                description: `Tente novamente amanhã a partir das ${moment(
+                  withdrawData.horario_inicio_permitido_retirada,
+                  'H:mm:ss'
+                ).format('H:mm')}`,
+                title: `Não é possivel fazer retirada após as ${moment(
+                  withdrawData.horario_fim_permitido_retirada,
+                  'H:mm:ss'
+                ).format('H:mm')}`,
+                type: 'error',
+              })
+            } else {
+              history.push({
+                pathname: '/conta/retirar',
+                state: {
+                  accessFromButton: true,
+                },
+              })
+            }
+          }
+
+          setButtonClicked(false)
+        },
+        addToast,
+      })
+    )
+
     if (onClick) {
       onClick()
     }
-    getAccountDetail()
   }
 
   return (
@@ -81,12 +79,18 @@ const WithdrawButton: React.FC<IProps> = ({
       outline
       loading={isLoading && isButtonClicked}
       loadingColor="blue4"
-      disabled={disabled || (isLoading && isButtonClicked)}
+      disabled={
+        disabled || (isLoading && isButtonClicked) || +availableBalance === 0
+      }
       data-gtm-type="click"
       data-gtm-clicktype="button"
       data-gtm-subname={gtmSubname}
       data-gtm-name="retirar"
-      onClick={() => handleClick()}
+      onClick={handleClick}
+      title={
+        +availableBalance === 0 ? `Saldo indisponível` : 'clique para retirar'
+      }
+      data-testid="retirar"
       {...rest}
     >
       retirar

@@ -13,7 +13,9 @@ import {
 import { getAuth, getSuitabilityInfo } from './selectors'
 import { Types, ISummaryRequest } from './types'
 
-function* getWithdrawDetails({ onSuccess, onError, addToast }: any) {
+function* getWithdrawDetails({ payload }: any) {
+  const { onSuccess, onError, addToast } = payload
+
   try {
     const { cpf } = yield select(getAuth)
     let suitabilityInfo = yield select(getSuitabilityInfo)
