@@ -13,6 +13,7 @@ export const ButtonsStepWrapper = styled.div`
 `
 
 export const ButtonStyled = styled(ButtonComponent)`
+  min-width: 112px;
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
   }

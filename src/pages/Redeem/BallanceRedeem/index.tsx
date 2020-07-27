@@ -87,7 +87,7 @@ const BallanceRedeem = ({
       const currentBallance = Number(
         redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
       )
-      return formatNumber(currentBallance - minFundBallance)
+      return formatMoney(currentBallance - minFundBallance, { style: 'decimal' })
     }
     return formatNumber('0')
   }
@@ -100,6 +100,17 @@ const BallanceRedeem = ({
       )
     }
     return false
+  }
+
+  const handleRedeemSummaryRequest = () => {
+    dispatch(GetRedeemSummaryRequest({
+      id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
+      data_operacao: moment(new Date()).format('YYYY-MM-DD'),
+      valor: formatMoneyToNumber(
+        formData.moneyToRedeem
+      ).toString(),
+      onErrorToast: addToast,
+    }))
   }
 
   const cardBody = () => (
@@ -122,14 +133,15 @@ const BallanceRedeem = ({
               color={redeemOptionButton === 'tudo' ? 'primary' : ''}
               onClick={() => {
                 if (redeemOptionButton === 'tudo') {
+                  setRedeemOptionButton(null)
                   return resetValue()
                 }
                 setRedeemOptionButton('tudo')
                 onChangeFormData({
                   ...formData,
-                  moneyToRedeem: formatNumber(
+                  moneyToRedeem: formatMoney(
                     redeemData.dados_para_resgate.posicao_cotista_fundo
-                      .saldo_atual
+                      .saldo_atual, { style: 'decimal' }
                   ),
                 })
               }}
@@ -140,6 +152,7 @@ const BallanceRedeem = ({
               color={redeemOptionButton === 'manter' ? 'primary' : ''}
               onClick={() => {
                 if (redeemOptionButton === 'manter') {
+                  setRedeemOptionButton(null)
                   return resetValue()
                 }
                 setRedeemOptionButton('manter')
@@ -188,22 +201,11 @@ const BallanceRedeem = ({
               data-gtm-name="simular"
               color="primary"
               loading={isRedeemSummaryLoading}
-              loadingColor="white"
+              loadingColor="blue4"
               disabled={
-                isMoneyLessThanAllowed() || formData.moneyToRedeem === ''
+                isMoneyLessThanAllowed() || formData.moneyToRedeem === '' || isRedeemSummaryLoading
               }
-              onClick={() =>
-                dispatch(
-                  GetRedeemSummaryRequest({
-                    id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
-                    data_operacao: moment(new Date()).format('YYYY-MM-DD'),
-                    valor: formatMoneyToNumber(
-                      formData.moneyToRedeem
-                    ).toString(),
-                    onErrorToast: addToast,
-                  })
-                )
-              }
+              onClick={handleRedeemSummaryRequest}
             >
               simular
             </ButtonStyled>
@@ -362,10 +364,16 @@ const BallanceRedeem = ({
         <CardFooter
           step={step}
           prevStep={previousStep}
-          nextStep={nextStep}
+          nextStep={() => {
+            if (!redeemSummaryData) {
+              handleRedeemSummaryRequest()
+            }
+            nextStep()
+          }}
           isNextDisabled={
             isMoneyLessThanAllowed() || formData.moneyToRedeem === ''
           }
+          isNextLoading={isRedeemSummaryLoading}
         />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}
