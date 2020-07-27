@@ -262,7 +262,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
           </Row>
           <Row
             css={`
-              margin: ${themeContext.spacing(2)}px 0;
+              margin: ${themeContext.spacing(2)}px ${themeContext.spacing(1)}px;
             `}
           >
             <Col md={12}>
@@ -274,7 +274,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
             </Col>
           </Row>
           <Row>
-            <Anbima />
+            <Anbima noMarginTop />
           </Row>
         </Container>
       )}
