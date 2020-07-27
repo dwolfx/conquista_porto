@@ -13,6 +13,8 @@ import FundDetailDrawer from 'components/FundDetail/Drawer'
 import FundDetailModal from 'components/FundDetail/Modal'
 import Text from 'components/Text'
 import TransactionHeader from 'components/Header/TransactionsHeader'
+import TokenCard from 'components/2FA/TokenCard'
+import DigitalSignature from 'components/2FA/DigitalSignature'
 import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
 import { ClearReddemSummary } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
 import { Run2FAInitialRequest } from 'store/modules/2FAToken/action'
@@ -26,14 +28,7 @@ import BallanceRedeem from './BallanceRedeem'
 import SummaryRedeem from './SummaryRedeem'
 import CardSuccessError from './components/CardSuccessError'
 
-import {
-  CustomCol,
-  Container,
-  DigitalSignature,
-  LayerStyled,
-  TokenCard,
-} from './styles'
-
+import { CustomCol, Container, LayerStyled } from './styles'
 export type IFormData = {
   moneyToRedeem: string
   alignmentAware: string

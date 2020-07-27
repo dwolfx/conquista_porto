@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import ButtonCmp from 'components/Button'
 import CardUnstyled from 'components/Card'
-import { CardBody } from 'components/Card/styles'
 import NewInput from 'components/NewInput'
 
 export const Container = styled.div`
@@ -19,14 +18,7 @@ export const Card = styled(CardUnstyled)`
   position: relative;
   @media ${props => props.theme.mediaQueries.xs} {
     border-radius: 0;
-    padding-top: ${({ theme }) => theme.spacing(3)}px;
-    max-height: max-content;
-  }
-
-  ${CardBody} {
-    @media ${props => props.theme.mediaQueries.xs} {
-      max-height: max-content;
-    }
+    max-height: 100vh;
   }
 `
 

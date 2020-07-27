@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Card from 'components/Card'
 import Layer from 'components/Layer'
 import { LayerHeader } from 'components/Layer/styles'
-import TokenCardCmp from 'components/2FA/TokenCard'
-import DigitalSignatureCmp from 'components/2FA/DigitalSignature'
 
 import {
   Container as ContainerBootstrap,
@@ -44,12 +42,4 @@ export const CustomCol = styled(ColBootstrap)`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
-`
-
-export const TokenCard = styled(TokenCardCmp)`
-  padding: ${({ theme }) => `${theme.spacing(5)}px ${theme.spacing(5)}px 0`};
-`
-
-export const DigitalSignature = styled(DigitalSignatureCmp)`
-  padding: ${({ theme }) => `${theme.spacing(5)}px ${theme.spacing(5)}px 0`};
 `
