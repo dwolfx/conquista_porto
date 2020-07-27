@@ -81,7 +81,9 @@ const ChartMiddleInfoContent = ({
       >{`${pieChartInfo.percent}%`}</Text>
       <PieItemMargin>
         <Text color="gray5" type="captionUppercase">
-          {pieChartInfo.label}
+          {pieChartInfo.label === 'Renda Variável'
+            ? 'Ações'
+            : pieChartInfo.label}
         </Text>
       </PieItemMargin>
       <Text
