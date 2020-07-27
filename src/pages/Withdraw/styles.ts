@@ -20,7 +20,7 @@ export const Col = styled(ColBootstrap)`
   height: calc(100vh - 192px);
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
-    height: auto;
+    height: 100%;
     padding: 0;
   }
 `

@@ -10,6 +10,8 @@ import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
+import Anbima from 'components/Anbima'
+
 import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
 import MainContent from './MainContent'
@@ -106,6 +108,9 @@ const Withdraw = () => {
               setPrompt={setShowPrompt}
             />
           </s.Col>
+        </Row>
+        <Row>
+          <Anbima />
         </Row>
       </s.Container>
     </>
