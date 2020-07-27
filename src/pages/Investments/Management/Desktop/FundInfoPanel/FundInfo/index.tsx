@@ -144,6 +144,7 @@ const FundInformation = ({
     fundsIsLoading,
     suitabilityIsLoading,
     suitabilityStoreData,
+    isRedeemLoading,
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
@@ -631,6 +632,8 @@ const FundInformation = ({
               data-gtm-type="click"
               data-gtm-clicktype="button"
               color="primary"
+              loading={isRedeemLoading}
+              disabled={isRedeemLoading}
               outline={true}
               onClick={handleClickRedeemButton}
             >

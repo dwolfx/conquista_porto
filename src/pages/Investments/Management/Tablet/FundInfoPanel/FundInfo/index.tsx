@@ -149,6 +149,7 @@ const FundInformation = ({
     fundsIsLoading,
     suitabilityIsLoading,
     suitabilityStoreData,
+    isRedeemLoading,
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
     idFund: state.investmentPosition.idFund,
@@ -158,6 +159,7 @@ const FundInformation = ({
     fundsIsLoading: state.investmentsList.isError,
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
+    isRedeemLoading: state.redeemData.isLoading,
   }))
 
   const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
@@ -634,6 +636,8 @@ const FundInformation = ({
               data-gtm-type="click"
               data-gtm-clicktype="button"
               color="primary"
+              loading={isRedeemLoading}
+              disabled={isRedeemLoading}
               outline={true}
               onClick={handleClickRedeemButton}
             >
