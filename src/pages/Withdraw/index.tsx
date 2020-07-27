@@ -35,7 +35,7 @@ const Withdraw = () => {
 
   const getAccountDetail = useCallback(() => {
     if (!stateLocation?.accessFromButton) {
-      dispatch(GetWithdrawDetailsRequest())
+      dispatch(GetWithdrawDetailsRequest({}))
     }
   }, [dispatch, stateLocation])
 

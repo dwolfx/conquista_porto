@@ -1,6 +1,6 @@
 import { Types, ISummartPayload, IDetailsPayload } from './types'
 
-export function GetWithdrawDetailsRequest(payload?: IDetailsPayload) {
+export function GetWithdrawDetailsRequest(payload: IDetailsPayload) {
   return {
     type: Types.GET_WITHDRAW_DETAILS_REQUEST,
     payload,

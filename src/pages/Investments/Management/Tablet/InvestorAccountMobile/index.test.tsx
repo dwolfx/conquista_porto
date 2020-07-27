@@ -24,25 +24,31 @@ describe('InvestorAccountMobile', () => {
     it('shows investor ballance value', () => {
       const { getByText } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: customStore })
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: customStore }
+      )
       expect(getByText('R$ 99,89')).toBeDefined()
     })
     it('shows investor settle value', () => {
       const { getByText } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: customStore })
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: customStore }
+      )
       expect(getByText('R$ 100,20')).toBeDefined()
     })
     it('shows all buttons', () => {
-      const { getByRole, getAllByRole } = renderWithReduxAndTheme(
+      const { getByRole, getAllByRole, getByTestId } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: customStore })
-      expect(getByRole('button', { name: 'retirar'})).toBeDefined()
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: customStore }
+      )
+      expect(getByTestId('retirar')).toBeDefined()
       expect(getAllByRole('button', { name: 'ver extrato' })).toHaveLength(2)
-    })  
+    })
   })
   describe('renders correcly with 0 values', () => {
     const zeroStore = storeFactory({
@@ -60,18 +66,22 @@ describe('InvestorAccountMobile', () => {
     it('shows both ballance and settle with value 0', () => {
       const { getAllByText } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: zeroStore })
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: zeroStore }
+      )
       expect(getAllByText('R$ 0,00')).toHaveLength(2)
     })
     it('hides all buttons', () => {
       const { queryByRole, queryAllByRole } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: zeroStore })
-      expect(queryByRole('button', { name: 'retirar'})).toBeNull()
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: zeroStore }
+      )
+      expect(queryByRole('button', { name: 'retirar' })).toBeNull()
       expect(queryAllByRole('button', { name: 'ver extrato' })).toHaveLength(0)
-    })  
+    })
   })
   describe('renders correcly when an error occours', () => {
     const errorStore = storeFactory({
@@ -84,17 +94,20 @@ describe('InvestorAccountMobile', () => {
     it('shows error message at ballance value', () => {
       const { getAllByText } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: errorStore })
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: errorStore }
+      )
       expect(getAllByText('FALHA AO CARREGAR')).toHaveLength(2)
     })
     it('shows retry button', () => {
       const { getByTestId } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: errorStore })
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: errorStore }
+      )
       expect(getByTestId('button-ballance-retry')).toBeDefined()
-
     })
   })
   describe('behaves correcly', () => {
@@ -102,7 +115,7 @@ describe('InvestorAccountMobile', () => {
       let locationLocal: RouteProps['location']
       const { getAllByRole } = renderWithReduxAndTheme(
         <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccountMobile />
           <Route
             path="*"
             render={({ location }) => {
@@ -110,16 +123,17 @@ describe('InvestorAccountMobile', () => {
               return null
             }}
           />
-        </MemoryRouter>, { store: customStore }
+        </MemoryRouter>,
+        { store: customStore }
       )
-      fireEvent.click(getAllByRole('button', { name: 'ver extrato'})[0])
+      fireEvent.click(getAllByRole('button', { name: 'ver extrato' })[0])
       expect(locationLocal!.pathname).toBe('/investimentos/extrato')
     })
     it('goes to settle extract page after clicking at "view extract"', () => {
       let locationLocal: RouteProps['location']
       const { getAllByRole } = renderWithReduxAndTheme(
         <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccountMobile />
           <Route
             path="*"
             render={({ location }) => {
@@ -127,9 +141,10 @@ describe('InvestorAccountMobile', () => {
               return null
             }}
           />
-        </MemoryRouter>, { store: customStore }
+        </MemoryRouter>,
+        { store: customStore }
       )
-      fireEvent.click(getAllByRole('button', { name: 'ver extrato'})[1])
+      fireEvent.click(getAllByRole('button', { name: 'ver extrato' })[1])
       expect(locationLocal!.pathname).toBe('/investimentos/extrato')
     })
     it('reloads data when click at retry button', () => {
@@ -154,15 +169,17 @@ describe('InvestorAccountMobile', () => {
       })
       const { rerender, getByTestId, queryByTestId } = renderWithReduxAndTheme(
         <MemoryRouter>
-          <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-        </MemoryRouter>, { store: storeError }
+          <InvestorAccountMobile />
+        </MemoryRouter>,
+        { store: storeError }
       )
       fireEvent.click(getByTestId('button-ballance-retry'))
-      rerender(<MemoryRouter>
-        <InvestorAccountMobile onChangeModalSuitabilityInfo={() => {}} />
-      </MemoryRouter>)
+      rerender(
+        <MemoryRouter>
+          <InvestorAccountMobile />
+        </MemoryRouter>
+      )
       expect(queryByTestId('button-ballance-retry')).toBeFalsy()
     })
   })
 })
-
