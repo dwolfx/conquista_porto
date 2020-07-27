@@ -16,6 +16,7 @@ import TransactionHeader from 'components/Header/TransactionsHeader'
 import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
 import { ClearReddemSummary } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
 import { Run2FAInitialRequest } from 'store/modules/2FAToken/action'
+import { formatMoneyToNumber } from 'pages/Investments/FinancialApplication/FormFinancialContribution/utils'
 import { baseURLNamespaceInvestAws, post } from 'services/api'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
@@ -82,7 +83,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       cpf_cnpj: cpf,
       id_fundo: idFund,
       data_operacao: moment().format('YYYY-MM-DD'),
-      valor: formData.moneyToRedeem,
+      valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
       ciencia_desenquadramento: formData.alignmentAware,
       tipo_resgate: '2',
     })

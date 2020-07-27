@@ -43,7 +43,7 @@
       "hora_limite": "23:59",
       "posicao_cotista_fundo": {
         "data_historico": "2020-05-08T00:00:00",
-        "saldo_atual": "3002.23"
+        "saldo_atual": "1430002.20"
       },
       "data_prevista_liquidacao": "2020-07-09T00:00:00-03:00",
       "fundo": {
@@ -5146,15 +5146,13 @@
     "organizacao": "CLIENTES_HML"
   },
   "virtual_keyboard": {
-    "usuario": "37282985812",
-    "organizacao": "CLIENTES_HML",
-    "resposta": "aaaaaa"
+    "usuario": "33244452809=",
+    "organizacao": "CLIENTES_HML"
   },
   "token_sms_email": {
-    "usuario": "37282985812",
+    "usuario": "33244452809=",
     "organizacao": "CLIENTES_HML",
-    "tipo": "sms_otp",
-    "otp_token": "12345"
+    "tipo": "sms_otp"
   },
   "personal_data_2fa": [
     {
@@ -5172,10 +5170,10 @@
   ],
   "resgates_post": {
     "id_cotista": "2000143425",
-    "cpf_cnpj": "37282985812",
+    "cpf_cnpj": "33244452809=",
     "id_fundo": "5094",
-    "data_operacao": "2020-07-25",
-    "valor": "2.002,23",
+    "data_operacao": "2020-07-27",
+    "valor": "1429002.2",
     "ciencia_desenquadramento": "S",
     "tipo_resgate": "2"
   },

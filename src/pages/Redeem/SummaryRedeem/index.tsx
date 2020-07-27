@@ -34,11 +34,17 @@ const SummaryRedeem = ({
   idFundo,
 }: ISummaryRedeem) => {
   const [isModalAccountInfoOpen, setIsModalAccountInfoOpen] = useState(false)
-  const { bankData, investmentPosition, redeemSummaryData } = useSelector(
+  const { 
+    bankData, 
+    investmentPosition, 
+    redeemSummaryData, 
+    is2FARequestLoadingInfo
+  } = useSelector(
     (state: any) => ({
       bankData: state.bankData,
       investmentPosition: state.investmentPosition,
       redeemSummaryData: state.redeemSummaryData.data,
+      is2FARequestLoadingInfo: state.token2fa.isLoadingGetInfo
     })
   )
 
@@ -167,7 +173,13 @@ const SummaryRedeem = ({
     <BaseFormStep
       cardBody={cardBody()}
       cardFooter={
-        <CardFooter step={step} prevStep={previousStep} nextStep={nextStep} isNextDisabled={false} />
+        <CardFooter 
+          step={step}
+          prevStep={previousStep}
+          nextStep={nextStep}
+          isNextDisabled={false} 
+          isNextLoading={is2FARequestLoadingInfo} 
+        />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}
     />
