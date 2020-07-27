@@ -88,9 +88,7 @@ const Desktop: React.FC<IProps> = ({
       <RowContent>
         <LeftContent xl={3}>
           <ChartPosition />
-          <InvestorAccount
-            onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-          />
+          <InvestorAccount />
         </LeftContent>
         <MainContent xl={9}>
           <InvestedFundsList

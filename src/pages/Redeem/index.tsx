@@ -54,7 +54,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const themeContext = useContext(ThemeContext)
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
-  const [isLoading, setIsLoading] = useState(false)
+  const [, setIsLoading] = useState(false)
   const [hasError, setError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)

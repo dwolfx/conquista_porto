@@ -109,15 +109,7 @@ const Tablet: React.FC<IProps> = ({
       <RowContent>
         <LeftContent data-testid="left-content" md={4} sm={5} xs={12}>
           <ChartPosition />
-          {isMobile ? (
-            <InvestorAccountMobile
-              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-            />
-          ) : (
-            <InvestorAccount
-              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-            />
-          )}
+          {isMobile ? <InvestorAccountMobile /> : <InvestorAccount />}
         </LeftContent>
         <MainContent data-testid="main-content" md={8} sm={7} xs={12}>
           <InvestedFundsList

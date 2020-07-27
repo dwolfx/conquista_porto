@@ -141,7 +141,6 @@ const FundInformation = ({
     funds,
     fundsError,
     idFund,
-    isRedeemLoading,
     fundsIsLoading,
     suitabilityIsLoading,
     suitabilityStoreData,
