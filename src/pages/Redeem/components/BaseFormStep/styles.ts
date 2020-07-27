@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import CardComponent from 'components/Card'
-import { CardBody } from 'components/Card/styles'
+import { CardHeader, CardBody } from 'components/Card/styles'
 
 export const CardStyled = styled(CardComponent)`
   height: 100%;
@@ -9,6 +9,10 @@ export const CardStyled = styled(CardComponent)`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     border-radius: 0;
     padding: 0;
+    ${CardHeader} {
+      font-size: ${({ theme }) => theme.fontTypes.heading4} !important;
+      padding: ${({ theme }) => theme.spacing(3)}px;
+    }
   }
 
   ${CardBody} {

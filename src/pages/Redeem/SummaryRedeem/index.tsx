@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 import Divisor from 'components/Divisor'
-import HorizontalList from 'components/HorizontalList'
 import ModalAccountInfo from '../components/ModalAccountInfo'
 import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
 import BaseAccountInfo from '../components/BaseAccountInfo'
 import BaseFormStep from '../components/BaseFormStep'
 import CardFooter from '../components/CardFooter'
@@ -16,6 +16,11 @@ import {
   DateWrapper,
   WrapperAccountInfoLink,
   AccountInfoLink,
+  HorizontalListStyled,
+  SimulationDateWrapper,
+  LiquidValueWrapper,
+  WrapperButtonInvestorAccount,
+  ButtonInvestorAccount,
 } from './styles'
 
 interface ISummaryRedeem {
@@ -34,19 +39,18 @@ const SummaryRedeem = ({
   idFundo,
 }: ISummaryRedeem) => {
   const [isModalAccountInfoOpen, setIsModalAccountInfoOpen] = useState(false)
-  const { 
-    bankData, 
-    investmentPosition, 
-    redeemSummaryData, 
-    is2FARequestLoadingInfo
-  } = useSelector(
-    (state: any) => ({
-      bankData: state.bankData,
-      investmentPosition: state.investmentPosition,
-      redeemSummaryData: state.redeemSummaryData.data,
-      is2FARequestLoadingInfo: state.token2fa.isLoadingGetInfo
-    })
-  )
+  const {
+    bankData,
+    investmentPosition,
+    redeemSummaryData,
+    is2FARequestLoadingInfo,
+  } = useSelector((state: any) => ({
+    bankData: state.bankData,
+    investmentPosition: state.investmentPosition,
+    redeemSummaryData: state.redeemSummaryData.data,
+    is2FARequestLoadingInfo: state.token2fa.isLoadingGetInfo,
+  }))
+  const isMobile = useMedia('xs')
 
   const cardBody = () => (
     <>
@@ -63,103 +67,181 @@ const SummaryRedeem = ({
           Resumo da solicitação
         </Text>
         <CalculationWrapper>
-          <HorizontalList
+          <HorizontalListStyled
             startItems={[
-              <Text type="headline" color="gray5">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray5"
+              >
                 Valor Bruto do Resgate
               </Text>,
             ]}
             endItems={[
-              <Text type="headline" color="gray6">
-                {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_bruto)}
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray6"
+              >
+                {formatMoney(
+                  redeemSummaryData?.dados_para_aplicacao?.valor_bruto
+                )}
               </Text>,
             ]}
           />
-          <HorizontalList
+          <HorizontalListStyled
             startItems={[
-              <Text type="headline" color="gray5">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray5"
+              >
                 IOF*
               </Text>,
             ]}
             endItems={[
-              <Text type="headline" color="gray6">
-                {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_iof)}
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray6"
+              >
+                {formatMoney(
+                  redeemSummaryData?.dados_para_aplicacao?.valor_iof
+                )}
               </Text>,
             ]}
           />
-          <HorizontalList
+          <HorizontalListStyled
             startItems={[
-              <Text type="headline" color="gray5">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray5"
+              >
                 IR*
               </Text>,
             ]}
             endItems={[
-              <Text type="headline" color="gray6">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray6"
+              >
                 {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_ir)}
               </Text>,
             ]}
           />
         </CalculationWrapper>
-        <HorizontalList
-          css={`
-            padding: 0 28px;
-          `}
-          startItems={[
-            <Text type="headline" color="gray5">
-              Valor líquido do resgate
-            </Text>,
-          ]}
-          endItems={[
-            <Text type="headline" color="gray6">
-              {formatMoney(redeemSummaryData?.dados_para_aplicacao?.valor_liquido)}
-            </Text>,
-          ]}
-        />
+        <LiquidValueWrapper>
+          <HorizontalListStyled
+            css={`
+              padding: 0 28px !important;
+            `}
+            startItems={[
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray5"
+              >
+                Valor líquido do resgate
+              </Text>,
+            ]}
+            endItems={[
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray6"
+              >
+                {formatMoney(
+                  redeemSummaryData?.dados_para_aplicacao?.valor_liquido
+                )}
+              </Text>,
+            ]}
+          />
+        </LiquidValueWrapper>
       </SimulationWrapper>
       <Divisor />
-      <SimulationWrapper>
+      <SimulationDateWrapper>
         <Text type="headline" bold color="gray5">
           Estimativa de datas
         </Text>
         <DateWrapper>
-          <HorizontalList
+          <HorizontalListStyled
             startItems={[
-              <Text type="headline" color="gray5">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray5"
+              >
                 Cotização
               </Text>,
             ]}
             endItems={[
-              <Text type="headline" color="gray6">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray6"
+              >
                 {moment(
                   redeemSummaryData?.dados_para_resgate?.data_prevista_conversão
                 ).format('DD/MM/YYYY')}
               </Text>,
             ]}
           />
-          <HorizontalList
+          <HorizontalListStyled
             startItems={[
-              <Text type="headline" color="gray5">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray5"
+              >
                 Liquidação
               </Text>,
             ]}
             endItems={[
-              <Text type="headline" color="gray6">
+              <Text
+                type={isMobile ? 'body' : 'headline'}
+                bold={isMobile}
+                color="gray6"
+              >
                 {moment(
-                  redeemSummaryData?.dados_para_resgate?.data_prevista_liquidacao
+                  redeemSummaryData?.dados_para_resgate
+                    ?.data_prevista_liquidacao
                 ).format('DD/MM/YYYY')}
               </Text>,
             ]}
           />
         </DateWrapper>
-      </SimulationWrapper>
+      </SimulationDateWrapper>
       <Divisor />
       <WrapperAccountInfoLink>
-        <Text type="body" color="gray5" bold>
-          O valor resgatado será creditado na sua{' '}
-          <AccountInfoLink onClick={() => setIsModalAccountInfoOpen(true)}>
-            Conta de Investimento
-          </AccountInfoLink>
-        </Text>
+        {isMobile ? (
+          <>
+            <Text type="body" color="gray5" bold>
+              O valor resgatado será creditado na sua Conta de Investimento.
+            </Text>
+            <WrapperButtonInvestorAccount>
+              <ButtonInvestorAccount
+                data-gtm-subname="resgate de fundo"
+                data-gtm-name="conta de investimento"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                outline
+                color="primary"
+                onClick={() => setIsModalAccountInfoOpen(true)}
+              >
+                sobre a conta de investimento
+              </ButtonInvestorAccount>
+            </WrapperButtonInvestorAccount>
+          </>
+        ) : (
+          <Text type="body" color="gray5" bold>
+            O valor resgatado será creditado na sua{' '}
+            <AccountInfoLink onClick={() => setIsModalAccountInfoOpen(true)}>
+              Conta de Investimento
+            </AccountInfoLink>
+          </Text>
+        )}
       </WrapperAccountInfoLink>
       <ModalAccountInfo
         isOpen={isModalAccountInfoOpen}
@@ -173,12 +255,12 @@ const SummaryRedeem = ({
     <BaseFormStep
       cardBody={cardBody()}
       cardFooter={
-        <CardFooter 
+        <CardFooter
           step={step}
           prevStep={previousStep}
           nextStep={nextStep}
-          isNextDisabled={false} 
-          isNextLoading={is2FARequestLoadingInfo} 
+          isNextDisabled={false}
+          isNextLoading={is2FARequestLoadingInfo}
         />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}

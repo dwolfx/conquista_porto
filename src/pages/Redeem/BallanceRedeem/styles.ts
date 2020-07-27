@@ -1,15 +1,15 @@
-
 import { Col } from 'styled-bootstrap-grid'
 import styled from 'styled-components'
 import ButtonComponent from 'components/Button'
 import VerticalList from 'components/VerticalList'
-import HorizontalList from 'components/HorizontalList';
+import HorizontalList from 'components/HorizontalList'
 
 export const RedeemFormContainer = styled(Col)`
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
   margin: ${({ theme }) => theme.spacing(4)}px 0;
   @media ${props => props.theme.mediaQueries.xs} {
-    padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(3)}px 0 ${theme.spacing(3)}px`};
+    padding: ${({ theme }) =>
+      `${theme.spacing(3)}px ${theme.spacing(3)}px 0 ${theme.spacing(3)}px`};
     margin: ${({ theme }) => theme.spacing(3)}px 0;
 
     &:first-child {
@@ -63,7 +63,7 @@ interface ICalculationOverlayProps {
   isOpen: boolean
 }
 export const CalculationOverlay = styled.div<ICalculationOverlayProps>`
-  display: ${({ isOpen }) => isOpen ? 'flex' : 'none'};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   position: absolute;
   justify-content: center;
   align-items: center;
@@ -84,6 +84,9 @@ export const InformationsWrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.gray1};
     width: 100%;
   }
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: ${({ theme }) => theme.spacing(3)}px;
+  }
 `
 
 export const ButtonStyled = styled(ButtonComponent)`
@@ -96,7 +99,6 @@ export const ButtonStyled = styled(ButtonComponent)`
     margin: ${({ theme }) => theme.spacing(2)}px 0;
     width: 100%;
   }
-
 `
 
 export const InputWrapper = styled.div`
