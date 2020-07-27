@@ -88,15 +88,15 @@ const FormFinancialContribution = ({
 
   const {
     bankData,
-    investmentPosition,
     auth,
+    financialApplicationHasError,
     financialApplicationLoading,
     financialApplicationData,
     alignmentTermsLoading,
   } = useSelector((state: any) => ({
     bankData: state.bankData,
-    investmentPosition: state.investmentPosition,
     auth: state.auth,
+    financialApplicationHasError: state.financialApplicationGetData.hasError,
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
     financialApplicationData: state.financialApplicationGetData.data,
     alignmentTermsLoading: state.alignmentTerms.isLoading,
@@ -117,7 +117,7 @@ const FormFinancialContribution = ({
   }
 
   const renderBaseAccountInfo = () => {
-    if (bankData.isLoading || investmentPosition.isLoading) {
+    if (bankData.isLoading || financialApplicationLoading) {
       return (
         <>
           <Text type="headline" color="gray5">
@@ -128,7 +128,7 @@ const FormFinancialContribution = ({
       )
     }
 
-    if (investmentPosition.hasError || bankData.hasError) {
+    if (financialApplicationHasError || bankData.hasError) {
       return (
         <>
           <Text type="headline" color="magenta2">
@@ -144,19 +144,6 @@ const FormFinancialContribution = ({
       )
     }
 
-    const chosenInvestmentFund = () =>
-      investmentPosition.data &&
-      investmentPosition.data.length !== 0 &&
-      investmentPosition.data[0].posicoes.posicao.find(
-        (posicao: any) => posicao.fundo.id_carteira === idFundo
-      )
-
-    const fund: any = chosenInvestmentFund()
-    let saldoAtual = ''
-    if (fund) {
-      saldoAtual = fund.saldo_atual
-    }
-
     return (
       <>
         <VerticalListStyled
@@ -166,8 +153,7 @@ const FormFinancialContribution = ({
             </Text>,
             <Text type="headline" color="gray6" bold>
               {formatMoney(
-                bankData.data.DadosContaPortoSeguro &&
-                  bankData.data.DadosContaPortoSeguro.saldo_disponivel
+                financialApplicationData.dados_para_aplicacao.saldo_conta
               )}
             </Text>,
             <Text type="caption" color="gray5" bold>
@@ -183,10 +169,11 @@ const FormFinancialContribution = ({
               </Text>,
               <Text type="headline" color="gray6" bold>
                 {formatMoney(
-                  investmentPosition.data &&
-                    investmentPosition.data.length === 0
-                    ? 0
-                    : saldoAtual
+                  financialApplicationData.dados_para_aplicacao
+                    ?.posicao_cotista_fundo?.saldo_atual
+                    ? financialApplicationData.dados_para_aplicacao
+                        ?.posicao_cotista_fundo.saldo_atual
+                    : 0
                 )}
               </Text>,
               <Text type="caption" color="gray5" bold>
@@ -260,8 +247,8 @@ const FormFinancialContribution = ({
         !formData.isAwareOfTerms ||
         bankData.isLoading ||
         bankData.hasError ||
-        investmentPosition.isLoading ||
-        investmentPosition.hasError ||
+        financialApplicationLoading ||
+        financialApplicationHasError ||
         financialApplicationLoading ||
         nextButtonLoading ||
         alignmentTermsLoading
