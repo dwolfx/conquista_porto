@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 import { ThemeContext } from 'styled-components/macro'
@@ -19,7 +19,7 @@ import { formatMoney, formatNumber, formatMoneyDecimal } from 'helpers'
 import BaseAccountInfo from '../components/BaseAccountInfo'
 import BaseFormStep from '../components/BaseFormStep'
 import CardFooter from '../components/CardFooter'
-import { IFormData } from '..'
+import { IFormData, TButtonOption } from '..'
 
 import {
   RedeemFormContainer,
@@ -37,6 +37,8 @@ import {
 interface IBallanceRedeem {
   formData: IFormData
   onChangeFormData: (form: IFormData) => void
+  redeemOptionButton: TButtonOption
+  onChangeRedeemOptionButton: (value: TButtonOption) => void 
   step: number
   onChangeFundDetailOpen: (isOpen: boolean) => void
   nextStep: () => void
@@ -47,6 +49,8 @@ interface IBallanceRedeem {
 const BallanceRedeem = ({
   formData,
   onChangeFormData,
+  redeemOptionButton,
+  onChangeRedeemOptionButton,
   step,
   nextStep,
   previousStep,
@@ -56,11 +60,6 @@ const BallanceRedeem = ({
 }: IBallanceRedeem) => {
   useFetchBankData()
 
-  type TButtonOption = 'manter' | 'tudo' | null
-
-  const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(
-    null
-  )
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const themeContext = useContext(ThemeContext)
@@ -133,10 +132,10 @@ const BallanceRedeem = ({
               color={redeemOptionButton === 'tudo' ? 'primary' : ''}
               onClick={() => {
                 if (redeemOptionButton === 'tudo') {
-                  setRedeemOptionButton(null)
+                  onChangeRedeemOptionButton(null)
                   return resetValue()
                 }
-                setRedeemOptionButton('tudo')
+                onChangeRedeemOptionButton('tudo')
                 onChangeFormData({
                   ...formData,
                   moneyToRedeem: formatMoney(
@@ -152,10 +151,10 @@ const BallanceRedeem = ({
               color={redeemOptionButton === 'manter' ? 'primary' : ''}
               onClick={() => {
                 if (redeemOptionButton === 'manter') {
-                  setRedeemOptionButton(null)
+                  onChangeRedeemOptionButton(null)
                   return resetValue()
                 }
-                setRedeemOptionButton('manter')
+                onChangeRedeemOptionButton('manter')
                 onChangeFormData({
                   ...formData,
                   moneyToRedeem: calcMinimalBallance(),
