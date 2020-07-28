@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import Card from 'components/Card'
 import Layer from 'components/Layer'
+import AnbimaComponent from 'components/Anbima'
 import { LayerHeader } from 'components/Layer/styles'
 
 import {
@@ -42,4 +43,8 @@ export const CustomCol = styled(ColBootstrap)`
 
 export const FullHeightCard = styled(Card)`
   height: 100%;
+`
+
+export const Anbima = styled(AnbimaComponent)`
+  margin-top: 0;
 `

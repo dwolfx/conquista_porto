@@ -24,12 +24,8 @@ const MailLink = ({ hrefValue, children, ...rest }: IMailLink) => (
   </a>
 )
 
-interface IAnbima {
-  noMarginTop?: boolean
-}
-
-const Anbima = ({ noMarginTop }: IAnbima) => (
-  <GridContainer noMarginTop={noMarginTop}>
+const Anbima = ({ ...rest }) => (
+  <GridContainer {...rest}>
     <GridRow>
       <GridCol lg={12}>
         <TextWrapper>
