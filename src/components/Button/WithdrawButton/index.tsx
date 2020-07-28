@@ -9,6 +9,7 @@ import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
 interface IProps {
   loading?: boolean
+  onClickSetLoading?: (state: boolean) => void
   onClick?: () => void
   disabled?: boolean
   gtmSubname: string
@@ -16,6 +17,7 @@ interface IProps {
 
 const WithdrawButton: React.FC<IProps> = ({
   loading = false,
+  onClickSetLoading,
   onClick,
   disabled = false,
   gtmSubname,
@@ -68,6 +70,10 @@ const WithdrawButton: React.FC<IProps> = ({
       })
     )
 
+    if (onClickSetLoading) {
+      onClickSetLoading(true)
+    }
+
     if (onClick) {
       onClick()
     }
@@ -77,7 +83,7 @@ const WithdrawButton: React.FC<IProps> = ({
     <Button
       color="primary"
       outline
-      loading={isLoading && isButtonClicked}
+      loading={isLoading && (isButtonClicked || loading)}
       loadingColor="blue4"
       disabled={
         disabled || (isLoading && isButtonClicked) || +availableBalance === 0

@@ -1773,7 +1773,7 @@
       "saldo_liquidar": "1003.40",
       "agencia": "0001",
       "codigo_banco": "306",
-      "saldo_disponivel": "0",
+      "saldo_disponivel": "1000000.0",
       "cpf": "33244452809",
       "encargos_acumulados": "0",
       "valores_bloqueados": {
@@ -4948,11 +4948,11 @@
     "organizacao": "CLIENTES_HML"
   },
   "virtual_keyboard": {
-    "usuario": "37282985812",
+    "usuario": "33244452809",
     "organizacao": "CLIENTES_HML"
   },
   "token_sms_email": {
-    "usuario": "33244452809=",
+    "usuario": "33244452809",
     "organizacao": "CLIENTES_HML",
     "tipo": "sms_otp"
   },
@@ -5014,7 +5014,7 @@
         },
         "saldo_liquidar": "0"
       },
-      "fechado_retirada": true,
+      "fechado_retirada": false,
       "horario_inicio_permitido_retirada": "06:30:00",
       "horario_fim_permitido_retirada": "20:59:00"
     }
