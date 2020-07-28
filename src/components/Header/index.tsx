@@ -46,7 +46,7 @@ export default function HeaderNew({ crumbs }: IProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
-  const { customerProfile, balanceData, points, userData } = useSelector(
+  const { customerProfile, balanceData, userData } = useSelector(
     (state: any) => ({
       customerProfile: state.customerProfile,
       balanceData: state.points.balanceData,
@@ -150,7 +150,7 @@ export default function HeaderNew({ crumbs }: IProps) {
           }
           setIsOpen={setIsMobileOpen}
           totalPoints={
-            !!points &&
+            !!balanceData.consultaPontosResponseType && 
             !!pointsAmountBalance &&
             Intl.NumberFormat().format(pointsAmountBalance)
           }
