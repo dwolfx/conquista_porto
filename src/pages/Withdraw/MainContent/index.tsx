@@ -29,13 +29,20 @@ interface IProps {
   setStep: (step: number) => void
   onError: () => void
   setPrompt: (prompt: boolean) => void
+  setMessageStep: (isMessageStep: boolean) => void
 }
 
 interface IFooter {
   nextStepAction?: () => void
 }
 
-const MainContent = ({ step, setStep, onError, setPrompt }: IProps) => {
+const MainContent = ({
+  step,
+  setStep,
+  onError,
+  setPrompt,
+  setMessageStep,
+}: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const inputRef = useRef() as React.RefObject<HTMLInputElement>
@@ -84,10 +91,11 @@ const MainContent = ({ step, setStep, onError, setPrompt }: IProps) => {
       .then(() => setIsSuccess(true))
       .catch(() => setError(true))
       .finally(() => {
+        setMessageStep(true)
         setIsLoading(false)
         setPrompt(false)
       })
-  }, [id_cotista, formData, cpf, setPrompt])
+  }, [id_cotista, formData, cpf, setPrompt, setMessageStep])
 
   const nextStep = () => {
     if (
