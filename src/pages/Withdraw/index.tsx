@@ -27,6 +27,7 @@ const Withdraw = () => {
   const maxSteps = 4
   const [step, setStep] = useState<number>(1)
   const [showPrompt, setShowPrompt] = useState<boolean>(true)
+  const [isMessageStep, setMessageStep] = useState<boolean>(false)
 
   const { withdrawDetails } = useSelector<any, any>(state => ({
     id_cotista: state.suitabilityInfo.data?.id_cotista,
@@ -83,13 +84,14 @@ const Withdraw = () => {
             : history.goBack()
         }
         onClose={() => history.push('/')}
-        showBackButton={step !== 1}
+        showBackButton={step !== 1 && !isMessageStep}
         showStepsBar
         stepsBarProps={{
           title: 'Retirar',
           step,
           maxSteps,
           setStep,
+          hideSteps: isMessageStep,
         }}
       />
       <s.Container>
@@ -106,6 +108,7 @@ const Withdraw = () => {
               maxSteps={maxSteps}
               onError={onError}
               setPrompt={setShowPrompt}
+              setMessageStep={setMessageStep}
             />
           </s.Col>
         </Row>
