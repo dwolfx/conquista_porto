@@ -6,11 +6,11 @@ import { buildToast, ToastTypes } from 'store/modules/toastActions'
 import { Types } from './types'
 import { GetBankExtractSuccess, GetBankExtractFailure } from './action'
 
-function* getData({ payload: { tipoFiltro, dataInicial, dataFinal }, cpf }) {
+function* getData({ payload: { tipoFiltro, dataInicial, dataFinal } }) {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/conta/extrato?cpfCnpj=${cpf}&tipoFiltro=${tipoFiltro}&dataInicial=${dataInicial}&dataFinal=${dataFinal}`
+      `${baseURLNamespaceInvest}/conta/extrato?tipoFiltro=${tipoFiltro}&dataInicial=${dataInicial}&dataFinal=${dataFinal}`
     )
     yield put(GetBankExtractSuccess(response.data))
   } catch (err) {
