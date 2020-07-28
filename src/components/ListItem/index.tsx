@@ -55,7 +55,7 @@ export default function ListItem({
       )}
       <TextWrapper hasStartIcon={!!StartIcon} hasEndIcon={!!EndIcon}>
         {text.map(t => (
-          <Text type={t.type} color={t.color}>
+          <Text key={Math.random().toString(36).substring(7)} type={t.type} color={t.color}>
             {t.content}
           </Text>
         ))}
