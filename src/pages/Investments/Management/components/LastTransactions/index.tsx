@@ -25,6 +25,7 @@ import {
   LoadingStyled,
   TableContainer,
 } from './styles'
+import Text from 'components/Text'
 
 const LastTransations = () => {
   const dispatch = useDispatch()
@@ -108,7 +109,20 @@ const LastTransations = () => {
               text-align: center;
             `}
           >
-            <List data={lastFiveTransactions} />
+            {bankExtractFund.data[0] &&
+            typeof bankExtractFund.data[0].operacoes === 'string' ? (
+              <Text
+                type="headline"
+                color="gray5"
+                css={`
+                  text-align: center;
+                `}
+              >
+                Não existem movimentações nos últimos 30 dias.
+              </Text>
+            ) : (
+              <List data={lastFiveTransactions} />
+            )}
             <Button
               outline
               onClick={() => {
@@ -122,9 +136,22 @@ const LastTransations = () => {
           </div>
         ) : (
           <>
-            <TableContainer>
-              <Table data={lastFiveTransactions} />
-            </TableContainer>
+            {bankExtractFund.data[0] &&
+            typeof bankExtractFund.data[0].operacoes === 'string' ? (
+              <Text
+                type="headline"
+                color="gray5"
+                css={`
+                  text-align: center;
+                `}
+              >
+                Não existem movimentações nos últimos 30 dias.
+              </Text>
+            ) : (
+              <TableContainer>
+                <Table data={lastFiveTransactions} />
+              </TableContainer>
+            )}
             <ButtonLink
               onClick={() => {
                 history.push(
@@ -142,13 +169,6 @@ const LastTransations = () => {
         )}
       </Container>
     )
-  }
-
-  if (
-    bankExtractFund.data[0] &&
-    typeof bankExtractFund.data[0].operacoes === 'string'
-  ) {
-    return <noscript />
   }
 
   return (
