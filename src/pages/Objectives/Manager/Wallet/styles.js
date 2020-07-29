@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import SliderComp from 'components/Slider'
+import Button from 'components/Button'
 
 import { TextStyle } from 'components/Text/styles'
 import { Col, Row } from 'styled-bootstrap-grid'
-import { Button } from 'components/Button/styles'
 
 export const Slider = styled(SliderComp)`
   border-radius: ${props => (props.onlyObjective ? '7px' : 0)};

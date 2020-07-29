@@ -17,6 +17,7 @@ import 'styled-components/macro'
 interface IButtonInvest {
   id: number
   name: string
+  release_to_apply?: boolean
   is_fund_active?: boolean
 }
 
@@ -217,7 +218,7 @@ const ButtonInvest = ({
   return (
     <>
       <ButtonBlock
-        disabled={!fund.is_fund_active}
+        disabled={!fund.release_to_apply}
         loading={investButtonLoading}
         loadingColor="white"
         data-gtm-type="click"
@@ -231,7 +232,7 @@ const ButtonInvest = ({
         }}
       >
         <>
-          {!fund.is_fund_active && (
+          {!fund.release_to_apply && (
             <IconButoon name="lock2" color="gray4" width="22" />
           )}
           Investir
