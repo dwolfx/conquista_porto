@@ -110,6 +110,17 @@ export const ButtonCustom = styled(Button)`
     ${({ theme }) => theme.spacing(1)}px;
 `
 
+export const ButtonClosed = styled(Button).attrs(() => ({
+  color: 'primary',
+  outline: true,
+  disabled: true,
+  loading: false,
+}))`
+  min-width: 169px;
+  margin: ${({ theme }) => theme.spacing(2)}px
+    ${({ theme }) => theme.spacing(1)}px;
+`
+
 export const LockFundWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -118,7 +129,7 @@ export const LockFundWrapper = styled.div`
 `
 
 export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
-  fill: ${props => props.theme.colors.gray6};
+  fill: ${({ theme }) => theme.colors.gray3};
   height: 21px;
   width: 21px;
 

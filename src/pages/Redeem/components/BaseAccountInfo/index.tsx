@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import Text from 'components/Text'
 import VerticalListStyled from 'components/VerticalList'
-import { useToast } from 'hooks/toast' 
+import { useToast } from 'hooks/toast'
 import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import { formatMoney } from 'helpers'
 
@@ -22,7 +22,6 @@ const BaseAccountInfo = ({ idFundo, isLoading, hasError }: IProps) => {
 
   const { redeemData } = useSelector((state: any) => ({
     redeemData: state.redeemData.data,
-
   }))
 
   if (isLoading) {
@@ -44,11 +43,13 @@ const BaseAccountInfo = ({ idFundo, isLoading, hasError }: IProps) => {
         </Text>
         <IconRetry
           onClick={() => {
-            dispatch(GetRedeemRequest({
-              id_fundo: idFundo,
-              data_operacao: moment(new Date()).format('YYYY-MM-DD'),
-              onErrorToast: addToast
-            }))
+            dispatch(
+              GetRedeemRequest({
+                id_fundo: idFundo,
+                data_operacao: moment(new Date()).format('YYYY-MM-DD'),
+                onErrorToast: addToast,
+              })
+            )
           }}
         />
       </>
@@ -63,9 +64,10 @@ const BaseAccountInfo = ({ idFundo, isLoading, hasError }: IProps) => {
             fundo
           </Text>,
           <Text type="headline" color="gray6" bold>
-            {redeemData && formatMoney(
-              redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
-            )}
+            {redeemData &&
+              formatMoney(
+                redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
+              )}
           </Text>,
           <Text type="caption" color="gray5" bold>
             Saldo e rendimento bruto

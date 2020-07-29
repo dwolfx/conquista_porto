@@ -102,6 +102,7 @@ export default function Mobile({
             if (item.children) {
               return (
                 <AccordionNew
+                  key={`accordion-item-${item.icon}`}
                   openByDefault={false}
                   triggerCloseOnArrow
                   titleNode={
@@ -123,6 +124,7 @@ export default function Mobile({
                 >
                   {item.children.map((child: any) => (
                     <ListItem
+                      key={`accordion-child-item-${child.icon}`}
                       text={[
                         {
                           type: 'headline',
@@ -144,6 +146,7 @@ export default function Mobile({
 
             return (
               <ListItem
+                key={`accordion-last-item-${item.icon}`}
                 StartIcon={startIcon}
                 text={[
                   {

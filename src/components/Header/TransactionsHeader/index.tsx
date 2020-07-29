@@ -15,6 +15,7 @@ export interface IProps {
     maxSteps: number
     setStep?: (step: number) => void
     title: string
+    hideSteps?: boolean
   }
   showBackButton?: boolean
 }
@@ -29,17 +30,19 @@ const TransactionHeader = ({
     maxSteps: 1,
     setStep: () => null,
     title: '',
+    hideSteps: false,
   },
   ...rest
 }: IProps) => {
   const getStepCount = () => {
-    if (showStepsBar) {
+    if (!stepsBarProps.hideSteps) {
       return [
         <Text color="gray4" type="title" data-testid="steps">
           {`ETAPA ${stepsBarProps.step} de ${stepsBarProps.maxSteps}`}
         </Text>,
       ]
     }
+
     return []
   }
 

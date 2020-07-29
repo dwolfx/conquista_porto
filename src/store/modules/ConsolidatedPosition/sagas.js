@@ -7,11 +7,11 @@ import {
   GetConsolidatedPositionDataFailure,
 } from './action'
 
-function* getData({ cpf }) {
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/cotistas/posicao-consolidada?cpf=${cpf}`
+      `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
     )
 
     yield put(GetConsolidatedPositionDataSuccess(response.data))

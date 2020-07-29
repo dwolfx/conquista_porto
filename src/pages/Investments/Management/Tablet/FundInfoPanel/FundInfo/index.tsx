@@ -41,6 +41,7 @@ import {
   CaroselContent,
   LockIcon,
   CustomPopover,
+  ButtonClosed,
 } from './styles'
 
 export const months = [
@@ -100,6 +101,7 @@ interface IFundInformationProps {
       id_carteira: string
       nome_gestor: string
       resgate_liberado: boolean
+      aplicao_liberada: boolean
     }
     saldo_atual: string
     saldo_bloqueado: string
@@ -363,11 +365,13 @@ const FundInformation = ({
       onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
 
       if ((modalProps as IValidProps).isValid) {
-        dispatch(GetRedeemRequest({
-          data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
-          id_fundo: idFund,
-          onErrorToast: addToast
-        }))
+        dispatch(
+          GetRedeemRequest({
+            data_operacao: moment().format('YYYY-MM-DD'),
+            id_fundo: idFund,
+            onErrorToast: addToast,
+          })
+        )
       }
     }
 
@@ -627,7 +631,15 @@ const FundInformation = ({
               placement="bottom"
               tooltip
             >
-              <LockIcon />
+              <ButtonClosed
+                data-gtm-subname="painel de informações de fundo"
+                data-gtm-name="resgatar fechado"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+              >
+                <LockIcon />
+                Resgatar
+              </ButtonClosed>
             </CustomPopover>
           ) : (
             <ButtonCustom
@@ -644,21 +656,39 @@ const FundInformation = ({
               Resgatar
             </ButtonCustom>
           )}
-          <ButtonCustom
-            loading={investButtonIsLoading}
-            loadingColor="white"
-            data-gtm-subname="painel de informações de fundo"
-            data-gtm-name="investir"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            color="secondary"
-            onClick={() => {
-              onChangeLayerOpen(position.fundo.id_carteira)
-              setInvestButtonIsLoading(true)
-            }}
-          >
-            Investir
-          </ButtonCustom>
+          {!position.fundo.aplicao_liberada ? (
+            <CustomPopover
+              content="Fundo fechado para aplicação"
+              placement="bottom"
+              tooltip
+            >
+              <ButtonClosed
+                data-gtm-subname="painel de informações de fundo"
+                data-gtm-name="investir fechado"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+              >
+                <LockIcon />
+                Investir
+              </ButtonClosed>
+            </CustomPopover>
+          ) : (
+            <ButtonCustom
+              loading={investButtonIsLoading}
+              loadingColor="white"
+              data-gtm-subname="painel de informações de fundo"
+              data-gtm-name="investir"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              color="secondary"
+              onClick={() => {
+                onChangeLayerOpen(position.fundo.id_carteira)
+                setInvestButtonIsLoading(true)
+              }}
+            >
+              Investir
+            </ButtonCustom>
+          )}
         </ButtonsWrapper>
       </RowWithoutPadding>
     </>

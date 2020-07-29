@@ -4,11 +4,11 @@ import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import { GetCreditCardDataSuccess, GetCreditCardDataFailure } from './action'
 
-function* getData({ cpf }) {
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/cartoes?cpfCnpj=${cpf}&codigoCanal=0`
+      `${baseURLNamespaceInvest}/cartoes?codigoCanal=0`
     )
 
     let responseData = response.data

@@ -6,7 +6,7 @@ import { GetPositionDataSuccess, GetPositionDataFailure } from './action'
 import { getConsolidatedPosition } from './selectors'
 import { Types } from './types'
 
-function* getData({ cpf }) {
+function* getData() {
   try {
     const consolidatedPositionState = yield select(getConsolidatedPosition)
 
@@ -14,13 +14,13 @@ function* getData({ cpf }) {
       ? consolidatedPositionState
       : yield call(
           get,
-          `${baseURLNamespaceInvest}/cotistas/posicao-consolidada?cpf=${cpf}`
+          `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
         )
 
     if (saldoResponse.data.saldototal > 0) {
       const response = yield call(
         get,
-        `${baseURLNamespaceInvest}/cotistas/posicao?cpf=${cpf}&codigoCanal=0`
+        `${baseURLNamespaceInvest}/cotistas/posicao?codigoCanal=0`
       )
 
       let responseData = response.data

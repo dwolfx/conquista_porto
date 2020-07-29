@@ -5,7 +5,6 @@ import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import moment from 'moment'
 import 'styled-components/macro'
-import Anbima from 'components/Anbima'
 import AlignmentTerms from 'components/Investment/AlignmentTerms'
 import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
@@ -28,7 +27,7 @@ import BallanceRedeem from './BallanceRedeem'
 import SummaryRedeem from './SummaryRedeem'
 import CardSuccessError from './components/CardSuccessError'
 
-import { CustomCol, Container, LayerStyled } from './styles'
+import { Anbima, CustomCol, Container, LayerStyled } from './styles'
 export type IFormData = {
   moneyToRedeem: string
   alignmentAware: string
@@ -111,7 +110,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       GetRedeemAlignmentTermsRequest({
         data: {
           data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
-          valor_bruto: formatMoneyToNumber(formData.moneyToRedeem).toString(), 
+          valor_bruto: formatMoneyToNumber(formData.moneyToRedeem).toString(),
           id_fundo: selectedFundId,
         },
         onSuccess: (alignmentData: any) => {
@@ -282,7 +281,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
             </Col>
           </Row>
           <Row>
-            <Anbima noMarginTop />
+            <Anbima />
           </Row>
         </Container>
       )}

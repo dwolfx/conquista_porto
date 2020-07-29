@@ -1,4 +1,4 @@
-import { get, baseURLNamespaceInvestAws } from 'services/api'
+import { get, baseURLNamespaceInvest } from 'services/api'
 import { GetDataSuccess, GetDataFailure } from './action'
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 import { Types } from './types'
@@ -7,7 +7,7 @@ function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvestAws}/cliente/dados`
+      `${baseURLNamespaceInvest}/perfil/dados-cliente`
     )
     yield put(GetDataSuccess(response.data))
   } catch (err) {

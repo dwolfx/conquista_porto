@@ -10,9 +10,6 @@ interface IProps {
   outline?: boolean
   loading?: boolean
   loadingColor?: keyof typeof themeColors
-  onClick?: () => void
-  disabled?: boolean
-  type?: 'button' | 'submit' | 'reset'
   dataTestId?: 'button'
 }
 
@@ -23,17 +20,9 @@ const Button: React.FC<IProps &
   outline = false,
   loading = false,
   loadingColor = 'blue4',
-  onClick,
-  disabled,
   ...rest
 }) => (
-  <s.Button
-    onClick={onClick}
-    color={color}
-    outline={outline}
-    disabled={disabled}
-    {...rest}
-  >
+  <s.Button color={color} outline={outline} {...rest}>
     <s.Content>
       {loading ? <LoadingIcon type="spinner" color={loadingColor} /> : children}
     </s.Content>
