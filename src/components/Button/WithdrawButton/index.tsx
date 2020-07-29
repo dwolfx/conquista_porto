@@ -6,6 +6,7 @@ import moment from 'moment'
 import Button from 'components/Button'
 import { useToast } from 'hooks/toast'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
+import { formatLocaleStringToNumber } from 'helpers'
 
 interface IProps {
   loading?: boolean
@@ -86,7 +87,9 @@ const WithdrawButton: React.FC<IProps> = ({
       loading={isLoading && (isButtonClicked || loading)}
       loadingColor="blue4"
       disabled={
-        disabled || (isLoading && isButtonClicked) || +availableBalance === 0
+        disabled ||
+        (isLoading && isButtonClicked) ||
+        !formatLocaleStringToNumber(availableBalance || '0')
       }
       data-gtm-type="click"
       data-gtm-clicktype="button"
@@ -94,7 +97,9 @@ const WithdrawButton: React.FC<IProps> = ({
       data-gtm-name="retirar"
       onClick={handleClick}
       title={
-        +availableBalance === 0 ? `Saldo indisponível` : 'clique para retirar'
+        !formatLocaleStringToNumber(availableBalance || '0')
+          ? `Saldo indisponível`
+          : 'clique para retirar'
       }
       data-testid="retirar"
       {...rest}
