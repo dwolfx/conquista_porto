@@ -68,7 +68,7 @@ export default function ManagementTripInsurance() {
   }
 
   if (tripInsurance.data && selectedTripInsurance) {
-    const morteAcidental = selectedTripInsurance.CoberturasBasicas.find(
+    const morteAcidental = selectedTripInsurance.CoberturasBasicas.CoberturaBasica.find(
       item => item.Nome.toLowerCase() === 'morte acidental'
     )
     return (
@@ -129,7 +129,9 @@ export default function ManagementTripInsurance() {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(item.DtFinalVigencia).format('DD-MM-YYYY')}
+                    {moment(item.DtFinalVigencia, 'YYYY-MM-DD-HH-mm').format(
+                      'DD-MM-YYYY'
+                    )}
                   </Text>
                 </ManageableItem>
               ))}
@@ -198,13 +200,15 @@ export default function ManagementTripInsurance() {
                       Período
                     </Text>
                     <Text>
-                      {moment(selectedTripInsurance.DtInicioVigencia).format(
-                        'DD/MM/YYYY'
-                      )}{' '}
+                      {moment(
+                        selectedTripInsurance.DtInicioVigencia,
+                        'YYYY-MM-DD-HH-mm'
+                      ).format('DD/MM/YYYY')}{' '}
                       até{' '}
-                      {moment(selectedTripInsurance.DtFinalVigencia).format(
-                        'DD/MM/YYYY'
-                      )}
+                      {moment(
+                        selectedTripInsurance.DtFinalVigencia,
+                        'YYYY-MM-DD-HH-mm'
+                      ).format('DD/MM/YYYY')}
                     </Text>
                   </Period>
                 </PeriodContainer>
@@ -259,7 +263,9 @@ export default function ManagementTripInsurance() {
                   right: 12px;
                   font-size: 13px;
                 `}
-              ></span>
+              >
+                &gt;
+              </span>
             </span>
           }
           onClick={() =>
