@@ -179,7 +179,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
 
         <Cell alignLeft>
           <Text bold type="body" color="gray5">
-            Variação (P.P.)
+            Variação
           </Text>
         </Cell>
         <Cell>
