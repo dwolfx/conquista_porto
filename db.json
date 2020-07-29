@@ -3665,7 +3665,7 @@
               "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
               "categoria_ambima": "Ações Ativos Livre",
               "is_fundo_ativo": true,
-              "aplicao_liberada": true,
+              "aplicao_liberada": false,
               "aviso_data_fundo": true,
               "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/TCR_PS_%20Selecta.pdf",
               "resgate_minimo": "100.0",

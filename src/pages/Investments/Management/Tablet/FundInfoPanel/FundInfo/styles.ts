@@ -131,8 +131,22 @@ export const ButtonCustom = styled(Button)`
   }
 `
 
+export const ButtonClosed = styled(Button).attrs(() => ({
+  color: 'primary',
+  outline: true,
+  disabled: true,
+  loading: false,
+}))`
+  min-width: 169px;
+  margin: ${({ theme }) => theme.spacing(2)}px
+    ${({ theme }) => theme.spacing(1)}px;
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    min-width: calc(50% - 14px);
+  }
+`
+
 export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
-  fill: ${props => props.theme.colors.gray6};
+  fill: ${({ theme }) => theme.colors.gray3};
   height: 21px;
   width: 21px;
 
