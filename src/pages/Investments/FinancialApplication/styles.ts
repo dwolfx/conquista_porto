@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components'
 import ArrowLeft from 'assets/icons/arrow-left.svg'
 import CloseIcon from 'assets/icons/close.svg'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
+import TextComponent from 'components/Text'
+import AnbimaComponent from 'components/Anbima'
 import Card from 'components/Card'
 import Layer from 'components/Layer'
 import { ChildrenWrapper } from 'components/Layer/styles'
@@ -99,14 +101,6 @@ export const GridCol = styled(Col)`
   }
 `
 
-export const GridColInfo = styled(Col)`
-  padding: ${({ theme }) => theme.spacing(2)}px 0;
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    padding: ${({ theme }) => theme.spacing(3)}px;
-  }
-`
-
 export const StepBar = styled.div`
   background-color: ${props => props.theme.colors.grayblue1};
   height: 56px;
@@ -164,5 +158,17 @@ export const MobileScrollContent = styled.div<IMobileScrollContent>`
 
   @media ${({ theme }) => theme.mediaQueries.smUp} {
     padding-bottom: 0px;
+  }
+`
+
+export const Anbima = styled(AnbimaComponent)`
+  margin-top: 0;
+`
+
+export const InvestLegalInfo = styled(TextComponent)`
+  margin: ${({ theme }) => `${theme.spacing(2)}px 0`};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0 ${({ theme }) => theme.spacing(3)}px;
   }
 `

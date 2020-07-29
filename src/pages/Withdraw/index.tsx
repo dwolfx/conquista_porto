@@ -10,8 +10,6 @@ import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
-import Anbima from 'components/Anbima'
-
 import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
 import MainContent from './MainContent'
@@ -112,9 +110,12 @@ const Withdraw = () => {
             />
           </s.Col>
         </Row>
-        <Row>
-          <Anbima />
-        </Row>
+        <s.Text color="gray5" type="body" bold>
+          Toda transmissão de ordem por meio digital está sujeita a interrupções
+          ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a
+          recepção de informações atualizadas.
+        </s.Text>
+        <s.Anbima />
       </s.Container>
     </>
   )
