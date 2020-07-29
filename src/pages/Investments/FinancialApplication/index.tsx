@@ -378,7 +378,10 @@ const LayerInvestment: React.FC<IProps> = ({
           <LayerBodyContainer>
             <GridRowExpanded>
               <GridCol sm={12} md={4} lg={3}>
-                <FundDetailCard handleFundDetailOpen={handleFundDetailOpen} />
+                <FundDetailCard
+                  handleFundDetailOpen={handleFundDetailOpen}
+                  selectedFundId={selectedFundId}
+                />
               </GridCol>
               {getBodyContent()}
             </GridRowExpanded>
