@@ -159,7 +159,7 @@ function lifeInsuranceBottomLine(product, history) {
   let value = ''
 
   try {
-    value = product.GruposCobertura[0].CoberturasRisco.filter(
+    value = product.GruposCobertura.GrupoCobertura[0].CoberturasRisco.CoberturaRisco.filter(
       item => item.Nome === 'Morte'
     )
 
@@ -199,7 +199,7 @@ function tripInsuranceBottomLine(product, history) {
   let value
 
   try {
-    value = product.CoberturasBasicas.filter(
+    value = product.CoberturasBasicas.CoberturaBasica.filter(
       item => item.Nome === 'MORTE ACIDENTAL'
     )
 

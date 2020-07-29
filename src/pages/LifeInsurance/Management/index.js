@@ -104,8 +104,8 @@ export default function ManagementLifeInsurance() {
   }
 
   const handleCoberturaMorte = item => {
-    const coberturas = Array.isArray(item.CoberturasBasicas)
-      ? item.CoberturasBasicas
+    const coberturas = Array.isArray(item.CoberturasBasicas.CoberturaBasica)
+      ? item.CoberturasBasicas.CoberturaBasica
       : [item.CoberturasBasicas.CoberturaBasica]
 
     const coberturaPorMorte = coberturas.find(
@@ -120,13 +120,17 @@ export default function ManagementLifeInsurance() {
   }
 
   const addedInsurancePoliciesDetailed = () => {
-    const { GruposCobertura: gruposCobertura } = selectedLifeInsurance
+    const {
+      GrupoCobertura: gruposCobertura,
+    } = selectedLifeInsurance.GruposCobertura
 
     const normalizedPayload = gruposCobertura.map(grupoCobertura => ({
       nome: grupoCobertura.Nome,
-      coberturasRisco: Array.isArray(grupoCobertura.CoberturasRisco)
-        ? grupoCobertura.CoberturasRisco
-        : [grupoCobertura.CoberturasRisco],
+      coberturasRisco: Array.isArray(
+        grupoCobertura.CoberturasRisco.CoberturaRisco
+      )
+        ? grupoCobertura.CoberturasRisco.CoberturaRisco
+        : [grupoCobertura.CoberturasRisco.CoberturaRisco],
     }))
 
     return (
@@ -197,7 +201,9 @@ export default function ManagementLifeInsurance() {
                     VIGENTE ATÉ:
                   </Text>
                   <Text fontSize="14px">
-                    {moment(item.DtFinalVigencia).format('DD-MM-YYYY')}
+                    {moment(item.DtFinalVigencia, 'YYYY-MM-DD-HH-mm').format(
+                      'DD-MM-YYYY'
+                    )}
                   </Text>
                 </ManageableItem>
               ))}
@@ -318,9 +324,9 @@ export default function ManagementLifeInsurance() {
 }
 
 const BeneficiarioContent = ({ data }) => {
-  const beneficiaries = Array.isArray(data.Beneficiarios)
-    ? data.Beneficiarios
-    : [data.Beneficiarios]
+  const beneficiaries = Array.isArray(data.Beneficiarios.Beneficiario)
+    ? data.Beneficiarios.Beneficiario
+    : [data.Beneficiarios.Beneficiario]
   return (
     <>
       <Text
