@@ -25,7 +25,7 @@ export const FloatButton = styled(IconButton)`
   position: fixed;
   bottom: 14px;
   right: 14px;
-  z-index: 11;
+  z-index: 1;
   border: none;
 `
 
