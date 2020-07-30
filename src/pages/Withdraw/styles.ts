@@ -22,7 +22,7 @@ export const Container = styled(ContainerBootstrap)`
 export const Col = styled(ColBootstrap)`
   height: calc(100vh - 192px);
 
-  @media ${({ theme }) => theme.mediaQueries.xs} {
+  @media ${({ theme }) => theme.mediaQueries.md} {
     height: 100%;
     padding: 0;
   }
