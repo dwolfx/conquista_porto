@@ -111,26 +111,27 @@ const BallanceRedeem = ({
             .replace(/\D/g, '')
         )}`,
       }
-    } else if (redeemValue > 0 && redeemValue < minRedeem) {
+    }
+    if (redeemValue > 0 && redeemValue < minRedeem) {
       return {
         icon: 'alertrounded',
         message: 'Movimentação menor que o mínimo permitido.',
       }
-    } else if (currentBalance - redeemValue < minBalance) {
+    }
+    if (currentBalance - redeemValue < minBalance) {
       return {
         icon: 'alertrounded',
         message: 'Saldo remanescente menor que o mínimo permitido.',
       }
-    } else {
-      return false
     }
+    return false
   }
 
   const handleRedeemSummaryRequest = () => {
     dispatch(
       GetRedeemSummaryRequest({
         id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
-        data_operacao: moment().format('YYYY-MM-DD'),
+        data_operacao: moment().format(moment.HTML5_FMT.DATE),
         valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
         onErrorToast: addToast,
       })
