@@ -57,7 +57,6 @@ interface IProps {
     }
   }
   nextButtonLoading: boolean
-  operationDate: string
 }
 
 const FormFinancialContribution = ({
@@ -70,7 +69,6 @@ const FormFinancialContribution = ({
   idFundo,
   financialApplication,
   nextButtonLoading,
-  operationDate,
 }: IProps) => {
   useFetchBankData()
   const dispatch = useDispatch()
@@ -188,10 +186,7 @@ const FormFinancialContribution = ({
 
   const isDateInvalid = () =>
     isInvalidDate(formData!.whenToInvest) ||
-    isPastDate(
-      formData!.whenToInvest,
-      financialApplication.dados_para_aplicacao.data_operacao
-    )
+    isPastDate(formData!.whenToInvest, moment())
 
   const isMoneyLessThanAllowed = () => {
     if (!hasCheckbox) {
