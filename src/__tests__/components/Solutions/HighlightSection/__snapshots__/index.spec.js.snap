@@ -152,6 +152,7 @@ exports[`HighlightSection renders correctly 1`] = `
       data-gtm-name="lista de fundos"
       data-gtm-subname="Facilidade para investir"
       data-gtm-type="click"
+      disabled={false}
       onClick={[Function]}
     >
       <span
