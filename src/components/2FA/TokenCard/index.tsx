@@ -89,7 +89,7 @@ const TokenCard = ({ onPrevious, onNext, ...rest }: IProps) => {
           data-gtm-subname="preenchimento token"
           data-gtm-name="autenticacao do token"
           value={token}
-          maxLength={5}
+          maxLength={6}
           onChange={({ target }) => setToken(target.value)}
           onBlur={({ target }) =>
             dispatch(

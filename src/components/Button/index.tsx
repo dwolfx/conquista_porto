@@ -20,9 +20,15 @@ const Button: React.FC<IProps &
   outline = false,
   loading = false,
   loadingColor = 'blue4',
+  disabled,
   ...rest
 }) => (
-  <s.Button color={color} outline={outline} {...rest}>
+  <s.Button
+    color={color}
+    outline={outline}
+    disabled={disabled || loading}
+    {...rest}
+  >
     <s.Content>
       {loading ? <LoadingIcon type="spinner" color={loadingColor} /> : children}
     </s.Content>
