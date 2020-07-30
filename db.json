@@ -43,7 +43,7 @@
       "hora_limite": "23:59",
       "posicao_cotista_fundo": {
         "data_historico": "2020-05-08T00:00:00",
-        "saldo_atual": "3002.23"
+        "saldo_atual": "1430002.20"
       },
       "data_prevista_liquidacao": "2020-07-09T00:00:00-03:00",
       "fundo": {
@@ -1773,7 +1773,7 @@
       "saldo_liquidar": "1003.40",
       "agencia": "0001",
       "codigo_banco": "306",
-      "saldo_disponivel": "50.43",
+      "saldo_disponivel": "1000000.0",
       "cpf": "33244452809",
       "encargos_acumulados": "0",
       "valores_bloqueados": {
@@ -2694,249 +2694,51 @@
     },
     "cadastroPessoaProgramaType": {
       "segmento": "BASICO",
-      "codigoFidelidade": "33244452809",
-      "nome": "Rafael Rodrigues",
-      "dataInicioVigencia": "21/09/2019"
+      "codigoFidelidade": "39812241833",
+      "nome": "Vitor Carmo Vannuchi",
+      "dataInicioVigencia": "30/09/2019"
     },
     "detalheExtratoOptemaisTypes": [
       {
-        "pontoGanho": "155",
+        "pontoGanho": "200",
         "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "22,46",
-        "taxaCon": "4,46",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "02/2020"
-      },
-      {
-        "pontoGanho": "2018",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "10,95",
-        "taxaCon": "4,25",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "01/2020"
-      },
-      {
-        "pontoGanho": "4609",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "2,00",
-        "taxaCon": "4,42",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "12/2019"
-      },
-      {
-        "pontoGanho": "3871",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "32,90",
-        "taxaCon": "4,20",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "11/2019"
-      },
-      {
-        "pontoGanho": "1465",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "69,88",
-        "taxaCon": "4,31",
+        "nomeTransacao": "CONQUISTA",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
         "dataCompra": "10/2019"
       },
       {
-        "pontoGanho": "500",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CONQUISTA",
-        "valorCompra": "0,00",
-        "taxaCon": "0,00",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "09/2019"
-      },
-      {
         "pontoGanho": "100",
         "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CONQUISTA",
+        "nomeTransacao": "CONQUISTA PRIMEIRO OBJETIVO",
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "09/2019"
+        "dataCompra": "10/2019"
       },
       {
-        "pontoGanho": "200",
+        "pontoGanho": "250",
         "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CONQUISTA",
+        "nomeTransacao": "CONQUISTA CADASTRO",
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "09/2019"
-      },
-      {
-        "pontoGanho": "200",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CONQUISTA",
-        "valorCompra": "0,00",
-        "taxaCon": "0,00",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "09/2019"
-      },
-      {
-        "pontoGanho": "1881",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "32,90",
-        "taxaCon": "4,29",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "09/2019"
-      },
-      {
-        "pontoGanho": "1151",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "91,80",
-        "taxaCon": "4,16",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "08/2019"
-      },
-      {
-        "pontoGanho": "1223",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "82,80",
-        "taxaCon": "3,98",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "07/2019"
-      },
-      {
-        "pontoGanho": "2000",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "BONIFICACAO ESPECIAL",
-        "valorCompra": "2000,00",
-        "taxaCon": "0,00",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "06/2019"
-      },
-      {
-        "pontoGanho": "1523",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "67,00",
-        "taxaCon": "4,05",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "06/2019"
-      },
-      {
-        "pontoGanho": "631",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "39,99",
-        "taxaCon": "4,16",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "05/2019"
-      },
-      {
-        "pontoGanho": "923",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "214,02",
-        "taxaCon": "4,16",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "04/2019"
-      },
-      {
-        "pontoGanho": "2212",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "102,60",
-        "taxaCon": "4,06",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "03/2019"
-      },
-      {
-        "pontoGanho": "304",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "205,14",
-        "taxaCon": "3,89",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "02/2019"
-      },
-      {
-        "pontoGanho": "263",
-        "descricaoTipo": "PONTUAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "16,50",
-        "taxaCon": "3,96",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "12/2018"
-      },
-      {
-        "pontoGanho": "16",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "36,07",
-        "taxaCon": "4,10",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "09/2018"
-      },
-      {
-        "pontoGanho": "32",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "69,90",
-        "taxaCon": "4,37",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "08/2018"
-      },
-      {
-        "pontoGanho": "34",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "69,90",
-        "taxaCon": "4,10",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "07/2018"
-      },
-      {
-        "pontoGanho": "34",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "69,90",
-        "taxaCon": "3,93",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "06/2018"
-      },
-      {
-        "pontoGanho": "34",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "69,90",
-        "taxaCon": "3,93",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "05/2018"
-      },
-      {
-        "pontoGanho": "38",
-        "descricaoTipo": "BONIFICAÇÃO",
-        "nomeTransacao": "CARTÃO PORTO SEGURO",
-        "valorCompra": "69,90",
-        "taxaCon": "3,52",
-        "tipoDebitoCredito": "C",
-        "dataCompra": "04/2018"
+        "dataCompra": "10/2019"
       }
     ]
   },
   "pontos_consultar": {
     "consultaPontosResponseType": {
       "pontoasAvencer": "0",
-      "saldoAtual": "2008610",
+      "saldoAtual": "550",
       "dataPontosAacumular": "",
       "pontosAacumular": "0",
       "dataPontosAvencer": ""
     },
     "extratoOptemaisType": {
-      "saldoCliente": "26610",
-      "saldoConsolidado": "26610"
+      "saldoCliente": "550",
+      "saldoConsolidado": "550"
     },
     "Message": {
       "TipoCritica": "SUCESSO",
@@ -3863,7 +3665,7 @@
               "link_infor_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
               "categoria_ambima": "Ações Ativos Livre",
               "is_fundo_ativo": true,
-              "aplicao_liberada": true,
+              "aplicao_liberada": false,
               "aviso_data_fundo": true,
               "link_termo_adesao": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/TCR_PS_%20Selecta.pdf",
               "resgate_minimo": "100.0",
@@ -5146,15 +4948,13 @@
     "organizacao": "CLIENTES_HML"
   },
   "virtual_keyboard": {
-    "usuario": "37282985812",
-    "organizacao": "CLIENTES_HML",
-    "resposta": "aaaaaa"
+    "usuario": "33244452809",
+    "organizacao": "CLIENTES_HML"
   },
   "token_sms_email": {
-    "usuario": "37282985812",
+    "usuario": "33244452809",
     "organizacao": "CLIENTES_HML",
-    "tipo": "sms_otp",
-    "otp_token": "12345"
+    "tipo": "sms_otp"
   },
   "personal_data_2fa": [
     {
@@ -5172,9 +4972,9 @@
   ],
   "resgates_post": {
     "id_cotista": "2000143425",
-    "cpf_cnpj": "37282985812",
+    "cpf_cnpj": "33244452809=",
     "id_fundo": "5094",
-    "data_operacao": "2020-07-25",
+    "data_operacao": "2020-07-27",
     "valor": "2.002,23",
     "ciencia_desenquadramento": "S",
     "tipo_resgate": "2"

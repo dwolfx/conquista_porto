@@ -10,8 +10,6 @@ import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
-import Anbima from 'components/Anbima'
-
 import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
 import MainContent from './MainContent'
@@ -27,6 +25,7 @@ const Withdraw = () => {
   const maxSteps = 4
   const [step, setStep] = useState<number>(1)
   const [showPrompt, setShowPrompt] = useState<boolean>(true)
+  const [isMessageStep, setMessageStep] = useState<boolean>(false)
 
   const { withdrawDetails } = useSelector<any, any>(state => ({
     id_cotista: state.suitabilityInfo.data?.id_cotista,
@@ -35,7 +34,7 @@ const Withdraw = () => {
 
   const getAccountDetail = useCallback(() => {
     if (!stateLocation?.accessFromButton) {
-      dispatch(GetWithdrawDetailsRequest())
+      dispatch(GetWithdrawDetailsRequest({}))
     }
   }, [dispatch, stateLocation])
 
@@ -83,13 +82,14 @@ const Withdraw = () => {
             : history.goBack()
         }
         onClose={() => history.push('/')}
-        showBackButton={step !== 1}
+        showBackButton={step !== 1 && !isMessageStep}
         showStepsBar
         stepsBarProps={{
           title: 'Retirar',
           step,
           maxSteps,
           setStep,
+          hideSteps: isMessageStep,
         }}
       />
       <s.Container>
@@ -106,12 +106,16 @@ const Withdraw = () => {
               maxSteps={maxSteps}
               onError={onError}
               setPrompt={setShowPrompt}
+              setMessageStep={setMessageStep}
             />
           </s.Col>
         </Row>
-        <Row>
-          <Anbima />
-        </Row>
+        <s.Text color="gray5" type="body" bold>
+          Toda transmissão de ordem por meio digital está sujeita a interrupções
+          ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a
+          recepção de informações atualizadas.
+        </s.Text>
+        <s.Anbima />
       </s.Container>
     </>
   )

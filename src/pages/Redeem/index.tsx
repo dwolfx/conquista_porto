@@ -5,7 +5,6 @@ import { Col, Row } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import moment from 'moment'
 import 'styled-components/macro'
-import Anbima from 'components/Anbima'
 import AlignmentTerms from 'components/Investment/AlignmentTerms'
 import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
@@ -13,9 +12,12 @@ import FundDetailDrawer from 'components/FundDetail/Drawer'
 import FundDetailModal from 'components/FundDetail/Modal'
 import Text from 'components/Text'
 import TransactionHeader from 'components/Header/TransactionsHeader'
+import TokenCard from 'components/2FA/TokenCard'
+import DigitalSignature from 'components/2FA/DigitalSignature'
 import { GetRedeemAlignmentTermsRequest } from 'store/modules/Investment/Redeem/AlignmentTerms/action'
 import { ClearReddemSummary } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
 import { Run2FAInitialRequest } from 'store/modules/2FAToken/action'
+import { formatMoneyToNumber } from 'pages/Investments/FinancialApplication/FormFinancialContribution/utils'
 import { baseURLNamespaceInvestAws, post } from 'services/api'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
@@ -25,14 +27,7 @@ import BallanceRedeem from './BallanceRedeem'
 import SummaryRedeem from './SummaryRedeem'
 import CardSuccessError from './components/CardSuccessError'
 
-import {
-  CustomCol,
-  Container,
-  DigitalSignature,
-  LayerStyled,
-  TokenCard,
-} from './styles'
-
+import { Anbima, CustomCol, Container, LayerStyled } from './styles'
 export type IFormData = {
   moneyToRedeem: string
   alignmentAware: string
@@ -48,6 +43,8 @@ interface IProps {
   isOpen: boolean
   selectedFundId: string
 }
+export type TButtonOption = 'manter' | 'tudo' | null
+
 const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const [formData, setFormData] = useState<IFormData>(FORM_DATA_INTIAL_STATE)
   const history = useHistory()
@@ -64,6 +61,9 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const [acceptAlignmentTerms, setAcceptAlignmentTerms] = useState(false)
   const [isAlignmentTermModalOpen, setIsAlignmentTermOpenModal] = useState(
     false
+  )
+  const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(
+    null
   )
   const { cpf, id_cotista, idFund } = useSelector((state: any) => ({
     cpf: state.auth.cpf,
@@ -82,7 +82,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       cpf_cnpj: cpf,
       id_fundo: idFund,
       data_operacao: moment().format('YYYY-MM-DD'),
-      valor: formData.moneyToRedeem,
+      valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
       ciencia_desenquadramento: formData.alignmentAware,
       tipo_resgate: '2',
     })
@@ -100,6 +100,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
 
   const resetValues = () => {
     setStep(1)
+    setRedeemOptionButton(null)
     setFormData(FORM_DATA_INTIAL_STATE)
     dispatch(ClearReddemSummary())
   }
@@ -109,7 +110,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       GetRedeemAlignmentTermsRequest({
         data: {
           data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
-          valor_bruto: formData?.moneyToRedeem,
+          valor_bruto: formatMoneyToNumber(formData.moneyToRedeem).toString(),
           id_fundo: selectedFundId,
         },
         onSuccess: (alignmentData: any) => {
@@ -151,6 +152,8 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       formData={formData}
       onChangeFormData={handleChangeFormData}
       step={step}
+      redeemOptionButton={redeemOptionButton}
+      onChangeRedeemOptionButton={setRedeemOptionButton}
       nextStep={nextStep}
       previousStep={previousStep}
       onChangeFundDetailOpen={setFundDetailOpen}
@@ -266,7 +269,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
           </Row>
           <Row
             css={`
-              margin: ${themeContext.spacing(2)}px 0;
+              margin: ${themeContext.spacing(2)}px ${themeContext.spacing(1)}px;
             `}
           >
             <Col md={12}>

@@ -1,5 +1,5 @@
 import { call, all, select, takeLatest, put } from 'redux-saga/effects'
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get, baseURLNamespaceInvestAws } from 'services/api'
 
 import { IGetRedeemRequestData, Types } from './types'
 import {
@@ -19,7 +19,7 @@ function* getRedeemData({
     const params = `cpf_cnpj=${cpf}&id_cotista=${id_cotista}&data_operacao=${data_operacao}&id_fundo=${id_fundo}`
     const responseRedeem = yield call(
       get,
-      `${baseURLNamespaceInvest}/aws/cotista/resgates?${params}`
+      `${baseURLNamespaceInvestAws}/cotista/resgates?${params}`
     )
     yield put(RedeemLayerToggleOpen())
     yield put(GetRedeemSuccess(responseRedeem.data))

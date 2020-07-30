@@ -9,7 +9,6 @@ import Button from 'components/Button'
 import Divisor from 'components/Divisor'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
-import useFetchFundDetails from 'hooks/Investments/useFetchFundDetails'
 
 import { formatMoney, capitalize } from 'helpers'
 
@@ -27,22 +26,38 @@ import {
 
 interface IProps {
   handleFundDetailOpen?: () => void
+  selectedFundId?: string
 }
-const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
-  useFetchFundDetails()
+
+const FundDetailCard = ({ handleFundDetailOpen, selectedFundId }: IProps) => {
   const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
+
   let { data: fundDetails, isLoading, hasError, idFund } = useSelector(
     (state: any) => {
       return {
         ...state.investmentDetails,
-        data: Object.keys(state.investmentDetails.data).length ? state.investmentDetails.data : null,
-        idFund: state.investmentPosition.idFund
+        data: Object.keys(state.investmentDetails.data).length
+          ? state.investmentDetails.data
+          : null,
+        idFund: !!selectedFundId
+          ? selectedFundId
+          : state.investmentPosition.idFund,
       }
     }
   )
 
-  const headerTitle = !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
+  if (
+    !!selectedFundId &&
+    fundDetails?.id_fundo !== selectedFundId &&
+    !isLoading &&
+    !hasError
+  ) {
+    dispatch(GetInvestmentDetailsRequest(idFund))
+  }
+
+  const headerTitle =
+    !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
 
   return (
     <LayerCard
@@ -71,9 +86,7 @@ const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
             css={`
               margin-top: ${themeContext.spacing(2)};
             `}
-            onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(idFund))
-            }
+            onClick={() => dispatch(GetInvestmentDetailsRequest(idFund))}
           >
             Tentar novamente
           </Button>
@@ -85,9 +98,7 @@ const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    Aplicação inicial mínima
-                  </TextTitle>,
+                  <TextTitle>Aplicação inicial mínima</TextTitle>,
                   <TextValue>
                     {formatMoney(fundDetails.minimo_inicial)}
                   </TextValue>,
@@ -100,9 +111,7 @@ const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    Movimentação mínima
-                  </TextTitle>,
+                  <TextTitle>Movimentação mínima</TextTitle>,
                   <TextValue>
                     {formatMoney(fundDetails.aplicao_minima)}
                   </TextValue>,
@@ -115,12 +124,8 @@ const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    Resgate (Cotização)
-                  </TextTitle>,
-                  <TextValue>
-                    {fundDetails.resgate_cotizacao}
-                  </TextValue>,
+                  <TextTitle>Resgate (Cotização)</TextTitle>,
+                  <TextValue>{fundDetails.resgate_cotizacao}</TextValue>,
                 ]}
               />
             </Col>
@@ -130,9 +135,7 @@ const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    Categoria
-                  </TextTitle>,
+                  <TextTitle>Categoria</TextTitle>,
                   <TextValue bold color="gray6" type="headline">
                     {fundDetails.categoria.toLowerCase() === 'renda variável'
                       ? 'Ações'
@@ -147,15 +150,15 @@ const FundDetailCard = ({ handleFundDetailOpen }: IProps) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    Nível de Risco
-                  </TextTitle>,
+                  <TextTitle>Nível de Risco</TextTitle>,
                   <HorizontalList
                     noPadding
                     size="small"
                     startItems={[
                       <TextValue
-                        css={`width: max-content;`}
+                        css={`
+                          width: max-content;
+                        `}
                       >
                         {capitalize(fundDetails.perfil_risco)}
                       </TextValue>,

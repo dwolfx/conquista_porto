@@ -11,11 +11,11 @@ import {
   GetPointsBalanceFailure,
 } from './action'
 
-function* getExtract({ cpf }) {
+function* getExtract() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/programa-pontos/extrato?cpf=${cpf}`
+      `${baseURLNamespaceInvest}/programa-pontos/extrato`
     )
 
     if (
@@ -39,11 +39,11 @@ function* getExtract({ cpf }) {
   }
 }
 
-function* getBalance({ cpf }) {
+function* getBalance() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/programa-pontos/consultar-pontos?cpf=${cpf}`
+      `${baseURLNamespaceInvest}/programa-pontos/consultar-pontos`
     )
 
     if (

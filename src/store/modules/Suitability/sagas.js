@@ -15,7 +15,7 @@ import {
 } from './action'
 
 function* getDataAndRedirect({
-  payload: { cpf, link, errorPath, history, goalType },
+  payload: { link, errorPath, history, goalType },
 }) {
   yield put(SetSuitabilityLoading(true))
 
@@ -27,7 +27,7 @@ function* getDataAndRedirect({
     try {
       const response = yield call(
         get,
-        `${baseURLNamespacePortopar}/cotista/perfil/investidor/${cpf}`
+        `${baseURLNamespacePortopar}/cotista/perfil/investidor`
       )
 
       if (response.status === 204) {

@@ -7,7 +7,6 @@ import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
-import Anbima from 'components/Anbima'
 import AlignmentTerms from 'components/Investment/AlignmentTerms'
 import useMedia from 'hooks/useMedia'
 
@@ -23,6 +22,7 @@ import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 import { formatMoneyDecimal, formatLocaleStringToNumber } from 'helpers'
 
 import {
+  Anbima,
   BodyWrapper,
   StepBar,
   ColStepBar,
@@ -34,8 +34,8 @@ import {
   GridCol,
   GridRowStepBar,
   LayerFinancialApplication,
-  GridColInfo,
   MobileScrollContent,
+  InvestLegalInfo,
 } from './styles'
 
 interface IProps {
@@ -378,23 +378,24 @@ const LayerInvestment: React.FC<IProps> = ({
           <LayerBodyContainer>
             <GridRowExpanded>
               <GridCol sm={12} md={4} lg={3}>
-                <FundDetailCard handleFundDetailOpen={handleFundDetailOpen} />
+                <FundDetailCard
+                  handleFundDetailOpen={handleFundDetailOpen}
+                  selectedFundId={selectedFundId}
+                />
               </GridCol>
               {getBodyContent()}
             </GridRowExpanded>
           </LayerBodyContainer>
           <FooterContainer>
             <GridRow>
-              <GridColInfo col={12}>
-                <Text color="gray5" type="body">
+              <GridCol>
+                <InvestLegalInfo color="gray5" type="body" bold>
                   Toda transmissão de ordem por meio digital está sujeita a
                   interrupções ou atrasos, podendo impedir ou prejudicar o envio
                   de ordens ou a recepção de informações atualizadas.
-                </Text>
-              </GridColInfo>
-            </GridRow>
-            <GridRow>
-              <Anbima noMarginTop />
+                </InvestLegalInfo>
+                <Anbima />
+              </GridCol>
             </GridRow>
           </FooterContainer>
         </MobileScrollContent>

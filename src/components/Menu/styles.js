@@ -21,6 +21,11 @@ export const MenuContainer = styled.div`
   background-color: ${props => props.theme.colors.blue4};
   padding-left: 14px;
 
+  @media ${props => props.theme.mediaQueries.lg} {
+    z-index: initial;
+    width: 73px;
+  }
+
   @media ${props => props.theme.mediaQueries.md} {
     position: relative;
     top: 0;

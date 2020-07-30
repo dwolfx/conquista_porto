@@ -982,6 +982,7 @@ Array [
         data-gtm-name="SIMULAR E CONTRATAR"
         data-gtm-subname="Parcelas que cabem no seu bolso."
         data-gtm-type="click"
+        disabled={false}
         onClick={[Function]}
       >
         <span

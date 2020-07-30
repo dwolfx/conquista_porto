@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 import { Link as RouterDomLink } from 'react-router-dom'
 
@@ -8,23 +8,13 @@ import AnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
 import AnbimaGestao from 'assets/images/logo-anbima-gestao.png'
 import AnbimaInvestir from 'assets/images/logo-anbima-como-investir.png'
 
-interface IGridContainer {
-  noMarginTop?: boolean
-}
-
-export const GridContainer = styled(Container)<IGridContainer>`
-  ${({ theme, noMarginTop }) =>
-    noMarginTop
-      ? css`
-          margin: 0 auto ${theme.spacing(4)}px;
-        `
-      : css`
-          margin: ${theme.spacing(4)}px auto;
-        `}
+export const GridContainer = styled(Container)`
+  margin: ${({ theme }) => `${theme.spacing(4)}px auto`};
 `
 
 export const GridCol = styled(Col)`
-  padding: 0 ${props => props.theme.spacing(3)}px;
+  padding: 0 ${({ theme }) => theme.spacing(3)}px;
+
   @media ${props => props.theme.mediaQueries.smUp} {
     padding: 0;
   }

@@ -4,11 +4,11 @@ import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import { GetDataSuccess, GetDataFailure } from './action'
 
-function* getData({ cpf }) {
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/conta/dados?cpf=${cpf}&codigoCanal=0`
+      `${baseURLNamespaceInvest}/conta/dados?codigoCanal=0`
     )
 
     if (!response.data.DadosContaPortoSeguro) {

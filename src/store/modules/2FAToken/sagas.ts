@@ -29,7 +29,7 @@ function handleOrganizacao() {
   const env = process.env.REACT_APP_ENV
   let organizacao
   if (env === 'production') {
-    organizacao = 'CLIENTES_PROD'
+    organizacao = 'CLIENTES'
   } else {
     organizacao = 'CLIENTES_HML'
   }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
@@ -46,6 +46,8 @@ const InvestorAccountMobile = () => {
     hasError: state.bankData.hasError,
     displayInformation: state.investmentPosition.displayInformation,
   }))
+
+  const [withdrawLoading, setWithdrawLoading] = useState(false)
 
   const renderBallanceInfo = (
     bankDataPayload: any,
@@ -129,6 +131,8 @@ const InvestorAccountMobile = () => {
               css={`
                 width: 100%;
               `}
+              loading={withdrawLoading}
+              onClickSetLoading={setWithdrawLoading}
             />
           </ButtonsWrapper>
         )}

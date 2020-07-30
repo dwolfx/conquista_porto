@@ -127,7 +127,6 @@ export default function Wallet({
           fund.invested
         )
         const maxFundsDistribuition = Math.max(fund.balance, sumGoalsValue)
-
         return (
           <React.Fragment key={fund.id}>
             <Accordion
@@ -676,7 +675,7 @@ FundAccordionHeader.propTypes = {
 }
 
 FundAccordionHeader.defaultProps = {
-  fundListCopy: [],
+  fundListCopy: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   setFundListCopy: null,
 }
 

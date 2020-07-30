@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import TextComponent from 'components/Text'
+import AnbimaComponent from 'components/Anbima'
+
 import {
   Container as ContainerBootstrap,
   Col as ColBootstrap,
@@ -23,4 +26,16 @@ export const Col = styled(ColBootstrap)`
     height: 100%;
     padding: 0;
   }
+`
+
+export const Text = styled(TextComponent)`
+  margin: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(2)}px`};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+
+export const Anbima = styled(AnbimaComponent)`
+  margin-top: 0;
 `
