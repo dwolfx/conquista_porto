@@ -110,6 +110,7 @@ const Desktop: React.FC<IProps> = ({
               setLayerOpen={setLayerOpen}
               setIsAwareOfTerms={setIsAwareOfTerms}
               setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
+              isInvestorLevelModalOpen={isInvestorLevelModalOpen}
             />
             <LastTransations />
           </Card>

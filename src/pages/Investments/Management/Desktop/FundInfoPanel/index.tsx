@@ -21,6 +21,7 @@ interface IProps {
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
   setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void
+  isInvestorLevelModalOpen: boolean
 }
 
 const FundInfoPanel = ({
@@ -28,6 +29,7 @@ const FundInfoPanel = ({
   setLayerOpen,
   setIsAwareOfTerms,
   setIsInvestorLevelModalOpen,
+  isInvestorLevelModalOpen,
 }: IProps) => {
   const position = useSelectedPosition()
   const dispatch = useDispatch()
@@ -78,6 +80,7 @@ const FundInfoPanel = ({
           setLayerOpen={setLayerOpen}
           setIsAwareOfTerms={setIsAwareOfTerms}
           setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
+          isInvestorLevelModalOpen={isInvestorLevelModalOpen}
         />
         <ProfitabilityTable
           profitability={position.fundo.comparativo_hist_rentabil}

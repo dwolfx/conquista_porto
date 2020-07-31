@@ -117,6 +117,7 @@ interface IFundInformationProps {
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
   setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void
+  isInvestorLevelModalOpen: boolean
 }
 
 const FundInformation = ({
@@ -125,6 +126,7 @@ const FundInformation = ({
   setLayerOpen,
   setIsAwareOfTerms,
   setIsInvestorLevelModalOpen,
+  isInvestorLevelModalOpen,
 }: IFundInformationProps) => {
   const themeContext = useContext(ThemeContext)
 
@@ -165,13 +167,21 @@ const FundInformation = ({
 
   useEffect(() => {
     if (
-      !suitabilityIsLoading &&
-      !financialApplicationLoading &&
-      !fundsIsLoading
+      (!suitabilityIsLoading &&
+        !financialApplicationLoading &&
+        !fundsIsLoading) ||
+      isInvestorLevelModalOpen ||
+      suitabilityStoreData.isOpen
     ) {
       setInvestButtonIsLoading(false)
     }
-  }, [suitabilityIsLoading, financialApplicationLoading, fundsIsLoading])
+  }, [
+    suitabilityIsLoading,
+    financialApplicationLoading,
+    fundsIsLoading,
+    isInvestorLevelModalOpen,
+    suitabilityStoreData,
+  ])
 
   useEffect(() => {
     setIncomeValue(
