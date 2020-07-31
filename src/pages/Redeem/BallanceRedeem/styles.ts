@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ButtonComponent from 'components/Button'
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
+import { InputFieldGroup, ErrorIcon } from 'components/NewInput/styles'
 
 export const RedeemFormContainer = styled(Col)`
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
@@ -103,7 +104,16 @@ export const ButtonStyled = styled(ButtonComponent)`
 
 export const InputWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: baseline;
+
+  ${InputFieldGroup} {
+    max-width: 265px;
+  }
+
+  ${ErrorIcon} {
+    width: 16px;
+    height: 16px;
+  }
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     display: block;

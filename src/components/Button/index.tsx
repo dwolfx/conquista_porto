@@ -20,7 +20,7 @@ const Button: React.FC<IProps &
   outline = false,
   loading = false,
   loadingColor = 'blue4',
-  disabled,
+  disabled = false,
   ...rest
 }) => (
   <s.Button

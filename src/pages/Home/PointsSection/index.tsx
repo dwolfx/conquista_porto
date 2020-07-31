@@ -32,6 +32,7 @@ import {
 import { pointsRulesConditions } from './modalPointsData'
 import PointsOfferCard from './RecommendationCard'
 
+import { ICardsInfo } from './types'
 import {
   EmptyBody,
   SectionCol,
@@ -54,8 +55,8 @@ import {
 
 export default function PointsSection({ points }: any) {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [belowOffer, setBelowOffer] = useState<any | null>(null)
-  const [aboveOffer, setAboveOffer] = useState<any | null>(null)
+  const [belowOffer, setBelowOffer] = useState<ICardsInfo | null>(null)
+  const [aboveOffer, setAboveOffer] = useState<ICardsInfo | null>(null)
   const [pointsAmountBalance, setPointsAmountBalance] = useState(0)
   const [
     firstRecommendationCardIcon,
@@ -107,8 +108,8 @@ export default function PointsSection({ points }: any) {
       }
     }
 
-    setFirstRecommendationCardIcon(firstIcon)
-    setLastRecommendationCardIcon(lastIcon)
+    setFirstRecommendationCardIcon(firstIcon || 'star')
+    setLastRecommendationCardIcon(lastIcon || 'idea')
   }, [
     aboveOffer,
     belowOffer,
@@ -140,8 +141,8 @@ export default function PointsSection({ points }: any) {
   useEffect(() => {
     if (pointsAmountBalance) {
       const maxPoints = [...cardsRecommendationData].slice(-1)[0].points
-      let newBelowOffer: any
-      let newAboveOffer
+      let newBelowOffer: ICardsInfo
+      let newAboveOffer: ICardsInfo
 
       if (pointsAmountBalance > maxPoints) {
         // if current points are above the maximum offer, show cards randomly from the group 5 (higher value points)
@@ -160,26 +161,30 @@ export default function PointsSection({ points }: any) {
           ]
         newAboveOffer = [...higherGroupData]
           .reverse()
+          .filter(item => item.points !== newBelowOffer.points)
           .reduce(
             (acc, cur) => (cur.points > newBelowOffer.points ? cur : acc),
             newBelowOffer
           )
       } else {
         // if current points are below the maximum offer, get the offer below the current points and one above the current
-        newBelowOffer = [...cardsRecommendationData].reduce(
-          (acc, cur) => (cur.points <= pointsAmountBalance ? cur : acc),
-          belowOffer
-        )
-        newAboveOffer = [...cardsRecommendationData]
-          .reverse()
-          .reduce(
-            (acc, cur) =>
-              cur.points > pointsAmountBalance &&
-              belowOffer?.points !== cur.points
-                ? cur
-                : acc,
-            aboveOffer
-          )
+        newBelowOffer =
+          [...cardsRecommendationData].reduce(
+            (acc, cur) => (cur.points <= pointsAmountBalance ? cur : acc),
+            belowOffer
+          ) || cardsRecommendationData[0]
+        newAboveOffer =
+          [...cardsRecommendationData]
+            .reverse()
+            .filter(item => item.points !== newBelowOffer.points)
+            .reduce(
+              (acc, cur) =>
+                cur.points > pointsAmountBalance &&
+                belowOffer?.points !== cur.points
+                  ? cur
+                  : acc,
+              aboveOffer
+            ) || cardsRecommendationData[1]
       }
       setBelowOffer(newBelowOffer)
       setAboveOffer(newAboveOffer)

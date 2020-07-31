@@ -5,7 +5,7 @@ import { IGetRedeemSummaryRequestData, Types } from './types'
 import { getSuitabilityInfo, getAuth } from '../selectors'
 import { GetRedeemSummarySuccess, GetRedeemSummaryFailure } from './action'
 
-function* getRedeemSummaryData({
+export function* getRedeemSummaryData({
   payload: { data_operacao, id_fundo, valor, onErrorToast },
 }: IGetRedeemSummaryRequestData) {
   const { id_cotista } = yield select(getSuitabilityInfo)

@@ -4,7 +4,6 @@ import 'styled-components/macro'
 import { ThemeContext } from 'styled-components/macro'
 import { Row } from 'styled-bootstrap-grid'
 import moment from 'moment'
-
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 import ButtonTag from 'components/Button/Tag'
@@ -12,6 +11,7 @@ import MoneyInput from 'components/Inputs/Money'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
+import { dict } from 'components/IconExporter'
 import { formatMoneyToNumber } from 'pages/Investments/FinancialApplication/FormFinancialContribution/utils'
 import { GetRedeemSummaryRequest } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
 import { formatMoney, formatNumber, formatMoneyDecimal } from 'helpers'
@@ -38,7 +38,7 @@ interface IBallanceRedeem {
   formData: IFormData
   onChangeFormData: (form: IFormData) => void
   redeemOptionButton: TButtonOption
-  onChangeRedeemOptionButton: (value: TButtonOption) => void 
+  onChangeRedeemOptionButton: (value: TButtonOption) => void
   step: number
   onChangeFundDetailOpen: (isOpen: boolean) => void
   nextStep: () => void
@@ -86,30 +86,56 @@ const BallanceRedeem = ({
       const currentBallance = Number(
         redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
       )
-      return formatMoney(currentBallance - minFundBallance, { style: 'decimal' })
+      return formatMoney(currentBallance - minFundBallance, {
+        style: 'decimal',
+      })
     }
     return formatNumber('0')
   }
 
-  const isMoneyLessThanAllowed = () => {
-    if (formData && redeemData) {
-      return (
-        formatMoneyToNumber(formData.moneyToRedeem) >
-        Number(redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual)
-      )
+  const validateErrors = ():
+    | boolean
+    | { icon: keyof typeof dict; message: string } => {
+    const redeemValue = formatMoneyToNumber(formData.moneyToRedeem)
+    const minRedeem = +redeemData?.dados_para_resgate?.fundo?.resgate_minimo
+    const currentBalance = +redeemData?.dados_para_resgate
+      ?.posicao_cotista_fundo?.saldo_atual
+    const minBalance = +redeemData?.dados_para_resgate?.fundo.saldo_minimo
+
+    if (redeemValue > currentBalance) {
+      return {
+        icon: 'alertrounded',
+        message: `O valor não pode ser maior do que ${formatMoneyDecimal(
+          redeemData?.dados_para_resgate?.posicao_cotista_fundo?.saldo_atual
+            .toString()
+            .replace(/\D/g, '')
+        )}`,
+      }
+    }
+    if (redeemValue > 0 && redeemValue < minRedeem) {
+      return {
+        icon: 'alertrounded',
+        message: 'Movimentação menor que o mínimo permitido.',
+      }
+    }
+    if (currentBalance - redeemValue < minBalance) {
+      return {
+        icon: 'alertrounded',
+        message: 'Saldo remanescente menor que o mínimo permitido.',
+      }
     }
     return false
   }
 
   const handleRedeemSummaryRequest = () => {
-    dispatch(GetRedeemSummaryRequest({
-      id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
-      data_operacao: moment(new Date()).format('YYYY-MM-DD'),
-      valor: formatMoneyToNumber(
-        formData.moneyToRedeem
-      ).toString(),
-      onErrorToast: addToast,
-    }))
+    dispatch(
+      GetRedeemSummaryRequest({
+        id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
+        data_operacao: moment().format(moment.HTML5_FMT.DATE),
+        valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
+        onErrorToast: addToast,
+      })
+    )
   }
 
   const cardBody = () => (
@@ -123,7 +149,7 @@ const BallanceRedeem = ({
       </BalanceInfoContainer>
       <Divisor />
       <Row>
-        <RedeemFormContainer sm={8} md={7} xs={12}>
+        <RedeemFormContainer>
           <Text type="headline" bold color="gray5">
             Quanto você quer resgatar?
           </Text>
@@ -140,7 +166,8 @@ const BallanceRedeem = ({
                   ...formData,
                   moneyToRedeem: formatMoney(
                     redeemData.dados_para_resgate.posicao_cotista_fundo
-                      .saldo_atual, { style: 'decimal' }
+                      .saldo_atual,
+                    { style: 'decimal' }
                   ),
                 })
               }}
@@ -180,18 +207,7 @@ const BallanceRedeem = ({
                   moneyToRedeem: target.value,
                 })
               }}
-              error={
-                isMoneyLessThanAllowed() && {
-                  icon: 'alertrounded',
-                  message: `O valor não pode ser menor do que ${formatMoneyDecimal(
-                    Number(
-                      redeemData!.dados_para_resgate.posicao_cotista_fundo.saldo_atual
-                        .toString()
-                        .replace(/\D/g, '')
-                    )
-                  )}`,
-                }
-              }
+              error={validateErrors()}
             />
             <ButtonStyled
               data-gtm-subname="simulacao de resgate"
@@ -202,7 +218,9 @@ const BallanceRedeem = ({
               loading={isRedeemSummaryLoading}
               loadingColor="blue4"
               disabled={
-                isMoneyLessThanAllowed() || formData.moneyToRedeem === '' || isRedeemSummaryLoading
+                !!validateErrors() ||
+                formData.moneyToRedeem === '' ||
+                isRedeemSummaryLoading
               }
               onClick={handleRedeemSummaryRequest}
             >
@@ -364,14 +382,9 @@ const BallanceRedeem = ({
           step={step}
           prevStep={previousStep}
           nextStep={() => {
-            if (!redeemSummaryData) {
-              handleRedeemSummaryRequest()
-            }
             nextStep()
           }}
-          isNextDisabled={
-            isMoneyLessThanAllowed() || formData.moneyToRedeem === ''
-          }
+          isNextDisabled={!!validateErrors() || formData.moneyToRedeem === ''}
           isNextLoading={isRedeemSummaryLoading}
         />
       }

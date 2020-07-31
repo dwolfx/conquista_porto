@@ -1,7 +1,7 @@
 import React from 'react'
 import { MemoryRouter, Route, RouteProps } from 'react-router-dom'
+import { screen } from '@testing-library/react'
 import { renderWithReduxAndTheme, fireEvent } from 'testUtils'
-
 import { storeFactory } from 'setupTests'
 
 import InvestorAccountMobile from '.'
@@ -73,14 +73,17 @@ describe('InvestorAccountMobile', () => {
       expect(getAllByText('R$ 0,00')).toHaveLength(2)
     })
     it('hides all buttons', () => {
-      const { queryByRole, queryAllByRole } = renderWithReduxAndTheme(
+      renderWithReduxAndTheme(
         <MemoryRouter>
           <InvestorAccountMobile />
         </MemoryRouter>,
         { store: zeroStore }
       )
-      expect(queryByRole('button', { name: 'retirar' })).toBeNull()
-      expect(queryAllByRole('button', { name: 'ver extrato' })).toHaveLength(0)
+
+      expect(screen.queryByTestId('retirar')).toBeDisabled()
+      expect(
+        screen.queryByRole('button', { name: 'ver extrato' })
+      ).toBeDisabled()
     })
   })
   describe('renders correcly when an error occours', () => {

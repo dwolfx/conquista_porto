@@ -4,10 +4,13 @@ import { get, baseURLNamespaceInvestAws } from 'services/api'
 import { Types } from './types'
 import { IGetRedeemAlignmentTermsPayload } from './types'
 import { getAuth, getSuitabilityInfo } from '../selectors'
-import { 
-  GetRedeemAlignmentTermsSuccess, 
-  GetRedeemAlignmentTermsFailure 
+import {
+  GetRedeemAlignmentTermsSuccess,
+  GetRedeemAlignmentTermsFailure,
 } from './action'
+
+import { getRedeemSummaryData } from 'store/modules/Investment/Redeem/SummaryRedeem/sagas'
+import { getSummaryRedeem } from './selectors'
 
 function* getRedeemAlignmentTermsData({
   payload: { data, onSuccess, onErrorToast },
@@ -17,6 +20,14 @@ function* getRedeemAlignmentTermsData({
   const { cpf } = yield select(getAuth)
 
   try {
+    const redeemSummaryData = yield select(getSummaryRedeem)
+
+    if (!redeemSummaryData) {
+      yield call(getRedeemSummaryData, {
+        type: 'REDEEM_SUMMARY_GET_DATA_REQUEST',
+        payload: { data_operacao, id_fundo, valor: valor_bruto, onErrorToast },
+      })
+    }
     const response = yield call(
       get,
       `${baseURLNamespaceInvestAws}/cotista%E2%80%8B/enquadramento/resgate?cpf_cnpj=${cpf}&id_cotista=${id_cotista}&data_operacao=${data_operacao}&tipo_operacao=2&valor_bruto=${valor_bruto}&id_fundo=${id_fundo}&CodigoCanal=1`

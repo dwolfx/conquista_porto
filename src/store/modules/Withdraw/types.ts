@@ -35,7 +35,7 @@ export interface IBank {
   agencia: string
   conta: string
   digito_conta: string
-  principal: string
+  principal: boolean
 }
 
 export interface ISummaryDataResponse {

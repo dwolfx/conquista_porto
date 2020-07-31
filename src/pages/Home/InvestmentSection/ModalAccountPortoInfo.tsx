@@ -7,7 +7,7 @@ import Modal from 'components/Modal/ModalNew'
 import HorizontalList from 'components/HorizontalList'
 import VerticalList from 'components/VerticalList'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, formatCpf } from 'helpers'
 
 import Button from 'components/Button'
 import WithdrawButton from 'components/Button/WithdrawButton'
@@ -127,52 +127,50 @@ export default function ModalAccountPortoInfo({
           </Text>
         </ModalTextWrapper>
         <ContainerBox>
-          {bankData &&
-            bankData.DadosContaPortoSeguro &&
-            bankData.DadosContaPortoSeguro.cpf && (
-              <ContainerAccountInfo>
-                <TableBox>
-                  <Text type="captionUppercase" color="gray4" bold>
-                    BANCO
-                  </Text>
-                  <Text type="headline" color="gray5" bold>
-                    {`${bankData.DadosContaPortoSeguro.codigo_banco} - ${bankData.DadosContaPortoSeguro.nome_banco}`}
-                  </Text>
-                </TableBox>
-                <TableBox>
-                  <Text type="captionUppercase" color="gray4" bold>
-                    AGÊNCIA
-                  </Text>
-                  <Text type="headline" color="gray5" bold>
-                    {bankData.DadosContaPortoSeguro.agencia}
-                  </Text>
-                </TableBox>
-                <TableBox>
-                  <Text type="captionUppercase" color="gray4" bold>
-                    CONTA
-                  </Text>
-                  <Text type="headline" color="gray5" bold>
-                    {`${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
-                  </Text>
-                </TableBox>
-                <TableBox>
-                  <Text type="captionUppercase" color="gray4" bold>
-                    CPF
-                  </Text>
-                  <Text type="headline" color="gray5" bold>
-                    {bankData.DadosContaPortoSeguro.cpf}
-                  </Text>
-                </TableBox>
-                <TableBox>
-                  <Text type="captionUppercase" color="gray4" bold>
-                    FAVORECIDO
-                  </Text>
-                  <Text type="headline" color="gray5" bold>
-                    {bankData.DadosContaPortoSeguro.titular}
-                  </Text>
-                </TableBox>
-              </ContainerAccountInfo>
-            )}
+          {bankData?.DadosContaPortoSeguro?.cpf && (
+            <ContainerAccountInfo>
+              <TableBox>
+                <Text type="captionUppercase" color="gray4" bold>
+                  BANCO
+                </Text>
+                <Text type="headline" color="gray5" bold>
+                  {`${bankData.DadosContaPortoSeguro.codigo_banco} - ${bankData.DadosContaPortoSeguro.nome_banco}`}
+                </Text>
+              </TableBox>
+              <TableBox>
+                <Text type="captionUppercase" color="gray4" bold>
+                  AGÊNCIA
+                </Text>
+                <Text type="headline" color="gray5" bold>
+                  {bankData.DadosContaPortoSeguro.agencia}
+                </Text>
+              </TableBox>
+              <TableBox>
+                <Text type="captionUppercase" color="gray4" bold>
+                  CONTA
+                </Text>
+                <Text type="headline" color="gray5" bold>
+                  {`${bankData.DadosContaPortoSeguro.conta}-${bankData.DadosContaPortoSeguro.digito_conta}`}
+                </Text>
+              </TableBox>
+              <TableBox>
+                <Text type="captionUppercase" color="gray4" bold>
+                  CPF
+                </Text>
+                <Text type="headline" color="gray5" bold>
+                  {formatCpf(bankData.DadosContaPortoSeguro.cpf)}
+                </Text>
+              </TableBox>
+              <TableBox>
+                <Text type="captionUppercase" color="gray4" bold>
+                  FAVORECIDO
+                </Text>
+                <Text type="headline" color="gray5" bold>
+                  {bankData.DadosContaPortoSeguro.titular}
+                </Text>
+              </TableBox>
+            </ContainerAccountInfo>
+          )}
         </ContainerBox>
         <ModalTextWrapper margin="0 0 14px 0">
           <Text type="headline" color="gray6" bold>

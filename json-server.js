@@ -15,6 +15,7 @@ const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
 const financialApplicationMock = require('./src/mocks/financialApplication.json')
 const withdrawPOSTMock = require('./src/mocks/withdrawPOST.json')
 const redeemPOSTMock = require('./src/mocks/redeemPOST.json')
+const fundDetails = require('./src/mocks/fundDetails.json')
 
 server.use(middlewares)
 
@@ -130,6 +131,21 @@ router.render = (req, res) => {
       //   retries: 0,
       // })
     }
+  }
+
+  if (
+    req.originalUrl.includes('/api/invest/fundos/') &&
+    req.originalUrl.endsWith('codigoCanal=0')
+  ) {
+    const idFund = req.originalUrl
+      .replace('/api/invest/fundos/', '')
+      .replace('?', '')
+      .replace('codigoCanal=0', '')
+
+    return res.status(200).jsonp({
+      ...fundDetails.fundo_detalhe,
+      id_fundo: idFund,
+    })
   }
 
   return res.jsonp(res.locals.data)

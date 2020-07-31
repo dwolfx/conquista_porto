@@ -49,6 +49,7 @@ export type IFormData = {
   moneyToInvest: string
   whenToInvest: string
   isAwareOfTerms: boolean
+  updated: boolean
 }
 
 const LayerInvestment: React.FC<IProps> = ({
@@ -58,10 +59,11 @@ const LayerInvestment: React.FC<IProps> = ({
   selectedFundId,
   isAwareOfTerms,
 }) => {
-  const FORM_DATA_INTIAL_STATE = {
+  const FORM_DATA_INTIAL_STATE: IFormData = {
     moneyToInvest: '',
     whenToInvest: '',
     isAwareOfTerms,
+    updated: false,
   }
   const dispatch = useDispatch()
   const { addToast } = useToast()
@@ -81,7 +83,6 @@ const LayerInvestment: React.FC<IProps> = ({
     FORM_DATA_INTIAL_STATE
   )
   const [acceptAlignmentTerms, setAcceptAlignmentTerms] = useState(false)
-  const [operationDate, setOperationDate] = useState<string>('')
 
   const {
     funds,
@@ -99,17 +100,6 @@ const LayerInvestment: React.FC<IProps> = ({
   const stepCount = 2
   const isMobile = useMedia('xs')
 
-  // the operation date is only setted on component mount, the value will be updated on the store eventually (if needed) so we use this to compare
-  useEffect(() => {
-    if (operationDate.length === 0) {
-      setOperationDate(
-        moment(
-          financialApplicationData.dados_para_aplicacao.data_operacao
-        ).format('DD/MM/YYYY')
-      )
-    }
-  }, [financialApplicationData, operationDate])
-
   const loadFormData = useCallback(
     (prevState: any): any => {
       const selectedFund = funds.data.find(
@@ -123,25 +113,28 @@ const LayerInvestment: React.FC<IProps> = ({
               Number(financialApplicationFundData.aplicacao_minima * 100)
             )
           : formatMoneyDecimal(Number(selectedFund.minimo_inicial * 100)),
-        whenToInvest: operationDate,
+        whenToInvest: moment(
+          financialApplicationData.dados_para_aplicacao.data_operacao
+        ).format('DD/MM/YYYY'),
         isAwareOfTerms,
+        updated: true,
       }
     },
     [
       funds.data,
       selectedFundId,
       isAwareOfTerms,
-      operationDate,
+      financialApplicationData,
       financialApplicationFundData,
     ]
   )
 
   useEffect(() => {
-    if (selectedFundId && funds.data.length > 0) {
+    if (selectedFundId && funds.data.length > 0 && !formData.updated) {
       setFormData(prevState => loadFormData(prevState))
       setFormDataCopy(prevState => loadFormData(prevState))
     }
-  }, [selectedFundId, funds.data, loadFormData])
+  }, [selectedFundId, funds.data, loadFormData, formData.updated])
 
   useEffect(() => {
     if (!selectedFundId) {
@@ -295,7 +288,6 @@ const LayerInvestment: React.FC<IProps> = ({
       onFormHasChanged={setHasFormChanged}
       idFundo={selectedFundId}
       nextButtonLoading={isLoadingNextButton}
-      operationDate={operationDate}
     />,
     <SummaryFinancialContribution
       idFundo={selectedFundId}
