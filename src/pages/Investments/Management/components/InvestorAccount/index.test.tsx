@@ -1,7 +1,7 @@
 import React from 'react'
 import { MemoryRouter, Route, RouteProps } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { render, fireEvent, act } from '@testing-library/react'
+import { render, fireEvent, act, screen } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import { storeFactory } from 'setupTests'
 import theme from 'styles/theme'
@@ -43,7 +43,7 @@ describe('Investor Account', () => {
     test('It shows total ballance', () => {
       const { getByTestId } = setup(
         <MemoryRouter>
-          <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccount />
         </MemoryRouter>
       )
       expect(getByTestId('info-total-ballance')).toBeDefined()
@@ -51,12 +51,12 @@ describe('Investor Account', () => {
     test('It shows settle ballance', () => {
       const { getByTestId } = setup(
         <MemoryRouter>
-          <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccount />
         </MemoryRouter>
       )
       expect(getByTestId('info-settle-ballance')).toBeDefined()
     })
-    test('It does not display the "Retirar" button when there is no available amount', () => {
+    test('should display "Retirar" button disabled when there is no available amount', () => {
       const store = storeFactory({
         bankData: {
           isLoading: false,
@@ -69,24 +69,24 @@ describe('Investor Account', () => {
           },
         },
       })
-      const { queryByText } = render(
+      render(
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <MemoryRouter>
-              <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+              <InvestorAccount />
             </MemoryRouter>
           </ThemeProvider>
         </Provider>
       )
 
-      expect(queryByText(/retirar/gi)).not.toBeInTheDocument()
+      expect(screen.queryByTestId('retirar')).toBeDisabled()
     })
   })
   describe('Error scenario', () => {
     test('It shows total ballance message error', () => {
       const { getByTestId } = setup(
         <MemoryRouter>
-          <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccount />
         </MemoryRouter>,
         true
       )
@@ -95,7 +95,7 @@ describe('Investor Account', () => {
     test('It shows settle ballance message error', () => {
       const { getByTestId } = setup(
         <MemoryRouter>
-          <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccount />
         </MemoryRouter>,
         true
       )
@@ -104,7 +104,7 @@ describe('Investor Account', () => {
     test('It shows ballance retry button', () => {
       const { getByTestId } = setup(
         <MemoryRouter>
-          <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccount />
         </MemoryRouter>,
         true
       )
@@ -117,7 +117,7 @@ describe('Investor Account', () => {
 
       const { getByTestId } = setup(
         <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccount />
           <Route
             path="*"
             render={({ location }) => {
@@ -137,7 +137,7 @@ describe('Investor Account', () => {
       let locationLocal: RouteProps['location']
       const { getByTestId } = setup(
         <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+          <InvestorAccount />
           <Route
             path="*"
             render={({ location }) => {
@@ -177,7 +177,7 @@ describe('Investor Account', () => {
         <Provider store={storeError}>
           <ThemeProvider theme={theme}>
             <MemoryRouter>
-              <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+              <InvestorAccount />
             </MemoryRouter>
           </ThemeProvider>
         </Provider>
@@ -189,7 +189,7 @@ describe('Investor Account', () => {
         <Provider store={storeSucess}>
           <ThemeProvider theme={theme}>
             <MemoryRouter>
-              <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+              <InvestorAccount />
             </MemoryRouter>
           </ThemeProvider>
         </Provider>
@@ -233,7 +233,7 @@ describe('Investor Account', () => {
         <Provider store={storeLoading}>
           <ThemeProvider theme={theme}>
             <MemoryRouter>
-              <InvestorAccount onChangeModalSuitabilityInfo={() => {}} />
+              <InvestorAccount />
             </MemoryRouter>
           </ThemeProvider>
         </Provider>

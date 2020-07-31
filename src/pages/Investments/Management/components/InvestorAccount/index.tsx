@@ -9,7 +9,7 @@ import Divisor from 'components/Divisor'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import useMedia from 'hooks/useMedia'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { formatMoney } from 'helpers'
+import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 
 import { InvestorAccountInfoEnum } from '../../types'
 
@@ -131,30 +131,30 @@ const InvestorAccount = () => {
               </>,
             ]}
           />
-          {Number(
-            bankData.DadosContaPortoSeguro &&
-              bankData.DadosContaPortoSeguro.saldo_disponivel
-          ) > 0 && (
-            <ButtonsWrapper>
-              {isTablet && (
-                <ButtonBlock
-                  outline
-                  color="primary"
-                  onClick={() => {
-                    history.push('/investimentos/extrato')
-                  }}
-                >
-                  ver extrato
-                </ButtonBlock>
-              )}
-              <WithdrawButton
-                gtmSubname="investimentos gerenciar"
-                css={`
-                  width: 100%;
-                `}
-              />
-            </ButtonsWrapper>
-          )}
+          <ButtonsWrapper>
+            {isTablet && (
+              <ButtonBlock
+                outline
+                color="primary"
+                onClick={() => {
+                  history.push('/investimentos/extrato')
+                }}
+                disabled={
+                  !formatLocaleStringToNumber(
+                    bankData?.DadosContaPortoSeguro?.saldo_disponivel || '0'
+                  )
+                }
+              >
+                ver extrato
+              </ButtonBlock>
+            )}
+            <WithdrawButton
+              gtmSubname="investimentos gerenciar"
+              css={`
+                width: 100%;
+              `}
+            />
+          </ButtonsWrapper>
           {!isTablet && renderExtractLink('saldo')}
         </InfoContainer>
         <Divisor />

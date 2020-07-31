@@ -4,9 +4,11 @@ import { useHistory } from 'react-router-dom'
 import moment from 'moment'
 
 import Button from 'components/Button'
+import { formatLocaleStringToNumber } from 'helpers'
 import { useToast } from 'hooks/toast'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
-import { formatLocaleStringToNumber } from 'helpers'
+
+import * as s from './styles'
 
 interface IProps {
   loading?: boolean
@@ -80,7 +82,7 @@ const WithdrawButton: React.FC<IProps> = ({
     }
   }
 
-  return (
+  const ButtonComponent = () => (
     <Button
       color="primary"
       outline
@@ -96,16 +98,19 @@ const WithdrawButton: React.FC<IProps> = ({
       data-gtm-subname={gtmSubname}
       data-gtm-name="retirar"
       onClick={handleClick}
-      title={
-        !formatLocaleStringToNumber(availableBalance || '0')
-          ? `Saldo indisponível`
-          : 'clique para retirar'
-      }
       data-testid="retirar"
       {...rest}
     >
       retirar
     </Button>
+  )
+
+  return formatLocaleStringToNumber(availableBalance || '0') ? (
+    <ButtonComponent />
+  ) : (
+    <s.Popover content="Saldo indisponível" tooltip placement="top">
+      <ButtonComponent />
+    </s.Popover>
   )
 }
 
