@@ -24,7 +24,7 @@ export const CustomHorizontalList = styled(HorizontalList)`
 export const CardStyled = styled(Card)`
   margin-top: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(1)}px`};
-  min-height: 287px;
+  min-height: 222px;
 
   ${CardBody} {
     justify-content: center;
@@ -37,6 +37,7 @@ export const CustomVerticalList = styled(VerticalList)`
 `
 
 export const InfoContainer = styled.div`
+
   padding: ${({ theme }) =>
     `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(2)}px`};
 
