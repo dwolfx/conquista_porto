@@ -38,10 +38,19 @@ const DigitalSignature = ({
   const { addToast } = useToast()
 
   const [signature, setSignature] = useState<string>('')
-  const { keyboardData, tokenData } = useSelector((state: any) => ({
+  const { 
+    keyboardData, 
+    tokenData, 
+    isToken2faLoading, 
+    isVirtualKeyboardLoading,
+  } = useSelector((state: any) => ({
     keyboardData: state.virtualKeyboard,
     tokenData: state.token2fa,
+    isToken2faLoading: state.token2fa.isLoading,
+    isVirtualKeyboardLoading: state.virtualKeyboard.isLoading,
   }))
+
+  const isLoading = isToken2faLoading || isVirtualKeyboardLoading || tokenData.isLoading || keyboardData.isLoading;
 
   const handleVirtualKeyboardKey = (item: any) => {
     const [key] = Object.keys(item)
@@ -88,13 +97,9 @@ const DigitalSignature = ({
             disabled={
               signature.length < 6 ||
               tokenData.isLoading ||
-              keyboardData.isLoading
+              isLoading
             }
-            loading={
-              tokenData.isLoading ||
-              keyboardData.isLoading ||
-              isNextButtonLoading
-            }
+            loading={isLoading}
             loadingColor="white"
             onClick={() => {
               /**
