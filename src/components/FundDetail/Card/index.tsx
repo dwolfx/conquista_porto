@@ -27,9 +27,10 @@ import {
 interface IProps {
   handleFundDetailOpen?: () => void
   selectedFundId?: string
+  isRedeem?: boolean
 }
 
-const FundDetailCard = ({ handleFundDetailOpen, selectedFundId }: IProps) => {
+const FundDetailCard = ({ handleFundDetailOpen, selectedFundId, isRedeem }: IProps) => {
   const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
 
@@ -98,9 +99,9 @@ const FundDetailCard = ({ handleFundDetailOpen, selectedFundId }: IProps) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>Aplicação inicial mínima</TextTitle>,
+                  <TextTitle>{isRedeem ? 'horário limite' : 'aplicação inicial mínima'}</TextTitle>,
                   <TextValue>
-                    {formatMoney(fundDetails.minimo_inicial)}
+                    {isRedeem ? fundDetails.hora_resgate : formatMoney(fundDetails.minimo_inicial)}
                   </TextValue>,
                 ]}
               />
@@ -111,9 +112,9 @@ const FundDetailCard = ({ handleFundDetailOpen, selectedFundId }: IProps) => {
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>Movimentação mínima</TextTitle>,
+                  <TextTitle>{isRedeem ? 'saldo mínimo' : 'movimentação mínima'}</TextTitle>,
                   <TextValue>
-                    {formatMoney(fundDetails.aplicao_minima)}
+                    {isRedeem ? formatMoney(fundDetails.saldo_minimo) : formatMoney(fundDetails.aplicao_minima)}
                   </TextValue>,
                 ]}
               />
