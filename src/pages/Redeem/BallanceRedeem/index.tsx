@@ -68,12 +68,14 @@ const BallanceRedeem = ({
     bankData,
     investmentPosition,
     redeemData,
+    isRedeemAlignmentTermsLoading,
     redeemSummaryData,
     isRedeemSummaryLoading,
   } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
     redeemData: state.redeemData.data,
+    isRedeemAlignmentTermsLoading: state.redeemAlignmentTerms.isLoading,
     isRedeemSummaryLoading: state.redeemSummaryData.isLoading,
     redeemSummaryData: state.redeemSummaryData.data,
   }))
@@ -237,6 +239,7 @@ const BallanceRedeem = ({
               disabled={
                 !!validateErrors() ||
                 formData.moneyToRedeem === '' ||
+                isRedeemAlignmentTermsLoading ||
                 isRedeemSummaryLoading
               }
               onClick={handleRedeemSummaryRequest}
@@ -401,8 +404,8 @@ const BallanceRedeem = ({
           nextStep={() => {
             nextStep()
           }}
-          isNextDisabled={!!validateErrors() || formData.moneyToRedeem === ''}
-          isNextLoading={isRedeemSummaryLoading}
+          isNextDisabled={isRedeemSummaryLoading || !!validateErrors() || formData.moneyToRedeem === ''}
+          isNextLoading={isRedeemAlignmentTermsLoading}
         />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}
