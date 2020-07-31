@@ -8,9 +8,10 @@ import IconViewGrid from 'assets/icons/grid.svg'
 
 import {
   TFundsLayout,
-  FUNDS_FILTER_TYPES,
   GTM_DATA_FUNDS_FILTROS_DRAWER,
 } from 'pages/Investments/Management/types'
+
+import useFundsList from 'pages/Investments/Management/useFundsList'
 
 import {
   Drawer,
@@ -51,6 +52,14 @@ const Filter: React.FC<IProps> = ({
   const [selectedViewMode, setSelectedViewMode] = useState<TFundsLayout>(
     'CARDS'
   )
+
+  const fundsListToFilters = [
+    ...new Set(
+      useFundsList().map(
+        (fund: { [item: string]: any }) => fund.categoria_arena
+      )
+    ),
+  ]
 
   const isMobile = useMedia('xs')
 
@@ -110,6 +119,13 @@ const Filter: React.FC<IProps> = ({
     }
   }
 
+  const getFilterName = (category: string): string => {
+    if (category === 'renda variável') {
+      return 'ações'
+    }
+    return category
+  }
+
   return (
     <Drawer
       isOpen={isDrawerOpen}
@@ -166,48 +182,20 @@ const Filter: React.FC<IProps> = ({
           <TitleContent>Tipo de fundo</TitleContent>
           <FundsType>
             <FundsTypeRow>
-              <ButtonTagStyled
-                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
-                data-gtm-name="botao filtro drawer categoria renda fixa"
-                color={handleFilterColors(FUNDS_FILTER_TYPES[1])}
-                onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[1])}
-              >
-                renda fixa
-              </ButtonTagStyled>
-              <ButtonTagStyled
-                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
-                data-gtm-name="botao filtro drawer categoria multimercado"
-                color={handleFilterColors(FUNDS_FILTER_TYPES[2])}
-                onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[2])}
-              >
-                multimercado
-              </ButtonTagStyled>
-              <ButtonTagStyled
-                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
-                data-gtm-name="botao filtro drawer categoria acoes"
-                color={handleFilterColors(FUNDS_FILTER_TYPES[3])}
-                onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[3])}
-              >
-                ações
-              </ButtonTagStyled>
-            </FundsTypeRow>
-            <FundsTypeRow>
-              <ButtonTagStyled
-                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
-                data-gtm-name="botao filtro drawer categoria investimento no exterior"
-                color={handleFilterColors(FUNDS_FILTER_TYPES[4])}
-                onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[4])}
-              >
-                investimento no exterior
-              </ButtonTagStyled>
-              <ButtonTagStyled
-                {...GTM_DATA_FUNDS_FILTROS_DRAWER}
-                data-gtm-name="botao filtro drawer categoria cambial"
-                color={handleFilterColors(FUNDS_FILTER_TYPES[5])}
-                onClick={() => handleSelectedFilters(FUNDS_FILTER_TYPES[5])}
-              >
-                cambial
-              </ButtonTagStyled>
+              {fundsListToFilters &&
+                fundsListToFilters.map((category: any) => (
+                  <ButtonTagStyled
+                    key={category}
+                    {...GTM_DATA_FUNDS_FILTROS_DRAWER}
+                    data-gtm-name={`botao filtro drawer categoria ${category.toLowerCase()}`}
+                    color={handleFilterColors(category.toLowerCase())}
+                    onClick={() =>
+                      handleSelectedFilters(category.toLowerCase())
+                    }
+                  >
+                    {getFilterName(category.toLowerCase())}
+                  </ButtonTagStyled>
+                ))}
             </FundsTypeRow>
           </FundsType>
         </ContentFunds>

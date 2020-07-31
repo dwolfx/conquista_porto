@@ -78,6 +78,7 @@ export const ViewModeGroupButton = styled.div<IGroupButtonViewModeProps>`
 `
 export const ButtonTagStyled = styled(ButtonTag)`
   margin-right: ${({ theme }) => theme.spacing(1)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
 `
 export const FundsType = styled.div`
   display: block;
