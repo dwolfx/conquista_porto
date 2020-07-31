@@ -829,6 +829,7 @@ Array [
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  height: 100%;
   padding: 0 25px;
   position: relative;
   width: 100%;

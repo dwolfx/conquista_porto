@@ -192,6 +192,7 @@ export const Content = styled.span`
   align-items: center;
   display: flex;
   justify-content: center;
+  height: 100%;
   padding: 0 25px;
   position: relative;
   width: 100%;

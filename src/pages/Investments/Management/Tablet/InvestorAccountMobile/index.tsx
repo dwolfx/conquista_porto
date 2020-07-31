@@ -9,7 +9,7 @@ import Divisor from 'components/Divisor'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
-import { formatMoney } from 'helpers'
+import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 
 import { InvestorAccountInfoEnum } from '../../types'
 
@@ -108,34 +108,33 @@ const InvestorAccountMobile = () => {
             </>,
           ]}
         />
-        {Number(
-          bankData &&
-            bankData.DadosContaPortoSeguro &&
-            bankData.DadosContaPortoSeguro.saldo_disponivel
-        ) > 0 && (
-          <ButtonsWrapper>
-            <ButtonBlock
-              outline
-              data-gtm-subname="botao link extrato conta"
-              data-gtm-type="click"
-              data-gtm-button="button"
-              color="primary"
-              onClick={() => {
-                history.push('/investimentos/extrato')
-              }}
-            >
-              ver extrato
-            </ButtonBlock>
-            <WithdrawButton
-              gtmSubname="investimentos gerenciar"
-              css={`
-                width: 100%;
-              `}
-              loading={withdrawLoading}
-              onClickSetLoading={setWithdrawLoading}
-            />
-          </ButtonsWrapper>
-        )}
+        <ButtonsWrapper>
+          <ButtonBlock
+            outline
+            data-gtm-subname="botao link extrato conta"
+            data-gtm-type="click"
+            data-gtm-button="button"
+            color="primary"
+            onClick={() => {
+              history.push('/investimentos/extrato')
+            }}
+            disabled={
+              !formatLocaleStringToNumber(
+                bankData?.DadosContaPortoSeguro?.saldo_disponivel || '0'
+              )
+            }
+          >
+            ver extrato
+          </ButtonBlock>
+          <WithdrawButton
+            gtmSubname="investimentos gerenciar"
+            css={`
+              width: 100%;
+            `}
+            loading={withdrawLoading}
+            onClickSetLoading={setWithdrawLoading}
+          />
+        </ButtonsWrapper>
       </InfoContainer>
     )
   }
