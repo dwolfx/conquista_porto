@@ -85,7 +85,7 @@ const MainContent = ({
       id_cotista,
       cpf_cnpj: cpf,
       data_operacao: moment().format('YYYY-MM-DD'),
-      valor_operacao: formData.withdrawValue,
+      valor_operacao: formatLocaleStringToNumber(formData.withdrawValue),
       id_conta_liquidacao: formData.bankId,
     })
       .then(() => setIsSuccess(true))
