@@ -31,11 +31,13 @@ import { Anbima, CustomCol, Container, LayerStyled } from './styles'
 export type IFormData = {
   moneyToRedeem: string
   alignmentAware: string
+  redeemType: string
 }
 
 export const FORM_DATA_INTIAL_STATE = {
   moneyToRedeem: '',
   alignmentAware: 'N',
+  redeemType: '2',
 }
 
 interface IProps {
@@ -65,6 +67,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(
     null
   )
+
   const { cpf, id_cotista, idFund } = useSelector((state: any) => ({
     cpf: state.auth.cpf,
     id_cotista: state.suitabilityInfo.data?.id_cotista,
@@ -84,7 +87,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       data_operacao: moment().format('YYYY-MM-DD'),
       valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
       ciencia_desenquadramento: formData.alignmentAware,
-      tipo_resgate: '2',
+      tipo_resgate: formData.redeemType,
     })
       .then(() => setIsSuccess(true))
       .catch(() => setError(true))
@@ -232,6 +235,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         <TransactionHeader
           onBack={goBackHandler}
           onClose={() => {
+            history.push('/investimentos')
             resetValues()
             handleClose()
           }}
