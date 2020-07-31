@@ -51,27 +51,6 @@ describe('DrawerFilter', () => {
     expect(getByText('lista')).toBeDefined()
     expect(queryByText('botao fundos layout list')).toBeDefined()
   })
-  it('Should render tipo de fundo content', () => {
-    const { getByText } = renderWithReduxAndTheme(
-      <MemoryRouter>
-        <DrawerFilter
-          filters={[]}
-          viewMode={'CARDS'}
-          onHandleChangeView={() => {}}
-          isDrawerOpen={true}
-          onChangeIsDrawerOpen={() => {}}
-          onHandleChangeFilter={() => {}}
-        />
-      </MemoryRouter>,
-      { container: createRootContainer() }
-    )
-    expect(getByText('Tipo de fundo')).toBeDefined()
-    expect(getByText('renda fixa')).toBeDefined()
-    expect(getByText('multimercado')).toBeDefined()
-    expect(getByText('ações')).toBeDefined()
-    expect(getByText('investimento no exterior')).toBeDefined()
-    expect(getByText('cambial')).toBeDefined()
-  })
   it('Should render apply and clear footer controls', () => {
     const { getByText } = renderWithReduxAndTheme(
       <MemoryRouter>

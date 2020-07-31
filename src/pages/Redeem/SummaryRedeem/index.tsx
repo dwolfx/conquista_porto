@@ -44,13 +44,19 @@ const SummaryRedeem = ({
     investmentPosition,
     redeemSummaryData,
     is2FARequestLoadingInfo,
+    isToken2faLoading,
+    isVirtualKeyboardLoading,
   } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
     redeemSummaryData: state.redeemSummaryData.data,
     is2FARequestLoadingInfo: state.token2fa.isLoadingGetInfo,
+    isToken2faLoading: state.token2fa.isLoadingGetInfo,
+    isVirtualKeyboardLoading: state.virtualKeyboard.isLoading,
   }))
   const isMobile = useMedia('xs')
+
+  const isNextLoading = is2FARequestLoadingInfo || isToken2faLoading || isVirtualKeyboardLoading;
 
   const cardBody = () => (
     <>
@@ -259,8 +265,8 @@ const SummaryRedeem = ({
           step={step}
           prevStep={previousStep}
           nextStep={nextStep}
-          isNextDisabled={false}
-          isNextLoading={is2FARequestLoadingInfo}
+          isNextDisabled={isNextLoading}
+          isNextLoading={isNextLoading}
         />
       }
       onChangeFundDetailOpen={() => onChangeFundDetailOpen(true)}

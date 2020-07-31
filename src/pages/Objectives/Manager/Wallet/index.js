@@ -192,6 +192,9 @@ export default function Wallet({
                                   setIsInvestorLevelModalOpen={
                                     setIsInvestorLevelModalOpen
                                   }
+                                  isInvestorLevelModalOpen={
+                                    isInvestorLevelModalOpen
+                                  }
                                   setSelectedFundId={setSelectedFundId}
                                 />
                               </Popover>
@@ -205,6 +208,9 @@ export default function Wallet({
                                 setIsAwareOfTerms={setIsAwareOfTerms}
                                 setIsInvestorLevelModalOpen={
                                   setIsInvestorLevelModalOpen
+                                }
+                                isInvestorLevelModalOpen={
+                                  isInvestorLevelModalOpen
                                 }
                                 setSelectedFundId={setSelectedFundId}
                               />
@@ -310,6 +316,9 @@ export default function Wallet({
                               setIsInvestorLevelModalOpen={
                                 setIsInvestorLevelModalOpen
                               }
+                              isInvestorLevelModalOpen={
+                                isInvestorLevelModalOpen
+                              }
                               setSelectedFundId={setSelectedFundId}
                             />
                           </Popover>
@@ -324,6 +333,7 @@ export default function Wallet({
                             setIsInvestorLevelModalOpen={
                               setIsInvestorLevelModalOpen
                             }
+                            isInvestorLevelModalOpen={isInvestorLevelModalOpen}
                             setSelectedFundId={setSelectedFundId}
                           />
                         )}
