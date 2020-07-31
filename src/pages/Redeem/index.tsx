@@ -52,7 +52,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const themeContext = useContext(ThemeContext)
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
-  const [, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [hasError, setError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
@@ -179,6 +179,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       onConfirm={handlePostRedeem}
       onPrevious={() => setStep(step - 1)}
       onError={() => setError(true)}
+      isNextButtonLoading={isLoading}
     />,
     <CardSuccessError
       successOrError={getStatus()}
