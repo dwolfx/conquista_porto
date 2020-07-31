@@ -1,9 +1,11 @@
 import React from 'react'
+
 import {
   TFundsLayout,
-  FUNDS_FILTER_TYPES,
   GTM_DATA_FUNDS_FILTROS,
 } from 'pages/Investments/Management/types'
+import useFundsList from 'pages/Investments/Management/useFundsList'
+
 import {
   LeftContent,
   RightContent,
@@ -28,6 +30,13 @@ const FundsFilter: React.FC<IProps> = ({
   onHandleChangeView,
   onHandleChangeFilter,
 }) => {
+  const fundsListToFilters = [
+    ...new Set(
+      useFundsList().map(
+        (fund: { [item: string]: any }) => fund.categoria_arena
+      )
+    ),
+  ]
   const handleFilters = (category: string) => {
     if (!filters.includes(category)) {
       onHandleChangeFilter([...filters, category])
@@ -50,49 +59,31 @@ const FundsFilter: React.FC<IProps> = ({
     return viewMode === buttonViewMode ? 'primary' : 'secondary'
   }
 
+  const getFilterName = (category: string): string => {
+    if (category === 'renda variável') {
+      return 'ações'
+    }
+    if (category === 'investimento no exterior') {
+      return 'inv. no exterior'
+    }
+    return category
+  }
+
   return (
     <RowContent>
       <LeftContent>
-        <ButtonTagStyled
-          color={handleFilterColors(FUNDS_FILTER_TYPES[1])}
-          onClick={() => handleFilters(FUNDS_FILTER_TYPES[1])}
-          {...GTM_DATA_FUNDS_FILTROS}
-          data-gtm-name="botao filtro categoria renda fixa"
-        >
-          renda fixa
-        </ButtonTagStyled>
-        <ButtonTagStyled
-          color={handleFilterColors(FUNDS_FILTER_TYPES[2])}
-          onClick={() => handleFilters(FUNDS_FILTER_TYPES[2])}
-          {...GTM_DATA_FUNDS_FILTROS}
-          data-gtm-name="botao filtro categoria multimercado"
-        >
-          multimercado
-        </ButtonTagStyled>
-        <ButtonTagStyled
-          color={handleFilterColors(FUNDS_FILTER_TYPES[3])}
-          onClick={() => handleFilters(FUNDS_FILTER_TYPES[3])}
-          {...GTM_DATA_FUNDS_FILTROS}
-          data-gtm-name="botao filtro categoria acoes"
-        >
-          ações
-        </ButtonTagStyled>
-        <ButtonTagStyled
-          color={handleFilterColors(FUNDS_FILTER_TYPES[4])}
-          onClick={() => handleFilters(FUNDS_FILTER_TYPES[4])}
-          {...GTM_DATA_FUNDS_FILTROS}
-          data-gtm-name="botao filtro categoria inv. no exterior"
-        >
-          inv. no exterior
-        </ButtonTagStyled>
-        <ButtonTagStyled
-          color={handleFilterColors(FUNDS_FILTER_TYPES[5])}
-          onClick={() => handleFilters(FUNDS_FILTER_TYPES[5])}
-          {...GTM_DATA_FUNDS_FILTROS}
-          data-gtm-name="botao filtro categoria cambial"
-        >
-          cambial
-        </ButtonTagStyled>
+        {fundsListToFilters &&
+          fundsListToFilters.map((category: any) => (
+            <ButtonTagStyled
+              key={category}
+              color={handleFilterColors(category.toLowerCase())}
+              onClick={() => handleFilters(category.toLowerCase())}
+              {...GTM_DATA_FUNDS_FILTROS}
+              data-gtm-name={`botao filtro categoria ${category}`}
+            >
+              {getFilterName(category.toLowerCase())}
+            </ButtonTagStyled>
+          ))}
         <ButtonClearFilters
           noIcon
           onClick={handleClearFilters}
