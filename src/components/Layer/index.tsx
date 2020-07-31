@@ -36,7 +36,8 @@ const Layer: React.FC<IProps> = ({
       html!.style.overflowY = 'visible'
     }
     return () => handleOverflow()
-  }, [isOpen])
+    // add children to dependecy to garantee that, while the layer is opened, the html/body overflow will be hidden, so the scroll will only be on the layer, not also on the document
+  }, [isOpen, children])
 
   useEffect(() => {
     const handler = function handleEscClose(event: KeyboardEvent) {

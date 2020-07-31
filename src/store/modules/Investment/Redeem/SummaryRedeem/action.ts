@@ -4,26 +4,33 @@ import { IError } from './types'
 export function GetRedeemSummaryRequest(payload: IGetRedeemSummaryRequest) {
   return {
     type: Types.REDEEM_SUMMARY_GET_DATA_REQUEST,
-    payload
+    payload,
   }
 }
 
 export function GetRedeemSummarySuccess(response: any) {
   return {
     type: Types.REDEEM_SUMMARY_GET_DATA_SUCCESS,
-    payload: response
+    payload: response,
   }
 }
 
 export function GetRedeemSummaryFailure({ message }: IError) {
   return {
     type: Types.REDEEM_SUMMARY_GET_DATA_FAILURE,
-    message
+    message,
   }
 }
 
 export function ClearReddemSummary() {
   return {
-    type: Types.REDDEM_SUMMARY_CLEAR_DATA
+    type: Types.REDDEM_SUMMARY_CLEAR_DATA,
+  }
+}
+
+export function SetRedeemSummaryLoading(payload: boolean) {
+  return {
+    type: Types.REDDEM_SUMMARY_SET_LOADING,
+    payload,
   }
 }
