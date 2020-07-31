@@ -96,7 +96,6 @@ const DigitalSignature = ({
             color="secondary"
             disabled={
               signature.length < 6 ||
-              tokenData.isLoading ||
               isLoading
             }
             loading={isLoading}
