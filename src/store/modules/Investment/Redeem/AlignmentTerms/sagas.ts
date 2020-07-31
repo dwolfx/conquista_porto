@@ -1,16 +1,19 @@
 import { call, select, all, takeLatest, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceInvestAws } from 'services/api'
-import { Types } from './types'
-import { IGetRedeemAlignmentTermsPayload } from './types'
-import { getAuth, getSuitabilityInfo } from '../selectors'
+import {
+  getAuth,
+  getSuitabilityInfo,
+} from 'store/modules/Investment/Redeem/selectors'
+import { SetRedeemSummaryLoading } from 'store/modules/Investment/Redeem/SummaryRedeem/action'
+import { getRedeemSummaryData } from 'store/modules/Investment/Redeem/SummaryRedeem/sagas'
+
+import { Types, IGetRedeemAlignmentTermsPayload } from './types'
+import { getSummaryRedeem } from './selectors'
 import {
   GetRedeemAlignmentTermsSuccess,
   GetRedeemAlignmentTermsFailure,
 } from './action'
-
-import { getRedeemSummaryData } from 'store/modules/Investment/Redeem/SummaryRedeem/sagas'
-import { getSummaryRedeem } from './selectors'
 
 function* getRedeemAlignmentTermsData({
   payload: { data, onSuccess, onErrorToast },
@@ -23,6 +26,7 @@ function* getRedeemAlignmentTermsData({
     const redeemSummaryData = yield select(getSummaryRedeem)
 
     if (!redeemSummaryData) {
+      yield put(SetRedeemSummaryLoading(true))
       yield call(getRedeemSummaryData, {
         type: 'REDEEM_SUMMARY_GET_DATA_REQUEST',
         payload: { data_operacao, id_fundo, valor: valor_bruto, onErrorToast },
