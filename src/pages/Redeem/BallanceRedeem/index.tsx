@@ -382,9 +382,6 @@ const BallanceRedeem = ({
           step={step}
           prevStep={previousStep}
           nextStep={() => {
-            if (!redeemSummaryData) {
-              handleRedeemSummaryRequest()
-            }
             nextStep()
           }}
           isNextDisabled={!!validateErrors() || formData.moneyToRedeem === ''}
