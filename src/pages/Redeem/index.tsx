@@ -261,6 +261,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
                 <FundDetailCard
                   handleFundDetailOpen={() => setFundDetailOpen(true)}
                   selectedFundId={selectedFundId}
+                  isRedeem
                 />
               </CustomCol>
             )}
