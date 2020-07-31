@@ -48,7 +48,7 @@ const MainContent = ({
   const inputRef = useRef() as React.RefObject<HTMLInputElement>
   const { addToast } = useToast()
 
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [hasError, setError] = useState(false)
   const [isInputValueValid, setIsInputValueValid] = useState(false)
@@ -236,6 +236,7 @@ const MainContent = ({
       onConfirm={handlePostWithdraw}
       onError={() => setError(true)}
       onPrevious={() => setStep(--step)}
+      isNextButtonLoading={isLoading}
     />,
   ]
 

@@ -24,12 +24,14 @@ interface IProps {
   onPrevious: () => void
   onConfirm: () => void
   onError: () => void
+  isNextButtonLoading: boolean
 }
 
 const DigitalSignature = ({
   onPrevious,
   onConfirm,
   onError,
+  isNextButtonLoading,
   ...rest
 }: IProps) => {
   const dispatch = useDispatch()
@@ -88,7 +90,11 @@ const DigitalSignature = ({
               tokenData.isLoading ||
               keyboardData.isLoading
             }
-            loading={tokenData.isLoading || keyboardData.isLoading}
+            loading={
+              tokenData.isLoading ||
+              keyboardData.isLoading ||
+              isNextButtonLoading
+            }
             loadingColor="white"
             onClick={() => {
               /**
