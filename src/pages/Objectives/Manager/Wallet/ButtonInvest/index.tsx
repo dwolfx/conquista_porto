@@ -41,6 +41,7 @@ interface IButtonProps {
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
   setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void
   setSelectedFundId: (id: string) => void
+  isInvestorLevelModalOpen: boolean
 }
 
 const ButtonInvest = ({
@@ -50,6 +51,7 @@ const ButtonInvest = ({
   setIsAwareOfTerms,
   setIsInvestorLevelModalOpen,
   setSelectedFundId,
+  isInvestorLevelModalOpen,
 }: IButtonProps) => {
   const dispatch = useDispatch()
   const { addToast } = useToast()
@@ -81,9 +83,11 @@ const ButtonInvest = ({
     }
 
     if (
-      !suitabilityIsLoading &&
-      !financialApplicationLoading &&
-      !fundsIsLoading
+      (!suitabilityIsLoading &&
+        !financialApplicationLoading &&
+        !fundsIsLoading) ||
+      isInvestorLevelModalOpen ||
+      suitabilityStoreData.isOpen
     ) {
       setInvestButtonLoading(false)
     }
@@ -91,6 +95,8 @@ const ButtonInvest = ({
     suitabilityIsLoading,
     financialApplicationLoading,
     fundsIsLoading,
+    isInvestorLevelModalOpen,
+    suitabilityStoreData,
     isClicked,
   ])
 

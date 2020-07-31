@@ -131,6 +131,7 @@ const Tablet: React.FC<IProps> = ({
               setLayerOpen={setLayerOpen}
               setIsAwareOfTerms={setIsAwareOfTerms}
               setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
+              isInvestorLevelModalOpen={isInvestorLevelModalOpen}
             />
             <LastTransations />
           </Card>
