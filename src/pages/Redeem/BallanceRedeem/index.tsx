@@ -118,7 +118,10 @@ const BallanceRedeem = ({
         message: 'Movimentação menor que o mínimo permitido.',
       }
     }
-    if (currentBalance - redeemValue < minBalance) {
+    if (
+      currentBalance !== redeemValue &&
+      currentBalance - redeemValue < minBalance
+    ) {
       return {
         icon: 'alertrounded',
         message: 'Saldo remanescente menor que o mínimo permitido.',
@@ -136,6 +139,47 @@ const BallanceRedeem = ({
         onErrorToast: addToast,
       })
     )
+  }
+
+  const handleButtonFullRedeem = () => {
+    const formatedValueToRedeem = formatMoney(
+      redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual,
+      { style: 'decimal' }
+    )
+    if (redeemOptionButton === 'tudo') {
+      onChangeRedeemOptionButton(null)
+      return resetValue()
+    }
+    onChangeRedeemOptionButton('tudo')
+    onChangeFormData({
+      ...formData,
+      moneyToRedeem: formatedValueToRedeem,
+      redeemType: '5',
+    })
+  }
+
+  const handleKeeptMinBalance = () => {
+    if (redeemOptionButton === 'manter') {
+      onChangeRedeemOptionButton(null)
+      return resetValue()
+    }
+    onChangeRedeemOptionButton('manter')
+    onChangeFormData({
+      ...formData,
+      moneyToRedeem: calcMinimalBallance(),
+      redeemType: '2',
+    })
+  }
+
+  const handleChangeInputMoney = (value: any) => {
+    const currentBalance = Number(
+      redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
+    )
+    onChangeFormData({
+      ...formData,
+      moneyToRedeem: value,
+      redeemType: currentBalance === formatMoneyToNumber(value) ? '5' : '2',
+    })
   }
 
   const cardBody = () => (
@@ -156,37 +200,13 @@ const BallanceRedeem = ({
           <ButtonsBallanceWrapper>
             <ButtonTag
               color={redeemOptionButton === 'tudo' ? 'primary' : ''}
-              onClick={() => {
-                if (redeemOptionButton === 'tudo') {
-                  onChangeRedeemOptionButton(null)
-                  return resetValue()
-                }
-                onChangeRedeemOptionButton('tudo')
-                onChangeFormData({
-                  ...formData,
-                  moneyToRedeem: formatMoney(
-                    redeemData.dados_para_resgate.posicao_cotista_fundo
-                      .saldo_atual,
-                    { style: 'decimal' }
-                  ),
-                })
-              }}
+              onClick={handleButtonFullRedeem}
             >
               tudo
             </ButtonTag>
             <ButtonTag
               color={redeemOptionButton === 'manter' ? 'primary' : ''}
-              onClick={() => {
-                if (redeemOptionButton === 'manter') {
-                  onChangeRedeemOptionButton(null)
-                  return resetValue()
-                }
-                onChangeRedeemOptionButton('manter')
-                onChangeFormData({
-                  ...formData,
-                  moneyToRedeem: calcMinimalBallance(),
-                })
-              }}
+              onClick={handleKeeptMinBalance}
               css={`
                 margin-left: ${themeContext.spacing(1)}px;
               `}
@@ -201,12 +221,9 @@ const BallanceRedeem = ({
               data-gtm-name="quanto investir"
               value={formData.moneyToRedeem}
               placeholder="1000,00"
-              onChange={({ target }: any) => {
-                onChangeFormData({
-                  ...formData,
-                  moneyToRedeem: target.value,
-                })
-              }}
+              onChange={({ target }: any) =>
+                handleChangeInputMoney(target.value)
+              }
               error={validateErrors()}
             />
             <ButtonStyled
