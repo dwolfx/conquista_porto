@@ -100,7 +100,12 @@ function* postFinancialApplicationData({
     const response = yield call(
       post,
       `${baseURLNamespaceInvestAws}/cotista/aplicacoes`,
-      { ...otherData, cpf_cnpj: cpf, id_cotista: id_cotista }
+      {
+        ...otherData,
+        cpf_cnpj: cpf,
+        id_cotista: id_cotista,
+        ciencia_desenquadramento: 'S',
+      }
     )
 
     yield put(PostFinancialApplicationDataSuccess(response.data))
