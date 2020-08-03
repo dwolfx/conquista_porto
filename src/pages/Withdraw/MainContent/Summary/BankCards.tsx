@@ -12,7 +12,7 @@ import * as s from './styles'
 
 interface IBankCards {
   bankSelected: string
-  bankInfos: IBank[]
+  bankInfos: IBank[] | undefined
   isLoading: boolean
   hasError: boolean
   onError: () => void
