@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 
@@ -7,6 +7,8 @@ import Text from 'components/Text'
 
 import { formatMoney } from 'helpers'
 import { GetWithdrawSummaryRequest } from 'store/modules/Withdraw/actions'
+
+import { IBank } from 'store/modules/Withdraw/types'
 
 import { Divisor } from '../styles'
 import BankCards from './BankCards'
@@ -21,6 +23,9 @@ interface IProps {
 const Summary = ({ value, bankSelected, onBankSelectedChange }: IProps) => {
   const dispatch = useDispatch()
 
+  const [settlementAccount, setSettlementAccount] = useState<
+    IBank[] | undefined
+  >(undefined)
   const { summaryInfos } = useSelector<any, any>(state => ({
     summaryInfos: state.withdraw,
   }))
@@ -40,14 +45,21 @@ const Summary = ({ value, bankSelected, onBankSelectedChange }: IProps) => {
   }, [getSummaryInfos])
 
   useEffect(() => {
-    if (
-      summaryInfos &&
-      bankSelected.length === 0 &&
-      summaryInfos.summaryData?.contas_liquidacao?.conta_liquidacao[0].id_conta
-    ) {
-      onBankSelectedChange(
-        summaryInfos.summaryData.contas_liquidacao.conta_liquidacao[0].id_conta
-      )
+    if (summaryInfos?.summaryData?.contas_liquidacao?.conta_liquidacao) {
+      const newSettlementAccount = [
+        summaryInfos.summaryData.contas_liquidacao.conta_liquidacao,
+      ].flatMap(item => item)
+
+      if (
+        summaryInfos &&
+        bankSelected.length === 0 &&
+        newSettlementAccount &&
+        newSettlementAccount[0].id_conta
+      ) {
+        onBankSelectedChange(newSettlementAccount[0].id_conta)
+      }
+
+      setSettlementAccount(newSettlementAccount)
     }
   }, [summaryInfos, onBankSelectedChange, bankSelected])
 
@@ -102,9 +114,7 @@ const Summary = ({ value, bankSelected, onBankSelectedChange }: IProps) => {
 
       <s.BankCardsContainer>
         <BankCards
-          bankInfos={
-            summaryInfos.summaryData?.contas_liquidacao?.conta_liquidacao
-          }
+          bankInfos={settlementAccount}
           isLoading={summaryInfos.isLoadingSummary}
           hasError={summaryInfos.hasErrorSummary}
           onError={getSummaryInfos}

@@ -66,7 +66,6 @@ const SummaryFinancialContribution = ({
           valor: formatLocaleStringToNumber(formData.moneyToInvest),
           id_fundo: idFundo,
           ciencia_desenquadramento: acceptAlignmentTerms ? 'S' : 'N',
-          aceite_termo_adesao: formData.isAwareOfTerms ? 'S' : 'N',
         },
         onSuccess: () => {
           onChangeRequestStatus('success', true)
