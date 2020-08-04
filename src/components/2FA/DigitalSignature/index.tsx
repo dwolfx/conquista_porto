@@ -21,7 +21,7 @@ import {
 } from '../styles'
 
 interface IProps {
-  onPrevious: () => void
+  onPrevious: (stepsBack: number) => void
   onConfirm: () => void
   onError: () => void
   isNextButtonLoading: boolean
@@ -38,10 +38,10 @@ const DigitalSignature = ({
   const { addToast } = useToast()
 
   const [signature, setSignature] = useState<string>('')
-  const { 
-    keyboardData, 
-    tokenData, 
-    isToken2faLoading, 
+  const {
+    keyboardData,
+    tokenData,
+    isToken2faLoading,
     isVirtualKeyboardLoading,
   } = useSelector((state: any) => ({
     keyboardData: state.virtualKeyboard,
@@ -84,7 +84,7 @@ const DigitalSignature = ({
         <Footer>
           <Button
             outline
-            onClick={onPrevious}
+            onClick={() => { onPrevious(1) }}
             data-gtm-type="click"
             data-gtm-clicktype="button"
             data-gtm-subname="assinatura eletronica"
@@ -119,7 +119,7 @@ const DigitalSignature = ({
                   onError,
                   onSuccess: onConfirm,
                   addToast,
-                  goToPreviousStep: onPrevious,
+                  goToPreviousStep: () => { onPrevious(2) },
                 })
               )
             }}

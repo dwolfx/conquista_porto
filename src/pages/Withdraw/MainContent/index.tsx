@@ -235,7 +235,7 @@ const MainContent = ({
     <s.DigitalSignature
       onConfirm={handlePostWithdraw}
       onError={() => setError(true)}
-      onPrevious={() => setStep(--step)}
+      onPrevious={(stepsBack: number) => setStep(step - stepsBack)}
       isNextButtonLoading={isLoading}
     />,
   ]
