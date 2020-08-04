@@ -6,6 +6,7 @@ import moment from 'moment'
 import 'styled-components/macro'
 
 import TransactionHeader from 'components/Header/TransactionsHeader'
+import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
 import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
@@ -43,26 +44,43 @@ const Withdraw = () => {
   }, [getAccountDetail])
 
   useEffect(() => {
-    if (
-      Object.entries(withdrawDetails).length &&
-      withdrawDetails.fechado_retirada
-    ) {
-      setShowPrompt(false)
+    if (Object.entries(withdrawDetails).length) {
+      if (withdrawDetails.fechado_retirada) {
+        setShowPrompt(false)
 
-      history.goBack()
+        history.goBack()
 
-      return () => {
-        addToast({
-          description: `Tente novamente amanhã a partir das ${moment(
-            withdrawDetails.horario_inicio_permitido_retirada,
-            'H:mm:ss'
-          ).format('H:mm')}`,
-          title: `Não é possivel fazer retirada após as ${moment(
-            withdrawDetails.horario_fim_permitido_retirada,
-            'H:mm:ss'
-          ).format('H:mm')}`,
-          type: 'error',
-        })
+        return () => {
+          addToast({
+            description: `Tente novamente amanhã a partir das ${moment(
+              withdrawDetails.horario_inicio_permitido_retirada,
+              'H:mm:ss'
+            ).format('H:mm')}`,
+            title: `Não é possivel fazer retirada após as ${moment(
+              withdrawDetails.horario_fim_permitido_retirada,
+              'H:mm:ss'
+            ).format('H:mm')}`,
+            type: 'error',
+          })
+        }
+      } else if (
+        !formatLocaleStringToNumber(
+          withdrawDetails?.conta_porto_seguro?.saldo_disponivel
+        )
+      ) {
+        setShowPrompt(false)
+
+        history.goBack()
+
+        return () => {
+          addToast({
+            description: `Seu saldo é de ${formatMoney(
+              withdrawDetails?.conta_porto_seguro?.saldo_disponivel
+            )}`,
+            title: `Operação inválida`,
+            type: 'error',
+          })
+        }
       }
     }
   }, [withdrawDetails, addToast, history])
