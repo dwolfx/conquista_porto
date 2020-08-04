@@ -87,25 +87,12 @@ function* postFinancialApplicationData({
 }: IPostFinancialApplicationPayload) {
   const { id_cotista } = yield select(getSuitabilityInfo)
   const { cpf } = yield select(getAuth)
-  const { aceite_termo_adesao, ...otherData } = data
 
   try {
-    if (aceite_termo_adesao === 'S') {
-      yield call(
-        get,
-        `${baseURLNamespaceInvestAws}/cotista/aplicacoes/resumo?id_fundo=${otherData.id_fundo}&id_cotista=${id_cotista}&cpf_cnpj=${cpf}&data_operacao=${otherData.data}&valor=${otherData.valor}&aceite_termo_adesao=${aceite_termo_adesao}`
-      )
-    }
-
     const response = yield call(
       post,
       `${baseURLNamespaceInvestAws}/cotista/aplicacoes`,
-      {
-        ...otherData,
-        cpf_cnpj: cpf,
-        id_cotista: id_cotista,
-        ciencia_desenquadramento: 'S',
-      }
+      { ...data, cpf_cnpj: cpf, id_cotista: id_cotista }
     )
 
     yield put(PostFinancialApplicationDataSuccess(response.data))

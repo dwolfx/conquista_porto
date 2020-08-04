@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 import 'styled-components/macro'
@@ -20,6 +20,7 @@ import { useToast } from 'hooks/toast'
 import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 import { IFormData } from 'pages/Investments/FinancialApplication'
 
+import { baseURLNamespaceInvestAws, get } from 'services/api'
 import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 
 import { isPastDate, isInvalidDate, formatMoneyToNumber } from './utils'
@@ -77,6 +78,7 @@ const FormFinancialContribution = ({
   const isMobile = useMedia('xs')
 
   const [showError, setShowError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const financialData = financialApplication.dados_para_aplicacao
   const { limitHour, link } = {
@@ -91,6 +93,7 @@ const FormFinancialContribution = ({
     financialApplicationLoading,
     financialApplicationData,
     alignmentTermsLoading,
+    suitabilityInfoData,
   } = useSelector((state: any) => ({
     bankData: state.bankData,
     auth: state.auth,
@@ -98,6 +101,7 @@ const FormFinancialContribution = ({
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
     financialApplicationData: state.financialApplicationGetData.data,
     alignmentTermsLoading: state.alignmentTerms.isLoading,
+    suitabilityInfoData: state.suitabilityInfo.data,
   }))
 
   useEffect(() => {
@@ -206,6 +210,30 @@ const FormFinancialContribution = ({
     return false
   }
 
+  const handleGetIsAwareOfTerms = useCallback(async () => {
+    setIsLoading(true)
+
+    await get(
+      `${baseURLNamespaceInvestAws}/cotista/aplicacoes/resumo?id_fundo=${idFundo}&id_cotista=${
+        suitabilityInfoData.id_cotista
+      }&cpf_cnpj=${auth.cpf}&data_operacao=${moment(
+        formData.whenToInvest,
+        'DD/MM/YYYY'
+      ).format('YYYY-MM-DD')}&valor=${formatMoneyToNumber(
+        formData.moneyToInvest
+      )}&aceite_termo_adesao=true`
+    )
+      .then(() => nextStep())
+      .catch(() =>
+        addToast({
+          type: 'error',
+          description: 'Por favor, tente novamente.',
+          title: 'Erro ao enviar solicitação.',
+        })
+      )
+      .finally(() => setIsLoading(false))
+  }, [suitabilityInfoData, idFundo, auth, formData, addToast, nextStep])
+
   const handleClickButtonNext = () => {
     if (
       !moment(formData.whenToInvest, 'DD/MM/YYYY').isSame(
@@ -222,13 +250,13 @@ const FormFinancialContribution = ({
           },
           onSuccess: () => {
             setShowError(false)
-            nextStep()
+            handleGetIsAwareOfTerms()
           },
           onErrorToast: addToast,
         })
       )
     } else {
-      nextStep()
+      handleGetIsAwareOfTerms()
     }
   }
 
@@ -251,7 +279,8 @@ const FormFinancialContribution = ({
       loading={
         financialApplicationLoading ||
         nextButtonLoading ||
-        alignmentTermsLoading
+        alignmentTermsLoading ||
+        isLoading
       }
       loadingColor="white"
       isMobile={isMobile}
