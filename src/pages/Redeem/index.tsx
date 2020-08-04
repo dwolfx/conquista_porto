@@ -180,7 +180,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
     />,
     <DigitalSignature
       onConfirm={handlePostRedeem}
-      onPrevious={() => setStep(step - 1)}
+      onPrevious={(stepsBack: number) => setStep(step - stepsBack)}
       onError={() => setError(true)}
       isNextButtonLoading={isLoading}
     />,

@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const MenuContainer = styled.div`
   position: sticky;
-  z-index: 8;
+  z-index: 1;
   top: 102px;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,6 @@ export const MenuContainer = styled.div`
   padding-left: 14px;
 
   @media ${props => props.theme.mediaQueries.lg} {
-    z-index: initial;
     width: 73px;
   }
 
