@@ -3,7 +3,7 @@ export const pointsRulesConditions = [
     id: 1,
     title: 'Como acumular pontos?',
     text:
-      'Confira as condições exclusivas para os colaboradores da Porto Seguro. Essas condições são válidas até 30/07/2020.',
+      'Confira as condições exclusivas para os colaboradores da Porto Seguro. Essas condições são válidas até 31/12/2020.',
     points: [
       {
         name: 'Cadastro no Conquista',
