@@ -18,27 +18,40 @@ interface IProps {
   dataTestId?: 'loading'
 }
 
-const Loading: React.FC<IProps> = ({
+const Loading = ({
   color = 'blue4',
   width = 28,
   type = 'spinner',
   legend = '',
   placement = 'top',
   ...rest
-}) => {
+}: IProps) => {
   if (type === 'spinner') {
-    return <IconAnimated name="spinner" color={color} width={width} {...rest} />
+    return (
+      <IconAnimated
+        name="spinner"
+        color={color}
+        width={width}
+        data-testid="loading-spinner"
+        {...rest}
+      />
+    )
   }
 
   return (
     <ComponentContainer {...rest}>
       {legend && (
-        <LegendText type="headline" color="gray5" placement={placement}>
+        <LegendText
+          type="headline"
+          color="gray5"
+          placement={placement}
+          data-testid="legend"
+        >
           {legend}
         </LegendText>
       )}
       <LoadingContainer>
-        <LoadingBar color={color} />
+        <LoadingBar color={color} data-testid="loading-bar" />
       </LoadingContainer>
     </ComponentContainer>
   )

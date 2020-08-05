@@ -4,9 +4,6 @@ export const Types = {
   DATA_GET_REQUEST: 'FINANCIAL_APPLICATION_DATA_GET_REQUEST',
   DATA_GET_SUCCESS: 'FINANCIAL_APPLICATION_DATA_GET_SUCCESS',
   DATA_GET_FAILURE: 'FINANCIAL_APPLICATION_DATA_GET_FAILURE',
-  IS_AWARE_OF_TERMS_DATA_GET_REQUEST: 'IS_AWARE_OF_TERMS_DATA_GET_REQUEST',
-  IS_AWARE_OF_TERMS_DATA_GET_SUCCESS: 'IS_AWARE_OF_TERMS_DATA_GET_SUCCESS',
-  IS_AWARE_OF_TERMS_DATA_GET_FAILURE: 'IS_AWARE_OF_TERMS_DATA_GET_FAILURE',
   ALIGNMENT_TERMS_DATA_GET_REQUEST: 'ALIGNMENT_TERMS_DATA_GET_REQUEST',
   ALIGNMENT_TERMS_DATA_GET_SUCCESS: 'ALIGNMENT_TERMS_DATA_GET_SUCCESS',
   ALIGNMENT_TERMS_DATA_GET_FAILURE: 'ALIGNMENT_TERMS_DATA_GET_FAILURE',
@@ -16,7 +13,7 @@ export const Types = {
 }
 
 interface IFinancialApplicationData {
-  id_fundo: string
+  id_fundo: number
   data_operacao: string
 }
 export interface IGetFinancialApplicationData {
@@ -85,7 +82,7 @@ export interface IGetAlignmentTermsData {
   data: {
     data_operacao: string
     valor_bruto: number
-    id_fundo: string
+    id_fundo: number
   }
   onSuccess: (data: IGetAlignmentTermsResponse) => void
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
@@ -120,11 +117,10 @@ export interface IAlignmentTermsAction {
 
 export interface IPostFinancialApplicationData {
   data: {
-    id_fundo: string
+    id_fundo: number
     valor: number
     data: string
     ciencia_desenquadramento: 'N' | 'S'
-    aceite_termo_adesao: 'N' | 'S'
   }
   onSuccess: () => void
   onError: () => void
@@ -153,12 +149,14 @@ export interface IPostFinancialApplicationAction {
   type: keyof typeof Types
   payload: IPostFinancialApplicationDataResponse
 }
+
 export interface IError {
   message: {
     tipo_critica: string
     mensagem: string
   }
 }
+
 export interface IState {
   suitabilityInfo: { data: Object }
   financialApplicationGetData: { data: Object }

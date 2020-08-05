@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import 'styled-components/macro'
 
-import Modal from 'components/Modal/Confirmation'
+import Modal from 'components/Modal/ModalNew'
+import FundDetailDrawer from 'components/FundDetail/Drawer'
 import Card from 'components/Card'
+import Text from 'components/Text'
 import useSelectedPosition from 'hooks/useSelectedPosition'
 
+import FinancialApplication from '../../FinancialApplication'
 import ChartPosition from '../components/ChartPosition'
 import LastTransations from '../components/LastTransactions'
 import InvestorAccount from '../components/InvestorAccount'
@@ -12,11 +16,16 @@ import InvestedFundsList from '../components/InvestedFundsList'
 
 import { IModalProps, TFundsLayout } from '../types'
 import FundInfoPanel from './FundInfoPanel'
-import Detail from '../../FundsList/Detail'
 
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
-import { RowContent, LeftContent, MainContent } from './styles'
+import {
+  RowContent,
+  LeftContent,
+  MainContent,
+  ModalButtonWrapper,
+  ModalButton,
+} from './styles'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,
@@ -30,6 +39,7 @@ export const modalSuitabilityInfoInitialState: IModalProps = {
     handleClick: null,
   },
 }
+
 interface IProps {
   filters: string[] | []
   viewMode: TFundsLayout
@@ -51,6 +61,21 @@ const Desktop: React.FC<IProps> = ({
   )
   const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
 
+  const [isLayerOpen, setLayerOpen] = useState<boolean>(false)
+  const [selectedFundId, setSelectedFundId] = useState<number>(0)
+  const [isAwareOfTerms, setIsAwareOfTerms] = useState<boolean>(false)
+  const [isInvestorLevelModalOpen, setIsInvestorLevelModalOpen] = useState(
+    false
+  )
+
+  const { idFund } = useSelector((state: any) => ({
+    idFund: state.investmentPosition.idFund,
+  }))
+
+  useEffect(() => {
+    setSelectedFundId(idFund)
+  }, [selectedFundId, idFund])
+
   const position = useSelectedPosition()
 
   const handleOpenDetailFund = () => {
@@ -63,9 +88,7 @@ const Desktop: React.FC<IProps> = ({
       <RowContent>
         <LeftContent xl={3}>
           <ChartPosition />
-          <InvestorAccount
-            onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-          />
+          <InvestorAccount />
         </LeftContent>
         <MainContent xl={9}>
           <InvestedFundsList
@@ -84,26 +107,89 @@ const Desktop: React.FC<IProps> = ({
           >
             <FundInfoPanel
               onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
+              setLayerOpen={setLayerOpen}
+              setIsAwareOfTerms={setIsAwareOfTerms}
+              setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
+              isInvestorLevelModalOpen={isInvestorLevelModalOpen}
             />
             <LastTransations />
           </Card>
         </MainContent>
       </RowContent>
       <Modal
-        title={modalSuitabilityInfo.title}
-        description={modalSuitabilityInfo.description}
+        modalTitle={modalSuitabilityInfo.title}
         isOpen={modalSuitabilityInfo.isOpen}
-        buttonTextCancel="Cancelar"
-        buttonTextConfirm={modalSuitabilityInfo.button.buttonName}
-        onClose={() =>
+        handleClose={() =>
           setModalSuitabilityInfo({
             ...modalSuitabilityInfo,
             isOpen: false,
           })
         }
-        onConfirmation={() => modalSuitabilityInfo.button.handleClick()}
-      ></Modal>
-      <Detail
+      >
+        <Text type="headline" color="gray6">
+          {modalSuitabilityInfo.description}
+        </Text>
+        <ModalButtonWrapper>
+          {modalSuitabilityInfo.button && (
+            <ModalButton
+              data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+              data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+              data-gtm-clicktype={modalSuitabilityInfo.button.dataGtmClicktype}
+              onClick={
+                modalSuitabilityInfo.button.handleClick
+                  ? modalSuitabilityInfo.button.handleClick
+                  : () =>
+                      setModalSuitabilityInfo({
+                        ...modalSuitabilityInfo,
+                        isOpen: false,
+                      })
+              }
+            >
+              {modalSuitabilityInfo.button.buttonName}
+            </ModalButton>
+          )}
+        </ModalButtonWrapper>
+      </Modal>
+      <Modal
+        modalTitle="Nível de investidor"
+        isOpen={isInvestorLevelModalOpen}
+        handleClose={() => setIsInvestorLevelModalOpen(false)}
+      >
+        <Text
+          type="headline"
+          color="gray6"
+          css={`
+            max-width: 362px;
+          `}
+        >
+          Para investir, você precisa ter um nível mais avançado. Selecione
+          outro fundo, por favor.
+        </Text>
+        <ModalButtonWrapper>
+          <ModalButton
+            data-gtm-subname="Modal nivel de investidor"
+            data-gtm-name="ok"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={() => setIsInvestorLevelModalOpen(false)}
+          >
+            OK
+          </ModalButton>
+        </ModalButtonWrapper>
+      </Modal>
+      {isLayerOpen && idFund && (
+        <FinancialApplication
+          isAwareOfTerms={isAwareOfTerms}
+          isOpen={isLayerOpen}
+          handleClose={() => {
+            setLayerOpen(false)
+            setSelectedFundId(0)
+          }}
+          selectedFundId={selectedFundId}
+          handleFundDetailOpen={() => setIsFundDetailOpen(true)}
+        />
+      )}
+      <FundDetailDrawer
         isOpen={isFundDetailOpen}
         handleClose={() => setIsFundDetailOpen(false)}
         handleLayerOpen={() => setIsFundDetailOpen(false)}

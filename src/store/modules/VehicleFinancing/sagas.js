@@ -7,11 +7,11 @@ import {
   GetVehicleFinancingFailure,
 } from './action'
 
-function* getData({ cpf }) {
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/financiamentos/auto?cpf=${cpf}&codigoCanal=0`
+      `${baseURLNamespaceInvest}/financiamentos/auto?codigoCanal=0`
     )
     let responseData = response.data
 

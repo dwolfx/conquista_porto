@@ -7,7 +7,7 @@ import {
 } from 'services/api'
 import { Types } from './types'
 import { GetDataSuccess, GetDataFailure } from './action'
-import { getSuitabilityInfo, getCustomerProfile, getAuth } from './selectors'
+import { getSuitabilityInfo, getCustomerProfile } from './selectors'
 import {
   handleInvestButton,
   handleRedeemButton,
@@ -23,20 +23,12 @@ interface IPayload {
     onErrorToast: (toast: Omit<IToast, 'id'>) => void
   }
 }
-interface IProps {
-  type: string
-  payload: { cpf: string }
-}
 
-function* getData({ payload }: IProps) {
-  const { cpf } = payload
+function* getData() {
   try {
-    const response = yield call(
-      get,
-      `${baseURLNamespaceInvest}/cotista/status?cpf=${cpf}`
-    )
+    const response = yield call(get, `${baseURLNamespaceInvest}/cotista/status`)
 
-    yield put(GetDataSuccess(response.data))
+    yield put(GetDataSuccess({ ...response.data, isValid: false }))
   } catch (err) {
     yield put({
       ...GetDataFailure(),
@@ -44,13 +36,11 @@ function* getData({ payload }: IProps) {
   }
 }
 
-function* getDataValidate({ payload }: IPayload) {
+export function* getDataValidate({ payload }: IPayload) {
   const { onSuccess, buttonType, onErrorToast } = payload
   try {
     const suitabilityInfoState = yield select(getSuitabilityInfo)
     let customerProfile = yield select(getCustomerProfile)
-
-    const auth = yield select(getAuth)
 
     if (!customerProfile) {
       const response = yield call(
@@ -71,32 +61,33 @@ function* getDataValidate({ payload }: IPayload) {
     if (!suitabilityInfo) {
       const response = yield call(
         get,
-        `${baseURLNamespaceInvest}/cotista/status?cpf=${auth.cpf}`
+        `${baseURLNamespaceInvest}/cotista/status`
       )
       suitabilityInfo = { ...response.data }
     }
 
-    let handleButton: { isValid?: boolean } = {}
+    let isValid: { isValid: boolean } | {} = {
+      isValid: false,
+    }
 
     switch (buttonType) {
       case 'investir':
-        handleButton = handleInvestButton(suitabilityInfo, customerProfile)
+        isValid = handleInvestButton(suitabilityInfo, customerProfile)
         break
       case 'resgatar':
-        handleButton = handleRedeemButton(suitabilityInfo, customerProfile)
+        isValid = handleRedeemButton(suitabilityInfo, customerProfile)
         break
       case 'retirar':
-        handleButton = handleWithdrawButton(suitabilityInfo, customerProfile)
+        isValid = handleWithdrawButton(suitabilityInfo, customerProfile)
         break
       default:
-        handleButton = { isValid: false }
+        isValid = { isValid: false }
         break
     }
-
-    yield put(GetDataSuccess({ ...suitabilityInfo, ...handleButton }))
+    yield put(GetDataSuccess({ ...suitabilityInfo, ...isValid }))
 
     if (onSuccess) {
-      onSuccess(handleButton)
+      onSuccess({ ...suitabilityInfo, ...isValid })
     }
   } catch (err) {
     yield put({

@@ -26,7 +26,7 @@ interface IProps {
   headerEndItem?: React.ReactNode
 }
 
-const Card: React.FC<IProps> = ({
+const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
   children,
   headerIcon,
   headerIconInfo = false,
@@ -38,8 +38,10 @@ const Card: React.FC<IProps> = ({
   ...rest
 }) => {
   const CardHeaderContent = () => {
-    let HeaderTitle: string | React.ReactNode = <CardTitle>{headerTitle}</CardTitle>
-    
+    let HeaderTitle: string | React.ReactNode = (
+      <CardTitle>{headerTitle}</CardTitle>
+    )
+
     if (typeof headerTitle !== 'string') {
       HeaderTitle = headerTitle
     }
@@ -81,6 +83,7 @@ const Card: React.FC<IProps> = ({
                 <Icon
                   name="information"
                   color="blue4"
+                  role="button" aria-label="header-icon"
                   onClick={() => headerIconInfoClick()}
                 />
               </Popover>

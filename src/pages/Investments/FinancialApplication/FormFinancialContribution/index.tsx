@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 import 'styled-components/macro'
@@ -20,6 +20,7 @@ import { useToast } from 'hooks/toast'
 import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 import { IFormData } from 'pages/Investments/FinancialApplication'
 
+import { baseURLNamespaceInvestAws, get } from 'services/api'
 import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 
 import { isPastDate, isInvalidDate, formatMoneyToNumber } from './utils'
@@ -38,6 +39,7 @@ import {
   CardFooter,
   FixedBottom,
 } from './styles'
+import { IFund } from 'store/modules/Investment/Position/iPositions'
 
 interface IProps {
   hasCheckbox: boolean
@@ -46,7 +48,7 @@ interface IProps {
   nextStep: () => void
   onChangeFormData: (formData: IFormData) => void
   onFormHasChanged: (formChanged: boolean) => void
-  idFundo: string
+  idFundo: number
   financialApplication: {
     dados_para_aplicacao: {
       fundo: {
@@ -57,7 +59,6 @@ interface IProps {
     }
   }
   nextButtonLoading: boolean
-  operationDate: string
 }
 
 const FormFinancialContribution = ({
@@ -70,7 +71,6 @@ const FormFinancialContribution = ({
   idFundo,
   financialApplication,
   nextButtonLoading,
-  operationDate,
 }: IProps) => {
   useFetchBankData()
   const dispatch = useDispatch()
@@ -79,6 +79,7 @@ const FormFinancialContribution = ({
   const isMobile = useMedia('xs')
 
   const [showError, setShowError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const financialData = financialApplication.dados_para_aplicacao
   const { limitHour, link } = {
@@ -88,16 +89,22 @@ const FormFinancialContribution = ({
 
   const {
     bankData,
-    investmentPosition,
     auth,
+    financialApplicationHasError,
     financialApplicationLoading,
+    financialApplicationData,
     alignmentTermsLoading,
+    suitabilityInfoData,
+    investmentPosition,
   } = useSelector((state: any) => ({
     bankData: state.bankData,
-    investmentPosition: state.investmentPosition,
     auth: state.auth,
+    financialApplicationHasError: state.financialApplicationGetData.hasError,
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
+    financialApplicationData: state.financialApplicationGetData.data,
     alignmentTermsLoading: state.alignmentTerms.isLoading,
+    suitabilityInfoData: state.suitabilityInfo.data,
+    investmentPosition: state.investmentPosition,
   }))
 
   useEffect(() => {
@@ -115,7 +122,7 @@ const FormFinancialContribution = ({
   }
 
   const renderBaseAccountInfo = () => {
-    if (bankData.isLoading || investmentPosition.isLoading) {
+    if (bankData.isLoading || financialApplicationLoading) {
       return (
         <>
           <Text type="headline" color="gray5">
@@ -126,7 +133,7 @@ const FormFinancialContribution = ({
       )
     }
 
-    if (investmentPosition.hasError || bankData.hasError) {
+    if (financialApplicationHasError || bankData.hasError) {
       return (
         <>
           <Text type="headline" color="magenta2">
@@ -142,16 +149,16 @@ const FormFinancialContribution = ({
       )
     }
 
-    const chosenInvestmentFund = () =>
+    const chosenInvestmentFund = (): IFund =>
       investmentPosition.data &&
       investmentPosition.data.fundos.find(
         (posicao: any) => posicao.id_carteira === idFundo
       )
 
-    const fund: any = chosenInvestmentFund()
+    const fund = chosenInvestmentFund()
     let saldoAtual = ''
     if (fund) {
-      saldoAtual = fund.saldo_atual
+      saldoAtual = fund.saldoLiquido
     }
 
     return (
@@ -163,8 +170,7 @@ const FormFinancialContribution = ({
             </Text>,
             <Text type="headline" color="gray6" bold>
               {formatMoney(
-                bankData.data.DadosContaPortoSeguro &&
-                  bankData.data.DadosContaPortoSeguro.saldo_disponivel
+                financialApplicationData.dados_para_aplicacao.saldo_conta
               )}
             </Text>,
             <Text type="caption" color="gray5" bold>
@@ -180,10 +186,11 @@ const FormFinancialContribution = ({
               </Text>,
               <Text type="headline" color="gray6" bold>
                 {formatMoney(
-                  investmentPosition.data &&
-                    investmentPosition.data.length === 0
-                    ? 0
-                    : saldoAtual
+                  financialApplicationData.dados_para_aplicacao
+                    ?.posicao_cotista_fundo?.saldo_atual
+                    ? financialApplicationData.dados_para_aplicacao
+                        ?.posicao_cotista_fundo.saldo_atual
+                    : 0
                 )}
               </Text>,
               <Text type="caption" color="gray5" bold>
@@ -198,20 +205,49 @@ const FormFinancialContribution = ({
 
   const isDateInvalid = () =>
     isInvalidDate(formData!.whenToInvest) ||
-    isPastDate(
-      formData!.whenToInvest,
-      financialApplication.dados_para_aplicacao.data_operacao
-    )
+    isPastDate(formData!.whenToInvest, moment())
 
   const isMoneyLessThanAllowed = () => {
-    if (formDataCopy && formData) {
+    if (!hasCheckbox) {
+      return (
+        formatMoneyToNumber(formData.moneyToInvest) <
+        +financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
+      )
+    }
+
+    if (hasCheckbox && formDataCopy && formData) {
       return (
         formatMoneyToNumber(formData.moneyToInvest) <
         formatMoneyToNumber(formDataCopy.moneyToInvest)
       )
     }
+
     return false
   }
+
+  const handleGetIsAwareOfTerms = useCallback(async () => {
+    setIsLoading(true)
+
+    await get(
+      `${baseURLNamespaceInvestAws}/cotista/aplicacoes/resumo?id_fundo=${idFundo}&id_cotista=${
+        suitabilityInfoData.id_cotista
+      }&cpf_cnpj=${auth.cpf}&data_operacao=${moment(
+        formData.whenToInvest,
+        'DD/MM/YYYY'
+      ).format('YYYY-MM-DD')}&valor=${formatMoneyToNumber(
+        formData.moneyToInvest
+      )}&aceite_termo_adesao=true`
+    )
+      .then(() => nextStep())
+      .catch(() =>
+        addToast({
+          type: 'error',
+          description: 'Por favor, tente novamente.',
+          title: 'Erro ao enviar solicitação.',
+        })
+      )
+      .finally(() => setIsLoading(false))
+  }, [suitabilityInfoData, idFundo, auth, formData, addToast, nextStep])
 
   const handleClickButtonNext = () => {
     if (
@@ -229,13 +265,13 @@ const FormFinancialContribution = ({
           },
           onSuccess: () => {
             setShowError(false)
-            nextStep()
+            handleGetIsAwareOfTerms()
           },
           onErrorToast: addToast,
         })
       )
     } else {
-      nextStep()
+      handleGetIsAwareOfTerms()
     }
   }
 
@@ -249,8 +285,8 @@ const FormFinancialContribution = ({
         !formData.isAwareOfTerms ||
         bankData.isLoading ||
         bankData.hasError ||
-        investmentPosition.isLoading ||
-        investmentPosition.hasError ||
+        financialApplicationLoading ||
+        financialApplicationHasError ||
         financialApplicationLoading ||
         nextButtonLoading ||
         alignmentTermsLoading
@@ -258,7 +294,8 @@ const FormFinancialContribution = ({
       loading={
         financialApplicationLoading ||
         nextButtonLoading ||
-        alignmentTermsLoading
+        alignmentTermsLoading ||
+        isLoading
       }
       loadingColor="white"
       isMobile={isMobile}
@@ -285,7 +322,7 @@ const FormFinancialContribution = ({
                 data-gtm-form="input"
                 data-gtm-name="quanto investir"
                 value={formData.moneyToInvest}
-                onChange={({ target }) => {
+                onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
                   onChangeFormData({
                     ...formData,
                     moneyToInvest: target.value,
@@ -294,13 +331,21 @@ const FormFinancialContribution = ({
                 error={
                   isMoneyLessThanAllowed() && {
                     icon: 'alertrounded',
-                    message: `O valor não pode ser menor do que ${formatMoneyDecimal(
-                      Number(
-                        formDataCopy!.moneyToInvest
-                          .toString()
-                          .replace(/\D/g, '')
-                      )
-                    )}`,
+                    message: hasCheckbox
+                      ? `O valor não pode ser menor do que ${formatMoneyDecimal(
+                          Number(
+                            formDataCopy!.moneyToInvest
+                              .toString()
+                              .replace(/\D/g, '')
+                          )
+                        )}`
+                      : `O valor não pode ser menor do que ${formatMoneyDecimal(
+                          Number(
+                            financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
+                              .toString()
+                              .replace(/\D/g, '')
+                          )
+                        )}`,
                   }
                 }
                 css={`

@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import TextComponent from 'components/Text'
+import AnbimaComponent from 'components/Anbima'
+
 import {
   Container as ContainerBootstrap,
   Col as ColBootstrap,
 } from 'styled-bootstrap-grid'
-
-import Card from 'components/Card'
 
 export const HeaderWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
@@ -21,12 +22,20 @@ export const Container = styled(ContainerBootstrap)`
 export const Col = styled(ColBootstrap)`
   height: calc(100vh - 192px);
 
-  @media ${({ theme }) => theme.mediaQueries.xs} {
-    height: auto;
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    height: 100%;
     padding: 0;
   }
 `
 
-export const FullHeightCard = styled(Card)`
-  height: 100%;
+export const Text = styled(TextComponent)`
+  margin: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(2)}px`};
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+
+export const Anbima = styled(AnbimaComponent)`
+  margin-top: 0;
 `

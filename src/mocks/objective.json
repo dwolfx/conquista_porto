@@ -149,35 +149,102 @@
     }
   ],
   "fund_list": [
-    {
-      "id": 1,
-      "recommended": true,
-      "name": "Occam Institucional II FIC Multimercado",
-      "initial_deposit": 1000,
-      "monthly_deposit": 1000,
-      "balance": 600,
-      "available": -643,
-      "invested": 480,
-      "is_fund_active": true,
-      "goals": [
-        {
-          "id": 1,
-          "name": "Las Vegas",
-          "value": 1000,
-          "goal_type": 1
-        }
-      ]
+      {
+        "id": 5105,
+        "recommended": true,
+        "name": "Porto Seguro FI Referenciado DI Credito Privado",
+        "nickname": "Porto Seguro FI RF Ref. DI CP",
+        "balance": 2991433.63,
+        "available": 2990432.93,
+        "invested": 0,
+        "goals": [
+          {
+            "id": 626,
+            "name": "PVEV-772",
+            "value": 1000.7,
+            "goal_type": 3
+          }
+        ],
+        "initial_deposit": 1000,
+        "monthly_deposit": 100,
+        "is_fund_active": true,
+        "release_to_apply": false,
+        "release_to_rescue": true
     },
     {
-      "id": 2,
+      "id": 5112,
       "recommended": false,
-      "name": "Porto Seguro Renda Fixa",
-      "initial_deposit": 2000,
-      "monthly_deposit": 2000,
-      "balance": 10000,
-      "available": 10000,
-      "invested": 10,
-      "goals": []
+      "name": "Porto Seguro Alocação FIC FIM",
+      "nickname": "Porto Seguro Alocação FIC FIM",
+      "balance": 2214859.09,
+      "available": 2214859.09,
+      "invested": 0,
+      "goals": [],
+      "initial_deposit": 1000.0,
+      "monthly_deposit": 1000.00,
+      "is_fund_active": true,
+      "release_to_apply": true,
+      "release_to_rescue": false
+    },
+    {
+      "id": 5118,
+      "recommended": false,
+      "name": "Porto Seguro Macro FIC FIM",
+      "nickname": "Porto Seguro Macro FIC FIM",
+      "balance": 1738565.40,
+      "available": 1738565.40,
+      "invested": 0,
+      "goals": [],
+      "initial_deposit": 10000.0,
+      "monthly_deposit": 100.00,
+      "is_fund_active": true,
+      "release_to_apply": false,
+      "release_to_rescue": true
+    },
+    {
+      "id": 5069,
+      "recommended": false,
+      "name": "Porto Seguro Ações FICFI",
+      "nickname": "Porto Seguro FIC FIA",
+      "balance": 1594381.31,
+      "available": 1594381.31,
+      "invested": 0,
+      "goals": [],
+      "initial_deposit": 1000.0,
+      "monthly_deposit": 100.00,
+      "is_fund_active": true,
+      "release_to_apply": true,
+      "release_to_rescue": false
+    },
+    {
+      "id": 51380016,
+      "recommended": false,
+      "name": "Canvas Vector FIC Multimercado",
+      "nickname": "Canvas Vector FIC FIM",
+      "balance": 317497.03,
+      "available": 317497.03,
+      "invested": 0,
+      "goals": [],
+      "initial_deposit": 20000.0,
+      "monthly_deposit": 5000.00,
+      "is_fund_active": true,
+      "release_to_apply": true,
+      "release_to_rescue": true
+    },
+    {
+      "id": 51380008,
+      "recommended": false,
+      "name": "Occam Retorno Absoluto FIC Multimercado",
+      "nickname": "Occam Retorno Absoluto FIC FIM",
+      "balance": 20550.22,
+      "available": 20550.22,
+      "invested": 0,
+      "goals": [],
+      "initial_deposit": 10000.0,
+      "monthly_deposit": 1000.00,
+      "is_fund_active": true,
+      "release_to_apply": false,
+      "release_to_rescue": true
     }
   ],
   "additional": {

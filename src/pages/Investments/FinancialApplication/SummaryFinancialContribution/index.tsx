@@ -26,7 +26,7 @@ import {
 } from './styles'
 
 interface IProps {
-  idFundo: string
+  idFundo: number
   formData: IFormData
   errorCount: number
   acceptAlignmentTerms: boolean
@@ -66,7 +66,6 @@ const SummaryFinancialContribution = ({
           valor: formatLocaleStringToNumber(formData.moneyToInvest),
           id_fundo: idFundo,
           ciencia_desenquadramento: acceptAlignmentTerms ? 'S' : 'N',
-          aceite_termo_adesao: formData.isAwareOfTerms ? 'S' : 'N',
         },
         onSuccess: () => {
           onChangeRequestStatus('success', true)
@@ -113,7 +112,7 @@ const SummaryFinancialContribution = ({
           <HorizontalListStyled
             startItems={[
               <Text type="headline" color={isMobile ? 'gray5' : 'gray6'} bold>
-                Solicitação
+                {isMobile ? 'Resumo da Solicitação' : 'Solicitação'}
               </Text>,
             ]}
           />

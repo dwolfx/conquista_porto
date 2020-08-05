@@ -552,7 +552,9 @@ Array [
           onClick={[Function]}
         >
           <svg
+            aria-label="add"
             fill="#DDDDDD"
+            role="img"
             width="48"
           >
             add.svg
@@ -610,7 +612,9 @@ Array [
             className="c12"
           >
             <svg
+              aria-label="computersecure"
               fill="#00ADEF"
+              role="img"
               width="28"
             >
               computer-secure.svg
@@ -632,7 +636,9 @@ Array [
             className="c12"
           >
             <svg
+              aria-label="persongroup2"
               fill="#00ADEF"
+              role="img"
               width="28"
             >
               person-group2.svg
@@ -654,7 +660,9 @@ Array [
             className="c12"
           >
             <svg
+              aria-label="coin"
               fill="#00ADEF"
+              role="img"
               width="28"
             >
               coin.svg
@@ -824,6 +832,7 @@ Array [
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  height: 100%;
   padding: 0 25px;
   position: relative;
   width: 100%;
@@ -984,6 +993,7 @@ Array [
         data-gtm-name="SIMULAR E CONTRATAR"
         data-gtm-subname="Parcelas que cabem no seu bolso."
         data-gtm-type="click"
+        disabled={false}
         onClick={[Function]}
       >
         <span
@@ -1531,9 +1541,11 @@ Array [
       >
         <div>
           <svg
+            aria-label="pdf"
             className="c3"
             fill="#272727"
             height="24px"
+            role="img"
           >
             pdf.svg
           </svg>

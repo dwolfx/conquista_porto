@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import SliderComp from 'components/Slider'
+import Button from 'components/Button'
 
 import { TextStyle } from 'components/Text/styles'
 import { Col, Row } from 'styled-bootstrap-grid'
-import { Button } from 'components/Button/styles'
 
 export const Slider = styled(SliderComp)`
   border-radius: ${props => (props.onlyObjective ? '7px' : 0)};
@@ -88,4 +88,13 @@ export const FooterContainer = styled.div`
 export const BlockButton = styled(Button)`
   margin-bottom: 14px;
   width: 100%;
+`
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(Button)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
 `

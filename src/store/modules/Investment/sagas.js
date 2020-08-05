@@ -5,7 +5,7 @@ import { get, baseURLNamespaceAtlas } from 'services/api'
 import { GetInvestmentListSuccess, GetInvestmentListFailure } from './action'
 import { Types } from './types'
 
-function* getData() {
+function* getData({ payload }) {
   try {
     const response = yield call(get, `${baseURLNamespaceAtlas}/fundo/grade`)
     // Normalizar response do backend
@@ -13,8 +13,23 @@ function* getData() {
       .flatMap(item => item)
       .reduce((prev, curr) => [...prev, ...curr.fundos], [])
     yield put(GetInvestmentListSuccess(normalizedResponse))
+
+    if (payload) {
+      const { onSuccess } = payload
+
+      onSuccess(normalizedResponse)
+    }
   } catch (err) {
     yield put(GetInvestmentListFailure())
+    if (payload) {
+      const { onErrorToast } = payload
+
+      onErrorToast({
+        type: 'error',
+        description: 'Por favor, tente novamente.',
+        title: 'Erro ao processar solicitação.',
+      })
+    }
   }
 }
 

@@ -10,27 +10,23 @@ interface IProps {
   outline?: boolean
   loading?: boolean
   loadingColor?: keyof typeof themeColors
-  onClick?: () => void
-  disabled?: boolean
-  type?: 'button' | 'submit' | 'reset'
   dataTestId?: 'button'
 }
 
-const Button: React.FC<IProps> = ({
+const Button: React.FC<IProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
   color = 'primary',
   outline = false,
   loading = false,
   loadingColor = 'blue4',
-  onClick,
-  disabled,
+  disabled = false,
   ...rest
 }) => (
   <s.Button
-    onClick={onClick}
     color={color}
     outline={outline}
-    disabled={disabled}
+    disabled={disabled || loading}
     {...rest}
   >
     <s.Content>

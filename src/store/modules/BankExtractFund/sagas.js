@@ -5,10 +5,9 @@ import { buildToast, ToastTypes } from 'store/modules/toastActions'
 import { Types } from './types'
 import { GetBankExtractFundFailure, GetBankExtractFundSuccess } from './action'
 
-function* getData({ payload, cpf }) {
+function* getData({ payload }) {
   try {
     const query = new URLSearchParams()
-    query.set('cpfCnpj', cpf)
     Object.keys(payload).forEach(key => {
       if (payload[key]) {
         query.append(key, payload[key])

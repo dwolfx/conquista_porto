@@ -1,19 +1,19 @@
-import React from 'react'
-import 'styled-components/macro'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import 'styled-components/macro'
 
 import theme from 'styles/theme'
+import WithdrawButton from 'components/Button/WithdrawButton'
 import Divisor from 'components/Divisor'
-import { useToast } from 'hooks/toast'
+
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
-import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
-import { handleGiwRedirect, formatMoney } from 'helpers'
+import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 
-import { IModalProps, IValidProps, InvestorAccountInfoEnum } from '../../types'
+import { InvestorAccountInfoEnum } from '../../types'
 
-import { 
+import {
   ButtonsWrapper,
   ButtonBlock,
   CardAccordion,
@@ -28,14 +28,11 @@ import {
   TextError,
 } from './styles'
 
-interface IProps {
-  onChangeModalSuitabilityInfo: (data: IModalProps) => void
-}
-const InvestorAccountMobile = ({ onChangeModalSuitabilityInfo }: IProps) => {
+const InvestorAccountMobile = () => {
   useFetchBankData()
   const dispatch = useDispatch()
   const history = useHistory()
-  const { addToast } = useToast()
+
   const {
     bankData,
     auth,
@@ -49,6 +46,8 @@ const InvestorAccountMobile = ({ onChangeModalSuitabilityInfo }: IProps) => {
     hasError: state.bankData.hasError,
     displayInformation: state.investmentPosition.displayInformation,
   }))
+
+  const [withdrawLoading, setWithdrawLoading] = useState(false)
 
   const renderBallanceInfo = (
     bankDataPayload: any,
@@ -78,81 +77,67 @@ const InvestorAccountMobile = ({ onChangeModalSuitabilityInfo }: IProps) => {
     )
   }
 
-  const handleClickWithdrawButton = () => {
-    const onSuccess = (modalProps: IModalProps | IValidProps) => {
-      onChangeModalSuitabilityInfo({ ...modalProps } as IModalProps)
-      if ((modalProps as IValidProps).isValid) {
-        handleGiwRedirect('portaldecliente/conquista/retirada?r=true')
-      }
-    }
-    dispatch(GetSuitabilityInfoAndValidate(onSuccess, 'retirar', addToast))
-  }
-
   const BallanceAccountContent = () => {
     return (
       <InfoContainer>
-          <CustomHorizontalList
-            startItems={[
-              <CustomVerticalList
-                elements={[
-                  <TextCaption>SALDO EM CONTA</TextCaption>,
-                  <>
-                    {renderBallanceInfo(
-                      bankData,
-                      InvestorAccountInfoEnum.INFO_TOTAL_BALANCE
-                    )}
-                  </>,
-                ]}
-              />,
-            ]}
-            endItems={[
-              <>
-                {hasError ? (
-                  <IconRetry
-                    data-gtm-subname='botao tentar novamente'
-                    data-gtm-type='click'
-                    data-gtm-button='button'
-                    data-testid="button-ballance-retry"
-                    onClick={() => dispatch(GetBankDataRequest(auth.cpf))}
-                  />
-                ) : null}
-              </>,
-            ]}
+        <CustomHorizontalList
+          startItems={[
+            <CustomVerticalList
+              elements={[
+                <TextCaption>SALDO EM CONTA</TextCaption>,
+                <>
+                  {renderBallanceInfo(
+                    bankData,
+                    InvestorAccountInfoEnum.INFO_TOTAL_BALANCE
+                  )}
+                </>,
+              ]}
+            />,
+          ]}
+          endItems={[
+            <>
+              {hasError ? (
+                <IconRetry
+                  data-gtm-subname="botao tentar novamente"
+                  data-gtm-type="click"
+                  data-gtm-button="button"
+                  data-testid="button-ballance-retry"
+                  onClick={() => dispatch(GetBankDataRequest(auth.cpf))}
+                />
+              ) : null}
+            </>,
+          ]}
+        />
+        <ButtonsWrapper>
+          <ButtonBlock
+            outline
+            data-gtm-subname="botao link extrato conta"
+            data-gtm-type="click"
+            data-gtm-button="button"
+            color="primary"
+            onClick={() => {
+              history.push('/investimentos/extrato')
+            }}
+            disabled={
+              !formatLocaleStringToNumber(
+                bankData?.DadosContaPortoSeguro?.saldo_disponivel || '0'
+              )
+            }
+          >
+            ver extrato
+          </ButtonBlock>
+          <WithdrawButton
+            gtmSubname="investimentos gerenciar"
+            css={`
+              width: 100%;
+            `}
+            loading={withdrawLoading}
+            onClickSetLoading={setWithdrawLoading}
           />
-          {Number(
-            bankData &&
-            bankData.DadosContaPortoSeguro &&
-              bankData.DadosContaPortoSeguro.saldo_disponivel
-          ) > 0 && (
-            <ButtonsWrapper>
-              <ButtonBlock
-                outline
-                data-gtm-subname='botao link extrato conta'
-                data-gtm-type='click'
-                data-gtm-button='button'
-                color="primary"
-                onClick={() => {
-                  history.push('/investimentos/extrato')
-                }}
-              >
-                ver extrato
-              </ButtonBlock>
-              <ButtonBlock
-                outline
-                data-gtm-subname='botao retirar'
-                data-gtm-type='click'
-                data-gtm-button='button'
-                color="primary"
-                data-testid="button-draw"
-                onClick={handleClickWithdrawButton}
-              >
-                retirar
-              </ButtonBlock>
-            </ButtonsWrapper>
-          )}
-        </InfoContainer>
+        </ButtonsWrapper>
+      </InfoContainer>
     )
-  } 
+  }
 
   const renderBody = () => {
     if (isLoading) {
@@ -177,45 +162,45 @@ const InvestorAccountMobile = ({ onChangeModalSuitabilityInfo }: IProps) => {
         openByDefault={false}
       >
         <Divisor />
-          <InfoContainer>
-            <CustomHorizontalList
-              startItems={[
-                <CustomVerticalList
-                  elements={[
-                    <TextCaption>VALORES A LIQUIDAR</TextCaption>,
-                    <>
-                      {renderBallanceInfo(
-                        bankData,
-                        InvestorAccountInfoEnum.INFO_SETTLE_BALANCE
-                      )}
-                    </>,
-                  ]}
-                />,
-              ]}
-            />
-            {Number(
-              bankData &&
+        <InfoContainer>
+          <CustomHorizontalList
+            startItems={[
+              <CustomVerticalList
+                elements={[
+                  <TextCaption>VALORES A LIQUIDAR</TextCaption>,
+                  <>
+                    {renderBallanceInfo(
+                      bankData,
+                      InvestorAccountInfoEnum.INFO_SETTLE_BALANCE
+                    )}
+                  </>,
+                ]}
+              />,
+            ]}
+          />
+          {Number(
+            bankData &&
               bankData.DadosContaPortoSeguro &&
-                bankData.DadosContaPortoSeguro.saldo_liquidar
-            ) > 0 && (
-              <ButtonBlock
-                outline
-                data-gtm-subname='botao link extrato a liquidar'
-                data-gtm-type='click'
-                data-gtm-button='button'
-                color="primary"
-                onClick={() => {
-                  history.push('/investimentos/extrato')
-                }}
-              >
-                ver extrato
-              </ButtonBlock>
-            )}
-          </InfoContainer>
+              bankData.DadosContaPortoSeguro.saldo_liquidar
+          ) > 0 && (
+            <ButtonBlock
+              outline
+              data-gtm-subname="botao link extrato a liquidar"
+              data-gtm-type="click"
+              data-gtm-button="button"
+              color="primary"
+              onClick={() => {
+                history.push('/investimentos/extrato')
+              }}
+            >
+              ver extrato
+            </ButtonBlock>
+          )}
+        </InfoContainer>
       </CardAccordion>
     )
   }
-  
+
   return renderBody()
 }
 

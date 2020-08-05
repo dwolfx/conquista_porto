@@ -3,14 +3,15 @@ import moment from 'moment'
 import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 import { useToast } from 'hooks/toast'
-import useMedia from 'hooks/useMedia'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
+import FundDetailCard from 'components/FundDetail/Card'
 import Modal from 'components/Modal/Confirmation'
+import AlignmentTerms from 'components/Investment/AlignmentTerms'
+import useMedia from 'hooks/useMedia'
 
 import { GetAlignmentTermsDataRequest } from 'store/modules/Investment/FinancialApplication/AlignmentTerms/action'
 
-import AlignmentTerms from './AlignmentTerms'
 import LayerHeader from './LayerHeader'
 import FormFinancialContribution from './FormFinancialContribution'
 import SummaryFinancialContribution from './SummaryFinancialContribution'
@@ -19,9 +20,10 @@ import SuccessCard from './EndOfApplicationFlow/SuccessCard'
 import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 
 import { formatMoneyDecimal, formatLocaleStringToNumber } from 'helpers'
-import DetailCard from './DetailCard'
 
 import {
+  Anbima,
+  BodyWrapper,
   StepBar,
   ColStepBar,
   GridContainer,
@@ -32,14 +34,14 @@ import {
   GridCol,
   GridRowStepBar,
   LayerFinancialApplication,
-  GridColInfo,
   MobileScrollContent,
+  InvestLegalInfo,
 } from './styles'
 
 interface IProps {
   handleClose: () => void
   isOpen: boolean
-  selectedFundId: string
+  selectedFundId: number
   isAwareOfTerms: boolean
 }
 
@@ -47,6 +49,7 @@ export type IFormData = {
   moneyToInvest: string
   whenToInvest: string
   isAwareOfTerms: boolean
+  updated: boolean
 }
 
 const LayerInvestment: React.FC<IProps> = ({
@@ -56,10 +59,11 @@ const LayerInvestment: React.FC<IProps> = ({
   selectedFundId,
   isAwareOfTerms,
 }) => {
-  const FORM_DATA_INTIAL_STATE = {
+  const FORM_DATA_INTIAL_STATE: IFormData = {
     moneyToInvest: '',
     whenToInvest: '',
     isAwareOfTerms,
+    updated: false,
   }
   const dispatch = useDispatch()
   const { addToast } = useToast()
@@ -79,31 +83,22 @@ const LayerInvestment: React.FC<IProps> = ({
     FORM_DATA_INTIAL_STATE
   )
   const [acceptAlignmentTerms, setAcceptAlignmentTerms] = useState(false)
-  const [operationDate, setOperationDate] = useState<string>('')
 
   const {
     funds,
     financialApplicationData,
+    financialApplicationFundData,
     alignmentTermsIsLoading,
   } = useSelector((state: any) => ({
     funds: state.investmentsList,
     financialApplicationData: state.financialApplicationGetData.data,
+    financialApplicationFundData:
+      state.financialApplicationGetData.data.dados_para_aplicacao.fundo,
     alignmentTermsIsLoading: state.alignmentTerms.isLoading,
   }))
 
   const stepCount = 2
   const isMobile = useMedia('xs')
-
-  // the operation date is only setted on component mount, the value will be updated on the store eventually (if needed) so we use this to compare
-  useEffect(() => {
-    if (operationDate.length === 0) {
-      setOperationDate(
-        moment(
-          financialApplicationData.dados_para_aplicacao.data_operacao
-        ).format('DD/MM/YYYY')
-      )
-    }
-  }, [financialApplicationData, operationDate])
 
   const loadFormData = useCallback(
     (prevState: any): any => {
@@ -113,22 +108,33 @@ const LayerInvestment: React.FC<IProps> = ({
 
       return {
         ...prevState,
-        moneyToInvest: formatMoneyDecimal(
-          Number(selectedFund.minimo_inicial * 100)
-        ),
-        whenToInvest: operationDate,
+        moneyToInvest: isAwareOfTerms
+          ? formatMoneyDecimal(
+              Number(financialApplicationFundData.aplicacao_minima * 100)
+            )
+          : formatMoneyDecimal(Number(selectedFund.minimo_inicial * 100)),
+        whenToInvest: moment(
+          financialApplicationData.dados_para_aplicacao.data_operacao
+        ).format('DD/MM/YYYY'),
         isAwareOfTerms,
+        updated: true,
       }
     },
-    [funds.data, selectedFundId, isAwareOfTerms, operationDate]
+    [
+      funds.data,
+      selectedFundId,
+      isAwareOfTerms,
+      financialApplicationData,
+      financialApplicationFundData,
+    ]
   )
 
   useEffect(() => {
-    if (selectedFundId && funds.data.length > 0) {
+    if (selectedFundId && funds.data.length > 0 && !formData.updated) {
       setFormData(prevState => loadFormData(prevState))
       setFormDataCopy(prevState => loadFormData(prevState))
     }
-  }, [selectedFundId, funds.data, loadFormData])
+  }, [selectedFundId, funds.data, loadFormData, formData.updated])
 
   useEffect(() => {
     if (!selectedFundId) {
@@ -282,7 +288,6 @@ const LayerInvestment: React.FC<IProps> = ({
       onFormHasChanged={setHasFormChanged}
       idFundo={selectedFundId}
       nextButtonLoading={isLoadingNextButton}
-      operationDate={operationDate}
     />,
     <SummaryFinancialContribution
       idFundo={selectedFundId}
@@ -299,14 +304,20 @@ const LayerInvestment: React.FC<IProps> = ({
     if (hasSucceded) {
       return (
         <GridCol sm={12} md={8} lg={9}>
-          <SuccessCard onCloseLayer={() => resetValues()} />
+          <SuccessCard
+            onCloseLayer={() => resetValues()}
+            handleCloseButton={handleClose}
+          />
         </GridCol>
       )
     }
     if (hasFailed) {
       return (
         <GridCol sm={12} md={8} lg={9}>
-          <ErrorCard onCloseLayer={() => resetValues()} />
+          <ErrorCard
+            onCloseLayer={() => resetValues()}
+            handleCloseButton={handleClose}
+          />
         </GridCol>
       )
     }
@@ -330,7 +341,7 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const getBodySteps = () => {
     return (
-      <>
+      <BodyWrapper>
         <StepBar>
           <GridContainer>
             <GridRowStepBar>
@@ -352,30 +363,44 @@ const LayerInvestment: React.FC<IProps> = ({
             </GridRowStepBar>
           </GridContainer>
         </StepBar>
-        <MobileScrollContent expandBottomHeight={hasSucceded || hasFailed}>
+        <MobileScrollContent
+          expandBottomHeight={hasSucceded || hasFailed}
+          isAlignmentTermOpen={isAlignmentTermOpen}
+        >
           <LayerBodyContainer>
             <GridRowExpanded>
               <GridCol sm={12} md={4} lg={3}>
-                <DetailCard handleFundDetailOpen={handleFundDetailOpen} />
+                <FundDetailCard
+                  handleFundDetailOpen={handleFundDetailOpen}
+                  selectedFundId={selectedFundId}
+                />
               </GridCol>
               {getBodyContent()}
             </GridRowExpanded>
           </LayerBodyContainer>
           <FooterContainer>
             <GridRow>
-              <GridColInfo col={12}>
-                <Text color="gray5" type="body">
+              <GridCol>
+                <InvestLegalInfo color="gray5" type="body" bold>
                   Toda transmissão de ordem por meio digital está sujeita a
                   interrupções ou atrasos, podendo impedir ou prejudicar o envio
                   de ordens ou a recepção de informações atualizadas.
-                </Text>
-              </GridColInfo>
+                </InvestLegalInfo>
+                <Anbima />
+              </GridCol>
             </GridRow>
           </FooterContainer>
         </MobileScrollContent>
-      </>
+      </BodyWrapper>
     )
   }
+
+  useEffect(() => {
+    const html = document.querySelector<HTMLInputElement>('html')
+    if (isAlignmentTermOpen) {
+      html!.style.overflowY = 'hidden'
+    }
+  }, [isAlignmentTermOpen])
 
   return financialApplicationData?.dados_para_aplicacao ? (
     <LayerFinancialApplication

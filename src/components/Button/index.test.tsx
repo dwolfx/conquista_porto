@@ -12,7 +12,7 @@ describe('Button', () => {
     expect(getByText('clica aqui').textContent).toBe('clica aqui')
   })
   test('rendering loading', () => {
-    const { rerender, queryByText } = render(
+    const { rerender, queryByText, getByRole } = render(
       <ThemeProvider theme={theme}>
         <Button>clica aqui</Button>
       </ThemeProvider>
@@ -26,6 +26,7 @@ describe('Button', () => {
     )
     expect(queryByText(/clica aqui/gi)).toBeNull()
     expect(queryByText(/spinner/gi)).not.toBeNull()
+    expect(getByRole('button')).toHaveStyleRule('background', '#EBEBEB')
   })
   describe('Disable state', () => {
     describe('background color', () => {

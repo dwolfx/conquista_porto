@@ -1,24 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import 'styled-components/macro'
 
+import Modal from 'components/Modal/ModalNew'
 import Card from 'components/Card'
-import Modal from 'components/Modal/Confirmation'
+import FundDetailDrawer from 'components/FundDetail/Drawer'
+import FundDetailModal from 'components/FundDetail/Modal'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import Text from 'components/Text'
 import useSelectedPosition from 'hooks/useSelectedPosition'
 import useMedia from 'hooks/useMedia'
 
+import FinancialApplication from '../../FinancialApplication'
 import ChartPosition from '../components/ChartPosition'
 import InvestedFundsList from '../components/InvestedFundsList'
 import InvestorAccount from '../components/InvestorAccount'
 import LastTransations from '../components/LastTransactions'
 import InvestorAccountMobile from './InvestorAccountMobile'
-import Detail from '../../FundsList/Detail'
-import DetailModal from '../../FundsList/DetailModal'
 import { IModalProps, TFundsLayout } from '../types'
 
 import FundInfoPanel from './FundInfoPanel'
 import DrawerFilter from './DrawerFilter'
-import { RowContent, LeftContent, MainContent, FloatButton } from './styles'
+import {
+  RowContent,
+  LeftContent,
+  FloatButton,
+  MainContent,
+  ModalButtonWrapper,
+  ModalButton,
+} from './styles'
 
 export const modalSuitabilityInfoInitialState: IModalProps = {
   isOpen: false,
@@ -40,6 +50,7 @@ interface IProps {
   onHandleChangeView: (newStateLayout: TFundsLayout) => void
   onHandleChangeFilter: (newStateFilters: string[]) => void
 }
+
 const Tablet: React.FC<IProps> = ({
   filters,
   viewMode,
@@ -47,11 +58,12 @@ const Tablet: React.FC<IProps> = ({
   onHandleChangeFilter,
   onHandleChangeView,
 }: IProps) => {
+  const dispatch = useDispatch()
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState<IModalProps>(
     modalSuitabilityInfoInitialState
   )
-  const dispatch = useDispatch()
   const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
+
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false)
   const position = useSelectedPosition()
   const isMobile = useMedia('xs')
@@ -60,6 +72,21 @@ const Tablet: React.FC<IProps> = ({
     isLoading: state.investmentPosition.isLoading,
     hasError: state.investmentPosition.hasError,
   }))
+
+  const [isLayerOpen, setLayerOpen] = useState<boolean>(false)
+  const [selectedFundId, setSelectedFundId] = useState<number>(0)
+  const [isAwareOfTerms, setIsAwareOfTerms] = useState<boolean>(false)
+  const [isInvestorLevelModalOpen, setIsInvestorLevelModalOpen] = useState(
+    false
+  )
+
+  const { idFund } = useSelector((state: any) => ({
+    idFund: state.investmentPosition.idFund,
+  }))
+
+  useEffect(() => {
+    setSelectedFundId(idFund)
+  }, [selectedFundId, idFund])
 
   const handleOpenDetailFund = () => {
     dispatch(GetInvestmentDetailsRequest(position.fundo.id_carteira))
@@ -82,15 +109,7 @@ const Tablet: React.FC<IProps> = ({
       <RowContent>
         <LeftContent data-testid="left-content" md={4} sm={5} xs={12}>
           <ChartPosition />
-          {isMobile ? (
-            <InvestorAccountMobile
-              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-            />
-          ) : (
-            <InvestorAccount
-              onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
-            />
-          )}
+          {isMobile ? <InvestorAccountMobile /> : <InvestorAccount />}
         </LeftContent>
         <MainContent data-testid="main-content" md={8} sm={7} xs={12}>
           <InvestedFundsList
@@ -109,27 +128,90 @@ const Tablet: React.FC<IProps> = ({
           >
             <FundInfoPanel
               onChangeModalSuitabilityInfo={setModalSuitabilityInfo}
+              setLayerOpen={setLayerOpen}
+              setIsAwareOfTerms={setIsAwareOfTerms}
+              setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
+              isInvestorLevelModalOpen={isInvestorLevelModalOpen}
             />
             <LastTransations />
           </Card>
         </MainContent>
       </RowContent>
       <Modal
-        title={modalSuitabilityInfo.title}
-        description={modalSuitabilityInfo.description}
+        modalTitle={modalSuitabilityInfo.title}
         isOpen={modalSuitabilityInfo.isOpen}
-        buttonTextCancel="Cancelar"
-        buttonTextConfirm={modalSuitabilityInfo.button.buttonName}
-        onClose={() =>
+        handleClose={() =>
           setModalSuitabilityInfo({
             ...modalSuitabilityInfo,
             isOpen: false,
           })
         }
-        onConfirmation={() => modalSuitabilityInfo.button.handleClick()}
-      ></Modal>
+      >
+        <Text type="headline" color="gray6">
+          {modalSuitabilityInfo.description}
+        </Text>
+        <ModalButtonWrapper>
+          {modalSuitabilityInfo.button && (
+            <ModalButton
+              data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+              data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+              data-gtm-clicktype={modalSuitabilityInfo.button.dataGtmClicktype}
+              onClick={
+                modalSuitabilityInfo.button.handleClick
+                  ? modalSuitabilityInfo.button.handleClick
+                  : () =>
+                      setModalSuitabilityInfo({
+                        ...modalSuitabilityInfo,
+                        isOpen: false,
+                      })
+              }
+            >
+              {modalSuitabilityInfo.button.buttonName}
+            </ModalButton>
+          )}
+        </ModalButtonWrapper>
+      </Modal>
+      <Modal
+        modalTitle="Nível de investidor"
+        isOpen={isInvestorLevelModalOpen}
+        handleClose={() => setIsInvestorLevelModalOpen(false)}
+      >
+        <Text
+          type="headline"
+          color="gray6"
+          css={`
+            max-width: 362px;
+          `}
+        >
+          Para investir, você precisa ter um nível mais avançado. Selecione
+          outro fundo, por favor.
+        </Text>
+        <ModalButtonWrapper>
+          <ModalButton
+            data-gtm-subname="Modal nivel de investidor"
+            data-gtm-name="ok"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            onClick={() => setIsInvestorLevelModalOpen(false)}
+          >
+            OK
+          </ModalButton>
+        </ModalButtonWrapper>
+      </Modal>
+      {isLayerOpen && idFund && (
+        <FinancialApplication
+          isAwareOfTerms={isAwareOfTerms}
+          isOpen={isLayerOpen}
+          handleClose={() => {
+            setLayerOpen(false)
+            setSelectedFundId(0)
+          }}
+          selectedFundId={selectedFundId}
+          handleFundDetailOpen={() => setIsFundDetailOpen(true)}
+        />
+      )}
       {isMobile ? (
-        <DetailModal
+        <FundDetailModal
           title={position?.fundo?.apelido}
           category={position?.fundo?.categoria_arena}
           isOpenForInvestments={true}
@@ -139,7 +221,7 @@ const Tablet: React.FC<IProps> = ({
           handleClose={handleFundDetailClose}
         />
       ) : (
-        <Detail
+        <FundDetailDrawer
           isOpen={isFundDetailOpen}
           handleClose={handleFundDetailClose}
           handleLayerOpen={handleFundDetailClose}

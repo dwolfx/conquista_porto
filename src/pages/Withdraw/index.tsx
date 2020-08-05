@@ -1,27 +1,78 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { Col, Row } from 'styled-bootstrap-grid'
+import React, { useState, useEffect, useCallback } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Row } from 'styled-bootstrap-grid'
+import moment from 'moment'
 import 'styled-components/macro'
 
-import useMedia from 'hooks/useMedia'
 import TransactionHeader from 'components/Header/TransactionsHeader'
-import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
+import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
 
+import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
-import WithdrawCard from './WithdrawCard'
+import MainContent from './MainContent'
 import * as s from './styles'
 
 const Withdraw = () => {
   const history = useHistory()
+  const { state: stateLocation } = useLocation()
   const isMobile = useMedia('xs')
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   const maxSteps = 4
   const [step, setStep] = useState<number>(1)
+  const [showPrompt, setShowPrompt] = useState<boolean>(true)
+  const [isMessageStep, setMessageStep] = useState<boolean>(false)
+
+  const { withdrawDetails } = useSelector<any, any>(state => ({
+    id_cotista: state.suitabilityInfo.data?.id_cotista,
+    withdrawDetails: state.withdraw.detailsData,
+  }))
+
+  const getAccountDetail = useCallback(() => {
+    if (!stateLocation?.accessFromButton) {
+      dispatch(GetWithdrawDetailsRequest({}))
+    }
+  }, [dispatch, stateLocation])
+
+  useEffect(() => {
+    getAccountDetail()
+  }, [getAccountDetail])
+
+  useEffect(() => {
+    if (
+      Object.entries(withdrawDetails).length &&
+      withdrawDetails.fechado_retirada
+    ) {
+      setShowPrompt(false)
+
+      history.goBack()
+
+      return () => {
+        addToast({
+          description: `Tente novamente amanhã a partir das ${moment(
+            withdrawDetails.horario_inicio_permitido_retirada,
+            'H:mm:ss'
+          ).format('H:mm')}`,
+          title: `Não é possivel fazer retirada após as ${moment(
+            withdrawDetails.horario_fim_permitido_retirada,
+            'H:mm:ss'
+          ).format('H:mm')}`,
+          type: 'error',
+        })
+      }
+    }
+  }, [withdrawDetails, addToast, history])
+
+  const onError = () => getAccountDetail()
 
   return (
     <>
       <ExitModal
-        hasUnsavedChanges={true}
+        hasUnsavedChanges={showPrompt}
         onConfirmation={() => history.push('')}
       />
       <TransactionHeader
@@ -31,30 +82,40 @@ const Withdraw = () => {
             : history.goBack()
         }
         onClose={() => history.push('/')}
-        showBackButton={step !== 1}
+        showBackButton={step !== 1 && !isMessageStep}
         showStepsBar
         stepsBarProps={{
           title: 'Retirar',
           step,
           maxSteps,
           setStep,
+          hideSteps: isMessageStep,
         }}
       />
       <s.Container>
         <Row>
           {!isMobile && (
-            <Col md={3}>
-              <s.FullHeightCard>
-                <Text type="headline" color="magenta1" bold>
-                  Banco
-                </Text>
-              </s.FullHeightCard>
-            </Col>
+            <s.Col md={3}>
+              <AccountDetail onError={onError} />
+            </s.Col>
           )}
           <s.Col md={9}>
-            <WithdrawCard step={step} setStep={setStep} />
+            <MainContent
+              step={step}
+              setStep={setStep}
+              maxSteps={maxSteps}
+              onError={onError}
+              setPrompt={setShowPrompt}
+              setMessageStep={setMessageStep}
+            />
           </s.Col>
         </Row>
+        <s.Text color="gray5" type="body" bold>
+          Toda transmissão de ordem por meio digital está sujeita a interrupções
+          ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a
+          recepção de informações atualizadas.
+        </s.Text>
+        <s.Anbima />
       </s.Container>
     </>
   )

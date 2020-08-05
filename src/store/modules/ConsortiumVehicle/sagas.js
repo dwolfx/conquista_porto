@@ -14,11 +14,11 @@ function addId(consorcios) {
   }))
 }
 
-function* getData({ cpf }) {
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvest}/consorcios/auto?cpf=${cpf}&codigoCanal=1`
+      `${baseURLNamespaceInvest}/consorcios/auto?codigoCanal=1`
     )
 
     let responseData = []

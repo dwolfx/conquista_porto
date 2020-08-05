@@ -68,16 +68,19 @@ ObjectivesSlider.propTypes = {
     ),
   }).isRequired,
   maxFundsDistribuition: PropTypes.number.isRequired,
-  fundListCopy: PropTypes.shape({
-    id: PropTypes.number,
-    available: PropTypes.number,
-    invested: PropTypes.number,
-    balance: PropTypes.number,
-    goals: PropTypes.arrayOf(
-      PropTypes.shape({
-        value: PropTypes.number,
-      })
-    ),
-  }).isRequired,
+  fundListCopy: PropTypes.oneOfType([
+    PropTypes.shape({
+      id: PropTypes.number,
+      available: PropTypes.number,
+      invested: PropTypes.number,
+      balance: PropTypes.number,
+      goals: PropTypes.arrayOf(
+        PropTypes.shape({
+          value: PropTypes.number,
+        })
+      ),
+    }),
+    PropTypes.array,
+  ]).isRequired,
   setFundListCopy: PropTypes.func.isRequired,
 }

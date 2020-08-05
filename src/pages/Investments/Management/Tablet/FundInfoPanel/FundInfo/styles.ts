@@ -3,8 +3,10 @@ import { fundRiskColors } from 'styles/theme'
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
 import AccordionNewComponent from 'components/AccordionNew'
-import { Row, Col } from 'styled-bootstrap-grid'
+import { Row } from 'styled-bootstrap-grid'
 import Button from 'components/Button'
+import IconExporter from 'components/IconExporter'
+import Popover from 'components/Popover'
 
 interface IRiskColorsMap {
   [key: number]: string
@@ -32,7 +34,7 @@ export const CaroselContent = styled.div`
 export const ColContent = styled.div`
   display: flex;
   align-items: center;
-  flexdirection: row;
+  flex-direction: row;
   min-width: 260px;
   @media ${props => props.theme.mediaQueries.md} {
     min-width: 200px;
@@ -80,14 +82,10 @@ export const RowWithoutPadding = styled(Row)`
   padding: 0;
 `
 
-export const ButtonsWrapper = styled(Col)`
+export const ButtonsWrapper = styled.div`
+  display: flex;
   margin: ${({ theme }) => theme.spacing(2)}px 0;
-  text-align: center;
-
-  @media ${props => props.theme.mediaQueries.xs} {
-    margin: 0;
-    padding: 0;
-  }
+  align-items: center;
 `
 
 export const AccordionContent = styled.div`
@@ -131,4 +129,32 @@ export const ButtonCustom = styled(Button)`
   @media ${props => props.theme.mediaQueries.xs} {
     min-width: calc(50% - 14px);
   }
+`
+
+export const ButtonClosed = styled(Button).attrs(() => ({
+  color: 'primary',
+  outline: true,
+  disabled: true,
+  loading: false,
+}))`
+  min-width: 169px;
+  margin: ${({ theme }) => theme.spacing(2)}px
+    ${({ theme }) => theme.spacing(1)}px;
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    min-width: calc(50% - 14px);
+  }
+`
+
+export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
+  fill: ${({ theme }) => theme.colors.gray3};
+  height: 21px;
+  width: 21px;
+
+  margin-right: ${({ theme }) => theme.spacing(1)}px;
+`
+
+export const CustomPopover = styled(Popover)`
+  display: flex;
+  align-items: center;
+  height: 30px;
 `

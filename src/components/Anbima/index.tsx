@@ -7,6 +7,9 @@ import {
   GridRow,
   Link,
   LogoAnbimaDistribuicao,
+  LogoAnbimaGestao,
+  LogoAnbimaInvestir,
+  LogosContainer,
   Text,
   TextWrapper,
 } from './styled'
@@ -21,8 +24,8 @@ const MailLink = ({ hrefValue, children, ...rest }: IMailLink) => (
   </a>
 )
 
-const Anbima = () => (
-  <GridContainer>
+const Anbima = ({ ...rest }) => (
+  <GridContainer {...rest}>
     <GridRow>
       <GridCol lg={12}>
         <TextWrapper>
@@ -94,9 +97,18 @@ const Anbima = () => (
           >{` porto.investimentos@portoseguro.com.br`}</MailLink>
           <Text>.</Text>
         </TextWrapper>
-        <div>
+        <LogosContainer>
+          <a
+            href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+            target="blank"
+          >
+            <LogoAnbimaGestao />
+          </a>
           <LogoAnbimaDistribuicao />
-        </div>
+          <a href="https://comoinvestir.anbima.com.br/" target="blank">
+            <LogoAnbimaInvestir />
+          </a>
+        </LogosContainer>
       </GridCol>
     </GridRow>
   </GridContainer>

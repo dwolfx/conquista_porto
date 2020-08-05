@@ -1,4 +1,4 @@
-import { all, takeLatest, call, put, select } from 'redux-saga/effects'
+import { all, takeLatest, call, put, select, fork } from 'redux-saga/effects'
 
 import { post, put as putAxios, baseURLNamespaceAuth2 } from 'services/api'
 import {
@@ -15,7 +15,7 @@ function handleOrganizacao() {
   const env = process.env.REACT_APP_ENV
   let organizacao
   if (env === 'production') {
-    organizacao = 'CLIENTES_PROD'
+    organizacao = 'CLIENTES'
   } else {
     organizacao = 'CLIENTES_HML'
   }
@@ -23,7 +23,7 @@ function handleOrganizacao() {
   return organizacao
 }
 
-function* postData() {
+export function* generateKeyboard() {
   try {
     // este comentário marca o início da escrita de um código cheio de tristeza...
     /**
@@ -52,6 +52,8 @@ function* postData() {
     yield put(PostVirtualKeyboardDataSuccess(parsedResponse))
   } catch (err) {
     yield put(PostVirtualKeyboardDataFailure())
+
+    throw new Error()
   }
 }
 
@@ -59,24 +61,49 @@ interface IPayload {
   type: string
   payload: {
     signature: string
+    onError: () => void
   }
 }
 
-function* putData({ payload }: IPayload) {
+export function* validateSignature({
+  payload: { signature, onError },
+}: IPayload) {
   try {
     const auth = yield select(getAuth)
     yield call(putAxios, `${baseURLNamespaceAuth2}/teclado-virtual`, {
       usuario: auth.cpf,
       organizacao: handleOrganizacao(),
-      resposta: payload.signature,
+      resposta: signature,
     })
     yield put(PutVirtualKeyboardDataSuccess())
   } catch (err) {
+    const { retries } = JSON.parse(err.message)
+
     yield put(PutVirtualKeyboardDataFailure())
+
+    if (retries === 0) {
+      // counter started over
+      yield fork(generateNewSignature)
+
+      onError()
+    }
+
+    throw new Error()
   }
 }
 
+function* generateNewSignature() {
+  try {
+    const auth = yield select(getAuth)
+
+    yield call(putAxios, `${baseURLNamespaceAuth2}/assinatura-eletronica`, {
+      usuario: auth.cpf,
+      organizacao: handleOrganizacao(),
+    })
+  } catch (err) {}
+}
+
 export default all([
-  takeLatest(Types.POST_REQUEST, postData),
-  takeLatest(Types.PUT_REQUEST, putData),
+  takeLatest(Types.POST_REQUEST, generateKeyboard),
+  takeLatest(Types.VALIDATE_REQUEST, validateSignature),
 ])

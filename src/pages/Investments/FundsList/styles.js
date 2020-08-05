@@ -18,10 +18,6 @@ export const TableContent = styled.div`
   padding: 21px;
   margin-top: ${props => props.theme.spacing(2)}px;
   height: auto;
-
-  @media ${({ theme }) => theme.mediaQueries.lg} {
-    margin-top: ${props => props.theme.spacing(13)}px;
-  }
 `
 
 export const FloatButton = styled(IconButton)`

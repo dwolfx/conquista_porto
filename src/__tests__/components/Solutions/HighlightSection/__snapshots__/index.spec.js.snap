@@ -75,6 +75,7 @@ exports[`HighlightSection renders correctly 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  height: 100%;
   padding: 0 25px;
   position: relative;
   width: 100%;
@@ -152,6 +153,7 @@ exports[`HighlightSection renders correctly 1`] = `
       data-gtm-name="lista de fundos"
       data-gtm-subname="Facilidade para investir"
       data-gtm-type="click"
+      disabled={false}
       onClick={[Function]}
     >
       <span

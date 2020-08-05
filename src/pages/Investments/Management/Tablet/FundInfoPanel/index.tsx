@@ -17,9 +17,19 @@ import { TextHeader, InfoContainer, LoadingStyled } from './styles'
 
 interface IProps {
   onChangeModalSuitabilityInfo: (data: IModalProps) => void
+  setLayerOpen: (isLayerOpen: boolean) => void
+  setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
+  setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void
+  isInvestorLevelModalOpen: boolean
 }
 
-const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
+const FundInfoPanel = ({
+  onChangeModalSuitabilityInfo,
+  setLayerOpen,
+  setIsAwareOfTerms,
+  setIsInvestorLevelModalOpen,
+  isInvestorLevelModalOpen,
+}: IProps) => {
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
@@ -72,6 +82,10 @@ const FundInfoPanel = ({ onChangeModalSuitabilityInfo }: IProps) => {
         <FundInfo
           position={position}
           onChangeModalSuitabilityInfo={onChangeModalSuitabilityInfo}
+          setLayerOpen={setLayerOpen}
+          setIsAwareOfTerms={setIsAwareOfTerms}
+          setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
+          isInvestorLevelModalOpen={isInvestorLevelModalOpen}
         />
         <TextHeader>Histórico de Rentabilidade</TextHeader>
         <ProfitabilityInfo

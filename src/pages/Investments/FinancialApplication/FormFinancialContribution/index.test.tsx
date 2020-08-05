@@ -25,6 +25,8 @@ describe('FormFinancialContribution', () => {
       whenToInvest: '20/10/2030',
     }
     const idFundo = '5105'
+    const isLoadingNextButton = false
+    const operationDate = formData.whenToInvest
     const financialApplication = {
       dados_para_aplicacao: {
         fundo: {
@@ -56,6 +58,8 @@ describe('FormFinancialContribution', () => {
               formData={formData}
               formDataCopy={formDataCopy}
               idFundo={idFundo}
+              nextButtonLoading={isLoadingNextButton}
+              operationDate={operationDate}
             />
           </ThemeProvider>
         </Provider>
@@ -76,6 +80,8 @@ describe('FormFinancialContribution', () => {
               formData={formData}
               formDataCopy={formDataCopy}
               idFundo={idFundo}
+              nextButtonLoading={isLoadingNextButton}
+              operationDate={operationDate}
             />
           </ThemeProvider>
         </Provider>
@@ -96,6 +102,8 @@ describe('FormFinancialContribution', () => {
               formData={formData}
               formDataCopy={formDataCopy}
               idFundo={idFundo}
+              nextButtonLoading={isLoadingNextButton}
+              operationDate={operationDate}
             />
           </ThemeProvider>
         </Provider>
@@ -118,6 +126,8 @@ describe('FormFinancialContribution', () => {
               formData={formData}
               formDataCopy={formDataCopy}
               idFundo={idFundo}
+              nextButtonLoading={isLoadingNextButton}
+              operationDate={operationDate}
             />
           </ThemeProvider>
         </Provider>

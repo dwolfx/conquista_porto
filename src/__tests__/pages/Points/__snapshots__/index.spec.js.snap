@@ -567,6 +567,7 @@ Array [
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  height: 100%;
   padding: 0 25px;
   position: relative;
   width: 100%;
@@ -677,6 +678,7 @@ Array [
       data-gtm-name="resgatar pontos"
       data-gtm-subname="Conheça as ofertas e veja o que você pode resgatar com o seu saldo atual"
       data-gtm-type="click"
+      disabled={false}
     >
       <span
         className="c3"
