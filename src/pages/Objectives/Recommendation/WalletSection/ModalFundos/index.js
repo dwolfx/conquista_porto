@@ -62,10 +62,10 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
         </TabList>
         <TabPanel name="tab-perfil-risco">
           <PanelBody>
-            {fundDetails['wsdls/profile'] && (
+            {fundDetails.share_holder_profile_risk && (
               <SingleItem>
                 <SubTitle icon="flag" title="Perfil de risco" />
-                <RiskDegree profile={fundDetails['wsdls/profile']} />
+                <RiskDegree profile={fundDetails.share_holder_profile_risk} />
               </SingleItem>
             )}
             <SingleItem borderBottom>
@@ -77,7 +77,7 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
                 </Item>
                 <Item>
                   <SubTitle5>movimentação mín.</SubTitle5>
-                  <Text>{formatMoney(fundDetails.min_movement)}</Text>
+                  <Text>{formatMoney(fundDetails.min_rescue)}</Text>
                 </Item>
                 <Item>
                   <SubTitle5>saldo mín.</SubTitle5>
@@ -85,7 +85,7 @@ const ModalFundos = ({ fundDetails, initialReset }) => {
                 </Item>
                 <Item>
                   <SubTitle5>horário limite da aplic.</SubTitle5>
-                  <Text>{fundDetails.time_limit}</Text>
+                  <Text>{fundDetails.time_limit_to_apply}</Text>
                 </Item>
                 <Item>
                   <SubTitle5>Aplicação (Cotização)</SubTitle5>
@@ -266,10 +266,10 @@ ModalFundos.propTypes = {
   fundDetails: PropTypes.shape({
     profitability: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     min_initial_value: PropTypes.number,
-    'wsdls/profile': PropTypes.number,
-    min_movement: PropTypes.number,
+    share_holder_profile_risk: PropTypes.number,
+    min_rescue: PropTypes.number,
     min_balance: PropTypes.number,
-    time_limit: PropTypes.string,
+    time_limit_to_apply: PropTypes.string,
     quotation_apply_days: PropTypes.string,
     financial_apply_days: PropTypes.string,
     quotation_rescue_days: PropTypes.string,

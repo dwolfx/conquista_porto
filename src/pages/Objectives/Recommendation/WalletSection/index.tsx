@@ -15,7 +15,6 @@ import {
   ICreditProducts,
 } from 'pages/Objectives/Recommendation/types'
 
-import ModalFundos from './ModalFundos'
 import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
 import TableView from './TableView'
@@ -61,11 +60,11 @@ const WalletSection = ({
     const fundsCategories: IFundCategories = {}
 
     funds.forEach((fund: IFund) => {
-      if (fund.category_name in fundsCategories) {
-        fundsCategories[fund.category_name] +=
+      if (fund.arena_category in fundsCategories) {
+        fundsCategories[fund.arena_category] +=
           fund.initial_value + fund.monthly_value
       } else {
-        fundsCategories[fund.category_name] =
+        fundsCategories[fund.arena_category] =
           fund.initial_value + fund.monthly_value
       }
     })
@@ -132,7 +131,7 @@ const WalletSection = ({
         isOpen={isModalOpen}
         handleClose={() => handleCloseDetails()}
       >
-        <ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
+        <s.ModalFundos fundDetails={fundDetails} initialReset={initialReset} />
       </Modal>
 
       <Col

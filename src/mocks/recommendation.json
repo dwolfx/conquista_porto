@@ -1,309 +1,134 @@
 {
   "id": "625",
   "answer": {
-    "nickname": "Emergencia",
-    "target_date": "01/01/2025",
-    "target_value": 1000000.0,
-    "initial_value": 12000.0,
-    "monthly_value": 2000.0,
+    "nickname": "Viagem",
+    "target_date": "06/06/2021",
+    "target_value": 1000.0,
+    "initial_value": 1000.0,
+    "monthly_value": 100.0,
+    "uf": "SP",
     "is_easy_to_save_planned_amount": false,
     "is_target_date_flexible": false,
     "would_like_to_receive_before_final_date": false,
     "would_like_to_receive_monthly_income": false,
-    "goal_type": 7,
-    "profile": 2
+    "goal_type": 1,
+    "profile": 4
   },
   "combo": [
     {
       "title": "Investimentos",
       "values": {
-        "Investimento Mensal": "R$ 2.000,00",
-        "Investimento Inicial": "R$ 12.000,00"
+        "Investimento Mensal": "R$ 100,00",
+        "Investimento Inicial": "R$ 1.000,00"
       },
-      "total_value": 137358.87
+      "total_value": 2055.18
     }
   ],
   "income": {
     "pessimistic": [
-      { "month": "Jun/2020", "value": 12000.0 },
-      { "month": "Jan/2021", "value": 26463.13 },
-      { "month": "Ago/2021", "value": 41294.41 },
-      { "month": "Mar/2022", "value": 56503.88 },
-      { "month": "Out/2022", "value": 72101.9 },
-      { "month": "Mai/2023", "value": 88099.12 },
-      { "month": "Dez/2023", "value": 104506.54 },
-      { "month": "Dez/2024", "value": 133620.64 }
+      { "month": "Ago/2020", "value": 1000.0 },
+      { "month": "Set/2020", "value": 1102.99 },
+      { "month": "Out/2020", "value": 1206.3 },
+      { "month": "Nov/2020", "value": 1309.92 },
+      { "month": "Dez/2020", "value": 1413.85 },
+      { "month": "Jan/2021", "value": 1518.09 },
+      { "month": "Fev/2021", "value": 1622.65 },
+      { "month": "Jun/2021", "value": 2044.01 }
     ],
     "median": [
-      { "month": "Jun/2020", "value": 12000.0 },
-      { "month": "Jan/2021", "value": 26580.39 },
-      { "month": "Ago/2021", "value": 41626.39 },
-      { "month": "Mar/2022", "value": 57153.95 },
-      { "month": "Out/2022", "value": 73179.64 },
-      { "month": "Mai/2023", "value": 89720.65 },
-      { "month": "Dez/2023", "value": 106794.83 },
-      { "month": "Dez/2024", "value": 137358.87 }
+      { "month": "Ago/2020", "value": 1000.0 },
+      { "month": "Set/2020", "value": 1103.74 },
+      { "month": "Out/2020", "value": 1207.88 },
+      { "month": "Nov/2020", "value": 1312.41 },
+      { "month": "Dez/2020", "value": 1417.34 },
+      { "month": "Jan/2021", "value": 1522.65 },
+      { "month": "Fev/2021", "value": 1628.36 },
+      { "month": "Jun/2021", "value": 2055.18 }
     ],
     "optimistic": [
-      { "month": "Jun/2020", "value": 12000.0 },
-      { "month": "Jan/2021", "value": 26698.24 },
-      { "month": "Ago/2021", "value": 41961.78 },
-      { "month": "Mar/2022", "value": 57813.98 },
-      { "month": "Out/2022", "value": 74279.29 },
-      { "month": "Mai/2023", "value": 91383.21 },
-      { "month": "Dez/2023", "value": 109152.42 },
-      { "month": "Dez/2024", "value": 141242.75 }
+      { "month": "Ago/2020", "value": 1000.0 },
+      { "month": "Set/2020", "value": 1104.49 },
+      { "month": "Out/2020", "value": 1209.47 },
+      { "month": "Nov/2020", "value": 1314.91 },
+      { "month": "Dez/2020", "value": 1420.82 },
+      { "month": "Jan/2021", "value": 1527.22 },
+      { "month": "Fev/2021", "value": 1634.09 },
+      { "month": "Jun/2021", "value": 2066.41 }
     ]
   },
   "funds": [
     {
-      "fund_id": 51380023,
-      "name": "Arx Income FI Ações",
-      "category_name": "Renda Variável",
-      "profitability": [
-        {
-          "name": "fundo",
-          "value": {
-            "1": 12.27,
-            "2": -25.92,
-            "3": -3.46,
-            "4": 8.68,
-            "5": 42.34
-          }
-        },
-        {
-          "name": "IBOVESPA",
-          "value": {
-            "1": 13.9,
-            "2": -28.08,
-            "3": -14.28,
-            "4": 8.36,
-            "5": 32.62
-          }
-        },
-        {
-          "name": "variacao",
-          "value": { "2": 2.16, "3": 10.82, "4": 0.32, "5": 9.72 }
-        }
-      ],
-      "min_initial_value": 500.0,
-      "min_value_to_apply": 100.0,
-      "wsdls/profile": 5,
-      "min_movement": 100.0,
-      "min_balance": 100.0,
-      "time_limit": "23:59",
-      "quotation_apply_days": "D+0",
-      "financial_apply_days": "D+0",
-      "quotation_rescue_days": "D+1 (Úteis)",
-      "financial_rescue_days": "D+2 (Úteis)",
-      "manager": "ARX Investimentos",
-      "initial_date": "17/06/1999",
-      "benchmark": "IBOVESPA",
-      "adm_tax": 3.0,
-      "performance_rate": 0.0,
-      "classification": "Ações",
-      "tribute_ir": { "1": 15 },
-      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf",
-      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf",
-      "iof": "Isento",
-      "initial_value": 900.0,
-      "monthly_value": 100.0,
-      "annual_rate": 9.5,
-      "profile_risk": "alto",
-      "is_fund_active": true
-    },
-    {
-      "fund_id": 51380026,
-      "name": "Occam Institucional II FIC Multimercado",
-      "category_name": "Multimercado",
-      "profitability": [
-        {
-          "name": "fundo",
-          "value": { "1": 0.38, "2": 0.7, "3": 5.95, "4": 13.84, "5": 24.68 }
-        },
-        {
-          "name": "CDI",
-          "value": { "1": 0.3, "2": 1.49, "3": 4.83, "4": 11.51, "5": 20.07 }
-        },
-        {
-          "name": "variacao",
-          "value": {
-            "1": 125.73,
-            "2": 46.95,
-            "3": 123.12,
-            "4": 120.24,
-            "5": 122.95
-          }
-        }
-      ],
-      "min_initial_value": 1000.0,
-      "min_value_to_apply": 100.0,
-      "wsdls/profile": 3,
-      "min_movement": 0.0,
-      "min_balance": 100.0,
-      "time_limit": "23:59",
-      "quotation_apply_days": "D+0",
-      "financial_apply_days": "D+0",
-      "quotation_rescue_days": "D+0 (Úteis)",
-      "financial_rescue_days": "D+1 (Úteis)",
-      "manager": "Occam Brasil",
-      "initial_date": "06/07/2012",
-      "benchmark": "CDI",
-      "adm_tax": 1.0,
-      "performance_rate": 20.0,
-      "classification": "Longo Prazo",
-      "tribute_ir": { "720": 17.5, "721": 15, "360": 20, "180": 22.5 },
-      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf",
-      "iof": "Regime Regressivo",
-      "initial_value": 3000.0,
-      "monthly_value": 500.0,
-      "annual_rate": 7.0,
-      "profile_risk": "medio",
-      "is_fund_active": true
-    },
-    {
-      "fund_id": 51380022,
-      "name": "Arx Elbrus Debêntures Incentivadas FI Multimercado Crédito Privado",
-      "category_name": "Renda Fixa",
-      "profitability": [
-        { "name": "fundo", "value": { "1": -0.24, "2": 1.78, "3": 7.72 } },
-        { "name": "IMA-B 5", "value": { "1": 0.46, "2": -0.12, "3": 7.15 } },
-        { "name": "variacao", "value": { "2": 1.9, "3": 0.57 } }
-      ],
-      "min_initial_value": 1000.0,
-      "min_value_to_apply": 500.0,
-      "wsdls/profile": 4,
-      "min_movement": 500.0,
-      "min_balance": 1000.0,
-      "time_limit": "23:59",
-      "quotation_apply_days": "D+0",
-      "financial_apply_days": "D+0",
-      "quotation_rescue_days": "D+30 (Corridos)",
-      "financial_rescue_days": "D+1 (Úteis)",
-      "manager": "ARX Investimentos",
-      "initial_date": "24/08/2018",
-      "benchmark": "IMA-B 5",
-      "adm_tax": 0.7,
-      "performance_rate": 20.0,
-      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
-      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXELBRUSDEBENTURESINCENTIVADASFIM.pdf",
-      "iof": "Regime Regressivo",
-      "initial_value": 3100.0,
-      "monthly_value": 500.0,
-      "annual_rate": 4.5,
-      "profile_risk": "medio-alto",
-      "is_fund_active": true
-    },
-    {
       "fund_id": 5105,
       "name": "Porto Seguro FI Referenciado DI Credito Privado",
-      "category_name": "Renda Fixa",
-      "profitability": [
-        {
-          "name": "fundo",
-          "value": { "1": 0.28, "2": -1.96, "3": 1.17, "4": 7.71, "5": 16.39 }
-        },
-        {
-          "name": "CDI",
-          "value": { "1": 0.3, "2": 1.49, "3": 4.83, "4": 11.51, "5": 20.07 }
-        },
-        {
-          "name": "variacao",
-          "value": { "1": 91.79, "3": 24.3, "4": 67.04, "5": 81.66 }
-        }
-      ],
+      "nickname": "Porto Seguro FI RF Ref. DI CP",
+      "company_name": "PortoSeguro Investimentos",
+      "profile_risk": "medio-baixo",
+      "share_holder_profile_risk": 2,
+      "initial_date": "28/02/2014",
+      "manager": "PortoSeguro Investimentos",
       "min_initial_value": 1000.0,
       "min_value_to_apply": 100.0,
-      "wsdls/profile": 2,
-      "min_movement": 100.0,
+      "release_to_apply": true,
+      "min_rescue": 100.0,
+      "release_to_rescue": true,
       "min_balance": 1000.0,
-      "time_limit": "23:59",
+      "time_limit_to_apply": "21:00",
+      "time_limit_to_rescue": "21:00",
       "quotation_apply_days": "D+0",
       "financial_apply_days": "D+0",
       "quotation_rescue_days": "D+0 (Úteis)",
       "financial_rescue_days": "D+0 (Úteis)",
-      "manager": "PortoSeguro Investimentos",
-      "initial_date": "28/02/2014",
-      "benchmark": "CDI",
+      "count_rescue_days": "Úteis",
+      "arena_category": "Renda Fixa",
+      "ambima_category": "RF Duração Baixa Crédito Livre",
       "adm_tax": 0.4,
       "performance_rate": 0.0,
       "classification": "Longo Prazo",
       "tribute_ir": { "720": 17.5, "721": 15, "360": 20, "180": 22.5 },
-      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
-      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
       "iof": "Regime Regressivo",
-      "initial_value": 5000.0,
-      "monthly_value": 900.0,
-      "annual_rate": 4.5,
-      "profile_risk": "medio-baixo",
-      "is_fund_active": true
+      "benchmark": "CDI",
+      "profitability": [
+        {
+          "name": "fundo",
+          "value": { "1": 1.28, "2": -0.17, "3": 1.55, "4": 8.1, "5": 15.67 }
+        },
+        {
+          "name": "CDI",
+          "value": { "1": 0.05, "2": 1.92, "3": 3.67, "4": 10.18, "5": 17.72 }
+        },
+        {
+          "name": "variacao",
+          "value": { "1": 2663.91, "3": 42.19, "4": 79.59, "5": 88.44 }
+        }
+      ],
+      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
+      "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
+      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
+      "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/TCR%20-%20Porto%20Seguro%20DI%20Credito%20Privado.pdf",
+      "url_manager_logo": "https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png",
+      "is_fund_active": true,
+      "quota_type": "Abertura",
+      "initial_value": 1000,
+      "monthly_value": 100,
+      "annual_rate": 4.5
     }
   ],
   "additional": {
-    "travel_security": false,
+    "travel_security": true,
     "life_security": false,
     "credit_card": false
   },
-  "suggestion_goal": {
-    "suggestion_target_date": "11/10/2041",
-    "suggestion_monthly_value": 16120
-  },
   "fund_total_income": {
-    "0": 12000.0,
-    "1": 14054.98,
-    "2": 16119.2,
-    "3": 18192.71,
-    "4": 20275.55,
-    "5": 22367.74,
-    "6": 24469.33,
-    "7": 26580.39,
-    "8": 28700.94,
-    "9": 30831.05,
-    "10": 32970.74,
-    "11": 35120.09,
-    "12": 37279.1,
-    "13": 39447.86,
-    "14": 41626.39,
-    "15": 43814.75,
-    "17": 48221.14,
-    "16": 46012.98,
-    "19": 52667.41,
-    "18": 50439.26,
-    "21": 57153.95,
-    "20": 54905.62,
-    "23": 61681.16,
-    "22": 59412.44,
-    "25": 66249.4,
-    "24": 63960.12,
-    "27": 70859.12,
-    "26": 68549.05,
-    "29": 75510.67,
-    "28": 73179.64,
-    "31": 80204.52,
-    "30": 77852.29,
-    "34": 87325.44,
-    "35": 89720.65,
-    "32": 82567.42,
-    "33": 84941.04,
-    "38": 96971.8,
-    "39": 99410.88,
-    "36": 92126.75,
-    "37": 94543.79,
-    "42": 106794.83,
-    "43": 109278.59,
-    "40": 101861.03,
-    "41": 104322.31,
-    "46": 116797.96,
-    "47": 119327.3,
-    "44": 111773.66,
-    "45": 114280.09,
-    "51": 129560.58,
-    "50": 126984.77,
-    "49": 124420.65,
-    "48": 121868.18,
-    "54": 137358.87,
-    "53": 134747.59,
-    "52": 132148.18
+    "0": 1000.0,
+    "1": 1103.74,
+    "2": 1207.88,
+    "3": 1312.41,
+    "4": 1417.34,
+    "5": 1522.65,
+    "6": 1628.36,
+    "7": 1734.47,
+    "8": 1840.97,
+    "9": 1947.87,
+    "10": 2055.18
   }
 }
