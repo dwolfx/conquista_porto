@@ -39,7 +39,6 @@ import {
   CardFooter,
   FixedBottom,
 } from './styles'
-import { IFund } from 'store/modules/Investment/Position/iPositions'
 
 interface IProps {
   hasCheckbox: boolean
@@ -95,7 +94,6 @@ const FormFinancialContribution = ({
     financialApplicationData,
     alignmentTermsLoading,
     suitabilityInfoData,
-    investmentPosition,
   } = useSelector((state: any) => ({
     bankData: state.bankData,
     auth: state.auth,
@@ -104,7 +102,6 @@ const FormFinancialContribution = ({
     financialApplicationData: state.financialApplicationGetData.data,
     alignmentTermsLoading: state.alignmentTerms.isLoading,
     suitabilityInfoData: state.suitabilityInfo.data,
-    investmentPosition: state.investmentPosition,
   }))
 
   useEffect(() => {
@@ -147,18 +144,6 @@ const FormFinancialContribution = ({
           />
         </>
       )
-    }
-
-    const chosenInvestmentFund = (): IFund =>
-      investmentPosition.data &&
-      investmentPosition.data.fundos.find(
-        (posicao: any) => posicao.id_carteira === idFundo
-      )
-
-    const fund = chosenInvestmentFund()
-    let saldoAtual = ''
-    if (fund) {
-      saldoAtual = fund.saldoLiquido
     }
 
     return (

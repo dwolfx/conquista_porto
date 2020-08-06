@@ -15,7 +15,6 @@ import {
 } from './Investment/FinancialApplication/reducer'
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
-import investmentPositionOld from './Investment/Position_old/reducer'
 import investmentPosition from './Investment/Position/reducer'
 import comparativeProfitability from './Investment/ComparativeProfitability/reducer'
 import income from './Investment/Income/reducer'
@@ -53,7 +52,6 @@ export default combineReducers({
   financialApplicationPostData,
   investmentsList,
   investmentDetails,
-  investmentPositionOld,
   investmentPosition,
   comparativeProfitability,
   income,
