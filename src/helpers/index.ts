@@ -162,3 +162,16 @@ export const replacePatternToComponent = (
     return [...acc, cur]
   }, [])
 }
+
+export const printFieldText = (text: string) => {
+  let innerText: number | string = formatNumber(text)
+
+  if (isNaN(+text)) {
+    innerText = text
+  }
+
+  return text && text !== '-' ? innerText : '---'
+}
+
+export const printFieldTextWithPercent = (text: string) =>
+  text && text !== '-' ? `${formatNumber(text)}%` : '---'

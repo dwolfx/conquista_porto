@@ -49,14 +49,14 @@ describe('ProfitabilityTable', () => {
     const { getByText } = setup(
       <ProfitabilityTable profitability={ProfitabilityMock} />
     )
-    expect(getByText('1,02%')).toBeDefined()
-    expect(getByText('-3,01%')).toBeDefined()
+    expect(getByText('1,02')).toBeDefined()
+    expect(getByText('-3,01')).toBeDefined()
   })
 
   test('Without Props', () => {
     const { queryByText } = setup(<ProfitabilityTable />)
 
-    expect(queryByText('1,02%')).toBe(null)
-    expect(queryByText('-3,01%')).toBe(null)
+    expect(queryByText('1,02')).toBe(null)
+    expect(queryByText('-3,01')).toBe(null)
   })
 })
