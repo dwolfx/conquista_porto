@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components/macro'
 import 'styled-components/macro'
@@ -72,14 +72,9 @@ const FundDetailCard = ({
     }
   )
 
-  if (
-    !!selectedFundId &&
-    fundDetails?.id_fundo !== selectedFundId &&
-    !isLoading &&
-    !hasError
-  ) {
+  useEffect(() => {
     dispatch(GetInvestmentDetailsRequest(idFund))
-  }
+  }, [idFund])
 
   const headerTitle =
     !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
