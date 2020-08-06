@@ -167,7 +167,7 @@ export default function Desktop({
             <Td>
               <Text bold type="body" color="gray5">
                 {printFieldText(
-                  histRentabilFundo.rel_fundo_benchmark_mes_anteiror
+                  histRentabilFundo.rel_fundo_benchmark_mes_ant
                 )}
               </Text>
             </Td>
