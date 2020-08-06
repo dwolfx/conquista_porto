@@ -21,7 +21,6 @@ import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/F
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 import { GetIncomesDataRequest } from 'store/modules/Investment/Income/action'
 import IIncome from 'store/modules/Investment/Income/iIncomes'
-import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 
 import { formatMoney } from 'helpers'
@@ -142,11 +141,8 @@ const FundInformation = ({
   const {
     displayInformation,
     idFund,
-    financialApplicationLoading,
     funds,
     fundsError,
-    fundsIsLoading,
-    suitabilityIsLoading,
     suitabilityStoreData,
     isRedeemLoading,
     incomeIsLoading,
@@ -154,11 +150,8 @@ const FundInformation = ({
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
     idFund: state.investmentPosition.idFund,
-    financialApplicationLoading: state.financialApplicationGetData.isLoading,
     funds: state.investmentsList.data,
     fundsError: state.investmentsList.isError,
-    fundsIsLoading: state.investmentsList.isError,
-    suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
     isRedeemLoading: state.redeemData.isLoading,
     incomeIsLoading: state.income.isLoading,

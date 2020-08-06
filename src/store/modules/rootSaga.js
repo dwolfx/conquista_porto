@@ -16,7 +16,6 @@ import {
 } from './Investment/FinancialApplication/sagas'
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
-import investmentPositionOld from './Investment/Position_old/sagas'
 import investmentPosition from './Investment/Position/sagas'
 import comparativeProfitability from './Investment/ComparativeProfitability/sagas'
 import lastTransaction from './Investment/LastTransaction/sagas'
@@ -56,7 +55,6 @@ export default function* rootSaga() {
     financialApplicationPostData,
     investmentsList,
     investmentDetails,
-    investmentPositionOld,
     investmentPosition,
     comparativeProfitability,
     income,

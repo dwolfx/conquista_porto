@@ -11,8 +11,6 @@ import {
   GTM_DATA_FUNDS_FILTROS_DRAWER,
 } from 'pages/Investments/Management/types'
 
-import useFundsList from 'pages/Investments/Management/useFundsList'
-
 import {
   Drawer,
   FilterDrawerBody,

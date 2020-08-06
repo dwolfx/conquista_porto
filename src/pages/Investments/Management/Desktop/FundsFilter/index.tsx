@@ -5,7 +5,6 @@ import {
   TFundsLayout,
   GTM_DATA_FUNDS_FILTROS,
 } from 'pages/Investments/Management/types'
-import useFundsList from 'pages/Investments/Management/useFundsList'
 
 import {
   LeftContent,

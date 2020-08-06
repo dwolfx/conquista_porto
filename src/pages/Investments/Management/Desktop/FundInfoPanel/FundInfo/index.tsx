@@ -22,7 +22,6 @@ import IIncome from 'store/modules/Investment/Income/iIncomes'
 import { useToast } from 'hooks/toast'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
-import { RISK_FILTER_TYPES } from '../../../types'
 import { formatMoney } from 'helpers'
 
 import {
@@ -172,7 +171,7 @@ const FundInformation = ({
         !financialApplicationLoading &&
         !fundsIsLoading) ||
       isInvestorLevelModalOpen ||
-      suitabilityStoreData.isOpen
+      suitabilityStoreData?.isOpen
     ) {
       setInvestButtonIsLoading(false)
     }
