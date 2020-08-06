@@ -2,7 +2,7 @@ import React from 'react'
 
 import Text from 'components/Text'
 
-import { formatNumber } from 'helpers'
+import { printFieldText } from 'helpers'
 
 import { IHistRentabilBenchmark, IHistRentabilFundo } from '../../../types'
 
@@ -24,9 +24,6 @@ export default function Desktop({
   histRentabilBenchmark,
   histRentabilFundo,
 }: IProps) {
-  const printFieldText = (text: string) => text && text !== '-' ? text : '---'
-  const printFieldTextWithPercent = (text: string) =>
-    text && text !== '-' ? `${formatNumber(text)}%` : '---'
   return (
     <TablesContainer>
       <FixedTable>
@@ -39,16 +36,14 @@ export default function Desktop({
           <Tr>
             <Th>
               <Text color="gray6" type="subheading">
-                FUNDO
+                FUNDO (%)
               </Text>
             </Th>
           </Tr>
           <Tr>
             <Th>
               <Text color="gray6" type="subheading">
-                {printFieldText(histRentabilBenchmark.benchmark.nome) === 'CDI'
-                  ? `% ${printFieldText(histRentabilBenchmark.benchmark.nome)}`
-                  : printFieldText(histRentabilBenchmark.benchmark.nome)}
+                {`${printFieldText(histRentabilBenchmark.benchmark.nome)} (%)`}
               </Text>
             </Th>
           </Tr>
@@ -56,8 +51,8 @@ export default function Desktop({
             <Th>
               <Text color="gray6" type="subheading">
                 {histRentabilBenchmark.benchmark.nome === 'CDI'
-                  ? 'VARIAÇÃO'
-                  : 'VARIAÇÃO (P.P.)'}
+                  ? 'Variação (%)'
+                  : 'Variação (p.p.)'}
               </Text>
             </Th>
           </Tr>
@@ -103,29 +98,27 @@ export default function Desktop({
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
-                  histRentabilFundo.rentabil_mes_anteiror
-                )}
+                {printFieldText(histRentabilFundo.rentabil_mes_anteiror)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(histRentabilFundo.rentabil_ano)}
+                {printFieldText(histRentabilFundo.rentabil_ano)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(histRentabilFundo.rentabil_12_meses)}
+                {printFieldText(histRentabilFundo.rentabil_12_meses)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(histRentabilFundo.rentabil_24_meses)}
+                {printFieldText(histRentabilFundo.rentabil_24_meses)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(histRentabilFundo.rentabil_36_meses)}
+                {printFieldText(histRentabilFundo.rentabil_36_meses)}
               </Text>
             </Td>
           </Tr>
@@ -139,35 +132,27 @@ export default function Desktop({
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
-                  histRentabilBenchmark.rentabil_mes_anteiror
-                )}
+                {printFieldText(histRentabilBenchmark.rentabil_mes_anteiror)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(histRentabilBenchmark.rentabil_Ano)}
+                {printFieldText(histRentabilBenchmark.rentabil_Ano)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
-                  histRentabilBenchmark.rentabil_12_meses
-                )}
+                {printFieldText(histRentabilBenchmark.rentabil_12_meses)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
-                  histRentabilBenchmark.rentabil_24_meses
-                )}
+                {printFieldText(histRentabilBenchmark.rentabil_24_meses)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
-                  histRentabilBenchmark.rentabil_36_meses
-                )}
+                {printFieldText(histRentabilBenchmark.rentabil_36_meses)}
               </Text>
             </Td>
           </Tr>
@@ -188,30 +173,22 @@ export default function Desktop({
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(
-                  histRentabilFundo.rel_fundo_benchmark_ano
-                )}
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_ano)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(
-                  histRentabilFundo.rel_fundo_benchmark_12_meses
-                )}
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_12_meses)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(
-                  histRentabilFundo.rel_fundo_benchmark_24_meses
-                )}
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_24_meses)}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(
-                  histRentabilFundo.rel_fundo_benchmark_36_meses
-                )}
+                {printFieldText(histRentabilFundo.rel_fundo_benchmark_36_meses)}
               </Text>
             </Td>
           </Tr>
