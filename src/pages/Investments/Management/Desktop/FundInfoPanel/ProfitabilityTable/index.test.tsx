@@ -28,6 +28,7 @@ const ProfitabilityMock = {
     rel_fundo_benchmark_dia: '-',
     rentabil_mes_anteiror: '-0.71',
     rel_fundo_benchmark_24_meses: '105.04',
+    rel_fundo_benchmark_mes_anteiror: '105.04',
     rel_fundo_benchmark_ano: '-',
     rentabil_24_meses: '12.75',
     rel_fundo_benchmark_36_meses: '117.24',

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { handleVariance } from 'pages/Investments/Management/utils'
 import Text from 'components/Text'
 import { TableGridContent, Cell, CellHeader } from './styles'
 import { formatNumber } from 'helpers'
@@ -25,6 +24,7 @@ interface IProfitabilityTableProps {
       rentabil_ano: string
       rentabil_12_meses: string
       rentabil_36_meses: string
+      rel_fundo_benchmark_mes_anteiror: string
       rel_fundo_benchmark_mes: string
       rel_fundo_benchmark_dia: string
       rentabil_mes_anteiror: string
@@ -44,7 +44,7 @@ interface IProfitabilityTableProps {
 const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
   profitability,
 }) => {
-  const printFieldText = (text: string) => text || '---'
+  const printFieldText = (text: string) => text && text !== '-' ? text : '---'
   const printFieldTextWithPercent = (text: string) =>
     text && text !== '-' ? `${formatNumber(text)}%` : '---'
 
@@ -179,52 +179,45 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
 
         <Cell alignLeft>
           <Text bold type="body" color="gray5">
-            Variação
+          {profitability
+            && profitability.hist_rentabil_benchmark.benchmark.nome === 'CDI'
+            ? 'Variação %'
+            : 'Variação (P.P.)'}
           </Text>
         </Cell>
         <Cell>
           <Text type="subheading" color="gray6">
-            {handleVariance(
-              profitability?.hist_rentabil_benchmark.benchmark.nome,
-              profitability?.hist_rentabil_fundo.rentabil_mes_anteiror,
-              profitability?.hist_rentabil_benchmark.rentabil_mes_anteiror
-            )}
+          {profitability && printFieldText(
+            profitability.hist_rentabil_fundo.rel_fundo_benchmark_mes_anteiror
+          )}
           </Text>
         </Cell>
         <Cell borderLeft>
           <Text type="subheading" color="gray6">
-            {handleVariance(
-              profitability?.hist_rentabil_benchmark.benchmark.nome,
-              profitability?.hist_rentabil_fundo.rentabil_ano,
-              profitability?.hist_rentabil_benchmark.rentabil_Ano
-            )}
+          {profitability && printFieldText(
+            profitability.hist_rentabil_fundo.rel_fundo_benchmark_ano
+          )}
           </Text>
         </Cell>
         <Cell borderLeft>
           <Text type="subheading" color="gray6">
-            {handleVariance(
-              profitability?.hist_rentabil_benchmark.benchmark.nome,
-              profitability?.hist_rentabil_fundo.rentabil_12_meses,
-              profitability?.hist_rentabil_benchmark.rentabil_12_meses
-            )}
+          {profitability && printFieldText(
+            profitability.hist_rentabil_fundo.rel_fundo_benchmark_12_meses
+          )}
           </Text>
         </Cell>
         <Cell borderLeft>
           <Text type="subheading" color="gray6">
-            {handleVariance(
-              profitability?.hist_rentabil_benchmark.benchmark.nome,
-              profitability?.hist_rentabil_fundo.rentabil_24_meses,
-              profitability?.hist_rentabil_benchmark.rentabil_24_meses
-            )}
+          {profitability && printFieldText(
+            profitability.hist_rentabil_fundo.rel_fundo_benchmark_24_meses
+          )}
           </Text>
         </Cell>
         <Cell borderLeft>
           <Text type="subheading" color="gray6">
-            {handleVariance(
-              profitability?.hist_rentabil_benchmark.benchmark.nome,
-              profitability?.hist_rentabil_fundo.rentabil_36_meses,
-              profitability?.hist_rentabil_benchmark.rentabil_36_meses
-            )}
+          {profitability && printFieldText(
+            profitability.hist_rentabil_fundo.rel_fundo_benchmark_36_meses
+          )}
           </Text>
         </Cell>
       </TableGridContent>
