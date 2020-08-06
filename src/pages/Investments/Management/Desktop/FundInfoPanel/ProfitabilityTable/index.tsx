@@ -44,8 +44,7 @@ interface IProfitabilityTableProps {
 const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
   profitability,
 }) => (
-  <>
-    <TableGridContent>
+  <TableGridContent>
       <CellHeader alignLeft borderBottom>
         <Text type="subheading" color="gray6">
           HISTÓRICO DE RENTABILIDADE
@@ -173,7 +172,7 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
         <Text type="subheading" color="gray6">
           {profitability &&
             printFieldText(
-              profitability.hist_rentabil_fundo.rel_fundo_benchmark_mes_anteiror
+              profitability.hist_rentabil_fundo.rel_fundo_benchmark_mes_ant
             )}
         </Text>
       </Cell>
@@ -210,12 +209,6 @@ const ProfitabilityTable: React.FC<IProfitabilityTableProps> = ({
         </Text>
       </Cell>
     </TableGridContent>
-    {/*<Text type="caption" bold color="gray6">
-        *O CDI é uma referência do mercado para quanto seu dinheiro pode render.
-        A referência é dada com base no valor ganho pelos bancos de um dia para
-        outro.
-        </Text>*/}
-  </>
 )
 
 export default ProfitabilityTable

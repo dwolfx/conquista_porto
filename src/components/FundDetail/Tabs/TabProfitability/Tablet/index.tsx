@@ -201,7 +201,7 @@ export default function Tablet({
               </Text>,
               <Text type="headline" color="gray6" bold>
                 {printFieldText(
-                  histRentabilFundo.rel_fundo_benchmark_mes_anteiror
+                  histRentabilFundo.rel_fundo_benchmark_mes_ant
                 )}
               </Text>,
             ]}

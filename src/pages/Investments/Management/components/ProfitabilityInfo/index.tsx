@@ -153,13 +153,13 @@ const ProfitabilityInfo = ({ profitability }: IProps) => (
         <VerticalListStyled
           elements={[
             <HorizonalListStyled
-              startItems={[<TextTitle>MẼS ANTERIOR</TextTitle>]}
+              startItems={[<TextTitle>MÊS ANTERIOR</TextTitle>]}
               endItems={[
                 <TextValue>
                   {profitability &&
                     printFieldText(
                       profitability.hist_rentabil_fundo
-                        .rel_fundo_benchmark_mes_anteiror
+                        .rel_fundo_benchmark_mes_ant
                     )}
                 </TextValue>,
               ]}
