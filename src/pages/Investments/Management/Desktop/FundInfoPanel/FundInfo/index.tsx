@@ -93,6 +93,7 @@ interface IFundInformationProps {
       aplicao_minima: string
       aplicacao_cotizacao: string
       contagem_dias_resgate: string
+      resgate_cotizacao: string
       id_carteira: string
       nome_gestor: string
       resgate_liberado: boolean
@@ -443,7 +444,7 @@ const FundInformation = ({
                 Resgate (Cotização)
               </Text>,
               <Text type="headline" bold color="gray6">
-                {`${position.fundo.aplicacao_cotizacao} (${position.fundo.contagem_dias_resgate})`}
+                {position.fundo.resgate_cotizacao}
               </Text>,
             ]}
           />
