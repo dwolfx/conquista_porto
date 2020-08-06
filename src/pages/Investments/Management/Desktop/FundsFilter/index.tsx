@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 import {
   TFundsLayout,
@@ -30,10 +31,15 @@ const FundsFilter: React.FC<IProps> = ({
   onHandleChangeView,
   onHandleChangeFilter,
 }) => {
+  const { investmentPosition } = useSelector((state: any) => ({
+    investmentPosition: state.investmentPosition.data,
+  }))
+
   const fundsListToFilters = [
     ...new Set(
-      useFundsList().map(
-        (fund: { [item: string]: any }) => fund.categoria_arena
+      investmentPosition?.map(
+        // TODO: Trocar  categoria por categoria_arena
+        (fund: { [item: string]: any }) => fund.categoria
       )
     ),
   ]

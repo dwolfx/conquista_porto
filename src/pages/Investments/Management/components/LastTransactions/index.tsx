@@ -47,7 +47,7 @@ const LastTransations = () => {
   }, [handleLastTransactionRequest])
 
   const renderContent = () => {
-    if (lastTransaction.isLoading) {
+    if (lastTransaction?.isLoading) {
       return (
         <InfoContainer>
           <LoadingStyled
@@ -58,7 +58,7 @@ const LastTransations = () => {
         </InfoContainer>
       )
     }
-    if (lastTransaction.hasError) {
+    if (lastTransaction?.hasError) {
       return (
         <InfoContainer>
           <ErrorState
@@ -68,9 +68,8 @@ const LastTransations = () => {
         </InfoContainer>
       )
     }
-
-    const lastFiveTransactions = lastTransaction.data
-      ? lastTransaction.data.slice(0, 5)
+    const lastFiveTransactions = lastTransaction?.data
+      ? lastTransaction?.data?.slice(0, 5)
       : []
 
     return (
@@ -81,8 +80,7 @@ const LastTransations = () => {
               text-align: center;
             `}
           >
-            {lastFiveTransactions.data[0] &&
-            typeof lastFiveTransactions.data[0].operacoes === 'string' ? (
+            {lastFiveTransactions?.length < 1 ? (
               <Text
                 type="headline"
                 color="gray5"
@@ -108,8 +106,7 @@ const LastTransations = () => {
           </div>
         ) : (
           <>
-            {lastFiveTransactions.data[0] &&
-            typeof lastFiveTransactions.data[0].operacoes === 'string' ? (
+            {lastFiveTransactions?.length < 1 ? (
               <Text
                 type="headline"
                 color="gray5"

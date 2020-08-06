@@ -26,6 +26,7 @@ import {
   FundsType,
   FundsTypeRow,
 } from './styles'
+import { useSelector } from 'react-redux'
 
 interface IProps {
   filters: any
@@ -53,10 +54,15 @@ const Filter: React.FC<IProps> = ({
     'CARDS'
   )
 
+  const { investmentPosition } = useSelector((state: any) => ({
+    investmentPosition: state.investmentPosition.data,
+  }))
+
   const fundsListToFilters = [
     ...new Set(
-      useFundsList().map(
-        (fund: { [item: string]: any }) => fund.categoria_arena
+      investmentPosition?.map(
+        // TODO: Trocar  categoria por categoria_arena
+        (fund: { [item: string]: any }) => fund.categoria
       )
     ),
   ]
