@@ -141,6 +141,8 @@ const FundDetailDrawer: React.FC<IProps> = ({
     </>
   )
 
+  if (!isOpen && fundDetails) return null
+
   return (
     <DrawerDetail
       header={headerTitle()}

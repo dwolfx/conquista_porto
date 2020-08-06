@@ -74,7 +74,7 @@ const FundDetailCard = ({
 
   useEffect(() => {
     dispatch(GetInvestmentDetailsRequest(idFund))
-  }, [idFund])
+  }, [idFund, dispatch])
 
   const headerTitle =
     !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
