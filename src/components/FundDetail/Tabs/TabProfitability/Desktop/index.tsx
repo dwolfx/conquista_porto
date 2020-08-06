@@ -24,7 +24,7 @@ export default function Desktop({
   histRentabilBenchmark,
   histRentabilFundo,
 }: IProps) {
-  const printFieldText = (text: string) => text || '---'
+  const printFieldText = (text: string) => text && text !== '-' ? text : '---'
   const printFieldTextWithPercent = (text: string) =>
     text && text !== '-' ? `${formatNumber(text)}%` : '---'
   return (
@@ -181,35 +181,35 @@ export default function Desktop({
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_mes_anteiror
                 )}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_ano
                 )}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_12_meses
                 )}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_24_meses
                 )}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_36_meses
                 )}
               </Text>
