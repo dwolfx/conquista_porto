@@ -1,5 +1,6 @@
 import { IFunds } from 'store/modules/Objective/types'
 import { formatFundoInv, formatActions, FormatValue } from './utils'
+import { THandleInputChangeFunction } from './types'
 
 export const fundsType = [
   {
@@ -25,7 +26,8 @@ export const fundsType = [
 ]
 
 export const columns = (
-  handleInputsChange: ({ event, value, row }: any) => void
+  handleInputsChange: THandleInputChangeFunction,
+  removeAction: (fundId: number) => void
 ) => [
   {
     Header: 'FUNDO DE INVESTIMENTO',
@@ -33,10 +35,10 @@ export const columns = (
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: '35%',
+      width: '40%',
       minWidth: 208,
       header: {
-        width: '34%',
+        width: '38%',
         minWidth: 185,
       },
     },
@@ -52,11 +54,12 @@ export const columns = (
         type: 'initial_value',
       }),
     align: 'flex-start',
+    justifyHeader: 'flex-start',
     styles: {
       width: '20%',
       minWidth: 120,
       header: {
-        width: '20%',
+        width: '19%',
         minWidth: 120,
       },
     },
@@ -71,11 +74,12 @@ export const columns = (
         type: 'monthly_value',
       }),
     align: 'flex-start',
+    justifyHeader: 'flex-start',
     styles: {
       width: '20%',
       minWidth: 120,
       header: {
-        width: '20%',
+        width: '19%',
         minWidth: 110,
       },
     },
@@ -83,14 +87,14 @@ export const columns = (
   {
     Header: '',
     accessor: 'actions',
-    format: (row: IFunds) => formatActions(row),
+    format: (row: IFunds) => formatActions(row, removeAction),
     align: 'center',
     styles: {
-      width: '15%',
-      minWidth: 120,
+      width: '5%',
+      minWidth: 80,
       header: {
-        width: '15%',
-        minWidth: 110,
+        width: '5%',
+        minWidth: 60,
       },
     },
   },

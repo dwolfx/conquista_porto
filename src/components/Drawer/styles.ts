@@ -1,17 +1,16 @@
 import styled from 'styled-components'
-import CloseIcon from 'assets/icons/close.svg'
+import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
-export const CloseButton = styled.div`
-  background-color: ${props => props.theme.colors.gray4};
+export const CloseButton = styled(Icon)`
+  fill: ${props => props.theme.colors.gray4};
   cursor: pointer;
   height: 28px;
-  mask-image: url(${CloseIcon});
   transition: all ease 0.3s;
   width: 28px;
 
   &:hover {
-    background-color: ${props => props.theme.colors.blue4};
+    fill: ${props => props.theme.colors.blue4};
   }
 `
 

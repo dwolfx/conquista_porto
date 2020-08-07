@@ -147,11 +147,10 @@ exports[`FileDownloadSection renders correctly 1`] = `
     >
       <div>
         <svg
-          aria-label="pdf"
           className="c3"
           fill="#272727"
           height="24px"
-          role="img"
+          width={21}
         >
           pdf.svg
         </svg>
@@ -185,11 +184,10 @@ exports[`FileDownloadSection renders correctly 1`] = `
     >
       <div>
         <svg
-          aria-label="pdf"
           className="c3"
           fill="#272727"
           height="24px"
-          role="img"
+          width={21}
         >
           pdf.svg
         </svg>

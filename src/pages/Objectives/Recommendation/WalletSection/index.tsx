@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Col, Row } from 'styled-bootstrap-grid'
-import { uuid } from 'uuidv4'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
@@ -11,19 +10,16 @@ import useMedia from 'hooks/useMedia'
 import { GridRow } from 'pages/Objectives/Recommendation/styles'
 import { IFunds, ICreditProduct } from 'store/modules/Objective/types'
 
+import DetailModal from 'pages/Objectives/Recommendation/WalletSection/DetailModal'
+import Detail from 'pages/Objectives/Recommendation/WalletSection/Detail'
+import PercentualInfos from 'pages/Objectives/Recommendation/components/PercentualInfo'
 import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
 import TableView from './TableView'
 import TableLabel from './TableView/Label'
 import CardCreditProduct from './CardCreditProduct'
-import DetailModal from 'pages/Objectives/Recommendation/WalletSection/DetailModal'
-import Detail from 'pages/Objectives/Recommendation/WalletSection/Detail'
 
 import * as s from './styles'
-
-interface IFundCategories {
-  [key: string]: number
-}
 
 interface IProps {
   creditProduct?: ICreditProduct
@@ -51,41 +47,6 @@ const WalletSection = ({
   const handleCloseDetails = () => {
     setFundDetails(undefined)
     setIsModalOpen(false)
-  }
-
-  const PercentualInfos = () => {
-    const fundsCategories: IFundCategories = {}
-
-    funds.forEach((fund: IFunds) => {
-      if (fund.arena_category in fundsCategories) {
-        fundsCategories[fund.arena_category] +=
-          fund.initial_value + fund.monthly_value
-      } else {
-        fundsCategories[fund.arena_category] =
-          fund.initial_value + fund.monthly_value
-      }
-    })
-
-    const fundsTotalValues = Object.entries(fundsCategories).reduce(
-      (acc, [, value]) => acc + value,
-      0
-    )
-
-    const fundsCategoriesSort = Object.entries(
-      fundsCategories
-    ).sort(([keyA], [keyB]) =>
-      fundsCategories[keyA] < fundsCategories[keyB] ? 1 : -1
-    )
-
-    return (
-      <s.PercentualInfosContainer>
-        {fundsCategoriesSort.map(([key, value]) => (
-          <s.PercentualText type="headline" color="gray6" bold key={uuid()}>
-            {`${((value * 100) / fundsTotalValues).toFixed(1)}% em ${key}`}
-          </s.PercentualText>
-        ))}
-      </s.PercentualInfosContainer>
-    )
   }
 
   const cardHeader = () => (
@@ -117,7 +78,7 @@ const WalletSection = ({
 
       <s.LabelRow alignItems="center">
         <s.PercetualInfosWrapper>
-          <PercentualInfos />
+          <PercentualInfos funds={funds} />
         </s.PercetualInfosWrapper>
 
         {!isVerticalTablet ? (

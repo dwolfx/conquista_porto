@@ -57,10 +57,13 @@ export const FormatValue = ({ row, onChange, type }: IFormatValue) => {
   )
 }
 
-export const formatActions = (row: IFunds) => (
+export const formatActions = (
+  row: IFunds,
+  removeAction: (fundId: number) => void
+) => (
   <ButtonIcon
     icon="close"
-    onClick={() => console.log(row)}
+    onClick={() => removeAction(row.fund_id)}
     key={`fund_remove_${row.fund_id}`}
   />
 )

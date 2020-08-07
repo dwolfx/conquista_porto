@@ -50,31 +50,6 @@ export const LabelInfosWrapper = styled.div`
   padding-right: ${({ theme }) => theme.spacing(4)}px;
 `
 
-export const PercentualInfosContainer = styled(Row)`
-  display: flex;
-  padding: 0 ${({ theme }) => theme.spacing(3)}px;
-
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    flex-direction: column;
-  }
-`
-
-export const PercentualText = styled(Text)`
-  &:nth-child(2n) {
-    border-left: 1px solid ${({ theme }) => theme.colors.gray6};
-    padding-left: ${({ theme }) => theme.spacing(2)}px;
-    margin-left: ${({ theme }) => theme.spacing(2)}px;
-  }
-
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    &:nth-child(2n) {
-      border-left: 0;
-      padding-left: 0;
-      margin-left: 0;
-    }
-  }
-`
-
 export const InfoContainer = styled.div`
   align-items: center;
   display: flex;

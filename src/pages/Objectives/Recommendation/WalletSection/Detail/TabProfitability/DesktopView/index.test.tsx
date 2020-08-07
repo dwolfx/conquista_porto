@@ -10,7 +10,12 @@ const setup = (children: React.ReactElement) => {
   return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 }
 
-const profitability = [
+const profitability: {
+  name: string
+  value: {
+    [key: number]: number | undefined
+  }
+}[] = [
   {
     name: 'fundo',
     value: {
@@ -50,7 +55,7 @@ describe('DesktopView component', () => {
     profitability.forEach(item => {
       Object.entries(item.value).forEach(value => {
         expect(
-          getByText(value[1]?.toString().replace('.', ',') + '%')
+          getByText(value[1]?.toString().replace('.', ',') + '')
         ).toBeInTheDocument()
       })
     })

@@ -152,3 +152,7 @@ export interface IFormData {
   would_like_to_receive_monthly_income?: boolean
   goal_type?: number
 }
+
+export interface IFundCategories {
+  [key: string]: number
+}

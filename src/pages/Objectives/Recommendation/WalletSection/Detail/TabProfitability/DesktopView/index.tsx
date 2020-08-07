@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Text from 'components/Text'
-
 import { formatNumber } from 'helpers'
 
 import {
@@ -21,9 +20,17 @@ export default function DesktopView({ profitability }: IProps) {
   const tableSecondRow = profitability[1]
   const tableThirdRow = profitability[2]
 
-  const printFieldText = (text: string) => text || '---'
-  const printFieldValueWithPercent = (value: number | undefined) =>
-    value !== undefined ? `${formatNumber(value)}%` : '---'
+  const printFieldText = (text: string | number | undefined) => {
+    if (!text) {
+      return '---'
+    }
+
+    if (isNaN(+text)) {
+      return text
+    }
+
+    return formatNumber(text)
+  }
 
   return (
     <TablesContainer>
@@ -37,7 +44,7 @@ export default function DesktopView({ profitability }: IProps) {
           <Tr>
             <Th>
               <Text color="gray6" type="subheading">
-                FUNDO
+                FUNDO (%)
               </Text>
             </Th>
           </Tr>
@@ -94,32 +101,32 @@ export default function DesktopView({ profitability }: IProps) {
           <Tr>
             <Th>
               <Text color="gray6" bold type="subheading">
-                FUNDO
+                FUNDO (%)
               </Text>
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableFirstRow.value[1])}
+                {printFieldText(tableFirstRow.value[1])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableFirstRow.value[2])}
+                {printFieldText(tableFirstRow.value[2])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableFirstRow.value[3])}
+                {printFieldText(tableFirstRow.value[3])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableFirstRow.value[4])}
+                {printFieldText(tableFirstRow.value[4])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableFirstRow.value[5])}
+                {printFieldText(tableFirstRow.value[5])}
               </Text>
             </Td>
           </Tr>
@@ -133,59 +140,61 @@ export default function DesktopView({ profitability }: IProps) {
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableSecondRow.value[1])}
+                {printFieldText(tableSecondRow.value[1])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableSecondRow.value[2])}
+                {printFieldText(tableSecondRow.value[2])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableSecondRow.value[3])}
+                {printFieldText(tableSecondRow.value[3])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableSecondRow.value[4])}
+                {printFieldText(tableSecondRow.value[4])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableSecondRow.value[5])}
+                {printFieldText(tableSecondRow.value[5])}
               </Text>
             </Td>
           </Tr>
           <Tr>
             <Th>
               <Text color="gray6" type="subheading">
-                {tableThirdRow.name === 'CDI' ? 'Variação' : 'Variação (P.P.)'}
+                {tableThirdRow.name === 'CDI'
+                  ? 'Variação (%)'
+                  : 'Variação (p.p.)'}
               </Text>
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableThirdRow.value[1])}
+                {printFieldText(tableThirdRow.value[1])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableThirdRow.value[2])}
+                {printFieldText(tableThirdRow.value[2])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableThirdRow.value[3])}
+                {printFieldText(tableThirdRow.value[3])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableThirdRow.value[4])}
+                {printFieldText(tableThirdRow.value[4])}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldValueWithPercent(tableThirdRow.value[5])}
+                {printFieldText(tableThirdRow.value[5])}
               </Text>
             </Td>
           </Tr>

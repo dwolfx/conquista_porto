@@ -208,8 +208,8 @@ exports[`MakeSenseSection renders correctly 1`] = `
         className="c4"
       >
         <svg
-          aria-label="malefemale"
-          role="img"
+          fill="#BABABA"
+          width={21}
         >
           male-female.svg
         </svg>
@@ -229,8 +229,8 @@ exports[`MakeSenseSection renders correctly 1`] = `
         className="c4"
       >
         <svg
-          aria-label="barchart"
-          role="img"
+          fill="#BABABA"
+          width={21}
         >
           bar-chart.svg
         </svg>
@@ -250,8 +250,8 @@ exports[`MakeSenseSection renders correctly 1`] = `
         className="c4"
       >
         <svg
-          aria-label="safebox"
-          role="img"
+          fill="#BABABA"
+          width={21}
         >
           safe-box.svg
         </svg>
@@ -311,8 +311,8 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
-                aria-label="talkman"
-                role="img"
+                fill="#BABABA"
+                width={21}
               >
                 talk-man.svg
               </svg>
@@ -351,8 +351,8 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
-                aria-label="diamond"
-                role="img"
+                fill="#BABABA"
+                width={21}
               >
                 diamond.svg
               </svg>
@@ -391,8 +391,8 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
-                aria-label="callcenter"
-                role="img"
+                fill="#BABABA"
+                width={21}
               >
                 call-center.svg
               </svg>
@@ -431,8 +431,8 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
-                aria-label="apps"
-                role="img"
+                fill="#BABABA"
+                width={21}
               >
                 apps.svg
               </svg>

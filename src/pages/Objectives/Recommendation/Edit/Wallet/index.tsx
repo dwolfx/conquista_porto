@@ -6,6 +6,7 @@ import Card from 'components/Card'
 import Text from 'components/Text'
 
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
+import PercentualInfos from 'pages/Objectives/Recommendation/components/PercentualInfo'
 import { IFunds } from 'store/modules/Objective/types'
 
 import { columns } from './constants'
@@ -19,6 +20,7 @@ interface IInputChange {
 
 export default function WalletComposition() {
   const [funds, setFunds] = useState<IFunds[] | []>([])
+  const [removedFunds, setRemovedFunds] = useState<IFunds[] | []>([])
 
   const { data: recommendationData } = useSelector<any, any>(
     state => state.objective
@@ -53,7 +55,16 @@ export default function WalletComposition() {
     setFunds(newValues)
   }
 
-  const columnsToRender = columns(handleInputsChange)
+  const removeAction = (fundId: number) => {
+    const fundRemoved = funds.filter(fund => fund.fund_id === fundId)
+
+    setFunds(currentFunds =>
+      currentFunds.filter(fund => fund.fund_id !== fundId)
+    )
+    setRemovedFunds(currentRemoved => [...currentRemoved, ...fundRemoved])
+  }
+
+  const columnsToRender = columns(handleInputsChange, removeAction)
 
   return (
     <Container>
@@ -73,11 +84,9 @@ export default function WalletComposition() {
               Você pode adicionar, remover e substituir fundos sugeridos, além
               de remanejar os investimentos em cada categoria.
             </Text>
-            <s.Table
-              columns={columnsToRender}
-              data={funds}
-              isLoading={!funds.length}
-            />
+
+            <PercentualInfos funds={funds} />
+            <s.Table columns={columnsToRender} data={funds} isLoading={false} />
           </Card>
         </Col>
       </Row>

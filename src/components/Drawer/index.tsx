@@ -61,6 +61,7 @@ const Drawer: React.FC<IProps> = ({
                 data-gtm-name="botao fechar"
                 data-gtm-type="click"
                 data-gtm-clicktype="button"
+                name="close"
                 onClick={handleClose}
               />
             </>

@@ -552,9 +552,7 @@ Array [
           onClick={[Function]}
         >
           <svg
-            aria-label="add"
             fill="#DDDDDD"
-            role="img"
             width="48"
           >
             add.svg
@@ -612,9 +610,7 @@ Array [
             className="c12"
           >
             <svg
-              aria-label="computersecure"
               fill="#00ADEF"
-              role="img"
               width="28"
             >
               computer-secure.svg
@@ -636,9 +632,7 @@ Array [
             className="c12"
           >
             <svg
-              aria-label="persongroup2"
               fill="#00ADEF"
-              role="img"
               width="28"
             >
               person-group2.svg
@@ -660,9 +654,7 @@ Array [
             className="c12"
           >
             <svg
-              aria-label="coin"
               fill="#00ADEF"
-              role="img"
               width="28"
             >
               coin.svg
@@ -1541,11 +1533,10 @@ Array [
       >
         <div>
           <svg
-            aria-label="pdf"
             className="c3"
             fill="#272727"
             height="24px"
-            role="img"
+            width={21}
           >
             pdf.svg
           </svg>

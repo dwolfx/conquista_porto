@@ -24,7 +24,7 @@ exports[`FundsInfo renders correctly 1`] = `
 
 .c38 svg {
   height: 21px;
-  margin-left: 7px;
+  margin-left: 14px;
 }
 
 .c38 svg path {
@@ -1204,10 +1204,9 @@ exports[`FundsInfo renders correctly 1`] = `
             className="c35"
           >
             <svg
-              aria-label="pdf"
               fill="#272727"
               height="24px"
-              role="img"
+              width={21}
             >
               pdf.svg
             </svg>
@@ -1232,8 +1231,8 @@ exports[`FundsInfo renders correctly 1`] = `
             >
               Baixar arquivo
               <svg
-                aria-label="arrowright"
-                role="img"
+                fill="#BABABA"
+                width={21}
               >
                 arrow-right.svg
               </svg>
@@ -1247,10 +1246,9 @@ exports[`FundsInfo renders correctly 1`] = `
             className="c35"
           >
             <svg
-              aria-label="pdf"
               fill="#272727"
               height="24px"
-              role="img"
+              width={21}
             >
               pdf.svg
             </svg>
@@ -1275,8 +1273,8 @@ exports[`FundsInfo renders correctly 1`] = `
             >
               Baixar arquivo
               <svg
-                aria-label="arrowright"
-                role="img"
+                fill="#BABABA"
+                width={21}
               >
                 arrow-right.svg
               </svg>

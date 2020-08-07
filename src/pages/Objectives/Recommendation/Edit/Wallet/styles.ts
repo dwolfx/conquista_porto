@@ -10,10 +10,7 @@ export const FundoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   line-height: 22px;
-  padding: ${({ theme }) =>
-    `${theme.spacing(1)}px ${theme.spacing(2)}px ${theme.spacing(
-      1
-    )}px ${theme.spacing(3)}px`};
+  padding: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(2)}px`};
   width: 100%;
 `
 
