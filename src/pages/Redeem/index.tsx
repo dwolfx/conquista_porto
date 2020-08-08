@@ -1,4 +1,4 @@
-import React, { useState, useContext, useCallback } from 'react'
+import React, { useState, useContext, useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Col, Row } from 'styled-bootstrap-grid'
@@ -68,11 +68,25 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
     null
   )
 
-  const { cpf, id_cotista, idFund } = useSelector((state: any) => ({
+  const { cpf, id_cotista, idFund, redeemData } = useSelector((state: any) => ({
     cpf: state.auth.cpf,
     id_cotista: state.suitabilityInfo.data?.id_cotista,
     idFund: state.investmentPosition.idFund,
+    redeemData: state.redeemData.data,
   }))
+
+  useEffect(() => {
+    if (redeemData && redeemData.dados_para_resgate) {
+      if (redeemData.dados_para_resgate.fechado_resgate) {
+        handleClose()
+        addToast({
+          title: `Não é possivel fazer resgate`,
+          description: `Não é possivel fazer resgate após as ${redeemData.dados_para_resgate.hora_limite}`,
+          type: 'error',
+        })
+      }
+    }
+  }, [redeemData, addToast, history])
 
   const maxSteps = 5
   const goBackHandler = () =>

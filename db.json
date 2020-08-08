@@ -72,7 +72,7 @@
         "classificacao": "medio-baixo",
         "aplicacao_financeiro": "D+0"
       },
-      "fechado_resgate": false,
+      "fechado_resgate": true,
       "data_prevista_conversão": "2020-07-09T00:00:00-03:00"
     }
   },
@@ -3433,7 +3433,7 @@
                   }
                 ]
               },
-              "resgate_liberado": false,
+              "resgate_liberado": true,
               "categoria_arena": "Multimercado",
               "id_carteira": "5112",
               "regime_iof": "Regime Regressivo",
