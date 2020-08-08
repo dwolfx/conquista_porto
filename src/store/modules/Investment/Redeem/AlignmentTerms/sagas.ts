@@ -18,7 +18,7 @@ import {
 function* getRedeemAlignmentTermsData({
   payload: { data, onSuccess, onErrorToast },
 }: IGetRedeemAlignmentTermsPayload) {
-  const { data_operacao, valor_bruto, id_fundo } = data
+  const { data_operacao, valor_bruto, id_fundo, tipo_operacao } = data
   const { id_cotista } = yield select(getSuitabilityInfo)
   const { cpf } = yield select(getAuth)
 
@@ -29,7 +29,13 @@ function* getRedeemAlignmentTermsData({
       yield put(SetRedeemSummaryLoading(true))
       yield call(getRedeemSummaryData, {
         type: 'REDEEM_SUMMARY_GET_DATA_REQUEST',
-        payload: { data_operacao, id_fundo, valor: valor_bruto, onErrorToast },
+        payload: {
+          data_operacao,
+          id_fundo,
+          valor: valor_bruto,
+          tipo_operacao,
+          onErrorToast: null,
+        },
       })
     }
     const response = yield call(
