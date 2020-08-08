@@ -2,9 +2,14 @@ import {
   Types,
   IGetFinancialApplicationAction,
   IPostFinancialApplicationAction,
+  IGetFinancialApplicationDataResponse,
 } from './types'
 
-const INITIAL_STATE = {
+const INITIAL_STATE: {
+  data: IGetFinancialApplicationDataResponse | null
+  isLoading: boolean
+  hasError: boolean
+} = {
   data: null,
   isLoading: false,
   hasError: false,
@@ -32,6 +37,22 @@ export const financialApplicationGetData = function(
         ...state,
         isLoading: false,
         hasError: true,
+      }
+    case Types.UPDATE_ADHESION_TERM:
+      const applicationData = state?.data?.dados_para_aplicacao
+      const newState = {
+        ...state,
+        data: {
+          ...state.data,
+          dados_para_aplicacao: {
+            ...applicationData,
+            aderente_fundo: action.payload,
+          },
+        },
+      }
+
+      return {
+        ...newState,
       }
     default:
       return state
