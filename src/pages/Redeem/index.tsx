@@ -114,6 +114,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         data: {
           data_operacao: moment(new Date(), 'DD/MM/YYYY').format('YYYY-MM-DD'),
           valor_bruto: formatMoneyToNumber(formData.moneyToRedeem).toString(),
+          tipo_operacao: formData.redeemType,
           id_fundo: selectedFundId,
         },
         onSuccess: (alignmentData: any) => {

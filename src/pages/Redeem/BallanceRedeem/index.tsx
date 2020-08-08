@@ -114,7 +114,11 @@ const BallanceRedeem = ({
         )}`,
       }
     }
-    if (redeemValue > 0 && redeemValue < minRedeem) {
+    if (
+      redeemValue > 0 &&
+      redeemValue < minRedeem &&
+      currentBalance > minRedeem
+    ) {
       return {
         icon: 'alertrounded',
         message: 'Movimentação menor que o mínimo permitido.',
@@ -138,6 +142,7 @@ const BallanceRedeem = ({
         id_fundo: redeemData.dados_para_resgate.fundo.id_carteira,
         data_operacao: moment().format(moment.HTML5_FMT.DATE),
         valor: formatMoneyToNumber(formData.moneyToRedeem).toString(),
+        tipo_operacao: formData.redeemType,
         onErrorToast: addToast,
       })
     )
@@ -177,6 +182,21 @@ const BallanceRedeem = ({
     const currentBalance = Number(
       redeemData.dados_para_resgate.posicao_cotista_fundo.saldo_atual
     )
+
+    if (currentBalance === formatMoneyToNumber(value)) {
+      onChangeRedeemOptionButton('tudo')
+      onChangeFormData({
+        ...formData,
+        redeemType: '5',
+      })
+    } else {
+      onChangeRedeemOptionButton(null)
+      onChangeFormData({
+        ...formData,
+        redeemType: '2',
+      })
+    }
+
     onChangeFormData({
       ...formData,
       moneyToRedeem: value,
@@ -209,6 +229,11 @@ const BallanceRedeem = ({
             <ButtonTag
               color={redeemOptionButton === 'manter' ? 'primary' : ''}
               onClick={handleKeeptMinBalance}
+              disabled={
+                +redeemData?.dados_para_resgate?.posicao_cotista_fundo
+                  ?.saldo_atual <
+                +redeemData?.dados_para_resgate?.fundo?.saldo_minimo
+              }
               css={`
                 margin-left: ${themeContext.spacing(1)}px;
               `}
@@ -404,7 +429,11 @@ const BallanceRedeem = ({
           nextStep={() => {
             nextStep()
           }}
-          isNextDisabled={isRedeemSummaryLoading || !!validateErrors() || formData.moneyToRedeem === ''}
+          isNextDisabled={
+            isRedeemSummaryLoading ||
+            !!validateErrors() ||
+            formData.moneyToRedeem === ''
+          }
           isNextLoading={isRedeemAlignmentTermsLoading}
         />
       }
