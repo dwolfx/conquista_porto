@@ -83,6 +83,7 @@ const FormFinancialContribution = ({
   const [showError, setShowError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [showCheckbox, setShowCheckbox] = useState(true)
+  const [inputTouched, setInputTouched] = useState(false)
 
   const financialData = financialApplication.dados_para_aplicacao
   const { limitHour, link } = {
@@ -204,6 +205,17 @@ const FormFinancialContribution = ({
 
   const isMoneyLessThanAllowed = () => {
     if (!hasCheckbox) {
+      if (
+        (+financialApplicationData?.dados_para_aplicacao?.posicao_cotista_fundo
+          ?.saldo_atual || 0) <
+        +financialApplicationData?.dados_para_aplicacao?.fundo.minimo_inicial
+      ) {
+        return (
+          formatMoneyToNumber(formData.moneyToInvest) <
+          +financialApplicationData.dados_para_aplicacao.fundo.minimo_inicial
+        )
+      }
+
       return (
         formatMoneyToNumber(formData.moneyToInvest) <
         +financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
@@ -218,6 +230,34 @@ const FormFinancialContribution = ({
     }
 
     return false
+  }
+
+  const handleMessageError: () => string = () => {
+    if (
+      (+financialApplicationData?.dados_para_aplicacao?.posicao_cotista_fundo
+        ?.saldo_atual || 0) <
+      +financialApplicationData?.dados_para_aplicacao?.fundo?.minimo_inicial
+    ) {
+      return `O valor não pode ser menor do que ${formatMoneyDecimal(
+        Number(
+          financialApplicationData?.dados_para_aplicacao?.fundo?.minimo_inicial
+            .toString()
+            .replace(/\D/g, '')
+        )
+      )}`
+    }
+
+    return hasCheckbox
+      ? `O valor não pode ser menor do que ${formatMoneyDecimal(
+          Number(formDataCopy!.moneyToInvest.toString().replace(/\D/g, ''))
+        )}`
+      : `O valor não pode ser menor do que ${formatMoneyDecimal(
+          Number(
+            financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
+              .toString()
+              .replace(/\D/g, '')
+          )
+        )}`
   }
 
   const handleGetIsAwareOfTerms = useCallback(async () => {
@@ -337,26 +377,15 @@ const FormFinancialContribution = ({
                     ...formData,
                     moneyToInvest: target.value,
                   })
+                  setInputTouched(true)
                 }}
                 error={
-                  isMoneyLessThanAllowed() && {
-                    icon: 'alertrounded',
-                    message: hasCheckbox
-                      ? `O valor não pode ser menor do que ${formatMoneyDecimal(
-                          Number(
-                            formDataCopy!.moneyToInvest
-                              .toString()
-                              .replace(/\D/g, '')
-                          )
-                        )}`
-                      : `O valor não pode ser menor do que ${formatMoneyDecimal(
-                          Number(
-                            financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
-                              .toString()
-                              .replace(/\D/g, '')
-                          )
-                        )}`,
-                  }
+                  inputTouched && isMoneyLessThanAllowed()
+                    ? {
+                        icon: 'alertrounded',
+                        message: handleMessageError(),
+                      }
+                    : undefined
                 }
                 css={`
                   margin-top: 7px;
