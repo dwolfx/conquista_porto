@@ -21,7 +21,10 @@ import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 import { IFormData } from 'pages/Investments/FinancialApplication'
 
 import { baseURLNamespaceInvestAws, get } from 'services/api'
-import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
+import {
+  GetFinancialApplicationDataRequest,
+  UpdateAdhesionTerm,
+} from 'store/modules/Investment/FinancialApplication/action'
 
 import { isPastDate, isInvalidDate, formatMoneyToNumber } from './utils'
 import {
@@ -79,6 +82,7 @@ const FormFinancialContribution = ({
 
   const [showError, setShowError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [showCheckbox, setShowCheckbox] = useState(true)
 
   const financialData = financialApplication.dados_para_aplicacao
   const { limitHour, link } = {
@@ -111,6 +115,12 @@ const FormFinancialContribution = ({
       }
     }
   }, [formData, onFormHasChanged, formDataCopy])
+
+  useEffect(() => {
+    const finantialData = financialApplicationData
+
+    setShowCheckbox(!finantialData?.dados_para_aplicacao?.aderente_fundo)
+  }, [financialApplicationData])
 
   const dispatchPositionData = () => {
     if (!isTabletOrSmaller) {
@@ -212,6 +222,9 @@ const FormFinancialContribution = ({
 
   const handleGetIsAwareOfTerms = useCallback(async () => {
     setIsLoading(true)
+    const {
+      dados_para_aplicacao: { aderente_fundo },
+    } = financialApplicationData
 
     await get(
       `${baseURLNamespaceInvestAws}/cotista/aplicacoes/resumo?id_fundo=${idFundo}&id_cotista=${
@@ -221,9 +234,12 @@ const FormFinancialContribution = ({
         'DD/MM/YYYY'
       ).format('YYYY-MM-DD')}&valor=${formatMoneyToNumber(
         formData.moneyToInvest
-      )}&aceite_termo_adesao=true`
+      )}&aceite_termo_adesao=${!aderente_fundo}`
     )
-      .then(() => nextStep())
+      .then(() => {
+        nextStep()
+        dispatch(UpdateAdhesionTerm(true))
+      })
       .catch(() =>
         addToast({
           type: 'error',
@@ -232,7 +248,16 @@ const FormFinancialContribution = ({
         })
       )
       .finally(() => setIsLoading(false))
-  }, [suitabilityInfoData, idFundo, auth, formData, addToast, nextStep])
+  }, [
+    suitabilityInfoData,
+    idFundo,
+    auth,
+    formData,
+    addToast,
+    nextStep,
+    financialApplicationData,
+    dispatch,
+  ])
 
   const handleClickButtonNext = () => {
     if (
@@ -375,7 +400,7 @@ const FormFinancialContribution = ({
             </Text>
           </FlexTextWrapper>
           <Divisor />
-          {hasCheckbox && (
+          {hasCheckbox && showCheckbox && (
             <CheckboxContainer>
               <Checkbox
                 label={
