@@ -28,9 +28,13 @@ const NewInput = forwardRef<
   const inputRef = (ref || createRef()) as React.RefObject<HTMLInputElement>
 
   return (
-    <InputFieldGroup className={className} disabled={disabled}>
+    <InputFieldGroup
+      className={className}
+      disabled={disabled}
+      hasLabel={!!label}
+    >
       <InputGroupWrapper>
-        {label && <InputLabel>{label}</InputLabel>}
+        {label ? <InputLabel>{label}</InputLabel> : null}
         <InputWrapper
           error={error}
           onClick={() => {

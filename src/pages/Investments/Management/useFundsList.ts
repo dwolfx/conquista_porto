@@ -8,7 +8,8 @@ const useFundsList = () => {
   if (fundsList && fundsList.length > 0) {
     normalizedFundsList = fundsList
       .map((iP: any) =>
-        iP.posicoes.posicao
+        [iP.posicoes.posicao]
+          .flatMap(item => item)
           .map((pos: any) => ({
             saldo_atual: pos.saldo_atual,
             ...pos.fundo,
