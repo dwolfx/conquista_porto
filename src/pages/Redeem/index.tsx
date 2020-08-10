@@ -86,7 +86,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         })
       }
     }
-  }, [redeemData, addToast, history])
+  }, [redeemData, addToast, history, handleClose])
 
   const maxSteps = 5
   const goBackHandler = () =>
