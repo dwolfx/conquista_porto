@@ -11,7 +11,8 @@ const useFilter = (filters: string[]) => {
   if (fundsList && fundsList.length > 0) {
     filteredData = fundsList
       .map((iP: any) =>
-        iP.posicoes.posicao
+        [iP.posicoes.posicao]
+          .flatMap(item => item)
           .map((pos: any) => ({ saldo_atual: pos.saldo_atual, ...pos.fundo }))
           .filter((fundo: any) => Number(fundo.saldo_atual) !== 0)
       )
