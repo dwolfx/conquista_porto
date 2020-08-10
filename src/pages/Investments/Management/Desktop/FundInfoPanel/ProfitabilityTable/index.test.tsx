@@ -50,7 +50,7 @@ const renderWithProviders = (customStore?: any) => {
 }
 
 const setup = (children: React.ReactElement) => {
-  return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
+  return renderWithReduxAndTheme(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 }
 
 describe('ProfitabilityTable', () => {

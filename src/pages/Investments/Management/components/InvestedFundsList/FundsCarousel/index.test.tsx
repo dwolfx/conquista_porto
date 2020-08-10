@@ -268,7 +268,7 @@ describe('It behaves correcly', () => {
         <MemoryRouter>
           <FundsCarousel
             displayInformation
-            idFund="5112"
+            idFund={5112}
             onHandleChangeIdFund={id => {}}
             filteredFunds={mock}
           />
@@ -288,7 +288,7 @@ describe('It behaves correcly', () => {
             <MemoryRouter>
               <FundsCarousel
                 displayInformation
-                idFund="5094"
+                idFund={5094}
                 onHandleChangeIdFund={id => {}}
                 filteredFunds={mock}
               />
@@ -307,7 +307,7 @@ describe('It behaves correcly', () => {
         <MemoryRouter>
           <FundsCarousel
             displayInformation
-            idFund="5112"
+            idFund={5112}
             onHandleChangeIdFund={id => {}}
             filteredFunds={mock}
           />
@@ -323,7 +323,7 @@ describe('It behaves correcly', () => {
         <MemoryRouter>
           <FundsCarousel
             displayInformation
-            idFund="5112"
+            idFund={5112}
             onHandleChangeIdFund={id => {}}
             filteredFunds={mock}
           />

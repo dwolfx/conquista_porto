@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { renderWithReduxAndTheme } from 'testUtils'
 import { storeFactory } from 'setupTests'
-import 'pages/Investments/Management/Tablet/node_modules/@testing-library/jest-dom'
+import '@testing-library/jest-dom'
 import 'jest-styled-components'
 
 import Footer from 'components/Footer'

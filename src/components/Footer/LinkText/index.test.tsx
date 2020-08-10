@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderWithReduxAndTheme } from 'testUtils'
-import 'pages/Investments/Management/Tablet/node_modules/@testing-library/jest-dom'
+import '@testing-library/jest-dom'
 import 'jest-styled-components'
 
 import LinkText from '.'
