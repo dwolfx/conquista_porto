@@ -84,6 +84,7 @@ const FormFinancialContribution = ({
   const [isLoading, setIsLoading] = useState(false)
   const [showCheckbox, setShowCheckbox] = useState(true)
   const [inputTouched, setInputTouched] = useState(false)
+  const [inputDateTouched, setInputDateTouched] = useState(false)
 
   const financialData = financialApplication.dados_para_aplicacao
   const { limitHour, link } = {
@@ -202,6 +203,10 @@ const FormFinancialContribution = ({
   const isDateInvalid = () =>
     isInvalidDate(formData!.whenToInvest) ||
     isPastDate(formData!.whenToInvest, moment())
+
+  const checkValidInputs = () => {
+    return (inputTouched && isMoneyLessThanAllowed()) || (inputDateTouched && isDateInvalid())
+  }
 
   const isMoneyLessThanAllowed = () => {
     if (
@@ -390,10 +395,11 @@ const FormFinancialContribution = ({
                     ...formData,
                     whenToInvest: target.value,
                   })
+                  setInputDateTouched(true)
                 }}
                 value={formData.whenToInvest}
                 error={
-                  isDateInvalid() &&
+                  inputDateTouched && isDateInvalid() &&
                   showError && {
                     icon: 'alertrounded',
                     message: 'Digite uma data válida',
@@ -405,7 +411,7 @@ const FormFinancialContribution = ({
               />
             </InputContainer>
           </InputsContainer>
-          <Divisor />
+          <DivisorStyled margin={checkValidInputs() && !isMobile ? '42px 0 0 0' : '0' } />
           <FlexTextWrapper>
             <Text bold color="gray5">
               Solicitações enviadas após às {limitHour}h serão processadas no

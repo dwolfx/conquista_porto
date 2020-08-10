@@ -64,7 +64,7 @@ export const InputContainer = styled(Col)`
     margin: ${({ theme }) => theme.spacing(3)}px 0;
 
     &:first-child {
-      margin: 0;
+      margin-top: 0;
     }
   }
 `
