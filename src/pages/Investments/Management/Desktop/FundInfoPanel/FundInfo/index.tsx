@@ -172,7 +172,7 @@ const FundInformation = ({
         !financialApplicationLoading &&
         !fundsIsLoading) ||
       isInvestorLevelModalOpen ||
-      suitabilityStoreData.isOpen
+      suitabilityStoreData?.isOpen
     ) {
       setInvestButtonIsLoading(false)
     }

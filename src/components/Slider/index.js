@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
-import Input from 'components/Inputs/Money'
 import Text from 'components/Text'
 
 import { formatMoneyDecimal, formatMoney } from 'helpers'
@@ -14,6 +13,7 @@ import {
   Thumb,
   ThumbPopover,
   ThumbContainer,
+  Input,
 } from './styles'
 
 function valueToPercent(value, max) {
@@ -196,10 +196,6 @@ export default function Slider({
                 ref={inputRef}
                 value={value}
                 onChange={handleInputOnChange}
-                css={`
-                  height: 33px;
-                  font-size: 14px;
-                `}
                 maxLength="14"
                 error={error}
               />

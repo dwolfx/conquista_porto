@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 
+import InputMoney from 'components/Inputs/Money'
 import Popover from 'components/Popover'
 
 const ThumbContainerStyle = css`
@@ -64,5 +65,13 @@ export const SliderContainer = styled.div`
     &:before {
       width: ${props => `calc(${props.value}% - 12px)`};
     }
+  }
+`
+
+export const Input = styled(InputMoney)`
+  height: 33px;
+
+  > div {
+    font-size: 14px;
   }
 `
