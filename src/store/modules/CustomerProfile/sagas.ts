@@ -3,7 +3,7 @@ import { GetDataSuccess, GetDataFailure } from './action'
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 import { Types } from './types'
 
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(
       get,
