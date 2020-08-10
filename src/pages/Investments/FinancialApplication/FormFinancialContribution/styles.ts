@@ -58,13 +58,16 @@ export const InputsContainer = styled(Row)`
   margin-bottom: ${({ theme }) => theme.spacing(3)}px;
 `
 
-export const InputContainer = styled(Col)`
+interface IInputContainer {
+  hasError: boolean
+}
+export const InputContainer = styled(Col)<IInputContainer>`
   @media ${props => props.theme.mediaQueries.xs} {
     padding: 0 ${props => `${props.theme.spacing(3)}px`};
-    margin: ${({ theme }) => theme.spacing(3)}px 0;
+    margin-bottom: ${({ theme, hasError }) => hasError ? theme.spacing(10) : theme.spacing(3)}px;
 
     &:first-child {
-      margin: 0;
+      margin-top: 0;
     }
   }
 `
