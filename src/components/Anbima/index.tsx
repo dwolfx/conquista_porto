@@ -30,53 +30,20 @@ const Anbima = ({ ...rest }) => (
       <GridCol lg={12}>
         <TextWrapper>
           <Text>
-            Indicadores: trata-se de mera referência econômica, e não meta ou
-            parâmetro de performance. Leia a lâmina de informações essenciais,
-            se houver, e o regulamento antes de investir. Rentabilidade passada
-            não representa garantia de rentabilidade futura. A rentabilidade
-            divulgada não é líquida de impostos. Fundos de Investimento não
-            contam com a garantia do administrador, do gestor, de qualquer
-            mecanismo de seguro ou Fundo Garantidor de Crédito – FGC. Descrição
-            do tipo ANBIMA disponível no Formulário de Informações
-            Complementares. Para avaliação de performance de um fundo de
-            investimento, é recomendável a análise de, no mínimo, 12 (doze)
-            meses.
+            Você está conectado ao Conquista, a Plataforma Digital de Produtos
+            Financeiros da Porto Seguro. A Portopar recebe remuneração de
+            distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de
+            Investimento em que seus clientes aplicam recursos, seja na forma de
+            investimento direto, seja por meio de conta e ordem e que esta
+            remuneração pode ser diferenciada em função dos diversos Fundos de
+            Investimento investidos. Leia o Prospecto, o Formulário de
+            Informações Complementares, Lâmina de Informações Essenciais e o
+            Regulamento antes de investir.
           </Text>
-          <Link
-            target="_blank"
-            to={{
-              pathname: `/redirect?to=https://cvmweb.cvm.gov.br/swb/default.asp?sg_sistema=fundosreg`,
-            }}
-            data-gtm-type="click"
-            data-gtm-clicktype="link"
-            data-gtm-subname="Anbima"
-            data-gtm-name="confira aqui"
-          >
-            <BlueText> Confira aqui </BlueText>
-          </Link>
           <Text>
-            as informações legais referentes a cada investimento e as
-            informações adicionais de fundos de investimento como data de
-            início, patrimônio líquido, taxas aplicáveis e público alvo.
-            SUPERVISÃO E FISCALIZAÇÃO: Comissão de Valores Mobiliários – CVM
-            Serviço de Atendimento ao Cidadão em
-          </Text>
-          <Link
-            target="_blank"
-            to={{
-              pathname: `/redirect?to=http://www.cvm.gov.br/`,
-            }}
-            data-gtm-type="click"
-            data-gtm-clicktype="link"
-            data-gtm-subname="Anbima"
-            data-gtm-name="www.cvm.gov.br"
-          >
-            <BlueText> www.cvm.gov.br </BlueText>
-          </Link>
-          <Text>
-            | Central de Atendimento: (11) 3366-3200/SAC
-            0800-727-2763/0800-727-8736 Atendimento para deficientes auditivos.
-            Ouvidoria: 0800-727-1184 | 3366-3184
+            | Central de Atendimento: (11) 3366-3200/ Atendimento para
+            deficientes auditivos 0800-727-8736. Ouvidoria: 0800-727-1184 |
+            3366-3184 /
           </Text>
           <MailLink
             data-gtm-type="click"
@@ -92,9 +59,27 @@ const Anbima = ({ ...rest }) => (
             data-gtm-type="click"
             data-gtm-clicktype="link"
             data-gtm-subname="Anbima"
-            data-gtm-name="porto.investimentos@portoseguro.com.br"
-            hrefValue="mailto:porto.investimentos@portoseguro.com.br"
-          >{` porto.investimentos@portoseguro.com.br`}</MailLink>
+            data-gtm-name="suporte.conquista@portoseguro.com.br"
+            hrefValue="mailto:suporte.conquista@portoseguro.com.br"
+          >{` suporte.conquista@portoseguro.com.br`}</MailLink>
+          <Text>.</Text>
+          <Text>
+            {` Para ter acesso a Políticas Internas, Código de Conduta Profissional
+            de AAIs (Agentes autônomos de Investimentos), Lista de AAIs e
+            Assembléias acesse `}
+          </Text>
+          <Link
+            target="_blank"
+            to={{
+              pathname: `/redirect?to=https://www.conquista.com.vc`,
+            }}
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            data-gtm-subname="Anbima"
+            data-gtm-name="www.conquista.com.vc"
+          >
+            <BlueText>www.conquista.com.vc</BlueText>
+          </Link>
           <Text>.</Text>
         </TextWrapper>
         <LogosContainer>

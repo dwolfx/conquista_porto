@@ -42,7 +42,7 @@ const CardsView = ({
           margin-top: 14px;
         `}
       >
-        <RiskColorTag borderRisk={fund['wsdls/profile']} />
+        <RiskColorTag borderRisk={fund.share_holder_profile_risk} />
 
         <HorizontalList
           startItems={[<Text color="gray5">Rent. últ 12 meses</Text>]}
@@ -78,10 +78,7 @@ const CardsView = ({
 
   return (
     <>
-      <FullHeightCard
-        headerIcon="financial"
-        headerTitle={<CardHeader />}
-      >
+      <FullHeightCard headerIcon="financial" headerTitle={<CardHeader />}>
         <CardInfos />
       </FullHeightCard>
 

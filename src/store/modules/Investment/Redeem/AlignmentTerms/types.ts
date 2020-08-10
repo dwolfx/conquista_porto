@@ -21,6 +21,7 @@ export interface IGetRedeemAlignmentTermsData {
     data_operacao: string
     valor_bruto: string
     id_fundo: string
+    tipo_operacao: string
   }
   onSuccess: (data: IGetRedeemAlignmentTermsResponse) => void
   onErrorToast: (toast: Omit<IToast, 'id'>) => void

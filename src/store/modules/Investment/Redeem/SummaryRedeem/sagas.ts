@@ -6,7 +6,7 @@ import { getSuitabilityInfo, getAuth } from '../selectors'
 import { GetRedeemSummarySuccess, GetRedeemSummaryFailure } from './action'
 
 export function* getRedeemSummaryData({
-  payload: { data_operacao, id_fundo, valor, onErrorToast },
+  payload: { data_operacao, id_fundo, valor, tipo_operacao, onErrorToast },
 }: IGetRedeemSummaryRequestData) {
   const { id_cotista } = yield select(getSuitabilityInfo)
   const { cpf } = yield select(getAuth)
@@ -14,16 +14,21 @@ export function* getRedeemSummaryData({
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvestAws}/cotista%E2%80%8B/resumo/resgate?tipo_resgate=2&valor=${valor}&cpf_cnpj=${cpf}&id_cotista=${id_cotista}&data_operacao=${data_operacao}&id_fundo=${id_fundo}&CodigoCanal=1`
+      `${baseURLNamespaceInvestAws}/cotista%E2%80%8B/resumo/resgate?tipo_resgate=${tipo_operacao}&valor=${valor}&cpf_cnpj=${cpf}&id_cotista=${id_cotista}&data_operacao=${data_operacao}&id_fundo=${id_fundo}&CodigoCanal=1`
     )
     yield put(GetRedeemSummarySuccess(response.data))
   } catch (err) {
     yield put(GetRedeemSummaryFailure(err))
-    onErrorToast({
-      type: 'error',
-      description: 'Por favor, tente novamente.',
-      title: 'Erro ao enviar solicitação.',
-    })
+
+    if (onErrorToast) {
+      onErrorToast({
+        type: 'error',
+        description: 'Por favor, tente novamente.',
+        title: 'Erro ao enviar solicitação.',
+      })
+    }
+
+    throw new Error(err)
   }
 }
 

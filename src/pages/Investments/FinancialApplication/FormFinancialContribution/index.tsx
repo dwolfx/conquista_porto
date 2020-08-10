@@ -21,7 +21,10 @@ import { FlexTextWrapper } from 'pages/Investments/FinancialApplication/styles'
 import { IFormData } from 'pages/Investments/FinancialApplication'
 
 import { baseURLNamespaceInvestAws, get } from 'services/api'
-import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
+import {
+  GetFinancialApplicationDataRequest,
+  UpdateAdhesionTerm,
+} from 'store/modules/Investment/FinancialApplication/action'
 
 import { isPastDate, isInvalidDate, formatMoneyToNumber } from './utils'
 import {
@@ -79,6 +82,8 @@ const FormFinancialContribution = ({
 
   const [showError, setShowError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [showCheckbox, setShowCheckbox] = useState(true)
+  const [inputTouched, setInputTouched] = useState(false)
 
   const financialData = financialApplication.dados_para_aplicacao
   const { limitHour, link } = {
@@ -111,6 +116,12 @@ const FormFinancialContribution = ({
       }
     }
   }, [formData, onFormHasChanged, formDataCopy])
+
+  useEffect(() => {
+    const finantialData = financialApplicationData
+
+    setShowCheckbox(!finantialData?.dados_para_aplicacao?.aderente_fundo)
+  }, [financialApplicationData])
 
   const dispatchPositionData = () => {
     if (!isTabletOrSmaller) {
@@ -193,25 +204,52 @@ const FormFinancialContribution = ({
     isPastDate(formData!.whenToInvest, moment())
 
   const isMoneyLessThanAllowed = () => {
-    if (!hasCheckbox) {
+    if (
+      (+financialApplicationData?.dados_para_aplicacao?.posicao_cotista_fundo
+        ?.saldo_atual || 0) <
+      +financialApplicationData?.dados_para_aplicacao?.fundo.minimo_inicial
+    ) {
       return (
         formatMoneyToNumber(formData.moneyToInvest) <
-        +financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
+        +financialApplicationData.dados_para_aplicacao.fundo.minimo_inicial
       )
     }
 
-    if (hasCheckbox && formDataCopy && formData) {
-      return (
-        formatMoneyToNumber(formData.moneyToInvest) <
-        formatMoneyToNumber(formDataCopy.moneyToInvest)
-      )
+    return (
+      formatMoneyToNumber(formData.moneyToInvest) <
+      +financialApplicationData?.dados_para_aplicacao?.fundo.aplicacao_minima
+    )
+  }
+
+  const handleMessageError: () => string = () => {
+    if (
+      (+financialApplicationData?.dados_para_aplicacao?.posicao_cotista_fundo
+        ?.saldo_atual || 0) <
+      +financialApplicationData?.dados_para_aplicacao?.fundo?.minimo_inicial
+    ) {
+      return `O valor não pode ser menor do que ${formatMoneyDecimal(
+        Number(
+          financialApplicationData.dados_para_aplicacao.fundo.minimo_inicial
+            .toString()
+            .replace(/\D/g, '')
+        )
+      )}`
     }
 
-    return false
+    return `O valor não pode ser menor do que ${formatMoneyDecimal(
+      Number(
+        financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
+          .toString()
+          .replace(/\D/g, '')
+      )
+    )}`
   }
 
   const handleGetIsAwareOfTerms = useCallback(async () => {
     setIsLoading(true)
+    const {
+      dados_para_aplicacao: { aderente_fundo },
+    } = financialApplicationData
 
     await get(
       `${baseURLNamespaceInvestAws}/cotista/aplicacoes/resumo?id_fundo=${idFundo}&id_cotista=${
@@ -221,9 +259,12 @@ const FormFinancialContribution = ({
         'DD/MM/YYYY'
       ).format('YYYY-MM-DD')}&valor=${formatMoneyToNumber(
         formData.moneyToInvest
-      )}&aceite_termo_adesao=true`
+      )}&aceite_termo_adesao=${!aderente_fundo}`
     )
-      .then(() => nextStep())
+      .then(() => {
+        nextStep()
+        dispatch(UpdateAdhesionTerm(true))
+      })
       .catch(() =>
         addToast({
           type: 'error',
@@ -232,7 +273,16 @@ const FormFinancialContribution = ({
         })
       )
       .finally(() => setIsLoading(false))
-  }, [suitabilityInfoData, idFundo, auth, formData, addToast, nextStep])
+  }, [
+    suitabilityInfoData,
+    idFundo,
+    auth,
+    formData,
+    addToast,
+    nextStep,
+    financialApplicationData,
+    dispatch,
+  ])
 
   const handleClickButtonNext = () => {
     if (
@@ -307,31 +357,21 @@ const FormFinancialContribution = ({
                 data-gtm-form="input"
                 data-gtm-name="quanto investir"
                 value={formData.moneyToInvest}
+                disabled={financialApplicationLoading}
                 onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
                   onChangeFormData({
                     ...formData,
                     moneyToInvest: target.value,
                   })
+                  setInputTouched(true)
                 }}
                 error={
-                  isMoneyLessThanAllowed() && {
-                    icon: 'alertrounded',
-                    message: hasCheckbox
-                      ? `O valor não pode ser menor do que ${formatMoneyDecimal(
-                          Number(
-                            formDataCopy!.moneyToInvest
-                              .toString()
-                              .replace(/\D/g, '')
-                          )
-                        )}`
-                      : `O valor não pode ser menor do que ${formatMoneyDecimal(
-                          Number(
-                            financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
-                              .toString()
-                              .replace(/\D/g, '')
-                          )
-                        )}`,
-                  }
+                  inputTouched && isMoneyLessThanAllowed()
+                    ? {
+                        icon: 'alertrounded',
+                        message: handleMessageError(),
+                      }
+                    : undefined
                 }
                 css={`
                   margin-top: 7px;
@@ -375,7 +415,7 @@ const FormFinancialContribution = ({
             </Text>
           </FlexTextWrapper>
           <Divisor />
-          {hasCheckbox && (
+          {hasCheckbox && showCheckbox && (
             <CheckboxContainer>
               <Checkbox
                 label={

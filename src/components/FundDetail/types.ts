@@ -24,7 +24,7 @@ export interface IHistRentabilFundo {
   rentabil_12_meses: string
   rentabil_24_meses: string
   rentabil_36_meses: string
-  rel_fundo_benchmark_mes_anteiror: string
+  rel_fundo_benchmark_mes_ant: string
   rel_fundo_benchmark_ano: string
   rel_fundo_benchmark_12_meses: string
   rel_fundo_benchmark_24_meses: string

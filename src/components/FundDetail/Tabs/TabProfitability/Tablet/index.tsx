@@ -17,7 +17,7 @@ export default function Tablet({
   histRentabilBenchmark,
   histRentabilFundo,
 }: IProps) {
-  const printFieldText = (text: string) => text || '---'
+  const printFieldText = (text: string) => text && text !== '-' ? text : '---'
   const printFieldTextWithPercent = (text: string) =>
     text && text !== '-' ? `${formatNumber(text)}%` : '---'
 
@@ -200,8 +200,8 @@ export default function Tablet({
                 MÊS ANTERIOR
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldTextWithPercent(
-                  histRentabilFundo.rel_fundo_benchmark_mes_anteiror
+                {printFieldText(
+                  histRentabilFundo.rel_fundo_benchmark_mes_ant
                 )}
               </Text>,
             ]}
@@ -214,7 +214,7 @@ export default function Tablet({
                 ANO
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_ano
                 )}
               </Text>,
@@ -228,7 +228,7 @@ export default function Tablet({
                 ÚLT. 12 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_12_meses
                 )}
               </Text>,
@@ -242,7 +242,7 @@ export default function Tablet({
                 ÚLT 24 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_24_meses
                 )}
               </Text>,
@@ -256,7 +256,7 @@ export default function Tablet({
                 ÚLT 36 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldTextWithPercent(
+                {printFieldText(
                   histRentabilFundo.rel_fundo_benchmark_36_meses
                 )}
               </Text>,

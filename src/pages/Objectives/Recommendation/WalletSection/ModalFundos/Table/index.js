@@ -1,6 +1,6 @@
+import React from 'react'
 import useMedia from 'hooks/useMedia'
 import PropTypes from 'prop-types'
-import React from 'react'
 import {
   Table,
   TableWrapper,
@@ -126,7 +126,11 @@ const TableProfitability = ({ profitability }) => {
                 </TextTD>
               </Tr>
               <Tr>
-                <TitleTD>Variação</TitleTD>
+                <TitleTD>
+                  {profitabilityBenchmark.name === 'CDI'
+                    ? 'Variação (%)'
+                    : 'Variação (p.p.)'}
+                </TitleTD>
                 <TextTD legend="mês anterior">
                   {profitabilityVariation && profitabilityVariation.value[1]
                     ? profitabilityVariation.value[1]
