@@ -206,12 +206,11 @@ const FormFinancialContribution = ({
   const isMoneyLessThanAllowed = () => {
     if (
       (+financialApplicationData?.dados_para_aplicacao?.posicao_cotista_fundo
-        ?.saldo_atual || 0) <
-      +financialApplicationData?.dados_para_aplicacao?.fundo.minimo_inicial
+        ?.saldo_atual || 0) === 0
     ) {
       return (
         formatMoneyToNumber(formData.moneyToInvest) <
-        +financialApplicationData.dados_para_aplicacao.fundo.minimo_inicial
+        +financialApplicationData?.dados_para_aplicacao?.fundo.minimo_inicial
       )
     }
 
@@ -224,8 +223,7 @@ const FormFinancialContribution = ({
   const handleMessageError: () => string = () => {
     if (
       (+financialApplicationData?.dados_para_aplicacao?.posicao_cotista_fundo
-        ?.saldo_atual || 0) <
-      +financialApplicationData?.dados_para_aplicacao?.fundo?.minimo_inicial
+        ?.saldo_atual || 0) === 0
     ) {
       return `O valor não pode ser menor do que ${formatMoneyDecimal(
         Number(
