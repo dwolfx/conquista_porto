@@ -351,7 +351,7 @@ const FormFinancialContribution = ({
           <BalanceInfoContainer>{renderBaseAccountInfo()}</BalanceInfoContainer>
           <DivisorStyled margin="21px 0 21px 0" />
           <InputsContainer>
-            <InputContainer sm={6}>
+            <InputContainer hasError={inputTouched && isMoneyLessThanAllowed()} sm={6}>
               <Text type="headline" color="gray6">
                 Quanto você quer investir?
               </Text>
@@ -381,7 +381,7 @@ const FormFinancialContribution = ({
                 `}
               />
             </InputContainer>
-            <InputContainer sm={6}>
+            <InputContainer hasError={inputDateTouched && isDateInvalid()} sm={6}>
               <Text type="headline" color="gray6">
                 Quando você deseja investir?
               </Text>
