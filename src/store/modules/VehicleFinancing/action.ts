@@ -1,13 +1,12 @@
 import { Types } from './types'
 
-export function GetVehicleFinancingDataRequest(cpf) {
+export function GetVehicleFinancingDataRequest() {
   return {
     type: Types.GET_REQUEST,
-    cpf,
   }
 }
 
-export function GetVehicleFinancingSuccess(payload) {
+export function GetVehicleFinancingSuccess(payload: any) {
   return {
     type: Types.GET_SUCCESS,
     payload,
