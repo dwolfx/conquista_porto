@@ -67,7 +67,7 @@ const ButtonInvest = ({
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
     funds: state.investmentsList.data,
     fundsError: state.investmentsList.isError,
-    fundsIsLoading: state.investmentsList.isError,
+    fundsIsLoading: state.investmentsList.isLoading,
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
   }))
@@ -87,7 +87,7 @@ const ButtonInvest = ({
         !financialApplicationLoading &&
         !fundsIsLoading) ||
       isInvestorLevelModalOpen ||
-      suitabilityStoreData.isOpen
+      suitabilityStoreData?.isOpen
     ) {
       setInvestButtonLoading(false)
     }
@@ -207,7 +207,7 @@ const ButtonInvest = ({
       }
     }
 
-    if (fundsError || !funds) {
+    if ((fundsError || !funds) && !fundsIsLoading) {
       dispatch(
         GetInvestmentListRequest({
           onSuccess: onSuccessInvestmentList,
