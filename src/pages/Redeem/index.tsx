@@ -68,15 +68,18 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
     null
   )
 
-  const { cpf, id_cotista, idFund, redeemData } = useSelector((state: any) => ({
-    cpf: state.auth.cpf,
-    id_cotista: state.suitabilityInfo.data?.id_cotista,
-    idFund: state.investmentPosition.idFund,
-    redeemData: state.redeemData.data,
-  }))
+  const { cpf, id_cotista, idFund, redeemData, redeemLoading } = useSelector(
+    (state: any) => ({
+      cpf: state.auth.cpf,
+      id_cotista: state.suitabilityInfo.data?.id_cotista,
+      idFund: state.investmentPosition.idFund,
+      redeemData: state.redeemData.data,
+      redeemLoading: state.redeemData.isLoading,
+    })
+  )
 
   useEffect(() => {
-    if (redeemData && redeemData.dados_para_resgate) {
+    if (redeemData && redeemData.dados_para_resgate && !redeemLoading) {
       if (redeemData.dados_para_resgate.fechado_resgate && isOpen) {
         handleClose()
         addToast({
@@ -86,7 +89,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         })
       }
     }
-  }, [redeemData, addToast, history, handleClose, isOpen])
+  }, [redeemData, addToast, history, handleClose, isOpen, redeemLoading])
 
   const maxSteps = 5
   const goBackHandler = () =>
