@@ -7,7 +7,7 @@ import {
   GetConsolidatedPositionDataFailure,
 } from './action'
 
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(
       get,
