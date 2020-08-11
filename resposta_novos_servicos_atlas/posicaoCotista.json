@@ -1,0 +1,83 @@
+{
+  "perfil_cotista": 3,
+  "distribuicoes": [
+    {
+      "id": 1,
+      "nome": "Renda Fixa",
+      "total": "R$ 19.889,27",
+      "porcentagem": 30.77,
+      "fundos": [
+        {
+          "contagem_dias_resgate": "Úteis",
+          "aplicacao_cotizacao": "0",
+          "aplicacao_financeiro": "0",
+          "resgate_cotizacao": "0",
+          "resgate_financeiro": "1",
+          "categoria_arena": "Renda Fixa",
+          "saldo_minimo": 1000.0,
+          "resgate_minimo": 100.0,
+          "resgate_liberado": true,
+          "saldo_bloqueado": 0.000000,
+          "aplicao_minima": 100.00,
+          "nome_gestor": "Western Asset",
+          "id": 51380129,
+          "id_cotista": 2000127917,
+          "fundo": "WESTERN ASSET RENDA FIXA ATIVO FI       ",
+          "saldo_bruto": "R$ 19.889,27",
+          "saldo_liquido": "R$ 19.889,27",
+          "valor_ir": "R$ 0,00",
+          "valor_iof": "R$ 0,00",
+          "valor_cota": "R$ 13.293,34",
+          "quantidade_cota": 1.50,
+          "perfil_risco_ordem": 2,
+          "data_historico": "2020-03-29T21:00:00",
+          "data_historico_formatada": "29/03/2020",
+          "pdf_informativo_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_WESTERNASSETATIVOFIRF.pdf",
+          "pdf_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_WESTERNASSETATIVOFIRF.pdf",
+          "saldo_bruto_numerico": 19889.27,
+          "perfil_risco": "medio-baixo"
+        }
+      ],
+      "total_numerico": 19889.27
+    },
+    {
+      "id": 1,
+      "nome": "Renda Fixa",
+      "total": "R$ 44.750,86",
+      "porcentagem": 69.23,
+      "fundos": [
+        {
+          "contagem_dias_resgate": "Úteis",
+          "aplicacao_cotizacao": "0",
+          "aplicacao_financeiro": "0",
+          "resgate_cotizacao": "0",
+          "resgate_financeiro": "1",
+          "categoria_arena": "Renda Fixa",
+          "saldo_minimo": 1000.0,
+          "resgate_minimo": 100.0,
+          "resgate_liberado": true,
+          "saldo_bloqueado": 0.000000,
+          "aplicao_minima": 100.00,
+          "nome_gestor": "Western Asset",
+          "id": 51380129,
+          "id_cotista": 2000127917,
+          "fundo": "WESTERN ASSET RENDA FIXA ATIVO FI       ",
+          "saldo_bruto": "R$ 44.750,86",
+          "saldo_liquido": "R$ 44.750,86",
+          "valor_ir": "R$ 0,00",
+          "valor_iof": "R$ 0,00",
+          "valor_cota": "R$ 13.293,34",
+          "quantidade_cota": 3.37,
+          "perfil_risco_ordem": 2,
+          "data_historico": "2020-03-29T21:00:00",
+          "data_historico_formatada": "29/03/2020",
+          "pdf_informativo_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_WESTERNASSETATIVOFIRF.pdf",
+          "pdf_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_WESTERNASSETATIVOFIRF.pdf",
+          "saldo_bruto_numerico": 44750.86,
+          "perfil_risco": "medio-baixo"
+        }
+      ],
+      "total_numerico": 44750.86
+    }
+  ]
+}
