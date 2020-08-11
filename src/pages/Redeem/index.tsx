@@ -77,7 +77,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
 
   useEffect(() => {
     if (redeemData && redeemData.dados_para_resgate) {
-      if (redeemData.dados_para_resgate.fechado_resgate) {
+      if (redeemData.dados_para_resgate.fechado_resgate && isOpen) {
         handleClose()
         addToast({
           title: `Não é possivel fazer resgate`,
@@ -86,7 +86,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         })
       }
     }
-  }, [redeemData, addToast, history, handleClose])
+  }, [redeemData, addToast, history, handleClose, isOpen])
 
   const maxSteps = 5
   const goBackHandler = () =>
