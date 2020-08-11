@@ -7,6 +7,7 @@ import Text from 'components/Text'
 
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
 import PercentualInfos from 'pages/Objectives/Recommendation/components/PercentualInfo'
+import ResultPredictionCard from 'pages/Objectives/Recommendation/Edit/ResultPredictionCard'
 import { IFunds } from 'store/modules/Objective/types'
 
 import { columns } from './constants'
@@ -75,8 +76,8 @@ export default function WalletComposition() {
       </Row>
 
       <Row>
-        <Col lg={3}>
-          <Card headerTitle="Resultados estimados"></Card>
+        <Col lg={3} md={4}>
+          <ResultPredictionCard />
         </Col>
         <Col lg={9}>
           <Card headerTitle="Minha carteira" headerIcon="financial">

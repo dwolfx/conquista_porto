@@ -2,7 +2,6 @@ import React from 'react'
 import { uuid } from 'uuidv4'
 
 import { Container, StartBlock, EndBlock } from './styles'
-
 interface IProps {
   startItems?: React.ReactNode[]
   endItems?: React.ReactNode[] | null
@@ -10,7 +9,6 @@ interface IProps {
   noPadding?: boolean
   marginBetweenElements?: string
 }
-
 export default function HorizontalList({
   startItems,
   endItems,
@@ -20,14 +18,14 @@ export default function HorizontalList({
 }: IProps) {
   return (
     <Container size={size} noPadding={noPadding} {...rest}>
-      {startItems ? (
+      {startItems && startItems.length > 0 ? (
         <StartBlock hasEndBlock={Boolean(endItems && !!endItems.length)}>
           {startItems.map(Item => (
             <React.Fragment key={uuid()}>{Item}</React.Fragment>
           ))}
         </StartBlock>
       ) : null}
-      {endItems ? (
+      {endItems && endItems.length > 0 ? (
         <EndBlock hasStartBlock={Boolean(startItems && !!startItems.length)}>
           {endItems.map(Item => (
             <React.Fragment key={uuid()}>{Item}</React.Fragment>

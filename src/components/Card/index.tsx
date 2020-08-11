@@ -24,6 +24,7 @@ interface IProps {
   headerTitle?: string | React.ReactNode
   footer?: React.ReactNode
   headerEndItem?: React.ReactNode
+  tooltip?: boolean
 }
 
 const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
@@ -35,6 +36,7 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
   headerTitle,
   headerEndItem: HeaderEndItem,
   footer,
+  tooltip = true,
   ...rest
 }) => {
   const CardHeaderContent = () => {
@@ -73,11 +75,11 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
           )}
           <CardHeaderContent />
           {headerIconInfo && (
-            <CardIconInfo>
+            <CardIconInfo {...rest}>
               <Popover
-                tooltip
+                tooltip={tooltip}
                 content={() => (
-                  <Text type="body" color="white">
+                  <Text type="body" color={tooltip ? 'white' : 'gray5'}>
                     {headerIconInfoMsg}
                   </Text>
                 )}
