@@ -6,7 +6,7 @@ export function GetRewardTypesRequest() {
   }
 }
 
-export function GetRewardTypesSuccess(payload) {
+export function GetRewardTypesSuccess(payload: any) {
   return {
     type: Types.GET_TYPES_SUCCESS,
     payload,

@@ -6,7 +6,7 @@ export function GetRewardRecommendationsRequest() {
   }
 }
 
-export function GetRewardRecommendationsSuccess(payload) {
+export function GetRewardRecommendationsSuccess(payload: any) {
   return {
     type: Types.GET_RECOMMENDATIONS_SUCCESS,
     payload,
