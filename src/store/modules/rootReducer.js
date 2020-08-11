@@ -16,7 +16,6 @@ import {
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
 import investmentPosition from './Investment/Position/reducer'
-import privateWelfare from './PrivateWelfare/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
 import tripInsurance from './TripInsurance/reducer'
@@ -50,7 +49,6 @@ export default combineReducers({
   investmentsList,
   investmentDetails,
   investmentPosition,
-  privateWelfare,
   lifeInsurance,
   consolidatedPosition,
   vehicleFinancing,

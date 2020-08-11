@@ -19,7 +19,6 @@ import investmentDetails from './Investment/Details/sagas'
 import investmentPosition from './Investment/Position/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import points from './Points/sagas'
-import privateWelfare from './PrivateWelfare/sagas'
 import tripInsurance from './TripInsurance/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
 import notifications from './Notifications/sagas'
@@ -55,7 +54,6 @@ export default function* rootSaga() {
     investmentPosition,
     lifeInsurance,
     points,
-    privateWelfare,
     tripInsurance,
     vehicleFinancing,
     notifications,
