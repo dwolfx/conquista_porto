@@ -1,0 +1,29 @@
+import { Types } from './types'
+import {
+  GetConsortiumBuildingDataRequest,
+  GetConsortiumBuildingDataSuccess,
+  GetConsortiumBuildingDataFailure,
+} from './action'
+
+describe('Consortium Building Actions', () => {
+  test('if GetConsortiumBuildingDataRequest returns the correct object', () => {
+    expect(GetConsortiumBuildingDataRequest()).toEqual({
+      type: Types.GET_REQUEST,
+    })
+  })
+
+  test('if GetConsortiumBuildingDataSuccess returns the correct object', () => {
+    const payload = {}
+
+    expect(GetConsortiumBuildingDataSuccess(payload)).toEqual({
+      type: Types.GET_SUCCESS,
+      payload,
+    })
+  })
+
+  test('if GetConsortiumBuildingDataFailure returns the correct object', () => {
+    expect(GetConsortiumBuildingDataFailure()).toEqual({
+      type: Types.GET_FAILURE,
+    })
+  })
+})

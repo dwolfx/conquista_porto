@@ -6,7 +6,9 @@ import { buildToast, ToastTypes } from 'store/modules/toastActions'
 import { Types } from './types'
 import { GetBankExtractSuccess, GetBankExtractFailure } from './action'
 
-function* getData({ payload: { tipoFiltro, dataInicial, dataFinal } }) {
+export function* getData({
+  payload: { tipoFiltro, dataInicial, dataFinal },
+}: any) {
   try {
     const response = yield call(
       get,
