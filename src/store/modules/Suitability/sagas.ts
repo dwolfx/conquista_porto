@@ -14,14 +14,14 @@ import {
   SetSuitabilityLoading,
 } from './action'
 
-function* getDataAndRedirect({
+export function* getDataAndRedirect({
   payload: { link, errorPath, history, goalType },
-}) {
+}: any) {
   yield put(SetSuitabilityLoading(true))
 
   const suitabilityState = yield select(getSuitability)
 
-  if (suitabilityState.data && Object.entries(suitabilityState.data).length) {
+  if (suitabilityState?.data && Object.entries(suitabilityState.data).length) {
     history.push(link)
   } else {
     try {
