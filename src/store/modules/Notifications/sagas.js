@@ -9,7 +9,7 @@ import {
   SendNotificationReadSuccess,
 } from './action'
 
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(
       axios.get,
@@ -21,7 +21,7 @@ function* getData() {
   }
 }
 
-function* sendNoticationRead({ payload }) {
+export function* sendNoticationRead({ payload }) {
   const { notificationId, cpfCnpj } = payload
   try {
     const response = yield call(
