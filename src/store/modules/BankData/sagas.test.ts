@@ -7,7 +7,7 @@ import {
   GetDataFailure,
 } from './action'
 
-describe('Life Insurance Sagas', () => {
+describe('Bank Data Sagas', () => {
   it('success triggers success action', () => {
     const generator = getData()
     const response = { data: { DadosContaPortoSeguro: 'ok' } }
