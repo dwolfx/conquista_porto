@@ -1,13 +1,13 @@
 import { Types } from './types'
 
-export function GetSuitabilityRequestAndRedirect(payload) {
+export function GetSuitabilityRequestAndRedirect(payload: any) {
   return {
     type: Types.GET_REQUEST_AND_REDIRECT,
     payload,
   }
 }
 
-export function GetSuitabilityDataSuccess(payload) {
+export function GetSuitabilityDataSuccess(payload: any) {
   return {
     type: Types.GET_SUCCESS,
     payload,
@@ -20,7 +20,7 @@ export function GetSuitabilityDataNoContent() {
   }
 }
 
-export function SetSuitabilityLoading(isLoading) {
+export function SetSuitabilityLoading(isLoading: boolean) {
   return {
     type: Types.SET_LOADING,
     isLoading,
