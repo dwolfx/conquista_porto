@@ -33,15 +33,14 @@ const FundInfoPanel = ({
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
-  const { auth, isLoading, hasError } = useSelector((state: any) => ({
-    auth: state.auth,
+  const { isLoading, hasError } = useSelector((state: any) => ({
     isLoading: state.investmentPosition.isLoading,
     hasError: state.investmentPosition.hasError,
   }))
 
   const handleFetchPosition = useCallback(() => {
-    dispatch(GetPositionDataRequest(auth.cpf))
-  }, [dispatch, auth.cpf])
+    dispatch(GetPositionDataRequest())
+  }, [dispatch])
 
   const renderContent = () => {
     if (isLoading) {

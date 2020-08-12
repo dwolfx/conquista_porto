@@ -126,7 +126,7 @@ const FormFinancialContribution = ({
 
   const dispatchPositionData = () => {
     if (!isTabletOrSmaller) {
-      dispatch(GetPositionDataRequest(auth.cpf))
+      dispatch(GetPositionDataRequest())
     }
   }
 
@@ -205,7 +205,10 @@ const FormFinancialContribution = ({
     isPastDate(formData!.whenToInvest, moment())
 
   const checkValidInputs = () => {
-    return (inputTouched && isMoneyLessThanAllowed()) || (inputDateTouched && isDateInvalid())
+    return (
+      (inputTouched && isMoneyLessThanAllowed()) ||
+      (inputDateTouched && isDateInvalid())
+    )
   }
 
   const isMoneyLessThanAllowed = () => {
@@ -351,7 +354,10 @@ const FormFinancialContribution = ({
           <BalanceInfoContainer>{renderBaseAccountInfo()}</BalanceInfoContainer>
           <DivisorStyled margin="21px 0 21px 0" />
           <InputsContainer>
-            <InputContainer hasError={inputTouched && isMoneyLessThanAllowed()} sm={6}>
+            <InputContainer
+              hasError={inputTouched && isMoneyLessThanAllowed()}
+              sm={6}
+            >
               <Text type="headline" color="gray6">
                 Quanto você quer investir?
               </Text>
@@ -381,7 +387,10 @@ const FormFinancialContribution = ({
                 `}
               />
             </InputContainer>
-            <InputContainer hasError={inputDateTouched && isDateInvalid()} sm={6}>
+            <InputContainer
+              hasError={inputDateTouched && isDateInvalid()}
+              sm={6}
+            >
               <Text type="headline" color="gray6">
                 Quando você deseja investir?
               </Text>
@@ -399,7 +408,8 @@ const FormFinancialContribution = ({
                 }}
                 value={formData.whenToInvest}
                 error={
-                  inputDateTouched && isDateInvalid() &&
+                  inputDateTouched &&
+                  isDateInvalid() &&
                   showError && {
                     icon: 'alertrounded',
                     message: 'Digite uma data válida',
@@ -411,7 +421,9 @@ const FormFinancialContribution = ({
               />
             </InputContainer>
           </InputsContainer>
-          <DivisorStyled margin={checkValidInputs() && !isMobile ? '42px 0 0 0' : '0' } />
+          <DivisorStyled
+            margin={checkValidInputs() && !isMobile ? '42px 0 0 0' : '0'}
+          />
           <FlexTextWrapper>
             <Text bold color="gray5">
               Solicitações enviadas após às {limitHour}h serão processadas no
