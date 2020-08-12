@@ -69,11 +69,11 @@ export const months = [
 ]
 
 export const riskMap: IRiskMap = {
-  15: 'Baixo',
-  16: 'Baixo-médio',
-  17: 'Médio',
-  18: 'Médio-alto',
-  19: 'Alto',
+  1: 'Baixo',
+  2: 'Baixo-médio',
+  3: 'Médio',
+  4: 'Médio-alto',
+  5: 'Alto',
 }
 
 interface IRiskMap {
@@ -101,6 +101,7 @@ interface IFundInformationProps {
     id_cotista: string
     categoria_arena: string
     perfil_risco: number
+    perfil_risco_ordem: number
     aplicao_minima: number
     aplicacao_cotizacao?: string
     contagem_dias_resgate: string
@@ -362,7 +363,7 @@ const FundInformation = ({
                     Perfil de Risco
                   </Text>,
                   <Text type="headline" bold color="gray6">
-                    {riskMap[position.perfil_risco]}
+                    {riskMap[position.perfil_risco_ordem]}
                   </Text>,
                 ]}
               />
