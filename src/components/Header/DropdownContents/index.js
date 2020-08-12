@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { uuid } from 'uuidv4'
 
 import {
   Container,
@@ -18,7 +19,7 @@ export function NotificationsContent(redirectAndCloseFunc) {
   const notificationsData = useSelector(state => state.notifications.data)
 
   return (
-    <Container key={`nodeDropDownKey-${Math.random()}`}>
+    <Container key={uuid()}>
       <Content>
         {notificationsData.novas.length === 0 &&
           notificationsData.anteriores.length === 0 && (

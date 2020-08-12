@@ -13,7 +13,7 @@ export default function Dropdown({
   return (
     <RelativeHolder {...props}>
       <Backdrop isOpen={isOpen} onClick={() => setOpen(!isOpen)} />
-      <Container isOpen={isOpen} width={width && width}>
+      <Container isOpen={isOpen} width={width}>
         {children}
       </Container>
     </RelativeHolder>

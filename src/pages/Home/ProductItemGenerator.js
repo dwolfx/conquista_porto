@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
+import { uuid } from 'uuidv4'
 
 import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 import Text from 'components/Text'
@@ -53,7 +54,7 @@ const ProductItemGenerator = (
         )
       })
     : [
-        <React.Fragment key={`empty-${Math.random()}`}>
+        <React.Fragment key={uuid()}>
           <EmptyProductItem
             atualItemDetail={atualItemDetail}
             hasData={Boolean(data)}

@@ -181,7 +181,7 @@ export default function ManagementLifeInsurance() {
                   }
                   onClick={() => {
                     setSelectedLifeInsurance(item)
-                    scrollPage('life-insurance-top-page')
+                    scrollPage()
                   }}
                 >
                   <Text

@@ -34,7 +34,7 @@ export const ValidateTargetDate = value => {
     )
 
   const validateMinDate = () => {
-    if (isInvalidDate(value)) {
+    if (isInvalidDate()) {
       return [false, 'Data Inválida']
     }
     const isValid = minDate(180)

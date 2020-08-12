@@ -89,7 +89,7 @@ export default function ManagementConsortiumBuilding() {
                     active={selectedConsortiumBuilding === item.Id}
                     onClick={() => {
                       setSelectedConsortiumBuilding(item.id)
-                      scrollPage(`consortium-building-top-page`)
+                      scrollPage()
                     }}
                   >
                     <Text
