@@ -32,13 +32,12 @@ const InvestedFundsList = ({
 }: IProps) => {
   const dispatch = useDispatch()
   const isTablet = useMedia('lg')
-  const { idFund, displayInformation, hasError, isLoading, auth } = useSelector(
+  const { idFund, displayInformation, hasError, isLoading } = useSelector(
     (state: any) => ({
       idFund: state.investmentPosition.idFund,
       displayInformation: state.investmentPosition.displayInformation,
       hasError: state.investmentPosition.hasError,
       isLoading: state.investmentPosition.isLoading,
-      auth: state.auth,
     })
   )
 
@@ -64,7 +63,7 @@ const InvestedFundsList = ({
         <ContainerCard>
           <ErrorText>Não foi possível carregar a suas informações.</ErrorText>
           <ButtonStyled
-            onClick={() => dispatch(GetPositionDataRequest(auth.cpf))}
+            onClick={() => dispatch(GetPositionDataRequest())}
             loading={isLoading}
             loadingColor="white"
           >
