@@ -37,8 +37,7 @@ const FundsFilter: React.FC<IProps> = ({
   const fundsListToFilters = [
     ...new Set(
       investmentPosition?.map(
-        // TODO: Trocar  categoria por categoria_arena
-        (fund: { [item: string]: any }) => fund.categoria
+        (fund: { [item: string]: any }) => fund.categoria_arena
       )
     ),
   ]

@@ -1,10 +1,9 @@
 import { Types } from './types'
 import IPosition from './iPositions'
 
-export function GetPositionDataRequest(cpf: string) {
+export function GetPositionDataRequest() {
   return {
     type: Types.POSITION_GET_DATA_REQUEST,
-    cpf,
   }
 }
 

@@ -114,7 +114,7 @@ const FormFinancialContribution = ({
 
   const dispatchPositionData = () => {
     if (!isTabletOrSmaller) {
-      dispatch(GetPositionDataRequest(auth.cpf))
+      dispatch(GetPositionDataRequest())
     }
   }
 
@@ -138,7 +138,7 @@ const FormFinancialContribution = ({
           </Text>
           <IconRetry
             onClick={() => {
-              dispatch(GetBankDataRequest(auth.cpf))
+              dispatch(GetBankDataRequest())
               dispatchPositionData()
             }}
           />
