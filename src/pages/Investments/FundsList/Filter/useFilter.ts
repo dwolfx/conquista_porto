@@ -13,6 +13,7 @@ export interface IFund {
   categoria_arena: string
   id_carteira: number
   perfil_risco: number
+  perfil_risco_ordem: number
   minimo_inicial: number
   resgate_cotizacao: string
   rentabil_fundo_mes: string
@@ -33,8 +34,8 @@ const useFilter = (filter: IFilterProps, funds: IFund[]) => {
 
   function sortFundsByRisk(fundsList: IFund[]) {
     let sortedList = fundsList.sort((itemList1: IFund, itemList2: IFund) => {
-      const indexItemList1 = itemList1.perfil_risco
-      const indexItemList2 = itemList2.perfil_risco
+      const indexItemList1 = itemList1.perfil_risco_ordem
+      const indexItemList2 = itemList2.perfil_risco_ordem
 
       if (indexItemList1 > indexItemList2) return 1
       if (indexItemList2 > indexItemList1) return -1
@@ -61,7 +62,7 @@ const useFilter = (filter: IFilterProps, funds: IFund[]) => {
 
   function filterByPerfilRisco(fundsList: IFund[], perfilRisco: string[]) {
     return fundsList.filter(fund =>
-      perfilRisco.includes(FILTER_RISKS[fund.perfil_risco])
+      perfilRisco.includes(FILTER_RISKS[fund.perfil_risco_ordem])
     )
   }
 

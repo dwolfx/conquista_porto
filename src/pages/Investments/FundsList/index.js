@@ -179,11 +179,11 @@ export default function FundsList() {
     setModalSuitabilityInfo({ ...suitabilityData })
 
     if (suitabilityData && suitabilityData.isValid) {
-      const fundInfo = funds.filter(fund => fund.id_fundo === fundId)
+      const fundInfo = funds.filter(fund => fund.id_carteira === fundId)
 
       const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
-        fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
-        fundForQualifiedInvestor: fundInfo[0].fundo_investidor_qualificado,
+        fundForProfessionalInvestor: fundInfo[0]?.fundo_investidor_profissional,
+        fundForQualifiedInvestor: fundInfo[0]?.fundo_investidor_qualificado,
       }
 
       const { professionalInvestor, qualifiedInvestor } = {

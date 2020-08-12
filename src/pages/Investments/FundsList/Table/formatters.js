@@ -125,7 +125,7 @@ export default function FormatColumns(
         return fst === nextNickname ? -1 : 1
       },
     }),
-    is_fundo_ativo: column => ({
+    fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
       Cell: cell =>
