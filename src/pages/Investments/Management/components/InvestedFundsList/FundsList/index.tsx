@@ -75,8 +75,7 @@ const FundsList = ({
                     : 'none'};
                 `}
               >
-                {/*formatMoney(fund.saldo_atual)*/}
-                {fund.saldoBruto}
+                {fund.saldo_bruto}
               </Text>,
             ]}
           />

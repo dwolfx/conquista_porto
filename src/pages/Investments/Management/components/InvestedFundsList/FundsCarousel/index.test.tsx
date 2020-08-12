@@ -11,193 +11,67 @@ import FundsCarousel from '.'
 
 const mock = [
   {
-    saldo_atual: '31905.05',
-    data_inicio: '2013-03-28T00:00:00-03:00',
-    valor_patrimonio_liq: '65572971.83',
-    taxa_performance: '0.00',
-    apelido: 'Porto Seguro Alocação FIC FIM',
-    contagem_dias_resgate: 'Corridos',
-    minimo_inicial: '1000.0',
-    nome_gestor: 'PortoSeguro Investimentos',
-    hora_resgate: '23:59',
-    link_lamina:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/InformativoDesempenho_PS_Alocacao.pdf',
-    link_infor_desempenho:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/InformativoDesempenho_PS_Alocacao.pdf',
-    categoria_ambima: 'Multimercado Alocação Dinâmicos',
-    is_fundo_ativo: true,
-    aplicao_liberada: true,
-    aviso_data_fundo: true,
-    link_termo_adesao:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf',
-    resgate_minimo: '1000.0',
-    url_logo_gestor:
-      'https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png',
-    aliquotas_ir: {
-      aliquota: [
-        {
-          valor: '22.5',
-          faixa: 'Até 180 dias',
-        },
-        {
-          valor: '20',
-          faixa: 'De 181 dias a 360 dias',
-        },
-        {
-          valor: '17.5',
-          faixa: 'De 361 dias a 720 dias',
-        },
-        {
-          valor: '15',
-          faixa: 'Acima de 720 dias',
-        },
-      ],
-    },
-    resgate_liberado: false,
-    categoria_arena: 'Multimercado',
-    id_carteira: '5112',
-    regime_iof: 'Regime Regressivo',
-    classificacao: 'Longo Prazo',
-    aplicacao_financeiro: 'D+0',
-    nome_carteira: 'Porto Seguro Alocação FIC FIM',
-    link_regulamento:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/Regulamento_PS_Alocacao.pdf',
-    perfil_risco: 'medio-alto',
-    resgate_cotizacao: 'D+32 (Corridos)',
-    nome_empresa: 'PortoSeguro Investimentos',
-    benchmark: {
-      nome: 'CDI',
-      id: '1',
-    },
-    comparativo_hist_rentabil: {
-      hist_rentabil_benchmark: {
-        rentabil_Ano: '1.02',
-        rentabil_24_meses: '12.14',
-        rentabil_12_meses: '5.45',
-        rentabil_36_meses: '21.57',
-        rentabil_dia: '0.01',
-        rentabil_mes_anteiror: '0.29',
-        benchmark: {
-          nome: 'CDI',
-          id: '1',
-        },
-        rentabil_mes: '0.34',
-      },
-      hist_rentabil_fundo: {
-        rel_fundo_benchmark_mes_ant: '-',
-        rentabil_ano: '-3.01',
-        rentabil_12_meses: '6.53',
-        rentabil_36_meses: '25.29',
-        rel_fundo_benchmark_mes: '-',
-        rel_fundo_benchmark_dia: '-',
-        rentabil_mes_anteiror: '-0.71',
-        rel_fundo_benchmark_24_meses: '105.04',
-        rel_fundo_benchmark_ano: '-',
-        rentabil_24_meses: '12.75',
-        rel_fundo_benchmark_36_meses: '117.24',
-        id_carteira: '5112',
-        rentabil_dia: '-0.02',
-        rentabil_mes: '-2.95',
-        rel_fundo_benchmark_12_meses: '119.78',
-      },
-      data_referencia: '2020-03-23T00:00:00-03:00',
-    },
-    tipo_cota: 'Fechamento',
-    hora_aplicacao: '23:59',
-    resgate_financeiro: 'D+2 (Úteis)',
-    perfil_risco_ordem: '4',
-    saldo_minimo: '1000.0',
-    taxa_administracao: '0.50',
-    aplicacao_cotizacao: 'D+0',
-    aplicao_minima: '1000.0',
+    "categoria": "Multimercado",
+    "contagem_dias_resgate": "Corridos",
+    "aplicacao_cotizacao": "0",
+    "aplicacao_financeiro": "0",
+    "resgate_cotizacao": "32",
+    "resgate_financeiro": "2",
+    "categoria_arena": "Multimercado",
+    "saldo_minimo": 1000,
+    "resgate_minimo": 1000,
+    "resgate_liberado": false,
+    "saldo_bloqueado": 0,
+    "aplicao_minima": 1000,
+    "nome_gestor": "PortoSeguro Investimentos",
+    "id": 5112,
+    "id_cotista": 2000112690,
+    "fundo": "Porto Seguro Alocação FIC FIM",
+    "saldo_bruto": "R$ 31.905,05",
+    "saldo_liquido": "R$ 31.905,05",
+    "valor_ir": "R$ 0,00",
+    "valor_iof": "R$ 0,00",
+    "valor_cota": "R$ 1,90",
+    "quantidade_cota": 16804.33,
+    "perfil_risco_ordem": 4,
+    "data_historico": "2020-03-22T21:00:00",
+    "data_historico_formatada": "22/03/2020",
+    "pdf_informativo_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/InformativoDesempenho_PS_Alocacao.pdf",
+    "pdf_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/Regulamento_PS_Alocacao.pdf",
+    "saldo_bruto_numerico": 31905.05,
+    "perfil_risco": "medio-alto"
   },
   {
-    saldo_atual: '3337.22',
-    data_inicio: '2013-07-31T00:00:00-03:00',
-    valor_patrimonio_liq: '79743742.67',
-    taxa_performance: '20.00',
-    apelido: 'Porto Seguro Selecta FIC FIA',
-    contagem_dias_resgate: 'Corridos',
-    minimo_inicial: '1000.0',
-    nome_gestor: 'PortoSeguro Investimentos',
-    hora_resgate: '23:59',
-    link_lamina:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf',
-    link_infor_desempenho:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf',
-    categoria_ambima: 'Ações Ativos Livre',
-    is_fundo_ativo: true,
-    aplicao_liberada: true,
-    aviso_data_fundo: true,
-    link_termo_adesao:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/TCR_PS_%20Selecta.pdf',
-    resgate_minimo: '100.0',
-    url_logo_gestor:
-      'https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png',
-    aliquotas_ir: {
-      aliquota: {
-        valor: '15',
-        faixa: 'Alíquota Única',
-      },
-    },
-    resgate_liberado: true,
-    categoria_arena: 'Renda Variável',
-    id_carteira: '5094',
-    regime_iof: 'Regime Regressivo',
-    classificacao: 'Ações',
-    aplicacao_financeiro: 'D+0',
-    nome_carteira: 'Porto Seguro Selecta FIC FIA',
-    link_regulamento:
-      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/Regulamento_PS_Selecta.pdf',
-    perfil_risco: 'alto',
-    resgate_cotizacao: 'D+15 (Corridos)',
-    nome_empresa: 'PortoSeguro Investimentos',
-    benchmark: {
-      nome: 'IBOVESPA',
-      id: '70',
-    },
-    comparativo_hist_rentabil: {
-      hist_rentabil_benchmark: {
-        rentabil_Ano: '-1.63',
-        rentabil_24_meses: '33.97',
-        rentabil_12_meses: '16.81',
-        rentabil_36_meses: '75.91',
-        rentabil_dia: '1.52',
-        rentabil_mes_anteiror: '6.85',
-        benchmark: {
-          nome: 'IBOVESPA',
-          id: '70',
-        },
-        rentabil_mes: '-1.63',
-      },
-      hist_rentabil_fundo: {
-        rel_fundo_benchmark_mes_ant: '0.34',
-        rentabil_ano: '3.05',
-        rentabil_12_meses: '35.40',
-        rentabil_36_meses: '82.14',
-        rel_fundo_benchmark_mes: '4.68',
-        rel_fundo_benchmark_dia: '-',
-        rentabil_mes_anteiror: '7.19',
-        rel_fundo_benchmark_24_meses: '12.27',
-        rel_fundo_benchmark_ano: '4.68',
-        rentabil_24_meses: '46.24',
-        rel_fundo_benchmark_36_meses: '6.23',
-        id_carteira: '5094',
-        rentabil_dia: '1.42',
-        rentabil_mes: '3.05',
-        rel_fundo_benchmark_12_meses: '18.59',
-      },
-      data_referencia: '2020-01-17T00:00:00-03:00',
-    },
-    tipo_cota: 'Fechamento',
-    hora_aplicacao: '23:59',
-    resgate_financeiro: 'D+2 (Úteis)',
-    perfil_risco_ordem: '5',
-    saldo_minimo: '0.0',
-    taxa_administracao: '2.00',
-    aplicacao_cotizacao: 'D+0',
-    aplicao_minima: '100.0',
-  },
+    "categoria": "Renda Variável",
+    "contagem_dias_resgate": "Corridos",
+    "aplicacao_cotizacao": "0",
+    "aplicacao_financeiro": "0",
+    "resgate_cotizacao": "15",
+    "resgate_financeiro": "2",
+    "categoria_arena": "Renda Variável",
+    "saldo_minimo": 0,
+    "resgate_minimo": 100,
+    "resgate_liberado": true,
+    "saldo_bloqueado": 0,
+    "aplicao_minima": 100,
+    "nome_gestor": "PortoSeguro Investimentos",
+    "id": 5094,
+    "id_cotista": 2000112690,
+    "fundo": "Porto Seguro Selecta FIC FIA",
+    "saldo_bruto": "R$ 3.337,22",
+    "saldo_liquido": "R$ 3.271,64",
+    "valor_ir": "R$ 65,58",
+    "valor_iof": "R$ 0,00",
+    "valor_cota": "R$ 2,49",
+    "quantidade_cota": 1338.2,
+    "perfil_risco_ordem": 5,
+    "data_historico": "2020-01-16T21:00:00",
+    "data_historico_formatada": "16/01/2020",
+    "pdf_informativo_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
+    "pdf_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/Regulamento_PS_Selecta.pdf",
+    "saldo_bruto_numerico": 3337.22,
+    "perfil_risco": "alto"
+  }
 ]
 
 const store = storeFactory({
@@ -215,7 +89,7 @@ describe('It renders correctly', () => {
       <MemoryRouter>
         <FundsCarousel
           displayInformation
-          idFund="0001"
+          idFund={1}
           onHandleChangeIdFund={id => {}}
           filteredFunds={mock}
         />
@@ -228,7 +102,7 @@ describe('It renders correctly', () => {
       <MemoryRouter>
         <FundsCarousel
           displayInformation
-          idFund="0001"
+          idFund={1}
           onHandleChangeIdFund={id => {}}
           filteredFunds={mock}
         />
@@ -252,7 +126,7 @@ describe('It behaves correcly', () => {
         />
         <FundsCarousel
           displayInformation
-          idFund="0001"
+          idFund={1}
           onHandleChangeIdFund={id => {}}
           filteredFunds={mock}
         />

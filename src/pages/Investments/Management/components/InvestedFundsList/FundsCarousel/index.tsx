@@ -79,8 +79,7 @@ const CustomSlides = ({
         `}
         color={selectedFund === fund.id ? 'gray6' : 'gray5'}
       >
-        {/*formatMoney(fund.saldo_atual)*/}
-        {fund.saldoBruto}
+        {fund.saldo_bruto}
       </Text>
     </Chip>
   )
