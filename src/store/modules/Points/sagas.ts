@@ -1,6 +1,5 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 import axios from 'axios'
-import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
@@ -11,7 +10,7 @@ import {
   GetPointsBalanceFailure,
 } from './action'
 
-function* getExtract() {
+export function* getExtract() {
   try {
     const response = yield call(
       get,
@@ -39,7 +38,7 @@ function* getExtract() {
   }
 }
 
-function* getBalance() {
+export function* getBalance() {
   try {
     const response = yield call(
       get,
@@ -60,8 +59,8 @@ function* getBalance() {
   }
 }
 
-function* postRescuePoints({ payload }) {
-  const { onSuccess } = payload
+export function* postRescuePoints({ payload }: any) {
+  const { onSuccess, onErrorToast } = payload
   const RESCUE_POINTS_URL_TOKEN =
     process.env.REACT_APP_BASE_URL_RESCUE_POINTS_TOKEN
   const RESCUE_POINTS_URL_SYSTEM =
@@ -95,11 +94,11 @@ function* postRescuePoints({ payload }) {
 
     onSuccess(`${RESCUE_POINTS_URL_SYSTEM}?token=${data.token}&CodOrg=040`)
   } catch (err) {
-    yield put({
-      toast: buildToast(
+    onErrorToast({
+      type: 'error',
+      description:
         'Não foi possível realizar o resgate dos pontos neste momento.',
-        ToastTypes.error
-      ),
+      title: 'Erro ao processar solicitação.',
     })
   }
 }
