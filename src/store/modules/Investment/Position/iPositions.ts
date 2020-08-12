@@ -1,8 +1,8 @@
-export default interface IPositions {
-  distribuicoes: IPosition[]
+export default interface IPosition {
+  distribuicoes: IDistribution[]
 }
 
-export interface IPosition {
+export interface IDistribution {
   id: number
   nome: string
   total: string
@@ -12,26 +12,32 @@ export interface IPosition {
 }
 
 export interface IFund {
-  id: number
-  id_cotista: number
-  fundo: string
-  nome_gestor: string
-  saldoBruto: string
-  saldoLiquido: string
-  valor_ir: string
-  valor_iof: string
-  valor_cota: string
-  aplicao_minima: number
-  quantidade_cota: number
-  dias_conversao_aplicacao: number
-  dias_liquidacao_aplicacao: number
-  dias_conversao_resgate: number
-  dias_liquidacao_resgate: number
-  contagem_dias_resgate: string
-  perfil_risco: number
-  data_historico: string
-  data_historico_formatada: string
-  pdf_informativo_desempenho: string
-  pdf_regulamento: string
-  saldo_bruto_numerico: number
+  id: number;
+  id_cotista: number;
+  contagem_dias_resgate: string;
+  aplicacao_cotizacao: string;
+  aplicacao_financeiro: string;
+  resgate_cotizacao: string;
+  resgate_financeiro: string;
+  categoria_arena: string;
+  saldo_minimo: number;
+  resgate_minimo: number;
+  resgate_liberado: boolean;
+  saldo_bloqueado: number;
+  aplicao_minima: number;
+  nome_gestor: string;
+  fundo: string;
+  saldo_bruto: string;
+  saldo_liquido: string;
+  valor_ir: string;
+  valor_iof: string;
+  valor_cota: string;
+  quantidade_cota: number;
+  perfil_risco_ordem: number;
+  data_historico: string;
+  data_historico_formatada: string;
+  pdf_informativo_desempenho: string;
+  pdf_regulamento: string;
+  saldo_bruto_numerico: number;
+  perfil_risco: string;
 }

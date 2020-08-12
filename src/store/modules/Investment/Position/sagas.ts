@@ -5,18 +5,17 @@ import { get, baseURLNamespaceAtlas } from 'services/api'
 import { GetPositionDataSuccess, GetPositionDataFailure } from './action'
 import { Types } from './types'
 import { AxiosResponse } from 'axios'
-import { IPosition, IFund } from './iPositions'
+import { IDistribution, IFund } from './iPositions'
 
 interface IPayload {
   type: string
-  cpf: string
 }
 
-function* getData({ cpf }: IPayload) {
+function* getData() {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceAtlas}/cotista/posicao/${cpf}`
+      `${baseURLNamespaceAtlas}/cotista/posicao`
     )
 
     let responseData
@@ -25,8 +24,8 @@ function* getData({ cpf }: IPayload) {
       responseData = []
     } else {
       responseData = response.data.distribuicoes
-        .map((position: IPosition) =>
-          position.fundos.map(fundo => ({ categoria: position.nome, ...fundo }))
+        .map((distribution: IDistribution) =>
+          distribution.fundos.map(fundo => ({ categoria: distribution.nome, ...fundo }))
         )
         .flatMap((fund: IFund) => fund)
     }
