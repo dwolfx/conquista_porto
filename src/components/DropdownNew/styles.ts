@@ -46,7 +46,7 @@ export const Wrapper = styled.div<IWrapperProps>`
   justify-content: flex-start;
   flex-direction: column;
   flex-shrink: 0;
-  padding: ${props => props.containerPadding && props.containerPadding};
+  padding: ${props => props.containerPadding};
   box-shadow: ${props => props.theme.shadows.gray2};
   background-color: ${props => props.theme.colors.white};
 `

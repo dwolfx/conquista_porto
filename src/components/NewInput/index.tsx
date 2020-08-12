@@ -38,7 +38,7 @@ const NewInput = forwardRef<
         <InputWrapper
           error={error}
           onClick={() => {
-            inputRef.current?.focus()
+            inputRef && inputRef.current && inputRef.current.focus()
           }}
         >
           {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}

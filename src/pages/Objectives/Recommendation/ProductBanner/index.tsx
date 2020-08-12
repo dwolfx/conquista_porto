@@ -39,7 +39,7 @@ interface IProps {
 const ProductBanner = ({ additional }: IProps) => {
   const isMobile = useMedia('sm')
   const isTabletHorizontal = useMedia('lg')
-  
+
   const dataLayerProducts: ILayerProducts[] = []
   let dataLayerReturnType = 'erro'
   let dataLayerDescription = 'Não existem produtos sugeridos'
@@ -48,7 +48,7 @@ const ProductBanner = ({ additional }: IProps) => {
     .filter(([, value]) => value === true)
     .map(([key]: TAdditionalKey[]) => products[key])
 
-  renderedProducts.map(
+  renderedProducts.forEach(
     (product, index) =>
       (product.category === 'Seguro Viagem' &&
         dataLayerProducts.push({
@@ -112,11 +112,7 @@ const ProductBanner = ({ additional }: IProps) => {
               </Text>
               <Text
                 bold={isMobile}
-                type={
-                  isMobile || isTabletHorizontal
-                    ? 'heading4'
-                    : 'heading3'
-                }
+                type={isMobile || isTabletHorizontal ? 'heading4' : 'heading3'}
               >
                 {product.title}
               </Text>
