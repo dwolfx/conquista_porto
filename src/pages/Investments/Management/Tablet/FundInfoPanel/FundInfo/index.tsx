@@ -111,7 +111,8 @@ interface IFundInformationProps {
     valor_iof: string
     saldo_liquido: string
     data_historico_formatada: string
-    dias_conversao_resgate: number
+    resgate_liberado: boolean
+    resgate_cotizacao: string
   }
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
@@ -386,7 +387,7 @@ const FundInformation = ({
                   Resgate (Cotização)
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {`${position.dias_conversao_resgate} (${position.contagem_dias_resgate})`}
+                  {`${position.resgate_cotizacao} (${position.contagem_dias_resgate})`}
                 </Text>,
               ]}
             />
@@ -569,9 +570,7 @@ const FundInformation = ({
       </RowLineInfo>
       <RowWithoutPadding justifyContent="center">
         <ButtonsWrapper>
-          {/* TODO: Falta o campo resgate_liberado */}
-          {/* {!position.fundo.resgate_liberado ? ( */}
-          {false ? (
+          {!position.resgate_liberado ? (
             <CustomPopover
               content="Fundo fechado para resgates"
               placement="bottom"

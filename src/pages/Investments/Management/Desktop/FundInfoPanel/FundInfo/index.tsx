@@ -66,11 +66,11 @@ export const months = [
 ]
 
 export const riskMap: IRiskMap = {
-  20: 'Baixo',
-  18: 'Médio-baixo',
-  19: 'Médio',
-  16: 'Médio-alto',
-  17: 'Alto',
+  1: 'Baixo',
+  2: 'Médio-baixo',
+  3: 'Médio',
+  4: 'Médio-alto',
+  5: 'Alto',
 }
 
 interface IRiskMap {
@@ -98,6 +98,7 @@ interface IFundInformationProps {
     id_cotista: string
     categoria_arena: string
     perfil_risco: number
+    perfil_risco_ordem: number
     aplicao_minima: number
     aplicacao_cotizacao?: string
     contagem_dias_resgate: string
@@ -108,7 +109,8 @@ interface IFundInformationProps {
     valor_iof: string
     saldo_liquido: string
     data_historico_formatada: string
-    dias_conversao_resgate: number
+    resgate_liberado: boolean
+    resgate_cotizacao: string
   }
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
@@ -376,7 +378,7 @@ const FundInformation = ({
                   Perfil de Risco
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {riskMap[position.perfil_risco]}
+                  {riskMap[position?.perfil_risco_ordem]}
                 </Text>,
               ]}
             />
@@ -401,7 +403,7 @@ const FundInformation = ({
                 Resgate (Cotização)
               </Text>,
               <Text type="headline" bold color="gray6">
-                {`${position.dias_conversao_resgate} (${position.contagem_dias_resgate})`}
+                {`${position.resgate_cotizacao} (${position.contagem_dias_resgate})`}
               </Text>,
             ]}
           />
@@ -601,9 +603,7 @@ const FundInformation = ({
       </RowLineInfo>
       <Row justifyContent="center">
         <ButtonsWrapper xlAuto lgAuto mdAuto smAuto>
-          {/* TODO: Falta o campo "resgate_liberado" */}
-          {/* {!position.fundo.resgate_liberado ? ( */}
-          {false ? (
+          {!position.resgate_liberado ? (
             <CustomPopover
               content="Fundo fechado para resgates"
               placement="left"
