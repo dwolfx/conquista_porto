@@ -31,6 +31,7 @@ export function* generateKeyboard() {
      * atributos no payload... mas como não opinamos nisso, segue a vida né?
      */
     const auth = yield select(getAuth)
+
     const response = yield call(
       post,
       `${baseURLNamespaceAuth2}/teclado-virtual`,
@@ -39,8 +40,9 @@ export function* generateKeyboard() {
         organizacao: handleOrganizacao(),
       }
     )
+
     const regex = /]]/gi
-    const parsedResponse = JSON.parse(response.data.replace(regex, ']'))
+    const parsedResponse = JSON.parse(response.data.replace(regex, ']'));
     /**
      Sim... o response do nosso querido serviço que gera o teclado virtual nos retorna uma chave extra no array.
      Se me perguntarem o por que disso, eu jamais conseguirei explicar.
@@ -71,7 +73,7 @@ export function* validateSignature({
   try {
     const auth = yield select(getAuth)
     yield call(putAxios, `${baseURLNamespaceAuth2}/teclado-virtual`, {
-      usuario: auth.cpf,
+      usuario: auth?.cpf,
       organizacao: handleOrganizacao(),
       resposta: signature,
     })
@@ -92,12 +94,12 @@ export function* validateSignature({
   }
 }
 
-function* generateNewSignature() {
+export function* generateNewSignature() {
   try {
     const auth = yield select(getAuth)
 
     yield call(putAxios, `${baseURLNamespaceAuth2}/assinatura-eletronica`, {
-      usuario: auth.cpf,
+      usuario: auth?.cpf,
       organizacao: handleOrganizacao(),
     })
   } catch (err) {}
