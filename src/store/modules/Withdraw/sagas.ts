@@ -9,11 +9,11 @@ import {
   GetWithdrawSummaryFailure,
   GetWithdrawDetailsSuccess,
   GetWithdrawDetailsFailure,
-} from './actions'
+} from './action'
 import { getAuth, getSuitabilityInfo } from './selectors'
 import { Types, ISummaryRequest } from './types'
 
-function* getWithdrawDetails({ payload }: any) {
+export function* getWithdrawDetails({ payload }: any) {
   const { onSuccess, onError, addToast } = payload
 
   try {
@@ -52,22 +52,22 @@ function* getWithdrawDetails({ payload }: any) {
   }
 }
 
-function* getWithdrawSummary({
+export function* getWithdrawSummary({
   payload: { data, onSuccess, onError },
 }: ISummaryRequest) {
   try {
-    const { cpf } = yield select(getAuth)
-    const { id_cotista } = yield select(getSuitabilityInfo)
+    const auth = yield select(getAuth)
+    const suitabilityInfo = yield select(getSuitabilityInfo)
 
     const response = yield call(
       get,
-      `${baseURLNamespaceInvestAws}/cotista/retiradas/resumo?cpf_cnpj=${cpf}&id_cotista=${id_cotista}&valor_operacao=${data.valor_operacao}`
+      `${baseURLNamespaceInvestAws}/cotista/retiradas/resumo?cpf_cnpj=${auth?.cpf}&id_cotista=${suitabilityInfo?.data?.id_cotista}&valor_operacao=${data.valor_operacao}`
     )
 
     yield put(
       GetWithdrawSummarySuccess({
         ...response?.data?.resumo_retirada,
-        valor_operacao: data.valor_operacao,
+        valor_operacao: data?.valor_operacao,
       })
     )
 

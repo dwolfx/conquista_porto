@@ -7,7 +7,7 @@ const defaultState = {
   hasError: false,
 }
 
-describe('VirtualKeyboard Insurance Reducer', () => {
+describe('VirtualKeyboard Reducer', () => {
   it('should return INITIAL_STATE', () => {
     expect(reducer(undefined, {})).toEqual(defaultState)
   })

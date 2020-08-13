@@ -6,7 +6,7 @@ import moment from 'moment'
 import Button from 'components/Button'
 import { formatLocaleStringToNumber } from 'helpers'
 import { useToast } from 'hooks/toast'
-import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
+import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/action'
 
 import * as s from './styles'
 
