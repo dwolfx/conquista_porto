@@ -23,6 +23,7 @@ import {
   IGenerate,
   IPropsPostData,
   IValidateTokenSignature,
+  IPropsPutPayload,
 } from './types'
 
 function handleOrganizacao() {
@@ -37,13 +38,13 @@ function handleOrganizacao() {
   return organizacao
 }
 
-function* generateAndSendToken({ payload }: IPropsPostData) {
+export function* generateAndSendToken({ payload }: IPropsPostData) {
   const { type, addToast } = payload
 
   try {
     const auth = yield select(getAuth)
     yield call(post, `${baseURLNamespaceAuth2}/otp`, {
-      usuario: auth.cpf,
+      usuario: auth?.cpf,
       organizacao: handleOrganizacao(),
       tipo: type,
     })
@@ -69,20 +70,12 @@ function* generateAndSendToken({ payload }: IPropsPostData) {
   }
 }
 
-interface IPropsPutPayload {
-  type: string
-  payload: {
-    type: 'email_otp' | 'sms_otp'
-    token: string
-  }
-}
-
-function* validateToken({ payload }: IPropsPutPayload) {
+export function* validateToken({ payload }: IPropsPutPayload) {
   const { type, token } = payload
   try {
     const auth = yield select(getAuth)
     yield call(putAxios, `${baseURLNamespaceAuth2}/otp`, {
-      usuario: auth.cpf,
+      usuario: auth?.cpf,
       organizacao: handleOrganizacao(),
       tipo: type,
       otp_token: token, //precisa identificar se receberemos como props ou se vai ser pela store
@@ -95,7 +88,7 @@ function* validateToken({ payload }: IPropsPutPayload) {
   }
 }
 
-function* getTokenData() {
+export function* getTokenData() {
   try {
     const auth = yield select(getAuth)
     const response = yield call(
@@ -111,7 +104,7 @@ function* getTokenData() {
   }
 }
 
-function* run2FAInitialRequest({
+export function* run2FAInitialRequest({
   payload: { addToast, onSuccess },
 }: IGenerate) {
   yield fork(generateAndSendToken, {
@@ -147,7 +140,7 @@ function* run2FAInitialRequest({
   }
 }
 
-function* validateTokenNSignature({ payload }: IValidateTokenSignature) {
+export function* validateTokenNSignature({ payload }: IValidateTokenSignature) {
   const { signature, onSuccess, onError, addToast, goToPreviousStep } = payload
   const { type, value: token } = yield select(getToken)
 
