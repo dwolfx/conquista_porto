@@ -58,7 +58,7 @@ pipeline {
       }
       post {
         failure {
-          slackSend (color: 'danger', message: "[ FALHA ] Parâmetros inválidos (<${env.BUILD_URL}|#${env.BUILD_NUMBER}>)", channel: "${params.SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+          slackSend (color: 'danger', message: "[ FALHA ] Parâmetros inválidos (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
         }
       }
     }
@@ -76,10 +76,10 @@ pipeline {
       }
       post {
         success {
-          slackSend (color: 'warning', message: "[ AVISO ] Cache de dependências foi limpo (<${BUILD_URL}|#${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+          slackSend (color: 'warning', message: "[ AVISO ] Cache de dependências foi limpo (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
         }
         failure {
-          slackSend (color: 'danger', message: "[ FALHA ] Não foi possivel limpart o cache de dependências (<${env.BUILD_URL}|#${env.BUILD_NUMBER}>)", channel: "${params.SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+          slackSend (color: 'danger', message: "[ FALHA ] Erro ao limpar o cache de dependências (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
         }  
       }
     }
@@ -91,7 +91,7 @@ pipeline {
       }
       post {
         failure {
-          slackSend (color: 'danger', message: "[ FALHA ] Não foi possivel instalar as dependências (<${env.BUILD_URL}|#${env.BUILD_NUMBER}>)", channel: "${params.SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+          slackSend (color: 'danger', message: "[ FALHA ] Erro ao instalar as dependências (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
         }  
       }
     }
@@ -103,7 +103,7 @@ pipeline {
       }
       post {
         failure {
-          slackSend (color: 'danger', message: "[ FALHA ] Erro no build da aplicação (<${BUILD_URL}|#${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+          slackSend (color: 'danger', message: "[ FALHA ] Erro no build da aplicação (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
         }
       }
     }
@@ -122,7 +122,7 @@ pipeline {
               cobertura (coberturaReportFile: 'coverage/cobertura-coverage.xml')
             }
             failure {
-              slackSend (color: 'danger', message: "[ FALHA ] Testes com erro (<${BUILD_URL}|#${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+              slackSend (color: 'danger', message: "[ FALHA ] Testes com erro (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
             }
           }
         }
@@ -146,7 +146,7 @@ pipeline {
           }
           post {
             failure {
-              slackSend (color: 'danger', message: "[ FALHA ] Ocorreu um erro com o SonarQube (<${BUILD_URL}|#${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+              slackSend (color: 'danger', message: "[ FALHA ] Ocorreu um erro com o SonarQube (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
             }  
           }
         }
@@ -162,37 +162,21 @@ pipeline {
         expression { return Boolean.valueOf(FORCE_DEPLOY) }
       }}
 
-      stages {
-        stage('Create Build Artifacts') {
-          steps {
-            sh 'yarn build'
-          }
-          post {
-            failure {
-              slackSend (color: 'danger', message: "[ FALHA ] Erro no build da aplicação (<${env.BUILD_URL}|#${env.BUILD_NUMBER}>)", channel: "${params.SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
-            }
-          }
-        }
+      steps {
+        sh "BASE_URL='${BASE_URL}' yarn run extract"
 
-        stage('Deployment') {
-          steps {
-            sh "BASE_URL='${params.BASE_URL}' yarn run extract"
-
-            withAWS (region:'us-east-1', credentials:"${params.AWS_CREDENTIALS}") {
-              s3Delete (bucket: "${params.BUCKET_NAME}", path: '**/*')
-              s3Upload (bucket: "${params.BUCKET_NAME}", workingDir: 'build', path: 'conquista/', includePathPattern: '**/*', acl: 'PublicRead');
-            }
-          }
-          post {
-            success {
-              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso (<${env.BUILD_URL}|#${env.BUILD_NUMBER}>)", channel: "${params.SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
-            }
-            failure {
-              slackSend (color: 'danger', message: "[ FALHA ] Não foi possivel publicar as alterações no ambiente (<${env.BUILD_URL}|#${env.BUILD_NUMBER}>)", channel: "${params.SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
-            }
-          }
+        withAWS (region:'us-east-1', credentials:"${AWS_CREDENTIALS}") {
+          s3Delete (bucket: "${BUCKET_NAME}", path: '**/*')
+          s3Upload (bucket: "${BUCKET_NAME}", workingDir: 'build', path: 'conquista/', includePathPattern: '**/*', acl: 'PublicRead');
         }
-        
+      }
+      post {
+        success {
+          slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+        }
+        failure {
+          slackSend (color: 'danger', message: "[ FALHA ] Erro ao publicar as alterações no ambiente (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+        }
       }
     }
 
