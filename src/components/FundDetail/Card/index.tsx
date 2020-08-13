@@ -74,14 +74,14 @@ const FundDetailCard = ({
 
   useEffect(() => {
     if (
-    !!selectedFundId &&
-    fundDetails?.id_carteira !== selectedFundId &&
-    !isLoading &&
-    !hasError
+      !!selectedFundId &&
+      fundDetails?.id_carteira !== selectedFundId &&
+      !isLoading &&
+      !hasError
     ) {
       dispatch(GetInvestmentDetailsRequest(idFund))
     }
-  }, [idFund, dispatch])
+  }, [idFund, fundDetails, hasError, isLoading, selectedFundId, dispatch])
 
   const headerTitle =
     !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
@@ -113,9 +113,7 @@ const FundDetailCard = ({
             css={`
               margin-top: ${themeContext.spacing(2)};
             `}
-            onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(idFund))
-            }
+            onClick={() => dispatch(GetInvestmentDetailsRequest(idFund))}
           >
             Tentar novamente
           </Button>
