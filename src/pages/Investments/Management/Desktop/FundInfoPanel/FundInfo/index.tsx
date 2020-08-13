@@ -100,6 +100,7 @@ interface IFundInformationProps {
     perfil_risco: number
     perfil_risco_ordem: number
     aplicao_minima: number
+    aplicao_liberada: boolean
     aplicacao_cotizacao?: string
     contagem_dias_resgate: string
     id: number
@@ -634,9 +635,7 @@ const FundInformation = ({
               Resgatar
             </ButtonCustom>
           )}
-          {/* TODO: Falta o campo "aplicao_liberada" */}
-          {/* {!position.fundo.aplicao_liberada ? ( */}
-          {false ? (
+          {!position.aplicao_liberada ? (
             <CustomPopover
               content="Fundo fechado para aplicação"
               placement="right"

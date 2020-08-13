@@ -114,6 +114,7 @@ interface IFundInformationProps {
     data_historico_formatada: string
     resgate_liberado: boolean
     resgate_cotizacao: string
+    aplicao_liberada: boolean
   }
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
@@ -602,9 +603,7 @@ const FundInformation = ({
               Resgatar
             </ButtonCustom>
           )}
-          {/* TODO: Falta o campo aplicao_liberada */}
-          {/* {!position.fundo.aplicao_liberada ? ( */}
-          {false ? (
+          {!position.aplicao_liberada ? (
             <CustomPopover
               content="Fundo fechado para aplicação"
               placement="bottom"
