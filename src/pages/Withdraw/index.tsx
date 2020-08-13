@@ -9,7 +9,7 @@ import TransactionHeader from 'components/Header/TransactionsHeader'
 import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/actions'
+import { GetWithdrawDetailsRequest } from 'store/modules/Withdraw/action'
 
 import AccountDetail from './AccountDetail'
 import ExitModal from './ExitModal'
