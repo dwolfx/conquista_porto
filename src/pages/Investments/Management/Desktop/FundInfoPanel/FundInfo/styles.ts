@@ -12,20 +12,12 @@ interface IRiskColorsMap {
   [key: number]: string
 }
 
-/*export const riskColorsMap: IRiskColorsMap = {
+export const riskColorsMap: IRiskColorsMap = {
   1: fundRiskColors.lowRisk,
   2: fundRiskColors.lowMediumRisk,
   3: fundRiskColors.mediumRisk,
   4: fundRiskColors.mediumHighRisk,
   5: fundRiskColors.highRisk,
-}*/
-
-export const riskColorsMap: IRiskColorsMap = {
-  15: fundRiskColors.lowRisk,
-  16: fundRiskColors.lowMediumRisk,
-  17: fundRiskColors.mediumRisk,
-  18: fundRiskColors.mediumHighRisk,
-  19: fundRiskColors.highRisk,
 }
 
 export const RowLineInfo = styled(Row)`

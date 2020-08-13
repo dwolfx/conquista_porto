@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { uuid } from 'uuidv4'
 import 'styled-components/macro'
 
 import VerticalList from 'components/VerticalList'
@@ -39,7 +40,7 @@ const FundsList = ({
     >
       {filteredFunds.map((fund: any) => (
         <FundItem
-          key={`fund-${fund.id}`}
+          key={uuid()}
           data-testid="fund-list-item"
           selected={idFund === fund.id}
           itemsLength={filteredFunds.length}

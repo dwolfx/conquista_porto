@@ -23,6 +23,7 @@ import { useToast } from 'hooks/toast'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import { formatMoney } from 'helpers'
+import { RISK_FILTER_TYPES } from '../../../types'
 
 import {
   VerticalListStyled,
@@ -65,18 +66,6 @@ export const months = [
   },
 ]
 
-export const riskMap: IRiskMap = {
-  1: 'Baixo',
-  2: 'Médio-baixo',
-  3: 'Médio',
-  4: 'Médio-alto',
-  5: 'Alto',
-}
-
-interface IRiskMap {
-  [key: number]: string
-}
-
 interface IValidProps {
   isValid: boolean
 }
@@ -97,7 +86,7 @@ interface IFundInformationProps {
     fundo: string
     id_cotista: string
     categoria_arena: string
-    perfil_risco: number
+    perfil_risco: string
     perfil_risco_ordem: number
     aplicao_minima: number
     aplicao_liberada: boolean
@@ -164,7 +153,7 @@ const FundInformation = ({
     income: state.income.data,
   }))
 
-  const borderRiskNumber = position.perfil_risco
+  const borderRiskNumber = position.perfil_risco_ordem
 
   useFetchInvestmentsList()
 
@@ -271,9 +260,9 @@ const FundInformation = ({
     onChangeModalSuitabilityInfo({ ...suitabilityData })
 
     if (suitabilityData && suitabilityData.isValid) {
-      const fundInfo = fundsResponse.filter(
-        (fund: { id_fundo: number }) => fund.id_fundo === fundId
-      )
+      const fundInfo = fundsResponse.filter((fund: { id_carteira: number }) => {
+        return fund.id_carteira === fundId
+      })
       const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
         fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
         fundForQualifiedInvestor: fundInfo[0].fundo_investidor_qualificado,
@@ -379,7 +368,11 @@ const FundInformation = ({
                   Perfil de Risco
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {riskMap[position?.perfil_risco_ordem]}
+                  {
+                    RISK_FILTER_TYPES[
+                      position.perfil_risco as keyof typeof RISK_FILTER_TYPES
+                    ]
+                  }
                 </Text>,
               ]}
             />
