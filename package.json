@@ -1,5 +1,5 @@
 {
-  "name": "conquinsta-front",
+  "name": "conquista-front",
   "version": "0.1.0",
   "private": true,
   "homepage": "/conquista",
@@ -14,6 +14,7 @@
     "extractQa": "env-cmd -f .env.development node extractBundle.js",
     "test": "cross-env CI=true react-scripts test -u --forceExit --coverage --coverageDirectory=output/coverage/jest --env=jest-environment-jsdom-sixteen",
     "test:coverage": "react-scripts test --coverage --watchAll=false --env=jest-environment-jsdom-sixteen",
+    "test:ci": "react-scripts test --watchAll=false --forceExit --coverage --testResultsProcessor=jest-sonar-reporter  --env=jest-environment-jsdom-sixteen",
     "test:watch": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js, css, html, json, ts, tsx}\"",
@@ -128,10 +129,13 @@
   "jestSonar": {
     "sonar56x": true,
     "reportPath": "coverage",
-    "reportFile": "sonar-report.xml",
+    "reportFile": "test-report.xml",
     "indent": 4
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
     "coverageReporters": [
       "text",
       "cobertura",
