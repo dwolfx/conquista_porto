@@ -12,6 +12,7 @@ import Modal from 'components/Modal/ModalNew'
 import useDataLayerProducts from 'GoogleTagManager/dataLayerProductsHook'
 import Popover from 'components/Popover/index'
 import { dict } from 'components/IconExporter'
+import { useToast } from 'hooks/toast'
 
 import {
   GetPointsExtractRequest,
@@ -54,6 +55,7 @@ import {
 } from '../styles'
 
 export default function PointsSection({ points }: any) {
+  const { addToast } = useToast()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [belowOffer, setBelowOffer] = useState<ICardsInfo | null>(null)
   const [aboveOffer, setAboveOffer] = useState<ICardsInfo | null>(null)
@@ -356,6 +358,7 @@ export default function PointsSection({ points }: any) {
                   dispatch(
                     PostRecuePointsRequest({
                       onSuccess: redirectToRescuePointsSystem,
+                      onErrorToast: addToast,
                     })
                   )
                 }
