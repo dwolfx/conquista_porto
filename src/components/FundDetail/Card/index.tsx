@@ -30,7 +30,7 @@ interface IData {
   nome_carteira: string
   resgate_cotizacao: string
   aplicao_minima: string
-  id_carteira: string
+  id_carteira: number
   categoria_arena: string
 }
 

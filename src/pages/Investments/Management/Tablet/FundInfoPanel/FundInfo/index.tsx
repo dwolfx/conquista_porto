@@ -13,7 +13,10 @@ import Dropdown from 'components/DropdownNew'
 import Carousel from 'components/Carousel'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { IModalProps } from 'pages/Investments/Management/types'
+import {
+  IModalProps,
+  RISK_FILTER_TYPES,
+} from 'pages/Investments/Management/types'
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
@@ -68,14 +71,6 @@ export const months = [
   },
 ]
 
-export const riskMap: IRiskMap = {
-  1: 'Baixo',
-  2: 'Baixo-médio',
-  3: 'Médio',
-  4: 'Médio-alto',
-  5: 'Alto',
-}
-
 interface IRiskMap {
   [key: number]: string
 }
@@ -100,7 +95,7 @@ interface IFundInformationProps {
     fundo: string
     id_cotista: string
     categoria_arena: string
-    perfil_risco: number
+    perfil_risco: string
     perfil_risco_ordem: number
     aplicao_minima: number
     aplicacao_cotizacao?: string
@@ -114,6 +109,7 @@ interface IFundInformationProps {
     data_historico_formatada: string
     resgate_liberado: boolean
     resgate_cotizacao: string
+    aplicao_liberada: boolean
   }
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
@@ -160,7 +156,7 @@ const FundInformation = ({
     income: state.income.data,
   }))
 
-  const borderRiskNumber = position.perfil_risco
+  const borderRiskNumber = position.perfil_risco_ordem
 
   const getMonth = (mes: number) => {
     let result = income.find((element: IIncome) => element.meses === mes)
@@ -247,7 +243,7 @@ const FundInformation = ({
 
     if (suitabilityData && suitabilityData.isValid) {
       const fundInfo = fundsResponse.filter(
-        (fund: { id_fundo: number }) => fund.id_fundo === fundId
+        (fund: { id_carteira: number }) => fund.id_carteira === fundId
       )
       const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
         fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
@@ -363,7 +359,11 @@ const FundInformation = ({
                     Perfil de Risco
                   </Text>,
                   <Text type="headline" bold color="gray6">
-                    {riskMap[position.perfil_risco_ordem]}
+                    {
+                      RISK_FILTER_TYPES[
+                        position.perfil_risco as keyof typeof RISK_FILTER_TYPES
+                      ]
+                    }
                   </Text>,
                 ]}
               />
@@ -602,9 +602,7 @@ const FundInformation = ({
               Resgatar
             </ButtonCustom>
           )}
-          {/* TODO: Falta o campo aplicao_liberada */}
-          {/* {!position.fundo.aplicao_liberada ? ( */}
-          {false ? (
+          {!position.aplicao_liberada ? (
             <CustomPopover
               content="Fundo fechado para aplicação"
               placement="bottom"

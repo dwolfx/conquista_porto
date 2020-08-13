@@ -210,7 +210,7 @@
       },
       {
         "nome": "Multimercado",
-        "valor": 16488884.20
+        "valor": 16488884.2
       },
       {
         "nome": "Cambial",
@@ -6275,7 +6275,7 @@
   "virtual_keyboard": {
     "usuario": "37282985812",
     "organizacao": "CLIENTES_HML",
-    "resposta": "aaaaaa"
+    "resposta": "abaaaa"
   },
   "token_sms_email": {
     "usuario": "37282985812",
@@ -6310,6 +6310,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Renda Fixa",
@@ -6349,6 +6350,7 @@
             "contagem_dias_resgate": "Úteis",
             "aplicacao_cotizacao": "1",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": false,
             "resgate_cotizacao": "2",
             "resgate_financeiro": "-259",
             "categoria_arena": "Investimento no exterior",
@@ -6388,6 +6390,7 @@
             "contagem_dias_resgate": "Úteis",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "0",
             "resgate_financeiro": "1",
             "categoria_arena": "Cambial",
@@ -6427,6 +6430,7 @@
             "contagem_dias_resgate": "Úteis",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "0",
             "resgate_financeiro": "1",
             "categoria_arena": "Cambial",
@@ -6466,6 +6470,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "29",
             "resgate_financeiro": "1",
             "categoria_arena": "Multimercado",
@@ -6505,6 +6510,7 @@
             "contagem_dias_resgate": "Úteis",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "0",
             "resgate_financeiro": "0",
             "categoria_arena": "Renda Fixa",
@@ -6543,6 +6549,7 @@
           {
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
+            "aplicao_liberada": true,
             "aplicacao_financeiro": "0",
             "resgate_cotizacao": "4",
             "resgate_financeiro": "1",
@@ -6583,6 +6590,7 @@
             "contagem_dias_resgate": "Úteis",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "0",
             "resgate_financeiro": "1",
             "categoria_arena": "Multimercado",
@@ -6622,6 +6630,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Renda Fixa",
@@ -6661,6 +6670,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "1",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "2",
             "categoria_arena": "Renda Variável",
@@ -6700,6 +6710,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "1",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "2",
             "categoria_arena": "Renda Variável",
@@ -6739,6 +6750,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "1",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "2",
             "categoria_arena": "Renda Variável",
@@ -6778,6 +6790,7 @@
             "contagem_dias_resgate": "Úteis",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "21",
             "resgate_financeiro": "-2749",
             "categoria_arena": "Renda Variável",
@@ -6817,6 +6830,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Renda Fixa",
@@ -6856,6 +6870,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Renda Fixa",
@@ -6895,6 +6910,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Renda Fixa",
@@ -6934,6 +6950,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Renda Fixa",
@@ -6973,6 +6990,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Renda Fixa",
@@ -7012,6 +7030,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "1",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Multimercado",
@@ -7051,6 +7070,7 @@
             "contagem_dias_resgate": "Corridos",
             "aplicacao_cotizacao": "1",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "30",
             "resgate_financeiro": "1",
             "categoria_arena": "Multimercado",
@@ -7090,6 +7110,7 @@
             "contagem_dias_resgate": "Úteis",
             "aplicacao_cotizacao": "0",
             "aplicacao_financeiro": "0",
+            "aplicao_liberada": true,
             "resgate_cotizacao": "1",
             "resgate_financeiro": "-129",
             "categoria_arena": "Renda Variável",
@@ -7194,7 +7215,7 @@
       "data_operacao": 1588647600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1588647600000,
-      "valor_bruto": 1500.00
+      "valor_bruto": 1500
     },
     {
       "id_fundo": 51380037,
@@ -7202,7 +7223,7 @@
       "data_operacao": 1585105200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1585105200000,
-      "valor_bruto": 1500.00
+      "valor_bruto": 1500
     },
     {
       "id_fundo": 51380037,
@@ -7210,7 +7231,7 @@
       "data_operacao": 1582167600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582167600000,
-      "valor_bruto": 7200.00
+      "valor_bruto": 7200
     },
     {
       "id_fundo": 51380087,
@@ -7218,7 +7239,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1597114800000,
-      "valor_bruto": 12000.00
+      "valor_bruto": 12000
     },
     {
       "id_fundo": 51380087,
@@ -7226,7 +7247,7 @@
       "data_operacao": 1595386800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1595386800000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380087,
@@ -7234,7 +7255,7 @@
       "data_operacao": 1582686000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582686000000,
-      "valor_bruto": 20000.00
+      "valor_bruto": 20000
     },
     {
       "id_fundo": 51380087,
@@ -7242,7 +7263,7 @@
       "data_operacao": 1582167600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582167600000,
-      "valor_bruto": 20000.00
+      "valor_bruto": 20000
     },
     {
       "id_fundo": 51380063,
@@ -7250,7 +7271,7 @@
       "data_operacao": 1597201200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597201200000,
-      "valor_bruto": 100.00
+      "valor_bruto": 100
     },
     {
       "id_fundo": 51380063,
@@ -7258,7 +7279,7 @@
       "data_operacao": 1596596400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596596400000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380063,
@@ -7266,7 +7287,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380063,
@@ -7274,7 +7295,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380063,
@@ -7282,7 +7303,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380063,
@@ -7290,7 +7311,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380063,
@@ -7298,7 +7319,7 @@
       "data_operacao": 1597201200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597201200000,
-      "valor_bruto": 100.00
+      "valor_bruto": 100
     },
     {
       "id_fundo": 51380063,
@@ -7306,7 +7327,7 @@
       "data_operacao": 1596596400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596596400000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380063,
@@ -7314,7 +7335,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380063,
@@ -7322,7 +7343,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380063,
@@ -7330,7 +7351,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380063,
@@ -7338,7 +7359,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380033,
@@ -7346,7 +7367,7 @@
       "data_operacao": 1582686000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582686000000,
-      "valor_bruto": 12000.00
+      "valor_bruto": 12000
     },
     {
       "id_fundo": 51380033,
@@ -7354,7 +7375,7 @@
       "data_operacao": 1582167600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582167600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 5105,
@@ -7370,7 +7391,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 5105,
@@ -7378,7 +7399,7 @@
       "data_operacao": 1596164400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596164400000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 5105,
@@ -7386,7 +7407,7 @@
       "data_operacao": 1596078000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596078000000,
-      "valor_bruto": 7000.00
+      "valor_bruto": 7000
     },
     {
       "id_fundo": 5105,
@@ -7394,7 +7415,7 @@
       "data_operacao": 1595905200000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1595905200000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 5105,
@@ -7402,7 +7423,7 @@
       "data_operacao": 1595905200000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1595905200000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380015,
@@ -7418,7 +7439,7 @@
       "data_operacao": 1596769200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596769200000,
-      "valor_bruto": 3500.00
+      "valor_bruto": 3500
     },
     {
       "id_fundo": 51380015,
@@ -7426,7 +7447,7 @@
       "data_operacao": 1588215600000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1588647600000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380015,
@@ -7434,7 +7455,7 @@
       "data_operacao": 1582686000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582686000000,
-      "valor_bruto": 5000.00
+      "valor_bruto": 5000
     },
     {
       "id_fundo": 51380015,
@@ -7442,7 +7463,7 @@
       "data_operacao": 1582167600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582167600000,
-      "valor_bruto": 5000.00
+      "valor_bruto": 5000
     },
     {
       "id_fundo": 51380026,
@@ -7450,7 +7471,7 @@
       "data_operacao": 1597028400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597028400000,
-      "valor_bruto": 15000.00
+      "valor_bruto": 15000
     },
     {
       "id_fundo": 51380026,
@@ -7458,7 +7479,7 @@
       "data_operacao": 1596769200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596769200000,
-      "valor_bruto": 3000.00
+      "valor_bruto": 3000
     },
     {
       "id_fundo": 51380026,
@@ -7466,7 +7487,7 @@
       "data_operacao": 1596596400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596596400000,
-      "valor_bruto": 15000.00
+      "valor_bruto": 15000
     },
     {
       "id_fundo": 51380026,
@@ -7474,7 +7495,7 @@
       "data_operacao": 1596596400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596596400000,
-      "valor_bruto": 15000.00
+      "valor_bruto": 15000
     },
     {
       "id_fundo": 51380026,
@@ -7482,7 +7503,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 15000.00
+      "valor_bruto": 15000
     },
     {
       "id_fundo": 51380026,
@@ -7490,7 +7511,7 @@
       "data_operacao": 1596078000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596078000000,
-      "valor_bruto": 2500.00
+      "valor_bruto": 2500
     },
     {
       "id_fundo": 51380058,
@@ -7498,7 +7519,7 @@
       "data_operacao": 1596682800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596682800000,
-      "valor_bruto": 6000.00
+      "valor_bruto": 6000
     },
     {
       "id_fundo": 51380058,
@@ -7506,7 +7527,7 @@
       "data_operacao": 1596596400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596596400000,
-      "valor_bruto": 6000.00
+      "valor_bruto": 6000
     },
     {
       "id_fundo": 51380058,
@@ -7514,7 +7535,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 6000.00
+      "valor_bruto": 6000
     },
     {
       "id_fundo": 51380058,
@@ -7522,7 +7543,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380058,
@@ -7530,7 +7551,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380058,
@@ -7538,7 +7559,7 @@
       "data_operacao": 1595559600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1595559600000,
-      "valor_bruto": 50000.00
+      "valor_bruto": 50000
     },
     {
       "id_fundo": 51380055,
@@ -7546,7 +7567,7 @@
       "data_operacao": 1582167600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582167600000,
-      "valor_bruto": 5000.00
+      "valor_bruto": 5000
     },
     {
       "id_fundo": 51380019,
@@ -7562,7 +7583,7 @@
       "data_operacao": 1587610800000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1590548400000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380019,
@@ -7594,7 +7615,7 @@
       "data_operacao": 1582772400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582772400000,
-      "valor_bruto": 11000.00
+      "valor_bruto": 11000
     },
     {
       "id_fundo": 51380019,
@@ -7610,7 +7631,7 @@
       "data_operacao": 1587610800000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1590548400000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380019,
@@ -7642,7 +7663,7 @@
       "data_operacao": 1582772400000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582772400000,
-      "valor_bruto": 11000.00
+      "valor_bruto": 11000
     },
     {
       "id_fundo": 51380048,
@@ -7650,7 +7671,7 @@
       "data_operacao": 1582686000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582686000000,
-      "valor_bruto": 20000.00
+      "valor_bruto": 20000
     },
     {
       "id_fundo": 51380060,
@@ -7658,7 +7679,7 @@
       "data_operacao": 1597201200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597201200000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7666,7 +7687,7 @@
       "data_operacao": 1597114800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597114800000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380060,
@@ -7674,7 +7695,7 @@
       "data_operacao": 1597028400000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1599706800000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7690,7 +7711,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7698,7 +7719,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380060,
@@ -7706,7 +7727,7 @@
       "data_operacao": 1597201200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597201200000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7714,7 +7735,7 @@
       "data_operacao": 1597114800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597114800000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380060,
@@ -7722,7 +7743,7 @@
       "data_operacao": 1597028400000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1599706800000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7738,7 +7759,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7746,7 +7767,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380060,
@@ -7754,7 +7775,7 @@
       "data_operacao": 1597201200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597201200000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7762,7 +7783,7 @@
       "data_operacao": 1597114800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597114800000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380060,
@@ -7770,7 +7791,7 @@
       "data_operacao": 1597028400000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1599706800000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7786,7 +7807,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7794,7 +7815,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380060,
@@ -7802,7 +7823,7 @@
       "data_operacao": 1597201200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597201200000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7810,7 +7831,7 @@
       "data_operacao": 1597114800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597114800000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380060,
@@ -7818,7 +7839,7 @@
       "data_operacao": 1597028400000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1599706800000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7834,7 +7855,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7842,7 +7863,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380060,
@@ -7850,7 +7871,7 @@
       "data_operacao": 1597201200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597201200000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7858,7 +7879,7 @@
       "data_operacao": 1597114800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1597114800000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380060,
@@ -7866,7 +7887,7 @@
       "data_operacao": 1597028400000,
       "tipo_operacao": "Resgate Bruto",
       "data_liquidacao": 1599706800000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7882,7 +7903,7 @@
       "data_operacao": 1596510000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596510000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 51380060,
@@ -7890,7 +7911,7 @@
       "data_operacao": 1596423600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1596423600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380036,
@@ -7898,7 +7919,7 @@
       "data_operacao": 1585537200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1585537200000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380036,
@@ -7906,7 +7927,7 @@
       "data_operacao": 1582686000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582686000000,
-      "valor_bruto": 11000.00
+      "valor_bruto": 11000
     },
     {
       "id_fundo": 51380036,
@@ -7914,7 +7935,7 @@
       "data_operacao": 1582167600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582167600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 51380036,
@@ -7922,7 +7943,7 @@
       "data_operacao": 1585537200000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1585537200000,
-      "valor_bruto": 2000.00
+      "valor_bruto": 2000
     },
     {
       "id_fundo": 51380036,
@@ -7930,7 +7951,7 @@
       "data_operacao": 1582686000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582686000000,
-      "valor_bruto": 11000.00
+      "valor_bruto": 11000
     },
     {
       "id_fundo": 51380036,
@@ -7938,7 +7959,7 @@
       "data_operacao": 1582167600000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582167600000,
-      "valor_bruto": 10000.00
+      "valor_bruto": 10000
     },
     {
       "id_fundo": 5069,
@@ -7946,7 +7967,7 @@
       "data_operacao": 1595818800000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1595818800000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 5069,
@@ -7954,7 +7975,7 @@
       "data_operacao": 1593054000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1593054000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 5069,
@@ -7962,7 +7983,7 @@
       "data_operacao": 1593054000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1593054000000,
-      "valor_bruto": 1000.00
+      "valor_bruto": 1000
     },
     {
       "id_fundo": 5069,
@@ -7970,14 +7991,14 @@
       "data_operacao": 1582686000000,
       "tipo_operacao": "Aplicação",
       "data_liquidacao": 1582686000000,
-      "valor_bruto": 3500.00
+      "valor_bruto": 3500
     }
   ],
   "resgates_post": {
     "id_cotista": "2000143425",
     "cpf_cnpj": "37282985812",
-    "id_fundo": 51380058,
-    "data_operacao": "2020-08-12",
+    "id_fundo": 51380063,
+    "data_operacao": "2020-08-13",
     "valor": "1430002.2",
     "ciencia_desenquadramento": "S",
     "tipo_resgate": "5"

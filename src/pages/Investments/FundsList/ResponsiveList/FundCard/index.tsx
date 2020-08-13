@@ -117,7 +117,8 @@ const Header: React.FC<IHeader> = ({
 }
 
 export interface IFund {
-  perfil_risco: number
+  perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
+  perfil_risco_ordem: number
   apelido: string
   categoria_arena: string
   minimo_inicial: number
@@ -255,7 +256,7 @@ const FundCard: React.FC<IFundCard> = ({
         </ButtonWrapper>
       </Modal>
       <CardCol xs={12}>
-        <RiskLine riskColor={fund.perfil_risco} />
+        <RiskLine riskColor={fund.perfil_risco_ordem} />
         <CardContent>
           <Header
             title={fund.apelido}

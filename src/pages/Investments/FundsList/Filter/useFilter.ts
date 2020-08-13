@@ -1,18 +1,15 @@
 import { useMemo } from 'react'
-
 import { IFilterProps } from './index'
-
 import {
   FILTER_TYPES,
   FILTER_RISKS,
 } from 'pages/Investments/FundsList/constants'
-
 export interface IFund {
   apelido: string
   aplicao_liberada: boolean
   categoria_arena: string
   id_carteira: number
-  perfil_risco: number
+  perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
   perfil_risco_ordem: number
   minimo_inicial: number
   resgate_cotizacao: string
@@ -21,7 +18,6 @@ export interface IFund {
   rentabil_fundo_ano: string
   taxa_administracao: string
 }
-
 const useFilter = (filter: IFilterProps, funds: IFund[]) => {
   function filterByCategoriaArena(
     fundsList: IFund[],
@@ -31,18 +27,18 @@ const useFilter = (filter: IFilterProps, funds: IFund[]) => {
       categoriaArena.includes(fund.categoria_arena.toLowerCase())
     )
   }
-
   function sortFundsByRisk(fundsList: IFund[]) {
     let sortedList = fundsList.sort((itemList1: IFund, itemList2: IFund) => {
-      const indexItemList1 = itemList1.perfil_risco_ordem
-      const indexItemList2 = itemList2.perfil_risco_ordem
-
+      const indexItemList1 = Object.values(FILTER_RISKS).indexOf(
+        itemList1.perfil_risco.toLowerCase()
+      )
+      const indexItemList2 = Object.values(FILTER_RISKS).indexOf(
+        itemList2.perfil_risco.toLowerCase()
+      )
       if (indexItemList1 > indexItemList2) return 1
       if (indexItemList2 > indexItemList1) return -1
-
       return 0
     })
-
     sortedList = sortedList.sort((itemList1: IFund, itemList2: IFund) => {
       const indexItemList1 = Object.values(FILTER_TYPES).indexOf(
         itemList1.categoria_arena.toLowerCase()
@@ -50,27 +46,21 @@ const useFilter = (filter: IFilterProps, funds: IFund[]) => {
       const indexItemList2 = Object.values(FILTER_TYPES).indexOf(
         itemList2.categoria_arena.toLowerCase()
       )
-
       if (indexItemList1 > indexItemList2) return 1
       if (indexItemList2 > indexItemList1) return -1
-
       return 0
     })
-
     return sortedList
   }
-
   function filterByPerfilRisco(fundsList: IFund[], perfilRisco: string[]) {
     return fundsList.filter(fund =>
-      perfilRisco.includes(FILTER_RISKS[fund.perfil_risco_ordem])
+      perfilRisco.includes(fund.perfil_risco.toLowerCase())
     )
   }
-
   const formattedFundsList = useMemo(() => {
     const categoriaArena = filter.byCategoriaArena
     const perfilRisco = filter.byPerfilRisco
     const newFundsList = sortFundsByRisk(funds)
-
     if (categoriaArena.length > 0 && perfilRisco.length > 0) {
       const filteredListByPerfilRisco = filterByPerfilRisco(
         newFundsList,
@@ -89,8 +79,6 @@ const useFilter = (filter: IFilterProps, funds: IFund[]) => {
     }
     return newFundsList
   }, [funds, filter])
-
   return formattedFundsList
 }
-
 export default useFilter

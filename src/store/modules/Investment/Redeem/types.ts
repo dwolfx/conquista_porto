@@ -53,7 +53,7 @@ export interface IGetRedeemResponse {
       resgate_liberado: boolean
       taxa_administracao: string
       aplicacao_cotizacao: string
-      id_carteira: string
+      id_carteira: number
       classificacao: string
       aplicacao_financeiro: string
     }
