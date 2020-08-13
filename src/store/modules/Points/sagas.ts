@@ -66,8 +66,8 @@ export function* postRescuePoints({ payload }: any) {
   const RESCUE_POINTS_URL_SYSTEM =
     process.env.REACT_APP_BASE_URL_RESCUE_POINTS_SYSTEM
   try {
-    const cpf = yield select(state => state.auth.cpf)
-    const { data: dataToken } = yield call(
+    const { cpf } = yield select(state => state.auth)
+    const { data } = yield call(
       axios.post,
       `${RESCUE_POINTS_URL_TOKEN}/tokenorg`,
       {
@@ -76,7 +76,7 @@ export function* postRescuePoints({ payload }: any) {
       }
     )
 
-    const { data } = yield call(
+    const { data2 } = yield call(
       axios.post,
       `${RESCUE_POINTS_URL_TOKEN}/tokencatalogo`,
       {
@@ -87,12 +87,12 @@ export function* postRescuePoints({ payload }: any) {
       },
       {
         headers: {
-          Authorization: `Bearer ${dataToken.access_token}`,
+          Authorization: `Bearer ${data.dataToken.access_token}`,
         },
       }
     )
 
-    onSuccess(`${RESCUE_POINTS_URL_SYSTEM}?token=${data.token}&CodOrg=040`)
+    onSuccess(`${RESCUE_POINTS_URL_SYSTEM}?token=${data2.token}&CodOrg=040`)
   } catch (err) {
     onErrorToast({
       type: 'error',
