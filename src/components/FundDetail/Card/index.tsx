@@ -58,30 +58,18 @@ const FundDetailCard = ({
   const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
 
-  let { data: fundDetails, isLoading, hasError, idFund } = useSelector(
-    (state: any) => {
-      return {
-        ...state.investmentDetails,
-        data: Object.keys(state.investmentDetails.data).length
-          ? state.investmentDetails.data
-          : null,
-        idFund: !!selectedFundId
-          ? selectedFundId
-          : state.investmentPosition.idFund,
-      }
+  let { data: fundDetails, isLoading, hasError } = useSelector((state: any) => {
+    return {
+      ...state.investmentDetails,
+      data: Object.keys(state.investmentDetails.data).length
+        ? state.investmentDetails.data
+        : null,
     }
-  )
+  })
 
   useEffect(() => {
-    if (
-      !!selectedFundId &&
-      fundDetails?.id_carteira !== selectedFundId &&
-      !isLoading &&
-      !hasError
-    ) {
-      dispatch(GetInvestmentDetailsRequest(idFund))
-    }
-  }, [idFund, fundDetails, hasError, isLoading, selectedFundId, dispatch])
+    dispatch(GetInvestmentDetailsRequest(selectedFundId))
+  }, [selectedFundId, dispatch])
 
   const headerTitle =
     !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
@@ -113,7 +101,9 @@ const FundDetailCard = ({
             css={`
               margin-top: ${themeContext.spacing(2)};
             `}
-            onClick={() => dispatch(GetInvestmentDetailsRequest(idFund))}
+            onClick={() =>
+              dispatch(GetInvestmentDetailsRequest(selectedFundId))
+            }
           >
             Tentar novamente
           </Button>
