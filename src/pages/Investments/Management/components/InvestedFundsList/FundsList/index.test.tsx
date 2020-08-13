@@ -146,13 +146,13 @@ describe('It behaves correcly', () => {
           />
         </MemoryRouter>
       )
-      expect(getByText('Porto Seguro Selecta FIC FIA')).toHaveStyleRule(
+      expect(getByText(/Porto Seguro Selecta FIC FIA/i)).toHaveStyleRule(
         'color',
         '#898989'
       )
       expect(getByText('R$ 3.337,22')).toHaveStyleRule('color', '#898989')
 
-      fireEvent.click(getByText('Porto Seguro Selecta FIC FIA'))
+      fireEvent.click(getByText(/Porto Seguro Selecta FIC FIA/i))
 
       rerender(
         <Provider store={store}>
@@ -160,7 +160,7 @@ describe('It behaves correcly', () => {
             <MemoryRouter>
               <FundsList
                 displayInformation
-                idFund={5112}
+                idFund={5094}
                 onHandleChangeIdFund={id => {}}
                 filteredFunds={mock}
               />
@@ -168,7 +168,7 @@ describe('It behaves correcly', () => {
           </ThemeProvider>
         </Provider>
       )
-      expect(getByText('Porto Seguro Selecta FIC FIA')).toHaveStyleRule(
+      expect(getByText(/Porto Seguro Selecta FIC FIA/i)).toHaveStyleRule(
         'color',
         '#00ADEF'
       )

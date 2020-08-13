@@ -73,7 +73,14 @@ const FundDetailCard = ({
   )
 
   useEffect(() => {
-    dispatch(GetInvestmentDetailsRequest(idFund))
+    if (
+    !!selectedFundId &&
+    fundDetails?.id_carteira !== selectedFundId &&
+    !isLoading &&
+    !hasError
+    ) {
+      dispatch(GetInvestmentDetailsRequest(idFund))
+    }
   }, [idFund, dispatch])
 
   const headerTitle =
@@ -107,7 +114,7 @@ const FundDetailCard = ({
               margin-top: ${themeContext.spacing(2)};
             `}
             onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(fundDetails.id_carteira))
+              dispatch(GetInvestmentDetailsRequest(idFund))
             }
           >
             Tentar novamente
@@ -155,7 +162,7 @@ const FundDetailCard = ({
               <VerticalListMargin
                 elements={[
                   <TextTitle>Resgate (Cotização)</TextTitle>,
-                  <TextValue>{fundDetails.resgate_cotizacao}</TextValue>,
+                  <TextValue>{`D+${fundDetails.resgate_cotizacao}`}</TextValue>,
                 ]}
               />
             </Col>
