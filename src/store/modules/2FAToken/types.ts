@@ -46,3 +46,11 @@ export interface IValidateTokenSignature {
   type: string
   payload: IValidateTokenSignaturePayload
 }
+
+export interface IPropsPutPayload {
+  type: string
+  payload: {
+    type: 'email_otp' | 'sms_otp'
+    token: string
+  }
+}
