@@ -9,8 +9,8 @@ export const StyledDivisor = styled.div<IProps>`
       ? `border-left: 1px solid ${props.theme.colors.gray3}`
       : `border-bottom: 1px solid ${props.theme.colors.gray3}`};
   height: ${props => {
-    if (props.vertical) {
-      return props.customSize && props.customSize
+    if (props.vertical && props.customSize) {
+      return props.customSize
     }
     return '0%'
   }};

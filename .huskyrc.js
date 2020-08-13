@@ -4,7 +4,7 @@ module.exports = {
   hooks: {
     'pre-commit': tasks(['npm run format', 'npm run lint']),
     'pre-push': tasks([
-      'cross-env CI=true react-scripts test --env=jest-environment-jsdom-sixteen',
+      'cross-env CI=true react-scripts test --env=jest-environment-jsdom-sixteen --changedSince=develop',
     ]),
   },
 }

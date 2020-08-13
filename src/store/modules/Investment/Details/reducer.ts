@@ -1,32 +1,30 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: [],
+  data: {},
   isLoading: false,
-  hasError: false,
+  isError: false,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
-    case Types.GET_TYPES_REQUEST: {
+    case Types.INVESTMENT_DETAILS_ADD_REQUEST:
       return {
         ...state,
         isLoading: true,
-        hasError: false,
+        isError: false,
       }
-    }
-    case Types.GET_TYPES_SUCCESS: {
+    case Types.INVESTMENT_DETAILS_ADD_SUCCESS:
       return {
         ...state,
-        data: [...action.payload],
+        data: { ...action.payload },
         isLoading: false,
       }
-    }
-    case Types.GET_TYPES_FAILURE:
+    case Types.INVESTMENT_DETAILS_ADD_FAILURE:
       return {
         ...state,
         isLoading: false,
-        hasError: true,
+        isError: true,
       }
     default:
       return state

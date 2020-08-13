@@ -1,6 +1,5 @@
 import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 import axios from 'axios'
-import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
@@ -11,7 +10,7 @@ import {
   GetPointsBalanceFailure,
 } from './action'
 
-function* getExtract() {
+export function* getExtract() {
   try {
     const response = yield call(
       get,
@@ -39,7 +38,7 @@ function* getExtract() {
   }
 }
 
-function* getBalance() {
+export function* getBalance() {
   try {
     const response = yield call(
       get,
@@ -60,15 +59,15 @@ function* getBalance() {
   }
 }
 
-function* postRescuePoints({ payload }) {
-  const { onSuccess } = payload
+export function* postRescuePoints({ payload }: any) {
+  const { onSuccess, onErrorToast } = payload
   const RESCUE_POINTS_URL_TOKEN =
     process.env.REACT_APP_BASE_URL_RESCUE_POINTS_TOKEN
   const RESCUE_POINTS_URL_SYSTEM =
     process.env.REACT_APP_BASE_URL_RESCUE_POINTS_SYSTEM
   try {
-    const cpf = yield select(state => state.auth.cpf)
-    const { data: dataToken } = yield call(
+    const { cpf } = yield select(state => state.auth)
+    const { data } = yield call(
       axios.post,
       `${RESCUE_POINTS_URL_TOKEN}/tokenorg`,
       {
@@ -77,7 +76,7 @@ function* postRescuePoints({ payload }) {
       }
     )
 
-    const { data } = yield call(
+    const { data2 } = yield call(
       axios.post,
       `${RESCUE_POINTS_URL_TOKEN}/tokencatalogo`,
       {
@@ -88,18 +87,18 @@ function* postRescuePoints({ payload }) {
       },
       {
         headers: {
-          Authorization: `Bearer ${dataToken.access_token}`,
+          Authorization: `Bearer ${data.dataToken.access_token}`,
         },
       }
     )
 
-    onSuccess(`${RESCUE_POINTS_URL_SYSTEM}?token=${data.token}&CodOrg=040`)
+    onSuccess(`${RESCUE_POINTS_URL_SYSTEM}?token=${data2.token}&CodOrg=040`)
   } catch (err) {
-    yield put({
-      toast: buildToast(
+    onErrorToast({
+      type: 'error',
+      description:
         'Não foi possível realizar o resgate dos pontos neste momento.',
-        ToastTypes.error
-      ),
+      title: 'Erro ao processar solicitação.',
     })
   }
 }

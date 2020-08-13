@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   isLoading: false,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.ADD_REQUEST:
       return {

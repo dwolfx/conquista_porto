@@ -5,7 +5,7 @@ import { get, baseURLNamespaceRewards } from 'services/api'
 import { Types } from './types'
 import { GetRewardTypesSuccess, GetRewardTypesFailure } from './action'
 
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(get, `${baseURLNamespaceRewards}/types`)
     yield put(GetRewardTypesSuccess(response.data))

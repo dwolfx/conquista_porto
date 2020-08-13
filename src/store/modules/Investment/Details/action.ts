@@ -1,13 +1,13 @@
 import { Types } from './types'
 
-export function GetInvestmentDetailsRequest(id) {
+export function GetInvestmentDetailsRequest(id: string) {
   return {
     type: Types.INVESTMENT_DETAILS_ADD_REQUEST,
     fundId: id,
   }
 }
 
-export function GetInvestmentDetailsSuccess(payload) {
+export function GetInvestmentDetailsSuccess(payload: any) {
   return {
     type: Types.INVESTMENT_DETAILS_ADD_SUCCESS,
     payload,

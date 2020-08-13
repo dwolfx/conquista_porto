@@ -109,7 +109,7 @@ export default function ManagementTripInsurance() {
                   }
                   onClick={() => {
                     setSelectedTripInsurance(item)
-                    scrollPage('trip-insurance-top-page')
+                    scrollPage()
                   }}
                 >
                   <Text

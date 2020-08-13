@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { uuid } from 'uuidv4'
 import { handleGiwRedirect } from 'helpers'
 import { themeColors, fontTypes } from 'styles/theme'
 
@@ -55,7 +56,7 @@ export default function ListItem({
       )}
       <TextWrapper hasStartIcon={!!StartIcon} hasEndIcon={!!EndIcon}>
         {text.map(t => (
-          <Text key={Math.random().toString(36).substring(7)} type={t.type} color={t.color}>
+          <Text key={uuid()} type={t.type} color={t.color}>
             {t.content}
           </Text>
         ))}

@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   hasErrorBalance: false,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.GET_EXTRACT_REQUEST:
       return {

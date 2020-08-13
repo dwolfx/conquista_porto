@@ -249,12 +249,11 @@ const Dropdown: React.FC<IProps> = ({
                   data-gtm-subname={title}
                   data-gtm-name={item.text}
                   key={item.text}
-                  onMouseEnter={() =>
-                    handleMountChildren(
-                      item.children && item.children,
-                      item.text
-                    )
-                  }
+                  onMouseEnter={() => {
+                    if (item.children) {
+                      handleMountChildren(item.children, item.text)
+                    }
+                  }}
                   onClick={() => item.path && handleClick(item.path)}
                 >
                   <ItemIconContainer>

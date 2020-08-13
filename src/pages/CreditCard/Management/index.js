@@ -143,7 +143,7 @@ export default function ManagementCreditCard() {
                   active={selectedCreditCard === item.UltimosDigitos}
                   onClick={() => {
                     setSelectedCreditCard(item.UltimosDigitos)
-                    scrollPage(`cc-top-page`)
+                    scrollPage()
                   }}
                 >
                   <Text
