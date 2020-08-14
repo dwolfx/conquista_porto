@@ -34,6 +34,7 @@ export default function GoalStreams({ handleSteps }: IProps) {
   useFetchCustomerProfile()
   const { suitability: suitabilityHook, isLoading } = useSuitability({
     errorPath: '/objetivos',
+    goalType: data?.goal_type,
   })
 
   const customerProfileIsLoading = useSelector<any, any>(

@@ -5,10 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
-export default function useSuitability({ errorPath }) {
+interface IProps {
+  errorPath?: string
+  goalType?: string
+}
+
+export default function useSuitability({ errorPath, goalType }: IProps) {
   const history = useHistory()
   const dispatch = useDispatch()
-  const { suitability, cpf, isLoading } = useSelector(state => ({
+  const { suitability, cpf, isLoading } = useSelector<any, any>(state => ({
     suitability: state.suitability.data,
     isLoading: state.suitability.isLoading,
     cpf: state.auth.cpf,
@@ -16,9 +21,11 @@ export default function useSuitability({ errorPath }) {
 
   useEffect(() => {
     if (!(suitability && Object.entries(suitability).length)) {
-      dispatch(GetSuitabilityRequestAndRedirect({ cpf, history, errorPath }))
+      dispatch(
+        GetSuitabilityRequestAndRedirect({ cpf, history, errorPath, goalType })
+      )
     }
-  }, [suitability, dispatch, cpf, history, errorPath])
+  }, [suitability, dispatch, cpf, history, errorPath, goalType])
 
   return { suitability, isLoading }
 }

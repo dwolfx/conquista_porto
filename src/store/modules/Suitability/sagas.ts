@@ -3,8 +3,9 @@ import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 import { handleGiwRedirect } from 'helpers'
 import { get, baseURLNamespacePortopar } from 'services/api'
 import { buildToast, ToastTypes } from 'store/modules/toastActions'
+import { getSuitabilityInfoData } from 'store/modules/SuitabilityInfo/sagas'
 
-import { getSuitability } from './selectors'
+import { selectSuitability, selectSuitabilityInfo } from './selectors'
 
 import { Types } from './types'
 import {
@@ -19,9 +20,25 @@ export function* getDataAndRedirect({
 }: any) {
   yield put(SetSuitabilityLoading(true))
 
-  const suitabilityState = yield select(getSuitability)
+  const suitabilityState = yield select(selectSuitability)
+  let suitabilityInfo = yield select(selectSuitabilityInfo)
 
-  if (suitabilityState?.data && Object.entries(suitabilityState.data).length) {
+  if (!suitabilityInfo.data) {
+    yield call(getSuitabilityInfoData)
+
+    suitabilityInfo = yield select(selectSuitabilityInfo)
+  }
+
+  let isSuitabilityInfoValid = Boolean(
+    suitabilityInfo.data?.status_data_vigencia_suitability &&
+      suitabilityInfo.data?.status_possui_suitability
+  )
+
+  if (
+    suitabilityState?.data &&
+    Object.entries(suitabilityState.data).length &&
+    isSuitabilityInfoValid
+  ) {
     history.push(link)
   } else {
     try {
@@ -30,11 +47,15 @@ export function* getDataAndRedirect({
         `${baseURLNamespacePortopar}/cotista/perfil/investidor`
       )
 
-      if (response.status === 204) {
+      if (response.status === 204 || !isSuitabilityInfoValid) {
+        let giwSuitabilityUrl = `portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true`
+
+        if (goalType) {
+          giwSuitabilityUrl += `&codigoObjetivo=${goalType}`
+        }
+
+        handleGiwRedirect(giwSuitabilityUrl)
         yield put(GetSuitabilityDataNoContent())
-        handleGiwRedirect(
-          `portaldecliente/conquista/suitability?vgnextnomenu=1&vgnextnoice=1&tela=perfil&r=true&codigoObjetivo=${goalType}`
-        )
       } else if (response.status === 200) {
         yield put(GetSuitabilityDataSuccess(response.data))
 

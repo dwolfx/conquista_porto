@@ -1,10 +1,9 @@
 import { Types, ISuitabilityInfo } from './types'
 import { IToast } from 'hooks/toast'
 
-export function GetSuitabilityInfoRequest(cpf: string) {
+export function GetSuitabilityInfoRequest() {
   return {
     type: Types.SUITABILITY_INFO_GET_DATA_REQUEST,
-    payload: { cpf },
   }
 }
 

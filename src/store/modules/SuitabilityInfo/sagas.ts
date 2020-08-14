@@ -14,7 +14,7 @@ import {
   handleWithdrawButton,
 } from './utils'
 
-export function* getData() {
+export function* getSuitabilityInfoData() {
   try {
     const response = yield call(get, `${baseURLNamespaceInvest}/cotista/status`)
 
@@ -92,6 +92,6 @@ export function* getDataValidate({ payload }: IPayload) {
 }
 
 export default all([
-  takeLatest(Types.SUITABILITY_INFO_GET_DATA_REQUEST, getData),
+  takeLatest(Types.SUITABILITY_INFO_GET_DATA_REQUEST, getSuitabilityInfoData),
   takeLatest(Types.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE, getDataValidate),
 ])
