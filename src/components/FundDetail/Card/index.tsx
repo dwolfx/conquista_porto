@@ -91,13 +91,14 @@ const FundDetailCard = ({
         </EmptyStateWrapper>
       )}
 
-      {hasError && !isLoading && !fundDetails && (
+      {hasError && !!isLoading && !fundDetails && (
         <EmptyStateWrapper>
           <Text type="headline" color="magenta2">
             Não foi possível carregar as informações deste fundo de
             investimento.
           </Text>
           <Button
+            data-testid="test-button-tentar-novamente"
             css={`
               margin-top: ${themeContext.spacing(2)};
             `}
