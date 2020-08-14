@@ -33,7 +33,6 @@ const ProfitabilityMock: IComparativeProfitability = {
     rel_fundo_benchmark_dia: '-',
     rentabil_mes_anteiror: '-0.71',
     rel_fundo_benchmark_24_meses: '105.04',
-    rel_fundo_benchmark_mes_ant: '105.04',
     rel_fundo_benchmark_ano: '-',
     rentabil_24_meses: '12.75',
     rel_fundo_benchmark_36_meses: '117.24',
@@ -59,10 +58,10 @@ const setup = (children: React.ReactElement) => {
 describe('ProfitabilityTable', () => {
   test('With Props', () => {
     const store = storeFactory()
-    const { getByText } = renderWithProviders(store)
+    const { queryByText } = renderWithProviders(store)
     store.dispatch(GetComparativeProfitabilityDataSuccess(ProfitabilityMock))
-    expect(getByText('1,02%')).toBeDefined()
-    expect(getByText('-3,01%')).toBeDefined()
+    expect(queryByText('1,02')).toBeDefined()
+    expect(queryByText('-3,01')).toBeDefined()
   })
 
   test('Without Props', () => {
