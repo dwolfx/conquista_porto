@@ -49,7 +49,7 @@ export const AccordionWrapper = styled.div`
   max-height: ${props => (props.isOpen ? '5000px' : '84px')};
   transition: all ease-in-out 0.4s;
   overflow: hidden;
-  margin-bottom: ${props => props.padding && props.padding};
+  margin-bottom: ${props => props.padding};
 
   ${AccordionHeader} {
     &:after {

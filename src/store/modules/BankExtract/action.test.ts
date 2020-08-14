@@ -1,0 +1,49 @@
+import { Types } from './types'
+
+import {
+  GetBankExtractRequest,
+  GetBankExtractSuccess,
+  GetBankExtractFailure,
+  ClearBankExtractData,
+} from './action'
+
+describe('Credit Card actions', () => {
+  test('if GetBankExtractRequest returns the correct object', () => {
+    const payload = {
+      tipoFiltro: 30,
+      dataInicial: '2020-01-01',
+      dataFinal: '2020-01-02',
+    }
+
+    expect(GetBankExtractRequest(payload, '3333333333')).toEqual({
+      type: Types.GET_REQUEST,
+      payload: {
+        tipoFiltro: 30,
+        dataInicial: '2020-01-01',
+        dataFinal: '2020-01-02',
+      },
+      cpf: '3333333333',
+    })
+  })
+
+  test('if GetBankExtractSuccess returns the correct object', () => {
+    const payload = { response: 'success' }
+
+    expect(GetBankExtractSuccess(payload)).toEqual({
+      type: Types.GET_SUCCESS,
+      payload: { response: 'success' },
+    })
+  })
+
+  test('if GetBankExtractFailure returns the correct object', () => {
+    expect(GetBankExtractFailure()).toEqual({
+      type: Types.GET_FAILURE,
+    })
+  })
+
+  test('if ClearBankExtractData returns the correct object', () => {
+    expect(ClearBankExtractData()).toEqual({
+      type: Types.CLEAR_DATA,
+    })
+  })
+})

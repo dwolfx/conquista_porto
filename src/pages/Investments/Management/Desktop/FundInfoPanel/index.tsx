@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import useSelectedPosition from 'hooks/useSelectedPosition'
 import FundInfo from './FundInfo'
@@ -34,13 +34,9 @@ const FundInfoPanel = ({
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
-  const { auth } = useSelector((state: any) => ({
-    auth: state.auth,
-  }))
-
   const handleFetchPosition = useCallback(() => {
-    dispatch(GetPositionDataRequest(auth.cpf))
-  }, [dispatch, auth.cpf])
+    dispatch(GetPositionDataRequest())
+  }, [dispatch])
 
   const renderContent = () => {
     if (!position) {

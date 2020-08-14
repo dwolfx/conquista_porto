@@ -14,7 +14,7 @@ function addId(consorcios) {
   }))
 }
 
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(
       get,

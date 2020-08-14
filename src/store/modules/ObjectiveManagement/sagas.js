@@ -24,7 +24,7 @@ import {
   DeleteObjectiveFailure,
 } from './action'
 
-function* postData({ data, pushHistory, onSuccess }) {
+export function* postData({ data, pushHistory, onSuccess }) {
   try {
     const response = yield call(post, `${baseURLNamespaceGoal}/goals`, {
       ...data,
@@ -44,7 +44,7 @@ function* postData({ data, pushHistory, onSuccess }) {
   }
 }
 
-function* postSaveFunds({ payload }) {
+export function* postSaveFunds({ payload }) {
   const { idGoal, data, onSuccess } = payload
   try {
     const response = yield call(
@@ -68,7 +68,7 @@ function* postSaveFunds({ payload }) {
   }
 }
 
-function* getData(payload) {
+export function* getData(payload) {
   const { id, history, path } = payload
 
   // 'if' added to prevent an API call when breadcrumb is clicked
@@ -107,7 +107,7 @@ function* getData(payload) {
   }
 }
 
-function* getOtherGoalsData(payload) {
+export function* getOtherGoalsData(payload) {
   const { id, history, path } = payload
 
   // 'if' added to prevent an API call when breadcrumb is clicked
@@ -149,7 +149,7 @@ function* getOtherGoalsData(payload) {
   }
 }
 
-function* deleteObjective({ payload }) {
+export function* deleteObjective({ payload }) {
   try {
     const { id, pushHistoryToHomeScreen } = payload
     yield call(remove, `${baseURLNamespaceGoal}/goals/${id}`)
@@ -161,7 +161,7 @@ function* deleteObjective({ payload }) {
   } catch (err) {
     yield put({
       ...DeleteObjectiveFailure(),
-      toast: buildToast(err.message, ToastTypes.success),
+      toast: buildToast(err.message, ToastTypes.error),
     })
   }
 }

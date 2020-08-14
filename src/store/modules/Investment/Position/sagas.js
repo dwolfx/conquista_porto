@@ -6,7 +6,7 @@ import { GetPositionDataSuccess, GetPositionDataFailure } from './action'
 import { getConsolidatedPosition } from './selectors'
 import { Types } from './types'
 
-function* getData() {
+export function* getData() {
   try {
     const consolidatedPositionState = yield select(getConsolidatedPosition)
 

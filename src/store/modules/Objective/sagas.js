@@ -15,7 +15,7 @@ import {
   PostObjectiveDataFailure,
 } from './action'
 
-function* postData({ payload }) {
+export function* postData({ payload }) {
   const { data, isMobile, onSuccess } = payload
 
   try {
@@ -46,7 +46,7 @@ function* postData({ payload }) {
   }
 }
 
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(get, `${baseURLNamespaceGoal}/goals`)
     yield put(GetObjectiveDataSuccess(response.data))

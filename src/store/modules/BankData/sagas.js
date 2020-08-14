@@ -4,7 +4,7 @@ import { get, baseURLNamespaceInvest } from 'services/api'
 import { Types } from './types'
 import { GetDataSuccess, GetDataFailure } from './action'
 
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(
       get,

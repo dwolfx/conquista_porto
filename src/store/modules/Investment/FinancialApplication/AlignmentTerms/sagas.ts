@@ -8,7 +8,7 @@ import {
   GetAlignmentTermsDataFailure,
 } from './action'
 
-function* getAlignmentTermsData({
+export function* getAlignmentTermsData({
   payload: { data, onSuccess, onErrorToast },
 }: IGetAlignmentTermsPayload) {
   // data_operacao = YYYY-MM-DD

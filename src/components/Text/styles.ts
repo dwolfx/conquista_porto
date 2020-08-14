@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { themeColors, fontTypes } from 'styles/theme'
 
 const truncate = css<any>`
-  width: ${props => props.width && props.width};
+  width: ${props => props.width};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
