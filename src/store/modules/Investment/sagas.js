@@ -5,7 +5,7 @@ import { get, baseURLNamespaceInvest } from 'services/api'
 import { GetInvestmentListSuccess, GetInvestmentListFailure } from './action'
 import { Types } from './types'
 
-function* getData({ payload }) {
+export function* getData({ payload }) {
   try {
     const response = yield call(get, `${baseURLNamespaceInvest}/fundos`)
     // Normalizar response do backend
@@ -13,15 +13,14 @@ function* getData({ payload }) {
       .flatMap(item => item)
       .reduce((prev, curr) => [...prev, ...curr.fundos], [])
     yield put(GetInvestmentListSuccess(normalizedResponse))
-
-    if (payload) {
+    if (payload?.onSuccess) {
       const { onSuccess } = payload
 
       onSuccess(normalizedResponse)
     }
   } catch (err) {
     yield put(GetInvestmentListFailure())
-    if (payload) {
+    if (payload?.onErrorToast) {
       const { onErrorToast } = payload
 
       onErrorToast({
