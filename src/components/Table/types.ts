@@ -52,7 +52,8 @@ export interface ITable {
   columns: any[]
   data: any[]
   isLoading?: boolean
-  isError?: boolean
+  hasError?: boolean
+  errorMessage?: string
   isFiltering?: boolean
   isSticky?: boolean
   onRowClick?: (param: any) => void
@@ -60,7 +61,8 @@ export interface ITable {
 
 export interface ITableBody {
   isLoading: boolean
-  isError: boolean
+  hasError: boolean
+  errorMessage: string
   isFiltering: boolean
   onError?: () => void
   onRowClick?: (param: any) => void

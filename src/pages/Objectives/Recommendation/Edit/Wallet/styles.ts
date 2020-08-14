@@ -1,8 +1,13 @@
 import styled from 'styled-components'
+import { Container as ContainerBootstrap } from 'styled-bootstrap-grid'
 
 import MoneyInputCmp from 'components/Inputs/Money'
 import TableComp from 'components/Table'
 import Text from 'components/Text'
+
+export const Container = styled(ContainerBootstrap)`
+  padding: 0;
+`
 
 export const Table = styled(TableComp)``
 

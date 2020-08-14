@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import HorizontalList from 'components/HorizontalList'
+
 import Text from 'components/Text'
 import * as S from './style'
 
@@ -32,7 +32,15 @@ export default function ResultPredictionCard() {
       headerTitle="Resultados estimados"
       headerIconInfo={true}
       tooltip={false}
-      headerIconInfoMsg="Estas são as estimativas de quanto o seu investimento pode evoluir, baseadas no histórico de rendimentos dos fundos da carteira recomendada."
+      headerIconInfoMsg={
+        <S.InformationPopoverContainer>
+          <Text color="gray5" bold>
+            Estas são as estimativas de quanto o seu investimento pode evoluir,
+            baseadas no histórico de rendimentos dos fundos da carteira
+            recomendada.
+          </Text>
+        </S.InformationPopoverContainer>
+      }
     >
       {predictions === null ? (
         <S.LoadingStyled

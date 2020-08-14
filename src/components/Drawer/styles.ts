@@ -63,7 +63,9 @@ export const DrawerTitle = styled(Text).attrs(() => ({
 interface IDrawerContentProps {
   isOpen: boolean
   positionDrawer: string
+  size?: 'md' | 'sm' | 'lg'
 }
+
 export const DrawerContent = styled.div<IDrawerContentProps>`
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.gray4};
@@ -75,7 +77,16 @@ export const DrawerContent = styled.div<IDrawerContentProps>`
   padding: 10px 14px 0 14px;
   position: fixed;
   transition: all ease 0.5s;
-  max-width: 650px;
+  max-width: ${({ size }) => {
+    switch (size) {
+      case 'sm':
+        return '392px'
+      case 'md':
+        return '418px'
+      default:
+        return '658px'
+    }
+  }};
   top: 0;
   ${props => ({
     [props.positionDrawer]: props.isOpen ? '0' : 'calc(-100% - 7px)',

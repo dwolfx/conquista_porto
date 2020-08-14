@@ -65,3 +65,7 @@ export const Warning = styled(HorizontalList)`
     margin-right: 0;
   }
 `
+
+export const InformationPopoverContainer = styled.div`
+  width: 282px;
+`

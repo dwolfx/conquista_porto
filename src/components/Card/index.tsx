@@ -19,7 +19,7 @@ import {
 interface IProps {
   headerIcon?: keyof typeof dict
   headerIconInfo?: boolean
-  headerIconInfoMsg?: string
+  headerIconInfoMsg?: string | React.ReactNode
   headerIconInfoClick?: () => void
   headerTitle?: string | React.ReactNode
   footer?: React.ReactNode

@@ -32,14 +32,14 @@ export const WrapperContent = styled.div<IWrapper>`
 
 export const InfoTableContent = styled.div`
   margin: auto;
-  width: 428px;
+  width: 458px;
   height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  padding: 0 35px;
+  padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(5)}px`};
   white-space: pre-line;
   text-align: center;
 `
@@ -218,7 +218,7 @@ export const TbodyTr = styled.div<ITbodyTr>`
   display: flex;
   font-weight: normal;
   cursor: ${({ hasClickOnRow }) => (hasClickOnRow ? 'pointer' : 'default')};
-  padding: 3px 0 3px 3px;
+  padding: 0;
   width: 100%;
 
   &:hover {
@@ -234,6 +234,7 @@ interface ITbodyTd {
   align: string
   minWidth?: string | number | undefined
   width?: string | number | undefined
+  inheritMarginFirstCell: boolean
 }
 
 export const TbodyTd = styled.div<ITbodyTd>`
@@ -241,7 +242,6 @@ export const TbodyTd = styled.div<ITbodyTd>`
   display: flex;
   font-size: 14px;
   justify-content: ${props => props.align || 'center'};
-  padding: 0;
   margin-left: ${({ theme }) => theme.spacing(3)}px;
   min-width: ${props => {
     if (props.minWidth) {
@@ -263,10 +263,11 @@ export const TbodyTd = styled.div<ITbodyTd>`
   &:last-child {
     /* margin-right: ${({ theme }) => theme.spacing(2)}px; */
     padding-right: ${({ theme }) => theme.spacing(1)}px;
-    padding-left: ${({ theme }) => theme.spacing(2)}px;
+    padding-left: ${({ theme }) => theme.spacing(1)}px;
   }
   &:first-child {
-    margin-left: 0px;
+    margin-left: ${({ inheritMarginFirstCell }) =>
+      inheritMarginFirstCell ? '21px' : 0};
   }
 `
 

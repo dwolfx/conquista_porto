@@ -91,6 +91,7 @@ const Recommendation = ({
     })
   }, [answer, suitabilityData])
 
+  // render wallet composition layer
   if (isEditingWallet) {
     return (
       <s.GridRecommendation>
@@ -99,6 +100,7 @@ const Recommendation = ({
     )
   }
 
+  // render edit suggestions layer
   if (isEditingSuggestion && suggestion_goal) {
     return (
       <s.GridRecommendation>
@@ -118,6 +120,7 @@ const Recommendation = ({
     )
   }
 
+  // render recommendations layer
   return (
     <s.GridRecommendation>
       <EditDrawer

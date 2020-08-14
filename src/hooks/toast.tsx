@@ -6,7 +6,7 @@ export interface IToast {
   id: string
   type: 'success' | 'error'
   title: string
-  description: string
+  description?: string
 }
 
 interface ToastContextData {

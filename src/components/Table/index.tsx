@@ -3,9 +3,8 @@ import { useTable, useSortBy } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 
-import Icon from 'components/IconExporter'
-
 import FormatColumns from './formatters'
+import TableHeader from './TableHeader'
 import TableBody from './TableBody'
 import { ITable } from './types'
 import * as s from './styles'
@@ -15,74 +14,11 @@ import * as s from './styles'
  * @author: Hugo Cicarelli <hugo.cicarelli@sciensa.com>
  */
 
-const SimpleHeader = ({ header }: any) => {
-  const headerContent = header.render('Header')
-  const styles = header.styles ? header.styles.header || header.styles : header
-
-  return (
-    <s.TheadTh
-      width={styles.width}
-      minWidth={styles.minWidth}
-      canSort={header.canSort}
-      {...header.getHeaderProps(header.getSortByToggleProps())}
-    >
-      <s.TheadContent
-        justifyHeader={header.justifyHeader}
-        data-gtm-type="click"
-        data-gtm-clicktype="menu"
-        data-gtm-subname="menu de ordenação dos fundos"
-        data-gtm-name={headerContent}
-      >
-        {headerContent && (
-          <>
-            <s.TheadText type="subheading" color="gray6" bold>
-              {headerContent}
-            </s.TheadText>
-            <s.IconContainer
-              isSorted={header.isSorted}
-              isSortedDesc={header.isSortedDesc}
-            >
-              <Icon name="arrowsortable" color="gray4" />
-            </s.IconContainer>
-          </>
-        )}
-      </s.TheadContent>
-    </s.TheadTh>
-  )
-}
-
-const HeaderWithColumns = ({ header }: any) => (
-  <s.TheadThWithColumns width={header.width}>
-    {header.Header}
-    <s.TheadContent>
-      {header.columns.map((headerColumn: any) => (
-        <s.TheadColumn
-          data-gtm-type="click"
-          data-gtm-clicktype="menu"
-          data-gtm-subname="menu de ordenação dos fundos"
-          data-gtm-name={headerColumn.render('Header')}
-          width={headerColumn.width}
-          key={`inner-header-${headerColumn.Header}`}
-          {...headerColumn.getHeaderProps(headerColumn.getSortByToggleProps())}
-        >
-          <s.TheadText>{headerColumn.render('Header')}</s.TheadText>
-        </s.TheadColumn>
-      ))}
-    </s.TheadContent>
-  </s.TheadThWithColumns>
-)
-
-const TheadWrapper = ({ header }: any) =>
-  'columns' in header ? (
-    <HeaderWithColumns header={header} />
-  ) : (
-    <SimpleHeader header={header} />
-  )
-
 const Table = ({
   columns: columnsProps,
   data,
-  isError = false,
+  hasError = false,
+  errorMessage = 'Não foi possível carregar suas informações da tabela.',
   isFiltering = false,
   isLoading = false,
   isSticky = false,
@@ -173,7 +109,7 @@ const Table = ({
           <s.Thead className="header">
             <s.TheadTr>
               {columns.map(header => (
-                <TheadWrapper
+                <TableHeader
                   key={`header-with-column-${header.Header}`}
                   header={header}
                 />
@@ -185,7 +121,8 @@ const Table = ({
               rows={rows}
               isLoading={isLoading}
               prepareRow={prepareRow}
-              isError={isError}
+              hasError={hasError}
+              errorMessage={errorMessage}
               isFiltering={isFiltering}
               onRowClick={onRowClick}
             />

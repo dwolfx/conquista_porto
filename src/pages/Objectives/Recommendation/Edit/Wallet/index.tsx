@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Container, Row, Col } from 'styled-bootstrap-grid'
+import { Row, Col } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
 
 import Button from 'components/Button'
+import ButtonLink from 'components/Button/Link'
 import Card from 'components/Card'
 import Text from 'components/Text'
 
+import { useToast } from 'hooks/toast'
+
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
 import PercentualInfos from 'pages/Objectives/Recommendation/components/PercentualInfo'
-import ResultPredictionCard from 'pages/Objectives/Recommendation/Edit/ResultPredictionCard'
+import ResultPredictionCard from 'pages/Objectives/Recommendation/Edit/Wallet/ResultPredictionCard'
 import { IFunds } from 'store/modules/Objective/types'
 
+import RemovedFundsDrawer from './RemovedFundsDrawer'
 import { columns } from './constants'
 import * as s from './styles'
 
@@ -25,8 +30,13 @@ interface IProps {
 }
 
 export default function WalletComposition({ onClose }: IProps) {
+  const { addToast } = useToast()
+
   const [funds, setFunds] = useState<IFunds[] | []>([])
   const [removedFunds, setRemovedFunds] = useState<IFunds[] | []>([])
+  const [isRemovedFundsDrawerOpen, setIsRemovedFundsDrawerOpen] = useState(
+    false
+  )
 
   const { data: recommendationData } = useSelector<any, any>(
     state => state.objective
@@ -68,13 +78,18 @@ export default function WalletComposition({ onClose }: IProps) {
       currentFunds.filter(fund => fund.fund_id !== fundId)
     )
     setRemovedFunds(currentRemoved => [...currentRemoved, ...fundRemoved])
+
+    addToast({
+      type: 'error',
+      title: 'Fundo removido com sucesso!',
+    })
   }
 
   const columnsToRender = columns(handleInputsChange, removeAction)
 
   return (
     <>
-      <Container>
+      <s.Container>
         <Row>
           <Col>
             <InformativeHeader answer={recommendationData.answer} />
@@ -98,13 +113,33 @@ export default function WalletComposition({ onClose }: IProps) {
                 data={funds}
                 isLoading={false}
               />
+
+              <Row
+                alignItems="center"
+                justifyContent="between"
+                css={`
+                  margin-top: 14px;
+                `}
+              >
+                <Col auto>
+                  <ButtonLink
+                    noIconPadding
+                    onClick={() => setIsRemovedFundsDrawerOpen(true)}
+                  >
+                    Fundos recomendados removidos
+                  </ButtonLink>
+                </Col>
+
+                <Col auto>
+                  <Button outline>Lista de fundos</Button>
+                </Col>
+              </Row>
             </Card>
           </Col>
         </Row>
-      </Container>
-
+      </s.Container>
       <s.Footer>
-        <Container>
+        <s.Container>
           <Row justifyContent="end">
             <Col auto>
               <Button outline onClick={onClose}>
@@ -113,8 +148,32 @@ export default function WalletComposition({ onClose }: IProps) {
               <Button color="secondary">Salvar</Button>
             </Col>
           </Row>
-        </Container>
+        </s.Container>
       </s.Footer>
+
+      <RemovedFundsDrawer
+        removedFunds={removedFunds}
+        restoreFunds={restoredIds => {
+          setFunds(currentFunds => {
+            const restoredFunds = removedFunds.filter(fund =>
+              restoredIds.includes(fund.fund_id)
+            )
+
+            return [...currentFunds, ...restoredFunds]
+          })
+          setRemovedFunds(currentRemoved =>
+            currentRemoved.filter(fund => !restoredIds.includes(fund.fund_id))
+          )
+
+          setIsRemovedFundsDrawerOpen(false)
+          addToast({
+            type: 'success',
+            title: 'Fundos adicionados com sucesso!',
+          })
+        }}
+        isOpen={isRemovedFundsDrawerOpen}
+        setIsOpen={setIsRemovedFundsDrawerOpen}
+      />
     </>
   )
 }

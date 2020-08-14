@@ -2227,10 +2227,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-table@^7.0.16":
-  version "7.0.16"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.16.tgz#3db6518fe07d79c58213e2b959983b353ba59457"
-  integrity sha512-SDFRUnWWN16rL/N1bpV4GKp4EAoulmrHbHoWCNUldrqVBYI9m9o+sYqNPP2E5NVUW7HQJf15rHKFN13F6v49Uw==
+"@types/react-table@^7.0.22":
+  version "7.0.22"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.22.tgz#5dd97d7c2b1978338ed3f3f634da0d5b0362998d"
+  integrity sha512-RAzjB7Udv23QPuIuNNRn8VBldmcFobqpNqLWXh0FXVVyIye76muzfn01WZdcTIEfmQjHts7bjJSQQVabLQgTcA==
   dependencies:
     "@types/react" "*"
 

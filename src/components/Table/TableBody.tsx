@@ -10,7 +10,8 @@ import * as s from './styles'
 
 const TableBody = ({
   isLoading,
-  isError,
+  hasError,
+  errorMessage,
   rows,
   prepareRow,
   onError,
@@ -30,7 +31,7 @@ const TableBody = ({
     )
   }
 
-  if (isError) {
+  if (hasError) {
     return (
       <s.InfoTableContent>
         <div>
@@ -41,8 +42,7 @@ const TableBody = ({
               margin-bottom: 14px;
             `}
           >
-            Não foi possível carregar suas informações de fundos de
-            investimentos.
+            ${errorMessage}
           </Text>
           <Button onClick={onError}>Tentar novamente</Button>
         </div>
@@ -84,6 +84,7 @@ const TableBody = ({
                   width={styles.width}
                   minWidth={styles.minWidth}
                   align={cell.column.align}
+                  inheritMarginFirstCell={styles.inheritMarginFirstCell}
                   {...cell.getCellProps()}
                 >
                   {cell.render('Cell')}

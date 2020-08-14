@@ -5,13 +5,8 @@ import Card from 'components/Card'
 import Popover from 'components/Popover/index'
 
 import { formatMoney } from 'helpers'
+import { IIncome } from 'store/modules/Objective/types'
 import * as s from './styles'
-
-interface IIncome {
-  pessimistic: number
-  median: number
-  optimistic: number
-}
 
 interface ICardProps {
   answerTargetValue: number

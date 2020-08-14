@@ -6031,16 +6031,7 @@
     "cod_org": "040",
     "cod_prog": "001"
   },
-  "goal_recommendations": {
-    "goal_type": "1",
-    "profile": 3,
-    "uf": "SP",
-    "nickname": "Viagem",
-    "target_date": "13/01/2021",
-    "target_value": "1.111,11",
-    "initial_value": "1.111,11",
-    "monthly_value": "111,11"
-  },
+  "goal_recommendations": {},
   "goal_management": {
     "id": "89",
     "answer": {

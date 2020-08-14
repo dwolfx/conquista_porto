@@ -13,20 +13,21 @@ import {
 } from './styles'
 
 interface IProps {
-  header?: React.ReactNode
+  drawerTitle?: string
   footer?: React.ReactNode
   handleClose?: () => any
-  isOpen: boolean
-  drawerTitle?: string
-  positionDrawer?: string
+  header?: React.ReactNode
   isLoading?: boolean
+  isOpen: boolean
+  positionDrawer?: string
+  size?: 'sm' | 'md' | 'lg'
 }
 
 const Drawer: React.FC<IProps> = ({
   children,
-  header,
   footer,
   handleClose,
+  header,
   isOpen,
   drawerTitle,
   positionDrawer = 'right',
