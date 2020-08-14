@@ -3,6 +3,7 @@ import { Row } from 'styled-bootstrap-grid'
 
 import PopoverComp from 'components/Popover'
 import Text from 'components/Text'
+import ModalFundosCmp from './ModalFundos'
 import { fundRiskColors } from 'styles/theme'
 
 const riskColorsMap = {
@@ -88,3 +89,5 @@ export const InlineContentText = styled.span`
 export const TextUnderlined = styled(Text)`
   text-decoration: underline;
 `
+
+export const ModalFundos = styled(ModalFundosCmp)``

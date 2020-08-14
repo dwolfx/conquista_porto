@@ -50,6 +50,7 @@ const FormWithdraw = React.forwardRef<HTMLInputElement, IFormWithdraw>(
           data-gtm-name="quanto retirar"
           value={formData.withdrawValue}
           placeholder="0,00"
+          role="textbox"
           onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
             onChangeFormData({
               ...formData,

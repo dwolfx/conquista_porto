@@ -19,7 +19,7 @@ import SummaryFinancialContribution from './SummaryFinancialContribution'
 import SuccessCard from './EndOfApplicationFlow/SuccessCard'
 import ErrorCard from './EndOfApplicationFlow/ErrorCard'
 
-import { formatMoneyDecimal, formatLocaleStringToNumber } from 'helpers'
+import { formatLocaleStringToNumber } from 'helpers'
 
 import {
   Anbima,
@@ -87,7 +87,6 @@ const LayerInvestment: React.FC<IProps> = ({
   const {
     funds,
     financialApplicationData,
-    financialApplicationFundData,
     alignmentTermsIsLoading,
   } = useSelector((state: any) => ({
     funds: state.investmentsList,
@@ -102,17 +101,9 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const loadFormData = useCallback(
     (prevState: any): any => {
-      const selectedFund = funds.data.find(
-        (fund: any) => fund.id_carteira === selectedFundId
-      )
-
       return {
         ...prevState,
-        moneyToInvest: isAwareOfTerms
-          ? formatMoneyDecimal(
-              Number(financialApplicationFundData.aplicacao_minima * 100)
-            )
-          : formatMoneyDecimal(Number(selectedFund.minimo_inicial * 100)),
+        moneyToInvest: '0,00',
         whenToInvest: moment(
           financialApplicationData.dados_para_aplicacao.data_operacao
         ).format('DD/MM/YYYY'),
@@ -120,13 +111,7 @@ const LayerInvestment: React.FC<IProps> = ({
         updated: true,
       }
     },
-    [
-      funds.data,
-      selectedFundId,
-      isAwareOfTerms,
-      financialApplicationData,
-      financialApplicationFundData,
-    ]
+    [isAwareOfTerms, financialApplicationData]
   )
 
   useEffect(() => {

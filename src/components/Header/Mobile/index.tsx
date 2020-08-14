@@ -39,10 +39,10 @@ export default function Mobile({
 
   useEffect(() => {
     const html = document.querySelector('html')
-    html?.classList.add('noOverflow')
+    html && html.classList.add('noOverflow')
 
     return () => {
-      html?.classList.remove('noOverflow')
+      html && html.classList.remove('noOverflow')
     }
   }, [])
 

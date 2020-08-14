@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
   },
 })
 
-function* postLogin({ credentials: { username, password } }) {
+export function* postLogin({ credentials: { username, password } }) {
   try {
     const loginUrl = process.env.REACT_APP_BASE_URL_AUTH2
     const clientId = process.env.REACT_APP_CLIENT_ID
@@ -44,7 +44,7 @@ function* postLogin({ credentials: { username, password } }) {
   }
 }
 
-function* postLogout() {
+export function* postLogout() {
   const logoutUrl = process.env.REACT_APP_BASE_URL_LOGOUT
 
   removeAuthCookie()

@@ -35,7 +35,7 @@ export const ItemWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: ${props => props.padding && props.padding};
+  padding: ${props => props.padding};
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
 
   &&:hover {
@@ -65,7 +65,7 @@ export const ItemText = styled(TextComponent).attrs(props => ({
   type: props.name,
 }))`
   fill: ${props => props.theme.colors[props.color]};
-  margin: ${props => props.margin && props.margin};
+  margin: ${props => props.margin};
 `
 export const Button = styled(ButtonComponent)`
   width: 100%;

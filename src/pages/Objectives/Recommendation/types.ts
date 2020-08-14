@@ -42,34 +42,98 @@ export interface IFundTotalIncome {
   [key: number]: number
 }
 
+// export interface IFund {
+//   adm_tax: number
+//   benchmark: string
+//   category_name: string
+//   classification: string
+//   cnpj: string
+//   financial_apply_days: string
+//   financial_rescue_days: string
+//   fund_id: number
+//   initial_date: string
+//   initial_value: number
+//   iof: string
+//   manager: string
+//   min_balance: number
+//   min_initial_value: number
+//   min_movement: number
+//   min_value_to_apply: number
+//   monthly_value: number
+//   name: string
+//   performance_rate: number
+//   pl: number
+//   pl_last_year: number
+//   profitability: any
+//   quotation_apply_days: string
+//   quotation_rescue_days: string
+//   time_limit: string
+//   tribute_ir: any
+//   url_fund_rules_pdf: string
+//   url_performance_info_pdf: string
+//   'wsdls/profile': 1 | 2 | 3 | 4 | 5
+// }
+
 export interface IFund {
-  adm_tax: number
-  benchmark: string
-  category_name: string
-  classification: string
-  cnpj: string
-  financial_apply_days: string
-  financial_rescue_days: string
   fund_id: number
-  initial_date: string
-  initial_value: number
-  iof: string
-  manager: string
-  min_balance: number
-  min_initial_value: number
-  min_movement: number
-  min_value_to_apply: number
-  monthly_value: number
   name: string
-  performance_rate: number
-  pl: number
-  pl_last_year: number
-  profitability: any
+  nickname: string
+  company_name: string
+  profile_risk: string
+  share_holder_profile_risk: 1 | 2 | 3 | 4 | 5
+  initial_date: string
+  manager: string
+  min_initial_value: number
+  min_value_to_apply: number
+  release_to_apply: boolean
+  min_rescue: number
+  release_to_rescue: boolean
+  min_balance: boolean
+  time_limit_to_apply: string
+  time_limit_to_rescue: string
   quotation_apply_days: string
+  financial_apply_days: string
   quotation_rescue_days: string
-  time_limit: string
-  tribute_ir: any
-  url_fund_rules_pdf: string
+  financial_rescue_days: string
+  count_rescue_days: string
+  arena_category: string
+  ambima_category: string
+  adm_tax: number
+  performance_rate: number
+  classification: string
+  tribute_ir: {
+    [key: string]: number
+  }
+  iof: string
+  benchmark: string
+  profitability: [
+    {
+      name: string
+      value: {
+        [key in '1' | '2' | '3' | '4' | '5']: number
+      }
+    },
+    {
+      name: string
+      value: {
+        [key in '1' | '2' | '3' | '4' | '5']: number
+      }
+    },
+    {
+      name: string
+      value: {
+        [key in '1' | '2' | '3' | '4' | '5']: number
+      }
+    }
+  ]
   url_performance_info_pdf: string
-  'wsdls/profile': 1 | 2 | 3 | 4 | 5
+  url_lamina_pdf: string
+  url_fund_rules_pdf: string
+  url_fund_adhesion_pdf: string
+  url_manager_logo: string
+  is_fund_active: boolean
+  quota_type: string
+  initial_value: number
+  monthly_value: number
+  annual_rate: number
 }

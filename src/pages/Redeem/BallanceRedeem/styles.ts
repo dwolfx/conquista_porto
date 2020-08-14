@@ -91,10 +91,10 @@ export const InformationsWrapper = styled.div`
 `
 
 export const ButtonStyled = styled(ButtonComponent)`
-  padding: 10px ${({ theme }) => theme.spacing(4)}px;
-  margin-left: ${({ theme }) => theme.spacing(3)}px;
-  display: flex;
   align-items: center;
+  display: flex;
+  margin-left: ${({ theme }) => theme.spacing(3)}px;
+  padding: 0 ${({ theme }) => theme.spacing(4)}px;
 
   @media ${props => props.theme.mediaQueries.sm} {
     margin: ${({ theme }) => theme.spacing(2)}px 0;

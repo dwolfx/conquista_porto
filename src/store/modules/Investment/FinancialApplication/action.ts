@@ -56,3 +56,10 @@ export function PostFinancialApplicationDataFailure({ message }: IError) {
     message,
   }
 }
+
+export function UpdateAdhesionTerm(payload: boolean) {
+  return {
+    type: Types.UPDATE_ADHESION_TERM,
+    payload,
+  }
+}

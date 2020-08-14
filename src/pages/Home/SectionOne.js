@@ -4,6 +4,7 @@ import 'styled-components/macro'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { uuid } from 'uuidv4'
 import Divisor from 'components/Divisor'
 
 import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
@@ -206,11 +207,7 @@ const formatResult = (func1, func2) => array => func1(func2(array))
 
 const insertDivisor = array =>
   array
-    .map((x, i) =>
-      i < array.length - 1
-        ? [x, <Divisor key={`divisor-${Math.random()}`} />]
-        : x
-    )
+    .map((x, i) => (i < array.length - 1 ? [x, <Divisor key={uuid()} />] : x))
     .flatMap(x => x)
 
 const sortArray = array =>

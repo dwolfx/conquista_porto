@@ -11,7 +11,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: ${props => props.margin && props.margin};
+  margin: ${props => props.margin};
   cursor: pointer;
 `
 

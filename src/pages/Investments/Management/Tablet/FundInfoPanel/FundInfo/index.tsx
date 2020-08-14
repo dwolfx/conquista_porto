@@ -71,22 +71,8 @@ export const months = [
   },
 ]
 
-interface IRiskMap {
-  [key: number]: string
-}
-
 interface IValidProps {
   isValid: boolean
-}
-
-interface ITributacao {
-  tipo: string
-  valor: string
-}
-
-interface IBalance {
-  valorsaldo: string
-  data: string
 }
 
 interface IFundInformationProps {

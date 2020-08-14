@@ -6,7 +6,7 @@ import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 
 import { formatMoney } from 'helpers'
-import { GetWithdrawSummaryRequest } from 'store/modules/Withdraw/actions'
+import { GetWithdrawSummaryRequest } from 'store/modules/Withdraw/action'
 
 import { IBank } from 'store/modules/Withdraw/types'
 

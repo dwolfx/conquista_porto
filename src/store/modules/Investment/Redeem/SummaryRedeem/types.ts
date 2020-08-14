@@ -12,7 +12,8 @@ export interface IGetRedeemSummaryRequest {
   id_fundo: number
   data_operacao: string
   valor: string
-  onErrorToast: (toast: Omit<IToast, 'id'>) => void
+  tipo_operacao: string
+  onErrorToast: ((toast: Omit<IToast, 'id'>) => void) | null
 }
 
 export interface IGetRedeemSummaryRequestData {

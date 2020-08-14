@@ -33,6 +33,7 @@ const ProfitabilityMock: IComparativeProfitability = {
     rel_fundo_benchmark_dia: '-',
     rentabil_mes_anteiror: '-0.71',
     rel_fundo_benchmark_24_meses: '105.04',
+    rel_fundo_benchmark_mes_ant: '105.04',
     rel_fundo_benchmark_ano: '-',
     rentabil_24_meses: '12.75',
     rel_fundo_benchmark_36_meses: '117.24',
@@ -50,7 +51,9 @@ const renderWithProviders = (customStore?: any) => {
 }
 
 const setup = (children: React.ReactElement) => {
-  return renderWithReduxAndTheme(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
+  return renderWithReduxAndTheme(
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  )
 }
 
 describe('ProfitabilityTable', () => {
@@ -65,7 +68,7 @@ describe('ProfitabilityTable', () => {
   test('Without Props', () => {
     const { queryByText } = setup(<ProfitabilityTable />)
 
-    expect(queryByText('1,02%')).toBe(null)
-    expect(queryByText('-3,01%')).toBe(null)
+    expect(queryByText('1,02')).toBe(null)
+    expect(queryByText('-3,01')).toBe(null)
   })
 })

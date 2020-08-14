@@ -12,6 +12,7 @@ interface IProps {
   maxLength?: number
   placeholder?: string
   error?: boolean | { icon: keyof typeof dict; message: string }
+  disabled?: boolean
 }
 
 const MoneyInput = forwardRef<

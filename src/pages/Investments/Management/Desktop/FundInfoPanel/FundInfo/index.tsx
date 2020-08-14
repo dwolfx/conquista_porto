@@ -25,6 +25,8 @@ import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import { formatMoney } from 'helpers'
 import { RISK_FILTER_TYPES } from '../../../types'
 
+import { IFund } from 'store/modules/Investment/Position/iPositions'
+
 import {
   VerticalListStyled,
   AccordionContent,
@@ -82,26 +84,7 @@ interface IBalance {
 
 interface IFundInformationProps {
   onChangeModalSuitabilityInfo: (data: IModalProps) => void
-  position: {
-    fundo: string
-    id_cotista: string
-    categoria_arena: string
-    perfil_risco: string
-    perfil_risco_ordem: number
-    aplicao_minima: number
-    aplicao_liberada: boolean
-    aplicacao_cotizacao?: string
-    contagem_dias_resgate: string
-    id: number
-    nome_gestor: string
-    saldo_bruto?: string
-    valor_ir: string
-    valor_iof: string
-    saldo_liquido: string
-    data_historico_formatada: string
-    resgate_liberado: boolean
-    resgate_cotizacao: string
-  }
+  position: IFund
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
   setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void

@@ -1,5 +1,4 @@
 import { Types } from './types'
-import IPosition from './iPositions'
 
 export function GetPositionDataRequest() {
   return {
@@ -7,7 +6,7 @@ export function GetPositionDataRequest() {
   }
 }
 
-export function GetPositionDataSuccess(payload: IPosition) {
+export function GetPositionDataSuccess(payload: any) {
   return {
     type: Types.POSITION_GET_DATA_SUCCESS,
     payload,
@@ -27,7 +26,7 @@ export function DisplayInformation(displayInformation: boolean) {
   }
 }
 
-export function SetIdFund(idFund: number) {
+export function SetIdFund(idFund: string | number) {
   return {
     type: Types.SET_ID_FUND,
     idFund,

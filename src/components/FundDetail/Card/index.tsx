@@ -46,7 +46,7 @@ interface iRootState {
 
 interface IProps {
   handleFundDetailOpen?: () => void
-  selectedFundId?: number
+  selectedFundId: number
   isRedeem?: boolean
 }
 

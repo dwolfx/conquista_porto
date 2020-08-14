@@ -89,7 +89,7 @@ export default function ManagementConsortiumVehicle() {
                     active={selectedConsortiumVehicle === item.Id}
                     onClick={() => {
                       setSelectedConsortiumVehicle(item.Id)
-                      scrollPage(`consortium-vehicle-top-page`)
+                      scrollPage()
                     }}
                   >
                     <Text

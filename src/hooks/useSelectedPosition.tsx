@@ -4,11 +4,9 @@ import { useSelector } from 'react-redux'
 const useSelectedPosition = () => {
   const [position, setPosition] = useState<any>(null)
 
-  const { investmentPosition } = useSelector(
-    ({ investmentPosition }: any) => ({
-      investmentPosition,
-    })
-  )
+  const { investmentPosition } = useSelector(({ investmentPosition }: any) => ({
+    investmentPosition,
+  }))
 
   useEffect(() => {
     const chosenInvestmentFund = () =>

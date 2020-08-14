@@ -17,11 +17,11 @@ const profitabilityExists = (fund: IFund) =>
 
 const formatFundoInv = (row: IFund) => (
   <s.FundoOutterWrapper>
-    <RiskColorTag borderRisk={row['wsdls/profile']} />
+    <RiskColorTag borderRisk={row.share_holder_profile_risk} />
     <s.FundoWrapper>
       <s.FundoNameWrapper>{row.name}</s.FundoNameWrapper>
       <Text type="caption" color="gray4" bold textAlign="left">
-        {row.category_name}
+        {row.arena_category}
       </Text>
     </s.FundoWrapper>
   </s.FundoOutterWrapper>

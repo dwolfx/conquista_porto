@@ -74,7 +74,7 @@ const SuggestionTag = React.forwardRef<HTMLInputElement, IProps>(
                       target: { name: innerRef!.name, value: innerRef!.value },
                     })
 
-                    innerRef?.focus()
+                    innerRef && innerRef.focus()
                   }}
                 >
                   {labelToDisplay}
