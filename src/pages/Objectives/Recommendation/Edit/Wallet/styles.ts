@@ -30,3 +30,18 @@ export const MoneyInput = styled(MoneyInputCmp)`
   height: 35px;
   ${({ theme }) => theme.fontTypes.body};
 `
+
+export const Footer = styled.div`
+  background-color: ${({ theme }) => theme.colors.white};
+  bottom: 0;
+  left: 0;
+  padding: ${({ theme }) => theme.spacing(1.5)}px 0;
+  position: fixed;
+  width: 100vw;
+
+  button {
+    &:last-of-type {
+      margin-left: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
+`

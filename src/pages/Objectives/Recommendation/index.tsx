@@ -94,7 +94,7 @@ const Recommendation = ({
   if (isEditingWallet) {
     return (
       <s.GridRecommendation>
-        <WalletEdit />
+        <WalletEdit onClose={() => setIsEditingWallet(false)} />
       </s.GridRecommendation>
     )
   }

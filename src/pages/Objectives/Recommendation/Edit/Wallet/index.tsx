@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
+import Button from 'components/Button'
 import Card from 'components/Card'
 import Text from 'components/Text'
 
@@ -19,7 +20,11 @@ interface IInputChange {
   value: number
 }
 
-export default function WalletComposition() {
+interface IProps {
+  onClose: () => void
+}
+
+export default function WalletComposition({ onClose }: IProps) {
   const [funds, setFunds] = useState<IFunds[] | []>([])
   const [removedFunds, setRemovedFunds] = useState<IFunds[] | []>([])
 
@@ -68,29 +73,48 @@ export default function WalletComposition() {
   const columnsToRender = columns(handleInputsChange, removeAction)
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <InformativeHeader answer={recommendationData.answer} />
-        </Col>
-      </Row>
+    <>
+      <Container>
+        <Row>
+          <Col>
+            <InformativeHeader answer={recommendationData.answer} />
+          </Col>
+        </Row>
 
-      <Row>
-        <Col lg={3} md={4}>
-          <ResultPredictionCard />
-        </Col>
-        <Col lg={9}>
-          <Card headerTitle="Minha carteira" headerIcon="financial">
-            <Text type="headline" color="gray6">
-              Você pode adicionar, remover e substituir fundos sugeridos, além
-              de remanejar os investimentos em cada categoria.
-            </Text>
+        <Row>
+          <Col lg={3} md={4}>
+            <ResultPredictionCard />
+          </Col>
+          <Col lg={9}>
+            <Card headerTitle="Minha carteira" headerIcon="financial">
+              <Text type="headline" color="gray6">
+                Você pode adicionar, remover e substituir fundos sugeridos, além
+                de remanejar os investimentos em cada categoria.
+              </Text>
 
-            <PercentualInfos funds={funds} />
-            <s.Table columns={columnsToRender} data={funds} isLoading={false} />
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+              <PercentualInfos funds={funds} />
+              <s.Table
+                columns={columnsToRender}
+                data={funds}
+                isLoading={false}
+              />
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+
+      <s.Footer>
+        <Container>
+          <Row justifyContent="end">
+            <Col auto>
+              <Button outline onClick={onClose}>
+                Cancelar edição
+              </Button>
+              <Button color="secondary">Salvar</Button>
+            </Col>
+          </Row>
+        </Container>
+      </s.Footer>
+    </>
   )
 }
