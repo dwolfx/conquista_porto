@@ -9,7 +9,7 @@ import {
 } from './action'
 import { getSuitabilityInfo, getAuth } from './selectors'
 
-function* getRedeemData({
+export function* getRedeemData({
   payload: { data_operacao, id_fundo, onErrorToast },
 }: IGetRedeemRequestData) {
   const { id_cotista } = yield select(getSuitabilityInfo)
