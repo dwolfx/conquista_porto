@@ -56,9 +56,9 @@ export interface IGetFinancialApplicationDataResponse {
       classificacao: string
       link_termo_adesao: string
       tipo_cota: string
-      aviso_data_fundo: true
-      aplicacao_liberada: true
-      resgate_liberado: false
+      aviso_data_fundo: boolean
+      aplicacao_liberada: boolean
+      resgate_liberado: boolean
     }
     posicao_cotista_fundo: {
       saldo_atual: number
@@ -66,8 +66,8 @@ export interface IGetFinancialApplicationDataResponse {
     }
     id_cotista: number
     saldo_conta: number
-    aderente_fundo: true
-    fechado_aplicacao: false
+    aderente_fundo: boolean
+    fechado_aplicacao: boolean
     data_prevista_cotizacao: string
     data_prevista_liquidacao: string
     data_operacao: string
