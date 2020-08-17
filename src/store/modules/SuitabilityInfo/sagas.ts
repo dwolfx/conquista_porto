@@ -5,7 +5,7 @@ import {
   baseURLNamespaceInvest,
   baseURLNamespaceInvestAws,
 } from 'services/api'
-import { Types } from './types'
+import { Types, IPayload } from './types'
 import { GetDataSuccess, GetDataFailure } from './action'
 import { getSuitabilityInfo, getCustomerProfile } from './selectors'
 import {
@@ -13,18 +13,8 @@ import {
   handleRedeemButton,
   handleWithdrawButton,
 } from './utils'
-import { IToast } from 'hooks/toast'
 
-interface IPayload {
-  type: string
-  payload: {
-    onSuccess: Function
-    buttonType: 'investir' | 'retirar' | 'resgatar'
-    onErrorToast: (toast: Omit<IToast, 'id'>) => void
-  }
-}
-
-function* getData() {
+export function* getData() {
   try {
     const response = yield call(get, `${baseURLNamespaceInvest}/cotista/status`)
 
