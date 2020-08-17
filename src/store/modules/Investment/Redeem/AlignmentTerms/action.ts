@@ -1,16 +1,18 @@
 import { Types, IGetRedeemAlignmentTermsData } from './types'
-import { IGetAlignmentTermsResponse } from '../../FinancialApplication/types'
+import { IGetAlignmentTermsRedeemResponse } from '../../FinancialApplication/types'
 import { IError } from '../types'
 
-export function GetRedeemAlignmentTermsRequest(payload: IGetRedeemAlignmentTermsData) {
+export function GetRedeemAlignmentTermsRequest(
+  payload: IGetRedeemAlignmentTermsData
+) {
   return {
     type: Types.REDEEM_TERMS_DATA_REQUEST,
-    payload
+    payload,
   }
 }
 
 export function GetRedeemAlignmentTermsSuccess(
-  payload: IGetAlignmentTermsResponse
+  payload: IGetAlignmentTermsRedeemResponse
 ) {
   return {
     type: Types.REDEEM_TERMS_DATA_SUCCESS,
