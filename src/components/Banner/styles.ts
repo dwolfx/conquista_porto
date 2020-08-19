@@ -3,6 +3,19 @@ import styled from 'styled-components'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
+const handleHeight = (size: 'sm' | 'md' | 'lg') => {
+  switch (size) {
+    case 'sm':
+      return '208px'
+    case 'md':
+      return '242px'
+    case 'lg':
+      return '280px'
+    default:
+      return '208px'
+  }
+}
+
 interface IBannerWrapper {
   image?: string
 }
@@ -37,7 +50,7 @@ export const BannerTitle = styled(Text).attrs(() => ({
 
 export const BannerContent = styled.div`
   width: 50%;
-  z-index: 1;  
+  z-index: 1;
   color: ${props => props.theme.colors.white};
 
   @media ${({ theme }) => theme.mediaQueries.md} {

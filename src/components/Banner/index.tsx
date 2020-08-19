@@ -49,9 +49,13 @@ const Banner: React.FC<IProps> = ({
       )}
       <BannerWrapper image={bgImage} {...rest}>
         <BannerContent>
-          {typeof title === 'string' ? <BannerTitle>{title}</BannerTitle> : title}
+          {typeof title === 'string' ? (
+            <BannerTitle>{title}</BannerTitle>
+          ) : (
+            title
+          )}
           {children}
-        </BannerContent>    
+        </BannerContent>
       </BannerWrapper>
     </>
   ) : null
