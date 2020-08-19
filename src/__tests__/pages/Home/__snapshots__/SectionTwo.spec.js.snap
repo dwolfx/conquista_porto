@@ -401,6 +401,10 @@ Array [
   }
 }
 
+@media (max-width:980px) {
+
+}
+
 @media (max-width:1280px) {
   .c2 {
     height: 458px;
@@ -959,6 +963,12 @@ Array [
 
 @media (max-width:980px) {
 
+}
+
+@media (max-width:980px) {
+  .c1 {
+    height: 252px;
+  }
 }
 
 @media (max-width:1280px) {
