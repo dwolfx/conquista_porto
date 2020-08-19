@@ -34,6 +34,7 @@ export default function TripInsurance() {
           )
         }
         image={Banner}
+        imageDescription="Homem sentado no capô do carro"
       />
       <BulletsSection
         title="Por que contratar o Seguro Viagem?"
