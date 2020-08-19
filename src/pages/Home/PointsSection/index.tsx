@@ -348,23 +348,38 @@ export default function PointsSection({ points }: any) {
           </Popover>
           {points && (
             <PointsButtonWrapper>
-              <Button
-                data-gtm-subname="card pontos"
-                data-gtm-name="resgatar"
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                color="secondary"
-                onClick={() =>
-                  dispatch(
-                    PostRecuePointsRequest({
-                      onSuccess: redirectToRescuePointsSystem,
-                      onErrorToast: addToast,
-                    })
-                  )
-                }
+              <Popover
+                content={() => (
+                  <Text
+                    type="body"
+                    color="gray5"
+                    css={`
+                      width: 140px;
+                    `}
+                  >
+                    {`Olá! Em função de algumas novidades que estamos preparando no Programa de Pontos, a função "Resgatar" ficará desativada até a próxima sexta-feira, 21/08/2020.`}
+                  </Text>
+                )}
               >
-                Resgatar
-              </Button>
+                <Button
+                  data-gtm-subname="card pontos"
+                  data-gtm-name="resgatar"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  color="secondary"
+                  disabled
+                  onClick={() =>
+                    dispatch(
+                      PostRecuePointsRequest({
+                        onSuccess: redirectToRescuePointsSystem,
+                        onErrorToast: addToast,
+                      })
+                    )
+                  }
+                >
+                  Resgatar
+                </Button>
+              </Popover>
             </PointsButtonWrapper>
           )}
         </PointsInfo>

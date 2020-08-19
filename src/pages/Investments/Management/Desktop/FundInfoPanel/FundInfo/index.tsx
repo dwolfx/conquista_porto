@@ -310,9 +310,7 @@ const FundInformation = ({
       if ((modalProps as IValidProps).isValid) {
         dispatch(
           GetRedeemRequest({
-            data_operacao: moment(new Date(), 'DD/MM/YYYY').format(
-              'YYYY-MM-DD'
-            ),
+            data_operacao: moment().format('YYYY-MM-DD'),
             id_fundo: idFund,
             onErrorToast: addToast,
           })
