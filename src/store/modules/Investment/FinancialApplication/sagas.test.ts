@@ -1,8 +1,6 @@
 import { call, put, select } from 'redux-saga/effects'
 import { get, post } from 'services/api'
 
-import { getAuth, getSuitabilityInfo } from './selectors'
-
 import { Types } from './types'
 
 import {

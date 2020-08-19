@@ -111,6 +111,15 @@ export interface IGetAlignmentTermsResponse {
   }
 }
 
+export interface IGetAlignmentTermsRedeemResponse {
+  status_enquadramento: string
+  nota_rating_cotista: number
+  nota_rating_carteira: number
+  fundos_desenquadrados: {
+    fundo_desenquadrado: Array<IFund>
+  }
+}
+
 export interface IAlignmentTermsAction {
   type: keyof typeof Types
   payload: IGetAlignmentTermsResponse

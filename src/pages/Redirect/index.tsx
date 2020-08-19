@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { RouteComponentProps } from 'react-router-dom'
 
 import Button from 'components/Button/Link'
 import {
@@ -29,10 +29,10 @@ import {
  *  >Click me</Link>
  */
 
-export default function Redirect({ history }) {
+const Redirect: React.FC<RouteComponentProps> = ({ history }) => {
   const [counter, setCounter] = useState(5)
 
-  const urlToGo = history.location.search.substr(4)
+  const urlToGo = history?.location?.search?.substr(4)
 
   function navigate() {
     if (urlToGo) {
@@ -84,9 +84,4 @@ export default function Redirect({ history }) {
   )
 }
 
-Redirect.propTypes = {
-  history: PropTypes.object,
-}
-Redirect.defaultProps = {
-  history: {},
-}
+export default Redirect
