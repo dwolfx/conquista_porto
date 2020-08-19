@@ -12,6 +12,7 @@ export function* getData({ payload }) {
     const normalizedResponse = yield response.data.categorias
       .flatMap(item => item)
       .reduce((prev, curr) => [...prev, ...curr.fundos], [])
+
     yield put(GetInvestmentListSuccess(normalizedResponse))
     if (payload?.onSuccess) {
       const { onSuccess } = payload

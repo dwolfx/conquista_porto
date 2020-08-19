@@ -78,8 +78,8 @@
   },
   "financial_post": {
     "data": "2020-07-20",
-    "valor": 5000,
-    "id_fundo": 51380107,
+    "valor": 1000,
+    "id_fundo": 51380033,
     "ciencia_desenquadramento": "S",
     "cpf_cnpj": "37282985812",
     "id_cotista": "2000143425"

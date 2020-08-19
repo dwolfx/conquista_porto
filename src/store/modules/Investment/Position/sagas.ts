@@ -7,16 +7,9 @@ import { Types } from './types'
 import { AxiosResponse } from 'axios'
 import { IDistribution, IFund } from './iPositions'
 
-interface IPayload {
-  type: string
-}
-
-function* getData() {
+export function* getData() {
   try {
-    const response = yield call(
-      get,
-      `${baseURLNamespaceAtlas}/cotista/posicao`
-    )
+    const response = yield call(get, `${baseURLNamespaceAtlas}/cotista/posicao`)
 
     let responseData
 
@@ -25,7 +18,10 @@ function* getData() {
     } else {
       responseData = response.data.distribuicoes
         .map((distribution: IDistribution) =>
-          distribution.fundos.map(fundo => ({ categoria: distribution.nome, ...fundo }))
+          distribution.fundos.map(fundo => ({
+            categoria: distribution.nome,
+            ...fundo,
+          }))
         )
         .flatMap((fund: IFund) => fund)
     }
