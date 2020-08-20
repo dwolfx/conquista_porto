@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
+import 'styled-components/macro'
 
 import Menu from 'components/Menu'
 
@@ -21,7 +22,14 @@ import SectionOne from './SectionOne'
 import AdvertisementBanner from './AdvertisementBanner'
 import SectionTwo from './SectionTwo'
 import PointsSection from './PointsSection'
-import { GridContainer, GridRow, GridCol, Wrapper } from './styles'
+import {
+  GridContainer,
+  GridRow,
+  GridCol,
+  Wrapper,
+  SectionRow,
+  BannerRow,
+} from './styles'
 
 const Home = ({ location }) => {
   const dispatch = useDispatch()
@@ -29,6 +37,7 @@ const Home = ({ location }) => {
   const history = useHistory()
   const pointsData = useSelector(state => state.points.data)
 
+  const homeContent = useRef(null)
   const row1 = useRef(null)
   const row2 = useRef(null)
   const row3 = useRef(null)
@@ -83,30 +92,29 @@ const Home = ({ location }) => {
 
   return (
     <GridContainer id="scroll">
-      {/* <ManagerObjective /> */}
       <Wrapper>
-        <GridRow>
-          <GridCol md="1" sm="7" id="menu">
-            <Menu scrollFunc={scrollPage} ref1={row1} ref2={row2} ref3={row3} />
-          </GridCol>
-          <GridCol md="11">
-            <GridRow>
-              <GridCol md="12">
-                <GridRow id="t1" ref={row1}>
-                  <SectionOne onFetchInvestments={handleFetchInvestments} />
-                </GridRow>
-
-                <AdvertisementBanner />
-
-                <GridRow id="t2" ref={row2}>
-                  <SectionTwo onRedirect={onRedirect} />
-                </GridRow>
-                <GridRow id="t3" ref={row3}>
-                  <PointsSection points={pointsData} />
-                </GridRow>
-              </GridCol>
-            </GridRow>
-          </GridCol>
+        <Menu
+          scrollFunc={scrollPage}
+          homeContentRef={homeContent}
+          ref1={row1}
+          ref2={row2}
+          ref3={row3}
+        />
+        <GridRow id="home-content" ref={homeContent}>
+          <SectionRow id="t1" ref={row1}>
+            <SectionOne onFetchInvestments={handleFetchInvestments} />
+          </SectionRow>
+          <BannerRow>
+            <GridCol lg="11" noGutter lgOffset="1" md="12" sm="12" xs="12">
+              <AdvertisementBanner />
+            </GridCol>
+          </BannerRow>
+          <SectionRow id="t2" ref={row2}>
+            <SectionTwo onRedirect={onRedirect} />
+          </SectionRow>
+          <SectionRow id="t3" ref={row3}>
+            <PointsSection points={pointsData} />
+          </SectionRow>
         </GridRow>
       </Wrapper>
     </GridContainer>

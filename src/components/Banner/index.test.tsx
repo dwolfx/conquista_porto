@@ -10,11 +10,9 @@ describe('Banner', () => {
     const { queryByText } = renderWithReduxAndTheme(
       <Banner
         bgImage={theme.colors.gray4}
-        label="Close Button"
+        title="Close Button"
         hasCloseButton={true}
         onClose={() => {}}
-        justify="start"
-        size="sm"
       />
     )
     expect(queryByText('botao fechar')).toBeDefined()
@@ -23,29 +21,11 @@ describe('Banner', () => {
     const { getByText } = renderWithReduxAndTheme(
       <Banner
         bgImage={targetImg}
-        label="Teste Banner"
+        title="Teste Banner"
         hasCloseButton={false}
         onClose={() => {}}
-        justify="start"
-        size="sm"
       />
     )
     expect(getByText('Teste Banner')).toBeDefined()
-  })
-  test('Should render banner style rules with sm media', () => {
-    const { getByTestId } = renderWithReduxAndTheme(
-      <Banner
-        bgImage={targetImg}
-        label="Teste Banner"
-        hasCloseButton={false}
-        onClose={() => {}}
-        justify="start"
-        size="sm"
-        data-testid="banner-wrapper"
-      />
-    )
-    expect(getByTestId('banner-wrapper')).toHaveStyleRule('height', '208px')
-    expect(getByTestId('banner-wrapper')).toHaveStyleRule('max-width', '665px')
-    expect(getByTestId('banner-wrapper')).toHaveStyleRule('padding', '28px')
   })
 })

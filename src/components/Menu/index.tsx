@@ -1,22 +1,43 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect, RefObject } from 'react'
 
 import Icon from 'components/IconExporter'
 import useMedia from 'hooks/useMedia'
 
 import { Container, MenuContainer, Option, OptionName } from './styles'
 
-export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
+interface IMenu {
+  scrollFunc: (type: string) => void
+  homeContentRef: RefObject<HTMLDivElement | null>
+  ref1: RefObject<HTMLDivElement | null>
+  ref2: RefObject<HTMLDivElement | null>
+  ref3: RefObject<HTMLDivElement | null>
+}
+
+const Menu = ({
+  scrollFunc, 
+  homeContentRef, 
+  ref1, 
+  ref2, 
+  ref3
+}: IMenu) => {
   const [selectedOption, setSelectedOption] = useState('produtos')
-  const isMobile = useMedia('md')
+  const [showMenu, setShowMenu] = useState(true)
+  const isMobile = useMedia('lg')
 
   function checkScroll() {
     let row1Pos = null
     let row2Pos = null
     let row3Pos = null
+    let homeMenuPos = null
 
-    if (!!ref1.current && !!ref2.current && !!ref3.current) {
+    if (
+      !!ref1.current &&
+      !!ref2.current &&
+      !!ref3.current &&
+      !!homeContentRef.current
+    ) {
       if (isMobile) {
+        homeMenuPos = homeContentRef.current.getBoundingClientRect().bottom
         row1Pos = ref1.current.getBoundingClientRect().bottom
         row2Pos = ref2.current.getBoundingClientRect().bottom
         row3Pos = ref3.current.getBoundingClientRect().bottom
@@ -27,38 +48,40 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
       }
     }
 
-    if (window.scrollY < row1Pos) {
-      setSelectedOption('produtos')
-    } else if (window.scrollY >= row2Pos && window.scrollY < row3Pos) {
-      setSelectedOption('objetivos')
-    } else if (window.scrollY >= row3Pos) {
-      setSelectedOption('pontos')
+    if (row1Pos && row2Pos && row3Pos) {
+      if (window.scrollY < row1Pos) {
+        setSelectedOption('produtos')
+      } else if (window.scrollY >= row2Pos && window.scrollY < row3Pos) {
+        setSelectedOption('objetivos')
+      } else if (window.scrollY >= row3Pos) {
+        setSelectedOption('pontos')
+      }
+    }
+
+    if (homeMenuPos && homeMenuPos > 500) {
+      setShowMenu(true)
+    } else {
+      setShowMenu(false)
     }
   }
 
   useEffect(() => {
     window.addEventListener('scroll', checkScroll)
-
     return () => {
       window.removeEventListener('scroll', checkScroll)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  function handleClick(id, type) {
-    setSelectedOption(type)
-    scrollFunc(id)
-  }
-
   return (
-    <Container>
+    <Container showMenu={showMenu}>
       <MenuContainer>
         <Option
           data-gtm-type="click"
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="produtos"
           isSelected={selectedOption === 'produtos'}
-          onClick={() => handleClick('t1', 'produtos')}
+          onClick={() => scrollFunc('t1')}
         >
           <Icon name="apps" />
           <OptionName>Produtos</OptionName>
@@ -68,7 +91,7 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="objetivos"
           isSelected={selectedOption === 'objetivos'}
-          onClick={() => handleClick('t2', 'objetivos')}
+          onClick={() => scrollFunc('t2')}
         >
           <Icon name="target" />
           <OptionName>Objetivos</OptionName>
@@ -78,7 +101,7 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="pontos"
           isSelected={selectedOption === 'pontos'}
-          onClick={() => handleClick('t3', 'pontos')}
+          onClick={() => scrollFunc('t3')}
         >
           <Icon name="diamond" />
           <OptionName>Pontos</OptionName>
@@ -88,9 +111,4 @@ export default function Menu({ scrollFunc, ref1, ref2, ref3 }) {
   )
 }
 
-Menu.propTypes = {
-  scrollFunc: PropTypes.func.isRequired,
-  ref1: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-  ref2: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-  ref3: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-}
+export default Menu

@@ -11,12 +11,13 @@ import Text from 'components/Text'
 import useSelectedPosition from 'hooks/useSelectedPosition'
 import useMedia from 'hooks/useMedia'
 
-import FinancialApplication from '../../FinancialApplication'
+import CardHeaderTitle from '../components/CardHeaderTitle'
 import ChartPosition from '../components/ChartPosition'
 import InvestedFundsList from '../components/InvestedFundsList'
 import InvestorAccount from '../components/InvestorAccount'
-import LastTransations from '../components/LastTransactions'
 import InvestorAccountMobile from './InvestorAccountMobile'
+import FinancialApplication from '../../FinancialApplication'
+import LastTransations from '../components/LastTransactions'
 import { IModalProps, TFundsLayout } from '../types'
 
 import FundInfoPanel from './FundInfoPanel'
@@ -93,14 +94,6 @@ const Tablet: React.FC<IProps> = ({
     setIsFundDetailOpen(true)
   }
 
-  const getFundTitle = () => {
-    if (isLoading || hasError) {
-      return null
-    }
-    // colocar aqui o campo "apelido no lugar de fundo"
-    return position && position.fundo
-  }
-
   const handleFundDetailClose = () => {
     setIsFundDetailOpen(false)
   }
@@ -122,10 +115,12 @@ const Tablet: React.FC<IProps> = ({
             onHandleChangeView={onHandleChangeView}
           />
           <Card
-            headerTitle={getFundTitle()}
-            headerIconInfo={!isLoading}
-            headerIconInfoClick={handleOpenDetailFund}
-            headerIconInfoMsg="Mais informações"
+            headerTitle={
+              <CardHeaderTitle
+                headerTitle={position?.fundo?.apelido}
+                onHandleClick={handleOpenDetailFund}
+              />
+            }
           >
             <FundInfoPanel
               onChangeModalSuitabilityInfo={setModalSuitabilityInfo}

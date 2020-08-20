@@ -18,6 +18,16 @@ const defaultStore = {
   },
 }
 
+const createRootContainer = () => {
+  let container = document.getElementById('root')
+  if (!container) {
+    container = document.createElement('div')
+    container.setAttribute('id', 'root')
+    document.body.appendChild(container)
+  }
+  return container
+}
+
 const setup = (initialState: any = defaultStore) => {
   const store = storeFactory(initialState)
 
@@ -26,13 +36,16 @@ const setup = (initialState: any = defaultStore) => {
       onPrevious={() => {}}
       onConfirm={() => {}}
       onError={() => null}
+      isNextButtonLoading={false}
     />,
-    { store }
+    { store, container: createRootContainer() }
   )
 }
 
 describe('DigitalSignature', () => {
   it('should render with 5 buttons', () => {
+    const store = storeFactory(defaultStore)
+
     const { getByText } = setup()
     defaultStore.virtualKeyboard.data.forEach((item: any) => {
       const [key] = Object.keys(item)

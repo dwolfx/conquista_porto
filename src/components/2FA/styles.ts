@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ButtonCmp from 'components/Button'
 import CardUnstyled from 'components/Card'
 import NewInput from 'components/NewInput'
+import Link from 'components/Button/Link'
 
 export const Container = styled.div`
   flex: 1;
@@ -91,4 +92,23 @@ export const InputStyled = styled(NewInput)`
 
 export const Button = styled(ButtonCmp)`
   min-width: 112px;
+`
+
+export const ContainerNewSignature = styled.div`
+  display: flex;
+  margin-top: ${props => props.theme.spacing(3)}px;
+  @media ${props => props.theme.mediaQueries.sm} {
+    flex-direction: column;
+  }
+`
+export const ButtonNewSignature = styled(Link)`
+  margin-left: ${props => props.theme.spacing(3)}px;
+`
+
+export const ButtonMobileNewSignature = styled(Button)`
+  margin-top: ${props => props.theme.spacing(1)}px;
+`
+
+export const TextSpace = styled.div`
+  margin-top: ${props => props.theme.spacing(2)}px;
 `

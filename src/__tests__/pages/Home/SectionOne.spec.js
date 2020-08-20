@@ -60,7 +60,7 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => [],
 }))
 
-jest.mock('../../../pages/Home/InvestmentSection', () => ({
+jest.mock('../../../pages/Home/InvestmentCard', () => ({
   __esModule: true,
   default: () => [],
 }))

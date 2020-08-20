@@ -6,15 +6,18 @@ import {
   generateKeyboard,
   validateSignature,
   generateNewSignature,
+  postNewSignature,
 } from './sagas'
 import {
   PostVirtualKeyboardDataSuccess,
   PostVirtualKeyboardDataFailure,
   PutVirtualKeyboardDataSuccess,
   PutVirtualKeyboardDataFailure,
+  SetNewSignatureLoading,
 } from './action'
 
-import { getAuth } from './selectors'
+import { getAuth, getEmailToNewSignature } from './selectors'
+import { IGenerateNewSignaturePayload } from './types'
 
 describe('VirtualKeyboard Sagas', () => {
   describe('generateKeyboard', () => {
@@ -99,6 +102,31 @@ describe('VirtualKeyboard Sagas', () => {
           organizacao: 'CLIENTES',
         })
       )
+    })
+    it('postNewSignature: success triggers success action', () => {
+      const param: IGenerateNewSignaturePayload = {
+        type: 'email_otp',
+        payload: {
+          type: 'email_otp',
+          addToast: () => {},
+          handleModalNewSignatureCloseOrOpen: () => {},
+        },
+      }
+
+      const generator = postNewSignature(param)
+
+      expect(generator.next().value).toEqual(select(getAuth))
+
+      expect(generator.next().value).toEqual(select(getEmailToNewSignature))
+
+      expect(generator.next().value).toEqual(
+        call(post, `${baseURLNamespaceAuth2}/assinatura-eletronica`, {
+          usuario: undefined,
+          organizacao: 'CLIENTES',
+        })
+      )
+
+      expect(generator.next().value).toEqual(put(SetNewSignatureLoading(false)))
     })
   })
 })

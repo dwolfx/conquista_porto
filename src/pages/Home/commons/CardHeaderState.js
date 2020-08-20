@@ -22,6 +22,7 @@ export default function CardHeaderState({
         color="blue4"
         css={`
           cursor: pointer;
+          width: 21px;
         `}
         onClick={() => {
           if (onErrorClick) {

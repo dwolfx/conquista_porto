@@ -3,6 +3,7 @@ import { Types } from './types'
 const INITIAL_STATE = {
   data: null,
   isLoading: false,
+  isLoadingNewSignature: false,
   hasError: false,
 }
 
@@ -30,6 +31,16 @@ export default function(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         isLoading: action.payload,
+      }
+    case Types.POST_NEW_SIGNATURE:
+      return {
+        ...state,
+        isLoadingNewSignature: true,
+      }
+    case Types.SET_LOADING_NEW_SIGNATURE:
+      return {
+        ...state,
+        isLoadingNewSignature: action.payload,
       }
     default:
       return state

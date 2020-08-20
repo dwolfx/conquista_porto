@@ -232,12 +232,6 @@ exports[`Footer snapshot tests Should to render a Footer component 1`] = `
   }
 }
 
-@media (max-width:980px) {
-  .c18 {
-    padding-bottom: 84px;
-  }
-}
-
 @media (max-width:575px) {
   .c4 {
     -ms-flex: 0 0 100%;

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 
-import ObjectiveListContent from '../../../pages/Home/ObjectiveListContent'
+import ObjectiveList from 'pages/Home/ObjectivesList'
 
 const INITIAL_STATE = {
   auth: {
@@ -42,7 +42,12 @@ describe('ObjectiveListContent', () => {
       .create(
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <ObjectiveListContent objectives={INITIAL_STATE.objectives} />
+            <ObjectiveList
+              objectives={INITIAL_STATE.objectives}
+              isLoading={false}
+              hasError={false}
+              onRedirect={() => {}}
+            />
           </ThemeProvider>
         </Provider>
       )

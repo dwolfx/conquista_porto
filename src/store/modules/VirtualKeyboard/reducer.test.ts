@@ -5,6 +5,7 @@ const defaultState = {
   data: null,
   isLoading: false,
   hasError: false,
+  isLoadingNewSignature: false,
 }
 
 describe('VirtualKeyboard Reducer', () => {
@@ -88,11 +89,28 @@ describe('VirtualKeyboard Reducer', () => {
           ...defaultState,
         },
         {
-          type: null
+          type: null,
         }
       )
     ).toEqual({
       ...defaultState,
+    })
+  })
+
+  it('should handle SET_LOADING_NEW_SIGNATURE', () => {
+    expect(
+      reducer(
+        {
+          ...defaultState,
+        },
+        {
+          type: Types.SET_LOADING_NEW_SIGNATURE,
+          payload: true,
+        }
+      )
+    ).toEqual({
+      ...defaultState,
+      isLoadingNewSignature: true,
     })
   })
 })

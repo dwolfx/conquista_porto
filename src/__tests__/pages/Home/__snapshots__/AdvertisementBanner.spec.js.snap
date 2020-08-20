@@ -1,3 +1,266 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdvertisementBanner Renders correctly 1`] = `null`;
+exports[`AdvertisementBanner Renders correctly 1`] = `
+.c5 {
+  color: #FFFFFF;
+  text-align: unset;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 46px;
+}
+
+.c7 {
+  color: unset;
+  text-align: unset;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c3 {
+  background-color: #BABABA;
+  background-image: url(insurance1.png);
+  padding: 42px 28px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.c3:before {
+  content: '';
+  background-color: #272727;
+  left: 0;
+  height: 100%;
+  opacity: 0.56;
+  position: absolute;
+  top: 0%;
+  width: 100%;
+}
+
+.c4 {
+  width: 50%;
+  z-index: 1;
+  color: #FFFFFF;
+}
+
+.c1 {
+  position: absolute;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #EBEBEB;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  right: 28px;
+  top: 0px;
+  cursor: pointer;
+}
+
+.c2 {
+  width: 16px;
+  height: 16px;
+}
+
+.c8 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c8:hover:active {
+  pointer-events: auto;
+}
+
+.c8:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c8:hover:before {
+  width: 100%;
+}
+
+.c8:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c8:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c9 {
+  margin-top: 20px;
+  min-width: unset;
+}
+
+.c0 {
+  margin: 14px 0 42px 14px;
+}
+
+.c6 {
+  margin-bottom: 7px;
+}
+
+@media (max-width:980px) {
+  .c4 {
+    width: 100%;
+  }
+}
+
+@media (max-width:980px) {
+  .c0 {
+    margin: 14px 0 28px 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c0 {
+    margin: 14px 0 14px 14px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    data-gtm-clicktype="button"
+    data-gtm-name="botao fechar"
+    data-gtm-subname="banner"
+    data-gtm-type="click"
+    onClick={[Function]}
+  >
+    <svg
+      aria-label="close"
+      className="c2"
+      role="img"
+    >
+      close.svg
+    </svg>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      <p
+        className="c5 c6"
+        color="white"
+        type="heading3"
+      >
+        Viva hoje
+        <br />
+        Amanhã é com a gente
+      </p>
+      <p
+        className="c7"
+        color="unset"
+        type="body"
+      >
+        O Seguro de Vida é uma maneira de proprorcionar tranquilidade e segurança caso você precise ficar afastado do trabalho. Além de garantir amparo financeiro à sua família na sua ausência.
+      </p>
+      <button
+        className="c8 c9"
+        color="secondary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="c10"
+        >
+          conhecer
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

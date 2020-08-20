@@ -4,7 +4,8 @@ import { useHistory } from 'react-router-dom'
 import Button from 'components/Button/IconText'
 import ListItem from 'components/ListItem'
 import AccordionNew from 'components/AccordionNew'
-import { IItemsProps } from 'components/Dropdown'
+// import { IItemsProps } from 'components/Dropdown'
+import { IChildSecondProp, IItemsProps } from 'components/DropdownNew/interface'
 
 import {
   Container,
@@ -52,10 +53,11 @@ export default function Mobile({
   }
 
   return (
-    <Container {...rest}>
+    <Container {...rest} data-testid="header-mobile-hamburguer">
       <Content>
         <Header>
           <ConquistaBeta
+            data-testid="conquista-logo"
             data-gtm-type="click"
             data-gtm-clicktype="link"
             data-gtm-subname="responsive header"
@@ -63,6 +65,7 @@ export default function Mobile({
             onClick={() => closeAndRedirectHome()}
           />
           <ResponsiveMenu
+            data-testid="fechar-menu"
             data-gtm-type="click"
             data-gtm-clicktype="button"
             data-gtm-subname="responsive header"
@@ -74,6 +77,7 @@ export default function Mobile({
         </Header>
         <ProfileContainer>
           <ListItem
+            data-testid="perfil"
             StartIcon={AvatarIcon}
             text={[
               {
@@ -96,78 +100,55 @@ export default function Mobile({
           />
         </ProfileContainer>
         <ProductsContainer>
-          {items.map((item: any) => {
-            const startIcon = <Icon name={item.icon} color="gray5" />
-
+          {items.map((item: IItemsProps) => {
             if (item.children) {
+              return item.children.map((child: IChildSecondProp) => (
+                <ListItem
+                  key={`menu-item-${child.icon}`}
+                  StartIcon={<Icon name={child.icon} color="gray5" />}
+                  text={[
+                    {
+                      type: 'headline',
+                      color: 'gray6',
+                      content: child.text ?? '',
+                    },
+                  ]}
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="responsive header menu"
+                  data-gtm-name={child.text}
+                  path={child.path}
+                  callbackClickFn={() => setIsOpen(false)}
+                />
+              ))
+            } else {
               return (
-                <AccordionNew
-                  key={`accordion-item-${item.icon}`}
-                  openByDefault={false}
-                  triggerCloseOnArrow
-                  titleNode={
-                    <ListItem
-                      StartIcon={startIcon}
-                      text={[
-                        {
-                          type: 'headline',
-                          color: 'gray6',
-                          content: item.text,
-                        },
-                      ]}
-                      data-gtm-type="click"
-                      data-gtm-clicktype="accordion"
-                      data-gtm-subname="responsive header menu"
-                      data-gtm-name={item.text}
-                    />
-                  }
-                >
-                  {item.children.map((child: any) => (
-                    <ListItem
-                      key={`accordion-child-item-${child.icon}`}
-                      text={[
-                        {
-                          type: 'headline',
-                          color: 'gray5',
-                          content: child.text,
-                        },
-                      ]}
-                      path={child.path}
-                      callbackClickFn={() => setIsOpen(false)}
-                      data-gtm-type="click"
-                      data-gtm-clicktype="link"
-                      data-gtm-subname="menu produtos"
-                      data-gtm-name={child.text}
-                    />
-                  ))}
-                </AccordionNew>
+                <ListItem
+                  data-testid="responsive-header-menu"
+                  key={`accordion-last-item-${item.icon}`}
+                  StartIcon={<Icon name={item.icon} color="gray5" />}
+                  text={[
+                    {
+                      type: 'headline',
+                      color: 'gray6',
+                      content: item.text ?? '',
+                    },
+                  ]}
+                  path={item.path}
+                  callbackClickFn={() => setIsOpen(false)}
+                  data-gtm-type="click"
+                  data-gtm-clicktype="link"
+                  data-gtm-subname="responsive header menu"
+                  data-gtm-name={item.text}
+                />
               )
             }
-
-            return (
-              <ListItem
-                key={`accordion-last-item-${item.icon}`}
-                StartIcon={startIcon}
-                text={[
-                  {
-                    type: 'headline',
-                    color: 'gray6',
-                    content: item.text,
-                  },
-                ]}
-                path={item.path}
-                callbackClickFn={() => setIsOpen(false)}
-                data-gtm-type="click"
-                data-gtm-clicktype="link"
-                data-gtm-subname="responsive header menu"
-                data-gtm-name={item.text}
-              />
-            )
           })}
         </ProductsContainer>
       </Content>
       <Footer>
         <Button
+          data-testid="sair"
           data-gtm-type="click"
           data-gtm-clicktype="button"
           data-gtm-subname="responsive header"

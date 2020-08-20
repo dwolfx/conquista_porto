@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ObjectiveListContent Renders correctly 1`] = `
-.c7 {
+.c8 {
   color: #898989;
   text-align: unset;
   font-weight: normal;
@@ -17,7 +17,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c13 {
+.c14 {
   color: #898989;
   text-align: left;
   font-weight: normal;
@@ -32,7 +32,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   line-height: 16px;
 }
 
-.c25 {
+.c26 {
   color: #BABABA;
   text-align: unset;
   font-weight: 300;
@@ -47,7 +47,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   line-height: 16px;
 }
 
-.c26 {
+.c27 {
   color: #272727;
   text-align: unset;
   font-weight: 300;
@@ -60,21 +60,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c11 {
-  height: 7px;
-  width: 100%;
-  background-color: #EBEBEB;
-  border-radius: 6px;
-}
-
-.c12 {
-  height: 100%;
-  max-width: 52%;
-  background-color: #46A166;
-  border-radius: 6px;
-}
-
-.c27 {
+.c28 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -92,11 +78,11 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   transition: all 0.4s ease-out;
 }
 
-.c27:hover:active {
+.c28:hover:active {
   pointer-events: auto;
 }
 
-.c27:hover:active:after {
+.c28:hover:active:after {
   background-color: #EFFBFF;
   background-size: 100%;
   opacity: 0.2;
@@ -104,11 +90,11 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   transition: all ease 0s;
 }
 
-.c27:hover:before {
+.c28:hover:before {
   width: 100%;
 }
 
-.c27:hover:after {
+.c28:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -123,7 +109,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   width: 100%;
 }
 
-.c27:before {
+.c28:before {
   background-color: #EFFBFF;
   content: '';
   height: 100%;
@@ -135,7 +121,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   width: 0;
 }
 
-.c29 {
+.c30 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -162,57 +148,21 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   line-height: 15px;
 }
 
-.c3 {
+.c12 {
+  height: 7px;
   width: 100%;
-  height: 49px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0;
+  background-color: #EBEBEB;
+  border-radius: 6px;
 }
 
-.c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-right: 7px;
+.c13 {
+  height: 100%;
+  max-width: 52%;
+  background-color: #46A166;
+  border-radius: 6px;
 }
 
-.c6.c6 > *:not(:last-child) {
-  margin-right: 14px;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: 7px;
-}
-
-.c8.c8 > *:not(:first-child) {
-  margin-left: 14px;
-}
-
-.c15 {
+.c16 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -236,30 +186,24 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   width: 28px;
 }
 
-.c15:hover {
+.c16:hover {
   background-color: #EBEBEB;
 }
 
-.c15 svg {
+.c16 svg {
   fill: #272727;
   width: 21px;
   height: 21px;
 }
 
-.c30 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
-  width: 100%;
-}
-
-.c19 {
+.c20 {
   overflow-x: hidden;
   padding: 28px 0px;
   -webkit-transition: all ease 0.6s;
   transition: all ease 0.6s;
 }
 
-.c17 {
+.c18 {
   cursor: pointer;
   height: 28px;
   position: absolute;
@@ -269,7 +213,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   transition: all ease 0.6s;
 }
 
-.c0 {
+.c1 {
   background-color: #FFFFFF;
   overflow: hidden;
   padding: 28px 7px;
@@ -277,19 +221,19 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   transition: all ease-in-out 0.6s;
 }
 
-.c0 .c16 {
+.c1 .c17 {
   -webkit-transform: rotate(0);
   -ms-transform: rotate(0);
   transform: rotate(0);
 }
 
-.c0 .c18 {
+.c1 .c19 {
   padding: 0;
   max-height: 0;
   overflow-y: hidden;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -303,7 +247,63 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   cursor: pointer;
 }
 
-.c22 {
+.c31 {
+  border-bottom: 1px solid #DDDDDD;
+  height: 0%;
+  width: 100%;
+}
+
+.c4 {
+  width: 100%;
+  height: 49px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c7.c7 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c9.c9 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c23 {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -324,7 +324,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   padding: 7px 14px;
 }
 
-.c24 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -335,23 +335,46 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   width: 100%;
 }
 
-.c24.c24 > * {
+.c25.c25 > * {
   margin-bottom: 7px;
 }
 
-.c24.c24 :last-child {
+.c25.c25 :last-child {
   margin-bottom: 0px;
 }
 
-.c10 {
+.c11 {
   width: 56px;
 }
 
-.c23 {
+.c5 .c6 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+}
+
+.c24 {
   padding: 7px 0;
 }
 
-.c20 {
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 112px;
+}
+
+.c21 {
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
@@ -370,7 +393,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   margin: 7px 0;
 }
 
-.c21 {
+.c22 {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -391,50 +414,32 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   align-items: flex-start;
 }
 
-.c1 {
+.c2 {
   width: 100%;
   padding: 0px;
   margin: 0px;
 }
 
-.c31 {
+.c32 {
   margin: 14px 0;
 }
 
-.c4 .c5 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  min-width: 0;
-}
-
-.c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 112px;
-}
-
-.c14 {
+.c15 {
   min-width: 44px;
 }
 
-.c28 {
+.c29 {
   width: 100%;
   margin: 7px 0;
 }
 
-@media (min-width:768px) {
-  .c21 {
+.c0 {
+  overflow-y: auto;
+  padding: 0 14px;
+}
+
+@media (max-width:575px) {
+  .c22 {
     -ms-flex: 0 0 100%;
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
@@ -443,44 +448,64 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
   }
 }
 
+@media (min-width:576px) {
+  .c22 {
+    -ms-flex: 0 0 33.333333%;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media (min-width:768px) {
+  .c22 {
+    -ms-flex: 0 0 33.333333%;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
 @media (min-width:992px) {
-  .c21 {
-    -ms-flex: 0 0 25%;
-    -webkit-flex: 0 0 25%;
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
+  .c22 {
+    -ms-flex: 0 0 33.333333%;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
 }
 
 <div
-  className="c0 c1"
+  className="c0"
 >
   <div
-    className="sc-fzqPZZ c2"
-    data-gtm-clicktype="accordion"
-    data-gtm-name="accordion header"
-    data-gtm-type="click"
-    onClick={[Function]}
+    className="c1 c2"
   >
     <div
-      className="c3 c4"
-      size="default"
+      className="sc-fznKkj c3"
+      data-gtm-clicktype="accordion"
+      data-gtm-name="accordion header"
+      data-gtm-type="click"
+      onClick={[Function]}
     >
       <div
-        className="c5 c6"
+        className="c4 c5"
+        size="default"
       >
-        <p
-          className="c7"
-          color="gray5"
-          type="headline"
+        <div
+          className="c6 c7"
         >
-          23
-        </p>
-      </div>
-      <div
-        className="c8"
-      >
+          <p
+            className="c8"
+            color="gray5"
+            type="headline"
+          >
+            23
+          </p>
+        </div>
         <div
           className="c9"
         >
@@ -492,140 +517,144 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
             >
               <div
                 className="c12"
-              />
+              >
+                <div
+                  className="c13"
+                />
+              </div>
+            </div>
+            <p
+              className="c14 c15"
+              color="gray5"
+              type="captionUppercase"
+            >
+              123%
+            </p>
+          </div>
+        </div>
+      </div>
+      <button
+        className="c16 c17 c18"
+        onClick={[Function]}
+        size="small"
+      >
+        <svg
+          aria-label="arrowdown"
+          role="img"
+        >
+          arrow-down.svg
+        </svg>
+      </button>
+    </div>
+    <div
+      className="c19 c20"
+    >
+      <div
+        className="sc-fzpans c21"
+        data-name="row"
+      >
+        <div
+          className="sc-fzplWN c22"
+          data-name="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-gutter"
+        >
+          <div
+            className="c23 c24"
+          >
+            <div
+              className="c25"
+            >
+              <p
+                className="c26"
+                color="gray4"
+                type="captionUppercase"
+              >
+                ALCANÇADO
+              </p>
+              <p
+                className="c27"
+                color="gray6"
+                type="headline"
+              >
+                R$ 123,00
+              </p>
             </div>
           </div>
-          <p
-            className="c13 c14"
-            color="gray5"
-            type="captionUppercase"
+        </div>
+        <div
+          className="sc-fzplWN c22"
+          data-name="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-gutter"
+        >
+          <div
+            className="c23 c24"
           >
-            123%
-          </p>
+            <div
+              className="c25"
+            >
+              <p
+                className="c26"
+                color="gray4"
+                type="captionUppercase"
+              >
+                FALTAM
+              </p>
+              <p
+                className="c27"
+                color="gray6"
+                type="headline"
+              >
+                R$ 123,00
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-fzplWN c22"
+          data-name="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-gutter"
+        >
+          <div
+            className="c23 c24"
+          >
+            <div
+              className="c25"
+            >
+              <p
+                className="c26"
+                color="gray4"
+                type="captionUppercase"
+              >
+                META
+              </p>
+              <p
+                className="c27"
+                color="gray6"
+                type="headline"
+              >
+                R$ 234,00
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+      <button
+        className="c28 c29"
+        color="primary"
+        data-gtm-clicktype="link"
+        data-gtm-name="gerenciar"
+        data-gtm-subname="23"
+        data-gtm-type="click"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="c30"
+        >
+          GERENCIAR
+        </span>
+      </button>
+      <div
+        className="c31 c32"
+      />
     </div>
-    <button
-      className="c15 c16 c17"
-      onClick={[Function]}
-      size="small"
-    >
-      <svg
-        aria-label="arrowdown"
-        role="img"
-      >
-        arrow-down.svg
-      </svg>
-    </button>
-  </div>
-  <div
-    className="c18 c19"
-  >
-    <div
-      className="sc-fzpans c20"
-      data-name="row"
-    >
-      <div
-        className="sc-fzplWN c21"
-        data-name="col-md-12 col-lg-3 no-gutter"
-      >
-        <div
-          className="c22 c23"
-        >
-          <div
-            className="c24"
-          >
-            <p
-              className="c25"
-              color="gray4"
-              type="captionUppercase"
-            >
-              ALCANÇADO
-            </p>
-            <p
-              className="c26"
-              color="gray6"
-              type="headline"
-            >
-              R$ 123,00
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        className="sc-fzplWN c21"
-        data-name="col-md-12 col-lg-3 no-gutter"
-      >
-        <div
-          className="c22 c23"
-        >
-          <div
-            className="c24"
-          >
-            <p
-              className="c25"
-              color="gray4"
-              type="captionUppercase"
-            >
-              FALTAM
-            </p>
-            <p
-              className="c26"
-              color="gray6"
-              type="headline"
-            >
-              R$ 123,00
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        className="sc-fzplWN c21"
-        data-name="col-md-12 col-lg-3 no-gutter"
-      >
-        <div
-          className="c22 c23"
-        >
-          <div
-            className="c24"
-          >
-            <p
-              className="c25"
-              color="gray4"
-              type="captionUppercase"
-            >
-              META
-            </p>
-            <p
-              className="c26"
-              color="gray6"
-              type="headline"
-            >
-              R$ 234,00
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      className="c27 c28"
-      color="primary"
-      data-gtm-clicktype="link"
-      data-gtm-name="gerenciar"
-      data-gtm-subname="23"
-      data-gtm-type="click"
-      disabled={false}
-      onClick={[Function]}
-    >
-      <span
-        className="c29"
-      >
-        GERENCIAR
-      </span>
-    </button>
-    <div
-      className="c30 c31"
-    />
   </div>
 </div>
 `;

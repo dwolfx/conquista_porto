@@ -156,6 +156,13 @@ export const fontTypes = {
     letterSpacing: 0,
     lineHeight: '25px',
   },
+  headline_bold: {
+    ...genericFontType,
+    fontSize: 18,
+    letterSpacing: 0,
+    fontWeight: 400,
+    lineHeight: '25px',
+  },
   title: {
     fontSize: 14,
     letterSpacing: 0.25,

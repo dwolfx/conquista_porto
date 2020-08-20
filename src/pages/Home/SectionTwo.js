@@ -5,37 +5,30 @@ import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import objectiveTypes from 'components/Card/Objectives/types'
+import BannerTips from 'components/Banner/Tip'
 import Text from 'components/Text'
-
-import useMedia from 'hooks/useMedia'
-
 import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
+import useMedia from 'hooks/useMedia'
 
-import LoadingState from './commons/LoadingState'
-import ErrorState from './commons/ErrorState'
 import CardHeaderState from './commons/CardHeaderState'
-
-import ObjectivesListContent from './ObjectiveListContent'
 import { tipsBanner } from './bannerData'
 import {
-  EmptyBody,
-  EmptyText,
-  EmptyButton,
   SectionCol,
-  BannerTips,
-  FullHeightCard,
   FullHeightCardObjectives,
   TipBannerContainer,
   ObjectivesContainer,
-  BannerTipTitle,
-  ObjectivesListContainer,
   ProductsCol,
+  HomeObjectivesCard,
 } from './styles'
+import ObjectivesList from './ObjectivesList'
 
 export default function SectionTwo({ onRedirect }) {
   const history = useHistory()
+  const isTablet = useMedia('lg')
+  const isTabletVertical = useMedia('md')
   const isMobile = useMedia('sm')
+  const dispatch = useDispatch()
 
   const [objectiveTypeClicked, setObjectiveTypeClicked] = useState(null)
   const [tipBannerIndex, setTipBannerIndex] = useState(0)
@@ -55,13 +48,6 @@ export default function SectionTwo({ onRedirect }) {
     isLoadingSuitability: state.suitability.isLoading,
     cpf: state.auth.cpf,
   }))
-  const hasObjectives = Boolean(objectives && objectives.length)
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(GetObjectiveDataRequest())
-  }, [dispatch])
 
   useEffect(() => {
     setTipBannerIndex(Math.floor(Math.random() * (tipsBanner.length - 1)))
@@ -74,30 +60,21 @@ export default function SectionTwo({ onRedirect }) {
     setMaxObjectiveCards(isMobile ? 3 : 2)
   }, [isMobile])
 
-  const EmptyState = () => (
-    <EmptyBody>
-      <EmptyText bold>
-        Com os Objetivos, fica mais fácil alcançar suas metas. Definindo-os,
-        você receberá planos de investimentos personalizados.
-      </EmptyText>
-      <EmptyButton
-        data-gtm-subname="card objetivos"
-        data-gtm-name="criar objetivo"
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        color="secondary"
-        onClick={() => onRedirect('/objetivos/')}
-      >
-        CRIAR OBJETIVO
-      </EmptyButton>
-    </EmptyBody>
-  )
+  const getBannerHeight = () => {
+    if (isMobile) {
+      return '278px'
+    }
+    if (isTablet || isTabletVertical) {
+      return '253px'
+    }
+    return '280px'
+  }
 
   const renderObjectiveCards = () =>
     objectiveTypes
       .slice(objectiveCardIndex, objectiveCardIndex + maxObjectiveCards)
       .map(item => (
-        <SectionCol md="4" xs="6" key={`type-${item.icon}`}>
+        <SectionCol md="6" xs="12" lg="4" sm="4" key={`type-${item.icon}`}>
           <FullHeightCardObjectives
             icon={item.icon}
             title={item.title}
@@ -117,28 +94,10 @@ export default function SectionTwo({ onRedirect }) {
         </SectionCol>
       ))
 
-  const renderObjectivesBodyCard = () => {
-    if (isLoadingObjectives && !hasObjectives) {
-      return <LoadingState />
-    }
-
-    if (hasErrorObjectives && !hasObjectives) {
-      return <ErrorState onRetry={() => dispatch(GetObjectiveDataRequest())} />
-    }
-
-    return hasObjectives ? (
-      <ObjectivesListContainer>
-        <ObjectivesListContent objectives={objectives} />
-      </ObjectivesListContainer>
-    ) : (
-      <EmptyState />
-    )
-  }
-
   return (
     <>
-      <ProductsCol md="5">
-        <FullHeightCard
+      <ProductsCol sm="12" md="6" mdOffset="0" lg="5" lgOffset="1">
+        <HomeObjectivesCard
           headerIcon="target"
           headerTitle="Objetivos"
           headerEndItem={
@@ -152,14 +111,21 @@ export default function SectionTwo({ onRedirect }) {
             />
           }
         >
-          {renderObjectivesBodyCard()}
-        </FullHeightCard>
+          <ObjectivesList
+            hasError={hasErrorObjectives}
+            isLoading={isLoadingObjectives}
+            objectives={objectives}
+            onRedirect={onRedirect}
+          />
+        </HomeObjectivesCard>
       </ProductsCol>
 
-      <SectionCol md="7">
+      <SectionCol md="6" sm="12" lg="6">
         <ObjectivesContainer>
-          {renderObjectiveCards()}
-          <SectionCol md="4" xs="6">
+          {(isTablet && !isTabletVertical) || isMobile
+            ? renderObjectiveCards()[0]
+            : renderObjectiveCards()}
+          <SectionCol sm="4" md="6" xs="12" lg="4">
             <FullHeightCardObjectives
               icon="add"
               title="Criar objetivo"
@@ -169,15 +135,16 @@ export default function SectionTwo({ onRedirect }) {
         </ObjectivesContainer>
 
         <TipBannerContainer>
-          <SectionCol md="12">
+          <SectionCol md="12" sm="12">
             <BannerTips
-              label={tipsBanner[tipBannerIndex].caption}
+              height={getBannerHeight()}
+              title={tipsBanner[tipBannerIndex].title}
+              caption={tipsBanner[tipBannerIndex].caption}
               image={tipsBanner[tipBannerIndex].image}
             >
-              <BannerTipTitle bold>
-                {tipsBanner[tipBannerIndex].title}
-              </BannerTipTitle>
-              <Text>{tipsBanner[tipBannerIndex].text}</Text>
+              <Text bold type="headline">
+                {tipsBanner[tipBannerIndex].text}
+              </Text>
             </BannerTips>
           </SectionCol>
         </TipBannerContainer>

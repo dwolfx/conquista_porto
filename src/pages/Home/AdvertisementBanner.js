@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { Container } from 'styled-bootstrap-grid'
+import { useDispatch } from 'react-redux'
 
-import BannerImg from 'assets/images/pages/Home/img_banner_12.png'
+import BannerImg from 'assets/images/pages/Home/insurance1.png'
 import Text from 'components/Text'
-import { getCookieValue, setCookieValue } from 'helpers'
-
+import Banner from 'components/Banner'
 import { GetRewardRecommendationsRequest } from 'store/modules/Rewards/Recommendations/action'
+import { setCookieValue, getCookieValue } from 'helpers'
 
-import { BannerButton, BannerTips, GridCol, AdRow } from './styles'
+import { BannerButton, AdRow, TextBannerTitle } from './styles'
 
 const AdvertisementBanner = () => {
   const history = useHistory()
   const dispatch = useDispatch()
 
-  const [hideBanner, setHideBanner] = useState(true)
-  const [bannerData, setBannerData] = useState({})
-
-  const recommendationState = useSelector(state => state.rewardsRecommendations)
+  const [hideBanner, setHideBanner] = useState(false)
 
   useEffect(() => {
     setHideBanner(Boolean(getCookieValue('hideConquistaRecommendationBanner')))
@@ -30,57 +26,40 @@ const AdvertisementBanner = () => {
     }
   }, [dispatch, hideBanner])
 
-  useEffect(() => {
-    if (recommendationState.data.length) {
-      const randomPosition =
-        +getCookieValue('positionConquistaRecommendationBanner') ||
-        Math.floor(Math.random() * (recommendationState.data.length - 1))
-
-      setCookieValue(
-        'positionConquistaRecommendationBanner',
-        randomPosition + 1
-      )
-      setBannerData(
-        recommendationState.data[
-          (randomPosition + 1) % recommendationState.data.length
-        ]
-      )
-    }
-  }, [recommendationState.data])
-
-  if (
-    !recommendationState.data.length ||
-    !Object.entries(bannerData).length ||
-    hideBanner
-  ) {
-    return null
-  }
-
   return (
-    <Container>
-      <AdRow hasBannerCookie={!hideBanner}>
-        <GridCol lg="12">
-          <BannerTips
-            size="lg"
-            image={bannerData.icon_name || BannerImg}
+    <>
+      {!hideBanner && (
+        <AdRow>
+          <Banner
+            image={BannerImg}
             hasCloseButton
+            title={
+              <TextBannerTitle>
+                Viva hoje
+                <br />
+                Amanhã é com a gente
+              </TextBannerTitle>
+            }
             onClose={() => {
               setCookieValue('hideConquistaRecommendationBanner', 'true')
               setHideBanner(true)
             }}
           >
-            <Text type="heading3">{bannerData.subject_name}</Text>
-            <Text>{bannerData.text_content}</Text>
+            <Text bold type="body">
+              O Seguro de Vida é uma maneira de proprorcionar tranquilidade e
+              segurança caso você precise ficar afastado do trabalho. Além de
+              garantir amparo financeiro à sua família na sua ausência.
+            </Text>
             <BannerButton
               color="secondary"
-              onClick={() => history.push(bannerData.url_name)}
+              onClick={() => history.push('/seguros')}
             >
-              {bannerData.button_name}
+              conhecer
             </BannerButton>
-          </BannerTips>
-        </GridCol>
-      </AdRow>
-    </Container>
+          </Banner>
+        </AdRow>
+      )}
+    </>
   )
 }
 

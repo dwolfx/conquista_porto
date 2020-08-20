@@ -1,4 +1,5 @@
 import { Types } from './types'
+import { IToast } from 'hooks/toast'
 
 export function PostVirtualKeyboardDataRequest() {
   return {
@@ -42,5 +43,27 @@ export function SetKeyboardLoading(payload: boolean) {
   return {
     type: Types.SET_LOADING,
     payload,
+  }
+}
+
+export function SetNewSignatureLoading(payload: boolean) {
+  return {
+    type: Types.SET_LOADING_NEW_SIGNATURE,
+    payload,
+  }
+}
+
+export function PostNewSignatureDataRequest(
+  type: 'email_otp' | 'sms_otp',
+  addToast?: (toast: Omit<IToast, 'id'>) => void,
+  handleModalNewSignatureCloseOrOpen?: (closeModal: boolean) => void
+) {
+  return {
+    type: Types.POST_NEW_SIGNATURE,
+    payload: {
+      type,
+      addToast,
+      handleModalNewSignatureCloseOrOpen,
+    },
   }
 }
