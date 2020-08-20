@@ -79,7 +79,7 @@ const Desktop: React.FC<IProps> = ({
   const position = useSelectedPosition()
 
   const handleOpenDetailFund = () => {
-    dispatch(GetInvestmentDetailsRequest(position.fundo.id_carteira))
+    dispatch(GetInvestmentDetailsRequest(position.id_carteira))
     setIsFundDetailOpen(true)
   }
 
@@ -100,7 +100,7 @@ const Desktop: React.FC<IProps> = ({
             onHandleChangeView={onHandleChangeView}
           />
           <Card
-            headerTitle={position && position.fundo && position.fundo.apelido}
+            headerTitle={position?.apelido}
             headerIconInfo
             headerIconInfoClick={handleOpenDetailFund}
             headerIconInfoMsg="Mais informações"

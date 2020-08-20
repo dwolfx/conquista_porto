@@ -14,6 +14,7 @@ export interface IDistribution {
 export interface IFund {
   id: number
   id_cotista: number
+  apelido: string
   contagem_dias_resgate: string
   aplicacao_cotizacao: string
   aplicacao_financeiro: string

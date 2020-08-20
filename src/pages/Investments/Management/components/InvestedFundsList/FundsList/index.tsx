@@ -60,6 +60,7 @@ const FundsList = ({
                     bold
                     color={idFund === fund.id ? 'blue4' : 'gray5'}
                   >
+                    {/* {fund.apelido} */}
                     {fund.fundo}
                   </Text>,
                 ]}

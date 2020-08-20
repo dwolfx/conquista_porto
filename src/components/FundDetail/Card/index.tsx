@@ -165,7 +165,7 @@ const FundDetailCard = ({
                     Categoria
                   </Text>,
                   <Text bold color="gray6" type="headline">
-                    {fundDetails.categoria_arena.toLowerCase() ===
+                    {fundDetails?.categoria_arena?.toLowerCase() ===
                     'renda variável'
                       ? 'Ações'
                       : fundDetails.categoria_arena}
