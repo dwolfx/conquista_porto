@@ -7,7 +7,7 @@ import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
-import DropDown, { IItemsProps } from 'components/DropdownNew'
+import DropDown, { IItemsProps } from 'components/Dropdown'
 
 import { handleGiwRedirect } from 'helpers'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
