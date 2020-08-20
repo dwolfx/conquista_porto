@@ -1,0 +1,5888 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Investments Renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .c55 {
+  color: unset;
+  text-align: unset;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c3 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c3:hover:active {
+  pointer-events: auto;
+}
+
+.c3:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c3:hover:before {
+  width: 100%;
+}
+
+.c3:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c3:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c31 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c31:hover:active {
+  pointer-events: auto;
+}
+
+.c31:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c31:hover:before {
+  width: 100%;
+}
+
+.c31:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c31:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c0 {
+  height: 340px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #898989;
+}
+
+.c1 {
+  text-align: center;
+  z-index: 1;
+}
+
+.c1 p {
+  max-width: 989px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 28px;
+  color: white;
+}
+
+.c1 .button-with-right-icon span.icon {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  font-size: 13px;
+}
+
+.c5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.3;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c2 {
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+  color: white;
+}
+
+.c6 {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  background-color: #F1F1F1;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.c8 {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.c8 img {
+  width: 450px;
+}
+
+.c9 {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.c9 div {
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+}
+
+.c9 ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 28px;
+}
+
+.c9 li {
+  position: relative;
+  font-size: 18px;
+  padding-left: 28px;
+  line-height: 28px;
+  font-weight: 300;
+  color: black;
+  margin-bottom: 14px;
+}
+
+.c9 li:before {
+  content: '■';
+  color: #00ADEF;
+  position: absolute;
+  right: calc(100% + 10px);
+  font-size: 14px;
+}
+
+.c10 {
+  margin-left: 50px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+.c18 .slick-track {
+  float: left;
+}
+
+.c43 {
+  height: 16px;
+  width: 16px;
+}
+
+.c37 {
+  height: 16px;
+  width: 16px;
+}
+
+.c36 svg polyline {
+  stroke-width: 9px;
+  stroke: #A1E5FF;
+}
+
+.c36.slick-next::before,
+.c36.slick-prev::before {
+  content: '';
+}
+
+.c19 {
+  margin-bottom: 2em;
+}
+
+.c20 {
+  border: 1px solid #DDDDDD;
+  border-left: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 10em;
+  padding: 1em;
+}
+
+.c20 svg {
+  height: 36px;
+  margin: 0.5em 1em 0 0;
+  width: 93px;
+  fill: #898989;
+}
+
+.c21 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+}
+
+.c22 {
+  color: #272727;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.c11 {
+  padding-top: 28px;
+  background-color: white;
+}
+
+.c12 {
+  text-align: center;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 22px;
+  width: 1200px;
+  margin: 22px auto 56px;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c14 {
+  width: 240px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c15 {
+  background-color: #00ADEF;
+  width: 72px;
+  height: 72px;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c15 svg {
+  fill: #FFFFFF;
+  height: 30px;
+}
+
+.c16 {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  text-align: center;
+  color: #272727;
+  margin-top: 12px;
+}
+
+.c17 {
+  color: #272727;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  line-height: 21px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.c23 {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  background-color: #004E70;
+}
+
+.c24 {
+  text-align: center;
+}
+
+.c25 {
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+  color: white;
+}
+
+.c26 {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+}
+
+.c44 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c45 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c46 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding: 28px;
+  border-right: 1px solid #DDDDDD;
+}
+
+.c46:last-child {
+  border-right: none;
+}
+
+.c47 {
+  padding-right: 20px;
+}
+
+.c48 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #272727;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 21px;
+}
+
+.c49 {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  text-align: left;
+  color: #272727;
+  margin-top: 12px;
+}
+
+.c50 {
+  font-size: 11px;
+  line-height: 21px;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  -webkit-appearance: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #00ADEF;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.c50:hover {
+  color: #018CB7;
+}
+
+.c38 {
+  border: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+  border-radius: 0.5em;
+  box-shadow: 1px 45px 40px -50px rgba(0,0,0,0.4);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 22.5em;
+  margin: 46px auto;
+  width: 16em;
+}
+
+.c39 {
+  margin-top: 1em;
+  height: 5em;
+}
+
+.c42 {
+  color: #272727;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 24px;
+  word-break: break-word;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.c41 {
+  padding: 2em;
+}
+
+.c40 {
+  margin: 0 auto;
+}
+
+.c32 {
+  background-color: #FFFFFF;
+}
+
+.c33 {
+  padding: 1.75em 0;
+  margin: 0 auto;
+  max-width: 75em;
+  width: 100%;
+}
+
+.c34 {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.c35 .slick-dots {
+  position: relative;
+  bottom: 0;
+  margin: 1em 0 0;
+}
+
+.c51 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin: 28px auto;
+}
+
+.c53 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding: 0 21px;
+}
+
+.c52 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c54 {
+  margin-bottom: 28px;
+}
+
+.c56 {
+  display: inline;
+  color: #898989;
+}
+
+.c57 {
+  display: inline;
+  color: #00ADEF;
+}
+
+.c60 {
+  height: 53px;
+  margin-right: 7px;
+}
+
+.c59 {
+  height: 53px;
+  margin-right: 7px;
+}
+
+.c61 {
+  height: 53px;
+  margin-right: 7px;
+}
+
+.c58 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  height: auto;
+}
+
+.c58 a {
+  max-width: 100%;
+  height: auto;
+}
+
+.c27 {
+  padding: 0;
+  background-color: #d6dde5;
+}
+
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+.c29 {
+  overflow: hidden;
+}
+
+.c29 img {
+  margin-left: -350px;
+  height: 100%;
+}
+
+.c30 {
+  padding-top: 22px;
+}
+
+.c30 h1 {
+  padding-bottom: 30px;
+  font-size: 34px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 44px;
+  font-weight: 300;
+  color: black;
+}
+
+.c30 p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 28px;
+  padding-right: 16px;
+}
+
+@media (min-width:1206px) {
+  .c7 {
+    width: 1200px;
+  }
+}
+
+@media (max-width:780px) {
+  .c7 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width:1200px) {
+  .c8 img {
+    width: 400px;
+  }
+}
+
+@media (min-width:768px) {
+  .c8 img {
+    padding-right: 70px;
+  }
+}
+
+@media (max-width:768px) {
+  .c8 img {
+    width: 300px;
+  }
+}
+
+@media (max-width:768px) {
+  .c9 {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width:980px) {
+  .c9 div {
+    font-size: 22px;
+  }
+}
+
+@media (max-width:768px) {
+  .c9 div {
+    text-align: center;
+  }
+}
+
+@media (max-width:1000px) {
+  .c9 li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width:980px) {
+  .c9 li {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c19 {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width:1100px) {
+  .c20 {
+    padding: 2em;
+  }
+}
+
+@media (max-width:1200px) {
+  .c13 {
+    width: 800px;
+  }
+}
+
+@media (max-width:768px) {
+  .c13 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: unset;
+  }
+}
+
+@media (max-width:768px) {
+  .c14 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 8px;
+    width: initial;
+    margin-bottom: 22px;
+  }
+}
+
+@media (max-width:768px) {
+  .c15 {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width:768px) {
+  .c16 {
+    margin-top: unset;
+    padding-left: 12px;
+    text-align: unset;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+  }
+}
+
+@media (min-width:1206px) {
+  .c24 {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width:576px) {
+  .c44 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c44 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c44 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c44 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:768px) {
+  .c46 {
+    -ms-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width:992px) {
+  .c46 {
+    -ms-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width:980px) {
+  .c46 {
+    border-right: none;
+  }
+}
+
+@media (min-width:1200px) {
+  .c38 {
+    width: 18em;
+  }
+}
+
+@media (min-width:576px) {
+  .c51 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c51 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c51 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c51 {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width:992px) {
+  .c53 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:736px) {
+  .c53 {
+    padding: 0;
+  }
+}
+
+@media (min-width:736px) {
+  .c60 {
+    height: auto;
+    margin-right: 28px;
+  }
+}
+
+@media (min-width:736px) {
+  .c59 {
+    height: auto;
+    margin-right: 28px;
+  }
+}
+
+@media (min-width:736px) {
+  .c61 {
+    height: auto;
+    margin-right: 28px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c28 {
+    width: 1200px;
+  }
+}
+
+@media (max-width:1000px) {
+  .c28 {
+    text-align: center;
+    padding: 0 8px 22px 8px;
+  }
+}
+
+@media (max-width:1000px) {
+  .c29 img {
+    display: none;
+  }
+}
+
+<body>
+    <div>
+      <section
+        class="c0"
+      >
+        <div
+          class="c1"
+        >
+          <h1
+            class="c2"
+          >
+            Fundos de Investimentos
+          </h1>
+          <p>
+            Com o Conquista, você pode investir em Fundos de Investimento da Porto Seguro e de gestoras parceiras. Consulte a Lista de Fundos e conheça opções para diversos perfis.
+          </p>
+          <br />
+          <button
+            class="c3 button-with-right-icon"
+            color="secondary"
+            data-gtm-clicktype="button"
+            data-gtm-name="Lista de fundos"
+            data-gtm-subname="banner Fundos de Investimentos"
+            data-gtm-type="click"
+          >
+            <span
+              class="c4"
+            >
+              Lista de fundos
+              <span
+                class="icon"
+              />
+            </span>
+          </button>
+        </div>
+        <img
+          alt="Homem pesquisando investimentos em um website em seu computador"
+          class="c5"
+          src="banner_investimentos.jpg"
+        />
+      </section>
+      <section
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          <div
+            class="c8"
+          >
+            <img
+              alt=""
+              src="selo_investimento.svg"
+            />
+          </div>
+          <div
+            class="c9"
+          >
+            <div>
+              Por que investir em Fundos?
+            </div>
+            <ul>
+              <li>
+                Você pode investir para construir e aumentar seu patrimônio, realizar os seus sonhos ou multiplicar seu dinheiro.
+              </li>
+              <li>
+                Com opções de baixo a alto risco, os fundos têm tipos e retornos variados, atendendo a todos os perfis de investidores (conservador, moderado, arrojado e agressivo).
+              </li>
+              <li>
+                Os fundos são aplicações que somam vários ativos. Gerenciados por especialistas, facilitam o dia a dia de quem quer diversificar sem precisar administrar ativamente.
+              </li>
+              <li>
+                Os fundos têm períodos variados de resgate, que é o tempo para reaver o dinheiro. Você pode usá-los para organizar metas a curto, médio ou longo prazo.
+              </li>
+            </ul>
+            <p
+              class="c10"
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        class="c11"
+      >
+        <div
+          class="c12"
+        >
+          Quando faz sentido investir?
+        </div>
+        <div
+          class="c13"
+        >
+          <div
+            class="c14"
+          >
+            <div
+              class="c15"
+            >
+              <svg
+                aria-label="malefemale"
+                role="img"
+              >
+                male-female.svg
+              </svg>
+               
+            </div>
+            <p
+              class="c16"
+            >
+              Quando você quiser uma gestão profissional para
+      buscar as melhores opções do mercado para seu dinheiro.
+            </p>
+          </div>
+          <div
+            class="c14"
+          >
+            <div
+              class="c15"
+            >
+              <svg
+                aria-label="barchart"
+                role="img"
+              >
+                bar-chart.svg
+              </svg>
+               
+            </div>
+            <p
+              class="c16"
+            >
+              Quando você quiser buscar um rendimento melhor do que o da poupança,
+      sem correr, necessariamente, um risco maior.
+            </p>
+          </div>
+          <div
+            class="c14"
+          >
+            <div
+              class="c15"
+            >
+              <svg
+                aria-label="safebox"
+                role="img"
+              >
+                safe-box.svg
+              </svg>
+               
+            </div>
+            <p
+              class="c16"
+            >
+              Quando você quiser se organizar para buscar seus sonhos,
+      economizando seu dinheiro e esperando rendimentos melhores.
+            </p>
+          </div>
+        </div>
+        <h2
+          class="c17"
+        >
+          Vantagens ao contratar aqui:
+        </h2>
+        <div
+          class="slick-slider c18 c19 slick-initialized"
+        >
+          
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="talkman"
+                      role="img"
+                    >
+                      talk-man.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Gerente de conta
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="diamond"
+                      role="img"
+                    >
+                      diamond.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Programa de Relacionamento
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="2"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="callcenter"
+                      role="img"
+                    >
+                      call-center.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Chat inteligente
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        Para te ajudar com informações e dicas em qualquer momento.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="3"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="apps"
+                      role="img"
+                    >
+                      apps.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Facilidade
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        A contratação é rápida e descomplicada, feita para facilitar sua vida.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </section>
+      <section
+        class="c23"
+      >
+        <div
+          class="c24"
+        >
+          <h1
+            class="c25"
+          >
+            Facilidade para investir
+          </h1>
+          <p
+            class="c26"
+          >
+            Com o Conquista, é prático e rápido investir.
+            <br />
+            <br />
+            Você confere as opções disponíveis na Lista de Fundo, consulta informações detalhadas de cada um e realiza seus investimentos com a segurança de uma plataforma da Porto Seguro.
+          </p>
+          <br />
+          <br />
+          <button
+            class="c3"
+            color="secondary"
+            data-gtm-clicktype="button"
+            data-gtm-name="lista de fundos"
+            data-gtm-subname="Facilidade para investir"
+            data-gtm-type="click"
+          >
+            <span
+              class="c4"
+            >
+              lista de fundos
+            </span>
+          </button>
+        </div>
+      </section>
+      <section
+        class="c27"
+      >
+        <div
+          class="c28"
+        >
+          <picture
+            class="c29"
+          >
+            <img
+              alt="Mulher feliz"
+              src="red_hair_girl.jpg"
+            />
+          </picture>
+          <div
+            class="c30"
+          >
+            <h1>
+              Investindo em objetivos
+            </h1>
+            <p>
+              No Conquista, você tem total controle para escolher os Fundos de Investimentos que preferir, além de auxílio inteligente para encontrar opções adequadas ao seu perfil e ao que você busca.
+              <br />
+              <br />
+              Crie objetivos e aproveite os planos personalizados que a ferramenta apresenta para investir com mais facilidade.
+            </p>
+            <button
+              class="c31"
+              color="primary"
+              data-gtm-clicktype="button"
+              data-gtm-name="criar objetivo"
+              data-gtm-subname="banner - investindo em objetivos"
+              data-gtm-type="click"
+            >
+              <span
+                class="c4"
+              >
+                Criar Objetivo
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        class="c32"
+      >
+        <div
+          class="c33"
+        >
+          <h1
+            class="c34"
+          >
+            Conheça as gestoras disponíveis no Conquista:
+          </h1>
+          <div
+            class="slick-slider c18 c35 slick-initialized"
+            dir="ltr"
+          >
+            <button
+              class="c36 slick-arrow slick-prev"
+              data-role="none"
+              style="display: block;"
+            >
+              <svg
+                class="c37"
+              >
+                backward.svg
+              </svg>
+            </button>
+            <div
+              class="slick-list"
+            >
+              <div
+                class="slick-track"
+                style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+              >
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="-4"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1971, em Newport Beach (EUA). Uma das principais gestoras de investimentos em renda fixa do mundo, conta com escritórios em dezenas de países e atende clientes globalmente. Atua em Fundos de Renda Fixa Internacional.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="-3"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1983, atua no Brasil, Estados Unidos, México, Chile, Colômbia, Peru, Londres e Nova York. Com ampla grade de produtos e serviços, incluindo fundos locais e internacionais, tem Fundos Multimercado Macro, Fundos Long Short, Fundos de Ações e Fundos de Crédito.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="-2"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2009, por João Carlos Tavora Pinho e Carlos Woelz, ex-profissionais do Banco BBM. Divide-se em mesas com limites de risco individuais e é independente. Atua em Fundos Multimercado Macro, Fundos de Renda Variável e Fundos de Investimento no Exterior.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="-1"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2002, por Cláudio Andrade, iniciou as operações de seus primeiros produtos em 2003. Situada no Rio de Janeiro, gerencia recursos em diversos mandatos líquidos e ilíquidos. Atua em Fundos Multimercado Macro, Fundos de Crédito e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active slick-current"
+                  data-index="0"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Fabiano Rios, veterano do mercado financeiro. Situada em São Paulo, conta com especialistas experientes em tesourarias de grandes bancos e gestoras independentes. Focada em Fundos Multimercado Macro e Fundos Multimercado Arbitragem.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="1"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2012, por Antonio Quintella e Sergio Blatyta em sociedade com o Credit Suisse Group AG. Prioriza a preservação de capital por meio da diversificação de ativos. Focada em Fundos Multimercado Macro, Fundos Multimercado de Arbitragem e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="2"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2007, faz parte do Grupo Itaú Unibanco e tem como atividade exclusiva a gestão de fundos. Utiliza-se da infraestrutura operacional do Banco Itaú Unibanco em atividades não vinculadas à gestão. Atua com Fundos Multimercado Macro, Ações e Previdência.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="3"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1996, é uma empresa do Grupo Porto Seguro. Além da gestão de recursos de terceiros, também é responsável por administrar as aplicações financeiras de todo o grupo. Abrange estratégias de Renda Fixa, Multimercado e Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="4"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2015, após a fusão da gestora LAPB, do sócio Luiz Alves Paes de Barro, e Skipper Investimentos, do sócio Henrique Bredda. A equipe experiente atua com disciplina no processo de seleção e controle de risco dos Fundos de Ações e Fundos Multimercado Macro.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="5"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Ricardo Quintero, profissional de sucesso e ex-vice-presidente do Bank of America. Situada em São Paulo, a empresa independente é focada em serviços de gestão de patrimônio. Atua em Fundos de Crédito.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="6"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Luiz Paulo Aranha e sócios experientes, vindos de outras gestoras independentes. Tem um processo de investimento com método, disciplina e perspectiva de longo prazo no mercado de ações através de Fundos Long and Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="7"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1964, tem sede em Tóquio e presença global. Com bilhões sob gestão, possui 3 estratégias focadas em Crédito, Imobiliário e Infraestrutura. Atua com fundos de desenvolvimento imobiliário, renda, crédito estruturado e debêntures incentivadas.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="8"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, pelo experiente Augusto Lange Vieira. Criada a partir de uma reestruturação da equipe de gestão do Banco Safra, proporciona retornos diferenciados e descorrelacionados às variações de mercado. Focada em ações em Fundos Long and Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="9"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada  em  2006,  por  Luis  Felipe  Amaral,  profissional  com  ampla  experiência  no  mercado financeiro. É uma gestora independente e dedicada exclusivamente à ações. Atua com foco em uma única estratégia e um único Fundo de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="10"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, por profissionais experientes do BRAM - Bradesco Asset Management, que atuam juntos há muitos anos na gestão de recursos de terceiros. A gestora tem uma única estratégia focada em um Fundo Multimercado Macro-Trading.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="11"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2015, por Elsom Yassuda e Marcelo Cavalheiro, ex-sócios da equipe da Hedging-Griffo e responsáveis pela criação das mesas de renda fixa e renda variável da gestora. Atua com o foco no mercado de renda variável em Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="12"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2001, foi adquirida em 2008 pelo grupo BNY Mellon, um dos maiores gestores do mundo. Busca retornos consistentes e tem uma grade diversificada em Fundos Long and Short, Fundos Multimercado Macro, Fundos de Ações e Fundos de Renda Fixa Crédito Privado.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="13"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2014, por Daniel Navarro Delabio. Focada em renda fixa e ações no Brasil e na América Latina, é situada em São Paulo. Possui um único fundo multiestratégia com mandato flexível, com maior universo de empresas, países e instrumentos para investimento.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="14"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, por Carlos Eduardo Rocha e demais sócios, é situada no Rio de Janeiro. Apesar da empresa ter como sócio estratégico a Brasil Plural, a gestão é independente e exclusiva. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="15"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Cláudio Delbrueck e ex-membros do BNP Paribas. Especializada em fundos de renda variável, tem como objetivo retornos consistentes no médio e longo prazos, atuando no mercado de ações em Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="16"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2001, desde 2015 faz parte do Grupo Azimut: gestora global independente listada na bolsa de Milão. Referência em renda variável, atua em diversas estratégias focadas em Fundos Multimercado Macro, Fundo Long Short, Fundos de Ações e Fundos de Crédito.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="17"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2010, por profissionais que construíram carreiras sólidas no mercado financeiro: Mário Torós e Rodrigo Azevedo, ex-diretor do Banco Central do Brasil. Atua em 3 estratégias diferentes para Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="18"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2007, por Ralph Rosenberg, profissional de larga experiência no mercado financeiro. Signatária do PRI (Principles for Responsible Investments), prioriza a resiliência do retorno atuando com foco em Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="19"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, por André Laport, ex-sócio da Goldman Sachs, James Oliveira, ex-sócio do BTG Pactual e ex-CEO/CIO do BTG Pactual Asset Management e por profissionais experientes. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="20"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2009, por ex-executivos do BTG Pactual. Com uma grande equipe, tem escritórios em São Paulo e Rio de Janeiro. Em 2012, alcançou mais de R$ 20 bilhões de patrimônio. Focada em Fundos de Renda Fixa Crédito Privado e Fundos Estruturados.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="21"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada há mais de 60 anos, faz parte do grupo Itaú Unibanco. Maior gestora de recursos do Brasil, tem uma célula especializada no gerenciamento de investimento de alto valor agregado. Focada em Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="22"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1971, em Newport Beach (EUA). Uma das principais gestoras de investimentos em renda fixa do mundo, conta com escritórios em dezenas de países e atende clientes globalmente. Atua em Fundos de Renda Fixa Internacional.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="23"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1983, atua no Brasil, Estados Unidos, México, Chile, Colômbia, Peru, Londres e Nova York. Com ampla grade de produtos e serviços, incluindo fundos locais e internacionais, tem Fundos Multimercado Macro, Fundos Long Short, Fundos de Ações e Fundos de Crédito.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="24"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2009, por João Carlos Tavora Pinho e Carlos Woelz, ex-profissionais do Banco BBM. Divide-se em mesas com limites de risco individuais e é independente. Atua em Fundos Multimercado Macro, Fundos de Renda Variável e Fundos de Investimento no Exterior.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="25"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2002, por Cláudio Andrade, iniciou as operações de seus primeiros produtos em 2003. Situada no Rio de Janeiro, gerencia recursos em diversos mandatos líquidos e ilíquidos. Atua em Fundos Multimercado Macro, Fundos de Crédito e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="26"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Fabiano Rios, veterano do mercado financeiro. Situada em São Paulo, conta com especialistas experientes em tesourarias de grandes bancos e gestoras independentes. Focada em Fundos Multimercado Macro e Fundos Multimercado Arbitragem.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="27"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2012, por Antonio Quintella e Sergio Blatyta em sociedade com o Credit Suisse Group AG. Prioriza a preservação de capital por meio da diversificação de ativos. Focada em Fundos Multimercado Macro, Fundos Multimercado de Arbitragem e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="28"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2007, faz parte do Grupo Itaú Unibanco e tem como atividade exclusiva a gestão de fundos. Utiliza-se da infraestrutura operacional do Banco Itaú Unibanco em atividades não vinculadas à gestão. Atua com Fundos Multimercado Macro, Ações e Previdência.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="29"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1996, é uma empresa do Grupo Porto Seguro. Além da gestão de recursos de terceiros, também é responsável por administrar as aplicações financeiras de todo o grupo. Abrange estratégias de Renda Fixa, Multimercado e Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="30"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2015, após a fusão da gestora LAPB, do sócio Luiz Alves Paes de Barro, e Skipper Investimentos, do sócio Henrique Bredda. A equipe experiente atua com disciplina no processo de seleção e controle de risco dos Fundos de Ações e Fundos Multimercado Macro.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="31"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Ricardo Quintero, profissional de sucesso e ex-vice-presidente do Bank of America. Situada em São Paulo, a empresa independente é focada em serviços de gestão de patrimônio. Atua em Fundos de Crédito.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="32"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Luiz Paulo Aranha e sócios experientes, vindos de outras gestoras independentes. Tem um processo de investimento com método, disciplina e perspectiva de longo prazo no mercado de ações através de Fundos Long and Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="33"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1964, tem sede em Tóquio e presença global. Com bilhões sob gestão, possui 3 estratégias focadas em Crédito, Imobiliário e Infraestrutura. Atua com fundos de desenvolvimento imobiliário, renda, crédito estruturado e debêntures incentivadas.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="34"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, pelo experiente Augusto Lange Vieira. Criada a partir de uma reestruturação da equipe de gestão do Banco Safra, proporciona retornos diferenciados e descorrelacionados às variações de mercado. Focada em ações em Fundos Long and Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="35"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada  em  2006,  por  Luis  Felipe  Amaral,  profissional  com  ampla  experiência  no  mercado financeiro. É uma gestora independente e dedicada exclusivamente à ações. Atua com foco em uma única estratégia e um único Fundo de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="36"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, por profissionais experientes do BRAM - Bradesco Asset Management, que atuam juntos há muitos anos na gestão de recursos de terceiros. A gestora tem uma única estratégia focada em um Fundo Multimercado Macro-Trading.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="37"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2015, por Elsom Yassuda e Marcelo Cavalheiro, ex-sócios da equipe da Hedging-Griffo e responsáveis pela criação das mesas de renda fixa e renda variável da gestora. Atua com o foco no mercado de renda variável em Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="38"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2001, foi adquirida em 2008 pelo grupo BNY Mellon, um dos maiores gestores do mundo. Busca retornos consistentes e tem uma grade diversificada em Fundos Long and Short, Fundos Multimercado Macro, Fundos de Ações e Fundos de Renda Fixa Crédito Privado.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="39"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2014, por Daniel Navarro Delabio. Focada em renda fixa e ações no Brasil e na América Latina, é situada em São Paulo. Possui um único fundo multiestratégia com mandato flexível, com maior universo de empresas, países e instrumentos para investimento.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="40"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, por Carlos Eduardo Rocha e demais sócios, é situada no Rio de Janeiro. Apesar da empresa ter como sócio estratégico a Brasil Plural, a gestão é independente e exclusiva. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="41"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2013, por Cláudio Delbrueck e ex-membros do BNP Paribas. Especializada em fundos de renda variável, tem como objetivo retornos consistentes no médio e longo prazos, atuando no mercado de ações em Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="42"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2001, desde 2015 faz parte do Grupo Azimut: gestora global independente listada na bolsa de Milão. Referência em renda variável, atua em diversas estratégias focadas em Fundos Multimercado Macro, Fundo Long Short, Fundos de Ações e Fundos de Crédito.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="43"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2010, por profissionais que construíram carreiras sólidas no mercado financeiro: Mário Torós e Rodrigo Azevedo, ex-diretor do Banco Central do Brasil. Atua em 3 estratégias diferentes para Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="44"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2007, por Ralph Rosenberg, profissional de larga experiência no mercado financeiro. Signatária do PRI (Principles for Responsible Investments), prioriza a resiliência do retorno atuando com foco em Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="45"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2018, por André Laport, ex-sócio da Goldman Sachs, James Oliveira, ex-sócio do BTG Pactual e ex-CEO/CIO do BTG Pactual Asset Management e por profissionais experientes. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="46"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2009, por ex-executivos do BTG Pactual. Com uma grande equipe, tem escritórios em São Paulo e Rio de Janeiro. Em 2012, alcançou mais de R$ 20 bilhões de patrimônio. Focada em Fundos de Renda Fixa Crédito Privado e Fundos Estruturados.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="47"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada há mais de 60 anos, faz parte do grupo Itaú Unibanco. Maior gestora de recursos do Brasil, tem uma célula especializada no gerenciamento de investimento de alto valor agregado. Focada em Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="48"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1971, em Newport Beach (EUA). Uma das principais gestoras de investimentos em renda fixa do mundo, conta com escritórios em dezenas de países e atende clientes globalmente. Atua em Fundos de Renda Fixa Internacional.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="49"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 1983, atua no Brasil, Estados Unidos, México, Chile, Colômbia, Peru, Londres e Nova York. Com ampla grade de produtos e serviços, incluindo fundos locais e internacionais, tem Fundos Multimercado Macro, Fundos Long Short, Fundos de Ações e Fundos de Crédito.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="50"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2009, por João Carlos Tavora Pinho e Carlos Woelz, ex-profissionais do Banco BBM. Divide-se em mesas com limites de risco individuais e é independente. Atua em Fundos Multimercado Macro, Fundos de Renda Variável e Fundos de Investimento no Exterior.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="51"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c38"
+                    >
+                      <div
+                        class="c39"
+                      >
+                        <img
+                          class="c40"
+                        />
+                      </div>
+                      <div
+                        class="c41"
+                      >
+                        <p
+                          class="c42"
+                        >
+                          Fundada em 2002, por Cláudio Andrade, iniciou as operações de seus primeiros produtos em 2003. Situada no Rio de Janeiro, gerencia recursos em diversos mandatos líquidos e ilíquidos. Atua em Fundos Multimercado Macro, Fundos de Crédito e Fundos de Ações.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="c36 slick-arrow slick-next"
+              data-role="none"
+              style="display: block;"
+            >
+              <svg
+                class="c43"
+              >
+                forward.svg
+              </svg>
+            </button>
+            <ul
+              class="slick-dots"
+              style="display: block;"
+            >
+              <li
+                class="slick-active"
+              >
+                <button>
+                  1
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  2
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  3
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  4
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  5
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  6
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  7
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div
+        class="c44"
+        data-name="container"
+      >
+        <div
+          class="c45"
+          data-name="row"
+        >
+          <div
+            class="sc-fzoxKX c46"
+            data-name="col-md-6 col-lg-6"
+          >
+            <div>
+              <svg
+                aria-label="pdf"
+                class="c47"
+                fill="#272727"
+                height="24px"
+                role="img"
+              >
+                pdf.svg
+              </svg>
+            </div>
+            <div>
+              <p
+                class="c48"
+              >
+                Cenário Econômico
+              </p>
+              <p
+                class="c49"
+              >
+                Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
+              </p>
+              <p
+                class="c50"
+                data-gtm-clicktype="link"
+                data-gtm-name="Visualizar"
+                data-gtm-subname="Cenário Econômico"
+                data-gtm-type="click"
+              >
+                Visualizar
+                 &gt;
+                 
+              </p>
+            </div>
+          </div>
+          <div
+            class="sc-fzoxKX c46"
+            data-name="col-md-6 col-lg-6"
+          >
+            <div>
+              <svg
+                aria-label="pdf"
+                class="c47"
+                fill="#272727"
+                height="24px"
+                role="img"
+              >
+                pdf.svg
+              </svg>
+            </div>
+            <div>
+              <p
+                class="c48"
+              >
+                Tabela de Rentabilizade Mensal
+              </p>
+              <p
+                class="c49"
+              >
+                Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
+              </p>
+              <p
+                class="c50"
+                data-gtm-clicktype="link"
+                data-gtm-name="Visualizar"
+                data-gtm-subname="Tabela de Rentabilizade Mensal"
+                data-gtm-type="click"
+              >
+                Visualizar
+                 &gt;
+                 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c51"
+        data-name="container"
+      >
+        <div
+          class="c52"
+          data-name="row"
+        >
+          <div
+            class="sc-fzoxKX c53"
+            data-name="col-lg-12"
+          >
+            <div
+              class="c54"
+            >
+              <p
+                class="c55 c56"
+                color="unset"
+                type="body"
+              >
+                Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
+              </p>
+              <p
+                class="c55 c56"
+                color="unset"
+                type="body"
+              >
+                | Central de Atendimento: (11) 3366-3200/ Atendimento para deficientes auditivos 0800-727-8736. Ouvidoria: 0800-727-1184 | 3366-3184 /
+              </p>
+              <a
+                data-gtm-clicktype="link"
+                data-gtm-name="ouvidoria@portoseguro.com.br"
+                data-gtm-subname="Anbima"
+                data-gtm-type="click"
+                href="mailto:ouvidoria@portoseguro.com.br"
+              >
+                <p
+                  class="c55 c57"
+                  color="unset"
+                  type="body"
+                >
+                   ouvidoria@portoseguro.com.br
+                </p>
+              </a>
+              <p
+                class="c55 c56"
+                color="unset"
+                type="body"
+              >
+                , (Seg à Sexta das 8h15 às 18h30, exceto feriados). Fale Conosco:
+              </p>
+              <a
+                data-gtm-clicktype="link"
+                data-gtm-name="suporte.conquista@portoseguro.com.br"
+                data-gtm-subname="Anbima"
+                data-gtm-type="click"
+                href="mailto:suporte.conquista@portoseguro.com.br"
+              >
+                <p
+                  class="c55 c57"
+                  color="unset"
+                  type="body"
+                >
+                   suporte.conquista@portoseguro.com.br
+                </p>
+              </a>
+              <p
+                class="c55 c56"
+                color="unset"
+                type="body"
+              >
+                .
+              </p>
+              <p
+                class="c55 c56"
+                color="unset"
+                type="body"
+              >
+                 Para ter acesso a Políticas Internas, Código de Conduta Profissional
+            de AAIs (Agentes autônomos de Investimentos), Lista de AAIs e
+            Assembléias acesse 
+              </p>
+              <a
+                class=""
+                data-gtm-clicktype="link"
+                data-gtm-name="www.conquista.com.vc"
+                data-gtm-subname="Anbima"
+                data-gtm-type="click"
+                href="/redirect?to=https://www.conquista.com.vc"
+                target="_blank"
+              >
+                <p
+                  class="c55 c57"
+                  color="unset"
+                  type="body"
+                >
+                  www.conquista.com.vc
+                </p>
+              </a>
+              <p
+                class="c55 c56"
+                color="unset"
+                type="body"
+              >
+                .
+              </p>
+            </div>
+            <div
+              class="c58"
+            >
+              <a
+                href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+                target="blank"
+              >
+                <img
+                  alt="Logo Anbima - Gestao"
+                  class="c59"
+                  src="logo-anbima-gestao.png"
+                />
+              </a>
+              <img
+                alt="Logo Anbima - Distribuição"
+                class="c60"
+                src="logo-anbima-distribuicao.png"
+              />
+              <a
+                href="https://comoinvestir.anbima.com.br/"
+                target="blank"
+              >
+                <img
+                  alt="Logo Anbima - Investir"
+                  class="c61"
+                  src="logo-anbima-como-investir.png"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="sc-AxmLO bohepV"
+    >
+      <div
+        class="sc-fzozJi ghJUps"
+      >
+        <h1
+          class="sc-fzpans hjHiXE"
+        >
+          Fundos de Investimentos
+        </h1>
+        <p>
+          Com o Conquista, você pode investir em Fundos de Investimento da Porto Seguro e de gestoras parceiras. Consulte a Lista de Fundos e conheça opções para diversos perfis.
+        </p>
+        <br />
+        <button
+          class="sc-AxheI fWkGtS button-with-right-icon"
+          color="secondary"
+          data-gtm-clicktype="button"
+          data-gtm-name="Lista de fundos"
+          data-gtm-subname="banner Fundos de Investimentos"
+          data-gtm-type="click"
+        >
+          <span
+            class="sc-Axmtr jzRiSY"
+          >
+            Lista de fundos
+            <span
+              class="icon"
+            />
+          </span>
+        </button>
+      </div>
+      <img
+        alt="Homem pesquisando investimentos em um website em seu computador"
+        class="sc-fzoLsD huQBEw"
+        src="banner_investimentos.jpg"
+      />
+    </section>
+    <section
+      class="sc-fzplWN fzwWOD"
+    >
+      <div
+        class="sc-fznyAO fsKSCe"
+      >
+        <div
+          class="sc-fznKkj jhsnVa"
+        >
+          <img
+            alt=""
+            src="selo_investimento.svg"
+          />
+        </div>
+        <div
+          class="sc-fznZeY huemJa"
+        >
+          <div>
+            Por que investir em Fundos?
+          </div>
+          <ul>
+            <li>
+              Você pode investir para construir e aumentar seu patrimônio, realizar os seus sonhos ou multiplicar seu dinheiro.
+            </li>
+            <li>
+              Com opções de baixo a alto risco, os fundos têm tipos e retornos variados, atendendo a todos os perfis de investidores (conservador, moderado, arrojado e agressivo).
+            </li>
+            <li>
+              Os fundos são aplicações que somam vários ativos. Gerenciados por especialistas, facilitam o dia a dia de quem quer diversificar sem precisar administrar ativamente.
+            </li>
+            <li>
+              Os fundos têm períodos variados de resgate, que é o tempo para reaver o dinheiro. Você pode usá-los para organizar metas a curto, médio ou longo prazo.
+            </li>
+          </ul>
+          <p
+            class="sc-fzokOt fotBbG"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="sc-fzoiQi hOdnoN"
+    >
+      <div
+        class="sc-fzqARJ ctfuQb"
+      >
+        Quando faz sentido investir?
+      </div>
+      <div
+        class="sc-fzqNqU ekgPoR"
+      >
+        <div
+          class="sc-fzoyTs rJcan"
+        >
+          <div
+            class="sc-fzoNJl fKWFxK"
+          >
+            <svg
+              aria-label="malefemale"
+              role="img"
+            >
+              male-female.svg
+            </svg>
+             
+          </div>
+          <p
+            class="sc-fzoXWK dfkcXL"
+          >
+            Quando você quiser uma gestão profissional para
+      buscar as melhores opções do mercado para seu dinheiro.
+          </p>
+        </div>
+        <div
+          class="sc-fzoyTs rJcan"
+        >
+          <div
+            class="sc-fzoNJl fKWFxK"
+          >
+            <svg
+              aria-label="barchart"
+              role="img"
+            >
+              bar-chart.svg
+            </svg>
+             
+          </div>
+          <p
+            class="sc-fzoXWK dfkcXL"
+          >
+            Quando você quiser buscar um rendimento melhor do que o da poupança,
+      sem correr, necessariamente, um risco maior.
+          </p>
+        </div>
+        <div
+          class="sc-fzoyTs rJcan"
+        >
+          <div
+            class="sc-fzoNJl fKWFxK"
+          >
+            <svg
+              aria-label="safebox"
+              role="img"
+            >
+              safe-box.svg
+            </svg>
+             
+          </div>
+          <p
+            class="sc-fzoXWK dfkcXL"
+          >
+            Quando você quiser se organizar para buscar seus sonhos,
+      economizando seu dinheiro e esperando rendimentos melhores.
+          </p>
+        </div>
+      </div>
+      <h2
+        class="sc-fzpmMD cAszzt"
+      >
+        Vantagens ao contratar aqui:
+      </h2>
+      <div
+        class="slick-slider sc-fzqBZW dEBtES sc-fzoXzr bYEdGI slick-initialized"
+      >
+        
+        <div
+          class="slick-list"
+        >
+          <div
+            class="slick-track"
+            style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          >
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active slick-current"
+              data-index="0"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="talkman"
+                    role="img"
+                  >
+                    talk-man.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Gerente de conta
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      Possibilidade de apoio de um gerente para te ajudar em contratações e dúvidas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="1"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="diamond"
+                    role="img"
+                  >
+                    diamond.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Programa de Relacionamento
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      Pontos que podem ser trocados por descontos em produtos Porto Seguro e até por viagens.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="2"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="callcenter"
+                    role="img"
+                  >
+                    call-center.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Chat inteligente
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      Para te ajudar com informações e dicas em qualquer momento.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="3"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="apps"
+                    role="img"
+                  >
+                    apps.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Facilidade
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      A contratação é rápida e descomplicada, feita para facilitar sua vida.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+    </section>
+    <section
+      class="sc-fznxKY cBDQkv"
+    >
+      <div
+        class="sc-fznMAR fuPtCG"
+      >
+        <h1
+          class="sc-fznWOq dPRiCP"
+        >
+          Facilidade para investir
+        </h1>
+        <p
+          class="sc-fzolEj gtFzMN"
+        >
+          Com o Conquista, é prático e rápido investir.
+          <br />
+          <br />
+          Você confere as opções disponíveis na Lista de Fundo, consulta informações detalhadas de cada um e realiza seus investimentos com a segurança de uma plataforma da Porto Seguro.
+        </p>
+        <br />
+        <br />
+        <button
+          class="sc-AxheI fWkGtS"
+          color="secondary"
+          data-gtm-clicktype="button"
+          data-gtm-name="lista de fundos"
+          data-gtm-subname="Facilidade para investir"
+          data-gtm-type="click"
+        >
+          <span
+            class="sc-Axmtr jzRiSY"
+          >
+            lista de fundos
+          </span>
+        </button>
+      </div>
+    </section>
+    <section
+      class="sc-fznXWL lokpRc"
+    >
+      <div
+        class="sc-fzokvW brMSgA"
+      >
+        <picture
+          class="sc-fzqzlV cpWdPV"
+        >
+          <img
+            alt="Mulher feliz"
+            src="red_hair_girl.jpg"
+          />
+        </picture>
+        <div
+          class="sc-fzqLLg fHZCxi"
+        >
+          <h1>
+            Investindo em objetivos
+          </h1>
+          <p>
+            No Conquista, você tem total controle para escolher os Fundos de Investimentos que preferir, além de auxílio inteligente para encontrar opções adequadas ao seu perfil e ao que você busca.
+            <br />
+            <br />
+            Crie objetivos e aproveite os planos personalizados que a ferramenta apresenta para investir com mais facilidade.
+          </p>
+          <button
+            class="sc-AxheI kAKOXk"
+            color="primary"
+            data-gtm-clicktype="button"
+            data-gtm-name="criar objetivo"
+            data-gtm-subname="banner - investindo em objetivos"
+            data-gtm-type="click"
+          >
+            <span
+              class="sc-Axmtr jzRiSY"
+            >
+              Criar Objetivo
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section
+      class="sc-fzoJMP cNaqHF"
+    >
+      <div
+        class="sc-fzoYHE kRKRQF"
+      >
+        <h1
+          class="sc-fzpkqZ jpPppJ"
+        >
+          Conheça as gestoras disponíveis no Conquista:
+        </h1>
+        <div
+          class="slick-slider sc-fzqBZW dEBtES sc-fznAgC ejplBW slick-initialized"
+          dir="ltr"
+        >
+          <button
+            class="sc-fzoLag URUOF slick-arrow slick-prev"
+            data-role="none"
+            style="display: block;"
+          >
+            <svg
+              class="sc-fzoyAV htOucE"
+            >
+              backward.svg
+            </svg>
+          </button>
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="-4"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1971, em Newport Beach (EUA). Uma das principais gestoras de investimentos em renda fixa do mundo, conta com escritórios em dezenas de países e atende clientes globalmente. Atua em Fundos de Renda Fixa Internacional.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="-3"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1983, atua no Brasil, Estados Unidos, México, Chile, Colômbia, Peru, Londres e Nova York. Com ampla grade de produtos e serviços, incluindo fundos locais e internacionais, tem Fundos Multimercado Macro, Fundos Long Short, Fundos de Ações e Fundos de Crédito.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="-2"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2009, por João Carlos Tavora Pinho e Carlos Woelz, ex-profissionais do Banco BBM. Divide-se em mesas com limites de risco individuais e é independente. Atua em Fundos Multimercado Macro, Fundos de Renda Variável e Fundos de Investimento no Exterior.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="-1"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2002, por Cláudio Andrade, iniciou as operações de seus primeiros produtos em 2003. Situada no Rio de Janeiro, gerencia recursos em diversos mandatos líquidos e ilíquidos. Atua em Fundos Multimercado Macro, Fundos de Crédito e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Fabiano Rios, veterano do mercado financeiro. Situada em São Paulo, conta com especialistas experientes em tesourarias de grandes bancos e gestoras independentes. Focada em Fundos Multimercado Macro e Fundos Multimercado Arbitragem.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2012, por Antonio Quintella e Sergio Blatyta em sociedade com o Credit Suisse Group AG. Prioriza a preservação de capital por meio da diversificação de ativos. Focada em Fundos Multimercado Macro, Fundos Multimercado de Arbitragem e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="2"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2007, faz parte do Grupo Itaú Unibanco e tem como atividade exclusiva a gestão de fundos. Utiliza-se da infraestrutura operacional do Banco Itaú Unibanco em atividades não vinculadas à gestão. Atua com Fundos Multimercado Macro, Ações e Previdência.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="3"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1996, é uma empresa do Grupo Porto Seguro. Além da gestão de recursos de terceiros, também é responsável por administrar as aplicações financeiras de todo o grupo. Abrange estratégias de Renda Fixa, Multimercado e Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="4"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2015, após a fusão da gestora LAPB, do sócio Luiz Alves Paes de Barro, e Skipper Investimentos, do sócio Henrique Bredda. A equipe experiente atua com disciplina no processo de seleção e controle de risco dos Fundos de Ações e Fundos Multimercado Macro.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="5"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Ricardo Quintero, profissional de sucesso e ex-vice-presidente do Bank of America. Situada em São Paulo, a empresa independente é focada em serviços de gestão de patrimônio. Atua em Fundos de Crédito.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="6"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Luiz Paulo Aranha e sócios experientes, vindos de outras gestoras independentes. Tem um processo de investimento com método, disciplina e perspectiva de longo prazo no mercado de ações através de Fundos Long and Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="7"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1964, tem sede em Tóquio e presença global. Com bilhões sob gestão, possui 3 estratégias focadas em Crédito, Imobiliário e Infraestrutura. Atua com fundos de desenvolvimento imobiliário, renda, crédito estruturado e debêntures incentivadas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="8"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, pelo experiente Augusto Lange Vieira. Criada a partir de uma reestruturação da equipe de gestão do Banco Safra, proporciona retornos diferenciados e descorrelacionados às variações de mercado. Focada em ações em Fundos Long and Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="9"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada  em  2006,  por  Luis  Felipe  Amaral,  profissional  com  ampla  experiência  no  mercado financeiro. É uma gestora independente e dedicada exclusivamente à ações. Atua com foco em uma única estratégia e um único Fundo de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="10"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, por profissionais experientes do BRAM - Bradesco Asset Management, que atuam juntos há muitos anos na gestão de recursos de terceiros. A gestora tem uma única estratégia focada em um Fundo Multimercado Macro-Trading.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="11"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2015, por Elsom Yassuda e Marcelo Cavalheiro, ex-sócios da equipe da Hedging-Griffo e responsáveis pela criação das mesas de renda fixa e renda variável da gestora. Atua com o foco no mercado de renda variável em Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="12"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2001, foi adquirida em 2008 pelo grupo BNY Mellon, um dos maiores gestores do mundo. Busca retornos consistentes e tem uma grade diversificada em Fundos Long and Short, Fundos Multimercado Macro, Fundos de Ações e Fundos de Renda Fixa Crédito Privado.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="13"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2014, por Daniel Navarro Delabio. Focada em renda fixa e ações no Brasil e na América Latina, é situada em São Paulo. Possui um único fundo multiestratégia com mandato flexível, com maior universo de empresas, países e instrumentos para investimento.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="14"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, por Carlos Eduardo Rocha e demais sócios, é situada no Rio de Janeiro. Apesar da empresa ter como sócio estratégico a Brasil Plural, a gestão é independente e exclusiva. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="15"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Cláudio Delbrueck e ex-membros do BNP Paribas. Especializada em fundos de renda variável, tem como objetivo retornos consistentes no médio e longo prazos, atuando no mercado de ações em Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="16"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2001, desde 2015 faz parte do Grupo Azimut: gestora global independente listada na bolsa de Milão. Referência em renda variável, atua em diversas estratégias focadas em Fundos Multimercado Macro, Fundo Long Short, Fundos de Ações e Fundos de Crédito.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="17"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2010, por profissionais que construíram carreiras sólidas no mercado financeiro: Mário Torós e Rodrigo Azevedo, ex-diretor do Banco Central do Brasil. Atua em 3 estratégias diferentes para Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="18"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2007, por Ralph Rosenberg, profissional de larga experiência no mercado financeiro. Signatária do PRI (Principles for Responsible Investments), prioriza a resiliência do retorno atuando com foco em Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="19"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, por André Laport, ex-sócio da Goldman Sachs, James Oliveira, ex-sócio do BTG Pactual e ex-CEO/CIO do BTG Pactual Asset Management e por profissionais experientes. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="20"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2009, por ex-executivos do BTG Pactual. Com uma grande equipe, tem escritórios em São Paulo e Rio de Janeiro. Em 2012, alcançou mais de R$ 20 bilhões de patrimônio. Focada em Fundos de Renda Fixa Crédito Privado e Fundos Estruturados.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="21"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada há mais de 60 anos, faz parte do grupo Itaú Unibanco. Maior gestora de recursos do Brasil, tem uma célula especializada no gerenciamento de investimento de alto valor agregado. Focada em Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="22"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1971, em Newport Beach (EUA). Uma das principais gestoras de investimentos em renda fixa do mundo, conta com escritórios em dezenas de países e atende clientes globalmente. Atua em Fundos de Renda Fixa Internacional.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="23"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1983, atua no Brasil, Estados Unidos, México, Chile, Colômbia, Peru, Londres e Nova York. Com ampla grade de produtos e serviços, incluindo fundos locais e internacionais, tem Fundos Multimercado Macro, Fundos Long Short, Fundos de Ações e Fundos de Crédito.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="24"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2009, por João Carlos Tavora Pinho e Carlos Woelz, ex-profissionais do Banco BBM. Divide-se em mesas com limites de risco individuais e é independente. Atua em Fundos Multimercado Macro, Fundos de Renda Variável e Fundos de Investimento no Exterior.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="25"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2002, por Cláudio Andrade, iniciou as operações de seus primeiros produtos em 2003. Situada no Rio de Janeiro, gerencia recursos em diversos mandatos líquidos e ilíquidos. Atua em Fundos Multimercado Macro, Fundos de Crédito e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="26"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Fabiano Rios, veterano do mercado financeiro. Situada em São Paulo, conta com especialistas experientes em tesourarias de grandes bancos e gestoras independentes. Focada em Fundos Multimercado Macro e Fundos Multimercado Arbitragem.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="27"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2012, por Antonio Quintella e Sergio Blatyta em sociedade com o Credit Suisse Group AG. Prioriza a preservação de capital por meio da diversificação de ativos. Focada em Fundos Multimercado Macro, Fundos Multimercado de Arbitragem e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="28"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2007, faz parte do Grupo Itaú Unibanco e tem como atividade exclusiva a gestão de fundos. Utiliza-se da infraestrutura operacional do Banco Itaú Unibanco em atividades não vinculadas à gestão. Atua com Fundos Multimercado Macro, Ações e Previdência.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="29"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1996, é uma empresa do Grupo Porto Seguro. Além da gestão de recursos de terceiros, também é responsável por administrar as aplicações financeiras de todo o grupo. Abrange estratégias de Renda Fixa, Multimercado e Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="30"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2015, após a fusão da gestora LAPB, do sócio Luiz Alves Paes de Barro, e Skipper Investimentos, do sócio Henrique Bredda. A equipe experiente atua com disciplina no processo de seleção e controle de risco dos Fundos de Ações e Fundos Multimercado Macro.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="31"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Ricardo Quintero, profissional de sucesso e ex-vice-presidente do Bank of America. Situada em São Paulo, a empresa independente é focada em serviços de gestão de patrimônio. Atua em Fundos de Crédito.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="32"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Luiz Paulo Aranha e sócios experientes, vindos de outras gestoras independentes. Tem um processo de investimento com método, disciplina e perspectiva de longo prazo no mercado de ações através de Fundos Long and Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="33"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1964, tem sede em Tóquio e presença global. Com bilhões sob gestão, possui 3 estratégias focadas em Crédito, Imobiliário e Infraestrutura. Atua com fundos de desenvolvimento imobiliário, renda, crédito estruturado e debêntures incentivadas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="34"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, pelo experiente Augusto Lange Vieira. Criada a partir de uma reestruturação da equipe de gestão do Banco Safra, proporciona retornos diferenciados e descorrelacionados às variações de mercado. Focada em ações em Fundos Long and Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="35"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada  em  2006,  por  Luis  Felipe  Amaral,  profissional  com  ampla  experiência  no  mercado financeiro. É uma gestora independente e dedicada exclusivamente à ações. Atua com foco em uma única estratégia e um único Fundo de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="36"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, por profissionais experientes do BRAM - Bradesco Asset Management, que atuam juntos há muitos anos na gestão de recursos de terceiros. A gestora tem uma única estratégia focada em um Fundo Multimercado Macro-Trading.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="37"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2015, por Elsom Yassuda e Marcelo Cavalheiro, ex-sócios da equipe da Hedging-Griffo e responsáveis pela criação das mesas de renda fixa e renda variável da gestora. Atua com o foco no mercado de renda variável em Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="38"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2001, foi adquirida em 2008 pelo grupo BNY Mellon, um dos maiores gestores do mundo. Busca retornos consistentes e tem uma grade diversificada em Fundos Long and Short, Fundos Multimercado Macro, Fundos de Ações e Fundos de Renda Fixa Crédito Privado.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="39"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2014, por Daniel Navarro Delabio. Focada em renda fixa e ações no Brasil e na América Latina, é situada em São Paulo. Possui um único fundo multiestratégia com mandato flexível, com maior universo de empresas, países e instrumentos para investimento.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="40"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, por Carlos Eduardo Rocha e demais sócios, é situada no Rio de Janeiro. Apesar da empresa ter como sócio estratégico a Brasil Plural, a gestão é independente e exclusiva. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="41"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2013, por Cláudio Delbrueck e ex-membros do BNP Paribas. Especializada em fundos de renda variável, tem como objetivo retornos consistentes no médio e longo prazos, atuando no mercado de ações em Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="42"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2001, desde 2015 faz parte do Grupo Azimut: gestora global independente listada na bolsa de Milão. Referência em renda variável, atua em diversas estratégias focadas em Fundos Multimercado Macro, Fundo Long Short, Fundos de Ações e Fundos de Crédito.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="43"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2010, por profissionais que construíram carreiras sólidas no mercado financeiro: Mário Torós e Rodrigo Azevedo, ex-diretor do Banco Central do Brasil. Atua em 3 estratégias diferentes para Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="44"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2007, por Ralph Rosenberg, profissional de larga experiência no mercado financeiro. Signatária do PRI (Principles for Responsible Investments), prioriza a resiliência do retorno atuando com foco em Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="45"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2018, por André Laport, ex-sócio da Goldman Sachs, James Oliveira, ex-sócio do BTG Pactual e ex-CEO/CIO do BTG Pactual Asset Management e por profissionais experientes. Focada em Fundos Multimercado Macro e Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="46"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2009, por ex-executivos do BTG Pactual. Com uma grande equipe, tem escritórios em São Paulo e Rio de Janeiro. Em 2012, alcançou mais de R$ 20 bilhões de patrimônio. Focada em Fundos de Renda Fixa Crédito Privado e Fundos Estruturados.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="47"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada há mais de 60 anos, faz parte do grupo Itaú Unibanco. Maior gestora de recursos do Brasil, tem uma célula especializada no gerenciamento de investimento de alto valor agregado. Focada em Fundos Multimercado Macro, Fundos Long Short e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="48"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1971, em Newport Beach (EUA). Uma das principais gestoras de investimentos em renda fixa do mundo, conta com escritórios em dezenas de países e atende clientes globalmente. Atua em Fundos de Renda Fixa Internacional.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="49"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 1983, atua no Brasil, Estados Unidos, México, Chile, Colômbia, Peru, Londres e Nova York. Com ampla grade de produtos e serviços, incluindo fundos locais e internacionais, tem Fundos Multimercado Macro, Fundos Long Short, Fundos de Ações e Fundos de Crédito.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="50"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2009, por João Carlos Tavora Pinho e Carlos Woelz, ex-profissionais do Banco BBM. Divide-se em mesas com limites de risco individuais e é independente. Atua em Fundos Multimercado Macro, Fundos de Renda Variável e Fundos de Investimento no Exterior.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide slick-cloned"
+                data-index="51"
+                style="width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gagawn"
+                  >
+                    <div
+                      class="sc-fzomME kZwqQp"
+                    >
+                      <img
+                        class="sc-fzoydu hQyzsB"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzqMAW eDqGcS"
+                    >
+                      <p
+                        class="sc-fzqAbL kbtmqZ"
+                      >
+                        Fundada em 2002, por Cláudio Andrade, iniciou as operações de seus primeiros produtos em 2003. Situada no Rio de Janeiro, gerencia recursos em diversos mandatos líquidos e ilíquidos. Atua em Fundos Multimercado Macro, Fundos de Crédito e Fundos de Ações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="sc-fzoLag URUOF slick-arrow slick-next"
+            data-role="none"
+            style="display: block;"
+          >
+            <svg
+              class="sc-fzqNJr bePnTS"
+            >
+              forward.svg
+            </svg>
+          </button>
+          <ul
+            class="slick-dots"
+            style="display: block;"
+          >
+            <li
+              class="slick-active"
+            >
+              <button>
+                1
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                2
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                3
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                4
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                5
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                6
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                7
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div
+      class="sc-fzqBkg gNlaca"
+      data-name="container"
+    >
+      <div
+        class="sc-fzqPZZ eUztIp"
+        data-name="row"
+      >
+        <div
+          class="sc-fzoxKX sc-fzoKki frPAxW"
+          data-name="col-md-6 col-lg-6"
+        >
+          <div>
+            <svg
+              aria-label="pdf"
+              class="sc-fzoYkl cGRzAA"
+              fill="#272727"
+              height="24px"
+              role="img"
+            >
+              pdf.svg
+            </svg>
+          </div>
+          <div>
+            <p
+              class="sc-fzpkJw kalcME"
+            >
+              Cenário Econômico
+            </p>
+            <p
+              class="sc-fznzOf cclTIr"
+            >
+              Comentários sobre a estratégia dos fundos de Investimentos e, também, um pouco da visão do cenário econômico atual.
+            </p>
+            <p
+              class="sc-fznMnq jHYwqB"
+              data-gtm-clicktype="link"
+              data-gtm-name="Visualizar"
+              data-gtm-subname="Cenário Econômico"
+              data-gtm-type="click"
+            >
+              Visualizar
+               &gt;
+               
+            </p>
+          </div>
+        </div>
+        <div
+          class="sc-fzoxKX sc-fzoKki frPAxW"
+          data-name="col-md-6 col-lg-6"
+        >
+          <div>
+            <svg
+              aria-label="pdf"
+              class="sc-fzoYkl cGRzAA"
+              fill="#272727"
+              height="24px"
+              role="img"
+            >
+              pdf.svg
+            </svg>
+          </div>
+          <div>
+            <p
+              class="sc-fzpkJw kalcME"
+            >
+              Tabela de Rentabilizade Mensal
+            </p>
+            <p
+              class="sc-fznzOf cclTIr"
+            >
+              Acompanhe o rendimento mais atualizado de todos os fundos de Investimentos da Porto Seguro.
+            </p>
+            <p
+              class="sc-fznMnq jHYwqB"
+              data-gtm-clicktype="link"
+              data-gtm-name="Visualizar"
+              data-gtm-subname="Tabela de Rentabilizade Mensal"
+              data-gtm-type="click"
+            >
+              Visualizar
+               &gt;
+               
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-fzqBkg sc-fznLPX eqLVOC"
+      data-name="container"
+    >
+      <div
+        class="sc-fzqPZZ sc-fzomuh guCNnk"
+        data-name="row"
+      >
+        <div
+          class="sc-fzoxKX sc-fzoaKM eSrmix"
+          data-name="col-lg-12"
+        >
+          <div
+            class="sc-fzqAui LXOwS"
+          >
+            <p
+              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              color="unset"
+              type="body"
+            >
+              Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
+            </p>
+            <p
+              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              color="unset"
+              type="body"
+            >
+              | Central de Atendimento: (11) 3366-3200/ Atendimento para deficientes auditivos 0800-727-8736. Ouvidoria: 0800-727-1184 | 3366-3184 /
+            </p>
+            <a
+              data-gtm-clicktype="link"
+              data-gtm-name="ouvidoria@portoseguro.com.br"
+              data-gtm-subname="Anbima"
+              data-gtm-type="click"
+              href="mailto:ouvidoria@portoseguro.com.br"
+            >
+              <p
+                class="sc-AxjAm cjwdiX sc-fzowVh jwkaIi"
+                color="unset"
+                type="body"
+              >
+                 ouvidoria@portoseguro.com.br
+              </p>
+            </a>
+            <p
+              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              color="unset"
+              type="body"
+            >
+              , (Seg à Sexta das 8h15 às 18h30, exceto feriados). Fale Conosco:
+            </p>
+            <a
+              data-gtm-clicktype="link"
+              data-gtm-name="suporte.conquista@portoseguro.com.br"
+              data-gtm-subname="Anbima"
+              data-gtm-type="click"
+              href="mailto:suporte.conquista@portoseguro.com.br"
+            >
+              <p
+                class="sc-AxjAm cjwdiX sc-fzowVh jwkaIi"
+                color="unset"
+                type="body"
+              >
+                 suporte.conquista@portoseguro.com.br
+              </p>
+            </a>
+            <p
+              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              color="unset"
+              type="body"
+            >
+              .
+            </p>
+            <p
+              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              color="unset"
+              type="body"
+            >
+               Para ter acesso a Políticas Internas, Código de Conduta Profissional
+            de AAIs (Agentes autônomos de Investimentos), Lista de AAIs e
+            Assembléias acesse 
+            </p>
+            <a
+              class="sc-fznyYp ePFTkY"
+              data-gtm-clicktype="link"
+              data-gtm-name="www.conquista.com.vc"
+              data-gtm-subname="Anbima"
+              data-gtm-type="click"
+              href="/redirect?to=https://www.conquista.com.vc"
+              target="_blank"
+            >
+              <p
+                class="sc-AxjAm cjwdiX sc-fzowVh jwkaIi"
+                color="unset"
+                type="body"
+              >
+                www.conquista.com.vc
+              </p>
+            </a>
+            <p
+              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              color="unset"
+              type="body"
+            >
+              .
+            </p>
+          </div>
+          <div
+            class="sc-fznLxA eHqwiU"
+          >
+            <a
+              href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+              target="blank"
+            >
+              <img
+                alt="Logo Anbima - Gestao"
+                class="sc-fzoVTD gIfCES"
+                src="logo-anbima-gestao.png"
+              />
+            </a>
+            <img
+              alt="Logo Anbima - Distribuição"
+              class="sc-fzoJus ifKaRY"
+              src="logo-anbima-distribuicao.png"
+            />
+            <a
+              href="https://comoinvestir.anbima.com.br/"
+              target="blank"
+            >
+              <img
+                alt="Logo Anbima - Investir"
+                class="sc-fzpisO AfIFC"
+                src="logo-anbima-como-investir.png"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
