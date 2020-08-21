@@ -7168,7 +7168,7 @@
       "rendimento": 31705.05
     }
   ],
-  "comparativo_rentabilidade": {
+  "comparativeProfitability": {
     "hist_rentabil_benchmark": {
       "benchmark": {
         "id": 1,
