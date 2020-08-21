@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
 import Text from 'components/Text'
+import { TPrediction, IPredictionProps } from './types'
 import * as S from './style'
 
-interface Predictions {
-  pessimistic: string
-  likely: string
-  optimistic: string
-}
-
-interface IProps {
-  predictions: Predictions | null
-  warning: boolean
-}
-
 export default function ResultPredictionCard() {
-  const [predictions, setPredictions] = useState<Predictions | null>(null)
+  const [predictions, setPredictions] = useState<TPrediction>(null)
 
   const financialGoalNotReached = (): boolean => true
 
   useEffect(() => {
     setPredictions({
-      pessimistic: 'R$ 25.500,00',
-      likely: 'R$ 25.500,00',
-      optimistic: 'R$ 25.500,00',
+      pessimistic: 25500,
+      median: 25500,
+      optimistic: 25500,
     })
   }, [])
 
@@ -57,7 +47,7 @@ export default function ResultPredictionCard() {
   )
 }
 
-function PredictionsItems({ predictions, warning }: IProps) {
+function PredictionsItems({ predictions, warning }: IPredictionProps) {
   return (
     <>
       <S.Items>
@@ -68,7 +58,7 @@ function PredictionsItems({ predictions, warning }: IProps) {
         <S.Item
           startItems={[<S.Label>Estimativa Provável</S.Label>]}
           endItems={[
-            <S.Value hightlight={warning}>{predictions?.likely}</S.Value>,
+            <S.Value hightlight={warning}>{predictions?.median}</S.Value>,
           ]}
         />
         <S.Item

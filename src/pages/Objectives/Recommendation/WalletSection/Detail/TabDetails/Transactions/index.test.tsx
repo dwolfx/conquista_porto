@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, within } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 import '@testing-library/jest-dom'
@@ -13,84 +13,77 @@ const setup = (children: React.ReactElement) => {
 }
 
 const fund: IFunds = {
-  adm_tax: 123,
-  fund_id: 5105,
-  name: 'Porto Seguro FI Referenciado DI Credito Privado',
-  profile_risk: 'medio-baixo',
-  share_holder_profile_risk: 2,
-  initial_date: '28/02/2014',
-  manager: 'PortoSeguro Investimentos',
+  fund_id: 5138002,
+  name: 'Not Arx Income FI Ações',
+  nickname: 'Arx Income FIA',
+  profile_risk: 'medio',
+  share_holder_profile_risk: 3,
+  initial_date: '17/06/1999',
+  manager: 'ARX Investimentos',
+  min_initial_value: 500,
   min_value_to_apply: 100,
+  release_to_apply: true,
+  min_rescue_value: 100,
+  release_to_rescue: true,
+  min_balance_value: 100,
+  time_limit_to_apply: '17:00',
+  time_limit_to_rescue: '17:00',
+  quotation_apply_days: 'D+0',
   financial_apply_days: 'D+0',
-  quotation_rescue_days: 'D+0 (Úteis)',
-  financial_rescue_days: 'D+0 (Úteis)',
+  quotation_rescue_days: 'D+1 (Úteis)',
+  financial_rescue_days: 'D+2 (Úteis)',
+  count_rescue_days: 'Úteis',
+  arena_category: 'Renda Fixa',
+  adm_tax: 3,
   performance_rate: 0,
-  classification: 'Longo Prazo',
+  classification: 'Renda Fixa',
   tribute_ir: {
-    '180': 22.5,
-    '360': 20,
-    '720': 17.5,
-    '721': 15,
+    additionalProp1: 0,
+    additionalProp2: 0,
+    additionalProp3: 0,
   },
-  iof: 'Regime Regressivo',
+  iof: 'Isento',
   benchmark: 'CDI',
   profitability: [
     {
-      name: 'fundo',
-      value: {
-        '1': 1.28,
-        '2': -0.17,
-        '3': 1.55,
-        '4': 8.1,
-        '5': 15.67,
-      },
-    },
-    {
       name: 'CDI',
       value: {
-        '1': 0.05,
-        '2': 1.92,
-        '3': 3.67,
-        '4': 10.18,
-        '5': 17.72,
-      },
-    },
-    {
-      name: 'variacao',
-      value: {
-        '1': 2663.91,
-        '3': 42.19,
-        '4': 79.59,
-        '5': 88.44,
+        additionalProp1: 0,
+        additionalProp2: 0,
+        additionalProp3: 0,
       },
     },
   ],
   url_performance_info_pdf:
-    'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf',
+    'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf',
+  url_lamina_pdf:
+    'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_ARXINCOMEFIA.pdf',
   url_fund_rules_pdf:
-    'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf',
-  is_fund_active: true,
+    'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_ARXINCOMEFIA.pdf',
+  url_fund_adhesion_pdf:
+    'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_ARXINCOMEFIA.pdf',
+  url_manager_logo:
+    'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_ARX.png',
+  quota_type: 'Fechamento',
+  cnpj: 'string',
+  pl: 0,
+  pl_last_year: 0,
   initial_value: 1000,
   monthly_value: 100,
-  annual_rate: 4.5,
-  min_initial_value: 3000,
-  min_movement: 100.29,
-  min_balance: 2000,
-  arena_category: 'Renda Variável',
-  time_limit: '23:59',
-  quotation_apply_days: 'D+1',
+  annual_rate: 9.5,
+  fundActive: true,
+  company_name: '',
+  anbima_category: '',
 }
 
 describe('Transactions component', () => {
-  it('should be able to display formatted min_balance value', () => {
-    const { getByTestId } = setup(
-      <Transactions data-testid="transactions" fund={fund} />
-    )
+  it('should be able to display formatted min_balance_value value', () => {
+    setup(<Transactions data-testid="transactions" fund={fund} />)
 
     expect(
-      within(getByTestId('transactions')).getByText((_, node) => {
-        const hasText = (node: Node) =>
-          node.textContent === formatMoney(fund.min_balance)
+      screen.getAllByText((_, node) => {
+        const hasText = (nodeParam: Node) =>
+          nodeParam.textContent === formatMoney(fund.min_balance_value)
         const nodeHasText = hasText(node)
         const childrenDontHaveText = Array.from(node.children).every(
           child => !hasText(child)
@@ -98,21 +91,21 @@ describe('Transactions component', () => {
 
         return nodeHasText && childrenDontHaveText
       })
-    ).toBeInTheDocument()
+    ).toBeDefined()
   })
-  it('should be able to display a dash symbol when the received min_balance value is a string', () => {
+  it('should be able to display a dash symbol when the received min_balance_value value is a string', () => {
     Object.assign(fund, {
       ...fund,
-      min_balance: '2000',
+      min_balance_value: '2000',
     })
     const { queryByText } = setup(<Transactions fund={fund} />)
 
     expect(queryByText('-')).toBeTruthy()
   })
-  it(`should be able to display a dash symbol when the received min_balance value is undefined`, () => {
+  it(`should be able to display a dash symbol when the received min_balance_value value is undefined`, () => {
     Object.assign(fund, {
       ...fund,
-      min_balance: undefined,
+      min_balance_value: undefined,
     })
     const { queryByText } = setup(<Transactions fund={fund} />)
 
@@ -121,7 +114,7 @@ describe('Transactions component', () => {
   it(`should be able to display 'Ações' when the received category_name value is equal to 'Renda Variável'`, () => {
     Object.assign(fund, {
       ...fund,
-      category_name: 'Renda Variável',
+      arena_category: 'Renda Variável',
     })
     const { queryByText } = setup(<Transactions fund={fund} />)
 

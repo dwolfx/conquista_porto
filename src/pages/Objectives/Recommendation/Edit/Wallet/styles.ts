@@ -1,12 +1,20 @@
 import styled from 'styled-components'
-import { Container as ContainerBootstrap } from 'styled-bootstrap-grid'
+import { Container as ContainerBootstrap, Row } from 'styled-bootstrap-grid'
 
 import MoneyInputCmp from 'components/Inputs/Money'
 import TableComp from 'components/Table'
 import Text from 'components/Text'
 
-export const Container = styled(ContainerBootstrap)`
-  padding: 0;
+export const Container = styled(ContainerBootstrap)<{ isFirst?: boolean }>`
+  padding: ${({ theme, isFirst }) =>
+    isFirst
+      ? `0 ${theme.spacing(2)}px ${theme.spacing(9)}px`
+      : `0 ${theme.spacing(2)}px`};
+
+  @media ${({ theme }) => theme.mediaQueries.mdUp} {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
 
 export const Table = styled(TableComp)``
@@ -48,5 +56,11 @@ export const Footer = styled.div`
     &:last-of-type {
       margin-left: ${({ theme }) => theme.spacing(2)}px;
     }
+  }
+`
+
+export const CompositionRow = styled(Row)`
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    flex-direction: column-reverse;
   }
 `

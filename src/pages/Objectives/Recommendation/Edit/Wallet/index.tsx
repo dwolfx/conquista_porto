@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { Row, Col } from 'styled-bootstrap-grid'
+import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
 import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
+import ButtonIcon from 'components/Button/Icon'
 import Card from 'components/Card'
+import Divisor from 'components/Divisor'
+import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
+import useMedia from 'hooks/useMedia'
 
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
 import PercentualInfos from 'pages/Objectives/Recommendation/components/PercentualInfo'
 import ResultPredictionCard from 'pages/Objectives/Recommendation/Edit/Wallet/ResultPredictionCard'
 import { IFunds } from 'store/modules/Objective/types'
 
-import RemovedFundsDrawer from './RemovedFundsDrawer'
+import RemovedFunds from './RemovedFunds'
+import MobileFundCards from './Mobile'
 import { columns } from './constants'
 import * as s from './styles'
 
@@ -30,13 +36,14 @@ interface IProps {
 }
 
 export default function WalletComposition({ onClose }: IProps) {
+  const theme = useContext(ThemeContext)
   const { addToast } = useToast()
+  const isMobile = useMedia('xs')
+  const isTabletVertical = useMedia('sm')
 
   const [funds, setFunds] = useState<IFunds[] | []>([])
   const [removedFunds, setRemovedFunds] = useState<IFunds[] | []>([])
-  const [isRemovedFundsDrawerOpen, setIsRemovedFundsDrawerOpen] = useState(
-    false
-  )
+  const [isRemovedFundsOpen, setIsRemovedFundsOpen] = useState(false)
 
   const { data: recommendationData } = useSelector<any, any>(
     state => state.objective
@@ -89,54 +96,109 @@ export default function WalletComposition({ onClose }: IProps) {
 
   return (
     <>
-      <s.Container>
+      <s.Container isFirst>
         <Row>
           <Col>
             <InformativeHeader answer={recommendationData.answer} />
           </Col>
         </Row>
 
-        <Row>
+        <s.CompositionRow>
           <Col lg={3} md={4}>
             <ResultPredictionCard />
           </Col>
-          <Col lg={9}>
-            <Card headerTitle="Minha carteira" headerIcon="financial">
-              <Text type="headline" color="gray6">
-                Você pode adicionar, remover e substituir fundos sugeridos, além
-                de remanejar os investimentos em cada categoria.
-              </Text>
 
-              <PercentualInfos funds={funds} />
-              <s.Table
-                columns={columnsToRender}
-                data={funds}
-                isLoading={false}
+          {!isMobile && !isTabletVertical ? (
+            <Col lg={9}>
+              <Card headerTitle="Minha carteira" headerIcon="financial">
+                <Text type="headline" color="gray6">
+                  Você pode adicionar, remover e substituir fundos sugeridos,
+                  além de remanejar os investimentos em cada categoria.
+                </Text>
+
+                <PercentualInfos funds={funds} />
+                <s.Table
+                  columns={columnsToRender}
+                  data={funds}
+                  isLoading={false}
+                />
+
+                <Row
+                  alignItems="center"
+                  justifyContent="between"
+                  css={`
+                    margin-top: 14px;
+                  `}
+                >
+                  <Col auto>
+                    <ButtonLink
+                      noIconPadding
+                      onClick={() => setIsRemovedFundsOpen(true)}
+                    >
+                      Fundos recomendados removidos
+                    </ButtonLink>
+                  </Col>
+
+                  <Col auto>
+                    <Button outline>Lista de fundos</Button>
+                  </Col>
+                </Row>
+              </Card>
+            </Col>
+          ) : (
+            <Col>
+              <MobileFundCards
+                funds={funds}
+                onChangeAction={handleInputsChange}
+                removeAction={removeAction}
               />
+            </Col>
+          )}
+        </s.CompositionRow>
 
-              <Row
-                alignItems="center"
-                justifyContent="between"
-                css={`
-                  margin-top: 14px;
-                `}
-              >
-                <Col auto>
-                  <ButtonLink
-                    noIconPadding
-                    onClick={() => setIsRemovedFundsDrawerOpen(true)}
-                  >
-                    Fundos recomendados removidos
-                  </ButtonLink>
-                </Col>
+        {isMobile || isTabletVertical ? (
+          <Row
+            css={`
+              margin-top: ${theme.spacing(1)}px;
+            `}
+          >
+            <Col>
+              <Card>
+                <HorizontalList
+                  startItems={[
+                    <Text type="captionUppercase" bold>
+                      Fundos recomendados removidos
+                    </Text>,
+                  ]}
+                  endItems={[
+                    <ButtonIcon
+                      icon="arrowright"
+                      onClick={() => {
+                        console.log('clicou')
+                        setIsRemovedFundsOpen(true)
+                      }}
+                    />,
+                  ]}
+                />
 
-                <Col auto>
-                  <Button outline>Lista de fundos</Button>
-                </Col>
-              </Row>
-            </Card>
-          </Col>
-        </Row>
+                <Divisor
+                  css={`
+                    margin: ${theme.spacing(1)}px 0;
+                  `}
+                />
+
+                <HorizontalList
+                  startItems={[
+                    <Text type="captionUppercase" bold>
+                      Lista de fundos
+                    </Text>,
+                  ]}
+                  endItems={[<ButtonIcon icon="arrowright" />]}
+                />
+              </Card>
+            </Col>
+          </Row>
+        ) : null}
       </s.Container>
       <s.Footer>
         <s.Container>
@@ -151,7 +213,7 @@ export default function WalletComposition({ onClose }: IProps) {
         </s.Container>
       </s.Footer>
 
-      <RemovedFundsDrawer
+      <RemovedFunds
         removedFunds={removedFunds}
         restoreFunds={restoredIds => {
           setFunds(currentFunds => {
@@ -165,14 +227,14 @@ export default function WalletComposition({ onClose }: IProps) {
             currentRemoved.filter(fund => !restoredIds.includes(fund.fund_id))
           )
 
-          setIsRemovedFundsDrawerOpen(false)
+          setIsRemovedFundsOpen(false)
           addToast({
             type: 'success',
             title: 'Fundos adicionados com sucesso!',
           })
         }}
-        isOpen={isRemovedFundsDrawerOpen}
-        setIsOpen={setIsRemovedFundsDrawerOpen}
+        isOpen={isRemovedFundsOpen}
+        setIsOpen={setIsRemovedFundsOpen}
       />
     </>
   )

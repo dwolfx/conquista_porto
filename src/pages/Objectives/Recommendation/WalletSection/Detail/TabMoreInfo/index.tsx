@@ -9,23 +9,15 @@ import ButtonLink from 'components/Button/Link'
 import VerticalList from 'components/VerticalList'
 
 import { formatNumber } from 'helpers'
+import { IFunds } from 'store/modules/Objective/types'
 
 import { ColStyled, InfoContent, HorizontalList } from './styles'
 
-interface IFund {
-  fund: {
-    initial_date: string
-    manager: string
-    benchmark: string
-    pl?: number
-    adm_tax: number
-    performance_rate: number
-    url_performance_info_pdf: string
-    url_fund_rules_pdf: string
-  }
+interface IProps {
+  fund: IFunds
 }
 
-export default function TabMoreInfo({ fund }: IFund) {
+export default function TabMoreInfo({ fund }: IProps) {
   return (
     <InfoContent>
       <div>
@@ -76,7 +68,7 @@ export default function TabMoreInfo({ fund }: IFund) {
               ]}
             />
           </ColStyled>
-          {fund.pl && (
+          {fund.pl ? (
             <VerticalList
               elements={[
                 <Text type="captionUppercase" color="gray4">
@@ -87,7 +79,7 @@ export default function TabMoreInfo({ fund }: IFund) {
                 </Text>,
               ]}
             />
-          )}
+          ) : null}
           <ColStyled xs={12} sm={6} md={3}>
             <VerticalList
               elements={[

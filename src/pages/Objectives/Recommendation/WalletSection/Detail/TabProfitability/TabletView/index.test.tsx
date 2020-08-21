@@ -4,13 +4,14 @@ import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 import '@testing-library/jest-dom'
 
+import { TProfitability } from 'store/modules/Objective/types'
 import TabletView from '.'
 
 const setup = (children: React.ReactElement) => {
   return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 }
 
-const profitability = [
+const profitability: TProfitability[] = [
   {
     name: 'fundo',
     value: {
@@ -50,7 +51,7 @@ describe('TabletView component', () => {
     profitability.forEach(item => {
       Object.entries(item.value).forEach(value => {
         expect(
-          getByText(value[1]?.toString().replace('.', ',') + '%')
+          getByText(value[1]?.toString().replace('.', ',') || '')
         ).toBeInTheDocument()
       })
     })
@@ -70,7 +71,7 @@ describe('TabletView component', () => {
 
     const { getByText } = setup(<TabletView profitability={profitability} />)
 
-    expect(getByText('Variação')).toBeInTheDocument()
+    expect(getByText('Variação (%)')).toBeInTheDocument()
   })
   it(`should be able to display '---' if the object name or value is undefined or null`, () => {
     // profitability[1].name = ''

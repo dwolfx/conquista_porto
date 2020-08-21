@@ -3,7 +3,7 @@ import { useTable, useSortBy, useRowSelect } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 
-import Checkbox from 'components/Inputs/Checkbox'
+// import Checkbox from 'components/Inputs/Checkbox'
 
 import FormatColumns from '../formatters'
 import TableHeader from '../TableHeader'

@@ -27,19 +27,20 @@ export const Transactions = ({ fund, ...rest }: IFund) => {
     ],
     [
       <LiTitle>Movimentação Mín.</LiTitle>,
-      <LiValue bold>{formatMoney(fund.min_movement)}</LiValue>,
+      <LiValue bold>{formatMoney(fund.min_rescue_value)}</LiValue>,
     ],
     [
       <LiTitle>Saldo Mín.</LiTitle>,
       <LiValue bold>
-        {typeof fund.min_balance === 'string' || fund.min_balance === undefined
+        {typeof fund.min_balance_value === 'string' ||
+        fund.min_balance_value === undefined
           ? '-'
-          : formatMoney(fund.min_balance)}
+          : formatMoney(fund.min_balance_value)}
       </LiValue>,
     ],
     [
       <LiTitle>Horário Limite</LiTitle>,
-      <LiValue bold>{fund.time_limit}</LiValue>,
+      <LiValue bold>{fund.time_limit_to_apply}</LiValue>,
     ],
     [
       <LiTitle>Aplicação (Cotização)</LiTitle>,

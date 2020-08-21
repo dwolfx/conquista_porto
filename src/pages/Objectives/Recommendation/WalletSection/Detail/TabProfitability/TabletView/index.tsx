@@ -1,30 +1,22 @@
 import React from 'react'
+import { Row, Col } from 'styled-bootstrap-grid'
 
 import Text from 'components/Text'
-import { Row, Col } from 'styled-bootstrap-grid'
 import VerticalList from 'components/VerticalList'
 import Divisor from 'components/Divisor'
 
+import { printFieldText } from 'helpers'
 import { ColStyled, RowTitle } from '../styles'
-import { formatNumber } from 'helpers'
 
 import { IProps } from '../'
 
 export default function TabletView({ profitability }: IProps) {
-  const tableFirstRow = profitability[0]
-  const tableSecondRow = profitability[1]
-  const tableThirdRow = profitability[2]
-
-  const printFieldText = (text: string) => text || '---'
-  const printFieldValueWithPercent = (value: number | undefined) =>
-    value !== undefined ? `${formatNumber(value)}%` : '---'
-
   return (
     <>
       <RowTitle>
         <Col xl={12}>
           <Text color="gray5" type="headline" bold>
-            Fundo (%)
+            FUNDO (%)
           </Text>
         </Col>
       </RowTitle>
@@ -36,7 +28,7 @@ export default function TabletView({ profitability }: IProps) {
                 MÊS ANTERIOR
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableFirstRow.value[1])}
+                {printFieldText(profitability[0]?.value[1]?.toString())}
               </Text>,
             ]}
           />
@@ -48,7 +40,7 @@ export default function TabletView({ profitability }: IProps) {
                 ANO
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableFirstRow.value[2])}
+                {printFieldText(profitability[0]?.value[2]?.toString())}
               </Text>,
             ]}
           />
@@ -60,7 +52,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT. 12 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableFirstRow.value[3])}
+                {printFieldText(profitability[0]?.value[3]?.toString())}
               </Text>,
             ]}
           />
@@ -72,7 +64,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT 24 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableFirstRow.value[4])}
+                {printFieldText(profitability[0]?.value[4]?.toString())}
               </Text>,
             ]}
           />
@@ -84,7 +76,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT 36 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableFirstRow.value[5])}
+                {printFieldText(profitability[0]?.value[5]?.toString())}
               </Text>,
             ]}
           />
@@ -98,9 +90,9 @@ export default function TabletView({ profitability }: IProps) {
       <RowTitle>
         <Col xl={12}>
           <Text color="gray5" type="headline" bold>
-            {printFieldText(tableSecondRow.name) === 'CDI'
-              ? `% ${printFieldText(tableSecondRow.name)}`
-              : printFieldText(tableSecondRow.name)}
+            {printFieldText(profitability[1]?.name) === 'CDI'
+              ? `% ${printFieldText(profitability[1]?.name)}`
+              : printFieldText(profitability[1]?.name)}
           </Text>
         </Col>
       </RowTitle>
@@ -112,7 +104,7 @@ export default function TabletView({ profitability }: IProps) {
                 MÊS ANTERIOR
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableSecondRow.value[1])}
+                {printFieldText(profitability[1]?.value[1]?.toString())}
               </Text>,
             ]}
           />
@@ -124,7 +116,7 @@ export default function TabletView({ profitability }: IProps) {
                 ANO
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableSecondRow.value[2])}
+                {printFieldText(profitability[1]?.value[2]?.toString())}
               </Text>,
             ]}
           />
@@ -136,7 +128,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT. 12 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableSecondRow.value[3])}
+                {printFieldText(profitability[1]?.value[3]?.toString())}
               </Text>,
             ]}
           />
@@ -148,7 +140,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT 24 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableSecondRow.value[4])}
+                {printFieldText(profitability[1]?.value[4]?.toString())}
               </Text>,
             ]}
           />
@@ -160,7 +152,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT 36 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableSecondRow.value[5])}
+                {printFieldText(profitability[1]?.value[5]?.toString())}
               </Text>,
             ]}
           />
@@ -174,7 +166,9 @@ export default function TabletView({ profitability }: IProps) {
       <RowTitle>
         <Col xl={12}>
           <Text color="gray5" type="headline" bold>
-            {tableThirdRow.name === 'CDI' ? 'Variação' : 'Variação (P.P.)'}
+            {profitability[2]?.name === 'CDI'
+              ? 'Variação (%)'
+              : 'Variação (p.p.)'}
           </Text>
         </Col>
       </RowTitle>
@@ -186,7 +180,7 @@ export default function TabletView({ profitability }: IProps) {
                 MÊS ANTERIOR
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableThirdRow.value[1])}
+                {printFieldText(profitability[2]?.value[1]?.toString())}
               </Text>,
             ]}
           />
@@ -198,7 +192,7 @@ export default function TabletView({ profitability }: IProps) {
                 ANO
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableThirdRow.value[2])}
+                {printFieldText(profitability[2]?.value[2]?.toString())}
               </Text>,
             ]}
           />
@@ -210,7 +204,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT. 12 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableThirdRow.value[3])}
+                {printFieldText(profitability[2]?.value[3]?.toString())}
               </Text>,
             ]}
           />
@@ -222,7 +216,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT 24 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableThirdRow.value[4])}
+                {printFieldText(profitability[2]?.value[4]?.toString())}
               </Text>,
             ]}
           />
@@ -234,7 +228,7 @@ export default function TabletView({ profitability }: IProps) {
                 ÚLT 36 MESES
               </Text>,
               <Text type="headline" color="gray6" bold>
-                {printFieldValueWithPercent(tableThirdRow.value[5])}
+                {printFieldText(profitability[2]?.value[5]?.toString())}
               </Text>,
             ]}
           />

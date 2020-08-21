@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Text from 'components/Text'
-import { formatNumber } from 'helpers'
+import { printFieldText } from 'helpers'
 
 import {
   TablesContainer,
@@ -19,18 +19,6 @@ export default function DesktopView({ profitability }: IProps) {
   const tableFirstRow = profitability[0]
   const tableSecondRow = profitability[1]
   const tableThirdRow = profitability[2]
-
-  const printFieldText = (text: string | number | undefined) => {
-    if (!text) {
-      return '---'
-    }
-
-    if (isNaN(+text)) {
-      return text
-    }
-
-    return formatNumber(text)
-  }
 
   return (
     <TablesContainer>
@@ -106,27 +94,27 @@ export default function DesktopView({ profitability }: IProps) {
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableFirstRow.value[1])}
+                {printFieldText(tableFirstRow?.value[1]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableFirstRow.value[2])}
+                {printFieldText(tableFirstRow?.value[2]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableFirstRow.value[3])}
+                {printFieldText(tableFirstRow?.value[3]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableFirstRow.value[4])}
+                {printFieldText(tableFirstRow?.value[4]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableFirstRow.value[5])}
+                {printFieldText(tableFirstRow?.value[5]?.toString())}
               </Text>
             </Td>
           </Tr>
@@ -140,27 +128,27 @@ export default function DesktopView({ profitability }: IProps) {
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableSecondRow.value[1])}
+                {printFieldText(tableSecondRow?.value[1]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableSecondRow.value[2])}
+                {printFieldText(tableSecondRow?.value[2]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableSecondRow.value[3])}
+                {printFieldText(tableSecondRow?.value[3]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableSecondRow.value[4])}
+                {printFieldText(tableSecondRow?.value[4]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableSecondRow.value[5])}
+                {printFieldText(tableSecondRow?.value[5]?.toString())}
               </Text>
             </Td>
           </Tr>
@@ -174,27 +162,27 @@ export default function DesktopView({ profitability }: IProps) {
             </Th>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableThirdRow.value[1])}
+                {printFieldText(tableThirdRow?.value[1]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableThirdRow.value[2])}
+                {printFieldText(tableThirdRow?.value[2]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableThirdRow.value[3])}
+                {printFieldText(tableThirdRow?.value[3]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableThirdRow.value[4])}
+                {printFieldText(tableThirdRow?.value[4]?.toString())}
               </Text>
             </Td>
             <Td>
               <Text bold type="body" color="gray5">
-                {printFieldText(tableThirdRow.value[5])}
+                {printFieldText(tableThirdRow?.value[5]?.toString())}
               </Text>
             </Td>
           </Tr>

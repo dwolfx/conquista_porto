@@ -117,7 +117,7 @@ const CardsView = ({
         >
           <Button
             outline
-            onClick={() => null}
+            onClick={() => setEditingWallet(true)}
             css={`
               margin-bottom: ${theme.spacing(1.5)}px;
               width: 100%;

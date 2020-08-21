@@ -33,3 +33,5 @@ export const FundoNameWrapper = styled(Text)`
   font-weight: normal;
   white-space: pre-wrap;
 `
+
+export const FooterContainer = styled.div``

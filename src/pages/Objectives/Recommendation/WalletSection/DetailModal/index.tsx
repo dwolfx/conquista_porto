@@ -4,25 +4,15 @@ import Divisor from 'components/Divisor'
 import TabDetails from 'pages/Objectives/Recommendation/WalletSection/Detail/TabDetails'
 import TabMoreInfo from 'pages/Objectives/Recommendation/WalletSection/Detail/TabMoreInfo'
 import TabProfitability from 'pages/Objectives/Recommendation/WalletSection/Detail/TabProfitability'
-import { IFunds } from 'store/modules/Objective/types'
 
+import { IDetailModalProps } from './types'
 import { Accordion, HeaderTitle, Modal, ModalBodyWrapper } from './styles'
 
-interface ITributeIR {
-  1?: number
-  180?: number
-  360?: number
-  720?: number
-  721?: number
-}
-
-interface IProps {
-  fundDetails: IFunds
-  isOpen: boolean
-  handleClose: () => void
-}
-
-const DetailModal = ({ fundDetails, isOpen, handleClose }: IProps) => {
+const DetailModal = ({
+  fundDetails,
+  isOpen,
+  handleClose,
+}: IDetailModalProps) => {
   const renderModalBody = () => (
     <ModalBodyWrapper>
       <Accordion

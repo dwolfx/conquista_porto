@@ -24,43 +24,59 @@ export interface IAnswer {
   would_like_to_receive_monthly_income?: boolean
 }
 
-export interface IFunds {
+export type TProfitability = {
   name: string
-  profitability: {
-    name: string
-    value: {
-      [key: string]: number
-    }
-  }[]
-  manager: string
-  benchmark: string
-  classification: string
-  iof: string
+  value: {
+    [key: string]: number | undefined
+  }
+}
+
+export interface IFunds {
   fund_id: number
-  arena_category: string
+  name: string
+  nickname: string
+  company_name: string
+  profile_risk: string
+  share_holder_profile_risk: 1 | 2 | 3 | 4 | 5
+  initial_date: string
+  manager: string
   min_initial_value: number
   min_value_to_apply: number
-  share_holder_profile_risk: 1 | 2 | 3 | 4 | 5
-  min_movement: number
-  min_balance: number
-  time_limit: string
+  release_to_apply: boolean
+  min_rescue_value: number
+  release_to_rescue: boolean
+  min_balance_value: number
+  time_limit_to_apply: string
+  time_limit_to_rescue: string
   quotation_apply_days: string
   financial_apply_days: string
   quotation_rescue_days: string
   financial_rescue_days: string
-  initial_date: string
+  count_rescue_days: string
+  arena_category: string
+  anbima_category: string
   adm_tax: number
   performance_rate: number
-  tribute_ir: {
-    [key: string]: number
-  }
+  classification: string
+  iof: string
+  benchmark: string
   url_performance_info_pdf: string
+  url_lamina_pdf: string
   url_fund_rules_pdf: string
+  url_fund_adhesion_pdf: string
+  url_manager_logo: string
+  quota_type: string
+  cnpj: string
+  pl: number
+  pl_last_year: number
   initial_value: number
   monthly_value: number
   annual_rate: number
-  profile_risk: string
-  is_fund_active: boolean
+  fundActive?: boolean
+  profitability: TProfitability[]
+  tribute_ir: {
+    [key: string]: number
+  }
 }
 
 export interface IIncome {

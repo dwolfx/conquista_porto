@@ -26,10 +26,8 @@ export const ChildrenWrapper = styled.div`
   }
 `
 
-export const Divisor = styled(DivisorComponent).attrs(() => ({
-  customSize: 'calc(100% - 14px)',
-}))`
-  margin: 0 7px;
+export const Divisor = styled(DivisorComponent)`
+  margin: 0 auto;
 `
 
 export const ModalContainer = styled.div`
@@ -54,7 +52,7 @@ export const ModalContainer = styled.div`
   }
 `
 
-export const ModalHeader = styled.div`
+export const ModalHeader = styled.header`
   align-items: center;
   display: flex;
   padding: ${props => props.theme.spacing(2)}px;
@@ -107,4 +105,8 @@ export const ModalWrapper = styled.div<IModalWrapperProps>`
   visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   width: 100vw;
   z-index: 13;
+`
+
+export const ModalFooter = styled.footer`
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
 `
