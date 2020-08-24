@@ -16,7 +16,6 @@ interface IProps {
 }
 export const Transactions = ({ fund }: IProps) => {
   const isMobile = useMedia('xs')
-
   const liContent = [
     [
       <LiTitle>Aplicação Inicial</LiTitle>,
@@ -28,9 +27,7 @@ export const Transactions = ({ fund }: IProps) => {
     ],
     [
       <LiTitle>Saldo Mín.</LiTitle>,
-      <LiValue bold>
-        {fund.saldo_minimo ? '-' : formatMoney(fund.saldo_minimo || 0)}
-      </LiValue>,
+      <LiValue bold>{formatMoney(fund.saldo_minimo || 0)}</LiValue>,
     ],
     [
       <LiTitle>Horário Limite</LiTitle>,
