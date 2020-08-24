@@ -79,7 +79,7 @@ const Desktop: React.FC<IProps> = ({
   const position = useSelectedPosition()
 
   const handleOpenDetailFund = () => {
-    dispatch(GetInvestmentDetailsRequest(position.id_carteira))
+    dispatch(GetInvestmentDetailsRequest(position.id))
     setIsFundDetailOpen(true)
   }
 
