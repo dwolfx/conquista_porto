@@ -210,8 +210,12 @@ export default function Routes({ ...props }) {
   const digitalSign = getCookieValue('CLITKNGIW')
 
   const digitalSignIsValid = () => {
-    const env = process.env.REACT_APP_ENV
-    if (env === 'local') {
+    // trocar este condição ao subir para produção...
+    // if (process.env.REACT_APP_ENV === 'production') {
+    if (
+      process.env.REACT_APP_ENV !== 'development' &&
+      process.env.REACT_APP_ENV !== 'local'
+    ) {
       return digitalSign && Object.keys(digitalSign).length > 0
     }
     return true
