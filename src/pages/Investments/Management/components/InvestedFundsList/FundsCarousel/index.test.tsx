@@ -11,67 +11,72 @@ import FundsCarousel from '.'
 
 const mock = [
   {
-    "categoria": "Multimercado",
-    "contagem_dias_resgate": "Corridos",
-    "aplicacao_cotizacao": "0",
-    "aplicacao_financeiro": "0",
-    "resgate_cotizacao": "32",
-    "resgate_financeiro": "2",
-    "categoria_arena": "Multimercado",
-    "saldo_minimo": 1000,
-    "resgate_minimo": 1000,
-    "resgate_liberado": false,
-    "saldo_bloqueado": 0,
-    "aplicao_minima": 1000,
-    "nome_gestor": "PortoSeguro Investimentos",
-    "id": 5112,
-    "id_cotista": 2000112690,
-    "fundo": "Porto Seguro Alocação FIC FIM",
-    "saldo_bruto": "R$ 31.905,05",
-    "saldo_liquido": "R$ 31.905,05",
-    "valor_ir": "R$ 0,00",
-    "valor_iof": "R$ 0,00",
-    "valor_cota": "R$ 1,90",
-    "quantidade_cota": 16804.33,
-    "perfil_risco_ordem": 4,
-    "data_historico": "2020-03-22T21:00:00",
-    "data_historico_formatada": "22/03/2020",
-    "pdf_informativo_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/InformativoDesempenho_PS_Alocacao.pdf",
-    "pdf_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/Regulamento_PS_Alocacao.pdf",
-    "saldo_bruto_numerico": 31905.05,
-    "perfil_risco": "medio-alto"
+    categoria: 'Multimercado',
+    contagem_dias_resgate: 'Corridos',
+    aplicacao_cotizacao: '0',
+    aplicacao_financeiro: '0',
+    resgate_cotizacao: '32',
+    resgate_financeiro: '2',
+    categoria_arena: 'Multimercado',
+    saldo_minimo: 1000,
+    resgate_minimo: 1000,
+    resgate_liberado: false,
+    saldo_bloqueado: 0,
+    aplicao_minima: 1000,
+    nome_gestor: 'PortoSeguro Investimentos',
+    id: 5112,
+    apelido: 'Absolute Hedge FIC FIM',
+    id_cotista: 2000112690,
+    fundo: 'Porto Seguro Alocação FIC FIM',
+    saldo_bruto: 'R$ 31.905,05',
+    saldo_liquido: 'R$ 31.905,05',
+    valor_ir: 'R$ 0,00',
+    valor_iof: 'R$ 0,00',
+    valor_cota: 'R$ 1,90',
+    quantidade_cota: 16804.33,
+    perfil_risco_ordem: 4,
+    data_historico: '2020-03-22T21:00:00',
+    data_historico_formatada: '22/03/2020',
+    pdf_informativo_desempenho:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/InformativoDesempenho_PS_Alocacao.pdf',
+    pdf_regulamento:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/Regulamento_PS_Alocacao.pdf',
+    saldo_bruto_numerico: 31905.05,
+    perfil_risco: 'medio-alto',
   },
   {
-    "categoria": "Renda Variável",
-    "contagem_dias_resgate": "Corridos",
-    "aplicacao_cotizacao": "0",
-    "aplicacao_financeiro": "0",
-    "resgate_cotizacao": "15",
-    "resgate_financeiro": "2",
-    "categoria_arena": "Renda Variável",
-    "saldo_minimo": 0,
-    "resgate_minimo": 100,
-    "resgate_liberado": true,
-    "saldo_bloqueado": 0,
-    "aplicao_minima": 100,
-    "nome_gestor": "PortoSeguro Investimentos",
-    "id": 5094,
-    "id_cotista": 2000112690,
-    "fundo": "Porto Seguro Selecta FIC FIA",
-    "saldo_bruto": "R$ 3.337,22",
-    "saldo_liquido": "R$ 3.271,64",
-    "valor_ir": "R$ 65,58",
-    "valor_iof": "R$ 0,00",
-    "valor_cota": "R$ 2,49",
-    "quantidade_cota": 1338.2,
-    "perfil_risco_ordem": 5,
-    "data_historico": "2020-01-16T21:00:00",
-    "data_historico_formatada": "16/01/2020",
-    "pdf_informativo_desempenho": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
-    "pdf_regulamento": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/Regulamento_PS_Selecta.pdf",
-    "saldo_bruto_numerico": 3337.22,
-    "perfil_risco": "alto"
-  }
+    categoria: 'Renda Variável',
+    contagem_dias_resgate: 'Corridos',
+    aplicacao_cotizacao: '0',
+    aplicacao_financeiro: '0',
+    resgate_cotizacao: '15',
+    resgate_financeiro: '2',
+    categoria_arena: 'Renda Variável',
+    saldo_minimo: 0,
+    resgate_minimo: 100,
+    resgate_liberado: true,
+    saldo_bloqueado: 0,
+    aplicao_minima: 100,
+    nome_gestor: 'PortoSeguro Investimentos',
+    id: 5094,
+    id_cotista: 2000112690,
+    fundo: 'Porto Seguro Selecta FIC FIA',
+    saldo_bruto: 'R$ 3.337,22',
+    saldo_liquido: 'R$ 3.271,64',
+    valor_ir: 'R$ 65,58',
+    valor_iof: 'R$ 0,00',
+    valor_cota: 'R$ 2,49',
+    quantidade_cota: 1338.2,
+    perfil_risco_ordem: 5,
+    data_historico: '2020-01-16T21:00:00',
+    data_historico_formatada: '16/01/2020',
+    pdf_informativo_desempenho:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf',
+    pdf_regulamento:
+      'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/Regulamento_PS_Selecta.pdf',
+    saldo_bruto_numerico: 3337.22,
+    perfil_risco: 'alto',
+  },
 ]
 
 const store = storeFactory({
@@ -138,7 +143,7 @@ describe('It behaves correcly', () => {
   })
   describe('It highlights the selected fund', () => {
     test('It highlights fund when click on it', () => {
-      const { getByText, rerender } = renderWithReduxAndTheme(
+      const { getByText, queryByText, rerender } = renderWithReduxAndTheme(
         <MemoryRouter>
           <FundsCarousel
             displayInformation
@@ -148,13 +153,9 @@ describe('It behaves correcly', () => {
           />
         </MemoryRouter>
       )
-      expect(getByText('Porto Seguro Selecta FIC FIA')).toHaveStyleRule(
-        'color',
-        '#898989'
-      )
       expect(getByText('R$ 3.337,22')).toHaveStyleRule('color', '#898989')
 
-      fireEvent.click(getByText('Porto Seguro Selecta FIC FIA'))
+      fireEvent.click(getByText('Absolute Hedge FIC FIM'))
 
       rerender(
         <Provider store={store}>
@@ -170,40 +171,8 @@ describe('It behaves correcly', () => {
           </ThemeProvider>
         </Provider>
       )
-      expect(getByText('Porto Seguro Selecta FIC FIA')).toHaveStyleRule(
-        'color',
-        '#00ADEF'
-      )
+
       expect(getByText('R$ 3.337,22')).toHaveStyleRule('color', '#272727')
-    })
-    test('It highlight fund name in blue', () => {
-      const { getByText } = renderWithReduxAndTheme(
-        <MemoryRouter>
-          <FundsCarousel
-            displayInformation
-            idFund={5112}
-            onHandleChangeIdFund={id => {}}
-            filteredFunds={mock}
-          />
-        </MemoryRouter>
-      )
-      expect(getByText('Porto Seguro Alocação FIC FIM')).toHaveStyleRule(
-        'color',
-        '#00ADEF'
-      )
-    })
-    test('It highlight fund ballance in black bold', () => {
-      const { getByText } = renderWithReduxAndTheme(
-        <MemoryRouter>
-          <FundsCarousel
-            displayInformation
-            idFund={5112}
-            onHandleChangeIdFund={id => {}}
-            filteredFunds={mock}
-          />
-        </MemoryRouter>
-      )
-      expect(getByText('R$ 31.905,05')).toHaveStyleRule('color', '#272727')
     })
   })
 })

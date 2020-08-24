@@ -119,7 +119,7 @@ const FundDetailDrawer: React.FC<IProps> = ({
       <TabPanel name="tab-informacoes">
         <TabMoreInfo
           fund={fundDetails}
-          historicBenchmark={comparativeProfitability.hist_rentabil_benchmark}
+          historicBenchmark={comparativeProfitability?.hist_rentabil_benchmark}
         />
       </TabPanel>
     </Tabs>
