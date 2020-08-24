@@ -37,15 +37,18 @@ const FundDetailDrawer: React.FC<IProps> = ({
   handleClose,
   hasError = false,
 }) => {
-  const { data: fundDetails, isLoading } = useSelector<any, any>(
-    state => state.investmentDetails
-  )
-  const { suitabilityIsLoading, financialApplicationIsLoading } = useSelector<
-    any,
-    any
-  >(state => ({
+  const {
+    suitabilityIsLoading,
+    financialApplicationIsLoading,
+    comparativeProfitability,
+    fundDetails,
+    isLoading,
+  } = useSelector<any, any>(state => ({
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     financialApplicationIsLoading: state.financialApplicationGetData.isLoading,
+    comparativeProfitability: state.comparativeProfitability.data,
+    fundDetails: state.investmentDetails.data,
+    isLoading: state.investmentDetails.isLoading,
   }))
   const dispatch = useDispatch()
   const footerDrawer = () =>
@@ -114,7 +117,10 @@ const FundDetailDrawer: React.FC<IProps> = ({
         <TabProfitability fund={fundDetails} />
       </TabPanel>
       <TabPanel name="tab-informacoes">
-        <TabMoreInfo fund={fundDetails} />
+        <TabMoreInfo
+          fund={fundDetails}
+          historicBenchmark={comparativeProfitability.hist_rentabil_benchmark}
+        />
       </TabPanel>
     </Tabs>
   )

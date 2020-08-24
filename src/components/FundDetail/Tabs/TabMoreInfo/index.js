@@ -14,7 +14,7 @@ import { formatNumber } from 'helpers'
 
 import { ColStyled, InfoContent, HorizontalList } from './styles'
 
-export default function TabMoreInfo({ fund }) {
+export default function TabMoreInfo({ fund, historicBenchmark }) {
   return (
     <InfoContent>
       <div>
@@ -60,7 +60,7 @@ export default function TabMoreInfo({ fund }) {
                   benchmark
                 </Text>,
                 <Text type="headline" color="gray6" bold>
-                  {fund.benchmark.nome}
+                  {historicBenchmark?.benchmark?.nome}
                 </Text>,
               ]}
             />
@@ -178,4 +178,5 @@ TabMoreInfo.propTypes = {
     link_regulamento: PropTypes.string,
     link_infor_desempenho: PropTypes.string,
   }).isRequired,
+  historicBenchmark: PropTypes.shape({}),
 }

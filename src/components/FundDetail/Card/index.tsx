@@ -151,7 +151,7 @@ const FundDetailCard = ({
               <VerticalListMargin
                 elements={[
                   <TextTitle>Resgate (Cotização)</TextTitle>,
-                  <TextValue>{`D+${fundDetails.resgate_cotizacao}`}</TextValue>,
+                  <TextValue>{fundDetails.resgate_cotizacao}</TextValue>,
                 ]}
               />
             </Col>

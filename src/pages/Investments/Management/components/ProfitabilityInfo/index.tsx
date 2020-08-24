@@ -52,7 +52,6 @@ interface IProps {
 }
 const ProfitabilityInfo = ({ profitability }: IProps) => (
   <Row>
-    {console.log(profitability)}
     <StyledCol md={6} sm={12}>
       <CardStyled data-testid="test-card-profitability">
         <TextHeader>Fundo (%)</TextHeader>

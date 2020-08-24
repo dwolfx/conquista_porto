@@ -259,13 +259,13 @@ TableFunds.propTypes = {
   onChangeIsFundDetailOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
-  clickedFundInvestButton: PropTypes.string,
+  clickedFundInvestButton: PropTypes.number,
   filteredFundListEmpty: PropTypes.bool.isRequired,
 }
 
 TableFunds.defaultProps = {
   isFiltering: false,
-  clickedFundInvestButton: '',
+  clickedFundInvestButton: 0,
 }
 
 SimpleHeader.propTypes = {

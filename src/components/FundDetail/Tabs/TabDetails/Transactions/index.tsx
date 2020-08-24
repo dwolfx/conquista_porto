@@ -38,21 +38,19 @@ export const Transactions = ({ fund }: IProps) => {
     ],
     [
       <LiTitle>Aplicação (Cotização)</LiTitle>,
-      <LiValue bold>{fund.aplicacao_cotizacao} (Úteis)</LiValue>,
+      <LiValue bold>{fund.aplicacao_cotizacao}</LiValue>,
     ],
     [
       <LiTitle>Aplicação (Financeiro)</LiTitle>,
-      <LiValue bold>{fund.aplicacao_financeiro} (Úteis)</LiValue>,
+      <LiValue bold>{fund.aplicacao_financeiro}</LiValue>,
     ],
     [
       <LiTitle>Resgate (Cotização)</LiTitle>,
-      <LiValue
-        bold
-      >{`${fund.resgate_cotizacao} (${fund.contagem_dias_resgate})`}</LiValue>,
+      <LiValue bold>{fund.resgate_cotizacao}</LiValue>,
     ],
     [
       <LiTitle>Resgate (Financeiro)</LiTitle>,
-      <LiValue bold>{fund.resgate_financeiro} (Úteis)</LiValue>,
+      <LiValue bold>{fund.resgate_financeiro}</LiValue>,
     ],
   ]
 

@@ -378,7 +378,7 @@ const FundInformation = ({
                 Resgate (Cotização)
               </Text>,
               <Text type="headline" bold color="gray6">
-                {`${position.resgate_cotizacao} (${position.contagem_dias_resgate})`}
+                {position.resgate_cotizacao}
               </Text>,
             ]}
           />

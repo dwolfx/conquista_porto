@@ -1,50 +1,482 @@
 [
   {
-    "id_fundo": 51380129,
-    "id_operacao": 10608373,
-    "data_operacao": 1591758000000,
+    "id_fundo": 51380015,
+    "id_operacao": 10609897,
+    "data_operacao": 1596769200000,
     "tipo_operacao": "Aplicação",
-    "data_liquidacao": 1591758000000,
-    "valor_bruto": 111.11
+    "data_liquidacao": 1596769200000,
+    "valor_bruto": 3600.99
   },
   {
-    "id_fundo": 51380129,
-    "id_operacao": 10590482,
+    "id_fundo": 51380015,
+    "id_operacao": 10609895,
+    "data_operacao": 1596769200000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596769200000,
+    "valor_bruto": 3500.00
+  },
+  {
+    "id_fundo": 51380015,
+    "id_operacao": 10608126,
+    "data_operacao": 1588215600000,
+    "tipo_operacao": "Resgate Bruto",
+    "data_liquidacao": 1588647600000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 51380015,
+    "id_operacao": 10590483,
     "data_operacao": 1582686000000,
     "tipo_operacao": "Aplicação",
     "data_liquidacao": 1582686000000,
-    "valor_bruto": 45000.00
+    "valor_bruto": 5000.00
   },
   {
-    "id_fundo": 51380129,
-    "id_operacao": 10590461,
-    "data_operacao": 1582081200000,
+    "id_fundo": 51380015,
+    "id_operacao": 10590448,
+    "data_operacao": 1582167600000,
     "tipo_operacao": "Aplicação",
-    "data_liquidacao": 1582081200000,
-    "valor_bruto": 20000.00
+    "data_liquidacao": 1582167600000,
+    "valor_bruto": 5000.00
   },
   {
-    "id_fundo": 51380129,
-    "id_operacao": 10608373,
-    "data_operacao": 1591758000000,
+    "id_fundo": 5105,
+    "id_operacao": 10608927,
+    "data_operacao": 1596510000000,
     "tipo_operacao": "Aplicação",
-    "data_liquidacao": 1591758000000,
-    "valor_bruto": 111.11
+    "data_liquidacao": 1596510000000,
+    "valor_bruto": 1111.11
   },
   {
-    "id_fundo": 51380129,
-    "id_operacao": 10590482,
+    "id_fundo": 5105,
+    "id_operacao": 10608904,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596510000000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 5105,
+    "id_operacao": 10608864,
+    "data_operacao": 1596164400000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596164400000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 5105,
+    "id_operacao": 10608831,
+    "data_operacao": 1596078000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596078000000,
+    "valor_bruto": 7000.00
+  },
+  {
+    "id_fundo": 5105,
+    "id_operacao": 10608819,
+    "data_operacao": 1595905200000,
+    "tipo_operacao": "Resgate Bruto",
+    "data_liquidacao": 1595905200000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 5105,
+    "id_operacao": 10608818,
+    "data_operacao": 1595905200000,
+    "tipo_operacao": "Resgate Bruto",
+    "data_liquidacao": 1595905200000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 51380033,
+    "id_operacao": 10590485,
     "data_operacao": 1582686000000,
     "tipo_operacao": "Aplicação",
     "data_liquidacao": 1582686000000,
-    "valor_bruto": 45000.00
+    "valor_bruto": 12000.00
   },
   {
-    "id_fundo": 51380129,
-    "id_operacao": 10590461,
-    "data_operacao": 1582081200000,
+    "id_fundo": 51380033,
+    "id_operacao": 10590450,
+    "data_operacao": 1582167600000,
     "tipo_operacao": "Aplicação",
-    "data_liquidacao": 1582081200000,
+    "data_liquidacao": 1582167600000,
+    "valor_bruto": 10000.00
+  },
+  {
+    "id_fundo": 51380036,
+    "id_operacao": 10604810,
+    "data_operacao": 1585537200000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1585537200000,
+    "valor_bruto": 2000.00
+  },
+  {
+    "id_fundo": 51380036,
+    "id_operacao": 10590484,
+    "data_operacao": 1582686000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582686000000,
+    "valor_bruto": 11000.00
+  },
+  {
+    "id_fundo": 51380036,
+    "id_operacao": 10590449,
+    "data_operacao": 1582167600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582167600000,
+    "valor_bruto": 10000.00
+  },
+  {
+    "id_fundo": 51380037,
+    "id_operacao": 10608928,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596510000000,
+    "valor_bruto": 1111.11
+  },
+  {
+    "id_fundo": 51380037,
+    "id_operacao": 10608203,
+    "data_operacao": 1588647600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1588647600000,
+    "valor_bruto": 1500.00
+  },
+  {
+    "id_fundo": 51380037,
+    "id_operacao": 10604885,
+    "data_operacao": 1585105200000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1585105200000,
+    "valor_bruto": 1500.00
+  },
+  {
+    "id_fundo": 51380037,
+    "id_operacao": 10590453,
+    "data_operacao": 1582167600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582167600000,
+    "valor_bruto": 7200.00
+  },
+  {
+    "id_fundo": 51380058,
+    "id_operacao": 10608960,
+    "data_operacao": 1596682800000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596682800000,
+    "valor_bruto": 6000.00
+  },
+  {
+    "id_fundo": 51380058,
+    "id_operacao": 10608956,
+    "data_operacao": 1596596400000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596596400000,
+    "valor_bruto": 6000.00
+  },
+  {
+    "id_fundo": 51380058,
+    "id_operacao": 10608953,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596510000000,
+    "valor_bruto": 6000.00
+  },
+  {
+    "id_fundo": 51380058,
+    "id_operacao": 10608890,
+    "data_operacao": 1596423600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596423600000,
+    "valor_bruto": 2000.00
+  },
+  {
+    "id_fundo": 51380058,
+    "id_operacao": 10608888,
+    "data_operacao": 1596423600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596423600000,
+    "valor_bruto": 10000.00
+  },
+  {
+    "id_fundo": 51380058,
+    "id_operacao": 10608799,
+    "data_operacao": 1595559600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1595559600000,
+    "valor_bruto": 50000.00
+  },
+  {
+    "id_fundo": 51380026,
+    "id_operacao": 10608966,
+    "data_operacao": 1597028400000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1597028400000,
+    "valor_bruto": 15000.00
+  },
+  {
+    "id_fundo": 51380026,
+    "id_operacao": 10609905,
+    "data_operacao": 1596769200000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596769200000,
+    "valor_bruto": 3000.00
+  },
+  {
+    "id_fundo": 51380026,
+    "id_operacao": 10608958,
+    "data_operacao": 1596596400000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596596400000,
+    "valor_bruto": 15000.00
+  },
+  {
+    "id_fundo": 51380026,
+    "id_operacao": 10608957,
+    "data_operacao": 1596596400000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596596400000,
+    "valor_bruto": 15000.00
+  },
+  {
+    "id_fundo": 51380026,
+    "id_operacao": 10608954,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596510000000,
+    "valor_bruto": 15000.00
+  },
+  {
+    "id_fundo": 51380026,
+    "id_operacao": 10608832,
+    "data_operacao": 1596078000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596078000000,
+    "valor_bruto": 2500.00
+  },
+  {
+    "id_fundo": 51380060,
+    "id_operacao": 10608866,
+    "data_operacao": 1597201200000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1597201200000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 51380060,
+    "id_operacao": 10631739,
+    "data_operacao": 1597114800000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1597114800000,
+    "valor_bruto": 2000.00
+  },
+  {
+    "id_fundo": 51380060,
+    "id_operacao": 10630289,
+    "data_operacao": 1597028400000,
+    "tipo_operacao": "Resgate Bruto",
+    "data_liquidacao": 1599706800000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 51380060,
+    "id_operacao": 10608943,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Resgate Bruto",
+    "data_liquidacao": 1599188400000,
+    "valor_bruto": 2555.55
+  },
+  {
+    "id_fundo": 51380060,
+    "id_operacao": 10608929,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596510000000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 51380060,
+    "id_operacao": 10608874,
+    "data_operacao": 1596423600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596423600000,
+    "valor_bruto": 10000.00
+  },
+  {
+    "id_fundo": 51380063,
+    "id_operacao": 10631737,
+    "data_operacao": 1597201200000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1597201200000,
+    "valor_bruto": 100.00
+  },
+  {
+    "id_fundo": 51380063,
+    "id_operacao": 10608964,
+    "data_operacao": 1596596400000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596596400000,
+    "valor_bruto": 10000.00
+  },
+  {
+    "id_fundo": 51380063,
+    "id_operacao": 10608918,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596510000000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 51380063,
+    "id_operacao": 10608886,
+    "data_operacao": 1596423600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596423600000,
+    "valor_bruto": 2000.00
+  },
+  {
+    "id_fundo": 51380063,
+    "id_operacao": 10608884,
+    "data_operacao": 1596423600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596423600000,
+    "valor_bruto": 2000.00
+  },
+  {
+    "id_fundo": 51380063,
+    "id_operacao": 10608858,
+    "data_operacao": 1596423600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1596423600000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 5069,
+    "id_operacao": 10608813,
+    "data_operacao": 1595818800000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1595818800000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 5069,
+    "id_operacao": 10608395,
+    "data_operacao": 1593054000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1593054000000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 5069,
+    "id_operacao": 10608394,
+    "data_operacao": 1593054000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1593054000000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 5069,
+    "id_operacao": 10590473,
+    "data_operacao": 1582686000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582686000000,
+    "valor_bruto": 3500.00
+  },
+  {
+    "id_fundo": 51380048,
+    "id_operacao": 10590481,
+    "data_operacao": 1582686000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582686000000,
     "valor_bruto": 20000.00
+  },
+  {
+    "id_fundo": 51380087,
+    "id_operacao": 10608944,
+    "data_operacao": 1596510000000,
+    "tipo_operacao": "Resgate Bruto",
+    "data_liquidacao": 1597114800000,
+    "valor_bruto": 12000.00
+  },
+  {
+    "id_fundo": 51380087,
+    "id_operacao": 10608654,
+    "data_operacao": 1595386800000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1595386800000,
+    "valor_bruto": 10000.00
+  },
+  {
+    "id_fundo": 51380087,
+    "id_operacao": 10590468,
+    "data_operacao": 1582686000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582686000000,
+    "valor_bruto": 20000.00
+  },
+  {
+    "id_fundo": 51380087,
+    "id_operacao": 10590441,
+    "data_operacao": 1582167600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582167600000,
+    "valor_bruto": 20000.00
+  },
+  {
+    "id_fundo": 51380019,
+    "id_operacao": 10608326,
+    "data_operacao": 1589511600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1589511600000,
+    "valor_bruto": 5555.55
+  },
+  {
+    "id_fundo": 51380019,
+    "id_operacao": 10608085,
+    "data_operacao": 1587610800000,
+    "tipo_operacao": "Resgate Bruto",
+    "data_liquidacao": 1590548400000,
+    "valor_bruto": 1000.00
+  },
+  {
+    "id_fundo": 51380019,
+    "id_operacao": 10604934,
+    "data_operacao": 1585623600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1585623600000,
+    "valor_bruto": 7777.71
+  },
+  {
+    "id_fundo": 51380019,
+    "id_operacao": 10604933,
+    "data_operacao": 1585623600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1585623600000,
+    "valor_bruto": 7777.71
+  },
+  {
+    "id_fundo": 51380019,
+    "id_operacao": 10604922,
+    "data_operacao": 1585278000000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1585278000000,
+    "valor_bruto": 5555.55
+  },
+  {
+    "id_fundo": 51380019,
+    "id_operacao": 10590496,
+    "data_operacao": 1582772400000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582772400000,
+    "valor_bruto": 11000.00
+  },
+  {
+    "id_fundo": 51380055,
+    "id_operacao": 10590445,
+    "data_operacao": 1582167600000,
+    "tipo_operacao": "Aplicação",
+    "data_liquidacao": 1582167600000,
+    "valor_bruto": 5000.00
   }
 ]
