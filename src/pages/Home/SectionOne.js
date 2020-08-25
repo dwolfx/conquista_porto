@@ -99,7 +99,7 @@ const SectionOne = ({ onFetchInvestments }) => {
           }
         />
       </GridCol>
-      <GridCol lg="4" md="6" sm="12">
+      <GridCol lg="4" md="6" sm="12" xs="12">
         <HomePrivateWelfareCard
           headerIcon="time"
           headerTitle="Previdência"

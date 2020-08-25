@@ -331,6 +331,10 @@ Array [
 
 }
 
+@media (max-width:480px) {
+
+}
+
 @media (max-width:980px) {
 
 }
@@ -402,6 +406,10 @@ Array [
 }
 
 @media (max-width:980px) {
+
+}
+
+@media (max-width:480px) {
 
 }
 
@@ -971,6 +979,12 @@ Array [
   }
 }
 
+@media (max-width:480px) {
+  .c1 {
+    height: auto;
+  }
+}
+
 @media (max-width:1280px) {
 
 }
@@ -1165,7 +1179,7 @@ Array [
               color="unset"
               type="headline"
             >
-              O primeiro passo para começar a poupar e controlar seu dinheiro é descobrir onde ele está. 
+              O primeiro passo para começar a poupar e controlar seu dinheiro é descobrir onde ele está.
             </p>
           </div>
         </div>

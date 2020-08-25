@@ -49,8 +49,8 @@ export const MenuContainer = styled.div`
   height: 518px;
   border-radius: 14px;
   background-color: ${props => props.theme.colors.blue4};
-  padding-left: ${({ theme }) => `${theme.spacing(2)}px;`};
-  margin-right: ${({ theme }) => `${theme.spacing(1)}px;`};
+  padding-left: ${({ theme }) => `${theme.spacing(2)}px`};
+  margin-right: ${({ theme }) => `${theme.spacing(1)}px`};
 
   @media ${props => props.theme.mediaQueries.lg} {
     height: 100%;
@@ -58,7 +58,7 @@ export const MenuContainer = styled.div`
     top: 0;
     left: 0;
     flex-direction: row;
-    padding: ${({ theme }) => `0 ${theme.spacing(18)}px;`};
+    padding: ${({ theme }) => `0 ${theme.spacing(18)}px`};
     margin: 0;
   }
 `
@@ -75,7 +75,7 @@ export const Option = styled.div<IOption>`
   border-bottom-left-radius: 28px;
   background-color: ${props =>
     props.isSelected ? props.theme.colors.gray1 : 'transparent'};
-  margin-bottom:  ${({ theme }) => `${theme.spacing(5)}px;`};
+  margin-bottom:  ${({ theme }) => `${theme.spacing(5)}px`};
   transition: all 0.2s ease-in-out;
 
   &:last-child {
@@ -110,7 +110,7 @@ export const Option = styled.div<IOption>`
 
         p {
           display: block;
-          margin-left: ${({ theme }) => `${theme.spacing(2)}px;`};
+          margin-left: ${({ theme }) => `${theme.spacing(2)}px`};
         }
 
         svg {
@@ -121,7 +121,7 @@ export const Option = styled.div<IOption>`
 
   @media ${props => props.theme.mediaQueries.lg} {
     margin-bottom: 0;
-    padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(2)}px;`};
+    padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(2)}px`};
     background-color: transparent;
     width: auto;
     height: 100%;
@@ -143,7 +143,7 @@ export const Option = styled.div<IOption>`
       css`
         &:hover:not(:active) {
           padding: ${({ theme }) =>
-            `${theme.spacing(3)}px ${theme.spacing(2)}px;`}
+            `${theme.spacing(3)}px ${theme.spacing(2)}px`}
           border-radius: 0;
           background-color: transparent;
           border: none;
