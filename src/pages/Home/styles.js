@@ -303,6 +303,10 @@ export const ObjectivesContainer = styled(Row)`
   @media ${({ theme }) => theme.mediaQueries.md} {
     height: 252px;
   }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    height: auto;
+  }
 `
 export const Icon = styled(ConquistaIcon)`
   width: 21px;
