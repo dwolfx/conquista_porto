@@ -9,33 +9,13 @@ import useMedia from 'hooks/useMedia'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
 
 import { Li, LiTitle, LiValue, TransactionsWrapper, Ul } from './styles'
-
-interface IAliquota {
-  faixa: string
-  valor: string
-}
+import { IFundDetails } from 'store/modules/Investment/Details/iDetails'
 
 interface IProps {
-  fund: {
-    minimo_inicial: string
-    aplicao_minima: string
-    saldo_minimo: string
-    hora_aplicacao: string
-    aplicacao_cotizacao: string
-    aplicacao_financeiro: string
-    contagem_dias_resgate: string
-    resgate_cotizacao: string
-    resgate_financeiro: string
-    categoria: string
-    perfil_risco: string
-    classificacao: string
-    aliquotas_ir: { aliquota: IAliquota[] }
-    regime_iof: string
-  }
+  fund: IFundDetails
 }
 export const Transactions = ({ fund }: IProps) => {
   const isMobile = useMedia('xs')
-
   const liContent = [
     [
       <LiTitle>Aplicação Inicial</LiTitle>,
@@ -43,15 +23,11 @@ export const Transactions = ({ fund }: IProps) => {
     ],
     [
       <LiTitle>Movimentação Mín.</LiTitle>,
-      <LiValue bold>
-        {formatMoney(fund.aplicao_minima)}
-      </LiValue>,
+      <LiValue bold>{formatMoney(fund.aplicao_minima)}</LiValue>,
     ],
     [
       <LiTitle>Saldo Mín.</LiTitle>,
-      <LiValue bold>
-        {formatMoney(fund.saldo_minimo || 0)}
-      </LiValue>,
+      <LiValue bold>{formatMoney(fund.saldo_minimo || 0)}</LiValue>,
     ],
     [
       <LiTitle>Horário Limite</LiTitle>,
@@ -59,26 +35,28 @@ export const Transactions = ({ fund }: IProps) => {
     ],
     [
       <LiTitle>Aplicação (Cotização)</LiTitle>,
-      <LiValue bold>{fund.aplicacao_cotizacao} (Úteis)</LiValue>,
+      <LiValue bold>{fund.aplicacao_cotizacao}</LiValue>,
     ],
     [
       <LiTitle>Aplicação (Financeiro)</LiTitle>,
-      <LiValue bold>{fund.aplicacao_financeiro} (Úteis)</LiValue>,
+      <LiValue bold>{fund.aplicacao_financeiro}</LiValue>,
     ],
     [
       <LiTitle>Resgate (Cotização)</LiTitle>,
-      <LiValue bold>{`${fund.resgate_cotizacao} (${fund.contagem_dias_resgate})`}</LiValue>,
+      <LiValue bold>{fund.resgate_cotizacao}</LiValue>,
     ],
     [
       <LiTitle>Resgate (Financeiro)</LiTitle>,
-      <LiValue bold>{fund.resgate_financeiro} (Úteis)</LiValue>,
+      <LiValue bold>{fund.resgate_financeiro}</LiValue>,
     ],
   ]
 
   const category = [
     <LiTitle>Categoria</LiTitle>,
     <LiValue bold>
-      {fund.categoria === 'Renda Variável' ? 'Ações' : fund.categoria}
+      {fund.categoria_arena === 'Renda Variável'
+        ? 'Ações'
+        : fund.categoria_arena}
     </LiValue>,
   ]
 

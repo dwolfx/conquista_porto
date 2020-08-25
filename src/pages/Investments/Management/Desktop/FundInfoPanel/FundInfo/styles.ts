@@ -110,6 +110,10 @@ export const ButtonCustom = styled(Button)`
     ${({ theme }) => theme.spacing(1)}px;
 `
 
+export const LoadingContent = styled.div`
+  width: min-content;
+`
+
 export const ButtonClosed = styled(Button).attrs(() => ({
   color: 'primary',
   outline: true,

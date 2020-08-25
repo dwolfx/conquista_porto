@@ -5,6 +5,7 @@ import IconExporter from 'components/IconExporter'
 import TextComponent from 'components/Text'
 import DivisorComponent from 'components/Divisor'
 import ButtonComponent from 'components/Button'
+import theme from 'styles/theme'
 
 export const ArrowDown = styled(IconExporter).attrs(() => ({
   name: 'arrowdown',
@@ -140,27 +141,31 @@ export const ModalButton = styled(ButtonComponent)`
   margin-top: ${({ theme }) => theme.spacing(5)}px;
 `
 
-enum activeRiskColors {
-  baixo = 'lowRisk',
-  'medio-baixo' = 'lowMediumRisk',
-  medio = 'mediumRisk',
-  'medio-alto' = 'mediumHighRisk',
-  alto = 'highRisk',
-}
-
 export const RightContent = styled.div`
   display: flex;
 `
 
+interface IFILTER_RISKS {
+  [key: number]: keyof typeof theme.fundRiskColors
+}
+
+const ACTIVE_FILTER_RISKS: IFILTER_RISKS = {
+  1: 'lowRisk',
+  2: 'lowMediumRisk',
+  3: 'mediumRisk',
+  4: 'mediumHighRisk',
+  5: 'highRisk',
+}
+
 interface IRiskLineProps {
-  riskColor: keyof typeof activeRiskColors
+  riskColor: keyof typeof ACTIVE_FILTER_RISKS
 }
 
 export const RiskLine = styled.div<IRiskLineProps>`
   width: 4px;
   border-radius: 4px;
   background-color: ${({ theme, riskColor }) =>
-    theme.fundRiskColors[activeRiskColors[riskColor]]};
+    theme.fundRiskColors[ACTIVE_FILTER_RISKS[riskColor]]};
   margin: 4px 0 4px 4px;
 `
 

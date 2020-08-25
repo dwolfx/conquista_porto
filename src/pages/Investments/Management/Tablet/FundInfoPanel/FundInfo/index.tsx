@@ -4,7 +4,6 @@ import { Settings } from 'react-slick'
 import { ThemeContext } from 'styled-components'
 import { Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-import moment from 'moment'
 
 import VerticalList from 'components/VerticalList'
 import HorizontalList from 'components/HorizontalList'
@@ -14,13 +13,17 @@ import Dropdown from 'components/Dropdown'
 import Carousel from 'components/Carousel'
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { IModalProps } from 'pages/Investments/Management/types'
+import {
+  IModalProps,
+  RISK_FILTER_TYPES,
+} from 'pages/Investments/Management/types'
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/FinancialApplication/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
-import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
+import { GetIncomesDataRequest } from 'store/modules/Investment/Income/action'
+import IIncome from 'store/modules/Investment/Income/iIncomes'
 import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 
 import { formatMoney } from 'helpers'
@@ -43,27 +46,28 @@ import {
   CustomPopover,
   ButtonClosed,
 } from './styles'
+import moment from 'moment'
 
 export const months = [
   {
     name: 'Último Mês',
     compactName: 'Últ. M',
-    value: 0,
+    value: 1,
   },
   {
     name: '12 meses',
     compactName: '12 M',
-    value: 1,
+    value: 12,
   },
   {
     name: '24 meses',
     compactName: '24 M',
-    value: 2,
+    value: 24,
   },
   {
     name: '36 meses',
     compactName: '36 M',
-    value: 3,
+    value: 36,
   },
 ]
 
@@ -71,54 +75,27 @@ interface IValidProps {
   isValid: boolean
 }
 
-interface ITributacao {
-  tipo: string
-  valor: string
-}
-
-interface IBalance {
-  valorsaldo: string
-  data: string
-}
-
-interface IIncome {
-  datainicio: string
-  datafim: string
-  meses: string
-  valorrendimento: string
-}
-
 interface IFundInformationProps {
   onChangeModalSuitabilityInfo: (data: IModalProps) => void
   position: {
-    fundo: {
-      apelido: string
-      perfil_risco: string
-      perfil_risco_ordem: string
-      aplicao_minima: string
-      aplicacao_cotizacao: string
-      contagem_dias_resgate: string
-      resgate_cotizacao: string
-      id_carteira: string
-      nome_gestor: string
-      resgate_liberado: boolean
-      aplicao_liberada: boolean
-    }
-    saldo_atual: string
-    saldo_bloqueado: string
-    tributacoes: {
-      tributacao: ITributacao[]
-    }
-    historico_saldos_fundo: {
-      saldos: {
-        saldo: IBalance[] | IBalance
-      }
-    }
-    rendimentos: {
-      rendimento: IIncome[]
-    }
-    idCotista: string
+    fundo: string
+    id_cotista: string
     categoria_arena: string
+    perfil_risco: string
+    perfil_risco_ordem: number
+    aplicao_minima: number
+    aplicacao_cotizacao?: string
+    contagem_dias_resgate: string
+    id: number
+    nome_gestor: string
+    saldo_bruto: string
+    valor_ir: string
+    valor_iof: string
+    saldo_liquido: string
+    data_historico_formatada: string
+    resgate_liberado: boolean
+    resgate_cotizacao: string
+    aplicao_liberada: boolean
   }
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
@@ -148,105 +125,45 @@ const FundInformation = ({
   const {
     displayInformation,
     idFund,
-    financialApplicationLoading,
     funds,
     fundsError,
-    fundsIsLoading,
-    suitabilityIsLoading,
     suitabilityStoreData,
     isRedeemLoading,
+    incomeIsLoading,
+    income,
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
     idFund: state.investmentPosition.idFund,
-    financialApplicationLoading: state.financialApplicationGetData.isLoading,
     funds: state.investmentsList.data,
     fundsError: state.investmentsList.isError,
-    fundsIsLoading: state.investmentsList.isError,
-    suitabilityIsLoading: state.suitabilityInfo.isLoading,
     suitabilityStoreData: state.suitabilityInfo.data,
     isRedeemLoading: state.redeemData.isLoading,
+    incomeIsLoading: state.income.isLoading,
+    income: state.income.data,
   }))
 
-  const borderRiskNumber = parseInt(position.fundo.perfil_risco_ordem, 10)
+  const borderRiskNumber = position.perfil_risco_ordem
 
-  useFetchInvestmentsList()
+  const getMonth = (mes: number) => {
+    let result = income.find((element: IIncome) => element.meses === mes)
+    return result || {}
+  }
 
   useEffect(() => {
-    if (
-      (!suitabilityIsLoading &&
-        !financialApplicationLoading &&
-        !fundsIsLoading) ||
-      isInvestorLevelModalOpen ||
-      suitabilityStoreData.isOpen
-    ) {
-      setInvestButtonIsLoading(false)
-    }
-  }, [
-    suitabilityIsLoading,
-    financialApplicationLoading,
-    fundsIsLoading,
-    isInvestorLevelModalOpen,
-    suitabilityStoreData,
-  ])
+    dispatch(GetIncomesDataRequest(position.id))
+  }, [position, dispatch])
 
   useEffect(() => {
-    setIncomeValue(
-      position.rendimentos.rendimento[months[0].value].valorrendimento
-    )
-    setSelectValue(isVerticalTablet ? months[0].compactName : months[0].name)
-  }, [position, isVerticalTablet])
-
-  const getTributacao = (tipoTributacao = '', moneyFormatted = true) => {
-    const valorTributacao = position.tributacoes
-      ? position.tributacoes.tributacao.find(
-          t => t.tipo === tipoTributacao.toUpperCase()
-        )
-      : 0
-    if (!moneyFormatted) {
-      return valorTributacao && (parseFloat(valorTributacao.valor) || 0)
+    if (!incomeIsLoading && income) {
+      setIncomeValue(getMonth(months[0].value).rendimento)
+      setSelectValue(months[0].name)
     }
-    return valorTributacao ? formatMoney(valorTributacao.valor) : '--'
-  }
-
-  const calculatedBalance = () => {
-    const iof = getTributacao('IOF', false) || 0
-    const ir = getTributacao('IR', false) || 0
-
-    const tributacaoSum = +iof + +ir
-
-    const saldoBruto = parseFloat(position.saldo_atual)
-      ? parseFloat(position.saldo_atual)
-      : 0
-    const saldoBloqueado = parseFloat(position.saldo_bloqueado)
-      ? parseFloat(position.saldo_bloqueado)
-      : 0
-    const saldoDisponivel = saldoBruto - saldoBloqueado
-    const saldoLiquido = saldoDisponivel - tributacaoSum
-
-    return {
-      saldoBruto,
-      saldoBloqueado,
-      saldoDisponivel,
-      saldoLiquido,
-    }
-  }
-
-  const getUpdatedBalance = () => {
-    let lastBalance = position.historico_saldos_fundo.saldos.saldo
-    if (Array.isArray(lastBalance)) {
-      lastBalance = lastBalance[lastBalance.length - 1]
-    }
-    return {
-      valorsaldo: lastBalance ? formatMoney(lastBalance.valorsaldo) : '--',
-      data: lastBalance ? moment(lastBalance.data).format('DD/MM/YYYY') : '--',
-    }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [income, incomeIsLoading])
 
   const handleSelectChange = (item: any) => {
-    setSelectValue(isVerticalTablet ? item.compactName : item.name)
-    setIncomeValue(
-      position.rendimentos.rendimento[months[item.value].value].valorrendimento
-    )
+    setSelectValue(item.name)
+    setIncomeValue(getMonth(item.value).rendimento)
   }
 
   const triggerSuitabilityDispatch = (onSuccess: null | Function) => {
@@ -255,7 +172,7 @@ const FundInformation = ({
 
   const triggerFinancialApplication = (
     suitabilityData: any,
-    fundId: string,
+    fundId: number,
     date: string,
     onSuccess: (data: IGetFinancialApplicationDataResponse) => void
   ) => {
@@ -274,7 +191,7 @@ const FundInformation = ({
   }
 
   const handleClickInvestButton = (
-    fundId: string,
+    fundId: number,
     suitabilityData: any,
     fundsResponse: any
   ) => {
@@ -312,7 +229,7 @@ const FundInformation = ({
 
     if (suitabilityData && suitabilityData.isValid) {
       const fundInfo = fundsResponse.filter(
-        (fund: { id_fundo: string }) => fund.id_fundo === fundId
+        (fund: { id_carteira: number }) => fund.id_carteira === fundId
       )
       const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
         fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
@@ -341,7 +258,7 @@ const FundInformation = ({
     }
   }
 
-  const onChangeLayerOpen = (fundId: string) => {
+  const onChangeLayerOpen = (fundId: number) => {
     const onSuccessInvestmentList = (fundsResponse: any) => {
       if (!suitabilityStoreData || !suitabilityStoreData.isValid) {
         const onSuccess = (onSuccessSuitabilityData: Object) => {
@@ -428,7 +345,11 @@ const FundInformation = ({
                     Perfil de Risco
                   </Text>,
                   <Text type="headline" bold color="gray6">
-                    {position.fundo.perfil_risco}
+                    {
+                      RISK_FILTER_TYPES[
+                        position.perfil_risco as keyof typeof RISK_FILTER_TYPES
+                      ]
+                    }
                   </Text>,
                 ]}
               />
@@ -441,7 +362,7 @@ const FundInformation = ({
                   Movimentação Mín.
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {formatMoney(position.fundo.aplicao_minima)}
+                  {formatMoney(position.aplicao_minima)}
                 </Text>,
               ]}
             />
@@ -453,7 +374,7 @@ const FundInformation = ({
                   Resgate (Cotização)
                 </Text>,
                 <Text type="headline" bold color="gray6">
-                  {position.fundo.resgate_cotizacao}
+                  {position.resgate_cotizacao}
                 </Text>,
               ]}
             />
@@ -483,10 +404,10 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {getUpdatedBalance().valorsaldo}
+                    {position.saldo_bruto}
                   </Text>,
                   <Text type="caption" bold color="gray6">
-                    Atualizado em {getUpdatedBalance().data}
+                    Atualizado em {position.data_historico_formatada}
                   </Text>,
                 ]}
               />
@@ -513,7 +434,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {formatMoney(calculatedBalance().saldoBruto) || '--'}
+                    {position.saldo_bruto || '--'}
                   </Text>,
                 ]}
               />,
@@ -533,7 +454,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {getTributacao('IOF')}
+                    {position.valor_iof}
                   </Text>,
                 ]}
               />,
@@ -553,7 +474,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {getTributacao('IR')}
+                    {position.valor_ir}
                   </Text>,
                 ]}
               />,
@@ -573,7 +494,7 @@ const FundInformation = ({
                         : 'none'};
                     `}
                   >
-                    {formatMoney(calculatedBalance().saldoLiquido)}
+                    {position.saldo_liquido}
                   </Text>,
                 ]}
               />,
@@ -636,7 +557,7 @@ const FundInformation = ({
       </RowLineInfo>
       <RowWithoutPadding justifyContent="center">
         <ButtonsWrapper>
-          {!position.fundo.resgate_liberado ? (
+          {!position.resgate_liberado ? (
             <CustomPopover
               content="Fundo fechado para resgates"
               placement="bottom"
@@ -667,7 +588,7 @@ const FundInformation = ({
               Resgatar
             </ButtonCustom>
           )}
-          {!position.fundo.aplicao_liberada ? (
+          {!position.aplicao_liberada ? (
             <CustomPopover
               content="Fundo fechado para aplicação"
               placement="bottom"
@@ -693,7 +614,7 @@ const FundInformation = ({
               data-gtm-clicktype="button"
               color="secondary"
               onClick={() => {
-                onChangeLayerOpen(position.fundo.id_carteira)
+                onChangeLayerOpen(position.id)
                 setInvestButtonIsLoading(true)
               }}
             >

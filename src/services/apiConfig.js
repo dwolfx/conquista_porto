@@ -18,6 +18,7 @@ const baseURLNamespaceRecommendation =
   process.env.REACT_APP_BASE_URL_RECOMMENDATION || ''
 const baseURLNamespaceRewards = process.env.REACT_APP_BASE_URL_REWARDS || ''
 const baseURLNamespaceAuth2 = process.env.REACT_APP_BASE_URL_AUTH2 || ''
+const baseURLNamespaceAtlas = process.env.REACT_APP_BASE_URL_ATLAS || ''
 
 const responseInterceptor = response => response
 
@@ -63,6 +64,7 @@ export {
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
   baseURLNamespaceRewards,
+  baseURLNamespaceAtlas,
   responseInterceptor,
   responseErrorInterceptor,
   requestInterceptor,

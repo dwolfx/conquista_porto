@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { SetIdFund } from 'store/modules/Investment/Position/action'
-
+import { IFund } from 'store/modules/Investment/Position/iPositions'
 const useFilter = (filters: string[]) => {
   const dispatch = useDispatch()
   const { fundsList, idFund } = useSelector((state: any) => ({
@@ -9,16 +9,11 @@ const useFilter = (filters: string[]) => {
   }))
   let filteredData = []
   if (fundsList && fundsList.length > 0) {
-    filteredData = fundsList
-      .map((iP: any) =>
-        [iP.posicoes.posicao]
-          .flatMap(item => item)
-          .map((pos: any) => ({ saldo_atual: pos.saldo_atual, ...pos.fundo }))
-          .filter((fundo: any) => Number(fundo.saldo_atual) !== 0)
-      )
-      .reduce((flat: any) => flat)
+    filteredData = fundsList.filter(
+      (fundo: IFund) => Number(fundo.saldo_bruto_numerico) !== 0
+    )
     if (!idFund) {
-      dispatch(SetIdFund(filteredData[0].id_carteira))
+      dispatch(SetIdFund(filteredData[0].id))
     }
   }
   if (
@@ -27,11 +22,10 @@ const useFilter = (filters: string[]) => {
     filters &&
     filters.length > 0
   ) {
-    return filteredData.filter((fund: any) =>
+    return filteredData.filter((fund: IFund) =>
       filters.includes(fund.categoria_arena.toLowerCase())
     )
   }
   return filteredData
 }
-
 export default useFilter

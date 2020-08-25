@@ -4,7 +4,7 @@ import { DefaultTheme } from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { GetBankExtractFundRequest } from 'store/modules/BankExtractFund/action'
+import { GetLastTransactionDataRequest } from 'store/modules/Investment/LastTransaction/action'
 
 import useMedia from 'hooks/useMedia'
 
@@ -31,34 +31,23 @@ const LastTransations = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const isTabletVerticalOrSmaller = useMedia('sm')
-  const { auth, bankExtractFund, investmentPosition } = useSelector(
-    ({ auth, bankExtractFund, investmentPosition }: any) => ({
-      auth,
-      bankExtractFund,
+  const { lastTransaction, investmentPosition } = useSelector(
+    ({ lastTransaction, investmentPosition }: any) => ({
+      lastTransaction,
       investmentPosition,
     })
   )
 
-  const handleBankExtractFundRequest = useCallback(() => {
-    if (investmentPosition.idFund) {
-      dispatch(
-        GetBankExtractFundRequest(
-          {
-            idFundo: investmentPosition.idFund,
-            tipoFiltro: 30,
-          },
-          auth.cpf
-        )
-      )
-    }
-  }, [dispatch, auth.cpf, investmentPosition.idFund])
+  const handleLastTransactionRequest = useCallback(() => {
+    dispatch(GetLastTransactionDataRequest())
+  }, [dispatch])
 
   useEffect(() => {
-    handleBankExtractFundRequest()
-  }, [handleBankExtractFundRequest])
+    handleLastTransactionRequest()
+  }, [handleLastTransactionRequest])
 
   const renderContent = () => {
-    if (bankExtractFund.isLoading || investmentPosition.isLoading) {
+    if (lastTransaction?.isLoading) {
       return (
         <InfoContainer>
           <LoadingStyled
@@ -69,37 +58,19 @@ const LastTransations = () => {
         </InfoContainer>
       )
     }
-    if (bankExtractFund.hasError) {
+    if (lastTransaction?.hasError) {
       return (
         <InfoContainer>
           <ErrorState
             data-testid="lasttransations-error-component"
-            onRetry={handleBankExtractFundRequest}
+            onRetry={handleLastTransactionRequest}
           />
         </InfoContainer>
       )
     }
-
-    let lastFiveTransactions = []
-
-    if (
-      bankExtractFund.data[0] &&
-      typeof bankExtractFund.data[0].operacoes !== 'string'
-    ) {
-      if (
-        bankExtractFund.data[0] &&
-        Array.isArray(bankExtractFund.data[0].operacoes.operacao)
-      ) {
-        lastFiveTransactions = bankExtractFund.data[0].operacoes.operacao.slice(
-          0,
-          5
-        )
-      } else {
-        lastFiveTransactions = [
-          { ...bankExtractFund.data[0].operacoes.operacao },
-        ]
-      }
-    }
+    const lastFiveTransactions = lastTransaction?.data
+      ? lastTransaction?.data?.slice(0, 5)
+      : []
 
     return (
       <Container>
@@ -109,8 +80,7 @@ const LastTransations = () => {
               text-align: center;
             `}
           >
-            {bankExtractFund.data[0] &&
-            typeof bankExtractFund.data[0].operacoes === 'string' ? (
+            {lastFiveTransactions?.length < 1 ? (
               <Text
                 type="headline"
                 color="gray5"
@@ -136,8 +106,7 @@ const LastTransations = () => {
           </div>
         ) : (
           <>
-            {bankExtractFund.data[0] &&
-            typeof bankExtractFund.data[0].operacoes === 'string' ? (
+            {lastFiveTransactions?.length < 1 ? (
               <Text
                 type="headline"
                 color="gray5"
@@ -173,6 +142,7 @@ const LastTransations = () => {
 
   return (
     <Accordion
+      openByDefault
       titleNode={
         <TextAccordionHeader>Últimas Movimentações</TextAccordionHeader>
       }

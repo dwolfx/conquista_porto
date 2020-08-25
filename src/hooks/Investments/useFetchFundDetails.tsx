@@ -5,7 +5,7 @@ import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/ac
 const useFetchFundDetails = () => {
   const dispatch = useDispatch()
   const { idFund } = useSelector((state: any) => ({
-    idFund: state.investmentPosition.idFund
+    idFund: state.investmentPosition.idFund,
   }))
 
   useEffect(() => {
