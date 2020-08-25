@@ -210,12 +210,7 @@ export default function Routes({ ...props }) {
   const isAuth = useAuth()
 
   const digitalSignIsValid = () => {
-    // trocar este condição ao subir para produção...
-    // if (process.env.REACT_APP_ENV === 'production') {
-    if (
-      process.env.REACT_APP_ENV !== 'development' &&
-      process.env.REACT_APP_ENV !== 'local'
-    ) {
+    if (process.env.REACT_APP_ENV === 'production') {
       return digitalSign && Object.keys(digitalSign).length > 0
     }
     return true
