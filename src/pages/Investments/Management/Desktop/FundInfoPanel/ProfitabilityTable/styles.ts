@@ -46,3 +46,11 @@ export const Cell = styled.div<ICellProps>`
 export const CellHeader = styled(Cell)`
   background-color: ${({ theme }) => theme.colors.gray1};
 `
+
+export const StateContainer = styled.div`
+  min-height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+`

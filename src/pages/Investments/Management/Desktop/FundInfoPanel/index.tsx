@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import useSelectedPosition from 'hooks/useSelectedPosition'
 import FundInfo from './FundInfo'
@@ -34,22 +34,17 @@ const FundInfoPanel = ({
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
+  const { isLoading, hasError } = useSelector((state: any) => ({
+    isLoading: state.investmentPosition.isLoading,
+    hasError: state.investmentPosition.hasError,
+  }))
+
   const handleFetchPosition = useCallback(() => {
     dispatch(GetPositionDataRequest())
   }, [dispatch])
 
   const renderContent = () => {
-    if (!position) {
-      return (
-        <Container>
-          <Text type="headline" color="gray5">
-            Não há fundo selecionado
-          </Text>
-        </Container>
-      )
-    }
-
-    if (position.isLoading) {
+    if (isLoading) {
       return (
         <Container>
           <LoadingState data-testid="fundInfo-loading-component" />
@@ -57,13 +52,23 @@ const FundInfoPanel = ({
       )
     }
 
-    if (position.hasError) {
+    if (hasError) {
       return (
         <Container>
           <ErrorState
             data-testid="fundInfo-error-component"
             onRetry={handleFetchPosition}
           />
+        </Container>
+      )
+    }
+
+    if (!position) {
+      return (
+        <Container>
+          <Text type="headline" color="gray5">
+            Não há fundo selecionado
+          </Text>
         </Container>
       )
     }
@@ -78,9 +83,7 @@ const FundInfoPanel = ({
           setIsInvestorLevelModalOpen={setIsInvestorLevelModalOpen}
           isInvestorLevelModalOpen={isInvestorLevelModalOpen}
         />
-        <ProfitabilityTable
-          profitability={position.fundo.comparativo_hist_rentabil}
-        />
+        <ProfitabilityTable fundId={position.id} />
       </>
     )
   }

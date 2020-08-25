@@ -1,27 +1,27 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
-import { get, baseURLNamespaceInvest } from 'services/api'
+import { get, baseURLNamespaceAtlas } from 'services/api'
 
 import { GetInvestmentListSuccess, GetInvestmentListFailure } from './action'
 import { Types } from './types'
 
-function* getData({ payload }) {
+export function* getData({ payload }) {
   try {
-    const response = yield call(get, `${baseURLNamespaceInvest}/fundos`)
+    const response = yield call(get, `${baseURLNamespaceAtlas}/fundo/grade`)
     // Normalizar response do backend
-    const normalizedResponse = yield response.data
+    const normalizedResponse = yield response.data.categorias
       .flatMap(item => item)
       .reduce((prev, curr) => [...prev, ...curr.fundos], [])
-    yield put(GetInvestmentListSuccess(normalizedResponse))
 
-    if (payload) {
+    yield put(GetInvestmentListSuccess(normalizedResponse))
+    if (payload?.onSuccess) {
       const { onSuccess } = payload
 
       onSuccess(normalizedResponse)
     }
   } catch (err) {
     yield put(GetInvestmentListFailure())
-    if (payload) {
+    if (payload?.onErrorToast) {
       const { onErrorToast } = payload
 
       onErrorToast({

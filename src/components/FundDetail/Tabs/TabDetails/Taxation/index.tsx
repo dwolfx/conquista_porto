@@ -16,49 +16,30 @@ import {
   TaxationWrapper,
   Ul,
 } from './styles'
-
-interface IAliquota {
-  faixa: string
-  valor: string
-}
-
+import {
+  IFundDetails,
+  IAliquota,
+} from 'store/modules/Investment/Details/iDetails'
 interface IProps {
-  fund: {
-    minimo_inicial: string
-    aplicao_minima: string
-    saldo_minimo: string
-    hora_aplicacao: string
-    aplicacao_cotizacao: string
-    aplicacao_financeiro: string
-    contagem_dias_resgate: string
-    resgate_cotizacao: string
-    resgate_financeiro: string
-    categoria: string
-    perfil_risco: string
-    classificacao: string
-    aliquotas_ir: { aliquota: IAliquota[] }
-    regime_iof: string
-  }
+  fund: IFundDetails
 }
 export const Taxation = ({ fund }: IProps) => {
   const renderAliquotas = (aliquota: IAliquota[]) =>
     aliquota
-      ? [aliquota]
-          .flatMap(item => item)
-          .map(item => (
-            <Li key={uuid()}>
-              <VerticalList
-                elements={
-                  item.faixa.toLowerCase() === 'isento'
-                    ? [<LiTitle>IR</LiTitle>, <LiValue bold>Isento</LiValue>]
-                    : [
-                        <LiTitle>{item.faixa}</LiTitle>,
-                        <LiValue bold>{formatNumber(item.valor)}%</LiValue>,
-                      ]
-                }
-              />
-            </Li>
-          ))
+      ? aliquota.map(item => (
+          <Li key={uuid()}>
+            <VerticalList
+              elements={
+                item.faixa.toLowerCase() === 'isento'
+                  ? [<LiTitle>IR</LiTitle>, <LiValue bold>Isento</LiValue>]
+                  : [
+                      <LiTitle>{item.faixa}</LiTitle>,
+                      <LiValue bold>{formatNumber(item.valor)}%</LiValue>,
+                    ]
+              }
+            />
+          </Li>
+        ))
       : null
 
   return (
@@ -83,9 +64,7 @@ export const Taxation = ({ fund }: IProps) => {
             />
           </Li>
         )}
-        {fund && fund.aliquotas_ir && fund.aliquotas_ir.aliquota
-          ? renderAliquotas(fund.aliquotas_ir.aliquota)
-          : null}
+        {fund && fund.aliquotas_ir ? renderAliquotas(fund.aliquotas_ir) : null}
         {fund.regime_iof && (
           <VerticalList
             elements={[

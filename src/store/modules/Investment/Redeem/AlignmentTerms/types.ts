@@ -20,7 +20,7 @@ export interface IGetRedeemAlignmentTermsData {
   data: {
     data_operacao: string
     valor_bruto: string
-    id_fundo: string
+    id_fundo: number
     tipo_operacao: string
   }
   onSuccess: (data: IGetRedeemAlignmentTermsResponse) => void

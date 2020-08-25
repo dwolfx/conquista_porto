@@ -56,7 +56,7 @@ const Withdraw = () => {
               withdrawDetails.horario_inicio_permitido_retirada,
               'H:mm:ss'
             ).format('H:mm')}`,
-            title: `Não é possivel fazer retirada após as ${moment(
+            title: `Não é possível fazer retirada após as ${moment(
               withdrawDetails.horario_fim_permitido_retirada,
               'H:mm:ss'
             ).format('H:mm')}`,
