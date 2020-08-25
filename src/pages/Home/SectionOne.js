@@ -103,16 +103,7 @@ const SectionOne = ({ onFetchInvestments }) => {
         <HomePrivateWelfareCard
           headerIcon="time"
           headerTitle="Previdência"
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
+          headerEndItem={<CardHeaderState />}
         >
           <PrivateWelfareSection />
         </HomePrivateWelfareCard>

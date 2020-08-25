@@ -1,0 +1,582 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Renders correctly 1`] = `
+.c2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.c3 {
+  position: fixed;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 94px;
+  height: 518px;
+  border-radius: 14px;
+  background-color: #00ADEF;
+  padding-left: 14px;
+  margin-right: 7px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+  background-color: #F1F1F1;
+  margin-bottom: 35px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.c4:last-child {
+  margin-bottom: 0;
+}
+
+.c4 svg {
+  width: 21px;
+  height: 21px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  fill: #000;
+}
+
+.c4 div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c4 div p {
+  display: none;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+  background-color: transparent;
+  margin-bottom: 35px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.c6:last-child {
+  margin-bottom: 0;
+}
+
+.c6 svg {
+  width: 21px;
+  height: 21px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  fill: #FFFFFF;
+}
+
+.c6 div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c6 div p {
+  display: none;
+}
+
+.c6:hover:not(:active) {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px 31%;
+  border-radius: 28px;
+  border: 1px solid #C8F0FF;
+  background-color: #FFFFFF;
+}
+
+.c6:hover:not(:active) p {
+  display: block;
+  margin-left: 14px;
+}
+
+.c6:hover:not(:active) svg {
+  fill: #000;
+}
+
+.c5 {
+  display: none;
+}
+
+.c0 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c7 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.c7#t2,
+.c7#t3 {
+  height: 518px;
+  margin: 0;
+  margin-bottom: 31.5px;
+}
+
+.c7#t3 {
+  margin-bottom: 0;
+}
+
+.c10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c10#menu {
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.c8 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  width: 100%;
+  margin: 0 0 14px 0;
+}
+
+.c9 {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  width: 100%;
+}
+
+.c1 {
+  margin: 30px auto;
+  position: relative;
+}
+
+@media (max-width:1280px) {
+  .c2 {
+    position: fixed;
+    width: 560px;
+    height: 63px;
+    z-index: 2;
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 28px;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: visibility 1s ease,opacity 0.5s ease;
+    transition: visibility 1s ease,opacity 0.5s ease;
+  }
+}
+
+@media (max-width:980px) {
+  .c2 {
+    width: 490px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    width: 332px;
+  }
+}
+
+@media (max-width:1280px) {
+  .c3 {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0 126px;
+    margin: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c4 {
+    margin-bottom: 0;
+    padding: 21px 14px;
+    background-color: transparent;
+    width: auto;
+    height: 100%;
+    margin-right: 77px;
+  }
+
+  .c4:last-of-type {
+    margin: 0;
+  }
+
+  .c4 svg {
+    fill: #FFFFFF;
+  }
+}
+
+@media (max-width:480px) {
+  .c4 {
+    margin-right: 42px;
+  }
+
+  .c4:last-of-type {
+    margin: 0;
+  }
+}
+
+@media (max-width:1280px) {
+  .c6 {
+    margin-bottom: 0;
+    padding: 21px 14px;
+    background-color: transparent;
+    width: auto;
+    height: 100%;
+    margin-right: 77px;
+  }
+
+  .c6:last-of-type {
+    margin: 0;
+  }
+
+  .c6 svg {
+    fill: rgba(255,255,255,0.5);
+  }
+
+  .c6:hover:not(:active) {
+    padding: 21px 14px;
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  .c6:hover:not(:active) svg {
+    fill: rgba(255,255,255,0.5);
+  }
+
+  .c6:hover:not(:active) p {
+    display: none;
+  }
+}
+
+@media (max-width:480px) {
+  .c6 {
+    margin-right: 42px;
+  }
+
+  .c6:last-of-type {
+    margin: 0;
+  }
+}
+
+@media (min-width:576px) {
+  .c0 {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .c0 {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width:980px) {
+  .c7#t2,
+  .c7#t3 {
+    height: auto;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width:575px) {
+  .c10 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:576px) {
+  .c10 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:768px) {
+  .c10 {
+    -ms-flex: 0 0 100%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width:992px) {
+  .c10 {
+    -ms-flex: 0 0 91.666667%;
+    -webkit-flex: 0 0 91.666667%;
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+}
+
+@media (min-width:992px) {
+  .c10 {
+    margin-left: 8.333333%;
+  }
+}
+
+@media (max-width:1280px) {
+  .c10#menu {
+    max-width: 560px;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    height: 63px;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    z-index: 1;
+  }
+}
+
+@media (max-width:980px) {
+  .c10#menu {
+    max-width: 490px;
+  }
+}
+
+@media (max-width:980px) {
+  .c1 {
+    margin: 0;
+  }
+}
+
+<div
+  className="sc-AxhUy c0"
+  data-name="container"
+  id="scroll"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <div
+        className="c3"
+      >
+        <div
+          className="c4"
+          data-gtm-clicktype="menu-lateral"
+          data-gtm-name="produtos"
+          data-gtm-type="click"
+          onClick={[Function]}
+        >
+          <svg
+            aria-label="apps"
+            role="img"
+          >
+            apps.svg
+          </svg>
+          <p
+            className="c5"
+          >
+            Produtos
+          </p>
+        </div>
+        <div
+          className="c6"
+          data-gtm-clicktype="menu-lateral"
+          data-gtm-name="objetivos"
+          data-gtm-type="click"
+          onClick={[Function]}
+        >
+          <svg
+            aria-label="target"
+            role="img"
+          >
+            target.svg
+          </svg>
+          <p
+            className="c5"
+          >
+            Objetivos
+          </p>
+        </div>
+        <div
+          className="c6"
+          data-gtm-clicktype="menu-lateral"
+          data-gtm-name="pontos"
+          data-gtm-type="click"
+          onClick={[Function]}
+        >
+          <svg
+            aria-label="diamond"
+            role="img"
+          >
+            diamond.svg
+          </svg>
+          <p
+            className="c5"
+          >
+            Pontos
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-AxgMl c7"
+      data-name="row"
+      id="home-content"
+    >
+      <div
+        className="sc-AxgMl c8"
+        data-name="row"
+        id="t1"
+      >
+        <div />
+      </div>
+      <div
+        className="sc-AxgMl c9"
+        data-name="row"
+      >
+        <div
+          className="sc-AxheI c10"
+          data-name="col-xs-12 col-sm-12 col-md-12 col-lg-11 offset-lg-1 no-gutter"
+        >
+          <div />
+        </div>
+      </div>
+      <div
+        className="sc-AxgMl c8"
+        data-name="row"
+        id="t2"
+      >
+        <div />
+      </div>
+      <div
+        className="sc-AxgMl c8"
+        data-name="row"
+        id="t3"
+      >
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
