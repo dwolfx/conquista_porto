@@ -11,6 +11,7 @@ interface IWrapper {
 
 export const WrapperContent = styled.div<IWrapper>`
   line-height: ${props => (props.lineHeight ? props.lineHeight : '36px')};
+  padding: ${({ theme }) => `${theme.spacing(1)}px 0`};
   white-space: pre-wrap;
 
   ${props =>
@@ -56,6 +57,7 @@ export const TableWrapper = styled.div`
 
 export const Table = styled.div`
   border-collapse: collapse;
+  height: 100%;
   overflow: auto;
   width: 100%;
 
@@ -219,6 +221,7 @@ export const TbodyTr = styled.div<ITbodyTr>`
   font-weight: normal;
   cursor: ${({ hasClickOnRow }) => (hasClickOnRow ? 'pointer' : 'default')};
   padding: 0;
+  position: relative;
   width: 100%;
 
   &:hover {
@@ -232,8 +235,8 @@ export const TbodyTr = styled.div<ITbodyTr>`
 
 interface ITbodyTd {
   align: string
-  minWidth?: string | number | undefined
-  width?: string | number | undefined
+  minWidth?: string | number
+  width?: string | number
   inheritMarginFirstCell: boolean
 }
 

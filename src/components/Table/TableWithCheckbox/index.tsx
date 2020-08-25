@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react'
+import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react'
 import { useTable, useSortBy, useRowSelect } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
@@ -129,7 +129,7 @@ const Table = ({
     onSelect(selected)
   }, [selectedFlatRows, onSelect])
 
-  const calculateStickWidth = (acc: string, cur: any) => {
+  const calculateStickWidth = useCallback((acc: string, cur: any) => {
     let pixelValue = acc.split('+')[1].replace(/\D/g, '')
     let percentageValue = acc.split('+')[0].replace(/\D/g, '')
 
@@ -144,7 +144,7 @@ const Table = ({
     }
 
     return `calc(${percentageValue}% + ${pixelValue}px)`
-  }
+  }, [])
 
   const stickyElementRight = columns
     .filter((column: any) => column.sticky === 'right')

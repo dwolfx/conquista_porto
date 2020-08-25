@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Text from 'components/Text'
 import { TPrediction, IPredictionProps } from './types'
 import * as S from './style'
+import { formatMoney } from 'helpers'
 
 export default function ResultPredictionCard() {
   const [predictions, setPredictions] = useState<TPrediction>(null)
@@ -53,17 +54,21 @@ function PredictionsItems({ predictions, warning }: IPredictionProps) {
       <S.Items>
         <S.Item
           startItems={[<S.Label>Estimativa Pessimista</S.Label>]}
-          endItems={[<S.Value>{predictions?.pessimistic}</S.Value>]}
+          endItems={[
+            <S.Value>{formatMoney(predictions!.pessimistic)}</S.Value>,
+          ]}
         />
         <S.Item
           startItems={[<S.Label>Estimativa Provável</S.Label>]}
           endItems={[
-            <S.Value hightlight={warning}>{predictions?.median}</S.Value>,
+            <S.Value hightlight={warning}>
+              {formatMoney(predictions!.median)}
+            </S.Value>,
           ]}
         />
         <S.Item
           startItems={[<S.Label>Estimativa Otimista</S.Label>]}
-          endItems={[<S.Value>{predictions?.optimistic}</S.Value>]}
+          endItems={[<S.Value>{formatMoney(predictions!.optimistic)}</S.Value>]}
         />
       </S.Items>
       {warning && <PredictionsWarning />}

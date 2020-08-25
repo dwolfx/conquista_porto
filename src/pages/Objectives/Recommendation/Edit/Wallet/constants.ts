@@ -1,3 +1,4 @@
+import { TColumns } from 'components/Table/types'
 import { IFunds } from 'store/modules/Objective/types'
 import { formatFundoInv, formatActions, FormatValue } from './utils'
 import { THandleInputChangeFunction } from './types'
@@ -28,7 +29,7 @@ export const fundsType = [
 export const columns = (
   handleInputsChange: THandleInputChangeFunction,
   removeAction: (fundId: number) => void
-) => [
+): TColumns[] => [
   {
     Header: 'FUNDO DE INVESTIMENTO',
     accessor: 'name',

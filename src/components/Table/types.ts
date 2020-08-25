@@ -1,5 +1,21 @@
 import { Row } from 'react-table'
 
+export type TColumns = {
+  Header: string
+  accessor: string
+  align?: string
+  justifyHeader?: string
+  format?: (row: any) => void
+  styles?: {
+    width?: string | number
+    minWidth?: string | number
+    header?: {
+      width?: string | number
+      minWidth?: string | number
+    }
+  }
+}
+
 type TRow = {
   align: string
 }
@@ -44,8 +60,6 @@ export interface ISimpleHeader {
 export interface ITheadWrapper {
   header: THeader
 }
-
-type TColumns = {}
 
 export interface ITable {
   autoResetTable?: boolean

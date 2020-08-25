@@ -1,10 +1,16 @@
 import React from 'react'
 
+import Text from 'components/Text'
+
 import { IColumn, ICell } from './types'
 import { WrapperContent } from './styles'
 
 const FormatDefault = ({ cell }: { cell: ICell }) => (
-  <WrapperContent>{cell.value}</WrapperContent>
+  <WrapperContent>
+    <Text color="gray5" bold>
+      {cell.value}
+    </Text>
+  </WrapperContent>
 )
 
 export default function FormatColumns(columns: IColumn[], onRowClick: any) {

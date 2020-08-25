@@ -20,6 +20,7 @@ import PercentualInfos from 'pages/Objectives/Recommendation/components/Percentu
 import ResultPredictionCard from 'pages/Objectives/Recommendation/Edit/Wallet/ResultPredictionCard'
 import { IFunds } from 'store/modules/Objective/types'
 
+import FundsList from './FundsList'
 import RemovedFunds from './RemovedFunds'
 import MobileFundCards from './Mobile'
 import { columns } from './constants'
@@ -44,6 +45,7 @@ export default function WalletComposition({ onClose }: IProps) {
   const [funds, setFunds] = useState<IFunds[] | []>([])
   const [removedFunds, setRemovedFunds] = useState<IFunds[] | []>([])
   const [isRemovedFundsOpen, setIsRemovedFundsOpen] = useState(false)
+  const [isFundsListOpen, setIsFundsListOpen] = useState(false)
 
   const { data: recommendationData } = useSelector<any, any>(
     state => state.objective
@@ -94,6 +96,16 @@ export default function WalletComposition({ onClose }: IProps) {
 
   const columnsToRender = columns(handleInputsChange, removeAction)
 
+  if (isFundsListOpen) {
+    return (
+      <FundsList
+        walletFunds={funds}
+        setWalletFunds={setFunds}
+        onClose={() => setIsFundsListOpen(false)}
+      />
+    )
+  }
+
   return (
     <>
       <s.Container isFirst>
@@ -140,7 +152,9 @@ export default function WalletComposition({ onClose }: IProps) {
                   </Col>
 
                   <Col auto>
-                    <Button outline>Lista de fundos</Button>
+                    <Button outline onClick={() => setIsFundsListOpen(true)}>
+                      Lista de fundos
+                    </Button>
                   </Col>
                 </Row>
               </Card>
@@ -173,10 +187,7 @@ export default function WalletComposition({ onClose }: IProps) {
                   endItems={[
                     <ButtonIcon
                       icon="arrowright"
-                      onClick={() => {
-                        console.log('clicou')
-                        setIsRemovedFundsOpen(true)
-                      }}
+                      onClick={() => setIsRemovedFundsOpen(true)}
                     />,
                   ]}
                 />
@@ -193,7 +204,12 @@ export default function WalletComposition({ onClose }: IProps) {
                       Lista de fundos
                     </Text>,
                   ]}
-                  endItems={[<ButtonIcon icon="arrowright" />]}
+                  endItems={[
+                    <ButtonIcon
+                      icon="arrowright"
+                      onClick={() => setIsFundsListOpen(true)}
+                    />,
+                  ]}
                 />
               </Card>
             </Col>
