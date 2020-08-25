@@ -43,7 +43,7 @@ export const FORM_DATA_INTIAL_STATE = {
 interface IProps {
   handleClose: () => void
   isOpen: boolean
-  selectedFundId: string
+  selectedFundId: number
 }
 export type TButtonOption = 'manter' | 'tudo' | null
 

@@ -17,6 +17,9 @@ import {
 import investmentsList from './Investment/sagas'
 import investmentDetails from './Investment/Details/sagas'
 import investmentPosition from './Investment/Position/sagas'
+import comparativeProfitability from './Investment/ComparativeProfitability/sagas'
+import lastTransaction from './Investment/LastTransaction/sagas'
+import income from './Investment/Income/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import points from './Points/sagas'
 import tripInsurance from './TripInsurance/sagas'
@@ -52,6 +55,8 @@ export default function* rootSaga() {
     investmentsList,
     investmentDetails,
     investmentPosition,
+    comparativeProfitability,
+    income,
     lifeInsurance,
     points,
     tripInsurance,
@@ -69,6 +74,7 @@ export default function* rootSaga() {
     rewardsTypes,
     virtualKeyboard,
     token2fa,
+    lastTransaction,
     withdraw,
   ])
 }

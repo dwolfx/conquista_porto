@@ -62,7 +62,7 @@ const Desktop: React.FC<IProps> = ({
   const [isFundDetailOpen, setIsFundDetailOpen] = useState<boolean>(false)
 
   const [isLayerOpen, setLayerOpen] = useState<boolean>(false)
-  const [selectedFundId, setSelectedFundId] = useState<string>('')
+  const [selectedFundId, setSelectedFundId] = useState<number>(0)
   const [isAwareOfTerms, setIsAwareOfTerms] = useState<boolean>(false)
   const [isInvestorLevelModalOpen, setIsInvestorLevelModalOpen] = useState(
     false
@@ -79,7 +79,7 @@ const Desktop: React.FC<IProps> = ({
   const position = useSelectedPosition()
 
   const handleOpenDetailFund = () => {
-    dispatch(GetInvestmentDetailsRequest(position.fundo.id_carteira))
+    dispatch(GetInvestmentDetailsRequest(position.id))
     setIsFundDetailOpen(true)
   }
 
@@ -100,7 +100,7 @@ const Desktop: React.FC<IProps> = ({
             onHandleChangeView={onHandleChangeView}
           />
           <Card
-            headerTitle={position && position.fundo && position.fundo.apelido}
+            headerTitle={position?.apelido}
             headerIconInfo
             headerIconInfoClick={handleOpenDetailFund}
             headerIconInfoMsg="Mais informações"
@@ -183,7 +183,7 @@ const Desktop: React.FC<IProps> = ({
           isOpen={isLayerOpen}
           handleClose={() => {
             setLayerOpen(false)
-            setSelectedFundId('')
+            setSelectedFundId(0)
           }}
           selectedFundId={selectedFundId}
           handleFundDetailOpen={() => setIsFundDetailOpen(true)}

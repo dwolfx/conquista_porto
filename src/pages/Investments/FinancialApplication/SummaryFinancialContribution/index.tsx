@@ -26,7 +26,7 @@ import {
 } from './styles'
 
 interface IProps {
-  idFundo: string
+  idFundo: number
   formData: IFormData
   errorCount: number
   acceptAlignmentTerms: boolean

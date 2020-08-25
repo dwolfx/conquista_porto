@@ -1,10 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 import {
   TFundsLayout,
   GTM_DATA_FUNDS_FILTROS,
 } from 'pages/Investments/Management/types'
-import useFundsList from 'pages/Investments/Management/useFundsList'
 
 import {
   LeftContent,
@@ -30,9 +30,13 @@ const FundsFilter: React.FC<IProps> = ({
   onHandleChangeView,
   onHandleChangeFilter,
 }) => {
+  const { investmentPosition } = useSelector((state: any) => ({
+    investmentPosition: state.investmentPosition.data,
+  }))
+
   const fundsListToFilters = [
     ...new Set(
-      useFundsList().map(
+      investmentPosition?.map(
         (fund: { [item: string]: any }) => fund.categoria_arena
       )
     ),

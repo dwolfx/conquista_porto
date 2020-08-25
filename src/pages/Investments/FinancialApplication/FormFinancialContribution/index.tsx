@@ -50,7 +50,7 @@ interface IProps {
   nextStep: () => void
   onChangeFormData: (formData: IFormData) => void
   onFormHasChanged: (formChanged: boolean) => void
-  idFundo: string
+  idFundo: number
   financialApplication: {
     dados_para_aplicacao: {
       fundo: {
@@ -150,7 +150,7 @@ const FormFinancialContribution = ({
           </Text>
           <IconRetry
             onClick={() => {
-              dispatch(GetBankDataRequest(auth.cpf))
+              dispatch(GetBankDataRequest())
               dispatchPositionData()
             }}
           />

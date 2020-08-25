@@ -14,7 +14,7 @@ export const Types = {
 }
 
 interface IFinancialApplicationData {
-  id_fundo: string
+  id_fundo: number
   data_operacao: string
 }
 export interface IGetFinancialApplicationData {
@@ -83,7 +83,7 @@ export interface IGetAlignmentTermsData {
   data: {
     data_operacao: string
     valor_bruto: number
-    id_fundo: string
+    id_fundo: number
   }
   onSuccess: (data: IGetAlignmentTermsResponse) => void
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
@@ -127,7 +127,7 @@ export interface IAlignmentTermsAction {
 
 export interface IPostFinancialApplicationData {
   data: {
-    id_fundo: string
+    id_fundo: number
     valor: number
     data: string
     ciencia_desenquadramento: 'N' | 'S'

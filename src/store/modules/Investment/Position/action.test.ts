@@ -10,21 +10,21 @@ import {
 describe('Investment/Position actions', () => {
   test('if GetPositionDataRequest returns the correct object', () => {
     expect(GetPositionDataRequest()).toEqual({
-      type: Types.ADD_REQUEST,
+      type: Types.POSITION_GET_DATA_REQUEST,
     })
   })
 
   test('if GetPositionDataSuccess returns the correct object', () => {
     const payload = [{}]
     expect(GetPositionDataSuccess(payload)).toEqual({
-      type: Types.ADD_SUCCESS,
+      type: Types.POSITION_GET_DATA_SUCCESS,
       payload,
     })
   })
 
   test('if GetPositionDataFailure returns the correct object', () => {
     expect(GetPositionDataFailure()).toEqual({
-      type: Types.ADD_FAILURE,
+      type: Types.POSITION_GET_DATA_FAILURE,
     })
   })
 

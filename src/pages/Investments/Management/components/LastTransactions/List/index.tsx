@@ -6,22 +6,20 @@ import Text from 'components/Text'
 import { formatMoney } from 'helpers'
 import moment from 'moment'
 
-type DataObject = {
-  id_operacao: string
-  data_operacao: string
-  tipo_operacao: string
-  valor_bruto: string
-}
+import ITransaction from 'store/modules/Investment/LastTransaction/iTransaction'
 
 interface IProps {
-  data: DataObject[]
+  data: ITransaction[]
 }
 
 const List = ({ data, ...rest }: IProps) => {
   return (
     <Container>
-      {data.map((item: any, index: number) => (
-        <ListItem key={item.id_operacao} data-testid={item.id_operacao}>
+      {data.map((item: any) => (
+        <ListItem
+          key={item.id_operacao}
+          data-testid={item.id_operacao.toString()}
+        >
           <HorizontalList
             startItems={[
               <Text type="captionUppercase" color="gray6" bold>

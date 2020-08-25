@@ -11,7 +11,7 @@ import { formatMoney } from 'helpers'
 import { LoadingSpinner, IconRetry } from './styles'
 
 interface IProps {
-  idFundo: string
+  idFundo: number
   isLoading: boolean
   hasError: boolean
 }
