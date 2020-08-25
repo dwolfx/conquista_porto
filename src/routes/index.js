@@ -53,7 +53,6 @@ import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
 import googleTagManagerHandler from 'GoogleTagManager'
-import { getCookieValue } from 'helpers'
 import useAuth from './auth'
 
 import { LoadingContainer } from './styles'
@@ -196,6 +195,7 @@ export default function Routes({ ...props }) {
     lifeInsuranceData,
     positionData,
     objectiveManagement,
+    digitalSign,
   } = useSelector(state => ({
     creditCardData: state.creditCard.data,
     tripInsuranceData: state.tripInsurance.data,
@@ -205,9 +205,9 @@ export default function Routes({ ...props }) {
     lifeInsuranceData: state.lifeInsurance.data,
     positionData: state.investmentPosition.data,
     objectiveManagement: state.objectiveManagement.data,
+    digitalSign: state.auth.digitalSign,
   }))
   const isAuth = useAuth()
-  const digitalSign = getCookieValue('CLITKNGIW')
 
   const digitalSignIsValid = () => {
     // trocar este condição ao subir para produção...
