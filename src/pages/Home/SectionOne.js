@@ -14,13 +14,21 @@ import { useSelector } from 'react-redux'
 // import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
 // import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 
+<<<<<<< HEAD
 import InvestmentCard from './InvestmentCard'
+=======
+import InvestmentSection from './InvestmentSection'
+>>>>>>> f5ed6fbb... feat(PCNE-1187): [Home Consolidada][Tablet] Card de Previdência Empty state
 import PrivateWelfareSection from './PrivateWelfare'
 // import ProductItemGenerator from './ProductItemGenerator'
 
 import CardHeaderState from './commons/CardHeaderState'
 import {
   GridCol,
+<<<<<<< HEAD
+=======
+  HomeInvestmentCard,
+>>>>>>> f5ed6fbb... feat(PCNE-1187): [Home Consolidada][Tablet] Card de Previdência Empty state
   HomePrivateWelfareCard,
   GridColFlexContainer,
   GridColFlexCard,
@@ -103,16 +111,7 @@ const SectionOne = ({ onFetchInvestments }) => {
         <HomePrivateWelfareCard
           headerIcon="time"
           headerTitle="Previdência"
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
+          headerEndItem={<CardHeaderState />}
         >
           <PrivateWelfareSection />
         </HomePrivateWelfareCard>
