@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container, Row } from 'styled-bootstrap-grid'
+import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
@@ -68,18 +68,20 @@ const BottomBar = ({ recommendationData }: IProps) => {
     <SectionBar>
       <Container>
         <Row justifyContent="end" alignItems="center">
-          <ButtonBar
-            data-gtm-subname="barra inferior"
-            data-gtm-name="próximo"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            color="secondary"
-            onClick={submitToManagement}
-            loading={isLoading && buttonConfirmClicked}
-            disabled={isLoading && buttonConfirmClicked}
-          >
-            Próximo
-          </ButtonBar>
+          <Col auto>
+            <ButtonBar
+              data-gtm-subname="barra inferior"
+              data-gtm-name="próximo"
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              color="secondary"
+              onClick={submitToManagement}
+              loading={isLoading && buttonConfirmClicked}
+              disabled={isLoading && buttonConfirmClicked}
+            >
+              Próximo
+            </ButtonBar>
+          </Col>
         </Row>
       </Container>
     </SectionBar>

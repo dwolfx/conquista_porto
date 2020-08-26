@@ -9,6 +9,7 @@ import { TColumns } from 'components/Table/types'
 import Text from 'components/Text'
 
 import { formatMoney } from 'helpers'
+import useMedia from 'hooks/useMedia'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import useFilter from 'pages/Investments/FundsList/Filter/useFilter'
 
@@ -16,6 +17,7 @@ import Filter from 'pages/Investments/FundsList/Filter'
 import { IFunds } from 'store/modules/Objective/types'
 
 import { FundoOutterWrapper, FundoWrapper, FundoNameWrapper } from '../styles'
+import FundsListMobile from './Mobile'
 import { IFundsListProps, IFundsList } from './types'
 import * as s from './styles'
 
@@ -58,7 +60,7 @@ export default function FundsList({
   onClose,
 }: IFundsListProps) {
   // const { addToast } = useToast()
-  // const isMobile = useMedia('xs')
+  const isMobile = useMedia('xs')
   // const isTablet = useMedia('lg')
 
   // states
@@ -77,7 +79,7 @@ export default function FundsList({
   })
 
   // hook that applies the filter to the
-  const filteredFundsList = useFilter(filter, fundsListAvailable)
+  const filteredFundsList: any[] = useFilter(filter, fundsListAvailable)
 
   // get state from store
   const { fundsListData, isFundsListLoading, hasFundsListError } = useSelector<
@@ -228,43 +230,47 @@ export default function FundsList({
       <s.Container>
         <Row>
           <Col>
-            <s.Card>
-              <Filter
-                disabled={
-                  !fundsListData.length ||
-                  isFundsListLoading ||
-                  hasFundsListError
-                }
-                filter={filter}
-                onChangeFilter={handleChangeFilter}
-                onChangeIsDrawerOpen={setIsFilterDrawerOpen}
-                onClearFilter={handleCleanFilter}
-                onClearSort={handleCleanSort}
-                onChangeSort={handleChangeMobileSort}
-                isFiltersClean={isFiltersClean}
-                filtersCount={filtersCount}
-              />
+            {isMobile ? (
+              <FundsListMobile funds={filteredFundsList} />
+            ) : (
+              <s.Card>
+                <Filter
+                  disabled={
+                    !fundsListData.length ||
+                    isFundsListLoading ||
+                    hasFundsListError
+                  }
+                  filter={filter}
+                  onChangeFilter={handleChangeFilter}
+                  onChangeIsDrawerOpen={setIsFilterDrawerOpen}
+                  onClearFilter={handleCleanFilter}
+                  onClearSort={handleCleanSort}
+                  onChangeSort={handleChangeMobileSort}
+                  isFiltersClean={isFiltersClean}
+                  filtersCount={filtersCount}
+                />
 
-              <Table
-                data={filteredFundsList}
-                columns={columns}
-                onSelect={onSelectCallback}
-                isLoading={isFundsListLoading}
-              />
+                <Table
+                  data={filteredFundsList}
+                  columns={columns}
+                  onSelect={onSelectCallback}
+                  isLoading={isFundsListLoading}
+                />
 
-              <s.InfoRow>
-                <Text color={selectedFunds.length ? 'gray6' : 'gray4'} bold>
-                  {selectedFunds.length} Fundos selecionados
-                </Text>
-                <Button
-                  color="secondary"
-                  disabled={!selectedFunds.length}
-                  onClick={onAddFundsToWallet}
-                >
-                  Adicionar na carteira
-                </Button>
-              </s.InfoRow>
-            </s.Card>
+                <s.InfoRow>
+                  <Text color={selectedFunds.length ? 'gray6' : 'gray4'} bold>
+                    {selectedFunds.length} Fundos selecionados
+                  </Text>
+                  <Button
+                    color="secondary"
+                    disabled={!selectedFunds.length}
+                    onClick={onAddFundsToWallet}
+                  >
+                    Adicionar na carteira
+                  </Button>
+                </s.InfoRow>
+              </s.Card>
+            )}
           </Col>
         </Row>
       </s.Container>

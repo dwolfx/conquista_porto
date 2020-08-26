@@ -33,3 +33,8 @@ export type IFundsList = {
   taxa_administracao: number
   url_logo_gestor: string
 }
+
+export interface IFilter {
+  byCategoriaArena: any[]
+  byPerfilRisco: any[]
+}

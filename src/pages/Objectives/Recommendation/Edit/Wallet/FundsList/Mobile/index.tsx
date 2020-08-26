@@ -1,0 +1,134 @@
+import React, { useState } from 'react'
+
+import Button from 'components/Button'
+import ButtonIcon from 'components/Button/Icon'
+import HorizontalList from 'components/HorizontalList'
+import Text from 'components/Text'
+import { formatMoney } from 'helpers'
+
+import { RiskColorTag } from '../styles'
+import { IMobileProps, IFundCard } from './types'
+import * as s from './styles'
+
+const FundCard = ({ fund }: IFundCard) => {
+  const [isExpanded, setExpanded] = useState(false)
+
+  return (
+    <s.Card
+      headerTitle={
+        <Text type="headline" color="gray6" bold>
+          {fund.nome_carteira}
+        </Text>
+      }
+      headerEndItem={
+        <ButtonIcon
+          icon={isExpanded ? 'arrowup' : 'arrowdown'}
+          onClick={() => setExpanded(expanded => !expanded)}
+        />
+      }
+      footer={
+        isExpanded ? (
+          <s.FooterButtonWrapper>
+            <Button outline>Mais informações</Button>
+            <Button color="secondary">Adicionar na carteira</Button>
+          </s.FooterButtonWrapper>
+        ) : null
+      }
+      key={fund.id_carteira}
+    >
+      <RiskColorTag borderRisk={fund.perfil_risco_ordem} />
+      <HorizontalList
+        size="small"
+        startItems={[
+          <Text color="gray5" bold>
+            Aplicação mín.
+          </Text>,
+        ]}
+        endItems={[
+          <Text color="gray6" bold>
+            {formatMoney(fund.minimo_inicial)}
+          </Text>,
+        ]}
+      />
+      <HorizontalList
+        size="small"
+        startItems={[
+          <Text color="gray5" bold>
+            Resgate (cotização)
+          </Text>,
+        ]}
+        endItems={[
+          <Text color="gray6" bold>
+            {fund.resgate_cotizacao}
+          </Text>,
+        ]}
+      />
+      <HorizontalList
+        size="small"
+        startItems={[
+          <Text color="gray5" bold>
+            Rentabilidade mês
+          </Text>,
+        ]}
+        endItems={[
+          <Text color="gray6" bold>
+            {fund.rentabil_fundo_mes}
+          </Text>,
+        ]}
+      />
+      {isExpanded ? (
+        <>
+          <HorizontalList
+            size="small"
+            startItems={[
+              <Text color="gray5" bold>
+                Rentabilidade últ. 12m
+              </Text>,
+            ]}
+            endItems={[
+              <Text color="gray6" bold>
+                {fund.rentabil_fundo_12_meses}
+              </Text>,
+            ]}
+          />
+          <HorizontalList
+            size="small"
+            startItems={[
+              <Text color="gray5" bold>
+                Rentabilidade ano
+              </Text>,
+            ]}
+            endItems={[
+              <Text color="gray6" bold>
+                {fund.rentabil_fundo_ano}
+              </Text>,
+            ]}
+          />
+          <HorizontalList
+            size="small"
+            startItems={[
+              <Text color="gray5" bold>
+                Taxa adm. (a.a.)
+              </Text>,
+            ]}
+            endItems={[
+              <Text color="gray6" bold>
+                {fund.taxa_administracao}
+              </Text>,
+            ]}
+          />
+        </>
+      ) : null}
+    </s.Card>
+  )
+}
+
+export default function FundsListMobile({ funds }: IMobileProps) {
+  return (
+    <>
+      {funds.map(fund => (
+        <FundCard fund={fund} />
+      ))}
+    </>
+  )
+}
