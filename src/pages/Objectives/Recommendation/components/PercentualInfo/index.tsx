@@ -8,7 +8,7 @@ interface IPercentual {
   funds: IFunds[]
 }
 
-const PercentualInfos = ({ funds }: IPercentual) => {
+const PercentualInfos = ({ funds, ...rest }: IPercentual) => {
   const fundsCategories: IFundCategories = {}
 
   funds.forEach((fund: IFunds) => {
@@ -33,7 +33,7 @@ const PercentualInfos = ({ funds }: IPercentual) => {
   )
 
   return (
-    <s.PercentualInfosContainer>
+    <s.PercentualInfosContainer {...rest}>
       {fundsCategoriesSort.map(([key, value]) => (
         <s.PercentualText type="headline" color="gray6" bold key={uuid()}>
           {`${((value * 100) / fundsTotalValues).toFixed(1)}% em ${key}`}

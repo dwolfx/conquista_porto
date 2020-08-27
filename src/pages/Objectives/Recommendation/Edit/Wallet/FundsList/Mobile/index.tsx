@@ -10,7 +10,12 @@ import { RiskColorTag } from '../styles'
 import { IMobileProps, IFundCard } from './types'
 import * as s from './styles'
 
-const FundCard = ({ fund }: IFundCard) => {
+const FundCard = ({
+  fund,
+  onAddToWalletClick,
+  onMoreInformationClick,
+  fundsIdsAlreadyOnWallet,
+}: IFundCard) => {
   const [isExpanded, setExpanded] = useState(false)
 
   return (
@@ -29,8 +34,16 @@ const FundCard = ({ fund }: IFundCard) => {
       footer={
         isExpanded ? (
           <s.FooterButtonWrapper>
-            <Button outline>Mais informações</Button>
-            <Button color="secondary">Adicionar na carteira</Button>
+            <Button outline onClick={() => onMoreInformationClick(fund)}>
+              Mais informações
+            </Button>
+            <Button
+              color="secondary"
+              onClick={() => onAddToWalletClick(fund)}
+              disabled={fundsIdsAlreadyOnWallet.includes(fund.id_carteira)}
+            >
+              Adicionar na carteira
+            </Button>
           </s.FooterButtonWrapper>
         ) : null
       }
@@ -123,11 +136,11 @@ const FundCard = ({ fund }: IFundCard) => {
   )
 }
 
-export default function FundsListMobile({ funds }: IMobileProps) {
+export default function FundsListMobile({ funds, ...rest }: IMobileProps) {
   return (
     <>
       {funds.map(fund => (
-        <FundCard fund={fund} />
+        <FundCard fund={fund} key={fund.id_carteira} {...rest} />
       ))}
     </>
   )

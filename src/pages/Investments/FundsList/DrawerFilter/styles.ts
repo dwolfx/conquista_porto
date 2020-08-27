@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import ArrowLeft from 'assets/icons/arrow-left.svg'
-import CloseIcon from 'assets/icons/close.svg'
 import Button from 'components/Button'
 import ButtonTag from 'components/Button/Tag'
 import IconButton from 'components/Button/Icon'
+import Icon from 'components/IconExporter'
 // import Drawer from 'components/Drawer'
 
 export const ButtonTagStyled = styled(ButtonTag)``
@@ -50,16 +49,12 @@ export const HeaderColTitle = styled.div`
   justify-content: center;
 `
 
-export const PrevButton = styled.div`
-  background-color: ${props => props.theme.colors.gray4};
+export const PrevButton = styled(Icon)`
   cursor: pointer;
-  height: 24px;
-  mask-image: url(${ArrowLeft});
   transition: all ease 0.3s;
-  width: 24px;
 
   &:hover {
-    background-color: ${props => props.theme.colors.blue4};
+    fill: ${props => props.theme.colors.blue4};
   }
 `
 export const ButtonSubmit = styled(Button)`
@@ -71,16 +66,12 @@ export const ButtonSubmit = styled(Button)`
   }
 `
 
-export const CloseButton = styled.div`
-  background-color: ${props => props.theme.colors.gray4};
+export const CloseButton = styled(Icon)`
   cursor: pointer;
-  height: 28px;
-  mask-image: url(${CloseIcon});
   transition: all ease 0.3s;
-  width: 28px;
 
   &:hover {
-    background-color: ${props => props.theme.colors.blue4};
+    fill: ${props => props.theme.colors.blue4};
   }
 `
 export const ButtonContainer = styled.div`

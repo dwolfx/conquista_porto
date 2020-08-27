@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-import { Input, Label } from './styles'
+import { Input, Label, CheckboxWrapper } from './styles'
 
 interface IProps {
   id: string
@@ -13,7 +13,7 @@ const Checkbox = forwardRef<
   IProps & React.HTMLAttributes<HTMLInputElement>
 >(({ id, label, checked, disabled, ...rest }, ref) => {
   return (
-    <>
+    <CheckboxWrapper>
       <Input
         ref={ref}
         type="checkbox"
@@ -23,7 +23,7 @@ const Checkbox = forwardRef<
         {...rest}
       />
       <Label htmlFor={id}>{label}</Label>
-    </>
+    </CheckboxWrapper>
   )
 })
 

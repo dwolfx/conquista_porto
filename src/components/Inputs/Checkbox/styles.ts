@@ -1,10 +1,18 @@
 import styled from 'styled-components'
 
+export const CheckboxWrapper = styled.div`
+  height: 19px;
+  position: relative;
+  width: 19px;
+`
+
 export const Label = styled.label``
 export const Input = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
   z-index: -1;
+  height: 100%;
   opacity: 0;
+  width: 100%;
 
   + ${Label} {
     position: relative;
@@ -51,6 +59,5 @@ export const Input = styled.input.attrs({ type: 'checkbox' })`
     cursor: not-allowed;
     border-right: solid 3px ${props => props.theme.colors.gray4};
     border-bottom: solid 3px ${props => props.theme.colors.gray4};
-    transform: rotate(45deg);
   }
 `

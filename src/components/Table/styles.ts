@@ -196,9 +196,8 @@ export const TheadColumn = styled.div<ITheadColumn>`
 
 export const Tbody = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray3};
-  height: 100%;
+  height: calc(100% - 56px);
   display: block;
-  height: 100%;
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
     border-right: 0;

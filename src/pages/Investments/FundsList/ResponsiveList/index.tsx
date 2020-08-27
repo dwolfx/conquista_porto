@@ -17,8 +17,8 @@ import {
   WrapperContent,
 } from './styles'
 
-import { IFund } from '../Filter/useFilter'
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
+import { IFundsList } from 'store/modules/Investment/types'
 
 interface IFilterInformation {
   filtersCount: number
@@ -62,7 +62,7 @@ const FilterInformation: React.FC<IFilterInformation> = ({
 interface IResponsiveListProps {
   onChangeIsFundDetailOpen: (prevState: Function) => boolean
   handleLayerOpen: (fundId: number) => void
-  data: Array<IFund>
+  data: Array<IFundsList>
   isLoading: boolean
   isError: boolean
   setTitle: (title: string) => void

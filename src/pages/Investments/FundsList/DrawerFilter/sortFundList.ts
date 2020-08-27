@@ -1,13 +1,13 @@
-import { IFund } from '../Filter/useFilter'
+import { IFundsList } from 'store/modules/Investment/types'
 
 export interface IFundSort {
   sortBy: string | null
   sortType: boolean | null
 }
 export default function sortFundList(
-  list: Array<IFund>,
+  list: Array<IFundsList>,
   sort: IFundSort
-): IFund[] {
+): IFundsList[] {
   const { sortType, sortBy } = sort
 
   const sorteableCotizacaoList = list.map(listItem => {
@@ -27,17 +27,17 @@ export default function sortFundList(
   if (sortBy && sortType !== null) {
     // Separa valores inválidos que impactam na ordenação
     const invalidValues = sorteableCotizacaoList.filter(
-      (listItem: IFund) => listItem[sortBy as keyof IFund] === '-'
+      (listItem: IFundsList) => listItem[sortBy as keyof IFundsList] === '-'
     )
     const sorteableValues = sorteableCotizacaoList.filter(
-      listItem => listItem[sortBy as keyof IFund] !== '-'
+      listItem => listItem[sortBy as keyof IFundsList] !== '-'
     )
 
     const sortedList = [
       ...sorteableValues.sort(
         (fund1, fund2) =>
-          (fund2[sortBy as keyof IFund] as any) -
-          (fund1[sortBy as keyof IFund] as any)
+          (fund2[sortBy as keyof IFundsList] as any) -
+          (fund1[sortBy as keyof IFundsList] as any)
       ),
       ...invalidValues,
     ]

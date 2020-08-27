@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Row, Col } from 'styled-bootstrap-grid'
 
+import Anbima from 'components/Anbima'
 import Button from 'components/Button'
 import Header from 'components/Header/TransactionsHeader'
 import Table from 'components/Table/TableWithCheckbox'
@@ -11,14 +12,20 @@ import Text from 'components/Text'
 import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
-import useFilter from 'pages/Investments/FundsList/Filter/useFilter'
 
+import useFilter from 'pages/Investments/FundsList/Filter/useFilter'
+import DrawerFilter from 'pages/Investments/FundsList/DrawerFilter'
+import sortFundList from 'pages/Investments/FundsList/DrawerFilter/sortFundList'
 import Filter from 'pages/Investments/FundsList/Filter'
+
+import { IFundsList } from 'store/modules/Investment/types'
+import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { IFunds } from 'store/modules/Objective/types'
 
 import { FundoOutterWrapper, FundoWrapper, FundoNameWrapper } from '../styles'
+import FundDetails from './FundDetails'
 import FundsListMobile from './Mobile'
-import { IFundsListProps, IFundsList } from './types'
+import { IFundsListProps } from './types'
 import * as s from './styles'
 
 const columns: TColumns[] = [
@@ -60,12 +67,20 @@ export default function FundsList({
   onClose,
 }: IFundsListProps) {
   // const { addToast } = useToast()
+  const dispatch = useDispatch()
   const isMobile = useMedia('xs')
-  // const isTablet = useMedia('lg')
+  const isTablet = useMedia('md')
 
   // states
-  const [fundsListAvailable, setFundsListAvailable] = useState<any[] | []>([])
+  const [fundsListAvailable, setFundsListAvailable] = useState<
+    IFundsList[] | []
+  >([])
   const [selectedFunds, setSelectedFunds] = useState<IFundsList[] | []>([])
+  // fund details states
+  const [isFundDetailsOpen, setFundDetailsOpen] = useState(false)
+  const [fundDetailsTitle, setFundDetailsTitle] = useState('')
+  const [fundDetailsCategory, setFundDetailsCategory] = useState('')
+  // filters states
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false)
   const [isFiltersClean, setIsFiltersClean] = useState(false)
   const [filtersCount, setFiltersCount] = useState(0)
@@ -78,8 +93,18 @@ export default function FundsList({
     sortType: null,
   })
 
+  // array of id's (id_carteira) that are already add to wallet
+  const fundsIdsAlreadyOnWallet: number[] = useMemo(
+    () =>
+      [...walletFunds].reduce(
+        (acc: number[], cur: IFunds) => [...acc, cur.fund_id],
+        []
+      ),
+    [walletFunds]
+  )
+
   // hook that applies the filter to the
-  const filteredFundsList: any[] = useFilter(filter, fundsListAvailable)
+  const filteredFundsList = useFilter(filter, fundsListAvailable)
 
   // get state from store
   const { fundsListData, isFundsListLoading, hasFundsListError } = useSelector<
@@ -97,16 +122,20 @@ export default function FundsList({
   // initialize funds, removing funds that already are listed on the wallet composition
   useEffect(() => {
     if (fundsListData.length) {
-      const fundsIdsAlreadyOnWallet: number[] = [...walletFunds].reduce(
-        (acc: number[], cur: IFunds) => [...acc, cur.fund_id],
-        []
-      )
-      const fundsListNotAddOnWallet = [...fundsListData].filter(
-        item => !fundsIdsAlreadyOnWallet.includes(item.id_carteira)
-      )
+      const fundsListNotAddOnWallet = [...fundsListData].map(fund => {
+        if (fundsIdsAlreadyOnWallet.includes(fund.id_carteira)) {
+          return {
+            ...fund,
+            checked: true,
+          }
+        }
+
+        return fund
+      })
+
       setFundsListAvailable(fundsListNotAddOnWallet)
     }
-  }, [fundsListData, walletFunds])
+  }, [fundsListData, fundsIdsAlreadyOnWallet])
 
   // callback function to pass to table component. Actions that will be trigger everytime a row is selected
   const onSelectCallback = useCallback(rows => setSelectedFunds(rows), [
@@ -155,14 +184,19 @@ export default function FundsList({
     })
   }
 
-  function handleCleanFilterAndSort() {
-    handleCleanFilter()
-    handleCleanSort()
+  // function handleCleanFilterAndSort() {
+  //   handleCleanFilter()
+  //   handleCleanSort()
+  // }
+
+  const mobileFundList = (fundList: IFundsList[]) => {
+    if (mobileFundSort.sortType !== null)
+      return sortFundList(fundList, mobileFundSort)
+    return fundList
   }
 
-  const onAddFundsToWallet = () => {
-    // const targetDate = '01/08/2020'
-    const newFunds: IFunds[] = [...selectedFunds].map(fund => ({
+  const createFundObject = useCallback(
+    fund => ({
       fund_id: fund.id_carteira,
       name: fund.nome_carteira,
       nickname: fund.apelido,
@@ -213,7 +247,14 @@ export default function FundsList({
         },
       ],
       tribute_ir: { 0: 0 },
-    }))
+    }),
+    []
+  )
+
+  const onAddFundsToWallet = () => {
+    const newFunds: IFunds[] = [...selectedFunds].map(fund =>
+      createFundObject(fund)
+    )
 
     setWalletFunds([...walletFunds, ...newFunds])
     onClose()
@@ -231,7 +272,28 @@ export default function FundsList({
         <Row>
           <Col>
             {isMobile ? (
-              <FundsListMobile funds={filteredFundsList} />
+              <>
+                <FundsListMobile
+                  funds={mobileFundList(filteredFundsList)}
+                  onMoreInformationClick={fund => {
+                    setFundDetailsOpen(true)
+                    setFundDetailsTitle(fund.nome_carteira)
+                    setFundDetailsCategory(fund.categoria_arena)
+                    dispatch(GetInvestmentDetailsRequest(fund.id_carteira))
+                  }}
+                  onAddToWalletClick={fund => {
+                    const newFund = createFundObject(fund)
+                    setWalletFunds([...walletFunds, newFund])
+                  }}
+                  fundsIdsAlreadyOnWallet={fundsIdsAlreadyOnWallet}
+                />
+                <s.FabButton
+                  color="primary"
+                  onClick={() => setIsFilterDrawerOpen(true)}
+                  size="large"
+                  icon="filter"
+                />
+              </>
             ) : (
               <s.Card>
                 <Filter
@@ -251,10 +313,11 @@ export default function FundsList({
                 />
 
                 <Table
-                  data={filteredFundsList}
+                  data={mobileFundList(filteredFundsList)}
                   columns={columns}
                   onSelect={onSelectCallback}
                   isLoading={isFundsListLoading}
+                  showSelectAll={false}
                 />
 
                 <s.InfoRow>
@@ -271,6 +334,25 @@ export default function FundsList({
                 </s.InfoRow>
               </s.Card>
             )}
+            <Anbima />
+
+            <FundDetails
+              isOpen={isFundDetailsOpen}
+              setIsOpen={setFundDetailsOpen}
+              title={fundDetailsTitle}
+              category={fundDetailsCategory}
+            />
+
+            {isMobile || isTablet ? (
+              <DrawerFilter
+                filter={filter}
+                onChangeFilter={handleChangeFilter}
+                isDrawerOpen={isFilterDrawerOpen}
+                onChangeIsDrawerOpen={setIsFilterDrawerOpen}
+                sort={mobileFundSort}
+                onChangeSort={handleChangeMobileSort}
+              />
+            ) : null}
           </Col>
         </Row>
       </s.Container>

@@ -143,6 +143,10 @@ const FundDetailDrawer: React.FC<IProps> = ({
         data-gtm-type="click"
         data-gtm-clicktype="button"
         onClick={handleClose}
+        name="close"
+        width={28}
+        height={28}
+        color="gray4"
       />
     </>
   )

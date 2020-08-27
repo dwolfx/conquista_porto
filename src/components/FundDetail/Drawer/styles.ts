@@ -1,9 +1,9 @@
 import styled from 'styled-components'
+
 import Button from 'components/Button'
 import IconExporter from 'components/IconExporter'
 import Drawer from 'components/Drawer'
 import { DrawerBody } from 'components/Drawer/styles'
-import CloseIcon from 'assets/icons/close.svg'
 
 export const DrawerDetail = styled(Drawer)`
   ${DrawerBody} {
@@ -41,15 +41,11 @@ export const LockIcon = styled(IconExporter).attrs(() => ({ name: 'lock2' }))`
   width: 21px;
 `
 
-export const CloseButton = styled.div`
-  background-color: ${props => props.theme.colors.gray4};
+export const CloseButton = styled(IconExporter)`
   cursor: pointer;
-  height: 28px;
-  mask-image: url(${CloseIcon});
   transition: all ease 0.3s;
-  width: 28px;
 
   &:hover {
-    background-color: ${props => props.theme.colors.blue4};
+    fill: ${props => props.theme.colors.blue4};
   }
 `

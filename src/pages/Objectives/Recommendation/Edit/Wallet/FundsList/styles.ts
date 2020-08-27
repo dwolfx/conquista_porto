@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Container as ContainerBootstrap } from 'styled-bootstrap-grid'
 
+import ButtonIcon from 'components/Button/Icon'
 import CardCmp from 'components/Card'
 import LayerCmp from 'components/Layer'
 import { LayerHeader } from 'components/Layer/styles'
@@ -34,4 +35,13 @@ export const RiskColorTag = styled(RiskColor)`
   left: 0;
   position: absolute;
   top: 3px;
+`
+
+export const FabButton = styled(ButtonIcon)`
+  border: none;
+  border-radius: 50%;
+  bottom: 14px;
+  position: fixed;
+  right: 14px;
+  z-index: 11;
 `

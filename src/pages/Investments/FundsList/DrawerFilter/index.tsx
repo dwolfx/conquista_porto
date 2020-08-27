@@ -397,6 +397,10 @@ const DrawerHeader = (handleCloseFilters: () => void) => (
       data-gtm-name="botao fechar drawer filtros"
       data-gtm-type="click"
       data-gtm-clicktype="button"
+      name="arrowleft"
+      color="gray4"
+      width={28}
+      height={28}
       onClick={() => handleCloseFilters()}
     />
     <HeaderColTitle>
@@ -407,6 +411,10 @@ const DrawerHeader = (handleCloseFilters: () => void) => (
       data-gtm-name="botao fechar drawer filtros"
       data-gtm-type="click"
       data-gtm-clicktype="button"
+      name="close"
+      color="gray4"
+      width={28}
+      height={28}
       onClick={() => handleCloseFilters()}
     />
   </FilterDrawerHeader>

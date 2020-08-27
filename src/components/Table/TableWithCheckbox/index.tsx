@@ -3,7 +3,7 @@ import { useTable, useSortBy, useRowSelect } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 
-// import Checkbox from 'components/Inputs/Checkbox'
+import Checkbox from 'components/Inputs/Checkbox'
 
 import FormatColumns from '../formatters'
 import TableHeader from '../TableHeader'
@@ -20,7 +20,7 @@ const IndeterminateCheckbox = React.forwardRef<HTMLInputElement, any>(
   ({ indeterminate, ...rest }, ref) => {
     const resolvedRef = (ref || useRef()) as React.RefObject<HTMLInputElement>
 
-    React.useEffect(() => {
+    useEffect(() => {
       if (resolvedRef?.current?.indeterminate) {
         resolvedRef.current.indeterminate = indeterminate
       }
@@ -28,7 +28,13 @@ const IndeterminateCheckbox = React.forwardRef<HTMLInputElement, any>(
 
     return (
       <>
-        <input type="checkbox" ref={resolvedRef} {...rest} />
+        <Checkbox
+          ref={resolvedRef}
+          {...rest}
+          css={`
+            z-index: 1;
+          `}
+        />
       </>
     )
   }
@@ -52,6 +58,22 @@ const Table = ({
   showSelectAll = true,
   ...rest
 }: ITable & IProps) => {
+  const CellWithCheckbox = useCallback(({ row }: any) => {
+    const checked =
+      row?.original?.checked || row.getToggleRowSelectedProps().checked
+    const isDisabled = row?.original?.checked
+
+    return (
+      <div>
+        <IndeterminateCheckbox
+          {...row.getToggleRowSelectedProps()}
+          checked={checked}
+          disabled={isDisabled}
+        />
+      </div>
+    )
+  }, [])
+
   const {
     getTableProps,
     headers,
@@ -85,13 +107,7 @@ const Table = ({
                 <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
               </div>
             ) : null,
-          Cell: ({ row }: any) => {
-            return (
-              <div>
-                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-              </div>
-            )
-          },
+          Cell: CellWithCheckbox,
           width: 17,
           inheritMarginFirstCell: true,
         },

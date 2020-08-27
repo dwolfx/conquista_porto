@@ -16,7 +16,6 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
-import PercentualInfos from 'pages/Objectives/Recommendation/components/PercentualInfo'
 import ResultPredictionCard from 'pages/Objectives/Recommendation/Edit/Wallet/ResultPredictionCard'
 import { IFunds } from 'store/modules/Objective/types'
 
@@ -109,11 +108,11 @@ export default function WalletComposition({ onClose }: IProps) {
   return (
     <>
       <s.Container isFirst>
-        <Row>
+        <s.InformativeRow>
           <Col>
             <InformativeHeader answer={recommendationData.answer} />
           </Col>
-        </Row>
+        </s.InformativeRow>
 
         <s.CompositionRow>
           <Col lg={3} md={4}>
@@ -122,13 +121,15 @@ export default function WalletComposition({ onClose }: IProps) {
 
           {!isMobile && !isTabletVertical ? (
             <Col lg={9}>
-              <Card headerTitle="Minha carteira" headerIcon="financial">
-                <Text type="headline" color="gray6">
-                  Você pode adicionar, remover e substituir fundos sugeridos,
-                  além de remanejar os investimentos em cada categoria.
-                </Text>
+              <s.CardTable headerTitle="Minha carteira" headerIcon="financial">
+                <s.TextCompositionWrapper>
+                  <Text type="headline" color="gray6">
+                    Você pode adicionar, remover e substituir fundos sugeridos,
+                    além de remanejar os investimentos em cada categoria.
+                  </Text>
+                </s.TextCompositionWrapper>
 
-                <PercentualInfos funds={funds} />
+                <s.PercentualInfos funds={funds} />
                 <s.Table
                   columns={columnsToRender}
                   data={funds}
@@ -157,7 +158,7 @@ export default function WalletComposition({ onClose }: IProps) {
                     </Button>
                   </Col>
                 </Row>
-              </Card>
+              </s.CardTable>
             </Col>
           ) : (
             <Col>

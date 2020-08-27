@@ -5,10 +5,8 @@ import { CardBody } from 'components/Card/styles'
 
 export const Card = styled(CardCmp)`
   position: relative;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
 
-  &:not(:last-of-type) {
-    margin-bottom: ${({ theme }) => theme.spacing(1)}px;
-  }
   ${CardBody} {
     padding-top: ${({ theme }) => theme.spacing(2)}px;
     padding-bottom: ${({ theme }) => theme.spacing(2)}px;
