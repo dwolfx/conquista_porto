@@ -6031,6 +6031,14 @@
     "cod_org": "040",
     "cod_prog": "001"
   },
+  "recommendations_recalculate_funds_post": {
+    "target_date": "03/03/2033",
+    "fund_list": [
+      {
+        "category": "Renda Fixa"
+      }
+    ]
+  },
   "goal_recommendations": {},
   "goal_management": {
     "id": "89",

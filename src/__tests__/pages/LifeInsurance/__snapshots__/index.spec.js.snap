@@ -829,7 +829,9 @@ Object {
             >
               <svg
                 aria-label="persongroup"
+                fill="#BABABA"
                 role="img"
+                width="21"
               >
                 person-group.svg
               </svg>
@@ -849,7 +851,9 @@ Object {
             >
               <svg
                 aria-label="personaccident"
+                fill="#BABABA"
                 role="img"
+                width="21"
               >
                 person-accident.svg
               </svg>
@@ -869,7 +873,9 @@ Object {
             >
               <svg
                 aria-label="hospital"
+                fill="#BABABA"
                 role="img"
+                width="21"
               >
                 hospital.svg
               </svg>
@@ -911,7 +917,9 @@ Object {
                   >
                     <svg
                       aria-label="talkman"
+                      fill="#BABABA"
                       role="img"
+                      width="21"
                     >
                       talk-man.svg
                     </svg>
@@ -945,7 +953,9 @@ Object {
                   >
                     <svg
                       aria-label="diamond"
+                      fill="#BABABA"
                       role="img"
+                      width="21"
                     >
                       diamond.svg
                     </svg>
@@ -979,7 +989,9 @@ Object {
                   >
                     <svg
                       aria-label="callcenter"
+                      fill="#BABABA"
                       role="img"
+                      width="21"
                     >
                       call-center.svg
                     </svg>
@@ -1013,7 +1025,9 @@ Object {
                   >
                     <svg
                       aria-label="apps"
+                      fill="#BABABA"
                       role="img"
+                      width="21"
                     >
                       apps.svg
                     </svg>
@@ -1230,6 +1244,7 @@ Object {
                 fill="#272727"
                 height="24px"
                 role="img"
+                width="21"
               >
                 pdf.svg
               </svg>
@@ -1358,7 +1373,9 @@ Object {
           >
             <svg
               aria-label="persongroup"
+              fill="#BABABA"
               role="img"
+              width="21"
             >
               person-group.svg
             </svg>
@@ -1378,7 +1395,9 @@ Object {
           >
             <svg
               aria-label="personaccident"
+              fill="#BABABA"
               role="img"
+              width="21"
             >
               person-accident.svg
             </svg>
@@ -1398,7 +1417,9 @@ Object {
           >
             <svg
               aria-label="hospital"
+              fill="#BABABA"
               role="img"
+              width="21"
             >
               hospital.svg
             </svg>
@@ -1440,7 +1461,9 @@ Object {
                 >
                   <svg
                     aria-label="talkman"
+                    fill="#BABABA"
                     role="img"
+                    width="21"
                   >
                     talk-man.svg
                   </svg>
@@ -1474,7 +1497,9 @@ Object {
                 >
                   <svg
                     aria-label="diamond"
+                    fill="#BABABA"
                     role="img"
+                    width="21"
                   >
                     diamond.svg
                   </svg>
@@ -1508,7 +1533,9 @@ Object {
                 >
                   <svg
                     aria-label="callcenter"
+                    fill="#BABABA"
                     role="img"
+                    width="21"
                   >
                     call-center.svg
                   </svg>
@@ -1542,7 +1569,9 @@ Object {
                 >
                   <svg
                     aria-label="apps"
+                    fill="#BABABA"
                     role="img"
+                    width="21"
                   >
                     apps.svg
                   </svg>
@@ -1759,6 +1788,7 @@ Object {
               fill="#272727"
               height="24px"
               role="img"
+              width="21"
             >
               pdf.svg
             </svg>

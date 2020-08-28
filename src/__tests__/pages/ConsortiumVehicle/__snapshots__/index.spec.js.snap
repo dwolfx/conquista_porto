@@ -834,7 +834,9 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
         >
           <svg
             aria-label="car2"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             car2.svg
           </svg>
@@ -854,7 +856,9 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
         >
           <svg
             aria-label="barchart"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             bar-chart.svg
           </svg>
@@ -874,7 +878,9 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
         >
           <svg
             aria-label="billing"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             billing.svg
           </svg>
@@ -934,7 +940,9 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
               >
                 <svg
                   aria-label="talkman"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   talk-man.svg
                 </svg>
@@ -974,7 +982,9 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
               >
                 <svg
                   aria-label="diamond"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   diamond.svg
                 </svg>
@@ -1014,7 +1024,9 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
               >
                 <svg
                   aria-label="callcenter"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   call-center.svg
                 </svg>
@@ -1054,7 +1066,9 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
               >
                 <svg
                   aria-label="apps"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   apps.svg
                 </svg>
@@ -1306,6 +1320,7 @@ exports[`ConsortiumVehicle renders correctly 1`] = `
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>

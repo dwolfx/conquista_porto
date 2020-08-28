@@ -359,6 +359,7 @@ Object {
                 class="c5"
                 fill="#E72176"
                 role="img"
+                width="21"
               >
                 close-rounded.svg
               </svg>
@@ -434,6 +435,7 @@ Object {
               class="sc-fzqARJ bUOdRp"
               fill="#E72176"
               role="img"
+              width="21"
             >
               close-rounded.svg
             </svg>

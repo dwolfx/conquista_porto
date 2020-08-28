@@ -8,6 +8,7 @@ const middlewares = jsonServer.defaults()
 
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
+const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
 const objectiveMock = require('./src/mocks/objective.json')
 const objectiveMock2 = require('./src/mocks/objective2.json')
 const objectivesMock = require('./src/mocks/objectives.json')
@@ -57,6 +58,20 @@ router.render = (req, res) => {
     if (req.originalUrl.includes('mobile')) {
       return res.jsonp(recommendationMockMobile)
     }
+    if (req.originalUrl.endsWith('/recalculate-funds')) {
+      if (req.method === 'POST') {
+        return res.jsonp(recommendationRecalculatedFunds.income)
+      }
+      return res.status(404)
+    }
+    if (req.method === 'PUT') {
+      console.log(req.body)
+      return res.jsonp({
+        ...recommendationMock,
+        ...req.body,
+      })
+    }
+
     return res.jsonp({
       ...recommendationMock,
       answer: {

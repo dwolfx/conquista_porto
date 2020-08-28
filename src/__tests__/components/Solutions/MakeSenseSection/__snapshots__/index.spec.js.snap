@@ -208,7 +208,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
         className="c4"
       >
         <svg
+          aria-label="malefemale"
           fill="#BABABA"
+          role="img"
           width={21}
         >
           male-female.svg
@@ -229,7 +231,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
         className="c4"
       >
         <svg
+          aria-label="barchart"
           fill="#BABABA"
+          role="img"
           width={21}
         >
           bar-chart.svg
@@ -250,7 +254,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
         className="c4"
       >
         <svg
+          aria-label="safebox"
           fill="#BABABA"
+          role="img"
           width={21}
         >
           safe-box.svg
@@ -311,7 +317,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
+                aria-label="talkman"
                 fill="#BABABA"
+                role="img"
                 width={21}
               >
                 talk-man.svg
@@ -351,7 +359,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
+                aria-label="diamond"
                 fill="#BABABA"
+                role="img"
                 width={21}
               >
                 diamond.svg
@@ -391,7 +401,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
+                aria-label="callcenter"
                 fill="#BABABA"
+                role="img"
                 width={21}
               >
                 call-center.svg
@@ -431,7 +443,9 @@ exports[`MakeSenseSection renders correctly 1`] = `
               className="c9"
             >
               <svg
+                aria-label="apps"
                 fill="#BABABA"
+                role="img"
                 width={21}
               >
                 apps.svg

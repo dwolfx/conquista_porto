@@ -22,7 +22,7 @@ Object {
   line-height: 25px;
 }
 
-.c11 {
+.c12 {
   color: #898989;
   text-align: unset;
   font-weight: 300;
@@ -35,7 +35,7 @@ Object {
   line-height: 25px;
 }
 
-.c13 {
+.c14 {
   color: #BABABA;
   text-align: unset;
   font-weight: normal;
@@ -48,7 +48,7 @@ Object {
   line-height: 25px;
 }
 
-.c15 {
+.c16 {
   color: #272727;
   text-align: unset;
   font-weight: normal;
@@ -61,7 +61,7 @@ Object {
   line-height: 19px;
 }
 
-.c16 {
+.c17 {
   color: #898989;
   text-align: unset;
   font-weight: normal;
@@ -101,14 +101,30 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-right: 7px;
+  margin-right: 0;
 }
 
 .c7.c7 > *:not(:last-child) {
   margin-right: 14px;
 }
 
-.c12 {
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c11.c11 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -120,7 +136,7 @@ Object {
   margin-left: 7px;
 }
 
-.c12.c12 > *:not(:first-child) {
+.c13.c13 > *:not(:first-child) {
   margin-left: 14px;
 }
 
@@ -152,7 +168,7 @@ Object {
   overflow: hidden;
 }
 
-.c17 {
+.c18 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -166,11 +182,11 @@ Object {
   min-height: 63px;
 }
 
-.c14 {
+.c15 {
   padding: 21px;
 }
 
-.c19 {
+.c20 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -188,11 +204,11 @@ Object {
   transition: all 0.4s ease-out;
 }
 
-.c19:hover:active {
+.c20:hover:active {
   pointer-events: auto;
 }
 
-.c19:hover:active:after {
+.c20:hover:active:after {
   background-color: #EFFBFF;
   background-size: 100%;
   opacity: 0.2;
@@ -200,11 +216,11 @@ Object {
   transition: all ease 0s;
 }
 
-.c19:hover:before {
+.c20:hover:before {
   width: 100%;
 }
 
-.c19:hover:after {
+.c20:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -219,7 +235,7 @@ Object {
   width: 100%;
 }
 
-.c19:before {
+.c20:before {
   background-color: #EFFBFF;
   content: '';
   height: 100%;
@@ -231,7 +247,7 @@ Object {
   width: 0;
 }
 
-.c22 {
+.c23 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -249,11 +265,11 @@ Object {
   transition: all 0.4s ease-out;
 }
 
-.c22:hover:active {
+.c23:hover:active {
   pointer-events: none;
 }
 
-.c22:hover:active:after {
+.c23:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -261,7 +277,7 @@ Object {
   transition: all ease 0s;
 }
 
-.c22:before {
+.c23:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -273,7 +289,7 @@ Object {
   width: 0;
 }
 
-.c21 {
+.c22 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -304,7 +320,7 @@ Object {
   height: 100%;
 }
 
-.c20 {
+.c21 {
   font-size: 11px;
   line-height: 15px;
   margin-right: 14px;
@@ -317,11 +333,11 @@ Object {
   text-transform: uppercase;
 }
 
-.c20:first-child {
+.c21:first-child {
   margin-right: 7px;
 }
 
-.c23 {
+.c24 {
   font-size: 11px;
   line-height: 15px;
   margin-right: 14px;
@@ -335,11 +351,11 @@ Object {
   min-width: 128px;
 }
 
-.c23:first-child {
+.c24:first-child {
   margin-right: 7px;
 }
 
-.c18 {
+.c19 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -381,14 +397,14 @@ Object {
 }
 
 @media (max-width:480px) {
-  .c20 {
+  .c21 {
     margin: 0;
     width: 100%;
   }
 }
 
 @media (max-width:480px) {
-  .c20 {
+  .c21 {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -396,14 +412,14 @@ Object {
 }
 
 @media (max-width:480px) {
-  .c23 {
+  .c24 {
     margin: 0;
     width: 100%;
   }
 }
 
 @media (max-width:480px) {
-  .c23 {
+  .c24 {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -411,7 +427,7 @@ Object {
 }
 
 @media (max-width:480px) {
-  .c18 {
+  .c19 {
     -webkit-box-pack: space-around;
     -webkit-justify-content: space-around;
     -ms-flex-pack: space-around;
@@ -479,10 +495,10 @@ Object {
                 class="c5 c6"
               >
                 <div
-                  class="c7"
+                  class="c11"
                 >
                   <p
-                    class="c11"
+                    class="c12"
                     color="gray5"
                     type="headline"
                   >
@@ -490,7 +506,7 @@ Object {
                   </p>
                 </div>
                 <div
-                  class="c12"
+                  class="c13"
                 >
                   <p
                     class="c8"
@@ -506,10 +522,10 @@ Object {
                 class="c5 c6"
               >
                 <div
-                  class="c7"
+                  class="c11"
                 >
                   <p
-                    class="c11"
+                    class="c12"
                     color="gray5"
                     type="headline"
                   >
@@ -517,10 +533,10 @@ Object {
                   </p>
                 </div>
                 <div
-                  class="c12"
+                  class="c13"
                 >
                   <p
-                    class="c13"
+                    class="c14"
                     color="gray4"
                     type="headline"
                   >
@@ -545,10 +561,10 @@ Object {
               </div>
             </div>
             <div
-              class="c14"
+              class="c15"
             >
               <p
-                class="c15"
+                class="c16"
                 color="gray6"
                 type="body"
               >
@@ -559,10 +575,10 @@ Object {
               class="c9"
             />
             <div
-              class="c14"
+              class="c15"
             >
               <p
-                class="c16"
+                class="c17"
                 color="gray5"
                 type="body"
               >
@@ -574,28 +590,28 @@ Object {
           </div>
         </div>
         <div
-          class="c17"
+          class="c18"
         >
           <div
-            class="c18"
+            class="c19"
           >
             <button
-              class="c19 sc-fzoWqW c20"
+              class="c20 sc-fzoWqW c21"
               color="primary"
             >
               <span
-                class="c21"
+                class="c22"
               >
                 VOLTAR
               </span>
             </button>
             <button
-              class="c22 sc-fzoWqW c23"
+              class="c23 sc-fzoWqW c24"
               color="secondary"
               disabled=""
             >
               <span
-                class="c21"
+                class="c22"
               >
                 CONFIRMAR
               </span>
@@ -619,7 +635,7 @@ Object {
             class="sc-fzqARJ hHBXB sc-fzqLLg GzjYN"
           >
             <div
-              class="sc-fzqNqU gKzcIQ"
+              class="sc-fzqNqU kyKKEL"
             >
               <p
                 class="sc-AxirZ qtrMY"
@@ -640,7 +656,7 @@ Object {
               class="sc-fzqARJ hHBXB sc-fzqLLg GzjYN"
             >
               <div
-                class="sc-fzqNqU gKzcIQ"
+                class="sc-fzqNqU gbjgec"
               >
                 <p
                   class="sc-AxirZ hLOGwM"
@@ -651,7 +667,7 @@ Object {
                 </p>
               </div>
               <div
-                class="sc-fzoyTs cnqJZC"
+                class="sc-fzoyTs dcaVVS"
               >
                 <p
                   class="sc-AxirZ qtrMY"
@@ -667,7 +683,7 @@ Object {
               class="sc-fzqARJ hHBXB sc-fzqLLg GzjYN"
             >
               <div
-                class="sc-fzqNqU gKzcIQ"
+                class="sc-fzqNqU gbjgec"
               >
                 <p
                   class="sc-AxirZ hLOGwM"
@@ -678,7 +694,7 @@ Object {
                 </p>
               </div>
               <div
-                class="sc-fzoyTs cnqJZC"
+                class="sc-fzoyTs dcaVVS"
               >
                 <p
                   class="sc-AxirZ eAzBhG"

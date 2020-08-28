@@ -28,6 +28,7 @@
   "/invest/cotista/status": "/suitability_info",
   "/recommendation/recommendations": "/goal_recommendations",
   "/recommendation/recommendations\\?mobile=:isMobileMode": "/goal_recommendations?mobile=:isMobileMode",
+  "/recommendation/recommendations/recalculate-funds": "/recommendations_recalculate_funds_post",
   "/goal/goals": "/goal_management",
   "/goal/goals/:id": "/goal_management?id=:id",
   "/loyalty/optemais/auth/tokencatalogo": "/resgate_pontos",

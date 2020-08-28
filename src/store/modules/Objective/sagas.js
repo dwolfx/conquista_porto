@@ -4,6 +4,7 @@ import { buildToast, ToastTypes } from 'store/modules/toastActions'
 import {
   get,
   post,
+  put as putFromAPI,
   baseURLNamespaceGoal,
   baseURLNamespaceRecommendation,
 } from 'services/api'
@@ -13,6 +14,10 @@ import {
   GetObjectiveDataFailure,
   PostObjectiveDataSuccess,
   PostObjectiveDataFailure,
+  UpdateRecommendationSuccess,
+  UpdateRecommendationFailure,
+  PostRecalculateFundsSuccess,
+  PostRecalculateFundsFailure,
 } from './action'
 
 export function* postData({ payload }) {
@@ -55,8 +60,49 @@ export function* getData() {
   }
 }
 
+// http://api-proxy.conquista.sciensa.click/api/sciensa/robo-swagger/conquista/robo/swagger-ui.html#/recommendations
+export function* putRecommendationsData({ payload: { data, onErrorToast } }) {
+  try {
+    const response = yield call(
+      putFromAPI,
+      `${baseURLNamespaceRecommendation}/recommendations`,
+      data
+    )
+    yield put(UpdateRecommendationSuccess(response.data))
+  } catch (err) {
+    yield put(UpdateRecommendationFailure())
+    onErrorToast({
+      type: 'error',
+      description: 'Por favor, tente novamente',
+      title: 'Erro ao enviar solicitação.',
+    })
+  }
+}
+
+// http://api-proxy.conquista.sciensa.click/api/sciensa/robo-swagger/conquista/robo/swagger-ui.html#/recommendations
+export function* postRecalculateFunds({ payload: { data, onErrorToast } }) {
+  try {
+    const response = yield call(
+      post,
+      `${baseURLNamespaceRecommendation}/recommendations/recalculate-funds`,
+      data
+    )
+
+    yield put(PostRecalculateFundsSuccess(response.data))
+  } catch (err) {
+    yield put(PostRecalculateFundsFailure())
+    onErrorToast({
+      type: 'error',
+      description: 'Por favor, tente novamente',
+      title: 'Erro ao enviar solicitação.',
+    })
+  }
+}
+
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.POST_REQUEST_BY_SIMULATE, postData),
   takeLatest(Types.GET_REQUEST, getData),
+  takeLatest(Types.PUT_RECOMMENDATION_REQUEST, putRecommendationsData),
+  takeLatest(Types.POST_RECALCULATE_FUNDS_REQUEST, postRecalculateFunds),
 ])

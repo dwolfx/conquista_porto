@@ -5,15 +5,15 @@ import {
   baseURLNamespaceInvestAws,
 } from 'services/api'
 
-import { getData, getDataValidate } from './sagas'
+import { getSuitabilityInfoData, getDataValidate } from './sagas'
 import { GetDataSuccess, GetDataFailure } from './action'
 import { getSuitabilityInfo, getCustomerProfile } from './selectors'
 import { IPayload } from './types'
 
 describe('SuitabilityInfo Sagas', () => {
-  describe('getData', () => {
-    it('getData: success triggers success action', () => {
-      const generator = getData()
+  describe('getSuitabilityInfoData', () => {
+    it('getSuitabilityInfoData: success triggers success action', () => {
+      const generator = getSuitabilityInfoData()
       const response = { data: {} }
 
       expect(generator.next().value).toEqual(
@@ -27,8 +27,8 @@ describe('SuitabilityInfo Sagas', () => {
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })
 
-    it('getData: failure triggers failure action', () => {
-      const generator = getData()
+    it('getSuitabilityInfoData: failure triggers failure action', () => {
+      const generator = getSuitabilityInfoData()
       const response = undefined
       expect(generator.next().value).toEqual(
         call(get, `${baseURLNamespaceInvest}/cotista/status`)
@@ -62,13 +62,9 @@ describe('SuitabilityInfo Sagas', () => {
         },
       }
 
-      expect(generator.next().value).toEqual(
-        select(getSuitabilityInfo)
-      )
+      expect(generator.next().value).toEqual(select(getSuitabilityInfo))
 
-      expect(generator.next().value).toEqual(
-        select(getCustomerProfile)
-      )
+      expect(generator.next().value).toEqual(select(getCustomerProfile))
 
       expect(generator.next().value).toEqual(
         call(get, `${baseURLNamespaceInvestAws}/cliente/dados`)
@@ -119,13 +115,9 @@ describe('SuitabilityInfo Sagas', () => {
         },
       }
 
-      expect(generator.next().value).toEqual(
-        select(getSuitabilityInfo)
-      )
+      expect(generator.next().value).toEqual(select(getSuitabilityInfo))
 
-      expect(generator.next().value).toEqual(
-        select(getCustomerProfile)
-      )
+      expect(generator.next().value).toEqual(select(getCustomerProfile))
 
       expect(generator.next().value).toEqual(
         call(get, `${baseURLNamespaceInvestAws}/cliente/dados`)

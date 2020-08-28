@@ -8,10 +8,8 @@ import {
 
 describe('SuitabilityInfo Actions', () => {
   test('if GetSuitabilityInfoRequest returns the correct object', () => {
-    const cpf = '11111111111'
-    expect(GetSuitabilityInfoRequest(cpf)).toEqual({
+    expect(GetSuitabilityInfoRequest()).toEqual({
       type: Types.SUITABILITY_INFO_GET_DATA_REQUEST,
-      payload: { cpf },
     })
   })
 

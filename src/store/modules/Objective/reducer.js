@@ -2,11 +2,14 @@ import { Types } from './types'
 
 const INITIAL_STATE = {
   data: null,
+  relculateFundsData: null,
   objectives: null,
   isLoading: false,
   hasError: false,
   isLoadingList: true,
   isLoadingBySimulate: false,
+  isLoadingRelculateFundsData: false,
+  hasErrorRelculateFundsData: false,
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -53,6 +56,44 @@ export default function(state = INITIAL_STATE, action) {
         isLoadingBySimulate: false,
         isLoading: false,
         hasError: true,
+      }
+    case Types.PUT_RECOMMENDATION_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        hasError: false,
+      }
+    case Types.PUT_RECOMMENDATION_SUCCESS:
+      return {
+        ...state,
+        data: action.payload,
+        isLoading: false,
+        hasError: false,
+      }
+    case Types.PUT_RECOMMENDATION_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        hasError: true,
+      }
+    case Types.POST_RECALCULATE_FUNDS_REQUEST:
+      return {
+        ...state,
+        isLoadingRelculateFundsData: true,
+        hasErrorRelculateFundsData: false,
+      }
+    case Types.POST_RECALCULATE_FUNDS_SUCCESS:
+      return {
+        ...state,
+        relculateFundsData: action.payload,
+        isLoadingRelculateFundsData: false,
+        hasErrorRelculateFundsData: false,
+      }
+    case Types.POST_RECALCULATE_FUNDS_FAILURE:
+      return {
+        ...state,
+        isLoadingRelculateFundsData: false,
+        hasErrorRelculateFundsData: true,
       }
     case Types.CLEAN_DATA:
       return {

@@ -1204,8 +1204,10 @@ exports[`FundsInfo renders correctly 1`] = `
             className="c35"
           >
             <svg
+              aria-label="pdf"
               fill="#272727"
               height="24px"
+              role="img"
               width={21}
             >
               pdf.svg
@@ -1231,7 +1233,9 @@ exports[`FundsInfo renders correctly 1`] = `
             >
               Baixar arquivo
               <svg
+                aria-label="arrowright"
                 fill="#BABABA"
+                role="img"
                 width={21}
               >
                 arrow-right.svg
@@ -1246,8 +1250,10 @@ exports[`FundsInfo renders correctly 1`] = `
             className="c35"
           >
             <svg
+              aria-label="pdf"
               fill="#272727"
               height="24px"
+              role="img"
               width={21}
             >
               pdf.svg
@@ -1273,7 +1279,9 @@ exports[`FundsInfo renders correctly 1`] = `
             >
               Baixar arquivo
               <svg
+                aria-label="arrowright"
                 fill="#BABABA"
+                role="img"
                 width={21}
               >
                 arrow-right.svg

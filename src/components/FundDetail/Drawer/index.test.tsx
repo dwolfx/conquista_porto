@@ -253,7 +253,7 @@ describe('FundDetailDrawer', () => {
         { container: createRootContainer(), store: errorStore }
       )
       fireEvent.click(screen.getByRole('button', { name: /tentar novamente/i }))
-      errorStore.dispatch(GetInvestmentDetailsRequest('1234'))
+      errorStore.dispatch(GetInvestmentDetailsRequest(1234))
       expect(screen.getByTestId('test-loading-component')).toBeInTheDocument()
     })
   })
@@ -268,6 +268,7 @@ describe('FundDetailDrawer', () => {
         hasError: false,
       },
     })
+
     it('hides invest button to show message', () => {
       renderWithReduxAndTheme(
         <FundDetailDrawer
@@ -280,7 +281,7 @@ describe('FundDetailDrawer', () => {
       expect(
         screen.getByText(/fundo fechado para aplicações/i)
       ).toBeInTheDocument()
-      expect(screen.getByRole('img', { name: 'lock2' })).toBeInTheDocument()
+      expect(screen.getByText(/lock2/i)).toBeInTheDocument()
     })
   })
 })

@@ -494,7 +494,9 @@ exports[`Home Renders correctly 1`] = `
         >
           <svg
             aria-label="apps"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             apps.svg
           </svg>
@@ -513,7 +515,9 @@ exports[`Home Renders correctly 1`] = `
         >
           <svg
             aria-label="target"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             target.svg
           </svg>
@@ -532,7 +536,9 @@ exports[`Home Renders correctly 1`] = `
         >
           <svg
             aria-label="diamond"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             diamond.svg
           </svg>

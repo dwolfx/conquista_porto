@@ -7,12 +7,12 @@ Array [
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 18px;
+  font-size: 22px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 25px;
+  line-height: 30px;
 }
 
 .c14 {
@@ -147,7 +147,7 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 63px;
+  height: 63px;
   padding: 0 14px;
 }
 
@@ -251,6 +251,14 @@ Array [
 
 @media (max-width:980px) {
 
+}
+
+@media (max-width:1280px) {
+  .c3 {
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
 }
 
 @media (max-width:736px) {
@@ -439,7 +447,7 @@ Array [
             <p
               className="c8 "
               color="unset"
-              type="headline"
+              type="heading4"
             >
               Objetivos
             </p>
@@ -766,6 +774,10 @@ Array [
   }
 }
 
+@media (max-width:1280px) {
+
+}
+
 @media (max-width:736px) {
 
 }
@@ -989,7 +1001,10 @@ Array [
             >
               <svg
                 aria-label="plane"
+                fill="#BABABA"
+                height={72}
                 role="img"
+                width={72}
               >
                 plane.svg
               </svg>
@@ -1013,7 +1028,9 @@ Array [
               >
                 <svg
                   aria-label="arrowright"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   arrow-right.svg
                 </svg>
@@ -1038,7 +1055,10 @@ Array [
             >
               <svg
                 aria-label="time"
+                fill="#BABABA"
+                height={72}
                 role="img"
+                width={72}
               >
                 time.svg
               </svg>
@@ -1062,7 +1082,9 @@ Array [
               >
                 <svg
                   aria-label="arrowright"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   arrow-right.svg
                 </svg>
@@ -1087,7 +1109,10 @@ Array [
             >
               <svg
                 aria-label="add"
+                fill="#BABABA"
+                height={72}
                 role="img"
+                width={72}
               >
                 add.svg
               </svg>
@@ -1111,7 +1136,9 @@ Array [
               >
                 <svg
                   aria-label="arrowright"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   arrow-right.svg
                 </svg>

@@ -382,7 +382,7 @@ Object {
 }
 
 .c90 {
-  margin: 0 7px;
+  margin: 0 auto;
 }
 
 .c85 {
@@ -436,18 +436,13 @@ Object {
 }
 
 .c88 {
-  background-color: #898989;
   cursor: pointer;
-  height: 28px;
-  -webkit-mask-image: url(close.svg);
-  mask-image: url(close.svg);
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
-  width: 28px;
 }
 
 .c88:hover {
-  background-color: #00ADEF;
+  fill: #00ADEF;
 }
 
 .c82 {
@@ -1606,15 +1601,15 @@ Object {
             class="c3"
           >
             <div
-              class="sc-fzoyTs c4"
+              class="sc-fzoNJl c4"
               data-name="container"
             >
               <div
-                class="sc-fzoNJl c5"
+                class="sc-fzoXWK c5"
                 data-name="row"
               >
                 <div
-                  class="sc-fzoXWK c6"
+                  class="sc-fzpmMD c6"
                   data-name="col-lg-12"
                 >
                   <div
@@ -1657,15 +1652,15 @@ Object {
                 class="c14"
               >
                 <div
-                  class="sc-fzoyTs c4"
+                  class="sc-fzoNJl c4"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzoNJl c15"
+                    class="sc-fzoXWK c15"
                     data-name="row"
                   >
                     <div
-                      class="sc-fzoXWK c16"
+                      class="sc-fzpmMD c16"
                       data-name="col-lg-12"
                     >
                       <div
@@ -1702,21 +1697,21 @@ Object {
                 class="c23"
               >
                 <div
-                  class="sc-fzoyTs c24"
+                  class="sc-fzoNJl c24"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzoNJl c25"
+                    class="sc-fzoXWK c25"
                     data-name="row"
                   >
                     <div
-                      class="sc-fzoXWK c26"
+                      class="sc-fzpmMD c26"
                       data-name="col-sm-12 col-md-4 col-lg-3"
                     >
                       <div />
                     </div>
                     <div
-                      class="sc-fzoXWK c27"
+                      class="sc-fzpmMD c27"
                       data-name="col-sm-12 col-md-8 col-lg-9"
                     >
                       <div
@@ -1791,11 +1786,11 @@ Object {
                             class="c39 c40"
                           />
                           <div
-                            class="sc-fzoNJl c41"
+                            class="sc-fzoXWK c41"
                             data-name="row"
                           >
                             <div
-                              class="sc-fzoXWK c42"
+                              class="sc-fzpmMD c42"
                               data-name="col-sm-6"
                             >
                               <p
@@ -1832,7 +1827,7 @@ Object {
                               </div>
                             </div>
                             <div
-                              class="sc-fzoXWK c42"
+                              class="sc-fzpmMD c42"
                               data-name="col-sm-6"
                             >
                               <p
@@ -1938,15 +1933,15 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-fzoyTs c64"
+                  class="sc-fzoNJl c64"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzoNJl c5"
+                    class="sc-fzoXWK c5"
                     data-name="row"
                   >
                     <div
-                      class="sc-fzoXWK c65"
+                      class="sc-fzpmMD c65"
                       data-name=""
                     >
                       <p
@@ -1957,15 +1952,15 @@ Object {
                         Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.
                       </p>
                       <div
-                        class="sc-fzoyTs c67 c68"
+                        class="sc-fzoNJl c67 c68"
                         data-name="container"
                       >
                         <div
-                          class="sc-fzoNJl c69"
+                          class="sc-fzoXWK c69"
                           data-name="row"
                         >
                           <div
-                            class="sc-fzoXWK c70"
+                            class="sc-fzpmMD c70"
                             data-name="col-lg-12"
                           >
                             <div
@@ -2129,7 +2124,7 @@ Object {
               <div
                 class="c85"
               >
-                <div
+                <header
                   class="c86"
                 >
                   <h3
@@ -2137,14 +2132,21 @@ Object {
                   >
                     Sair da página?
                   </h3>
-                  <div
+                  <svg
+                    aria-label="close"
                     class="c88"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Sair da página?"
                     data-gtm-type="click"
-                  />
-                </div>
+                    fill="#BABABA"
+                    height="28"
+                    role="img"
+                    width="28"
+                  >
+                    close.svg
+                  </svg>
+                </header>
                 <div
                   class="c89 c90"
                 />
@@ -2194,7 +2196,7 @@ Object {
               <div
                 class="c85"
               >
-                <div
+                <header
                   class="c86"
                 >
                   <h3
@@ -2202,14 +2204,21 @@ Object {
                   >
                     Risco acima do seu perfil
                   </h3>
-                  <div
+                  <svg
+                    aria-label="close"
                     class="c88"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Risco acima do seu perfil"
                     data-gtm-type="click"
-                  />
-                </div>
+                    fill="#BABABA"
+                    height="28"
+                    role="img"
+                    width="28"
+                  >
+                    close.svg
+                  </svg>
+                </header>
                 <div
                   class="c89 c90"
                 />
@@ -2257,38 +2266,38 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-fzoWqW enRPdV sc-fznzqM iAtYLM"
+      class="sc-fzplgP gqdjSo sc-fznOgF pabtv"
     >
       <div
-        class="sc-fzoxnE hxzUEA"
+        class="sc-fzoMdx byPBrS"
       >
         <div
-          class="sc-fzoMdx djoxjH"
+          class="sc-fzoWqW emnIwn"
         >
           <div
-            class="sc-fzoyTs sc-fzoCCn BAsXO"
+            class="sc-fzoNJl sc-fzoPby cvDgCj"
             data-name="container"
           >
             <div
-              class="sc-fzoNJl sc-fznBtT cdDKcf"
+              class="sc-fzoXWK sc-fznNTe kqyNwO"
               data-name="row"
             >
               <div
-                class="sc-fzoXWK sc-fzobTh fHJwqZ"
+                class="sc-fzpmMD sc-fzooss kWnWJg"
                 data-name="col-lg-12"
               >
                 <div
-                  class="sc-fznYue LANor"
+                  class="sc-fzonjX hthGqn"
                 >
                   <div
-                    class="sc-fzqOul dWjEbN"
+                    class="sc-fzoCCn bWuGgL"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao voltar step"
                     data-gtm-subname="layer Investimentir"
                     data-gtm-type="click"
                   />
                   <div
-                    class="sc-fzqzEs hNLVTq"
+                    class="sc-fzqOul hKPUog"
                   >
                     <img
                       alt="Logo Conquista Beta"
@@ -2296,7 +2305,7 @@ Object {
                     />
                   </div>
                   <div
-                    class="sc-fzqOul cVvspw layer-close-button"
+                    class="sc-fzoCCn irqLG layer-close-button"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao fechar"
                     data-gtm-subname="botao fechar layer"
@@ -2308,31 +2317,31 @@ Object {
           </div>
         </div>
         <div
-          class="sc-fzplgP cIVKHz"
+          class="sc-fznzqM gMyRrk"
         >
           <div
-            class="sc-fznOgF gUdIAB"
+            class="sc-fznYue gHRgoS"
           >
             <div
-              class="sc-fzooss hVbqXQ"
+              class="sc-fzqyvX eHJtVC"
             >
               <div
-                class="sc-fzoyTs sc-fzoCCn BAsXO"
+                class="sc-fzoNJl sc-fzoPby cvDgCj"
                 data-name="container"
               >
                 <div
-                  class="sc-fzoNJl sc-fzqyvX eRNCHx"
+                  class="sc-fzoXWK sc-fzqKVi cQipKi"
                   data-name="row"
                 >
                   <div
-                    class="sc-fzoXWK sc-fzqKVi cIxmHs"
+                    class="sc-fzpmMD sc-fzoCUK qYrib"
                     data-name="col-lg-12"
                   >
                     <div
                       class="sc-AxgMl fjwUFN FinancialApplication___StyledHorizontalList-sc-17j3vvk-0 czNdDi"
                     >
                       <div
-                        class="sc-AxheI bhaRFS"
+                        class="sc-AxheI iUjYEW"
                       >
                         <p
                           class="sc-AxjAm fLOUSR"
@@ -2343,7 +2352,7 @@ Object {
                         </p>
                       </div>
                       <div
-                        class="sc-Axmtr evxutB"
+                        class="sc-Axmtr iaWKVR"
                       >
                         <p
                           class="sc-AxjAm jrLIVw"
@@ -2359,40 +2368,40 @@ Object {
               </div>
             </div>
             <div
-              class="sc-fzoOEf fyxJLm"
+              class="sc-fzpdyU eafVkJ"
             >
               <div
-                class="sc-fzoyTs sc-fzoPby gGJUMS"
+                class="sc-fzoNJl sc-fzpdbB gUTXTa"
                 data-name="container"
               >
                 <div
-                  class="sc-fzoNJl sc-fzppAM cMVDtH"
+                  class="sc-fzoXWK sc-fznBtT etABMf"
                   data-name="row"
                 >
                   <div
-                    class="sc-fzoXWK sc-fzobTh eenLEV"
+                    class="sc-fzpmMD sc-fzooss hfEYMU"
                     data-name="col-sm-12 col-md-4 col-lg-3"
                   >
                     <div />
                   </div>
                   <div
-                    class="sc-fzoXWK sc-fzobTh kgSbKZ"
+                    class="sc-fzpmMD sc-fzooss hNDLpM"
                     data-name="col-sm-12 col-md-8 col-lg-9"
                   >
                     <div
-                      class="sc-fzpisO jmQDPE sc-qQmou bvyEeb"
+                      class="sc-fznyYp dqfxCz sc-qYiqT hjuYnb"
                     >
                       <div
-                        class="sc-fzqzlV grdOFp"
+                        class="sc-fzqLLg cPGRsK"
                       >
                         <div
-                          class="sc-pAZqv gwpCpt"
+                          class="sc-pJurq XnmuV"
                         >
                           <div
-                            class="sc-pjSSY OWUuQ sc-pJurq kYjLRN"
+                            class="sc-prOVx kViEQY sc-pRTZB hOsoJv"
                           >
                             <div
-                              class="sc-prOVx cQhACi"
+                              class="sc-qQmou cvzEMu"
                             >
                               <p
                                 class="sc-AxjAm bvIKRM"
@@ -2418,10 +2427,10 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-pjSSY OWUuQ sc-pJurq kYjLRN"
+                            class="sc-prOVx kViEQY sc-pRTZB hOsoJv"
                           >
                             <div
-                              class="sc-prOVx cQhACi"
+                              class="sc-qQmou cvzEMu"
                             >
                               <p
                                 class="sc-AxjAm bvIKRM"
@@ -2448,14 +2457,14 @@ Object {
                           </div>
                         </div>
                         <div
-                          class="sc-fznZeY bIELTx sc-pRTZB ewiABE"
+                          class="sc-fznZeY bIELTx sc-qapaw bIWuAA"
                         />
                         <div
-                          class="sc-fzoNJl sc-qapaw eSAYRa"
+                          class="sc-fzoXWK sc-oTmZL jCgnRE"
                           data-name="row"
                         >
                           <div
-                            class="sc-fzoXWK sc-oTmZL hdlqiY"
+                            class="sc-fzpmMD sc-pbIaG fNHAlt"
                             data-name="col-sm-6"
                           >
                             <p
@@ -2466,22 +2475,22 @@ Object {
                               Quanto você quer investir?
                             </p>
                             <div
-                              class="sc-pIJJz ibCCIB FormFinancialContribution___StyledMoneyInput-u3h0sg-0 fHPlos"
+                              class="sc-pRFjI eHeNOX FormFinancialContribution___StyledMoneyInput-u3h0sg-0 fHPlos"
                             >
                               <div
-                                class="sc-fznBMq cqlIVe"
+                                class="sc-fznNvL ebxAgc"
                               >
                                 <div
-                                  class="sc-fznNvL ptdOg"
+                                  class="sc-fzocqA doyLeq"
                                 >
                                   <div
-                                    class="sc-fzonZV lbdDFF"
+                                    class="sc-fzqyOu jVQZBy"
                                     id="prefix"
                                   >
                                     R$
                                   </div>
                                   <input
-                                    class="sc-pANHa dtxjmd"
+                                    class="sc-pIJJz gyoUyw"
                                     data-gtm-form="input"
                                     data-gtm-name="quanto investir"
                                     data-testid="financial-application-money-input"
@@ -2492,7 +2501,7 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-fzoXWK sc-oTmZL hdlqiY"
+                            class="sc-fzpmMD sc-pbIaG fNHAlt"
                             data-name="col-sm-6"
                           >
                             <p
@@ -2503,16 +2512,16 @@ Object {
                               Quando você deseja investir?
                             </p>
                             <div
-                              class="sc-pIJJz ibCCIB FormFinancialContribution___StyledDateInput-u3h0sg-1 dSqDJt"
+                              class="sc-pRFjI eHeNOX FormFinancialContribution___StyledDateInput-u3h0sg-1 dSqDJt"
                             >
                               <div
-                                class="sc-fznBMq cqlIVe"
+                                class="sc-fznNvL ebxAgc"
                               >
                                 <div
-                                  class="sc-fznNvL ptdOg"
+                                  class="sc-fzocqA doyLeq"
                                 >
                                   <input
-                                    class="sc-pANHa dtxjmd"
+                                    class="sc-pIJJz gyoUyw"
                                     data-gtm-form="input"
                                     data-gtm-name="quando investir"
                                     maxlength="10"
@@ -2524,10 +2533,10 @@ Object {
                           </div>
                         </div>
                         <div
-                          class="sc-fznZeY bIELTx sc-pRTZB iDmjZE"
+                          class="sc-fznZeY bIELTx sc-qapaw gHgdCY"
                         />
                         <div
-                          class="sc-fzonjX dDCelJ"
+                          class="sc-fzqzEs cERElv"
                         >
                           <p
                             class="sc-AxjAm hvlAI"
@@ -2543,15 +2552,15 @@ Object {
                           class="sc-fznZeY bIELTx"
                         />
                         <div
-                          class="sc-qQxXP fHsPJj"
+                          class="sc-qYSYK PejFW"
                         >
                           <input
-                            class="sc-fzqNqU erjdrk"
+                            class="sc-fzoyTs kfhPRl"
                             id="checkbox-1"
                             type="checkbox"
                           />
                           <label
-                            class="sc-fzqARJ iQINDi"
+                            class="sc-fzqNqU hFpwJZ"
                             for="checkbox-1"
                           >
                             <p
@@ -2562,7 +2571,7 @@ Object {
                               Confirmo que li e concordo com todas as informações contidas no
                                
                               <a
-                                class="sc-qYSYK hMWJgk"
+                                class="sc-pBolk iTFYtf"
                                 href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf"
                                 rel="noopener noreferrer"
                                 target="_blank"
@@ -2575,13 +2584,13 @@ Object {
                         </div>
                       </div>
                       <div
-                        class="sc-fzqLLg cOUNMA"
+                        class="sc-fzoxnE hztWdm"
                       >
                         <div
-                          class="sc-psCJM itjKow"
+                          class="sc-qQxXP dlVajL"
                         >
                           <button
-                            class="sc-fznyAO heVZBW sc-pBolk iDSdPL"
+                            class="sc-fznyAO heVZBW sc-pJkiN grYoXr"
                             color="secondary"
                             disabled=""
                           >
@@ -2598,48 +2607,48 @@ Object {
                 </div>
               </div>
               <div
-                class="sc-fzoyTs sc-fzpdbB bUaAAp"
+                class="sc-fzoNJl sc-fzppAM zbcfl"
                 data-name="container"
               >
                 <div
-                  class="sc-fzoNJl sc-fznBtT cdDKcf"
+                  class="sc-fzoXWK sc-fznNTe kqyNwO"
                   data-name="row"
                 >
                   <div
-                    class="sc-fzoXWK sc-fzobTh bodJPH"
+                    class="sc-fzpmMD sc-fzooss fyseFi"
                     data-name=""
                   >
                     <p
-                      class="sc-AxjAm hvlAI sc-fzppip dOJhqV"
+                      class="sc-AxjAm hvlAI sc-fznBMq iyLItA"
                       color="gray5"
                       type="body"
                     >
                       Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.
                     </p>
                     <div
-                      class="sc-fzoyTs sc-fznMnq ctueCk sc-fzpdyU jcNXuL"
+                      class="sc-fzoNJl sc-fzoant iiZAqs sc-fzppip ieRozq"
                       data-name="container"
                     >
                       <div
-                        class="sc-fzoNJl sc-fzomME dEUxIt"
+                        class="sc-fzoXWK sc-fzqAbL eknVqV"
                         data-name="row"
                       >
                         <div
-                          class="sc-fzoXWK sc-fzoant bRYELN"
+                          class="sc-fzpmMD sc-fzomME laApzX"
                           data-name="col-lg-12"
                         >
                           <div
-                            class="sc-fzqAbL ejIqxk"
+                            class="sc-fzqMAW kbdObU"
                           >
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzqMAW muXcd"
+                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
                               color="unset"
                               type="body"
                             >
                               Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
                             </p>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzqMAW muXcd"
+                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
                               color="unset"
                               type="body"
                             >
@@ -2653,7 +2662,7 @@ Object {
                               href="mailto:ouvidoria@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoydu cgzizD"
+                                class="sc-AxjAm cjwdiX sc-fzoJMP fvPiDQ"
                                 color="unset"
                                 type="body"
                               >
@@ -2661,7 +2670,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzqMAW muXcd"
+                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
                               color="unset"
                               type="body"
                             >
@@ -2675,7 +2684,7 @@ Object {
                               href="mailto:suporte.conquista@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoydu cgzizD"
+                                class="sc-AxjAm cjwdiX sc-fzoJMP fvPiDQ"
                                 color="unset"
                                 type="body"
                               >
@@ -2683,14 +2692,14 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzqMAW muXcd"
+                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
                               color="unset"
                               type="body"
                             >
                               .
                             </p>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzqMAW muXcd"
+                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
                               color="unset"
                               type="body"
                             >
@@ -2699,7 +2708,7 @@ Object {
             Assembléias acesse 
                             </p>
                             <a
-                              class="sc-fzomuh eGtsA-d"
+                              class="sc-fzqAui fLIBDK"
                               data-gtm-clicktype="link"
                               data-gtm-name="www.conquista.com.vc"
                               data-gtm-subname="Anbima"
@@ -2708,7 +2717,7 @@ Object {
                               target="_blank"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoydu cgzizD"
+                                class="sc-AxjAm cjwdiX sc-fzoJMP fvPiDQ"
                                 color="unset"
                                 type="body"
                               >
@@ -2716,7 +2725,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzqMAW muXcd"
+                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
                               color="unset"
                               type="body"
                             >
@@ -2724,50 +2733,50 @@ Object {
                             </p>
                           </div>
                           <div
-                            class="sc-fzqAui gNxBMp"
+                            class="sc-fzqMdD fZhxdB"
                           >
                             <a
-                              class="sc-fzoJMP chiRfx"
+                              class="sc-fzoYHE fLVPTu"
                               href="http://www.cvm.gov.br/index.html"
                               rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - CVM"
-                                class="sc-fzoaKM gnDYFA"
+                                class="sc-fzomuh kaajdf"
                                 src="logo-anbima-cvm.png"
                               />
                             </a>
                             <a
-                              class="sc-fzoJMP chiRfx"
+                              class="sc-fzoYHE fLVPTu"
                               href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
                               rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - Gestao"
-                                class="sc-fznAgC fzmodj"
+                                class="sc-fznLPX hKBORO"
                                 src="logo-anbima-gestao.png"
                               />
                             </a>
                             <div
-                              class="sc-fzoYHE GoTTU"
+                              class="sc-fzpkqZ loJLBD"
                             >
                               <img
                                 alt="Logo Anbima - Distribuição"
-                                class="sc-fzpkqZ rtxaU"
+                                class="sc-fznAgC fzmodj"
                                 src="logo-anbima-distribuicao.png"
                               />
                             </div>
                             <a
-                              class="sc-fzoJMP chiRfx"
+                              class="sc-fzoYHE fLVPTu"
                               href="https://comoinvestir.anbima.com.br/"
                               rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - Investir"
-                                class="sc-fznLPX hKBORO"
+                                class="sc-fzoaKM gnDYFA"
                                 src="logo-anbima-como-investir.png"
                               />
                             </a>
@@ -2781,7 +2790,7 @@ Object {
             </div>
           </div>
           <div
-            class="sc-fznJRM jsvdDk sc-fznWqX ehuKo"
+            class="sc-fznJRM jsvdDk sc-fzoiQi cAolya"
           >
             <div
               class="sc-fzokOt cypBsd"
@@ -2789,7 +2798,7 @@ Object {
             <div
               class="sc-fzoyAV gvIPuS"
             >
-              <div
+              <header
                 class="sc-fzoLag kVRISV"
               >
                 <h3
@@ -2797,16 +2806,23 @@ Object {
                 >
                   Sair da página?
                 </h3>
-                <div
-                  class="sc-fznxsB bDqhGN"
+                <svg
+                  aria-label="close"
+                  class="sc-fznxsB kyXIjQ"
                   data-gtm-clicktype="button"
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Sair da página?"
                   data-gtm-type="click"
-                />
-              </div>
+                  fill="#BABABA"
+                  height="28"
+                  role="img"
+                  width="28"
+                >
+                  close.svg
+                </svg>
+              </header>
               <div
-                class="sc-fznZeY bCFitl sc-fzqNJr eukUKZ"
+                class="sc-fznZeY bCFitl sc-fzqNJr knweed"
               />
               <div
                 class="sc-fzqBZW esRFc"
@@ -2819,7 +2835,7 @@ Object {
                   Todas as informações serão perdidas e a solicitação não será finalizada.
                 </p>
                 <div
-                  class="sc-fzoiQi hKoIHO"
+                  class="sc-fzqARJ juUTYs"
                 >
                   <button
                     class="sc-fznyAO ivwQqX"
@@ -2846,7 +2862,7 @@ Object {
             </div>
           </div>
           <div
-            class="sc-fznJRM jsvdDk sc-fznWqX ehuKo"
+            class="sc-fznJRM jsvdDk sc-fzoiQi cAolya"
           >
             <div
               class="sc-fzokOt cypBsd"
@@ -2854,7 +2870,7 @@ Object {
             <div
               class="sc-fzoyAV gvIPuS"
             >
-              <div
+              <header
                 class="sc-fzoLag kVRISV"
               >
                 <h3
@@ -2862,16 +2878,23 @@ Object {
                 >
                   Risco acima do seu perfil
                 </h3>
-                <div
-                  class="sc-fznxsB bDqhGN"
+                <svg
+                  aria-label="close"
+                  class="sc-fznxsB kyXIjQ"
                   data-gtm-clicktype="button"
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Risco acima do seu perfil"
                   data-gtm-type="click"
-                />
-              </div>
+                  fill="#BABABA"
+                  height="28"
+                  role="img"
+                  width="28"
+                >
+                  close.svg
+                </svg>
+              </header>
               <div
-                class="sc-fznZeY bCFitl sc-fzqNJr eukUKZ"
+                class="sc-fznZeY bCFitl sc-fzqNJr knweed"
               />
               <div
                 class="sc-fzqBZW esRFc"
@@ -2884,7 +2907,7 @@ Object {
                   Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
                 </p>
                 <div
-                  class="sc-fzoiQi hKoIHO"
+                  class="sc-fzqARJ juUTYs"
                 >
                   <button
                     class="sc-fznyAO ivwQqX"

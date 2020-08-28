@@ -286,7 +286,9 @@ Array [
               <svg
                 aria-label="alertrounded"
                 className="c8"
+                fill="#BABABA"
                 role="img"
+                width={21}
               >
                 alert-rounded.svg
               </svg>
@@ -315,7 +317,9 @@ Array [
               <svg
                 aria-label="add"
                 className="c8"
+                fill="#BABABA"
                 role="img"
+                width={21}
               >
                 add.svg
               </svg>
@@ -335,7 +339,9 @@ Array [
               <svg
                 aria-label="alertrounded"
                 className="c8"
+                fill="#BABABA"
                 role="img"
+                width={21}
               >
                 alert-rounded.svg
               </svg>
@@ -364,7 +370,9 @@ Array [
               <svg
                 aria-label="add"
                 className="c8"
+                fill="#BABABA"
                 role="img"
+                width={21}
               >
                 add.svg
               </svg>
