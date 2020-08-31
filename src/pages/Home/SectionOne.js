@@ -15,13 +15,13 @@ import { useSelector } from 'react-redux'
 // import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 
 import InvestmentCard from './InvestmentCard'
-// import PrivateWelfareSection from './PrivateWelfare'
+import PrivateWelfareSection from './PrivateWelfare'
 // import ProductItemGenerator from './ProductItemGenerator'
 
 import CardHeaderState from './commons/CardHeaderState'
 import {
   GridCol,
-  // HomePrivateWelfareCard,
+  HomePrivateWelfareCard,
   GridColFlexContainer,
   GridColFlexCard,
 } from './styles'
@@ -114,10 +114,13 @@ const SectionOne = ({ onFetchInvestments }) => {
             />
           }
         >
-          <PrivateWelfareSection />
-        </HomePrivateWelfareCard> */}
-        <InvestmentCard
-          onFetchInvestments={onFetchInvestments}
+          <InvestmentSection onFetchInvestments={onFetchInvestments} />
+        </HomeInvestmentCard> */}
+      </GridCol>
+      <GridCol lg="4" md="6" sm="12">
+        <HomePrivateWelfareCard
+          headerIcon="time"
+          headerTitle="Previdência"
           headerEndItem={
             <CardHeaderState
               showHeader={Boolean(
@@ -128,7 +131,9 @@ const SectionOne = ({ onFetchInvestments }) => {
               onErrorClick={() => onFetchInvestments()}
             />
           }
-        />
+        >
+          <PrivateWelfareSection />
+        </HomePrivateWelfareCard>
       </GridCol>
       <GridColFlexContainer lg="3" md="12" mdOffset="0" sm="12" xs="12">
         <GridColFlexCard
