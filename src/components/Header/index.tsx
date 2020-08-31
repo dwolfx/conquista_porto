@@ -150,7 +150,7 @@ export default function HeaderNew({ crumbs }: IProps) {
           }
           setIsOpen={setIsMobileOpen}
           totalPoints={
-            !!balanceData.consultaPontosResponseType && 
+            !!balanceData.consultaPontosResponseType &&
             !!pointsAmountBalance &&
             Intl.NumberFormat().format(pointsAmountBalance)
           }
@@ -250,12 +250,12 @@ export default function HeaderNew({ crumbs }: IProps) {
               >
                 {customerProfile.data && customerProfile.data.customerName}
               </Name>
-              {!!balanceData.consultaPontosResponseType &&
+              {/*!!balanceData.consultaPontosResponseType &&
                 !!pointsAmountBalance && (
                   <Points>
                     {Intl.NumberFormat().format(pointsAmountBalance)} pontos
                   </Points>
-                )}
+                )*/}
             </div>
           </Profile>
           <Divisor vertical customSize="35px" />
