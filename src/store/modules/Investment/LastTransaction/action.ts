@@ -1,9 +1,10 @@
 import { Types } from './types'
 import ITransaction from './iTransaction'
 
-export function GetLastTransactionDataRequest() {
+export function GetLastTransactionDataRequest(fundId: string) {
   return {
     type: Types.LAST_TRANSACTION_GET_DATA_REQUEST,
+    fundId: fundId,
   }
 }
 

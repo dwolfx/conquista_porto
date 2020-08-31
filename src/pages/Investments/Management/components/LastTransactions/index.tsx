@@ -31,16 +31,19 @@ const LastTransations = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const isTabletVerticalOrSmaller = useMedia('sm')
-  const { lastTransaction, investmentPosition } = useSelector(
+  const { lastTransaction, investmentPosition, idFund } = useSelector(
     ({ lastTransaction, investmentPosition }: any) => ({
       lastTransaction,
       investmentPosition,
+      idFund: investmentPosition.idFund,
     })
   )
 
   const handleLastTransactionRequest = useCallback(() => {
-    dispatch(GetLastTransactionDataRequest())
-  }, [dispatch])
+    if (idFund) {
+      dispatch(GetLastTransactionDataRequest(idFund))
+    }
+  }, [dispatch, idFund])
 
   useEffect(() => {
     handleLastTransactionRequest()
