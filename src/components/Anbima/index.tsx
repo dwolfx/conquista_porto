@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {
+  AnchorTag,
   BlueText,
   GridContainer,
   GridCol,
@@ -10,9 +11,11 @@ import {
   LogoAnbimaGestao,
   LogoAnbimaInvestir,
   LogosContainer,
+  LogoWrapper,
   Text,
   TextWrapper,
-} from './styled'
+  LogoAnbimaCVM,
+} from './styles'
 
 interface IMailLink {
   hrefValue: string
@@ -83,16 +86,20 @@ const Anbima = ({ ...rest }) => (
           <Text>.</Text>
         </TextWrapper>
         <LogosContainer>
-          <a
+          <AnchorTag href="http://www.cvm.gov.br/index.html">
+            <LogoAnbimaCVM />
+          </AnchorTag>
+          <AnchorTag
             href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
-            target="blank"
           >
             <LogoAnbimaGestao />
-          </a>
-          <LogoAnbimaDistribuicao />
-          <a href="https://comoinvestir.anbima.com.br/" target="blank">
+          </AnchorTag>
+          <LogoWrapper>
+            <LogoAnbimaDistribuicao />
+          </LogoWrapper>
+          <AnchorTag href="https://comoinvestir.anbima.com.br/">
             <LogoAnbimaInvestir />
-          </a>
+          </AnchorTag>
         </LogosContainer>
       </GridCol>
     </GridRow>
