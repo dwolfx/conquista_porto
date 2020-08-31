@@ -27,7 +27,15 @@ import BallanceRedeem from './BallanceRedeem'
 import SummaryRedeem from './SummaryRedeem'
 import CardSuccessError from './components/CardSuccessError'
 
-import { Anbima, CustomCol, Container, LayerStyled } from './styles'
+import {
+  Anbima,
+  CustomCol,
+  Container,
+  LayerStyled,
+  ModalButtonWrapper,
+  ModalButton,
+  ModalInfoError,
+} from './styles'
 export type IFormData = {
   moneyToRedeem: string
   alignmentAware: string
@@ -64,6 +72,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const [isAlignmentTermModalOpen, setIsAlignmentTermOpenModal] = useState(
     false
   )
+  const [isInfoErrorModalOpen, setInfoErrorModalOpen] = useState(false)
   const [redeemOptionButton, setRedeemOptionButton] = useState<TButtonOption>(
     null
   )
@@ -185,7 +194,11 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       step={step}
       nextStep={() =>
         dispatch(
-          Run2FAInitialRequest({ addToast, onSuccess: () => setStep(step + 1) })
+          Run2FAInitialRequest({
+            addToast,
+            onSuccess: () => setStep(step + 1),
+            onError: () => setInfoErrorModalOpen(true),
+          })
         )
       }
       previousStep={previousStep}
@@ -233,6 +246,10 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
 
   const handleAlignmentTermCloseModal = () => {
     setIsAlignmentTermOpenModal(false)
+  }
+
+  const handleInfoErrorModalOpen = () => {
+    setInfoErrorModalOpen(false)
   }
 
   const handleConfirmNextStep = () => {
@@ -338,6 +355,21 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         onConfirmation={handleAlignmentTermCloseModal}
         onCloseHeaderButton={handleAlignmentTermCloseModal}
       />
+      <ModalInfoError
+        modalTitle="Cadastrar celular"
+        handleClose={handleInfoErrorModalOpen}
+        isOpen={isInfoErrorModalOpen}
+      >
+        <Text type="headline" color="gray6">
+          Por segurança, só é possível concluir a operação após informar o token
+          recebido via celular. Para dúvidas, entre em contato com a nossa
+          Central de Atendimento - (11) 3366 3200.
+        </Text>
+
+        <ModalButtonWrapper>
+          <ModalButton onClick={handleInfoErrorModalOpen}>Fechar</ModalButton>
+        </ModalButtonWrapper>
+      </ModalInfoError>
     </LayerStyled>
   )
 }

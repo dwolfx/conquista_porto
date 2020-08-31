@@ -4,6 +4,8 @@ import Card from 'components/Card'
 import Layer from 'components/Layer'
 import AnbimaComponent from 'components/Anbima'
 import { LayerHeader } from 'components/Layer/styles'
+import Button from 'components/Button'
+import Modal from 'components/Modal/ModalNew'
 
 import {
   Container as ContainerBootstrap,
@@ -15,6 +17,22 @@ export const LayerStyled = styled(Layer)`
     display: block;
     padding: 0;
   }
+`
+
+export const ModalInfoError = styled(Modal)`
+  z-index: 14;
+  > div + div {
+    max-width: 600px;
+  }
+`
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(Button)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
 `
 
 export const HeaderWrapper = styled.div`
