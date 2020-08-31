@@ -1,10 +1,14 @@
-import { Types, IAction } from './types'
+import { Types, ISuitabilityInfo } from './types'
 
 const INITIAL_STATE = {
   data: null,
   status: '',
   hasError: false,
   isLoading: false,
+}
+interface IAction {
+  type: keyof typeof Types
+  payload: ISuitabilityInfo
 }
 
 export default function(state = INITIAL_STATE, action: IAction) {

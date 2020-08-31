@@ -40,7 +40,7 @@ interface IButtonProps {
   setLayerOpen: (isLayerOpen: boolean) => void
   setIsAwareOfTerms: (isAwareOfTerms: boolean) => void
   setIsInvestorLevelModalOpen: (isInvestorLevelModalOpen: boolean) => void
-  setSelectedFundId: (id: number) => void
+  setSelectedFundId: (id: string) => void
   isInvestorLevelModalOpen: boolean
 }
 
@@ -105,7 +105,7 @@ const ButtonInvest = ({
   }
   const triggerFinancialApplication = (
     suitabilityData: any,
-    fundId: number,
+    fundId: string,
     date: string,
     onSuccess: (data: IGetFinancialApplicationDataResponse) => void
   ) => {
@@ -124,7 +124,7 @@ const ButtonInvest = ({
   }
 
   const handleClickInvestButton = (
-    fundId: number,
+    fundId: string,
     suitabilityData: any,
     fundsResponse: any
   ) => {
@@ -162,7 +162,7 @@ const ButtonInvest = ({
 
     if (suitabilityData && suitabilityData.isValid) {
       const fundInfo = fundsResponse.filter(
-        (fund: { id_fundo: number }) => fund.id_fundo === fundId
+        (fund: { id_fundo: string }) => fund.id_fundo === fundId
       )
       const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
         fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
@@ -191,7 +191,7 @@ const ButtonInvest = ({
     }
   }
 
-  const onChangeLayerOpen = (fundId: number) => {
+  const onChangeLayerOpen = (fundId: string) => {
     const onSuccessInvestmentList = (fundsResponse: any) => {
       if (!suitabilityStoreData || !suitabilityStoreData.isValid) {
         const onSuccess = (onSuccessSuitabilityData: Object) => {
@@ -232,8 +232,8 @@ const ButtonInvest = ({
         data-gtm-subname={fund.name}
         data-gtm-name="Investir"
         onClick={() => {
-          onChangeLayerOpen(fund.id)
-          setSelectedFundId(fund.id)
+          onChangeLayerOpen(fund.id.toString())
+          setSelectedFundId(fund.id.toString())
           setIsClicked(true)
         }}
       >

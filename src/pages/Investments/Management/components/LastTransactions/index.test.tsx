@@ -2,10 +2,9 @@ import React from 'react'
 import { MemoryRouter, Route, RouteProps } from 'react-router-dom'
 
 import {
-  GetLastTransactionDataSuccess,
-  GetLastTransactionDataFailure,
-} from 'store/modules/Investment/LastTransaction/action'
-import ITransaction from 'store/modules/Investment/LastTransaction/iTransaction'
+  GetBankExtractFundFailure,
+  GetBankExtractFundSuccess,
+} from 'store/modules/BankExtractFund/action'
 import { renderWithReduxAndTheme, fireEvent, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
 
@@ -34,13 +33,13 @@ describe('LastTransactions', () => {
       const store = storeFactory()
       const { getByTestId } = renderWithProviders(store)
 
-      store.dispatch(GetLastTransactionDataFailure())
+      store.dispatch(GetBankExtractFundFailure())
       expect(getByTestId('lasttransations-error-component')).toBeInTheDocument()
     })
     it('should retry the request and get loading again', () => {
       const store = storeFactory({ investmentPosition: { idFund: '1' } })
       const { getByTestId, getByText } = renderWithProviders(store)
-      store.dispatch(GetLastTransactionDataFailure())
+      store.dispatch(GetBankExtractFundFailure())
       expect(getByTestId('lasttransations-error-component')).toBeInTheDocument()
 
       fireEvent.click(getByText('Tentar novamente'))
@@ -62,22 +61,33 @@ describe('LastTransactions', () => {
     it('goes to extract page', () => {
       const store = storeFactory()
       let locationLocal: RouteProps['location']
-      const data: ITransaction[] = [
+      const data = [
         {
-          id_carteira: 51380129,
-          id_operacao: 10608373,
-          data_operacao: 1591758000000,
-          tipo_operacao: 'Aplicação',
-          data_liquidacao: 1591758000000,
-          valor_bruto: 111.11,
-        },
-        {
-          id_carteira: 51380129,
-          id_operacao: 10590482,
-          data_operacao: 1582686000000,
-          tipo_operacao: 'Aplicação',
-          data_liquidacao: 1582686000000,
-          valor_bruto: 45000.0,
+          fundos: {
+            fundo: [],
+          },
+          operacoes: {
+            operacao: [
+              {
+                data_operacao: '2020-04-13T00:00:00-03:00',
+                data_liquidacao: '2020-04-13T00:00:00-03:00',
+                tipo_operacao: 'Aplicação',
+                valor_bruto: '1000.00',
+                tipo_movimentacao_operacao: '1',
+                id_fundo: '51380060',
+                id_operacao: '10606545062',
+              },
+              {
+                data_operacao: '2020-04-13T00:00:00-03:00',
+                data_liquidacao: '2020-04-13T00:00:00-03:00',
+                tipo_operacao: 'Aplicação',
+                valor_bruto: '1000.00',
+                tipo_movimentacao_operacao: '1',
+                id_fundo: '51380060',
+                id_operacao: '10606455645062',
+              },
+            ],
+          },
         },
       ]
 
@@ -95,7 +105,7 @@ describe('LastTransactions', () => {
         { store }
       )
 
-      store.dispatch(GetLastTransactionDataSuccess(data))
+      store.dispatch(GetBankExtractFundSuccess(data))
       fireEvent.click(screen.getByText('ver extrato'))
       expect(locationLocal!.pathname).toBe('/investimentos/extrato')
     })

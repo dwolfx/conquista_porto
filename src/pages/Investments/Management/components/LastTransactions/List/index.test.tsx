@@ -3,34 +3,35 @@ import moment from 'moment'
 import '@testing-library/jest-dom'
 
 import { renderWithReduxAndTheme, within } from 'testUtils'
-import ITransacation from 'store/modules/Investment/LastTransaction/iTransaction'
 
 import List from '.'
 import { formatMoney } from 'helpers'
 
 describe('LastTransactions/List Last Transactions', () => {
   it('should render all data that has been passed', () => {
-    const data: ITransacation[] = [
+    const data = [
       {
-        id_fundo: 51380129,
-        id_operacao: 10608373,
-        data_operacao: 1591758000000,
+        data_operacao: '2020-02-18T00:00:00-03:00',
+        data_liquidacao: '2020-02-18T00:00:00-03:00',
         tipo_operacao: 'Aplicação',
-        data_liquidacao: 1591758000000,
-        valor_bruto: 111.11,
+        valor_bruto: '20000.00',
+        tipo_movimentacao_operacao: '1',
+        id_fundo: '51380060',
+        id_operacao: '10590430',
       },
       {
-        id_fundo: 51380129,
-        id_operacao: 10590482,
-        data_operacao: 1582686000000,
-        tipo_operacao: 'Aplicação',
-        data_liquidacao: 1582686000000,
-        valor_bruto: 45000.0,
+        data_operacao: '2020-02-17T00:00:00-03:00',
+        data_liquidacao: '2020-02-18T00:00:00-03:00',
+        tipo_operacao: 'Retirada',
+        valor_bruto: '200.00',
+        tipo_movimentacao_operacao: '1',
+        id_fundo: '51380060',
+        id_operacao: '10590431',
       },
     ]
     const { getByTestId } = renderWithReduxAndTheme(<List data={data} />)
     data.forEach(item => {
-      const row = getByTestId(item.id_operacao.toString())
+      const row = getByTestId(item.id_operacao)
       const utils = within(row)
       expect(
         utils.getByText(moment(item.data_operacao).format('DD/MM/YYYY'))

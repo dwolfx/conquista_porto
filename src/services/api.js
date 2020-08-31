@@ -6,7 +6,6 @@ import {
   baseURLNamespaceInvest,
   baseURLNamespaceInvestAws,
   baseURLNamespaceInvestPortovida,
-  baseURLNamespaceAtlas,
   baseURLNamespacePortopar,
   baseURLNamespaceRecommendation,
   baseURLNamespaceRewards,
@@ -53,7 +52,6 @@ export {
   baseURLNamespaceInvest,
   baseURLNamespaceInvestAws,
   baseURLNamespaceInvestPortovida,
-  baseURLNamespaceAtlas,
   baseURLNamespacePortopar,
   baseURLNamespaceAuth2,
 }

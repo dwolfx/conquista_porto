@@ -27,7 +27,7 @@ const TableBody = ({
         <TbodyTr
           {...row.getRowProps()}
           onClick={() => {
-            handleOpenDetail(row.original.id_carteira)
+            handleOpenDetail(row.original.id_fundo)
             setIsOpenForInvestments(row.original.aplicao_liberada)
           }}
           data-testid="fund-row"

@@ -144,7 +144,7 @@ router.render = (req, res) => {
 
     return res.status(200).jsonp({
       ...fundDetails.fundo_detalhe,
-      id_carteira: idFund,
+      id_fundo: idFund,
     })
   }
 

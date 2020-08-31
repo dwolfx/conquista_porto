@@ -10,9 +10,12 @@ const useSelectedPosition = () => {
 
   useEffect(() => {
     const chosenInvestmentFund = () =>
-      investmentPosition.data.find(
-        (fundo: any) => fundo.id === investmentPosition.idFund
-      )
+      [investmentPosition.data[0].posicoes.posicao]
+        .flatMap(item => item)
+        .find(
+          (posicao: any) =>
+            posicao.fundo.id_carteira === investmentPosition.idFund
+        )
 
     if (
       investmentPosition.idFund &&

@@ -1,5 +1,3 @@
-import { IToast } from "hooks/toast";
-
 export const Types = {
   SUITABILITY_INFO_GET_DATA_REQUEST: 'SUITABILITY_INFO_GET_DATA_REQUEST',
   SUITABILITY_INFO_GET_DATA_SUCCESS: 'SUITABILITY_INFO_GET_DATA_SUCCESS',
@@ -19,18 +17,4 @@ export interface ISuitabilityInfo {
   status_data_vigencia_suitability: boolean
   status_possui_suitability: boolean
   isValid?: boolean
-}
-
-export interface IAction {
-  type: keyof typeof Types
-  payload: ISuitabilityInfo
-}
-
-export interface IPayload {
-  type: string
-  payload: {
-    onSuccess: Function
-    buttonType: 'investir' | 'retirar' | 'resgatar'
-    onErrorToast: (toast: Omit<IToast, 'id'>) => void
-  }
 }

@@ -1,5 +1,4 @@
 import { Types } from './types'
-import IPosition from './iPositions'
 
 const INITIAL_STATE = {
   data: null,
@@ -9,27 +8,20 @@ const INITIAL_STATE = {
   isLoading: false,
 }
 
-interface IAction {
-  type: keyof typeof Types
-  payload?: IPosition
-  displayInformation?: boolean
-  idFund: number
-}
-
-export default function(state = INITIAL_STATE, action: IAction) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
-    case Types.POSITION_GET_DATA_REQUEST:
+    case Types.ADD_REQUEST:
       return {
         ...state,
         isLoading: true,
       }
-    case Types.POSITION_GET_DATA_SUCCESS:
+    case Types.ADD_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        data: [...action.payload],
         isLoading: false,
       }
-    case Types.POSITION_GET_DATA_FAILURE:
+    case Types.ADD_FAILURE:
       return {
         ...state,
         isLoading: false,

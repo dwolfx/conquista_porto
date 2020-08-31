@@ -89,7 +89,7 @@ export const columns = [
     Header: '',
     dataTestId: '',
     align: 'center',
-    accessor: 'fundo_ativo',
+    accessor: 'is_fundo_ativo',
     styles: {
       width: 147,
       header: {
@@ -197,7 +197,7 @@ export const columnsWithSticky = [
   },
   {
     Header: '',
-    accessor: 'fundo_ativo',
+    accessor: 'is_fundo_ativo',
     align: 'center',
     sticky: 'right',
     styles: {

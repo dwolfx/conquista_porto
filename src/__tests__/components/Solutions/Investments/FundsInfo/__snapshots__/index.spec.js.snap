@@ -805,7 +805,7 @@ exports[`FundsInfo renders correctly 1`] = `
       className="c8"
     />
     <div
-      className="c9"
+      className="c9 active"
     />
     <label>
       Maior risco
@@ -1062,7 +1062,9 @@ exports[`FundsInfo renders correctly 1`] = `
           </div>
           <div
             className="c24"
-          />
+          >
+             Úteis
+          </div>
         </div>
         <div
           className="c22"
@@ -1076,6 +1078,7 @@ exports[`FundsInfo renders correctly 1`] = `
             className="c24"
           >
             D+0
+             Úteis
           </div>
         </div>
       </div>
@@ -1094,6 +1097,7 @@ exports[`FundsInfo renders correctly 1`] = `
             className="c24"
           >
             D+30
+             Corridos
           </div>
         </div>
         <div
@@ -1108,6 +1112,7 @@ exports[`FundsInfo renders correctly 1`] = `
             className="c24"
           >
             D+1
+             Úteis
           </div>
         </div>
       </div>

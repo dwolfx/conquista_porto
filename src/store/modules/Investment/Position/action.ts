@@ -2,20 +2,20 @@ import { Types } from './types'
 
 export function GetPositionDataRequest() {
   return {
-    type: Types.POSITION_GET_DATA_REQUEST,
+    type: Types.ADD_REQUEST,
   }
 }
 
 export function GetPositionDataSuccess(payload: any) {
   return {
-    type: Types.POSITION_GET_DATA_SUCCESS,
+    type: Types.ADD_SUCCESS,
     payload,
   }
 }
 
 export function GetPositionDataFailure() {
   return {
-    type: Types.POSITION_GET_DATA_FAILURE,
+    type: Types.ADD_FAILURE,
   }
 }
 

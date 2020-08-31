@@ -5,10 +5,29 @@ import Transactions from './Transactions'
 import Taxation from './Taxation'
 
 import { ContentWrapper, GrayLine } from './styles'
-import { IFundDetails } from 'store/modules/Investment/Details/iDetails'
+
+interface IAliquota {
+  faixa: string
+  valor: string
+}
 
 interface IProps {
-  fund: IFundDetails
+  fund: {
+    minimo_inicial: string
+    aplicao_minima: string
+    saldo_minimo: string
+    hora_aplicacao: string
+    aplicacao_cotizacao: string
+    aplicacao_financeiro: string
+    contagem_dias_resgate: string
+    resgate_cotizacao: string
+    resgate_financeiro: string
+    categoria: string
+    perfil_risco: string
+    classificacao: string
+    aliquotas_ir: { aliquota: IAliquota[] }
+    regime_iof: string
+  }
 }
 export const TabDetails = ({ fund }: IProps) => (
   <ContentWrapper>

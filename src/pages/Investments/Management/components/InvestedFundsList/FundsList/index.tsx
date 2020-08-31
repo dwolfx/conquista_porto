@@ -1,10 +1,10 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { uuid } from 'uuidv4'
 import 'styled-components/macro'
 
 import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
+import { formatMoney } from 'helpers'
 
 import {
   CardStyled,
@@ -15,9 +15,9 @@ import {
 
 interface IProps {
   filteredFunds: any[]
-  idFund: number
+  idFund: string
   displayInformation: boolean
-  onHandleChangeIdFund: (idFund: number) => void
+  onHandleChangeIdFund: (idFund: string) => void
 }
 const FundsList = ({
   filteredFunds,
@@ -40,25 +40,25 @@ const FundsList = ({
     >
       {filteredFunds.map((fund: any) => (
         <FundItem
-          key={uuid()}
+          key={`fund-${fund.id_carteira}`}
           data-testid="fund-list-item"
-          selected={idFund === fund.id}
+          selected={idFund === fund.id_carteira}
           itemsLength={filteredFunds.length}
-          onClick={() => onHandleChangeIdFund(fund.id)}
+          onClick={() => onHandleChangeIdFund(fund.id_carteira)}
         >
           <HorizontalListStyled
             startItems={[
               <VerticalList
                 elements={[
                   <Text type="captionUppercase" bold color="gray6">
-                    {fund.categoria === 'Renda Variável'
+                    {fund.categoria_arena === 'Renda Variável'
                       ? 'Ações'
-                      : fund.categoria}
+                      : fund.categoria_arena}
                   </Text>,
                   <Text
                     type="body"
                     bold
-                    color={idFund === fund.id ? 'blue4' : 'gray5'}
+                    color={idFund === fund.id_carteira ? 'blue4' : 'gray5'}
                   >
                     {fund.apelido}
                   </Text>,
@@ -69,14 +69,14 @@ const FundsList = ({
               <Text
                 type="body"
                 bold
-                color={idFund === fund.id ? 'gray6' : 'gray5'}
+                color={idFund === fund.id_carteira ? 'gray6' : 'gray5'}
                 css={`
                   -webkit-text-security: ${displayInformation
                     ? 'disc'
                     : 'none'};
                 `}
               >
-                {fund.saldo_bruto}
+                {formatMoney(fund.saldo_atual)}
               </Text>,
             ]}
           />

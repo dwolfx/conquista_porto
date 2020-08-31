@@ -11,6 +11,8 @@ import {
   GTM_DATA_FUNDS_FILTROS_DRAWER,
 } from 'pages/Investments/Management/types'
 
+import useFundsList from 'pages/Investments/Management/useFundsList'
+
 import {
   Drawer,
   FilterDrawerBody,
@@ -24,7 +26,6 @@ import {
   FundsType,
   FundsTypeRow,
 } from './styles'
-import { useSelector } from 'react-redux'
 
 interface IProps {
   filters: any
@@ -52,13 +53,9 @@ const Filter: React.FC<IProps> = ({
     'CARDS'
   )
 
-  const { investmentPosition } = useSelector((state: any) => ({
-    investmentPosition: state.investmentPosition.data,
-  }))
-
   const fundsListToFilters = [
     ...new Set(
-      investmentPosition?.map(
+      useFundsList().map(
         (fund: { [item: string]: any }) => fund.categoria_arena
       )
     ),

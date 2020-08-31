@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
 import ButtonLink from 'components/Button/Link'
-import DropDown from 'components/Dropdown'
+import DropDown from 'components/DropdownNew'
 import Loading from 'components/Loading'
 import Text from 'components/Text'
 
