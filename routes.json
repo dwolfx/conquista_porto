@@ -54,5 +54,5 @@
   "/invest/aws/cotista/retiradas": "/retiradas_post",
   "/invest/aws/cotista/resgates": "/resgates_post",
   "/invest/aws/cotista/retiradas/resumo?cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&valor_operacao=:valor_operacao": "/retiradas-resumo",
-  "/invest/atlas/cotista/ultimas/movimentacoes": "/ultimas_movimentacoes"
+  "/invest/atlas/cotista/ultimas/movimentacoes/:id_fundo": "/ultimas_movimentacoes"
 }

@@ -8,11 +8,16 @@ import {
 } from './action'
 import { Types } from './types'
 
-function* getData() {
+interface IPayload {
+  fundId: string
+  type: string
+}
+
+function* getData({ fundId }: IPayload) {
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceAtlas}/cotista/ultimas/movimentacoes`
+      `${baseURLNamespaceAtlas}/cotista/ultimas/movimentacoes/${fundId}`
     )
 
     let responseData = null
