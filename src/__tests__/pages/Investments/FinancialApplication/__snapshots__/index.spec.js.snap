@@ -202,7 +202,7 @@ Object {
   width: 0;
 }
 
-.c90 {
+.c93 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -220,11 +220,11 @@ Object {
   transition: all 0.4s ease-out;
 }
 
-.c90:hover:active {
+.c93:hover:active {
   pointer-events: auto;
 }
 
-.c90:hover:active:after {
+.c93:hover:active:after {
   background-color: #EFFBFF;
   background-size: 100%;
   opacity: 0.2;
@@ -232,11 +232,11 @@ Object {
   transition: all ease 0s;
 }
 
-.c90:hover:before {
+.c93:hover:before {
   width: 100%;
 }
 
-.c90:hover:after {
+.c93:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -251,7 +251,7 @@ Object {
   width: 100%;
 }
 
-.c90:before {
+.c93:before {
   background-color: #EFFBFF;
   content: '';
   height: 100%;
@@ -263,7 +263,7 @@ Object {
   width: 0;
 }
 
-.c91 {
+.c94 {
   background: linear-gradient( to left, #018CB7 20%, #00ADEF );
   background-repeat: no-repeat;
   border: none;
@@ -281,11 +281,11 @@ Object {
   transition: all 0.4s ease-out;
 }
 
-.c91:hover:active {
+.c94:hover:active {
   pointer-events: auto;
 }
 
-.c91:hover:active:after {
+.c94:hover:active:after {
   background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
@@ -293,11 +293,11 @@ Object {
   transition: all ease 0s;
 }
 
-.c91:hover:before {
+.c94:hover:before {
   width: 100%;
 }
 
-.c91:hover:after {
+.c94:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -312,7 +312,7 @@ Object {
   width: 100%;
 }
 
-.c91:before {
+.c94:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -357,13 +357,13 @@ Object {
   width: 100%;
 }
 
-.c86 {
+.c89 {
   border-bottom: 1px solid #DDDDDD;
   height: 0%;
   width: calc(100% - 14px);
 }
 
-.c81 {
+.c84 {
   background-color: rgba(39,39,39,0.63);
   height: 100%;
   position: fixed;
@@ -376,16 +376,16 @@ Object {
   top: 0;
 }
 
-.c88 {
+.c91 {
   overflow: auto;
   padding: 21px 14px;
 }
 
-.c87 {
+.c90 {
   margin: 0 7px;
 }
 
-.c82 {
+.c85 {
   padding: 10px 14px;
   background-color: #FFFFFF;
   box-shadow: 0px 7px 21px rgba(39,39,39,0.14);
@@ -404,7 +404,7 @@ Object {
   top: 0;
 }
 
-.c83 {
+.c86 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -416,11 +416,11 @@ Object {
   padding: 14px;
 }
 
-.c83 svg {
+.c86 svg {
   margin-right: 15px;
 }
 
-.c84 {
+.c87 {
   font-family: Open Sans;
   font-size: 22px;
   -webkit-letter-spacing: 0;
@@ -435,7 +435,7 @@ Object {
   flex: 1;
 }
 
-.c85 {
+.c88 {
   background-color: #898989;
   cursor: pointer;
   height: 28px;
@@ -446,11 +446,11 @@ Object {
   width: 28px;
 }
 
-.c85:hover {
+.c88:hover {
   background-color: #00ADEF;
 }
 
-.c79 {
+.c82 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -476,15 +476,15 @@ Object {
   z-index: 13;
 }
 
-.c80 {
+.c83 {
   z-index: 14;
 }
 
-.c80 > div + div {
+.c83 > div + div {
   max-width: 484px;
 }
 
-.c89 {
+.c92 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -496,7 +496,7 @@ Object {
   justify-content: flex-end;
 }
 
-.c89 button:last-of-type {
+.c92 button:last-of-type {
   margin-left: 14px;
 }
 
@@ -606,19 +606,30 @@ Object {
   color: #00ADEF;
 }
 
-.c77 {
-  height: 53px;
-  margin-right: 7px;
+.c76 {
+  height: auto;
+  margin-right: 21px;
 }
 
-.c76 {
+.c79 {
+  height: auto;
+  margin-right: 21px;
+}
+
+.c80 {
   height: 53px;
-  margin-right: 7px;
 }
 
 .c78 {
   height: 53px;
-  margin-right: 7px;
+}
+
+.c81 {
+  height: 53px;
+}
+
+.c77 {
+  height: 53px;
 }
 
 .c75 {
@@ -626,11 +637,10 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-width: 100%;
-  height: auto;
-}
-
-.c75 a {
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
   max-width: 100%;
   height: auto;
 }
@@ -1206,13 +1216,13 @@ Object {
 }
 
 @media (max-width:736px) {
-  .c88 {
+  .c91 {
     padding: 21px 14px;
   }
 }
 
 @media (max-width:480px) {
-  .c82 {
+  .c85 {
     min-width: unset;
     width: calc(100vw - 28px);
     top: auto;
@@ -1261,24 +1271,69 @@ Object {
   }
 }
 
-@media (min-width:736px) {
-  .c77 {
-    height: auto;
-    margin-right: 28px;
-  }
-}
-
-@media (min-width:736px) {
+@media (max-width:480px) {
   .c76 {
-    height: auto;
-    margin-right: 28px;
+    width: 25%;
+    margin-right: 14px;
   }
 }
 
-@media (min-width:736px) {
-  .c78 {
+@media (max-width:480px) {
+  .c79 {
+    width: 25%;
+    margin-right: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c80 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c80 {
+    width: 100%;
     height: auto;
-    margin-right: 28px;
+  }
+}
+
+@media (max-width:736px) {
+  .c78 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c78 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width:736px) {
+  .c81 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c81 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width:736px) {
+  .c77 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c77 {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -2012,27 +2067,47 @@ Object {
                               class="c75"
                             >
                               <a
+                                class="c76"
+                                href="http://www.cvm.gov.br/index.html"
+                                rel="noopener noreferrer"
+                                target="blank"
+                              >
+                                <img
+                                  alt="Logo Anbima - CVM"
+                                  class="c77"
+                                  src="logo-anbima-cvm.png"
+                                />
+                              </a>
+                              <a
+                                class="c76"
                                 href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+                                rel="noopener noreferrer"
                                 target="blank"
                               >
                                 <img
                                   alt="Logo Anbima - Gestao"
-                                  class="c76"
+                                  class="c78"
                                   src="logo-anbima-gestao.png"
                                 />
                               </a>
-                              <img
-                                alt="Logo Anbima - Distribuição"
-                                class="c77"
-                                src="logo-anbima-distribuicao.png"
-                              />
+                              <div
+                                class="c79"
+                              >
+                                <img
+                                  alt="Logo Anbima - Distribuição"
+                                  class="c80"
+                                  src="logo-anbima-distribuicao.png"
+                                />
+                              </div>
                               <a
+                                class="c76"
                                 href="https://comoinvestir.anbima.com.br/"
+                                rel="noopener noreferrer"
                                 target="blank"
                               >
                                 <img
                                   alt="Logo Anbima - Investir"
-                                  class="c78"
+                                  class="c81"
                                   src="logo-anbima-como-investir.png"
                                 />
                               </a>
@@ -2046,24 +2121,24 @@ Object {
               </div>
             </div>
             <div
-              class="c79 c80"
+              class="c82 c83"
             >
               <div
-                class="c81"
+                class="c84"
               />
               <div
-                class="c82"
+                class="c85"
               >
                 <div
-                  class="c83"
+                  class="c86"
                 >
                   <h3
-                    class="c84"
+                    class="c87"
                   >
                     Sair da página?
                   </h3>
                   <div
-                    class="c85"
+                    class="c88"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Sair da página?"
@@ -2071,10 +2146,10 @@ Object {
                   />
                 </div>
                 <div
-                  class="c86 c87"
+                  class="c89 c90"
                 />
                 <div
-                  class="c88"
+                  class="c91"
                 >
                   <p
                     class="c43"
@@ -2084,10 +2159,10 @@ Object {
                     Todas as informações serão perdidas e a solicitação não será finalizada.
                   </p>
                   <div
-                    class="c89"
+                    class="c92"
                   >
                     <button
-                      class="c90"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2097,7 +2172,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c91"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2111,24 +2186,24 @@ Object {
               </div>
             </div>
             <div
-              class="c79 c80"
+              class="c82 c83"
             >
               <div
-                class="c81"
+                class="c84"
               />
               <div
-                class="c82"
+                class="c85"
               >
                 <div
-                  class="c83"
+                  class="c86"
                 >
                   <h3
-                    class="c84"
+                    class="c87"
                   >
                     Risco acima do seu perfil
                   </h3>
                   <div
-                    class="c85"
+                    class="c88"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Risco acima do seu perfil"
@@ -2136,10 +2211,10 @@ Object {
                   />
                 </div>
                 <div
-                  class="c86 c87"
+                  class="c89 c90"
                 />
                 <div
-                  class="c88"
+                  class="c91"
                 >
                   <p
                     class="c43"
@@ -2149,10 +2224,10 @@ Object {
                     Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
                   </p>
                   <div
-                    class="c89"
+                    class="c92"
                   >
                     <button
-                      class="c90"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2162,7 +2237,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c91"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2182,38 +2257,38 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-fzqLLg OIkNN sc-fzoMdx haBmgZ"
+      class="sc-fzoWqW enRPdV sc-fznzqM iAtYLM"
     >
       <div
-        class="sc-fzokvW fhsigt"
+        class="sc-fzoxnE hxzUEA"
       >
         <div
-          class="sc-fzqzlV dQoiMs"
+          class="sc-fzoMdx djoxjH"
         >
           <div
-            class="sc-fzoyTs sc-fzonjX gwuQAg"
+            class="sc-fzoyTs sc-fzoCCn BAsXO"
             data-name="container"
           >
             <div
-              class="sc-fzoNJl sc-fzoPby hTomUn"
+              class="sc-fzoNJl sc-fznBtT cdDKcf"
               data-name="row"
             >
               <div
-                class="sc-fzoXWK sc-fzppAM bXShQw"
+                class="sc-fzoXWK sc-fzobTh fHJwqZ"
                 data-name="col-lg-12"
               >
                 <div
-                  class="sc-fzplgP iDhhLH"
+                  class="sc-fznYue LANor"
                 >
                   <div
-                    class="sc-fznYue jNWZOl"
+                    class="sc-fzqOul dWjEbN"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao voltar step"
                     data-gtm-subname="layer Investimentir"
                     data-gtm-type="click"
                   />
                   <div
-                    class="sc-fznOgF eVdNiP"
+                    class="sc-fzqzEs hNLVTq"
                   >
                     <img
                       alt="Logo Conquista Beta"
@@ -2221,7 +2296,7 @@ Object {
                     />
                   </div>
                   <div
-                    class="sc-fznYue hhxrWs layer-close-button"
+                    class="sc-fzqOul cVvspw layer-close-button"
                     data-gtm-clicktype="button"
                     data-gtm-name="botao fechar"
                     data-gtm-subname="botao fechar layer"
@@ -2233,24 +2308,24 @@ Object {
           </div>
         </div>
         <div
-          class="sc-fzoxnE bRrapU"
+          class="sc-fzplgP cIVKHz"
         >
           <div
-            class="sc-fzoWqW ksIgwL"
+            class="sc-fznOgF gUdIAB"
           >
             <div
-              class="sc-fznBtT cQolQA"
+              class="sc-fzooss hVbqXQ"
             >
               <div
-                class="sc-fzoyTs sc-fzonjX gwuQAg"
+                class="sc-fzoyTs sc-fzoCCn BAsXO"
                 data-name="container"
               >
                 <div
-                  class="sc-fzoNJl sc-fznNTe dUagPi"
+                  class="sc-fzoNJl sc-fzqyvX eRNCHx"
                   data-name="row"
                 >
                   <div
-                    class="sc-fzoXWK sc-fzobTh kYSxlg"
+                    class="sc-fzoXWK sc-fzqKVi cIxmHs"
                     data-name="col-lg-12"
                   >
                     <div
@@ -2284,40 +2359,40 @@ Object {
               </div>
             </div>
             <div
-              class="sc-fzqyvX lkXOqf"
+              class="sc-fzoOEf fyxJLm"
             >
               <div
-                class="sc-fzoyTs sc-fzqzEs qlhpb"
+                class="sc-fzoyTs sc-fzoPby gGJUMS"
                 data-name="container"
               >
                 <div
-                  class="sc-fzoNJl sc-fzoCCn hoIBTm"
+                  class="sc-fzoNJl sc-fzppAM cMVDtH"
                   data-name="row"
                 >
                   <div
-                    class="sc-fzoXWK sc-fzppAM lmLyVE"
+                    class="sc-fzoXWK sc-fzobTh eenLEV"
                     data-name="col-sm-12 col-md-4 col-lg-3"
                   >
                     <div />
                   </div>
                   <div
-                    class="sc-fzoXWK sc-fzppAM bouzmU"
+                    class="sc-fzoXWK sc-fzobTh kgSbKZ"
                     data-name="col-sm-12 col-md-8 col-lg-9"
                   >
                     <div
-                      class="sc-fzowVh keNuer sc-paXsP eSDVxk"
+                      class="sc-fzpisO jmQDPE sc-qQmou bvyEeb"
                     >
                       <div
-                        class="sc-fznLxA gbABtf"
+                        class="sc-fzqzlV grdOFp"
                       >
                         <div
-                          class="sc-prOVx bSubbm"
+                          class="sc-pAZqv gwpCpt"
                         >
                           <div
-                            class="sc-pZBmh liRXgS sc-qQmou hlUmgW"
+                            class="sc-pjSSY OWUuQ sc-pJurq kYjLRN"
                           >
                             <div
-                              class="sc-oTbqq gZgjWY"
+                              class="sc-prOVx cQhACi"
                             >
                               <p
                                 class="sc-AxjAm bvIKRM"
@@ -2343,10 +2418,10 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-pZBmh liRXgS sc-qQmou hlUmgW"
+                            class="sc-pjSSY OWUuQ sc-pJurq kYjLRN"
                           >
                             <div
-                              class="sc-oTbqq gZgjWY"
+                              class="sc-prOVx cQhACi"
                             >
                               <p
                                 class="sc-AxjAm bvIKRM"
@@ -2373,14 +2448,14 @@ Object {
                           </div>
                         </div>
                         <div
-                          class="sc-fznZeY bIELTx sc-qYiqT eXlOLS"
+                          class="sc-fznZeY bIELTx sc-pRTZB ewiABE"
                         />
                         <div
-                          class="sc-fzoNJl sc-pAZqv jusVKg"
+                          class="sc-fzoNJl sc-qapaw eSAYRa"
                           data-name="row"
                         >
                           <div
-                            class="sc-fzoXWK sc-pJurq iZztjA"
+                            class="sc-fzoXWK sc-oTmZL hdlqiY"
                             data-name="col-sm-6"
                           >
                             <p
@@ -2391,22 +2466,22 @@ Object {
                               Quanto você quer investir?
                             </p>
                             <div
-                              class="sc-fzqyOu kPfvSS FormFinancialContribution___StyledMoneyInput-u3h0sg-0 fHPlos"
+                              class="sc-pIJJz ibCCIB FormFinancialContribution___StyledMoneyInput-u3h0sg-0 fHPlos"
                             >
                               <div
-                                class="sc-fzoOEf kFxeiJ"
+                                class="sc-fznBMq cqlIVe"
                               >
                                 <div
-                                  class="sc-fzpdyU gCVsme"
+                                  class="sc-fznNvL ptdOg"
                                 >
                                   <div
-                                    class="sc-fznBMq bXZsZk"
+                                    class="sc-fzonZV lbdDFF"
                                     id="prefix"
                                   >
                                     R$
                                   </div>
                                   <input
-                                    class="sc-fzonZV hqWZRy"
+                                    class="sc-pANHa dtxjmd"
                                     data-gtm-form="input"
                                     data-gtm-name="quanto investir"
                                     data-testid="financial-application-money-input"
@@ -2417,7 +2492,7 @@ Object {
                             </div>
                           </div>
                           <div
-                            class="sc-fzoXWK sc-pJurq iZztjA"
+                            class="sc-fzoXWK sc-oTmZL hdlqiY"
                             data-name="col-sm-6"
                           >
                             <p
@@ -2428,16 +2503,16 @@ Object {
                               Quando você deseja investir?
                             </p>
                             <div
-                              class="sc-fzqyOu kPfvSS FormFinancialContribution___StyledDateInput-u3h0sg-1 dSqDJt"
+                              class="sc-pIJJz ibCCIB FormFinancialContribution___StyledDateInput-u3h0sg-1 dSqDJt"
                             >
                               <div
-                                class="sc-fzoOEf kFxeiJ"
+                                class="sc-fznBMq cqlIVe"
                               >
                                 <div
-                                  class="sc-fzpdyU gCVsme"
+                                  class="sc-fznNvL ptdOg"
                                 >
                                   <input
-                                    class="sc-fzonZV hqWZRy"
+                                    class="sc-pANHa dtxjmd"
                                     data-gtm-form="input"
                                     data-gtm-name="quando investir"
                                     maxlength="10"
@@ -2449,10 +2524,10 @@ Object {
                           </div>
                         </div>
                         <div
-                          class="sc-fznZeY bIELTx sc-qYiqT hTNycy"
+                          class="sc-fznZeY bIELTx sc-pRTZB iDmjZE"
                         />
                         <div
-                          class="sc-fznzqM csiwJO"
+                          class="sc-fzonjX dDCelJ"
                         >
                           <p
                             class="sc-AxjAm hvlAI"
@@ -2468,7 +2543,7 @@ Object {
                           class="sc-fznZeY bIELTx"
                         />
                         <div
-                          class="sc-pbIaG fXuMHK"
+                          class="sc-qQxXP fHsPJj"
                         >
                           <input
                             class="sc-fzqNqU erjdrk"
@@ -2487,7 +2562,7 @@ Object {
                               Confirmo que li e concordo com todas as informações contidas no
                                
                               <a
-                                class="sc-pkhIR hCAvAB"
+                                class="sc-qYSYK hMWJgk"
                                 href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf"
                                 rel="noopener noreferrer"
                                 target="_blank"
@@ -2500,13 +2575,13 @@ Object {
                         </div>
                       </div>
                       <div
-                        class="sc-fznXWL fvBxIH"
+                        class="sc-fzqLLg cOUNMA"
                       >
                         <div
-                          class="sc-oTmZL gfRtEb"
+                          class="sc-psCJM itjKow"
                         >
                           <button
-                            class="sc-fznyAO heVZBW sc-psCJM iwfXmu"
+                            class="sc-fznyAO heVZBW sc-pBolk iDSdPL"
                             color="secondary"
                             disabled=""
                           >
@@ -2523,26 +2598,26 @@ Object {
                 </div>
               </div>
               <div
-                class="sc-fzoyTs sc-fzqOul iBypQS"
+                class="sc-fzoyTs sc-fzpdbB bUaAAp"
                 data-name="container"
               >
                 <div
-                  class="sc-fzoNJl sc-fzoPby hTomUn"
+                  class="sc-fzoNJl sc-fznBtT cdDKcf"
                   data-name="row"
                 >
                   <div
-                    class="sc-fzoXWK sc-fzppAM gSsrgW"
+                    class="sc-fzoXWK sc-fzobTh bodJPH"
                     data-name=""
                   >
                     <p
-                      class="sc-AxjAm hvlAI sc-fzoCUK cFECfq"
+                      class="sc-AxjAm hvlAI sc-fzppip dOJhqV"
                       color="gray5"
                       type="body"
                     >
                       Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.
                     </p>
                     <div
-                      class="sc-fzoyTs sc-fznMnq ctueCk sc-fzqKVi jWLCy"
+                      class="sc-fzoyTs sc-fznMnq ctueCk sc-fzpdyU jcNXuL"
                       data-name="container"
                     >
                       <div
@@ -2624,7 +2699,7 @@ Object {
             Assembléias acesse 
                             </p>
                             <a
-                              class="sc-fznAgC dbXiMN"
+                              class="sc-fzomuh eGtsA-d"
                               data-gtm-clicktype="link"
                               data-gtm-name="www.conquista.com.vc"
                               data-gtm-subname="Anbima"
@@ -2649,30 +2724,50 @@ Object {
                             </p>
                           </div>
                           <div
-                            class="sc-fznLPX hqGrGp"
+                            class="sc-fzqAui gNxBMp"
                           >
                             <a
+                              class="sc-fzoJMP chiRfx"
+                              href="http://www.cvm.gov.br/index.html"
+                              rel="noopener noreferrer"
+                              target="blank"
+                            >
+                              <img
+                                alt="Logo Anbima - CVM"
+                                class="sc-fzoaKM gnDYFA"
+                                src="logo-anbima-cvm.png"
+                              />
+                            </a>
+                            <a
+                              class="sc-fzoJMP chiRfx"
                               href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+                              rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - Gestao"
-                                class="sc-fzoYHE jmzNZk"
+                                class="sc-fznAgC fzmodj"
                                 src="logo-anbima-gestao.png"
                               />
                             </a>
-                            <img
-                              alt="Logo Anbima - Distribuição"
-                              class="sc-fzoJMP kAeauL"
-                              src="logo-anbima-distribuicao.png"
-                            />
+                            <div
+                              class="sc-fzoYHE GoTTU"
+                            >
+                              <img
+                                alt="Logo Anbima - Distribuição"
+                                class="sc-fzpkqZ rtxaU"
+                                src="logo-anbima-distribuicao.png"
+                              />
+                            </div>
                             <a
+                              class="sc-fzoJMP chiRfx"
                               href="https://comoinvestir.anbima.com.br/"
+                              rel="noopener noreferrer"
                               target="blank"
                             >
                               <img
                                 alt="Logo Anbima - Investir"
-                                class="sc-fzpkqZ dpUTLj"
+                                class="sc-fznLPX hKBORO"
                                 src="logo-anbima-como-investir.png"
                               />
                             </a>

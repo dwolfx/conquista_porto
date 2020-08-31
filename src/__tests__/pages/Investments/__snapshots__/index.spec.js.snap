@@ -679,19 +679,30 @@ Object {
   color: #00ADEF;
 }
 
-.c60 {
-  height: 53px;
-  margin-right: 7px;
+.c59 {
+  height: auto;
+  margin-right: 21px;
 }
 
-.c59 {
+.c62 {
+  height: auto;
+  margin-right: 21px;
+}
+
+.c63 {
   height: 53px;
-  margin-right: 7px;
 }
 
 .c61 {
   height: 53px;
-  margin-right: 7px;
+}
+
+.c64 {
+  height: 53px;
+}
+
+.c60 {
+  height: 53px;
 }
 
 .c58 {
@@ -699,11 +710,10 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-width: 100%;
-  height: auto;
-}
-
-.c58 a {
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
   max-width: 100%;
   height: auto;
 }
@@ -983,24 +993,69 @@ Object {
   }
 }
 
-@media (min-width:736px) {
-  .c60 {
-    height: auto;
-    margin-right: 28px;
-  }
-}
-
-@media (min-width:736px) {
+@media (max-width:480px) {
   .c59 {
-    height: auto;
-    margin-right: 28px;
+    width: 25%;
+    margin-right: 14px;
   }
 }
 
-@media (min-width:736px) {
-  .c61 {
+@media (max-width:480px) {
+  .c62 {
+    width: 25%;
+    margin-right: 14px;
+  }
+}
+
+@media (max-width:736px) {
+  .c63 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c63 {
+    width: 100%;
     height: auto;
-    margin-right: 28px;
+  }
+}
+
+@media (max-width:736px) {
+  .c61 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c61 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width:736px) {
+  .c64 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c64 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width:736px) {
+  .c60 {
+    width: 85px;
+  }
+}
+
+@media (max-width:480px) {
+  .c60 {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -3399,27 +3454,47 @@ Object {
               class="c58"
             >
               <a
+                class="c59"
+                href="http://www.cvm.gov.br/index.html"
+                rel="noopener noreferrer"
+                target="blank"
+              >
+                <img
+                  alt="Logo Anbima - CVM"
+                  class="c60"
+                  src="logo-anbima-cvm.png"
+                />
+              </a>
+              <a
+                class="c59"
                 href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+                rel="noopener noreferrer"
                 target="blank"
               >
                 <img
                   alt="Logo Anbima - Gestao"
-                  class="c59"
+                  class="c61"
                   src="logo-anbima-gestao.png"
                 />
               </a>
-              <img
-                alt="Logo Anbima - Distribuição"
-                class="c60"
-                src="logo-anbima-distribuicao.png"
-              />
+              <div
+                class="c62"
+              >
+                <img
+                  alt="Logo Anbima - Distribuição"
+                  class="c63"
+                  src="logo-anbima-distribuicao.png"
+                />
+              </div>
               <a
+                class="c59"
                 href="https://comoinvestir.anbima.com.br/"
+                rel="noopener noreferrer"
                 target="blank"
               >
                 <img
                   alt="Logo Anbima - Investir"
-                  class="c61"
+                  class="c64"
                   src="logo-anbima-como-investir.png"
                 />
               </a>
@@ -3780,13 +3855,13 @@ Object {
       </div>
     </section>
     <section
-      class="sc-fznXWL lokpRc"
+      class="sc-fzqLLg lgzqjH"
     >
       <div
-        class="sc-fzokvW brMSgA"
+        class="sc-fzoxnE gchHFp"
       >
         <picture
-          class="sc-fzqzlV cpWdPV"
+          class="sc-fzoMdx foBRFG"
         >
           <img
             alt="Mulher feliz"
@@ -3794,7 +3869,7 @@ Object {
           />
         </picture>
         <div
-          class="sc-fzqLLg fHZCxi"
+          class="sc-fzoWqW gzRxEu"
         >
           <h1>
             Investindo em objetivos
@@ -5776,7 +5851,7 @@ Object {
             Assembléias acesse 
             </p>
             <a
-              class="sc-fznyYp ePFTkY"
+              class="sc-fzokvW kJbQFf"
               data-gtm-clicktype="link"
               data-gtm-name="www.conquista.com.vc"
               data-gtm-subname="Anbima"
@@ -5801,30 +5876,50 @@ Object {
             </p>
           </div>
           <div
-            class="sc-fznLxA eHqwiU"
+            class="sc-fzqzlV ibyOaQ"
           >
             <a
+              class="sc-fzoJus hCZGDm"
+              href="http://www.cvm.gov.br/index.html"
+              rel="noopener noreferrer"
+              target="blank"
+            >
+              <img
+                alt="Logo Anbima - CVM"
+                class="sc-fznXWL dlLkbp"
+                src="logo-anbima-cvm.png"
+              />
+            </a>
+            <a
+              class="sc-fzoJus hCZGDm"
               href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
+              rel="noopener noreferrer"
               target="blank"
             >
               <img
                 alt="Logo Anbima - Gestao"
-                class="sc-fzoVTD gIfCES"
+                class="sc-fznyYp GNFAy"
                 src="logo-anbima-gestao.png"
               />
             </a>
-            <img
-              alt="Logo Anbima - Distribuição"
-              class="sc-fzoJus ifKaRY"
-              src="logo-anbima-distribuicao.png"
-            />
+            <div
+              class="sc-fzoVTD iupUgy"
+            >
+              <img
+                alt="Logo Anbima - Distribuição"
+                class="sc-fzpisO iCApuR"
+                src="logo-anbima-distribuicao.png"
+              />
+            </div>
             <a
+              class="sc-fzoJus hCZGDm"
               href="https://comoinvestir.anbima.com.br/"
+              rel="noopener noreferrer"
               target="blank"
             >
               <img
                 alt="Logo Anbima - Investir"
-                class="sc-fzpisO AfIFC"
+                class="sc-fznLxA cgytz"
                 src="logo-anbima-como-investir.png"
               />
             </a>
