@@ -15,14 +15,12 @@ import { useSelector } from 'react-redux'
 // import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 
 import InvestmentCard from './InvestmentCard'
-// import InvestmentSection from './InvestmentSection'
 import PrivateWelfareSection from './PrivateWelfare'
 // import ProductItemGenerator from './ProductItemGenerator'
 
 import CardHeaderState from './commons/CardHeaderState'
 import {
   GridCol,
-  // HomeInvestmentCard,
   HomePrivateWelfareCard,
   GridColFlexContainer,
   GridColFlexCard,
@@ -100,22 +98,6 @@ const SectionOne = ({ onFetchInvestments }) => {
             />
           }
         />
-        {/* <HomeInvestmentCard
-          headerIcon="financial"
-          headerTitle="Investimentos"
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
-        >
-          <InvestmentSection onFetchInvestments={onFetchInvestments} />
-        </HomeInvestmentCard> */}
       </GridCol>
       <GridCol lg="4" md="6" sm="12">
         <HomePrivateWelfareCard
