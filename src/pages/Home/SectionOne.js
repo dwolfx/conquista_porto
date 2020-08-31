@@ -15,13 +15,15 @@ import { useSelector } from 'react-redux'
 // import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 
 import InvestmentCard from './InvestmentCard'
-// import PrivateWelfareSection from './PrivateWelfare'
+// import InvestmentSection from './InvestmentSection'
+import PrivateWelfareSection from './PrivateWelfare'
 // import ProductItemGenerator from './ProductItemGenerator'
 
 import CardHeaderState from './commons/CardHeaderState'
 import {
   GridCol,
-  // HomePrivateWelfareCard,
+  // HomeInvestmentCard,
+  HomePrivateWelfareCard,
   GridColFlexContainer,
   GridColFlexCard,
 } from './styles'
@@ -98,9 +100,25 @@ const SectionOne = ({ onFetchInvestments }) => {
             />
           }
         />
+        {/* <HomeInvestmentCard
+          headerIcon="financial"
+          headerTitle="Investimentos"
+          headerEndItem={
+            <CardHeaderState
+              showHeader={Boolean(
+                investments.data && Object.entries(investments.data).length
+              )}
+              isLoading={investments.isLoading}
+              hasError={investments.hasError}
+              onErrorClick={() => onFetchInvestments()}
+            />
+          }
+        >
+          <InvestmentSection onFetchInvestments={onFetchInvestments} />
+        </HomeInvestmentCard> */}
       </GridCol>
       <GridCol lg="4" md="6" sm="12">
-        {/* <HomePrivateWelfareCard
+        <HomePrivateWelfareCard
           headerIcon="time"
           headerTitle="Previdência"
           headerEndItem={
@@ -115,20 +133,7 @@ const SectionOne = ({ onFetchInvestments }) => {
           }
         >
           <PrivateWelfareSection />
-        </HomePrivateWelfareCard> */}
-        <InvestmentCard
-          onFetchInvestments={onFetchInvestments}
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
-        />
+        </HomePrivateWelfareCard>
       </GridCol>
       <GridColFlexContainer lg="3" md="12" mdOffset="0" sm="12" xs="12">
         <GridColFlexCard
