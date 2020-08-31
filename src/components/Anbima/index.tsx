@@ -12,6 +12,7 @@ import {
   LogosContainer,
   Text,
   TextWrapper,
+  LogoAnbimaCVM,
 } from './styled'
 
 interface IMailLink {
@@ -83,6 +84,9 @@ const Anbima = ({ ...rest }) => (
           <Text>.</Text>
         </TextWrapper>
         <LogosContainer>
+          <a href="http://www.cvm.gov.br/index.html" target="blank">
+            <LogoAnbimaCVM />
+          </a>
           <a
             href="https://www.anbima.com.br/data/files/0D/E6/16/1D/294D561057EB3C5678A80AC2/codigo_de_Administracao_de_Recursos_de_Terceiros_02_01_19.pdf"
             target="blank"

@@ -7,6 +7,7 @@ import TextComponent from 'components/Text'
 import AnbimaDistribuicao from 'assets/images/logo-anbima-distribuicao.png'
 import AnbimaGestao from 'assets/images/logo-anbima-gestao.png'
 import AnbimaInvestir from 'assets/images/logo-anbima-como-investir.png'
+import AnbimaCVM from 'assets/images/logo-anbima-cvm.png'
 
 export const GridContainer = styled(Container)`
   margin: ${({ theme }) => `${theme.spacing(4)}px auto`};
@@ -51,6 +52,10 @@ export const LogoAnbimaDistribuicao = styled.img.attrs(() => ({
     height: auto;
     margin-right: ${props => props.theme.spacing(4)}px;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: 85px;
+  }
 `
 
 export const LogoAnbimaGestao = styled.img.attrs(() => ({
@@ -64,6 +69,10 @@ export const LogoAnbimaGestao = styled.img.attrs(() => ({
     height: auto;
     margin-right: ${props => props.theme.spacing(4)}px;
   }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: 85px;
+  }
 `
 
 export const LogoAnbimaInvestir = styled.img.attrs(() => ({
@@ -76,6 +85,27 @@ export const LogoAnbimaInvestir = styled.img.attrs(() => ({
   @media ${props => props.theme.mediaQueries.smUp} {
     height: auto;
     margin-right: ${props => props.theme.spacing(4)}px;
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: 85px;
+  }
+`
+
+export const LogoAnbimaCVM = styled.img.attrs(() => ({
+  src: AnbimaCVM,
+  alt: 'Logo Anbima - CVM',
+}))`
+  height: 53px;
+  margin-right: ${props => props.theme.spacing(1)}px;
+
+  @media ${props => props.theme.mediaQueries.smUp} {
+    height: auto;
+    margin-right: ${props => props.theme.spacing(4)}px;
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    width: 85px;
   }
 `
 
