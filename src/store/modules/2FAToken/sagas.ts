@@ -7,7 +7,7 @@ import {
   validateSignature,
 } from 'store/modules/VirtualKeyboard/sagas'
 import { Types as KeyboardTypes } from 'store/modules/VirtualKeyboard/types'
-
+import RequiredDeviceException from './RequiredDevicesException'
 import {
   Post2FATokenDataSuccess,
   Post2FATokenDataFailure,
@@ -97,15 +97,29 @@ export function* getTokenData() {
         auth.cpf
       }&organizacao=${handleOrganizacao()}`
     )
+
+    if (
+      (response.data &&
+        !response.data.find((item: any) => item.name === 'sms_otp')) ||
+      !response.data.find((item: any) => item.name === 'email_otp')
+    ) {
+      throw new RequiredDeviceException()
+    }
     yield put(Get2FADataSuccess(response.data))
   } catch (err) {
     yield put(Get2FADataFailure())
-    throw new Error(err)
+    switch (err.constructor) {
+      case RequiredDeviceException:
+        console.error('Não há dispositivos cadastrado para o 2FA')
+        throw err
+      default:
+        throw new Error(err)
+    }
   }
 }
 
 export function* run2FAInitialRequest({
-  payload: { addToast, onSuccess },
+  payload: { addToast, onSuccess, onError },
 }: IGenerate) {
   yield fork(generateAndSendToken, {
     type: Types.POST_REQUEST,
@@ -125,11 +139,25 @@ export function* run2FAInitialRequest({
       onSuccess()
     }
   } catch (err) {
-    addToast({
-      description: 'Tente novamente.',
-      title: 'Um erro inesperado ocorreu.',
-      type: 'error',
-    })
+    switch (err.constructor) {
+      case RequiredDeviceException:
+        if (onError) {
+          onError()
+        } else {
+          addToast({
+            description: 'Não há dispositivo cadastrado.',
+            title: 'Problema 2FA.',
+            type: 'error',
+          })
+        }
+        break
+      default:
+        addToast({
+          description: 'Tente novamenteeeeeeee.',
+          title: 'Um erro inesperado ocorreu.',
+          type: 'error',
+        })
+    }
   } finally {
     yield put(
       SetTokenLoading({

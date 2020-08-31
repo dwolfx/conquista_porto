@@ -56,6 +56,7 @@ const MainContent = ({
     withdrawValue: '',
     bankId: '',
   })
+  const [isInfoErrorModalOpen, setInfoErrorModalOpen] = useState(false)
 
   useFetchBankData()
   const {
@@ -77,6 +78,10 @@ const MainContent = ({
       inputRef.current.focus()
     }
   }, [withdrawInfos.isLoadingDetails, inputRef])
+
+  const handleInfoErrorModalOpen = () => {
+    setInfoErrorModalOpen(false)
+  }
 
   const handlePostWithdraw = useCallback(async () => {
     setIsLoading(true)
@@ -203,7 +208,13 @@ const MainContent = ({
     <s.Card
       footer={cardFooter({
         nextStepAction: () =>
-          dispatch(Run2FAInitialRequest({ addToast, onSuccess: nextStep })),
+          dispatch(
+            Run2FAInitialRequest({
+              addToast,
+              onSuccess: nextStep,
+              onError: () => setInfoErrorModalOpen(true),
+            })
+          ),
       })}
     >
       <s.BodyWrapper>
@@ -244,20 +255,41 @@ const MainContent = ({
     return <MessageCard type={isSuccess ? 'success' : 'error'} />
   }
 
-  return isMobile ? (
+  return (
     <>
-      <s.Accordion
-        titleNode="Informações"
-        triggerCloseOnArrow={true}
-        openByDefault={false}
+      <s.ModalInfoError
+        modalTitle="Cadastrar celular"
+        handleClose={handleInfoErrorModalOpen}
+        isOpen={isInfoErrorModalOpen}
       >
-        <Divisor />
-        <AccountDetail onError={onError} />
-      </s.Accordion>
-      <s.Card>{stepsContent[step - 1]}</s.Card>
+        <Text type="headline" color="gray6">
+          Por segurança, só é possível concluir a operação após informar o token
+          recebido via celular. Para dúvidas, entre em contato com a nossa
+          Central de Atendimento - (11) 3366 3200.
+        </Text>
+
+        <s.ModalButtonWrapper>
+          <s.ModalButton onClick={handleInfoErrorModalOpen}>
+            Fechar
+          </s.ModalButton>
+        </s.ModalButtonWrapper>
+      </s.ModalInfoError>
+      {isMobile ? (
+        <>
+          <s.Accordion
+            titleNode="Informações"
+            triggerCloseOnArrow={true}
+            openByDefault={false}
+          >
+            <Divisor />
+            <AccountDetail onError={onError} />
+          </s.Accordion>
+          <s.Card>{stepsContent[step - 1]}</s.Card>
+        </>
+      ) : (
+        <>{stepsContent[step - 1]}</>
+      )}
     </>
-  ) : (
-    <>{stepsContent[step - 1]}</>
   )
 }
 
