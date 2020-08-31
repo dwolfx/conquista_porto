@@ -259,20 +259,20 @@ TableFunds.propTypes = {
   onChangeIsFundDetailOpen: PropTypes.func.isRequired,
   setIsOpenForInvestments: PropTypes.func.isRequired,
   fundsType: PropTypes.array.isRequired,
-  clickedFundInvestButton: PropTypes.number,
+  clickedFundInvestButton: PropTypes.string,
   filteredFundListEmpty: PropTypes.bool.isRequired,
 }
 
 TableFunds.defaultProps = {
   isFiltering: false,
-  clickedFundInvestButton: 0,
+  clickedFundInvestButton: '',
 }
 
 SimpleHeader.propTypes = {
   header: PropTypes.shape({
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     widthHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    dataTestId: PropTypes.string,
+    dataTestId: PropTypes.string.isRequired,
     minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     styles: PropTypes.shape({

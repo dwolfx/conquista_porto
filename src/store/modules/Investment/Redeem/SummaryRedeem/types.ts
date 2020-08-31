@@ -9,7 +9,7 @@ export const Types = {
 }
 
 export interface IGetRedeemSummaryRequest {
-  id_fundo: number
+  id_fundo: string
   data_operacao: string
   valor: string
   tipo_operacao: string

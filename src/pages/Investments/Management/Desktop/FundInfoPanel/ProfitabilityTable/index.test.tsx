@@ -2,15 +2,10 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
-import { GetComparativeProfitabilityDataSuccess } from 'store/modules/Investment/ComparativeProfitability/action'
-import IComparativeProfitability from 'store/modules/Investment/ComparativeProfitability/iComparativeProfitability'
-import { renderWithReduxAndTheme, fireEvent, screen } from 'testUtils'
-
-import { storeFactory } from 'setupTests'
 
 import ProfitabilityTable from '.'
 
-const ProfitabilityMock: IComparativeProfitability = {
+const ProfitabilityMock = {
   hist_rentabil_benchmark: {
     rentabil_Ano: '1.02',
     rentabil_24_meses: '12.14',
@@ -20,7 +15,7 @@ const ProfitabilityMock: IComparativeProfitability = {
     rentabil_mes_anteiror: '0.29',
     benchmark: {
       nome: 'CDI',
-      id: 1,
+      id: '1',
     },
     rentabil_mes: '0.34',
   },
@@ -33,35 +28,29 @@ const ProfitabilityMock: IComparativeProfitability = {
     rel_fundo_benchmark_dia: '-',
     rentabil_mes_anteiror: '-0.71',
     rel_fundo_benchmark_24_meses: '105.04',
+    rel_fundo_benchmark_mes_anteiror: '105.04',
     rel_fundo_benchmark_ano: '-',
     rentabil_24_meses: '12.75',
     rel_fundo_benchmark_36_meses: '117.24',
-    id_carteira: 5112,
+    id_carteira: '5112',
     rentabil_dia: '-0.02',
     rentabil_mes: '-2.95',
     rel_fundo_benchmark_12_meses: '119.78',
   },
-}
-
-const renderWithProviders = (customStore?: any) => {
-  return renderWithReduxAndTheme(<ProfitabilityTable fundId={'12'} />, {
-    store: customStore,
-  })
+  data_referencia: '2020-03-23T00:00:00-03:00',
 }
 
 const setup = (children: React.ReactElement) => {
-  return renderWithReduxAndTheme(
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  )
+  return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 }
 
 describe('ProfitabilityTable', () => {
   test('With Props', () => {
-    const store = storeFactory()
-    const { queryByText } = renderWithProviders(store)
-    store.dispatch(GetComparativeProfitabilityDataSuccess(ProfitabilityMock))
-    expect(queryByText('1,02')).toBeDefined()
-    expect(queryByText('-3,01')).toBeDefined()
+    const { getByText } = setup(
+      <ProfitabilityTable profitability={ProfitabilityMock} />
+    )
+    expect(getByText('1,02')).toBeDefined()
+    expect(getByText('-3,01')).toBeDefined()
   })
 
   test('Without Props', () => {

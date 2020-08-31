@@ -13,10 +13,10 @@ describe('Investment/Position reducer', () => {
     expect(reducer(undefined, {})).toEqual(INITIAL_STATE)
   })
 
-  it('should handle POSITION_GET_DATA_REQUEST', () => {
+  it('should handle ADD_REQUEST', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: Types.POSITION_GET_DATA_REQUEST,
+        type: Types.ADD_REQUEST,
       })
     ).toEqual({
       ...INITIAL_STATE,
@@ -24,10 +24,10 @@ describe('Investment/Position reducer', () => {
     })
   })
 
-  it('should handle POSITION_GET_DATA_SUCCESS', () => {
+  it('should handle ADD_SUCCESS', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: Types.POSITION_GET_DATA_SUCCESS,
+        type: Types.ADD_SUCCESS,
         payload: [{ name: 'Aqui tem coragi' }],
       })
     ).toEqual({
@@ -36,10 +36,10 @@ describe('Investment/Position reducer', () => {
     })
   })
 
-  it('should handle POSITION_GET_DATA_FAILURE', () => {
+  it('should handle ADD_FAILURE', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: Types.POSITION_GET_DATA_FAILURE,
+        type: Types.ADD_FAILURE,
       })
     ).toEqual({
       ...INITIAL_STATE,

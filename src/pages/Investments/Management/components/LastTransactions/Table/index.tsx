@@ -9,20 +9,22 @@ import { formatMoney } from 'helpers'
 
 import { TableStyled, TableRow } from './styles'
 
-import ITransaction from 'store/modules/Investment/LastTransaction/iTransaction'
+type DataObject = {
+  id_operacao: string
+  data_operacao: string
+  tipo_operacao: string
+  valor_bruto: string
+}
 
 interface IProps {
-  data: ITransaction[]
+  data: DataObject[]
 }
 
 const Table = ({ data, ...rest }: IProps) => (
   <TableStyled {...rest}>
     <tbody>
-      {data.map((item: any) => (
-        <TableRow
-          key={item.id_operacao}
-          data-testid={item.id_operacao.toString()}
-        >
+      {data.map((item: any, index: number) => (
+        <TableRow key={item.id_operacao} data-testid={item.id_operacao}>
           <td
             css={`
               width: 100px;

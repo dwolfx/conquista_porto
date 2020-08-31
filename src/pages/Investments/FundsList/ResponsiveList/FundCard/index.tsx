@@ -118,7 +118,6 @@ const Header: React.FC<IHeader> = ({
 
 export interface IFund {
   perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
-  perfil_risco_ordem: number
   apelido: string
   categoria_arena: string
   minimo_inicial: number
@@ -127,14 +126,14 @@ export interface IFund {
   rentabil_fundo_12_meses: string
   rentabil_fundo_ano: string
   taxa_administracao: string
-  id_carteira: number
+  id_fundo: string
   aplicao_liberada: boolean
 }
 
 interface IFundCard {
   fund: IFund
   onChangeIsFundDetailOpen: (prevState: Function) => void
-  handleLayerOpen: (title: number) => void
+  handleLayerOpen: (title: string) => void
   setTitle: (title: string) => void
   setCategory: (title: string) => void
   setIsOpenForInvestments: (aplicao_liberada: boolean) => void
@@ -162,7 +161,7 @@ const FundCard: React.FC<IFundCard> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [clickedFund, setClickedFund] = useState<number | undefined>()
+  const [clickedFund, setClickedFund] = useState<string>('')
   const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState(
     modalSuitabilityInfoInitialState
   )
@@ -179,7 +178,7 @@ const FundCard: React.FC<IFundCard> = ({
 
   useEffect(() => {
     if (!suitabilityIsLoading) {
-      setClickedFund(undefined)
+      setClickedFund('')
     }
   }, [suitabilityIsLoading])
 
@@ -190,9 +189,9 @@ const FundCard: React.FC<IFundCard> = ({
   const handleOpenDetail = (
     title: string,
     category: string,
-    idCarteira: number
+    idFundo: string
   ) => {
-    dispatch(GetInvestmentDetailsRequest(idCarteira))
+    dispatch(GetInvestmentDetailsRequest(idFundo))
     setIsOpenForInvestments(fund.aplicao_liberada)
     setTitle(title)
     setCategory(handleCategory(category))
@@ -256,7 +255,7 @@ const FundCard: React.FC<IFundCard> = ({
         </ButtonWrapper>
       </Modal>
       <CardCol xs={12}>
-        <RiskLine riskColor={fund.perfil_risco_ordem} />
+        <RiskLine riskColor={fund.perfil_risco} />
         <CardContent>
           <Header
             title={fund.apelido}
@@ -328,7 +327,7 @@ const FundCard: React.FC<IFundCard> = ({
                     handleOpenDetail(
                       fund.apelido,
                       fund.categoria_arena,
-                      fund.id_carteira
+                      fund.id_fundo
                     )
                   }}
                 >
@@ -338,7 +337,7 @@ const FundCard: React.FC<IFundCard> = ({
                   <Button
                     loading={
                       (suitabilityIsLoading || financialApplicationLoading) &&
-                      clickedFund === fund.id_carteira
+                      clickedFund === fund.id_fundo
                     }
                     loadingColor="white"
                     color="secondary"
@@ -347,8 +346,8 @@ const FundCard: React.FC<IFundCard> = ({
                     data-gtm-subname={fund.apelido}
                     data-gtm-name="investir"
                     onClick={() => {
-                      handleLayerOpen(fund.id_carteira)
-                      setClickedFund(fund.id_carteira)
+                      handleLayerOpen(fund.id_fundo)
+                      setClickedFund(fund.id_fundo)
                     }}
                   >
                     Investir

@@ -57,7 +57,6 @@ export const shadows = {
 }
 
 export const fundRiskColors = {
-  noneRisk: themeColors.gray5,
   lowRisk: themeColors.darkBlue2,
   lowMediumRisk: themeColors.blue4,
   mediumRisk: themeColors.green3,

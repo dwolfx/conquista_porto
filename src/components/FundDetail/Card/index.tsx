@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components/macro'
 import 'styled-components/macro'
@@ -24,52 +24,38 @@ import {
   TextValue,
 } from './styles'
 
-interface IData {
-  minimo_inicial: string
-  perfil_risco: string
-  nome_carteira: string
-  resgate_cotizacao: string
-  aplicao_minima: string
-  id_carteira: number
-  categoria_arena: string
-}
-
-interface iInvestmentDetails {
-  data: IData
-  isLoading: boolean
-  hasError: boolean
-}
-
-interface iRootState {
-  investmentDetails: iInvestmentDetails
-}
-
 interface IProps {
   handleFundDetailOpen?: () => void
-  selectedFundId: number
+  selectedFundId?: string
   isRedeem?: boolean
 }
 
-const FundDetailCard = ({
-  handleFundDetailOpen,
-  selectedFundId,
-  isRedeem,
-}: IProps) => {
+const FundDetailCard = ({ handleFundDetailOpen, selectedFundId, isRedeem }: IProps) => {
   const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
 
-  let { data: fundDetails, isLoading, hasError } = useSelector((state: any) => {
-    return {
-      ...state.investmentDetails,
-      data: Object.keys(state.investmentDetails.data).length
-        ? state.investmentDetails.data
-        : null,
+  let { data: fundDetails, isLoading, hasError, idFund } = useSelector(
+    (state: any) => {
+      return {
+        ...state.investmentDetails,
+        data: Object.keys(state.investmentDetails.data).length
+          ? state.investmentDetails.data
+          : null,
+        idFund: !!selectedFundId
+          ? selectedFundId
+          : state.investmentPosition.idFund,
+      }
     }
-  })
+  )
 
-  useEffect(() => {
-    dispatch(GetInvestmentDetailsRequest(selectedFundId))
-  }, [selectedFundId, dispatch])
+  if (
+    !!selectedFundId &&
+    fundDetails?.id_fundo !== selectedFundId &&
+    !isLoading &&
+    !hasError
+  ) {
+    dispatch(GetInvestmentDetailsRequest(idFund))
+  }
 
   const headerTitle =
     !isLoading && !hasError && fundDetails ? fundDetails.nome_carteira : ''
@@ -91,20 +77,17 @@ const FundDetailCard = ({
         </EmptyStateWrapper>
       )}
 
-      {hasError && !!isLoading && !fundDetails && (
+      {hasError && !isLoading && !fundDetails && (
         <EmptyStateWrapper>
           <Text type="headline" color="magenta2">
             Não foi possível carregar as informações deste fundo de
             investimento.
           </Text>
           <Button
-            data-testid="test-button-tentar-novamente"
             css={`
               margin-top: ${themeContext.spacing(2)};
             `}
-            onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(selectedFundId))
-            }
+            onClick={() => dispatch(GetInvestmentDetailsRequest(idFund))}
           >
             Tentar novamente
           </Button>
@@ -116,13 +99,9 @@ const FundDetailCard = ({
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    {isRedeem ? 'horário limite' : 'aplicação inicial mínima'}
-                  </TextTitle>,
+                  <TextTitle>{isRedeem ? 'horário limite' : 'aplicação inicial mínima'}</TextTitle>,
                   <TextValue>
-                    {isRedeem
-                      ? fundDetails.hora_resgate
-                      : formatMoney(fundDetails.minimo_inicial)}
+                    {isRedeem ? fundDetails.hora_resgate : formatMoney(fundDetails.minimo_inicial)}
                   </TextValue>,
                 ]}
               />
@@ -133,13 +112,9 @@ const FundDetailCard = ({
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    {isRedeem ? 'saldo mínimo' : 'movimentação mínima'}
-                  </TextTitle>,
+                  <TextTitle>{isRedeem ? 'saldo mínimo' : 'movimentação mínima'}</TextTitle>,
                   <TextValue>
-                    {isRedeem
-                      ? formatMoney(fundDetails.saldo_minimo)
-                      : formatMoney(fundDetails.aplicao_minima)}
+                    {isRedeem ? formatMoney(fundDetails.saldo_minimo) : formatMoney(fundDetails.aplicao_minima)}
                   </TextValue>,
                 ]}
               />
@@ -161,15 +136,12 @@ const FundDetailCard = ({
             <Col md={12} sm={4} xs={12}>
               <VerticalListMargin
                 elements={[
-                  <Text color="gray4" type="captionUppercase">
-                    Categoria
-                  </Text>,
-                  <Text bold color="gray6" type="headline">
-                    {fundDetails?.categoria_arena?.toLowerCase() ===
-                    'renda variável'
+                  <TextTitle>Categoria</TextTitle>,
+                  <TextValue bold color="gray6" type="headline">
+                    {fundDetails.categoria.toLowerCase() === 'renda variável'
                       ? 'Ações'
-                      : fundDetails.categoria_arena}
-                  </Text>,
+                      : fundDetails.categoria}
+                  </TextValue>,
                 ]}
               />
             </Col>

@@ -7,6 +7,7 @@ import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 
+import { formatMoney } from 'helpers'
 import {
   ButtonVertical,
   NextButton,
@@ -44,24 +45,26 @@ const CustomSlides = ({
 }: {
   fund: any
   displayInformation: boolean
-  selectedFund: number
-  onChangeSelectedFund: (id: number) => void
+  selectedFund: string
+  onChangeSelectedFund: (id: string) => void
 }) => {
   return (
     <Chip
-      onClick={() => onChangeSelectedFund(fund.id)}
-      selected={selectedFund === fund.id}
+      onClick={() => onChangeSelectedFund(fund.id_carteira)}
+      selected={selectedFund === fund.id_carteira}
       data-testid="component-chip"
     >
       <VerticalList
         elements={[
           <Text type="captionUppercase" bold color="gray6">
-            {fund.categoria === 'Renda Variável' ? 'Ações' : fund.categoria}
+            {fund.categoria_arena === 'Renda Variável'
+              ? 'Ações'
+              : fund.categoria_arena}
           </Text>,
           <Text
             type="caption"
             bold
-            color={selectedFund === fund.id ? 'blue4' : 'gray5'}
+            color={selectedFund === fund.id_carteira ? 'blue4' : 'gray5'}
           >
             {fund.apelido}
           </Text>,
@@ -77,9 +80,9 @@ const CustomSlides = ({
         css={`
           -webkit-text-security: ${displayInformation ? 'disc' : 'none'};
         `}
-        color={selectedFund === fund.id ? 'gray6' : 'gray5'}
+        color={selectedFund === fund.id_carteira ? 'gray6' : 'gray5'}
       >
-        {fund.saldo_bruto}
+        {formatMoney(fund.saldo_atual)}
       </Text>
     </Chip>
   )
@@ -88,8 +91,8 @@ const CustomSlides = ({
 interface IFundsCarousel {
   filteredFunds: any[]
   displayInformation: boolean
-  idFund: number
-  onHandleChangeIdFund: (idFund: number) => void
+  idFund: string
+  onHandleChangeIdFund: (idFund: string) => void
 }
 const FundsCarousel = ({
   filteredFunds,
@@ -142,11 +145,11 @@ const FundsCarousel = ({
       >
         {filteredFunds.map((fund: any) => (
           <CustomSlides
-            key={`fund-chip-${fund.id}`}
+            key={`fund-chip-${fund.id_carteira}`}
             fund={fund}
             displayInformation={displayInformation}
             selectedFund={idFund}
-            onChangeSelectedFund={() => onHandleChangeIdFund(fund.id)}
+            onChangeSelectedFund={() => onHandleChangeIdFund(fund.id_carteira)}
           />
         ))}
       </Carousel>

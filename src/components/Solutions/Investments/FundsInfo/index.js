@@ -31,11 +31,19 @@ export default function FundsInfo({ fund }) {
     return <></>
   }
 
+  const riscoEnum = {
+    baixo: 1,
+    'medio-baixo': 2,
+    medio: 3,
+    'medio-alto': 4,
+    alto: 5,
+  }
+
   return (
     <Container>
       <SubTitle>{fund.nome_carteira}</SubTitle>
       <RiskDegreeTitle>Perfil de Risco</RiskDegreeTitle>
-      <RiskDegree actives={[fund.perfil_risco]} />
+      <RiskDegree actives={[riscoEnum[fund.perfil_risco]]} />
       <HistoricalRentabilityTable data={fund.comparativo_hist_rentabil} />
       <TransactionsSection title="Movimentações" articles={fund} />
       <FundsDetailsSection>

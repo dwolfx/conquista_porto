@@ -42,7 +42,7 @@ interface IProps {
       rel_fundo_benchmark_ano: string
       rentabil_24_meses: string
       rel_fundo_benchmark_36_meses: string
-      id_carteira: number
+      id_carteira: string
       rentabil_dia: string
       rentabil_mes: string
       rel_fundo_benchmark_12_meses: string

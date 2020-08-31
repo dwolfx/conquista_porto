@@ -14,7 +14,7 @@ export const Types = {
 }
 
 interface IFinancialApplicationData {
-  id_fundo: number
+  id_fundo: string
   data_operacao: string
 }
 export interface IGetFinancialApplicationData {
@@ -56,9 +56,9 @@ export interface IGetFinancialApplicationDataResponse {
       classificacao: string
       link_termo_adesao: string
       tipo_cota: string
-      aviso_data_fundo: boolean
-      aplicacao_liberada: boolean
-      resgate_liberado: boolean
+      aviso_data_fundo: true
+      aplicacao_liberada: true
+      resgate_liberado: false
     }
     posicao_cotista_fundo: {
       saldo_atual: number
@@ -66,8 +66,8 @@ export interface IGetFinancialApplicationDataResponse {
     }
     id_cotista: number
     saldo_conta: number
-    aderente_fundo: boolean
-    fechado_aplicacao: boolean
+    aderente_fundo: true
+    fechado_aplicacao: false
     data_prevista_cotizacao: string
     data_prevista_liquidacao: string
     data_operacao: string
@@ -83,7 +83,7 @@ export interface IGetAlignmentTermsData {
   data: {
     data_operacao: string
     valor_bruto: number
-    id_fundo: number
+    id_fundo: string
   }
   onSuccess: (data: IGetAlignmentTermsResponse) => void
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
@@ -111,15 +111,6 @@ export interface IGetAlignmentTermsResponse {
   }
 }
 
-export interface IGetAlignmentTermsRedeemResponse {
-  status_enquadramento: string
-  nota_rating_cotista: number
-  nota_rating_carteira: number
-  fundos_desenquadrados: {
-    fundo_desenquadrado: Array<IFund>
-  }
-}
-
 export interface IAlignmentTermsAction {
   type: keyof typeof Types
   payload: IGetAlignmentTermsResponse
@@ -127,7 +118,7 @@ export interface IAlignmentTermsAction {
 
 export interface IPostFinancialApplicationData {
   data: {
-    id_fundo: number
+    id_fundo: string
     valor: number
     data: string
     ciencia_desenquadramento: 'N' | 'S'

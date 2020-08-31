@@ -7,7 +7,7 @@ import {
   GetTripInsuranceDataFailure,
 } from './action'
 
-export function* getData() {
+function* getData() {
   try {
     const response = yield call(
       get,

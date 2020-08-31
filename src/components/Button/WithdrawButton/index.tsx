@@ -51,7 +51,7 @@ const WithdrawButton: React.FC<IProps> = ({
                   withdrawData.horario_inicio_permitido_retirada,
                   'H:mm:ss'
                 ).format('H:mm')}`,
-                title: `Não é possível fazer retirada após as ${moment(
+                title: `Não é possivel fazer retirada após as ${moment(
                   withdrawData.horario_fim_permitido_retirada,
                   'H:mm:ss'
                 ).format('H:mm')}`,

@@ -53,7 +53,7 @@ import {
 //  5ª Chamada - Deve ser efetuada ao clicar no botão "CONFIRMAR" ou "TENTAR NOVAMENTE" do segundo step do fluxo enviando os dados
 //  "aceite_termo_adesao", "id_fundo", "id_cotista", "cpf_cnpj", "valor", "data", "ciencia_desenquadramento"
 
-export function* getFinancialApplicationData({
+function* getFinancialApplicationData({
   payload: { data, onErrorToast, onSuccess },
 }: IGetFinancialApplicationPayload) {
   // data_operacao = YYYY-MM-DD
@@ -82,7 +82,7 @@ export function* getFinancialApplicationData({
   }
 }
 
-export function* postFinancialApplicationData({
+function* postFinancialApplicationData({
   payload: { data, onError, onSuccess },
 }: IPostFinancialApplicationPayload) {
   const { id_cotista } = yield select(getSuitabilityInfo)

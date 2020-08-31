@@ -43,7 +43,7 @@ export const FORM_DATA_INTIAL_STATE = {
 interface IProps {
   handleClose: () => void
   isOpen: boolean
-  selectedFundId: number
+  selectedFundId: string
 }
 export type TButtonOption = 'manter' | 'tudo' | null
 
@@ -83,8 +83,8 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       if (redeemData.dados_para_resgate.fechado_resgate && isOpen) {
         handleClose()
         addToast({
-          title: `Não é possível fazer resgate`,
-          description: `Não é possível fazer resgate após as ${redeemData.dados_para_resgate.hora_limite}`,
+          title: `Não é possivel fazer resgate`,
+          description: `Não é possivel fazer resgate após as ${redeemData.dados_para_resgate.hora_limite}`,
           type: 'error',
         })
       }

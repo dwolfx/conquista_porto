@@ -61,7 +61,7 @@ const FilterInformation: React.FC<IFilterInformation> = ({
 
 interface IResponsiveListProps {
   onChangeIsFundDetailOpen: (prevState: Function) => boolean
-  handleLayerOpen: (fundId: number) => void
+  handleLayerOpen: (fundId: string) => void
   data: Array<IFund>
   isLoading: boolean
   isError: boolean
@@ -174,7 +174,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
               <FundCard
                 onChangeIsFundDetailOpen={onChangeIsFundDetailOpen}
                 handleLayerOpen={handleLayerOpen}
-                key={fund.id_carteira}
+                key={fund.id_fundo}
                 fund={fund}
                 setTitle={setTitle}
                 setCategory={setCategory}
