@@ -20,6 +20,7 @@ import Detail from 'components/FundDetail/Drawer'
 import DetailModal from 'components/FundDetail/Modal'
 
 import { formatMoney, formatMoneyWithoutCurrencyFlag } from 'helpers'
+import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import {
@@ -70,6 +71,8 @@ export default function Wallet({
 
   const history = useHistory()
   const dispatch = useDispatch()
+
+  useFetchInvestmentsList()
 
   const isMobile = useMedia('sm')
 
