@@ -23,6 +23,7 @@ const PromptModal: React.FC<IProps> = ({
   onConfirmation,
   title,
   description,
+  children,
   ...rest
 }) => {
   const history = useHistory()
@@ -54,6 +55,7 @@ const PromptModal: React.FC<IProps> = ({
         <Text type="headline" color="gray6">
           {description}
         </Text>
+        {children}
         <ButtonContainerModal>
           <Button
             outline

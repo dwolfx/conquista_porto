@@ -79,10 +79,17 @@ export default abstract class Currency {
       currency: 'BRL',
     }
   ) {
+    const commons = {
+      minimumFractionDigits: 2,
+    }
+
     try {
       return hasSymbol
-        ? Intl.NumberFormat(lang, numberFormatOptions).format(value)
-        : Intl.NumberFormat(lang).format(value)
+        ? Intl.NumberFormat(lang, {
+            ...numberFormatOptions,
+            ...commons,
+          }).format(value)
+        : Intl.NumberFormat(lang, commons).format(value)
     } catch (error) {
       throw new ParseCurrencyException()
     }

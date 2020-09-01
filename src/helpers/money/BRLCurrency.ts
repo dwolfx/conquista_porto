@@ -6,6 +6,7 @@ export default class BRLCurrency extends Currency {
     numberFormatOptions: Intl.NumberFormatOptions = {
       style: 'currency',
       currency: 'BRL',
+      minimumFractionDigits: 2,
     }
   ) {
     super(value, Intl.NumberFormat('pt-BR', numberFormatOptions))

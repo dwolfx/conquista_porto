@@ -16,8 +16,10 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
-import ResultPredictionCard from 'pages/Objectives/Recommendation/Edit/Wallet/ResultPredictionCard'
+import ResultPredictionCard from './ResultPrediction/Card'
+import ResultPredictionModal from './ResultPrediction/Modal'
 import { IFunds } from 'store/modules/Objective/types'
+import { TPrediction } from './ResultPrediction/types'
 
 import FundsList from './FundsList'
 import RemovedFunds from './RemovedFunds'
@@ -49,6 +51,21 @@ export default function WalletComposition({ onClose }: IProps) {
   const { data: recommendationData } = useSelector<any, any>(
     state => state.objective
   )
+
+  const [predictions, setPredictions] = useState<TPrediction>({
+    pessimistic: 0,
+    median: 0,
+    optimistic: 0,
+  })
+  const financialGoalNotReached = (): boolean => true
+
+  useEffect(() => {
+    setPredictions({
+      pessimistic: 25500,
+      median: 25500,
+      optimistic: 25500,
+    })
+  }, [])
 
   useEffect(() => {
     setFunds(recommendationData.funds)
@@ -107,6 +124,10 @@ export default function WalletComposition({ onClose }: IProps) {
 
   return (
     <>
+      <ResultPredictionModal
+        predictions={predictions}
+        warning={financialGoalNotReached()}
+      />
       <s.Container isFirst>
         <s.InformativeRow>
           <Col>
@@ -116,7 +137,10 @@ export default function WalletComposition({ onClose }: IProps) {
 
         <s.CompositionRow>
           <Col lg={3} md={4}>
-            <ResultPredictionCard />
+            <ResultPredictionCard
+              predictions={predictions}
+              warning={financialGoalNotReached()}
+            />
           </Col>
 
           {!isMobile && !isTabletVertical ? (

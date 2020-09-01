@@ -1,17 +1,11 @@
 import styled from 'styled-components'
-import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
 import Card from 'components/Card'
 import { CardBody, CardIconInfo } from 'components/Card/styles'
 import HorizontalList from 'components/HorizontalList'
-import { StartBlock } from 'components/HorizontalList/styles'
 import { mediaQueries } from 'styles/theme'
 
 const tabletAndBiggerSmartphones = `${mediaQueries.smUp} and ${mediaQueries.md}`
-
-export const IconStyled = styled(Icon)`
-  margin-right: ${({ theme }) => theme.spacing(2)}px;
-`
 
 export const LoadingStyled = styled(Loading)`
   flex: 1;
@@ -53,16 +47,9 @@ export const Items = styled.div`
 
 export const Item = styled(HorizontalList)`
   flex-direction: row;
+  height: 35px;
   @media ${tabletAndBiggerSmartphones} {
     flex-direction: column;
-  }
-`
-
-export const Warning = styled(HorizontalList)`
-  max-width: 460px;
-  margin: 0 auto;
-  ${StartBlock} svg {
-    margin-right: 0;
   }
 `
 
