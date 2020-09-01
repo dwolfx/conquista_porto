@@ -8,7 +8,6 @@ import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/ac
 import { GetFinancialApplicationDataRequest } from 'store/modules/Investment/FinancialApplication/action'
 import { IGetFinancialApplicationDataResponse } from 'store/modules/Investment/FinancialApplication/types'
 import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
-import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 
 import { ButtonBlock, IconButoon } from './styles'
 
@@ -74,8 +73,6 @@ const ButtonInvest = ({
 
   const [investButtonLoading, setInvestButtonLoading] = useState<boolean>(false)
   const [isClicked, setIsClicked] = useState<boolean>(false)
-
-  useFetchInvestmentsList()
 
   useEffect(() => {
     if (isClicked) {
