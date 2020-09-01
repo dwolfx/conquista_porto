@@ -195,6 +195,7 @@ export default function Routes({ ...props }) {
     lifeInsuranceData,
     positionData,
     objectiveManagement,
+    digitalSign,
   } = useSelector(state => ({
     creditCardData: state.creditCard.data,
     tripInsuranceData: state.tripInsurance.data,
@@ -204,195 +205,213 @@ export default function Routes({ ...props }) {
     lifeInsuranceData: state.lifeInsurance.data,
     positionData: state.investmentPosition.data,
     objectiveManagement: state.objectiveManagement.data,
+    digitalSign: state.auth.digitalSign,
   }))
-
   const isAuth = useAuth()
 
-  return !isAuth ? (
-    <Login />
-  ) : (
-    <Switch {...props}>
-      <DefaultRoute path="/" exact component={Home} pageTitle="Home" />
+  const digitalSignIsValid = () => {
+    if (process.env.REACT_APP_ENV === 'production') {
+      return digitalSign && Object.keys(digitalSign).length > 0
+    }
+    return true
+  }
 
-      <DefaultRoute
-        path="/cartao-credito"
-        exact
-        component={CartaoCredito}
-        data={creditCardData}
-        hook={useFetchCreditCard}
-        pageTitle="Home - Cartão de Crédito"
-      />
-      <DefaultRoute
-        path="/seguro-viagem"
-        exact
-        component={TripInsurance}
-        data={tripInsuranceData}
-        hook={useFetchTripInsurance}
-        pageTitle="Home - Seguro Viagem"
-      />
-      <DefaultRoute
-        path="/financiamento-veiculo"
-        exact
-        component={VehicleFinancing}
-        data={vehicleFinancingData}
-        hook={useFetchVehicleFinancing}
-        pageTitle="Home - Financiamento de Veículo"
-      />
-      <DefaultRoute
-        path="/consorcio-imovel"
-        exact
-        component={ConsortiumBuilding}
-        data={consortiumBuildingData}
-        hook={useFetchConsortiumBuilding}
-        pageTitle="Home - Consórcio de Imóvel"
-      />
-      <DefaultRoute
-        path="/consorcio-veiculo"
-        exact
-        component={ConsortiumVehicle}
-        data={consortiumVehicleData}
-        hook={useFetchConsortiumVehicle}
-        pageTitle="Home - Consórcio de Veículo"
-      />
-      <DefaultRoute
-        path="/seguro-vida"
-        exact
-        component={SeguroVida}
-        data={lifeInsuranceData}
-        hook={useFetchLifeInsurance}
-        pageTitle="Home - Seguro de Vida"
-      />
-      <DefaultRoute
-        path="/investimentos"
-        exact
-        component={Investimentos}
-        data={positionData}
-        hook={useFetchPosition}
-        pageTitle="Home - Investimentos"
-      />
-      <DefaultRoute
-        path="/cartao-credito/visualizar"
-        exact
-        component={ManagementCreditCard}
-        pageTitle="Gestão - Cartão de Crédito"
-      />
-      <DefaultRoute
-        path="/seguro-viagem/visualizar"
-        component={ManagementTripInsurance}
-        pageTitle="Gestão - Seguro de Viagem"
-      />
-      <DefaultRoute
-        path="/financiamento-veiculo/visualizar"
-        exact
-        component={ManagementVehicleFinancing}
-        pageTitle="Gestão - Financiamento de Veículo"
-      />
-      <DefaultRoute
-        path="/consorcio-imovel/visualizar"
-        exact
-        component={ManagementConsortiumBuilding}
-        pageTitle="Gestão - Consórcio de Imóvel"
-      />
-      <DefaultRoute
-        path="/consorcio-veiculo/visualizar"
-        exact
-        component={ManagementConsortiumVehicle}
-        pageTitle="Gestão - Consórcio de Veículo"
-      />
-      <DefaultRoute
-        path="/investimentos/visualizar"
-        component={ManagementInvestimentos}
-        pageTitle="Gestão - Investimentos"
-      />
-      <DefaultRoute
-        path="/seguro-vida/visualizar"
-        exact
-        component={ManagementSeguroVida}
-        pageTitle="Gestão - Seguro de Vida"
-      />
-      <Route
-        path="/investimentos/extrato"
-        exact
-        component={InvestimentosExtrato}
-        pageTitle="Investimentos - Extrato"
-      />
-      <DefaultRoute
-        path="/investimentos/lista-fundos"
-        component={InvestmentsFunds}
-        pageTitle="Investimentos - Lista de Fundos"
-      />
-      <DefaultRoute
-        path="/previdencia-privada"
-        exact
-        component={PrevidenciaPrivada}
-        pageTitle="Home - Previdência Privada"
-      />
-      <DefaultRoute
-        path="/pontos"
-        exact
-        component={Points}
-        pageTitle="Home - Pontos"
-      />
-      <DefaultRoute
-        path="/perfil"
-        exact
-        component={Profile}
-        pageTitle="Home - Perfil"
-      />
-      <DefaultRoute
-        path="/pontos/extrato"
-        exact
-        component={PointsStatement}
-        pageTitle="Pontos - Extrato"
-      />
-      <DefaultRoute
-        path="/objetivos/gerenciar/:objectiveId"
-        exact
-        component={ObjectivesManager}
-        pageTitle="Objetivos - Gerenciar"
-        name={objectiveManagement ? `#${objectiveManagement.nickname}` : ''}
-      />
-      <DefaultRoute
-        path="/objetivos/gerenciar"
-        exact
-        component={ObjectivesManager}
-        pageTitle="Objetivos - Gerenciar"
-      />
-      <Route
-        path="/conta/retirar"
-        exact
-        component={Withdraw}
-        pageTitle="Retirar"
-      />
-      <Route
-        path="/objetivos"
-        component={Objectives}
-        pageTitle="Home - Objetivos"
-      />
-      <Route
-        path="/perfil/cadastro"
-        exact
-        component={ProfileRegistration}
-        pageTitle="Perfil - Cadastro"
-      />
-      <Route
-        path="/perfil/investidor-perfil"
-        exact
-        component={ProfileSuitability}
-        pageTitle="Perfil - Perfil Investidor"
-      />
-      <Route
-        path="/redirect"
-        exact
-        component={RedirectComponent}
-        pageTitle="Redirect"
-      />
-      <DefaultRoute
-        path="/notificacoes"
-        exact
-        component={Notifications}
-        pageTitle="Home - Notificações"
-      />
-    </Switch>
-  )
+  const redirectCustomerProfile = () => {
+    window.open(
+      'https://cliente.portoseguro.com.br/portaldecliente/conquista/termo-aceite',
+      '_self'
+    )
+    return <Login />
+  }
+
+  const validateDigitalSign = () =>
+    digitalSignIsValid() ? (
+      <Switch {...props}>
+        <DefaultRoute path="/" exact component={Home} pageTitle="Home" />
+
+        <DefaultRoute
+          path="/cartao-credito"
+          exact
+          component={CartaoCredito}
+          data={creditCardData}
+          hook={useFetchCreditCard}
+          pageTitle="Home - Cartão de Crédito"
+        />
+        <DefaultRoute
+          path="/seguro-viagem"
+          exact
+          component={TripInsurance}
+          data={tripInsuranceData}
+          hook={useFetchTripInsurance}
+          pageTitle="Home - Seguro Viagem"
+        />
+        <DefaultRoute
+          path="/financiamento-veiculo"
+          exact
+          component={VehicleFinancing}
+          data={vehicleFinancingData}
+          hook={useFetchVehicleFinancing}
+          pageTitle="Home - Financiamento de Veículo"
+        />
+        <DefaultRoute
+          path="/consorcio-imovel"
+          exact
+          component={ConsortiumBuilding}
+          data={consortiumBuildingData}
+          hook={useFetchConsortiumBuilding}
+          pageTitle="Home - Consórcio de Imóvel"
+        />
+        <DefaultRoute
+          path="/consorcio-veiculo"
+          exact
+          component={ConsortiumVehicle}
+          data={consortiumVehicleData}
+          hook={useFetchConsortiumVehicle}
+          pageTitle="Home - Consórcio de Veículo"
+        />
+        <DefaultRoute
+          path="/seguro-vida"
+          exact
+          component={SeguroVida}
+          data={lifeInsuranceData}
+          hook={useFetchLifeInsurance}
+          pageTitle="Home - Seguro de Vida"
+        />
+        <DefaultRoute
+          path="/investimentos"
+          exact
+          component={Investimentos}
+          data={positionData}
+          hook={useFetchPosition}
+          pageTitle="Home - Investimentos"
+        />
+        <DefaultRoute
+          path="/cartao-credito/visualizar"
+          exact
+          component={ManagementCreditCard}
+          pageTitle="Gestão - Cartão de Crédito"
+        />
+        <DefaultRoute
+          path="/seguro-viagem/visualizar"
+          component={ManagementTripInsurance}
+          pageTitle="Gestão - Seguro de Viagem"
+        />
+        <DefaultRoute
+          path="/financiamento-veiculo/visualizar"
+          exact
+          component={ManagementVehicleFinancing}
+          pageTitle="Gestão - Financiamento de Veículo"
+        />
+        <DefaultRoute
+          path="/consorcio-imovel/visualizar"
+          exact
+          component={ManagementConsortiumBuilding}
+          pageTitle="Gestão - Consórcio de Imóvel"
+        />
+        <DefaultRoute
+          path="/consorcio-veiculo/visualizar"
+          exact
+          component={ManagementConsortiumVehicle}
+          pageTitle="Gestão - Consórcio de Veículo"
+        />
+        <DefaultRoute
+          path="/investimentos/visualizar"
+          component={ManagementInvestimentos}
+          pageTitle="Gestão - Investimentos"
+        />
+        <DefaultRoute
+          path="/seguro-vida/visualizar"
+          exact
+          component={ManagementSeguroVida}
+          pageTitle="Gestão - Seguro de Vida"
+        />
+        <Route
+          path="/investimentos/extrato"
+          exact
+          component={InvestimentosExtrato}
+          pageTitle="Investimentos - Extrato"
+        />
+        <DefaultRoute
+          path="/investimentos/lista-fundos"
+          component={InvestmentsFunds}
+          pageTitle="Investimentos - Lista de Fundos"
+        />
+        <DefaultRoute
+          path="/previdencia-privada"
+          exact
+          component={PrevidenciaPrivada}
+          pageTitle="Home - Previdência Privada"
+        />
+        <DefaultRoute
+          path="/pontos"
+          exact
+          component={Points}
+          pageTitle="Home - Pontos"
+        />
+        <DefaultRoute
+          path="/perfil"
+          exact
+          component={Profile}
+          pageTitle="Home - Perfil"
+        />
+        <DefaultRoute
+          path="/pontos/extrato"
+          exact
+          component={PointsStatement}
+          pageTitle="Pontos - Extrato"
+        />
+        <DefaultRoute
+          path="/objetivos/gerenciar/:objectiveId"
+          exact
+          component={ObjectivesManager}
+          pageTitle="Objetivos - Gerenciar"
+          name={objectiveManagement ? `#${objectiveManagement.nickname}` : ''}
+        />
+        <DefaultRoute
+          path="/objetivos/gerenciar"
+          exact
+          component={ObjectivesManager}
+          pageTitle="Objetivos - Gerenciar"
+        />
+        <Route
+          path="/conta/retirar"
+          exact
+          component={Withdraw}
+          pageTitle="Retirar"
+        />
+        <Route
+          path="/objetivos"
+          component={Objectives}
+          pageTitle="Home - Objetivos"
+        />
+        <Route
+          path="/perfil/cadastro"
+          exact
+          component={ProfileRegistration}
+          pageTitle="Perfil - Cadastro"
+        />
+        <Route
+          path="/perfil/investidor-perfil"
+          exact
+          component={ProfileSuitability}
+          pageTitle="Perfil - Perfil Investidor"
+        />
+        <Route
+          path="/redirect"
+          exact
+          component={RedirectComponent}
+          pageTitle="Redirect"
+        />
+        <DefaultRoute
+          path="/notificacoes"
+          exact
+          component={Notifications}
+          pageTitle="Home - Notificações"
+        />
+      </Switch>
+    ) : (
+      redirectCustomerProfile()
+    )
+
+  return !isAuth ? <Login /> : validateDigitalSign()
 }

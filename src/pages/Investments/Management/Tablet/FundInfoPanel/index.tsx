@@ -33,10 +33,13 @@ const FundInfoPanel = ({
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
-  const { isLoading, hasError } = useSelector((state: any) => ({
-    isLoading: state.investmentPosition.isLoading,
-    hasError: state.investmentPosition.hasError,
-  }))
+  const { isLoading, hasError, comparativeProfitability } = useSelector(
+    (state: any) => ({
+      isLoading: state.investmentPosition.isLoading,
+      hasError: state.investmentPosition.hasError,
+      comparativeProfitability: state.comparativeProfitability.data,
+    })
+  )
 
   const handleFetchPosition = useCallback(() => {
     dispatch(GetPositionDataRequest())
@@ -87,9 +90,7 @@ const FundInfoPanel = ({
           isInvestorLevelModalOpen={isInvestorLevelModalOpen}
         />
         <TextHeader>Histórico de Rentabilidade</TextHeader>
-        <ProfitabilityInfo
-          profitability={position.fundo.comparativo_hist_rentabil}
-        />
+        <ProfitabilityInfo profitability={comparativeProfitability} />
       </>
     )
   }

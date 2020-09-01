@@ -16,6 +16,8 @@ import {
 import investmentsList from './Investment/reducer'
 import investmentDetails from './Investment/Details/reducer'
 import investmentPosition from './Investment/Position/reducer'
+import comparativeProfitability from './Investment/ComparativeProfitability/reducer'
+import income from './Investment/Income/reducer'
 import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
 import tripInsurance from './TripInsurance/reducer'
@@ -33,6 +35,7 @@ import rewardsRecommendations from './Rewards/Recommendations/reducer'
 import rewardsTypes from './Rewards/Types/reducer'
 import virtualKeyboard from './VirtualKeyboard/reducer'
 import token2fa from './2FAToken/reducer'
+import lastTransaction from './Investment/LastTransaction/reducer'
 import withdraw from './Withdraw/reducer'
 
 export default combineReducers({
@@ -49,6 +52,10 @@ export default combineReducers({
   investmentsList,
   investmentDetails,
   investmentPosition,
+
+  comparativeProfitability,
+  income,
+
   lifeInsurance,
   consolidatedPosition,
   vehicleFinancing,
@@ -67,5 +74,6 @@ export default combineReducers({
   rewardsTypes,
   virtualKeyboard,
   token2fa,
+  lastTransaction,
   withdraw,
 })

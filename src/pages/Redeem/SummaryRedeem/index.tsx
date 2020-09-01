@@ -28,7 +28,7 @@ interface ISummaryRedeem {
   nextStep: () => void
   previousStep: () => void
   onChangeFundDetailOpen: (isOpen: boolean) => void
-  idFundo: string
+  idFundo: number
 }
 
 const SummaryRedeem = ({
@@ -56,7 +56,8 @@ const SummaryRedeem = ({
   }))
   const isMobile = useMedia('xs')
 
-  const isNextLoading = is2FARequestLoadingInfo || isToken2faLoading || isVirtualKeyboardLoading;
+  const isNextLoading =
+    is2FARequestLoadingInfo || isToken2faLoading || isVirtualKeyboardLoading
 
   const cardBody = () => (
     <>

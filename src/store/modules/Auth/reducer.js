@@ -4,9 +4,11 @@ import { Types, TOKEN_NAME } from './types'
 const INITIAL_STATE = () => {
   const accessToken = getCookieValue(TOKEN_NAME)
   const cpf = getCookieValue('cpf')
+  const digitalSign = getCookieValue('CLITKNGIW')
 
   return {
     accessToken,
+    digitalSign,
     cpf,
   }
 }

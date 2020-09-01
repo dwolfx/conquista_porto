@@ -41,7 +41,7 @@ import {
 interface IProps {
   handleClose: () => void
   isOpen: boolean
-  selectedFundId: string
+  selectedFundId: number
   isAwareOfTerms: boolean
 }
 
@@ -101,10 +101,6 @@ const LayerInvestment: React.FC<IProps> = ({
 
   const loadFormData = useCallback(
     (prevState: any): any => {
-      // const selectedFund = funds.data.find(
-      //   (fund: any) => fund.id_fundo === selectedFundId
-      // )
-
       return {
         ...prevState,
         moneyToInvest: '0,00',

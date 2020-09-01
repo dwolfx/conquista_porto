@@ -74,7 +74,7 @@ const Tablet: React.FC<IProps> = ({
   }))
 
   const [isLayerOpen, setLayerOpen] = useState<boolean>(false)
-  const [selectedFundId, setSelectedFundId] = useState<string>('')
+  const [selectedFundId, setSelectedFundId] = useState<number>(0)
   const [isAwareOfTerms, setIsAwareOfTerms] = useState<boolean>(false)
   const [isInvestorLevelModalOpen, setIsInvestorLevelModalOpen] = useState(
     false
@@ -89,7 +89,7 @@ const Tablet: React.FC<IProps> = ({
   }, [selectedFundId, idFund])
 
   const handleOpenDetailFund = () => {
-    dispatch(GetInvestmentDetailsRequest(position.fundo.id_carteira))
+    dispatch(GetInvestmentDetailsRequest(position.id))
     setIsFundDetailOpen(true)
   }
 
@@ -97,7 +97,8 @@ const Tablet: React.FC<IProps> = ({
     if (isLoading || hasError) {
       return null
     }
-    return position && position.fundo && position.fundo.apelido
+    // colocar aqui o campo "apelido no lugar de fundo"
+    return position && position.fundo
   }
 
   const handleFundDetailClose = () => {
@@ -204,7 +205,7 @@ const Tablet: React.FC<IProps> = ({
           isOpen={isLayerOpen}
           handleClose={() => {
             setLayerOpen(false)
-            setSelectedFundId('')
+            setSelectedFundId(0)
           }}
           selectedFundId={selectedFundId}
           handleFundDetailOpen={() => setIsFundDetailOpen(true)}
@@ -212,8 +213,8 @@ const Tablet: React.FC<IProps> = ({
       )}
       {isMobile ? (
         <FundDetailModal
-          title={position?.fundo?.apelido}
-          category={position?.fundo?.categoria_arena}
+          title={position?.apelido}
+          category={position?.categoria_arena}
           isOpenForInvestments={true}
           isOpen={isFundDetailOpen}
           isLayerOpen={true}

@@ -47,21 +47,21 @@ export default function TransactionsSection({ title, articles }) {
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Aplicação (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicacao_cotizacao} Úteis</ValueWrapper>
+            <ValueWrapper>{articles.aplicacao_cotizacao}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Aplicação (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.aplicacao_financeiro} Úteis</ValueWrapper>
+            <ValueWrapper>{articles.aplicacao_financeiro}</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
         <ResponsiveLine>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Cotização)</SubTitleWrapper>
-            <ValueWrapper>{articles.resgate_cotizacao} Corridos</ValueWrapper>
+            <ValueWrapper>{articles.resgate_cotizacao}</ValueWrapper>
           </ArticleItem>
           <ArticleItem>
             <SubTitleWrapper>Resgate (Financeiro)</SubTitleWrapper>
-            <ValueWrapper>{articles.resgate_financeiro} Úteis</ValueWrapper>
+            <ValueWrapper>{articles.resgate_financeiro}</ValueWrapper>
           </ArticleItem>
         </ResponsiveLine>
       </Wrapper>

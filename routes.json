@@ -11,6 +11,11 @@
   "/invest/financiamentos/auto\\?codigoCanal=:codigoCanal": "/financiamento_veiculo?codigoCanal=:codigoCanal",
   "/invest/fundos": "/fundos_lista",
   "/invest/fundos/:fundId\\?codigoCanal=:codigoCanal": "/fundo_detalhe",
+  "/invest/atlas/fundo/grade": "/fundos_lista",
+  "/invest/atlas/fundo/detalhes/:idFundo": "/fundo_detalhe",
+  "/invest/atlas/cotista/posicao": "/posicao2",
+  "/invest/atlas/fundo/rentabilidade/:idFundo": "/rentabilidade",
+  "/invest/atlas/fundo/rentabilidade/comparativo/:idFundo": "/comparativeProfitability",
   "/invest/fundos/movimentacoes\\?idFundo=:idFundo&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/movimentacoes?idFundo=:idFundo&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/invest/programa-pontos/extrato": "/pontos",
   "/invest/programa-pontos/consultar-pontos": "/pontos_consultar",
@@ -48,5 +53,6 @@
   "/invest/aws/cotista/retiradas?id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj": "/invest_aws_cotista_retiradas",
   "/invest/aws/cotista/retiradas": "/retiradas_post",
   "/invest/aws/cotista/resgates": "/resgates_post",
-  "/invest/aws/cotista/retiradas/resumo?cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&valor_operacao=:valor_operacao": "/retiradas-resumo"
+  "/invest/aws/cotista/retiradas/resumo?cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&valor_operacao=:valor_operacao": "/retiradas-resumo",
+  "/invest/atlas/cotista/ultimas/movimentacoes": "/ultimas_movimentacoes"
 }
