@@ -13,6 +13,22 @@ import { ModalContainer } from 'components/Modal/stylesNew'
 import TokenCardCmp from 'components/2FA/TokenCard'
 import DigitalSignatureCmp from 'components/2FA/DigitalSignature'
 
+export const ModalInfoError = styled(ModalNew)`
+  z-index: 14;
+  > div + div {
+    max-width: 600px;
+  }
+`
+
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const ModalButton = styled(ButtonComponent)`
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
+`
+
 export const Accordion = styled(AccordionNew)`
   ${AccordionHeaderText} {
     padding-left: ${({ theme }) => theme.spacing(2)}px;
