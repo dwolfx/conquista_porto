@@ -11,6 +11,8 @@ const defaultState = {
   isLoadingBySimulate: false,
   isLoadingRelculateFundsData: false,
   hasErrorRelculateFundsData: false,
+  isLoadingPutRecommendation: false,
+  hasErrorPutRecommendation: false,
 }
 
 describe('Objective Insurance Reducer', () => {
@@ -152,8 +154,8 @@ describe('Objective Insurance Reducer', () => {
       )
     ).toEqual({
       ...defaultState,
-      isLoading: true,
-      hasError: false,
+      isLoadingPutRecommendation: true,
+      hasErrorPutRecommendation: false,
     })
   })
 
@@ -171,8 +173,8 @@ describe('Objective Insurance Reducer', () => {
     ).toEqual({
       ...defaultState,
       data: { teste: 'ok' },
-      isLoading: false,
-      hasError: false,
+      isLoadingPutRecommendation: false,
+      hasErrorPutRecommendation: false,
     })
   })
 
@@ -188,9 +190,8 @@ describe('Objective Insurance Reducer', () => {
       )
     ).toEqual({
       ...defaultState,
-      isLoadingBySimulate: false,
-      isLoading: false,
-      hasError: true,
+      isLoadingPutRecommendation: false,
+      hasErrorPutRecommendation: true,
     })
   })
   it('should handle POST_RECALCULATE_FUNDS_REQUEST', () => {

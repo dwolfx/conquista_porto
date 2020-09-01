@@ -1,7 +1,7 @@
 {
   "income": {
-    "pessimistic": 20000,
-    "median": 30000,
-    "optimistic": 40000
+    "pessimistic": 50000,
+    "median": 70000,
+    "optimistic": 80000
   }
 }

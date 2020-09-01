@@ -10,6 +10,8 @@ const INITIAL_STATE = {
   isLoadingBySimulate: false,
   isLoadingRelculateFundsData: false,
   hasErrorRelculateFundsData: false,
+  isLoadingPutRecommendation: false,
+  hasErrorPutRecommendation: false,
 }
 
 export default function(state = INITIAL_STATE, action) {
@@ -60,21 +62,21 @@ export default function(state = INITIAL_STATE, action) {
     case Types.PUT_RECOMMENDATION_REQUEST:
       return {
         ...state,
-        isLoading: true,
-        hasError: false,
+        isLoadingPutRecommendation: true,
+        hasErrorPutRecommendation: false,
       }
     case Types.PUT_RECOMMENDATION_SUCCESS:
       return {
         ...state,
         data: action.payload,
-        isLoading: false,
-        hasError: false,
+        isLoadingPutRecommendation: false,
+        hasErrorPutRecommendation: false,
       }
     case Types.PUT_RECOMMENDATION_FAILURE:
       return {
         ...state,
-        isLoading: false,
-        hasError: true,
+        isLoadingPutRecommendation: false,
+        hasErrorPutRecommendation: true,
       }
     case Types.POST_RECALCULATE_FUNDS_REQUEST:
       return {

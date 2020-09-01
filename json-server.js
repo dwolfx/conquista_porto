@@ -65,10 +65,11 @@ router.render = (req, res) => {
       return res.status(404)
     }
     if (req.method === 'PUT') {
-      console.log(req.body)
       return res.jsonp({
         ...recommendationMock,
-        ...req.body,
+        answer: req.body.answer,
+        additional: req.body.additional,
+        credit_product: req.body.credit_product,
       })
     }
 

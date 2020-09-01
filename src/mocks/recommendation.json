@@ -144,10 +144,7 @@
         "info": "string",
         "checked": false
       }
-    ],
-    "consortium_house": false,
-    "financing": true,
-    "consortium_car": false
+    ]
   },
   "additional": {
     "travel_security": false,

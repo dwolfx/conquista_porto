@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Row, Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
@@ -14,17 +15,32 @@ import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
+import {
+  UpdateRecommendationRequest,
+  PostRecalculateFundsRequest,
+} from 'store/modules/Objective/action'
+import {
+  GetOtherGoalsDataRequest,
+  PostObjectiveManagementDataRequest,
+} from 'store/modules/ObjectiveManagement/action'
 
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
 import ResultPredictionCard from './ResultPrediction/Card'
 import ResultPredictionModal from './ResultPrediction/Modal'
-import { IFunds } from 'store/modules/Objective/types'
+import {
+  IFunds,
+  IIncome,
+  IRecommendations,
+} from 'store/modules/Objective/types'
 import { TPrediction } from './ResultPrediction/types'
 
 import FundsList from './FundsList'
 import RemovedFunds from './RemovedFunds'
 import MobileFundCards from './Mobile'
 import { columns } from './constants'
+
+import { Currency } from 'helpers/money'
+
 import * as s from './styles'
 
 interface IInputChange {
@@ -38,6 +54,8 @@ interface IProps {
 }
 
 export default function WalletComposition({ onClose }: IProps) {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const theme = useContext(ThemeContext)
   const { addToast } = useToast()
   const isMobile = useMedia('xs')
@@ -47,29 +65,63 @@ export default function WalletComposition({ onClose }: IProps) {
   const [removedFunds, setRemovedFunds] = useState<IFunds[] | []>([])
   const [isRemovedFundsOpen, setIsRemovedFundsOpen] = useState(false)
   const [isFundsListOpen, setIsFundsListOpen] = useState(false)
+  const [isReachedGoal, setIsReachedGoal] = useState(false)
+  const [saveButtonIsLoading, setSaveButtonIsLoading] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  // atribuir 'true' de acordo com os valores distribuídos nos fundos. (se ultrapassar ou não utilizar todo valor inicial e mensal nos fundos)
+  // const [isDistributedAmountValid, setIsDistributedAmountValid] = useState(
+  //   false
+  // )
+  // atribuir 'true' assim que o usuário editar algum valor dos fundos na tabela
+  // const [isFundsEdited, setIsFundsEdited] = useState(false)
 
-  const { data: recommendationData } = useSelector<any, any>(
-    state => state.objective
-  )
-
-  const [predictions, setPredictions] = useState<TPrediction>({
+  const [prediction, setPrediction] = useState<TPrediction>({
     pessimistic: 0,
     median: 0,
     optimistic: 0,
   })
-  const financialGoalNotReached = (): boolean => true
+
+  const {
+    recommendationData,
+    isLoadingRelculateFundsData,
+    isLoadingPutRecommendation,
+    isLoadingObjectiveManagement,
+  } = useSelector((state: any) => ({
+    recommendationData: state.objective.data,
+    isLoadingRelculateFundsData: state.objective.isLoadingRelculateFundsData,
+    isLoadingPutRecommendation: state.objective.isLoadingPutRecommendation,
+    isLoadingObjectiveManagement: state.objectiveManagement.isLoading,
+  }))
 
   useEffect(() => {
-    setPredictions({
-      pessimistic: 25500,
-      median: 25500,
-      optimistic: 25500,
-    })
-  }, [])
+    if (recommendationData) {
+      setPrediction(recommendationData?.income)
+    }
+  }, [recommendationData])
 
   useEffect(() => {
     setFunds(recommendationData.funds)
-  }, [recommendationData])
+    setIsReachedGoal(
+      recommendationData?.income.median >=
+        recommendationData?.answer.target_value
+    )
+
+    if (isLoadingRelculateFundsData || isLoadingPutRecommendation) {
+      setSaveButtonIsLoading(true)
+    }
+    if (
+      !isLoadingRelculateFundsData &&
+      !isLoadingPutRecommendation &&
+      !isLoadingObjectiveManagement
+    ) {
+      setSaveButtonIsLoading(false)
+    }
+  }, [
+    recommendationData,
+    isLoadingRelculateFundsData,
+    isLoadingPutRecommendation,
+    isLoadingObjectiveManagement,
+  ])
 
   // despite the name, it's triggered on blur
   const handleInputsChange = ({
@@ -122,13 +174,144 @@ export default function WalletComposition({ onClose }: IProps) {
     )
   }
 
+  const requiredFundsInfo = (funds: IFunds[]) => {
+    return [...funds].map(fund => ({
+      fund_id: fund.fund_id,
+      initial_amount: fund.initial_value,
+      monthly_amount: fund.monthly_value,
+    }))
+  }
+
+  const goToObjectiveManagement = () => {
+    const onSuccess = (updatedRecommendationData: IRecommendations) => {
+      const pushHistory = (path: string) => {
+        history.push({
+          pathname: path,
+          state: { pageRecommendation: true },
+        })
+      }
+
+      dispatch(
+        PostObjectiveManagementDataRequest({
+          data: {
+            id: updatedRecommendationData.id,
+            answer: updatedRecommendationData.answer,
+            fund_total_income: updatedRecommendationData.fund_total_income,
+            funds: updatedRecommendationData.funds,
+            additional: updatedRecommendationData.additional,
+            credit_product: updatedRecommendationData.credit_product,
+          },
+          pushHistory,
+          onSuccess: () =>
+            dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id })),
+        })
+      )
+    }
+
+    dispatch(
+      UpdateRecommendationRequest({
+        data: {
+          answer: recommendationData.answer,
+          additional: recommendationData.additional,
+          credit_product: recommendationData.credit_product,
+          fund_list: requiredFundsInfo(funds),
+        },
+        onSuccess,
+        onErrorToast: addToast,
+      })
+    )
+  }
+
+  const saveButton = () => {
+    const creditProducts = recommendationData?.credit_product
+
+    const handleSaveButtonClick = () => {
+      const onSuccess = (recalculateFundsData: IIncome) => {
+        setPrediction(recalculateFundsData)
+
+        const recalculateReachedGoal =
+          recalculateFundsData.median >= recommendationData?.answer.target_value
+
+        if (creditProducts) {
+          // save button action = 'GO_TO_RECOMMENDATION'
+          const goToRecommendation = () => {
+            dispatch(
+              UpdateRecommendationRequest({
+                data: {
+                  answer: recommendationData.answer,
+                  additional: recommendationData.additional,
+                  credit_product: recommendationData.credit_product,
+                  fund_list: requiredFundsInfo(funds),
+                },
+                onSuccess: () => {
+                  setIsReachedGoal(
+                    recalculateFundsData.median >=
+                      recommendationData?.answer.target_value
+                  )
+                  onClose()
+                },
+                onErrorToast: addToast,
+              })
+            )
+          }
+          return goToRecommendation()
+        } else if (recalculateReachedGoal && !creditProducts) {
+          // save button action = 'GO_TO_OBJECTIVE_MANAGEMENT'
+          return goToObjectiveManagement()
+        } else if (!recalculateReachedGoal && !creditProducts) {
+          // saveButtonAction = 'SHOW_CONFIRMATION_MODAL'
+          const openModal = () => {
+            setIsModalOpen(true)
+            setSaveButtonIsLoading(false)
+          }
+          return openModal()
+        } else {
+          setSaveButtonIsLoading(false)
+          return addToast({
+            type: 'error',
+            description: 'Por favor, tente novamente.',
+            title: 'Erro ao processar solicitação.',
+          })
+        }
+      }
+
+      dispatch(
+        PostRecalculateFundsRequest({
+          data: {
+            target_date: recommendationData.answer.target_date,
+            fund_list: funds,
+          },
+          onSuccess,
+          onErrorToast: addToast,
+        })
+      )
+    }
+
+    return (
+      <Button
+        // disabled={!isDistributedAmountValid || !isFundsEdited}
+        loading={!isModalOpen && saveButtonIsLoading}
+        color="secondary"
+        onClick={() => handleSaveButtonClick()}
+      >
+        Salvar
+      </Button>
+    )
+  }
+
+  // substituir de acordo com a lógica do componente de 'total distribuído'
+  const textColor = false ? 'gray6' : 'magenta2'
+
   const seiLa = undefined
 
   return (
     <>
       <ResultPredictionModal
-        predictions={predictions}
-        warning={financialGoalNotReached()}
+        prediction={prediction}
+        warning={!isReachedGoal}
+        isOpen={isModalOpen}
+        handleClose={() => setIsModalOpen(false)}
+        handleButtonAction={() => goToObjectiveManagement()}
       />
       <s.Container isFirst>
         <s.InformativeRow>
@@ -140,8 +323,8 @@ export default function WalletComposition({ onClose }: IProps) {
         <s.CompositionRow>
           <Col lg={3}>
             <ResultPredictionCard
-              predictions={predictions}
-              warning={financialGoalNotReached()}
+              prediction={prediction}
+              warning={!isReachedGoal}
             />
           </Col>
 
@@ -162,6 +345,66 @@ export default function WalletComposition({ onClose }: IProps) {
                   data={funds}
                   isLoading={false}
                 />
+
+                <s.TotalAmountDistributed>
+                  <s.LabelWrapper>
+                    <Text type="captionUppercase" color="gray5" bold>
+                      Total Distribuído
+                    </Text>
+                    <Text type="captionUppercase" color="gray5" bold>
+                      Planejado
+                    </Text>
+                    <Text type="captionUppercase" color="gray5" bold>
+                      A Distribuir
+                    </Text>
+                  </s.LabelWrapper>
+                  <s.InitialAmountWrapper>
+                    <Text type="caption" color="gray6" bold>
+                      {Currency.parse(5000.0, true)}
+                    </Text>
+                    <Text type="caption" color="gray6" bold>
+                      {Currency.parse(5000.0, true)}
+                    </Text>
+                    <s.ToDistributeWrapper>
+                      <Text
+                        type="caption"
+                        color={textColor}
+                        bold
+                        css={`
+                          width: 7px;
+                        `}
+                      >
+                        +
+                      </Text>
+                      <Text type="caption" color={textColor} bold>
+                        {Currency.parse(500.0, true)}
+                      </Text>
+                    </s.ToDistributeWrapper>
+                  </s.InitialAmountWrapper>
+                  <s.MonthlyAmountWrapper>
+                    <Text type="caption" color="gray6" bold>
+                      {Currency.parse(5000.0, true)}
+                    </Text>
+                    <Text type="caption" color="gray6" bold>
+                      {Currency.parse(5000.0, true)}
+                    </Text>
+                    <s.ToDistributeWrapper>
+                      <Text
+                        type="caption"
+                        color={textColor}
+                        bold
+                        css={`
+                          width: 7px;
+                        `}
+                      >
+                        -
+                      </Text>
+                      <Text type="caption" color={textColor} bold>
+                        {Currency.parse(500.0, true)}
+                      </Text>
+                    </s.ToDistributeWrapper>
+                  </s.MonthlyAmountWrapper>
+                </s.TotalAmountDistributed>
 
                 <Row
                   alignItems="center"
@@ -251,7 +494,7 @@ export default function WalletComposition({ onClose }: IProps) {
               <Button outline onClick={onClose}>
                 Cancelar edição
               </Button>
-              <Button color="secondary">Salvar</Button>
+              {saveButton()}
             </Col>
           </Row>
         </s.Container>

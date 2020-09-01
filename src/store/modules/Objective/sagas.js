@@ -61,7 +61,9 @@ export function* getData() {
 }
 
 // http://api-proxy.conquista.sciensa.click/api/sciensa/robo-swagger/conquista/robo/swagger-ui.html#/recommendations
-export function* putRecommendationsData({ payload: { data, onErrorToast } }) {
+export function* putRecommendationsData({
+  payload: { data, onSuccess, onErrorToast },
+}) {
   try {
     const response = yield call(
       putFromAPI,
@@ -69,6 +71,9 @@ export function* putRecommendationsData({ payload: { data, onErrorToast } }) {
       data
     )
     yield put(UpdateRecommendationSuccess(response.data))
+    if (onSuccess) {
+      onSuccess(response.data)
+    }
   } catch (err) {
     yield put(UpdateRecommendationFailure())
     onErrorToast({
@@ -80,7 +85,9 @@ export function* putRecommendationsData({ payload: { data, onErrorToast } }) {
 }
 
 // http://api-proxy.conquista.sciensa.click/api/sciensa/robo-swagger/conquista/robo/swagger-ui.html#/recommendations
-export function* postRecalculateFunds({ payload: { data, onErrorToast } }) {
+export function* postRecalculateFunds({
+  payload: { data, onSuccess, onErrorToast },
+}) {
   try {
     const response = yield call(
       post,
@@ -89,6 +96,9 @@ export function* postRecalculateFunds({ payload: { data, onErrorToast } }) {
     )
 
     yield put(PostRecalculateFundsSuccess(response.data))
+    if (onSuccess) {
+      onSuccess(response.data)
+    }
   } catch (err) {
     yield put(PostRecalculateFundsFailure())
     onErrorToast({

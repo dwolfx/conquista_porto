@@ -7,7 +7,7 @@ import { IPredictionProps } from '../types'
 import * as S from './styles'
 
 export default function ResultPredictionCard({
-  predictions,
+  prediction,
   warning,
 }: IPredictionProps) {
   return (
@@ -25,14 +25,14 @@ export default function ResultPredictionCard({
         </S.InformationPopoverContainer>
       }
     >
-      {predictions === null ? (
+      {prediction === null ? (
         <S.LoadingStyled
           type="bar"
           legend="Aguarde, estamos buscando suas informações..."
         />
       ) : (
         <>
-          <Items predictions={predictions} warning={warning} />
+          <Items prediction={prediction} warning={warning} />
           {warning && <Warning />}
         </>
       )}
