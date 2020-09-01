@@ -52,7 +52,8 @@ const FormatEnabledCell = (
   )
   return (
     <WrapperContent isTbody lineHeight="0">
-      {column.cell.value && column.cell.row.original.aplicao_liberada ? (
+      {/* {column.cell.value && column.cell.row.original.aplicao_liberada ? ( */}
+      {column.cell.row.original.aplicao_liberada ? (
         <SizedInvestButton
           data-gtm-type="click"
           data-gtm-clicktype="button"
@@ -60,14 +61,14 @@ const FormatEnabledCell = (
           data-gtm-name="investir"
           type="button"
           loading={
-            column.cell.row.original.id_fundo === clickedFundInvestButton &&
+            column.cell.row.original.id_carteira === clickedFundInvestButton &&
             (suitabilityIsLoading || finatialApplicationIsLoading)
           }
           loadingColor="white"
           color="secondary"
           onClick={event => {
             event.stopPropagation()
-            handleLayerOpen(column.cell.row.original.id_fundo)
+            handleLayerOpen(column.cell.row.original.id_carteira)
           }}
         >
           Investir
@@ -97,13 +98,15 @@ const FormatColumnDotToComma = column => (
   </WrapperContent>
 )
 
-const FormatColumnDotToCommaBold = column => (
-  <WrapperContent isBold>
-    {column.cell.value.toString() !== '-'
-      ? `${formatNumber(column.cell.value)}%`
-      : column.cell.value.toString()}
-  </WrapperContent>
-)
+const FormatColumnDotToCommaBold = column => {
+  const value = column.cell.value ? column.cell.value : ''
+
+  return (
+    <WrapperContent isBold>
+      {value !== '-' ? `${formatNumber(value)}%` : value}
+    </WrapperContent>
+  )
+}
 
 export default function FormatColumns(
   columns,
@@ -122,7 +125,7 @@ export default function FormatColumns(
         return fst === nextNickname ? -1 : 1
       },
     }),
-    is_fundo_ativo: column => ({
+    fundo_ativo: column => ({
       ...column,
       disableSortBy: true,
       Cell: cell =>
@@ -173,9 +176,9 @@ FormatFundoCell.propTypes = {
       original: PropTypes.shape({
         url_logo_gestor: PropTypes.string,
         apelido: PropTypes.string,
-        perfil_risco_ordem: PropTypes.string,
+        perfil_risco_ordem: PropTypes.number,
         categoria_arena: PropTypes.string,
-        id_fundo: PropTypes.string,
+        id_carteira: PropTypes.number,
       }),
     }),
   }).isRequired,

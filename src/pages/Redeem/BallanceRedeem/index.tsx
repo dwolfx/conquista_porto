@@ -43,7 +43,7 @@ interface IBallanceRedeem {
   onChangeFundDetailOpen: (isOpen: boolean) => void
   nextStep: () => void
   previousStep: () => void
-  idFundo: string
+  idFundo: number
   resetValue: () => void
 }
 const BallanceRedeem = ({

@@ -1,6 +1,6 @@
 import { Types } from './types'
 
-export function GetInvestmentDetailsRequest(id: string) {
+export function GetInvestmentDetailsRequest(id: number) {
   return {
     type: Types.INVESTMENT_DETAILS_ADD_REQUEST,
     fundId: id,

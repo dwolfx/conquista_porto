@@ -21,7 +21,7 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   const isTablet = useMedia('lg')
   const { idFund, isLayerOpen } = useSelector((state: any) => ({
     idFund: state.investmentPosition.idFund,
-    isLayerOpen: state.redeemData.isLayerOpen
+    isLayerOpen: state.redeemData.isLayerOpen,
   }))
 
   useFetchPosition()
@@ -65,7 +65,7 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
         {renderResponsiveContent()}
         <Anbima />
       </GridContainer>
-      <Redeem 
+      <Redeem
         isOpen={isLayerOpen}
         handleClose={() => dispatch(RedeemLayerToggleClose())}
         selectedFundId={idFund}

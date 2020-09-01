@@ -37,15 +37,18 @@ const FundDetailDrawer: React.FC<IProps> = ({
   handleClose,
   hasError = false,
 }) => {
-  const { data: fundDetails, isLoading } = useSelector<any, any>(
-    state => state.investmentDetails
-  )
-  const { suitabilityIsLoading, financialApplicationIsLoading } = useSelector<
-    any,
-    any
-  >(state => ({
+  const {
+    suitabilityIsLoading,
+    financialApplicationIsLoading,
+    comparativeProfitability,
+    fundDetails,
+    isLoading,
+  } = useSelector<any, any>(state => ({
     suitabilityIsLoading: state.suitabilityInfo.isLoading,
     financialApplicationIsLoading: state.financialApplicationGetData.isLoading,
+    comparativeProfitability: state.comparativeProfitability.data,
+    fundDetails: state.investmentDetails.data,
+    isLoading: state.investmentDetails.isLoading,
   }))
   const dispatch = useDispatch()
   const footerDrawer = () =>
@@ -61,7 +64,7 @@ const FundDetailDrawer: React.FC<IProps> = ({
         onClick={() => {
           isLayerOpen
             ? handleClose()
-            : handleLayerOpen(fundDetails.id_fundo, true)
+            : handleLayerOpen(fundDetails.id_carteira, true)
         }}
       >
         {isLayerOpen ? 'Voltar' : 'Investir'}
@@ -114,7 +117,10 @@ const FundDetailDrawer: React.FC<IProps> = ({
         <TabProfitability fund={fundDetails} />
       </TabPanel>
       <TabPanel name="tab-informacoes">
-        <TabMoreInfo fund={fundDetails} />
+        <TabMoreInfo
+          fund={fundDetails}
+          historicBenchmark={comparativeProfitability?.hist_rentabil_benchmark}
+        />
       </TabPanel>
     </Tabs>
   )
@@ -126,9 +132,9 @@ const FundDetailDrawer: React.FC<IProps> = ({
           {isLoading ? '' : fundDetails.apelido}
         </Text>
         <Text type="body" color="gray4" bold>
-          {fundDetails.categoria === 'Renda Variável'
+          {fundDetails.categoria_arena === 'Renda Variável'
             ? 'Ações'
-            : fundDetails.categoria}
+            : fundDetails.categoria_arena}
         </Text>
       </div>
       <CloseButton
@@ -140,6 +146,8 @@ const FundDetailDrawer: React.FC<IProps> = ({
       />
     </>
   )
+
+  if (!isOpen && fundDetails) return null
 
   return (
     <DrawerDetail
@@ -174,7 +182,7 @@ const FundDetailDrawer: React.FC<IProps> = ({
               margin-top: 14px;
             `}
             onClick={() =>
-              dispatch(GetInvestmentDetailsRequest(fundDetails.id_fundo))
+              dispatch(GetInvestmentDetailsRequest(fundDetails.id_carteira))
             }
           >
             Tentar novamente

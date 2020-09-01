@@ -15,7 +15,7 @@ import {
   GetRedeemAlignmentTermsFailure,
 } from './action'
 
-function* getRedeemAlignmentTermsData({
+export function* getRedeemAlignmentTermsData({
   payload: { data, onSuccess, onErrorToast },
 }: IGetRedeemAlignmentTermsPayload) {
   const { data_operacao, valor_bruto, id_fundo, tipo_operacao } = data
