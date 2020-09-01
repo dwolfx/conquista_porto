@@ -8,6 +8,7 @@ import {
   GetPointsExtractFailure,
   GetPointsBalanceSuccess,
   GetPointsBalanceFailure,
+  SetRedeemPointsLoading,
 } from './action'
 
 export function* getExtract() {
@@ -17,19 +18,22 @@ export function* getExtract() {
       `${baseURLNamespaceInvest}/programa-pontos/extrato`
     )
 
-    if (
-      response.data.Message &&
-      (!response.data.cadastroPessoaProgramaType ||
-        !response.data.detalheExtratoOptemaisTypes)
-    ) {
-      throw Error(response.data.Message.Mensagem)
-    }
+    let refinedDate = null
 
-    const refinedDate = {
-      ...response.data,
-      detalheExtratoOptemaisTypes: [
-        response.data.detalheExtratoOptemaisTypes,
-      ].flatMap(point => point),
+    if (response.data.Message && !response.data.detalheExtratoOptemaisTypes) {
+      if (
+        response.data.Message &&
+        response.data.Message.Mensagem !== 'SUCESSO'
+      ) {
+        throw Error(response.data.Message.Mensagem)
+      }
+    } else {
+      refinedDate = {
+        ...response.data,
+        detalheExtratoOptemaisTypes: [
+          response.data.detalheExtratoOptemaisTypes,
+        ].flatMap(point => point),
+      }
     }
 
     yield put(GetPointsExtractSuccess(refinedDate))
@@ -61,38 +65,73 @@ export function* getBalance() {
 
 export function* postRescuePoints({ payload }: any) {
   const { onSuccess, onErrorToast } = payload
-  const RESCUE_POINTS_URL_TOKEN =
-    process.env.REACT_APP_BASE_URL_RESCUE_POINTS_TOKEN
-  const RESCUE_POINTS_URL_SYSTEM =
-    process.env.REACT_APP_BASE_URL_RESCUE_POINTS_SYSTEM
+
+  yield put(SetRedeemPointsLoading(true))
+
   try {
     const { cpf } = yield select(state => state.auth)
-    const { data } = yield call(
-      axios.post,
-      `${RESCUE_POINTS_URL_TOKEN}/tokenorg`,
-      {
-        client_id: 'ORG040PRG1',
-        client_secret: 'v9S30OO0C+pHYpw9za3sj3YTPgNwb3J0b2FyZW5h',
-      }
-    )
 
-    const { data2 } = yield call(
-      axios.post,
-      `${RESCUE_POINTS_URL_TOKEN}/tokencatalogo`,
-      {
-        cod_chave: cpf,
-        cpf,
-        cod_org: '040',
-        cod_prog: '001',
+    const configAccessToken = {
+      headers: {
+        Authorization:
+          process.env.REACT_APP_SENSEDIA_AUTHORIZATION_ACCESS_TOKEN,
+        'Content-Type': 'application/json',
       },
+    }
+
+    const {
+      data: { access_token: token },
+    } = yield call(
+      axios.post,
+      `${process.env.REACT_APP_SENSEDIA_URL_TOKEN}`,
       {
-        headers: {
-          Authorization: `Bearer ${data.dataToken.access_token}`,
-        },
-      }
+        grant_type: 'client_credentials',
+      },
+      configAccessToken
     )
 
-    onSuccess(`${RESCUE_POINTS_URL_SYSTEM}?token=${data2.token}&CodOrg=040`)
+    const configAuthenticationToken = {
+      headers: {
+        client_id: process.env.REACT_APP_SENSEDIA_CLIENT_ID,
+        access_token: token,
+        'Content-Type': 'application/json',
+      },
+    }
+    const {
+      data: { accessToken },
+    } = yield call(
+      axios.post,
+      `${process.env.REACT_APP_SENSEDIA_URL_LOGIN_TOKEN}`,
+      {
+        cpf,
+        sourceSystem: 'Conquista',
+      },
+      configAuthenticationToken
+    )
+
+    const configAuthenticationSession = {
+      headers: {
+        client_id: process.env.REACT_APP_SENSEDIA_CLIENT_ID,
+        access_token: token,
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    }
+    const {
+      data: { authorizationUrl },
+    } = yield call(
+      axios.post,
+      `${process.env.REACT_APP_SENSEDIA_URL_LOGIN_SESSAO}`,
+      {
+        cpf,
+        sourceSystem: 'Conquista',
+      },
+      configAuthenticationSession
+    )
+
+    onSuccess(
+      `${process.env.REACT_APP_SENSEDIA_URL_LOGIN_PORTAL}/${authorizationUrl}`
+    )
   } catch (err) {
     onErrorToast({
       type: 'error',
@@ -100,11 +139,13 @@ export function* postRescuePoints({ payload }: any) {
         'Não foi possível realizar o resgate dos pontos neste momento.',
       title: 'Erro ao processar solicitação.',
     })
+  } finally {
+    yield put(SetRedeemPointsLoading(false))
   }
 }
 
 export default all([
   takeLatest(Types.GET_EXTRACT_REQUEST, getExtract),
   takeLatest(Types.GET_BALANCE_REQUEST, getBalance),
-  takeLatest(Types.POST_RESCUE_POINTS_REQUEST, postRescuePoints),
+  takeLatest(Types.POST_REDEEM_POINTS_REQUEST, postRescuePoints),
 ])

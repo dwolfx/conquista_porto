@@ -6,7 +6,7 @@ import {
   GetPointsBalanceRequest,
   GetPointsBalanceSuccess,
   GetPointsBalanceFailure,
-  PostRecuePointsRequest,
+  PostRedeemPointsRequest,
 } from './action'
 
 describe('Points actions', () => {
@@ -21,12 +21,6 @@ describe('Points actions', () => {
       Message: {
         TipoCritica: 'SUCESSO',
         Mensagem: 'SUCESSO',
-      },
-      cadastroPessoaProgramaType: {
-        segmento: 'BASICO',
-        codigoFidelidade: '39812241833',
-        nome: 'Vitor Carmo Vannuchi',
-        dataInicioVigencia: '30/09/2019',
       },
       detalheExtratoOptemaisTypes: [
         {
@@ -89,8 +83,8 @@ describe('Points actions', () => {
       onSuccess: () => {},
       onErrorToast: () => {},
     }
-    expect(PostRecuePointsRequest(payload)).toEqual({
-      type: Types.POST_RESCUE_POINTS_REQUEST,
+    expect(PostRedeemPointsRequest(payload)).toEqual({
+      type: Types.POST_REDEEM_POINTS_REQUEST,
       payload,
     })
   })

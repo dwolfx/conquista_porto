@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   balanceData: {},
   isLoadingBalance: false,
   hasErrorBalance: false,
+  isLoadingRedeem: false,
 }
 
 export default function(state = INITIAL_STATE, action: any) {
@@ -46,6 +47,11 @@ export default function(state = INITIAL_STATE, action: any) {
         ...state,
         isLoadingBalance: false,
         hasErrorBalance: true,
+      }
+    case Types.SET_REDEEM_LOADING:
+      return {
+        ...state,
+        isLoadingRedeem: action.payload,
       }
     default:
       return state
