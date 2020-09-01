@@ -283,30 +283,30 @@ export default function PointsSection({ points }: any) {
   }
 
   const renderPointsCard = () => {
-    // if (
-    //   (isLoadingExtract || isLoadingBalance) &&
-    //   !(points && Object.entries(points).length)
-    // ) {
-    //   return <LoadingState />
-    // }
+    if (
+      (isLoadingExtract || isLoadingBalance) &&
+      !(points && Object.entries(points).length)
+    ) {
+      return <LoadingState />
+    }
 
-    // if (
-    //   (hasErrorExtract || hasErrorBalance) &&
-    //   !(points && Object.entries(points).length)
-    // ) {
-    //   return (
-    //     <ErrorState
-    //       onRetry={() => {
-    //         if (hasErrorExtract) {
-    //           dispatch(GetPointsExtractRequest(auth.cpf))
-    //         }
-    //         if (hasErrorBalance) {
-    //           dispatch(GetPointsBalanceRequest(auth.cpf))
-    //         }
-    //       }}
-    //     />
-    //   )
-    // }
+    if (
+      (hasErrorExtract || hasErrorBalance) &&
+      !(points && Object.entries(points).length)
+    ) {
+      return (
+        <ErrorState
+          onRetry={() => {
+            if (hasErrorExtract) {
+              dispatch(GetPointsExtractRequest(auth.cpf))
+            }
+            if (hasErrorBalance) {
+              dispatch(GetPointsBalanceRequest(auth.cpf))
+            }
+          }}
+        />
+      )
+    }
 
     // if (points && Object.entries(points).length === 0) {
     return (
