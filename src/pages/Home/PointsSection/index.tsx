@@ -120,9 +120,9 @@ export default function PointsSection({ points }: any) {
     pointsAmountBalance,
   ])
 
-  // useEffect(() => {
-  //   dispatch(GetRewardTypesRequest())
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(GetRewardTypesRequest())
+  }, [dispatch])
 
   useEffect(() => {
     setCardsRecommendationData(
@@ -308,96 +308,94 @@ export default function PointsSection({ points }: any) {
       )
     }
 
-    // if (points && Object.entries(points).length === 0) {
-    return (
-      <PointsEmptyContainer>
-        <Text type="headline" color="gray5">
-          Olá! Desculpe, mas não será possível acessar o Programa de Pontos
-          agora. Em função de algumas novidades que estamos preparando, ele
-          ficará fora do ar até a próxima sexta-feira, 04/09/2020.
-        </Text>
-      </PointsEmptyContainer>
-    )
-    // }
+    if (points && Object.entries(points).length === 0) {
+      return (
+        <PointsEmptyContainer>
+          <Text type="headline" color="gray5">
+            Você não possui movimentações referente a pontos no momento.
+          </Text>
+        </PointsEmptyContainer>
+      )
+    }
 
-    // return (
-    //   <>
-    //     <PointsInfo>
-    //       <Text type="headline">
-    //         {balanceData.consultaPontosResponseType
-    //           ? 'Saldo atual'
-    //           : 'Você possui 0 pontos'}
-    //       </Text>
-    //       <Text type="headline" bold>
-    //         {!!balanceData.consultaPontosResponseType &&
-    //           !!pointsAmountBalance &&
-    //           Intl.NumberFormat().format(pointsAmountBalance)}
-    //       </Text>
-    //       <Popover
-    //         content={() => (
-    //           <Text
-    //             type="body"
-    //             color="gray5"
-    //             css={`
-    //               width: 140px;
-    //             `}
-    //           >
-    //             Pontos acumulados no Conquista e no Cartão Porto Seguro
-    //           </Text>
-    //         )}
-    //       >
-    //         <Icon name="information" color="blue4" />
-    //       </Popover>
-    //       {points && (
-    //         <PointsButtonWrapper>
-    //           <Popover
-    //             content={() => (
-    //               <Text
-    //                 type="body"
-    //                 color="gray5"
-    //                 css={`
-    //                   width: 140px;
-    //                 `}
-    //               >
-    //                 {`Olá! Em função de algumas novidades que estamos preparando no Programa de Pontos, a função "Resgatar" ficará desativada até a próxima sexta-feira, 21/08/2020.`}
-    //               </Text>
-    //             )}
-    //           >
-    //             <Button
-    //               data-gtm-subname="card pontos"
-    //               data-gtm-name="resgatar"
-    //               data-gtm-type="click"
-    //               data-gtm-clicktype="button"
-    //               color="secondary"
-    //               disabled
-    //               onClick={() =>
-    //                 dispatch(
-    //                   PostRecuePointsRequest({
-    //                     onSuccess: redirectToRescuePointsSystem,
-    //                     onErrorToast: addToast,
-    //                   })
-    //                 )
-    //               }
-    //             >
-    //               Resgatar
-    //             </Button>
-    //           </Popover>
-    //         </PointsButtonWrapper>
-    //       )}
-    //     </PointsInfo>
-    //     <>
-    //       {points ? (
-    //         <PointsList>{renderPointsHorizontalList()}</PointsList>
-    //       ) : (
-    //         <EmptyBody>
-    //           <Text type="headline" color="gray5">
-    //             Você não possui movimentações referente a pontos no momento.
-    //           </Text>
-    //         </EmptyBody>
-    //       )}
-    //     </>
-    //   </>
-    // )
+    return (
+      <>
+        <PointsInfo>
+          <Text type="headline">
+            {balanceData.consultaPontosResponseType
+              ? 'Saldo atual'
+              : 'Você possui 0 pontos'}
+          </Text>
+          <Text type="headline" bold>
+            {!!balanceData.consultaPontosResponseType &&
+              !!pointsAmountBalance &&
+              Intl.NumberFormat().format(pointsAmountBalance)}
+          </Text>
+          <Popover
+            content={() => (
+              <Text
+                type="body"
+                color="gray5"
+                css={`
+                  width: 140px;
+                `}
+              >
+                Pontos acumulados no Conquista e no Cartão Porto Seguro
+              </Text>
+            )}
+          >
+            <Icon name="information" color="blue4" />
+          </Popover>
+          {points && (
+            <PointsButtonWrapper>
+              <Popover
+                content={() => (
+                  <Text
+                    type="body"
+                    color="gray5"
+                    css={`
+                      width: 140px;
+                    `}
+                  >
+                    {`Olá! Em função de algumas novidades que estamos preparando no Programa de Pontos, a função "Resgatar" ficará desativada até a próxima sexta-feira, 21/08/2020.`}
+                  </Text>
+                )}
+              >
+                <Button
+                  data-gtm-subname="card pontos"
+                  data-gtm-name="resgatar"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  color="secondary"
+                  disabled
+                  onClick={() =>
+                    dispatch(
+                      PostRecuePointsRequest({
+                        onSuccess: redirectToRescuePointsSystem,
+                        onErrorToast: addToast,
+                      })
+                    )
+                  }
+                >
+                  Resgatar
+                </Button>
+              </Popover>
+            </PointsButtonWrapper>
+          )}
+        </PointsInfo>
+        <>
+          {points ? (
+            <PointsList>{renderPointsHorizontalList()}</PointsList>
+          ) : (
+            <EmptyBody>
+              <Text type="headline" color="gray5">
+                Você não possui movimentações referente a pontos no momento.
+              </Text>
+            </EmptyBody>
+          )}
+        </>
+      </>
+    )
   }
 
   return (
@@ -410,9 +408,9 @@ export default function PointsSection({ points }: any) {
       >
         {renderModalContent()}
       </Modal>
-      <SectionCol md={12}>
+      <SectionCol md={5}>
         <PointsExtractListWrapper>
-          {/*<FullHeightCard
+          <FullHeightCard
             headerIcon="diamond"
             headerTitle="Pontos"
             footer={renderPointsFooter()}
@@ -431,33 +429,13 @@ export default function PointsSection({ points }: any) {
                 }}
               />
             }
-          >*/}
-          <FullHeightCard
-            headerIcon="diamond"
-            headerTitle="Pontos"
-            footer={renderPointsFooter()}
-            headerEndItem={
-              <CardHeaderState
-                showHeader={Boolean(points && Object.entries(points).length)}
-                isLoading={isLoadingExtract || isLoadingBalance}
-                hasError={true}
-                onErrorClick={() => {
-                  if (hasErrorExtract) {
-                    dispatch(GetPointsExtractRequest(auth.cpf))
-                  }
-                  if (hasErrorBalance) {
-                    dispatch(GetPointsBalanceRequest(auth.cpf))
-                  }
-                }}
-              />
-            }
           >
             {renderPointsCard()}
           </FullHeightCard>
         </PointsExtractListWrapper>
       </SectionCol>
 
-      {/*<SectionCol md={7}>
+      <SectionCol md={7}>
         <Row
           css={`
             height: 100%;
@@ -490,7 +468,7 @@ export default function PointsSection({ points }: any) {
             />
           </SectionCol>
         </Row>
-        </SectionCol>*/}
+      </SectionCol>
     </>
   )
 }
