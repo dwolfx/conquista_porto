@@ -1,7 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceAtlas } from 'services/api'
-import Exception404 from 'services/exceptions/Exception404'
+import NotFoundException from 'services/exceptions/NotFoundException'
 
 import {
   GetLastTransactionDataSuccess,
@@ -30,7 +30,7 @@ function* getData({ fundId }: IPayload) {
 
     yield put(GetLastTransactionDataSuccess(responseData))
   } catch (err) {
-    if (err instanceof Exception404) {
+    if (err instanceof NotFoundException) {
       yield put(GetLastTransactionDataEmpty())
     } else {
       yield put(GetLastTransactionDataFailure())
