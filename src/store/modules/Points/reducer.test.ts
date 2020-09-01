@@ -53,13 +53,7 @@ describe('Points reducer', () => {
             Message: {
               TipoCritica: 'SUCESSO',
               Mensagem: 'SUCESSO',
-            },
-            cadastroPessoaProgramaType: {
-              segmento: 'BASICO',
-              codigoFidelidade: '39812241833',
-              nome: 'Vitor Carmo Vannuchi',
-              dataInicioVigencia: '30/09/2019',
-            },
+            }, 
             detalheExtratoOptemaisTypes: [
               {
                 pontoGanho: '200',
@@ -79,12 +73,6 @@ describe('Points reducer', () => {
         Message: {
           TipoCritica: 'SUCESSO',
           Mensagem: 'SUCESSO',
-        },
-        cadastroPessoaProgramaType: {
-          segmento: 'BASICO',
-          codigoFidelidade: '39812241833',
-          nome: 'Vitor Carmo Vannuchi',
-          dataInicioVigencia: '30/09/2019',
         },
         detalheExtratoOptemaisTypes: [
           {

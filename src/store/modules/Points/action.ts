@@ -41,7 +41,7 @@ export function GetPointsBalanceFailure() {
   }
 }
 
-export function PostRecuePointsRequest({
+export function PostRedeemPointsRequest({
   onSuccess,
   onErrorToast,
 }: {
@@ -49,7 +49,14 @@ export function PostRecuePointsRequest({
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
 }) {
   return {
-    type: Types.POST_RESCUE_POINTS_REQUEST,
+    type: Types.POST_REDEEM_POINTS_REQUEST,
     payload: { onSuccess, onErrorToast },
+  }
+}
+
+export function SetRedeemPointsLoading(payload: boolean) {
+  return {
+    type: Types.SET_REDEEM_LOADING,
+    payload,
   }
 }
