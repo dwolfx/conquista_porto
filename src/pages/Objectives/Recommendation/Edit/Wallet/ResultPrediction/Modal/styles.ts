@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import Prompt from 'components/Modal/Prompt'
 import ModalNew from 'components/Modal/ModalNew'
 import { ModalContainer } from 'components/Modal/stylesNew'
-import { ButtonContainerModal } from 'components/Modal/Prompt/styles'
 import { mediaQueries } from 'styles/theme'
 import { Item, Items } from '../Items/styles'
 
