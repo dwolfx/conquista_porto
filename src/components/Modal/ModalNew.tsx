@@ -103,12 +103,12 @@ const Modal: React.FC<IProps> = ({
         </ModalHeader>
         <Divisor customSize="calc(100% - 14px)" />
         <ChildrenWrapper>{children}</ChildrenWrapper>
-        {footer ? (
+        {footer && (
           <>
             <Divisor customSize="100%" />
             <ModalFooter>{footer}</ModalFooter>
           </>
-        ) : null}
+        )}
       </ModalContainer>
     </ModalWrapper>,
     document.querySelector('#root') as HTMLInputElement
