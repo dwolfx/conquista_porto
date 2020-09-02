@@ -31,10 +31,14 @@ export const InfoRow = styled.div`
 `
 
 export const RiskColorTag = styled(RiskColor)`
-  height: calc(100% - 6px);
+  height: calc(100% - 8px);
   left: 0;
   position: absolute;
   top: 3px;
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    left: -34px;
+  }
 `
 
 export const FabButton = styled(ButtonIcon)`

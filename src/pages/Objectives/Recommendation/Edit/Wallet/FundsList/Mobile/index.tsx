@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import Button from 'components/Button'
 import ButtonIcon from 'components/Button/Icon'
 import HorizontalList from 'components/HorizontalList'
+import Loading from 'components/Loading'
 import Text from 'components/Text'
+
 import { formatMoney } from 'helpers'
 
 import { RiskColorTag } from '../styles'
@@ -137,6 +140,34 @@ const FundCard = ({
 }
 
 export default function FundsListMobile({ funds, ...rest }: IMobileProps) {
+  const { isLoadingFundsList, hasErrorFundsList } = useSelector<any, any>(
+    state => ({
+      isLoadingFundsList: state.investmentsList.isLoading,
+      hasErrorFundsList: state.investmentsList.hasError,
+    })
+  )
+
+  if (isLoadingFundsList) {
+    return (
+      <Loading
+        type="bar"
+        legend="Buscando informações dos fundos de investimento"
+      />
+    )
+  }
+
+  if (hasErrorFundsList) {
+    return (
+      <>
+        <Text type="headline" color="magenta2">
+          Não foi possível carregar a lista de fundos. Por favor, tente
+          novamente
+        </Text>
+        <Button>Tentar novamente</Button>
+      </>
+    )
+  }
+
   return (
     <>
       {funds.map(fund => (

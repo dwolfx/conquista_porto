@@ -11,9 +11,8 @@ import PercentualInfosCmp from 'pages/Objectives/Recommendation/components/Perce
 export const Container = styled(ContainerBootstrap)<{ isFirst?: boolean }>`
   padding: ${({ theme, isFirst }) =>
     isFirst
-      ? `0 ${theme.spacing(2)}px ${theme.spacing(9)}px`
+      ? `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(9)}px`
       : `0 ${theme.spacing(2)}px`};
-  padding-top: ${({ theme }) => theme.spacing(3)}px;
 
   @media ${({ theme }) => theme.mediaQueries.mdUp} {
     padding-left: 0;
@@ -78,6 +77,7 @@ export const Footer = styled.div`
   padding: ${({ theme }) => theme.spacing(1)}px 0;
   position: fixed;
   width: 100vw;
+  z-index: 1;
 
   button {
     &:last-of-type {

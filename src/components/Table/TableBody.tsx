@@ -84,6 +84,7 @@ const TableBody = ({
                   width={styles.width}
                   minWidth={styles.minWidth}
                   align={cell.column.align}
+                  isSticky={!!cell.column.sticky}
                   inheritMarginFirstCell={styles.inheritMarginFirstCell}
                   {...cell.getCellProps()}
                 >

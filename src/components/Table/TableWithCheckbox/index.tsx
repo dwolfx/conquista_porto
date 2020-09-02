@@ -108,8 +108,19 @@ const Table = ({
               </div>
             ) : null,
           Cell: CellWithCheckbox,
-          width: 17,
+          width: 35,
+          minWidth: 35,
+          styles: {
+            width: 35,
+            minWidth: 35,
+            header: {
+              width: 7,
+              minWidth: 7,
+            },
+          },
           inheritMarginFirstCell: true,
+          sticky: 'left',
+          canSort: false,
         },
         ...cols,
       ])
@@ -118,56 +129,66 @@ const Table = ({
 
   const tableRef = useRef() as React.RefObject<HTMLDivElement>
   const [showLeftShadow, setShowLeftShadow] = useState(false)
-  const [showRightShadow, setShowRightShadow] = useState(true)
+  const [showRightShadow, setShowRightShadow] = useState(false)
 
   useEffect(() => {
-    if (tableRef?.current?.onscroll) {
-      tableRef.current.onscroll = ({ srcElement }: any) => {
-        const { scrollLeft, clientWidth, scrollWidth } = srcElement
-        const posX = scrollLeft / (scrollWidth - clientWidth)
+    const hasLeftSticky = columns.filter((item: any) => item.sticky === 'left')
+    const hasRightSticky = columns.filter(
+      (item: any) => item.sticky === 'right'
+    )
 
-        if (posX === 0) {
-          setShowRightShadow(true)
-          setShowLeftShadow(false)
-        } else if (posX > 0 && posX < 1) {
-          setShowRightShadow(true)
-          setShowLeftShadow(true)
-        } else {
-          setShowRightShadow(false)
-          setShowLeftShadow(true)
-        }
-      }
+    if (hasLeftSticky.length && rows?.length) {
+      setShowLeftShadow(true)
     }
-  }, [tableRef])
+    if (hasRightSticky.length && rows?.length) {
+      setShowRightShadow(true)
+    }
+  }, [columns, rows])
 
   useEffect(() => {
     const selected = [...selectedFlatRows].map(row => row?.original)
     onSelect(selected)
   }, [selectedFlatRows, onSelect])
 
-  const calculateStickWidth = useCallback((acc: string, cur: any) => {
-    let pixelValue = acc.split('+')[1].replace(/\D/g, '')
-    let percentageValue = acc.split('+')[0].replace(/\D/g, '')
+  const calculateStickWidth = (acc: string, cur: any) => {
+    let pixelValue = +acc.split('+')[1].replace(/\D/g, '')
+    let percentageValue = +acc.split('+')[0].replace(/\D/g, '')
+    const widthToCalculate = cur?.styles?.width
+    const minWidthToCalculate = cur?.styles?.minWidth
 
-    if (typeof cur.styles.width === 'string') {
-      if (cur.styles.width.indexOf('%')) {
-        percentageValue += +cur.styles.width.replace('%', '')
+    if (typeof widthToCalculate === 'string') {
+      if (widthToCalculate.indexOf('%')) {
+        percentageValue +=
+          +widthToCalculate?.replace('%', '') ||
+          +minWidthToCalculate?.replace('%', '') ||
+          0
       } else {
-        pixelValue += +cur.styles.width.replace('px', '')
+        pixelValue +=
+          +widthToCalculate?.replace('px', '') ||
+          minWidthToCalculate?.replace('px', '') ||
+          0
       }
     } else {
-      pixelValue += cur.styles.width
+      pixelValue += +widthToCalculate || +minWidthToCalculate || 0
     }
 
     return `calc(${percentageValue}% + ${pixelValue}px)`
-  }, [])
+  }
 
-  const stickyElementRight = columns
-    .filter((column: any) => column.sticky === 'right')
-    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 7px)')
-  const stickyElementLeft = columns
-    .filter((column: any) => column.sticky === 'left')
-    .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 0px)')
+  const stickyElementRight = useMemo(
+    () =>
+      columns
+        .filter((column: any) => column.sticky === 'right')
+        .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 7px)'),
+    [columns]
+  )
+  const stickyElementLeft = useMemo(
+    () =>
+      columns
+        .filter((column: any) => column.sticky === 'left')
+        .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 42px)'),
+    [columns]
+  )
 
   return (
     <>

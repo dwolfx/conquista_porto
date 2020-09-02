@@ -15,12 +15,14 @@ export const SimpleHeader = ({ header }: any) => {
           <s.TheadText type="subheading" color="gray6" bold>
             {content}
           </s.TheadText>
-          <s.IconContainer
-            isSorted={header.isSorted}
-            isSortedDesc={header.isSortedDesc}
-          >
-            <Icon name="arrowsortable" color="gray4" />
-          </s.IconContainer>
+          {header.canSort ? (
+            <s.IconContainer
+              isSorted={header.isSorted}
+              isSortedDesc={header.isSortedDesc}
+            >
+              <Icon name="arrowsortable" color="gray4" />
+            </s.IconContainer>
+          ) : null}
         </>
       )
     }
@@ -33,6 +35,7 @@ export const SimpleHeader = ({ header }: any) => {
       width={styles.width}
       minWidth={styles.minWidth}
       canSort={header.canSort}
+      isSticky={!!header.sticky}
       {...header.getHeaderProps(header.getSortByToggleProps())}
     >
       <s.TheadContent

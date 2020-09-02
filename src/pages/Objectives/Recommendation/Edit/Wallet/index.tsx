@@ -122,6 +122,8 @@ export default function WalletComposition({ onClose }: IProps) {
     )
   }
 
+  const seiLa = undefined
+
   return (
     <>
       <ResultPredictionModal
@@ -136,7 +138,7 @@ export default function WalletComposition({ onClose }: IProps) {
         </s.InformativeRow>
 
         <s.CompositionRow>
-          <Col lg={3} md={4}>
+          <Col lg={3}>
             <ResultPredictionCard
               predictions={predictions}
               warning={financialGoalNotReached()}
@@ -151,6 +153,7 @@ export default function WalletComposition({ onClose }: IProps) {
                     Você pode adicionar, remover e substituir fundos sugeridos,
                     além de remanejar os investimentos em cada categoria.
                   </Text>
+                  {seiLa && <p>Test</p>}
                 </s.TextCompositionWrapper>
 
                 <s.PercentualInfos funds={funds} />

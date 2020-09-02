@@ -16,6 +16,12 @@ export const LoadingStyled = styled(Loading)`
 `
 
 export const CardStyled = styled(Card)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    margin-bottom: 0;
+  }
+
   ${CardBody} {
     text-align: center;
     margin-top: ${({ theme }) => theme.spacing(2)}px;

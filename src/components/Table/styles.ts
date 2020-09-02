@@ -62,6 +62,9 @@ export const Table = styled.div`
   width: 100%;
 
   &.sticky {
+    .header {
+      width: fit-content;
+    }
     .body {
       height: auto;
       min-width: 100%;
@@ -95,6 +98,7 @@ interface ITheadTh {
   canSort?: boolean
   minWidth?: string | number
   width?: string | number
+  isSticky?: boolean
 }
 
 export const TheadTh = styled.div<ITheadTh>`
@@ -123,6 +127,16 @@ export const TheadTh = styled.div<ITheadTh>`
 
     return 'auto'
   }};
+
+  ${({ isSticky, theme }) =>
+    isSticky
+      ? `
+        margin-left: 0;
+        padding-right: 0;
+        padding-left: ${theme.spacing(3)}px;
+
+      `
+      : ''}
 `
 
 interface ITheadContent {
@@ -237,6 +251,7 @@ interface ITbodyTd {
   minWidth?: string | number
   width?: string | number
   inheritMarginFirstCell: boolean
+  isSticky?: boolean
 }
 
 export const TbodyTd = styled.div<ITbodyTd>`
@@ -268,9 +283,17 @@ export const TbodyTd = styled.div<ITbodyTd>`
     padding-left: ${({ theme }) => theme.spacing(1)}px;
   }
   &:first-child {
-    margin-left: ${({ inheritMarginFirstCell }) =>
-      inheritMarginFirstCell ? '21px' : 0};
+    padding-right: ${({ theme }) => theme.spacing(1)}px;
+    margin-left: ${({ inheritMarginFirstCell, theme, isSticky }) =>
+      inheritMarginFirstCell && !isSticky ? `${theme.spacing(3)}px` : 0};
   }
+  ${({ isSticky, theme }) =>
+    isSticky
+      ? `
+        margin-left: 0;
+        padding-left: ${theme.spacing(3)}px;
+      `
+      : ''}
 `
 
 interface IStickyDivisor {

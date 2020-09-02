@@ -18,9 +18,10 @@ interface IRiskColorTag {
 }
 
 export const RiskColorTag = styled.div<IRiskColorTag>`
-  width: 5px;
   background-color: ${({ borderRisk }) => riskColorsMap[borderRisk]};
   border-radius: 4px;
+  width: 5px;
+  z-index: 4;
 
   @media ${({ theme }) => theme.mediaQueries.sm} {
     height: calc(100% - 8px);

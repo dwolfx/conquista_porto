@@ -9,7 +9,8 @@ import Table from 'components/Table/TableWithCheckbox'
 import { TColumns } from 'components/Table/types'
 import Text from 'components/Text'
 
-import { formatMoney } from 'helpers'
+import { formatMoney, formatNumber } from 'helpers'
+import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import useFetchInvestmentsList from 'hooks/Investments/useFetchInvestmentsList'
 
@@ -54,11 +55,88 @@ const columns: TColumns[] = [
       </Text>
     ),
   },
-  { Header: 'Regate (cot.)', accessor: 'resgate_cotizacao' },
-  { Header: 'Taxa adm (a.a.)', accessor: 'taxa_administracao' },
-  { Header: 'Rent. mês', accessor: 'rentabil_fundo_mes' },
-  { Header: 'Rent. ano', accessor: 'rentabil_fundo_ano' },
-  { Header: 'Rent. últ. 12m', accessor: 'rentabil_fundo_12_meses' },
+  {
+    Header: 'Regate (cot.)',
+    accessor: 'resgate_cotizacao',
+    format: (row: IFundsList) => (
+      <Text color="gray5" bold>
+        {row.resgate_cotizacao}
+      </Text>
+    ),
+  },
+  {
+    Header: 'Taxa adm (a.a.)',
+    accessor: 'taxa_administracao',
+    format: (row: IFundsList) => (
+      <Text color="gray5" bold>
+        {formatNumber(row.resgate_cotizacao)}%
+      </Text>
+    ),
+  },
+  {
+    Header: 'Rent. mês',
+    accessor: 'rentabil_fundo_mes',
+    format: (row: IFundsList) => (
+      <Text color="gray6" bold>
+        {formatNumber(row.rentabil_fundo_mes)}%
+      </Text>
+    ),
+  },
+  {
+    Header: 'Rent. ano',
+    accessor: 'rentabil_fundo_ano',
+    format: (row: IFundsList) => (
+      <Text color="gray6" bold>
+        {formatNumber(row.rentabil_fundo_ano)}%
+      </Text>
+    ),
+  },
+  {
+    Header: 'Rent. últ. 12m',
+    accessor: 'rentabil_fundo_12_meses',
+    format: (row: IFundsList) => (
+      <Text color="gray6" bold>
+        {formatNumber(row.rentabil_fundo_12_meses)}%
+      </Text>
+    ),
+  },
+]
+
+const columnsSticky: TColumns[] = [
+  {
+    ...columns[0],
+    styles: { minWidth: 179 },
+    sticky: 'left',
+    canSort: false,
+  },
+  {
+    ...columns[1],
+    styles: {
+      minWidth: 140,
+    },
+    canSort: false,
+  },
+  {
+    ...columns[2],
+    styles: {
+      minWidth: 160,
+    },
+    canSort: false,
+  },
+  {
+    ...columns[3],
+    styles: {
+      minWidth: 200,
+    },
+    canSort: false,
+  },
+  {
+    ...columns[4],
+    styles: { minWidth: 187, header: { minWidth: 130 } },
+    canSort: false,
+  },
+  { ...columns[5], styles: { minWidth: 140 }, canSort: false },
+  { ...columns[6], styles: { minWidth: 160 }, canSort: false },
 ]
 
 export default function FundsList({
@@ -66,10 +144,11 @@ export default function FundsList({
   setWalletFunds,
   onClose,
 }: IFundsListProps) {
-  // const { addToast } = useToast()
+  const { addToast } = useToast()
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
-  const isTablet = useMedia('md')
+  const isTabletVertical = useMedia('md')
+  const isTabletHorizontal = useMedia('lg')
 
   // states
   const [fundsListAvailable, setFundsListAvailable] = useState<
@@ -257,6 +336,14 @@ export default function FundsList({
     )
 
     setWalletFunds([...walletFunds, ...newFunds])
+    addToast({
+      title: `${
+        selectedFunds.length > 1
+          ? 'Fundos adicionados com sucesso!'
+          : 'Fundo adicionado com sucesso!'
+      }`,
+      type: 'success',
+    })
     onClose()
   }
 
@@ -284,6 +371,10 @@ export default function FundsList({
                   onAddToWalletClick={fund => {
                     const newFund = createFundObject(fund)
                     setWalletFunds([...walletFunds, newFund])
+                    addToast({
+                      title: 'Fundo adicionado com sucesso!',
+                      type: 'success',
+                    })
                   }}
                   fundsIdsAlreadyOnWallet={fundsIdsAlreadyOnWallet}
                 />
@@ -314,10 +405,15 @@ export default function FundsList({
 
                 <Table
                   data={mobileFundList(filteredFundsList)}
-                  columns={columns}
+                  columns={
+                    isTabletVertical || isTabletHorizontal
+                      ? columnsSticky
+                      : columns
+                  }
                   onSelect={onSelectCallback}
                   isLoading={isFundsListLoading}
                   showSelectAll={false}
+                  isSticky={isTabletHorizontal || isTabletVertical}
                 />
 
                 <s.InfoRow>
@@ -343,7 +439,7 @@ export default function FundsList({
               category={fundDetailsCategory}
             />
 
-            {isMobile || isTablet ? (
+            {isMobile || isTabletVertical || isTabletHorizontal ? (
               <DrawerFilter
                 filter={filter}
                 onChangeFilter={handleChangeFilter}

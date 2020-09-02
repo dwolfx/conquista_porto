@@ -14,6 +14,8 @@ export type TColumns = {
       minWidth?: string | number
     }
   }
+  sticky?: 'left' | 'right'
+  canSort?: boolean
 }
 
 type TRow = {
