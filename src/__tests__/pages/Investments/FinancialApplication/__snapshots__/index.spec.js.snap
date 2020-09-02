@@ -97,7 +97,7 @@ Object {
   line-height: 19px;
 }
 
-.c72 {
+.c73 {
   color: unset;
   text-align: unset;
   font-weight: normal;
@@ -160,7 +160,7 @@ Object {
   margin-left: 14px;
 }
 
-.c61 {
+.c62 {
   background: #EBEBEB;
   background-repeat: no-repeat;
   border: none;
@@ -178,11 +178,11 @@ Object {
   transition: all 0.4s ease-out;
 }
 
-.c61:hover:active {
+.c62:hover:active {
   pointer-events: none;
 }
 
-.c61:hover:active:after {
+.c62:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -190,7 +190,7 @@ Object {
   transition: all ease 0s;
 }
 
-.c61:before {
+.c62:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -324,7 +324,7 @@ Object {
   width: 0;
 }
 
-.c63 {
+.c64 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -496,18 +496,26 @@ Object {
 }
 
 .c56 {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
+  height: 19px;
+  position: relative;
+  width: 19px;
 }
 
-.c56 + .c57 {
+.c57 {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+}
+
+.c57 + .c58 {
   position: relative;
   cursor: pointer;
   padding-left: 30px;
 }
 
-.c56 + .c57:before {
+.c57 + .c58:before {
   content: '';
   position: absolute;
   width: 19px;
@@ -523,11 +531,11 @@ Object {
   border-radius: 4px;
 }
 
-.c56:checked + .c57:before {
+.c57:checked + .c58:before {
   border: 1px solid #00ADEF;
 }
 
-.c56:checked + .c57:after {
+.c57:checked + .c58:after {
   content: '';
   position: absolute;
   left: 5px;
@@ -541,21 +549,18 @@ Object {
   top: 50%;
 }
 
-.c56:disabled + .c57:before {
+.c57:disabled + .c58:before {
   border: 1px solid #BABABA;
   cursor: not-allowed;
 }
 
-.c56:disabled + .c57:after {
+.c57:disabled + .c58:after {
   cursor: not-allowed;
   border-right: solid 3px #BABABA;
   border-bottom: solid 3px #BABABA;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
 }
 
-.c67 {
+.c68 {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -564,7 +569,7 @@ Object {
   margin: 28px auto;
 }
 
-.c70 {
+.c71 {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -573,7 +578,7 @@ Object {
   padding: 0 21px;
 }
 
-.c69 {
+.c70 {
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
@@ -587,16 +592,16 @@ Object {
   margin-left: -15px;
 }
 
-.c71 {
+.c72 {
   margin-bottom: 28px;
 }
 
-.c73 {
+.c74 {
   display: inline;
   color: #898989;
 }
 
-.c74 {
+.c75 {
   display: inline;
   color: #00ADEF;
 }
@@ -615,7 +620,7 @@ Object {
   height: 53px;
 }
 
-.c78 {
+.c79 {
   height: 53px;
 }
 
@@ -627,7 +632,7 @@ Object {
   height: 53px;
 }
 
-.c75 {
+.c76 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -668,7 +673,7 @@ Object {
   overflow: hidden;
 }
 
-.c59 {
+.c60 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -847,7 +852,7 @@ Object {
   overflow: hidden;
 }
 
-.c64 {
+.c65 {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -914,7 +919,7 @@ Object {
   padding: 0px;
 }
 
-.c65 {
+.c66 {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -968,11 +973,11 @@ Object {
   padding: 0;
 }
 
-.c68 {
+.c69 {
   margin-top: 0;
 }
 
-.c66 {
+.c67 {
   margin: 14px 0;
 }
 
@@ -1169,7 +1174,7 @@ Object {
   padding-left: 15px;
 }
 
-.c60 {
+.c61 {
   width: 100%;
   text-align: right;
   padding: 0 14px;
@@ -1183,16 +1188,16 @@ Object {
   margin: 21px 0 21px 7px;
 }
 
-.c58 {
+.c59 {
   color: #00ADEF;
 }
 
-.c58:hover {
+.c59:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c62 {
+.c63 {
   width: auto;
   min-width: 112px;
 }
@@ -1227,31 +1232,31 @@ Object {
 }
 
 @media (min-width:576px) {
-  .c67 {
+  .c68 {
     max-width: 540px;
   }
 }
 
 @media (min-width:768px) {
-  .c67 {
+  .c68 {
     max-width: 720px;
   }
 }
 
 @media (min-width:992px) {
-  .c67 {
+  .c68 {
     max-width: 960px;
   }
 }
 
 @media (min-width:1200px) {
-  .c67 {
+  .c68 {
     max-width: 1140px;
   }
 }
 
 @media (min-width:992px) {
-  .c70 {
+  .c71 {
     -ms-flex: 0 0 100%;
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
@@ -1261,7 +1266,7 @@ Object {
 }
 
 @media (min-width:736px) {
-  .c70 {
+  .c71 {
     padding: 0;
   }
 }
@@ -1388,31 +1393,31 @@ Object {
 }
 
 @media (min-width:576px) {
-  .c64 {
+  .c65 {
     max-width: 540px;
   }
 }
 
 @media (min-width:768px) {
-  .c64 {
+  .c65 {
     max-width: 720px;
   }
 }
 
 @media (min-width:992px) {
-  .c64 {
+  .c65 {
     max-width: 960px;
   }
 }
 
 @media (min-width:1200px) {
-  .c64 {
+  .c65 {
     max-width: 1140px;
   }
 }
 
 @media (min-width:980px) {
-  .c64 {
+  .c65 {
     margin-top: 0;
   }
 }
@@ -1513,7 +1518,7 @@ Object {
 }
 
 @media (min-width:980px) {
-  .c65 {
+  .c66 {
     padding: 0px 7px;
   }
 }
@@ -1541,7 +1546,7 @@ Object {
 }
 
 @media (max-width:736px) {
-  .c66 {
+  .c67 {
     padding: 0 21px;
   }
 }
@@ -1601,15 +1606,15 @@ Object {
             class="c3"
           >
             <div
-              class="sc-fzoNJl c4"
+              class="sc-fzoXWK c4"
               data-name="container"
             >
               <div
-                class="sc-fzoXWK c5"
+                class="sc-fzpmMD c5"
                 data-name="row"
               >
                 <div
-                  class="sc-fzpmMD c6"
+                  class="sc-fznxKY c6"
                   data-name="col-lg-12"
                 >
                   <div
@@ -1652,15 +1657,15 @@ Object {
                 class="c14"
               >
                 <div
-                  class="sc-fzoNJl c4"
+                  class="sc-fzoXWK c4"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzoXWK c15"
+                    class="sc-fzpmMD c15"
                     data-name="row"
                   >
                     <div
-                      class="sc-fzpmMD c16"
+                      class="sc-fznxKY c16"
                       data-name="col-lg-12"
                     >
                       <div
@@ -1697,21 +1702,21 @@ Object {
                 class="c23"
               >
                 <div
-                  class="sc-fzoNJl c24"
+                  class="sc-fzoXWK c24"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzoXWK c25"
+                    class="sc-fzpmMD c25"
                     data-name="row"
                   >
                     <div
-                      class="sc-fzpmMD c26"
+                      class="sc-fznxKY c26"
                       data-name="col-sm-12 col-md-4 col-lg-3"
                     >
                       <div />
                     </div>
                     <div
-                      class="sc-fzpmMD c27"
+                      class="sc-fznxKY c27"
                       data-name="col-sm-12 col-md-8 col-lg-9"
                     >
                       <div
@@ -1786,11 +1791,11 @@ Object {
                             class="c39 c40"
                           />
                           <div
-                            class="sc-fzoXWK c41"
+                            class="sc-fzpmMD c41"
                             data-name="row"
                           >
                             <div
-                              class="sc-fzpmMD c42"
+                              class="sc-fznxKY c42"
                               data-name="col-sm-6"
                             >
                               <p
@@ -1827,7 +1832,7 @@ Object {
                               </div>
                             </div>
                             <div
-                              class="sc-fzpmMD c42"
+                              class="sc-fznxKY c42"
                               data-name="col-sm-6"
                             >
                               <p
@@ -1880,48 +1885,52 @@ Object {
                           <div
                             class="c55"
                           >
-                            <input
+                            <div
                               class="c56"
-                              id="checkbox-1"
-                              type="checkbox"
-                            />
-                            <label
-                              class="c57 "
-                              for="checkbox-1"
                             >
-                              <p
-                                class="c54"
-                                color="gray5"
-                                type="body"
+                              <input
+                                class="c57"
+                                id="checkbox-1"
+                                type="checkbox"
+                              />
+                              <label
+                                class="c58 "
+                                for="checkbox-1"
                               >
-                                Confirmo que li e concordo com todas as informações contidas no
-                                 
-                                <a
-                                  class="c58"
-                                  href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf"
-                                  rel="noopener noreferrer"
-                                  target="_blank"
+                                <p
+                                  class="c54"
+                                  color="gray5"
+                                  type="body"
                                 >
-                                  termo de adesão
-                                </a>
-                                .
-                              </p>
-                            </label>
+                                  Confirmo que li e concordo com todas as informações contidas no
+                                   
+                                  <a
+                                    class="c59"
+                                    href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                  >
+                                    termo de adesão
+                                  </a>
+                                  .
+                                </p>
+                              </label>
+                            </div>
                           </div>
                         </div>
                         <div
-                          class="c59"
+                          class="c60"
                         >
                           <div
-                            class="c60"
+                            class="c61"
                           >
                             <button
-                              class="c61 c62"
+                              class="c62 c63"
                               color="secondary"
                               disabled=""
                             >
                               <span
-                                class="c63"
+                                class="c64"
                               >
                                 Próximo
                               </span>
@@ -1933,48 +1942,48 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-fzoNJl c64"
+                  class="sc-fzoXWK c65"
                   data-name="container"
                 >
                   <div
-                    class="sc-fzoXWK c5"
+                    class="sc-fzpmMD c5"
                     data-name="row"
                   >
                     <div
-                      class="sc-fzpmMD c65"
+                      class="sc-fznxKY c66"
                       data-name=""
                     >
                       <p
-                        class="c54 c66"
+                        class="c54 c67"
                         color="gray5"
                         type="body"
                       >
                         Toda transmissão de ordem por meio digital está sujeita a interrupções ou atrasos, podendo impedir ou prejudicar o envio de ordens ou a recepção de informações atualizadas.
                       </p>
                       <div
-                        class="sc-fzoNJl c67 c68"
+                        class="sc-fzoXWK c68 c69"
                         data-name="container"
                       >
                         <div
-                          class="sc-fzoXWK c69"
+                          class="sc-fzpmMD c70"
                           data-name="row"
                         >
                           <div
-                            class="sc-fzpmMD c70"
+                            class="sc-fznxKY c71"
                             data-name="col-lg-12"
                           >
                             <div
-                              class="c71"
+                              class="c72"
                             >
                               <p
-                                class="c72 c73"
+                                class="c73 c74"
                                 color="unset"
                                 type="body"
                               >
                                 Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
                               </p>
                               <p
-                                class="c72 c73"
+                                class="c73 c74"
                                 color="unset"
                                 type="body"
                               >
@@ -1988,7 +1997,7 @@ Object {
                                 href="mailto:ouvidoria@portoseguro.com.br"
                               >
                                 <p
-                                  class="c72 c74"
+                                  class="c73 c75"
                                   color="unset"
                                   type="body"
                                 >
@@ -1996,7 +2005,7 @@ Object {
                                 </p>
                               </a>
                               <p
-                                class="c72 c73"
+                                class="c73 c74"
                                 color="unset"
                                 type="body"
                               >
@@ -2010,7 +2019,7 @@ Object {
                                 href="mailto:suporte.conquista@portoseguro.com.br"
                               >
                                 <p
-                                  class="c72 c74"
+                                  class="c73 c75"
                                   color="unset"
                                   type="body"
                                 >
@@ -2018,14 +2027,14 @@ Object {
                                 </p>
                               </a>
                               <p
-                                class="c72 c73"
+                                class="c73 c74"
                                 color="unset"
                                 type="body"
                               >
                                 .
                               </p>
                               <p
-                                class="c72 c73"
+                                class="c73 c74"
                                 color="unset"
                                 type="body"
                               >
@@ -2043,7 +2052,7 @@ Object {
                                 target="_blank"
                               >
                                 <p
-                                  class="c72 c74"
+                                  class="c73 c75"
                                   color="unset"
                                   type="body"
                                 >
@@ -2051,7 +2060,7 @@ Object {
                                 </p>
                               </a>
                               <p
-                                class="c72 c73"
+                                class="c73 c74"
                                 color="unset"
                                 type="body"
                               >
@@ -2059,7 +2068,7 @@ Object {
                               </p>
                             </div>
                             <div
-                              class="c75"
+                              class="c76"
                             >
                               <a
                                 class="c76"
@@ -2168,7 +2177,7 @@ Object {
                       color="primary"
                     >
                       <span
-                        class="c63"
+                        class="c64"
                       >
                         continuar solicitação
                       </span>
@@ -2178,7 +2187,7 @@ Object {
                       color="primary"
                     >
                       <span
-                        class="c63"
+                        class="c64"
                       >
                         sair
                       </span>
@@ -2240,7 +2249,7 @@ Object {
                       color="primary"
                     >
                       <span
-                        class="c63"
+                        class="c64"
                       >
                         ver termo
                       </span>
@@ -2250,7 +2259,7 @@ Object {
                       color="primary"
                     >
                       <span
-                        class="c63"
+                        class="c64"
                       >
                         cancelar
                       </span>
@@ -2554,19 +2563,17 @@ Object {
                         <div
                           class="sc-qYSYK PejFW"
                         >
-                          <input
-                            class="sc-fzoyTs kfhPRl"
-                            id="checkbox-1"
-                            type="checkbox"
-                          />
-                          <label
-                            class="sc-fzqNqU hFpwJZ"
-                            for="checkbox-1"
+                          <div
+                            class="sc-fzqNqU kHGjOk"
                           >
-                            <p
-                              class="sc-AxjAm hvlAI"
-                              color="gray5"
-                              type="body"
+                            <input
+                              class="sc-fzoNJl FjBCk"
+                              id="checkbox-1"
+                              type="checkbox"
+                            />
+                            <label
+                              class="sc-fzoyTs crHzLr"
+                              for="checkbox-1"
                             >
                               Confirmo que li e concordo com todas as informações contidas no
                                
@@ -2576,11 +2583,20 @@ Object {
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
-                                termo de adesão
-                              </a>
-                              .
-                            </p>
-                          </label>
+                                Confirmo que li e concordo com todas as informações contidas no
+                                 
+                                <a
+                                  class="sc-qQxXP bEAvBF"
+                                  href="https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/multimercado/TCR_PS_Alocacao.pdf"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  termo de adesão
+                                </a>
+                                .
+                              </p>
+                            </label>
+                          </div>
                         </div>
                       </div>
                       <div
@@ -2630,25 +2646,25 @@ Object {
                       data-name="container"
                     >
                       <div
-                        class="sc-fzoXWK sc-fzqAbL eknVqV"
+                        class="sc-fzpmMD sc-fzqMAW eWkClp"
                         data-name="row"
                       >
                         <div
-                          class="sc-fzpmMD sc-fzomME laApzX"
+                          class="sc-fznxKY sc-fzqAbL MNidL"
                           data-name="col-lg-12"
                         >
                           <div
-                            class="sc-fzqMAW kbdObU"
+                            class="sc-fzoydu cQInoN"
                           >
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
+                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
                             </p>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
+                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2662,7 +2678,7 @@ Object {
                               href="mailto:ouvidoria@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoJMP fvPiDQ"
+                                class="sc-AxjAm cjwdiX sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2670,7 +2686,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
+                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2684,7 +2700,7 @@ Object {
                               href="mailto:suporte.conquista@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoJMP fvPiDQ"
+                                class="sc-AxjAm cjwdiX sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2692,14 +2708,14 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
+                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               .
                             </p>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
+                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2717,7 +2733,7 @@ Object {
                               target="_blank"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoJMP fvPiDQ"
+                                class="sc-AxjAm cjwdiX sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2725,7 +2741,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoydu cfmTNA"
+                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
