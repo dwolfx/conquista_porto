@@ -22,12 +22,6 @@ describe('Points actions', () => {
         TipoCritica: 'SUCESSO',
         Mensagem: 'SUCESSO',
       },
-      cadastroPessoaProgramaType: {
-        segmento: 'BASICO',
-        codigoFidelidade: '39812241833',
-        nome: 'Vitor Carmo Vannuchi',
-        dataInicioVigencia: '30/09/2019',
-      },
       detalheExtratoOptemaisTypes: [
         {
           pontoGanho: '200',
