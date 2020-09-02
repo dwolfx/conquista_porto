@@ -18,15 +18,22 @@ export function* getExtract() {
       `${baseURLNamespaceInvest}/programa-pontos/extrato`
     )
 
-    if (response.data.Message && !response.data.detalheExtratoOptemaisTypes) {
-      throw Error(response.data.Message.Mensagem)
-    }
+    let refinedDate = null
 
-    const refinedDate = {
-      ...response.data,
-      detalheExtratoOptemaisTypes: [
-        response.data.detalheExtratoOptemaisTypes,
-      ].flatMap(point => point),
+    if (response.data.Message && !response.data.detalheExtratoOptemaisTypes) {
+      if (
+        response.data.Message &&
+        response.data.Message.Mensagem !== 'SUCESSO'
+      ) {
+        throw Error(response.data.Message.Mensagem)
+      }
+    } else {
+      refinedDate = {
+        ...response.data,
+        detalheExtratoOptemaisTypes: [
+          response.data.detalheExtratoOptemaisTypes,
+        ].flatMap(point => point),
+      }
     }
 
     yield put(GetPointsExtractSuccess(refinedDate))
