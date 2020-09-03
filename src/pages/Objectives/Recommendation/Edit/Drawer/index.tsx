@@ -49,9 +49,9 @@ export default function EditDrawer({
           PostObjectiveDataRequest({
             data: {
               ...formData,
-              initial_value: formData!.initial_value,
-              monthly_value: formData!.monthly_value,
-              target_value: formData!.target_value,
+              initial_value: formData.initial_value,
+              monthly_value: formData.monthly_value,
+              target_value: formData.target_value,
             },
             onSuccess: () => {
               setFormData(editValues)
@@ -69,10 +69,11 @@ export default function EditDrawer({
 
   return (
     <s.DrawerForm
-      drawerTitle="Resumo"
+      drawerTitle="Edite os dados preenchidos"
       isOpen={isDrawerOpen}
       handleClose={onClose}
       footer={footerDrawer()}
+      size="sm"
     >
       <AnswerForm
         values={editValues}

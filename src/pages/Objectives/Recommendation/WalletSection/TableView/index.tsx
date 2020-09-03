@@ -80,17 +80,17 @@ const TableView = ({
           </>
         ) : (
           <s.TotalValuesRow alignItems="center">
-            <Col md={6}>
+            <Col md={7}>
               <Text type="captionUppercase" color="gray5">
                 Total
               </Text>
             </Col>
-            <Col md={3}>
+            <Col auto>
               <Text color="gray6" bold textAlign="center">
                 {formatMoney(totalInitialInvestment)}
               </Text>
             </Col>
-            <Col md={3}>
+            <Col auto>
               <Text color="gray6" bold textAlign="center">
                 {formatMoney(totalMontlyInvestment)}
               </Text>

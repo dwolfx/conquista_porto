@@ -31,8 +31,8 @@ export const InfoRow = styled.div`
 `
 
 export const RiskColorTag = styled(RiskColor)`
-  height: calc(100% - 8px);
-  left: 0;
+  height: calc(100% - 6px);
+  left: 4px;
   position: absolute;
   top: 3px;
 

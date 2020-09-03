@@ -83,7 +83,7 @@ export const Thead = styled.div`
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 6;
 `
 export const TheadTr = styled.div`
   display: flex;
@@ -283,7 +283,6 @@ export const TbodyTd = styled.div<ITbodyTd>`
     padding-left: ${({ theme }) => theme.spacing(1)}px;
   }
   &:first-child {
-    padding-right: ${({ theme }) => theme.spacing(1)}px;
     margin-left: ${({ inheritMarginFirstCell, theme, isSticky }) =>
       inheritMarginFirstCell && !isSticky ? `${theme.spacing(3)}px` : 0};
   }

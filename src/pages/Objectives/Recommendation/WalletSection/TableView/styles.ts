@@ -101,8 +101,21 @@ export const SquareRiskLevel = styled.div.attrs(() => ({
 `
 
 export const TotalValuesRow = styled(Row)`
+  padding: 0 ${({ theme }) => theme.spacing(2)}px;
   margin: ${({ theme }) => theme.spacing(2)}px 0;
   width: 100%;
+
+  & > div {
+    &:first-of-type {
+      flex: 1;
+    }
+    &:nth-of-type(2) {
+      width: 24%;
+    }
+    &:last-of-type {
+      width: 19%;
+    }
+  }
 `
 
 export const TotalLine = styled(Row)`

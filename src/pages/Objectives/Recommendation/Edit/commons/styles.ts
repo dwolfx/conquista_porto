@@ -22,7 +22,6 @@ interface IForm {
 export const FormWrapper = styled.div<IForm>`
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
 
   ${({ theme, hasCustomColSize }) =>
     hasCustomColSize &&
@@ -53,8 +52,6 @@ export const ErrorMessageContainer = styled.div`
   }
 `
 
-export const Input = styled(InputComp)`
-  height: 47px;
-`
+export const Input = styled(InputComp)``
 
 export const MoneyInput = styled(MoneyInputCmp)``

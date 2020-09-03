@@ -54,10 +54,10 @@ export const columns = [
     justifyHeader: 'flex-start',
     styles: {
       width: '22%',
-      minWidth: 228,
+      minWidth: 246,
       header: {
         width: '22%',
-        minWidth: 205,
+        minWidth: 223,
       },
     },
     format: (row: IFund) => formatFundoInv(row),
@@ -82,10 +82,10 @@ export const columns = [
     },
     styles: {
       width: '18%',
-      minWidth: 164,
+      minWidth: 172,
       header: {
         width: '16%',
-        minWidth: 164,
+        minWidth: 172,
       },
     },
   },
