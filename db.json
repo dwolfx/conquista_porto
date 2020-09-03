@@ -6289,6 +6289,10 @@
       "name": "assinatura"
     },
     {
+      "value": "11998877665",
+      "name": "sms_otp"
+    },
+    {
       "value": "ph@sciensa.com.br",
       "name": "email_otp"
     }

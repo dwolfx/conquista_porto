@@ -1,5 +1,6 @@
 import React from 'react'
 import { renderWithReduxAndTheme } from 'testUtils'
+import { render } from '@testing-library/react'
 
 import MainContent from '.'
 
@@ -13,18 +14,25 @@ describe('MainContent', () => {
         setStep={mockNextStep}
         maxSteps={4}
         onError={() => null}
+        setPrompt={() => null}
+        setMessageStep={() => null}
       />
     )
     expect(getByText('Próximo')).toBeDefined()
   })
   it(`should be able to display button with text 'Voltar'`, () => {
     const { getByText } = renderWithReduxAndTheme(
-      <MainContent
-        step={2}
-        setStep={mockNextStep}
-        maxSteps={4}
-        onError={() => null}
-      />
+      <div>
+        <MainContent
+          step={2}
+          setStep={mockNextStep}
+          maxSteps={4}
+          onError={() => null}
+          setPrompt={() => null}
+          setMessageStep={() => null}
+        />
+      </div>,
+      { container: document.body }
     )
     expect(getByText('Voltar')).toBeDefined()
   })
