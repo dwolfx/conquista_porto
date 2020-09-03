@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import 'styled-components/macro'
 
 import ButtonIcon from 'components/Button/Icon'
-
+import Popover from 'components/Popover'
 import Text from 'components/Text'
-import { formatMoney, formatLocaleStringToNumber } from 'helpers'
+
+import { BRLCurrency, Currency, errors } from 'helpers/money'
+import UnexpectedTextException from 'helpers/errors/UnexpectedTextException'
+import { useToast } from 'hooks/toast'
 
 import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
 import { IFunds } from 'store/modules/Objective/types'
@@ -29,31 +33,93 @@ interface IFormatValue {
 }
 
 export const FormatValue = ({ row, onChange, type }: IFormatValue) => {
-  const [innerValue, setInnerValue] = React.useState(0)
+  const [innerValue, setInnerValue] = useState(row[type])
+  const [compareError, setCompareError] = useState(false)
+  const { addToast } = useToast()
+  const minValue = getMinFundValue(type)
 
-  React.useEffect(() => {
-    setInnerValue(row[type])
-  }, [row, type])
+  function getMinFundValue(moneyInputName: string): number {
+    let minFundValue: number
+    switch (moneyInputName) {
+      case 'initial_value':
+        minFundValue = row.min_initial_value
+        break
+      case 'monthly_value':
+        minFundValue = row.min_value_to_apply
+        break
+      default:
+        throw new UnexpectedTextException(
+          'MoneyInput name attribute',
+          ['initial_value', 'monthly_value'],
+          moneyInputName
+        )
+    }
+    return minFundValue
+  }
+
+  function minFundValueValidation(event: React.ChangeEvent<HTMLInputElement>) {
+    try {
+      const innerFundCurrency = new BRLCurrency(event.target.value)
+      const minFundCurrency = new BRLCurrency(Currency.parse(minValue))
+
+      setInnerValue(
+        innerFundCurrency.mustBeGreaterThen(minFundCurrency).toNumber()
+      )
+      setCompareError(false)
+    } catch (error) {
+      switch (error.constructor) {
+        case errors.ValidationCurrencyException:
+          addToast({
+            type: 'error',
+            title: 'Erro de validação',
+            description: 'o valor digitado não é válido.',
+          })
+          console.error(error)
+          break
+        case errors.CompareCurrencyException:
+          const currency = new BRLCurrency(event.target.value)
+          setCompareError(true)
+          setInnerValue(currency.toNumber())
+          break
+        default:
+          addToast({
+            type: 'error',
+            title: 'Erro não esperado',
+            description: 'Volte mais tarde ou recarregue a página',
+          })
+          console.error(error)
+      }
+    }
+  }
 
   return (
-    <s.MoneyInput
-      prefix="R$"
-      name={type}
-      value={formatMoney(innerValue, {
-        style: 'decimal',
-      })}
-      onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-        setInnerValue(formatLocaleStringToNumber(event.target.value))
-      }}
-      onBlur={(event: React.ChangeEvent<HTMLInputElement>) => {
-        onChange({
-          event,
-          row,
-          value: innerValue,
-        })
-      }}
-      key={`fund_${type}_${row.fund_id}`}
-    />
+    <Popover
+      tooltip
+      turnOff={!compareError}
+      content={() => (
+        <Text type="body" color={'white'}>
+          Insira um valor a partir de {Currency.parse(minValue)}, por favor.
+        </Text>
+      )}
+    >
+      <s.MoneyInput
+        key={`fund_${type}_${row.fund_id}`}
+        prefix="R$"
+        name={type}
+        error={compareError}
+        value={Currency.parse(innerValue)}
+        maxLength={14}
+        onFocus={minFundValueValidation}
+        onChange={minFundValueValidation}
+        onBlur={(event: React.ChangeEvent<HTMLInputElement>) => {
+          onChange({
+            event,
+            row,
+            value: innerValue,
+          })
+        }}
+      />
+    </Popover>
   )
 }
 

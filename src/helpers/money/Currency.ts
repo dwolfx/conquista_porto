@@ -48,7 +48,7 @@ export default abstract class Currency {
    * const n2 = new BRLCurrency('1500') // throw error
    */
   constructor(value: string, context: Intl.NumberFormat) {
-    if (!this.validation(value)) throw new ValidationCurrencyException()
+    if (!this.validation(value)) throw new ValidationCurrencyException(value)
 
     this.value = value
     this.context = context
@@ -75,8 +75,9 @@ export default abstract class Currency {
     hasSymbol: boolean = false,
     lang: string = 'pt-BR',
     numberFormatOptions: Intl.NumberFormatOptions = {
-      style: 'currency',
+      style: hasSymbol ? 'currency' : 'decimal',
       currency: 'BRL',
+      minimumFractionDigits: 2,
     }
   ) {
     const commons = {
@@ -91,7 +92,7 @@ export default abstract class Currency {
           }).format(value)
         : Intl.NumberFormat(lang, commons).format(value)
     } catch (error) {
-      throw new ParseCurrencyException()
+      throw new ParseCurrencyException(value.toString())
     }
   }
 
@@ -134,7 +135,7 @@ export default abstract class Currency {
    * Chainable method that throws an exception if it is not satisfied
    *
    * @memberof Currency
-   * @param {Currency} otherValue
+   * @param {Currency} otherValue - Value to compare
    * @returns {Currency}
    *
    * @example
@@ -154,7 +155,7 @@ export default abstract class Currency {
    * Chainable method that throws an exception if it is not satisfied
    *
    * @memberof Currency
-   * @param {Currency} otherValue
+   * @param {Currency} otherValue - Value to compare
    * @returns {Currency}
    *
    * @example
@@ -174,7 +175,8 @@ export default abstract class Currency {
    * Chainable method that throws an exception if it is not satisfied
    *
    * @memberof Currency
-   * @param {Currency} otherValue
+   * @param {Currency} otherValue - Value to compare
+   * @param {boolean} [acceptEqual=true] - Whether to accept equal values in compare
    * @returns {Currency}
    *
    * @example
@@ -183,9 +185,11 @@ export default abstract class Currency {
    * n1.mustBeLessThen(n2)
    * n2.mustBeLessThen(n1) // throw error
    */
-  mustBeLessThen(otherValue: Currency): Currency {
-    if (this.toNumber() > otherValue.toNumber())
-      throw new CompareCurrencyException('mustBeLessThen')
+  mustBeLessThen(otherValue: Currency, acceptEqual: boolean = true): Currency {
+    const condition = acceptEqual
+      ? this.toNumber() > otherValue.toNumber()
+      : this.toNumber() >= otherValue.toNumber()
+    if (condition) throw new CompareCurrencyException('mustBeLessThen')
     return this
   }
 
@@ -193,7 +197,8 @@ export default abstract class Currency {
    * Chainable method that throws an exception if it is not satisfied
    *
    * @memberof Currency
-   * @param {Currency} otherValue
+   * @param {Currency} otherValue - Value to compare
+   * @param {boolean} [acceptEqual=true] - Whether to accept equal values in compare
    * @returns {Currency}
    *
    * @example
@@ -202,9 +207,14 @@ export default abstract class Currency {
    * n1.mustBeGreaterThen(n2)
    * n2.mustBeGreaterThen(n1) // throw error
    */
-  mustBeGreaterThen(otherValue: Currency): Currency {
-    if (this.toNumber() < otherValue.toNumber())
-      throw new CompareCurrencyException('mustBeGreaterThen')
+  mustBeGreaterThen(
+    otherValue: Currency,
+    acceptEqual: boolean = true
+  ): Currency {
+    const condition = acceptEqual
+      ? this.toNumber() < otherValue.toNumber()
+      : this.toNumber() <= otherValue.toNumber()
+    if (condition) throw new CompareCurrencyException('mustBeGreaterThen')
     return this
   }
 }
