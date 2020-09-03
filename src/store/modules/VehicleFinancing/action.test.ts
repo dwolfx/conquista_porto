@@ -1,4 +1,6 @@
 import { Types } from './types'
+import { IVehicleFinancing } from './iVehicleFinancing'
+
 import {
   GetVehicleFinancingSuccess,
   GetVehicleFinancingDataRequest,
@@ -13,7 +15,7 @@ describe('Credit Card actions', () => {
   })
 
   test('if GetVehicleFinancingSuccess returns the correct object', () => {
-    const payload = {}
+    const payload: IVehicleFinancing[] | [] = []
     expect(GetVehicleFinancingSuccess(payload)).toEqual({
       type: Types.GET_SUCCESS,
       payload,

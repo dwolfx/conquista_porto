@@ -18,14 +18,10 @@ import InvestmentCard from './InvestmentCard'
 import PrivateWelfareSection from './PrivateWelfare'
 import InsuranceCard from './InsuranceCard'
 // import ProductItemGenerator from './ProductItemGenerator'
+import Credits from './Credits'
 
 import CardHeaderState from './commons/CardHeaderState'
-import {
-  GridCol,
-  HomePrivateWelfareCard,
-  GridColFlexContainer,
-  GridColFlexCard,
-} from './styles'
+import { GridCol, HomePrivateWelfareCard, GridColFlexContainer } from './styles'
 
 const SectionOne = ({ onFetchInvestments }) => {
   const {
@@ -83,21 +79,23 @@ const SectionOne = ({ onFetchInvestments }) => {
   //   return formatResult(insertDivisor, sortArray)(result)
   // }
 
+  const cardHeaderState = (
+    <CardHeaderState
+      showHeader={Boolean(
+        investments.data && Object.entries(investments.data).length
+      )}
+      isLoading={investments.isLoading}
+      hasError={investments.hasError}
+      onErrorClick={() => onFetchInvestments()}
+    />
+  )
+
   return (
     <>
       <GridCol md="6" mdOffset="0" sm="12" smOffset="0" lg="4" lgOffset="1">
         <InvestmentCard
           onFetchInvestments={onFetchInvestments}
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
+          headerEndItem={cardHeaderState}
         />
       </GridCol>
       <GridCol lg="4" md="6" sm="12">
@@ -122,39 +120,14 @@ const SectionOne = ({ onFetchInvestments }) => {
         <HomePrivateWelfareCard
           headerIcon="time"
           headerTitle="Previdência"
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
+          headerEndItem={cardHeaderState}
         >
           <PrivateWelfareSection />
         </HomePrivateWelfareCard>
       </GridCol>
       <GridColFlexContainer lg="3" md="12" mdOffset="0" sm="12" xs="12">
-        <InsuranceCard headerEndItem={<CardHeaderState />} />
-
-        <GridColFlexCard
-          headerIcon="financial"
-          headerTitle="Crédito"
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
-        >
-          <div>Seguro/Cartão content</div>
-        </GridColFlexCard>
+        <InsuranceCard headerEndItem={cardHeaderState} />
+        <Credits>{cardHeaderState}</Credits>
       </GridColFlexContainer>
     </>
   )

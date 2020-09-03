@@ -1,4 +1,5 @@
 import { Types } from './types'
+import { ICreditCard } from './iCreditCard'
 
 export function GetCreditCardDataRequest() {
   return {
@@ -6,7 +7,7 @@ export function GetCreditCardDataRequest() {
   }
 }
 
-export function GetCreditCardDataSuccess(payload: any) {
+export function GetCreditCardDataSuccess(payload: ICreditCard[]) {
   return {
     type: Types.GET_SUCCESS,
     payload,

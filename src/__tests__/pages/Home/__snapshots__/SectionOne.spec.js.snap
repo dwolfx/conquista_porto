@@ -173,20 +173,8 @@ Array [
 
 }
 
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
 <div
-    className="sc-fznZeY c0"
+    className="sc-fzoant c0"
     data-name="col-sm-12 offset-sm-0 col-md-6 offset-md-0 col-lg-4 offset-lg-1"
   />,
   .c8 {
@@ -202,7 +190,7 @@ Array [
   line-height: 25px;
 }
 
-.c14 {
+.c15 {
   color: unset;
   text-align: unset;
   font-weight: normal;
@@ -216,7 +204,7 @@ Array [
   line-height: 15px;
 }
 
-.c16 {
+.c17 {
   color: unset;
   text-align: unset;
   font-weight: normal;
@@ -229,7 +217,7 @@ Array [
   line-height: 19px;
 }
 
-.c18 {
+.c19 {
   color: unset;
   text-align: unset;
   font-weight: normal;
@@ -242,7 +230,7 @@ Array [
   line-height: 19px;
 }
 
-.c20 {
+.c21 {
   background: linear-gradient( to left, #2F736B -35%, #46A166 );
   background-repeat: no-repeat;
   border: none;
@@ -260,11 +248,11 @@ Array [
   transition: all 0.4s ease-out;
 }
 
-.c20:hover:active {
+.c21:hover:active {
   pointer-events: auto;
 }
 
-.c20:hover:active:after {
+.c21:hover:active:after {
   background-color: #2F736B;
   background-size: 100%;
   opacity: 0.2;
@@ -272,11 +260,11 @@ Array [
   transition: all ease 0s;
 }
 
-.c20:hover:before {
+.c21:hover:before {
   width: 100%;
 }
 
-.c20:hover:after {
+.c21:hover:after {
   background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
   background-position: center;
   content: '';
@@ -291,7 +279,7 @@ Array [
   width: 100%;
 }
 
-.c20:before {
+.c21:before {
   background-color: #2F736B;
   content: '';
   height: 100%;
@@ -303,7 +291,7 @@ Array [
   width: 0;
 }
 
-.c22 {
+.c23 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -330,7 +318,7 @@ Array [
   line-height: 15px;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -341,7 +329,7 @@ Array [
   height: 100%;
 }
 
-.c12 {
+.c13 {
   border-radius: 8px;
   height: 100%;
   margin-top: 14px;
@@ -350,13 +338,13 @@ Array [
   position: relative;
 }
 
-.c12 img {
+.c13 img {
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 
-.c13 {
+.c14 {
   bottom: 0;
   background-color: rgba(39,39,39,0.63);
   padding-left: 14px;
@@ -373,11 +361,11 @@ Array [
   align-items: center;
 }
 
-.c13 p {
+.c14 p {
   color: #FFFFFF;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -391,22 +379,22 @@ Array [
   padding: 0 14px 14px;
 }
 
-.c15 p:last-of-type {
+.c16 p:last-of-type {
   color: #898989;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.c21 {
+.c22 {
   width: 100%;
 }
 
-.c17 {
+.c18 {
   padding-bottom: 7px;
 }
 
-.c19 {
+.c20 {
   padding-bottom: 14px;
 }
 
@@ -510,7 +498,7 @@ Array [
   width: 35px;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -528,6 +516,13 @@ Array [
   width: 100%;
   padding: 0;
   height: auto;
+}
+
+.c24 .c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c0 {
@@ -549,19 +544,19 @@ Array [
 }
 
 @media (min-width:1280px) {
-  .c11 {
+  .c12 {
     height: auto;
   }
 }
 
 @media (min-width:1280px) {
-  .c12 {
+  .c13 {
     height: 231px;
   }
 }
 
 @media (min-width:1280px) {
-  .c15 {
+  .c16 {
     height: 168px;
   }
 }
@@ -570,6 +565,14 @@ Array [
   .c4 {
     margin-right: 7px;
   }
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
 }
 
 @media (min-width:576px) {
@@ -696,24 +699,12 @@ Array [
   }
 }
 
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:1280px) {
-
-}
-
-@media (max-width:480px) {
-
-}
-
 <div
-    className="sc-fznZeY c0"
+    className="sc-fzoant c0"
     data-name="col-sm-12 col-md-6 col-lg-4"
   >
     <div
-      className="c1 sc-fzooss c2"
+      className="c1 sc-pBolk c2"
     >
       <div
         className="c3"
@@ -751,23 +742,23 @@ Array [
         </div>
       </div>
       <div
-        className="c10"
+        className="c10 c11"
       >
         <div
-          className="c11"
+          className="c12"
         >
           <div
-            className="c12"
+            className="c13"
           >
             <img
               alt="PGBL ou VGBL"
               src="img_private_welfare_empty.jpg"
             />
             <div
-              className="c13"
+              className="c14"
             >
               <p
-                className="c14"
+                className="c15"
                 color="unset"
                 type="button"
               >
@@ -776,24 +767,24 @@ Array [
             </div>
           </div>
           <div
-            className="c15"
+            className="c16"
           >
             <p
-              className="c16 c17"
+              className="c17 c18"
               color="unset"
               type="title"
             >
               Viver melhor hoje e amanhã
             </p>
             <p
-              className="c18 c19"
+              className="c19 c20"
               color="unset"
               type="body"
             >
               Dedique uma parte de sua renda para investir em um futuro confortável. Gestores profissionais farão o seu dinheiro render ao longo dos anos para que você possa ter uma vida tranquila.
             </p>
             <button
-              className="c20 c21"
+              className="c21 c22"
               color="secondary"
               data-gtm-clicktype="button"
               data-gtm-name="conhecer"
@@ -803,7 +794,7 @@ Array [
               onClick={[Function]}
             >
               <span
-                className="c22"
+                className="c23"
               >
                 conhecer
               </span>
@@ -813,7 +804,7 @@ Array [
       </div>
     </div>
   </div>,
-  .c8 {
+  .c9 {
   color: unset;
   text-align: unset;
   font-weight: normal;
@@ -826,7 +817,121 @@ Array [
   line-height: 25px;
 }
 
-.c5 {
+.c23 {
+  color: unset;
+  text-align: unset;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c25 {
+  color: unset;
+  text-align: unset;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 14px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.c26 {
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c26:hover:active {
+  pointer-events: auto;
+}
+
+.c26:hover:active:after {
+  background-color: #2F736B;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c26:hover:before {
+  width: 100%;
+}
+
+.c26:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c26:before {
+  background-color: #2F736B;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c27 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c6 {
   width: 100%;
   height: 28px;
   display: -webkit-box;
@@ -844,7 +949,7 @@ Array [
   padding: 0 14px;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -856,11 +961,11 @@ Array [
   margin-right: 7px;
 }
 
-.c7.c7 > *:not(:last-child) {
+.c8.c8 > *:not(:last-child) {
   margin-right: 14px;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -872,7 +977,7 @@ Array [
   margin-left: 7px;
 }
 
-.c9.c9 > *:not(:first-child) {
+.c10.c10 > *:not(:first-child) {
   margin-left: 14px;
 }
 
@@ -890,7 +995,7 @@ Array [
   padding: 10px 14px 10px;
 }
 
-.c3 {
+.c4 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -905,7 +1010,7 @@ Array [
   padding: 0 14px;
 }
 
-.c4 {
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -926,7 +1031,7 @@ Array [
   width: 35px;
 }
 
-.c10 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -940,10 +1045,245 @@ Array [
   overflow: hidden;
 }
 
-.c6 {
+.c7 {
   width: 100%;
   padding: 0;
   height: auto;
+}
+
+.c2 {
+  height: 100%;
+}
+
+.c2 .c17 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c19 {
+  width: 100%;
+  height: calc(100% - 21px);
+}
+
+.c19 .slick-list {
+  height: 100%;
+}
+
+.c19 ul.slick-dots {
+  position: static;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 7px 0;
+}
+
+.c19 .slick-dots li {
+  margin: 0;
+  margin-right: 7px;
+  width: 7px;
+  height: 7px;
+}
+
+.c19 .slick-dots li:last-child {
+  margin-right: 0;
+}
+
+.c19 .slick-dots li.slick-active button::before {
+  color: #00ADEF;
+}
+
+.c19 .slick-dots li button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+}
+
+.c19 .slick-dots li button:before {
+  font-size: 7px;
+  line-height: 7px;
+  width: 7px;
+  height: 7px;
+}
+
+.c19 .slick-dots li button:hover::before {
+  color: #00ADEF;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #EBEBEB;
+  width: 28px;
+  height: 28px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #F1F1F1;
+}
+
+.c13:active {
+  background-color: #F1F1F1;
+}
+
+.c13 + .c12 {
+  margin-left: 14px;
+}
+
+.c13 + .c12 svg {
+  margin-left: 3px;
+  margin-right: 0;
+}
+
+.c13 svg {
+  margin-right: 2px;
+}
+
+.c13 svg polyline {
+  stroke-width: 7px;
+  height: 12px;
+  stroke: #272727;
+}
+
+.c13 svg polyline {
+  stroke: #BABABA;
+}
+
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #EBEBEB;
+  width: 28px;
+  height: 28px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+}
+
+.c15:active {
+  background-color: #F1F1F1;
+}
+
+.c15 + .c12 {
+  margin-left: 14px;
+}
+
+.c15 + .c12 svg {
+  margin-left: 3px;
+  margin-right: 0;
+}
+
+.c15 svg {
+  margin-right: 2px;
+}
+
+.c15 svg polyline {
+  stroke-width: 7px;
+  height: 12px;
+  stroke: #272727;
+}
+
+.c16 {
+  height: 12px;
+  width: 12px;
+}
+
+.c14 {
+  height: 12px;
+  width: 12px;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c20 {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 21px 14px 0 14px;
+  height: 100%;
+  width: 100%;
+}
+
+.c22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 21px;
+}
+
+.c3 {
+  height: calc(100% - 38px);
+  margin-bottom: 14px;
+  height: 252px;
+}
+
+.c3:first-of-type {
+  margin-bottom: 14px;
 }
 
 .c0 {
@@ -959,15 +1299,6 @@ Array [
   transition: all 0.35s ease-in-out;
 }
 
-.c2 {
-  height: 518px;
-  height: 252px;
-}
-
-.c2:first-of-type {
-  margin-bottom: 14px;
-}
-
 @media (min-width:1280px) {
 
 }
@@ -981,8 +1312,25 @@ Array [
 }
 
 @media (max-width:736px) {
-  .c4 {
+  .c5 {
     margin-right: 7px;
+  }
+}
+
+@media (max-width:1280px) {
+  .c3 {
+    width: 50%;
+    height: 252px;
+  }
+
+  .c3:first-of-type {
+    margin-right: 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c3 {
+    width: 100%;
   }
 }
 
@@ -1128,41 +1476,18 @@ Array [
 
 }
 
-@media (max-width:1280px) {
-  .c2 {
-    height: 458px;
-  }
-}
-
-@media (max-width:1280px) {
-  .c2 {
-    width: 50%;
-    height: 252px;
-  }
-
-  .c2:first-of-type {
-    margin-right: 14px;
-  }
-}
-
-@media (max-width:480px) {
-  .c2 {
-    width: 100%;
-  }
-}
-
 <div
-    className="sc-fznZeY c0"
+    className="sc-fzoant c0"
     data-name="col-xs-12 col-sm-12 col-md-12 offset-md-0 col-lg-3"
   >
     <div
-      className="c1 sc-fzooss c2"
+      className="c1 c2 sc-fzqBkg c3"
     >
       <div
-        className="c3"
+        className="c4"
       >
         <div
-          className="c4"
+          className="c5"
         >
           <svg
             aria-label="financial"
@@ -1174,14 +1499,14 @@ Array [
           </svg>
         </div>
         <div
-          className="c5 c6"
+          className="c6 c7"
           size="small"
         >
           <div
-            className="c7"
+            className="c8"
           >
             <p
-              className="c8 "
+              className="c9 "
               color="unset"
               type="headline"
             >
@@ -1189,15 +1514,376 @@ Array [
             </p>
           </div>
           <div
-            className="c9"
-          />
+            className="c10"
+          >
+            <div
+              className="c11"
+            >
+              <button
+                className="c12 c13"
+                disabled={true}
+                onClick={[Function]}
+              >
+                <svg
+                  aria-label="backward"
+                  className="c14"
+                  role="img"
+                >
+                  backward.svg
+                </svg>
+              </button>
+              <button
+                className="c12 c15"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <svg
+                  aria-label="forward"
+                  className="c16"
+                  role="img"
+                >
+                  forward.svg
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        className="c10"
+        className="c17 c18"
       >
-        <div>
-          Seguro/Cartão content
+        <div
+          className="slick-slider c19 slick-initialized"
+          dir="ltr"
+        >
+          <div
+            className="slick-list"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={null}
+            onMouseMove={null}
+            onMouseUp={[Function]}
+            onTouchCancel={null}
+            onTouchEnd={[Function]}
+            onTouchMove={null}
+            onTouchStart={[Function]}
+            style={Object {}}
+          >
+            <div
+              className="slick-track"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              style={
+                Object {
+                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                  "WebkitTransition": "",
+                  "msTransform": "translateX(0px)",
+                  "opacity": 1,
+                  "transform": "translate3d(0px, 0px, 0px)",
+                  "transition": "",
+                }
+              }
+            >
+              <div
+                aria-hidden={false}
+                className="slick-slide slick-active slick-current"
+                data-index={0}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="c20"
+                  >
+                    <div
+                      className="c21"
+                    >
+                      <div
+                        className="c22"
+                      >
+                        <p
+                          className="c23"
+                          color="unset"
+                          type="headline"
+                        >
+                          Cartão de Crédito
+                        </p>
+                      </div>
+                      <div
+                        className="c24"
+                      >
+                        <p
+                          className="c25"
+                          color="unset"
+                          type="body"
+                        >
+                          O combo de benefícios Porto Seguro
+                        </p>
+                      </div>
+                      <button
+                        className="c26"
+                        color="secondary"
+                        data-gtm-clicktype="button"
+                        data-gtm-name="botao cartao de credito"
+                        data-gtm-subname="Cartao de credito"
+                        data-gtm-type="click"
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="c27"
+                        >
+                          conhecer
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={true}
+                className="slick-slide"
+                data-index={1}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="c20"
+                  >
+                    <div
+                      className="c21"
+                    >
+                      <div
+                        className="c22"
+                      >
+                        <p
+                          className="c23"
+                          color="unset"
+                          type="headline"
+                        >
+                          Financiamento de Veículo
+                        </p>
+                      </div>
+                      <div
+                        className="c24"
+                      >
+                        <p
+                          className="c25"
+                          color="unset"
+                          type="body"
+                        >
+                          Confiança para adquirir o seu veículo
+                        </p>
+                      </div>
+                      <button
+                        className="c26"
+                        color="secondary"
+                        data-gtm-clicktype="button"
+                        data-gtm-name="botao cartao de credito"
+                        data-gtm-subname="Cartao de credito"
+                        data-gtm-type="click"
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="c27"
+                        >
+                          conhecer
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={true}
+                className="slick-slide"
+                data-index={2}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="c20"
+                  >
+                    <div
+                      className="c21"
+                    >
+                      <div
+                        className="c22"
+                      >
+                        <p
+                          className="c23"
+                          color="unset"
+                          type="headline"
+                        >
+                          Consórcio de Veículo
+                        </p>
+                      </div>
+                      <div
+                        className="c24"
+                      >
+                        <p
+                          className="c25"
+                          color="unset"
+                          type="body"
+                        >
+                          50, 72 e 80 meses com taxas especiais
+                        </p>
+                      </div>
+                      <button
+                        className="c26"
+                        color="secondary"
+                        data-gtm-clicktype="button"
+                        data-gtm-name="botao cartao de credito"
+                        data-gtm-subname="Cartao de credito"
+                        data-gtm-type="click"
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="c27"
+                        >
+                          conhecer
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden={true}
+                className="slick-slide"
+                data-index={3}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "outline": "none",
+                    "width": 0,
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div>
+                  <div
+                    className="c20"
+                  >
+                    <div
+                      className="c21"
+                    >
+                      <div
+                        className="c22"
+                      >
+                        <p
+                          className="c23"
+                          color="unset"
+                          type="headline"
+                        >
+                          Consórcio de imóvel
+                        </p>
+                      </div>
+                      <div
+                        className="c24"
+                      >
+                        <p
+                          className="c25"
+                          color="unset"
+                          type="body"
+                        >
+                          Parcelas que cabem no seu orçamento
+                        </p>
+                      </div>
+                      <button
+                        className="c26"
+                        color="secondary"
+                        data-gtm-clicktype="button"
+                        data-gtm-name="botao cartao de credito"
+                        data-gtm-subname="Cartao de credito"
+                        data-gtm-type="click"
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="c27"
+                        >
+                          conhecer
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul
+            className="slick-dots"
+            onMouseEnter={null}
+            onMouseLeave={null}
+            onMouseOver={null}
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <li
+              className="slick-active"
+            >
+              <button
+                onClick={[Function]}
+              >
+                1
+              </button>
+            </li>
+            <li
+              className=""
+            >
+              <button
+                onClick={[Function]}
+              >
+                2
+              </button>
+            </li>
+            <li
+              className=""
+            >
+              <button
+                onClick={[Function]}
+              >
+                3
+              </button>
+            </li>
+            <li
+              className=""
+            >
+              <button
+                onClick={[Function]}
+              >
+                4
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

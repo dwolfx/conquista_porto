@@ -222,11 +222,98 @@
       }
     ]
   },
-  "cartao_credito": [],
-  "financiamento_veiculo": {
-    "TipoCritica": "SUCESSO",
-    "Mensagem": "SUCESSO"
-  },
+  "cartao_credito": [
+    {
+      "CodigoCanal": 0,
+      "CpfCnpj": "32036703801",
+      "Bandeira": "Visa",
+      "Fatura": {
+        "MelhorDataCompra": 22,
+        "Status": "Aberta",
+        "Valor": 25090,
+        "Vencimento": 16
+      },
+      "LimiteCartaoAdicional": {
+        "LimiteCredito": 4588.55,
+        "LimiteDisponivel": 5000,
+        "LimiteDisponivelOverlimitt": 1000,
+        "LimiteSaque": 399.45
+      },
+      "LimiteTitularCartao": {
+        "LimiteCredito": 7000.44,
+        "LimiteDisponivel": 10000,
+        "LimiteDisponivelOverlimitt": 2000,
+        "LimiteSaque": 501.33
+      },
+      "Link": "string",
+      "Tipo": "Gold",
+      "UltimosDigitos": 3212
+    },
+    {
+      "CodigoCanal": 0,
+      "CpfCnpj": "33244452809",
+      "Bandeira": "Master",
+      "Fatura": {
+        "MelhorDataCompra": 12,
+        "Status": "Fechada",
+        "Valor": 25,
+        "Vencimento": 20
+      },
+      "limiteCartaoAdicional": {
+        "LimiteCredito": 9897.43,
+        "LimiteDisponivel": 6000.55,
+        "LimiteDisponivelOverlimitt": 800.45,
+        "LimiteSaque": 1000.50
+      },
+      "LimiteTitularCartao": {
+        "LimiteCredito": 7500.61,
+        "LimiteDisponivel": 8000.44,
+        "LimiteDisponivelOverlimitt": 700.88,
+        "LimiteSaque": 989.33
+      },
+      "Link": "string",
+      "Tipo": "Platinum",
+      "UltimosDigitos": 3901
+    }
+  ],
+  "financiamento_veiculo": [
+    {
+      "id": 1,
+      "Contrato": "contrato1",
+      "Descricao": "Este é contrato 1 de financiamento",
+      "Marca": "Fiat",
+      "Modelo": "Palio Weekend",
+      "PontosGanhos": "50",
+      "QuantidadeParcelasContratadas": "32",
+      "QuantidadeParcelasPagas": 1,
+      "SaldoDevedor": "50000",
+      "UrlContrato": "www.google.com.br",
+      "ValorContratado": "50000",
+      "ValorEntrada": "10000",
+      "ValorPago": "25000",
+      "ValorParcelaAtual": "2500",
+      "cpf": "33244452809",
+      "codigoCanal": 0
+    },
+    {
+      "id": 2,
+      "Contrato": "contrato2",
+      "Descricao": "Este é contrato 1 de financiamento",
+      "Marca": "Renault",
+      "Modelo": "Sandero",
+      "PontosGanhos": "50",
+      "QuantidadeParcelasContratadas": "20",
+      "QuantidadeParcelasPagas": "12",
+      "SaldoDevedor": "25000",
+      "UrlContrato": "www.google.com.br",
+      "ValorContratado": "50000",
+      "ValorEntrada": "10000",
+      "ValorPago": "25000",
+      "ValorParcelaAtual": "2500",
+      "cpf": "33244452809",
+      "codigoCanal": 0
+    }
+  ],
   "fundos_lista": {
     "categorias": [
       {
@@ -2582,8 +2669,27 @@
     }
   ],
   "consorcios_imovel": {
-    "TipoCritica": "SUCESSO",
-    "Mensagem": "SUCESSO"
+    "Cliente": {
+      "Cpf": "33244452809"
+    },
+    "consorcios": [
+      {
+        "Id": 1,
+        "UrlProposta": "",
+        "DescricaoBem": "",
+        "ValorContratado": "137132.8",
+        "Descricao": "Contrato 889654",
+        "ValorParcelaAtual": "434.85",
+        "StatusConsorcio": "Contemplado",
+        "QuantidadeParcelasContratadas": "191",
+        "ValorQuitacao": "30482.77",
+        "QuantidadeParcelasPagas": "121",
+        "Grupo": "I159",
+        "Cota": "180",
+        "ValorPago": "108246.07",
+        "PontosGanhos": "100"
+      }
+    ]
   },
   "consorcios_auto": {
     "cliente": {
