@@ -7,7 +7,7 @@ import {
   validateSignature,
 } from 'store/modules/VirtualKeyboard/sagas'
 import { Types as KeyboardTypes } from 'store/modules/VirtualKeyboard/types'
-import RequiredDeviceException from './RequiredDevicesException'
+import RequiredDevicesException from './RequiredDevicesException'
 import {
   Post2FATokenDataSuccess,
   Post2FATokenDataFailure,
@@ -103,13 +103,13 @@ export function* getTokenData() {
         !response.data.find((item: any) => item.name === 'sms_otp')) ||
       !response.data.find((item: any) => item.name === 'email_otp')
     ) {
-      throw new RequiredDeviceException()
+      throw new RequiredDevicesException()
     }
     yield put(Get2FADataSuccess(response.data))
   } catch (err) {
     yield put(Get2FADataFailure())
     switch (err.constructor) {
-      case RequiredDeviceException:
+      case RequiredDevicesException:
         console.error('Não há dispositivos cadastrado para o 2FA')
         throw err
       default:
@@ -140,20 +140,12 @@ export function* run2FAInitialRequest({
     }
   } catch (err) {
     switch (err.constructor) {
-      case RequiredDeviceException:
-        if (onError) {
-          onError()
-        } else {
-          addToast({
-            description: 'Não há dispositivo cadastrado.',
-            title: 'Problema 2FA.',
-            type: 'error',
-          })
-        }
+      case RequiredDevicesException:
+        onError()
         break
       default:
         addToast({
-          description: 'Tente novamenteeeeeeee.',
+          description: 'Tente novamente.',
           title: 'Um erro inesperado ocorreu.',
           type: 'error',
         })

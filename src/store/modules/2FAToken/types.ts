@@ -27,7 +27,7 @@ export interface IPropsPostData {
 export interface IGeneratePayload {
   addToast: (toast: Omit<IToast, 'id'>) => void
   onSuccess?: () => void
-  onError?: () => void
+  onError: () => void
 }
 
 export interface IGenerate {

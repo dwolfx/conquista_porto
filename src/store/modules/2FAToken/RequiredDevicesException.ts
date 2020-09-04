@@ -1,1 +1,1 @@
-export default class RequiredDevicesExceoption extends Error {}
+export default class RequiredDevicesException extends Error {}

@@ -1,6 +1,5 @@
 import {
   Types,
-  ISummartPayload,
   IValidateTokenSignaturePayload,
   IGeneratePayload,
 } from './types'
@@ -89,6 +88,7 @@ describe('2FAToken Actions', () => {
     const payload: IGeneratePayload = {
       addToast: () => {},
       onSuccess: () => {},
+      onError: () => {},
     }
     expect(Run2FAInitialRequest(payload)).toEqual({
       type: Types.RUN_INITIAL_REQUEST,
