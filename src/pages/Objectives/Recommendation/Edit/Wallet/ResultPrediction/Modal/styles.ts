@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+
+import ButtonComponent from 'components/Button'
 import ModalNew from 'components/Modal/ModalNew'
 import { ModalContainer } from 'components/Modal/stylesNew'
 import { mediaQueries } from 'styles/theme'
@@ -36,4 +38,8 @@ export const Actions = styled.div`
       margin-left: 14px;
     }
   }
+`
+
+export const Button = styled(ButtonComponent)`
+  width: 133px;
 `

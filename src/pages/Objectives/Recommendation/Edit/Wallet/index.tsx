@@ -67,13 +67,16 @@ export default function WalletComposition({ onClose }: IProps) {
   const [isFundsListOpen, setIsFundsListOpen] = useState(false)
   const [isReachedGoal, setIsReachedGoal] = useState(false)
   const [saveButtonIsLoading, setSaveButtonIsLoading] = useState(false)
+  const [
+    isLoadingObjectiveManagement,
+    setIsLoadingObjectiveManagement,
+  ] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   // atribuir 'true' de acordo com os valores distribuídos nos fundos. (se ultrapassar ou não utilizar todo valor inicial e mensal nos fundos)
   // const [isDistributedAmountValid, setIsDistributedAmountValid] = useState(
   //   false
   // )
-  // atribuir 'true' assim que o usuário editar algum valor dos fundos na tabela
-  // const [isFundsEdited, setIsFundsEdited] = useState(false)
+  const [isFundsEdited, setIsFundsEdited] = useState(false)
 
   const [prediction, setPrediction] = useState<TPrediction>({
     pessimistic: 0,
@@ -85,12 +88,10 @@ export default function WalletComposition({ onClose }: IProps) {
     recommendationData,
     isLoadingRelculateFundsData,
     isLoadingPutRecommendation,
-    isLoadingObjectiveManagement,
   } = useSelector((state: any) => ({
     recommendationData: state.objective.data,
     isLoadingRelculateFundsData: state.objective.isLoadingRelculateFundsData,
     isLoadingPutRecommendation: state.objective.isLoadingPutRecommendation,
-    isLoadingObjectiveManagement: state.objectiveManagement.isLoading,
   }))
 
   useEffect(() => {
@@ -101,11 +102,16 @@ export default function WalletComposition({ onClose }: IProps) {
 
   useEffect(() => {
     setFunds(recommendationData.funds)
+  }, [recommendationData])
+
+  useEffect(() => {
     setIsReachedGoal(
       recommendationData?.income.median >=
         recommendationData?.answer.target_value
     )
+  }, [recommendationData])
 
+  useEffect(() => {
     if (isLoadingRelculateFundsData || isLoadingPutRecommendation) {
       setSaveButtonIsLoading(true)
     }
@@ -117,7 +123,6 @@ export default function WalletComposition({ onClose }: IProps) {
       setSaveButtonIsLoading(false)
     }
   }, [
-    recommendationData,
     isLoadingRelculateFundsData,
     isLoadingPutRecommendation,
     isLoadingObjectiveManagement,
@@ -146,6 +151,40 @@ export default function WalletComposition({ onClose }: IProps) {
     }, [])
 
     setFunds(newValues)
+    const onSuccess = (recalculateFundsData: IIncome) => {
+      const initialValues = [...recommendationData.funds].map(fund => ({
+        initial_value: fund.initial_value,
+        monthly_value: fund.monthly_value,
+      }))
+      const editedValues = [...newValues].map(fund => ({
+        initial_value: fund.initial_value,
+        monthly_value: fund.monthly_value,
+      }))
+
+      setIsFundsEdited(
+        JSON.stringify(initialValues) !== JSON.stringify(editedValues)
+      )
+      setIsReachedGoal(
+        recalculateFundsData.median >= recommendationData?.answer.target_value
+      )
+      setPrediction(recalculateFundsData)
+    }
+
+    dispatch(
+      PostRecalculateFundsRequest({
+        data: {
+          target_date: recommendationData.answer.target_date,
+          fund_list: [...newValues].map(fund => ({
+            category: fund.arena_category,
+            fund_id: fund.fund_id,
+            initial_amount: fund.initial_value,
+            monthly_amount: fund.monthly_value,
+          })),
+        },
+        onSuccess,
+        onErrorToast: addToast,
+      })
+    )
   }
 
   const removeAction = (fundId: number) => {
@@ -202,8 +241,10 @@ export default function WalletComposition({ onClose }: IProps) {
             credit_product: updatedRecommendationData.credit_product,
           },
           pushHistory,
-          onSuccess: () =>
-            dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id })),
+          onSuccess: () => {
+            setIsLoadingObjectiveManagement(false)
+            dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id }))
+          },
         })
       )
     }
@@ -257,9 +298,10 @@ export default function WalletComposition({ onClose }: IProps) {
           return goToRecommendation()
         } else if (recalculateReachedGoal && !creditProducts) {
           // save button action = 'GO_TO_OBJECTIVE_MANAGEMENT'
+          setIsLoadingObjectiveManagement(true)
           return goToObjectiveManagement()
         } else if (!recalculateReachedGoal && !creditProducts) {
-          // saveButtonAction = 'SHOW_CONFIRMATION_MODAL'
+          // save button action = 'SHOW_CONFIRMATION_MODAL'
           const openModal = () => {
             setIsModalOpen(true)
             setSaveButtonIsLoading(false)
@@ -274,12 +316,16 @@ export default function WalletComposition({ onClose }: IProps) {
           })
         }
       }
-
       dispatch(
         PostRecalculateFundsRequest({
           data: {
             target_date: recommendationData.answer.target_date,
-            fund_list: funds,
+            fund_list: [...funds].map(fund => ({
+              category: fund.arena_category,
+              fund_id: fund.fund_id,
+              initial_amount: fund.initial_value,
+              monthly_amount: fund.monthly_value,
+            })),
           },
           onSuccess,
           onErrorToast: addToast,
@@ -288,14 +334,14 @@ export default function WalletComposition({ onClose }: IProps) {
     }
 
     return (
-      <Button
-        // disabled={!isDistributedAmountValid || !isFundsEdited}
+      <s.Button
+        disabled={!isFundsEdited}
         loading={!isModalOpen && saveButtonIsLoading}
         color="secondary"
         onClick={() => handleSaveButtonClick()}
       >
         Salvar
-      </Button>
+      </s.Button>
     )
   }
 
@@ -490,7 +536,13 @@ export default function WalletComposition({ onClose }: IProps) {
       <s.Footer>
         <s.Container>
           <Row justifyContent="end">
-            <Col auto>
+            <Col
+              auto
+              css={`
+                display: flex;
+                align-items: center;
+              `}
+            >
               <Button outline onClick={onClose}>
                 Cancelar edição
               </Button>

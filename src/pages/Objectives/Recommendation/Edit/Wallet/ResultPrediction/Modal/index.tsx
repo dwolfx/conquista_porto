@@ -32,7 +32,7 @@ export default function ResultPredictionModal({
         <Button outline onClick={() => handleClose()}>
           Voltar
         </Button>
-        <Button
+        <S.Button
           onClick={() => {
             handleButtonAction()
             setIsLoading(isLoadingObjectiveManagement)
@@ -40,7 +40,7 @@ export default function ResultPredictionModal({
           loading={isLoading}
         >
           Continuar
-        </Button>
+        </S.Button>
       </S.Actions>
     </S.Modal>
   )

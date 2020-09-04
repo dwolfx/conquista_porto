@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Container as ContainerBootstrap, Row } from 'styled-bootstrap-grid'
 
+import ButtonComponent from 'components/Button'
 import CardCmp from 'components/Card'
 import { CardBody } from 'components/Card/styles'
 import MoneyInputCmp from 'components/Inputs/Money'
@@ -162,4 +163,8 @@ export const ToDistributeWrapper = styled.div`
     margin-left: ${({ theme }) => `${theme.spacing(1)}px`};
     margin-top: 0;
   }
+`
+
+export const Button = styled(ButtonComponent)`
+  width: 104px;
 `
