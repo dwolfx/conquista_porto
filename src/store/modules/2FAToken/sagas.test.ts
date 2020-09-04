@@ -103,13 +103,24 @@ describe('2FAToken Sagas', () => {
   describe('getTokenData', () => {
     it('getTokenData: success triggers success action', () => {
       const generator = getTokenData()
-      const response = { data: {} }
+      const response = {
+        data: [
+          {
+            value: '11998877665',
+            name: 'sms_otp',
+          },
+          {
+            value: 'ph@sciensa.com.br',
+            name: 'email_otp',
+          },
+        ],
+      }
 
       const getAuthResponse = { cpf: '11111111111' }
 
       expect(generator.next(getAuthResponse).value).toEqual(select(getAuth))
 
-      expect(generator.next({}).value).toEqual(
+      expect(generator.next(response).value).toEqual(
         call(
           get,
           `${baseURLNamespaceAuth2}/cadastro-dispositivo?usuario=undefined&organizacao=CLIENTES`
