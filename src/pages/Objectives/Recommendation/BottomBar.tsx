@@ -60,6 +60,7 @@ const BottomBar = ({ recommendationData }: IProps) => {
         pushHistory,
         onSuccess: () =>
           dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id })),
+        onError: null,
       })
     )
   }

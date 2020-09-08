@@ -289,6 +289,7 @@ export default function WalletComposition({ onClose }: IProps) {
             setIsLoadingObjectiveManagement(false)
             dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id }))
           },
+          onError: () => setIsLoadingObjectiveManagement(false),
         })
       )
     }

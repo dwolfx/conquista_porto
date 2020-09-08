@@ -24,7 +24,7 @@ import {
   DeleteObjectiveFailure,
 } from './action'
 
-export function* postData({ data, pushHistory, onSuccess }) {
+export function* postData({ data, pushHistory, onSuccess, onError }) {
   try {
     const response = yield call(post, `${baseURLNamespaceGoal}/goals`, {
       ...data,
@@ -41,6 +41,10 @@ export function* postData({ data, pushHistory, onSuccess }) {
       ...PostObjectiveManagementDataFailure(),
       toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
+
+    if (onError) {
+      onError()
+    }
   }
 }
 

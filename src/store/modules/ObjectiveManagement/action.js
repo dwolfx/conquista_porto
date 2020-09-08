@@ -4,12 +4,14 @@ export function PostObjectiveManagementDataRequest({
   data,
   pushHistory,
   onSuccess,
+  onError,
 }) {
   return {
     type: Types.POST_REQUEST,
     data,
     pushHistory,
     onSuccess,
+    onError,
   }
 }
 
