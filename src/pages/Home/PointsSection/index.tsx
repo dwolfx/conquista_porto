@@ -34,7 +34,7 @@ import { pointsRulesConditions } from './modalPointsData'
 import PointsOfferCard from './RecommendationCard'
 
 import { ICardsInfo } from './types'
-import { PointsCol } from './styles'
+import { PointsCol, RulesButton } from './styles'
 import {
   EmptyBody,
   CardPontosFooter,
@@ -54,8 +54,14 @@ import {
   HomePointsOffersCard,
   HorizontalListTruncateStartBlock,
 } from '../styles'
+import { capitalize, formatNumber } from 'helpers'
+import { IPoints } from 'store/modules/Points/iPoints'
 
-export default function PointsSection({ points }: any) {
+interface IProps {
+  points: IPoints
+}
+
+export default function PointsSection({ points }: IProps) {
   const { addToast } = useToast()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [belowOffer, setBelowOffer] = useState<ICardsInfo | null>(null)
@@ -222,17 +228,38 @@ export default function PointsSection({ points }: any) {
 
     return (
       <CardPontosFooter>
-        <ButtonLink
-          data-gtm-subname="card pontos"
-          data-gtm-name="regras e condicoes"
-          data-gtm-type="click"
-          data-gtm-clicktype="link"
-          onClick={() => setIsModalOpen(!isModalOpen)}
-        >
-          Regras e condições
-        </ButtonLink>
+        {isTabletHorizontal || isTabletVertical ? (
+          <RulesButton
+            data-gtm-subname="card pontos"
+            data-gtm-name="regras e condicoes"
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            outline
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            Regras e condições
+          </RulesButton>
+        ) : (
+          <ButtonLink
+            data-gtm-subname="card pontos"
+            data-gtm-name="regras e condicoes"
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            Regras e condições
+          </ButtonLink>
+        )}
       </CardPontosFooter>
     )
+  }
+
+  const formatTransactionName = (transationName: string): string => {
+    return transationName
+      .toLowerCase()
+      .split(' ')
+      .map(item => capitalize(item))
+      .join(' ')
   }
 
   const renderPointsHorizontalList = () =>
@@ -241,14 +268,14 @@ export default function PointsSection({ points }: any) {
       <HorizontalListTruncateStartBlock
         key={`point-${index}-${Math.random() * 100}`}
         startItems={[
-          <PointDate>{item.dataCompra}</PointDate>,
+          <PointDate>{item?.dataCompra}</PointDate>,
           <PointName truncate type="headline">
-            {item.nomeTransacao}
+            {formatTransactionName(item?.nomeTransacao)}
           </PointName>,
         ]}
         endItems={[
           <PointNumber type="headline" bold>
-            {Intl.NumberFormat().format(item.pontoGanho)}
+            {formatNumber(item?.pontoGanho)}
           </PointNumber>,
         ]}
       />
@@ -323,18 +350,22 @@ export default function PointsSection({ points }: any) {
       )
     }
 
+    const pointsInfoAmountBalance = () => {
+      const balanceValue =
+        !!balanceData.consultaPontosResponseType &&
+        !!pointsAmountBalance &&
+        formatNumber(pointsAmountBalance)
+
+      return balanceData.consultaPontosResponseType
+        ? `Você tem ${balanceValue} pontos`
+        : 'Você tem 0 pontos'
+    }
+
     return (
       <>
         <PointsInfo>
-          <Text type="headline">
-            {balanceData.consultaPontosResponseType
-              ? 'Saldo atual'
-              : 'Você possui 0 pontos'}
-          </Text>
-          <Text type="headline" bold>
-            {!!balanceData.consultaPontosResponseType &&
-              !!pointsAmountBalance &&
-              Intl.NumberFormat().format(pointsAmountBalance)}
+          <Text type="headline" color="gray6">
+            {pointsInfoAmountBalance()}
           </Text>
           <Popover
             content={() => (
@@ -400,12 +431,7 @@ export default function PointsSection({ points }: any) {
       >
         {renderModalContent()}
       </Modal>
-      <PointsCol 
-        md={6} 
-        mdOffset={0}
-        lg={5}
-        lgOffset={1}
-        >
+      <PointsCol md={6} mdOffset={0} lg={5} lgOffset={1}>
         <PointsExtractListWrapper>
           <HomePointsCard
             headerIcon="diamond"
@@ -431,7 +457,6 @@ export default function PointsSection({ points }: any) {
           </HomePointsCard>
         </PointsExtractListWrapper>
       </PointsCol>
-      
 
       {isTabletHorizontal && !isTabletVertical ? (
         <PointsCol sm={6} md={6}>
@@ -456,26 +481,25 @@ export default function PointsSection({ points }: any) {
           >
             <span>Content</span>
           </HomePointsOffersCard>
-
         </PointsCol>
-        ) : (
-      <>
-        <PointsCol md={3} sm={6}>
-          <PointsOfferCard
-            offer={belowOffer || cardsRecommendationData[0]}
-            cardIcon={firstRecommendationCardIcon}
-            hasCreditCard={!creditCard || !creditCard.length}
-            cardTitle={
-              pointsAmountBalance >
-              (belowOffer || cardsRecommendationData[0]).points
-                ? 'Você já pode trocar'
-                : 'Acumule mais pontos'
-            }
-          />
+      ) : (
+        <>
+          <PointsCol md={3} sm={6}>
+            <PointsOfferCard
+              offer={belowOffer || cardsRecommendationData[0]}
+              cardIcon={firstRecommendationCardIcon}
+              hasCreditCard={!creditCard || !creditCard.length}
+              cardTitle={
+                pointsAmountBalance >
+                (belowOffer || cardsRecommendationData[0]).points
+                  ? 'Você já pode trocar'
+                  : 'Acumule mais pontos'
+              }
+            />
           </PointsCol>
 
           <PointsCol md={3} sm={6}>
-          <PointsOfferCard
+            <PointsOfferCard
               offer={aboveOffer || cardsRecommendationData[1]}
               cardIcon={lastRecommendationCardIcon}
               hasCreditCard={!creditCard || !creditCard.length}
@@ -486,7 +510,7 @@ export default function PointsSection({ points }: any) {
                   : 'Acumule mais pontos'
               }
             />
-        </PointsCol>
+          </PointsCol>
         </>
       )}
     </>

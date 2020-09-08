@@ -3597,7 +3597,7 @@
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "10/2019"
+        "dataCompra": "01/10/2020"
       },
       {
         "pontoGanho": "100",
@@ -3606,7 +3606,7 @@
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "10/2019"
+        "dataCompra": "01/10/2020"
       },
       {
         "pontoGanho": "250",
@@ -3615,7 +3615,61 @@
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "10/2019"
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
       }
     ]
   },

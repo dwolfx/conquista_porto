@@ -42,7 +42,6 @@ export const OfferCategoryText = styled(Text)`
 `
 
 export const OfferTextBox = styled.div`
-
   margin: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`};
 `
 
@@ -69,4 +68,9 @@ export const PointsCol = styled(Col)`
     height: -webkit-fill-available;
     height: -moz-available;
   }
+`
+
+export const RulesButton = styled(Button)`
+  width: 100%;
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
 `

@@ -14,10 +14,12 @@ export default function ErrorState({ onRetry, ...rest }) {
         type="headline"
         color="magenta2"
         css={`
+          text-align: center;
           margin-bottom: 14px;
         `}
       >
-        Não foi possível carregar suas informações.
+        Desculpe, não foi possível carregar suas informações. Aguarde alguns
+        instantes e tente novamente.
       </Text>
       <Button onClick={onRetry}>Tentar novamente</Button>
     </LoadingStateObjectivesContainer>

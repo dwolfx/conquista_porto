@@ -148,10 +148,10 @@ export const PointsInfo = styled.div`
   flex-wrap: wrap;
 
   p:first-child {
-    color: ${props => props.theme.colors.gray5};
+    color: ${props => props.theme.colors.gray6};
   }
   p:last-of-type {
-    padding: 0 ${({ theme }) => theme.spacing(2)}px;
+    padding: 0 ${({ theme }) => theme.spacing(2)}px 0 0;
   }
 `
 
@@ -192,7 +192,7 @@ export const PointName = styled(Text)`
 `
 
 export const PointNumber = styled(Text)`
-  margin-right: ${({ theme }) => theme.spacing(2)}px;
+  align-items: flex-end;
 `
 
 export const EmptyProductItemRow = styled.div`
