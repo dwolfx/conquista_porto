@@ -1,7 +1,7 @@
 import { TColumns } from 'components/Table/types'
 import { IFunds } from 'store/modules/Objective/types'
 import { formatFundoInv, formatActions, FormatValue } from './utils'
-import { THandleInputChangeFunction } from './types'
+import { THandleInputBlurFunction, THandleInputChangeFunction } from './types'
 
 export const fundsType = [
   {
@@ -27,8 +27,9 @@ export const fundsType = [
 ]
 
 export const columns = (
-  handleInputsChange: THandleInputChangeFunction,
-  removeAction: (fundId: number) => void
+  handleInputsBlur: THandleInputBlurFunction,
+  removeAction: (fundId: number) => void,
+  handleInputsChange?: THandleInputChangeFunction
 ): TColumns[] => [
   {
     Header: 'FUNDO DE INVESTIMENTO',
@@ -36,10 +37,10 @@ export const columns = (
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: '40%',
+      width: '37.5%',
       minWidth: 208,
       header: {
-        width: '38%',
+        width: '34.5%',
         minWidth: 185,
       },
     },
@@ -51,16 +52,17 @@ export const columns = (
     format: (row: IFunds) =>
       FormatValue({
         row,
+        onBlur: handleInputsBlur,
         onChange: handleInputsChange,
         type: 'initial_value',
       }),
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: '20%',
+      width: '24%',
       minWidth: 120,
       header: {
-        width: '19%',
+        width: '23.5%',
         minWidth: 120,
       },
     },
@@ -71,6 +73,7 @@ export const columns = (
     format: (row: IFunds) =>
       FormatValue({
         row,
+        onBlur: handleInputsBlur,
         onChange: handleInputsChange,
         type: 'monthly_value',
       }),
@@ -92,7 +95,7 @@ export const columns = (
     align: 'center',
     styles: {
       width: '5%',
-      minWidth: 80,
+      minWidth: 65,
       header: {
         width: '5%',
         minWidth: 60,

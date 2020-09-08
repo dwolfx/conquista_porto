@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  useMemo,
+} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Row, Col } from 'styled-bootstrap-grid'
@@ -34,20 +40,13 @@ import {
 } from 'store/modules/Objective/types'
 import { TPrediction } from './ResultPrediction/types'
 
+import DistribuitedValues from './DistribuitedValue'
 import FundsList from './FundsList'
 import RemovedFunds from './RemovedFunds'
 import MobileFundCards from './Mobile'
 import { columns } from './constants'
-
-import { Currency } from 'helpers/money'
-
+import { IState, IHandleInputsBlur } from './types'
 import * as s from './styles'
-
-interface IInputChange {
-  event: React.ChangeEvent<HTMLInputElement>
-  row: IFunds
-  value: number
-}
 
 interface IProps {
   onClose: () => void
@@ -62,6 +61,9 @@ export default function WalletComposition({ onClose }: IProps) {
   const isTabletVertical = useMedia('sm')
 
   const [funds, setFunds] = useState<IFunds[] | []>([])
+  const [recommendedFundIds, setRecommendedFundIds] = useState<number[] | []>(
+    []
+  )
   const [removedFunds, setRemovedFunds] = useState<IFunds[] | []>([])
   const [isRemovedFundsOpen, setIsRemovedFundsOpen] = useState(false)
   const [isFundsListOpen, setIsFundsListOpen] = useState(false)
@@ -72,10 +74,8 @@ export default function WalletComposition({ onClose }: IProps) {
     setIsLoadingObjectiveManagement,
   ] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  // atribuir 'true' de acordo com os valores distribuídos nos fundos. (se ultrapassar ou não utilizar todo valor inicial e mensal nos fundos)
-  // const [isDistributedAmountValid, setIsDistributedAmountValid] = useState(
-  //   false
-  // )
+  const [initialDistributedValue, setInitialDistributedValue] = useState(0)
+  const [monthlyDistributedValue, setMonthlyDistributedValue] = useState(0)
   const [isFundsEdited, setIsFundsEdited] = useState(false)
 
   const [prediction, setPrediction] = useState<TPrediction>({
@@ -88,11 +88,18 @@ export default function WalletComposition({ onClose }: IProps) {
     recommendationData,
     isLoadingRelculateFundsData,
     isLoadingPutRecommendation,
-  } = useSelector((state: any) => ({
+  } = useSelector((state: IState) => ({
     recommendationData: state.objective.data,
     isLoadingRelculateFundsData: state.objective.isLoadingRelculateFundsData,
     isLoadingPutRecommendation: state.objective.isLoadingPutRecommendation,
   }))
+
+  const isDistributedAmountValid: boolean = useMemo(
+    () =>
+      recommendationData.answer.initial_value - initialDistributedValue === 0 &&
+      recommendationData.answer.monthly_value - monthlyDistributedValue === 0,
+    [initialDistributedValue, monthlyDistributedValue, recommendationData]
+  )
 
   useEffect(() => {
     if (recommendationData) {
@@ -101,7 +108,28 @@ export default function WalletComposition({ onClose }: IProps) {
   }, [recommendationData])
 
   useEffect(() => {
+    const calculateInitialDistribution: number = [...funds].reduce(
+      (acc: number, cur: IFunds) => acc + +cur.initial_value,
+      0
+    )
+
+    const calculateMonthlyDistribution: number = [...funds].reduce(
+      (acc: number, cur: IFunds) => acc + +cur.monthly_value,
+      0
+    )
+
+    setInitialDistributedValue(calculateInitialDistribution)
+    setMonthlyDistributedValue(calculateMonthlyDistribution)
+  }, [funds])
+
+  useEffect(() => {
     setFunds(recommendationData.funds)
+
+    const recommendedIds: number[] = [...recommendationData.funds].reduce(
+      (acc: number[], cur: IFunds) => [...acc, cur.fund_id],
+      []
+    )
+    setRecommendedFundIds(recommendedIds)
   }, [recommendationData])
 
   useEffect(() => {
@@ -128,67 +156,84 @@ export default function WalletComposition({ onClose }: IProps) {
     isLoadingObjectiveManagement,
   ])
 
-  // despite the name, it's triggered on blur
-  const handleInputsChange = ({
-    event,
-    value: inputValue,
-    row,
-  }: IInputChange) => {
-    const inputName = event.target.name
+  // function that is triggered on blur of the input, updating 'fund' state value with values inputed
+  const handleInputsBlur = useCallback(
+    ({ event, value: inputValue, row }: IHandleInputsBlur) => {
+      const inputName = event.target.name
 
-    const newValues = [...funds].reduce((acc: IFunds[], cur: IFunds) => {
-      if (cur.fund_id === row.fund_id) {
-        return [
-          ...acc,
-          {
-            ...cur,
-            [inputName]: inputValue,
-          },
-        ]
+      const newValues = [...funds].reduce((acc: IFunds[], cur: IFunds) => {
+        if (cur.fund_id === row.fund_id) {
+          return [
+            ...acc,
+            {
+              ...cur,
+              [inputName]: +inputValue,
+            },
+          ]
+        }
+
+        return [...acc, cur]
+      }, [])
+
+      setFunds(newValues)
+
+      const calculateInitialDistribution: number = [...newValues].reduce(
+        (acc: number, cur: IFunds) => acc + +cur.initial_value,
+        0
+      )
+
+      const calculateMonthlyDistribution: number = [...newValues].reduce(
+        (acc: number, cur: IFunds) => acc + +cur.monthly_value,
+        0
+      )
+
+      setInitialDistributedValue(calculateInitialDistribution)
+      setMonthlyDistributedValue(calculateMonthlyDistribution)
+
+      const onSuccess = (recalculateFundsData: IIncome) => {
+        const initialValues = [...recommendationData.funds].map(fund => ({
+          initial_value: fund.initial_value,
+          monthly_value: fund.monthly_value,
+        }))
+        const editedValues = [...newValues].map(fund => ({
+          initial_value: fund.initial_value,
+          monthly_value: fund.monthly_value,
+        }))
+
+        setIsFundsEdited(
+          JSON.stringify(initialValues) !== JSON.stringify(editedValues)
+        )
+        setIsReachedGoal(
+          recalculateFundsData.median >= recommendationData?.answer.target_value
+        )
+        setPrediction(recalculateFundsData)
       }
 
-      return [...acc, cur]
-    }, [])
-
-    setFunds(newValues)
-    const onSuccess = (recalculateFundsData: IIncome) => {
-      const initialValues = [...recommendationData.funds].map(fund => ({
-        initial_value: fund.initial_value,
-        monthly_value: fund.monthly_value,
-      }))
-      const editedValues = [...newValues].map(fund => ({
-        initial_value: fund.initial_value,
-        monthly_value: fund.monthly_value,
-      }))
-
-      setIsFundsEdited(
-        JSON.stringify(initialValues) !== JSON.stringify(editedValues)
+      dispatch(
+        PostRecalculateFundsRequest({
+          data: {
+            target_date: recommendationData.answer.target_date,
+            fund_list: [...newValues].map(fund => ({
+              category: fund.arena_category,
+              fund_id: fund.fund_id,
+              initial_amount: fund.initial_value,
+              monthly_amount: fund.monthly_value,
+            })),
+          },
+          onSuccess,
+          onErrorToast: addToast,
+        })
       )
-      setIsReachedGoal(
-        recalculateFundsData.median >= recommendationData?.answer.target_value
-      )
-      setPrediction(recalculateFundsData)
-    }
-
-    dispatch(
-      PostRecalculateFundsRequest({
-        data: {
-          target_date: recommendationData.answer.target_date,
-          fund_list: [...newValues].map(fund => ({
-            category: fund.arena_category,
-            fund_id: fund.fund_id,
-            initial_amount: fund.initial_value,
-            monthly_amount: fund.monthly_value,
-          })),
-        },
-        onSuccess,
-        onErrorToast: addToast,
-      })
-    )
-  }
+    },
+    [funds, addToast, dispatch, recommendationData]
+  )
 
   const removeAction = (fundId: number) => {
-    const fundRemoved = funds.filter(fund => fund.fund_id === fundId)
+    const fundRemoved = funds.filter(
+      fund =>
+        fund.fund_id === fundId &&
+        recommendedFundIds.includes(fund.fund_id as never)
+    )
 
     setFunds(currentFunds =>
       currentFunds.filter(fund => fund.fund_id !== fundId)
@@ -201,7 +246,7 @@ export default function WalletComposition({ onClose }: IProps) {
     })
   }
 
-  const columnsToRender = columns(handleInputsChange, removeAction)
+  const columnsToRender = columns(handleInputsBlur, removeAction)
 
   if (isFundsListOpen) {
     return (
@@ -213,13 +258,12 @@ export default function WalletComposition({ onClose }: IProps) {
     )
   }
 
-  const requiredFundsInfo = (funds: IFunds[]) => {
-    return [...funds].map(fund => ({
+  const requiredFundsInfo = (requiredFunds: IFunds[]) =>
+    [...requiredFunds].map(fund => ({
       fund_id: fund.fund_id,
       initial_amount: fund.initial_value,
       monthly_amount: fund.monthly_value,
     }))
-  }
 
   const goToObjectiveManagement = () => {
     const onSuccess = (updatedRecommendationData: IRecommendations) => {
@@ -254,7 +298,6 @@ export default function WalletComposition({ onClose }: IProps) {
         data: {
           answer: recommendationData.answer,
           additional: recommendationData.additional,
-          credit_product: recommendationData.credit_product,
           fund_list: requiredFundsInfo(funds),
         },
         onSuccess,
@@ -281,7 +324,10 @@ export default function WalletComposition({ onClose }: IProps) {
                 data: {
                   answer: recommendationData.answer,
                   additional: recommendationData.additional,
-                  credit_product: recommendationData.credit_product,
+                  credit_product: {
+                    name: recommendationData?.credit_product?.name,
+                    values: recommendationData?.credit_product?.values[0],
+                  },
                   fund_list: requiredFundsInfo(funds),
                 },
                 onSuccess: () => {
@@ -335,7 +381,7 @@ export default function WalletComposition({ onClose }: IProps) {
 
     return (
       <s.Button
-        disabled={!isFundsEdited}
+        disabled={!isFundsEdited || !isDistributedAmountValid}
         loading={!isModalOpen && saveButtonIsLoading}
         color="secondary"
         onClick={() => handleSaveButtonClick()}
@@ -344,11 +390,6 @@ export default function WalletComposition({ onClose }: IProps) {
       </s.Button>
     )
   }
-
-  // substituir de acordo com a lógica do componente de 'total distribuído'
-  const textColor = false ? 'gray6' : 'magenta2'
-
-  const seiLa = undefined
 
   return (
     <>
@@ -382,7 +423,6 @@ export default function WalletComposition({ onClose }: IProps) {
                     Você pode adicionar, remover e substituir fundos sugeridos,
                     além de remanejar os investimentos em cada categoria.
                   </Text>
-                  {seiLa && <p>Test</p>}
                 </s.TextCompositionWrapper>
 
                 <s.PercentualInfos funds={funds} />
@@ -392,65 +432,10 @@ export default function WalletComposition({ onClose }: IProps) {
                   isLoading={false}
                 />
 
-                <s.TotalAmountDistributed>
-                  <s.LabelWrapper>
-                    <Text type="captionUppercase" color="gray5" bold>
-                      Total Distribuído
-                    </Text>
-                    <Text type="captionUppercase" color="gray5" bold>
-                      Planejado
-                    </Text>
-                    <Text type="captionUppercase" color="gray5" bold>
-                      A Distribuir
-                    </Text>
-                  </s.LabelWrapper>
-                  <s.InitialAmountWrapper>
-                    <Text type="caption" color="gray6" bold>
-                      {Currency.parse(5000.0, true)}
-                    </Text>
-                    <Text type="caption" color="gray6" bold>
-                      {Currency.parse(5000.0, true)}
-                    </Text>
-                    <s.ToDistributeWrapper>
-                      <Text
-                        type="caption"
-                        color={textColor}
-                        bold
-                        css={`
-                          width: 7px;
-                        `}
-                      >
-                        +
-                      </Text>
-                      <Text type="caption" color={textColor} bold>
-                        {Currency.parse(500.0, true)}
-                      </Text>
-                    </s.ToDistributeWrapper>
-                  </s.InitialAmountWrapper>
-                  <s.MonthlyAmountWrapper>
-                    <Text type="caption" color="gray6" bold>
-                      {Currency.parse(5000.0, true)}
-                    </Text>
-                    <Text type="caption" color="gray6" bold>
-                      {Currency.parse(5000.0, true)}
-                    </Text>
-                    <s.ToDistributeWrapper>
-                      <Text
-                        type="caption"
-                        color={textColor}
-                        bold
-                        css={`
-                          width: 7px;
-                        `}
-                      >
-                        -
-                      </Text>
-                      <Text type="caption" color={textColor} bold>
-                        {Currency.parse(500.0, true)}
-                      </Text>
-                    </s.ToDistributeWrapper>
-                  </s.MonthlyAmountWrapper>
-                </s.TotalAmountDistributed>
+                <DistribuitedValues
+                  initialDistribuition={initialDistributedValue}
+                  monthlyDistribuition={monthlyDistributedValue}
+                />
 
                 <Row
                   alignItems="center"
@@ -480,7 +465,7 @@ export default function WalletComposition({ onClose }: IProps) {
             <Col>
               <MobileFundCards
                 funds={funds}
-                onChangeAction={handleInputsChange}
+                onBlurAction={handleInputsBlur}
                 removeAction={removeAction}
               />
             </Col>
@@ -488,49 +473,60 @@ export default function WalletComposition({ onClose }: IProps) {
         </s.CompositionRow>
 
         {isMobile || isTabletVertical ? (
-          <Row
-            css={`
-              margin-top: ${theme.spacing(1)}px;
-            `}
-          >
-            <Col>
-              <Card>
-                <HorizontalList
-                  startItems={[
-                    <Text type="captionUppercase" bold>
-                      Fundos recomendados removidos
-                    </Text>,
-                  ]}
-                  endItems={[
-                    <ButtonIcon
-                      icon="arrowright"
-                      onClick={() => setIsRemovedFundsOpen(true)}
-                    />,
-                  ]}
+          <>
+            <Row
+              css={`
+                margin-top: ${theme.spacing(2)}px;
+              `}
+            >
+              <Col>
+                <DistribuitedValues
+                  initialDistribuition={initialDistributedValue}
+                  monthlyDistribuition={monthlyDistributedValue}
+                  isMobile
                 />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Card>
+                  <HorizontalList
+                    startItems={[
+                      <Text type="captionUppercase" bold>
+                        Fundos recomendados removidos
+                      </Text>,
+                    ]}
+                    endItems={[
+                      <ButtonIcon
+                        icon="arrowright"
+                        onClick={() => setIsRemovedFundsOpen(true)}
+                      />,
+                    ]}
+                  />
 
-                <Divisor
-                  css={`
-                    margin: ${theme.spacing(1)}px 0;
-                  `}
-                />
+                  <Divisor
+                    css={`
+                      margin: ${theme.spacing(1)}px 0;
+                    `}
+                  />
 
-                <HorizontalList
-                  startItems={[
-                    <Text type="captionUppercase" bold>
-                      Lista de fundos
-                    </Text>,
-                  ]}
-                  endItems={[
-                    <ButtonIcon
-                      icon="arrowright"
-                      onClick={() => setIsFundsListOpen(true)}
-                    />,
-                  ]}
-                />
-              </Card>
-            </Col>
-          </Row>
+                  <HorizontalList
+                    startItems={[
+                      <Text type="captionUppercase" bold>
+                        Lista de fundos
+                      </Text>,
+                    ]}
+                    endItems={[
+                      <ButtonIcon
+                        icon="arrowright"
+                        onClick={() => setIsFundsListOpen(true)}
+                      />,
+                    ]}
+                  />
+                </Card>
+              </Col>
+            </Row>
+          </>
         ) : null}
       </s.Container>
       <s.Footer>

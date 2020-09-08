@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'styled-components/macro'
 
 import ButtonIcon from 'components/Button/Icon'
@@ -12,6 +12,7 @@ import { useToast } from 'hooks/toast'
 import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
 import { IFunds } from 'store/modules/Objective/types'
 
+import { IHandleInputsBlur, IHandleInputsChange } from './types'
 import * as s from './styles'
 
 export const formatFundoInv = (row: IFunds) => (
@@ -28,15 +29,20 @@ export const formatFundoInv = (row: IFunds) => (
 
 interface IFormatValue {
   row: IFunds
-  onChange: ({ row, event, ref }: any) => void
+  onBlur: ({ row, event, value }: IHandleInputsBlur) => void
   type: 'initial_value' | 'monthly_value'
+  onChange?: ({ row, inputedValue }: IHandleInputsChange) => void
 }
 
-export const FormatValue = ({ row, onChange, type }: IFormatValue) => {
+export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
   const [innerValue, setInnerValue] = useState(row[type])
   const [compareError, setCompareError] = useState(false)
   const { addToast } = useToast()
   const minValue = getMinFundValue(type)
+
+  useEffect(() => {
+    setCompareError(innerValue < minValue)
+  }, [innerValue, minValue])
 
   function getMinFundValue(moneyInputName: string): number {
     let minFundValue: number
@@ -110,9 +116,15 @@ export const FormatValue = ({ row, onChange, type }: IFormatValue) => {
         value={Currency.parse(innerValue)}
         maxLength={14}
         onFocus={minFundValueValidation}
-        onChange={minFundValueValidation}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          minFundValueValidation(event)
+
+          if (onChange) {
+            onChange({ row, inputedValue: innerValue, type })
+          }
+        }}
         onBlur={(event: React.ChangeEvent<HTMLInputElement>) => {
-          onChange({
+          onBlur({
             event,
             row,
             value: innerValue,
