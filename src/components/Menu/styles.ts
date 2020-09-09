@@ -39,7 +39,8 @@ export const Container = styled.div<IContainer>`
 `
 
 export const MenuContainer = styled.div`
-  position: fixed;
+  position: sticky;
+  top: 100px;
   z-index: 1;
   display: flex;
   flex-direction: column;

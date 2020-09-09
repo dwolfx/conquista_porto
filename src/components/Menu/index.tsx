@@ -1,7 +1,6 @@
 import React, { useState, useEffect, RefObject } from 'react'
 
 import Icon from 'components/IconExporter'
-import useMedia from 'hooks/useMedia'
 
 import { Container, MenuContainer, Option, OptionName } from './styles'
 
@@ -22,7 +21,6 @@ const Menu = ({
 }: IMenu) => {
   const [selectedOption, setSelectedOption] = useState('produtos')
   const [showMenu, setShowMenu] = useState(true)
-  const isMobile = useMedia('lg')
 
   function checkScroll() {
     let row1Pos = null
@@ -36,24 +34,19 @@ const Menu = ({
       !!ref3.current &&
       !!homeContentRef.current
     ) {
-      if (isMobile) {
-        homeMenuPos = homeContentRef.current.getBoundingClientRect().bottom
-        row1Pos = ref1.current.getBoundingClientRect().bottom
-        row2Pos = ref2.current.getBoundingClientRect().bottom
-        row3Pos = ref3.current.getBoundingClientRect().bottom
-      } else {
-        row1Pos = ref1.current.getBoundingClientRect().top
-        row2Pos = ref2.current.getBoundingClientRect().top
-        row3Pos = ref3.current.getBoundingClientRect().top
-      }
+      // "offsetTop - 30" compensa o margin adicional calculado na função passada pela prop
+      homeMenuPos = homeContentRef.current.getBoundingClientRect().bottom
+      row1Pos = ref1.current.offsetTop + 1
+      row2Pos = ref2.current.offsetTop - 30  
+      row3Pos = ref3.current.offsetTop - 30 
     }
 
     if (row1Pos && row2Pos && row3Pos) {
-      if (window.scrollY < row1Pos) {
+      if (window.scrollY >= row1Pos && window.scrollY < row2Pos) {
         setSelectedOption('produtos')
       } else if (window.scrollY >= row2Pos && window.scrollY < row3Pos) {
         setSelectedOption('objetivos')
-      } else if (window.scrollY >= row3Pos) {
+      } else if (window.scrollY > row2Pos) {
         setSelectedOption('pontos')
       }
     }

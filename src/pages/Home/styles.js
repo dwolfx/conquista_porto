@@ -61,6 +61,10 @@ export const PieItemMargin = styled.div`
 export const SectionRow = styled(Row)`
   width: 100%;
   margin: ${({ theme }) => `0 0 ${theme.spacing(2)}px 0`};
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `
 
 export const BannerRow = styled(Row)`
