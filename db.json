@@ -4316,7 +4316,7 @@
                 ]
               }
             },
-            "saldo_atual": "31905.05",
+            "saldo_atual": "200000.05",
             "ultimas_operacoes": {
               "operacao": [
                 {
@@ -4373,7 +4373,7 @@
               "data_inicio": "2013-03-28T00:00:00-03:00",
               "valor_patrimonio_liq": "65572971.83",
               "taxa_performance": "0.00",
-              "apelido": "Porto Seguro Alocação FIC FIM",
+              "apelido": "Porto Seguro Selecta FIC FIA",
               "contagem_dias_resgate": "Corridos",
               "minimo_inicial": "1000.0",
               "nome_gestor": "PortoSeguro Investimentos",
@@ -4409,7 +4409,7 @@
               },
               "resgate_liberado": true,
               "categoria_arena": "Multimercado",
-              "id_carteira": "5112",
+              "id_carteira": "5094",
               "regime_iof": "Regime Regressivo",
               "classificacao": "Longo Prazo",
               "aplicacao_financeiro": "D+0",
@@ -4508,7 +4508,7 @@
             },
             "categoria_arena": "Cambial",
             "historico_saldos_fundo": {
-              "id_carteira": "5112",
+              "id_carteira": "51380057",
               "saldos": {
                 "saldo": [
                   {
@@ -4530,7 +4530,7 @@
                 ]
               }
             },
-            "saldo_atual": "31905.05",
+            "saldo_atual": "15905.05",
             "ultimas_operacoes": {
               "operacao": [
                 {
@@ -4744,7 +4744,7 @@
                 ]
               }
             },
-            "saldo_atual": "31905.05",
+            "saldo_atual": "23499.05",
             "ultimas_operacoes": {
               "operacao": [
                 {
@@ -4801,7 +4801,7 @@
               "data_inicio": "2013-03-28T00:00:00-03:00",
               "valor_patrimonio_liq": "65572971.83",
               "taxa_performance": "0.00",
-              "apelido": "Porto Seguro Alocação FIC FIM",
+              "apelido": "BR Plural Deb. Inc. Hedge 45 FICFIM CP",
               "contagem_dias_resgate": "Corridos",
               "minimo_inicial": "1000.0",
               "nome_gestor": "PortoSeguro Investimentos",
@@ -4837,7 +4837,7 @@
               },
               "resgate_liberado": false,
               "categoria_arena": "Investimento no exterior",
-              "id_carteira": "5112",
+              "id_carteira": "51380057",
               "regime_iof": "Regime Regressivo",
               "classificacao": "Longo Prazo",
               "aplicacao_financeiro": "D+0",
@@ -4975,7 +4975,7 @@
               "data_inicio": "2013-07-31T00:00:00-03:00",
               "valor_patrimonio_liq": "79743742.67",
               "taxa_performance": "20.00",
-              "apelido": "Porto Seguro Selecta FIC FIA",
+              "apelido": "BR Plural Deb. Inc. Hedge 45 FICFIM CP",
               "contagem_dias_resgate": "Corridos",
               "minimo_inicial": "1000.0",
               "nome_gestor": "PortoSeguro Investimentos",
@@ -4997,7 +4997,7 @@
               },
               "resgate_liberado": true,
               "categoria_arena": "Renda Variável",
-              "id_carteira": "5094",
+              "id_carteira": "51380057",
               "regime_iof": "Regime Regressivo",
               "classificacao": "Ações",
               "aplicacao_financeiro": "D+0",
