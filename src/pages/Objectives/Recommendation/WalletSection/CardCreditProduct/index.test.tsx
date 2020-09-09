@@ -10,13 +10,11 @@ const setup = (children: React.ReactElement) => {
   return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 }
 
-const values = [
-  {
-    name: 'Valor a Contratar',
-    value: 478688.72,
-    checked: false,
-  },
-]
+const values = {
+  name: 'Valor a Contratar',
+  value: 478688.72,
+  checked: false,
+}
 
 const notAProduct = {
   name: 'Whatever',
@@ -34,7 +32,7 @@ const creditProductVehicle = {
 }
 
 const creditProductBuilding = {
-  name: 'Consórcio de imóvel',
+  name: 'Consórcio de Imóvel',
   values,
 }
 
@@ -52,14 +50,19 @@ describe("Recommendation's Credit Product Card", () => {
     )
 
     expect(getByText('Financiamento')).toBeTruthy()
-    // expect(getByText('Fincancimaneto')).toBeTruthy()
   })
-  // it('should display infos of credit product: vehicle consortium type', () => {
-  //   const {} = setup(<CreditProductCard creditProduct={creditProductVehicle} />)
-  // })
-  // it('should display infos of credit product: building consortium type', () => {
-  //   const {} = setup(
-  //     <CreditProductCard creditProduct={creditProductBuilding} />
-  //   )
-  // })
+  it('should display infos of credit product: vehicle consortium type', () => {
+    const { getByText } = setup(
+      <CreditProductCard creditProduct={creditProductVehicle} />
+    )
+
+    expect(getByText('Consórcio')).toBeTruthy()
+  })
+  it('should display infos of credit product: building consortium type', () => {
+    const { getByText } = setup(
+      <CreditProductCard creditProduct={creditProductBuilding} />
+    )
+
+    expect(getByText('Consórcio')).toBeTruthy()
+  })
 })

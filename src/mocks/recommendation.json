@@ -137,14 +137,12 @@
   ],
   "credit_product": {
     "name": "Financiamento de Veículo",
-    "values": [
-      {
-        "name": "Valor a Contratar",
-        "value": 478688.72,
-        "info": "string",
-        "checked": false
-      }
-    ]
+    "values": {
+      "name": "Valor a Contratar",
+      "value": 478688.72,
+      "info": "string",
+      "checked": false
+    }
   },
   "additional": {
     "travel_security": false,

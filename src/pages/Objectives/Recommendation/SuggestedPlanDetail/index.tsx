@@ -57,9 +57,10 @@ const SuggestedPlanDetail = ({
                 ]}
                 endItems={[
                   <Text type="headline" bold color="gray6">
-                    {isNaN(+creditProduct?.values[0].value)
-                      ? creditProduct?.values[0].value
-                      : formatMoney(creditProduct?.values[0].value)}
+                    {creditProduct?.values &&
+                    isNaN(+creditProduct?.values.value)
+                      ? creditProduct?.values.value
+                      : formatMoney(creditProduct?.values.value)}
                   </Text>,
                 ]}
               />
@@ -85,9 +86,10 @@ const SuggestedPlanDetail = ({
                       : 'Consórcio'}
                   </Text>,
                   <Text type="headline" bold color="gray6">
-                    {isNaN(+creditProduct?.values[0].value)
-                      ? creditProduct?.values[0].value
-                      : formatMoney(creditProduct?.values[0].value)}
+                    {creditProduct?.values &&
+                    isNaN(+creditProduct?.values.value)
+                      ? creditProduct?.values.value
+                      : formatMoney(creditProduct?.values.value)}
                   </Text>,
                 ]}
               />

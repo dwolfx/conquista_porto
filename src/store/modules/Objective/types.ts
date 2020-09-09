@@ -107,7 +107,7 @@ export interface ICreditProduct {
     name: string
     value: number
     checked: boolean
-  }[]
+  }
 }
 
 export interface ISuggestion {

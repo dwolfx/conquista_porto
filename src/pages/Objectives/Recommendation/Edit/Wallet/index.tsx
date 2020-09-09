@@ -325,10 +325,7 @@ export default function WalletComposition({ onClose }: IProps) {
                 data: {
                   answer: recommendationData.answer,
                   additional: recommendationData.additional,
-                  credit_product: {
-                    name: recommendationData?.credit_product?.name,
-                    values: recommendationData?.credit_product?.values[0],
-                  },
+                  credit_product: recommendationData?.credit_product,
                   fund_list: requiredFundsInfo(funds),
                 },
                 onSuccess: () => {
