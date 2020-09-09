@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components'
 
 import IconButton from 'components/Button/Icon'
-
 import Card from 'components/Card'
 import { CardBody } from 'components/Card/styles'
+
+import * as t from '../types'
 
 export const ButtonVertical = styled(IconButton)`
   border-radius: 4px;
@@ -17,11 +18,7 @@ export const ContentContainer = styled.div`
   display: flex;
 `
 
-interface IChipProps {
-  onClick: () => any
-  selected: boolean
-}
-export const Chip = styled(Card)<IChipProps>`
+export const Chip = styled(Card)<t.IChipProps>`
   border: 1px solid ${({ theme }) => theme.colors.gray3};
   background-color: white;
   border-radius: 4px;
@@ -51,30 +48,3 @@ export const Chip = styled(Card)<IChipProps>`
     justify-content: space-between;
   }
 `
-
-const ChangePageButton = styled(IconButton).attrs(() => ({
-  size: 'small',
-  isLoading: false,
-}))`
-  &.slick-prev {
-    left: 804px;
-    top: -28px;
-  }
-
-  &.slick-next {
-    right: 0;
-    top: -28px;
-  }
-
-  &.slick-next::before,
-  &.slick-prev::before {
-    content: '';
-  }
-`
-export const NextButton = styled(ChangePageButton).attrs(() => ({
-  icon: 'arrowright',
-}))``
-
-export const PrevButton = styled(ChangePageButton).attrs(() => ({
-  icon: 'arrowleft',
-}))``

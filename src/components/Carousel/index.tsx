@@ -1,5 +1,5 @@
 import React from 'react'
-import { Settings } from 'react-slick'
+import Slider, { Settings } from 'react-slick'
 
 import {
   ChangePageButton,
@@ -36,15 +36,18 @@ export const defaultSettings: Settings = {
 
 interface IProps {
   settings: Settings
+  children: React.ReactNode
 }
 
-const Carousel: React.FC<IProps> = ({ children, settings = {}, ...rest }) => {
-  const sliderSettings = { ...defaultSettings, ...settings }
-  return (
-    <SliderCustomizable {...rest} {...sliderSettings}>
-      {children}
-    </SliderCustomizable>
-  )
-}
+const Carousel = React.forwardRef<Slider, IProps>(
+  ({ children, settings = {}, ...rest }, ref) => {
+    const sliderSettings = { ...defaultSettings, ...settings }
+    return (
+      <SliderCustomizable ref={ref} {...rest} {...sliderSettings}>
+        {children}
+      </SliderCustomizable>
+    )
+  }
+)
 
 export default Carousel

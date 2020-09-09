@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Slider from 'react-slick'
 import 'styled-components/macro'
 
 import FundsFilter from 'pages/Investments/Management/Desktop/FundsFilter'
-import { TFundsLayout } from 'pages/Investments/Management/types'
 import {
   SetIdFund,
   GetPositionDataRequest,
@@ -11,17 +11,10 @@ import {
 
 import FundsCarousel from './FundsCarousel'
 import FundsList from './FundsList'
-import { ContainerCard, LoadingStyled, ErrorText, ButtonStyled } from './styles'
 import useMedia from 'hooks/useMedia'
+import * as s from './styles'
+import * as t from './types'
 
-interface IProps {
-  filters: any
-  filteredFunds: any[]
-  viewMode: TFundsLayout
-  isNextPriorButtonsVisible: boolean
-  onHandleChangeView: (newStateLayout: TFundsLayout) => void
-  onHandleChangeFilter: (newStateFilters: string[]) => void
-}
 const InvestedFundsList = ({
   filters,
   filteredFunds,
@@ -29,9 +22,11 @@ const InvestedFundsList = ({
   isNextPriorButtonsVisible,
   onHandleChangeView,
   onHandleChangeFilter,
-}: IProps) => {
+}: t.IInvestedFundsList) => {
   const dispatch = useDispatch()
   const isTablet = useMedia('lg')
+  const cardSlider = React.createRef<Slider>()
+  const [count, setCount] = useState(1)
   const { idFund, displayInformation, hasError, isLoading } = useSelector(
     (state: any) => ({
       idFund: state.investmentPosition.idFund,
@@ -48,49 +43,91 @@ const InvestedFundsList = ({
   const renderContent = () => {
     if (isLoading) {
       return (
-        <ContainerCard>
-          <LoadingStyled
+        <s.ContainerCard>
+          <s.LoadingStyled
             data-testid="loading-account-info"
             type="bar"
             legend="Aguarde, estamos buscando suas informações..."
           />
-        </ContainerCard>
+        </s.ContainerCard>
       )
     }
 
     if (hasError) {
       return (
-        <ContainerCard>
-          <ErrorText>Não foi possível carregar a suas informações.</ErrorText>
-          <ButtonStyled
+        <s.ContainerCard>
+          <s.ErrorText>
+            Não foi possível carregar a suas informações.
+          </s.ErrorText>
+          <s.ButtonStyled
             onClick={() => dispatch(GetPositionDataRequest())}
             loading={isLoading}
             loadingColor="white"
           >
             Tentar novamente
-          </ButtonStyled>
-        </ContainerCard>
+          </s.ButtonStyled>
+        </s.ContainerCard>
       )
     }
+
+    const PrevAndNextButtons = ({
+      filteredFunds,
+    }: {
+      filteredFunds: t.IFund[]
+    }) => (
+      <s.ButtonWrapper>
+        {filteredFunds && filteredFunds.length > 1 && (
+          <>
+            <s.ChangePageButton
+              disabled={count <= 1 || filteredFunds.length === 3}
+              onClick={() => {
+                cardSlider.current && cardSlider.current.slickPrev()
+              }}
+            >
+              <s.BackwardIcon name="backward" />
+            </s.ChangePageButton>
+            <s.ChangePageButton
+              disabled={
+                count >= filteredFunds.length - 2 || filteredFunds.length === 3
+              }
+              onClick={() => {
+                cardSlider.current && cardSlider.current.slickNext()
+              }}
+            >
+              <s.ForwardIcon name="forward" />
+            </s.ChangePageButton>
+          </>
+        )}
+      </s.ButtonWrapper>
+    )
 
     return (
       <>
         {!isTablet && (
-          <FundsFilter
-            filters={filters}
-            viewMode={viewMode}
-            isNextPriorButtonsVisible={isNextPriorButtonsVisible}
-            onHandleChangeView={onHandleChangeView}
-            onHandleChangeFilter={onHandleChangeFilter}
-          />
+          <s.FilterAndButtonWrapper>
+            <FundsFilter
+              filters={filters}
+              viewMode={viewMode}
+              isNextPriorButtonsVisible={isNextPriorButtonsVisible}
+              onHandleChangeView={onHandleChangeView}
+              onHandleChangeFilter={onHandleChangeFilter}
+            />
+            {viewMode === 'CARDS' && (
+              <PrevAndNextButtons filteredFunds={filteredFunds} />
+            )}
+          </s.FilterAndButtonWrapper>
         )}
         {viewMode === 'CARDS' ? (
-          <FundsCarousel
-            displayInformation={displayInformation}
-            idFund={idFund}
-            onHandleChangeIdFund={onHandleChangeIdFund}
-            filteredFunds={filteredFunds}
-          />
+          <>
+            <FundsCarousel
+              displayInformation={displayInformation}
+              idFund={idFund}
+              onHandleChangeIdFund={onHandleChangeIdFund}
+              filteredFunds={filteredFunds}
+              setCount={setCount}
+              ref={cardSlider}
+            />
+          </>
         ) : (
           <FundsList
             displayInformation={displayInformation}
