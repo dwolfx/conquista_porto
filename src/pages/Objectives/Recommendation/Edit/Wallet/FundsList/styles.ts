@@ -15,6 +15,10 @@ export const Layer = styled(LayerCmp)`
 
 export const Container = styled(ContainerBootstrap)`
   margin-top: ${({ theme }) => theme.spacing(5)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-left: ${({ theme }) => theme.spacing(0.5)}px;
+  }
 `
 
 export const Card = styled(CardCmp)`
@@ -38,6 +42,9 @@ export const RiskColorTag = styled(RiskColor)`
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
     left: -34px;
+  }
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    left: 4px;
   }
 `
 

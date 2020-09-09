@@ -6,7 +6,12 @@ export interface IFundsListProps {
   onClose: () => void
 }
 
-export interface IFilter {
-  byCategoriaArena: any[]
-  byPerfilRisco: any[]
+export interface IFundSort {
+  sortBy: string | null
+  sortType: boolean | null
+}
+
+export interface IFilterProps {
+  byCategoriaArena: string[]
+  byPerfilRisco: string[]
 }

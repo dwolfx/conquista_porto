@@ -48,6 +48,7 @@ interface IProps {
 const Table = ({
   columns: columnsProps,
   data,
+  disableSort = false,
   hasError = false,
   errorMessage = 'Não foi possível carregar suas informações da tabela.',
   isFiltering = false,
@@ -90,6 +91,7 @@ const Table = ({
         onRowClick,
       ]),
       data,
+      disableSortBy: disableSort,
     },
     useSortBy,
     useSticky,

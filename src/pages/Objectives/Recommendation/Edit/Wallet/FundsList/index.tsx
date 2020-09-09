@@ -26,7 +26,7 @@ import { IFunds } from 'store/modules/Objective/types'
 import { FundoOutterWrapper, FundoWrapper, FundoNameWrapper } from '../styles'
 import FundDetails from './FundDetails'
 import FundsListMobile from './Mobile'
-import { IFundsListProps } from './types'
+import { IFundsListProps, IFundSort, IFilterProps } from './types'
 import * as s from './styles'
 
 const columns: TColumns[] = [
@@ -105,38 +105,70 @@ const columns: TColumns[] = [
 const columnsSticky: TColumns[] = [
   {
     ...columns[0],
-    styles: { minWidth: 179 },
+    styles: {
+      minWidth: 179,
+      header: {
+        minWidth: 157,
+      },
+    },
     sticky: 'left',
     canSort: false,
   },
   {
     ...columns[1],
     styles: {
-      minWidth: 140,
+      minWidth: 144,
+      header: {
+        minWidth: 140,
+      },
     },
     canSort: false,
   },
   {
     ...columns[2],
     styles: {
-      minWidth: 160,
+      minWidth: 164,
+      header: {
+        minWidth: 160,
+      },
     },
     canSort: false,
   },
   {
     ...columns[3],
     styles: {
-      minWidth: 200,
+      minWidth: 204,
+      header: {
+        minWidth: 200,
+      },
     },
     canSort: false,
   },
   {
     ...columns[4],
-    styles: { minWidth: 187, header: { minWidth: 130 } },
+    styles: { minWidth: 192, header: { minWidth: 130 } },
     canSort: false,
   },
-  { ...columns[5], styles: { minWidth: 140 }, canSort: false },
-  { ...columns[6], styles: { minWidth: 160 }, canSort: false },
+  {
+    ...columns[5],
+    styles: {
+      minWidth: 144,
+      header: {
+        minWidth: 140,
+      },
+    },
+    canSort: false,
+  },
+  {
+    ...columns[6],
+    styles: {
+      minWidth: 164,
+      header: {
+        minWidth: 160,
+      },
+    },
+    canSort: false,
+  },
 ]
 
 export default function FundsList({
@@ -163,11 +195,11 @@ export default function FundsList({
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false)
   const [isFiltersClean, setIsFiltersClean] = useState(false)
   const [filtersCount, setFiltersCount] = useState(0)
-  const [filter, setFilter] = useState({
+  const [filter, setFilter] = useState<IFilterProps>({
     byCategoriaArena: [],
     byPerfilRisco: [],
   })
-  const [mobileFundSort, setMobileFundSort] = useState({
+  const [mobileFundSort, setMobileFundSort] = useState<IFundSort>({
     sortBy: null,
     sortType: null,
   })
@@ -198,10 +230,10 @@ export default function FundsList({
   // trigger request to funds API, if data on store is empty
   useFetchInvestmentsList()
 
-  // initialize funds, removing funds that already are listed on the wallet composition
+  // initialize funds, marking funds that already are listed on the wallet composition with checked = true
   useEffect(() => {
     if (fundsListData.length) {
-      const fundsListNotAddOnWallet = [...fundsListData].map(fund => {
+      const fundsListWithChecked = [...fundsListData].map(fund => {
         if (fundsIdsAlreadyOnWallet.includes(fund.id_carteira)) {
           return {
             ...fund,
@@ -212,7 +244,7 @@ export default function FundsList({
         return fund
       })
 
-      setFundsListAvailable(fundsListNotAddOnWallet)
+      setFundsListAvailable(fundsListWithChecked)
     }
   }, [fundsListData, fundsIdsAlreadyOnWallet])
 
@@ -241,14 +273,6 @@ export default function FundsList({
     setFiltersCount(totalFiltersCount)
   }, [filter, mobileFundSort])
 
-  function handleChangeFilter(newFilter: any) {
-    setFilter(newFilter)
-  }
-
-  function handleChangeMobileSort(newMobileSort: any) {
-    setMobileFundSort(newMobileSort)
-  }
-
   function handleCleanFilter() {
     setFilter({
       byCategoriaArena: [],
@@ -268,11 +292,13 @@ export default function FundsList({
   //   handleCleanSort()
   // }
 
-  const mobileFundList = (fundList: IFundsList[]) => {
-    if (mobileFundSort.sortType !== null)
-      return sortFundList(fundList, mobileFundSort)
-    return fundList
-  }
+  const fundsListSorted = useMemo(() => {
+    if (mobileFundSort.sortType !== null) {
+      return sortFundList(filteredFundsList, mobileFundSort)
+    }
+
+    return filteredFundsList
+  }, [mobileFundSort, filteredFundsList])
 
   const createFundObject = useCallback(
     fund => ({
@@ -361,7 +387,7 @@ export default function FundsList({
             {isMobile ? (
               <>
                 <FundsListMobile
-                  funds={mobileFundList(filteredFundsList)}
+                  funds={fundsListSorted}
                   onMoreInformationClick={fund => {
                     setFundDetailsOpen(true)
                     setFundDetailsTitle(fund.nome_carteira)
@@ -394,22 +420,23 @@ export default function FundsList({
                     hasFundsListError
                   }
                   filter={filter}
-                  onChangeFilter={handleChangeFilter}
+                  onChangeFilter={setFilter}
                   onChangeIsDrawerOpen={setIsFilterDrawerOpen}
                   onClearFilter={handleCleanFilter}
                   onClearSort={handleCleanSort}
-                  onChangeSort={handleChangeMobileSort}
+                  onChangeSort={setMobileFundSort}
                   isFiltersClean={isFiltersClean}
                   filtersCount={filtersCount}
                 />
 
                 <Table
-                  data={mobileFundList(filteredFundsList)}
+                  data={fundsListSorted}
                   columns={
                     isTabletVertical || isTabletHorizontal
                       ? columnsSticky
                       : columns
                   }
+                  disableSort={isTabletHorizontal || isTabletVertical}
                   onSelect={onSelectCallback}
                   isLoading={isFundsListLoading}
                   showSelectAll={false}
@@ -442,11 +469,11 @@ export default function FundsList({
             {isMobile || isTabletVertical || isTabletHorizontal ? (
               <DrawerFilter
                 filter={filter}
-                onChangeFilter={handleChangeFilter}
+                onChangeFilter={setFilter}
                 isDrawerOpen={isFilterDrawerOpen}
                 onChangeIsDrawerOpen={setIsFilterDrawerOpen}
                 sort={mobileFundSort}
-                onChangeSort={handleChangeMobileSort}
+                onChangeSort={setMobileFundSort}
               />
             ) : null}
           </Col>

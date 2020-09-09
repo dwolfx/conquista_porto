@@ -53,10 +53,10 @@ export const columns = [
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: '22%',
+      width: '34%',
       minWidth: 246,
       header: {
-        width: '22%',
+        width: '34%',
         minWidth: 223,
       },
     },
@@ -95,10 +95,10 @@ export const columns = [
     format: (row: IFund) => formatInicialValue(row),
     align: 'center',
     styles: {
-      width: '13%',
+      width: '27%',
       minWidth: 140,
       header: {
-        width: '14%',
+        width: '27%',
         minWidth: 140,
       },
     },

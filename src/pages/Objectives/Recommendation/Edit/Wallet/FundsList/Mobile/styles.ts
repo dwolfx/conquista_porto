@@ -13,6 +13,13 @@ export const Card = styled(CardCmp)`
   }
 `
 
+export const LoadingContent = styled.div`
+  display: flex;
+  height: 379px;
+  padding: ${({ theme }) => theme.spacing(5)}px;
+  text-align: center;
+`
+
 export const FooterButtonWrapper = styled.div`
   flex-direction: column;
   padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(2)}px`};

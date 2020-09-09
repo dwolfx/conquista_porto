@@ -40,7 +40,7 @@ export const InfoTableContent = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(5)}px`};
+  padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(5)}px`};
   white-space: pre-line;
   text-align: center;
 `
@@ -107,7 +107,7 @@ export const TheadTh = styled.div<ITheadTh>`
   display: inline-block;
   position: relative;
   height: 100%;
-  padding-left: ${({ theme }) => theme.spacing(3)}px;
+  padding-left: ${({ theme }) => theme.spacing(2)}px;
   padding-right: ${({ theme }) => theme.spacing(1)}px;
   min-width: ${({ minWidth, theme }) => {
     if (minWidth) {
@@ -133,7 +133,7 @@ export const TheadTh = styled.div<ITheadTh>`
       ? `
         margin-left: 0;
         padding-right: 0;
-        padding-left: ${theme.spacing(3)}px;
+        padding-left: ${theme.spacing(2)}px;
 
       `
       : ''}
@@ -259,7 +259,7 @@ export const TbodyTd = styled.div<ITbodyTd>`
   display: flex;
   font-size: 14px;
   justify-content: ${props => props.align || 'center'};
-  margin-left: ${({ theme }) => theme.spacing(3)}px;
+  margin-left: ${({ theme }) => theme.spacing(2)}px;
   min-width: ${props => {
     if (props.minWidth) {
       return typeof props.minWidth === 'string'
@@ -284,13 +284,13 @@ export const TbodyTd = styled.div<ITbodyTd>`
   }
   &:first-child {
     margin-left: ${({ inheritMarginFirstCell, theme, isSticky }) =>
-      inheritMarginFirstCell && !isSticky ? `${theme.spacing(3)}px` : 0};
+      inheritMarginFirstCell && !isSticky ? `${theme.spacing(2)}px` : 0};
   }
   ${({ isSticky, theme }) =>
     isSticky
       ? `
         margin-left: 0;
-        padding-left: ${theme.spacing(3)}px;
+        padding-left: ${theme.spacing(2)}px;
       `
       : ''}
 `

@@ -149,22 +149,28 @@ export default function FundsListMobile({ funds, ...rest }: IMobileProps) {
 
   if (isLoadingFundsList) {
     return (
-      <Loading
-        type="bar"
-        legend="Buscando informações dos fundos de investimento"
-      />
+      <s.Card>
+        <s.LoadingContent>
+          <Loading
+            type="bar"
+            legend="Buscando informações dos fundos de investimento"
+          />
+        </s.LoadingContent>
+      </s.Card>
     )
   }
 
   if (hasErrorFundsList) {
     return (
-      <>
-        <Text type="headline" color="magenta2">
-          Não foi possível carregar a lista de fundos. Por favor, tente
-          novamente
-        </Text>
-        <Button>Tentar novamente</Button>
-      </>
+      <s.Card>
+        <s.LoadingContent>
+          <Text type="headline" color="magenta2">
+            Não foi possível carregar a lista de fundos. Por favor, tente
+            novamente
+          </Text>
+          <Button>Tentar novamente</Button>
+        </s.LoadingContent>
+      </s.Card>
     )
   }
 

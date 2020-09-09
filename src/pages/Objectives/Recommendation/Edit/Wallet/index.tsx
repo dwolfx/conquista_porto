@@ -21,6 +21,10 @@ import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
+
+import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
+import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/Label'
+
 import {
   UpdateRecommendationRequest,
   PostRecalculateFundsRequest,
@@ -30,7 +34,6 @@ import {
   PostObjectiveManagementDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
 
-import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
 import ResultPredictionCard from './ResultPrediction/Card'
 import ResultPredictionModal from './ResultPrediction/Modal'
 import {
@@ -274,16 +277,22 @@ export default function WalletComposition({ onClose }: IProps) {
         })
       }
 
+      const dataToDispatch: any = {
+        id: updatedRecommendationData.id,
+        answer: updatedRecommendationData.answer,
+        fund_total_income: updatedRecommendationData.fund_total_income,
+        funds: updatedRecommendationData.funds,
+        additional: updatedRecommendationData.additional,
+      }
+
+      if (updatedRecommendationData.credit_product) {
+        dataToDispatch['credit_product'] =
+          updatedRecommendationData.credit_product
+      }
+
       dispatch(
         PostObjectiveManagementDataRequest({
-          data: {
-            id: updatedRecommendationData.id,
-            answer: updatedRecommendationData.answer,
-            fund_total_income: updatedRecommendationData.fund_total_income,
-            funds: updatedRecommendationData.funds,
-            additional: updatedRecommendationData.additional,
-            credit_product: updatedRecommendationData.credit_product,
-          },
+          data: dataToDispatch,
           pushHistory,
           onSuccess: () => {
             setIsLoadingObjectiveManagement(false)
@@ -423,7 +432,11 @@ export default function WalletComposition({ onClose }: IProps) {
                   </Text>
                 </s.TextCompositionWrapper>
 
-                <s.PercentualInfos funds={funds} />
+                <s.TableInfosWrapper>
+                  <s.PercentualInfos funds={funds} />
+                  <TableLabel />
+                </s.TableInfosWrapper>
+
                 <s.Table
                   columns={columnsToRender}
                   data={funds}

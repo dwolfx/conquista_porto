@@ -34,6 +34,7 @@ export interface IColumn {
   accessor: string
   format: (row: any, toogleFunc?: any) => any
   sort?: (valueA: any, valueB: any) => void
+  canSort?: boolean
 }
 
 interface THeader {
@@ -67,6 +68,7 @@ export interface ITable {
   autoResetTable?: boolean
   columns: any[]
   data: any[]
+  disableSort?: boolean
   isLoading?: boolean
   hasError?: boolean
   errorMessage?: string

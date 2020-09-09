@@ -26,7 +26,8 @@ export const InformativeRow = styled(Row)`
 `
 
 export const CardTable = styled(CardCmp)`
-  height: calc(100vh - 289px);
+  height: 100%;
+  max-height: 647px;
 
   ${CardBody} {
     padding: 0 ${({ theme }) => theme.spacing(2)}px;
@@ -83,7 +84,7 @@ export const Footer = styled.div`
   padding: ${({ theme }) => theme.spacing(1)}px 0;
   position: fixed;
   width: 100vw;
-  z-index: 1;
+  z-index: 6;
 
   button {
     &:last-of-type {
@@ -100,4 +101,10 @@ export const CompositionRow = styled(Row)`
 
 export const Button = styled(ButtonComponent)`
   width: 104px;
+`
+
+export const TableInfosWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-right: ${({ theme }) => theme.spacing(1)}px;
 `
