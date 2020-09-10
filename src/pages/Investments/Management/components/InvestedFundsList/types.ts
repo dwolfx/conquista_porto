@@ -115,7 +115,7 @@ export interface IFundsList {
   filteredFunds: IFund[]
   idFund: string
   displayInformation: boolean
-  onHandleChangeIdFund: (idFund: string) => void
+  onHandleChangeIdFund: (idFund: number) => void
 }
 
 export interface IFundItemProps {

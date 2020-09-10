@@ -14,6 +14,7 @@ import FundsList from './FundsList'
 import useMedia from 'hooks/useMedia'
 import * as s from './styles'
 import * as t from './types'
+import { IFund } from 'store/modules/Investment/Position/iPositions'
 
 const InvestedFundsList = ({
   filters,
@@ -73,7 +74,7 @@ const InvestedFundsList = ({
     const PrevAndNextButtons = ({
       filteredFunds,
     }: {
-      filteredFunds: t.IFund[]
+      filteredFunds: IFund[]
     }) => (
       <s.ButtonWrapper>
         {filteredFunds && filteredFunds.length > 1 && (

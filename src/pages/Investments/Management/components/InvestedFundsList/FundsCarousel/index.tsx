@@ -8,7 +8,6 @@ import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 
-import { formatMoney } from 'helpers'
 import * as s from './styles'
 import * as t from '../types'
 import { IFund } from 'store/modules/Investment/Position/iPositions'
