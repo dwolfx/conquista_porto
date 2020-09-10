@@ -3,9 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import Button from 'components/Button/IconText'
 import ListItem from 'components/ListItem'
-import AccordionNew from 'components/AccordionNew'
-// import { IItemsProps } from 'components/Dropdown'
-import { IChildSecondProp, IItemsProps } from 'components/DropdownNew/interface'
+import { IChildSecondProp, IItemsProps } from 'components/Dropdown/interface'
 
 import {
   Container,

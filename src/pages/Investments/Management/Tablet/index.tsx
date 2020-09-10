@@ -117,7 +117,7 @@ const Tablet: React.FC<IProps> = ({
           <Card
             headerTitle={
               <CardHeaderTitle
-                headerTitle={position?.fundo?.apelido}
+                headerTitle={position?.apelido}
                 onHandleClick={handleOpenDetailFund}
               />
             }

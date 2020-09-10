@@ -4,7 +4,7 @@ import { renderWithReduxAndTheme } from 'testUtils'
 import MobileHeader from '.'
 import { MemoryRouter } from 'react-router-dom'
 import { Store } from 'redux'
-import { IItemsProps } from 'components/DropdownNew/interface'
+import { IItemsProps } from 'components/Dropdown/interface'
 
 import { fireEvent } from '@testing-library/react'
 
