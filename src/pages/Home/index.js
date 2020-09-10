@@ -9,8 +9,6 @@ import Menu from 'components/Menu'
 import { GetVehicleFinancingDataRequest } from 'store/modules/VehicleFinancing/action'
 import { GetConsortiumVehicleDataRequest } from 'store/modules/ConsortiumVehicle/action'
 import { GetConsortiumBuildingDataRequest } from 'store/modules/ConsortiumBuilding/action'
-import { GetLifeInsuranceDataRequest } from 'store/modules/LifeInsurance/action'
-import { GetTripInsuranceDataRequest } from 'store/modules/TripInsurance/action'
 import { GetConsolidatedPositionDataRequest } from 'store/modules/ConsolidatedPosition/action'
 import { GetCreditCardDataRequest } from 'store/modules/CreditCard/action'
 import { GetPointsExtractRequest } from 'store/modules/Points/action'
@@ -54,8 +52,6 @@ const Home = ({ location }) => {
     dispatch(GetVehicleFinancingDataRequest(auth.cpf))
     dispatch(GetConsortiumBuildingDataRequest(auth.cpf))
     dispatch(GetConsortiumVehicleDataRequest(auth.cpf))
-    dispatch(GetLifeInsuranceDataRequest())
-    dispatch(GetTripInsuranceDataRequest())
     dispatch(GetPointsExtractRequest(auth.cpf))
     dispatch(GetBankDataRequest(auth.cpf))
     // eslint-disable-next-line react-hooks/exhaustive-deps

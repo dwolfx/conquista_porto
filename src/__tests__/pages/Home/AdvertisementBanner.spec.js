@@ -5,8 +5,8 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
 import theme from 'styles/theme'
-import AdvertisementBanner from '../../../pages/Home/AdvertisementBanner'
-import { tipsBanner } from '../../../pages/Home/bannerData'
+import AdvertisementBanner from 'pages/Home/AdvertisementBanner'
+import { tipsBanner } from 'pages/Home/bannerData'
 
 const INITIAL_STATE = {
   auth: {

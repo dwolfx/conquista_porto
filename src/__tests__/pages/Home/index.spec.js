@@ -7,25 +7,25 @@ import { MemoryRouter } from 'react-router-dom'
 
 import theme from 'styles/theme'
 
-import Home from '../../../pages/Home'
+import Home from 'pages/Home'
 
 // REF: https://thoughtbot.com/blog/mocking-react-components-with-jest
-jest.mock('../../../pages/Home/SectionOne.js', () => ({
+jest.mock('pages/Home/SectionOne.js', () => ({
   __esModule: true,
   default: () => <div></div>,
 }))
 
-jest.mock('../../../pages/Home/SectionTwo.js', () => ({
+jest.mock('pages/Home/SectionTwo.js', () => ({
   __esModule: true,
   default: () => <div></div>,
 }))
 
-jest.mock('../../../pages/Home/AdvertisementBanner.js', () => ({
+jest.mock('pages/Home/AdvertisementBanner.js', () => ({
   __esModule: true,
   default: () => <div></div>,
 }))
 
-jest.mock('../../../pages/Home/PointsSection', () => ({
+jest.mock('pages/Home/PointsSection', () => ({
   __esModule: true,
   default: () => <div></div>,
 }))

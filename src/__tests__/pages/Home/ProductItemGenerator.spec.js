@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 
-import ProductItemGenerator from '../../../pages/Home/ProductItemGenerator'
+import ProductItemGenerator from 'pages/Home/ProductItemGenerator'
 
 const productList = {
   data: [

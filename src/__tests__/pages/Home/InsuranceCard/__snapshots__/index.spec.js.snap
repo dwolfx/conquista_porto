@@ -1,0 +1,750 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InsuranceCard Renders correctly 1`] = `
+.c8 {
+  color: unset;
+  text-align: unset;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c21 {
+  color: #272727;
+  text-align: unset;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c22 {
+  color: #E72176;
+  text-align: unset;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 12px;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c5 {
+  width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c7.c7 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c9.c9 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c23 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.c23:hover:active {
+  pointer-events: auto;
+}
+
+.c23:hover:active:after {
+  background-color: #018CB7;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c23:hover:before {
+  width: 100%;
+}
+
+.c23:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c23:before {
+  background-color: #018CB7;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c25 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  position: relative;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+
+.c24 {
+  width: 100%;
+  margin-top: 21px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  margin: 21px 14px 0px 14px;
+}
+
+.c20 p {
+  margin-bottom: 7px;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 63px;
+  padding: 0 14px;
+}
+
+.c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-image: linear-gradient( 135deg, #018CB7, #00ADEF );
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 35px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 14px;
+  padding: 7px;
+  width: 35px;
+}
+
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c6 {
+  width: 100%;
+  padding: 0;
+  height: auto;
+}
+
+.c1 {
+  height: 100%;
+}
+
+.c1 .c16 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c18 {
+  width: 100%;
+  height: calc(100% - 21px);
+}
+
+.c18 .slick-list {
+  height: 100%;
+}
+
+.c18 ul.slick-dots {
+  position: static;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 7px 0;
+}
+
+.c18 .slick-dots li {
+  margin: 0;
+  margin-right: 7px;
+  width: 7px;
+  height: 7px;
+}
+
+.c18 .slick-dots li:last-child {
+  margin-right: 0;
+}
+
+.c18 .slick-dots li.slick-active button::before {
+  color: #00ADEF;
+}
+
+.c18 .slick-dots li button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+}
+
+.c18 .slick-dots li button:before {
+  font-size: 7px;
+  line-height: 7px;
+  width: 7px;
+  height: 7px;
+}
+
+.c18 .slick-dots li button:hover::before {
+  color: #00ADEF;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #EBEBEB;
+  width: 28px;
+  height: 28px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #F1F1F1;
+}
+
+.c12:active {
+  background-color: #F1F1F1;
+}
+
+.c12 + .c11 {
+  margin-left: 14px;
+}
+
+.c12 + .c11 svg {
+  margin-left: 3px;
+  margin-right: 0;
+}
+
+.c12 svg {
+  margin-right: 2px;
+}
+
+.c12 svg polyline {
+  stroke-width: 7px;
+  height: 12px;
+  stroke: #272727;
+}
+
+.c12 svg polyline {
+  stroke: #BABABA;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #EBEBEB;
+  width: 28px;
+  height: 28px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+}
+
+.c14:active {
+  background-color: #F1F1F1;
+}
+
+.c14 + .c11 {
+  margin-left: 14px;
+}
+
+.c14 + .c11 svg {
+  margin-left: 3px;
+  margin-right: 0;
+}
+
+.c14 svg {
+  margin-right: 2px;
+}
+
+.c14 svg polyline {
+  stroke-width: 7px;
+  height: 12px;
+  stroke: #272727;
+}
+
+.c15 {
+  height: 12px;
+  width: 12px;
+}
+
+.c13 {
+  height: 12px;
+  width: 12px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c19 {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  height: 252px;
+}
+
+.c2:first-of-type {
+  margin-bottom: 14px;
+}
+
+@media (max-width:736px) {
+  .c4 {
+    margin-right: 7px;
+  }
+}
+
+@media (max-width:1280px) {
+  .c2 {
+    width: calc(50% - 7px);
+    height: 252px;
+  }
+
+  .c2:first-of-type {
+    margin-right: 14px;
+  }
+}
+
+@media (max-width:480px) {
+  .c2 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0 c1 c2"
+>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      <svg
+        aria-label="targetmarket"
+        fill="#FFFFFF"
+        role="img"
+        width={21}
+      >
+        target-market.svg
+      </svg>
+    </div>
+    <div
+      className="c5 c6"
+      size="small"
+    >
+      <div
+        className="c7"
+      >
+        <p
+          className="c8 "
+          color="unset"
+          type="headline"
+        >
+          Seguros
+        </p>
+      </div>
+      <div
+        className="c9"
+      >
+        <div
+          className="c10"
+        >
+          <button
+            className="c11 c12"
+            disabled={true}
+            onClick={[Function]}
+          >
+            <svg
+              aria-label="backward"
+              className="c13"
+              role="img"
+            >
+              backward.svg
+            </svg>
+          </button>
+          <button
+            className="c11 c14"
+            disabled={false}
+            onClick={[Function]}
+          >
+            <svg
+              aria-label="forward"
+              className="c15"
+              role="img"
+            >
+              forward.svg
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c16 c17"
+  >
+    <div
+      className="slick-slider c18 slick-initialized"
+      dir="ltr"
+    >
+      <div
+        className="slick-list"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={null}
+        onMouseMove={null}
+        onMouseUp={[Function]}
+        onTouchCancel={null}
+        onTouchEnd={[Function]}
+        onTouchMove={null}
+        onTouchStart={[Function]}
+        style={Object {}}
+      >
+        <div
+          className="slick-track"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "WebkitTransform": "translate3d(0px, 0px, 0px)",
+              "WebkitTransition": "",
+              "msTransform": "translateX(0px)",
+              "opacity": 1,
+              "transform": "translate3d(0px, 0px, 0px)",
+              "transition": "",
+            }
+          }
+        >
+          <div
+            aria-hidden={false}
+            className="slick-slide slick-active slick-current"
+            data-index={0}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="c19"
+              >
+                <div
+                  className="c20"
+                >
+                  <p
+                    className="c21"
+                    color="gray6"
+                    type="headline"
+                  >
+                    Seguro de Vida
+                  </p>
+                  <p
+                    className="c22"
+                    color="magenta2"
+                    type="captionUppercase"
+                  >
+                    Falha ao carregar
+                  </p>
+                  <button
+                    className="c23 c24"
+                    color="primary"
+                    data-gtm-clicktype="button"
+                    data-gtm-name="botao tentar carregar conteudo novamente"
+                    data-gtm-subname="card seguros de vida"
+                    data-gtm-type="click"
+                    disabled={false}
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="c25"
+                    >
+                      Tentar novamente
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden={true}
+            className="slick-slide"
+            data-index={1}
+            onClick={[Function]}
+            style={
+              Object {
+                "outline": "none",
+                "width": 0,
+              }
+            }
+            tabIndex="-1"
+          >
+            <div>
+              <div
+                className="c19"
+              >
+                <div
+                  className="c20"
+                >
+                  <p
+                    className="c21"
+                    color="gray6"
+                    type="headline"
+                  >
+                    Seguro Viagem
+                  </p>
+                  <p
+                    className="c22"
+                    color="magenta2"
+                    type="captionUppercase"
+                  >
+                    Falha ao carregar
+                  </p>
+                  <button
+                    className="c23 c24"
+                    color="primary"
+                    data-gtm-clicktype="button"
+                    data-gtm-name="botao tentar carregar conteudo novamente"
+                    data-gtm-subname="card seguros de viagem"
+                    data-gtm-type="click"
+                    disabled={false}
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="c25"
+                    >
+                      Tentar novamente
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul
+        className="slick-dots"
+        onMouseEnter={null}
+        onMouseLeave={null}
+        onMouseOver={null}
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      >
+        <li
+          className="slick-active"
+        >
+          <button
+            onClick={[Function]}
+          >
+            1
+          </button>
+        </li>
+        <li
+          className=""
+        >
+          <button
+            onClick={[Function]}
+          >
+            2
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

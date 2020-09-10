@@ -1185,52 +1185,6 @@ Array [
               color="unset"
               type="headline"
             >
-              Seguros
-            </p>
-          </div>
-          <div
-            className="c9"
-          />
-        </div>
-      </div>
-      <div
-        className="c10"
-      >
-        <div>
-          Seguro/Cartão content
-        </div>
-      </div>
-    </div>
-    <div
-      className="c1 sc-fzooss c2"
-    >
-      <div
-        className="c3"
-      >
-        <div
-          className="c4"
-        >
-          <svg
-            aria-label="financial"
-            fill="#FFFFFF"
-            role="img"
-            width={21}
-          >
-            financial.svg
-          </svg>
-        </div>
-        <div
-          className="c5 c6"
-          size="small"
-        >
-          <div
-            className="c7"
-          >
-            <p
-              className="c8 "
-              color="unset"
-              type="headline"
-            >
               Crédito
             </p>
           </div>

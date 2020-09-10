@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux'
 
 import InvestmentCard from './InvestmentCard'
 import PrivateWelfareSection from './PrivateWelfare'
+import InsuranceCard from './InsuranceCard'
 // import ProductItemGenerator from './ProductItemGenerator'
 
 import CardHeaderState from './commons/CardHeaderState'
@@ -136,22 +137,7 @@ const SectionOne = ({ onFetchInvestments }) => {
         </HomePrivateWelfareCard>
       </GridCol>
       <GridColFlexContainer lg="3" md="12" mdOffset="0" sm="12" xs="12">
-        <GridColFlexCard
-          headerIcon="financial"
-          headerTitle="Seguros"
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
-        >
-          <div>Seguro/Cartão content</div>
-        </GridColFlexCard>
+        <InsuranceCard headerEndItem={<CardHeaderState />} />
 
         <GridColFlexCard
           headerIcon="financial"
@@ -173,40 +159,6 @@ const SectionOne = ({ onFetchInvestments }) => {
     </>
   )
 }
-// Feature Seguro
-// const InsuranceCard = ({ auth, lifeInsurance, tripInsurance }) => {
-//   const history = useHistory()
-//   const dispatch = useDispatch()
-
-//   let result = []
-
-//   result = [
-//     ...ProductItemGenerator(lifeInsurance, 'seguroVida', history, () =>
-//       dispatch(GetLifeInsuranceDataRequest(auth.cpf))
-//     ),
-//     ...ProductItemGenerator(tripInsurance, 'seguroViagem', history, () =>
-//       dispatch(GetTripInsuranceDataRequest(auth.cpf))
-//     ),
-//   ]
-
-//   return formatResult(insertDivisor, sortArray)(result)
-// }
-
-// const formatResult = (func1, func2) => array => func1(func2(array))
-
-// const insertDivisor = array =>
-//   array
-//     .map((x, i) => (i < array.length - 1 ? [x, <Divisor key={uuid()} />] : x))
-//     .flatMap(x => x)
-
-// const sortArray = array =>
-//   array.sort((a, b) => {
-//     if (b.key.includes('empty')) {
-//       return -1
-//     }
-
-//     return 0
-//   })
 
 SectionOne.propTypes = {
   onFetchInvestments: PropTypes.func.isRequired,
