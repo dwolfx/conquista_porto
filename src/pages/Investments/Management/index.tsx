@@ -34,9 +34,9 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
     if (
       filteredInvestedFunds &&
       filteredInvestedFunds.length > 0 &&
-      filteredInvestedFunds[0].id_carteira
+      filteredInvestedFunds[0].id
     ) {
-      dispatch(SetIdFund(filteredInvestedFunds[0].id_carteira))
+      dispatch(SetIdFund(filteredInvestedFunds[0].id))
     }
   }, [filters])
 
