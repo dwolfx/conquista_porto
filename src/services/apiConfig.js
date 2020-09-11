@@ -4,7 +4,7 @@ import { AuthRequestLogout } from 'store/modules/Auth/action'
 import { dataLayerErrorInfo } from 'GoogleTagManager'
 import { getCookieValue } from 'helpers'
 
-import Exception404 from './exceptions/Exception404'
+import NotFoundException from './exceptions/NotFoundException'
 
 const baseURL = process.env.REACT_APP_BASE_URL
 const baseURLNamespaceInvest = process.env.REACT_APP_BASE_URL_INVEST || ''
@@ -38,7 +38,7 @@ const responseErrorInterceptor = error => {
     throw Error(errorMessages[500])
   } else if (error.response.status === 404) {
     dataLayerErrorInfo(errorMessages[404])
-    throw Exception404(errorMessages[404])
+    throw NotFoundException(errorMessages[404])
   } else if (error.response.status === 400) {
     dataLayerErrorInfo(errorMessages[400])
     throw Error(
