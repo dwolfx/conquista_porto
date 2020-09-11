@@ -130,15 +130,17 @@ const FundsCarousel = React.forwardRef<Slider, t.IFundsCarousel>(
           `}
           ref={ref}
         >
-          {filteredFunds.map((fund: IFund) => (
-            <CustomSlides
-              key={`fund-chip-${fund.id}`}
-              fund={fund}
-              displayInformation={displayInformation}
-              selectedFund={idFund}
-              onChangeSelectedFund={() => onHandleChangeIdFund(fund.id)}
-            />
-          ))}
+          {filteredFunds &&
+            filteredFunds.length > 0 &&
+            filteredFunds.map((fund: IFund) => (
+              <CustomSlides
+                key={`fund-chip-${fund.id}`}
+                fund={fund}
+                displayInformation={displayInformation}
+                selectedFund={idFund}
+                onChangeSelectedFund={() => onHandleChangeIdFund(fund.id)}
+              />
+            ))}
         </Carousel>
       </s.ContentContainer>
     )

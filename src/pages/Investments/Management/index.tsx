@@ -38,7 +38,8 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
     ) {
       dispatch(SetIdFund(filteredInvestedFunds[0].id))
     }
-  }, [filters])
+    // eslint-disable-next-line
+  }, [dispatch, filters])
 
   const handleChangeFundsView = (layoutCheanged: TFundsLayout) => {
     setViewMode(layoutCheanged)
