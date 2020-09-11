@@ -10,6 +10,7 @@ describe('Points reducer', () => {
       balanceData: {},
       isLoadingBalance: false,
       hasErrorBalance: false,
+      isLoadingRedeem: false,
     })
   })
   it('should handle GET_EXTRACT_REQUEST', () => {
@@ -22,6 +23,7 @@ describe('Points reducer', () => {
           balanceData: {},
           isLoadingBalance: false,
           hasErrorBalance: false,
+          isLoadingRedeem: false,
         },
         {
           type: Types.GET_EXTRACT_REQUEST,
@@ -34,6 +36,7 @@ describe('Points reducer', () => {
       balanceData: {},
       isLoadingBalance: false,
       hasErrorBalance: false,
+      isLoadingRedeem: false,
     })
   })
   it('should handle GET_EXTRACT_SUCCESS', () => {
@@ -46,6 +49,7 @@ describe('Points reducer', () => {
           balanceData: {},
           isLoadingBalance: false,
           hasErrorBalance: false,
+          isLoadingRedeem: false,
         },
         {
           type: Types.GET_EXTRACT_SUCCESS,
@@ -53,12 +57,6 @@ describe('Points reducer', () => {
             Message: {
               TipoCritica: 'SUCESSO',
               Mensagem: 'SUCESSO',
-            },
-            cadastroPessoaProgramaType: {
-              segmento: 'BASICO',
-              codigoFidelidade: '39812241833',
-              nome: 'Vitor Carmo Vannuchi',
-              dataInicioVigencia: '30/09/2019',
             },
             detalheExtratoOptemaisTypes: [
               {
@@ -80,12 +78,6 @@ describe('Points reducer', () => {
           TipoCritica: 'SUCESSO',
           Mensagem: 'SUCESSO',
         },
-        cadastroPessoaProgramaType: {
-          segmento: 'BASICO',
-          codigoFidelidade: '39812241833',
-          nome: 'Vitor Carmo Vannuchi',
-          dataInicioVigencia: '30/09/2019',
-        },
         detalheExtratoOptemaisTypes: [
           {
             pontoGanho: '200',
@@ -103,6 +95,7 @@ describe('Points reducer', () => {
       balanceData: {},
       isLoadingBalance: false,
       hasErrorBalance: false,
+      isLoadingRedeem: false,
     })
   })
   it('should handle GET_EXTRACT_FAILURE', () => {
@@ -115,6 +108,7 @@ describe('Points reducer', () => {
           balanceData: {},
           isLoadingBalance: false,
           hasErrorBalance: false,
+          isLoadingRedeem: false,
         },
         {
           type: Types.GET_EXTRACT_FAILURE,
@@ -127,6 +121,7 @@ describe('Points reducer', () => {
       balanceData: {},
       isLoadingBalance: false,
       hasErrorBalance: false,
+      isLoadingRedeem: false,
     })
   })
   it('should handle GET_BALANCE_REQUEST', () => {
@@ -139,6 +134,7 @@ describe('Points reducer', () => {
           balanceData: {},
           isLoadingBalance: false,
           hasErrorBalance: false,
+          isLoadingRedeem: false,
         },
         {
           type: Types.GET_BALANCE_REQUEST,
@@ -151,6 +147,7 @@ describe('Points reducer', () => {
       balanceData: {},
       isLoadingBalance: true,
       hasErrorBalance: false,
+      isLoadingRedeem: false,
     })
   })
   it('should handle GET_BALANCE_SUCCESS', () => {
@@ -163,6 +160,7 @@ describe('Points reducer', () => {
           balanceData: {},
           isLoadingBalance: false,
           hasErrorBalance: false,
+          isLoadingRedeem: false,
         },
         {
           type: Types.GET_BALANCE_SUCCESS,
@@ -208,6 +206,7 @@ describe('Points reducer', () => {
       hasErrorExtract: false,
       isLoadingBalance: false,
       hasErrorBalance: false,
+      isLoadingRedeem: false,
     })
   })
   it('should handle GET_BALANCE_FAILURE', () => {
@@ -220,6 +219,7 @@ describe('Points reducer', () => {
           balanceData: {},
           isLoadingBalance: false,
           hasErrorBalance: false,
+          isLoadingRedeem: false,
         },
         {
           type: Types.GET_BALANCE_FAILURE,
@@ -232,6 +232,7 @@ describe('Points reducer', () => {
       balanceData: {},
       isLoadingBalance: false,
       hasErrorBalance: true,
+      isLoadingRedeem: false,
     })
   })
 })
