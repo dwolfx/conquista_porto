@@ -15,6 +15,12 @@ export function GetLastTransactionDataSuccess(payload: ITransaction[]) {
   }
 }
 
+export function GetLastTransactionDataEmpty() {
+  return {
+    type: Types.LAST_TRANSACTION_GET_DATA_EMPTY,
+  }
+}
+
 export function GetLastTransactionDataFailure() {
   return {
     type: Types.LAST_TRANSACTION_GET_DATA_FAILURE,

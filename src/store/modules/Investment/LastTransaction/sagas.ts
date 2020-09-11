@@ -1,9 +1,11 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceAtlas } from 'services/api'
+import Exception404 from 'services/exceptions/Exception404'
 
 import {
   GetLastTransactionDataSuccess,
+  GetLastTransactionDataEmpty,
   GetLastTransactionDataFailure,
 } from './action'
 import { Types } from './types'
@@ -28,7 +30,11 @@ function* getData({ fundId }: IPayload) {
 
     yield put(GetLastTransactionDataSuccess(responseData))
   } catch (err) {
-    yield put(GetLastTransactionDataFailure())
+    if (err instanceof Exception404) {
+      yield put(GetLastTransactionDataEmpty())
+    } else {
+      yield put(GetLastTransactionDataFailure())
+    }
   }
 }
 

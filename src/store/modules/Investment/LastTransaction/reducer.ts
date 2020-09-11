@@ -24,6 +24,12 @@ export default function(state = INITIAL_STATE, action: IAction) {
         hasError: false,
         isLoading: false,
       }
+    case Types.LAST_TRANSACTION_GET_DATA_EMPTY:
+      return {
+        data: [],
+        hasError: false,
+        isLoading: false,
+      }
     case Types.LAST_TRANSACTION_GET_DATA_FAILURE:
       return {
         ...state,
