@@ -31,114 +31,121 @@ pipeline {
     FORCE_DEPLOY = "${params.FORCE_DEPLOY}"
   }
 
-  agent { label 'ec2-fleet' } 
-
   options {
     timeout(time: "${params.JOB_TIMEOUT ?: '15'}", unit: 'MINUTES')
     buildDiscarder(logRotator(numToKeepStr: '10'))
   }
   
+  agent { label 'ec2-fleet' }
+
   stages {
-    stage('Pre-reqs') {
-      steps {
-        script {
-          print(params)
-          if (! params.every{it.value?.toString().trim()}) {
-            error('All parameters are required.')
-          }
-        }
-      }
-      post {
-        failure {
-          slackSend (color: 'danger', message: "[ FALHA ] Parâmetros inválidos (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
-        }
-      }
-    }
-
-    stage('Install Packages') {
-      agent { docker { image 'node:13.14.0' } }
-      steps {
-        sh "yarn install"
-      }
-    }
-
-    stage('Build') {
-      agent { docker { image 'node:13.14.0' } }
-      steps {
-        sh "yarn build"
-        sh "BASE_URL='${BASE_URL}' yarn run extract"
-      }
-      post {
-        failure {
-          slackSend (color: 'danger', message: "[ FALHA ] Erro no build da aplicação (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
-        }
-      }
-    }
-
-    stage('QA') {
-      when { expression { return !Boolean.valueOf(SKIP_TESTS) } }
+    stage('Pipeline') {
       stages {
-        stage('Test') {
-          agent { docker { image 'node:13.14.0' } }
+        stage('Pre-reqs') {
           steps {
-            sh 'yarn run test:ci'
+            script {
+              print(params)
+              if (! params.every{it.value?.toString().trim()}) {
+                error('All parameters are required.')
+              }
+            }
           }
           post {
-            always {
-              cobertura (coberturaReportFile: 'coverage/cobertura-coverage.xml')
-            }
             failure {
-              slackSend (color: 'danger', message: "[ FALHA ] Testes com erro (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+              slackSend (color: 'danger', message: "[ FALHA ] Parâmetros inválidos (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
             }
           }
         }
 
-        stage('SonarQube') {
-          agent { docker { 
-            image 'newtmitch/sonar-scanner:4' 
-            args '--entrypoint=""'  
-          } }
+        stage('Install Packages') {
+          steps {
+            sh "docker run --user node -v \$(pwd):/app:rw -w /app node:13.14.0 yarn install"
+          }
+        }
+
+        stage('Build') {
+          steps {
+            sh "docker run --user node -v \$(pwd):/app:rw -w /app node:13.14.0 yarn build"
+            sh "docker run --user node -v \$(pwd):/app:rw -w /app -e BASE_URL=$BASE_URL node:13.14.0 yarn build extract"
+          }
+          post {
+            failure {
+              slackSend (color: 'danger', message: "[ FALHA ] Erro no build da aplicação (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }
+          }
+        }
+
+        stage('QA') {
+          when { expression { return !Boolean.valueOf(SKIP_TESTS) } }
+          stages {
+            stage('Test') {
+              steps {
+                sh "docker run --user node -v \$(pwd):/app -w /app node:13.14.0 yarn run test:ci"
+              }
+              post {
+                always {
+                  cobertura (coberturaReportFile: 'coverage/cobertura-coverage.xml')
+                }
+                failure {
+                  slackSend (color: 'danger', message: "[ FALHA ] Testes com erro (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+                }
+              }
+            }
+
+            stage('SonarQube') {
+              when { anyOf {
+                branch 'develop';
+                expression { return Boolean.valueOf(FORCE_SONAR) }
+              }}
+              steps {
+                withSonarQubeEnv('sonar-qube') {
+                  sh 'docker run -v \$(pwd):/usr/src -e SONAR_HOST_URL="http://sonar.conquista.sciensa.click:9000/" sonarsource/sonar-scanner-cli:4.4 -Dsonar.projectKey="${SONAR_PROJECT}"'
+                }
+              }
+              post {
+                failure {
+                  slackSend (color: 'danger', message: "[ FALHA ] Ocorreu um erro com o SonarQube (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+                }  
+              }
+            }
+          }
+        }
+
+        stage('Deployment') {
           when { anyOf {
             branch 'develop';
-            expression { return Boolean.valueOf(FORCE_SONAR) }
+            branch 'qa';
+            expression { return Boolean.valueOf(FORCE_DEPLOY) }
           }}
           steps {
-            withSonarQubeEnv('sonar-qube') {
-              sh 'sonar-scanner -Dsonar.projectKey="${SONAR_PROJECT}" -Dsonar.projectBaseDir="${PWD}" -Dsonar.sources=.'
+            withAWS (credentials:"${AWS_CREDENTIALS}") {
+              sh '''
+                docker run \
+                  -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  amazon/aws-cli:2.0.47 s3 rm s3://${BUCKET_NAME} --recursive
+              '''
+              sh '''
+                docker run -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  -v ~/.aws:/root/.aws \
+                  -v \$(pwd):/app \
+                  -w /app \
+                  amazon/aws-cli:2.0.47 s3 sync ./build s3://${BUCKET_NAME}/conquista/ --acl public-read --include '**/*'
+              '''
             }
           }
           post {
+            success {
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }
             failure {
-              slackSend (color: 'danger', message: "[ FALHA ] Ocorreu um erro com o SonarQube (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+              slackSend (color: 'danger', message: "[ FALHA ] Erro ao publicar as alterações no ambiente (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
             }  
           }
         }
-      }
-    }
-
-    stage('Deployment') {
-      agent { docker { 
-        image 'amazon/aws-cli:2.0.47' 
-        args '--entrypoint=""'  
-      } }
-      when { anyOf {
-        branch 'develop';
-        branch 'qa';
-        expression { return Boolean.valueOf(FORCE_DEPLOY) }
-      }}
-      steps {
-        withAWS (region:'us-east-1', credentials:"${AWS_CREDENTIALS}") {
-          sh "aws s3 rm s3://${BUCKET_NAME} --recursive"
-          sh "aws s3 sync ./build s3://${BUCKET_NAME}/conquista/ --acl public-read --include '**/*'"
-        }
-      }
-      post {
-        success {
-          slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
-        }
-        failure {
-          slackSend (color: 'danger', message: "[ FALHA ] Erro ao publicar as alterações no ambiente (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
-        }  
       }
     }
   }
