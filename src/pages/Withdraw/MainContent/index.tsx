@@ -85,7 +85,6 @@ const MainContent = ({
 
   const handlePostWithdraw = useCallback(async () => {
     setIsLoading(true)
-
     await post(`${baseURLNamespaceInvestAws}/cotista/retiradas`, {
       id_cotista,
       cpf_cnpj: cpf,

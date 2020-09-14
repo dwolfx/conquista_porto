@@ -180,3 +180,7 @@ TabMoreInfo.propTypes = {
   }).isRequired,
   historicBenchmark: PropTypes.shape({}),
 }
+
+TabMoreInfo.defaultProps = {
+  historicBenchmark: {},
+}
