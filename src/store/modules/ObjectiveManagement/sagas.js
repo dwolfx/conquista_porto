@@ -39,7 +39,7 @@ export function* postData({ data, pushHistory, onSuccess }) {
   } catch (err) {
     yield put({
       ...PostObjectiveManagementDataFailure(),
-      toast: buildToast(err.message, ToastTypes.error),
+      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
   }
 }
@@ -63,7 +63,7 @@ export function* postSaveFunds({ payload }) {
   } catch (err) {
     yield put({
       ...PostSaveFundsFailure(),
-      toast: buildToast(err.message, ToastTypes.error),
+      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
   }
 }
@@ -91,7 +91,7 @@ export function* getData(payload) {
     } catch (err) {
       yield put({
         ...GetObjectiveManagementDataFailure(),
-        toast: buildToast(err.message, ToastTypes.error),
+        toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
       })
       history.push('/')
     }
@@ -133,7 +133,7 @@ export function* getOtherGoalsData(payload) {
     } catch (err) {
       yield put({
         ...GetOtherGoalsDataFailure(),
-        toast: buildToast(err.message, ToastTypes.error),
+        toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
       })
       history.push('/')
     }
@@ -161,7 +161,7 @@ export function* deleteObjective({ payload }) {
   } catch (err) {
     yield put({
       ...DeleteObjectiveFailure(),
-      toast: buildToast(err.message, ToastTypes.error),
+      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
   }
 }

@@ -22,7 +22,7 @@ export function* getData({ payload }) {
   } catch (err) {
     yield put({
       ...GetBankExtractFundFailure(),
-      toast: buildToast(err.message, ToastTypes.error),
+      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
   }
 }

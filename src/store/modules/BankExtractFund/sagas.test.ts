@@ -26,6 +26,11 @@ describe('BankExtractFund Sagas', () => {
     })
 
     it('getData: fail triggers fail action', () => {
+      //Mock JSON.parse toast err.message
+      JSON.parse = jest.fn().mockImplementationOnce(() => {
+        return { msg: 'Cannot convert undefined or null to object' }
+      })
+
       const param = {
         type: 'TESTE',
         payload: undefined,
@@ -37,7 +42,7 @@ describe('BankExtractFund Sagas', () => {
         put({
           ...GetBankExtractFundFailure(),
           toast: {
-            message: "Cannot convert undefined or null to object",
+            message: 'Cannot convert undefined or null to object',
             type: 'error',
           },
         })

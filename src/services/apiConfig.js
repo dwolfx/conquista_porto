@@ -5,6 +5,8 @@ import { dataLayerErrorInfo } from 'GoogleTagManager'
 import { getCookieValue } from 'helpers'
 
 import NotFoundException from './exceptions/NotFoundException'
+import BadRequestException from './exceptions/BadRequestException'
+import InternalServerErrorException from './exceptions/InternalServerErrorException'
 
 const baseURL = process.env.REACT_APP_BASE_URL
 const baseURLNamespaceInvest = process.env.REACT_APP_BASE_URL_INVEST || ''
@@ -28,24 +30,52 @@ const errorMessages = {
   400: 'Algo deu errado. Tente novamente mais tarde.',
   404: 'Recurso não encontrado.',
   500: 'Erro de comunicação interna. Tente novamente mais tarde.',
+  0: 'Erro genérico, exception não tratada.',
+}
+
+const generateErrorDataWithMessage = (statusCode, errorData) => {
+  if (errorData) {
+    if (Object.entries(errorData).length > 0 && errorData !== '{}') {
+      if (Object.prototype.hasOwnProperty.call(errorData, 'msg')) {
+        return JSON.stringify(errorData)
+      }
+      return JSON.stringify({
+        ...errorData,
+        msg: errorMessages[statusCode],
+      })
+    }
+    return JSON.stringify({ msg: errorMessages[statusCode] })
+  }
+  return JSON.stringify({ msg: errorMessages[statusCode] })
 }
 
 const responseErrorInterceptor = error => {
-  if (error.response.status === 401) {
-    store.dispatch(AuthRequestLogout())
-  } else if (error.response.status >= 500) {
-    dataLayerErrorInfo(errorMessages[500])
-    throw Error(errorMessages[500])
-  } else if (error.response.status === 404) {
-    dataLayerErrorInfo(errorMessages[404])
-    throw NotFoundException(errorMessages[404])
-  } else if (error.response.status === 400) {
-    dataLayerErrorInfo(errorMessages[400])
-    throw Error(
-      error.response.data
-        ? JSON.stringify(error.response.data)
-        : errorMessages[400]
-    )
+  const HTTPStatusCode = error.response.status
+  const errorData = error.response.data
+
+  switch (true) {
+    case HTTPStatusCode === 400:
+      dataLayerErrorInfo(generateErrorDataWithMessage(400, errorData))
+      throw new BadRequestException(
+        generateErrorDataWithMessage(400, errorData)
+      )
+    case HTTPStatusCode === 401:
+      store.dispatch(AuthRequestLogout())
+      break
+    case HTTPStatusCode === 404:
+      dataLayerErrorInfo(generateErrorDataWithMessage(404, errorData))
+      throw new NotFoundException(generateErrorDataWithMessage(404, errorData))
+    case HTTPStatusCode >= 500:
+      dataLayerErrorInfo(generateErrorDataWithMessage(500, errorData))
+      throw new InternalServerErrorException(
+        generateErrorDataWithMessage(500, errorData)
+      )
+    default:
+      throw new Error(
+        JSON.stringify({
+          msg: `HTTP status code: ${HTTPStatusCode} - ${errorMessages[0]}`,
+        })
+      )
   }
 
   return Promise.reject(error.response)

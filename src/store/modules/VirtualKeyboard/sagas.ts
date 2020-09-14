@@ -7,6 +7,12 @@ import {
   PutVirtualKeyboardDataSuccess,
   PutVirtualKeyboardDataFailure,
 } from './action'
+import NotFoundException from 'services/exceptions/NotFoundException'
+import BadRequestException from 'services/exceptions/BadRequestException'
+import GenerateKeyboardException from './exceptions/GenerateKeyboardException'
+import ValidateSignatureBadRequestException from './exceptions/ValidateSignatureBadRequestException'
+import ValidateSignatureException from './exceptions/ValidateSignatureException'
+import ValidateSignatureNotFoundException from './exceptions/ValidateSignatureNotFoundException'
 
 import { Types } from './types'
 import { getAuth } from './selectors'
@@ -42,7 +48,7 @@ export function* generateKeyboard() {
     )
 
     const regex = /]]/gi
-    const parsedResponse = JSON.parse(response.data.replace(regex, ']'));
+    const parsedResponse = JSON.parse(response.data.replace(regex, ']'))
     /**
      Sim... o response do nosso querido serviço que gera o teclado virtual nos retorna uma chave extra no array.
      Se me perguntarem o por que disso, eu jamais conseguirei explicar.
@@ -55,7 +61,7 @@ export function* generateKeyboard() {
   } catch (err) {
     yield put(PostVirtualKeyboardDataFailure())
 
-    throw new Error()
+    throw new GenerateKeyboardException(err.message)
   }
 }
 
@@ -79,7 +85,7 @@ export function* validateSignature({
     })
     yield put(PutVirtualKeyboardDataSuccess())
   } catch (err) {
-    const { retries } = JSON.parse(err.message)
+    const retries = JSON.parse(err.message).retries
 
     yield put(PutVirtualKeyboardDataFailure())
 
@@ -90,7 +96,14 @@ export function* validateSignature({
       onError()
     }
 
-    throw new Error()
+    switch (err.constructor) {
+      case NotFoundException:
+        throw new ValidateSignatureNotFoundException(err.message)
+      case BadRequestException:
+        throw new ValidateSignatureBadRequestException(err.message)
+      default:
+        throw new ValidateSignatureException(err.message)
+    }
   }
 }
 
