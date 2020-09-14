@@ -1,5 +1,21 @@
 #!groovy
- 
+
+@NonCPS
+def cancelPreviousBuilds() {
+  def jobName = env.JOB_NAME
+  def buildNumber = env.BUILD_NUMBER.toInteger()
+  def currentJob = Jenkins.instance.getItemByFullName(jobName)
+
+  for (def build : currentJob.builds) {
+    def exec = build.getExecutor()
+      if (build.isBuilding() && build.number.toInteger() != buildNumber && exec != null) {
+        exec.interrupt(
+          Result.ABORTED,
+          new CauseOfInterruption.UserInterruption("Aborted by #${buildNumber}"))
+    }
+  }
+}
+
 pipeline {
 
   parameters {
@@ -41,13 +57,14 @@ pipeline {
   stages {
     stage('Pipeline') {
       stages {
-        stage('Pre-reqs') {
+        stage('Init') {
           steps {
             script {
               print(params)
               if (! params.every{it.value?.toString().trim()}) {
                 error('All parameters are required.')
               }
+              cancelPreviousBuilds()
             }
           }
           post {
