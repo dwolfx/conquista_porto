@@ -20,12 +20,9 @@ import ManagementInvestimentos from 'pages/Investments/Management'
 import InvestimentosExtrato from 'pages/Investments/Extract'
 import PrevidenciaPrivada from 'pages/PrivateWelfare'
 import Points from 'pages/Points'
-import Profile from 'pages/Profile'
 import VehicleFinancing from 'pages/VehicleFinancing'
 import ManagementVehicleFinancing from 'pages/VehicleFinancing/Management'
 import TripInsurance from 'pages/TripInsurance'
-import ProfileRegistration from 'pages/Profile/Wizard/Registration'
-import ProfileSuitability from 'pages/Profile/Wizard/Suitability'
 import PointsStatement from 'pages/Points/Statement'
 import ConsortiumVehicle from 'pages/ConsortiumVehicle'
 import ManagementConsortiumVehicle from 'pages/ConsortiumVehicle/Management'
@@ -349,12 +346,6 @@ export default function Routes({ ...props }) {
           pageTitle="Home - Pontos"
         />
         <DefaultRoute
-          path="/perfil"
-          exact
-          component={Profile}
-          pageTitle="Home - Perfil"
-        />
-        <DefaultRoute
           path="/pontos/extrato"
           exact
           component={PointsStatement}
@@ -383,18 +374,6 @@ export default function Routes({ ...props }) {
           path="/objetivos"
           component={Objectives}
           pageTitle="Home - Objetivos"
-        />
-        <Route
-          path="/perfil/cadastro"
-          exact
-          component={ProfileRegistration}
-          pageTitle="Perfil - Cadastro"
-        />
-        <Route
-          path="/perfil/investidor-perfil"
-          exact
-          component={ProfileSuitability}
-          pageTitle="Perfil - Perfil Investidor"
         />
         <Route
           path="/redirect"
