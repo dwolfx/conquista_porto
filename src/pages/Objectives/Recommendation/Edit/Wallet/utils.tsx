@@ -128,6 +128,7 @@ export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
             event,
             row,
             value: innerValue,
+            hasError: compareError,
           })
         }}
       />

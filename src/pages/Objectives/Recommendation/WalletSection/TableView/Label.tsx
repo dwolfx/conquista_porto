@@ -1,5 +1,4 @@
 import React from 'react'
-import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Text from 'components/Text'
@@ -18,7 +17,7 @@ export default function TableLabel({ isInteractive, ...rest }: IProps) {
   const isMobile = useMedia('xs')
 
   return !isMobile ? (
-    <Row justifyContent="end">
+    <s.LabelRow justifyContent="end">
       <Text type="title" color="gray5" bold>
         Baixo Risco
       </Text>
@@ -97,6 +96,6 @@ export default function TableLabel({ isInteractive, ...rest }: IProps) {
       <Text type="title" color="gray5" bold>
         Alto Risco
       </Text>
-    </Row>
+    </s.LabelRow>
   ) : null
 }

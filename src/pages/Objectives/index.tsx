@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory, useRouteMatch, Switch, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import Header from 'components/Wizard/Header'
+import Header from 'components/Header/TransactionsHeader'
 
 import Board from './Board'
 import GoalStreams from './GoalStreams'

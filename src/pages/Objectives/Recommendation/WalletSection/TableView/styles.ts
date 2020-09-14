@@ -110,10 +110,10 @@ export const TotalValuesRow = styled(Row)`
       flex: 1;
     }
     &:nth-of-type(2) {
-      width: 24%;
+      width: 22%;
     }
     &:last-of-type {
-      width: 19%;
+      width: 21%;
     }
   }
 `
@@ -126,4 +126,8 @@ export const EditButton = styled(Button)`
   margin-bottom: ${({ theme }) => theme.spacing(1)}px;
   margin-top: ${({ theme }) => theme.spacing(3)}px;
   width: 100%;
+`
+
+export const LabelRow = styled(Row)`
+  min-width: 315px;
 `

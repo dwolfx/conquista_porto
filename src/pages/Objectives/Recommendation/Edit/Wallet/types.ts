@@ -4,6 +4,7 @@ export interface IHandleInputsBlur {
   event: React.ChangeEvent<HTMLInputElement>
   value: number
   row: IFunds
+  hasError: boolean
 }
 
 export type THandleInputBlurFunction = ({

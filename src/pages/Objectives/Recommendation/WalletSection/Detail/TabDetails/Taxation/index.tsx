@@ -7,6 +7,7 @@ import Text from 'components/Text'
 
 import { formatNumber } from 'helpers'
 import { StyledIcon } from 'pages/Investments/FundsList/styles'
+import { IFunds } from 'store/modules/Objective/types'
 
 import {
   Li,
@@ -25,15 +26,11 @@ interface ITributeIR {
   721?: number
 }
 
-interface IFund {
-  fund: {
-    tribute_ir: null | ITributeIR | undefined
-    classification: string
-    iof: string
-  }
+interface IProps {
+  fund: IFunds
 }
 
-export const Taxation = ({ fund, ...rest }: IFund) => {
+export const Taxation = ({ fund, ...rest }: IProps) => {
   const labels = {
     1: '',
     180: 'Até 180 dias',

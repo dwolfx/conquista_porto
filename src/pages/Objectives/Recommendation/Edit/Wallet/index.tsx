@@ -17,6 +17,7 @@ import ButtonIcon from 'components/Button/Icon'
 import Card from 'components/Card'
 import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
+import Popover from 'components/Popover'
 import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
@@ -80,6 +81,7 @@ export default function WalletComposition({ onClose }: IProps) {
   const [initialDistributedValue, setInitialDistributedValue] = useState(0)
   const [monthlyDistributedValue, setMonthlyDistributedValue] = useState(0)
   const [isFundsEdited, setIsFundsEdited] = useState(false)
+  const [invalidFundsIds, setInvalidFundsIds] = useState<number[] | []>([])
 
   const [prediction, setPrediction] = useState<TPrediction>({
     pessimistic: 0,
@@ -161,9 +163,10 @@ export default function WalletComposition({ onClose }: IProps) {
 
   // function that is triggered on blur of the input, updating 'fund' state value with values inputed
   const handleInputsBlur = useCallback(
-    ({ event, value: inputValue, row }: IHandleInputsBlur) => {
+    ({ event, value: inputValue, row, hasError }: IHandleInputsBlur) => {
       const inputName = event.target.name
 
+      // update 'initial_value' or 'monthly_value' on funds state
       const newValues = [...funds].reduce((acc: IFunds[], cur: IFunds) => {
         if (cur.fund_id === row.fund_id) {
           return [
@@ -178,13 +181,25 @@ export default function WalletComposition({ onClose }: IProps) {
         return [...acc, cur]
       }, [])
 
+      // update funds state with new values
       setFunds(newValues)
 
+      // verify if input has validation errors
+      if (hasError) {
+        setInvalidFundsIds(currentInvalids => [...currentInvalids, row.fund_id])
+      } else {
+        setInvalidFundsIds(currentInvalids =>
+          [...currentInvalids].filter(id => id !== row.fund_id)
+        )
+      }
+
+      // calculate distribuition based on initial value
       const calculateInitialDistribution: number = [...newValues].reduce(
         (acc: number, cur: IFunds) => acc + +cur.initial_value,
         0
       )
 
+      // calculate distribuition based on monthly value
       const calculateMonthlyDistribution: number = [...newValues].reduce(
         (acc: number, cur: IFunds) => acc + +cur.monthly_value,
         0
@@ -193,6 +208,7 @@ export default function WalletComposition({ onClose }: IProps) {
       setInitialDistributedValue(calculateInitialDistribution)
       setMonthlyDistributedValue(calculateMonthlyDistribution)
 
+      // this it'll be executed on sucess of dispatch to the /recalculate-funds endpoint
       const onSuccess = (recalculateFundsData: IIncome) => {
         const initialValues = [...recommendationData.funds].map(fund => ({
           initial_value: fund.initial_value,
@@ -386,15 +402,46 @@ export default function WalletComposition({ onClose }: IProps) {
       )
     }
 
+    let tooltipText
+
+    if (!isFundsEdited) {
+      tooltipText = 'Não houve edição da carteira'
+    } else if (!isDistributedAmountValid) {
+      tooltipText =
+        'O valor total distribuído em seus fundos precisa corresponder aos valores planejados de Inv. Mensal e Inv. Inicial'
+    } else if (!!invalidFundsIds.length) {
+      tooltipText =
+        'Existem erros de validação na distribuição dos fundos da sua carteira'
+    }
+
     return (
-      <s.Button
-        disabled={!isFundsEdited || !isDistributedAmountValid}
-        loading={!isModalOpen && saveButtonIsLoading}
-        color="secondary"
-        onClick={() => handleSaveButtonClick()}
+      <Popover
+        tooltip
+        placement="left"
+        turnOff={
+          isFundsEdited && isDistributedAmountValid && !invalidFundsIds.length
+        }
+        content={
+          <s.SaveButtonTooltipContent>
+            <Text color="white" bold>
+              {tooltipText}
+            </Text>
+          </s.SaveButtonTooltipContent>
+        }
       >
-        Salvar
-      </s.Button>
+        <s.Button
+          disabled={
+            !isFundsEdited ||
+            !isDistributedAmountValid ||
+            !!invalidFundsIds.length
+          }
+          loading={!isModalOpen && saveButtonIsLoading}
+          color="secondary"
+          onClick={() => handleSaveButtonClick()}
+        >
+          Salvar
+        </s.Button>
+      </Popover>
     )
   }
 

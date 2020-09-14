@@ -67,18 +67,18 @@ export interface IFunds {
   anbima_category: string
   adm_tax: number
   performance_rate: number
-  classification: string
+  classification: string | null
   iof: string
-  benchmark: string
+  benchmark: string | null
   url_performance_info_pdf: string
   url_lamina_pdf: string
   url_fund_rules_pdf: string
   url_fund_adhesion_pdf: string
   url_manager_logo: string
   quota_type: string
-  cnpj: string
-  pl: number
-  pl_last_year: number
+  cnpj: string | null
+  pl: number | null
+  pl_last_year: number | null
   initial_value: number
   monthly_value: number
   annual_rate: number
@@ -86,7 +86,8 @@ export interface IFunds {
   profitability: TProfitability[]
   tribute_ir: {
     [key: string]: number
-  }
+  } | null
+  is_fund_active?: boolean
 }
 
 export interface IIncome {
@@ -101,14 +102,14 @@ export interface IAdditional {
   credit_card: boolean
 }
 
-export interface ICreditProduct {
+export type ICreditProduct = {
   name: string
   values: {
     name: string
     value: number
     checked: boolean
   }
-}
+} | null
 
 export interface ISuggestion {
   suggestion_target_date: string

@@ -10,7 +10,7 @@ type TSuggestion = {
 }
 
 interface ISuggestionProps {
-  suggestion_goal: TSuggestion | undefined
+  suggestion_goal?: TSuggestion
   incomeMedianValue: number
   answerTargetValue: number
   creditProduct?: ICreditProduct

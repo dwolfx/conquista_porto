@@ -108,3 +108,7 @@ export const TableInfosWrapper = styled.div`
   justify-content: space-between;
   padding-right: ${({ theme }) => theme.spacing(1)}px;
 `
+
+export const SaveButtonTooltipContent = styled.div`
+  max-width: 280px;
+`

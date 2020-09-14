@@ -237,10 +237,6 @@ export const TbodyTr = styled.div<ITbodyTr>`
   position: relative;
   width: 100%;
 
-  &:hover {
-    background-color: ${({ theme, hasClickOnRow }) =>
-      hasClickOnRow ? theme.colors.gray1 : 'transparent'};
-  }
   &:last-of-type {
     border-bottom: unset;
   }

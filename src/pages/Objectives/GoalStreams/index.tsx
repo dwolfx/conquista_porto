@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useParams, Redirect, useHistory, useLocation } from 'react-router'
 
 import Loading from 'components/Loading'
-import Header from 'components/Wizard/Header'
+import Header from 'components/Header/TransactionsHeader'
 
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 import useSuitability from 'hooks/Suitability/useSuitability'
@@ -20,9 +20,13 @@ interface IProps {
   handleSteps: (data: IData[] | undefined) => void
 }
 
+interface IRouteParams {
+  objectiveId?: string
+}
+
 export default function GoalStreams({ handleSteps }: IProps) {
   const [currentStep, setStepIndex] = useState(0)
-  const { objectiveId } = useParams()
+  const { objectiveId } = useParams<IRouteParams>()
   const history = useHistory()
   const location = useLocation()
   const data: IDataObject | undefined = dataObjective.find(

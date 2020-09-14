@@ -10,6 +10,7 @@ export const HeaderComponent = styled.header`
 export const HeaderWrapper = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
   display: flex;
   height: 72px;
 `

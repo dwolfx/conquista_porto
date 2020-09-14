@@ -47,6 +47,10 @@ const singleInfo = (creditCardProductsInfos: IObjectItem[]) =>
     : null
 
 const CardCreditProduct = ({ creditProduct }: ICardProps) => {
+  if (!creditProduct) {
+    return null
+  }
+
   const currentProduct =
     productCard[creditProduct.name] ||
     productCard[creditProduct.name.split(' ')[0]]
