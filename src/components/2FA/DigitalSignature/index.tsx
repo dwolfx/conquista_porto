@@ -50,7 +50,12 @@ const DigitalSignature = ({
     isVirtualKeyboardLoading: state.virtualKeyboard.isLoading,
   }))
 
-  const isLoading = isToken2faLoading || isVirtualKeyboardLoading || tokenData.isLoading || keyboardData.isLoading;
+  const isLoading = 
+    isToken2faLoading ||
+    isVirtualKeyboardLoading ||
+    tokenData.isLoading ||
+    keyboardData.isLoading || 
+    isNextButtonLoading
 
   const handleVirtualKeyboardKey = (item: any) => {
     const [key] = Object.keys(item)
