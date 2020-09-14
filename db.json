@@ -197,8 +197,8 @@
     "status_data_vigencia_suitability": true,
     "status_data_vencimento_cadastro": false
   },
-  "posicao-consolidada": {
-    "saldototal": 20655214.49,
+  "consolidado": {
+    "saldo_total": 20655214.49,
     "categorias": [
       {
         "nome": "Renda Variável",
