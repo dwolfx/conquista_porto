@@ -209,7 +209,7 @@ exports[`Footer snapshot tests Should to render a Footer component 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c2 {
     margin-top: 7px;
     margin-bottom: 0;
@@ -218,14 +218,14 @@ exports[`Footer snapshot tests Should to render a Footer component 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c3 {
     margin-left: 0;
     margin-right: 0;
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c18 {
     margin-left: 0;
     margin-right: 0;
@@ -321,7 +321,7 @@ exports[`Footer snapshot tests Should to render a Footer component 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c5 {
     padding-left: 0;
     padding-right: 0;
@@ -335,7 +335,7 @@ exports[`Footer snapshot tests Should to render a Footer component 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c19 {
     margin: 21px;
   }

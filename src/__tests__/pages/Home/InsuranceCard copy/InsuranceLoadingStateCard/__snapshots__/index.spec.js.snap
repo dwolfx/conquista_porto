@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InsuranceCard LifeInsuranceLoadingStateCard Renders correctly 1`] = `
+.c2 {
+  color: #898989;
+  text-align: unset;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.c4 {
+  background-color: #EBEBEB;
+  border-radius: 4px;
+  height: 7px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c5 {
+  -webkit-animation: fGoKWn 2s linear infinite;
+  animation: fGoKWn 2s linear infinite;
+  background-color: #00ADEF;
+  border-radius: inherit;
+  height: 100%;
+  width: calc(100% / 3);
+}
+
+.c3 {
+  margin-bottom: 21px;
+  margin-top: 0;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  margin: 21px 14px 0px 14px;
+}
+
+.c0 p {
+  margin-top: 28px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <p
+      className="c2 c3"
+      color="gray5"
+      data-testid="legend"
+      type="headline"
+    >
+      Aguarde, estamos buscando suas informações...
+    </p>
+    <div
+      className="c4"
+    >
+      <div
+        className="c5"
+        color="blue4"
+        data-testid="loading-bar"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InsuranceCard TripInsuranceLoadingStateCard Renders correctly 1`] = `
+.c2 {
+  color: #898989;
+  text-align: unset;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.c4 {
+  background-color: #EBEBEB;
+  border-radius: 4px;
+  height: 7px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c5 {
+  -webkit-animation: fGoKWn 2s linear infinite;
+  animation: fGoKWn 2s linear infinite;
+  background-color: #00ADEF;
+  border-radius: inherit;
+  height: 100%;
+  width: calc(100% / 3);
+}
+
+.c3 {
+  margin-bottom: 21px;
+  margin-top: 0;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  margin: 21px 14px 0px 14px;
+}
+
+.c0 p {
+  margin-top: 28px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <p
+      className="c2 c3"
+      color="gray5"
+      data-testid="legend"
+      type="headline"
+    >
+      Aguarde, estamos buscando suas informações...
+    </p>
+    <div
+      className="c4"
+    >
+      <div
+        className="c5"
+        color="blue4"
+        data-testid="loading-bar"
+      />
+    </div>
+  </div>
+</div>
+`;

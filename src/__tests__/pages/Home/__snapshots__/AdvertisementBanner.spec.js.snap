@@ -201,7 +201,7 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c0 {
     margin: 14px 0 14px 14px;
   }

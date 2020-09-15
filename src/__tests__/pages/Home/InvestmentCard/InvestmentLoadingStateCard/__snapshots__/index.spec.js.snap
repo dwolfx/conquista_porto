@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = `
+.c7 {
+  color: unset;
+  text-align: unset;
+  font-weight: normal;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c12 {
+  color: #898989;
+  text-align: unset;
+  font-weight: 300;
+  font-family: Open Sans;
+  font-size: 18px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.c11 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.c14 {
+  background-color: #EBEBEB;
+  border-radius: 4px;
+  height: 7px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.c15 {
+  -webkit-animation: fGoKWn 2s linear infinite;
+  animation: fGoKWn 2s linear infinite;
+  background-color: #00ADEF;
+  border-radius: inherit;
+  height: 100%;
+  width: calc(100% / 3);
+}
+
+.c13 {
+  margin-bottom: 21px;
+  margin-top: 0;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}
+
+.c4 {
+  width: 100%;
+  height: 28px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 7px;
+}
+
+.c6.c6 > *:not(:last-child) {
+  margin-right: 14px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.c8.c8 > *:not(:first-child) {
+  margin-left: 14px;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px 14px 10px;
+}
+
+.c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 63px;
+  padding: 0 14px;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-image: linear-gradient( 135deg, #018CB7, #00ADEF );
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 35px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 14px;
+  padding: 7px;
+  width: 35px;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c5 {
+  width: 100%;
+  padding: 0;
+  height: auto;
+}
+
+.c1 {
+  height: calc(100% - 14px);
+  margin-bottom: 14px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding: 0 35px;
+}
+
+@media (max-width:736px) {
+  .c3 {
+    margin-right: 7px;
+  }
+}
+
+<div
+  className="c0 c1"
+>
+  <div
+    className="c2"
+  >
+    <div
+      className="c3"
+    >
+      <svg
+        aria-label="financial"
+        fill="#FFFFFF"
+        role="img"
+        width={21}
+      >
+        financial.svg
+      </svg>
+    </div>
+    <div
+      className="c4 c5"
+      size="small"
+    >
+      <div
+        className="c6"
+      >
+        <p
+          className="c7 "
+          color="unset"
+          type="headline"
+        >
+          Investimentos
+        </p>
+      </div>
+      <div
+        className="c8"
+      />
+    </div>
+  </div>
+  <div
+    className="c9"
+  >
+    <div
+      className="c10"
+    >
+      <div
+        className="c11"
+      >
+        <p
+          className="c12 c13"
+          color="gray5"
+          data-testid="legend"
+          type="headline"
+        >
+          Aguarde, estamos buscando suas informações...
+        </p>
+        <div
+          className="c14"
+        >
+          <div
+            className="c15"
+            color="blue4"
+            data-testid="loading-bar"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

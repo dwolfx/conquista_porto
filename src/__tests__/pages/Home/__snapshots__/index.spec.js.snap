@@ -275,7 +275,7 @@ exports[`Home Renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c2 {
     width: 332px;
   }
@@ -314,7 +314,7 @@ exports[`Home Renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c4 {
     margin-right: 42px;
   }
@@ -358,7 +358,7 @@ exports[`Home Renders correctly 1`] = `
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
   .c6 {
     margin-right: 42px;
   }
