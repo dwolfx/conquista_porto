@@ -6,6 +6,7 @@ import useValidator from 'pages/Objectives/GoalStreams/useValidator'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 
 import { IData } from '../types'
 import TopBar from './TopBar'
@@ -39,9 +40,12 @@ export const WizardFlow = ({
   handleChildClick,
 }: IProps) => {
   const history = useHistory()
-  const inputRef = useRef() as React.RefObject<HTMLInputElement>
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
+  const { addToast } = useToast()
+
+  const inputRef = useRef() as React.RefObject<HTMLInputElement>
+
   const [valueNickname, setValueNickname] = useState(false)
   const [formData, setFormData] = useState<{ [key: string]: string }>(
     getFormEntries(data)
@@ -111,6 +115,7 @@ export const WizardFlow = ({
           uf: customerProfile.customerState,
         },
         isMobile,
+        onErrorToast: addToast,
       })
     )
   }

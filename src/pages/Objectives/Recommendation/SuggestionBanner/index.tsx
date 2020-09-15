@@ -10,6 +10,7 @@ import Icon from 'components/IconExporter'
 
 import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 
 import { PostObjectiveDataRequestBySimulate } from 'store/modules/Objective/action'
 import { IAnswer, ISuggestion } from 'store/modules/Objective/types'
@@ -37,6 +38,7 @@ const SuggestionBanner = ({
   answer,
   toggleDrawer,
 }: IProps) => {
+  const { addToast } = useToast()
   const themeContext = useContext(ThemeContext)
   const isMobile = useMedia('sm')
   const isTabletVertical = useMedia('md')
@@ -72,6 +74,7 @@ const SuggestionBanner = ({
           profile: +suitabilityData.idperfilinvest,
         },
         isMobile,
+        onErrorToast: addToast,
       })
     )
     setActiveButton(activeBtn)

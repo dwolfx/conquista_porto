@@ -1,5 +1,4 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
-import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import {
   get,
@@ -21,7 +20,7 @@ import {
 } from './action'
 
 export function* postData({ payload }) {
-  const { data, isMobile, onSuccess } = payload
+  const { data, isMobile, onSuccess, onErrorToast } = payload
 
   try {
     let response
@@ -44,9 +43,12 @@ export function* postData({ payload }) {
       onSuccess()
     }
   } catch (err) {
-    yield put({
-      ...PostObjectiveDataFailure(),
-      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
+    yield put(PostObjectiveDataFailure())
+
+    onErrorToast({
+      type: 'error',
+      description: 'Por favor, tente novamente',
+      title: JSON.parse(err.message).msg || 'Erro ao enviar solicitação.',
     })
   }
 }

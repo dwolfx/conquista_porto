@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 
+import { useToast } from 'hooks/toast'
+
 import AnswerForm from 'pages/Objectives/Recommendation/Edit/commons/AnswerForm'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import { IAnswer } from 'store/modules/Objective/types'
@@ -21,6 +23,7 @@ export default function EditDrawer({
   formData,
   setFormData,
 }: IProps) {
+  const { addToast } = useToast()
   const dispatch = useDispatch()
   const [hasError, setHasError] = useState(false)
   const [editValues, setEditValues] = useState<
@@ -53,6 +56,7 @@ export default function EditDrawer({
               monthly_value: formData.monthly_value,
               target_value: formData.target_value,
             },
+            onErrorToast: addToast,
             onSuccess: () => {
               setFormData(editValues)
               onClose()

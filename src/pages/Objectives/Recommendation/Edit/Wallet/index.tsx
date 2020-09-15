@@ -310,9 +310,12 @@ export default function WalletComposition({ onClose }: IProps) {
         PostObjectiveManagementDataRequest({
           data: dataToDispatch,
           pushHistory,
+          addToast,
           onSuccess: () => {
             setIsLoadingObjectiveManagement(false)
-            dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id }))
+            dispatch(
+              GetOtherGoalsDataRequest({ id: recommendationData.id, addToast })
+            )
           },
           onError: () => setIsLoadingObjectiveManagement(false),
         })

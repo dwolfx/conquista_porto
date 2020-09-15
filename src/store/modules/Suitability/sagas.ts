@@ -2,7 +2,6 @@ import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 
 import { handleGiwRedirect } from 'helpers'
 import { get, baseURLNamespacePortopar } from 'services/api'
-import { buildToast, ToastTypes } from 'store/modules/toastActions'
 import { getSuitabilityInfoData } from 'store/modules/SuitabilityInfo/sagas'
 
 import { selectSuitability, selectSuitabilityInfo } from './selectors'
@@ -16,7 +15,7 @@ import {
 } from './action'
 
 export function* getDataAndRedirect({
-  payload: { link, errorPath, history, goalType },
+  payload: { link, errorPath, history, goalType, addToast },
 }: any) {
   yield put(SetSuitabilityLoading(true))
 
@@ -67,7 +66,12 @@ export function* getDataAndRedirect({
       yield put({
         ...SetSuitabilityLoading(false),
         ...GetSuitabilityDataFailure(),
-        toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
+      })
+
+      addToast({
+        type: 'error',
+        description: 'Ocorreu um erro',
+        title: JSON.parse(err.message)?.msg || 'Tente novamente mais tarde.',
       })
 
       if (errorPath) {

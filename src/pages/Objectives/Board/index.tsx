@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-
-import CardBackground from 'components/CardBackground'
 import { Row } from 'styled-bootstrap-grid'
 
+import CardBackground from 'components/CardBackground'
+
+import { useToast } from 'hooks/toast'
+import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
-import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'
 import * as s from './styles'
 
 const Board = () => {
@@ -18,7 +19,7 @@ const Board = () => {
 
   const [loadingButton, setLoadingButton] = useState<string>('')
   const dispatch = useDispatch()
-
+  const { addToast } = useToast()
   const match = useRouteMatch()
   const history = useHistory()
 
@@ -49,6 +50,7 @@ const Board = () => {
                     history,
                     errorPath: '/objetivos',
                     goalType: card.goal_type,
+                    addToast,
                   })
                 )
               }}

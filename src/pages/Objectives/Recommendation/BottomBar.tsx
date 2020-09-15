@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
+import { useToast } from 'hooks/toast'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 import {
@@ -21,6 +22,7 @@ interface IProps {
 const BottomBar = ({ recommendationData }: IProps) => {
   const history = useHistory()
   const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   useFetchCustomerProfile()
 
@@ -58,8 +60,11 @@ const BottomBar = ({ recommendationData }: IProps) => {
           },
         },
         pushHistory,
+        addToast,
         onSuccess: () =>
-          dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id })),
+          dispatch(
+            GetOtherGoalsDataRequest({ id: recommendationData.id, addToast })
+          ),
         onError: null,
       })
     )

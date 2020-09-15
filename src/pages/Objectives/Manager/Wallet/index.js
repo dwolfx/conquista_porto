@@ -18,9 +18,11 @@ import Modal from 'components/Modal/ModalNew'
 import FinancialApplication from 'pages/Investments/FinancialApplication'
 import Detail from 'components/FundDetail/Drawer'
 import DetailModal from 'components/FundDetail/Modal'
+import InfoText from 'components/InfoText'
 
 import { formatMoney, formatMoneyWithoutCurrencyFlag } from 'helpers'
-import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
+import { useToast } from 'hooks/toast'
+import useMedia from 'hooks/useMedia'
 
 import {
   AccordionContentWrapper,
@@ -28,10 +30,9 @@ import {
   LoadingStateContainer,
 } from 'pages/Objectives/Manager/styles'
 
-import useMedia from 'hooks/useMedia'
-import InfoText from 'components/InfoText'
-import FundAccordionHeader from './AccordionHeader'
+import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
+import FundAccordionHeader from './AccordionHeader'
 import ButtonInvest from './ButtonInvest'
 import ObjectivesSlider from './ObjectivesSlider'
 import { getColorGuide, isFundsNotTheSame } from './utils'
@@ -55,6 +56,7 @@ export default function Wallet({
   isModalDeleteOpen,
 }) {
   const theme = useContext(ThemeContext)
+  const { addToast } = useToast()
   const { isLoadingSave } = useSelector(state => state.objectiveManagement)
 
   const [fundListCopy, setFundListCopy] = useState([])
@@ -100,6 +102,7 @@ export default function Wallet({
         data: {
           fund_list: formatRequestPayload(),
         },
+        addToast,
         onSuccess: () => {
           setHasUnsavedChanges(false)
         },

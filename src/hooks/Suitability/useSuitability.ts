@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { useToast } from 'hooks/toast'
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
 
 interface IProps {
@@ -13,6 +14,7 @@ interface IProps {
 export default function useSuitability({ errorPath, goalType }: IProps) {
   const history = useHistory()
   const dispatch = useDispatch()
+  const { addToast } = useToast()
   const { suitability, cpf, isLoading } = useSelector<any, any>(state => ({
     suitability: state.suitability.data,
     isLoading: state.suitability.isLoading,
@@ -22,7 +24,13 @@ export default function useSuitability({ errorPath, goalType }: IProps) {
   useEffect(() => {
     if (!(suitability && Object.entries(suitability).length)) {
       dispatch(
-        GetSuitabilityRequestAndRedirect({ cpf, history, errorPath, goalType })
+        GetSuitabilityRequestAndRedirect({
+          cpf,
+          history,
+          errorPath,
+          goalType,
+          addToast,
+        })
       )
     }
   }, [suitability, dispatch, cpf, history, errorPath, goalType, addToast])

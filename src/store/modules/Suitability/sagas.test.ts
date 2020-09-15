@@ -19,6 +19,7 @@ describe('get Suitability', () => {
         push: () => {},
       },
       goalType: '',
+      addToast: () => {},
     }
     const generator = getDataAndRedirect({ payload })
     const selectorsResponse = {
@@ -49,6 +50,7 @@ describe('get Suitability', () => {
         push: () => {},
       },
       goalType: '1',
+      addToast: () => {},
     }
     const generator = getDataAndRedirect({ payload })
     const selectorsResponse = {
@@ -98,6 +100,7 @@ describe('get Suitability', () => {
         push: () => {},
       },
       goalType: '',
+      addToast: () => {},
     }
     const generator = getDataAndRedirect({ payload })
     const selectorsResponse = {
@@ -152,6 +155,7 @@ describe('get Suitability', () => {
         push: () => {},
       },
       goalType: '',
+      addToast: () => {},
     }
     const selectorsResponse = {
       data: {
@@ -181,10 +185,6 @@ describe('get Suitability', () => {
       put({
         ...SetSuitabilityLoading(false),
         ...GetSuitabilityDataFailure(),
-        toast: {
-          message: "Cannot read property 'status' of undefined",
-          type: 'error',
-        },
       })
     )
 
@@ -198,6 +198,7 @@ describe('get Suitability', () => {
         push: () => {},
       },
       goalType: '',
+      addToast: () => {},
     }
     const selectorsResponse = {
       data: {
@@ -227,10 +228,6 @@ describe('get Suitability', () => {
       put({
         ...SetSuitabilityLoading(false),
         ...GetSuitabilityDataFailure(),
-        toast: {
-          message: "Cannot read property 'status' of undefined",
-          type: 'error',
-        },
       })
     )
 

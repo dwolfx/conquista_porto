@@ -7,9 +7,12 @@ import 'styled-components/macro'
 import objectiveTypes from 'components/Card/Objectives/types'
 import BannerTips from 'components/Banner/Tip'
 import Text from 'components/Text'
+
+import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
+
 import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
 import { GetSuitabilityRequestAndRedirect } from 'store/modules/Suitability/action'
-import useMedia from 'hooks/useMedia'
 
 import CardHeaderState from './commons/CardHeaderState'
 import { tipsBanner } from './bannerData'
@@ -24,11 +27,12 @@ import {
 import ObjectivesList from './ObjectivesList'
 
 export default function SectionTwo({ onRedirect }) {
+  const dispatch = useDispatch()
   const history = useHistory()
   const isTablet = useMedia('lg')
   const isTabletVertical = useMedia('md')
   const isMobile = useMedia('sm')
-  const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   const [objectiveTypeClicked, setObjectiveTypeClicked] = useState(null)
   const [tipBannerIndex, setTipBannerIndex] = useState(0)
@@ -87,6 +91,7 @@ export default function SectionTwo({ onRedirect }) {
                   link: item.link,
                   history,
                   goalType: item.goalType,
+                  addToast,
                 })
               )
             }}

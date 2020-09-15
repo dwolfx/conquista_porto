@@ -20,7 +20,14 @@ import {
 
 describe('Objective Insurance Sagas', () => {
   it('POST: isMobile: success triggers success action', () => {
-    const param = { payload: { data: {}, isMobile: true, onSuccess: () => {} } }
+    const param = {
+      payload: {
+        data: {},
+        isMobile: true,
+        onSuccess: () => {},
+        onErrorToast: () => {},
+      },
+    }
     const generator = postData(param)
     const response = { data: {} }
 
@@ -37,7 +44,12 @@ describe('Objective Insurance Sagas', () => {
 
   it('POST: isDesktop: success triggers success action', () => {
     const param = {
-      payload: { data: {}, isMobile: false, onSuccess: () => {} },
+      payload: {
+        data: {},
+        isMobile: false,
+        onSuccess: () => {},
+        onErrorToast: () => {},
+      },
     }
     const generator = postData(param)
     const response = { data: {} }
@@ -53,7 +65,12 @@ describe('Objective Insurance Sagas', () => {
 
   it('POST: isDesktop: success triggers success action without onSuccess function', () => {
     const param = {
-      payload: { data: {}, isMobile: false, onSuccess: null },
+      payload: {
+        data: {},
+        isMobile: false,
+        onSuccess: null,
+        onErrorToast: () => {},
+      },
     }
     const generator = postData(param)
     const response = { data: {} }
@@ -74,21 +91,19 @@ describe('Objective Insurance Sagas', () => {
     })
 
     const param = {
-      payload: { data: {}, isMobile: false, onSuccess: () => {} },
+      payload: {
+        data: {},
+        isMobile: false,
+        onSuccess: () => {},
+        onErrorToast: () => {},
+      },
     }
     const generator = postData(param)
     const response = undefined
 
     expect(generator.next().value).toEqual(call(post, `/recommendations`, {}))
     expect(generator.next(response).value).toEqual(
-      put({
-        ...PostObjectiveDataFailure(),
-        toast: {
-          message: "Cannot read property 'data' of undefined",
-          options: undefined,
-          type: 'error',
-        },
-      })
+      put(PostObjectiveDataFailure())
     )
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })
@@ -118,7 +133,7 @@ describe('Objective Insurance Sagas', () => {
 
   it('PUT: putRecommendationsData - success triggers success action', () => {
     const param = {
-      payload: { data: {}, onErrorToast: () => {} },
+      payload: { data: {}, onErrorToast: () => {}, onSuccess: () => {} },
     }
     const generator = putRecommendationsData(param)
     const response = { data: {} }
@@ -154,7 +169,7 @@ describe('Objective Insurance Sagas', () => {
 
   it('POST: postRecalculateFunds - success triggers success action', () => {
     const param = {
-      payload: { data: {}, onErrorToast: () => {} },
+      payload: { data: {}, onErrorToast: () => {}, onSuccess: () => {} },
     }
     const generator = postRecalculateFunds(param)
     const response = { data: {} }
@@ -172,7 +187,7 @@ describe('Objective Insurance Sagas', () => {
 
   it('POST: postRecalculateFunds - failure triggers failure action', () => {
     const param = {
-      payload: { data: {}, onErrorToast: () => {} },
+      payload: { data: {}, onErrorToast: () => {}, onSuccess: () => {} },
     }
     const generator = postRecalculateFunds(param)
     const response = undefined

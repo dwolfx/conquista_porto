@@ -6,6 +6,7 @@ import 'styled-components/macro'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 
 import {
   PostObjectiveDataRequestBySimulate,
@@ -33,6 +34,7 @@ export default function EditSuggestion({
   suggestionData,
   onClose,
 }: IProps) {
+  const { addToast } = useToast()
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
   const isTabletVertical = useMedia('md')
@@ -78,6 +80,7 @@ export default function EditSuggestion({
                 target_value: editValues!.target_value,
                 profile: +suitabilityData.idperfilinvest,
               },
+              onErrorToast: addToast,
               onSuccess: () => {
                 setFormData(editValues)
                 onClose()
@@ -105,6 +108,7 @@ export default function EditSuggestion({
               },
               isMobile,
               onSuccess: onClose,
+              onErrorToast: addToast,
             })
           )
         }}
@@ -128,6 +132,7 @@ export default function EditSuggestion({
               },
               isMobile,
               onSuccess: onClose,
+              onErrorToast: addToast,
             })
           )
         }}
