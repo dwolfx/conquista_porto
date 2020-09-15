@@ -25,7 +25,7 @@ export default function useSuitability({ errorPath, goalType }: IProps) {
         GetSuitabilityRequestAndRedirect({ cpf, history, errorPath, goalType })
       )
     }
-  }, [suitability, dispatch, cpf, history, errorPath, goalType])
+  }, [suitability, dispatch, cpf, history, errorPath, goalType, addToast])
 
   return { suitability, isLoading }
 }
