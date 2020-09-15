@@ -44,7 +44,7 @@ const MainContent = ({
   setMessageStep,
 }: IProps) => {
   const dispatch = useDispatch()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   const inputRef = useRef() as React.RefObject<HTMLInputElement>
   const { addToast } = useToast()
 

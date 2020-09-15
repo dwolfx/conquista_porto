@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InvestmentCard InvestmentEmptyStateCard Renders correctly 1`] = `
+exports[`Home InvestmentCard InvestmentEmptyStateCard Renders correctly 1`] = `
 .c7 {
   color: unset;
   text-align: unset;

@@ -15,7 +15,8 @@ interface IProps {
   fund: IFundDetails
 }
 export const Transactions = ({ fund }: IProps) => {
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
+
   const liContent = [
     [
       <LiTitle>Aplicação Inicial</LiTitle>,

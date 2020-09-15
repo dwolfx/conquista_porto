@@ -97,7 +97,7 @@ const LayerInvestment: React.FC<IProps> = ({
   }))
 
   const stepCount = 2
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   const loadFormData = useCallback(
     (prevState: any): any => {

@@ -165,7 +165,7 @@ Array [
 
 }
 
-@media (max-width:600px) {
+@media (max-width:480px) {
 
 }
 
@@ -181,7 +181,7 @@ Array [
 
 }
 
-@media (max-width:600px) {
+@media (max-width:480px) {
 
 }
 
@@ -686,7 +686,7 @@ Array [
 
 }
 
-@media (max-width:600px) {
+@media (max-width:480px) {
 
 }
 
@@ -704,7 +704,7 @@ Array [
 
 }
 
-@media (max-width:600px) {
+@media (max-width:480px) {
 
 }
 
@@ -1116,7 +1116,7 @@ Array [
   }
 }
 
-@media (max-width:600px) {
+@media (max-width:480px) {
   .c0 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
@@ -1145,7 +1145,7 @@ Array [
   }
 }
 
-@media (max-width:600px) {
+@media (max-width:480px) {
   .c2 {
     width: 100%;
   }

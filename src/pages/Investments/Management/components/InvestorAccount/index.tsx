@@ -29,7 +29,7 @@ import {
 
 const InvestorAccount = () => {
   useFetchBankData()
-  const isTablet = useMedia('md')
+  const isTablet = useMedia('lg')
   const dispatch = useDispatch()
   const history = useHistory()
 

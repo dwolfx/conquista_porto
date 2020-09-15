@@ -18,7 +18,7 @@ const BaseFormStep = ({
   const { redeemData } = useSelector((state: any) => ({
     redeemData: state.redeemData.data,
   }))
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   return isMobile ? (
     <>
       <CardStyled

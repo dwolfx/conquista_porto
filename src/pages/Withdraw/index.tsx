@@ -19,7 +19,7 @@ import * as s from './styles'
 const Withdraw = () => {
   const history = useHistory()
   const { state: stateLocation } = useLocation()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   const dispatch = useDispatch()
   const { addToast } = useToast()
 

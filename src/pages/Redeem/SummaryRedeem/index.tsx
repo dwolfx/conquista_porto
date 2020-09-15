@@ -54,7 +54,7 @@ const SummaryRedeem = ({
     isToken2faLoading: state.token2fa.isLoadingGetInfo,
     isVirtualKeyboardLoading: state.virtualKeyboard.isLoading,
   }))
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   const isNextLoading =
     is2FARequestLoadingInfo || isToken2faLoading || isVirtualKeyboardLoading

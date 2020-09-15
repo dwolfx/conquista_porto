@@ -61,7 +61,7 @@ const BallanceRedeem = ({
   useFetchBankData()
 
   const dispatch = useDispatch()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   const themeContext = useContext(ThemeContext)
   const { addToast } = useToast()
   const {

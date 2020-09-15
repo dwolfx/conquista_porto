@@ -22,7 +22,7 @@ export default function ModalAccountPortoInfo({
   bankData,
 }: IModalAccountPortoInfo) {
   const history = useHistory()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   const ButtonInvestir = () => (
     <Button

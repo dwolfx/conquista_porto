@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InvestmentCard InvestmentErrorStateCard Renders correctly 1`] = `
+exports[`Home InvestmentCard InvestmentErrorStateCard Renders correctly 1`] = `
 .c7 {
   color: unset;
   text-align: unset;

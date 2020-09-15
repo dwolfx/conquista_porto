@@ -64,7 +64,7 @@ const Filter: React.FC<IProps> = ({
     ),
   ]
 
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   const initialFilter: string[] = ['CARDS']
 

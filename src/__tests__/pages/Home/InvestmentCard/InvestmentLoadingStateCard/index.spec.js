@@ -12,17 +12,19 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => [],
 }))
 
-describe('InvestmentCard', () => {
-  describe('InvestmentLoadingStateCard', () => {
-    it('Renders correctly', () => {
-      const tree = renderer
-        .create(
-          <ThemeProvider theme={theme}>
-            <InvestmentLoadingStateCard />
-          </ThemeProvider>
-        )
-        .toJSON()
-      expect(tree).toMatchSnapshot()
+describe('Home', () => {
+  describe('InvestmentCard', () => {
+    describe('InvestmentLoadingStateCard', () => {
+      it('Renders correctly', () => {
+        const tree = renderer
+          .create(
+            <ThemeProvider theme={theme}>
+              <InvestmentLoadingStateCard />
+            </ThemeProvider>
+          )
+          .toJSON()
+        expect(tree).toMatchSnapshot()
+      })
     })
   })
 })

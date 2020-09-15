@@ -67,7 +67,7 @@ const Tablet: React.FC<IProps> = ({
 
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false)
   const position = useSelectedPosition()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   const { isLoading, hasError } = useSelector((state: any) => ({
     isLoading: state.investmentPosition.isLoading,
