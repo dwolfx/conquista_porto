@@ -438,4 +438,4 @@ const DrawerFooter = (
   )
 }
 
-export default DrawerFilter
+export default React.memo(DrawerFilter)

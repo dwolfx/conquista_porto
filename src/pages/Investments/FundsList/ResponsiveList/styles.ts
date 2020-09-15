@@ -36,16 +36,9 @@ export const ListWrapper = styled.div<ListWrapperProps>`
 ${({ theme, marginTop }) =>
   marginTop &&
   css`
-    margin-top: ${theme.spacing(13)}px;
+    margin-top: ${theme.spacing(7)}px;
   `}
-  
   padding: 0 ${props => props.theme.spacing(1)}px;
-
-  ${props =>
-    props.marginTop &&
-    css`
-      margin-top: ${props => props.theme.spacing(19)}px;
-    `}
 `
 
 interface ILoadingContent {

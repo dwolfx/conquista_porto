@@ -89,7 +89,7 @@ export const gridConfig = {
     lg: 1280,
     md: 980,
     sm: 736,
-    xs: 480,
+    xs: 600,
   },
   row: {
     padding: 7,
@@ -104,7 +104,7 @@ export const gridConfig = {
       lg: 1280,
       md: 980,
       sm: 736,
-      xs: 480,
+      xs: 600,
     },
   },
 }

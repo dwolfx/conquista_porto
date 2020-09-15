@@ -363,4 +363,4 @@ const FundCard: React.FC<IFundCard> = ({
   )
 }
 
-export default FundCard
+export default React.memo(FundCard)

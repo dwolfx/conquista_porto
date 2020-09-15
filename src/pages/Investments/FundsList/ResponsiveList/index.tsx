@@ -189,4 +189,4 @@ const ResponsiveList: React.FC<IResponsiveListProps> = ({
   return ResponsiveListRender()
 }
 
-export default ResponsiveList
+export default React.memo(ResponsiveList)
