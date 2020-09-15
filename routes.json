@@ -19,7 +19,7 @@
   "/invest/fundos/movimentacoes\\?idFundo=:idFundo&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/movimentacoes?idFundo=:idFundo&tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/invest/programa-pontos/extrato": "/pontos",
   "/invest/programa-pontos/consultar-pontos": "/pontos_consultar",
-  "/cotistas/posicao-consolidada": "/posicao-consolidada",
+  "/invest/atlas/cotista/posicao/consolidado": "/consolidado",
   "/conta/extrato\\?tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/extrato?tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/notificacao/buscar/:cpf": "/notificacoes",
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
