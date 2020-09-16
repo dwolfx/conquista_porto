@@ -82,7 +82,6 @@ pipeline {
 
         stage('Build') {
           steps {
-            sh "docker run --user node -v \$(pwd):/app:rw -w /app node:13.14.0 yarn build"
             sh "docker run --user node -v \$(pwd):/app:rw -w /app -e BASE_URL=$BASE_URL node:13.14.0 yarn build extract"
           }
           post {
@@ -116,9 +115,20 @@ pipeline {
               }}
               steps {
                 withSonarQubeEnv('sonar-qube') {
-                  sh 'docker run -v \$(pwd):/usr/src -e SONAR_HOST_URL="http://sonar.conquista.sciensa.click:9000/" sonarsource/sonar-scanner-cli:4.4 -Dsonar.projectKey="${SONAR_PROJECT}"'
+                  sh '''
+                    docker run \
+                      -v \$(pwd):/app \
+                      sonarsource/sonar-scanner-cli:4.4 \
+                        -Dsonar.login="${SONAR_AUTH_TOKEN}" \
+                        -Dsonar.host.url="${SONAR_HOST_URL}" \
+                        -Dsonar.projectKey="${SONAR_PROJECT}" \
+                        -Dsonar.projectBaseDir="/app" \
+                        -Dsonar.javascript.lcov.reportPaths="/app/coverage/lcov.info" \
+                        -Dsonar.sources=.
+                  '''
                 }
               }
+
               post {
                 failure {
                   slackSend (color: 'danger', message: "[ FALHA ] Ocorreu um erro com o SonarQube (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
