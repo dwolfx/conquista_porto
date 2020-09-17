@@ -241,7 +241,7 @@ const DigitalSignature = ({
               Tem certeza que deseja gerar uma nova assinatura eletrônica?
             </Text>
             <TextSpace />
-            <Text type="headline_bold" color="gray6">
+            <Text type="headline" bold color="gray6">
               Sua nova assinatura será enviada para o endereço de e-mail
               cadastrado.
             </Text>
