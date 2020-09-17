@@ -41,7 +41,7 @@ export function* postData({ payload }) {
   } catch (err) {
     yield put({
       ...PostObjectiveDataFailure(),
-      toast: buildToast(err.message, ToastTypes.error),
+      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
   }
 }

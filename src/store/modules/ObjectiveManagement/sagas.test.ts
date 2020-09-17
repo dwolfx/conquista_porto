@@ -23,6 +23,11 @@ import {
 import { CleanObjectiveData } from '../Objective/action'
 
 describe('ObjectiveManagement Sagas', () => {
+  //Mock JSON.parse toast err.message
+  JSON.parse = jest.fn().mockImplementation(() => {
+    return { msg: `Cannot read property 'data' of undefined` }
+  })
+
   describe('postData function', () => {
     it('GET: postData: success triggers success action', () => {
       const param = {
@@ -325,6 +330,11 @@ describe('ObjectiveManagement Sagas', () => {
     })
 
     it('GET: deleteObjective: fail triggers fail action', () => {
+      //Mock JSON.parse toast err.message
+      JSON.parse = jest.fn().mockImplementationOnce(() => {
+        return { msg: `pushHistoryToHomeScreen is not a function` }
+      })
+
       const param = {
         payload: { id: '1', pushHistoryToHomeScreen: null },
       }

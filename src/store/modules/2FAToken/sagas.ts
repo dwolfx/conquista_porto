@@ -7,7 +7,12 @@ import {
   validateSignature,
 } from 'store/modules/VirtualKeyboard/sagas'
 import { Types as KeyboardTypes } from 'store/modules/VirtualKeyboard/types'
-import RequiredDevicesException from './RequiredDevicesException'
+import NotFoundException from 'services/exceptions/NotFoundException'
+import GetTokenDataException from './exceptions/GetTokenDataException'
+import RequiredDevicesException from './exceptions/RequiredDevicesException'
+import ValidateTokenException from './exceptions/ValidateTokenException'
+import ValidateTokenNotFoundException from './exceptions/ValidateTokenNotFoundException'
+import ValidateSignatureBadRequestException from 'store/modules/VirtualKeyboard/exceptions/ValidateSignatureBadRequestException'
 import {
   Post2FATokenDataSuccess,
   Post2FATokenDataFailure,
@@ -84,7 +89,12 @@ export function* validateToken({ payload }: IPropsPutPayload) {
   } catch (err) {
     yield put(Put2FATokenDataFailure())
 
-    throw new Error()
+    switch (err.constructor) {
+      case NotFoundException:
+        throw new ValidateTokenNotFoundException(err.message)
+      default:
+        throw new ValidateTokenException(err.message)
+    }
   }
 }
 
@@ -103,17 +113,18 @@ export function* getTokenData() {
         !response.data.find((item: any) => item.name === 'sms_otp')) ||
       !response.data.find((item: any) => item.name === 'email_otp')
     ) {
-      throw new RequiredDevicesException()
+      throw new RequiredDevicesException(
+        JSON.stringify({ msg: 'Não há dispositivos cadastrado para o 2FA' })
+      )
     }
     yield put(Get2FADataSuccess(response.data))
   } catch (err) {
     yield put(Get2FADataFailure())
     switch (err.constructor) {
       case RequiredDevicesException:
-        console.error('Não há dispositivos cadastrado para o 2FA')
         throw err
       default:
-        throw new Error(err)
+        throw new GetTokenDataException(`${err.message}`)
     }
   }
 }
@@ -141,9 +152,11 @@ export function* run2FAInitialRequest({
   } catch (err) {
     switch (err.constructor) {
       case RequiredDevicesException:
+        console.error(`${err.name}: ${JSON.parse(err.message).msg}`)
         onError()
         break
       default:
+        console.error(`${err.name}: ${JSON.parse(err.message).msg}`)
         addToast({
           description: 'Tente novamente.',
           title: 'Um erro inesperado ocorreu.',
@@ -184,11 +197,27 @@ export function* validateTokenNSignature({ payload }: IValidateTokenSignature) {
 
     onSuccess()
   } catch (err) {
-    addToast({
-      description: 'Tente novamente.',
-      title: 'Um erro inesperado ocorreu.',
-      type: 'error',
-    })
+    const errorData = JSON.parse(err.message)
+
+    switch (err.constructor) {
+      case ValidateTokenNotFoundException:
+      case ValidateSignatureBadRequestException:
+        console.error(`${err.name}: ${errorData.msg}`)
+        addToast({
+          description: 'Verifique se as informações digitadas são válidas.',
+          title: errorData.msg,
+          type: 'error',
+        })
+        break
+      default:
+        console.error(`${err.name}: ${errorData.msg}`)
+        addToast({
+          description: 'Tente novamente.',
+          title: 'Um erro inesperado ocorreu.',
+          type: 'error',
+        })
+        break
+    }
 
     goToPreviousStep()
   } finally {

@@ -18,7 +18,7 @@ export function* getData({
   } catch (err) {
     yield put({
       ...GetBankExtractFailure(),
-      toast: buildToast(err.message, ToastTypes.error),
+      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
   }
 }

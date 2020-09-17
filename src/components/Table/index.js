@@ -161,7 +161,7 @@ export default function TableRender({ columns, data, showFilter }) {
   const {
     getTableProps,
     getTableBodyProps,
-    flatColumns,
+    allColumns,
     page,
     prepareRow,
     canNextPage,
@@ -189,7 +189,7 @@ export default function TableRender({ columns, data, showFilter }) {
     <Table {...getTableProps()}>
       <thead>
         <TheadTr>
-          {flatColumns.map(column => (
+          {allColumns.map(column => (
             <TheadTh hasFilter={showFilter} {...column.getHeaderProps()}>
               {column.render('Header')}
               <div>
@@ -231,7 +231,7 @@ export default function TableRender({ columns, data, showFilter }) {
       ) : (
         <tbody>
           <TbodyTr>
-            <TbodyTd colSpan={flatColumns.length}>
+            <TbodyTd colSpan={allColumns.length}>
               Nenhum item disponível.
             </TbodyTd>
           </TbodyTr>

@@ -117,6 +117,9 @@ router.render = (req, res) => {
   if (req.originalUrl.endsWith('/otp')) {
     if (req.method === 'PUT') {
       return res.status(200).jsonp('{}')
+
+      // test error toast with response message and NotFoundException at 2FAToken>validateToken
+      // return res.status(404).jsonp({ msg: 'Token inválido' })
     }
   }
 

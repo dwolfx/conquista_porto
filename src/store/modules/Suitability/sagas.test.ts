@@ -72,6 +72,11 @@ describe('get Suitability', () => {
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })
   it('should trigger SetSuitabilityLoading and GetSuitabilityDataFailure when failure', () => {
+    //Mock JSON.parse toast err.message
+    JSON.parse = jest.fn().mockImplementationOnce(() => {
+      return { msg: `Cannot read property 'status' of undefined` }
+    })
+
     const payload = {
       link: '',
       errorPath: '/',

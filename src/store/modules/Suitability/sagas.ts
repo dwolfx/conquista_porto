@@ -46,7 +46,7 @@ export function* getDataAndRedirect({
       yield put({
         ...SetSuitabilityLoading(false),
         ...GetSuitabilityDataFailure(),
-        toast: buildToast(err.message, ToastTypes.error),
+        toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
       })
 
       if (errorPath) {
