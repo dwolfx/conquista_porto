@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from 'components/Button'
 import Text from 'components/Text'
-// import IconExporter from 'components/IconExporter'
 
 import { CardInfo, Title, Subtitle } from '../styles'
 

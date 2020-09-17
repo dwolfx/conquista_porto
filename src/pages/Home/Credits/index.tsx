@@ -116,15 +116,4 @@ const Credits: React.FC = ({ children }) => {
 
   return wrapper()
 }
-
 export default Credits
-
-// const isLoading = useSelector((state: any) => {
-//   const allLoadings =
-//     state.creditCard.isLoading ||
-//     state.vehicleFinancing.isLoading ||
-//     state.consortiumVehicle.isLoading ||
-//     state.consortiumBuilding.isLoading
-
-//   return allLoadings
-// })
