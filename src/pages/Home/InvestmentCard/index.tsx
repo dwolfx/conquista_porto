@@ -34,14 +34,14 @@ const graphValuesGenerator = (
 
   let result: t.IGraphValuesResult[]
 
-  if (data.saldototal && data.categorias) {
+  if (data.saldo_total && data.categorias) {
     const sortedResult = data.categorias.sort((a, b) => b.valor - a.valor)
     result = sortedResult.map((item, index) => ({
       id: `${index}`,
       label: item.nome,
       value: item.valor,
       color: colorsPriority[index],
-      percent: ((item.valor / data.saldototal) * 100).toFixed(2),
+      percent: ((item.valor / data.saldo_total) * 100).toFixed(2),
     }))
     return result
   }
@@ -77,7 +77,7 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
 
   useEffect(() => {
     setPieChartInfo({
-      value: (data && data.saldototal) || 0,
+      value: (data && data.saldo_total) || 0,
       percent: 0,
     })
   }, [data])
@@ -85,7 +85,7 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
   function settingPieChartInfo(payload: t.IPieChartInfoState) {
     setPieChartInfo(
       payload || {
-        value: (data && data.saldototal) || 0,
+        value: (data && data.saldo_total) || 0,
         percent: 0,
       }
     )
