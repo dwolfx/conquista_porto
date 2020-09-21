@@ -1,30 +1,35 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 import { formatMoney } from 'helpers'
 
 import Text from 'components/Text'
-import ButtonLink from 'components/Button/Link'
 
-import { EmptyBody, PieItemMargin } from './styles'
+import * as t from './types'
+import * as s from './styles'
 
-const ChartEmptyState = ({ value }) => {
+const validPieChartInfo = (info: t.IPieChartInfoState) =>
+  info && info.id !== 'emptyvalue' && info.value && info.label
+
+const validPieChartEmptyState = (info: t.IPieChartInfoState) =>
+  info && info.id !== 'emptyvalue'
+
+const ChartEmptyState = ({ value }: { value: string | number }) => {
   const history = useHistory()
 
   const linkInvestment =
     value > 0 ? '/investimentos/visualizar' : '/investimentos'
 
   return (
-    <EmptyBody>
-      <Text color="gray5" type="captionUppercase">
-        Total investido
-      </Text>
-      <PieItemMargin>
+    <s.EmptyBody>
+      <s.PieMiddleContentTitle color="gray5" type="captionUppercase">
+        Total Investido
+      </s.PieMiddleContentTitle>
+      <s.PieItemMargin>
         <Text color="black" type="heading4" bold>
           {formatMoney(value)}
         </Text>
-      </PieItemMargin>
-      <ButtonLink
+      </s.PieItemMargin>
+      <s.ButtonLink
         data-gtm-subname="card investimentos total investido"
         data-gtm-name="gerenciar"
         data-gtm-type="click"
@@ -32,30 +37,37 @@ const ChartEmptyState = ({ value }) => {
         onClick={() => history.push(linkInvestment)}
       >
         Gerenciar
-      </ButtonLink>
-    </EmptyBody>
+      </s.ButtonLink>
+    </s.EmptyBody>
   )
 }
 
-const ChartMiddleInfoContent = ({ pieChartInfo }) => {
+const ChartMiddleInfoContent = ({
+  pieChartInfo,
+}: {
+  pieChartInfo: t.IPieChartInfoState
+}) => {
   const history = useHistory()
+
   return validPieChartInfo(pieChartInfo) ? (
-    <EmptyBody>
+    <s.EmptyBody>
       <Text
         type="heading4"
         color="black"
         bold
       >{`${pieChartInfo.percent}%`}</Text>
-      <PieItemMargin>
+      <s.PieItemMargin>
         <Text color="gray5" type="captionUppercase">
-          {pieChartInfo.label}
+          {pieChartInfo.label === 'Renda Variável'
+            ? 'Ações'
+            : pieChartInfo.label}
         </Text>
-      </PieItemMargin>
+      </s.PieItemMargin>
       <Text type="heading4" color="black" bold>
         {formatMoney(pieChartInfo.value)}
       </Text>
-      <PieItemMargin>
-        <ButtonLink
+      <s.PieItemMargin>
+        <s.ButtonLink
           data-gtm-subname="card investimentos total investido"
           data-gtm-name="gerenciar"
           data-gtm-type="click"
@@ -63,27 +75,14 @@ const ChartMiddleInfoContent = ({ pieChartInfo }) => {
           onClick={() => history.push('/investimentos/visualizar')}
         >
           Gerenciar
-        </ButtonLink>
-      </PieItemMargin>
-    </EmptyBody>
+        </s.ButtonLink>
+      </s.PieItemMargin>
+    </s.EmptyBody>
   ) : (
     <ChartEmptyState
       value={validPieChartEmptyState(pieChartInfo) ? pieChartInfo.value : 0}
     />
   )
-}
-
-const validPieChartInfo = info =>
-  info && info.id !== 'emptyvalue' && info.value && info.label
-
-const validPieChartEmptyState = info => info && info.id !== 'emptyvalue'
-
-ChartMiddleInfoContent.propTypes = {
-  pieChartInfo: PropTypes.object.isRequired,
-}
-
-ChartEmptyState.propTypes = {
-  value: PropTypes.number.isRequired,
 }
 
 export default ChartMiddleInfoContent

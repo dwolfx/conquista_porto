@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 
 import Banner from 'components/Banner'
 import Button from 'components/Button'
+import ButtonLinkComponent from 'components/Button/Link'
 import Card from 'components/Card'
 import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
@@ -53,9 +54,6 @@ export const GridCol = styled(Col)`
       max-width: 490px;
     }
   }
-`
-export const PieItemMargin = styled.div`
-  margin: 5px 0px;
 `
 
 export const SectionRow = styled(Row)`
@@ -424,4 +422,10 @@ export const TextBannerTitle = styled(Text).attrs(() => ({
   color: 'white',
 }))`
   margin-bottom: ${({ theme }) => `${theme.spacing(1)}px`};
+`
+
+export const ButtonLink = styled(ButtonLinkComponent)`
+  & > svg {
+    margin-left: 0;
+  }
 `

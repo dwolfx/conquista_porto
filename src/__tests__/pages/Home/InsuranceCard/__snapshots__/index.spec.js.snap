@@ -356,8 +356,8 @@ exports[`InsuranceCard Renders correctly 1`] = `
   justify-content: center;
   border: none;
   border-radius: 50%;
+  cursor: pointer;
   cursor: not-allowed;
-  pointer-events: none;
   background-color: #F1F1F1;
 }
 
@@ -406,6 +406,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
   justify-content: center;
   border: none;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .c14:active {
@@ -451,10 +452,10 @@ exports[`InsuranceCard Renders correctly 1`] = `
 .c19 {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -630,6 +631,13 @@ exports[`InsuranceCard Renders correctly 1`] = `
             <div>
               <div
                 className="c19"
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "width": "100%",
+                  }
+                }
+                tabIndex={-1}
               >
                 <div
                   className="c20"
@@ -684,6 +692,13 @@ exports[`InsuranceCard Renders correctly 1`] = `
             <div>
               <div
                 className="c19"
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "width": "100%",
+                  }
+                }
+                tabIndex={-1}
               >
                 <div
                   className="c20"

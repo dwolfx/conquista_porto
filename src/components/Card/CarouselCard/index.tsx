@@ -79,10 +79,6 @@ const CarouselCard: React.FC<ICarouselCard> = ({
     </>
   )
 
-  const CustomSlides: React.FC = ({ children }) => {
-    return <s.Chip>{children}</s.Chip>
-  }
-
   return (
     <s.Card
       headerIcon={headerIcon}
@@ -92,9 +88,7 @@ const CarouselCard: React.FC<ICarouselCard> = ({
     >
       <s.Carousel ref={cardSlider} {...customSettings}>
         {arrayContent &&
-          arrayContent.map(element => (
-            <CustomSlides key={uuid()}>{element}</CustomSlides>
-          ))}
+          arrayContent.map(element => <s.Chip key={uuid()}>{element}</s.Chip>)}
       </s.Carousel>
     </s.Card>
   )

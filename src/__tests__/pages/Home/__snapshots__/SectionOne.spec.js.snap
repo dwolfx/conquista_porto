@@ -1125,8 +1125,8 @@ Array [
   justify-content: center;
   border: none;
   border-radius: 50%;
+  cursor: pointer;
   cursor: not-allowed;
-  pointer-events: none;
   background-color: #F1F1F1;
 }
 
@@ -1175,6 +1175,7 @@ Array [
   justify-content: center;
   border: none;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .c15:active {
@@ -1220,10 +1221,10 @@ Array [
 .c20 {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -1601,6 +1602,13 @@ Array [
                 <div>
                   <div
                     className="c20"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
                   >
                     <div
                       className="c21"
@@ -1663,6 +1671,13 @@ Array [
                 <div>
                   <div
                     className="c20"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
                   >
                     <div
                       className="c21"
@@ -1725,6 +1740,13 @@ Array [
                 <div>
                   <div
                     className="c20"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
                   >
                     <div
                       className="c21"
@@ -1787,6 +1809,13 @@ Array [
                 <div>
                   <div
                     className="c20"
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "width": "100%",
+                      }
+                    }
+                    tabIndex={-1}
                   >
                     <div
                       className="c21"

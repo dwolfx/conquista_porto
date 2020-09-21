@@ -39,7 +39,7 @@ const PieChart: React.FC<IProps> = ({
   onSliceClick = null,
   width,
   hideLegend = false,
-  marginLegend = 0,
+  marginLegend = null,
   middleContentCSS,
   ...rest
 }) => {
@@ -134,6 +134,28 @@ const PieChart: React.FC<IProps> = ({
     dispatch({ type: 'mouseLeave' })
   }, [data.length])
 
+  // https://nivo.rocks/guides/legends
+  const CustomSymbolShape = ({
+    x,
+    y,
+    size,
+    fill,
+    borderWidth,
+    borderColor,
+  }: any) => (
+    <rect
+      x={x}
+      y={y}
+      rx={3}
+      fill={fill}
+      strokeWidth={borderWidth}
+      stroke={borderColor}
+      width={size}
+      height={size}
+      style={{ pointerEvents: 'none' }}
+    />
+  )
+
   return (
     <ChartContainer width={width} height={height}>
       <ResponsivePie
@@ -172,9 +194,10 @@ const PieChart: React.FC<IProps> = ({
                   onClick: handleClick,
                   anchor: 'bottom',
                   direction: 'row',
+                  symbolShape: CustomSymbolShape,
                   symbolSize: 14,
                   itemWidth: 20,
-                  translateY: marginLegend,
+                  translateY: marginLegend ? marginLegend : -7,
                   itemHeight: 18,
                   itemsSpacing: 7,
                   itemTextColor: 'transparent',

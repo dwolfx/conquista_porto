@@ -69,6 +69,7 @@ export const ChangePageButton = styled.button<IChangePageButton>`
   justify-content: center;
   border: none;
   border-radius: 50%;
+  cursor: pointer;
 
   &:active {
     background-color: ${({ theme }) => theme.colors.gray1};
@@ -93,7 +94,6 @@ export const ChangePageButton = styled.button<IChangePageButton>`
     disabled &&
     css`
       cursor: not-allowed;
-      pointer-events: none;
       background-color: ${({ theme }) => theme.colors.gray1};
 
       svg polyline {
@@ -119,7 +119,7 @@ export const ButtonWrapper = styled.div`
 export const Chip = styled.div`
   width: 100%;
   height: 100%;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
 `

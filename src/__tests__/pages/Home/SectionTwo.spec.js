@@ -41,11 +41,6 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => [],
 }))
 
-jest.mock('pages/Home/InvestmentSection', () => ({
-  __esModule: true,
-  default: () => [],
-}))
-
 describe('SectionOne', () => {
   it('Renders correctly', () => {
     const tree = renderer
