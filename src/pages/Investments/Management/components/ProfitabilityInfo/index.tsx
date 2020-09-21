@@ -58,7 +58,7 @@ const ProfitabilityInfo = ({ profitability }: IProps) => (
         <VerticalListStyled
           elements={[
             <HorizonalListStyled
-              startItems={[<TextTitle>MẼS ANTERIOR</TextTitle>]}
+              startItems={[<TextTitle>MÊS ANTERIOR</TextTitle>]}
               endItems={[
                 <TextValue>
                   {profitability &&
