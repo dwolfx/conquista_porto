@@ -8,19 +8,16 @@ import CardObjectives from 'components/Card/Objectives'
 import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
 import * as HorizontalListStyled from 'components/HorizontalList/styles'
-import DivisorComponent from 'components/Divisor'
 import ConquistaIcon from 'components/IconExporter'
-import AccordionNewComponent from 'components/AccordionNew'
 import { LegendText } from 'components/Loading/styles'
 import VerticalList from 'components/VerticalList'
 
 export const GridContainer = styled(Container)``
 
 export const GridRow = styled(Row)`
-  &#t1,
   &#t2,
   &#t3 {
-    height: 430px;
+    height: 518px;
     margin: 0;
     margin-bottom: ${props => props.theme.spacing(4.5)}px;
 
@@ -41,8 +38,7 @@ export const HorizontalListWithMargin = styled(HorizontalList)`
 export const GridCol = styled(Col)`
   &#menu {
     transition: all 0.35s ease-in-out;
-    padding: 0 ${({ theme }) => theme.spacing(2)}px;
-    @media ${props => props.theme.mediaQueries.md} {
+    @media ${props => props.theme.mediaQueries.lg} {
       max-width: 560px;
       bottom: ${({ theme }) => theme.spacing(2)}px;
       left: 0;
@@ -53,7 +49,7 @@ export const GridCol = styled(Col)`
       position: fixed;
       z-index: 1;
     }
-    @media ${props => props.theme.mediaQueries.sm} {
+    @media ${props => props.theme.mediaQueries.md} {
       max-width: 490px;
     }
   }
@@ -63,7 +59,16 @@ export const PieItemMargin = styled.div`
 `
 
 export const SectionRow = styled(Row)`
-  height: 100%;
+  width: 100%;
+  margin: ${({ theme }) => `0 0 ${theme.spacing(2)}px 0`};
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+`
+
+export const BannerRow = styled(Row)`
+  width: 100%;
 `
 
 export const SectionCol = styled(Col)`
@@ -86,6 +91,7 @@ export const SectionCol = styled(Col)`
 
 export const Wrapper = styled.div`
   margin: 30px auto;
+  position: relative;
 
   @media ${props => props.theme.mediaQueries.md} {
     margin: 0;
@@ -97,9 +103,18 @@ export const FullHeightCard = styled(Card)`
 `
 
 export const FullHeightCardObjectives = styled(CardObjectives)`
-  height: 100%;
+  height: 224px;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    height: 191px;
+  }
+
   @media ${props => props.theme.mediaQueries.md} {
-    height: 150px;
+    height: 252px;
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    height: 205px;
   }
 `
 
@@ -129,14 +144,14 @@ export const PointsInfo = styled.div`
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.gray3};
   display: flex;
-  padding: 14px;
+  padding: ${({ theme }) => theme.spacing(2)}px;
   flex-wrap: wrap;
 
   p:first-child {
-    color: ${props => props.theme.colors.gray5};
+    color: ${props => props.theme.colors.gray6};
   }
   p:last-of-type {
-    padding: 0 ${({ theme }) => theme.spacing(2)}px;
+    padding: 0 ${({ theme }) => theme.spacing(2)}px 0 0;
   }
 `
 
@@ -177,7 +192,7 @@ export const PointName = styled(Text)`
 `
 
 export const PointNumber = styled(Text)`
-  margin-right: ${({ theme }) => theme.spacing(2)}px;
+  align-items: flex-end;
 `
 
 export const EmptyProductItemRow = styled.div`
@@ -193,18 +208,6 @@ export const EmptyBody = styled.div`
   justify-content: center;
 `
 
-export const EmptyText = styled(Text)`
-  color: ${props => props.theme.colors.gray5};
-  text-align: center;
-  width: 314px;
-`
-
-export const EmptyButton = styled(Button)`
-  padding: 0;
-  margin-top: ${({ theme }) => theme.spacing(2)}px;
-  min-width: 0;
-`
-
 export const ProductItem = styled.div`
   width: 100%;
   color: ${props => props.theme.colors.gray5};
@@ -215,14 +218,10 @@ export const ProductItemRow = styled.div`
   padding: ${({ theme }) => `${theme.spacing(2)}px 0 0 ${theme.spacing(2)}px`};
 `
 
-export const LinearProgressBarContent = styled.div`
-  width: 56px;
-`
-
 export const ThreeItemsLine = styled.div`
   display: grid;
   width: 100%;
-  margin: 12px 0 0px 0;
+  margin-top: 12px;
   grid-template-columns: ${props => props.gridTemplateColumns};
 `
 
@@ -266,21 +265,35 @@ export const ModalTextWrapper = styled.div`
 
 export const ProductsCol = styled(SectionCol)`
   @media ${props => props.theme.mediaQueries.md} {
-    height: 430px;
+    height: auto;
+    margin: 0;
+  }
+`
+
+export const NewProductsCol = styled(SectionCol)`
+  padding: 0;
+  @media ${props => props.theme.mediaQueries.md} {
+    height: 518px;
   }
 `
 
 export const PointsExtractListWrapper = styled.div`
   height: 100%;
-
-  @media ${props => props.theme.mediaQueries.md} {
-    height: 551px;
-  }
 `
 
-export const AdRow = styled(GridRow)`
-  margin-bottom: ${props =>
-    props.hasBannerCookie && `${props.theme.spacing(4.5)}px`};
+export const AdRow = styled.div`
+  margin: ${({ theme }) =>
+    `${theme.spacing(2)}px 0 ${theme.spacing(6)}px ${theme.spacing(2)}px`};
+
+  @media ${props => props.theme.mediaQueries.md} {
+    margin: ${({ theme }) =>
+      `${theme.spacing(2)}px 0 ${theme.spacing(4)}px ${theme.spacing(2)}px`};
+  }
+
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: ${({ theme }) =>
+      `${theme.spacing(2)}px 0 ${theme.spacing(2)}px ${theme.spacing(2)}px`};
+  }
 `
 
 export const TipBannerContainer = styled(Row)`
@@ -289,41 +302,15 @@ export const TipBannerContainer = styled(Row)`
 `
 
 export const ObjectivesContainer = styled(Row)`
-  height: 50%;
   padding-bottom: ${({ theme }) => theme.spacing(1)}px;
 `
 export const Icon = styled(ConquistaIcon)`
   width: 21px;
   height: 21px;
 `
-export const ObjectivesListContainer = styled.div`
-  overflow-y: auto;
-  padding: 0 ${({ theme }) => theme.spacing(2)}px;
-`
 
 export const VerticalListStyled = styled(VerticalList)`
   padding: ${({ theme }) => theme.spacing(1)}px 0;
-`
-
-export const ObjectivesTableContainer = styled(Row)`
-  justify-content: space-between;
-  margin: ${({ theme }) => theme.spacing(1)}px 0;
-`
-
-export const ObjectivesTableBox = styled(Col)`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`
-
-export const ObjectivesAccordion = styled(AccordionNewComponent)`
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-`
-
-export const ObjectiveDivisor = styled(DivisorComponent)`
-  margin: ${({ theme }) => theme.spacing(2)}px 0;
 `
 
 export const LoadingStateObjectivesContainer = styled.div`
@@ -361,14 +348,6 @@ export const HorizontalListTruncateStartBlock = styled(HorizontalList)`
     min-width: 0;
   }
 `
-
-export const ObjectivePercentageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 112px;
-`
-
 export const PointsHorizontal = styled(HorizontalList)`
   @media ${props => props.theme.mediaQueries.sm} {
     display: block;
@@ -382,4 +361,67 @@ export const PointsHorizontal = styled(HorizontalList)`
       margin: ${props => `${props.theme.spacing(1)}px 0 0`};
     }
   }
+`
+const HomeCardBase = styled(Card)`
+  height: 518px;
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    height: 458px;
+  }
+`
+export const GridColFlexContainer = styled(GridCol)`
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    flex-direction: column;
+  }
+`
+
+export const LinearProgressBarContent = styled.div`
+  width: 56px;
+`
+
+export const HomeInvestmentCard = styled(HomeCardBase)`
+  margin-bottom: ${props => `${props.theme.spacing(2)}px`};
+`
+export const HomePrivateWelfareCard = styled(HomeCardBase)`
+  margin-bottom: ${props => `${props.theme.spacing(2)}px`};
+`
+export const HomeObjectivesCard = styled(HomeCardBase)`
+  margin-bottom: ${props => `${props.theme.spacing(2)}px`};
+`
+
+export const HomePointsCard = styled(HomeCardBase)``
+export const HomePointsOffersCard = styled(HomeCardBase)``
+
+export const GridColFlexCard = styled(HomeCardBase)`
+  height: 252px;
+
+  &:first-of-type {
+    margin-bottom: ${props => `${props.theme.spacing(2)}px`};
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    width: 50%;
+    height: 252px;
+
+    &:first-of-type {
+      margin-right: ${props => `${props.theme.spacing(2)}px`};
+    }
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 100%;
+  }
+`
+
+export const TextBannerTitle = styled(Text).attrs(() => ({
+  type: 'heading3',
+  bold: true,
+  color: 'white',
+}))`
+  margin-bottom: ${({ theme }) => `${theme.spacing(1)}px`};
 `

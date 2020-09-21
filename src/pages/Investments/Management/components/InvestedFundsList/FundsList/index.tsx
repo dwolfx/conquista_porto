@@ -6,47 +6,38 @@ import 'styled-components/macro'
 import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
 
-import {
-  CardStyled,
-  ButtonStyled,
-  FundItem,
-  HorizontalListStyled,
-} from './styles'
+import * as t from '../types'
 
-interface IProps {
-  filteredFunds: any[]
-  idFund: number
-  displayInformation: boolean
-  onHandleChangeIdFund: (idFund: number) => void
-}
+import * as s from './styles'
+
 const FundsList = ({
   filteredFunds,
   idFund,
   displayInformation,
   onHandleChangeIdFund,
-}: IProps) => {
+}: t.IFundsList) => {
   const history = useHistory()
   return (
-    <CardStyled
+    <s.CardStyled
       footer={
-        <ButtonStyled
+        <s.ButtonStyled
           color="primary"
           data-testid="button-add-fund"
           onClick={() => history.push('/investimentos/lista-fundos')}
         >
           Adicionar fundo
-        </ButtonStyled>
+        </s.ButtonStyled>
       }
     >
       {filteredFunds.map((fund: any) => (
-        <FundItem
+        <s.FundItem
           key={uuid()}
           data-testid="fund-list-item"
           selected={idFund === fund.id}
           itemsLength={filteredFunds.length}
           onClick={() => onHandleChangeIdFund(fund.id)}
         >
-          <HorizontalListStyled
+          <s.HorizontalListStyled
             startItems={[
               <VerticalList
                 elements={[
@@ -80,9 +71,9 @@ const FundsList = ({
               </Text>,
             ]}
           />
-        </FundItem>
+        </s.FundItem>
       ))}
-    </CardStyled>
+    </s.CardStyled>
   )
 }
 

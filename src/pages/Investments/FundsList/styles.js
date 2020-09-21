@@ -15,8 +15,8 @@ export const TableContent = styled.div`
   background-color: ${props => props.theme.colors.white};
   border-radius: 4px;
   width: 100%;
-  padding: 21px;
-  margin-top: ${props => props.theme.spacing(2)}px;
+  padding: ${props => props.theme.spacing(3)}px;
+  margin-top: ${props => props.theme.spacing(1)}px;
   height: auto;
 `
 
@@ -24,8 +24,8 @@ export const FloatButton = styled(IconButton)`
   content: '';
   border-radius: 50%;
   position: fixed;
-  bottom: 14px;
-  right: 14px;
+  bottom: ${props => props.theme.spacing(2)}px;
+  right: ${props => props.theme.spacing(2)}px;
   z-index: 11;
   border: none;
 `
@@ -37,8 +37,8 @@ export const DropdownWrapper = styled(Col)`
 `
 
 export const StyledIcon = styled(Icon)`
-  width: 21px;
-  height: 21px;
+  width: ${props => props.theme.spacing(3)}px;
+  height: ${props => props.theme.spacing(3)}px;
 `
 
 export const Modal = styled(ConquistaModal)`

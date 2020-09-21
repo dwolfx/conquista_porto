@@ -28,7 +28,7 @@ const ModalAccountInfo = ({
   onChangeModalOpen,
   bankData,
 }: IModalAccountInfo) => {
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   return (
     <Modal
       modalTitle="Conta de investimento"

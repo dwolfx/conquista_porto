@@ -175,3 +175,13 @@ export const printFieldText = (text: string) => {
 
 export const printFieldTextWithPercent = (text: string) =>
   text && text !== '-' ? `${formatNumber(text)}%` : '---'
+
+/* Função responsável por criar uma máscara e esconder parte do e-mail */
+export const hideEmailCharacters = (email: string): string => {
+  if (email.length < 1) return '****@****'
+  const emailSplit = email.split('@')
+  return emailSplit[0]
+    .substring(0, 2)
+    .concat('****@****')
+    .concat(emailSplit[1].substring(4, emailSplit[1].length))
+}

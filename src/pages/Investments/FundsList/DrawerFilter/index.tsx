@@ -71,7 +71,7 @@ export const DrawerFilter = ({
     sortType: null,
   }
 
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   useEffect(() => {
     setNewFilters({ ...filter })
@@ -438,4 +438,4 @@ const DrawerFooter = (
   )
 }
 
-export default DrawerFilter
+export default React.memo(DrawerFilter)

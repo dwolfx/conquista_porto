@@ -22,7 +22,7 @@ interface IRightContentProps {
 }
 export const RightContent = styled.div<IRightContentProps>`
   display: flex;
-  margin-right: ${({ theme }) => theme.spacing(16)}px;
+  margin-right: ${({ theme }) => theme.spacing(8)}px;
   align-items: center;
 
   ${({ viewMode }) => {

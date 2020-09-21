@@ -107,6 +107,7 @@ export const columnsWithSticky = [
     justifyHeader: 'flex-start',
     sticky: 'left',
     align: 'flex-start',
+    dataTestId: 'lista_fundos-table-fundo-titulo',
     styles: {
       header: {
         width: 241,
@@ -121,6 +122,7 @@ export const columnsWithSticky = [
     accessor: 'minimo_inicial',
     justifyHeader: 'flex-end',
     align: 'flex-end',
+    dataTestId: 'lista_fundos-table-minimo_inicial-aplicacao-minima',
     styles: {
       header: {
         width: 130,
@@ -134,6 +136,7 @@ export const columnsWithSticky = [
     Header: 'RESGATE (COT.)',
     accessor: 'resgate_cotizacao',
     align: 'center',
+    dataTestId: 'lista_fundos-table-resgate_cotizacao-resgate',
     styles: {
       header: {
         width: 139,
@@ -147,6 +150,7 @@ export const columnsWithSticky = [
     Header: 'TAXA ADM. (a.a.)',
     accessor: 'taxa_administracao',
     align: 'center',
+    dataTestId: 'lista_fundos-table-taxa_administracao-taxa_adm',
     styles: {
       header: {
         width: 139,
@@ -160,6 +164,7 @@ export const columnsWithSticky = [
     Header: 'RENT. MÊS',
     accessor: 'rentabil_fundo_mes',
     align: 'center',
+    dataTestId: 'lista_fundos-table-rentabil_fundo_mes-rent_mes',
     styles: {
       header: {
         width: 97,
@@ -173,6 +178,7 @@ export const columnsWithSticky = [
     Header: 'RENT. ANO',
     accessor: 'rentabil_fundo_ano',
     align: 'center',
+    dataTestId: 'lista_fundos-table-rentabil_fundo_ano-rent_ano',
     styles: {
       header: {
         width: 97,
@@ -186,6 +192,7 @@ export const columnsWithSticky = [
     Header: 'RENT. ÚLT. 12M',
     accessor: 'rentabil_fundo_12_meses',
     align: 'center',
+    dataTestId: 'lista_fundos-table-rentabil_fundo_12_meses-rent_ultimos_12m',
     styles: {
       header: {
         width: 126,
@@ -200,6 +207,7 @@ export const columnsWithSticky = [
     accessor: 'fundo_ativo',
     align: 'center',
     sticky: 'right',
+    dataTestId: 'lista_fundos-table-is_fundo_ativo',
     styles: {
       header: {
         width: 164,

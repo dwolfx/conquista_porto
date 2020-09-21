@@ -2,9 +2,11 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import createStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
+import { ThemeProvider } from 'styled-components'
 
-import AdvertisementBanner from '../../../pages/Home/AdvertisementBanner'
-import { tipsBanner } from '../../../pages/Home/bannerData'
+import theme from 'styles/theme'
+import AdvertisementBanner from 'pages/Home/AdvertisementBanner'
+import { tipsBanner } from 'pages/Home/bannerData'
 
 const INITIAL_STATE = {
   auth: {
@@ -29,7 +31,9 @@ describe('AdvertisementBanner', () => {
     const tree = renderer
       .create(
         <Provider store={store}>
-          <AdvertisementBanner />
+          <ThemeProvider theme={theme}>
+            <AdvertisementBanner />
+          </ThemeProvider>
         </Provider>
       )
       .toJSON()

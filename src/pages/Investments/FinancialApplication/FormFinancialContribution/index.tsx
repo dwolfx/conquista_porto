@@ -78,7 +78,7 @@ const FormFinancialContribution = ({
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const isTabletOrSmaller = useMedia('md')
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   const [showError, setShowError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)

@@ -6,25 +6,24 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 
-import ObjectiveListContent from '../../../pages/Home/ObjectiveListContent'
+import InvestmentCard from 'pages/Home/InvestmentCard'
 
 const INITIAL_STATE = {
-  auth: {
-    cpf: '11111111111',
+  bankData: {
+    data: {},
+    hasError: false,
+    isLoading: false,
   },
-  objectives: [
-    {
-      id: 1,
-      nickname: '23',
-      total_balance: 123,
-      target_value: 234,
-      percentage: 123,
-      remaining_value: 123,
-      hasError: false,
-      isLoadingList: false,
-    },
-  ],
-  objectiveManagement: [],
+  suitabilityInfo: {
+    data: {},
+    hasError: false,
+    isLoading: false,
+  },
+  consolidatedPosition: {
+    data: {},
+    hasError: false,
+    isLoading: false,
+  },
 }
 
 const mockStore = createStore([])
@@ -36,13 +35,13 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => [],
 }))
 
-describe('ObjectiveListContent', () => {
+describe('InvestmentCard', () => {
   it('Renders correctly', () => {
     const tree = renderer
       .create(
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <ObjectiveListContent objectives={INITIAL_STATE.objectives} />
+            <InvestmentCard />
           </ThemeProvider>
         </Provider>
       )

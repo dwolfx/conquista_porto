@@ -1,14 +1,14 @@
-import React from 'react'
-
+import React, { ReactNode } from 'react'
 import Button from 'components/Button'
-import Text from 'components/Text'
-
 import { ButtonContainerModal, ModalStyled } from './styles'
+import { themeColors } from 'styles/theme'
 
 interface IProps {
   isOpen: boolean
   title: string
-  description: string
+  children: ReactNode
+  loading?: boolean
+  loadingColor?: keyof typeof themeColors
   buttonTextCancel?: string
   buttonTextConfirm?: string
   onConfirmation: () => void
@@ -19,7 +19,9 @@ interface IProps {
 const ConfirmationModal: React.FC<IProps> = ({
   isOpen,
   title,
-  description,
+  children,
+  loading,
+  loadingColor = 'blue4',
   buttonTextCancel = 'Cancelar',
   buttonTextConfirm = 'Confirmar',
   onConfirmation,
@@ -38,14 +40,18 @@ const ConfirmationModal: React.FC<IProps> = ({
         modalTitle={title}
         {...rest}
       >
-        <Text type="headline" color="gray6">
-          {description}
-        </Text>
+        {children}
         <ButtonContainerModal>
           <Button outline onClick={onClose}>
             {buttonTextCancel}
           </Button>
-          <Button onClick={onConfirmation}>{buttonTextConfirm}</Button>
+          <Button
+            loading={loading}
+            loadingColor={loadingColor}
+            onClick={onConfirmation}
+          >
+            {buttonTextConfirm}
+          </Button>
         </ButtonContainerModal>
       </ModalStyled>
     </>

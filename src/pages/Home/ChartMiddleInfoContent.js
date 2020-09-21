@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import { formatMoney } from 'helpers'
 import { useHistory } from 'react-router-dom'
+import { formatMoney } from 'helpers'
 
 import Text from 'components/Text'
 import ButtonLink from 'components/Button/Link'

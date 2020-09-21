@@ -61,7 +61,7 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
   const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
   const { addToast } = useToast()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [hasError, setError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -344,7 +344,6 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
       <Modal
         isOpen={isAlignmentTermModalOpen}
         title="Risco acima do seu perfil"
-        description="Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento."
         buttonTextCancel="ver termo"
         buttonTextConfirm="cancelar"
         onClose={() => {
@@ -354,7 +353,13 @@ const Redeem: React.FC<IProps> = ({ isOpen, handleClose, selectedFundId }) => {
         }}
         onConfirmation={handleAlignmentTermCloseModal}
         onCloseHeaderButton={handleAlignmentTermCloseModal}
-      />
+      >
+        <Text type="headline" color="gray6">
+          Sua carteira passará a ter uma risco maior do que o permitido para o
+          seu perfil. Para continuar, você deve assinar o termo de
+          desenquadramento.
+        </Text>
+      </Modal>
       <ModalInfoError
         modalTitle="Cadastrar celular"
         handleClose={handleInfoErrorModalOpen}

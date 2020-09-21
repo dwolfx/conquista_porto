@@ -8,11 +8,12 @@ import Card from 'components/Card'
 import Text from 'components/Text'
 import useSelectedPosition from 'hooks/useSelectedPosition'
 
-import FinancialApplication from '../../FinancialApplication'
+import CardHeaderTitle from '../components/CardHeaderTitle'
 import ChartPosition from '../components/ChartPosition'
-import LastTransations from '../components/LastTransactions'
+import FinancialApplication from '../../FinancialApplication'
 import InvestorAccount from '../components/InvestorAccount'
 import InvestedFundsList from '../components/InvestedFundsList'
+import LastTransations from '../components/LastTransactions'
 
 import { IModalProps, TFundsLayout } from '../types'
 import FundInfoPanel from './FundInfoPanel'
@@ -100,10 +101,12 @@ const Desktop: React.FC<IProps> = ({
             onHandleChangeView={onHandleChangeView}
           />
           <Card
-            headerTitle={position?.apelido}
-            headerIconInfo
-            headerIconInfoClick={handleOpenDetailFund}
-            headerIconInfoMsg="Mais informações"
+            headerTitle={
+              <CardHeaderTitle
+                headerTitle={position?.apelido}
+                onHandleClick={handleOpenDetailFund}
+              />
+            }
           >
             <FundInfoPanel
               onChangeModalSuitabilityInfo={setModalSuitabilityInfo}

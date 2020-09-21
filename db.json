@@ -222,11 +222,98 @@
       }
     ]
   },
-  "cartao_credito": [],
-  "financiamento_veiculo": {
-    "TipoCritica": "SUCESSO",
-    "Mensagem": "SUCESSO"
-  },
+  "cartao_credito": [
+    {
+      "CodigoCanal": 0,
+      "CpfCnpj": "32036703801",
+      "Bandeira": "Visa",
+      "Fatura": {
+        "MelhorDataCompra": 22,
+        "Status": "Aberta",
+        "Valor": 25090,
+        "Vencimento": 16
+      },
+      "LimiteCartaoAdicional": {
+        "LimiteCredito": 4588.55,
+        "LimiteDisponivel": 5000,
+        "LimiteDisponivelOverlimitt": 1000,
+        "LimiteSaque": 399.45
+      },
+      "LimiteTitularCartao": {
+        "LimiteCredito": 7000.44,
+        "LimiteDisponivel": 10000,
+        "LimiteDisponivelOverlimitt": 2000,
+        "LimiteSaque": 501.33
+      },
+      "Link": "string",
+      "Tipo": "Gold",
+      "UltimosDigitos": 3212
+    },
+    {
+      "CodigoCanal": 0,
+      "CpfCnpj": "33244452809",
+      "Bandeira": "Master",
+      "Fatura": {
+        "MelhorDataCompra": 12,
+        "Status": "Fechada",
+        "Valor": 25,
+        "Vencimento": 20
+      },
+      "limiteCartaoAdicional": {
+        "LimiteCredito": 9897.43,
+        "LimiteDisponivel": 6000.55,
+        "LimiteDisponivelOverlimitt": 800.45,
+        "LimiteSaque": 1000.50
+      },
+      "LimiteTitularCartao": {
+        "LimiteCredito": 7500.61,
+        "LimiteDisponivel": 8000.44,
+        "LimiteDisponivelOverlimitt": 700.88,
+        "LimiteSaque": 989.33
+      },
+      "Link": "string",
+      "Tipo": "Platinum",
+      "UltimosDigitos": 3901
+    }
+  ],
+  "financiamento_veiculo": [
+    {
+      "id": 1,
+      "Contrato": "contrato1",
+      "Descricao": "Este é contrato 1 de financiamento",
+      "Marca": "Fiat",
+      "Modelo": "Palio Weekend",
+      "PontosGanhos": "50",
+      "QuantidadeParcelasContratadas": "32",
+      "QuantidadeParcelasPagas": 1,
+      "SaldoDevedor": "50000",
+      "UrlContrato": "www.google.com.br",
+      "ValorContratado": "50000",
+      "ValorEntrada": "10000",
+      "ValorPago": "25000",
+      "ValorParcelaAtual": "2500",
+      "cpf": "33244452809",
+      "codigoCanal": 0
+    },
+    {
+      "id": 2,
+      "Contrato": "contrato2",
+      "Descricao": "Este é contrato 1 de financiamento",
+      "Marca": "Renault",
+      "Modelo": "Sandero",
+      "PontosGanhos": "50",
+      "QuantidadeParcelasContratadas": "20",
+      "QuantidadeParcelasPagas": "12",
+      "SaldoDevedor": "25000",
+      "UrlContrato": "www.google.com.br",
+      "ValorContratado": "50000",
+      "ValorEntrada": "10000",
+      "ValorPago": "25000",
+      "ValorParcelaAtual": "2500",
+      "cpf": "33244452809",
+      "codigoCanal": 0
+    }
+  ],
   "fundos_lista": {
     "categorias": [
       {
@@ -2582,8 +2669,27 @@
     }
   ],
   "consorcios_imovel": {
-    "TipoCritica": "SUCESSO",
-    "Mensagem": "SUCESSO"
+    "Cliente": {
+      "Cpf": "33244452809"
+    },
+    "consorcios": [
+      {
+        "Id": 1,
+        "UrlProposta": "",
+        "DescricaoBem": "",
+        "ValorContratado": "137132.8",
+        "Descricao": "Contrato 889654",
+        "ValorParcelaAtual": "434.85",
+        "StatusConsorcio": "Contemplado",
+        "QuantidadeParcelasContratadas": "191",
+        "ValorQuitacao": "30482.77",
+        "QuantidadeParcelasPagas": "121",
+        "Grupo": "I159",
+        "Cota": "180",
+        "ValorPago": "108246.07",
+        "PontosGanhos": "100"
+      }
+    ]
   },
   "consorcios_auto": {
     "cliente": {
@@ -3597,7 +3703,7 @@
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "10/2019"
+        "dataCompra": "01/10/2020"
       },
       {
         "pontoGanho": "100",
@@ -3606,7 +3712,7 @@
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "10/2019"
+        "dataCompra": "01/10/2020"
       },
       {
         "pontoGanho": "250",
@@ -3615,7 +3721,61 @@
         "valorCompra": "0,00",
         "taxaCon": "0,00",
         "tipoDebitoCredito": "C",
-        "dataCompra": "10/2019"
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
+      },
+      {
+        "pontoGanho": "250000000",
+        "descricaoTipo": "PONTUAÇÃO",
+        "nomeTransacao": "CARTÃO PORTO SEGURO",
+        "valorCompra": "0,00",
+        "taxaCon": "0,00",
+        "tipoDebitoCredito": "C",
+        "dataCompra": "01/10/2020"
       }
     ]
   },
@@ -4316,7 +4476,7 @@
                 ]
               }
             },
-            "saldo_atual": "31905.05",
+            "saldo_atual": "200000.05",
             "ultimas_operacoes": {
               "operacao": [
                 {
@@ -4373,7 +4533,7 @@
               "data_inicio": "2013-03-28T00:00:00-03:00",
               "valor_patrimonio_liq": "65572971.83",
               "taxa_performance": "0.00",
-              "apelido": "Porto Seguro Alocação FIC FIM",
+              "apelido": "Porto Seguro Selecta FIC FIA",
               "contagem_dias_resgate": "Corridos",
               "minimo_inicial": "1000.0",
               "nome_gestor": "PortoSeguro Investimentos",
@@ -4409,7 +4569,7 @@
               },
               "resgate_liberado": true,
               "categoria_arena": "Multimercado",
-              "id_carteira": "5112",
+              "id_carteira": "5094",
               "regime_iof": "Regime Regressivo",
               "classificacao": "Longo Prazo",
               "aplicacao_financeiro": "D+0",
@@ -4508,7 +4668,7 @@
             },
             "categoria_arena": "Cambial",
             "historico_saldos_fundo": {
-              "id_carteira": "5112",
+              "id_carteira": "51380057",
               "saldos": {
                 "saldo": [
                   {
@@ -4530,7 +4690,7 @@
                 ]
               }
             },
-            "saldo_atual": "31905.05",
+            "saldo_atual": "15905.05",
             "ultimas_operacoes": {
               "operacao": [
                 {
@@ -4744,7 +4904,7 @@
                 ]
               }
             },
-            "saldo_atual": "31905.05",
+            "saldo_atual": "23499.05",
             "ultimas_operacoes": {
               "operacao": [
                 {
@@ -4801,7 +4961,7 @@
               "data_inicio": "2013-03-28T00:00:00-03:00",
               "valor_patrimonio_liq": "65572971.83",
               "taxa_performance": "0.00",
-              "apelido": "Porto Seguro Alocação FIC FIM",
+              "apelido": "BR Plural Deb. Inc. Hedge 45 FICFIM CP",
               "contagem_dias_resgate": "Corridos",
               "minimo_inicial": "1000.0",
               "nome_gestor": "PortoSeguro Investimentos",
@@ -4837,7 +4997,7 @@
               },
               "resgate_liberado": false,
               "categoria_arena": "Investimento no exterior",
-              "id_carteira": "5112",
+              "id_carteira": "51380057",
               "regime_iof": "Regime Regressivo",
               "classificacao": "Longo Prazo",
               "aplicacao_financeiro": "D+0",
@@ -4975,7 +5135,7 @@
               "data_inicio": "2013-07-31T00:00:00-03:00",
               "valor_patrimonio_liq": "79743742.67",
               "taxa_performance": "20.00",
-              "apelido": "Porto Seguro Selecta FIC FIA",
+              "apelido": "BR Plural Deb. Inc. Hedge 45 FICFIM CP",
               "contagem_dias_resgate": "Corridos",
               "minimo_inicial": "1000.0",
               "nome_gestor": "PortoSeguro Investimentos",
@@ -4997,7 +5157,7 @@
               },
               "resgate_liberado": true,
               "categoria_arena": "Renda Variável",
-              "id_carteira": "5094",
+              "id_carteira": "51380057",
               "regime_iof": "Regime Regressivo",
               "classificacao": "Ações",
               "aplicacao_financeiro": "D+0",
@@ -6263,7 +6423,7 @@
     "cep": "01010010"
   },
   "assinatura_eletronica": {
-    "usuario": "33244452809=",
+    "usuario": "37282985812",
     "organizacao": "CLIENTES_HML"
   },
   "virtual_keyboard": {

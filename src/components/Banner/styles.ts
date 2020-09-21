@@ -5,21 +5,16 @@ import Text from 'components/Text'
 
 interface IBannerWrapper {
   image?: string
-  size: 'sm' | 'lg'
 }
-
 export const BannerWrapper = styled.div<IBannerWrapper>`
   background-color: ${props => props.theme.colors.gray4};
   background-image: url(${props => !!props.image && props.image});
+  padding: ${({ theme }) => `${theme.spacing(6)}px ${theme.spacing(4)}px`};
   background-position: center;
   background-size: cover;
   border-radius: 8px;
   display: flex;
-  align-items: ${props => (props.size === 'sm' ? 'flex-start' : 'center')};
-  height: ${props => (props.size === 'sm' ? `208px` : `242px`)};
-  max-width: ${props => (props.size === 'sm' ? '665px' : '100%')};
   overflow: hidden;
-  padding: ${props => (props.size === 'sm' ? `28px` : `0 28px`)};
   position: relative;
 
   &:before {
@@ -32,22 +27,23 @@ export const BannerWrapper = styled.div<IBannerWrapper>`
     top: 0%;
     width: 100%;
   }
-
-  @media ${props => props.theme.mediaQueries.md} {
-    align-items: center;
-    height: auto;
-    max-width: 100%;
-    padding: 28px 21px;
-  }
 `
 
-export const BannerLabel = styled(Text).attrs(() => ({
-  type: 'captionUppercase',
+export const BannerTitle = styled(Text).attrs(() => ({
+  type: 'heading3',
 }))`
   color: ${props => props.theme.colors.white};
 `
 
-export const BannerContent = styled.div``
+export const BannerContent = styled.div`
+  width: 50%;
+  z-index: 1;
+  color: ${props => props.theme.colors.white};
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    width: 100%;
+  }
+`
 
 export const CloseButton = styled.div`
   position: absolute;
@@ -60,7 +56,7 @@ export const CloseButton = styled.div`
   height: 35px;
   border-radius: 50%;
   right: 28px;
-  top: -18px;
+  top: 0px;
   cursor: pointer;
 `
 export const CloseIcon = styled(Icon)`

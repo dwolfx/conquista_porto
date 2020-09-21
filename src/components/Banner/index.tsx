@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Container, Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import {
   BannerWrapper,
-  BannerLabel,
+  BannerTitle,
   BannerContent,
   CloseButton,
   CloseIcon,
@@ -13,8 +12,7 @@ import {
 interface IProps {
   bgImage?: string
   hasCloseButton?: boolean
-  label?: string
-  size?: 'sm' | 'lg'
+  title?: string | React.ReactNode
   justify?: 'start' | 'end' | 'center'
   onClose?: () => void
 }
@@ -22,11 +20,10 @@ interface IProps {
 const Banner: React.FC<IProps> = ({
   bgImage,
   children,
-  label,
+  title,
   hasCloseButton,
   onClose,
   justify = 'start',
-  size = 'sm',
   ...rest
 }) => {
   const [isOpen, setIsOpen] = useState(true)
@@ -50,15 +47,15 @@ const Banner: React.FC<IProps> = ({
           <CloseIcon name="close" />
         </CloseButton>
       )}
-      <BannerWrapper image={bgImage} size={size} {...rest}>
-        <Container>
-          <Row justifyContent={justify}>
-            <Col lg={size === 'sm' ? 12 : 10} md={12} sm={12} xs={12}>
-              {!!label && <BannerLabel>{label}</BannerLabel>}
-              <BannerContent>{children}</BannerContent>
-            </Col>
-          </Row>
-        </Container>
+      <BannerWrapper image={bgImage} {...rest}>
+        <BannerContent>
+          {typeof title === 'string' ? (
+            <BannerTitle>{title}</BannerTitle>
+          ) : (
+            title
+          )}
+          {children}
+        </BannerContent>
       </BannerWrapper>
     </>
   ) : null

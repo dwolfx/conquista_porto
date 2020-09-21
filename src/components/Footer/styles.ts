@@ -35,12 +35,8 @@ export const GridRow = styled(Row)`
     margin-right: 0;
   }
 `
-export const GridRowCopyright = styled(GridRow)<any>`
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    padding-bottom: ${props =>
-      props.locationPageHome === '/' ? `${props.theme.spacing(12)}px` : 0};
-  }
-`
+export const GridRowCopyright = styled(GridRow)<any>``
+
 export const GridCol = styled(Col)`
   @media ${({ theme }) => theme.mediaQueries.lg} {
     padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(1)}px`};

@@ -287,4 +287,4 @@ const Filter: React.FC<IProps> = ({
   )
 }
 
-export default Filter
+export default React.memo(Filter)

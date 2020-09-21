@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
-import { dict } from 'components/IconExporter'
 import { useHistory } from 'react-router-dom'
+
+import { IItemsProps } from './interface'
 
 import {
   Container,
@@ -13,19 +14,6 @@ import {
   WrapperChildren,
   ItemIconContainer,
 } from './styles'
-
-interface IChildSecondProp {
-  icon?: keyof typeof dict
-  text?: string
-  path?: string
-}
-
-export interface IItemsProps {
-  icon?: keyof typeof dict
-  text?: string
-  path?: string
-  children?: IChildSecondProp[]
-}
 
 interface IProps {
   items?: IItemsProps[]

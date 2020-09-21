@@ -50,7 +50,7 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
       <HorizontalList
         size="small"
         startItems={[HeaderTitle]}
-        endItems={HeaderEndItem ? [HeaderEndItem] : []}
+        endItems={[HeaderEndItem]}
         css={`
           width: 100%;
           padding: 0;

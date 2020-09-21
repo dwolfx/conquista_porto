@@ -45,7 +45,7 @@ const OutterWrapper = React.forwardRef<HTMLInputElement, IProps>(
     },
     ref
   ) => {
-    const isMobile = useMedia('xs')
+    const isMobile = useMedia('sm')
     const { target_value, target_date, initial_value } = formData
 
     const dadosCliente = useSelector<any, any>(

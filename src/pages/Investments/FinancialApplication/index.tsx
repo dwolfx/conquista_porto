@@ -97,7 +97,7 @@ const LayerInvestment: React.FC<IProps> = ({
   }))
 
   const stepCount = 2
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
 
   const loadFormData = useCallback(
     (prevState: any): any => {
@@ -406,7 +406,6 @@ const LayerInvestment: React.FC<IProps> = ({
       <Modal
         isOpen={isConfirmationModalOpen}
         title="Sair da página?"
-        description="Todas as informações serão perdidas e a solicitação não será finalizada."
         buttonTextCancel={`continuar ${isMobile ? '' : 'solicitação'}`}
         buttonTextConfirm="sair"
         onClose={() => {
@@ -416,11 +415,15 @@ const LayerInvestment: React.FC<IProps> = ({
           setIsConfirmationModalOpen(false)
           handleClose()
         }}
-      />
+      >
+        <Text type="headline" color="gray6">
+          Todas as informações serão perdidas e a solicitação não será
+          finalizada.
+        </Text>
+      </Modal>
       <Modal
         isOpen={isAlignmentTermModalOpen}
         title="Risco acima do seu perfil"
-        description="Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento."
         buttonTextCancel="ver termo"
         buttonTextConfirm="cancelar"
         onClose={() => {
@@ -430,7 +433,13 @@ const LayerInvestment: React.FC<IProps> = ({
         }}
         onConfirmation={handleAlignmentTermCloseModal}
         onCloseHeaderButton={handleAlignmentTermCloseModal}
-      />
+      >
+        <Text type="headline" color="gray6">
+          Sua carteira passará a ter uma risco maior do que o permitido para o
+          seu perfil. Para continuar, você deve assinar o termo de
+          desenquadramento.
+        </Text>
+      </Modal>
     </LayerFinancialApplication>
   ) : null
 }

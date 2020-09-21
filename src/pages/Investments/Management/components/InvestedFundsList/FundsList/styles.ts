@@ -6,6 +6,8 @@ import HorizontalList from 'components/HorizontalList'
 
 import { CardBody, CardFooter } from 'components/Card/styles'
 
+import * as t from '../types'
+
 export const ButtonStyled = styled(Button)`
   padding: 10px ${({ theme }) => theme.spacing(16)}px;
 
@@ -32,11 +34,7 @@ export const CardStyled = styled(Card)`
   }
 `
 
-interface IFundItemProps {
-  selected: boolean
-  itemsLength: number
-}
-export const FundItem = styled.div<IFundItemProps>`
+export const FundItem = styled.div<t.IFundItemProps>`
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray1};
   cursor: pointer;
   padding: ${({ theme }) => `0 ${theme.spacing(5)}px 0 ${theme.spacing(1)}px;`}

@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Button from 'components/Button'
@@ -14,16 +13,17 @@ import Popover from 'components/Popover/index'
 import { dict } from 'components/IconExporter'
 import { useToast } from 'hooks/toast'
 
+import { GetRewardTypesRequest } from 'store/modules/Rewards/Types/action'
 import {
   GetPointsExtractRequest,
   GetPointsBalanceRequest,
   PostRedeemPointsRequest,
 } from 'store/modules/Points/action'
-import { GetRewardTypesRequest } from 'store/modules/Rewards/Types/action'
 
 import CardHeaderState from 'pages/Home/commons/CardHeaderState'
 import LoadingState from 'pages/Home/commons/LoadingState'
 import ErrorState from 'pages/Home/commons/ErrorState'
+import useMedia from 'hooks/useMedia'
 
 import {
   pointsRewardsDataWithCreditCard,
@@ -34,10 +34,9 @@ import { pointsRulesConditions } from './modalPointsData'
 import PointsOfferCard from './RecommendationCard'
 
 import { ICardsInfo } from './types'
+import { PointsCol, RulesButton } from './styles'
 import {
   EmptyBody,
-  SectionCol,
-  FullHeightCard,
   CardPontosFooter,
   ContainerBox,
   PointsHorizontal,
@@ -51,10 +50,18 @@ import {
   PointsButtonWrapper,
   Icon,
   PointsEmptyContainer,
+  HomePointsCard,
+  HomePointsOffersCard,
   HorizontalListTruncateStartBlock,
 } from '../styles'
+import { capitalize, formatNumber } from 'helpers'
+import { IPoints } from 'store/modules/Points/iPoints'
 
-export default function PointsSection({ points }: any) {
+interface IProps {
+  points: IPoints
+}
+
+export default function PointsSection({ points }: IProps) {
   const { addToast } = useToast()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [belowOffer, setBelowOffer] = useState<ICardsInfo | null>(null)
@@ -72,6 +79,9 @@ export default function PointsSection({ points }: any) {
   )
 
   const dispatch = useDispatch()
+  const isTabletHorizontal = useMedia('lg')
+  const isTabletVertical = useMedia('md')
+
   const {
     isLoadingRedeem,
     isLoadingExtract,
@@ -218,17 +228,38 @@ export default function PointsSection({ points }: any) {
 
     return (
       <CardPontosFooter>
-        <ButtonLink
-          data-gtm-subname="card pontos"
-          data-gtm-name="regras e condicoes"
-          data-gtm-type="click"
-          data-gtm-clicktype="link"
-          onClick={() => setIsModalOpen(!isModalOpen)}
-        >
-          Regras e condições
-        </ButtonLink>
+        {isTabletHorizontal || isTabletVertical ? (
+          <RulesButton
+            data-gtm-subname="card pontos"
+            data-gtm-name="regras e condicoes"
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            outline
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            Regras e condições
+          </RulesButton>
+        ) : (
+          <ButtonLink
+            data-gtm-subname="card pontos"
+            data-gtm-name="regras e condicoes"
+            data-gtm-type="click"
+            data-gtm-clicktype="link"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            Regras e condições
+          </ButtonLink>
+        )}
       </CardPontosFooter>
     )
+  }
+
+  const formatTransactionName = (transationName: string): string => {
+    return transationName
+      .toLowerCase()
+      .split(' ')
+      .map(item => capitalize(item))
+      .join(' ')
   }
 
   const renderPointsHorizontalList = () =>
@@ -237,14 +268,14 @@ export default function PointsSection({ points }: any) {
       <HorizontalListTruncateStartBlock
         key={`point-${index}-${Math.random() * 100}`}
         startItems={[
-          <PointDate>{item.dataCompra}</PointDate>,
+          <PointDate>{item?.dataCompra}</PointDate>,
           <PointName truncate type="headline">
-            {item.nomeTransacao}
+            {formatTransactionName(item?.nomeTransacao)}
           </PointName>,
         ]}
         endItems={[
           <PointNumber type="headline" bold>
-            {Intl.NumberFormat().format(item.pontoGanho)}
+            {formatNumber(item?.pontoGanho)}
           </PointNumber>,
         ]}
       />
@@ -319,18 +350,22 @@ export default function PointsSection({ points }: any) {
       )
     }
 
+    const pointsInfoAmountBalance = () => {
+      const balanceValue =
+        !!balanceData.consultaPontosResponseType &&
+        !!pointsAmountBalance &&
+        formatNumber(pointsAmountBalance)
+
+      return balanceData.consultaPontosResponseType
+        ? `Você tem ${balanceValue} pontos`
+        : 'Você tem 0 pontos'
+    }
+
     return (
       <>
         <PointsInfo>
-          <Text type="headline">
-            {balanceData.consultaPontosResponseType
-              ? 'Saldo atual'
-              : 'Você possui 0 pontos'}
-          </Text>
-          <Text type="headline" bold>
-            {!!balanceData.consultaPontosResponseType &&
-              !!pointsAmountBalance &&
-              Intl.NumberFormat().format(pointsAmountBalance)}
+          <Text type="headline" color="gray6">
+            {pointsInfoAmountBalance()}
           </Text>
           <Popover
             content={() => (
@@ -396,9 +431,9 @@ export default function PointsSection({ points }: any) {
       >
         {renderModalContent()}
       </Modal>
-      <SectionCol md={5}>
+      <PointsCol md={6} mdOffset={0} lg={5} lgOffset={1}>
         <PointsExtractListWrapper>
-          <FullHeightCard
+          <HomePointsCard
             headerIcon="diamond"
             headerTitle="Pontos"
             footer={renderPointsFooter()}
@@ -419,17 +454,37 @@ export default function PointsSection({ points }: any) {
             }
           >
             {renderPointsCard()}
-          </FullHeightCard>
+          </HomePointsCard>
         </PointsExtractListWrapper>
-      </SectionCol>
+      </PointsCol>
 
-      <SectionCol md={7}>
-        <Row
-          css={`
-            height: 100%;
-          `}
-        >
-          <SectionCol md={6}>
+      {isTabletHorizontal && !isTabletVertical ? (
+        <PointsCol sm={6} md={6}>
+          <HomePointsOffersCard
+            headerIcon="target"
+            headerTitle="Troque seus pontos"
+            headerEndItem={
+              <CardHeaderState
+                showHeader={Boolean(points && Object.entries(points).length)}
+                isLoading={isLoadingExtract || isLoadingBalance}
+                hasError={hasErrorExtract || hasErrorBalance}
+                onErrorClick={() => {
+                  if (hasErrorExtract) {
+                    dispatch(GetPointsExtractRequest(auth.cpf))
+                  }
+                  if (hasErrorBalance) {
+                    dispatch(GetPointsBalanceRequest(auth.cpf))
+                  }
+                }}
+              />
+            }
+          >
+            <span>Content</span>
+          </HomePointsOffersCard>
+        </PointsCol>
+      ) : (
+        <>
+          <PointsCol md={3} sm={6}>
             <PointsOfferCard
               offer={belowOffer || cardsRecommendationData[0]}
               cardIcon={firstRecommendationCardIcon}
@@ -441,8 +496,9 @@ export default function PointsSection({ points }: any) {
                   : 'Acumule mais pontos'
               }
             />
-          </SectionCol>
-          <SectionCol md={6}>
+          </PointsCol>
+
+          <PointsCol md={3} sm={6}>
             <PointsOfferCard
               offer={aboveOffer || cardsRecommendationData[1]}
               cardIcon={lastRecommendationCardIcon}
@@ -454,9 +510,9 @@ export default function PointsSection({ points }: any) {
                   : 'Acumule mais pontos'
               }
             />
-          </SectionCol>
-        </Row>
-      </SectionCol>
+          </PointsCol>
+        </>
+      )}
     </>
   )
 }

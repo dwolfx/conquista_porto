@@ -5,9 +5,11 @@ import 'styled-components/macro'
 import Text from 'components/Text'
 import SecuritySeal from 'components/SecuritySeal'
 import IconExporter from 'components/IconExporter'
+import Modal from 'components/Modal/Confirmation'
 
 import { useToast } from 'hooks/toast'
 import { ValidateTokenNSignature } from 'store/modules/2FAToken/action'
+import { PostNewSignatureDataRequest } from 'store/modules/VirtualKeyboard/action'
 
 import {
   Card,
@@ -18,7 +20,12 @@ import {
   Footer,
   InputStyled,
   Button,
+  ContainerNewSignature,
+  ButtonNewSignature,
+  ButtonMobileNewSignature,
+  TextSpace,
 } from '../styles'
+import useMedia from 'hooks/useMedia'
 
 interface IProps {
   onPrevious: (stepsBack: number) => void
@@ -36,26 +43,36 @@ const DigitalSignature = ({
 }: IProps) => {
   const dispatch = useDispatch()
   const { addToast } = useToast()
+  const isMobile = useMedia('sm')
 
   const [signature, setSignature] = useState<string>('')
+  const [
+    isModalConfirmGenerateNewSignatureOpen,
+    setIsModalConfirmGenerateNewSignatureOpen,
+  ] = useState<boolean>(false)
+
   const {
     keyboardData,
     tokenData,
     isToken2faLoading,
     isVirtualKeyboardLoading,
+    isLoadingNewSignature,
   } = useSelector((state: any) => ({
     keyboardData: state.virtualKeyboard,
     tokenData: state.token2fa,
     isToken2faLoading: state.token2fa.isLoading,
     isVirtualKeyboardLoading: state.virtualKeyboard.isLoading,
+    isLoadingNewSignature: state.virtualKeyboard.isLoadingNewSignature,
   }))
 
-  const isLoading = 
+  const isLoading =
     isToken2faLoading ||
     isVirtualKeyboardLoading ||
     tokenData.isLoading ||
-    keyboardData.isLoading || 
+    keyboardData.isLoading ||
     isNextButtonLoading
+
+  const labelNewSignature = 'gerar nova assinatura'
 
   const handleVirtualKeyboardKey = (item: any) => {
     const [key] = Object.keys(item)
@@ -82,6 +99,20 @@ const DigitalSignature = ({
     )
   }
 
+  const handleModalNewSignatureCloseOrOpen = (closeOrOpenModal: boolean) => {
+    setIsModalConfirmGenerateNewSignatureOpen(closeOrOpenModal)
+  }
+
+  const generateNewSignature = () => {
+    dispatch(
+      PostNewSignatureDataRequest(
+        'email_otp',
+        addToast,
+        handleModalNewSignatureCloseOrOpen
+      )
+    )
+  }
+
   return (
     <Card
       {...rest}
@@ -89,7 +120,9 @@ const DigitalSignature = ({
         <Footer>
           <Button
             outline
-            onClick={() => { onPrevious(1) }}
+            onClick={() => {
+              onPrevious(1)
+            }}
             data-gtm-type="click"
             data-gtm-clicktype="button"
             data-gtm-subname="assinatura eletronica"
@@ -99,10 +132,7 @@ const DigitalSignature = ({
           </Button>
           <Button
             color="secondary"
-            disabled={
-              signature.length < 6 ||
-              isLoading
-            }
+            disabled={signature.length < 6 || isLoading}
             loading={isLoading}
             loadingColor="white"
             onClick={() => {
@@ -124,7 +154,9 @@ const DigitalSignature = ({
                   onError,
                   onSuccess: onConfirm,
                   addToast,
-                  goToPreviousStep: () => { onPrevious(2) },
+                  goToPreviousStep: () => {
+                    onPrevious(2)
+                  },
                 })
               )
             }}
@@ -168,6 +200,53 @@ const DigitalSignature = ({
             <IconExporter name="backspace" />
           </Key>
         </VirtualKeyboard>
+        <ContainerNewSignature>
+          <Text type="body" color="gray6">
+            Esqueceu sua assinatura eletrônica?
+          </Text>
+          {isMobile ? (
+            <ButtonMobileNewSignature
+              outline
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="assinatura eletronica"
+              data-gtm-name="botao confirma gerar nova"
+              onClick={() => handleModalNewSignatureCloseOrOpen(true)}
+            >
+              {labelNewSignature}
+            </ButtonMobileNewSignature>
+          ) : (
+            <ButtonNewSignature
+              noIcon
+              data-gtm-type="click"
+              data-gtm-clicktype="button"
+              data-gtm-subname="assinatura eletronica"
+              data-gtm-name="botao confirma gerar nova"
+              onClick={() => handleModalNewSignatureCloseOrOpen(true)}
+            >
+              {labelNewSignature}
+            </ButtonNewSignature>
+          )}
+          <Modal
+            isOpen={isModalConfirmGenerateNewSignatureOpen}
+            title="Gerar nova assinatura?"
+            loading={isLoadingNewSignature}
+            loadingColor="white"
+            buttonTextCancel="voltar"
+            buttonTextConfirm="enviar para e-mail"
+            onClose={() => handleModalNewSignatureCloseOrOpen(false)}
+            onConfirmation={generateNewSignature}
+          >
+            <Text type="headline" color="gray6">
+              Tem certeza que deseja gerar uma nova assinatura eletrônica?
+            </Text>
+            <TextSpace />
+            <Text type="headline" bold color="gray6">
+              Sua nova assinatura será enviada para o endereço de e-mail
+              cadastrado.
+            </Text>
+          </Modal>
+        </ContainerNewSignature>
         <ContainerSecuritySeal>
           <SecuritySeal />
         </ContainerSecuritySeal>

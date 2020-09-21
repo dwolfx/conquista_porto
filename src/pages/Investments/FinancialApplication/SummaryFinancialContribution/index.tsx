@@ -53,7 +53,7 @@ const SummaryFinancialContribution = ({
     financialApplicationGetData.dados_para_aplicacao.fundo.hora_aplicacao
 
   const { addToast } = useToast()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   const dispatch = useDispatch()
 
   const handleDispatchPostFinancialApplicationDataRequest = () => {

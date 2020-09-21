@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Anbima from 'components/Anbima'
@@ -13,6 +13,7 @@ import { GridContainer } from './styles'
 import { RedeemLayerToggleClose } from 'store/modules/Investment/Redeem/action'
 import Redeem from 'pages/Redeem'
 import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
+import { SetIdFund } from 'store/modules/Investment/Position/action'
 
 const ManagementInvestments: React.FC = ({ ...rest }) => {
   const [viewMode, setViewMode] = useState<TFundsLayout>('CARDS')
@@ -28,6 +29,18 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
   useFetchSuitabilityInfo()
 
   const filteredInvestedFunds = useFilter(filters)
+
+  useEffect(() => {
+    if (
+      filteredInvestedFunds &&
+      filteredInvestedFunds.length > 0 &&
+      filteredInvestedFunds[0].id
+    ) {
+      dispatch(SetIdFund(filteredInvestedFunds[0].id))
+    }
+    // eslint-disable-next-line
+  }, [dispatch, filters])
+
   const handleChangeFundsView = (layoutCheanged: TFundsLayout) => {
     setViewMode(layoutCheanged)
   }

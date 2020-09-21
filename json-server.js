@@ -23,6 +23,12 @@ server.use(jsonServer.bodyParser)
 
 server.use(jsonServer.rewriter(routes))
 
+// Adicionar um sleep pra simular demora da requisição
+server.use((req, res, next) => {
+  const delay = Math.random() * (4000 - 500) + 500
+  setTimeout(next, delay)
+})
+
 router.render = (req, res) => {
   if (req.originalUrl.startsWith('/api/loyalty/optemais/auth/tokenorg')) {
     return res.jsonp({

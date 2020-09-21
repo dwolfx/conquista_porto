@@ -6,6 +6,7 @@ import {
   PostVirtualKeyboardDataFailure,
   PutVirtualKeyboardDataSuccess,
   PutVirtualKeyboardDataFailure,
+  SetNewSignatureLoading,
 } from './action'
 import NotFoundException from 'services/exceptions/NotFoundException'
 import BadRequestException from 'services/exceptions/BadRequestException'
@@ -14,8 +15,9 @@ import ValidateSignatureBadRequestException from './exceptions/ValidateSignature
 import ValidateSignatureException from './exceptions/ValidateSignatureException'
 import ValidateSignatureNotFoundException from './exceptions/ValidateSignatureNotFoundException'
 
-import { Types } from './types'
-import { getAuth } from './selectors'
+import { Types, IGenerateNewSignaturePayload } from './types'
+
+import { getAuth, getEmailToNewSignature } from './selectors'
 
 function handleOrganizacao() {
   const env = process.env.REACT_APP_ENV
@@ -118,7 +120,44 @@ export function* generateNewSignature() {
   } catch (err) {}
 }
 
+export function* postNewSignature({ payload }: IGenerateNewSignaturePayload) {
+  const { addToast, handleModalNewSignatureCloseOrOpen } = payload
+
+  try {
+    const auth = yield select(getAuth)
+    const emailToNewSignature = yield select(getEmailToNewSignature)
+
+    yield call(post, `${baseURLNamespaceAuth2}/assinatura-eletronica`, {
+      usuario: auth?.cpf,
+      organizacao: handleOrganizacao(),
+    })
+
+    yield put(SetNewSignatureLoading(false))
+
+    if (addToast) {
+      addToast({
+        type: 'success',
+        title: `Enviado para: ${emailToNewSignature}`,
+        description: 'Nova assinatura enviada com sucesso',
+      })
+    }
+  } catch (err) {
+    yield put(SetNewSignatureLoading(false))
+
+    if (addToast) {
+      addToast({
+        type: 'error',
+        title: 'Erro ao enviar nova assinatura',
+        description: 'Por favor, tente novamente.',
+      })
+    }
+  } finally {
+    handleModalNewSignatureCloseOrOpen(false)
+  }
+}
+
 export default all([
   takeLatest(Types.POST_REQUEST, generateKeyboard),
   takeLatest(Types.VALIDATE_REQUEST, validateSignature),
+  takeLatest(Types.POST_NEW_SIGNATURE, postNewSignature),
 ])

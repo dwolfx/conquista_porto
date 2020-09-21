@@ -7,7 +7,7 @@ import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
-import DropDown, { IItemsProps } from 'components/Dropdown'
+import DropDown from 'components/Dropdown'
 
 import { handleGiwRedirect } from 'helpers'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
@@ -17,6 +17,8 @@ import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
 
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
+
+import { IItemsProps } from 'components/Dropdown/interface'
 
 import {
   BgWrapper,
@@ -150,7 +152,7 @@ export default function HeaderNew({ crumbs }: IProps) {
           }
           setIsOpen={setIsMobileOpen}
           totalPoints={
-            !!balanceData.consultaPontosResponseType && 
+            !!balanceData.consultaPontosResponseType &&
             !!pointsAmountBalance &&
             Intl.NumberFormat().format(pointsAmountBalance)
           }

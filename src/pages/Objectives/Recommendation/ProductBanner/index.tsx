@@ -104,7 +104,6 @@ const ProductBanner = ({ additional }: IProps) => {
             xs={12}
           >
             <s.ProductBanner
-              size={renderedProducts.length > 1 ? 'sm' : 'lg'}
               bgImage={product.image}
             >
               <Text bold type="captionUppercase">

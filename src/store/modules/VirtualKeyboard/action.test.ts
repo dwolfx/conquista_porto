@@ -7,6 +7,7 @@ import {
   PutVirtualKeyboardDataSuccess,
   PutVirtualKeyboardDataFailure,
   SetKeyboardLoading,
+  SetNewSignatureLoading,
 } from './action'
 
 describe('VirtualKeyboard Actions', () => {
@@ -55,6 +56,14 @@ describe('VirtualKeyboard Actions', () => {
     const payload = true
     expect(SetKeyboardLoading(payload)).toEqual({
       type: Types.SET_LOADING,
+      payload,
+    })
+  })
+
+  test('if SetNewSignatureLoading returns the correct object', () => {
+    const payload = true
+    expect(SetNewSignatureLoading(payload)).toEqual({
+      type: Types.SET_LOADING_NEW_SIGNATURE,
       payload,
     })
   })

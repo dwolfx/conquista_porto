@@ -4,9 +4,9 @@ import createStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 
 import { ThemeProvider } from 'styled-components'
-import theme from '../../../styles/theme'
+import theme from 'styles/theme'
 
-import SectionOne from '../../../pages/Home/SectionOne'
+import SectionOne from 'pages/Home/SectionOne'
 
 const INITIAL_STATE = {
   auth: {
@@ -60,12 +60,17 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => [],
 }))
 
-jest.mock('../../../pages/Home/InvestmentSection', () => ({
+jest.mock('pages/Home/InvestmentCard', () => ({
   __esModule: true,
   default: () => [],
 }))
 
-jest.mock('../../../pages/Home/ProductItemGenerator.js', () => ({
+jest.mock('pages/Home/InsuranceCard', () => ({
+  __esModule: true,
+  default: () => [],
+}))
+
+jest.mock('pages/Home/ProductItemGenerator.js', () => ({
   __esModule: true,
   default: () => [],
 }))

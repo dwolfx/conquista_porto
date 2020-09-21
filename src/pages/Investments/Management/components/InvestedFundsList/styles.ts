@@ -1,5 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
+import IconComponent from 'components/IconExporter'
 import Button from 'components/Button'
 import Card from 'components/Card'
 import Loading from 'components/Loading'
@@ -46,4 +47,67 @@ export const ButtonStyled = styled(Button)`
   ${Content} {
     padding: 0;
   }
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+`
+
+export const ChangePageButton = styled.button<{ disabled: boolean }>`
+  display: flex;
+  background-color: ${({ theme }) => theme.colors.gray2};
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+
+  &:active {
+    background-color: ${({ theme }) => theme.colors.gray1};
+  }
+  & + & {
+    margin-left: ${({ theme }) => `${theme.spacing(2)}px`};
+    svg {
+      margin-left: 3px;
+      margin-right: 0;
+    }
+  }
+  svg {
+    margin-right: 2px;
+  }
+  svg polyline {
+    stroke-width: ${({ theme }) => `${theme.spacing(1)}px`};
+    height: 12px;
+    stroke: ${props => props.theme.colors.gray6};
+  }
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: not-allowed;
+      pointer-events: none;
+      background-color: ${({ theme }) => theme.colors.gray1};
+
+      svg polyline {
+        stroke: ${props => props.theme.colors.gray4};
+      }
+    `}
+`
+
+export const ForwardIcon = styled(IconComponent)`
+  height: 12px;
+  width: 12px;
+`
+
+export const BackwardIcon = styled(IconComponent)`
+  height: 12px;
+  width: 12px;
+`
+
+export const FilterAndButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `

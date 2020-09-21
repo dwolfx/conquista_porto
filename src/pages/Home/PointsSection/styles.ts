@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Col } from 'styled-bootstrap-grid'
 
 import Button from 'components/Button'
 import Text from 'components/Text'
@@ -13,8 +14,7 @@ export const OfferBox = styled.div`
 export const OfferImageBox = styled.div`
   border-radius: 8px;
   height: 230px;
-  margin-top: 14px;
-  margin-bottom: 21px;
+  margin: ${({ theme }) => `${theme.spacing(2)}px 0 ${theme.spacing(3)}px 0`};
   overflow: hidden;
   position: relative;
 
@@ -31,7 +31,7 @@ export const OfferCategoryBox = styled.div`
   bottom: 0;
   display: flex;
   height: 35px;
-  padding: 0 14px;
+  padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
   position: absolute;
   width: 100%;
 `
@@ -42,12 +42,12 @@ export const OfferCategoryText = styled(Text)`
 `
 
 export const OfferTextBox = styled.div`
-  margin: 0 14px 14px;
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`};
 `
 
 export const OfferTitle = styled(Text)`
   color: ${props => props.theme.colors.gray6};
-  margin-bottom: 7px;
+  margin-bottom: ${({ theme }) => `${theme.spacing(1)}px`};
 `
 
 export const OfferText = styled(Text).attrs(() => ({
@@ -58,4 +58,19 @@ export const OfferText = styled(Text).attrs(() => ({
 
 export const OfferCardButton = styled(Button)`
   width: 100%;
+`
+export const PointsCol = styled(Col)`
+  @media ${props => props.theme.mediaQueries.md} {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  }
+
+  @media all and (-moz-images-in-menus: 0) {
+    height: -webkit-fill-available;
+    height: -moz-available;
+  }
+`
+
+export const RulesButton = styled(Button)`
+  width: 100%;
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
 `

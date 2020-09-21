@@ -24,6 +24,8 @@ import { ReactComponent as calendar } from 'assets/icons/calendar.svg'
 import { ReactComponent as callcenter } from 'assets/icons/call-center.svg'
 import { ReactComponent as car } from 'assets/icons/car.svg'
 import { ReactComponent as car2 } from 'assets/icons/car2.svg'
+import { ReactComponent as cardflagmaster } from 'assets/icons/card-flag-master.svg'
+import { ReactComponent as cardflagvisa } from 'assets/icons/card-flag-visa.svg'
 import { ReactComponent as carnew } from 'assets/icons/car-new.svg'
 import { ReactComponent as check } from 'assets/icons/check.svg'
 import { ReactComponent as close } from 'assets/icons/close.svg'
@@ -122,6 +124,8 @@ export const dict = {
   callcenter,
   car,
   car2,
+  cardflagmaster,
+  cardflagvisa,
   carnew,
   check,
   close,
@@ -208,6 +212,11 @@ export default ({
 }: IProps & React.SVGAttributes<SVGElement>) => {
   const Icon = dict[name]
   return Icon ? (
-    <Icon role="img" aria-label={name} fill={color ? themeColors[color] : fill} {...rest} />
+    <Icon
+      role="img"
+      aria-label={name}
+      fill={color ? themeColors[color] : fill}
+      {...rest}
+    />
   ) : null
 }

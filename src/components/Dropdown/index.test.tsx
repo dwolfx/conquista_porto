@@ -1,17 +1,11 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
-import {
-  render,
-  waitFor,
-  fireEvent,
-  screen,
-  act,
-  waitForElement,
-} from '@testing-library/react'
+import { render, waitFor, fireEvent, screen, act } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 
-import Dropdown, { IItemsProps } from '.'
+import Dropdown from '.'
+import { IItemsProps } from './interface'
 
 const items: IItemsProps[] = [
   {
