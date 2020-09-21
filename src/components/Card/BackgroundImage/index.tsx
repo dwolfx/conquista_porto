@@ -15,18 +15,20 @@ export default ({
   ...rest
 }: IProps) => (
   <s.CardWrapper align={align} {...rest}>
-    <s.CardBackground image={background} />
+    <s.CardBackground image={background} data-testid="background-image" />
     {title && (
       <s.CardTitle>
         {icon && (
           <s.IconWrapper>
-            <Icon name={icon} />
+            <Icon name={icon} data-testid="icon" />
           </s.IconWrapper>
         )}
         <Text type="button" color="white">
           {title}
         </Text>
-        {isLoading && <s.Loading type="spinner" color="white" />}
+        {isLoading && (
+          <s.Loading type="spinner" color="white" data-testid="loading" />
+        )}
       </s.CardTitle>
     )}
   </s.CardWrapper>

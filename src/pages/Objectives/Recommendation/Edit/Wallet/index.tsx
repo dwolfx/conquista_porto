@@ -161,6 +161,63 @@ export default function WalletComposition({ onClose }: IProps) {
     isLoadingObjectiveManagement,
   ])
 
+  const checkFundsChanges = useCallback(
+    fundsToCheck => {
+      if (fundsToCheck.length > 0) {
+        const initialValues = [...recommendationData.funds].map(fund => ({
+          initial_value: fund.initial_value,
+          monthly_value: fund.monthly_value,
+        }))
+        const editedValues = [...fundsToCheck].map(fund => ({
+          initial_value: fund.initial_value,
+          monthly_value: fund.monthly_value,
+        }))
+
+        setIsFundsEdited(
+          JSON.stringify(initialValues) !== JSON.stringify(editedValues)
+        )
+      }
+    },
+    [recommendationData]
+  )
+
+  useEffect(() => {
+    checkFundsChanges(funds)
+
+    if (isFundsEdited) {
+      // this it'll be executed on sucess of dispatch to the /recalculate-funds endpoint
+      const onSuccess = (recalculateFundsData: IIncome) => {
+        setIsReachedGoal(
+          recalculateFundsData.median >= recommendationData?.answer.target_value
+        )
+        setPrediction(recalculateFundsData)
+      }
+
+      dispatch(
+        PostRecalculateFundsRequest({
+          data: {
+            target_date: recommendationData.answer.target_date,
+            fund_list: [...funds].map(fund => ({
+              category: fund.arena_category,
+              fund_id: fund.fund_id,
+              initial_amount: fund.initial_value,
+              monthly_amount: fund.monthly_value,
+            })),
+          },
+          onSuccess,
+          onErrorToast: addToast,
+        })
+      )
+    }
+  }, [
+    addToast,
+    dispatch,
+    funds,
+    isFundsEdited,
+    recommendationData,
+    checkFundsChanges,
+  ])
+
   // function that is triggered on blur of the input, updating 'fund' state value with values inputed
   const handleInputsBlur = useCallback(
     ({ event, value: inputValue, row, hasError }: IHandleInputsBlur) => {
@@ -207,44 +264,8 @@ export default function WalletComposition({ onClose }: IProps) {
 
       setInitialDistributedValue(calculateInitialDistribution)
       setMonthlyDistributedValue(calculateMonthlyDistribution)
-
-      // this it'll be executed on sucess of dispatch to the /recalculate-funds endpoint
-      const onSuccess = (recalculateFundsData: IIncome) => {
-        const initialValues = [...recommendationData.funds].map(fund => ({
-          initial_value: fund.initial_value,
-          monthly_value: fund.monthly_value,
-        }))
-        const editedValues = [...newValues].map(fund => ({
-          initial_value: fund.initial_value,
-          monthly_value: fund.monthly_value,
-        }))
-
-        setIsFundsEdited(
-          JSON.stringify(initialValues) !== JSON.stringify(editedValues)
-        )
-        setIsReachedGoal(
-          recalculateFundsData.median >= recommendationData?.answer.target_value
-        )
-        setPrediction(recalculateFundsData)
-      }
-
-      dispatch(
-        PostRecalculateFundsRequest({
-          data: {
-            target_date: recommendationData.answer.target_date,
-            fund_list: [...newValues].map(fund => ({
-              category: fund.arena_category,
-              fund_id: fund.fund_id,
-              initial_amount: fund.initial_value,
-              monthly_amount: fund.monthly_value,
-            })),
-          },
-          onSuccess,
-          onErrorToast: addToast,
-        })
-      )
     },
-    [funds, addToast, dispatch, recommendationData]
+    [funds]
   )
 
   const removeAction = (fundId: number) => {

@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 
-import CardBackground from 'components/CardBackground'
+import CardBackground from 'components/Card/BackgroundImage'
 
 import { useToast } from 'hooks/toast'
 import dataObjective from 'pages/Objectives/GoalStreams/dataObjective'

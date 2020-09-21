@@ -12,8 +12,7 @@ interface CardWrapper {
 }
 
 export const CardBackground = styled.div<CardBackground>`
-  background-image: ${props =>
-    props.image ? `url('${props.image}')` : props.theme.colors.gray4};
+  background-image: ${({ image }) => `url('${image}')`};
   background-position: center center;
   background-size: cover;
   height: 100%;

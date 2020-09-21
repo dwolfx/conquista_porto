@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import 'styled-components/macro'
 
 import ButtonIcon from 'components/Button/Icon'
@@ -35,10 +36,15 @@ interface IFormatValue {
 }
 
 export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
-  const [innerValue, setInnerValue] = useState(row[type])
-  const [compareError, setCompareError] = useState(false)
   const { addToast } = useToast()
   const minValue = getMinFundValue(type)
+
+  const [innerValue, setInnerValue] = useState(row[type])
+  const [compareError, setCompareError] = useState(false)
+
+  const { isLoadingRelculateFundsData } = useSelector<any, any>(
+    state => state.objective
+  )
 
   useEffect(() => {
     setCompareError(innerValue < minValue)
@@ -115,6 +121,7 @@ export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
         error={compareError}
         value={Currency.parse(innerValue)}
         maxLength={14}
+        disabled={isLoadingRelculateFundsData}
         onFocus={minFundValueValidation}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           minFundValueValidation(event)

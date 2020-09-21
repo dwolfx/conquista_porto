@@ -70,11 +70,18 @@ export const FundoNameWrapper = styled(Text)`
   white-space: pre-wrap;
 `
 
-export const MoneyInput = styled(MoneyInputCmp)`
+export const MoneyInput = styled(MoneyInputCmp)<any>`
   height: 35px;
   width: 168px;
 
   ${({ theme }) => theme.fontTypes.body};
+
+  &:before {
+    background-color: ${({ theme, disabled }) =>
+      disabled ? theme.colors.gray3 : 'transparent'};
+    border-radius: 8px 8px 0 0;
+    opacity: 0.4;
+  }
 `
 
 export const Footer = styled.div`
