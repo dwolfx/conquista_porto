@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import Button from 'components/Button'
 import Text from 'components/Text'
 
@@ -8,9 +9,17 @@ interface EmptyStateContent {
   title: string
   subtitle: string
   buttonText: string
+  path: string
 }
 
-const CardInfoItem = ({ title, subtitle, buttonText }: EmptyStateContent) => {
+const CardInfoItem = ({
+  title,
+  subtitle,
+  buttonText,
+  path,
+}: EmptyStateContent) => {
+  const history = useHistory()
+
   return (
     <CardInfo>
       <Title>
@@ -25,7 +34,7 @@ const CardInfoItem = ({ title, subtitle, buttonText }: EmptyStateContent) => {
         data-gtm-subname="Cartao de credito"
         data-gtm-name="botao cartao de credito"
         color="secondary"
-        onClick={() => {}}
+        onClick={() => history.push(`${path}`)}
       >
         {buttonText}
       </Button>

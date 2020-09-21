@@ -85,6 +85,7 @@ const Credits: React.FC = ({ children }) => {
       return (
         <EmptyStateContent
           key={uuid()}
+          path={cardItem.path}
           title={cardItem.title}
           subtitle={cardItem.subtitle || ''}
           buttonText="conhecer"

@@ -40,7 +40,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): CreditCardInfo => ({
           type: 'info',
           title: cardCreditTitle,
-          path: '/cartao-credito/visualizar',
+          path: '/cartao-credito',
           flag: item?.Bandeira === 'Master' ? 'cardflagmaster' : 'cardflagvisa',
           valor: formatMoney(+item?.LimiteTitularCartao?.LimiteDisponivel),
         })
@@ -65,7 +65,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): FinanceableVehicle => ({
           type: 'progress',
           title: financingVehiclesTitle,
-          path: '/financiamento-veiculo/visualizar',
+          path: '/financiamento-veiculo',
           totalInstallments: item?.QuantidadeParcelasContratadas,
           paidInstallments: item?.QuantidadeParcelasPagas,
         })
@@ -90,7 +90,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): ConsortiumVehicle => ({
           type: 'progress',
           title: consortiumVehiclesTitle,
-          path: '/consorcio-veiculo/visualizar',
+          path: '/consorcio-veiculo',
           totalInstallments: item?.QuantidadeParcelasContratadas,
           paidInstallments: item?.QuantidadeParcelasPagas,
         })
@@ -115,7 +115,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): ConsortiumProperty => ({
           type: 'progress',
           title: consortiumBuildingsTitle,
-          path: '/consorcio-imovel/visualizar',
+          path: '/consorcio-imovel',
           totalInstallments: item?.QuantidadeParcelasContratadas,
           paidInstallments: item?.QuantidadeParcelasPagas,
         })
