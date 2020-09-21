@@ -27,7 +27,7 @@ export const BgWrapper = styled.div<BgWrapperProps>`
 export const FixedHeaderContainer = styled.div`
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 `
 
 export const GridContainer = styled(Container)`
@@ -36,7 +36,7 @@ export const GridContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 14px;
+  padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
 `
 
 export const LeftBlock = styled.div`
@@ -51,7 +51,7 @@ export const RightBlock = styled.div`
   justify-content: flex-end;
 
   && > div:not(:last-child) {
-    margin-right: 14px;
+    margin-right: ${({ theme }) => `${theme.spacing(2)}px`};
   }
 `
 
@@ -60,7 +60,7 @@ export const Icon = styled(ConquistaIcon).attrs(props => ({
 }))`
   width: 21px;
   height: 21px;
-  margin: 0 7px;
+  margin: ${({ theme }) => `0 ${theme.spacing(1)}px`};
   flex-shrink: 0;
 `
 
@@ -69,8 +69,7 @@ export const ConquistaBeta = styled.img.attrs(() => ({
 }))`
   width: 144px;
   height: 51px;
-  margin-top: 20px;
-  margin-right: 28px;
+  margin: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(4)}px 0 0`};
   cursor: pointer;
 `
 

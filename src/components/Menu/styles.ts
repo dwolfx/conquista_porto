@@ -34,7 +34,9 @@ export const Container = styled.div<IContainer>`
   }
 
   @media ${props => props.theme.mediaQueries.xs} {
-    width: 332px;
+    width: 100%;
+    padding: ${({ theme }) => `0 ${theme.spacing(2)}px;`};
+    margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
   }
 `
 
@@ -144,7 +146,7 @@ export const Option = styled.div<IOption>`
       css`
         &:hover:not(:active) {
           padding: ${({ theme }) =>
-            `${theme.spacing(3)}px ${theme.spacing(2)}px`}
+            `${theme.spacing(3)}px ${theme.spacing(2)}px`};
           border-radius: 0;
           background-color: transparent;
           border: none;

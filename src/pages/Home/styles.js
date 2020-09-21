@@ -16,6 +16,7 @@ import VerticalList from 'components/VerticalList'
 export const GridContainer = styled(Container)``
 
 export const GridRow = styled(Row)`
+  padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
   &#t2,
   &#t3 {
     height: 518px;

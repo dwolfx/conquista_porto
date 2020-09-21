@@ -15,15 +15,15 @@ Array [
   transition: all 0.35s ease-in-out;
 }
 
-@media (min-width:1280px) {
+@media (max-width:736px) {
 
 }
 
-@media (min-width:1280px) {
+@media (max-width:1280px) {
 
 }
 
-@media (min-width:1280px) {
+@media (max-width:480px) {
 
 }
 
@@ -35,11 +35,11 @@ Array [
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:1280px) {
 
 }
 
-@media (max-width:480px) {
+@media (min-width:1280px) {
 
 }
 
@@ -172,7 +172,7 @@ Array [
 }
 
 <div
-    className="sc-fzoant c0"
+    className="sc-fzoKki c0"
     data-name="col-sm-12 offset-sm-0 col-md-6 offset-md-0 col-lg-4 offset-lg-1"
   />,
   .c8 {
@@ -295,86 +295,6 @@ Array [
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 15px;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-}
-
-.c13 {
-  border-radius: 8px;
-  height: 100%;
-  margin-top: 14px;
-  margin-bottom: 21px;
-  overflow: hidden;
-  position: relative;
-}
-
-.c13 img {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.c14 {
-  bottom: 0;
-  background-color: rgba(39,39,39,0.63);
-  padding-left: 14px;
-  position: absolute;
-  width: 100%;
-  height: 35px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c14 p {
-  color: #FFFFFF;
-}
-
-.c16 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  padding: 0 14px 14px;
-}
-
-.c16 p:last-of-type {
-  color: #898989;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c22 {
-  width: 100%;
-}
-
-.c18 {
-  padding-bottom: 7px;
-}
-
-.c20 {
-  padding-bottom: 14px;
 }
 
 .c5 {
@@ -504,6 +424,86 @@ Array [
   align-items: center;
 }
 
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+
+.c13 {
+  border-radius: 8px;
+  height: 100%;
+  margin-top: 14px;
+  margin-bottom: 21px;
+  overflow: hidden;
+  position: relative;
+}
+
+.c13 img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.c14 {
+  bottom: 0;
+  background-color: rgba(39,39,39,0.63);
+  padding-left: 14px;
+  position: absolute;
+  width: 100%;
+  height: 35px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c14 p {
+  color: #FFFFFF;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 0 14px 14px;
+}
+
+.c16 p:last-of-type {
+  color: #898989;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c22 {
+  width: 100%;
+}
+
+.c18 {
+  padding-bottom: 7px;
+}
+
+.c20 {
+  padding-bottom: 14px;
+}
+
 .c0 {
   position: relative;
   width: 100%;
@@ -520,6 +520,20 @@ Array [
 .c2 {
   height: 518px;
   margin-bottom: 14px;
+}
+
+@media (max-width:736px) {
+  .c4 {
+    margin-right: 7px;
+  }
+}
+
+@media (max-width:1280px) {
+
+}
+
+@media (max-width:480px) {
+
 }
 
 @media (min-width:1280px) {
@@ -687,7 +701,7 @@ Array [
 }
 
 <div
-    className="sc-fzoant c0"
+    className="sc-fzoKki c0"
     data-name="col-sm-12 col-md-6 col-lg-4"
   >
     <div
@@ -1330,6 +1344,18 @@ Array [
   }
 }
 
+@media (min-width:1280px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
+@media (min-width:1280px) {
+
+}
+
 @media (min-width:576px) {
 
 }
@@ -1473,11 +1499,11 @@ Array [
 }
 
 <div
-    className="sc-fzoant c0"
+    className="sc-fzoKki c0"
     data-name="col-xs-12 col-sm-12 col-md-12 offset-md-0 col-lg-3"
   >
     <div
-      className="c1 c2 sc-fzqBkg c3"
+      className="c1 c2 sc-fzpmMD c3"
     >
       <div
         className="c4"

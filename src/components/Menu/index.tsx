@@ -73,6 +73,7 @@ const Menu = ({
           data-gtm-type="click"
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="produtos"
+          data-testid="produtos-option"
           isSelected={selectedOption === 'produtos'}
           onClick={() => scrollFunc('t1')}
         >
@@ -83,6 +84,7 @@ const Menu = ({
           data-gtm-type="click"
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="objetivos"
+          data-testid="objetivos-option"
           isSelected={selectedOption === 'objetivos'}
           onClick={() => scrollFunc('t2')}
         >
@@ -93,6 +95,7 @@ const Menu = ({
           data-gtm-type="click"
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="pontos"
+          data-testid="pontos-option"
           isSelected={selectedOption === 'pontos'}
           onClick={() => scrollFunc('t3')}
         >
