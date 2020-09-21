@@ -40,7 +40,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): CreditCardInfo => ({
           type: 'info',
           title: cardCreditTitle,
-          path: '/cartao-credito',
+          path: '/cartao-credito/visualizar',
           flag: item?.Bandeira === 'Master' ? 'cardflagmaster' : 'cardflagvisa',
           valor: formatMoney(+item?.LimiteTitularCartao?.LimiteDisponivel),
         })
@@ -49,6 +49,7 @@ export const useCardItems = (): (ConsortiumProperty &
         {
           type: 'empty',
           title: cardCreditTitle,
+          path: '/cartao-credito',
           subtitle: 'O combo de benefícios Porto Seguro',
         },
       ]
@@ -65,7 +66,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): FinanceableVehicle => ({
           type: 'progress',
           title: financingVehiclesTitle,
-          path: '/financiamento-veiculo',
+          path: '/financiamento-veiculo/visualizar',
           totalInstallments: item?.QuantidadeParcelasContratadas,
           paidInstallments: item?.QuantidadeParcelasPagas,
         })
@@ -74,6 +75,7 @@ export const useCardItems = (): (ConsortiumProperty &
         {
           type: 'empty',
           title: financingVehiclesTitle,
+          path: '/financiamento-veiculo',
           subtitle: 'Confiança para adquirir o seu veículo',
         },
       ]
@@ -90,7 +92,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): ConsortiumVehicle => ({
           type: 'progress',
           title: consortiumVehiclesTitle,
-          path: '/consorcio-veiculo',
+          path: '/consorcio-veiculo/visualizar',
           totalInstallments: item?.QuantidadeParcelasContratadas,
           paidInstallments: item?.QuantidadeParcelasPagas,
         })
@@ -99,6 +101,7 @@ export const useCardItems = (): (ConsortiumProperty &
         {
           type: 'empty',
           title: consortiumVehiclesTitle,
+          path: '/consorcio-veiculo',
           subtitle: '50, 72 e 80 meses com taxas especiais',
         },
       ]
@@ -115,7 +118,7 @@ export const useCardItems = (): (ConsortiumProperty &
         (item: any): ConsortiumProperty => ({
           type: 'progress',
           title: consortiumBuildingsTitle,
-          path: '/consorcio-imovel',
+          path: '/consorcio-imovel/visualizar',
           totalInstallments: item?.QuantidadeParcelasContratadas,
           paidInstallments: item?.QuantidadeParcelasPagas,
         })
@@ -124,6 +127,7 @@ export const useCardItems = (): (ConsortiumProperty &
         {
           type: 'empty',
           title: consortiumBuildingsTitle,
+          path: '/consorcio-imovel',
           subtitle: 'Parcelas que cabem no seu orçamento',
         },
       ]
