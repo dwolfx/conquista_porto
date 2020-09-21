@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -14,6 +14,7 @@ import { IModalProps } from 'pages/Investments/Management/types'
 import { GetPositionDataRequest } from 'store/modules/Investment/Position/action'
 import { Container } from '../../Desktop/FundInfoPanel/styles'
 import { TextHeader, InfoContainer, LoadingStyled } from './styles'
+import { GetComparativeProfitabilityDataRequest } from 'store/modules/Investment/ComparativeProfitability/action'
 
 interface IProps {
   onChangeModalSuitabilityInfo: (data: IModalProps) => void
@@ -33,20 +34,32 @@ const FundInfoPanel = ({
   const position = useSelectedPosition()
   const dispatch = useDispatch()
 
-  const { isLoading, hasError, comparativeProfitability } = useSelector(
-    (state: any) => ({
-      isLoading: state.investmentPosition.isLoading,
-      hasError: state.investmentPosition.hasError,
-      comparativeProfitability: state.comparativeProfitability.data,
-    })
-  )
+  const {
+    isLoading,
+    isLoadingComparative,
+    hasErrorComparative,
+    hasError,
+    comparativeProfitability,
+  } = useSelector((state: any) => ({
+    isLoading: state.investmentPosition.isLoading,
+    hasError: state.investmentPosition.hasError,
+    comparativeProfitability: state.comparativeProfitability.data,
+    isLoadingComparative: state.comparativeProfitability.isLoading,
+    hasErrorComparative: state.comparativeProfitability.hasError,
+  }))
+
+  useEffect(() => {
+    if (position) {
+      dispatch(GetComparativeProfitabilityDataRequest(position?.id))
+    }
+  }, [position, dispatch])
 
   const handleFetchPosition = useCallback(() => {
     dispatch(GetPositionDataRequest())
   }, [dispatch])
 
   const renderContent = () => {
-    if (isLoading) {
+    if (isLoading || isLoadingComparative) {
       return (
         <InfoContainer>
           <LoadingStyled
@@ -58,7 +71,7 @@ const FundInfoPanel = ({
       )
     }
 
-    if (hasError) {
+    if (hasError || hasErrorComparative) {
       return (
         <Container>
           <ErrorState
