@@ -343,8 +343,7 @@ exports[`Home Renders correctly 1`] = `
   }
 
   .c6:hover:not(:active) {
-    padding: 21px 14px;
-    border-radius: 0;
+    padding: 21px 14px border-radius:0;
     background-color: transparent;
     border: none;
   }

@@ -99,24 +99,6 @@ const SectionOne = ({ onFetchInvestments }) => {
         />
       </GridCol>
       <GridCol lg="4" md="6" sm="12">
-        {/* <HomePrivateWelfareCard
-          headerIcon="time"
-          headerTitle="Previdência"
-          headerEndItem={
-            <CardHeaderState
-              showHeader={Boolean(
-                investments.data && Object.entries(investments.data).length
-              )}
-              isLoading={investments.isLoading}
-              hasError={investments.hasError}
-              onErrorClick={() => onFetchInvestments()}
-            />
-          }
-        >
-          <InvestmentSection onFetchInvestments={onFetchInvestments} />
-        </HomeInvestmentCard> */}
-      </GridCol>
-      <GridCol lg="4" md="6" sm="12">
         <HomePrivateWelfareCard
           headerIcon="time"
           headerTitle="Previdência"

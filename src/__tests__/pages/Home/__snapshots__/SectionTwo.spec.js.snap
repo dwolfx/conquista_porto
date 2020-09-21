@@ -339,10 +339,6 @@ Array [
 
 }
 
-@media (max-width:480px) {
-
-}
-
 @media (min-width:576px) {
   .c0 {
     -ms-flex: 0 0 100%;
@@ -1159,7 +1155,7 @@ Array [
               color="unset"
               type="headline"
             >
-              O primeiro passo para começar a poupar e controlar seu dinheiro é descobrir onde ele está.
+              O primeiro passo para começar a poupar e controlar seu dinheiro é descobrir onde ele está. 
             </p>
           </div>
         </div>
