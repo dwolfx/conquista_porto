@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import Text from 'components/Text'
 import moment from 'moment'
+
+import Card from 'components/Card'
 import Loading from 'components/Loading'
+import Text from 'components/Text'
 
 import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
 
+import ChartItems from './components/ChartItems'
 import {
   ChartContainer,
   PreviousButton,
@@ -14,7 +17,6 @@ import {
   ChartEvolutionWrapper,
   MonthsContainer,
 } from './styles'
-import ChartItems from './components/ChartItems'
 
 export default function HorizontalChart({ data, isLoading }) {
   const [indexSelectedYear, setIndexSelectedYear] = useState(null)
@@ -55,7 +57,7 @@ export default function HorizontalChart({ data, isLoading }) {
   }
 
   return data && data.years ? (
-    <>
+    <Card>
       <div>
         <Text type="captionUppercase" color="gray6" textAlign="center">
           ano de visualização
@@ -128,7 +130,7 @@ export default function HorizontalChart({ data, isLoading }) {
           ></NextButton>
         )}
       </ChartContainer>
-    </>
+    </Card>
   ) : null
 }
 
