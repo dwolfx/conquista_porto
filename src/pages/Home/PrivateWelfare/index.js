@@ -48,6 +48,7 @@ export default function PrivateWalfareSection() {
           para que você possa ter uma vida tranquila.
         </Text>
         <SliderBoxButton
+          disabled
           data-gtm-subname="card previdência, viver melhor hoje e amanhã"
           data-gtm-name="conhecer"
           data-gtm-type="click"
@@ -55,7 +56,7 @@ export default function PrivateWalfareSection() {
           color="secondary"
           onClick={() => history.push('/previdencia-privada')}
         >
-          conhecer
+          Em Breve
         </SliderBoxButton>
       </SliderTextBox>
     </SliderBox>

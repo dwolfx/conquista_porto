@@ -34,7 +34,7 @@ const graphValuesGenerator = (
 
   let result: t.IGraphValuesResult[]
 
-  if (data.saldo_total && data.categorias) {
+  if (data?.saldo_total && data?.categorias) {
     const sortedResult = data.categorias.sort((a, b) => b.valor - a.valor)
     result = sortedResult.map((item, index) => ({
       id: `${index}`,
@@ -126,11 +126,7 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
             ]}
             endItems={[
               <Text type="headline" bold>
-                {formatMoney(
-                  bankData && bankData.DadosContaPortoSeguro
-                    ? bankData.DadosContaPortoSeguro.saldo_disponivel
-                    : 0
-                )}
+                {formatMoney(data && data.saldo_total ? data.saldo_total : 0)}
               </Text>,
             ]}
           />
@@ -161,8 +157,10 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
             endItems={[
               <Text type="headline" bold>
                 {formatMoney(
-                  bankData && bankData.DadosContaPortoSeguro
-                    ? bankData.DadosContaPortoSeguro.saldo_liquidar
+                  bankData &&
+                    bankData.DadosContaPortoSeguro &&
+                    bankData.DadosContaPortoSeguro.saldo_disponivel
+                    ? bankData.DadosContaPortoSeguro.saldo_disponivel
                     : 0
                 )}
               </Text>,

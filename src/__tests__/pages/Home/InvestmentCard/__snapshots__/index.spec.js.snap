@@ -263,7 +263,7 @@ exports[`InvestmentCard Renders correctly 1`] = `
 }
 
 .c1 {
-  height: calc(100% - 14px);
+  height: 490px;
   margin-bottom: 14px;
 }
 
@@ -350,6 +350,18 @@ exports[`InvestmentCard Renders correctly 1`] = `
 @media (max-width:736px) {
   .c3 {
     margin-right: 7px;
+  }
+}
+
+@media (min-width:736px) {
+  .c1 {
+    height: 458px;
+  }
+}
+
+@media (min-width:1280px) {
+  .c1 {
+    height: 518px;
   }
 }
 

@@ -4,8 +4,18 @@ import CarouselCardComponent from 'components/Card/CarouselCard'
 import ButtonCmp from 'components/Button'
 
 export const CarouselCard = styled(CarouselCardComponent)`
-  height: calc(100% - 38px);
+  height: 490px;
   margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+
+  /* Vertical Tablet = 736px Up */
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    height: 458px;
+  }
+
+  /* Desktop = 1280px Up */
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    height: 518px;
+  }
 `
 
 export const Content = styled.div`
