@@ -6,8 +6,18 @@ import ButtonComponent from 'components/Button'
 import { rgba } from 'helpers'
 
 export const Card = styled(CardComponent)`
-  height: calc(100% - 14px);
+  height: 490px;
   margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+
+  /* Vertical Tablet = 736px Up */
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    height: 458px;
+  }
+
+  /* Desktop = 1280px Up */
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    height: 518px;
+  }
 `
 
 export const ContentWrapper = styled.div`

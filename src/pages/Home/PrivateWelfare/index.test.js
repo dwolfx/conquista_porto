@@ -34,7 +34,7 @@ describe('Private Welfare Section - Home', () => {
     })
     test('if the button has the correct text', () => {
       const { getByRole } = setup(store)
-      expect(getByRole('button').textContent).toBe('conhecer')
+      expect(getByRole('button').textContent).toBe('Em Breve')
     })
   })
 })
