@@ -26,6 +26,7 @@ interface IProps {
   isOpen: boolean
   alignItems?: string
   footer?: React.ReactNode
+  isHeaderComponent?: boolean
 }
 
 const Modal: React.FC<IProps> = ({
@@ -35,6 +36,7 @@ const Modal: React.FC<IProps> = ({
   handleClose,
   isOpen,
   alignItems = '',
+  isHeaderComponent = true,
   children,
   footer,
   ...rest
@@ -71,37 +73,41 @@ const Modal: React.FC<IProps> = ({
     <ModalWrapper isOpen={isOpen} alignItems={alignItems} {...rest}>
       <ModalOverlay isOpen={isOpen} onClick={handleClose} />
       <ModalContainer>
-        <ModalHeader>
-          {headerIcon && (
-            <Icon
-              width="28"
-              fill={themeContext.colors.blue4}
-              name={headerIcon}
-            />
-          )}
-          {!!modalSubtitle ? (
-            <TitleWrapper>
-              <ModalTitle>{modalTitle}</ModalTitle>
-              <Text bold color="gray4">
-                {modalSubtitle}
-              </Text>
-            </TitleWrapper>
-          ) : (
-            <ModalTitle>{modalTitle}</ModalTitle>
-          )}
-          <CloseButton
-            data-gtm-subname={`modal ${modalTitle}`}
-            data-gtm-name="botao fechar"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            onClick={handleClose}
-            name="close"
-            color="gray4"
-            width={28}
-            height={28}
-          />
-        </ModalHeader>
-        <Divisor customSize="calc(100% - 14px)" />
+        {isHeaderComponent ? (
+          <>
+            <ModalHeader>
+              {headerIcon && (
+                <Icon
+                  width="28"
+                  fill={themeContext.colors.blue4}
+                  name={headerIcon}
+                />
+              )}
+              {!!modalSubtitle ? (
+                <TitleWrapper>
+                  <ModalTitle>{modalTitle}</ModalTitle>
+                  <Text bold color="gray4">
+                    {modalSubtitle}
+                  </Text>
+                </TitleWrapper>
+              ) : (
+                <ModalTitle>{modalTitle}</ModalTitle>
+              )}
+              <CloseButton
+                data-gtm-subname={`modal ${modalTitle}`}
+                data-gtm-name="botao fechar"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                onClick={handleClose}
+                name="close"
+                color="gray4"
+                width={28}
+                height={28}
+              />
+            </ModalHeader>
+            <Divisor />
+          </>
+        ) : null}
         <ChildrenWrapper>{children}</ChildrenWrapper>
         {footer && (
           <>
