@@ -17,14 +17,13 @@ import ButtonIcon from 'components/Button/Icon'
 import Card from 'components/Card'
 import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
+import InformativeHeader from 'components/Objective/InformativeHeader'
+import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/TableLabel'
 import Popover from 'components/Popover'
 import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
-
-import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
-import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/TableLabel'
 
 import {
   UpdateRecommendationRequest,
@@ -481,7 +480,13 @@ export default function WalletComposition({ onClose }: IProps) {
       <s.Container isFirst>
         <s.InformativeRow>
           <Col>
-            <InformativeHeader answer={recommendationData.answer} />
+            <InformativeHeader
+              nickname={recommendationData.answer.nickname}
+              targetDate={recommendationData.answer.target_date}
+              targetValue={recommendationData.answer.target_value}
+              initialInvestment={recommendationData.answer.initial_value}
+              monthlyInvestment={recommendationData.answer.monthly_value}
+            />
           </Col>
         </s.InformativeRow>
 

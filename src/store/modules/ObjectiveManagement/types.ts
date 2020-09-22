@@ -44,28 +44,30 @@ type TYear = {
 
 type TObjectiveFunds = {
   id: number
-  recommended: boolean
+  fund_wallet_type: string
   name: string
   nickname: string
+  initial_deposit: number
+  monthly_deposit: number
   balance: number
   available: number
   invested: number
+  fund_active: boolean
+  release_to_apply: boolean
+  release_to_rescue: boolean
   goals: {
     id: number
     name: string
     value: number
     goal_type: number
   }[]
-  initial_deposit: number
-  monthly_deposit: number
-  is_fund_active: boolean
-  release_to_apply: boolean
-  release_to_rescue: boolean
 }
 
 export interface IObjectManagement {
-  id: string
+  id: number
   nickname: string
+  initial_value: number
+  monthly_value: number
   target_value: number
   target_date: string
   goal_type: number

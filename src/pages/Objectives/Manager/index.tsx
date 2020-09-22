@@ -7,12 +7,12 @@ import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
+import InformativeHeader from 'components/Objective/InformativeHeader'
 import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
-import InformativeHeader from 'pages/Objectives/Manager/InformativeHeader'
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 
@@ -23,6 +23,7 @@ import {
 } from 'store/modules/ObjectiveManagement/action'
 import * as t from './types'
 import * as s from './styles'
+import Card from 'components/Card'
 
 export default function ObjectiveManager() {
   const { objectiveId, pageRecommendation } = useParams<t.ILocationParams>()
@@ -84,7 +85,7 @@ export default function ObjectiveManager() {
     })
   }
 
-  function handleDeleteGoal(id: string) {
+  function handleDeleteGoal(id: number) {
     dispatch(DeleteObjectiveRequest(id, () => history.push('/'), addToast))
   }
 
@@ -96,18 +97,33 @@ export default function ObjectiveManager() {
     <>
       <Container>
         <s.Row>
-          <Col>
+          <Col lg={9}>
             <InformativeHeader
-              objective={objectiveData}
+              nickname={objectiveData.nickname}
+              targetDate={objectiveData.target_date}
+              targetValue={objectiveData.target_value}
+              initialInvestment={objectiveData.initial_value}
+              monthlyInvestment={objectiveData.monthly_value}
               openEdit={() => null}
             />
           </Col>
-        </s.Row>
-        <s.Row>
-          <Col>
-            <GoalChart data={objectiveData} isLoading={isLoading} />
+          <Col lg={3}>
+            <Card>
+              <Text type="captionUppercase" color="gray5" bold>
+                Acompanhamento do objetivo
+              </Text>
+            </Card>
           </Col>
         </s.Row>
+
+        {!pageRecommendation ? (
+          <s.Row>
+            <Col>
+              <GoalChart data={objectiveData} isLoading={isLoading} />
+            </Col>
+          </s.Row>
+        ) : null}
+
         <s.Row>
           <Col>
             {objectiveData?.additional &&

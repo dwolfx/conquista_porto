@@ -2,6 +2,8 @@
   "id": "1",
   "nickname": "Meu Carrito Super Daora",
   "target_value": 22000,
+  "initial_value": 15300,
+  "monthly_value": 1500,
   "target_date": "10/10/2021",
   "goal_type": 1,
   "conquered": false,
@@ -149,27 +151,27 @@
     }
   ],
   "fund_list": [
-      {
-        "id": 5105,
-        "recommended": true,
-        "name": "Porto Seguro FI Referenciado DI Credito Privado",
-        "nickname": "Porto Seguro FI RF Ref. DI CP",
-        "balance": 2991433.63,
-        "available": 2990432.93,
-        "invested": 0,
-        "goals": [
-          {
-            "id": 626,
-            "name": "PVEV-772",
-            "value": 1000.7,
-            "goal_type": 3
-          }
-        ],
-        "initial_deposit": 1000,
-        "monthly_deposit": 100,
-        "is_fund_active": true,
-        "release_to_apply": false,
-        "release_to_rescue": true
+    {
+      "id": 5105,
+      "recommended": true,
+      "name": "Porto Seguro FI Referenciado DI Credito Privado",
+      "nickname": "Porto Seguro FI RF Ref. DI CP",
+      "balance": 2991433.63,
+      "available": 2990432.93,
+      "invested": 0,
+      "goals": [
+        {
+          "id": 626,
+          "name": "PVEV-772",
+          "value": 1000.7,
+          "goal_type": 3
+        }
+      ],
+      "initial_deposit": 1000,
+      "monthly_deposit": 100,
+      "is_fund_active": true,
+      "release_to_apply": false,
+      "release_to_rescue": true
     },
     {
       "id": 5112,
@@ -181,7 +183,7 @@
       "invested": 0,
       "goals": [],
       "initial_deposit": 1000.0,
-      "monthly_deposit": 1000.00,
+      "monthly_deposit": 1000.0,
       "is_fund_active": true,
       "release_to_apply": true,
       "release_to_rescue": false
@@ -191,12 +193,12 @@
       "recommended": false,
       "name": "Porto Seguro Macro FIC FIM",
       "nickname": "Porto Seguro Macro FIC FIM",
-      "balance": 1738565.40,
-      "available": 1738565.40,
+      "balance": 1738565.4,
+      "available": 1738565.4,
       "invested": 0,
       "goals": [],
       "initial_deposit": 10000.0,
-      "monthly_deposit": 100.00,
+      "monthly_deposit": 100.0,
       "is_fund_active": true,
       "release_to_apply": false,
       "release_to_rescue": true
@@ -211,7 +213,7 @@
       "invested": 0,
       "goals": [],
       "initial_deposit": 1000.0,
-      "monthly_deposit": 100.00,
+      "monthly_deposit": 100.0,
       "is_fund_active": true,
       "release_to_apply": true,
       "release_to_rescue": false
@@ -226,7 +228,7 @@
       "invested": 0,
       "goals": [],
       "initial_deposit": 20000.0,
-      "monthly_deposit": 5000.00,
+      "monthly_deposit": 5000.0,
       "is_fund_active": true,
       "release_to_apply": true,
       "release_to_rescue": true
@@ -241,7 +243,7 @@
       "invested": 0,
       "goals": [],
       "initial_deposit": 10000.0,
-      "monthly_deposit": 1000.00,
+      "monthly_deposit": 1000.0,
       "is_fund_active": true,
       "release_to_apply": false,
       "release_to_rescue": true
