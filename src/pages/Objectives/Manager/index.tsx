@@ -4,14 +4,12 @@ import { useHistory, useParams } from 'react-router-dom'
 import { Container, Col } from 'styled-bootstrap-grid'
 
 import Button from 'components/Button'
-import ButtonLink from 'components/Button/Link'
 import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
 import InformativeHeader from 'components/Objective/InformativeHeader'
 import Text from 'components/Text'
 
 import { useToast } from 'hooks/toast'
-import useMedia from 'hooks/useMedia'
 
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
@@ -24,23 +22,19 @@ import {
 import * as t from './types'
 import * as s from './styles'
 import Card from 'components/Card'
+import { ObjectiveType } from 'helpers/objetive'
 
 export default function ObjectiveManager() {
   const { objectiveId, pageRecommendation } = useParams<t.ILocationParams>()
   const { addToast } = useToast()
   const dispatch = useDispatch()
   const history = useHistory()
-  const isMobile = useMedia('sm')
-
+  const [bannerImage, setBannerImage] = useState('')
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
 
-  const {
-    data: objectiveData,
-    isLoading,
-    isLoadingDelete,
-    otherGoalsManagement,
-    isLoadingOtherGoals,
-  } = useSelector((state: t.IState) => state.objectiveManagement)
+  const { data: objectiveData, isLoading, isLoadingDelete } = useSelector(
+    (state: t.IState) => state.objectiveManagement
+  )
 
   useEffect(() => {
     if (
@@ -61,6 +55,10 @@ export default function ObjectiveManager() {
       dispatch(GetOtherGoalsDataRequest({ id: objectiveId, addToast }))
     }
   }, [dispatch, history, objectiveData, objectiveId, addToast])
+
+  useEffect(() => {
+    getObjectiveTypeImageById(Number(objectiveId))
+  }, [objectiveId])
 
   if (!objectiveId || (!isLoading && !objectiveData)) {
     // if objectiveId dont exists, redirect to "objetivos" page
@@ -89,6 +87,20 @@ export default function ObjectiveManager() {
     dispatch(DeleteObjectiveRequest(id, () => history.push('/'), addToast))
   }
 
+  async function getObjectiveTypeImageById(id: number) {
+    try {
+      const image = await ObjectiveType.getImageById(id)
+      setBannerImage(image)
+    } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Algo inesperado ocorreu.',
+        description: 'A imagem do seu objetivo não foi carregada',
+      })
+      console.log(error)
+    }
+  }
+
   if (isLoading) {
     return <Loading />
   }
@@ -96,6 +108,13 @@ export default function ObjectiveManager() {
   return (
     <>
       <Container>
+        {bannerImage && (
+          <s.Row>
+            <Col>
+              <s.CardBackgroundImage background={bannerImage} />
+            </Col>
+          </s.Row>
+        )}
         <s.Row>
           <Col lg={9}>
             <InformativeHeader

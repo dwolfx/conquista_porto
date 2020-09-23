@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 import { Row as RowBootstrap } from 'styled-bootstrap-grid'
 import { LoadingContainer } from 'components/Loading/styles'
+import BackgroundImage from 'components/Card/BackgroundImage'
+
+export const CardBackgroundImage = styled(BackgroundImage)`
+  height: 200px;
+  cursor: default;
+`
 
 export const Row = styled(RowBootstrap)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
