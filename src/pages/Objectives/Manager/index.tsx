@@ -97,7 +97,7 @@ export default function ObjectiveManager() {
         title: 'Algo inesperado ocorreu.',
         description: 'A imagem do seu objetivo não foi carregada',
       })
-      console.log(error)
+      console.error(error)
     }
   }
 
