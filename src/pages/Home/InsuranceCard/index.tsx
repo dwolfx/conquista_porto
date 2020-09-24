@@ -53,10 +53,12 @@ const InsuranceCard: React.FC<t.IInsuranceCard> = ({ headerEndItem }) => {
           <LifeInsuranceDataStateCard data={lifeInsuranceData} />
         )
       })
+    } else if (lifeInsurance.hasError) {
+      newArrayContent.push(<LifeInsuranceErrorStateCard />)
     } else if (lifeInsurance && !lifeInsurance.data) {
       newArrayContent.push(<LifeInsuranceEmptyStateCard />)
     } else {
-      newArrayContent.push(<LifeInsuranceErrorStateCard />)
+      newArrayContent.push(<LifeInsuranceEmptyStateCard />)
     }
 
     if (tripInsurance && tripInsurance.isLoading) {
@@ -71,10 +73,12 @@ const InsuranceCard: React.FC<t.IInsuranceCard> = ({ headerEndItem }) => {
           <TripInsuranceDataStateCard data={tripInsuranceData} />
         )
       })
+    } else if (tripInsurance.hasError) {
+      newArrayContent.push(<TripInsuranceErrorStateCard />)
     } else if (tripInsurance && !tripInsurance.data) {
       newArrayContent.push(<TripInsuranceEmptyStateCard />)
     } else {
-      newArrayContent.push(<TripInsuranceErrorStateCard />)
+      newArrayContent.push(<TripInsuranceEmptyStateCard />)
     }
 
     setArrayContent(newArrayContent)
