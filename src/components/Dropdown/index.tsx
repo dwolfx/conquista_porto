@@ -1,21 +1,12 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
 import { useHistory } from 'react-router-dom'
+import { Manager, Reference, Popper } from 'react-popper'
 
 import { handlePrivateWelfareRedirect } from 'helpers'
 
 import { IItemsProps } from './interface'
-
-import {
-  Container,
-  RelativeHolder,
-  Backdrop,
-  ItemWrapper,
-  ItemIcon,
-  ItemText,
-  Wrapper,
-  WrapperChildren,
-  ItemIconContainer,
-} from './styles'
+import * as s from './styles'
 
 interface IProps {
   items?: IItemsProps[]
@@ -23,9 +14,10 @@ interface IProps {
   containerPadding?: string
   redirectPath?: string
   customWidth?: string
-  openingSide?: string
+  openingSide?: 'start' | 'end'
   disabled?: boolean
   title?: string
+  zIndex?: number
 }
 
 /**
@@ -74,9 +66,11 @@ const Dropdown: React.FC<IProps> = ({
   customWidth = null,
   containerPadding = '14px',
   redirectPath = null,
-  openingSide = 'right',
+  openingSide = 'start',
   disabled = false,
   title = '',
+  zIndex = 7,
+  ...rest
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
@@ -86,45 +80,6 @@ const Dropdown: React.FC<IProps> = ({
   const [selectedItem, setSelectedItem] = useState<string | null>(null)
 
   const history = useHistory()
-  const containerRef = useRef(null) as React.RefObject<HTMLElement>
-
-  const checkElementOut = useCallback(() => {
-    if (containerRef && containerRef.current && containerRef.current.style) {
-      const elementBounding = containerRef.current.getBoundingClientRect()
-
-      if (elementBounding.top < 0) {
-        containerRef.current.style.top = '0px'
-      }
-
-      if (elementBounding.left < 0) {
-        containerRef.current.style.left = '0px'
-      }
-
-      if (
-        elementBounding.bottom >
-        (window.innerHeight || document.documentElement.clientHeight)
-      ) {
-        const offsetDifference =
-          elementBounding.bottom -
-          (window.innerHeight || document.documentElement.clientHeight)
-        containerRef.current.style.top = `-${offsetDifference}px`
-      }
-
-      if (
-        elementBounding.right >
-        (window.innerWidth || document.documentElement.clientWidth)
-      ) {
-        const offsetDifference =
-          elementBounding.right -
-          (window.innerWidth || document.documentElement.clientWidth)
-        containerRef.current.style.left = `-${offsetDifference}px`
-      }
-    }
-  }, [containerRef])
-
-  useEffect(() => {
-    if (isOpen) checkElementOut()
-  }, [isOpen, checkElementOut])
 
   function handleDropDown(value: boolean) {
     setIsOpen(value)
@@ -144,7 +99,7 @@ const Dropdown: React.FC<IProps> = ({
 
     setChildrenElements(
       elements.map((item: IItemsProps) => (
-        <ItemWrapper
+        <s.ItemWrapper
           data-gtm-type="click"
           data-gtm-clicktype="link"
           data-gtm-subname={subMenuTitle}
@@ -153,12 +108,12 @@ const Dropdown: React.FC<IProps> = ({
           onClick={() => item.path && handleClick(item.path)}
         >
           {item.icon && (
-            <ItemIconContainer>
-              <ItemIcon name={item.icon} />
-            </ItemIconContainer>
+            <s.ItemIconContainer>
+              <s.ItemIcon name={item.icon} />
+            </s.ItemIconContainer>
           )}
-          <ItemText>{item.text}</ItemText>
-        </ItemWrapper>
+          <s.ItemText>{item.text}</s.ItemText>
+        </s.ItemWrapper>
       ))
     )
   }
@@ -173,138 +128,127 @@ const Dropdown: React.FC<IProps> = ({
     return handleDropDown(false)
   }
 
-  if (nodes) {
-    return (
-      <>
-        <RelativeHolder disabled={disabled}>
-          <div
-            role="button"
-            onClick={() => {
-              handleDropDown(true)
-            }}
-          >
-            {children}
-          </div>
-          <Container
-            ref={containerRef}
-            isOpen={isOpen}
-            onMouseLeave={() => handleMountChildren()}
-          >
-            <Wrapper
-              containerPadding={containerPadding}
-              customWidth={customWidth}
-            >
-              {nodes.map(node => {
-                if (typeof node === 'function')
-                  return node(() =>
-                    redirectPath ? handleClick(redirectPath) : handleClick()
-                  )
-                return node
-              })}
-            </Wrapper>
-          </Container>
-        </RelativeHolder>
-        <Backdrop
-          isOpen={isOpen}
-          id="backdrop"
-          onClick={() => handleDropDown(false)}
-        />
-      </>
-    )
-  }
+  const renderContent = () => {
+    if (items) {
+      return items.map(item => (
+        <s.ItemWrapper
+          data-gtm-type="click"
+          data-gtm-clicktype={item.children ? 'sub-menu' : 'link'}
+          data-gtm-subname={title}
+          data-gtm-name={item.text}
+          key={item.text}
+          onMouseEnter={() => {
+            if (item.children) {
+              handleMountChildren(item.children, item.text)
+            }
+          }}
+          onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+            if (item.path) {
+              handleClick(item.path)
+            }
 
-  if (items) {
-    return (
-      <>
-        <RelativeHolder disabled={disabled}>
-          <div
-            role="button"
-            onClick={() => {
-              handleDropDown(true)
-            }}
-          >
-            {children}
-          </div>
-          <Container
-            ref={containerRef}
-            isOpen={isOpen}
-            onMouseLeave={() => handleMountChildren()}
-          >
-            <Wrapper
-              containerPadding={containerPadding}
-              customWidth={customWidth}
-            >
-              {items.map(item => (
-                <ItemWrapper
-                  data-gtm-type="click"
-                  data-gtm-clicktype={item.children ? 'sub-menu' : 'link'}
-                  data-gtm-subname={title}
-                  data-gtm-name={item.text}
-                  key={item.text}
-                  onMouseEnter={() => {
-                    if (item.children) {
-                      handleMountChildren(item.children, item.text)
-                    }
-                  }}
-                  onClick={() => item.path && handleClick(item.path)}
-                >
-                  <ItemIconContainer>
-                    <ItemIcon name={item.icon} />
-                  </ItemIconContainer>
-                  <ItemText>{item.text}</ItemText>
-                  {item.children && (
-                    <ItemIconContainer alignToEnd>
-                      <ItemIcon name="arrowright" />
-                    </ItemIconContainer>
-                  )}
-                  {isHovering && item.text === selectedItem && (
-                    <WrapperChildren openingSide={openingSide}>
-                      {childrenElements}
-                    </WrapperChildren>
-                  )}
-                </ItemWrapper>
-              ))}
-            </Wrapper>
-          </Container>
-        </RelativeHolder>
-        <Backdrop
-          isOpen={isOpen}
-          id="backdrop"
-          onClick={() => handleDropDown(false)}
-        />
-      </>
-    )
+            if (item.onClick) {
+              item.onClick(event)
+
+              handleDropDown(false)
+            }
+          }}
+        >
+          <s.ItemIconContainer>
+            <s.ItemIcon name={item.icon} />
+          </s.ItemIconContainer>
+          <s.ItemText>{item.text}</s.ItemText>
+          {item.children && (
+            <s.ItemIconContainer alignToEnd>
+              <s.ItemIcon name="arrowright" />
+            </s.ItemIconContainer>
+          )}
+          {isHovering && item.text === selectedItem && (
+            <s.WrapperChildren openingSide={openingSide}>
+              {childrenElements}
+            </s.WrapperChildren>
+          )}
+        </s.ItemWrapper>
+      ))
+    }
+
+    if (nodes) {
+      return nodes.map(node => {
+        if (typeof node === 'function')
+          return node(() =>
+            redirectPath ? handleClick(redirectPath) : handleClick()
+          )
+        return node
+      })
+    }
+
+    return 'Skeleton needed'
   }
 
   return (
     <>
-      <RelativeHolder disabled={disabled}>
-        <div
-          role="button"
-          onClick={() => {
-            handleDropDown(true)
-          }}
-        >
-          {children}
-        </div>
-        <Container
-          ref={containerRef}
-          isOpen={isOpen}
-          onMouseLeave={() => handleMountChildren()}
-        >
-          <Wrapper
-            containerPadding={containerPadding}
-            customWidth={customWidth}
-          >
-            Skeleton needed
-          </Wrapper>
-        </Container>
-      </RelativeHolder>
-      <Backdrop
-        isOpen={isOpen}
-        id="backdrop"
-        onClick={() => handleDropDown(false)}
-      />
+      <Manager>
+        <Reference>
+          {({ ref }) => (
+            <div ref={ref} onClick={() => handleDropDown(true)} {...rest}>
+              {children}
+            </div>
+          )}
+        </Reference>
+        {isOpen
+          ? ReactDOM.createPortal(
+              <>
+                <Popper
+                  placement={
+                    `bottom-${openingSide}` as 'bottom-start' | 'bottom-end'
+                  }
+                  modifiers={{
+                    keepTogether: {
+                      enabled: true,
+                    },
+                    offset: {
+                      offset: -1,
+                    },
+                    flip: {
+                      enabled: true,
+                    },
+                    shift: {
+                      enabled: true,
+                    },
+                  }}
+                  css={`
+                    #popper[data-popper-reference-hidden] {
+                      visibility: hidden;
+                      pointer-events: none;
+                    }
+                  `}
+                >
+                  {({ ref, ...other }: any) => (
+                    <s.Container
+                      ref={ref}
+                      onMouseLeave={() => handleMountChildren()}
+                      zIndex={zIndex}
+                      {...other}
+                    >
+                      <s.Wrapper
+                        containerPadding={containerPadding}
+                        customWidth={customWidth}
+                      >
+                        {renderContent()}
+                      </s.Wrapper>
+                    </s.Container>
+                  )}
+                </Popper>
+                <s.Backdrop
+                  isOpen={isOpen}
+                  id="backdrop"
+                  onClick={() => handleDropDown(false)}
+                />
+              </>,
+              document.querySelector('#root') as HTMLDivElement
+            )
+          : null}
+      </Manager>
     </>
   )
 }

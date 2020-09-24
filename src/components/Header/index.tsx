@@ -8,6 +8,7 @@ import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
 import DropDown from 'components/Dropdown'
+import { IItemsProps } from 'components/Dropdown/interface'
 
 import { handleGiwRedirect } from 'helpers'
 import { AuthRequestLogout } from 'store/modules/Auth/action'
@@ -17,8 +18,6 @@ import { useCustomerProfile } from 'hooks/CustomerProfile/useCustomerProfile'
 
 import MobileHeader from './Mobile'
 import { NotificationsContent } from './DropdownContents'
-
-import { IItemsProps } from 'components/Dropdown/interface'
 
 import {
   BgWrapper,
@@ -35,6 +34,7 @@ import {
   NotificationBell,
   Avatar,
   FixedHeaderContainer,
+  DropDown,
 } from './styles'
 
 interface IProps {
@@ -201,6 +201,7 @@ export default function HeaderNew({ crumbs }: IProps) {
             items={items}
             title={dropdownGtmItemsTitle}
             containerPadding="14px 0"
+            zIndex={13}
           >
             <MenuTag
               color="blue"

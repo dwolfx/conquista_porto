@@ -1,8 +1,7 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
-import { render, waitFor, fireEvent, screen, act } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
-import theme from 'styles/theme'
+import { waitFor, fireEvent, screen } from '@testing-library/react'
+import { renderWithReduxAndTheme } from 'testUtils'
 
 import Dropdown from '.'
 import { IItemsProps } from './interface'
@@ -32,66 +31,87 @@ const node: React.ReactNode[] = [
   <div key="item2">ItemTest2</div>,
 ]
 
-const setup = (children: React.ReactElement) => {
-  return render(
-    <HashRouter>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </HashRouter>
-  )
-}
+describe('Dropdow component', () => {
+  it('should render on Item mode', async () => {
+    let portalRoot = document.getElementById('root')
+    if (!portalRoot) {
+      portalRoot = document.createElement('div')
+      portalRoot.setAttribute('id', 'root')
+      document.body.appendChild(portalRoot)
+    }
 
-describe('DropdowNew', () => {
-  describe('Skeleton modes', () => {
-    test('Item mode', async () => {
-      setup(<Dropdown items={items}>MenuTeste</Dropdown>)
+    const container = portalRoot
+    renderWithReduxAndTheme(
+      <HashRouter>
+        <Dropdown items={items}>MenuTeste</Dropdown>
+      </HashRouter>,
+      { container }
+    )
 
-      const menuElement = screen.getByText('MenuTeste')
+    const menuElement = screen.getByText('MenuTeste')
 
-      expect(menuElement).toHaveTextContent('MenuTeste')
+    expect(menuElement).toHaveTextContent('MenuTeste')
 
-      await act(async () => {
-        fireEvent.click(menuElement)
+    fireEvent.click(menuElement)
 
-        const parentElement = screen.getByText('parent')
-        expect(parentElement).toHaveTextContent('parent')
-        fireEvent.mouseOver(parentElement)
+    const parentElement = screen.getByText('parent')
+    expect(parentElement).toHaveTextContent('parent')
+    fireEvent.mouseOver(parentElement)
 
-        const childElement = await waitFor(() => screen.getByText('child1'))
+    const childElement = await waitFor(() => screen.getByText('child1'))
 
-        expect(childElement).toHaveTextContent('child1')
-      })
-    })
+    expect(childElement).toHaveTextContent('child1')
+  })
 
-    test('Node mode', async () => {
-      setup(<Dropdown nodes={node}>MenuTeste</Dropdown>)
+  it('should render on Node mode', async () => {
+    let portalRoot = document.getElementById('root')
+    if (!portalRoot) {
+      portalRoot = document.createElement('div')
+      portalRoot.setAttribute('id', 'root')
+      document.body.appendChild(portalRoot)
+    }
 
-      const menuElement = screen.getByText('MenuTeste')
+    const container = portalRoot
+    renderWithReduxAndTheme(
+      <HashRouter>
+        <Dropdown nodes={node}>MenuTeste</Dropdown>
+      </HashRouter>,
+      { container }
+    )
 
-      expect(menuElement).toHaveTextContent('MenuTeste')
+    const menuElement = screen.getByText('MenuTeste')
 
-      await act(async () => {
-        fireEvent.click(menuElement)
+    expect(menuElement).toHaveTextContent('MenuTeste')
 
-        const nodeElement = await waitFor(() => screen.getByText('ItemTest1'))
-        expect(nodeElement).toHaveTextContent('ItemTest1')
-      })
-    })
+    fireEvent.click(menuElement)
 
-    test('Without skeleton', async () => {
-      setup(<Dropdown>MenuTeste</Dropdown>)
+    const nodeElement = await waitFor(() => screen.getByText('ItemTest1'))
+    expect(nodeElement).toHaveTextContent('ItemTest1')
+  })
 
-      const menuElement = screen.getByText('MenuTeste')
+  it('Without skeleton', async () => {
+    let portalRoot = document.getElementById('root')
+    if (!portalRoot) {
+      portalRoot = document.createElement('div')
+      portalRoot.setAttribute('id', 'root')
+      document.body.appendChild(portalRoot)
+    }
 
-      expect(menuElement).toHaveTextContent('MenuTeste')
+    const container = portalRoot
+    renderWithReduxAndTheme(
+      <HashRouter>
+        <Dropdown>MenuTeste</Dropdown>
+      </HashRouter>,
+      { container }
+    )
 
-      await act(async () => {
-        fireEvent.click(menuElement)
+    const menuElement = screen.getByText('MenuTeste')
 
-        const nodeElement = await waitFor(() =>
-          screen.getByText('Skeleton needed')
-        )
-        expect(nodeElement).toHaveTextContent('Skeleton needed')
-      })
-    })
+    expect(menuElement).toHaveTextContent('MenuTeste')
+
+    fireEvent.click(menuElement)
+
+    const nodeElement = await waitFor(() => screen.getByText('Skeleton needed'))
+    expect(nodeElement).toHaveTextContent('Skeleton needed')
   })
 })

@@ -41,3 +41,15 @@ export const ButtonContainerModal = styled.div`
     }
   }
 `
+
+export const TextInfoContainer = styled.div`
+  margin: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(4)}px`};
+
+  p {
+    display: flex;
+
+    svg {
+      margin-left: ${({ theme }) => theme.spacing(1)}px;
+    }
+  }
+`

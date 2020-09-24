@@ -67,7 +67,9 @@ import {
   ReactComponent as mastercard,
 } from 'assets/icons/mastercard.svg'
 import { ReactComponent as menu } from 'assets/icons/menu.svg'
+import { ReactComponent as minus } from 'assets/icons/minus.svg'
 import { ReactComponent as money } from 'assets/icons/money.svg'
+import { ReactComponent as more } from 'assets/icons/more.svg'
 import { ReactComponent as monitoranalytics } from 'assets/icons/monitor-analytics.svg'
 import { ReactComponent as pdf } from 'assets/icons/pdf.svg'
 import { ReactComponent as personaccident } from 'assets/icons/person-accident.svg'
@@ -172,7 +174,9 @@ export const dict = {
   master,
   mastercard,
   menu,
+  minus,
   money,
+  more,
   monitoranalytics,
   pdf,
   personaccident,

@@ -552,7 +552,7 @@ const FundInformation = ({
             nodes={[renderSelectItems]}
             title="Outros Objetivos"
             containerPadding="14px 0"
-            openingSide="left"
+            openingSide="end"
             disabled={incomeIsLoading}
           >
             <ButtonContent>

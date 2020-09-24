@@ -1,3 +1,5 @@
+import { TProfitability } from 'store/modules/Objective/types'
+
 export const Types = {
   POST_REQUEST: 'MANAGEMENT_POST_REQUEST',
   POST_SUCCESS: 'MANAGEMENT_POST_SUCCESS',
@@ -42,25 +44,43 @@ type TYear = {
   }
 }
 
-type TObjectiveFunds = {
-  id: number
-  fund_wallet_type: string
+export type TObjectiveFunds = {
   name: string
   nickname: string
-  initial_deposit: number
-  monthly_deposit: number
+  classification: string
+  benchmark: string
   balance: number
   available: number
   invested: number
-  fund_active: boolean
+  fund_id: number
+  order_profile_risk: 1 | 2 | 3 | 4 | 5
+  initial_date: string
+  min_initial_value: number
+  min_value_to_apply: number
   release_to_apply: boolean
   release_to_rescue: boolean
+  min_balance_value: number
+  time_limit_to_apply: string
+  quotation_apply_days: string
+  financial_apply_days: string
+  quotation_rescue_days: string
+  financial_rescue_days: string
+  anbima_category: string
+  adm_tax: number
+  performance_rate: number
+  url_performance_info_pdf: string
+  url_fund_rules_pdf: string
+  is_fund_active: boolean
+  initial_value: number
+  monthly_value: number
+  fund_wallet_type: string
   goals: {
     id: number
     name: string
     value: number
     goal_type: number
   }[]
+  profitability: TProfitability[]
 }
 
 export interface IObjectManagement {

@@ -13,8 +13,9 @@ export const RelativeHolder = styled.div<{ disabled: boolean }>`
     `}
 `
 interface IContainerProps {
-  isOpen: boolean
-  ref: any
+  isOpen?: boolean
+  ref?: any
+  zIndex: number
 }
 
 export const Container = styled.div<IContainerProps>`
@@ -25,7 +26,7 @@ export const Container = styled.div<IContainerProps>`
   padding: 0px;
   border-radius: 4px;
   position: absolute;
-  z-index: 2;
+  z-index: ${({ zIndex }) => zIndex};
 
   ::-webkit-scrollbar {
     display: none;
