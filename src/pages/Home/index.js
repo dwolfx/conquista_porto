@@ -41,7 +41,7 @@ const Home = ({ location }) => {
   const row3 = useRef(null)
 
   function handleFetchInvestments() {
-    dispatch(GetConsolidatedPositionDataRequest(auth.cpf))
+    dispatch(GetConsolidatedPositionDataRequest())
   }
 
   useEffect(() => {

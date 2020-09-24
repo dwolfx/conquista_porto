@@ -10,10 +10,17 @@ import {
 describe('Consolidated Position Sagas', () => {
   it('success triggers success action', () => {
     const generator = getData()
-    const response = { data: { teste: 'ok' } }
+
+    const response = {
+      data: {
+        categorias: [{ nome: 'teste ok', valor: 0 }],
+        saldototal: 0,
+      },
+    }
 
     expect(generator.next().value).toEqual(
-      call(get, `/cotista/posicao/consolidado`)
+      // call(get, `/cotista/posicao/consolidado`)
+      call(get, `/cotistas/posicao-consolidada`)
     )
 
     expect(generator.next(response).value).toEqual(
@@ -27,7 +34,8 @@ describe('Consolidated Position Sagas', () => {
     const generator = getData()
     const response = undefined
     expect(generator.next().value).toEqual(
-      call(get, `/cotista/posicao/consolidado`)
+      // call(get, `/cotista/posicao/consolidado`)
+      call(get, `/cotistas/posicao-consolidada`)
     )
     expect(generator.next(response).value).toEqual(
       put(GetConsolidatedPositionDataFailure())

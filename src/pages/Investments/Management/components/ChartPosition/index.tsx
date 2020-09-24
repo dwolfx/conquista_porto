@@ -117,9 +117,8 @@ const ChartPosition: React.FC = () => {
     }
   )
 
-  const { auth, consolidatedPosition, displayInformation } = useSelector(
+  const { consolidatedPosition, displayInformation } = useSelector(
     (state: any) => ({
-      auth: state.auth,
       consolidatedPosition: state.consolidatedPosition,
       displayInformation: state.investmentPosition.displayInformation,
     })
@@ -127,15 +126,17 @@ const ChartPosition: React.FC = () => {
   const { data, isLoading, hasError } = consolidatedPosition
 
   const handleFetchInvestments = useCallback(() => {
-    dispatch(GetConsolidatedPositionDataRequest(auth.cpf))
-  }, [dispatch, auth.cpf])
+    dispatch(GetConsolidatedPositionDataRequest())
+  }, [dispatch])
 
   const settingPieChartInfo = useCallback(
     (payload: IStatePieChartMiddleContent) => {
       setPieChartInfo(
         payload || {
           value:
-            consolidatedPosition.data && consolidatedPosition.data.saldo_total,
+            (consolidatedPosition.data &&
+              consolidatedPosition.data.saldototal) ||
+            0,
           percent: 0,
         }
       )
@@ -149,7 +150,11 @@ const ChartPosition: React.FC = () => {
 
   useEffect(() => {
     if (consolidatedPosition.data) {
-      settingPieChartInfo({ value: consolidatedPosition.data.saldo_total })
+      settingPieChartInfo({
+        value:
+          (consolidatedPosition.data && consolidatedPosition.data.saldototal) ||
+          0,
+      })
     }
   }, [consolidatedPosition.data, settingPieChartInfo])
 
@@ -164,14 +169,14 @@ const ChartPosition: React.FC = () => {
 
     let result = []
 
-    if (data && data.saldo_total && data.categorias) {
+    if (data && data.saldototal && data.categorias) {
       result = data.categorias.sort((a: any, b: any) => b.valor - a.valor)
       result = result.map((item: any, index: number) => ({
         id: `${index}`,
         label: item.nome,
         value: item.valor,
         color: colorsPriority[index],
-        percent: ((item.valor / data.saldo_total) * 100).toFixed(2),
+        percent: ((item.valor / data.saldototal) * 100).toFixed(2),
       }))
     }
 
