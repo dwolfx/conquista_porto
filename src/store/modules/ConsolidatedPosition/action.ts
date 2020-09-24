@@ -1,13 +1,15 @@
 import { Types } from './types'
+import { IConsolidatedPositionOld } from './iConsolidatedPosition'
 
-export function GetConsolidatedPositionDataRequest(cpf) {
+export function GetConsolidatedPositionDataRequest() {
   return {
     type: Types.GET_REQUEST,
-    cpf,
   }
 }
 
-export function GetConsolidatedPositionDataSuccess(payload) {
+export function GetConsolidatedPositionDataSuccess(
+  payload: IConsolidatedPositionOld
+) {
   return {
     type: Types.GET_SUCCESS,
     payload,
