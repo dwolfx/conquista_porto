@@ -189,7 +189,7 @@ export default function TableRender({ columns, data, showFilter }) {
     <Table {...getTableProps()}>
       <thead>
         <TheadTr>
-          {allColumns.map(column => (
+          {allColumns?.map(column => (
             <TheadTh hasFilter={showFilter} {...column.getHeaderProps()}>
               {column.render('Header')}
               <div>
@@ -231,7 +231,7 @@ export default function TableRender({ columns, data, showFilter }) {
       ) : (
         <tbody>
           <TbodyTr>
-            <TbodyTd colSpan={allColumns.length}>
+            <TbodyTd colSpan={allColumns?.length}>
               Nenhum item disponível.
             </TbodyTd>
           </TbodyTr>
