@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 import { useSelector } from 'react-redux'
+import 'styled-components/macro'
 
 import { DefaultTheme } from 'styled-components/macro'
 import InvestmentEmptyStateCard from './InvestmentEmptyStateCard'
@@ -173,6 +174,11 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
             <HorizontalList
               startItems={[<TotalInvestedTitle />]}
               endItems={[<TotalInvestedValue />]}
+              css={`
+                div:nth-child(2) {
+                  margin-left: 0;
+                }
+              `}
             />
 
             <HorizontalList

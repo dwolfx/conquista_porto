@@ -137,6 +137,10 @@ export const PieMiddleContentTitle = styled(TextComponent)`
   margin-top: ${({ theme }) => theme.spacing(1)}px;
 `
 
+export const ValueText = styled(TextComponent)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
 export const PieItemMargin = styled.div`
   margin: ${({ theme }) => theme.spacing(1)}px;
 `
