@@ -1,64 +1,64 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
-import { rgba } from 'helpers'
+import CarouselCard from 'components/Card/CarouselCard'
 
-export const SliderBox = styled.div`
+export const StyledCarousel = styled(CarouselCard)`
+  height: 490px;
+  margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+
+  /* Vertical Tablet = 736px Up */
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    height: 458px;
+  }
+
+  /* Desktop = 1280px Up */
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    height: 518px;
+  }
+
+  .slick-track{
+    height: calc(100% - 14px);
+  }
+
+  .slick-slide {
+    height: 100%;
+    > div {
+      height: 100%;
+    }
+  }
+`
+
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
-  @media ${props => props.theme.mediaQueries.lgUp} {
-    height: auto;
-  }
-`
-
-export const SliderImageBox = styled.div`
-  border-radius: 8px;
-  height: 100%;
-  margin-top: 14px;
-  margin-bottom: 21px;
-  overflow: hidden;
-  position: relative;
-  @media ${props => props.theme.mediaQueries.lgUp} {
-    height: 231px;
-  }
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-`
-
-export const SliderCaption = styled.div`
-  bottom: 0;
-  background-color: ${props => rgba(props.theme.colors.gray6, 0.63)};
-  padding-left: 14px;
-  position: absolute;
   width: 100%;
-  height: 35px;
+`
+
+export const ContentWrapper = styled.div`
+  width: 100%;
+  padding-top: 14px;
+
+  div > span {
+    height: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+export const ManageButton = styled(Button).attrs(() => ({
+  outline: true,
+  color: "primary"
+}))`
+  width: 100%;
+`
+
+export const ButtonWrapper = styled.div`
+  padding: ${({theme}) => `0 ${theme.spacing(2)}px`};
+`
+
+export const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
-
   p {
-    color: ${props => props.theme.colors.white};
+    margin-right: ${({theme}) => theme.spacing(2)}px;
   }
-`
-
-export const SliderTextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 0 14px 14px;
-
-  @media ${props => props.theme.mediaQueries.lgUp} {
-    height: 168px;
-  }
-
-  p:last-of-type {
-    color: ${props => props.theme.colors.gray5};
-    flex: 1;
-  }
-`
-
-export const SliderBoxButton = styled(Button)`
-  width: 100%;
 `

@@ -1,54 +1,43 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import 'styled-components/macro'
-
-import Text from 'components/Text'
 
 import WelFareEmptyImg from 'assets/images/pages/Home/img_private_welfare_empty.jpg'
+import Text from 'components/Text'
 
 import {
-  SliderBox,
-  SliderImageBox,
+  Wrapper,
+  ImageWrapper,
   SliderBoxButton,
   SliderCaption,
-  SliderTextBox,
+  Title,
+  Description,
+  ContentWrapper,
 } from './styles'
 
-export default function PrivateWalfareSection() {
+const PrivateWelfareEmptyState = () => {
   const history = useHistory()
 
-  const renderInvestimentCardContent = () => (
-    <SliderBox>
-      <SliderImageBox>
+  return (
+    <Wrapper>
+      <ImageWrapper>
         <img src={WelFareEmptyImg} alt="PGBL ou VGBL" />
         <SliderCaption>
           <Text type="button" bold>
             PGBL ou VGBL
           </Text>
         </SliderCaption>
-      </SliderImageBox>
-      <SliderTextBox>
-        <Text
-          type="title"
-          bold
-          css={`
-            padding-bottom: 7px;
-          `}
-        >
+      </ImageWrapper>
+      <ContentWrapper>
+        <Title>
           Viver melhor hoje e amanhã
-        </Text>
-        <Text
-          bold
-          css={`
-            padding-bottom: 14px;
-          `}
-        >
+        </Title>
+        <Description>
           Dedique uma parte de sua renda para investir em um futuro confortável.
           Gestores profissionais farão o seu dinheiro render ao longo dos anos
           para que você possa ter uma vida tranquila.
-        </Text>
+        </Description>
         <SliderBoxButton
-          disabled
+          // disabled
           data-gtm-subname="card previdência, viver melhor hoje e amanhã"
           data-gtm-name="conhecer"
           data-gtm-type="click"
@@ -58,9 +47,9 @@ export default function PrivateWalfareSection() {
         >
           Em Breve
         </SliderBoxButton>
-      </SliderTextBox>
-    </SliderBox>
+      </ContentWrapper>
+    </Wrapper>
   )
-
-  return renderInvestimentCardContent()
 }
+
+export default PrivateWelfareEmptyState

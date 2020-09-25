@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux'
 import Credits from './Credits'
 import InsuranceCard from './InsuranceCard'
 import InvestmentCard from './InvestmentCard'
-import PrivateWelfareSection from './PrivateWelfare'
 
 import CardHeaderState from './commons/CardHeaderState'
-import { GridCol, HomePrivateWelfareCard, GridColFlexContainer } from './styles'
+import { GridCol, GridColFlexContainer } from './styles'
+import PrivateWalfareSection from './PrivateWelfare'
 
 const SectionOne = ({ onFetchInvestments }) => {
   const { investments } = useSelector(state => ({
@@ -36,13 +36,7 @@ const SectionOne = ({ onFetchInvestments }) => {
         />
       </GridCol>
       <GridCol lg="4" md="6" sm="12">
-        <HomePrivateWelfareCard
-          headerIcon="time"
-          headerTitle="Previdência"
-          headerEndItem={cardHeaderState}
-        >
-          <PrivateWelfareSection />
-        </HomePrivateWelfareCard>
+        <PrivateWalfareSection headerEndItem={cardHeaderState} />
       </GridCol>
       <GridColFlexContainer lg="3" md="12" mdOffset="0" sm="12" xs="12">
         <InsuranceCard headerEndItem={cardHeaderState} />

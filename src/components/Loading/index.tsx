@@ -15,6 +15,7 @@ interface IProps {
   type?: 'spinner' | 'bar'
   legend?: string
   placement?: 'top' | 'bottom'
+  textAlign?: 'left' | 'center' | 'right'
   dataTestId?: 'loading'
 }
 
@@ -23,6 +24,7 @@ const Loading = ({
   width = 28,
   type = 'spinner',
   legend = '',
+  textAlign = 'left',
   placement = 'top',
   ...rest
 }: IProps) => {
@@ -45,6 +47,7 @@ const Loading = ({
           type="headline"
           color="gray5"
           placement={placement}
+          textAlign={textAlign}
           data-testid="legend"
         >
           {legend}

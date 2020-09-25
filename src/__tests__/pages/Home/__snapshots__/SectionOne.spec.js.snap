@@ -167,7 +167,11 @@ Array [
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:736px) {
+
+}
+
+@media (min-width:1280px) {
 
 }
 
@@ -175,7 +179,7 @@ Array [
     className="sc-fzoKki c0"
     data-name="col-sm-12 offset-sm-0 col-md-6 offset-md-0 col-lg-4 offset-lg-1"
   />,
-  .c8 {
+  .c9 {
   color: unset;
   text-align: unset;
   font-weight: normal;
@@ -188,116 +192,7 @@ Array [
   line-height: 30px;
 }
 
-.c15 {
-  color: unset;
-  text-align: unset;
-  font-weight: normal;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
-}
-
-.c17 {
-  color: unset;
-  text-align: unset;
-  font-weight: normal;
-  font-size: 14px;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
-  font-weight: 600;
-  line-height: 19px;
-}
-
-.c19 {
-  color: unset;
-  text-align: unset;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 14px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 19px;
-}
-
-.c21 {
-  background: #EBEBEB;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #BABABA;
-  cursor: not-allowed;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c21:hover:active {
-  pointer-events: none;
-}
-
-.c21:hover:active:after {
-  background-color: #2F736B;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c21:before {
-  background-color: #2F736B;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c23 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 25px;
-  position: relative;
-  width: 100%;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
-}
-
-.c5 {
+.c6 {
   width: 100%;
   height: 28px;
   display: -webkit-box;
@@ -315,7 +210,7 @@ Array [
   padding: 0 14px;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -327,11 +222,11 @@ Array [
   margin-right: 7px;
 }
 
-.c7.c7 > *:not(:last-child) {
+.c8.c8 > *:not(:last-child) {
   margin-right: 14px;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -343,7 +238,7 @@ Array [
   margin-left: 7px;
 }
 
-.c9.c9 > *:not(:first-child) {
+.c10.c10 > *:not(:first-child) {
   margin-left: 14px;
 }
 
@@ -361,7 +256,7 @@ Array [
   padding: 10px 14px 10px;
 }
 
-.c3 {
+.c4 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -376,7 +271,7 @@ Array [
   padding: 0 14px;
 }
 
-.c4 {
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -397,7 +292,7 @@ Array [
   width: 35px;
 }
 
-.c11 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -411,97 +306,86 @@ Array [
   overflow: hidden;
 }
 
-.c6 {
+.c7 {
   width: 100%;
   padding: 0;
   height: auto;
 }
 
-.c24 .c10 {
+.c2 {
+  height: 100%;
+}
+
+.c2 .c12 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100%;
-}
-
-.c13 {
-  border-radius: 8px;
-  height: 100%;
-  margin-top: 14px;
-  margin-bottom: 21px;
-  overflow: hidden;
-  position: relative;
-}
-
-.c13 img {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
 }
 
 .c14 {
-  bottom: 0;
-  background-color: rgba(39,39,39,0.63);
-  padding-left: 14px;
-  position: absolute;
   width: 100%;
-  height: 35px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  height: calc(100% - 21px);
+}
+
+.c14 .slick-list {
+  height: 100%;
+}
+
+.c14 ul.slick-dots {
+  position: static;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 7px 0;
 }
 
-.c14 p {
-  color: #FFFFFF;
+.c14 .slick-dots li {
+  margin: 0;
+  margin-right: 7px;
+  width: 7px;
+  height: 7px;
 }
 
-.c16 {
+.c14 .slick-dots li:last-child {
+  margin-right: 0;
+}
+
+.c14 .slick-dots li.slick-active button::before {
+  color: #00ADEF;
+}
+
+.c14 .slick-dots li button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+}
+
+.c14 .slick-dots li button:before {
+  font-size: 7px;
+  line-height: 7px;
+  width: 7px;
+  height: 7px;
+}
+
+.c14 .slick-dots li button:hover::before {
+  color: #00ADEF;
+}
+
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  padding: 0 14px 14px;
-}
-
-.c16 p:last-of-type {
-  color: #898989;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c22 {
-  width: 100%;
-}
-
-.c18 {
-  padding-bottom: 7px;
-}
-
-.c20 {
-  padding-bottom: 14px;
 }
 
 .c0 {
@@ -517,13 +401,25 @@ Array [
   transition: all 0.35s ease-in-out;
 }
 
-.c2 {
-  height: 518px;
+.c3 {
+  height: 490px;
   margin-bottom: 14px;
 }
 
+.c3 .slick-track {
+  height: calc(100% - 14px);
+}
+
+.c3 .slick-slide {
+  height: 100%;
+}
+
+.c3 .slick-slide > div {
+  height: 100%;
+}
+
 @media (max-width:736px) {
-  .c4 {
+  .c5 {
     margin-right: 7px;
   }
 }
@@ -534,24 +430,6 @@ Array [
 
 @media (max-width:480px) {
 
-}
-
-@media (min-width:1280px) {
-  .c12 {
-    height: auto;
-  }
-}
-
-@media (min-width:1280px) {
-  .c13 {
-    height: 231px;
-  }
-}
-
-@media (min-width:1280px) {
-  .c16 {
-    height: 168px;
-  }
 }
 
 @media (max-width:1280px) {
@@ -694,9 +572,15 @@ Array [
 
 }
 
-@media (max-width:1280px) {
-  .c2 {
+@media (min-width:736px) {
+  .c3 {
     height: 458px;
+  }
+}
+
+@media (min-width:1280px) {
+  .c3 {
+    height: 518px;
   }
 }
 
@@ -705,13 +589,13 @@ Array [
     data-name="col-sm-12 col-md-6 col-lg-4"
   >
     <div
-      className="c1 sc-pBolk c2"
+      className="c1 c2 c3"
     >
       <div
-        className="c3"
+        className="c4"
       >
         <div
-          className="c4"
+          className="c5"
         >
           <svg
             aria-label="time"
@@ -723,14 +607,14 @@ Array [
           </svg>
         </div>
         <div
-          className="c5 c6"
+          className="c6 c7"
           size="small"
         >
           <div
-            className="c7"
+            className="c8"
           >
             <p
-              className="c8 "
+              className="c9 "
               color="unset"
               type="heading4"
             >
@@ -738,69 +622,43 @@ Array [
             </p>
           </div>
           <div
-            className="c9"
-          />
+            className="c10"
+          >
+            <div
+              className="c11"
+            />
+          </div>
         </div>
       </div>
       <div
-        className="c10 c11"
+        className="c12 c13"
       >
         <div
-          className="c12"
+          className="slick-slider c14 slick-initialized"
         >
+          
           <div
-            className="c13"
+            className="slick-list"
           >
-            <img
-              alt="PGBL ou VGBL"
-              src="img_private_welfare_empty.jpg"
-            />
             <div
-              className="c14"
-            >
-              <p
-                className="c15"
-                color="unset"
-                type="button"
-              >
-                PGBL ou VGBL
-              </p>
-            </div>
+              className="slick-track"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              style={
+                Object {
+                  "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                  "WebkitTransition": "-webkit-transform 500ms ease",
+                  "msTransform": "translateX(0px)",
+                  "opacity": 1,
+                  "transform": "translate3d(0px, 0px, 0px)",
+                  "transition": "transform 500ms ease",
+                }
+              }
+            />
           </div>
-          <div
-            className="c16"
-          >
-            <p
-              className="c17 c18"
-              color="unset"
-              type="title"
-            >
-              Viver melhor hoje e amanhã
-            </p>
-            <p
-              className="c19 c20"
-              color="unset"
-              type="body"
-            >
-              Dedique uma parte de sua renda para investir em um futuro confortável. Gestores profissionais farão o seu dinheiro render ao longo dos anos para que você possa ter uma vida tranquila.
-            </p>
-            <button
-              className="c21 c22"
-              color="secondary"
-              data-gtm-clicktype="button"
-              data-gtm-name="conhecer"
-              data-gtm-subname="card previdência, viver melhor hoje e amanhã"
-              data-gtm-type="click"
-              disabled={true}
-              onClick={[Function]}
-            >
-              <span
-                className="c23"
-              >
-                Em Breve
-              </span>
-            </button>
-          </div>
+          
+          
         </div>
       </div>
     </div>
@@ -1344,18 +1202,6 @@ Array [
   }
 }
 
-@media (min-width:1280px) {
-
-}
-
-@media (min-width:1280px) {
-
-}
-
-@media (min-width:1280px) {
-
-}
-
 @media (min-width:576px) {
 
 }
@@ -1494,7 +1340,11 @@ Array [
   }
 }
 
-@media (max-width:1280px) {
+@media (min-width:736px) {
+
+}
+
+@media (min-width:1280px) {
 
 }
 
