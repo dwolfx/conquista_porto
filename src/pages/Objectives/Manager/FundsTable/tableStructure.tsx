@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ButtonIcon from 'components/Button/Icon'
-import Dropdown from 'components/Dropdown'
+import Dropdown, { IItemsProps } from 'components/Dropdown'
 import { TColumns } from 'components/Table/types'
 import Text from 'components/Text'
 
@@ -9,109 +9,180 @@ import { Currency } from 'helpers/money'
 import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 
+import { generateActionMenuOptions } from './utils'
+import { IActions } from './types'
 import * as s from './styles'
 
-export const columns: TColumns[] = [
-  {
-    accessor: 'nickname',
-    Header: 'Fundo de investimento',
-    styles: {
-      minWidth: 120,
-      width: '30%',
+export const columns = (
+  actions: IActions,
+  isTabletVertical?: boolean
+): TColumns[] => {
+  let columnsTemplate: TColumns[] = [
+    {
+      accessor: 'nickname',
+      Header: 'Fundo de investimento',
+      styles: {
+        minWidth: 120,
+        width: '36%',
+        header: {
+          width: '36%',
+          minWidth: 120,
+        },
+      },
+      align: 'flex-start',
+      justifyHeader: 'flex-start',
+      format: (row: TObjectiveFunds) => (
+        <s.FundoOutterWrapper key={`fund_name_${row.fund_id}`}>
+          <RiskColorTag borderRisk={row.order_profile_risk} />
+          <s.FundoWrapper>
+            <s.FundoNameWrapper color="gray5">
+              {row.nickname}
+            </s.FundoNameWrapper>
+            <Text type="caption" color="gray4" bold textAlign="left">
+              {row.arena_category}
+            </Text>
+          </s.FundoWrapper>
+        </s.FundoOutterWrapper>
+      ),
     },
-    align: 'flex-start',
-    justifyHeader: 'flex-start',
-    format: (row: TObjectiveFunds) => (
-      <s.FundoOutterWrapper key={`fund_name_${row.fund_id}`}>
-        <RiskColorTag borderRisk={row.order_profile_risk} />
-        <s.FundoWrapper>
-          <s.FundoNameWrapper color="gray5">{row.nickname}</s.FundoNameWrapper>
-          <Text type="caption" color="gray4" bold textAlign="left">
-            {row.anbima_category}
-          </Text>
-        </s.FundoWrapper>
-      </s.FundoOutterWrapper>
-    ),
-  },
-  {
-    accessor: 'balance',
-    Header: 'Saldo bruto',
-    styles: {
-      minWidth: 120,
-      width: '20%',
+    {
+      accessor: 'balance',
+      Header: 'Saldo bruto',
+      align: 'flex-end',
+      justifyHeader: 'flex-end',
+      styles: {
+        minWidth: 170,
+        width: '17%',
+        header: {
+          width: '16%',
+          minWidth: 156,
+        },
+      },
+      format: (row: TObjectiveFunds) => (
+        <Text type="title" color="gray6" bold>
+          {Currency.parse(row.balance, true)}
+        </Text>
+      ),
     },
-    format: (row: TObjectiveFunds) => (
-      <Text type="title" color="gray6" bold>
-        {Currency.parse(row.balance, true)}
-      </Text>
-    ),
-  },
-  {
-    accessor: 'available',
-    Header: 'Disponível',
-    styles: {
-      minWidth: 120,
-      width: '20%',
+    {
+      accessor: 'available',
+      Header: 'Disponível',
+      align: 'flex-end',
+      justifyHeader: 'flex-end',
+      styles: {
+        minWidth: 170,
+        width: '17%',
+        header: {
+          width: '16%',
+          minWidth: 156,
+        },
+      },
+      format: (row: TObjectiveFunds) => (
+        <Text type="title" color="gray6" bold>
+          {Currency.parse(row.available, true)}
+        </Text>
+      ),
     },
-    format: (row: TObjectiveFunds) => (
-      <Text type="title" color="gray6" bold>
-        {Currency.parse(row.available, true)}
-      </Text>
-    ),
-  },
-  {
-    accessor: 'initial_value',
-    Header: 'Inv. inicial',
-    styles: {
-      minWidth: 120,
-      width: '20%',
+    {
+      accessor: 'initial_value',
+      Header: 'Inv. inicial',
+      align: 'flex-end',
+      justifyHeader: 'flex-end',
+      styles: {
+        minWidth: 170,
+        width: '17%',
+        header: {
+          width: '16%',
+          minWidth: 156,
+        },
+      },
+      format: (row: TObjectiveFunds) => (
+        <Text type="title" color="gray6" bold>
+          {Currency.parse(row.initial_value, true)}
+        </Text>
+      ),
     },
-    format: (row: TObjectiveFunds) => (
-      <Text type="title" color="gray6" bold>
-        {Currency.parse(row.initial_value, true)}
-      </Text>
-    ),
-  },
-  {
-    accessor: 'actions',
-    Header: '',
-    styles: {
-      minWidth: 60,
-      width: '10%',
+    {
+      accessor: 'actions',
+      Header: '',
+      styles: {
+        minWidth: 88,
+        width: '10%',
+        header: {
+          minWidth: 58,
+          width: '8%',
+        },
+      },
+      format: (row: TObjectiveFunds) => {
+        const actionMenuOptions: IItemsProps[] = generateActionMenuOptions(
+          row,
+          actions
+        )
+        return (
+          <Dropdown
+            containerPadding="0"
+            customWidth="341px"
+            items={actionMenuOptions}
+          >
+            <ButtonIcon icon="more" shape="square" color="secondary" />
+          </Dropdown>
+        )
+      },
     },
-    format: (row: any) => (
-      <Dropdown
-        containerPadding="0"
-        items={[
-          {
-            icon: 'add',
-            text: 'Investir',
-            onClick: () => console.log('oi'),
+  ]
+
+  if (isTabletVertical) {
+    columnsTemplate = [
+      {
+        ...columnsTemplate[0],
+        styles: {
+          ...columnsTemplate[0].styles,
+          minWidth: 260,
+          header: {
+            minWidth: 242,
           },
-          {
-            icon: 'minus',
-            text: 'Resgatar',
-            onClick: () => console.log('oi'),
+        },
+      },
+      {
+        ...columnsTemplate[1],
+        styles: {
+          ...columnsTemplate[1].styles,
+          minWidth: 163,
+          header: {
+            minWidth: 155,
           },
-          {
-            icon: 'list',
-            text: 'Extrato de movimentações',
-            onClick: () => console.log('oi'),
+        },
+      },
+      {
+        ...columnsTemplate[2],
+        styles: {
+          ...columnsTemplate[2].styles,
+          minWidth: 163,
+          header: {
+            minWidth: 155,
           },
-          {
-            icon: 'money',
-            text: 'Vincular disponível ao objetivo',
-            onClick: () => console.log('oi'),
+        },
+      },
+      {
+        ...columnsTemplate[3],
+        styles: {
+          ...columnsTemplate[3].styles,
+          minWidth: 163,
+          header: {
+            minWidth: 155,
           },
-          {
-            icon: 'information',
-            text: 'Mais informações',
-            onClick: () => console.log('oi'),
-          },
-        ]}
-      >
-        <ButtonIcon icon="more" shape="square" color="secondary" />
-      </Dropdown>
-    ),
-  },
-]
+        },
+      },
+      {
+        ...columnsTemplate[4],
+        styles: {
+          ...columnsTemplate[4].styles,
+          minWidth: 111,
+        },
+        sticky: 'right',
+      },
+    ]
+  }
+
+  return columnsTemplate
+}

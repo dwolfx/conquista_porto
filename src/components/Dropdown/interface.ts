@@ -1,6 +1,6 @@
 import { dict } from 'components/IconExporter'
 
-export interface IChildSecondProp {
+interface IChildSecondProp {
   icon?: keyof typeof dict
   text?: string
   path?: string
@@ -11,4 +11,5 @@ export interface IItemsProps {
   text?: string
   path?: string
   children?: IChildSecondProp[]
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
 }

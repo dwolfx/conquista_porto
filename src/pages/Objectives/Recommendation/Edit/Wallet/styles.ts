@@ -5,9 +5,9 @@ import ButtonComponent from 'components/Button'
 import CardCmp from 'components/Card'
 import { CardBody } from 'components/Card/styles'
 import MoneyInputCmp from 'components/Inputs/Money'
+import PercentualInfosCmp from 'components/Objective/PercentualInfo'
 import TableComp from 'components/Table'
 import Text from 'components/Text'
-import PercentualInfosCmp from 'pages/Objectives/Recommendation/components/PercentualInfo'
 
 export const Container = styled(ContainerBootstrap)<{ isFirst?: boolean }>`
   padding: ${({ theme, isFirst }) =>

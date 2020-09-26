@@ -1,22 +1,21 @@
 import React from 'react'
 import { uuid } from 'uuidv4'
-import { IFunds } from 'store/modules/Objective/types'
-import { IFundCategories } from '../../types'
-import * as s from './styles'
 
-interface IPercentual {
-  funds: IFunds[]
-}
+import { IFunds } from 'store/modules/Objective/types'
+import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
+
+import { IFundCategories, IPercentual } from './types'
+import * as s from './styles'
 
 const PercentualInfos = ({ funds, ...rest }: IPercentual) => {
   const fundsCategories: IFundCategories = {}
 
-  funds.forEach((fund: IFunds) => {
+  funds.forEach((fund: IFunds | TObjectiveFunds) => {
     if (fund.arena_category in fundsCategories) {
       fundsCategories[fund.arena_category] +=
         fund.initial_value + fund.monthly_value
     } else {
-      fundsCategories[fund.arena_category] =
+      fundsCategories[fund?.arena_category] =
         fund.initial_value + fund.monthly_value
     }
   })

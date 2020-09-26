@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import PercentualInfosCmp from 'components/Objective/PercentualInfo'
 import Text from 'components/Text'
 
 export const FundoWrapper = styled.div`
@@ -26,5 +27,9 @@ export const FundoNameWrapper = styled(Text)`
 `
 
 export const CardBody = styled.div`
-  padding: 0 ${({ theme }) => theme.spacing(2)}px;
+  padding: ${({ theme }) => `${theme.spacing(3)}px ${theme.spacing(2)}px 0`};
+`
+
+export const PercentualInfos = styled(PercentualInfosCmp)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `

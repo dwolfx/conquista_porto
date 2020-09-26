@@ -47,6 +47,7 @@ type TYear = {
 export type TObjectiveFunds = {
   name: string
   nickname: string
+  arena_category: string
   classification: string
   benchmark: string
   balance: number

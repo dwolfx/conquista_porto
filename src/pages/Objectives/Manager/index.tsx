@@ -5,14 +5,22 @@ import { Container, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Button from 'components/Button'
+import ButtonIcon from 'components/Button/Icon'
 // import ButtonLink from 'components/Button/Link'
+import Card from 'components/Card'
+import Divisor from 'components/Divisor'
+import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
 import InformativeHeader from 'components/Objective/InformativeHeader'
 import Text from 'components/Text'
+import TransactionHeader from 'components/Header/TransactionsHeader'
+
+import { ObjectiveType } from 'helpers/objetive'
 
 import { useToast } from 'hooks/toast'
+import useMedia from 'hooks/useMedia'
 
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
@@ -28,8 +36,6 @@ import theme from 'styles/theme'
 
 import * as t from './types'
 import * as s from './styles'
-import Card from 'components/Card'
-import { ObjectiveType } from 'helpers/objetive'
 
 export default function ObjectiveManager() {
   const { objectiveId } = useParams<t.ILocationParams>()
@@ -37,9 +43,11 @@ export default function ObjectiveManager() {
   const dispatch = useDispatch()
   const location = useLocation()
   const history = useHistory()
+  const isMobile = useMedia('sm')
 
   const [bannerImage, setBannerImage] = useState('')
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
+  const [addFundsLayer, setAddFundsLayer] = useState(false)
 
   const { pageRecommendation } = location.state || { pageRecommendation: false }
 
@@ -119,6 +127,66 @@ export default function ObjectiveManager() {
     return <Loading />
   }
 
+  const renderObjectiveFundsTable = () =>
+    !isMobile ? (
+      <>
+        <FundsTable
+          funds={objectiveData.fund_list}
+          icon="financial"
+          title="Fundos com investimento inicial pendente"
+          type="monthly"
+          css={`
+            margin-bottom: ${theme.spacing(2)}px;
+          `}
+        />
+        <FundsTable
+          funds={objectiveData.fund_list}
+          icon="financial"
+          title="Fundos do objetivo"
+          type="monthly"
+          footer={
+            <s.FundsTableCardFooter align="flex-end">
+              <Button
+                outline
+                onClick={() => setAddFundsLayer(true)}
+                data-gtm-name="adicionar meus fundos"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+              >
+                Adicionar meus fundos
+              </Button>
+            </s.FundsTableCardFooter>
+          }
+        />
+      </>
+    ) : (
+      <Card>
+        <HorizontalList
+          startItems={[
+            <Text type="captionUppercase" color="gray5" bold>
+              Fundos com inv. inicial pendente
+            </Text>,
+          ]}
+          endItems={[<ButtonIcon icon="arrowright" />]}
+        />
+
+        <Divisor
+          css={`
+            margin: ${theme.spacing(1)}px 0;
+          `}
+        />
+
+        <HorizontalList
+          startItems={[
+            <Text type="captionUppercase" color="gray5" bold>
+              Fundo do objetivo
+            </Text>,
+          ]}
+          endItems={[<ButtonIcon icon="arrowright" />]}
+        />
+      </Card>
+    )
+
   return (
     <>
       <Container>
@@ -164,23 +232,10 @@ export default function ObjectiveManager() {
                     </Text>
                   </s.TextInfoContainer>
                 }
+                type="initial"
               />
             ) : (
-              <>
-                <FundsTable
-                  funds={objectiveData.fund_list}
-                  icon="financial"
-                  title="Fundos com investimento inicial pendente"
-                  css={`
-                    margin-bottom: ${theme.spacing(2)}px;
-                  `}
-                />
-                <FundsTable
-                  funds={objectiveData.fund_list}
-                  icon="financial"
-                  title="Fundos do objetivo"
-                />
-              </>
+              renderObjectiveFundsTable()
             )}
           </Col>
         </s.Row>
@@ -216,6 +271,15 @@ export default function ObjectiveManager() {
         </s.Row>
       </Container>
 
+      <s.Layer
+        isOpen={addFundsLayer}
+        handleClose={() => setAddFundsLayer(false)}
+        headerContent={
+          <TransactionHeader onClose={() => setAddFundsLayer(false)} />
+        }
+      >
+        <Text>Add funds layer</Text>
+      </s.Layer>
       <Modal
         isOpen={isModalDeleteOpen}
         handleClose={() => {

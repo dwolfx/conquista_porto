@@ -216,9 +216,9 @@ export const DepositTextValue = styled.span`
 `
 
 export const CustomDropdownWrapper = styled(Col)`
-  z-index: 2;
-  width: 126px;
   margin: 0 auto;
+  width: 126px;
+  z-index: 1;
 `
 export const CustomSelectDropdown = styled(SelectDropdown)`
   background-color: ${props => props.theme.colors.gray1};

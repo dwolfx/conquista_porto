@@ -7,7 +7,6 @@ import useMedia from 'hooks/useMedia'
 import BreadCrumb from 'components/Breadcrumb'
 import Divisor from 'components/Divisor'
 import Button from 'components/Button/IconText'
-import DropDown from 'components/Dropdown'
 import { IItemsProps } from 'components/Dropdown/interface'
 
 import { handleGiwRedirect } from 'helpers'

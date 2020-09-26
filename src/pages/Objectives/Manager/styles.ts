@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { Row as RowBootstrap } from 'styled-bootstrap-grid'
 import { LoadingContainer } from 'components/Loading/styles'
 import BackgroundImage from 'components/Card/BackgroundImage'
+import LayerCmp from 'components/Layer'
+import { LayerHeader } from 'components/Layer/styles'
 
 export const CardBackgroundImage = styled(BackgroundImage)`
   height: 200px;
@@ -43,7 +45,7 @@ export const ButtonContainerModal = styled.div`
 `
 
 export const TextInfoContainer = styled.div`
-  margin: ${({ theme }) => `${theme.spacing(3)}px 0 ${theme.spacing(4)}px`};
+  margin-bottom: ${({ theme }) => `${theme.spacing(4)}px`};
 
   p {
     display: flex;
@@ -52,4 +54,23 @@ export const TextInfoContainer = styled.div`
       margin-left: ${({ theme }) => theme.spacing(1)}px;
     }
   }
+`
+
+export const Layer = styled(LayerCmp)`
+  ${LayerHeader} {
+    padding: 0;
+    border-bottom: none;
+  }
+`
+
+interface IFundsTableCardFooter {
+  align?: 'flex-start' | 'center' | 'flex-end'
+  justify?: 'flex-start' | 'center' | 'space-between' | 'flex-end'
+}
+
+export const FundsTableCardFooter = styled.div<IFundsTableCardFooter>`
+  align-items: ${({ align }) => (align ? align : 'flex-start')};
+  display: flex;
+  justify-content: ${({ align }) => (align ? align : 'flex-start')};
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
 `

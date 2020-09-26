@@ -4,7 +4,7 @@ import Text from 'components/Text'
 
 export const PercentualInfosContainer = styled(Row)`
   display: flex;
-  padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  padding: 0 ${({ theme }) => theme.spacing(1)}px;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: column;

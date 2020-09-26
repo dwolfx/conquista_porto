@@ -112,7 +112,9 @@ const Dropdown: React.FC<IProps> = ({
               <s.ItemIcon name={item.icon} />
             </s.ItemIconContainer>
           )}
-          <s.ItemText>{item.text}</s.ItemText>
+          <s.ItemText type="headline" color="gray6" bold>
+            {item.text}
+          </s.ItemText>
         </s.ItemWrapper>
       ))
     )
@@ -157,7 +159,9 @@ const Dropdown: React.FC<IProps> = ({
           <s.ItemIconContainer>
             <s.ItemIcon name={item.icon} />
           </s.ItemIconContainer>
-          <s.ItemText>{item.text}</s.ItemText>
+          <s.ItemText type="headline" color="gray6" bold>
+            {item.text}
+          </s.ItemText>
           {item.children && (
             <s.ItemIconContainer alignToEnd>
               <s.ItemIcon name="arrowright" />
@@ -190,7 +194,11 @@ const Dropdown: React.FC<IProps> = ({
       <Manager>
         <Reference>
           {({ ref }) => (
-            <div ref={ref} onClick={() => handleDropDown(true)} {...rest}>
+            <div
+              ref={ref}
+              onClick={() => setIsOpen(current => !current)}
+              {...rest}
+            >
               {children}
             </div>
           )}
@@ -243,6 +251,7 @@ const Dropdown: React.FC<IProps> = ({
                   isOpen={isOpen}
                   id="backdrop"
                   onClick={() => handleDropDown(false)}
+                  zIndex={zIndex}
                 />
               </>,
               document.querySelector('#root') as HTMLDivElement

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-
+import moment from 'moment'
 import PropTypes from 'prop-types'
 
+import Card from 'components/Card'
 import Text from 'components/Text'
 import Loading from 'components/Loading'
 
 import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
-import moment from 'moment'
 
+import ChartItems from './components/ChartItems'
 import {
   ChartContainer,
   ChartEvolutionWrapper,
@@ -15,7 +16,6 @@ import {
   CustomSelectDropdown,
   CustomDropdownWrapper,
 } from './styles'
-import ChartItems from './components/ChartItems'
 
 const currentYear = moment().year()
 
@@ -58,7 +58,7 @@ export default function VerticalChart({ data, isLoading, isMobile }) {
   }
 
   return (
-    <>
+    <Card>
       <Text type="captionUppercase" color="gray6" textAlign="center">
         ano de visualização
       </Text>
@@ -119,7 +119,7 @@ export default function VerticalChart({ data, isLoading, isMobile }) {
           />
         </ChartEvolutionWrapper>
       </ChartContainer>
-    </>
+    </Card>
   )
 }
 

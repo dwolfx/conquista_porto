@@ -3,6 +3,7 @@ import { Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Icon from 'components/IconExporter'
+import PercentualInfos from 'components/Objective/PercentualInfo'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
@@ -12,7 +13,6 @@ import { IFunds, ICreditProduct } from 'store/modules/Objective/types'
 
 import DetailModal from 'pages/Objectives/Recommendation/WalletSection/DetailModal'
 import Detail from 'pages/Objectives/Recommendation/WalletSection/Detail'
-import PercentualInfos from 'pages/Objectives/Recommendation/components/PercentualInfo'
 import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
 import TableView from './TableView'
