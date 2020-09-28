@@ -1,6 +1,6 @@
 import React from 'react'
-import { HashRouter, MemoryRouter } from 'react-router-dom'
-import { render, waitFor, fireEvent, screen, act } from '@testing-library/react'
+import { HashRouter } from 'react-router-dom'
+import { screen } from '@testing-library/react'
 import { renderWithReduxAndTheme } from 'testUtils'
 
 import ObjectiveTracking, { IObjectiveTracking } from '.'

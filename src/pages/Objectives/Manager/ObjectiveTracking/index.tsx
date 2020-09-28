@@ -17,6 +17,7 @@ const ObjectiveTracking = ({
   ...rest
 }: IObjectiveTracking) => {
   const moneyNeededToReachObjective: number = targetValue - totalBalance
+  const percentage: number = +((totalBalance * 100) / targetValue).toFixed(2)
   const ObjectiveTrackingRender = () => (
     <s.Card>
       <Text type={'captionUppercase'} bold color={'gray5'}>
@@ -25,7 +26,7 @@ const ObjectiveTracking = ({
       <s.MiniLinearProgressBar
         current={totalBalance}
         max={targetValue}
-        percentage={+((totalBalance * 100) / targetValue).toFixed(2)}
+        percentage={percentage}
       />
       <Text type={'captionUppercase'} bold color={'gray4'}>
         {`Faltam ${Currency.parse(moneyNeededToReachObjective, true)}`}
