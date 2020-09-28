@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams, useLocation } from 'react-router-dom'
 import { Container, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
+import { Currency } from 'helpers/money'
 
 import Button from 'components/Button'
 import ButtonIcon from 'components/Button/Icon'
@@ -18,6 +19,7 @@ import Text from 'components/Text'
 import TransactionHeader from 'components/Header/TransactionsHeader'
 
 import { ObjectiveType } from 'helpers/objetive'
+import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
 
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
@@ -25,6 +27,7 @@ import useMedia from 'hooks/useMedia'
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import FundsTable from 'pages/Objectives/Manager/FundsTable'
+import ObjectiveTracking from 'pages/Objectives/Manager/ObjectiveTracking'
 
 import {
   GetObjectiveManagementDataRequest,
@@ -37,6 +40,8 @@ import theme from 'styles/theme'
 import * as t from './types'
 import * as s from './styles'
 
+import { ObjectiveType } from 'helpers/objetive'
+
 export default function ObjectiveManager() {
   const { objectiveId } = useParams<t.ILocationParams>()
   const { addToast } = useToast()
@@ -44,6 +49,7 @@ export default function ObjectiveManager() {
   const location = useLocation()
   const history = useHistory()
   const isMobile = useMedia('sm')
+  const isTablet = useMedia('lg')
 
   const [bannerImage, setBannerImage] = useState('')
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
@@ -198,7 +204,7 @@ export default function ObjectiveManager() {
           </s.Row>
         )}
         <s.Row>
-          <Col lg={9}>
+          <Col lg={9} md={12} sm={12}>
             <InformativeHeader
               nickname={objectiveData.nickname}
               targetDate={objectiveData.target_date}
@@ -208,13 +214,18 @@ export default function ObjectiveManager() {
               openEdit={() => null}
             />
           </Col>
-          <Col lg={3}>
-            <Card>
-              <Text type="captionUppercase" color="gray5" bold>
-                Acompanhamento do objetivo
-              </Text>
-            </Card>
-          </Col>
+          <s.ColProgress
+            isTablet={isTablet}
+            isMobile={isMobile}
+            lg={3}
+            md={12}
+            sm={12}
+          >
+            <ObjectiveTracking
+              targetValue={objectiveData.target_value}
+              totalBalance={objectiveData.total_balance}
+            />
+          </s.ColProgress>
         </s.Row>
 
         <s.Row>

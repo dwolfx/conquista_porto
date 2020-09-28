@@ -5,13 +5,16 @@ import BackgroundImage from 'components/Card/BackgroundImage'
 import LayerCmp from 'components/Layer'
 import { LayerHeader } from 'components/Layer/styles'
 
-export const CardBackgroundImage = styled(BackgroundImage)`
-  height: 200px;
-  cursor: default;
-`
+import MiniLinearProgressBarCmp from 'components/MiniLinearProgressBar'
+import CardCmp from 'components/Card'
+import { Col } from 'styled-bootstrap-grid'
 
 export const Row = styled(RowBootstrap)`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+export const CardBackgroundImage = styled(BackgroundImage)`
+  height: 200px;
+  cursor: default;
 `
 
 export const LoadingStateContainer = styled.div`
@@ -73,4 +76,24 @@ export const FundsTableCardFooter = styled.div<IFundsTableCardFooter>`
   display: flex;
   justify-content: ${({ align }) => (align ? align : 'flex-start')};
   margin-top: ${({ theme }) => theme.spacing(3)}px;
+`
+export const LinearProgressBarContent = styled.div`
+  width: 56px;
+`
+export const MiniLinearProgressBar = styled(MiniLinearProgressBarCmp)`
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+`
+export const Card = styled(CardCmp)`
+  height: 100%;
+`
+
+interface IColProgress {
+  isMobile?: boolean
+  isTablet?: boolean
+}
+
+export const ColProgress = styled(Col)<IColProgress>`
+  margin-top: ${({ theme, isMobile, isTablet }) =>
+    isMobile || isTablet ? theme.spacing(2) : 0}px;
 `
