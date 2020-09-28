@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LifeInsurance renders correctly 1`] = `
-Array [
-  .c3 {
+Object {
+  "asFragment": [Function],
+  "baseElement": .c3 {
   background: linear-gradient( to left, #2F736B -35%, #46A166 );
   background-repeat: no-repeat;
   border: none;
@@ -154,151 +155,13 @@ Array [
   color: white;
 }
 
-@media (min-width:1206px) {
-
-}
-
-@media (max-width:780px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:1000px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:1100px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (min-width:1206px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-<section
-    className="c0"
-  >
-    <div
-      className="c1"
-    >
-      <h1
-        className="c2"
-      >
-        Seguro de Vida
-      </h1>
-      <p>
-        Planeje a sua proteção ou da sua família e tenha tranquilidade para enfrentar adversidades. Você pode simular diferentes planos da Porto Seguro e contratar digitalmente.
-      </p>
-      <br />
-      <button
-        className="c3 button-with-right-icon"
-        color="secondary"
-        data-gtm-clicktype="button"
-        data-gtm-name="EM BREVE"
-        data-gtm-subname="banner Seguro de Vida"
-        data-gtm-type="click"
-        disabled={false}
-        onClick={[Function]}
-      >
-        <span
-          className="c4"
-        >
-          EM BREVE
-        </span>
-      </button>
-    </div>
-    <img
-      alt="Família andando na beira do mar"
-      className="c5"
-      src="banner_seguro_vida.jpg"
-    />
-  </section>,
-  .c0 {
+.c6 {
   padding-top: 28px;
   padding-bottom: 28px;
   background-color: #F1F1F1;
 }
 
-.c1 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -314,21 +177,21 @@ Array [
   margin: 0 auto;
 }
 
-.c2 {
+.c8 {
   padding-left: 14px;
   padding-right: 14px;
 }
 
-.c2 img {
+.c8 img {
   width: 450px;
 }
 
-.c3 {
+.c9 {
   padding-left: 14px;
   padding-right: 14px;
 }
 
-.c3 div {
+.c9 div {
   font-size: 34px;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
@@ -338,13 +201,13 @@ Array [
   font-weight: 300;
 }
 
-.c3 ul {
+.c9 ul {
   list-style-type: none;
   padding-left: 20px;
   margin-top: 28px;
 }
 
-.c3 li {
+.c9 li {
   position: relative;
   font-size: 18px;
   padding-left: 28px;
@@ -354,7 +217,7 @@ Array [
   margin-bottom: 14px;
 }
 
-.c3 li:before {
+.c9 li:before {
   content: '■';
   color: #00ADEF;
   position: absolute;
@@ -362,184 +225,22 @@ Array [
   font-size: 14px;
 }
 
-.c4 {
+.c10 {
   margin-left: 50px;
   font-size: 12px;
   font-weight: 300;
   line-height: 18px;
 }
 
-@media (min-width:1206px) {
-  .c1 {
-    width: 1200px;
-  }
-}
-
-@media (max-width:780px) {
-  .c1 {
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width:1200px) {
-  .c2 img {
-    width: 400px;
-  }
-}
-
-@media (min-width:768px) {
-  .c2 img {
-    padding-right: 70px;
-  }
-}
-
-@media (max-width:768px) {
-  .c2 img {
-    width: 300px;
-  }
-}
-
-@media (max-width:768px) {
-  .c3 {
-    margin-top: 30px;
-  }
-}
-
-@media (max-width:980px) {
-  .c3 div {
-    font-size: 22px;
-  }
-}
-
-@media (max-width:768px) {
-  .c3 div {
-    text-align: center;
-  }
-}
-
-@media (max-width:1000px) {
-  .c3 li {
-    font-size: 15px;
-  }
-}
-
-@media (max-width:980px) {
-  .c3 li {
-    font-size: 14px;
-    line-height: 19px;
-  }
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:1100px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (min-width:1206px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-<section
-    className="c0"
-  >
-    <div
-      className="c1"
-    >
-      <div
-        className="c2"
-      >
-        <img
-          alt=""
-          src="selo-seguro-vida.svg"
-        />
-      </div>
-      <div
-        className="c3"
-      >
-        <div>
-          Por que contratar o Seguro de Vida?
-        </div>
-        <ul>
-          <li>
-            O Seguro de Vida é uma proteção financeira para você e/ou para a sua família estarem preparados para todos os momentos.
-          </li>
-          <li>
-            E para profissionais liberais o seguro garante a reposição da renda em caso de afastamento do trabalho por doença ou acidente.
-          </li>
-          <li>
-            O Seguro de Vida também é vantajoso para pessoas solteiras e sem filhos pois oferece estabilidade financeira em casos de invalidez e doenças graves.
-          </li>
-        </ul>
-        <p
-          className="c4"
-        >
-          
-        </p>
-      </div>
-    </div>
-  </section>,
-  .c7 .slick-track {
+.c18 .slick-track {
   float: left;
 }
 
-.c8 {
+.c19 {
   margin-bottom: 2em;
 }
 
-.c9 {
+.c20 {
   border: 1px solid #DDDDDD;
   border-left: 0px;
   display: -webkit-box;
@@ -553,38 +254,38 @@ Array [
   padding: 1em;
 }
 
-.c9 svg {
+.c20 svg {
   height: 36px;
   margin: 0.5em 1em 0 0;
   width: 93px;
   fill: #898989;
 }
 
-.c10 {
+.c21 {
   font-size: 18px;
   line-height: 28px;
   font-weight: 300;
 }
 
-.c11 {
+.c22 {
   color: #272727;
   font-weight: 300;
   font-size: 14px;
 }
 
-.c0 {
+.c11 {
   padding-top: 28px;
   background-color: white;
 }
 
-.c1 {
+.c12 {
   text-align: center;
   font-size: 18px;
   line-height: 28px;
   font-weight: 300;
 }
 
-.c2 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -598,7 +299,7 @@ Array [
   justify-content: space-evenly;
 }
 
-.c3 {
+.c14 {
   width: 240px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -613,7 +314,7 @@ Array [
   align-items: center;
 }
 
-.c4 {
+.c15 {
   background-color: #00ADEF;
   width: 72px;
   height: 72px;
@@ -632,12 +333,12 @@ Array [
   align-items: center;
 }
 
-.c4 svg {
+.c15 svg {
   fill: #FFFFFF;
   height: 30px;
 }
 
-.c5 {
+.c16 {
   font-size: 14px;
   line-height: 19px;
   font-weight: 300;
@@ -646,7 +347,7 @@ Array [
   margin-top: 12px;
 }
 
-.c6 {
+.c17 {
   color: #272727;
   font-size: 11px;
   font-weight: 600;
@@ -660,503 +361,17 @@ Array [
   margin-bottom: 1em;
 }
 
-@media (min-width:1206px) {
-
-}
-
-@media (max-width:780px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:1000px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (min-width:1200px) {
-  .c8 {
-    margin-bottom: 0;
-  }
-}
-
-@media (min-width:1100px) {
-  .c9 {
-    padding: 2em;
-  }
-}
-
-@media (max-width:1200px) {
-  .c2 {
-    width: 800px;
-  }
-}
-
-@media (max-width:768px) {
-  .c2 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: unset;
-  }
-}
-
-@media (max-width:768px) {
-  .c3 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0 8px;
-    width: initial;
-    margin-bottom: 22px;
-  }
-}
-
-@media (max-width:768px) {
-  .c4 {
-    width: 52px;
-    height: 52px;
-  }
-}
-
-@media (max-width:768px) {
-  .c5 {
-    margin-top: unset;
-    padding-left: 12px;
-    text-align: unset;
-    -webkit-flex: 2;
-    -ms-flex: 2;
-    flex: 2;
-  }
-}
-
-@media (min-width:1206px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-<section
-    className="c0"
-  >
-    <div
-      className="c1"
-    >
-      Quando faz sentido contratar um Seguro de Vida?
-    </div>
-    <div
-      className="c2"
-    >
-      <div
-        className="c3"
-      >
-        <div
-          className="c4"
-        >
-          <svg
-            aria-label="persongroup"
-            role="img"
-          >
-            person-group.svg
-          </svg>
-           
-        </div>
-        <p
-          className="c5"
-        >
-          Quando você quiser proteger sua família financeiramente, caso algo aconteça com você.
-        </p>
-      </div>
-      <div
-        className="c3"
-      >
-        <div
-          className="c4"
-        >
-          <svg
-            aria-label="personaccident"
-            role="img"
-          >
-            person-accident.svg
-          </svg>
-           
-        </div>
-        <p
-          className="c5"
-        >
-          Quando você quiser garantir renda em situações de invalidez temporária ou permanente.
-        </p>
-      </div>
-      <div
-        className="c3"
-      >
-        <div
-          className="c4"
-        >
-          <svg
-            aria-label="hospital"
-            role="img"
-          >
-            hospital.svg
-          </svg>
-           
-        </div>
-        <p
-          className="c5"
-        >
-          Quando você quiser ter uma segurança financeira em diagnósticos de doenças graves.
-        </p>
-      </div>
-    </div>
-    <h2
-      className="c6"
-    >
-      Vantagens ao contratar com o conquista:
-    </h2>
-    <div
-      className="slick-slider c7 c8 slick-initialized"
-    >
-      
-      <div
-        className="slick-list"
-      >
-        <div
-          className="slick-track"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "WebkitTransform": "translate3d(0px, 0px, 0px)",
-              "WebkitTransition": "",
-              "msTransform": "translateX(0px)",
-              "opacity": 1,
-              "transform": "translate3d(0px, 0px, 0px)",
-              "transition": "",
-            }
-          }
-        >
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active slick-current"
-            data-index={0}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="c9"
-              >
-                <svg
-                  aria-label="talkman"
-                  role="img"
-                >
-                  talk-man.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c10"
-                  >
-                    Gerente de conta
-                  </h1>
-                  <p
-                    className="c11"
-                  >
-                    De acordo com seu saldo investido, conte com a possibilidade de ter o apoio de um Gerente de Conta para auxiliar você em dúvidas e contratações.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={1}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="c9"
-              >
-                <svg
-                  aria-label="diamond"
-                  role="img"
-                >
-                  diamond.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c10"
-                  >
-                    Programa de Relacionamento
-                  </h1>
-                  <p
-                    className="c11"
-                  >
-                    Pontos do Conquista somados aos pontos do Cartão de Crédito Porto Seguro, que podem ser trocados por descontos, benefícios e vantagens.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={2}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="c9"
-              >
-                <svg
-                  aria-label="callcenter"
-                  role="img"
-                >
-                  call-center.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c10"
-                  >
-                    Chat inteligente
-                  </h1>
-                  <p
-                    className="c11"
-                  >
-                    Atendimento 24h para esclarecer suas dúvidas sobre o uso da plataforma e sobre as soluções Porto Seguro disponíveis no Conquista.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden={false}
-            className="slick-slide slick-active"
-            data-index={3}
-            onClick={[Function]}
-            style={
-              Object {
-                "outline": "none",
-                "width": 0,
-              }
-            }
-            tabIndex="-1"
-          >
-            <div>
-              <div
-                className="c9"
-              >
-                <svg
-                  aria-label="apps"
-                  role="img"
-                >
-                  apps.svg
-                </svg>
-                <div
-                  className=""
-                >
-                  <h1
-                    className="c10"
-                  >
-                    Facilidade
-                  </h1>
-                  <p
-                    className="c11"
-                  >
-                    Ferramentas que simplificam seu dia a dia, permitindo que você controle sua vida financeira e contrate soluções da Porto Seguro pelo computador ou smartphone.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      
-    </div>
-  </section>,
-  .c4 {
-  background: linear-gradient( to left, #2F736B -35%, #46A166 );
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #FFFFFF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c4:hover:active {
-  pointer-events: auto;
-}
-
-.c4:hover:active:after {
-  background-color: #2F736B;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c4:hover:before {
-  width: 100%;
-}
-
-.c4:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c4:before {
-  background-color: #2F736B;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c5 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 25px;
-  position: relative;
-  width: 100%;
-  font-size: 11px;
-  font-weight: 600;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 15px;
-}
-
-.c0 {
+.c23 {
   padding-top: 28px;
   padding-bottom: 28px;
   background-color: #004E70;
 }
 
-.c1 {
+.c24 {
   text-align: center;
 }
 
-.c2 {
+.c25 {
   padding-bottom: 30px;
   text-align: center;
   font-size: 34px;
@@ -1169,506 +384,13 @@ Array [
   color: white;
 }
 
-.c3 {
+.c26 {
   color: white;
   text-align: center;
   font-size: 18px;
 }
 
-@media (min-width:1206px) {
-
-}
-
-@media (max-width:780px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:1000px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:1100px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (min-width:1206px) {
-  .c1 {
-    width: 1200px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-<section
-    className="c0"
-  >
-    <div
-      className="c1"
-    >
-      <h1
-        className="c2"
-      >
-        Futuro protegido.
-      </h1>
-      <p
-        className="c3"
-      >
-        Com o Conquista, é fácil encontrar o plano ideal para você.
-        <br />
-        <br />
-        Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro de Vida da Porto Seguro.
-      </p>
-      <br />
-      <br />
-      <button
-        className="c4"
-        color="secondary"
-        data-gtm-clicktype="button"
-        data-gtm-name="EM BREVE"
-        data-gtm-subname="Futuro protegido."
-        data-gtm-type="click"
-        disabled={false}
-        onClick={[Function]}
-      >
-        <span
-          className="c5"
-        >
-          EM BREVE
-        </span>
-      </button>
-    </div>
-  </section>,
-  .c3 .slick-track {
-  float: left;
-}
-
-.c5 {
-  border: 1px solid #DDDDDD;
-  border-radius: 0.5em;
-  background-color: #FFFFFF;
-  box-shadow: 1px 45px 40px -50px rgba(0,0,0,0.4);
-  margin: 46px auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 22.5em;
-  width: 24em;
-}
-
-.c6 {
-  height: 5em;
-}
-
-.c9 {
-  color: #000;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 32px;
-  word-break: break-word;
-  font-size: 22px;
-  font-weight: 300;
-  margin-bottom: 15px;
-}
-
-.c10 {
-  color: #272727;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  line-height: 24px;
-  word-break: break-word;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.c8 {
-  padding: 30px;
-}
-
-.c7 {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.c0 {
-  background-color: #FFFFFF;
-}
-
-.c1 {
-  padding: 1.75em 0;
-  margin: 0 auto;
-  max-width: 75em;
-  width: 100%;
-}
-
-.c2 {
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 21px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.c4 .slick-dots {
-  position: relative;
-  bottom: 0;
-  margin: 1em 0 0;
-}
-
-@media (min-width:1206px) {
-
-}
-
-@media (max-width:780px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:1000px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:1100px) {
-
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (max-width:768px) {
-
-}
-
-@media (min-width:1206px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (max-width:980px) {
-
-}
-
-<section
-    className="c0"
-  >
-    <div
-      className="c1"
-    >
-      <h1
-        className="c2"
-      >
-        Saiba mais:
-      </h1>
-      <div
-        className="slick-slider c3 c4 slick-initialized"
-      >
-        
-        <div
-          className="slick-list"
-        >
-          <div
-            className="slick-track"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseOver={[Function]}
-            style={
-              Object {
-                "WebkitTransform": "translate3d(0px, 0px, 0px)",
-                "WebkitTransition": "",
-                "msTransform": "translateX(0px)",
-                "opacity": 1,
-                "transform": "translate3d(0px, 0px, 0px)",
-                "transition": "",
-              }
-            }
-          >
-            <div
-              aria-hidden={false}
-              className="slick-slide slick-active slick-current"
-              data-index={0}
-              onClick={[Function]}
-              style={
-                Object {
-                  "outline": "none",
-                  "width": 0,
-                }
-              }
-              tabIndex="-1"
-            >
-              <div>
-                <div
-                  className="c5"
-                >
-                  <div
-                    className="c6"
-                  >
-                    <img
-                      className="c7"
-                      src={null}
-                    />
-                  </div>
-                  <div
-                    className="c8"
-                  >
-                    <p
-                      className="c9"
-                    >
-                      Seguro como proteção familiar
-                    </p>
-                    <p
-                      className="c10"
-                    >
-                      O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um padrão de vida de qualidade aos seus entes queridos, caso você falte um dia.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              aria-hidden={false}
-              className="slick-slide slick-active"
-              data-index={1}
-              onClick={[Function]}
-              style={
-                Object {
-                  "outline": "none",
-                  "width": 0,
-                }
-              }
-              tabIndex="-1"
-            >
-              <div>
-                <div
-                  className="c5"
-                >
-                  <div
-                    className="c6"
-                  >
-                    <img
-                      className="c7"
-                      src={null}
-                    />
-                  </div>
-                  <div
-                    className="c8"
-                  >
-                    <p
-                      className="c9"
-                    >
-                      Outras coberturas
-                    </p>
-                    <p
-                      className="c10"
-                    >
-                      O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em casos de doenças graves e invalidez por acidente total ou parcial entre outros.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              aria-hidden={false}
-              className="slick-slide slick-active"
-              data-index={2}
-              onClick={[Function]}
-              style={
-                Object {
-                  "outline": "none",
-                  "width": 0,
-                }
-              }
-              tabIndex="-1"
-            >
-              <div>
-                <div
-                  className="c5"
-                >
-                  <div
-                    className="c6"
-                  >
-                    <img
-                      className="c7"
-                      src={null}
-                    />
-                  </div>
-                  <div
-                    className="c8"
-                  >
-                    <p
-                      className="c9"
-                    >
-                      Seguro para profissionais
-                    </p>
-                    <p
-                      className="c10"
-                    >
-                      A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        
-      </div>
-    </div>
-  </section>,
-  .c0 {
+.c37 {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -1676,7 +398,7 @@ Array [
   margin-left: auto;
 }
 
-.c1 {
+.c38 {
   display: -ms-flexbox;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1690,7 +412,7 @@ Array [
   margin-left: -15px;
 }
 
-.c2 {
+.c39 {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -1700,15 +422,15 @@ Array [
   border-right: 1px solid #DDDDDD;
 }
 
-.c2:last-child {
+.c39:last-child {
   border-right: none;
 }
 
-.c3 {
+.c40 {
   padding-right: 20px;
 }
 
-.c4 {
+.c41 {
   font-size: 11px;
   font-weight: 600;
   color: #272727;
@@ -1720,7 +442,7 @@ Array [
   line-height: 21px;
 }
 
-.c5 {
+.c42 {
   font-size: 14px;
   line-height: 19px;
   font-weight: 300;
@@ -1729,7 +451,7 @@ Array [
   margin-top: 12px;
 }
 
-.c6 {
+.c43 {
   font-size: 11px;
   line-height: 21px;
   -webkit-letter-spacing: 1.5px;
@@ -1746,108 +468,246 @@ Array [
   font-weight: 600;
 }
 
-.c6:hover {
+.c43:hover {
   color: #018CB7;
 }
 
-@media (min-width:1206px) {
+.c31 {
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5em;
+  background-color: #FFFFFF;
+  box-shadow: 1px 45px 40px -50px rgba(0,0,0,0.4);
+  margin: 46px auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 22.5em;
+  width: 24em;
+}
 
+.c32 {
+  height: 5em;
+}
+
+.c35 {
+  color: #000;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 32px;
+  word-break: break-word;
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.c36 {
+  color: #272727;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  line-height: 24px;
+  word-break: break-word;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.c34 {
+  padding: 30px;
+}
+
+.c33 {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.c27 {
+  background-color: #FFFFFF;
+}
+
+.c28 {
+  padding: 1.75em 0;
+  margin: 0 auto;
+  max-width: 75em;
+  width: 100%;
+}
+
+.c29 {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.c30 .slick-dots {
+  position: relative;
+  bottom: 0;
+  margin: 1em 0 0;
+}
+
+@media (min-width:1206px) {
+  .c7 {
+    width: 1200px;
+  }
 }
 
 @media (max-width:780px) {
-
+  .c7 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width:1200px) {
-
+  .c8 img {
+    width: 400px;
+  }
 }
 
 @media (min-width:768px) {
-
+  .c8 img {
+    padding-right: 70px;
+  }
 }
 
 @media (max-width:768px) {
-
+  .c8 img {
+    width: 300px;
+  }
 }
 
 @media (max-width:768px) {
-
+  .c9 {
+    margin-top: 30px;
+  }
 }
 
 @media (max-width:980px) {
-
+  .c9 div {
+    font-size: 22px;
+  }
 }
 
 @media (max-width:768px) {
-
+  .c9 div {
+    text-align: center;
+  }
 }
 
 @media (max-width:1000px) {
-
+  .c9 li {
+    font-size: 15px;
+  }
 }
 
 @media (max-width:980px) {
-
+  .c9 li {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
 
 @media (min-width:1200px) {
-
+  .c19 {
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width:1100px) {
-
+  .c20 {
+    padding: 2em;
+  }
 }
 
 @media (max-width:1200px) {
-
+  .c13 {
+    width: 800px;
+  }
 }
 
 @media (max-width:768px) {
-
+  .c13 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: unset;
+  }
 }
 
 @media (max-width:768px) {
-
+  .c14 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 8px;
+    width: initial;
+    margin-bottom: 22px;
+  }
 }
 
 @media (max-width:768px) {
-
+  .c15 {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 @media (max-width:768px) {
-
+  .c16 {
+    margin-top: unset;
+    padding-left: 12px;
+    text-align: unset;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+  }
 }
 
 @media (min-width:1206px) {
-
+  .c24 {
+    width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width:576px) {
-  .c0 {
+  .c37 {
     max-width: 540px;
   }
 }
 
 @media (min-width:768px) {
-  .c0 {
+  .c37 {
     max-width: 720px;
   }
 }
 
 @media (min-width:992px) {
-  .c0 {
+  .c37 {
     max-width: 960px;
   }
 }
 
 @media (min-width:1200px) {
-  .c0 {
+  .c37 {
     max-width: 1140px;
   }
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c39 {
     -ms-flex: 0 0 50%;
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
@@ -1857,7 +717,7 @@ Array [
 }
 
 @media (min-width:992px) {
-  .c2 {
+  .c39 {
     -ms-flex: 0 0 100%;
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
@@ -1867,60 +727,1119 @@ Array [
 }
 
 @media (max-width:980px) {
-  .c2 {
+  .c39 {
     border-right: none;
   }
 }
 
-<div
-    className="c0"
-    data-name="container"
-  >
-    <div
-      className="c1"
-      data-name="row"
+<body>
+    <div>
+      <section
+        class="c0"
+      >
+        <div
+          class="c1"
+        >
+          <h1
+            class="c2"
+          >
+            Seguro de Vida
+          </h1>
+          <p>
+            Planeje a sua proteção ou da sua família e tenha tranquilidade para enfrentar adversidades. Você pode simular diferentes planos da Porto Seguro e contratar digitalmente.
+          </p>
+          <br />
+          <button
+            class="c3 button-with-right-icon"
+            color="secondary"
+            data-gtm-clicktype="button"
+            data-gtm-name="Simule e Contrate"
+            data-gtm-subname="banner Seguro de Vida"
+            data-gtm-type="click"
+          >
+            <span
+              class="c4"
+            >
+              Simule e Contrate
+              <span
+                class="icon"
+              />
+            </span>
+          </button>
+        </div>
+        <img
+          alt="Família andando na beira do mar"
+          class="c5"
+          src="banner_seguro_vida.jpg"
+        />
+      </section>
+      <section
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          <div
+            class="c8"
+          >
+            <img
+              alt=""
+              src="selo-seguro-vida.svg"
+            />
+          </div>
+          <div
+            class="c9"
+          >
+            <div>
+              Por que contratar o Seguro de Vida?
+            </div>
+            <ul>
+              <li>
+                O Seguro de Vida é uma proteção financeira para você e/ou para a sua família estarem preparados para todos os momentos.
+              </li>
+              <li>
+                E para profissionais liberais o seguro garante a reposição da renda em caso de afastamento do trabalho por doença ou acidente.
+              </li>
+              <li>
+                O Seguro de Vida também é vantajoso para pessoas solteiras e sem filhos pois oferece estabilidade financeira em casos de invalidez e doenças graves.
+              </li>
+            </ul>
+            <p
+              class="c10"
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        class="c11"
+      >
+        <div
+          class="c12"
+        >
+          Quando faz sentido contratar um Seguro de Vida?
+        </div>
+        <div
+          class="c13"
+        >
+          <div
+            class="c14"
+          >
+            <div
+              class="c15"
+            >
+              <svg
+                aria-label="persongroup"
+                role="img"
+              >
+                person-group.svg
+              </svg>
+               
+            </div>
+            <p
+              class="c16"
+            >
+              Quando você quiser proteger sua família financeiramente, caso algo aconteça com você.
+            </p>
+          </div>
+          <div
+            class="c14"
+          >
+            <div
+              class="c15"
+            >
+              <svg
+                aria-label="personaccident"
+                role="img"
+              >
+                person-accident.svg
+              </svg>
+               
+            </div>
+            <p
+              class="c16"
+            >
+              Quando você quiser garantir renda em situações de invalidez temporária ou permanente.
+            </p>
+          </div>
+          <div
+            class="c14"
+          >
+            <div
+              class="c15"
+            >
+              <svg
+                aria-label="hospital"
+                role="img"
+              >
+                hospital.svg
+              </svg>
+               
+            </div>
+            <p
+              class="c16"
+            >
+              Quando você quiser ter uma segurança financeira em diagnósticos de doenças graves.
+            </p>
+          </div>
+        </div>
+        <h2
+          class="c17"
+        >
+          Vantagens ao contratar com o conquista:
+        </h2>
+        <div
+          class="slick-slider c18 c19 slick-initialized"
+        >
+          
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="talkman"
+                      role="img"
+                    >
+                      talk-man.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Gerente de conta
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        De acordo com seu saldo investido, conte com a possibilidade de ter o apoio de um Gerente de Conta para auxiliar você em dúvidas e contratações.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="diamond"
+                      role="img"
+                    >
+                      diamond.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Programa de Relacionamento
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        Pontos do Conquista somados aos pontos do Cartão de Crédito Porto Seguro, que podem ser trocados por descontos, benefícios e vantagens.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="2"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="callcenter"
+                      role="img"
+                    >
+                      call-center.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Chat inteligente
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        Atendimento 24h para esclarecer suas dúvidas sobre o uso da plataforma e sobre as soluções Porto Seguro disponíveis no Conquista.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="3"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="c20"
+                  >
+                    <svg
+                      aria-label="apps"
+                      role="img"
+                    >
+                      apps.svg
+                    </svg>
+                    <div
+                      class=""
+                    >
+                      <h1
+                        class="c21"
+                      >
+                        Facilidade
+                      </h1>
+                      <p
+                        class="c22"
+                      >
+                        Ferramentas que simplificam seu dia a dia, permitindo que você controle sua vida financeira e contrate soluções da Porto Seguro pelo computador ou smartphone.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </section>
+      <section
+        class="c23"
+      >
+        <div
+          class="c24"
+        >
+          <h1
+            class="c25"
+          >
+            Futuro protegido.
+          </h1>
+          <p
+            class="c26"
+          >
+            Com o Conquista, é fácil encontrar o plano ideal para você.
+            <br />
+            <br />
+            Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro de Vida da Porto Seguro.
+          </p>
+          <br />
+          <br />
+          <button
+            class="c3"
+            color="secondary"
+            data-gtm-clicktype="button"
+            data-gtm-name="Simule e Contrate"
+            data-gtm-subname="Futuro protegido."
+            data-gtm-type="click"
+          >
+            <span
+              class="c4"
+            >
+              Simule e Contrate
+            </span>
+          </button>
+        </div>
+      </section>
+      <section
+        class="c27"
+      >
+        <div
+          class="c28"
+        >
+          <h1
+            class="c29"
+          >
+            Saiba mais:
+          </h1>
+          <div
+            class="slick-slider c18 c30 slick-initialized"
+          >
+            
+            <div
+              class="slick-list"
+            >
+              <div
+                class="slick-track"
+                style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+              >
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active slick-current"
+                  data-index="0"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c31"
+                    >
+                      <div
+                        class="c32"
+                      >
+                        <img
+                          class="c33"
+                        />
+                      </div>
+                      <div
+                        class="c34"
+                      >
+                        <p
+                          class="c35"
+                        >
+                          Seguro como proteção familiar
+                        </p>
+                        <p
+                          class="c36"
+                        >
+                          O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um padrão de vida de qualidade aos seus entes queridos, caso você falte um dia.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="1"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c31"
+                    >
+                      <div
+                        class="c32"
+                      >
+                        <img
+                          class="c33"
+                        />
+                      </div>
+                      <div
+                        class="c34"
+                      >
+                        <p
+                          class="c35"
+                        >
+                          Outras coberturas
+                        </p>
+                        <p
+                          class="c36"
+                        >
+                          O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em casos de doenças graves e invalidez por acidente total ou parcial entre outros.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active"
+                  data-index="2"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="c31"
+                    >
+                      <div
+                        class="c32"
+                      >
+                        <img
+                          class="c33"
+                        />
+                      </div>
+                      <div
+                        class="c34"
+                      >
+                        <p
+                          class="c35"
+                        >
+                          Seguro para profissionais
+                        </p>
+                        <p
+                          class="c36"
+                        >
+                          A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+        </div>
+      </section>
+      <div
+        class="c37"
+        data-name="container"
+      >
+        <div
+          class="c38"
+          data-name="row"
+        >
+          <div
+            class="sc-fzoxKX c39"
+            data-name="col-md-6 col-lg-12"
+          >
+            <div>
+              <svg
+                aria-label="pdf"
+                class="c40"
+                fill="#272727"
+                height="24px"
+                role="img"
+              >
+                pdf.svg
+              </svg>
+            </div>
+            <div>
+              <p
+                class="c41"
+              >
+                Condições Gerais
+              </p>
+              <p
+                class="c42"
+              >
+                Confira mais detalhes sobre as condições de contratação e outras informações sobre o Seguro de Vida da Porto Seguro.
+              </p>
+              <p
+                class="c43"
+                data-gtm-clicktype="link"
+                data-gtm-name="Visualizar"
+                data-gtm-subname="Condições Gerais"
+                data-gtm-type="click"
+              >
+                Visualizar
+                 &gt;
+                 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="sc-AxmLO bohepV"
     >
       <div
-        className="sc-fzoxKX c2"
-        data-name="col-md-6 col-lg-12"
+        class="sc-fzozJi ghJUps"
       >
-        <div>
-          <svg
-            aria-label="pdf"
-            className="c3"
-            fill="#272727"
-            height="24px"
-            role="img"
+        <h1
+          class="sc-fzpans hjHiXE"
+        >
+          Seguro de Vida
+        </h1>
+        <p>
+          Planeje a sua proteção ou da sua família e tenha tranquilidade para enfrentar adversidades. Você pode simular diferentes planos da Porto Seguro e contratar digitalmente.
+        </p>
+        <br />
+        <button
+          class="sc-AxheI fWkGtS button-with-right-icon"
+          color="secondary"
+          data-gtm-clicktype="button"
+          data-gtm-name="Simule e Contrate"
+          data-gtm-subname="banner Seguro de Vida"
+          data-gtm-type="click"
+        >
+          <span
+            class="sc-Axmtr jzRiSY"
           >
-            pdf.svg
-          </svg>
+            Simule e Contrate
+            <span
+              class="icon"
+            />
+          </span>
+        </button>
+      </div>
+      <img
+        alt="Família andando na beira do mar"
+        class="sc-fzoLsD huQBEw"
+        src="banner_seguro_vida.jpg"
+      />
+    </section>
+    <section
+      class="sc-fzplWN fzwWOD"
+    >
+      <div
+        class="sc-fznyAO fsKSCe"
+      >
+        <div
+          class="sc-fznKkj jhsnVa"
+        >
+          <img
+            alt=""
+            src="selo-seguro-vida.svg"
+          />
         </div>
-        <div>
+        <div
+          class="sc-fznZeY huemJa"
+        >
+          <div>
+            Por que contratar o Seguro de Vida?
+          </div>
+          <ul>
+            <li>
+              O Seguro de Vida é uma proteção financeira para você e/ou para a sua família estarem preparados para todos os momentos.
+            </li>
+            <li>
+              E para profissionais liberais o seguro garante a reposição da renda em caso de afastamento do trabalho por doença ou acidente.
+            </li>
+            <li>
+              O Seguro de Vida também é vantajoso para pessoas solteiras e sem filhos pois oferece estabilidade financeira em casos de invalidez e doenças graves.
+            </li>
+          </ul>
           <p
-            className="c4"
+            class="sc-fzokOt fotBbG"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="sc-fzoiQi hOdnoN"
+    >
+      <div
+        class="sc-fzqARJ ctfuQb"
+      >
+        Quando faz sentido contratar um Seguro de Vida?
+      </div>
+      <div
+        class="sc-fzqNqU ekgPoR"
+      >
+        <div
+          class="sc-fzoyTs rJcan"
+        >
+          <div
+            class="sc-fzoNJl fKWFxK"
           >
-            Condições Gerais
-          </p>
-          <p
-            className="c5"
-          >
-            Confira mais detalhes sobre as condições de contratação e outras informações sobre o Seguro de Vida da Porto Seguro.
-          </p>
-          <p
-            className="c6"
-            data-gtm-clicktype="link"
-            data-gtm-name="Visualizar"
-            data-gtm-subname="Condições Gerais"
-            data-gtm-type="click"
-            onClick={[Function]}
-          >
-            Visualizar
-             &gt;
+            <svg
+              aria-label="persongroup"
+              role="img"
+            >
+              person-group.svg
+            </svg>
              
+          </div>
+          <p
+            class="sc-fzoXWK dfkcXL"
+          >
+            Quando você quiser proteger sua família financeiramente, caso algo aconteça com você.
           </p>
+        </div>
+        <div
+          class="sc-fzoyTs rJcan"
+        >
+          <div
+            class="sc-fzoNJl fKWFxK"
+          >
+            <svg
+              aria-label="personaccident"
+              role="img"
+            >
+              person-accident.svg
+            </svg>
+             
+          </div>
+          <p
+            class="sc-fzoXWK dfkcXL"
+          >
+            Quando você quiser garantir renda em situações de invalidez temporária ou permanente.
+          </p>
+        </div>
+        <div
+          class="sc-fzoyTs rJcan"
+        >
+          <div
+            class="sc-fzoNJl fKWFxK"
+          >
+            <svg
+              aria-label="hospital"
+              role="img"
+            >
+              hospital.svg
+            </svg>
+             
+          </div>
+          <p
+            class="sc-fzoXWK dfkcXL"
+          >
+            Quando você quiser ter uma segurança financeira em diagnósticos de doenças graves.
+          </p>
+        </div>
+      </div>
+      <h2
+        class="sc-fzpmMD cAszzt"
+      >
+        Vantagens ao contratar com o conquista:
+      </h2>
+      <div
+        class="slick-slider sc-fzqBZW dEBtES sc-fzoXzr bYEdGI slick-initialized"
+      >
+        
+        <div
+          class="slick-list"
+        >
+          <div
+            class="slick-track"
+            style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          >
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active slick-current"
+              data-index="0"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="talkman"
+                    role="img"
+                  >
+                    talk-man.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Gerente de conta
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      De acordo com seu saldo investido, conte com a possibilidade de ter o apoio de um Gerente de Conta para auxiliar você em dúvidas e contratações.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="1"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="diamond"
+                    role="img"
+                  >
+                    diamond.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Programa de Relacionamento
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      Pontos do Conquista somados aos pontos do Cartão de Crédito Porto Seguro, que podem ser trocados por descontos, benefícios e vantagens.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="2"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="callcenter"
+                    role="img"
+                  >
+                    call-center.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Chat inteligente
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      Atendimento 24h para esclarecer suas dúvidas sobre o uso da plataforma e sobre as soluções Porto Seguro disponíveis no Conquista.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="3"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="sc-fzpjYC dGuNTk"
+                >
+                  <svg
+                    aria-label="apps"
+                    role="img"
+                  >
+                    apps.svg
+                  </svg>
+                  <div
+                    class="sc-fznWqX clGFVO"
+                  >
+                    <h1
+                      class="sc-fznxsB bThEhp"
+                    >
+                      Facilidade
+                    </h1>
+                    <p
+                      class="sc-fznJRM XBsYf"
+                    >
+                      Ferramentas que simplificam seu dia a dia, permitindo que você controle sua vida financeira e contrate soluções da Porto Seguro pelo computador ou smartphone.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+    </section>
+    <section
+      class="sc-fznxKY cBDQkv"
+    >
+      <div
+        class="sc-fznMAR fuPtCG"
+      >
+        <h1
+          class="sc-fznWOq dPRiCP"
+        >
+          Futuro protegido.
+        </h1>
+        <p
+          class="sc-fzolEj gtFzMN"
+        >
+          Com o Conquista, é fácil encontrar o plano ideal para você.
+          <br />
+          <br />
+          Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro de Vida da Porto Seguro.
+        </p>
+        <br />
+        <br />
+        <button
+          class="sc-AxheI fWkGtS"
+          color="secondary"
+          data-gtm-clicktype="button"
+          data-gtm-name="Simule e Contrate"
+          data-gtm-subname="Futuro protegido."
+          data-gtm-type="click"
+        >
+          <span
+            class="sc-Axmtr jzRiSY"
+          >
+            Simule e Contrate
+          </span>
+        </button>
+      </div>
+    </section>
+    <section
+      class="sc-fzoYHE fjXDwi"
+    >
+      <div
+        class="sc-fzpkqZ eDcoZa"
+      >
+        <h1
+          class="sc-fznAgC dQVCHA"
+        >
+          Saiba mais:
+        </h1>
+        <div
+          class="slick-slider sc-fzqBZW dEBtES sc-fznLPX gyQAFX slick-initialized"
+        >
+          
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gqwztf"
+                  >
+                    <div
+                      class="sc-fzomME byAbpH"
+                    >
+                      <img
+                        class="sc-fzoJMP dlQOXH"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzoydu cjyLyy"
+                    >
+                      <p
+                        class="sc-fzqAbL jLAAht"
+                      >
+                        Seguro como proteção familiar
+                      </p>
+                      <p
+                        class="sc-fzqMAW gkqjKh"
+                      >
+                        O seguro de vida é uma boa maneira de garantir segurança financeira às pessoas que você ama. Com ele, você continua proporcionando um padrão de vida de qualidade aos seus entes queridos, caso você falte um dia.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gqwztf"
+                  >
+                    <div
+                      class="sc-fzomME byAbpH"
+                    >
+                      <img
+                        class="sc-fzoJMP dlQOXH"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzoydu cjyLyy"
+                    >
+                      <p
+                        class="sc-fzqAbL jLAAht"
+                      >
+                        Outras coberturas
+                      </p>
+                      <p
+                        class="sc-fzqMAW gkqjKh"
+                      >
+                        O seguro de vida não vale só em caso de morte. Dependendo das coberturas da apólice contratada, seu valor também pode ser utilizado em casos de doenças graves e invalidez por acidente total ou parcial entre outros.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="2"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="sc-fzoant gqwztf"
+                  >
+                    <div
+                      class="sc-fzomME byAbpH"
+                    >
+                      <img
+                        class="sc-fzoJMP dlQOXH"
+                      />
+                    </div>
+                    <div
+                      class="sc-fzoydu cjyLyy"
+                    >
+                      <p
+                        class="sc-fzqAbL jLAAht"
+                      >
+                        Seguro para profissionais
+                      </p>
+                      <p
+                        class="sc-fzqMAW gkqjKh"
+                      >
+                        A DIT (Diária por Incapacidade Temporária) é indicada para profissionais liberais, que podem contar com o seguro para garantir seus rendimentos em caso de acidente que os afaste do trabalho.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+    </section>
+    <div
+      class="sc-fzqBkg gNlaca"
+      data-name="container"
+    >
+      <div
+        class="sc-fzqPZZ eUztIp"
+        data-name="row"
+      >
+        <div
+          class="sc-fzoxKX sc-fzoKki gqKUBS"
+          data-name="col-md-6 col-lg-12"
+        >
+          <div>
+            <svg
+              aria-label="pdf"
+              class="sc-fzoYkl cGRzAA"
+              fill="#272727"
+              height="24px"
+              role="img"
+            >
+              pdf.svg
+            </svg>
+          </div>
+          <div>
+            <p
+              class="sc-fzpkJw kalcME"
+            >
+              Condições Gerais
+            </p>
+            <p
+              class="sc-fznzOf cclTIr"
+            >
+              Confira mais detalhes sobre as condições de contratação e outras informações sobre o Seguro de Vida da Porto Seguro.
+            </p>
+            <p
+              class="sc-fznMnq jHYwqB"
+              data-gtm-clicktype="link"
+              data-gtm-name="Visualizar"
+              data-gtm-subname="Condições Gerais"
+              data-gtm-type="click"
+            >
+              Visualizar
+               &gt;
+               
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>,
-]
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 
 import moment from 'moment'
 // eslint-disable-next-line no-unused-vars
-import { css, ThemeContext } from 'styled-components/macro'
+import { ThemeContext } from 'styled-components/macro'
 
 import { useSelector } from 'react-redux'
 
@@ -23,7 +23,8 @@ import Icon from 'components/IconExporter'
 
 import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 
-import { formatMoney, handleGiwRedirect } from 'helpers'
+import { formatMoney } from 'helpers'
+import { handleRedirectToLifeInsuranceSimulate } from '../utils'
 
 import {
   AddBtnLink,
@@ -154,13 +155,7 @@ export default function ManagementLifeInsurance() {
                 data-gtm-subname="card custodia visualizar"
                 data-gtm-name="adicionar"
                 onClick={() => {
-                  handleGiwRedirect(
-                    `portaldecliente/conquista/seguro-de-vida/simular?r=true${
-                      (locationState || {}).idGoal
-                        ? `&idObjetivo=${(locationState || {}).idGoal}`
-                        : ''
-                    }`
-                  )
+                  handleRedirectToLifeInsuranceSimulate(locationState)
                 }}
               >
                 <Icon width="48" fill="#ccc" name="add" />
@@ -304,7 +299,10 @@ export default function ManagementLifeInsurance() {
           mainDescription="Com o Conquista, é fácil encontrar o plano ideal para você."
           subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
           de Vida da Porto Seguro."
-          buttonText="EM BREVE"
+          buttonText="Simule e Contrate"
+          onClick={() => {
+            handleRedirectToLifeInsuranceSimulate(locationState)
+          }}
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />
