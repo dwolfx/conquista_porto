@@ -1,7 +1,7 @@
 import { handleGiwRedirect } from 'helpers'
 
 interface ILocationState extends Object {
-  idGoal: string
+  idGoal?: string
 }
 
 export const handleRedirectToLifeInsuranceSimulate = (
