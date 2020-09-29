@@ -13,8 +13,7 @@ interface IProgressBar {
 export const ProgressBar = styled.div<IProgressBar>`
   height: 100%;
   max-width: ${({ progress }) => progress}%;
-  background-color: ${({ color, theme }) =>
-    color ? color : theme.colors.green4};
+  background-color: ${({ color, theme }) => color || theme.colors.green4};
   border-radius: 6px;
 `
 

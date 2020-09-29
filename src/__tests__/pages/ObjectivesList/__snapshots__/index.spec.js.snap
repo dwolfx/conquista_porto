@@ -536,6 +536,14 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
             </span>
           </div>
         </div>
+        <p
+          className="c14 c15"
+          color="gray5"
+          type="captionUppercase"
+        >
+          123
+          %
+        </p>
       </div>
       <button
         className="c16 c17 c18"

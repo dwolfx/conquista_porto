@@ -255,21 +255,6 @@ exports[`ProductItemGenerator consorcioImovel Renders correctly 1`] = `
 }
 
 .c11 {
-  color: #898989;
-  text-align: left;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 12px;
-  -webkit-letter-spacing: 0.5px;
-  -moz-letter-spacing: 0.5px;
-  -ms-letter-spacing: 0.5px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 16px;
-}
-
-.c12 {
   color: #000;
   text-align: unset;
   font-weight: normal;
@@ -282,7 +267,7 @@ exports[`ProductItemGenerator consorcioImovel Renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c14 {
+.c13 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -303,12 +288,12 @@ exports[`ProductItemGenerator consorcioImovel Renders correctly 1`] = `
   line-height: 15px;
 }
 
-.c14 svg {
+.c13 svg {
   height: 21px;
   margin-left: 14px;
 }
 
-.c14 svg path {
+.c13 svg path {
   fill: currentColor;
 }
 
@@ -346,7 +331,7 @@ exports[`ProductItemGenerator consorcioImovel Renders correctly 1`] = `
   margin-right: 14px;
 }
 
-.c13 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -358,7 +343,7 @@ exports[`ProductItemGenerator consorcioImovel Renders correctly 1`] = `
   margin-left: 7px;
 }
 
-.c13.c13 > *:not(:first-child) {
+.c12.c12 > *:not(:first-child) {
   margin-left: 14px;
 }
 
@@ -419,17 +404,10 @@ exports[`ProductItemGenerator consorcioImovel Renders correctly 1`] = `
               />
             </div>
           </div>
-          <p
-            className="c11"
-            color="gray5"
-            type="captionUppercase"
-          >
-            undefined%
-          </p>
         </div>
       </div>
       <p
-        className="c12"
+        className="c11"
         color="black"
         type="headline"
       >
@@ -437,10 +415,10 @@ exports[`ProductItemGenerator consorcioImovel Renders correctly 1`] = `
       </p>
     </div>
     <div
-      className="c13"
+      className="c12"
     >
       <a
-        className="c14"
+        className="c13"
         data-gtm-clicktype="link"
         data-gtm-name="gerenciar"
         data-gtm-subname="card credito Consórcio de Imóvel"
@@ -515,21 +493,6 @@ exports[`ProductItemGenerator consorcioVeiculo Renders correctly 1`] = `
 }
 
 .c11 {
-  color: #898989;
-  text-align: left;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 12px;
-  -webkit-letter-spacing: 0.5px;
-  -moz-letter-spacing: 0.5px;
-  -ms-letter-spacing: 0.5px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 16px;
-}
-
-.c12 {
   color: #000;
   text-align: unset;
   font-weight: normal;
@@ -542,7 +505,7 @@ exports[`ProductItemGenerator consorcioVeiculo Renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c14 {
+.c13 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -563,12 +526,12 @@ exports[`ProductItemGenerator consorcioVeiculo Renders correctly 1`] = `
   line-height: 15px;
 }
 
-.c14 svg {
+.c13 svg {
   height: 21px;
   margin-left: 14px;
 }
 
-.c14 svg path {
+.c13 svg path {
   fill: currentColor;
 }
 
@@ -606,7 +569,7 @@ exports[`ProductItemGenerator consorcioVeiculo Renders correctly 1`] = `
   margin-right: 14px;
 }
 
-.c13 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -618,7 +581,7 @@ exports[`ProductItemGenerator consorcioVeiculo Renders correctly 1`] = `
   margin-left: 7px;
 }
 
-.c13.c13 > *:not(:first-child) {
+.c12.c12 > *:not(:first-child) {
   margin-left: 14px;
 }
 
@@ -679,17 +642,10 @@ exports[`ProductItemGenerator consorcioVeiculo Renders correctly 1`] = `
               />
             </div>
           </div>
-          <p
-            className="c11"
-            color="gray5"
-            type="captionUppercase"
-          >
-            undefined%
-          </p>
         </div>
       </div>
       <p
-        className="c12"
+        className="c11"
         color="black"
         type="headline"
       >
@@ -697,10 +653,10 @@ exports[`ProductItemGenerator consorcioVeiculo Renders correctly 1`] = `
       </p>
     </div>
     <div
-      className="c13"
+      className="c12"
     >
       <a
-        className="c14"
+        className="c13"
         data-gtm-clicktype="link"
         data-gtm-name="gerenciar"
         data-gtm-subname="card credito Consórcio de Veículo"
@@ -775,21 +731,6 @@ exports[`ProductItemGenerator financiamentoVeiculo Renders correctly 1`] = `
 }
 
 .c11 {
-  color: #898989;
-  text-align: left;
-  font-weight: normal;
-  font-family: Open Sans;
-  font-size: 12px;
-  -webkit-letter-spacing: 0.5px;
-  -moz-letter-spacing: 0.5px;
-  -ms-letter-spacing: 0.5px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 16px;
-}
-
-.c12 {
   color: #000;
   text-align: unset;
   font-weight: normal;
@@ -802,7 +743,7 @@ exports[`ProductItemGenerator financiamentoVeiculo Renders correctly 1`] = `
   line-height: 25px;
 }
 
-.c14 {
+.c13 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -823,12 +764,12 @@ exports[`ProductItemGenerator financiamentoVeiculo Renders correctly 1`] = `
   line-height: 15px;
 }
 
-.c14 svg {
+.c13 svg {
   height: 21px;
   margin-left: 14px;
 }
 
-.c14 svg path {
+.c13 svg path {
   fill: currentColor;
 }
 
@@ -866,7 +807,7 @@ exports[`ProductItemGenerator financiamentoVeiculo Renders correctly 1`] = `
   margin-right: 14px;
 }
 
-.c13 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -878,7 +819,7 @@ exports[`ProductItemGenerator financiamentoVeiculo Renders correctly 1`] = `
   margin-left: 7px;
 }
 
-.c13.c13 > *:not(:first-child) {
+.c12.c12 > *:not(:first-child) {
   margin-left: 14px;
 }
 
@@ -939,17 +880,10 @@ exports[`ProductItemGenerator financiamentoVeiculo Renders correctly 1`] = `
               />
             </div>
           </div>
-          <p
-            className="c11"
-            color="gray5"
-            type="captionUppercase"
-          >
-            undefined%
-          </p>
         </div>
       </div>
       <p
-        className="c12"
+        className="c11"
         color="black"
         type="headline"
       >
@@ -957,10 +891,10 @@ exports[`ProductItemGenerator financiamentoVeiculo Renders correctly 1`] = `
       </p>
     </div>
     <div
-      className="c13"
+      className="c12"
     >
       <a
-        className="c14"
+        className="c13"
         data-gtm-clicktype="link"
         data-gtm-name="gerenciar"
         data-gtm-subname="card credito Financiamento de Veículos"
