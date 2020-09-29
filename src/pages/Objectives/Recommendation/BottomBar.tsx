@@ -4,43 +4,25 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import { formatMoney } from 'helpers'
+import { useToast } from 'hooks/toast'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 import {
   GetOtherGoalsDataRequest,
   PostObjectiveManagementDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
+import { IRecommendations } from 'store/modules/Objective/types'
 
-import {
-  IAnswer,
-  IFund,
-  IFundTotalIncome,
-  IAdditional,
-  ICreditProducts,
-} from './types'
 import { ButtonBar, SectionBar } from './styles'
 
 interface IProps {
-  recommendationData: {
-    id: number
-    additional: IAdditional
-    answer: IAnswer
-    credit_product: ICreditProducts
-    funds: IFund[]
-    fund_total_income: IFundTotalIncome
-  }
-  isDrawerOpen?: boolean
-  setIsDrawerOpen?: (newState?: boolean) => void
+  recommendationData: IRecommendations
 }
 
-const BottomBar = ({
-  recommendationData,
-  isDrawerOpen = false,
-  setIsDrawerOpen = () => {},
-}: IProps) => {
+const BottomBar = ({ recommendationData }: IProps) => {
   const history = useHistory()
   const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   useFetchCustomerProfile()
 
@@ -72,23 +54,18 @@ const BottomBar = ({
           answer: {
             ...data.answer,
             uf: customerProfile.customerState,
-            initial_value: formatMoney(data.answer.initial_value, {
-              currency: 'BRL',
-              style: 'decimal',
-            }),
-            monthly_value: formatMoney(data.answer.monthly_value, {
-              currency: 'BRL',
-              style: 'decimal',
-            }),
-            target_value: formatMoney(data.answer.target_value, {
-              currency: 'BRL',
-              style: 'decimal',
-            }),
+            initial_value: data.answer.initial_value,
+            monthly_value: data.answer.monthly_value,
+            target_value: data.answer.target_value,
           },
         },
         pushHistory,
+        addToast,
         onSuccess: () =>
-          dispatch(GetOtherGoalsDataRequest({ id: recommendationData.id })),
+          dispatch(
+            GetOtherGoalsDataRequest({ id: recommendationData.id, addToast })
+          ),
+        onError: null,
       })
     )
   }
@@ -96,21 +73,11 @@ const BottomBar = ({
   return (
     <SectionBar>
       <Container>
-        <Row justifyContent="end">
-          <Col xlAuto lgAuto mdAuto smAuto>
+        <Row justifyContent="end" alignItems="center">
+          <Col auto>
             <ButtonBar
               data-gtm-subname="barra inferior"
-              data-gtm-name="editar objetivo"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              color="primary"
-              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-            >
-              Editar objetivo
-            </ButtonBar>
-            <ButtonBar
-              data-gtm-subname="barra inferior"
-              data-gtm-name="continuar"
+              data-gtm-name="próximo"
               data-gtm-type="click"
               data-gtm-clicktype="button"
               color="secondary"
@@ -118,7 +85,7 @@ const BottomBar = ({
               loading={isLoading && buttonConfirmClicked}
               disabled={isLoading && buttonConfirmClicked}
             >
-              Continuar
+              Próximo
             </ButtonBar>
           </Col>
         </Row>

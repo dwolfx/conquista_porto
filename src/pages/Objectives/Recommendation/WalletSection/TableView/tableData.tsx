@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Button from 'components/Button'
 import Text from 'components/Text'
 import { formatMoney } from 'helpers'
 import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
@@ -19,7 +18,7 @@ const formatFundoInv = (row: IFund) => (
   <s.FundoOutterWrapper>
     <RiskColorTag borderRisk={row.share_holder_profile_risk} />
     <s.FundoWrapper>
-      <s.FundoNameWrapper>{row.name}</s.FundoNameWrapper>
+      <s.FundoNameWrapper color="gray5">{row.name}</s.FundoNameWrapper>
       <Text type="caption" color="gray4" bold textAlign="left">
         {row.arena_category}
       </Text>
@@ -27,19 +26,24 @@ const formatFundoInv = (row: IFund) => (
   </s.FundoOutterWrapper>
 )
 
-const formatRent12Meses = (row: IFund) =>
-  profitabilityExists(row)
-    ? `${Intl.NumberFormat('pt-br').format(row.profitability[0].value[3])}%`
-    : '--'
+const formatRent12Meses = (row: IFund) => (
+  <Text color="gray5">
+    {profitabilityExists(row)
+      ? `${Intl.NumberFormat('pt-br').format(row.profitability[0].value[3])}%`
+      : '--'}
+  </Text>
+)
 
-const formatInicialValue = (row: IFund) => formatMoney(row.initial_value)
+const formatInicialValue = (row: IFund) => (
+  <Text type="title" color="gray6" bold>
+    {formatMoney(row.initial_value)}
+  </Text>
+)
 
-const formatMonthlyValue = (row: IFund) => formatMoney(row.monthly_value)
-
-const formatActionButton = (row: IFund, onShowDetails: (r: IFund) => void) => (
-  <Button outline onClick={() => onShowDetails(row)}>
-    mais informações
-  </Button>
+const formatMonthlyValue = (row: IFund) => (
+  <Text type="title" color="gray6" bold>
+    {formatMoney(row.monthly_value)}
+  </Text>
 )
 
 export const columns = [
@@ -49,11 +53,11 @@ export const columns = [
     align: 'flex-start',
     justifyHeader: 'flex-start',
     styles: {
-      width: '22%',
-      minWidth: 208,
+      width: '34%',
+      minWidth: 246,
       header: {
-        width: '22%',
-        minWidth: 185,
+        width: '34%',
+        minWidth: 223,
       },
     },
     format: (row: IFund) => formatFundoInv(row),
@@ -78,10 +82,10 @@ export const columns = [
     },
     styles: {
       width: '18%',
-      minWidth: 144,
+      minWidth: 172,
       header: {
         width: '16%',
-        minWidth: 144,
+        minWidth: 172,
       },
     },
   },
@@ -91,11 +95,11 @@ export const columns = [
     format: (row: IFund) => formatInicialValue(row),
     align: 'center',
     styles: {
-      width: '13%',
-      minWidth: 120,
+      width: '27%',
+      minWidth: 140,
       header: {
-        width: '14%',
-        minWidth: 120,
+        width: '27%',
+        minWidth: 140,
       },
     },
   },
@@ -106,25 +110,10 @@ export const columns = [
     align: 'center',
     styles: {
       width: '12%',
-      minWidth: 120,
+      minWidth: 140,
       header: {
         width: '11%',
-        minWidth: 110,
-      },
-    },
-  },
-  {
-    Header: '',
-    accessor: 'acao',
-    format: (row: IFund, onShowDetails: (r: IFund) => void) =>
-      formatActionButton(row, onShowDetails),
-    align: 'center',
-    styles: {
-      width: '28%',
-      minWidth: 160,
-      header: {
-        width: '22%',
-        minWidth: 140,
+        minWidth: 130,
       },
     },
   },
@@ -138,13 +127,14 @@ export const columnsSticky = [
     justifyHeader: 'flex-start',
     styles: {
       width: '24%',
-      minWidth: 208,
+      minWidth: 228,
       header: {
         width: '22%',
-        minWidth: 185,
+        minWidth: 205,
       },
     },
     format: (row: IFund) => formatFundoInv(row),
+    sticky: 'left',
   },
   {
     Header: 'RENT. ÚLT. 12 MESES',
@@ -166,10 +156,10 @@ export const columnsSticky = [
     },
     styles: {
       width: '18%',
-      minWidth: 160,
+      minWidth: 180,
       header: {
         width: '16%',
-        minWidth: 160,
+        minWidth: 180,
       },
     },
   },
@@ -180,10 +170,10 @@ export const columnsSticky = [
     align: 'center',
     styles: {
       width: '12%',
-      minWidth: 155,
+      minWidth: 175,
       header: {
         width: '14%',
-        minWidth: 155,
+        minWidth: 175,
       },
     },
   },
@@ -194,28 +184,12 @@ export const columnsSticky = [
     align: 'center',
     styles: {
       width: '14%',
-      minWidth: 105,
+      minWidth: 125,
       header: {
         width: '14%',
-        minWidth: 105,
+        minWidth: 125,
       },
     },
-  },
-  {
-    Header: '',
-    accessor: 'acao',
-    format: (row: IFund, onShowDetails: (r: IFund) => void) =>
-      formatActionButton(row, onShowDetails),
-    align: 'center',
-    styles: {
-      width: 194,
-      minWidth: 194,
-      header: {
-        width: '34%',
-        minWidth: 210,
-      },
-    },
-    sticky: 'right',
   },
 ]
 

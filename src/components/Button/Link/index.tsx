@@ -5,21 +5,20 @@ import { Link } from './styles'
 
 interface IProps {
   noIcon?: boolean
+  noIconPadding?: boolean
   disabled?: boolean
-  onClick: () => void
-  dataTestId?: string
 }
 
-const ButtonLink: React.FC<IProps> = ({
+const ButtonLink: React.FC<IProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   children,
   noIcon = false,
+  noIconPadding = false,
   disabled = false,
-  onClick,
-  dataTestId,
   ...rest
 }) => {
   return (
-    <Link disabled={disabled} onClick={onClick} data-testid={dataTestId} {...rest}>
+    <Link disabled={disabled} noIconPadding={noIconPadding} {...rest}>
       {children}
       {!noIcon && <Icon name="arrowright" />}
     </Link>

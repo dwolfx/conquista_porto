@@ -3,11 +3,16 @@ import { Types } from './types'
 
 const defaultState = {
   data: null,
+  relculateFundsData: null,
   objectives: null,
   isLoading: false,
   hasError: false,
-  isLoadingList: false,
+  isLoadingList: true,
   isLoadingBySimulate: false,
+  isLoadingRelculateFundsData: false,
+  hasErrorRelculateFundsData: false,
+  isLoadingPutRecommendation: false,
+  hasErrorPutRecommendation: false,
 }
 
 describe('Objective Insurance Reducer', () => {
@@ -134,6 +139,111 @@ describe('Objective Insurance Reducer', () => {
       isLoadingBySimulate: false,
       isLoading: false,
       hasError: true,
+    })
+  })
+
+  it('should handle PUT_RECOMMENDATION_REQUEST', () => {
+    expect(
+      reducer(
+        {
+          ...defaultState,
+        },
+        {
+          type: Types.PUT_RECOMMENDATION_REQUEST,
+        }
+      )
+    ).toEqual({
+      ...defaultState,
+      isLoadingPutRecommendation: true,
+      hasErrorPutRecommendation: false,
+    })
+  })
+
+  it('should handle PUT_RECOMMENDATION_SUCCESS', () => {
+    expect(
+      reducer(
+        {
+          ...defaultState,
+        },
+        {
+          type: Types.PUT_RECOMMENDATION_SUCCESS,
+          payload: { teste: 'ok' },
+        }
+      )
+    ).toEqual({
+      ...defaultState,
+      data: { teste: 'ok' },
+      isLoadingPutRecommendation: false,
+      hasErrorPutRecommendation: false,
+    })
+  })
+
+  it('should handle PUT_RECOMMENDATION_FAILURE', () => {
+    expect(
+      reducer(
+        {
+          ...defaultState,
+        },
+        {
+          type: Types.PUT_RECOMMENDATION_FAILURE,
+        }
+      )
+    ).toEqual({
+      ...defaultState,
+      isLoadingPutRecommendation: false,
+      hasErrorPutRecommendation: true,
+    })
+  })
+  it('should handle POST_RECALCULATE_FUNDS_REQUEST', () => {
+    expect(
+      reducer(
+        {
+          ...defaultState,
+        },
+        {
+          type: Types.POST_RECALCULATE_FUNDS_REQUEST,
+        }
+      )
+    ).toEqual({
+      ...defaultState,
+      isLoadingRelculateFundsData: true,
+      hasErrorRelculateFundsData: false,
+    })
+  })
+
+  it('should handle POST_RECALCULATE_FUNDS_SUCCESS', () => {
+    expect(
+      reducer(
+        {
+          ...defaultState,
+        },
+        {
+          type: Types.POST_RECALCULATE_FUNDS_SUCCESS,
+          payload: { teste: 'ok' },
+        }
+      )
+    ).toEqual({
+      ...defaultState,
+      relculateFundsData: { teste: 'ok' },
+      isLoadingRelculateFundsData: false,
+      hasErrorRelculateFundsData: false,
+    })
+  })
+
+  it('should handle POST_RECALCULATE_FUNDS_FAILURE', () => {
+    expect(
+      reducer(
+        {
+          ...defaultState,
+        },
+        {
+          type: Types.POST_RECALCULATE_FUNDS_FAILURE,
+        }
+      )
+    ).toEqual({
+      ...defaultState,
+      isLoadingRelculateFundsData: false,
+      hasErrorRelculateFundsData: true,
     })
   })
 

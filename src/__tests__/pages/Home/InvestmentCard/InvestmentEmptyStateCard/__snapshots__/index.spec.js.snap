@@ -6,12 +6,12 @@ exports[`Home InvestmentCard InvestmentEmptyStateCard Renders correctly 1`] = `
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 18px;
+  font-size: 22px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 25px;
+  line-height: 30px;
 }
 
 .c13 {
@@ -129,7 +129,7 @@ exports[`Home InvestmentCard InvestmentEmptyStateCard Renders correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 63px;
+  height: 63px;
   padding: 0 14px;
 }
 
@@ -347,6 +347,14 @@ exports[`Home InvestmentCard InvestmentEmptyStateCard Renders correctly 1`] = `
   padding-bottom: 14px;
 }
 
+@media (max-width:1280px) {
+  .c2 {
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+}
+
 @media (max-width:736px) {
   .c3 {
     margin-right: 7px;
@@ -393,7 +401,7 @@ exports[`Home InvestmentCard InvestmentEmptyStateCard Renders correctly 1`] = `
         <p
           className="c7 "
           color="unset"
-          type="headline"
+          type="heading4"
         >
           Investimentos
         </p>

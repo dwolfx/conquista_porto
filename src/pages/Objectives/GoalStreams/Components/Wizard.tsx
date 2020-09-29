@@ -6,6 +6,7 @@ import useValidator from 'pages/Objectives/GoalStreams/useValidator'
 import { PostObjectiveDataRequest } from 'store/modules/Objective/action'
 import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 
 import { IData } from '../types'
 import TopBar from './TopBar'
@@ -18,6 +19,7 @@ import {
   WizardStep,
   Form,
 } from './styles'
+import { formatLocaleStringToNumber } from 'helpers'
 
 interface IProps {
   data: IData[]
@@ -38,14 +40,21 @@ export const WizardFlow = ({
   handleChildClick,
 }: IProps) => {
   const history = useHistory()
-  const inputRef = useRef() as React.RefObject<HTMLInputElement>
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
+  const { addToast } = useToast()
+
+  const inputRef = useRef() as React.RefObject<HTMLInputElement>
+
   const [valueNickname, setValueNickname] = useState(false)
   const [formData, setFormData] = useState<{ [key: string]: string }>(
     getFormEntries(data)
   )
   const [isActive, setIsActive] = useState(false)
+  const [
+    generateRecommendationClicked,
+    setGenerateRecommendationClicked,
+  ] = useState(false)
   const [error, invalid] = useValidator(data, currentStep, formData, inputRef)
 
   useFetchCustomerProfile()
@@ -66,6 +75,7 @@ export const WizardFlow = ({
 
   const increment = () => {
     setValueNickname(true)
+    setGenerateRecommendationClicked(false)
     handleStep('increment')
   }
 
@@ -74,23 +84,44 @@ export const WizardFlow = ({
   }
 
   const postFlow = () => {
+    setGenerateRecommendationClicked(true)
+
+    const formDataFormatted = Object.entries(formData)
+      .map(([key, value]) => {
+        const type = data.filter(item => item.name === key)[0].type
+
+        if (type === 'number') {
+          return [key, formatLocaleStringToNumber(value)]
+        }
+
+        return [key, value]
+      })
+      .reduce(
+        (acc: { [key: string]: string | number }, cur: (string | number)[]) => {
+          const index = cur[0].toString()
+          acc[index] = cur[1]
+
+          return acc
+        },
+        {}
+      )
+
     dispatch(
       PostObjectiveDataRequest({
         data: {
+          ...formDataFormatted,
           goal_type: objective,
           profile: +suitabilityData.idperfilinvest,
           uf: customerProfile.customerState,
-          ...formData,
         },
         isMobile,
+        onErrorToast: addToast,
       })
     )
   }
 
   const handleSingleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { name, value },
-    } = event
+    const { name, value } = event.target
 
     if (name === 'nickname') {
       setValueNickname(false)
@@ -149,8 +180,8 @@ export const WizardFlow = ({
           type="submit"
           data-gtm-form="submit"
           data-gtm-name="proximo"
-          disabled={!isActive || isLoading}
-          loading={isLoading}
+          disabled={(!isActive || isLoading) && generateRecommendationClicked}
+          loading={isLoading && generateRecommendationClicked}
           loadingColor="white"
         >
           Próximo
@@ -180,7 +211,7 @@ export const WizardFlow = ({
       <TopBar
         currentStep={currentStep + 1}
         numberSteps={data.length + 1}
-        nickname={formData.nickname}
+        nickname={formData.nickname.toString()}
       />
       <BodyWizard>
         <Form onSubmit={onFormSubmit}>

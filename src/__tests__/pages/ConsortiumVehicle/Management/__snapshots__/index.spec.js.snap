@@ -1546,6 +1546,7 @@ Array [
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>

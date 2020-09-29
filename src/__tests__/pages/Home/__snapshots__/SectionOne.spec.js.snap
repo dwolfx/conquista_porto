@@ -27,6 +27,10 @@ Array [
 
 }
 
+@media (max-width:1280px) {
+
+}
+
 @media (max-width:736px) {
 
 }
@@ -176,12 +180,12 @@ Array [
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 18px;
+  font-size: 22px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 25px;
+  line-height: 30px;
 }
 
 .c15 {
@@ -448,7 +452,7 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 63px;
+  height: 63px;
   padding: 0 14px;
 }
 
@@ -533,6 +537,14 @@ Array [
 @media (min-width:1280px) {
   .c16 {
     height: 168px;
+  }
+}
+
+@media (max-width:1280px) {
+  .c3 {
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
   }
 }
 
@@ -706,7 +718,7 @@ Array [
             <p
               className="c8 "
               color="unset"
-              type="headline"
+              type="heading4"
             >
               Previdência
             </p>
@@ -784,12 +796,12 @@ Array [
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 18px;
+  font-size: 22px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 25px;
+  line-height: 30px;
 }
 
 .c23 {
@@ -981,7 +993,7 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 63px;
+  height: 63px;
   padding: 0 14px;
 }
 
@@ -1286,6 +1298,14 @@ Array [
 
 }
 
+@media (max-width:1280px) {
+  .c4 {
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+}
+
 @media (max-width:736px) {
   .c5 {
     margin-right: 7px;
@@ -1483,7 +1503,7 @@ Array [
             <p
               className="c9 "
               color="unset"
-              type="headline"
+              type="heading4"
             >
               Crédito
             </p>
@@ -1502,7 +1522,9 @@ Array [
                 <svg
                   aria-label="backward"
                   className="c14"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   backward.svg
                 </svg>
@@ -1515,7 +1537,9 @@ Array [
                 <svg
                   aria-label="forward"
                   className="c16"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   forward.svg
                 </svg>

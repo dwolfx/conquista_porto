@@ -166,6 +166,10 @@ export default function TabMoreInfo({ fund, historicBenchmark }) {
   )
 }
 
+TabMoreInfo.defaultProps = {
+  historicBenchmark: {},
+}
+
 TabMoreInfo.propTypes = {
   fund: PropTypes.shape({
     data_inicio: PropTypes.number,

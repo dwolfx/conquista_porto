@@ -34,6 +34,7 @@ import {
   SecondDivisor,
   TitleWrapper,
 } from './styles'
+import { IFundsList } from 'store/modules/Investment/types'
 
 interface IHeader {
   title: string
@@ -116,23 +117,8 @@ const Header: React.FC<IHeader> = ({
   )
 }
 
-export interface IFund {
-  perfil_risco: 'baixo' | 'medio-baixo' | 'medio' | 'medio-alto' | 'alto'
-  perfil_risco_ordem: number
-  apelido: string
-  categoria_arena: string
-  minimo_inicial: number
-  resgate_cotizacao: string
-  rentabil_fundo_mes: string
-  rentabil_fundo_12_meses: string
-  rentabil_fundo_ano: string
-  taxa_administracao: string
-  id_carteira: number
-  aplicao_liberada: boolean
-}
-
 interface IFundCard {
-  fund: IFund
+  fund: IFundsList
   onChangeIsFundDetailOpen: (prevState: Function) => void
   handleLayerOpen: (title: number) => void
   setTitle: (title: string) => void

@@ -8,7 +8,7 @@ import { CardObjective, IconWrapper, InfosBox, OfferTitle } from './styles'
 export default ({ icon, title, isLoading = false, ...rest }: IProps) => (
   <CardObjective {...rest}>
     <IconWrapper>
-      <Icon name={icon} />
+      <Icon name={icon} width={72} height={72} color="gray4" />
     </IconWrapper>
     <InfosBox>
       <OfferTitle>{title}</OfferTitle>

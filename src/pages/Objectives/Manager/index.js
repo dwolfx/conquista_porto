@@ -14,6 +14,7 @@ import Modal from 'components/Modal/ModalNew'
 import Button from 'components/Button'
 
 import { formatMoney } from 'helpers'
+import { useToast } from 'hooks/toast'
 
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
@@ -25,7 +26,6 @@ import {
   DeleteObjectiveRequest,
   GetOtherGoalsDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
-import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import useMedia from 'hooks/useMedia'
 import InfoText from 'components/InfoText'
@@ -44,6 +44,7 @@ import {
 
 export default function Manager({ location }) {
   const { objectiveId } = useParams()
+  const { addToast } = useToast()
   const dispatch = useDispatch()
   const history = useHistory()
   const {
@@ -63,18 +64,28 @@ export default function Manager({ location }) {
       (!objectiveData && objectiveId) || // check if objectiveId exists and if objectiveData dont
       (objectiveData && objectiveData.id && +objectiveData.id !== +objectiveId) // check if objectiveData exists and its id is equal to objectiveID
     ) {
-      dispatch(GetObjectiveManagementDataRequest({ id: objectiveId, history }))
-      dispatch(GetOtherGoalsDataRequest({ id: objectiveId }))
+      dispatch(
+        GetObjectiveManagementDataRequest({
+          id: objectiveId,
+          history,
+          addToast,
+        })
+      )
+
+      dispatch(GetOtherGoalsDataRequest({ id: objectiveId, addToast }))
     }
-  }, [dispatch, history, objectiveData, objectiveId])
+  }, [dispatch, history, objectiveData, objectiveId, addToast])
 
   if (!objectiveId || (!isLoading && !objectiveData)) {
     // if objectiveId dont exists, redirect to "objetivos" page
-    buildToast(
-      'Algo inesperado ocorreu. Certifique-se de que o objetivo realmente existe e tente novamente.',
-      ToastTypes.error
-    )
     history.push('/')
+
+    addToast({
+      type: 'error',
+      title: 'Algo inesperado ocorreu.',
+      description:
+        'Certifique-se de que o objetivo realmente existe e tente novamente.',
+    })
 
     return null
   }
@@ -92,7 +103,7 @@ export default function Manager({ location }) {
     function pushHistoryToHomeScreen() {
       history.push('/')
     }
-    dispatch(DeleteObjectiveRequest(id, pushHistoryToHomeScreen))
+    dispatch(DeleteObjectiveRequest(id, pushHistoryToHomeScreen, addToast))
   }
 
   return (

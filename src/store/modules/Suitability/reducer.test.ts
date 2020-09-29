@@ -42,7 +42,7 @@ describe('Suitability reducer', () => {
       reducer(
         {
           data: {},
-          isLoading: true,
+          isLoading: false,
         },
         {
           type: Types.GET_NO_CONTENT,
@@ -50,7 +50,6 @@ describe('Suitability reducer', () => {
       )
     ).toEqual({
       data: {},
-      isLoading: false,
     })
   })
 

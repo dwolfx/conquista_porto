@@ -163,7 +163,11 @@ export const replacePatternToComponent = (
   }, [])
 }
 
-export const printFieldText = (text: string) => {
+export const printFieldText = (text: string | undefined) => {
+  if (!text) {
+    return '---'
+  }
+
   let innerText: number | string = formatNumber(text)
 
   if (isNaN(+text)) {

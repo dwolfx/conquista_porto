@@ -3,7 +3,6 @@ import { Row } from 'styled-bootstrap-grid'
 
 import PopoverComp from 'components/Popover'
 import Text from 'components/Text'
-import ModalFundosCmp from './ModalFundos'
 import { fundRiskColors } from 'styles/theme'
 
 const riskColorsMap = {
@@ -19,16 +18,14 @@ interface IRiskColorTag {
 }
 
 export const RiskColorTag = styled.div<IRiskColorTag>`
-  width: 5px;
-  background-color: ${props => riskColorsMap[props.borderRisk]};
+  background-color: ${({ borderRisk }) => riskColorsMap[borderRisk]};
   border-radius: 4px;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    height: calc(100% - 8px);
-    left: 4px;
-    position: absolute;
-    top: 4px;
-  }
+  width: 4px;
+  z-index: 4;
+  height: calc(100% - 6px);
+  left: 4px;
+  position: absolute;
+  top: 3px;
 `
 
 export const InfoContent = styled.div`
@@ -37,31 +34,18 @@ export const InfoContent = styled.div`
 
 export const InfoRow = styled(Row)`
   display: flex;
-  margin-top: ${props => props.theme.spacing(3)}px;
-  padding: 0 ${props => props.theme.spacing(4)}px;
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
+  padding: 0 ${({ theme }) => theme.spacing(3)}px;
 `
 
-export const PercentualInfosContainer = styled(Row)`
-  display: flex;
-  margin-bottom: ${props => props.theme.spacing(2.5)}px;
-  margin-top: ${props => props.theme.spacing(6)}px;
-  padding: 0 ${props => props.theme.spacing(4)}px;
+export const PercetualInfosWrapper = styled.div`
+  flex: 1;
+  padding-left: ${({ theme }) => theme.spacing(1)}px;
+  padding-right: ${({ theme }) => theme.spacing(1)}px;
 `
 
-export const PercentualText = styled(Text)`
-  &:not(:last-child) {
-    border-right: 1px solid ${props => props.theme.colors.gray6};
-    padding-right: ${props => props.theme.spacing(2)}px;
-    margin-right: ${props => props.theme.spacing(2)}px;
-  }
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    &:not(:last-child) {
-      border-right: 0;
-      padding-right: 0;
-      margin-right: 0;
-    }
-  }
+export const LabelInfosWrapper = styled.div`
+  padding-right: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const InfoContainer = styled.div`
@@ -71,18 +55,23 @@ export const InfoContainer = styled.div`
   flex-wrap: wrap;
 
   & > p {
-    margin-right: ${props => props.theme.spacing(1)}px;
+    margin-right: ${({ theme }) => theme.spacing(1)}px;
   }
 `
 
-export const Popover = styled(PopoverComp)`
+interface IPopover {
+  noMargin?: boolean
+}
+
+export const Popover = styled(PopoverComp)<IPopover>`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-right: ${props => props.theme.spacing(1)}px;
+  margin-right: ${({ noMargin, theme }) =>
+    noMargin ? 0 : `${theme.spacing(1)}px`};
 `
 
-export const InlineContentText = styled.span`
+export const InlineContentText = styled(Text)`
   display: inline-flex;
 `
 
@@ -90,4 +79,35 @@ export const TextUnderlined = styled(Text)`
   text-decoration: underline;
 `
 
-export const ModalFundos = styled(ModalFundosCmp)``
+export const LabelRow = styled(Row)`
+  margin-bottom: ${({ theme }) => theme.spacing(2.5)}px;
+  margin-top: ${({ theme }) => theme.spacing(6)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: ${({ theme }) => theme.spacing(7)}px;
+    margin-top: ${({ theme }) => theme.spacing(3)}px;
+  }
+`
+
+export const IconContainer = styled.div`
+  @media ${({ theme }) => theme.mediaQueries.lg} {
+    margin-bottom: ${({ theme }) => theme.spacing(6)}px;
+    margin-top: ${({ theme }) => theme.spacing(6)}px;
+  }
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+    margin-top: ${({ theme }) => theme.spacing(0)}px;
+  }
+`
+
+export const DashedText = styled.span`
+  color: inherit;
+  display: inline;
+  font-size: inherit;
+  border-bottom: 1px dashed ${({ theme }) => theme.colors.gray4};
+  /* margin-right: ${({ theme }) => theme.spacing(1)}px; */
+`
+
+export const PopoverContentContainer = styled.div`
+  max-width: 360px;
+`

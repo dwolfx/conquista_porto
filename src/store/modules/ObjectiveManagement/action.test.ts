@@ -23,6 +23,7 @@ describe('ObjectiveManagement Actions', () => {
     const payload = {
       data: {},
       pushHistory: {},
+      addToast: () => {},
       onSuccess: () => {},
     }
     expect(PostObjectiveManagementDataRequest(payload)).toEqual({

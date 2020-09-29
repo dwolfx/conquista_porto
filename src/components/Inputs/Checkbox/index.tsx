@@ -1,27 +1,30 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-import { Input, Label } from './styles'
+import { Input, Label, CheckboxWrapper } from './styles'
 
 interface IProps {
   id: string
-  label: string | React.ReactNode
+  label?: string | React.ReactNode
   checked: boolean
   disabled?: boolean
-  onChange: () => void
 }
-const Checkbox = ({ id, label, checked, onChange, disabled }: IProps) => {
+const Checkbox = forwardRef<
+  HTMLInputElement,
+  IProps & React.HTMLAttributes<HTMLInputElement>
+>(({ id, label, checked, disabled, ...rest }, ref) => {
   return (
-    <>
+    <CheckboxWrapper>
       <Input
+        ref={ref}
         type="checkbox"
         id={id}
         checked={checked}
-        onChange={onChange}
         disabled={disabled}
+        {...rest}
       />
       <Label htmlFor={id}>{label}</Label>
-    </>
+    </CheckboxWrapper>
   )
-}
+})
 
 export default Checkbox

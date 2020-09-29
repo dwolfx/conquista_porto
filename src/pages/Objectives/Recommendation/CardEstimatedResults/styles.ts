@@ -1,102 +1,133 @@
 import styled from 'styled-components'
-import { Col, Row } from 'styled-bootstrap-grid'
-import Card from 'components/Card'
-import Text from 'components/Text'
 
-export const GridRow = styled(Row)`
-  margin-bottom: ${props => props.theme.spacing(6)}px;
+import { Row } from 'styled-bootstrap-grid'
+import TextComponent from 'components/Text'
+import IconComponent from 'components/IconExporter'
+import VerticalListComponent from 'components/VerticalList'
+
+export const BodyCard = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: ${({ theme }) => `${theme.spacing(5)}px 0 ${theme.spacing(4)}px`};
 
   @media ${props => props.theme.mediaQueries.sm} {
-    margin-bottom: ${props => props.theme.spacing(2)}px;
+    padding: ${({ theme }) => `${theme.spacing(4)}px 0 ${theme.spacing(3)}px`};
   }
 `
 
-export const FullHeightCard = styled(Card)``
+export const GridRow = styled(Row)`
+  margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+`
 
-export const CardRow = styled(Row)`
-  justify-content: ${props =>
-    props.justifyContent ? props.justifyContent : 'center'};
-  margin: 0;
-  text-align: center;
+export const IncomeContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 0 auto;
 
-  &:not(:first-of-type) {
-    margin-top: ${props => props.theme.spacing(5)}px;
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    width: 100%;
   }
 
-  &:last-of-type {
-    flex-direction: row-reverse;
-    margin: ${({ theme }) => `${theme.spacing(5)}px auto 0`};
-    max-width: 770px;
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    flex-direction: column;
+  }
+`
 
-    @media ${props => props.theme.mediaQueries.sm} {
-      flex-direction: column-reverse;
-      margin-top: 0;
+export const TextContainer = styled.div`
+  text-align: center;
+  max-width: 686px;
+  margin: 0 auto ${({ theme }) => theme.spacing(5)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    & :last-child {
+      display: inline;
     }
   }
 
-  @media ${props => props.theme.mediaQueries.sm} {
-    text-align: left;
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    max-width: 287px;
+    text-align: initial;
   }
 `
 
-export const BodyCard = styled.div`
-  padding: ${({ theme }) =>
-    `${theme.spacing(5)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`};
+export const Text = styled(TextComponent).attrs(() => ({
+  type: 'headline',
+  color: 'gray6',
+}))`
+  display: inline;
 
-  @media ${props => props.theme.mediaQueries.sm} {
-    padding: ${({ theme }) => `${theme.spacing(4)}px ${theme.spacing(2)}px`};
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    display: block;
   }
 `
 
-export const LabelIncome = styled(Col)`
-  background-color: ${props => props.theme.colors.gray1};
-  border: 1px solid ${props => props.theme.colors.gray3};
-  border-radius: ${props => props.theme.spacing(1)}px;
-  min-width: 175px;
-  padding: ${props => props.theme.spacing(2)}px;
+export const DashedText = styled(TextComponent).attrs(() => ({
+  type: 'headline',
+  color: 'gray6',
+}))`
+  display: inline;
+  border-bottom: 1px dashed ${({ theme }) => theme.colors.gray4};
+  margin-right: ${({ theme }) => theme.spacing(1)}px;
+`
+
+export const PopOverTextContainer = styled.div`
+  max-width: 427px;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    max-width: 175px;
+  }
+`
+
+export const PopOverText = styled(TextComponent).attrs(() => ({
+  type: 'body',
+  bold: true,
+  color: 'gray5',
+}))`
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    display: inline;
+  }
+`
+
+export const VerticalList = styled(VerticalListComponent)`
   text-align: center;
+  width: auto;
 
-  &:nth-child(2) {
-    background-color: ${props => props.theme.colors.green1};
-    border: 1px solid ${props => props.theme.colors.green3};
-  }
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    margin-top: ${props => props.theme.spacing(4)}px;
-    width: 100%;
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    & + & {
+      margin-top: ${({ theme }) => theme.spacing(2)}px;
+    }
   }
 `
 
-export const LabelObjective = styled(Col)`
-  margin: ${({ theme }) => `0 ${theme.spacing(3)}px`};
+export const EstimateTitle = styled(TextComponent).attrs(() => ({
+  type: 'captionUppercase',
+  bold: true,
+  color: 'gray4',
+}))``
 
-  @media ${props => props.theme.mediaQueries.md} {
-    margin: ${({ theme }) => `0 ${theme.spacing(1)}px`};
-  }
+interface IEstimateLabel {
+  probableEstimateLabel?: boolean
+  isBelowTheGoal?: boolean
+}
 
-  @media ${props => props.theme.mediaQueries.sm} {
-    margin: 0;
-    text-align: center;
-    width: 50%;
-  }
+export const EstimateValue = styled(TextComponent).attrs(() => ({
+  type: 'headline',
+  bold: true,
+}))<IEstimateLabel>`
+  color: ${({ probableEstimateLabel, isBelowTheGoal, theme }) =>
+    probableEstimateLabel
+      ? isBelowTheGoal
+        ? theme.colors.magenta2
+        : theme.colors.green4
+      : theme.colors.gray6};
 `
 
-export const FeaturedText = styled(Text).attrs(() => ({ type: 'headline' }))`
-  margin-top: ${props => props.theme.spacing(1)}px;
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    margin-bottom: ${props => props.theme.spacing(5)}px;
-  }
-`
-
-export const Divider = styled.div`
-  border-bottom: 1px solid ${props => props.theme.colors.gray3};
-  height: 0%;
-  max-width: 770px;
-  width: 100%;
-  margin: ${({ theme }) => `${theme.spacing(5)}px auto 0`};
-
-  @media ${props => props.theme.mediaQueries.sm} {
-    margin: 0;
-  }
+export const InformativeIcon = styled(IconComponent).attrs(() => ({
+  name: 'information',
+  width: 21,
+  color: 'gray4',
+}))`
+  vertical-align: middle;
 `

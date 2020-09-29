@@ -7,6 +7,12 @@ import {
   PostObjectiveDataRequestBySimulate,
   PostObjectiveDataSuccess,
   PostObjectiveDataFailure,
+  UpdateRecommendationRequest,
+  UpdateRecommendationSuccess,
+  UpdateRecommendationFailure,
+  PostRecalculateFundsRequest,
+  PostRecalculateFundsSuccess,
+  PostRecalculateFundsFailure,
   CleanObjectiveData,
 } from './action'
 
@@ -53,6 +59,40 @@ describe('Objective Actions', () => {
   test('if PostObjectiveDataFailure returns the correct object', () => {
     expect(PostObjectiveDataFailure()).toEqual({
       type: Types.POST_FAILURE,
+    })
+  })
+  test('if UpdateRecommendationRequest returns the correct object', () => {
+    expect(UpdateRecommendationRequest()).toEqual({
+      type: Types.PUT_RECOMMENDATION_REQUEST,
+    })
+  })
+
+  test('if UpdateRecommendationSuccess returns the correct object', () => {
+    expect(UpdateRecommendationSuccess()).toEqual({
+      type: Types.PUT_RECOMMENDATION_SUCCESS,
+    })
+  })
+
+  test('if UpdateRecommendationFailure returns the correct object', () => {
+    expect(UpdateRecommendationFailure()).toEqual({
+      type: Types.PUT_RECOMMENDATION_FAILURE,
+    })
+  })
+  test('if PostRecalculateFundsRequest returns the correct object', () => {
+    expect(PostRecalculateFundsRequest()).toEqual({
+      type: Types.POST_RECALCULATE_FUNDS_REQUEST,
+    })
+  })
+
+  test('if PostRecalculateFundsSuccess returns the correct object', () => {
+    expect(PostRecalculateFundsSuccess()).toEqual({
+      type: Types.POST_RECALCULATE_FUNDS_SUCCESS,
+    })
+  })
+
+  test('if PostRecalculateFundsFailure returns the correct object', () => {
+    expect(PostRecalculateFundsFailure()).toEqual({
+      type: Types.POST_RECALCULATE_FUNDS_FAILURE,
     })
   })
 

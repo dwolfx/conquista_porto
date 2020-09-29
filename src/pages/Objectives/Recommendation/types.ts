@@ -137,3 +137,22 @@ export interface IFund {
   monthly_value: number
   annual_rate: number
 }
+
+export interface IFormData {
+  nickname?: string
+  uf?: string
+  profile?: number
+  target_date?: string
+  target_value?: number
+  initial_value?: number
+  monthly_value?: number
+  is_easy_to_save_planned_amount?: boolean
+  is_target_date_flexible?: boolean
+  would_like_to_receive_before_final_date?: boolean
+  would_like_to_receive_monthly_income?: boolean
+  goal_type?: number
+}
+
+export interface IFundCategories {
+  [key: string]: number
+}

@@ -832,7 +832,9 @@ exports[`TripInsurance renders correctly 1`] = `
         >
           <svg
             aria-label="plane"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             plane.svg
           </svg>
@@ -852,7 +854,9 @@ exports[`TripInsurance renders correctly 1`] = `
         >
           <svg
             aria-label="businesswoman"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             business-woman.svg
           </svg>
@@ -872,7 +876,9 @@ exports[`TripInsurance renders correctly 1`] = `
         >
           <svg
             aria-label="persongroup"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             person-group.svg
           </svg>
@@ -932,7 +938,9 @@ exports[`TripInsurance renders correctly 1`] = `
               >
                 <svg
                   aria-label="talkman"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   talk-man.svg
                 </svg>
@@ -972,7 +980,9 @@ exports[`TripInsurance renders correctly 1`] = `
               >
                 <svg
                   aria-label="diamond"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   diamond.svg
                 </svg>
@@ -1012,7 +1022,9 @@ exports[`TripInsurance renders correctly 1`] = `
               >
                 <svg
                   aria-label="callcenter"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   call-center.svg
                 </svg>
@@ -1052,7 +1064,9 @@ exports[`TripInsurance renders correctly 1`] = `
               >
                 <svg
                   aria-label="apps"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   apps.svg
                 </svg>
@@ -1304,6 +1318,7 @@ exports[`TripInsurance renders correctly 1`] = `
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>

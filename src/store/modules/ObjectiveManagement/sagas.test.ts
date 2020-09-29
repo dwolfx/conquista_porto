@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import { get, post, remove } from 'services/api'
 
 import {
@@ -33,6 +33,7 @@ describe('ObjectiveManagement Sagas', () => {
       const param = {
         data: {},
         pushHistory: () => {},
+        addToast: () => {},
         onSuccess: () => {},
       }
 
@@ -56,6 +57,7 @@ describe('ObjectiveManagement Sagas', () => {
       const param = {
         data: {},
         pushHistory: 'history',
+        addToast: () => {},
         onSuccess: () => {},
       }
 
@@ -65,14 +67,7 @@ describe('ObjectiveManagement Sagas', () => {
       expect(generator.next().value).toEqual(call(post, `/goals`, {}))
 
       expect(generator.next(response).value).toEqual(
-        put({
-          ...PostObjectiveManagementDataFailure(),
-          toast: {
-            message: "Cannot read property 'data' of undefined",
-            options: undefined,
-            type: 'error',
-          },
-        })
+        put(PostObjectiveManagementDataFailure())
       )
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
@@ -82,7 +77,12 @@ describe('ObjectiveManagement Sagas', () => {
   describe('postSaveFunds function', () => {
     it('GET: postSaveFunds: success triggers success action', () => {
       const param = {
-        payload: { idGoal: 1, data: {}, onSuccess: () => {} },
+        payload: {
+          idGoal: 1,
+          data: {},
+          onSuccess: () => {},
+          addToast: () => {},
+        },
       }
 
       const generator = postSaveFunds(param)
@@ -93,14 +93,7 @@ describe('ObjectiveManagement Sagas', () => {
       )
 
       expect(generator.next(response).value).toEqual(
-        put({
-          ...PostSaveFundsSuccess({}),
-          toast: {
-            message: 'Alterações salvas com sucesso.',
-            options: undefined,
-            type: 'success',
-          },
-        })
+        put(PostSaveFundsSuccess({}))
       )
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
@@ -108,7 +101,12 @@ describe('ObjectiveManagement Sagas', () => {
 
     it('GET: postSaveFunds: fail triggers fail action', () => {
       const param = {
-        payload: { idGoal: 1, data: {}, onSuccess: () => {} },
+        payload: {
+          idGoal: 1,
+          data: {},
+          onSuccess: () => {},
+          addToast: () => {},
+        },
       }
 
       const generator = postSaveFunds(param)
@@ -119,14 +117,7 @@ describe('ObjectiveManagement Sagas', () => {
       )
 
       expect(generator.next(response).value).toEqual(
-        put({
-          ...PostSaveFundsFailure(),
-          toast: {
-            message: "Cannot read property 'data' of undefined",
-            options: undefined,
-            type: 'error',
-          },
-        })
+        put(PostSaveFundsFailure())
       )
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
@@ -139,6 +130,7 @@ describe('ObjectiveManagement Sagas', () => {
         id: 1,
         history: ['path2'],
         path: 'path1',
+        addToast: () => {},
       }
 
       const generator = getData(param)
@@ -158,6 +150,7 @@ describe('ObjectiveManagement Sagas', () => {
         id: 1,
         history: ['path2'],
         path: 'path1',
+        addToast: () => {},
       }
 
       const generator = getData(param)
@@ -166,14 +159,7 @@ describe('ObjectiveManagement Sagas', () => {
       expect(generator.next().value).toEqual(call(get, `/goals/${param.id}`))
 
       expect(generator.next(response).value).toEqual(
-        put({
-          ...GetObjectiveManagementDataFailure(),
-          toast: {
-            message: 'Nenhum objetivo encontrado.',
-            options: undefined,
-            type: 'error',
-          },
-        })
+        put(GetObjectiveManagementDataFailure())
       )
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
@@ -184,18 +170,12 @@ describe('ObjectiveManagement Sagas', () => {
         id: null,
         history: ['path2'],
         path: 'path1',
+        addToast: () => {},
       }
       const generator = getData(param)
       const response = undefined
       expect(generator.next(response).value).toEqual(
-        put({
-          ...GetObjectiveManagementDataFailure(),
-          toast: {
-            message: 'Ocorreu um erro. Tente novamente mais tarde.',
-            options: undefined,
-            type: 'error',
-          },
-        })
+        put(GetObjectiveManagementDataFailure())
       )
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })
@@ -207,6 +187,7 @@ describe('ObjectiveManagement Sagas', () => {
         id: '1',
         history: ['history1'],
         path: 'history2',
+        addToast: () => {},
       }
 
       const generator = getOtherGoalsData(param)
@@ -228,6 +209,7 @@ describe('ObjectiveManagement Sagas', () => {
         id: '1',
         history: ['history1'],
         path: 'history2',
+        addToast: () => {},
       }
 
       const generator = getOtherGoalsData(param)
@@ -238,14 +220,7 @@ describe('ObjectiveManagement Sagas', () => {
       )
 
       expect(generator.next(response).value).toEqual(
-        put({
-          ...GetOtherGoalsDataFailure(),
-          toast: {
-            message: 'Nenhum objetivo encontrado.',
-            options: undefined,
-            type: 'error',
-          },
-        })
+        put(GetOtherGoalsDataFailure())
       )
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
@@ -256,6 +231,7 @@ describe('ObjectiveManagement Sagas', () => {
         id: '1',
         history: ['history1'],
         path: 'history2',
+        addToast: () => {},
       }
 
       const generator = getOtherGoalsData(param)
@@ -266,14 +242,7 @@ describe('ObjectiveManagement Sagas', () => {
       )
 
       expect(generator.next(response).value).toEqual(
-        put({
-          ...GetOtherGoalsDataFailure(),
-          toast: {
-            message: "Cannot read property 'data' of undefined",
-            options: undefined,
-            type: 'error',
-          },
-        })
+        put(GetOtherGoalsDataFailure())
       )
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
@@ -284,20 +253,12 @@ describe('ObjectiveManagement Sagas', () => {
         id: null,
         history: ['history1'],
         path: 'history2',
+        addToast: () => {},
       }
 
       const generator = getOtherGoalsData(param)
 
-      expect(generator.next().value).toEqual(
-        put({
-          ...GetOtherGoalsDataFailure(),
-          toast: {
-            message: 'Ocorreu um erro. Tente novamente mais tarde.',
-            options: undefined,
-            type: 'error',
-          },
-        })
-      )
+      expect(generator.next().value).toEqual(put(GetOtherGoalsDataFailure()))
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })
@@ -306,7 +267,11 @@ describe('ObjectiveManagement Sagas', () => {
   describe('deleteObjective function', () => {
     it('GET: deleteObjective: success triggers success action', () => {
       const param = {
-        payload: { id: '1', pushHistoryToHomeScreen: () => {} },
+        payload: {
+          id: '1',
+          pushHistoryToHomeScreen: () => {},
+          addToast: () => {},
+        },
       }
 
       const generator = deleteObjective(param)
@@ -315,16 +280,7 @@ describe('ObjectiveManagement Sagas', () => {
         call(remove, `/goals/${param.payload.id}`)
       )
 
-      expect(generator.next().value).toEqual(
-        put({
-          ...DeleteObjectiveSuccess(),
-          toast: {
-            message: 'Objetivo deletado com sucesso.',
-            options: undefined,
-            type: 'success',
-          },
-        })
-      )
+      expect(generator.next().value).toEqual(put(DeleteObjectiveSuccess()))
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })
@@ -336,7 +292,7 @@ describe('ObjectiveManagement Sagas', () => {
       })
 
       const param = {
-        payload: { id: '1', pushHistoryToHomeScreen: null },
+        payload: { id: '1', pushHistoryToHomeScreen: null, addToast: () => {} },
       }
 
       const generator = deleteObjective(param)
@@ -345,16 +301,7 @@ describe('ObjectiveManagement Sagas', () => {
         call(remove, `/goals/${param.payload.id}`)
       )
 
-      expect(generator.next().value).toEqual(
-        put({
-          ...DeleteObjectiveFailure(),
-          toast: {
-            message: 'pushHistoryToHomeScreen is not a function',
-            options: undefined,
-            type: 'error',
-          },
-        })
-      )
+      expect(generator.next().value).toEqual(put(DeleteObjectiveFailure()))
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })

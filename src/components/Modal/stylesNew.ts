@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import CloseIcon from 'assets/icons/close.svg'
+import CloseIcon from 'components/IconExporter'
 import DivisorComponent from 'components/Divisor'
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
@@ -26,10 +26,8 @@ export const ChildrenWrapper = styled.div`
   }
 `
 
-export const Divisor = styled(DivisorComponent).attrs(() => ({
-  customSize: 'calc(100% - 14px)',
-}))`
-  margin: 0 7px;
+export const Divisor = styled(DivisorComponent)`
+  margin: 0 auto;
 `
 
 export const ModalContainer = styled.div`
@@ -54,7 +52,7 @@ export const ModalContainer = styled.div`
   }
 `
 
-export const ModalHeader = styled.div`
+export const ModalHeader = styled.header`
   align-items: center;
   display: flex;
   padding: ${props => props.theme.spacing(2)}px;
@@ -79,16 +77,12 @@ export const ModalTitle = styled.h3`
   flex: 1;
 `
 
-export const CloseButton = styled.div`
-  background-color: ${props => props.theme.colors.gray5};
+export const CloseButton = styled(CloseIcon)`
   cursor: pointer;
-  height: ${props => props.theme.spacing(4)}px;
-  mask-image: url(${CloseIcon});
   transition: all ease 0.3s;
-  width: ${props => props.theme.spacing(4)}px;
 
   &:hover {
-    background-color: ${props => props.theme.colors.blue4};
+    fill: ${props => props.theme.colors.blue4};
   }
 `
 
@@ -111,4 +105,8 @@ export const ModalWrapper = styled.div<IModalWrapperProps>`
   visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   width: 100vw;
   z-index: 13;
+`
+
+export const ModalFooter = styled.footer`
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
 `

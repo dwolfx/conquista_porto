@@ -1,11 +1,16 @@
-import styled from 'styled-components'
-import ArrowLeft from 'assets/icons/arrow-left.svg'
-import CloseIcon from 'assets/icons/close.svg'
+import styled, { css } from 'styled-components'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
+
+import Icon from 'components/IconExporter'
+
+export const HeaderComponent = styled.header`
+  width: 100%;
+`
 
 export const HeaderWrapper = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
   display: flex;
   height: 72px;
 `
@@ -22,24 +27,24 @@ export const HeaderColTitle = styled.div`
   justify-content: center;
 `
 
-interface HeaderIconButtonProps {
-  icon: string
-}
-
-export const HeaderIconButton = styled.div<HeaderIconButtonProps>`
-  background-color: ${props => props.theme.colors.gray4};
+const HeaderIconCSS = css`
   cursor: pointer;
-  height: 24px;
-  ${props =>
-    props.icon === 'ArrowLeft'
-      ? `mask-image: url(${ArrowLeft});`
-      : `mask-image: url(${CloseIcon});`}
   transition: all ease 0.3s;
-  width: 24px;
+  position: absolute;
 
   &:hover {
-    background-color: ${props => props.theme.colors.blue4};
+    fill: ${props => props.theme.colors.blue4};
   }
+`
+
+export const BackIcon = styled(Icon)`
+  ${HeaderIconCSS}
+  left: 12px;
+`
+
+export const CloseIcon = styled(Icon)`
+  ${HeaderIconCSS}
+  right: 12px;
 `
 
 export const GridContainer = styled(Container)`

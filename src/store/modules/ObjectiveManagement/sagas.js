@@ -8,7 +8,6 @@ import {
   baseURLNamespaceGoalFunds,
 } from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
-import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
 import { Types } from './types'
 import {
@@ -24,7 +23,7 @@ import {
   DeleteObjectiveFailure,
 } from './action'
 
-export function* postData({ data, pushHistory, onSuccess }) {
+export function* postData({ data, pushHistory, onSuccess, addToast, onError }) {
   try {
     const response = yield call(post, `${baseURLNamespaceGoal}/goals`, {
       ...data,
@@ -37,39 +36,51 @@ export function* postData({ data, pushHistory, onSuccess }) {
     }
     yield put(CleanObjectiveData())
   } catch (err) {
-    yield put({
-      ...PostObjectiveManagementDataFailure(),
-      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
+    yield put(PostObjectiveManagementDataFailure())
+
+    addToast({
+      type: 'error',
+      description: 'Por favor, tente novamente',
+      title: JSON.parse(err.message).msg || 'Erro ao enviar solicitação.',
     })
+
+    if (onError) {
+      onError()
+    }
   }
 }
 
 export function* postSaveFunds({ payload }) {
-  const { idGoal, data, onSuccess } = payload
+  const { idGoal, data, onSuccess, addToast } = payload
   try {
     const response = yield call(
       post,
       `${baseURLNamespaceGoalFunds}/goals/${idGoal}/funds`,
       data
     )
-    yield put({
-      ...PostSaveFundsSuccess(response.data),
-      toast: buildToast('Alterações salvas com sucesso.', ToastTypes.success),
+    yield put(PostSaveFundsSuccess(response.data))
+
+    addToast({
+      type: 'success',
+      title: 'Alterações salvas com sucesso.',
     })
 
     if (onSuccess) {
       onSuccess()
     }
   } catch (err) {
-    yield put({
-      ...PostSaveFundsFailure(),
-      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
+    yield put(PostSaveFundsFailure())
+
+    addToast({
+      type: 'error',
+      description: 'Por favor, tente novamente',
+      title: JSON.parse(err.message).msg || 'Erro ao enviar solicitação.',
     })
   }
 }
 
 export function* getData(payload) {
-  const { id, history, path } = payload
+  const { id, history, path, addToast } = payload
 
   // 'if' added to prevent an API call when breadcrumb is clicked
   if (id) {
@@ -83,32 +94,39 @@ export function* getData(payload) {
           history.push(path)
         }
       } else {
-        yield put({
-          ...GetObjectiveManagementDataFailure(),
-          toast: buildToast('Nenhum objetivo encontrado.', ToastTypes.error),
+        yield put(GetObjectiveManagementDataFailure())
+
+        addToast({
+          type: 'error',
+          title: 'Nenhum objetivo encontrado',
         })
       }
     } catch (err) {
-      yield put({
-        ...GetObjectiveManagementDataFailure(),
-        toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
-      })
+      yield put(GetObjectiveManagementDataFailure())
+
       history.push('/')
+
+      addToast({
+        type: 'error',
+        description: 'Ocorreu um erro',
+        title: JSON.parse(err.message).msg || 'Tente novamente mais tarde.',
+      })
     }
   } else {
-    yield put({
-      ...GetObjectiveManagementDataFailure(),
-      toast: buildToast(
-        'Ocorreu um erro. Tente novamente mais tarde.',
-        ToastTypes.error
-      ),
-    })
+    yield put(GetObjectiveManagementDataFailure())
+
     history.push('/')
+
+    addToast({
+      type: 'error',
+      description: 'Ocorreu um erro',
+      title: 'Tente novamente mais tarde.',
+    })
   }
 }
 
 export function* getOtherGoalsData(payload) {
-  const { id, history, path } = payload
+  const { id, history, path, addToast } = payload
 
   // 'if' added to prevent an API call when breadcrumb is clicked
   if (id) {
@@ -125,43 +143,58 @@ export function* getOtherGoalsData(payload) {
           history.push(path)
         }
       } else {
-        yield put({
-          ...GetOtherGoalsDataFailure(),
-          toast: buildToast('Nenhum objetivo encontrado.', ToastTypes.error),
+        yield put(GetOtherGoalsDataFailure())
+
+        addToast({
+          type: 'error',
+          title: 'Nenhum objetivo encontrado',
         })
       }
     } catch (err) {
-      yield put({
-        ...GetOtherGoalsDataFailure(),
-        toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
-      })
+      yield put(GetOtherGoalsDataFailure())
+
       history.push('/')
+
+      addToast({
+        type: 'error',
+        description: 'Ocorreu um erro',
+        title: JSON.parse(err.message).msg || 'Tente novamente mais tarde.',
+      })
     }
   } else {
-    yield put({
-      ...GetOtherGoalsDataFailure(),
-      toast: buildToast(
-        'Ocorreu um erro. Tente novamente mais tarde.',
-        ToastTypes.error
-      ),
-    })
+    yield put(GetOtherGoalsDataFailure())
+
     history.push('/')
+
+    addToast({
+      type: 'error',
+      description: 'Ocorreu um erro',
+      title: 'Tente novamente mais tarde.',
+    })
   }
 }
 
 export function* deleteObjective({ payload }) {
+  const { addToast } = payload
+
   try {
     const { id, pushHistoryToHomeScreen } = payload
     yield call(remove, `${baseURLNamespaceGoal}/goals/${id}`)
     pushHistoryToHomeScreen()
-    yield put({
-      ...DeleteObjectiveSuccess(),
-      toast: buildToast('Objetivo deletado com sucesso.', ToastTypes.success),
+
+    yield put(DeleteObjectiveSuccess())
+
+    addToast({
+      type: 'success',
+      title: 'Objetivo deletado com sucesso',
     })
   } catch (err) {
-    yield put({
-      ...DeleteObjectiveFailure(),
-      toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
+    yield put(DeleteObjectiveFailure())
+
+    addToast({
+      type: 'error',
+      description: 'Ocorreu um erro',
+      title: JSON.parse(err.message).msg || 'Tente novamente mais tarde.',
     })
   }
 }

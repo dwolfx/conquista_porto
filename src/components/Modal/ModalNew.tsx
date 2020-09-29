@@ -15,6 +15,7 @@ import {
   ModalWrapper,
   TitleWrapper,
   ChildrenWrapper,
+  ModalFooter,
 } from './stylesNew'
 
 interface IProps {
@@ -24,6 +25,7 @@ interface IProps {
   handleClose: () => void
   isOpen: boolean
   alignItems?: string
+  footer?: React.ReactNode
 }
 
 const Modal: React.FC<IProps> = ({
@@ -34,6 +36,7 @@ const Modal: React.FC<IProps> = ({
   isOpen,
   alignItems = '',
   children,
+  footer,
   ...rest
 }) => {
   const themeContext = useContext(ThemeContext)
@@ -92,10 +95,20 @@ const Modal: React.FC<IProps> = ({
             data-gtm-type="click"
             data-gtm-clicktype="button"
             onClick={handleClose}
+            name="close"
+            color="gray4"
+            width={28}
+            height={28}
           />
         </ModalHeader>
-        <Divisor />
+        <Divisor customSize="calc(100% - 14px)" />
         <ChildrenWrapper>{children}</ChildrenWrapper>
+        {footer && (
+          <>
+            <Divisor customSize="100%" />
+            <ModalFooter>{footer}</ModalFooter>
+          </>
+        )}
       </ModalContainer>
     </ModalWrapper>,
     document.querySelector('#root') as HTMLInputElement

@@ -540,7 +540,9 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
       >
         <svg
           aria-label="arrowdown"
+          fill="#BABABA"
           role="img"
+          width={21}
         >
           arrow-down.svg
         </svg>

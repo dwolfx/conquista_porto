@@ -817,7 +817,9 @@ Array [
         >
           <svg
             aria-label="creditcard2"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             credit-card2.svg
           </svg>
@@ -837,7 +839,9 @@ Array [
         >
           <svg
             aria-label="calendar"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             calendar.svg
           </svg>
@@ -857,7 +861,9 @@ Array [
         >
           <svg
             aria-label="thumbsup"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             thumbs-up.svg
           </svg>
@@ -917,7 +923,9 @@ Array [
               >
                 <svg
                   aria-label="talkman"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   talk-man.svg
                 </svg>
@@ -957,7 +965,9 @@ Array [
               >
                 <svg
                   aria-label="diamond"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   diamond.svg
                 </svg>
@@ -997,7 +1007,9 @@ Array [
               >
                 <svg
                   aria-label="callcenter"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   call-center.svg
                 </svg>
@@ -1037,7 +1049,9 @@ Array [
               >
                 <svg
                   aria-label="apps"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   apps.svg
                 </svg>
@@ -1897,6 +1911,7 @@ Array [
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>
@@ -1941,6 +1956,7 @@ Array [
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>
@@ -1985,6 +2001,7 @@ Array [
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>

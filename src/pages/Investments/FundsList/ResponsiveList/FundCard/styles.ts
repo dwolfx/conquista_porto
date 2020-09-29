@@ -5,7 +5,7 @@ import IconExporter from 'components/IconExporter'
 import TextComponent from 'components/Text'
 import DivisorComponent from 'components/Divisor'
 import ButtonComponent from 'components/Button'
-import theme from 'styles/theme'
+import themeStyle from 'styles/theme'
 
 export const ArrowDown = styled(IconExporter).attrs(() => ({
   name: 'arrowdown',
@@ -146,7 +146,7 @@ export const RightContent = styled.div`
 `
 
 interface IFILTER_RISKS {
-  [key: number]: keyof typeof theme.fundRiskColors
+  [key: number]: keyof typeof themeStyle.fundRiskColors
 }
 
 const ACTIVE_FILTER_RISKS: IFILTER_RISKS = {
@@ -165,7 +165,7 @@ export const RiskLine = styled.div<IRiskLineProps>`
   width: 4px;
   border-radius: 4px;
   background-color: ${({ theme, riskColor }) =>
-    theme.fundRiskColors[ACTIVE_FILTER_RISKS[riskColor]]};
+    themeStyle.fundRiskColors[ACTIVE_FILTER_RISKS[riskColor]]};
   margin: 4px 0 4px 4px;
 `
 

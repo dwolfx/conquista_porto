@@ -19,11 +19,12 @@ import {
 interface IProps {
   headerIcon?: keyof typeof dict
   headerIconInfo?: boolean
-  headerIconInfoMsg?: string
+  headerIconInfoMsg?: string | React.ReactNode
   headerIconInfoClick?: () => void
   headerTitle?: string | React.ReactNode
   footer?: React.ReactNode
   headerEndItem?: React.ReactNode
+  tooltip?: boolean
 }
 
 const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
@@ -35,11 +36,14 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
   headerTitle,
   headerEndItem: HeaderEndItem,
   footer,
+  tooltip = true,
   ...rest
 }) => {
   const CardHeaderContent = () => {
     let HeaderTitle: string | React.ReactNode = (
-      <CardTitle>{headerTitle}</CardTitle>
+      <CardTitle type="heading4" bold>
+        {headerTitle}
+      </CardTitle>
     )
 
     if (typeof headerTitle !== 'string') {
@@ -71,11 +75,11 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
           )}
           <CardHeaderContent />
           {headerIconInfo && (
-            <CardIconInfo>
+            <CardIconInfo {...rest}>
               <Popover
-                tooltip
+                tooltip={tooltip}
                 content={() => (
-                  <Text type="body" color="white">
+                  <Text type="body" color={tooltip ? 'white' : 'gray5'}>
                     {headerIconInfoMsg}
                   </Text>
                 )}
@@ -83,7 +87,8 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
                 <Icon
                   name="information"
                   color="blue4"
-                  role="button" aria-label="header-icon"
+                  role="button"
+                  aria-label="header-icon"
                   onClick={() => headerIconInfoClick()}
                 />
               </Popover>

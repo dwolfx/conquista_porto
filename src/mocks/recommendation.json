@@ -1,134 +1,285 @@
 {
-  "id": "625",
+  "id": "658",
   "answer": {
     "nickname": "Viagem",
-    "target_date": "06/06/2021",
-    "target_value": 1000.0,
-    "initial_value": 1000.0,
-    "monthly_value": 100.0,
+    "target_date": "11/07/2021",
+    "target_value": 100000,
+    "initial_value": 10000,
+    "monthly_value": 1000,
     "uf": "SP",
     "is_easy_to_save_planned_amount": false,
     "is_target_date_flexible": false,
     "would_like_to_receive_before_final_date": false,
     "would_like_to_receive_monthly_income": false,
     "goal_type": 1,
-    "profile": 4
+    "profile": 3
   },
-  "combo": [
-    {
-      "title": "Investimentos",
-      "values": {
-        "Investimento Mensal": "R$ 100,00",
-        "Investimento Inicial": "R$ 1.000,00"
-      },
-      "total_value": 2055.18
-    }
-  ],
   "income": {
-    "pessimistic": [
-      { "month": "Ago/2020", "value": 1000.0 },
-      { "month": "Set/2020", "value": 1102.99 },
-      { "month": "Out/2020", "value": 1206.3 },
-      { "month": "Nov/2020", "value": 1309.92 },
-      { "month": "Dez/2020", "value": 1413.85 },
-      { "month": "Jan/2021", "value": 1518.09 },
-      { "month": "Fev/2021", "value": 1622.65 },
-      { "month": "Jun/2021", "value": 2044.01 }
-    ],
-    "median": [
-      { "month": "Ago/2020", "value": 1000.0 },
-      { "month": "Set/2020", "value": 1103.74 },
-      { "month": "Out/2020", "value": 1207.88 },
-      { "month": "Nov/2020", "value": 1312.41 },
-      { "month": "Dez/2020", "value": 1417.34 },
-      { "month": "Jan/2021", "value": 1522.65 },
-      { "month": "Fev/2021", "value": 1628.36 },
-      { "month": "Jun/2021", "value": 2055.18 }
-    ],
-    "optimistic": [
-      { "month": "Ago/2020", "value": 1000.0 },
-      { "month": "Set/2020", "value": 1104.49 },
-      { "month": "Out/2020", "value": 1209.47 },
-      { "month": "Nov/2020", "value": 1314.91 },
-      { "month": "Dez/2020", "value": 1420.82 },
-      { "month": "Jan/2021", "value": 1527.22 },
-      { "month": "Fev/2021", "value": 1634.09 },
-      { "month": "Jun/2021", "value": 2066.41 }
-    ]
+    "pessimistic": 20726.1,
+    "median": 20912.49,
+    "optimistic": 21100.87
   },
   "funds": [
     {
-      "fund_id": 5105,
-      "name": "Porto Seguro FI Referenciado DI Credito Privado",
-      "nickname": "Porto Seguro FI RF Ref. DI CP",
+      "fund_id": 51380026,
+      "name": "Occam Institucional II FIC Multimercado",
+      "nickname": "Occam Institucional II FIC FIM",
+      "company_name": "Occam Brasil",
+      "profile_risk": "medio",
+      "share_holder_profile_risk": 1,
+      "initial_date": "05/07/2012",
+      "manager": "Occam Brasil",
+      "min_initial_value": 1000.0,
+      "min_value_to_apply": 100.0,
+      "release_to_apply": true,
+      "min_rescue_value": 0.0,
+      "release_to_rescue": false,
+      "min_balance_value": 100.0,
+      "time_limit_to_apply": "23:59",
+      "time_limit_to_rescue": "23:59",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+0 (Úteis)",
+      "financial_rescue_days": "D+1 (Úteis)",
+      "count_rescue_days": "Úteis",
+      "arena_category": "Multimercado",
+      "anbima_category": "Empresas",
+      "adm_tax": 1.0,
+      "performance_rate": 20.0,
+      "classification": "Longo Prazo",
+      "tribute_ir": { "720": 17.5, "721": 15, "180": 22.5, "360": 20 },
+      "iof": "Regime Regressivo",
+      "benchmark": null,
+      "profitability": [
+        {
+          "name": "fundo",
+          "value": { "1": 0.07, "2": 0.39, "3": 6.18, "4": 13.97, "5": 25.65 }
+        },
+        {
+          "name": "CDI",
+          "value": { "1": 0.29, "2": 1.01, "3": 5.45, "4": 12.14, "5": 21.57 }
+        },
+        {
+          "name": "variacao",
+          "value": {
+            "1": 23.74,
+            "2": 38.38,
+            "3": 113.39,
+            "4": 115.11,
+            "5": 118.95
+          }
+        }
+      ],
+      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
+      "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_OCCAMINSTITUCIONALIIFICFIM.pdf",
+      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_OCCAMINSTITUCIONALIIFICFIM.pdf",
+      "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_OCCAMINSTITUCIONALIIFICFIM.pdf",
+      "url_manager_logo": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_OCCAM.png",
+      "is_fund_active": true,
+      "quota_type": "Fechamento",
+      "cnpj": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_value": 1600.0,
+      "monthly_value": 100.0,
+      "annual_rate": 7.0
+    },
+    {
+      "fund_id": 51380014,
+      "name": "RB Capital Debêntures Incentivadas FIC Multimercado Crédito Privado",
+      "nickname": "RB Capital Deb. Incentivadas FIC FIM CP",
+      "company_name": "RB Capital Asset",
+      "profile_risk": "medio",
+      "share_holder_profile_risk": 1,
+      "initial_date": "28/03/2016",
+      "manager": "RB Capital Asset",
+      "min_initial_value": 1000.0,
+      "min_value_to_apply": 300.0,
+      "release_to_apply": true,
+      "min_rescue_value": 300.0,
+      "release_to_rescue": true,
+      "min_balance_value": 300.0,
+      "time_limit_to_apply": "04:00",
+      "time_limit_to_rescue": "04:00",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+20 (Corridos)",
+      "financial_rescue_days": "D+1 (Úteis)",
+      "count_rescue_days": "Corridos",
+      "arena_category": "Renda Fixa",
+      "anbima_category": "",
+      "adm_tax": 1.0,
+      "performance_rate": 0.0,
+      "classification": null,
+      "tribute_ir": null,
+      "iof": "Regime Regressivo",
+      "benchmark": null,
+      "profitability": [
+        {
+          "name": "fundo",
+          "value": { "1": -0.05, "2": -2.04, "3": -1.14, "4": 7.83, "5": 15.93 }
+        },
+        {
+          "name": "CDI",
+          "value": { "1": 0.29, "2": 1.01, "3": 5.45, "4": 12.14, "5": 21.57 }
+        },
+        { "name": "variacao", "value": { "4": 64.51, "5": 73.87 } }
+      ],
+      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBDEBENTURESINCENTIVADASFICFIM.pdf",
+      "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_RBDEBENTURESINCENTIVADASFICFIM.pdf",
+      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_RBDEBENTURESINCENTIVADASFICFIM.pdf",
+      "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_RBDEBENTURESINCENTIVADASFICFIM.pdf",
+      "url_manager_logo": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_RB.png",
+      "is_fund_active": true,
+      "quota_type": "Fechamento",
+      "cnpj": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_value": 1600.0,
+      "monthly_value": 100.0,
+      "annual_rate": 4.5
+    },
+    {
+      "fund_id": 51380042,
+      "name": "Brasil Plural Debêntures Incentivadas 45 FIC Multimercado Crédito Privado",
+      "nickname": "BR Plural Deb. Incentivadas 45 FICFIM CP",
+      "company_name": "Brasil Capital",
+      "profile_risk": "medio",
+      "share_holder_profile_risk": 1,
+      "initial_date": "07/08/2016",
+      "manager": "Brasil Capital",
+      "min_initial_value": 200.0,
+      "min_value_to_apply": 100.0,
+      "release_to_apply": true,
+      "min_rescue_value": 100.0,
+      "release_to_rescue": true,
+      "min_balance_value": 100.0,
+      "time_limit_to_apply": "23:59",
+      "time_limit_to_rescue": "23:59",
+      "quotation_apply_days": "D+0",
+      "financial_apply_days": "D+0",
+      "quotation_rescue_days": "D+45 (Corridos)",
+      "financial_rescue_days": "D+1 (Úteis)",
+      "count_rescue_days": "Corridos",
+      "arena_category": "Renda Fixa",
+      "anbima_category": "Empresas",
+      "adm_tax": 1.0,
+      "performance_rate": 20.0,
+      "classification": null,
+      "tribute_ir": null,
+      "iof": "Regime Regressivo",
+      "benchmark": null,
+      "profitability": [
+        {
+          "name": "fundo",
+          "value": { "1": 1.56, "2": 1.63, "3": 0.5, "4": 10.0, "5": 19.44 }
+        },
+        {
+          "name": "IPCA + 5",
+          "value": { "1": 0.9, "2": 4.35, "3": 7.2, "4": 16.35, "5": 27.24 }
+        },
+        { "name": "variacao", "value": { "1": 0.65 } }
+      ],
+      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_BRASILPLURALDEBENTURESINCENTIVADAS45FICFIM.pdf",
+      "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Informativos-de-Desempenho/INFORMATIVODESEMPENHO_BRASILPLURALDEBENTURESINCENTIVADAS45FICFIM.pdf",
+      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Regulamentos/REGULAMENTO_BRASILPLURALDEBENTURESINCENTIVADAS45FICFIM.pdf",
+      "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Termos/TERMODECIENCIADERISCO_BRASILPLURALDEBENTURESINCENTIVADAS45FICFIM.pdf",
+      "url_manager_logo": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/fundos-de-terceiros/Logos/LOGO_BRASILPLURAL.png",
+      "is_fund_active": true,
+      "quota_type": "Fechamento",
+      "cnpj": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_value": 1800.0,
+      "monthly_value": 300.0,
+      "annual_rate": 4.5
+    },
+    {
+      "fund_id": 5094,
+      "name": "Porto Seguro Selecta FIC FIA",
+      "nickname": "Porto Seguro Selecta FIC FIA",
       "company_name": "PortoSeguro Investimentos",
-      "profile_risk": "medio-baixo",
-      "share_holder_profile_risk": 2,
-      "initial_date": "28/02/2014",
+      "profile_risk": "alto",
+      "share_holder_profile_risk": 1,
+      "initial_date": "30/07/2013",
       "manager": "PortoSeguro Investimentos",
       "min_initial_value": 1000.0,
       "min_value_to_apply": 100.0,
       "release_to_apply": true,
-      "min_rescue": 100.0,
+      "min_rescue_value": 100.0,
       "release_to_rescue": true,
-      "min_balance": 1000.0,
-      "time_limit_to_apply": "21:00",
-      "time_limit_to_rescue": "21:00",
+      "min_balance_value": 0.0,
+      "time_limit_to_apply": "23:59",
+      "time_limit_to_rescue": "23:59",
       "quotation_apply_days": "D+0",
       "financial_apply_days": "D+0",
-      "quotation_rescue_days": "D+0 (Úteis)",
-      "financial_rescue_days": "D+0 (Úteis)",
-      "count_rescue_days": "Úteis",
-      "arena_category": "Renda Fixa",
-      "ambima_category": "RF Duração Baixa Crédito Livre",
-      "adm_tax": 0.4,
-      "performance_rate": 0.0,
-      "classification": "Longo Prazo",
-      "tribute_ir": { "720": 17.5, "721": 15, "360": 20, "180": 22.5 },
+      "quotation_rescue_days": "D+15 (Corridos)",
+      "financial_rescue_days": "D+2 (Úteis)",
+      "count_rescue_days": "Corridos",
+      "arena_category": "Renda Variável",
+      "anbima_category": "",
+      "adm_tax": 2.0,
+      "performance_rate": 20.0,
+      "classification": "Ações",
+      "tribute_ir": { "1": 15 },
       "iof": "Regime Regressivo",
-      "benchmark": "CDI",
+      "benchmark": null,
       "profitability": [
         {
           "name": "fundo",
-          "value": { "1": 1.28, "2": -0.17, "3": 1.55, "4": 8.1, "5": 15.67 }
+          "value": { "1": -0.96, "2": -6.57, "3": 2.76, "4": 53.15, "5": 39.9 }
         },
         {
-          "name": "CDI",
-          "value": { "1": 0.05, "2": 1.92, "3": 3.67, "4": 10.18, "5": 17.72 }
+          "name": "IBOVESPA",
+          "value": {
+            "1": -3.44,
+            "2": -13.49,
+            "3": -4.48,
+            "4": 26.1,
+            "5": 34.67
+          }
         },
         {
           "name": "variacao",
-          "value": { "1": 2663.91, "3": 42.19, "4": 79.59, "5": 88.44 }
+          "value": { "1": 2.48, "2": 6.91, "3": 7.24, "4": 27.05, "5": 5.23 }
         }
       ],
-      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
-      "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf",
-      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/Regulamento_PS_Referenciado_DI_Credito_Privado.pdf",
-      "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/TCR%20-%20Porto%20Seguro%20DI%20Credito%20Privado.pdf",
+      "url_performance_info_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
+      "url_lamina_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/InformativoDesempenho_PS_Selecta.pdf",
+      "url_fund_rules_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/Regulamento_PS_Selecta.pdf",
+      "url_fund_adhesion_pdf": "https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/acoes/TCR_PS_%20Selecta.pdf",
       "url_manager_logo": "https://www.portoseguro.com.br/conteudo/solucoes-financeiras/investimentos/arena/assets/images/fundoLogos/logo-porto-investimentos.png",
       "is_fund_active": true,
-      "quota_type": "Abertura",
-      "initial_value": 1000,
-      "monthly_value": 100,
-      "annual_rate": 4.5
+      "quota_type": "Fechamento",
+      "cnpj": null,
+      "pl": null,
+      "pl_last_year": null,
+      "initial_value": 5000.0,
+      "monthly_value": 500.0,
+      "annual_rate": 9.5
     }
   ],
+  "credit_product": null,
   "additional": {
-    "travel_security": true,
+    "travel_security": false,
     "life_security": false,
     "credit_card": false
   },
+  "suggestion_goal": {
+    "suggestion_target_date": "11/05/2027",
+    "suggestion_monthly_value": 8692.0
+  },
   "fund_total_income": {
-    "0": 1000.0,
-    "1": 1103.74,
-    "2": 1207.88,
-    "3": 1312.41,
-    "4": 1417.34,
-    "5": 1522.65,
-    "6": 1628.36,
-    "7": 1734.47,
-    "8": 1840.97,
-    "9": 1947.87,
-    "10": 2055.18
+    "0": 10000.0,
+    "1": 11061.64,
+    "2": 12129.77,
+    "3": 13204.39,
+    "4": 14285.56,
+    "5": 15373.32,
+    "6": 16467.72,
+    "7": 17568.77,
+    "8": 18676.57,
+    "9": 19791.12,
+    "10": 20912.49
   }
 }

@@ -1,49 +1,109 @@
 import React from 'react'
+import { Col } from 'styled-bootstrap-grid'
+import 'styled-components/macro'
+
+import Text from 'components/Text'
 
 import { FullHeightCard } from 'pages/Objectives/Recommendation/styles'
-import { IFund } from 'pages/Objectives/Recommendation/types'
+import { IFunds } from 'store/modules/Objective/types'
 
-import { columns, columnsSticky, fundsType } from './tableData'
-import * as s from './styles'
+import { formatMoney } from 'helpers'
 import useMedia from 'hooks/useMedia'
+
+import { columns, columnsSticky } from './tableData'
+import * as s from './styles'
 
 interface IProps {
   cardHeader: React.JSXElementConstructor<object>
   cardInfos: React.JSXElementConstructor<object>
-  funds: IFund[]
-  handleOpenDetails: (fund: IFund) => void
+  funds: IFunds[]
+  handleOpenDetails: (fund: IFunds) => void
+  totalInitialInvestment: number
+  totalMontlyInvestment: number
+  setEditingWallet: (state: boolean) => void
 }
 
-const DesktopView = ({
+const TableView = ({
   cardHeader: CardHeader,
   cardInfos: CardInfos,
   funds,
   handleOpenDetails,
+  totalInitialInvestment,
+  totalMontlyInvestment,
+  setEditingWallet,
 }: IProps) => {
-  const isTabletHorizontal = useMedia('lg')
   const isTabletVertical = useMedia('md')
-  const columnsToRender = isTabletHorizontal || isTabletVertical ? columnsSticky : columns
+  const columnsToRender = isTabletVertical ? columnsSticky : columns
 
   return (
-    <FullHeightCard
-      headerIcon="financial"
-      headerTitle={
-        <CardHeader />
-      }
-    >
+    <FullHeightCard headerIcon="financial" headerTitle={<CardHeader />}>
       <CardInfos />
-  
+
       <s.ContainerFunds>
         <s.Table
           columns={columnsToRender}
-          onShowDetails={(rowDetails: IFund) => handleOpenDetails(rowDetails)}
+          onRowClick={(rowDetails: IFunds) => {
+            handleOpenDetails(rowDetails)
+          }}
           data={funds}
-          fundsType={fundsType}
-          isSticky={isTabletVertical || isTabletHorizontal}
+          isSticky={isTabletVertical}
         />
+
+        {isTabletVertical ? (
+          <>
+            <s.TotalValuesRow>
+              <Col sm={3}>
+                <s.TotalLine alignItems="center">
+                  <Text type="captionUppercase" color="gray5">
+                    Total Inv. Inicial
+                  </Text>
+                </s.TotalLine>
+                <s.TotalLine alignItems="center">
+                  <Text type="captionUppercase" color="gray5">
+                    Total Inv. Mensal
+                  </Text>
+                </s.TotalLine>
+              </Col>
+              <Col smAuto>
+                <s.TotalLine alignItems="center">
+                  <Text color="gray6" bold textAlign="center">
+                    {formatMoney(totalInitialInvestment)}
+                  </Text>
+                </s.TotalLine>
+                <s.TotalLine alignItems="center">
+                  <Text color="gray6" bold textAlign="center">
+                    {formatMoney(totalMontlyInvestment)}
+                  </Text>
+                </s.TotalLine>
+              </Col>
+            </s.TotalValuesRow>
+          </>
+        ) : (
+          <s.TotalValuesRow alignItems="center">
+            <Col md={7}>
+              <Text type="captionUppercase" color="gray5">
+                Total
+              </Text>
+            </Col>
+            <Col auto>
+              <Text color="gray6" bold textAlign="center">
+                {formatMoney(totalInitialInvestment)}
+              </Text>
+            </Col>
+            <Col auto>
+              <Text color="gray6" bold textAlign="center">
+                {formatMoney(totalMontlyInvestment)}
+              </Text>
+            </Col>
+          </s.TotalValuesRow>
+        )}
+
+        <s.EditButton outline onClick={() => setEditingWallet(true)}>
+          Editar composição
+        </s.EditButton>
       </s.ContainerFunds>
     </FullHeightCard>
   )
 }
 
-export default DesktopView
+export default TableView

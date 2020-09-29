@@ -8,6 +8,7 @@ const middlewares = jsonServer.defaults()
 
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
+const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
 const objectiveMock = require('./src/mocks/objective.json')
 const objectiveMock2 = require('./src/mocks/objective2.json')
 const objectivesMock = require('./src/mocks/objectives.json')
@@ -57,14 +58,32 @@ router.render = (req, res) => {
     if (req.originalUrl.includes('mobile')) {
       return res.jsonp(recommendationMockMobile)
     }
+    if (req.originalUrl.endsWith('/recalculate-funds')) {
+      if (req.method === 'POST') {
+        return res.jsonp(recommendationRecalculatedFunds.income)
+      }
+      return res.status(404)
+    }
+    if (req.method === 'PUT') {
+      return res.jsonp({
+        ...recommendationMock,
+        answer: req.body.answer,
+        additional: req.body.additional,
+        credit_product: req.body.credit_product,
+      })
+    }
+
     return res.jsonp({
       ...recommendationMock,
       answer: {
         ...recommendationMock.answer,
         ...req.body,
-        initial_value: parseFloat(req.body.initial_value) * 100,
-        monthly_value: parseFloat(req.body.monthly_value) * 100,
-        target_value: parseFloat(req.body.target_value) * 100,
+        initial_value:
+          req.body.initial_value || recommendationMock.answer.initial_value,
+        monthly_value:
+          req.body.monthly_value || recommendationMock.answer.monthly_value,
+        target_value:
+          req.body.target_value || recommendationMock.answer.target_value,
       },
     })
   }

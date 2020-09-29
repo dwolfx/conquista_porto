@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface IAnchorProps {
   disabled: boolean
+  noIconPadding: boolean
 }
 export const Link = styled.a<IAnchorProps>`
   align-items: center;
@@ -13,7 +14,8 @@ export const Link = styled.a<IAnchorProps>`
 
   svg {
     height: 21px;
-    margin-left: 7px;
+    margin-left: ${({ noIconPadding, theme }) =>
+      noIconPadding ? 0 : theme.spacing(2)}px;
     path {
       fill: currentColor;
     }

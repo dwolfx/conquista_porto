@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory, useRouteMatch, Switch, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import Header from 'components/Wizard/Header'
+import Header from 'components/Header/TransactionsHeader'
 
 import Board from './Board'
 import GoalStreams from './GoalStreams'
@@ -12,10 +12,20 @@ import { IData } from './GoalStreams/types'
 import { Container, RegistrationWrapper, BoartTitle } from './styles'
 
 const Objectives = () => {
-  const [totalSteps, setTotalSteps] = useState(0)
   const match = useRouteMatch()
   const history = useHistory()
-  const { data: objectiveData, isLoading } = useSelector<any, any>(
+
+  const [totalSteps, setTotalSteps] = useState(0)
+  const [
+    isEditingRecommendationWallet,
+    setIsEditingRecommendationWallet,
+  ] = useState<boolean>(false)
+  const [
+    isEditingRecommendationSuggestion,
+    setIsEditingRecommendationSuggestion,
+  ] = useState<boolean>(false)
+
+  const { data: objectiveData } = useSelector<any, any>(
     state => state.objective
   )
   const dontHaveRecommendation = Boolean(
@@ -25,7 +35,7 @@ const Objectives = () => {
   // Use only for tests with recomendation
   // const dispatch = useDispatch()
   // useEffect(() => {
-  //   dispatch(PostObjectiveDataRequest({ data: {} }))
+  //   dispatch(PostObjectiveDataRequest({}))
   // }, [dispatch])
 
   const handleSteps = (data: IData[] | undefined) => {
@@ -41,9 +51,15 @@ const Objectives = () => {
         <Container>
           <Header
             onClose={() => {
-              history.push('/')
-              document.documentElement.scrollTop = 0
-              document.body.scrollTop = 0
+              if (isEditingRecommendationSuggestion) {
+                setIsEditingRecommendationSuggestion(false)
+              } else if (isEditingRecommendationWallet) {
+                setIsEditingRecommendationWallet(false)
+              } else {
+                history.push('/')
+                document.documentElement.scrollTop = 0
+                document.body.scrollTop = 0
+              }
             }}
           />
           {dontHaveRecommendation ? (
@@ -54,8 +70,11 @@ const Objectives = () => {
           ) : (
             <Recommendation
               data={objectiveData}
-              isLoading={isLoading}
               totalSteps={totalSteps + 1}
+              isEditingSuggestion={isEditingRecommendationSuggestion}
+              isEditingWallet={isEditingRecommendationWallet}
+              setIsEditingSuggestion={setIsEditingRecommendationSuggestion}
+              setIsEditingWallet={setIsEditingRecommendationWallet}
             />
           )}
         </Container>

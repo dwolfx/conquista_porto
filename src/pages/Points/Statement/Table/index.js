@@ -7,7 +7,7 @@ import {
   accumulatorColumns,
   accumulatorData,
 } from './mocks'
-import TableRender from '../../../../components/Table'
+import TableRender from '../../../../components/TableParati'
 
 const reducerstateTab = (stateInner, activeKey) =>
   Object.keys(stateInner).reduce(

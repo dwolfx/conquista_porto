@@ -15,7 +15,6 @@ export default function(state = INITIAL_STATE, action: any) {
     case Types.GET_NO_CONTENT: {
       return {
         data: {},
-        isLoading: false,
       }
     }
     case Types.GET_FAILURE:

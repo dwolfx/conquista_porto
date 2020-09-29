@@ -10,8 +10,9 @@ import { PopoverContainer, Arrow, ChildrenWrapper, Tooltip } from './styles'
 type TPlacement = 'bottom' | 'left' | 'right' | 'top'
 
 interface IProps {
+  turnOff?: boolean
   alwaysVisible?: boolean
-  content: string | (() => React.ReactNode)
+  content: string | (() => React.ReactNode) | React.ReactNode
   flippable?: boolean
   placement?: TPlacement
   trigger?: string
@@ -19,6 +20,7 @@ interface IProps {
 }
 
 const Popover: React.FC<IProps> = ({
+  turnOff = false,
   alwaysVisible = false,
   children,
   content = () => null,
@@ -55,8 +57,15 @@ const Popover: React.FC<IProps> = ({
     }
   }
 
-  const renderContent =
-    typeof content === 'string' ? () => <Text>{content}</Text> : content
+  const renderContent = () => {
+    if (typeof content === 'function') {
+      return content()
+    } else if (typeof content === 'string') {
+      return <Text>{content}</Text>
+    }
+
+    return content
+  }
 
   const renderPopover = (
     ref: React.Ref<any>,
@@ -93,7 +102,7 @@ const Popover: React.FC<IProps> = ({
           </ChildrenWrapper>
         )}
       </Reference>
-      {isOpen && portalContainer
+      {isOpen && !turnOff && portalContainer
         ? ReactDOM.createPortal(
             <Popper
               placement={placement}

@@ -221,7 +221,9 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
     <svg
       aria-label="close"
       className="c2"
+      fill="#BABABA"
       role="img"
+      width={21}
     >
       close.svg
     </svg>

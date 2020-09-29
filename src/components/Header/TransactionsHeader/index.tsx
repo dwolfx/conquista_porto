@@ -47,19 +47,21 @@ const TransactionHeader = ({
   }
 
   return (
-    <div {...rest}>
+    <s.HeaderComponent {...rest}>
       <s.HeaderWrapper>
         <s.GridContainer>
           <s.GridRow>
             <s.GridCol lg={12}>
               <s.HeaderContent>
                 {showBackButton && (
-                  <s.HeaderIconButton
+                  <s.BackIcon
                     data-gtm-subname="layer Investimentir"
                     data-gtm-name="botao voltar step"
                     data-gtm-type="click"
                     data-gtm-clicktype="button"
-                    icon="ArrowLeft"
+                    name="arrowleft"
+                    width={24}
+                    height={24}
                     onClick={() => !!onBack && onBack()}
                     data-testid="back-button"
                   />
@@ -71,13 +73,15 @@ const TransactionHeader = ({
                     data-testid="logo"
                   />
                 </s.HeaderColTitle>
-                <s.HeaderIconButton
+                <s.CloseIcon
                   className="layer-close-button"
                   data-gtm-subname="botao fechar layer"
                   data-gtm-name="botao fechar"
                   data-gtm-type="click"
                   data-gtm-clicktype="button"
-                  icon="CloseIcon"
+                  name="close"
+                  width={24}
+                  height={24}
                   onClick={() => !!onClose && onClose()}
                   data-testid="close-button"
                 />
@@ -113,7 +117,7 @@ const TransactionHeader = ({
           </s.GridContainer>
         </s.StepBar>
       )}
-    </div>
+    </s.HeaderComponent>
   )
 }
 

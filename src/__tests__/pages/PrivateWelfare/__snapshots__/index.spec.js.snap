@@ -814,7 +814,9 @@ Array [
         >
           <svg
             aria-label="persongroup"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             person-group.svg
           </svg>
@@ -834,7 +836,9 @@ Array [
         >
           <svg
             aria-label="time"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             time.svg
           </svg>
@@ -854,7 +858,9 @@ Array [
         >
           <svg
             aria-label="coin"
+            fill="#BABABA"
             role="img"
+            width={21}
           >
             coin.svg
           </svg>
@@ -914,7 +920,9 @@ Array [
               >
                 <svg
                   aria-label="talkman"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   talk-man.svg
                 </svg>
@@ -954,7 +962,9 @@ Array [
               >
                 <svg
                   aria-label="diamond"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   diamond.svg
                 </svg>
@@ -994,7 +1004,9 @@ Array [
               >
                 <svg
                   aria-label="callcenter"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   call-center.svg
                 </svg>
@@ -1034,7 +1046,9 @@ Array [
               >
                 <svg
                   aria-label="apps"
+                  fill="#BABABA"
                   role="img"
+                  width={21}
                 >
                   apps.svg
                 </svg>
@@ -1894,6 +1908,7 @@ Array [
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>
@@ -1934,6 +1949,7 @@ Array [
             fill="#272727"
             height="24px"
             role="img"
+            width={21}
           >
             pdf.svg
           </svg>

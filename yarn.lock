@@ -2227,10 +2227,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-table@^7.0.16":
-  version "7.0.16"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.16.tgz#3db6518fe07d79c58213e2b959983b353ba59457"
-  integrity sha512-SDFRUnWWN16rL/N1bpV4GKp4EAoulmrHbHoWCNUldrqVBYI9m9o+sYqNPP2E5NVUW7HQJf15rHKFN13F6v49Uw==
+"@types/react-table@^7.0.22":
+  version "7.0.22"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.22.tgz#5dd97d7c2b1978338ed3f3f634da0d5b0362998d"
+  integrity sha512-RAzjB7Udv23QPuIuNNRn8VBldmcFobqpNqLWXh0FXVVyIye76muzfn01WZdcTIEfmQjHts7bjJSQQVabLQgTcA==
   dependencies:
     "@types/react" "*"
 
@@ -11436,10 +11436,10 @@ react-table-sticky@^1.1.2:
   resolved "https://registry.yarnpkg.com/react-table-sticky/-/react-table-sticky-1.1.2.tgz#0f23453271a72fe9d05564e123f352ea69bf72f7"
   integrity sha512-XnVB4Yf6r8L10YC0Ccu2GrY57IxVWofy19m7s8+q5xzZOudYvyADXsBj6+EenHOvBWTYSviLe8RfaLFIp1lC9w==
 
-react-table@^7.0.0-beta.12:
-  version "7.0.0-rc.15"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.0-rc.15.tgz#bb855e4e2abbb4aaf0ed2334404a41f3ada8e13a"
-  integrity sha512-ofMOlgrioHhhvHjvjsQkxvfQzU98cqwy6BjPGNwhLN1vhgXeWi0mUGreaCPvRenEbTiXsQbMl4k3Xmx3Mut8Rw==
+react-table@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.5.0.tgz#87326d92cdffbbf970f49b395bcafc3f84989ddf"
+  integrity sha512-hLsbNqLJkkYiATVteM8mthP8y5vnLPB2qdi9FeGZjsvb2m5vxj6cavIgk35oulvBmYD6Kox0HFfI332HPZpC7w==
 
 react-test-renderer@^16.11.0:
   version "16.12.0"

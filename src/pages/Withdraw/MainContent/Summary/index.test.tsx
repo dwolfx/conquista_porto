@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { renderWithReduxAndTheme, fireEvent } from 'testUtils'
+import { renderWithReduxAndTheme } from 'testUtils'
 
 import BankCards from './BankCards'
 import Summary from './index'

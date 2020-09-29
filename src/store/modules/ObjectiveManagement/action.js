@@ -4,12 +4,16 @@ export function PostObjectiveManagementDataRequest({
   data,
   pushHistory,
   onSuccess,
+  onError,
+  addToast,
 }) {
   return {
     type: Types.POST_REQUEST,
     data,
     pushHistory,
     onSuccess,
+    onError,
+    addToast,
   }
 }
 
@@ -86,10 +90,10 @@ export function GetOtherGoalsDataFailure() {
   }
 }
 
-export function DeleteObjectiveRequest(id, pushHistoryToHomeScreen) {
+export function DeleteObjectiveRequest(id, pushHistoryToHomeScreen, addToast) {
   return {
     type: Types.DELETE_REQUEST,
-    payload: { id, pushHistoryToHomeScreen },
+    payload: { id, pushHistoryToHomeScreen, addToast },
   }
 }
 

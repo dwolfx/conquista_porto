@@ -46,6 +46,46 @@ export function PostObjectiveDataFailure() {
   }
 }
 
+export function UpdateRecommendationRequest(payload) {
+  return {
+    type: Types.PUT_RECOMMENDATION_REQUEST,
+    payload,
+  }
+}
+
+export function UpdateRecommendationSuccess(payload) {
+  return {
+    type: Types.PUT_RECOMMENDATION_SUCCESS,
+    payload,
+  }
+}
+
+export function UpdateRecommendationFailure() {
+  return {
+    type: Types.PUT_RECOMMENDATION_FAILURE,
+  }
+}
+
+export function PostRecalculateFundsRequest(payload) {
+  return {
+    type: Types.POST_RECALCULATE_FUNDS_REQUEST,
+    payload,
+  }
+}
+
+export function PostRecalculateFundsSuccess(payload) {
+  return {
+    type: Types.POST_RECALCULATE_FUNDS_SUCCESS,
+    payload,
+  }
+}
+
+export function PostRecalculateFundsFailure() {
+  return {
+    type: Types.POST_RECALCULATE_FUNDS_FAILURE,
+  }
+}
+
 export function CleanObjectiveData() {
   return {
     type: Types.CLEAN_DATA,

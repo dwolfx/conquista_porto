@@ -6,12 +6,12 @@ exports[`InsuranceCard Renders correctly 1`] = `
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 18px;
+  font-size: 22px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 25px;
+  line-height: 30px;
 }
 
 .c21 {
@@ -224,7 +224,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 63px;
+  height: 63px;
   padding: 0 14px;
 }
 
@@ -473,6 +473,14 @@ exports[`InsuranceCard Renders correctly 1`] = `
   margin-bottom: 14px;
 }
 
+@media (max-width:1280px) {
+  .c3 {
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+}
+
 @media (max-width:736px) {
   .c4 {
     margin-right: 7px;
@@ -524,7 +532,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
         <p
           className="c8 "
           color="unset"
-          type="headline"
+          type="heading4"
         >
           Seguros
         </p>
@@ -543,7 +551,9 @@ exports[`InsuranceCard Renders correctly 1`] = `
             <svg
               aria-label="backward"
               className="c13"
+              fill="#BABABA"
               role="img"
+              width={21}
             >
               backward.svg
             </svg>
@@ -556,7 +566,9 @@ exports[`InsuranceCard Renders correctly 1`] = `
             <svg
               aria-label="forward"
               className="c15"
+              fill="#BABABA"
               role="img"
+              width={21}
             >
               forward.svg
             </svg>

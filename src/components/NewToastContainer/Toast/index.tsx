@@ -33,14 +33,16 @@ const Toast: React.FC<ToastProps> = ({ toast, ...rest }) => {
         <Text type="title" color="gray6">
           {toast.title || 'NO TITLE WAS PROVIDED'}
         </Text>
-        <Text
-          color="gray5"
-          css={`
-            margin-top: 7px;
-          `}
-        >
-          {toast.description || 'NO DESCRIPTION WAS PROVIDED'}
-        </Text>
+        {toast?.description ? (
+          <Text
+            color="gray5"
+            css={`
+              margin-top: 7px;
+            `}
+          >
+            {toast.description}
+          </Text>
+        ) : null}
       </div>
 
       <CloseToastIconButton

@@ -1,114 +1,92 @@
 import React from 'react'
+
 import { Col } from 'styled-bootstrap-grid'
+import Card from 'components/Card'
+import Popover from 'components/Popover/index'
 
-import Text from 'components/Text'
 import { formatMoney } from 'helpers'
-import { incomeLabel } from './dataCardEstimated'
-import {
-  BodyCard,
-  CardRow,
-  Divider,
-  FeaturedText,
-  FullHeightCard,
-  GridRow,
-  LabelIncome,
-  LabelObjective,
-} from './styles'
-
-interface IAnswer {
-  nickname?: string
-  target_date: string
-  target_value: number
-  initial_value: number
-  monthly_value: number
-  would_like_to_receive_monthly_income?: boolean
-  goal_type?: string
-  is_easy_to_save_planned_amount?: boolean
-  is_target_date_flexible?: boolean
-  profile?: number
-}
-
-interface IMonthsIncome {
-  month: string
-  value: number
-}
-
-interface IIncome {
-  pessimistic: IMonthsIncome[]
-  median: IMonthsIncome[]
-  optimistic: IMonthsIncome[]
-}
+import { IIncome } from 'store/modules/Objective/types'
+import * as s from './styles'
 
 interface ICardProps {
-  answer: IAnswer
+  answerTargetValue: number
   income: IIncome
 }
 
-const CardEstimatedResults = ({ answer, income }: ICardProps) => {
-  const positionIncome = Object.values(income)
+const CardEstimatedResults = ({
+  answerTargetValue,
+  income,
+  ...rest
+}: ICardProps) => {
+  const popoverContent = (
+    <s.PopOverTextContainer>
+      <s.PopOverText>
+        Carteira é o nome dado ao conjunto de fundos que você investe.
+      </s.PopOverText>
+      <s.PopOverText>Ela pode ter uma ou mais categorias.</s.PopOverText>
+    </s.PopOverTextContainer>
+  )
+
   return (
-    <GridRow>
+    <s.GridRow {...rest}>
       <Col lg={12}>
-        <FullHeightCard
-          headerIcon="linechart"
-          headerTitle="Resultados estimados"
-        >
-          <BodyCard>
-            <CardRow>
-              <LabelObjective lg="auto" sm="auto" xs={6}>
-                <Text type="captionUppercase" color="gray4">
-                  Data Alvo
-                </Text>
-                <FeaturedText>{answer.target_date}</FeaturedText>
-              </LabelObjective>
-              <LabelObjective lg="auto" sm="auto" xs={6}>
-                <Text type="captionUppercase" color="gray4">
-                  Meta Financeira
-                </Text>
-                <FeaturedText>{formatMoney(answer.target_value)}</FeaturedText>
-              </LabelObjective>
-              <LabelObjective lg="auto" sm="auto" xs={6}>
-                <Text type="captionUppercase" color="gray4">
-                  Investimento Inicial
-                </Text>
-                <FeaturedText>{formatMoney(answer.initial_value)}</FeaturedText>
-              </LabelObjective>
-              <LabelObjective lg="auto" sm="auto" xs={6}>
-                <Text type="captionUppercase" color="gray4">
-                  Investimento Mensal
-                </Text>
-                <FeaturedText>{formatMoney(answer.monthly_value)}</FeaturedText>
-              </LabelObjective>
-              <Divider />
-            </CardRow>
-            <CardRow>
-              <Col lg={12}>
-                <Text type="headline">
-                  Os valores representam uma estimativa do histórico de
-                  rendimentos dos fundos sugeridos.
-                </Text>
-                <Text type="headline">
-                  Dessa forma, seu dinheiro poderá evoluir até sua meta em três
-                  cenários:
-                </Text>
-              </Col>
-            </CardRow>
-            <CardRow justifyContent="between">
-              {positionIncome.map((item: any, key) => (
-                <LabelIncome smAuto key={`${incomeLabel[key]}-${key}`}>
-                  <Text type="captionUppercase" color="gray5">
-                    Cenário {incomeLabel[key]}
-                  </Text>
-                  <Text type="heading4" bold>
-                    {formatMoney(item[item.length - 1].value)}
-                  </Text>
-                </LabelIncome>
-              ))}
-            </CardRow>
-          </BodyCard>
-        </FullHeightCard>
+        <Card headerIcon="linechart" headerTitle="Resultados estimados">
+          <s.BodyCard>
+            <s.TextContainer data-testid="text-container">
+              <s.Text>
+                Estas são as estimativas de quando o seu investimento pode
+                evoluir, baseadas no histórico de rendimentos dos fundos
+                da&nbsp;
+              </s.Text>
+
+              <Popover content={() => popoverContent}>
+                <s.DashedText>carteira recomendada</s.DashedText>
+              </Popover>
+              <Popover content={() => popoverContent}>
+                <s.InformativeIcon />
+              </Popover>
+              <s.Text>&nbsp;.</s.Text>
+            </s.TextContainer>
+            <s.IncomeContainer>
+              <s.VerticalList
+                elements={[
+                  <s.EstimateTitle data-testid="estimate-title-1">
+                    Estimativa Pessimista
+                  </s.EstimateTitle>,
+                  <s.EstimateValue data-testid="estimate-value-1">
+                    {formatMoney(income.pessimistic)}
+                  </s.EstimateValue>,
+                ]}
+              />
+              <s.VerticalList
+                elements={[
+                  <s.EstimateTitle data-testid="estimate-title-2">
+                    Estimativa Provável
+                  </s.EstimateTitle>,
+                  <s.EstimateValue
+                    data-testid="estimate-value-2"
+                    probableEstimateLabel
+                    isBelowTheGoal={income.median < answerTargetValue}
+                  >
+                    {formatMoney(income.median)}
+                  </s.EstimateValue>,
+                ]}
+              />
+              <s.VerticalList
+                elements={[
+                  <s.EstimateTitle data-testid="estimate-title-3">
+                    Estimativa Otimista
+                  </s.EstimateTitle>,
+                  <s.EstimateValue data-testid="estimate-value-3">
+                    {formatMoney(income.optimistic)}
+                  </s.EstimateValue>,
+                ]}
+              />
+            </s.IncomeContainer>
+          </s.BodyCard>
+        </Card>
       </Col>
-    </GridRow>
+    </s.GridRow>
   )
 }
 
