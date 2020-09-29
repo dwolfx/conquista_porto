@@ -40,8 +40,6 @@ import theme from 'styles/theme'
 import * as t from './types'
 import * as s from './styles'
 
-import { ObjectiveType } from 'helpers/objetive'
-
 export default function ObjectiveManager() {
   const { objectiveId } = useParams<t.ILocationParams>()
   const { addToast } = useToast()

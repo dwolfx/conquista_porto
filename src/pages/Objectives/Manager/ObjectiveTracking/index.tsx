@@ -4,6 +4,8 @@ import Text from 'components/Text'
 
 import { Currency } from 'helpers/money'
 
+import MiniLinearProgressBar from 'components/MiniLinearProgressBar'
+
 import * as s from './styles'
 
 export interface IObjectiveTracking {
@@ -23,13 +25,22 @@ const ObjectiveTracking = ({
       <Text type={'captionUppercase'} bold color={'gray5'}>
         Acompanhamento do objetivo
       </Text>
-      <s.MiniLinearProgressBar
-        current={totalBalance}
-        max={targetValue}
-        percentage={percentage}
-      />
+      <s.ObjectivePercentageContainer>
+        <MiniLinearProgressBar current={totalBalance} max={targetValue} />
+        <Text
+          type="captionUppercase"
+          color="gray5"
+          textAlign="left"
+          bold
+          css={`
+            min-width: 44px;
+          `}
+        >
+          {percentage}%
+        </Text>
+      </s.ObjectivePercentageContainer>
       <Text type={'captionUppercase'} bold color={'gray4'}>
-        {`Faltam ${Currency.parse(moneyNeededToReachObjective, true)}`}
+        Faltam {Currency.parse(moneyNeededToReachObjective, true)}
       </Text>
     </s.Card>
   )
