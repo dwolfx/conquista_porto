@@ -131,6 +131,7 @@ const FundInformation = ({
     isRedeemLoading,
     incomeIsLoading,
     income,
+    fundDetails,
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
     idFund: state.investmentPosition.idFund,
@@ -140,6 +141,7 @@ const FundInformation = ({
     isRedeemLoading: state.redeemData.isLoading,
     incomeIsLoading: state.income.isLoading,
     income: state.income.data,
+    fundDetails: state.investmentDetails.data,
   }))
 
   const borderRiskNumber = position.perfil_risco_ordem
@@ -407,7 +409,9 @@ const FundInformation = ({
                     {position.saldo_bruto}
                   </Text>,
                   <Text type="caption" bold color="gray6">
-                    Atualizado em {position.data_historico_formatada}
+                    {`Atualizado em ${moment(
+                      fundDetails?.comparativo_hist_rentabil?.data_referencia
+                    ).format('DD/MM/YYYY')}`}
                   </Text>,
                 ]}
               />
