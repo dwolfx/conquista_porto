@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 
 import BannerSeguroVidaImage from 'assets/images/pages/solutions/lifeInsurance/banner_seguro_vida.jpg'
 import SeloSeguroVida from 'assets/images/pages/solutions/lifeInsurance/selo-seguro-vida.svg'
@@ -11,7 +11,7 @@ import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
 
-import { handleRedirectToLifeInsuranceSimulate } from './utils'
+// import { handleRedirectToLifeInsuranceSimulate } from './utils'
 
 const makeSenseSectionData = [
   {
@@ -92,19 +92,21 @@ const moreDetailsData = [
 ]
 
 export default function LifeInsurance() {
-  const { state: locationState } = useLocation()
+  // const { state: locationState } = useLocation()
 
   return (
     <>
       <TopBanner
         title="Seguro de Vida"
         description="Planeje a sua proteção ou da sua família e tenha tranquilidade para enfrentar adversidades. Você pode simular diferentes planos da Porto Seguro e contratar digitalmente."
-        buttonText="Simule e Contrate"
+        // buttonText="Simule e Contrate"
+        buttonText="EM BREVE"
         image={BannerSeguroVidaImage}
         imageDescription="Família andando na beira do mar"
-        onClick={() => {
-          handleRedirectToLifeInsuranceSimulate(locationState)
-        }}
+        onClick={() => {}}
+        // onClick={() => {
+        //   handleRedirectToLifeInsuranceSimulate(locationState)
+        // }}
       />
       <BulletsSection
         title="Por que contratar o Seguro de Vida?"
@@ -126,10 +128,12 @@ export default function LifeInsurance() {
         mainDescription="Com o Conquista, é fácil encontrar o plano ideal para você."
         subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
         de Vida da Porto Seguro."
-        buttonText="Simule e Contrate"
-        onClick={() => {
-          handleRedirectToLifeInsuranceSimulate(locationState)
-        }}
+        // buttonText="Simule e Contrate"
+        buttonText="EM BREVE"
+        onClick={() => {}}
+        // onClick={() => {
+        //   handleRedirectToLifeInsuranceSimulate(locationState)
+        // }}
       />
 
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />

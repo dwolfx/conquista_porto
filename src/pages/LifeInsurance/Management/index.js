@@ -299,10 +299,11 @@ export default function ManagementLifeInsurance() {
           mainDescription="Com o Conquista, é fácil encontrar o plano ideal para você."
           subDescription="Informe suas preferências na simulação, conheça as coberturas disponíveis e contrate o Seguro
           de Vida da Porto Seguro."
-          buttonText="Simule e Contrate"
-          onClick={() => {
-            handleRedirectToLifeInsuranceSimulate(locationState)
-          }}
+          // buttonText="Simule e Contrate"
+          buttonText="EM BREVE"
+          // onClick={() => {
+          //   handleRedirectToLifeInsuranceSimulate(locationState)
+          // }}
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />

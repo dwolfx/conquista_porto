@@ -753,17 +753,14 @@ Object {
             class="c3 button-with-right-icon"
             color="secondary"
             data-gtm-clicktype="button"
-            data-gtm-name="Simule e Contrate"
+            data-gtm-name="EM BREVE"
             data-gtm-subname="banner Seguro de Vida"
             data-gtm-type="click"
           >
             <span
               class="c4"
             >
-              Simule e Contrate
-              <span
-                class="icon"
-              />
+              EM BREVE
             </span>
           </button>
         </div>
@@ -1065,14 +1062,14 @@ Object {
             class="c3"
             color="secondary"
             data-gtm-clicktype="button"
-            data-gtm-name="Simule e Contrate"
+            data-gtm-name="EM BREVE"
             data-gtm-subname="Futuro protegido."
             data-gtm-type="click"
           >
             <span
               class="c4"
             >
-              Simule e Contrate
+              EM BREVE
             </span>
           </button>
         </div>
@@ -1282,17 +1279,14 @@ Object {
           class="sc-AxheI fWkGtS button-with-right-icon"
           color="secondary"
           data-gtm-clicktype="button"
-          data-gtm-name="Simule e Contrate"
+          data-gtm-name="EM BREVE"
           data-gtm-subname="banner Seguro de Vida"
           data-gtm-type="click"
         >
           <span
             class="sc-Axmtr jzRiSY"
           >
-            Simule e Contrate
-            <span
-              class="icon"
-            />
+            EM BREVE
           </span>
         </button>
       </div>
@@ -1594,14 +1588,14 @@ Object {
           class="sc-AxheI fWkGtS"
           color="secondary"
           data-gtm-clicktype="button"
-          data-gtm-name="Simule e Contrate"
+          data-gtm-name="EM BREVE"
           data-gtm-subname="Futuro protegido."
           data-gtm-type="click"
         >
           <span
             class="sc-Axmtr jzRiSY"
           >
-            Simule e Contrate
+            EM BREVE
           </span>
         </button>
       </div>
