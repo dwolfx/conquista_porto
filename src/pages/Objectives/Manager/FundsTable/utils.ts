@@ -14,7 +14,7 @@ export const generateActionMenuOptions = (
     },
   ]
 
-  if (fundInfo.available) {
+  if (fundInfo.invested) {
     menuOptions = [
       ...menuOptions,
       {
@@ -36,7 +36,7 @@ export const generateActionMenuOptions = (
   //   ]
   // }
 
-  if (fundInfo.balance) {
+  if (fundInfo.available) {
     menuOptions = [
       ...menuOptions,
       {
