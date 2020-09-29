@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 import { ThemeContext } from 'styled-components'
 import { Row, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
@@ -47,7 +48,6 @@ import {
   LockIcon,
   ButtonClosed,
 } from './styles'
-import moment from 'moment'
 
 export const months = [
   {
@@ -122,6 +122,7 @@ const FundInformation = ({
     isRedeemLoading,
     incomeIsLoading,
     income,
+    fundDetails,
   } = useSelector((state: any) => ({
     displayInformation: state.investmentPosition.displayInformation,
     financialApplicationLoading: state.financialApplicationGetData.isLoading,
@@ -134,6 +135,7 @@ const FundInformation = ({
     isRedeemLoading: state.redeemData.isLoading,
     incomeIsLoading: state.income.isLoading,
     income: state.income.data,
+    fundDetails: state.investmentDetails.data,
   }))
 
   const borderRiskNumber = position.perfil_risco_ordem
@@ -397,7 +399,9 @@ const FundInformation = ({
                     Saldo e rendimento bruto
                   </Text>,
                   <Text type="caption" bold color="gray6">
-                    {`Atualizado em ${position.data_historico_formatada}`}
+                    {`Atualizado em ${moment(
+                      fundDetails?.comparativo_hist_rentabil?.data_referencia
+                    ).format('DD/MM/YYYY')}`}
                   </Text>,
                 ]}
               />

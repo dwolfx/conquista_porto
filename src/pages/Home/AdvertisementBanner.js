@@ -52,7 +52,7 @@ const AdvertisementBanner = () => {
             </Text>
             <BannerButton
               color="secondary"
-              onClick={() => history.push('/seguros')}
+              onClick={() => history.push('/seguro-vida')}
             >
               conhecer
             </BannerButton>
