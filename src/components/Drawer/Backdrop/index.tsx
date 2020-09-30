@@ -14,10 +14,11 @@ const Backdrop: React.FC<IProps> = ({
   handleClose,
   isOpen,
   position = 'bottom',
+  ...rest
 }) => {
   return isOpen
     ? createPortal(
-        <s.Container>
+        <s.Container {...rest}>
           <s.Overlay id="backdrop-overlay" onClick={handleClose} />
           <s.BackdropContainer position={position}>
             {children}

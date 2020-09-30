@@ -2424,6 +2424,7 @@ Object {
                     >
                       <div
                         class="sc-fzoxnE bLirWg"
+                        data-testid="card-body"
                       >
                         <div
                           class="sc-pRTZB hdgDsL"

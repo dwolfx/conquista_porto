@@ -82,6 +82,7 @@ export type TObjectiveFunds = {
     goal_type: number
   }[]
   profitability: TProfitability[]
+  pendency?: 'INITIAL_VALUE_PENDING'
 }
 
 export interface IObjectManagement {

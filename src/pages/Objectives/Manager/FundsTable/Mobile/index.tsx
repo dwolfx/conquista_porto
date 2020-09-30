@@ -4,7 +4,6 @@ import 'styled-components/macro'
 
 import Button from 'components/Button'
 import Card from 'components/Card'
-import DrawerBackdrop from 'components/Drawer/Backdrop'
 import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 import PercentualInfos from 'components/Objective/PercentualInfo'
@@ -19,10 +18,11 @@ import * as s from './styles'
 
 export default function({
   funds,
+  footer,
+  menuActions,
   title,
   textInfo,
   showInfoCard,
-  menuActions,
 }: Omit<t.IProps, 'icon'> & t.IMobileProps) {
   const [backdropIsOpen, setBackdropOpen] = useState(false)
   const [selectedFund, setSelectedFund] = useState<TObjectiveFunds | undefined>(
@@ -64,7 +64,7 @@ export default function({
   const renderCards = () =>
     funds.map(fund => (
       <s.AccordionCard
-        initialHeight={178}
+        initialHeight={70}
         title={
           <s.FundCardHeader>
             <Text type="headline" color="gray6" bold>
@@ -153,12 +153,14 @@ export default function({
 
       {renderCards()}
 
-      <DrawerBackdrop
+      {footer ? footer : null}
+
+      <s.Backdrop
         isOpen={backdropIsOpen}
         handleClose={() => setBackdropOpen(false)}
       >
         {renderBackdropMenuOptions()}
-      </DrawerBackdrop>
+      </s.Backdrop>
     </>
   )
 }

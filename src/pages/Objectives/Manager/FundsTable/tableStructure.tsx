@@ -23,9 +23,9 @@ export const columns = (
       Header: 'Fundo de investimento',
       styles: {
         minWidth: 120,
-        width: '36%',
+        width: '25%',
         header: {
-          width: '36%',
+          width: '25%',
           minWidth: 120,
         },
       },
@@ -52,9 +52,9 @@ export const columns = (
       justifyHeader: 'flex-end',
       styles: {
         minWidth: 170,
-        width: '17%',
+        width: '20%',
         header: {
-          width: '16%',
+          width: '20%',
           minWidth: 156,
         },
       },
@@ -71,9 +71,9 @@ export const columns = (
       justifyHeader: 'flex-end',
       styles: {
         minWidth: 170,
-        width: '17%',
+        width: '20%',
         header: {
-          width: '16%',
+          width: '20%',
           minWidth: 156,
         },
       },
@@ -90,9 +90,9 @@ export const columns = (
       justifyHeader: 'flex-end',
       styles: {
         minWidth: 170,
-        width: '17%',
+        width: '20%',
         header: {
-          width: '16%',
+          width: '20%',
           minWidth: 156,
         },
       },
@@ -105,12 +105,14 @@ export const columns = (
     {
       accessor: 'actions',
       Header: '',
+      align: 'flex-end',
+      justifyHeader: 'flex-end',
       styles: {
         minWidth: 88,
-        width: '10%',
+        width: '15%',
         header: {
           minWidth: 58,
-          width: '8%',
+          width: '15%',
         },
       },
       format: (row: TObjectiveFunds) => {

@@ -5,7 +5,6 @@ import {
   ObjectivePercentageContainer,
   LinearProgressBarContent,
 } from './style'
-import Text from 'components/Text'
 
 interface IProps {
   current: number

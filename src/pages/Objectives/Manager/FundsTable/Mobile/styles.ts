@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 import AccordionCardCmp from 'components/Card/Accordion'
+import BackdropCmp from 'components/Drawer/Backdrop'
+
 import { RiskColorTag as RiskColorTagCmp } from 'pages/Objectives/Recommendation/WalletSection/styles'
 
 export const CardBody = styled.div`
@@ -35,4 +37,8 @@ export const ActionMenuOption = styled.div`
   svg {
     margin-right: ${({ theme }) => theme.spacing(3)}px;
   }
+`
+
+export const Backdrop = styled(BackdropCmp)`
+  z-index: 13;
 `

@@ -11,6 +11,8 @@ export interface IProps {
   funds: TObjectiveFunds[]
   footer?: React.ReactNode
   icon: keyof typeof dict
+  isAccordion?: boolean
+  showInfoCardOnMobile?: boolean
   textInfo?: React.ReactNode
   title: string
   type: 'initial' | 'monthly'

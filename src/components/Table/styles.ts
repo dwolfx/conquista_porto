@@ -108,7 +108,7 @@ export const TheadTh = styled.div<ITheadTh>`
   display: inline-block;
   position: relative;
   height: 100%;
-  padding-left: ${({ theme }) => theme.spacing(2)}px;
+  padding-left: ${({ theme }) => theme.spacing(3)}px;
   padding-right: ${({ theme }) => theme.spacing(1)}px;
   min-width: ${({ minWidth, theme }) => {
     if (minWidth) {
@@ -266,9 +266,11 @@ export const TbodyTd = styled.div<ITbodyTd>`
 
     return 0
   }};
-  width: ${props => {
-    if (props.width) {
-      return typeof props.width === 'string' ? props.width : `${props.width}px`
+  width: ${({ theme, width }) => {
+    if ({ width, theme }) {
+      return typeof width === 'string'
+        ? `calc(${width || 0} + ${theme.spacing(1)}px)`
+        : `${(width || 0) + theme.spacing(1)}px`
     }
 
     return 'auto'

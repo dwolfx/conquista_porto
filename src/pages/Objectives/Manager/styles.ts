@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import { Row as RowBootstrap } from 'styled-bootstrap-grid'
-import { LoadingContainer } from 'components/Loading/styles'
+
 import BackgroundImage from 'components/Card/BackgroundImage'
 import LayerCmp from 'components/Layer'
 import { LayerHeader } from 'components/Layer/styles'
+import { LoadingContainer } from 'components/Loading/styles'
 
 import MiniLinearProgressBarCmp from 'components/MiniLinearProgressBar'
 import CardCmp from 'components/Card'
@@ -76,6 +77,12 @@ export const FundsTableCardFooter = styled.div<IFundsTableCardFooter>`
   display: flex;
   justify-content: ${({ align }) => (align ? align : 'flex-start')};
   margin-top: ${({ theme }) => theme.spacing(3)}px;
+
+  button {
+    @media ${({ theme }) => theme.mediaQueries.sm} {
+      width: 100%;
+    }
+  }
 `
 export const LinearProgressBarContent = styled.div`
   width: 56px;
@@ -96,4 +103,21 @@ interface IColProgress {
 export const ColProgress = styled(Col)<IColProgress>`
   margin-top: ${({ theme, isMobile, isTablet }) =>
     isMobile || isTablet ? theme.spacing(2) : 0}px;
+`
+
+export const TotalInitialInvestedFooterContainer = styled.div`
+  align-items: center;
+  display: flex;
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
+
+  p {
+    &:first-of-type {
+      padding-left: ${({ theme }) => theme.spacing(3)}px;
+      width: 65%;
+    }
+    &:last-of-type {
+      text-align: right;
+      width: ${({ theme }) => `calc(20% - ${theme.spacing(1.5)}px)`};
+    }
+  }
 `

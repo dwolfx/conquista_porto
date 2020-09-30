@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import Card from 'components/Card'
+import CardAccordion from 'components/Card/Accordion'
 import FundDetails from 'components/Objective/FundDetails'
 import Table from 'components/Table'
 
@@ -17,6 +18,8 @@ export default function FundsTable({
   funds,
   footer,
   icon,
+  isAccordion = false,
+  showInfoCardOnMobile = true,
   textInfo,
   title,
   type,
@@ -53,25 +56,31 @@ export default function FundsTable({
     [menuActions, isTabletVertical]
   )
 
-  const renderDetails = () => (
-    <FundDetails
-      isOpen={fundDetailsOpen}
-      setIsOpen={setFundDetailsOpen}
-      category={fundDetailsCategory}
-      title={fundDetailsTitle}
-    />
-  )
+  const renderDetails = () =>
+    fundDetailsOpen ? (
+      <FundDetails
+        isOpen={fundDetailsOpen}
+        setIsOpen={setFundDetailsOpen}
+        category={fundDetailsCategory}
+        title={fundDetailsTitle}
+      />
+    ) : null
+
+  if (!funds.length) {
+    return null
+  }
 
   if (isMobile) {
     return (
       <>
         <FundsCards
           funds={funds}
+          footer={footer}
+          menuActions={menuActions}
+          showInfoCard={showInfoCardOnMobile}
           textInfo={textInfo}
           title={title}
-          menuActions={menuActions}
           type={type}
-          showInfoCard
         />
 
         {renderDetails()}
@@ -79,9 +88,25 @@ export default function FundsTable({
     )
   }
 
+  const CardFunds: React.FC = ({ children }) => {
+    if (isAccordion) {
+      return (
+        <CardAccordion title={title} icon={icon} initialHeight={0} {...rest}>
+          {children}
+        </CardAccordion>
+      )
+    }
+
+    return (
+      <Card headerTitle={title} headerIcon={icon} {...rest}>
+        {children}
+      </Card>
+    )
+  }
+
   return (
     <>
-      <Card headerTitle={title} headerIcon={icon} {...rest}>
+      <CardFunds>
         <s.CardBody>
           {textInfo}
 
@@ -91,7 +116,7 @@ export default function FundsTable({
 
           {footer}
         </s.CardBody>
-      </Card>
+      </CardFunds>
 
       {renderDetails()}
     </>

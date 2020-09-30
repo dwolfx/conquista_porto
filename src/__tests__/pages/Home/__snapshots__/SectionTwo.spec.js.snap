@@ -490,6 +490,7 @@ Array [
       </div>
       <div
         className="c10 c11"
+        data-testid="card-body"
       >
         <div
           className="c12"
@@ -1102,6 +1103,7 @@ Array [
         >
           <div
             className="c6 c7"
+            data-testid="card-body"
           >
             <div
               className="c8"
@@ -1156,6 +1158,7 @@ Array [
         >
           <div
             className="c6 c7"
+            data-testid="card-body"
           >
             <div
               className="c8"
@@ -1210,6 +1213,7 @@ Array [
         >
           <div
             className="c6 c7"
+            data-testid="card-body"
           >
             <div
               className="c8"

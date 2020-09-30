@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import ButtonIcon from 'components/Button/Icon'
 
 import * as s from './styles'
+import { dict } from 'components/IconExporter'
 
 interface IProps {
   footer?: React.ReactNode
+  icon?: keyof typeof dict
   initialHeight: number
   title: React.ReactNode | string
 }
@@ -12,6 +14,7 @@ interface IProps {
 const AccordionCard: React.FC<IProps> = ({
   children,
   footer,
+  icon,
   initialHeight,
   title,
   ...rest
@@ -20,6 +23,7 @@ const AccordionCard: React.FC<IProps> = ({
 
   return (
     <s.Card
+      headerIcon={icon}
       headerTitle={title}
       headerEndItem={
         <ButtonIcon
@@ -34,6 +38,7 @@ const AccordionCard: React.FC<IProps> = ({
       }
       footer={isExpanded ? footer : null}
       height={isExpanded ? 'auto' : `${initialHeight}px`}
+      isExpanded={isExpanded}
       data-testid="accordion-card"
       {...rest}
     >

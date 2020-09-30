@@ -24,3 +24,7 @@ export interface ISummaryObjectives {
   percentage: number
   goal_type: string
 }
+
+export interface IFundsCardsMobile {
+  showInfoCardOnMobile?: boolean
+}
