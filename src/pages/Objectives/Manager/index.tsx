@@ -25,6 +25,7 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import { Currency } from 'helpers/money'
 
+import EditDrawer from 'pages/Objectives/Recommendation/Edit/Drawer'
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import FundsTable from 'pages/Objectives/Manager/FundsTable'
@@ -40,6 +41,7 @@ import {
 
 import theme from 'styles/theme'
 
+import { IAnswer } from 'store/modules/Objective/types'
 import * as t from './types'
 import * as s from './styles'
 
@@ -64,6 +66,15 @@ export default function ObjectiveManager() {
   const [addFundsLayer, setAddFundsLayer] = useState(false)
   const [pendingFundsLayer, setPendingFundsLayer] = useState(false)
   const [objectiveFundsLayer, setObjectiveFundsLayer] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [formData, setFormData] = useState<Omit<IAnswer, 'uf' | 'goal_type'>>({
+    nickname: '',
+    target_date: '',
+    target_value: 0,
+    initial_value: 0,
+    monthly_value: 0,
+    profile: 0,
+  })
 
   const { pageRecommendation } = location.state || { pageRecommendation: false }
 
@@ -380,6 +391,12 @@ export default function ObjectiveManager() {
             </Col>
           </s.Row>
         )}
+        <EditDrawer
+          isDrawerOpen={isDrawerOpen}
+          onClose={() => setIsDrawerOpen(false)}
+          formData={formData}
+          setFormData={setFormData}
+        />
         {bannerImage && (
           <s.Row>
             <Col>
@@ -395,7 +412,9 @@ export default function ObjectiveManager() {
               targetValue={objectiveData.target_value}
               initialInvestment={objectiveData.initial_value}
               monthlyInvestment={objectiveData.monthly_value}
-              openEdit={() => null}
+              openEdit={() => {
+                setIsDrawerOpen(true)
+              }}
             />
           </Col>
           <s.ColProgress
