@@ -430,3 +430,7 @@ export const ButtonLink = styled(ButtonLinkComponent)`
     margin-left: 0;
   }
 `
+
+export const ObjectivePercentageText = styled(Text)`
+  min-width: 44px;
+`

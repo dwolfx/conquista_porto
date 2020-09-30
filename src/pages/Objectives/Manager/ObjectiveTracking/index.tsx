@@ -27,17 +27,14 @@ const ObjectiveTracking = ({
       </Text>
       <s.ObjectivePercentageContainer>
         <MiniLinearProgressBar current={totalBalance} max={targetValue} />
-        <Text
+        <s.ObjectivePercentageText
           type="captionUppercase"
           color="gray5"
           textAlign="left"
           bold
-          css={`
-            min-width: 44px;
-          `}
         >
           {percentage}%
-        </Text>
+        </s.ObjectivePercentageText>
       </s.ObjectivePercentageContainer>
       <Text type={'captionUppercase'} bold color={'gray4'}>
         Faltam {Currency.parse(moneyNeededToReachObjective, true)}
