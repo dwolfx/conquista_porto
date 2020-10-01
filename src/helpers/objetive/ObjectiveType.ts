@@ -10,8 +10,8 @@ import NotFoundObjectiveTypeException from './exceptions/NotFoundObjectiveTypeEx
  * import { ObjectiveType, errors } from 'helpers/objetive'
  *
  * try {
- *   const n1 = ObjeiveType.parseNameToId('trip') //1
- *   const n2 = ObjeiveType.parseIdToName(1) //trip
+ *   const n1 = ObjectiveType.parseNameToId('trip') //1
+ *   const n2 = ObjectiveType.parseIdToName(1) //trip
  * } catch (error) {
  *
  *   switch (error.constructor) {
@@ -28,31 +28,31 @@ export default class ObjectiveType {
   static readonly list = [
     {
       id: 1,
-      name: 'trip',
+      name: 'TRAVEL',
     },
     {
       id: 2,
-      name: 'retirement',
+      name: 'RETIRE',
     },
     {
       id: 3,
-      name: 'car',
+      name: 'CAR',
     },
     {
       id: 4,
-      name: 'course',
+      name: 'COURSE',
     },
     {
       id: 5,
-      name: 'event',
+      name: 'EVENT',
     },
     {
       id: 6,
-      name: 'home',
+      name: 'HOUSE',
     },
     {
       id: 7,
-      name: 'save_money',
+      name: 'MONEY',
     },
   ]
 
@@ -66,8 +66,8 @@ export default class ObjectiveType {
    * @returns {string} - Objetive type name
    *
    * @example
-   * ObjeiveType.parseNameToId('event') //5
-   * ObjeiveType.parseNameToId('WRONG_NAME') //throw error
+   * ObjectiveType.parseNameToId('event') //5
+   * ObjectiveType.parseNameToId('WRONG_NAME') //throw error
    */
   static parseIdToName(id: number): string {
     const result = this.list.filter(goal => goal.id === id)
@@ -85,8 +85,8 @@ export default class ObjectiveType {
    * @returns {number} - Objective type id
    *
    * @example
-   * ObjeiveType.parseIdToName(5) //event
-   * ObjeiveType.parseIdToName(9999) //throw error
+   * ObjectiveType.parseIdToName(5) //event
+   * ObjectiveType.parseIdToName(9999) //throw error
    */
   static parseNameToId(name: string): number {
     const result = this.list.filter(goal => goal.name === name)
@@ -103,8 +103,8 @@ export default class ObjectiveType {
    * @returns {Promise<string>} - Objective type image url
    *
    * @example
-   * const image1 = await ObjeiveType.getImageById(1) //trip.jpg
-   * const image2 = await ObjeiveType.getImageById(9999) //throw error
+   * const image1 = await ObjectiveType.getImageById(1) //trip.jpg
+   * const image2 = await ObjectiveType.getImageById(9999) //throw error
    */
   static async getImageById(id: number) {
     const filename = this.parseIdToName(id)

@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams, useLocation } from 'react-router-dom'
 import { Container, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-import { Currency } from 'helpers/money'
 
+import { Currency } from 'helpers/money'
+import { get, baseURLNamespaceGoal } from 'services/api'
+import CardCarousel from 'components/Carousel/CardCarousel'
 import Button from 'components/Button'
 import ButtonIcon from 'components/Button/Icon'
 // import ButtonLink from 'components/Button/Link'
@@ -29,6 +31,7 @@ import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import FundsTable from 'pages/Objectives/Manager/FundsTable'
 import ObjectiveTracking from 'pages/Objectives/Manager/ObjectiveTracking'
 
+import { ICardCarouselSlide } from 'components/Carousel/CardCarousel/types'
 import {
   GetObjectiveManagementDataRequest,
   DeleteObjectiveRequest,
@@ -42,6 +45,9 @@ import * as s from './styles'
 
 export default function ObjectiveManager() {
   const { objectiveId } = useParams<t.ILocationParams>()
+  const [summaryObjectives, setSummaryObjectives] = useState<
+    ICardCarouselSlide[]
+  >([])
   const { addToast } = useToast()
   const dispatch = useDispatch()
   const location = useLocation()
@@ -58,6 +64,47 @@ export default function ObjectiveManager() {
   const { data: objectiveData, isLoading, isLoadingDelete } = useSelector(
     (state: t.IState) => state.objectiveManagement
   )
+
+  const getObjectiveTypeImageById = useCallback(
+    async (id: number) => {
+      try {
+        const image = await ObjectiveType.getImageById(id)
+        setBannerImage(image)
+      } catch (error) {
+        addToast({
+          type: 'error',
+          title: 'Algo inesperado ocorreu.',
+          description: 'A imagem do seu objetivo não foi carregada',
+        })
+        console.error(error)
+      }
+    },
+    [addToast]
+  )
+
+  const getSummaryObjectives = useCallback(async () => {
+    try {
+      const { data } = await get(
+        `${baseURLNamespaceGoal}/goals/summary?selected=${objectiveId}`
+      )
+      setSummaryObjectives(parseSummaryToCardCarousel(data))
+    } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Algo inesperado ocorreu.',
+        description: 'A lista com outros objetivos não carregou',
+      })
+      console.error(error)
+    }
+  }, [addToast, objectiveId])
+
+  useEffect(() => {
+    getSummaryObjectives()
+  }, [getSummaryObjectives])
+
+  useEffect(() => {
+    getObjectiveTypeImageById(Number(objectiveId))
+  }, [objectiveId, getObjectiveTypeImageById])
 
   useEffect(() => {
     if (
@@ -78,27 +125,6 @@ export default function ObjectiveManager() {
       dispatch(GetOtherGoalsDataRequest({ id: objectiveId, addToast }))
     }
   }, [dispatch, history, objectiveData, objectiveId, addToast])
-
-  const getObjectiveTypeImageById = useCallback(
-    async (id: number) => {
-      try {
-        const image = await ObjectiveType.getImageById(id)
-        setBannerImage(image)
-      } catch (error) {
-        addToast({
-          type: 'error',
-          title: 'Algo inesperado ocorreu.',
-          description: 'A imagem do seu objetivo não foi carregada',
-        })
-        console.error(error)
-      }
-    },
-    [addToast]
-  )
-
-  useEffect(() => {
-    getObjectiveTypeImageById(Number(objectiveId))
-  }, [objectiveId, getObjectiveTypeImageById])
 
   if (!objectiveId || (!isLoading && !objectiveData)) {
     // if objectiveId dont exists, redirect to "objetivos" page
@@ -190,10 +216,38 @@ export default function ObjectiveManager() {
         />
       </Card>
     )
+  function parseSummaryToCardCarousel(
+    objectives: t.ISummaryObjectives[]
+  ): ICardCarouselSlide[] {
+    return objectives.map(
+      ({ goal_type, nickname, id, target_value }, index) => ({
+        id,
+        title: goal_type,
+        describe: nickname,
+        value: Currency.parse(target_value, true),
+        selected: index === 0,
+      })
+    )
+  }
 
   return (
     <>
       <Container>
+        {summaryObjectives.length > 0 && (
+          <s.Row>
+            <Col>
+              <CardCarousel
+                isLoading={false}
+                hasError={false}
+                list={summaryObjectives}
+                customOnClickSlideHandler={(clickedSlideId: number) =>
+                  history.push(`/objetivos/gerenciar/${clickedSlideId}`)
+                }
+                addItemHandler={() => history.push('/objetivos')}
+              />
+            </Col>
+          </s.Row>
+        )}
         {bannerImage && (
           <s.Row>
             <Col>

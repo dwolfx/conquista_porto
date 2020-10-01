@@ -63,5 +63,6 @@
   "/invest/aws/cartoes/ofertas\\?codigoCanal=1&nome=:nome&uf=:uf&dataNascimento=:dataNascimento": "/credit-card-ofertas",
   "/invest/aws/cartoes/profissoes": "/cartao-profissoes",
   "/invest/aws/cliente/endereco\\?cep=:cep&cepSufixo=:cepSufixo": "/cep-mock",
-  "/investimento/seguranca/v1/conquista/locker\\?token:token": "/locker-mock"
+  "/investimento/seguranca/v1/conquista/locker\\?token:token": "/locker-mock",
+  "/goal/goals/summary": "/goals_summary"
 }

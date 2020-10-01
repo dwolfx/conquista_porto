@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nickname": "Disney",
+    "total_balance": 30000,
+    "remaining_value": 40000,
+    "target_value": 70000,
+    "percentage": 75,
+    "goal_type": "TRAVEL"
+  },
+  {
+    "id": 2,
+    "nickname": "Apartament",
+    "total_balance": 30000,
+    "remaining_value": 40000,
+    "target_value": 70000,
+    "percentage": 35,
+    "goal_type": "HOUSE"
+  },
+  {
+    "id": 3,
+    "nickname": "Ferrari",
+    "total_balance": 30000,
+    "remaining_value": 40000,
+    "target_value": 70000,
+    "percentage": 15,
+    "goal_type": "CAR"
+  }
+]

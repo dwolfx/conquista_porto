@@ -13,6 +13,7 @@ const objectiveMock = require('./src/mocks/objective.json')
 const objectiveMock2 = require('./src/mocks/objective2.json')
 const objectivesMock = require('./src/mocks/objectives.json')
 const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
+const summaryObjectivesMock = require('./src/mocks/summaryObjectives.json')
 const financialApplicationMock = require('./src/mocks/financialApplication.json')
 const withdrawPOSTMock = require('./src/mocks/withdrawPOST.json')
 const redeemPOSTMock = require('./src/mocks/redeemPOST.json')
@@ -95,12 +96,18 @@ router.render = (req, res) => {
       return res.jsonp(objectiveMock2)
     }
   }
+
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
       if (req.originalUrl.includes('bytype')) {
         // get other objectives
         return res.jsonp({ ...otherObjectivesMock })
       }
+
+      if (req.originalUrl.includes('summary')) {
+        return res.jsonp(summaryObjectivesMock)
+      }
+
       if (!req.originalUrl.endsWith('/api/goal/goals')) {
         // get specific objective
         return res.jsonp({ ...objectiveMock, id: req.query.id })

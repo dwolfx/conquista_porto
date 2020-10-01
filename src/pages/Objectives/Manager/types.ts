@@ -14,3 +14,13 @@ export interface ILocationParams {
   objectiveId?: string
   pageRecommendation?: string
 }
+
+export interface ISummaryObjectives {
+  id: number
+  nickname: string
+  total_balance: number
+  remaining_value: number
+  target_value: number
+  percentage: number
+  goal_type: string
+}
