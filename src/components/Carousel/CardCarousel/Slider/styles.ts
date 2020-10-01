@@ -10,8 +10,9 @@ export const ButtonVertical = styled(IconButton)`
 `
 
 export const ContentContainer = styled.div`
-  margin-bottom: 14px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   display: flex;
+  margin-top: ${({ theme }) => theme.spacing(5)}px;
 `
 
 const ChangePageButton = styled(IconButton).attrs(() => ({
