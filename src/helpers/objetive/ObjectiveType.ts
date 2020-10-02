@@ -93,9 +93,9 @@ export default class ObjectiveType {
    * ObjectiveType.parseIdToName(9999) //throw error
    */
   static parseIdToName(id: number, translate: boolean = false): string {
-    const result = this.list.filter(goal => goal.id === id)
+    const result = this.list.find(goal => goal.id === id)
     if (!result) throw new NotFoundObjectiveTypeException('id', id.toString())
-    return translate ? this.translate(result[0].name) : result[0].name
+    return translate ? this.translate(result.name) : result.name
   }
 
   /**
@@ -113,11 +113,11 @@ export default class ObjectiveType {
    * ObjectiveType.parseNameToId('WRONG_NAME') //throw error
    */
   static parseNameToId(name: string): number {
-    const result = this.list.filter(
+    const result = this.list.find(
       goal => goal.name === name || goal.lang.ptbr === name
     )
     if (!result) throw new NotFoundObjectiveTypeException('name', name)
-    return result[0].id
+    return result.id
   }
 
   /**
@@ -129,10 +129,10 @@ export default class ObjectiveType {
    * @return {string} - Translated objective type name
    */
   static translate(objectiveTypeName: string): string {
-    const result = this.list.filter(goal => goal.name === objectiveTypeName)
+    const result = this.list.find(goal => goal.name === objectiveTypeName)
     if (!result)
       throw new NotFoundObjectiveTypeException('name', objectiveTypeName)
-    return result[0].lang.ptbr
+    return result.lang.ptbr
   }
 
   /**
