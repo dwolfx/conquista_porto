@@ -354,7 +354,7 @@ export default function ObjectiveManager() {
     return objectives.map(
       ({ goal_type, nickname, id, target_value }, index) => ({
         id,
-        title: goal_type,
+        title: ObjectiveType.translate(goal_type),
         describe: nickname,
         value: Currency.parse(target_value, true),
         selected: index === 0,

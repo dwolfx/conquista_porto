@@ -10,8 +10,8 @@ import NotFoundObjectiveTypeException from './exceptions/NotFoundObjectiveTypeEx
  * import { ObjectiveType, errors } from 'helpers/objetive'
  *
  * try {
- *   const n1 = ObjectiveType.parseNameToId('trip') //1
- *   const n2 = ObjectiveType.parseIdToName(1) //trip
+ *   const n1 = ObjectiveType.parseNameToId('TRAVEL') //1
+ *   const n2 = ObjectiveType.parseIdToName(1) //TRAVEL
  * } catch (error) {
  *
  *   switch (error.constructor) {
@@ -29,30 +29,51 @@ export default class ObjectiveType {
     {
       id: 1,
       name: 'TRAVEL',
+      lang: {
+        ptbr: 'Viagem',
+      },
     },
     {
       id: 2,
       name: 'RETIRE',
+      lang: {
+        ptbr: 'Aposentar',
+      },
     },
     {
       id: 3,
       name: 'CAR',
+      lang: {
+        ptbr: 'Carro',
+      },
     },
     {
       id: 4,
       name: 'COURSE',
+      lang: {
+        ptbr: 'Curso',
+      },
     },
     {
       id: 5,
       name: 'EVENT',
+      lang: {
+        ptbr: 'Evento',
+      },
     },
     {
       id: 6,
       name: 'HOUSE',
+      lang: {
+        ptbr: 'Casa',
+      },
     },
     {
       id: 7,
       name: 'MONEY',
+      lang: {
+        ptbr: 'Poupar',
+      },
     },
   ]
 
@@ -63,16 +84,18 @@ export default class ObjectiveType {
    * @static
    * @memberof ObjectiveType
    * @param {number} id - Objective type id
+   * @param {boolean} translate - Whether to show the translation of the objective type
    * @returns {string} - Objetive type name
    *
    * @example
-   * ObjectiveType.parseNameToId('event') //5
-   * ObjectiveType.parseNameToId('WRONG_NAME') //throw error
+   * ObjectiveType.parseIdToName(5) //EVENT
+   * ObjectiveType.parseIdToName(1, true) //Viagem
+   * ObjectiveType.parseIdToName(9999) //throw error
    */
-  static parseIdToName(id: number): string {
+  static parseIdToName(id: number, translate: boolean = false): string {
     const result = this.list.filter(goal => goal.id === id)
     if (!result) throw new NotFoundObjectiveTypeException('id', id.toString())
-    return result[0].name
+    return translate ? this.translate(result[0].name) : result[0].name
   }
 
   /**
@@ -85,13 +108,31 @@ export default class ObjectiveType {
    * @returns {number} - Objective type id
    *
    * @example
-   * ObjectiveType.parseIdToName(5) //event
-   * ObjectiveType.parseIdToName(9999) //throw error
+   * ObjectiveType.parseNameToId('EVENT') //5
+   * ObjectiveType.parseNameToId('Casa') //6
+   * ObjectiveType.parseNameToId('WRONG_NAME') //throw error
    */
   static parseNameToId(name: string): number {
-    const result = this.list.filter(goal => goal.name === name)
+    const result = this.list.filter(
+      goal => goal.name === name || goal.lang.ptbr === name
+    )
     if (!result) throw new NotFoundObjectiveTypeException('name', name)
     return result[0].id
+  }
+
+  /**
+   * Translate objective type name
+   *
+   * @static
+   * @memberof ObjectiveType
+   * @param {string} name - Objetive type name
+   * @return {string} - Translated objective type name
+   */
+  static translate(objectiveTypeName: string): string {
+    const result = this.list.filter(goal => goal.name === objectiveTypeName)
+    if (!result)
+      throw new NotFoundObjectiveTypeException('name', objectiveTypeName)
+    return result[0].lang.ptbr
   }
 
   /**
@@ -103,7 +144,7 @@ export default class ObjectiveType {
    * @returns {Promise<string>} - Objective type image url
    *
    * @example
-   * const image1 = await ObjectiveType.getImageById(1) //trip.jpg
+   * const image1 = await ObjectiveType.getImageById(1) //TRAVEL.jpg
    * const image2 = await ObjectiveType.getImageById(9999) //throw error
    */
   static async getImageById(id: number) {
