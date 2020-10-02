@@ -19,7 +19,7 @@ import InformativeHeader from 'components/Objective/InformativeHeader'
 import Text from 'components/Text'
 import TransactionHeader from 'components/Header/TransactionsHeader'
 
-import { ObjectiveType } from 'helpers/objetive'
+import { ObjectiveType } from 'helpers/objectives'
 
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
