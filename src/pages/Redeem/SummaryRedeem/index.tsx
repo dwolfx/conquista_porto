@@ -42,6 +42,7 @@ const SummaryRedeem = ({
   const {
     bankData,
     investmentPosition,
+    redeemData,
     redeemSummaryData,
     is2FARequestLoadingInfo,
     isToken2faLoading,
@@ -49,6 +50,7 @@ const SummaryRedeem = ({
   } = useSelector((state: any) => ({
     bankData: state.bankData,
     investmentPosition: state.investmentPosition,
+    redeemData: state.redeemData.data,
     redeemSummaryData: state.redeemSummaryData.data,
     is2FARequestLoadingInfo: state.token2fa.isLoadingGetInfo,
     isToken2faLoading: state.token2fa.isLoadingGetInfo,
@@ -190,7 +192,7 @@ const SummaryRedeem = ({
                 color="gray6"
               >
                 {moment(
-                  redeemSummaryData?.dados_para_resgate?.data_prevista_conversão
+                  redeemData?.dados_para_resgate?.data_prevista_conversão
                 ).format('DD/MM/YYYY')}
               </Text>,
             ]}
@@ -212,8 +214,7 @@ const SummaryRedeem = ({
                 color="gray6"
               >
                 {moment(
-                  redeemSummaryData?.dados_para_resgate
-                    ?.data_prevista_liquidacao
+                  redeemData?.dados_para_resgate?.data_prevista_liquidacao
                 ).format('DD/MM/YYYY')}
               </Text>,
             ]}
