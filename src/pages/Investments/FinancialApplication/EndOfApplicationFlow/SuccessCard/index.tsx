@@ -29,7 +29,7 @@ const SuccessCard = ({ onCloseLayer, handleCloseButton }: IProps) => {
           history.location.pathname === '/investimentos/visualizar' ||
           history.location.pathname.includes('/objetivos/gerenciar')
             ? handleCloseButton()
-            : history.push('/investimentos/visualizar')
+            : history.push('/investimentos')
         }}
       >
         {history.location.pathname.includes('/objetivos/gerenciar')
