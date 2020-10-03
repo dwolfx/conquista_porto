@@ -37,7 +37,7 @@ const AccordionCard: React.FC<IProps> = ({
         />
       }
       footer={isExpanded ? footer : null}
-      height={isExpanded ? 'auto' : `${initialHeight}px`}
+      maxHeight={isExpanded ? '100vh' : `${initialHeight}px`}
       isExpanded={isExpanded}
       data-testid="accordion-card"
       {...rest}

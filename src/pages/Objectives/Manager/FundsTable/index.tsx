@@ -9,6 +9,7 @@ import Table from 'components/Table'
 import useMedia from 'hooks/useMedia'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 
+import RedeemDrawer from './Actions/Redeem'
 import FundsCards from './Mobile'
 import { columns } from './tableStructure'
 import * as t from './types'
@@ -32,13 +33,16 @@ export default function FundsTable({
   const [fundDetailsOpen, setFundDetailsOpen] = useState(false)
   const [fundDetailsTitle, setFundDetailsTitle] = useState('')
   const [fundDetailsCategory, setFundDetailsCategory] = useState('')
+  const [isRedeemActionOpen, setRedeemActionOpen] = useState(false)
 
   const menuActions: t.IActions = {
     invest: () => {
       console.log('invest')
     },
-    redeem: () => {
-      console.log('redeem')
+    redeem: fundInfo => {
+      setRedeemActionOpen(true)
+      setFundDetailsTitle(fundInfo.nickname)
+      setFundDetailsCategory(fundInfo.arena_category)
     },
     attach: () => {
       console.log('attach')
@@ -56,15 +60,27 @@ export default function FundsTable({
     [menuActions, isTabletVertical]
   )
 
-  const renderDetails = () =>
-    fundDetailsOpen ? (
-      <FundDetails
-        isOpen={fundDetailsOpen}
-        setIsOpen={setFundDetailsOpen}
-        category={fundDetailsCategory}
-        title={fundDetailsTitle}
-      />
-    ) : null
+  const renderActions = () => (
+    <>
+      {isRedeemActionOpen ? (
+        <RedeemDrawer
+          isOpen={isRedeemActionOpen}
+          handleClose={() => setRedeemActionOpen(false)}
+          fundNickname={fundDetailsTitle}
+          fundCategory={fundDetailsCategory}
+        />
+      ) : null}
+
+      {fundDetailsOpen ? (
+        <FundDetails
+          isOpen={fundDetailsOpen}
+          setIsOpen={setFundDetailsOpen}
+          category={fundDetailsCategory}
+          title={fundDetailsTitle}
+        />
+      ) : null}
+    </>
+  )
 
   if (!funds.length) {
     return null
@@ -83,7 +99,7 @@ export default function FundsTable({
           type={type}
         />
 
-        {renderDetails()}
+        {renderActions()}
       </>
     )
   }
@@ -118,7 +134,7 @@ export default function FundsTable({
         </s.CardBody>
       </CardFunds>
 
-      {renderDetails()}
+      {renderActions()}
     </>
   )
 }
