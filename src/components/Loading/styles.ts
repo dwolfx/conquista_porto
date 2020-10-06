@@ -63,6 +63,7 @@ export const LegendText = styled(Text)<{ placement: string }>`
   margin-bottom: ${props => (props.placement === 'top' ? '21px' : 0)};
   margin-top: ${props => (props.placement === 'bottom' ? '21px' : 0)};
   order: ${props => (props.placement === 'top' ? 0 : 2)};
+  text-align: ${props => props.textAlign};
 `
 export const IconAnimated = styled(Icon)`
   animation: ${rotate} 1s linear infinite;

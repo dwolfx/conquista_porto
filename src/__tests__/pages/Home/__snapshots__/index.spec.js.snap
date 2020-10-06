@@ -173,6 +173,7 @@ exports[`Home Renders correctly 1`] = `
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  padding: 0 7px;
 }
 
 .c7#t2,
@@ -277,7 +278,9 @@ exports[`Home Renders correctly 1`] = `
 
 @media (max-width:480px) {
   .c2 {
-    width: 332px;
+    width: 100%;
+    padding: 0 14px;
+    margin-bottom: 14px;
   }
 }
 
@@ -343,7 +346,8 @@ exports[`Home Renders correctly 1`] = `
   }
 
   .c6:hover:not(:active) {
-    padding: 21px 14px border-radius:0;
+    padding: 21px 14px;
+    border-radius: 0;
     background-color: transparent;
     border: none;
   }
@@ -490,6 +494,7 @@ exports[`Home Renders correctly 1`] = `
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="produtos"
           data-gtm-type="click"
+          data-testid="produtos-option"
           onClick={[Function]}
         >
           <svg
@@ -511,6 +516,7 @@ exports[`Home Renders correctly 1`] = `
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="objetivos"
           data-gtm-type="click"
+          data-testid="objetivos-option"
           onClick={[Function]}
         >
           <svg
@@ -532,6 +538,7 @@ exports[`Home Renders correctly 1`] = `
           data-gtm-clicktype="menu-lateral"
           data-gtm-name="pontos"
           data-gtm-type="click"
+          data-testid="pontos-option"
           onClick={[Function]}
         >
           <svg

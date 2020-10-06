@@ -202,7 +202,7 @@ Object {
   width: 0;
 }
 
-.c94 {
+.c93 {
   background: #FFFFFF;
   background-repeat: no-repeat;
   border: 1px solid #00ADEF;
@@ -220,12 +220,73 @@ Object {
   transition: all 0.4s ease-out;
 }
 
+.c93:hover:active {
+  pointer-events: auto;
+}
+
+.c93:hover:active:after {
+  background-color: #EFFBFF;
+  background-size: 100%;
+  opacity: 0.2;
+  -webkit-transition: all ease 0s;
+  transition: all ease 0s;
+}
+
+.c93:hover:before {
+  width: 100%;
+}
+
+.c93:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
+}
+
+.c93:before {
+  background-color: #EFFBFF;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 0;
+}
+
+.c94 {
+  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
 .c94:hover:active {
   pointer-events: auto;
 }
 
 .c94:hover:active:after {
-  background-color: #EFFBFF;
+  background-color: #018CB7;
   background-size: 100%;
   opacity: 0.2;
   -webkit-transition: all ease 0s;
@@ -252,67 +313,6 @@ Object {
 }
 
 .c94:before {
-  background-color: #EFFBFF;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
-  width: 0;
-}
-
-.c95 {
-  background: linear-gradient( to left, #018CB7 20%, #00ADEF );
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #FFFFFF;
-  cursor: pointer;
-  height: 35px;
-  overflow: hidden;
-  position: relative;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.c95:hover:active {
-  pointer-events: auto;
-}
-
-.c95:hover:active:after {
-  background-color: #018CB7;
-  background-size: 100%;
-  opacity: 0.2;
-  -webkit-transition: all ease 0s;
-  transition: all ease 0s;
-}
-
-.c95:hover:before {
-  width: 100%;
-}
-
-.c95:hover:after {
-  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
-  background-position: center;
-  content: '';
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all ease 0.8s;
-  transition: all ease 0.8s;
-  width: 100%;
-}
-
-.c95:before {
   background-color: #018CB7;
   content: '';
   height: 100%;
@@ -357,12 +357,6 @@ Object {
   width: 100%;
 }
 
-.c90 {
-  border-bottom: 1px solid #DDDDDD;
-  height: 0%;
-  width: calc(100% - 14px);
-}
-
 .c85 {
   background-color: rgba(39,39,39,0.63);
   height: 100%;
@@ -376,12 +370,12 @@ Object {
   top: 0;
 }
 
-.c92 {
+.c91 {
   overflow: auto;
   padding: 21px 14px;
 }
 
-.c91 {
+.c90 {
   margin: 0 auto;
 }
 
@@ -479,7 +473,7 @@ Object {
   max-width: 484px;
 }
 
-.c93 {
+.c92 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -491,7 +485,7 @@ Object {
   justify-content: flex-end;
 }
 
-.c93 button:last-of-type {
+.c92 button:last-of-type {
   margin-left: 14px;
 }
 
@@ -1216,7 +1210,7 @@ Object {
 }
 
 @media (max-width:736px) {
-  .c92 {
+  .c91 {
     padding: 21px 14px;
   }
 }
@@ -2157,10 +2151,10 @@ Object {
                   </svg>
                 </header>
                 <div
-                  class="c90 c91"
+                  class="c39 c90"
                 />
                 <div
-                  class="c92"
+                  class="c91"
                 >
                   <p
                     class="c43"
@@ -2170,10 +2164,10 @@ Object {
                     Todas as informações serão perdidas e a solicitação não será finalizada.
                   </p>
                   <div
-                    class="c93"
+                    class="c92"
                   >
                     <button
-                      class="c94"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2183,7 +2177,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c95"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2229,10 +2223,10 @@ Object {
                   </svg>
                 </header>
                 <div
-                  class="c90 c91"
+                  class="c39 c90"
                 />
                 <div
-                  class="c92"
+                  class="c91"
                 >
                   <p
                     class="c43"
@@ -2242,10 +2236,10 @@ Object {
                     Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
                   </p>
                   <div
-                    class="c93"
+                    class="c92"
                   >
                     <button
-                      class="c94"
+                      class="c93"
                       color="primary"
                     >
                       <span
@@ -2255,7 +2249,7 @@ Object {
                       </span>
                     </button>
                     <button
-                      class="c95"
+                      class="c94"
                       color="primary"
                     >
                       <span
@@ -2835,7 +2829,7 @@ Object {
                 </svg>
               </header>
               <div
-                class="sc-fznZeY bCFitl sc-fzqNJr knweed"
+                class="sc-fznZeY bIELTx sc-fzqNJr knweed"
               />
               <div
                 class="sc-fzqBZW esRFc"
@@ -2907,7 +2901,7 @@ Object {
                 </svg>
               </header>
               <div
-                class="sc-fznZeY bCFitl sc-fzqNJr knweed"
+                class="sc-fznZeY bIELTx sc-fzqNJr knweed"
               />
               <div
                 class="sc-fzqBZW esRFc"

@@ -3,7 +3,12 @@ import { useHistory } from 'react-router-dom'
 
 import Button from 'components/Button/IconText'
 import ListItem from 'components/ListItem'
+import HorizontalList from 'components/HorizontalList'
+import Avatar from 'components/Avatar'
+import Text from 'components/Text'
+import Divisor from 'components/Divisor'
 import { IChildSecondProp, IItemsProps } from 'components/Dropdown/interface'
+import { handleGiwRedirect } from 'helpers'
 
 import {
   Container,
@@ -14,7 +19,6 @@ import {
   Content,
   ConquistaBeta,
   ResponsiveMenu,
-  AvatarIcon,
   Icon,
 } from './styles'
 
@@ -73,30 +77,30 @@ export default function Mobile({
             <Icon name="close" />
           </ResponsiveMenu>
         </Header>
-        <ProfileContainer>
-          <ListItem
-            data-testid="perfil"
-            StartIcon={AvatarIcon}
-            text={[
-              {
-                type: 'headline',
-                color: 'gray6',
-                content: customerName,
-              },
-              {
-                type: 'caption',
-                color: 'blue4',
-                content: `${totalPoints} pontos`,
-              },
+        <ProfileContainer 
+          onClick={() => { 
+            setIsOpen(false) 
+            handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
+          }}
+          data-gtm-type="click"
+          data-gtm-clicktype="link"
+          data-gtm-subname="responsive header menu"
+          data-gtm-name="perfil">
+          <HorizontalList
+            startItems={[
+              <Avatar />,
+              <Text type="headline" color="gray6">
+                {customerName}
+              </Text>,
             ]}
-            data-gtm-type="click"
-            data-gtm-clicktype="link"
-            data-gtm-subname="responsive header menu"
-            data-gtm-name="perfil"
-            path="perfil"
-            callbackClickFn={() => setIsOpen(false)}
+            endItems={[
+              <Text type="caption" color="blue4">
+                {totalPoints} pontos
+              </Text>,
+            ]}
           />
         </ProfileContainer>
+        <Divisor />
         <ProductsContainer>
           {items.map((item: IItemsProps) => {
             if (item.children) {

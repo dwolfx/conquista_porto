@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import ConquistaBetaIcon from 'assets/images/logoConquistaBeta.png'
-import Avatar from 'components/Avatar'
 import NotificationBell from 'components/NotificationBell'
 import IconConquista from 'components/IconExporter'
 
@@ -31,29 +30,26 @@ export const ProfileContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid ${props => props.theme.colors.gray2};
-  padding: 14px 21px;
+  padding: ${({theme}) => `${theme.spacing(2)}px 0`};
 `
-
-export const AvatarIcon = styled(Avatar)``
 
 export const NotificationContainer = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.gray2};
-  padding: 14px 21px;
+  padding: ${({theme}) => `${theme.spacing(2)}px ${theme.spacing(3)}px`};
 `
 
 export const NotificationBellIcon = styled(NotificationBell)``
 
 export const ProductsContainer = styled.div`
-  padding: 14px 21px;
+  padding: ${({theme}) => `${theme.spacing(2)}px ${theme.spacing(3)}px`};
   overflow: auto;
 `
 
 export const Header = styled.div`
   width: 100%;
-  padding: 7px 21px;
+  padding: ${({theme}) => `${theme.spacing(1)}px ${theme.spacing(3)}px`};
   display: flex;
   align-items: center;
   justify-content: space-between;

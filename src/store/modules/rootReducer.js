@@ -22,6 +22,7 @@ import vehicleFinancing from './VehicleFinancing/reducer'
 import lifeInsurance from './LifeInsurance/reducer'
 import tripInsurance from './TripInsurance/reducer'
 import points from './Points/reducer'
+import privateWelfare from './PrivateWelfare/reducer'
 import notifications from './Notifications/reducer'
 import auth from './Auth/reducer'
 import objective from './Objective/reducer'
@@ -52,16 +53,15 @@ export default combineReducers({
   investmentsList,
   investmentDetails,
   investmentPosition,
-
   comparativeProfitability,
   income,
-
   lifeInsurance,
   consolidatedPosition,
   vehicleFinancing,
   tripInsurance,
   notifications,
   points,
+  privateWelfare,
   auth,
   objective,
   objectiveManagement,

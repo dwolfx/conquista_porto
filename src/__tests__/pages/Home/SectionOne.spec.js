@@ -47,6 +47,11 @@ const INITIAL_STATE = {
     hasError: false,
     isLoading: false,
   },
+  privateWelfare: {
+    data: [],
+    hasError: false,
+    isLoading: false,
+  },
 }
 
 const mockStore = createStore([])

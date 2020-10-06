@@ -17,6 +17,7 @@ const financialApplicationMock = require('./src/mocks/financialApplication.json'
 const withdrawPOSTMock = require('./src/mocks/withdrawPOST.json')
 const redeemPOSTMock = require('./src/mocks/redeemPOST.json')
 const fundDetails = require('./src/mocks/fundDetails.json')
+const privateWelfare = require('./src/mocks/privateWelfare.json')
 
 server.use(middlewares)
 
@@ -113,6 +114,9 @@ router.render = (req, res) => {
     if (req.method === 'DELETE') {
       return res.status(204).jsonp({})
     }
+  }
+  if (req.originalUrl.endsWith('/consulta/adesao')) {
+    return res.status(200).jsonp(privateWelfare)
   }
   if (req.originalUrl.endsWith('/teclado-virtual')) {
     if (req.method === 'POST') {

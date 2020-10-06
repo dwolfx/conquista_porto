@@ -189,3 +189,13 @@ export const hideEmailCharacters = (email: string): string => {
     .concat('****@****')
     .concat(emailSplit[1].substring(4, emailSplit[1].length))
 }
+
+export const truncateString = (str: string, num: number) => {
+  // If the length of str is less than or equal to num
+  // just return str--don't truncate it.
+  if (str.length <= num) {
+    return str
+  }
+  // Return str truncated with '...' concatenated to the end of str.
+  return str.slice(0, num) + '...'
+}

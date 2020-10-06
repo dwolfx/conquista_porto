@@ -22,6 +22,7 @@ import lastTransaction from './Investment/LastTransaction/sagas'
 import income from './Investment/Income/sagas'
 import lifeInsurance from './LifeInsurance/sagas'
 import points from './Points/sagas'
+import privateWelfare from './PrivateWelfare/sagas'
 import tripInsurance from './TripInsurance/sagas'
 import vehicleFinancing from './VehicleFinancing/sagas'
 import notifications from './Notifications/sagas'
@@ -59,6 +60,7 @@ export default function* rootSaga() {
     income,
     lifeInsurance,
     points,
+    privateWelfare,
     tripInsurance,
     vehicleFinancing,
     notifications,

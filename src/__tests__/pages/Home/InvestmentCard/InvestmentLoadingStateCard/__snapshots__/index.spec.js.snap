@@ -16,7 +16,7 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
 
 .c12 {
   color: #898989;
-  text-align: unset;
+  text-align: left;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -69,6 +69,7 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
   -webkit-order: 0;
   -ms-flex-order: 0;
   order: 0;
+  text-align: left;
 }
 
 .c4 {

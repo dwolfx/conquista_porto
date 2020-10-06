@@ -1,0 +1,414 @@
+[
+  {
+    "benefits": {
+      "planId": 20,
+      "benefitId": "54",
+      "reserves": {
+        "reserveId": 1000,
+        "funds": [
+          {
+            "nameFund": "PS Multimercado Diamante FIC FI Previdenciario",
+            "fundId": 1006,
+            "distributionPercent": "100.0"
+          }
+        ]
+      },
+      "expectedContributionValue": "0.0",
+      "initialContributionValue": "1000.0"
+    },
+    "client": {
+      "physicalPersonId": 1111265,
+      "maritalStatus": "S",
+      "professionId": 358,
+      "birthDate": "1990-02-21",
+      "personName": "IRIS OLIVEIRA ALMEIDA",
+      "cpf": "39049924816",
+      "sexIndication": "F",
+      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
+    },
+    "clientId": 1111265,
+    "retirementDate": "2030-09-14",
+    "requestDate": "2020-09-14",
+    "addresses": {
+      "addressDescription": "Minha residência",
+      "streetName": "Rua São Vicente de Paula",
+      "streetType": "AV",
+      "streetNumber": "10",
+      "addressType": "RE",
+      "stateId": "SP",
+      "neighborhood": "Centro",
+      "cityId": "9240",
+      "defaultInd": "S",
+      "countryId": "105",
+      "cep": "18200280"
+    },
+    "maritalStatus": "S",
+    "affiliationId": 980127424,
+    "salesAgencyId": 1,
+    "salesChannelId": 1026,
+    "nationalityId": "BR",
+    "salesOriginId": "9",
+    "residenceCountryId": 105,
+    "incomeTaxDeductible": false,
+    "incomingPortabilityInd": "N",
+    "initialPayment": {
+      "paymentDate": "2020-09-29",
+      "paymentDescription": "Boleto",
+      "address": {
+        "addressId": "1176897"
+      },
+      "finantialResponsiblePersonId": 1111265,
+      "paymentTypeId": 104,
+      "paymentMethod": "FC"
+    },
+    "product": {
+      "companyId": 500,
+      "productId": 2074
+    },
+    "professionId": 358,
+    "status": "ERR",
+    "formType": "I",
+    "taxOptionType": "TP",
+    "totalMonthlyIncome": 10000,
+    "consignorUnit": {},
+    "validationResults": [
+      {
+        "errorDate": "2020-09-14",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "C",
+        "fieldName": "REGRA: COD.001, NUM.167, RST.130.",
+        "observation": "VALIDAÇÃO DOS DOCUMENTOS DO PROPONENTE: DOCUMENTO DE CLASSE EXIGE ÓRGÃO EXPEDIDOR, LOCAL DE EMISSÃO E DATA DE EMISSÃO"
+      },
+      {
+        "errorDate": "2020-09-14",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
+        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
+      },
+      {
+        "errorDate": "2020-09-14",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
+        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
+      }
+    ]
+  },
+  {
+    "benefits": {
+      "planId": 20,
+      "benefitId": "54",
+      "reserves": {
+        "reserveId": 1000,
+        "funds": [
+          {
+            "nameFund": "PS Multimercado Diamante FIC FI Previdenciario",
+            "fundId": 1006,
+            "distributionPercent": "100.0"
+          }
+        ]
+      },
+      "expectedContributionValue": "0.0",
+      "initialContributionValue": "1000.0"
+    },
+    "client": {
+      "physicalPersonId": 1111265,
+      "maritalStatus": "S",
+      "professionId": 358,
+      "birthDate": "1990-02-21",
+      "personName": "IRIS OLIVEIRA ALMEIDA",
+      "cpf": "39049924816",
+      "sexIndication": "F",
+      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
+    },
+    "clientId": 1111265,
+    "retirementDate": "2030-09-09",
+    "requestDate": "2020-09-09",
+    "addresses": {
+      "addressDescription": "Minha residência",
+      "streetName": "Rua Augusta",
+      "streetType": "AV",
+      "streetNumber": "12",
+      "addressType": "RE",
+      "stateId": "SP",
+      "neighborhood": "Consolação",
+      "cityId": "9668",
+      "defaultInd": "S",
+      "countryId": "105",
+      "cep": "01304001"
+    },
+    "maritalStatus": "S",
+    "affiliationId": 980127254,
+    "salesAgencyId": 1,
+    "salesChannelId": 1026,
+    "nationalityId": "BR",
+    "salesOriginId": "9",
+    "residenceCountryId": 105,
+    "incomeTaxDeductible": false,
+    "incomingPortabilityInd": "N",
+    "initialPayment": {
+      "paymentDate": "2020-09-24",
+      "paymentDescription": "Boleto",
+      "address": {
+        "addressId": "1176792"
+      },
+      "finantialResponsiblePersonId": 1111265,
+      "paymentTypeId": 104,
+      "paymentMethod": "FC"
+    },
+    "product": {
+      "companyId": 500,
+      "productId": 2074
+    },
+    "professionId": 358,
+    "status": "ERR",
+    "formType": "I",
+    "taxOptionType": "TP",
+    "totalMonthlyIncome": 10000,
+    "consignorUnit": {},
+    "validationResults": [
+      {
+        "errorDate": "2020-09-09",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "C",
+        "fieldName": "REGRA: COD.001, NUM.167, RST.130.",
+        "observation": "VALIDAÇÃO DOS DOCUMENTOS DO PROPONENTE: DOCUMENTO DE CLASSE EXIGE ÓRGÃO EXPEDIDOR, LOCAL DE EMISSÃO E DATA DE EMISSÃO"
+      },
+      {
+        "errorDate": "2020-09-09",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
+        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
+      },
+      {
+        "errorDate": "2020-09-09",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
+        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
+      }
+    ]
+  },
+  {
+    "benefits": {
+      "planId": 20,
+      "benefitId": "54",
+      "reserves": {
+        "reserveId": 1000,
+        "funds": [
+          {
+            "nameFund": "PS Multimercado Diamante FIC FI Previdenciario",
+            "fundId": 1006,
+            "distributionPercent": "100.0"
+          }
+        ]
+      },
+      "expectedContributionValue": "350.0",
+      "initialContributionValue": "1250.0"
+    },
+    "client": {
+      "physicalPersonId": 1111265,
+      "maritalStatus": "S",
+      "professionId": 358,
+      "birthDate": "1990-02-21",
+      "personName": "IRIS OLIVEIRA ALMEIDA",
+      "cpf": "39049924816",
+      "sexIndication": "F",
+      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
+    },
+    "clientId": 1111265,
+    "retirementDate": "2030-08-26",
+    "requestDate": "2020-08-26",
+    "addresses": {
+      "addressDescription": "Minha residência",
+      "streetName": "Rua Augusta",
+      "streetType": "AV",
+      "streetNumber": "123",
+      "addressType": "RE",
+      "stateId": "SP",
+      "neighborhood": "Consolação",
+      "cityId": "9668",
+      "defaultInd": "S",
+      "countryId": "105",
+      "cep": "01304001"
+    },
+    "maritalStatus": "S",
+    "affiliationId": 980126998,
+    "salesAgencyId": 1,
+    "salesChannelId": 1026,
+    "nationalityId": "BR",
+    "salesOriginId": "9",
+    "residenceCountryId": 105,
+    "incomeTaxDeductible": false,
+    "incomingPortabilityInd": "N",
+    "initialPayment": {
+      "paymentDate": "2020-09-10",
+      "paymentDescription": "Boleto",
+      "paymentDay": "2",
+      "address": {
+        "addressId": "1176678"
+      },
+      "finantialResponsiblePersonId": 1111265,
+      "paymentTypeId": 104,
+      "paymentMethod": "FC"
+    },
+    "regularPayment": {
+      "bankNumber": "341",
+      "paymentDate": "2020-09-10",
+      "paymentDescription": "Débito Caixa",
+      "paymentDay": "2",
+      "finantialResponsiblePersonId": 1111265,
+      "paymentTypeId": 109,
+      "paymentMethod": "CB",
+      "bankBranchNumber": "0355",
+      "bankAccountNumber": "59147"
+    },
+    "product": {
+      "companyId": 500,
+      "productId": 2074
+    },
+    "professionId": 358,
+    "status": "ERR",
+    "formType": "I",
+    "taxOptionType": "TP",
+    "totalMonthlyIncome": 10000,
+    "consignorUnit": {},
+    "validationResults": [
+      {
+        "errorDate": "2020-09-17",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "C",
+        "fieldName": "REGRA: COD.001, NUM.167, RST.130.",
+        "observation": "VALIDAÇÃO DOS DOCUMENTOS DO PROPONENTE: DOCUMENTO DE CLASSE EXIGE ÓRGÃO EXPEDIDOR, LOCAL DE EMISSÃO E DATA DE EMISSÃO"
+      },
+      {
+        "errorDate": "2020-08-26",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
+        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
+      },
+      {
+        "errorDate": "2020-08-26",
+        "correctedInd": true,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
+        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
+      }
+    ]
+  },
+  {
+    "benefits": {
+      "planId": 20,
+      "benefitId": "54",
+      "reserves": {
+        "reserveId": 1000,
+        "funds": [
+          {
+            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+            "fundId": 1006,
+            "distributionPercent": "100.0"
+          }
+        ]
+      },
+      "expectedContributionValue": "250.0",
+      "initialContributionValue": "1000.0"
+    },
+    "client": {
+      "physicalPersonId": 1111265,
+      "maritalStatus": "S",
+      "professionId": 358,
+      "birthDate": "1990-02-21",
+      "personName": "IRIS OLIVEIRA ALMEIDA",
+      "cpf": "39049924816",
+      "sexIndication": "F",
+      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
+    },
+    "clientId": 1111265,
+    "retirementDate": "2030-08-25",
+    "requestDate": "2020-08-25",
+    "addresses": {
+      "addressDescription": "Minha residência",
+      "streetName": "Rua Augusta",
+      "streetType": "AV",
+      "streetNumber": "123",
+      "addressType": "RE",
+      "stateId": "SP",
+      "neighborhood": "Consolação",
+      "cityId": "9668",
+      "defaultInd": "S",
+      "countryId": "105",
+      "cep": "01304001"
+    },
+    "maritalStatus": "S",
+    "affiliationId": 980126902,
+    "salesAgencyId": 1,
+    "salesChannelId": 1026,
+    "nationalityId": "BR",
+    "salesOriginId": "9",
+    "residenceCountryId": 105,
+    "incomeTaxDeductible": false,
+    "incomingPortabilityInd": "S",
+    "initialPayment": {
+      "paymentDate": "2020-09-09",
+      "paymentDescription": "Boleto",
+      "paymentDay": "20",
+      "address": {
+        "addressId": "1176597"
+      },
+      "finantialResponsiblePersonId": 1111265,
+      "paymentTypeId": 104,
+      "paymentMethod": "FC"
+    },
+    "regularPayment": {
+      "bankNumber": "341",
+      "paymentDate": "2020-09-09",
+      "paymentDescription": "Débito Caixa",
+      "paymentDay": "20",
+      "finantialResponsiblePersonId": 1111265,
+      "paymentTypeId": 109,
+      "paymentMethod": "CB",
+      "bankBranchNumber": "0355",
+      "bankAccountNumber": "59147"
+    },
+    "product": {
+      "companyId": 500,
+      "productId": 2074
+    },
+    "professionId": 358,
+    "status": "PRE",
+    "formType": "I",
+    "taxOptionType": "TR",
+    "totalMonthlyIncome": 10000,
+    "consignorUnit": {},
+    "validationResults": [
+      {
+        "errorDate": "2020-08-25",
+        "correctedInd": true,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
+        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
+      },
+      {
+        "errorDate": "2020-08-25",
+        "correctedInd": true,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
+        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
+      }
+    ]
+  }
+]

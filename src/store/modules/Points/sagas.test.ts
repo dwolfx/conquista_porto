@@ -1,5 +1,4 @@
-import { call, put, select } from 'redux-saga/effects'
-import axios from 'axios'
+import { call, put } from 'redux-saga/effects'
 import { get } from 'services/api'
 
 import { getExtract, getBalance, postRescuePoints } from './sagas'

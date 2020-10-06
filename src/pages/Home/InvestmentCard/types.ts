@@ -90,10 +90,10 @@ export interface ISuitabilityInfoState {
 }
 
 export interface IPieChartInfoState {
-  id?: number
-  label?: string
+  id?: any
+  label?: string | undefined
   value: number
-  percent: number
+  percent?: number | undefined
 }
 
 export interface IModalTextWrapper {
