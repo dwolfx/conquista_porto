@@ -5,6 +5,8 @@ import {
   GetBankExtractSuccess,
   GetBankExtractFailure,
   ClearBankExtractData,
+  CloseAccountExtractLayer,
+  OpenAccountExtractLayer
 } from './action'
 
 describe('Credit Card actions', () => {
@@ -44,6 +46,18 @@ describe('Credit Card actions', () => {
   test('if ClearBankExtractData returns the correct object', () => {
     expect(ClearBankExtractData()).toEqual({
       type: Types.CLEAR_DATA,
+    })
+  })
+
+  test('if OpenAccountExtractLayer returns the correct object', () => {
+    expect(OpenAccountExtractLayer()).toEqual({
+      type: Types.OPEN_ACCOUNT_EXTRACT_LAYER,
+    })
+  })
+
+  test('if CloseAccountExtractLayer returns the correct object', () => {
+    expect((CloseAccountExtractLayer())).toEqual({
+      type: Types.CLOSE_ACCOUNT_EXTRACT_LAYER,
     })
   })
 })

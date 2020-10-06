@@ -26,6 +26,8 @@ import {
   ButtonsWrapper,
   IconRetry,
 } from './styles'
+import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
+import Button from 'components/Button'
 
 const InvestorAccount = () => {
   useFetchBankData()
@@ -106,6 +108,10 @@ const InvestorAccount = () => {
     return (
       <>
         <InfoContainer>
+          <Button
+            color="primary"
+            onClick={() => dispatch(OpenAccountExtractLayer())}
+          >Abrir layer</Button>
           <CustomHorizontalList
             startItems={[
               <CustomVerticalList

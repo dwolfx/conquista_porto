@@ -26,3 +26,15 @@ export function ClearBankExtractData() {
     type: Types.CLEAR_DATA,
   }
 }
+
+export function OpenAccountExtractLayer() {
+  return {
+    type: Types.OPEN_ACCOUNT_EXTRACT_LAYER
+  }
+}
+
+export function CloseAccountExtractLayer() {
+  return {
+    type: Types.CLOSE_ACCOUNT_EXTRACT_LAYER
+  }
+}
