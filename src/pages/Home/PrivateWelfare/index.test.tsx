@@ -263,10 +263,10 @@ describe('PrivateWelfareSection - Home', () => {
     fireEvent.mouseOver(infoTaxPopoverElement)
     expect(screen.getByText('O valor do tributo a ser cobrado aumenta de acordo com a renda.')).toBeInTheDocument()
 
-    expect(screen.getByText('Produto')).toBeInTheDocument(1)
-    expect(screen.getByText('Saldo bruto')).toBeInTheDocument(1)
-    expect(screen.getByText('Contribuição mensal')).toBeInTheDocument(1)
-    expect(screen.getByText('Tributação')).toBeInTheDocument(1)
+    expect(screen.getByText('Produto')).toBeInTheDocument()
+    expect(screen.getByText('Saldo bruto')).toBeInTheDocument()
+    expect(screen.getByText('Contribuição mensal')).toBeInTheDocument()
+    expect(screen.getByText('Tributação')).toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: /gerenciar/i })
     ).toBeInTheDocument()
