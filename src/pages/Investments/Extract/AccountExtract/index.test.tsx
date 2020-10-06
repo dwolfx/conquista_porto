@@ -42,7 +42,7 @@ describe('AccountExtract tests', () => {
     expect(subheader).toHaveStyleRule('background-color', '#555861')
     expect(subheader).toHaveStyleRule('height', '56px')
     expect(screen.getByText(/extrato da/i)).toBeInTheDocument()
-    expect(screen.getByText(/conta de investimento/i)).toBeInTheDocument()
+    expect(screen.getByTestId('text-investment-account')).toBeInTheDocument()
   })
   it('should contains 2 cards in the body', () => {
     renderWithReduxAndTheme(<AccountExtract isOpen handleClose={() => {}} />, { container: createRootContainer() })

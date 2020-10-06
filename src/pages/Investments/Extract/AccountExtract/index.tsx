@@ -14,6 +14,7 @@ import {
   SubHeader,
   TitleWrapper,
 } from './styles'
+import InvestmentAccountDetail from '../InvestmentAccountDetail'
 
 interface IProps {
   isOpen: boolean
@@ -45,7 +46,7 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
       <SubHeader data-testid="subheader">
         <TitleWrapper>
           <Text type="headline" color="gray4">Extrato da</Text>
-          <Text type="headline" color="white">Conta de investimento</Text>
+          <Text type="headline" color="white" data-testid="text-investment-account">Conta de investimento</Text>
         </TitleWrapper>
       </SubHeader>
         <Container
@@ -55,12 +56,7 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
         >
           <Row>
             <Col lg={3} md={12}>
-              <Card
-                data-testid="card-account-info"
-                css={`
-                  height: 410px;
-                `}
-              >Account Info</Card>
+              <InvestmentAccountDetail />
             </Col>
             <Col lg={9} md={12}>
               <Card
