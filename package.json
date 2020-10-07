@@ -1,6 +1,6 @@
 {
   "name": "conquista-front",
-  "version": "0.1.0",
+  "version": "5.0.0",
   "private": true,
   "homepage": "/conquista",
   "proxy": "http://localhost:8080",
