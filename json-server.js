@@ -123,6 +123,10 @@ router.render = (req, res) => {
     if (req.method === 'DELETE') {
       return res.status(204).jsonp({})
     }
+
+    if (req.method === 'PATCH') {
+      return res.status(204).jsonp({})
+    }
   }
   if (req.originalUrl.endsWith('/adesoes/titular/cpf')) {
     return res.status(200).jsonp(privateWelfare)

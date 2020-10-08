@@ -8,6 +8,7 @@ const defaultState = {
   isLoadingDelete: false,
   otherGoalsManagement: {},
   isLoadingOtherGoals: true,
+  isLoadingUpdate: false,
 }
 
 describe('ObjectiveManagement Reducer', () => {

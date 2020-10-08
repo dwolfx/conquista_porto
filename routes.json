@@ -64,5 +64,6 @@
   "/invest/aws/cartoes/profissoes": "/cartao-profissoes",
   "/invest/aws/cliente/endereco\\?cep=:cep&cepSufixo=:cepSufixo": "/cep-mock",
   "/investimento/seguranca/v1/conquista/locker\\?token:token": "/locker-mock",
-  "/goal/goals/summary": "/goals_summary"
+  "/goal/goals/summary": "/goals_summary",
+  "/goal/goals/:id?nickname=:nickname": "goals_update_nickname"
 }

@@ -115,3 +115,23 @@ export function CleanObjectiveManagementData() {
     type: Types.CLEAN_DATA,
   }
 }
+
+export function UpdateObjectiveNicknameRequest(payload) {
+  return {
+    type: Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST,
+    payload,
+  }
+}
+
+export function UpdateObjectiveNicknameSuccess(payload) {
+  return {
+    type: Types.UPDATE_OBJECTIVE_NICKNAME_SUCCESS,
+    payload,
+  }
+}
+
+export function UpdateObjectiveNicknameFailure() {
+  return {
+    type: Types.UPDATE_OBJECTIVE_NICKNAME_FAILURE,
+  }
+}

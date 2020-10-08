@@ -25,6 +25,7 @@ interface IProps {
     | 'target_value'
     | 'initial_value'
     | 'monthly_value'
+    | 'goal_type'
   >
   updateValues: (
     newValue: Pick<
@@ -34,6 +35,7 @@ interface IProps {
       | 'target_value'
       | 'initial_value'
       | 'monthly_value'
+      | 'goal_type'
     >
   ) => void
   setHasError?: (state: boolean) => void

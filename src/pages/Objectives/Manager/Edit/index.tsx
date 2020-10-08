@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 
+import { ObjectiveType } from 'helpers/objectives'
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
@@ -31,6 +32,7 @@ interface IProps {
     | 'target_value'
     | 'initial_value'
     | 'monthly_value'
+    | 'goal_type'
   >
   setFormData: (
     newValue: Pick<
@@ -40,6 +42,7 @@ interface IProps {
       | 'target_value'
       | 'initial_value'
       | 'monthly_value'
+      | 'goal_type'
     >
   ) => void
 }
@@ -66,6 +69,7 @@ export default function EditDrawer({
       | 'target_value'
       | 'initial_value'
       | 'monthly_value'
+      | 'goal_type'
     >
   >({
     nickname: '',
@@ -73,6 +77,7 @@ export default function EditDrawer({
     target_value: 0,
     initial_value: 0,
     monthly_value: 0,
+    goal_type: 0,
   })
 
   const { isLoadingDelete } = useSelector(
@@ -100,11 +105,12 @@ export default function EditDrawer({
       data-gtm-form="submit"
       data-gtm-name="confirmar e recalcular"
       onClick={() => {
-        debugger
         dispatch(
           UpdateObjectiveNicknameRequest({
             id: objectiveId,
-            nickname: editValues.nickname,
+            nickname:
+              editValues.nickname ||
+              ObjectiveType.parseIdToName(editValues.goal_type),
             addToast,
             onSuccess: () => {
               onClose()

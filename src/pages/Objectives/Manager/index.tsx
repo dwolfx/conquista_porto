@@ -6,7 +6,6 @@ import 'styled-components/macro'
 
 import Button from 'components/Button'
 import ButtonIcon from 'components/Button/Icon'
-// import ButtonLink from 'components/Button/Link'
 import Card from 'components/Card'
 import CardCarousel from 'components/Carousel/CardCarousel'
 import { ICardCarouselSlide } from 'components/Carousel/CardCarousel/types'
@@ -25,7 +24,7 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 import { Currency } from 'helpers/money'
 
-import EditDrawer from 'pages/Objectives/Recommendation/Edit/Drawer'
+import EditDrawer from 'pages/Objectives/Manager/Edit'
 import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import FundsTable from 'pages/Objectives/Manager/FundsTable'
@@ -41,7 +40,7 @@ import {
 
 import theme from 'styles/theme'
 
-import { IAnswer } from 'store/modules/Objective/types'
+import { IRecommendations, IAnswer } from 'store/modules/Objective/types'
 import * as t from './types'
 import * as s from './styles'
 
@@ -62,23 +61,32 @@ export default function ObjectiveManager() {
     []
   )
   const [bannerImage, setBannerImage] = useState('')
-  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
   const [addFundsLayer, setAddFundsLayer] = useState(false)
   const [pendingFundsLayer, setPendingFundsLayer] = useState(false)
   const [objectiveFundsLayer, setObjectiveFundsLayer] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const [formData, setFormData] = useState<Omit<IAnswer, 'uf' | 'goal_type'>>({
+  const [formData, setFormData] = useState<
+    Pick<
+      IAnswer,
+      | 'nickname'
+      | 'target_date'
+      | 'target_value'
+      | 'initial_value'
+      | 'monthly_value'
+      | 'goal_type'
+    >
+  >({
     nickname: '',
     target_date: '',
     target_value: 0,
     initial_value: 0,
     monthly_value: 0,
-    profile: 0,
+    goal_type: 0,
   })
 
   const { pageRecommendation } = location.state || { pageRecommendation: false }
 
-  const { data: objectiveData, isLoading, isLoadingDelete } = useSelector(
+  const { data: objectiveData, isLoading } = useSelector(
     (state: t.IState) => state.objectiveManagement
   )
 
@@ -144,6 +152,14 @@ export default function ObjectiveManager() {
   }, [dispatch, history, objectiveData, objectiveId, addToast])
 
   useEffect(() => {
+    if (objectiveData) {
+      setFormData({
+        ...objectiveData,
+      })
+    }
+  }, [objectiveData])
+
+  useEffect(() => {
     const pending = objectiveData?.fund_list.filter(
       item => item.pendency === 'INITIAL_VALUE_PENDING'
     )
@@ -176,10 +192,6 @@ export default function ObjectiveManager() {
         idGoal: objectiveId,
       },
     })
-  }
-
-  function handleDeleteGoal(id: number) {
-    dispatch(DeleteObjectiveRequest(id, () => history.push('/'), addToast))
   }
 
   if (isLoading) {
@@ -396,6 +408,7 @@ export default function ObjectiveManager() {
           onClose={() => setIsDrawerOpen(false)}
           formData={formData}
           setFormData={setFormData}
+          objectiveId={objectiveId}
         />
         {bannerImage && (
           <s.Row>
@@ -497,39 +510,6 @@ export default function ObjectiveManager() {
       >
         <Text>Add funds layer</Text>
       </s.Layer>
-
-      <Modal
-        isOpen={isModalDeleteOpen}
-        handleClose={() => {
-          setIsModalDeleteOpen(false)
-        }}
-        modalTitle="Excluir"
-      >
-        <Text type="headline" color="gray6">
-          Seu objetivo será excluído e os valores em fundo associados à ele irão
-          para a categoria &quot;Sem objetivo&quot;. Tem certeza que deseja
-          continuar?
-        </Text>
-        <s.ButtonContainerModal>
-          <Button
-            outline
-            onClick={() => {
-              setIsModalDeleteOpen(false)
-            }}
-          >
-            CANCELAR
-          </Button>
-          <Button
-            loading={isLoadingDelete}
-            loadingColor="white"
-            onClick={() => {
-              handleDeleteGoal(objectiveData.id)
-            }}
-          >
-            excluir
-          </Button>
-        </s.ButtonContainerModal>
-      </Modal>
     </>
   )
 }

@@ -21,7 +21,6 @@ import {
 
 export function* postData({ payload }) {
   const { data, isMobile, onSuccess, onErrorToast } = payload
-
   try {
     let response
     if (isMobile) {

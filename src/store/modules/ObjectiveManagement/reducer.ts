@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   isLoading: true,
   isLoadingSave: false,
   isLoadingDelete: false,
+  isLoadingUpdate: false,
   otherGoalsManagement: {},
   isLoadingOtherGoals: true,
 }
@@ -86,6 +87,22 @@ export default function(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         data: {},
+      }
+    case Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST:
+      return {
+        ...state,
+        isLoadingUpdate: true,
+      }
+    case Types.UPDATE_OBJECTIVE_NICKNAME_SUCCESS:
+      return {
+        ...state,
+        isLoadingUpdate: false,
+        data: { ...state.data, nickname: action.payload },
+      }
+    case Types.UPDATE_OBJECTIVE_NICKNAME_FAILURE:
+      return {
+        ...state,
+        isLoadingUpdate: false,
       }
     default:
       return state

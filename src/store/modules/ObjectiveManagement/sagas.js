@@ -5,6 +5,7 @@ import {
   post,
   put as axiosPut,
   remove,
+  patch,
   baseURLNamespaceGoal,
 } from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
@@ -21,6 +22,8 @@ import {
   GetOtherGoalsDataFailure,
   DeleteObjectiveSuccess,
   DeleteObjectiveFailure,
+  UpdateObjectiveNicknameSuccess,
+  UpdateObjectiveNicknameFailure,
 } from './action'
 
 export function* postData({ data, pushHistory, onSuccess, addToast, onError }) {
@@ -199,10 +202,40 @@ export function* deleteObjective({ payload }) {
   }
 }
 
+export function* updateObjectiveNickname({ payload }) {
+  const { addToast, id, nickname, onSuccess } = payload
+  try {
+    yield call(
+      patch,
+      `${baseURLNamespaceGoal}/goals/${id}?nickname=${nickname}`
+    )
+
+    yield put(UpdateObjectiveNicknameSuccess(nickname))
+
+    addToast({
+      type: 'success',
+      title: 'Apelido atualizado com sucesso.',
+    })
+
+    if (onSuccess) {
+      onSuccess()
+    }
+  } catch (err) {
+    yield put(UpdateObjectiveNicknameFailure())
+
+    addToast({
+      type: 'error',
+      description: 'Ocorreu um erro',
+      title: 'Tente novamente mais tarde.',
+    })
+  }
+}
+
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.PUT_SAVE_FUNDS_REQUEST, putSaveFunds),
   takeLatest(Types.GET_REQUEST, getData),
   takeLatest(Types.GET_OTHER_GOALS_REQUEST, getOtherGoalsData),
   takeLatest(Types.DELETE_REQUEST, deleteObjective),
+  takeLatest(Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST, updateObjectiveNickname),
 ])
