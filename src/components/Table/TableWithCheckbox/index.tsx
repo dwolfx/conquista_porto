@@ -48,7 +48,6 @@ const Table = ({
   disableSort = false,
   hasError = false,
   errorMessage = 'Não foi possível carregar suas informações da tabela.',
-  onError,
   isFiltering = false,
   isLoading = false,
   isSticky = false,
@@ -56,6 +55,7 @@ const Table = ({
   onSelect,
   showSelectAll = true,
   hasPagination = false,
+  onError = () => {},
   ...rest
 }: ITable & IProps) => {
   const CellWithCheckbox = useCallback(({ row }: any) => {
@@ -98,10 +98,11 @@ const Table = ({
         onRowClick,
       ]),
       data,
-      disableSortBy: disableSort,
       initialState: { pageIndex: 0, pageSize: 12 },
+      disableSortBy: disableSort,
     },
     useSortBy,
+    usePagination,
     useSticky,
     usePagination,
     useRowSelect,
@@ -206,7 +207,7 @@ const Table = ({
   )
 
   return (
-    <>
+    <s.Wrapper>
       <s.TableWrapper {...rest}>
         {isSticky && !!stickyElementLeft && showLeftShadow && (
           <s.StickyDivisor position={stickyElementLeft} side="left" />
@@ -299,7 +300,7 @@ const Table = ({
           </s.Pagination>
         </s.PaginationWrapper>
       )}
-    </>
+    </s.Wrapper>
   )
 }
 

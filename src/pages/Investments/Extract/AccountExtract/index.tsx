@@ -6,6 +6,8 @@ import Card from 'components/Card'
 
 import BaseLayer from '../BaseLayer'
 import InvestmentAccountDetail from '../InvestmentAccountDetail'
+import ExtractTable from '../ExtractTable'
+
 
 export const initialFilters = {
   interval: {
@@ -39,7 +41,7 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
               height: 410px;
             `}
           >
-            table content
+            <ExtractTable />
           </Card>
         </Col>
       </Row>

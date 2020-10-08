@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects'
 import { get } from 'services/api'
 
 import { getData } from './sagas'
+import mock from './mock.json'
 import { GetBankExtractSuccess, GetBankExtractFailure } from './action'
 
 describe('get bank extract', () => {
@@ -13,7 +14,7 @@ describe('get bank extract', () => {
     }
 
     const generator = getData({ payload })
-    const response = { data: { TipoCritica: 'CRITICA_NEGOCIO' } }
+    const response = { data: { ...mock } }
     expect(generator.next().value).toEqual(
       call(
         get,

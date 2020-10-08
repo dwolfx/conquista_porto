@@ -28,7 +28,11 @@ const TableBody = ({
     return (
       <s.InfoTableContent>
         <div>
-          <Loading type="bar" legend={loadingMessage} />
+          <Loading
+            type="bar"
+            legend={loadingMessage}
+            textAlign="center"
+          />
         </div>
       </s.InfoTableContent>
     )
@@ -41,6 +45,7 @@ const TableBody = ({
           <Text
             type="headline"
             color="magenta2"
+            textAlign="center"
             css={`
               margin-bottom: 14px;
             `}

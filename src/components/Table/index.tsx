@@ -36,6 +36,7 @@ const Table = ({
   hasPagination = false,
   onRowClick,
   customRef,
+  onError = () => {},
   ...rest
 }: ITable) => {
   const {
@@ -64,7 +65,7 @@ const Table = ({
     },
     useSortBy,
     usePagination,
-    useSticky
+    useSticky,
   )
 
   const ref = useRef() as React.RefObject<HTMLDivElement>
@@ -129,7 +130,7 @@ const Table = ({
     .reduce((acc, cur) => calculateStickWidth(acc, cur), 'calc(0% + 0px)')
 
   return (
-    <>
+    <s.Wrapper>
       <s.TableWrapper {...rest}>
         {isSticky && !!stickyElementLeft && showLeftShadow && (
           <s.StickyDivisor position={stickyElementLeft} side="left" />
@@ -166,65 +167,33 @@ const Table = ({
               filteringEmptyMessage={filteringEmptyMessage}
               onRowClick={onRowClick}
               hasPagination={hasPagination}
+              loadingMessage={loadingMessage}
+              onError={onError}
             />
           </s.Tbody>
         </s.Table>
       </s.TableWrapper>
-      {hasPagination && (
-        <s.PaginationWrapper>
-          <s.Pagination>
-            <Text type="body" bold color="gray5">
-              Página
-            </Text>
-            <s.Input
-              ref={inputRef}
-              type="text"
-              defaultValue={pageIndex + 1}
-              onChange={e => {
-                const page = e.target.value ? Number(e.target.value) - 1 : 0
-                if (page <= 0) {
-                  gotoPage(0)
-                  setIndexPage(1)
-                  inputRef.current.value = ''
-                } else if (page > pageOptions.length - 1) {
-                  gotoPage(pageOptions.length - 1)
-                  setIndexPage(pageOptions.length)
-                  inputRef.current.value = pageOptions.length.toString()
-                } else {
-                  setIndexPage(page)
-                  gotoPage(page)
-                }
-              }}
-            />
-            <Text type="body" bold color="gray5">
-              de {hasError ? 0 : pageOptions.length}
-            </Text>
-            <s.PageButtons>
-              <s.Button
-                onClick={() => {
-                  previousPage()
-                  setIndexPage(indexPage - 1)
-                  inputRef.current.value = (indexPage - 1).toString()
-                }}
-                disabled={!canPreviousPage}
-              >
-                <IconExporter name="arrowleft" color="blue4" />
-              </s.Button>
-              <s.Button
-                onClick={() => {
-                  nextPage()
-                  setIndexPage(indexPage + 1)
-                  inputRef.current.value = (indexPage + 1).toString()
-                }}
-                disabled={!canNextPage}
-              >
-                <IconExporter name="arrowright" color="blue4" />
-              </s.Button>
-            </s.PageButtons>
-          </s.Pagination>
-        </s.PaginationWrapper>
-      )}
-    </>
+      {hasPagination &&
+
+      <s.PaginationWrapper>
+        <s.Pagination>
+          <Text type="body" bold color="gray5">Página</Text>
+          <s.PageNumber>
+          <Text bold type="body" color="gray4">{isLoading || hasError ? 0 : pageIndex + 1}</Text>
+          </s.PageNumber>
+          <Text type="body" bold color="gray5">de {hasError ? 0 : pageOptions.length}</Text>
+          <s.PageButtons>
+            <s.Button onClick={() => previousPage()} disabled={!canPreviousPage}>
+              <IconExporter name="arrowleft" color="blue4" />
+            </s.Button>
+            <s.Button onClick={() => nextPage()} disabled={!canNextPage}>
+              <IconExporter name="arrowright" color="blue4"/>
+            </s.Button>
+          </s.PageButtons>
+        </s.Pagination>
+      </s.PaginationWrapper>
+      }
+    </s.Wrapper>
   )
 }
 

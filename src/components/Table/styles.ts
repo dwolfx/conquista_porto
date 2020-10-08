@@ -11,6 +11,11 @@ interface IWrapper {
   isBold?: boolean
 }
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const WrapperContent = styled.div<IWrapper>`
   line-height: ${props => (props.lineHeight ? props.lineHeight : '36px')};
   padding: ${({ theme }) => `${theme.spacing(1)}px 0`};
@@ -211,7 +216,7 @@ export const TheadColumn = styled.div<ITheadColumn>`
 `
 
 export const Tbody = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.gray3};
+  /* border: 1px solid ${({ theme }) => theme.colors.gray3}; */
   height: calc(100% - 56px);
   display: block;
 
@@ -385,3 +390,53 @@ export const Button = styled.button`
     display: block;
   }
 `
+export const PaginationWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${({ theme }) => `${theme.spacing(2)}px`};
+`
+
+export const Pagination = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const PageNumber = styled.div`
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
+  background: ${({theme}) => theme.colors.gray1};
+  border-radius: 8px 8px 0px 0px;
+  padding: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(5)}px ${theme.spacing(1)}px ${theme.spacing(2)}px`};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray4};
+`
+
+export const PageButtons = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid ${({ theme }) => theme.colors.blue4};
+  height: 35px;
+  margin-left: ${({ theme }) => `${theme.spacing(4)}px`};
+`
+
+export const Button = styled.button`
+  appearance: none;
+  width: 42px;
+  height: 100%;
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  & + button {
+    border-left: 1px solid ${({ theme }) => theme.colors.gray3}
+  }
+
+  svg {
+    margin: auto;
+    display: block;
+  }
+`
+

@@ -15,6 +15,20 @@ export function* getData({
     const response = yield call(get, getBankExtractURL)
     yield put(GetBankExtractSuccess(response.data))
     loggerSucess(getBankExtractURL, 'GET', response?.status)
+    const newResponse = {
+      data: {
+        conta: { ...response.data?.conta },
+        transacoes: {
+          transacao: response.data?.transacoes?.transacao.map((res: any) => ({
+            ...res,
+            tipo: res.tipo === 'APLICAÇÃO' ? 'Entrada' : 'Retirada',
+            valor: res.valor.replace('-', ''),
+          })),
+        },
+      },
+    }
+
+    yield put(GetBankExtractSuccess(newResponse.data))
   } catch (err) {
     yield put({
       ...GetBankExtractFailure(),
