@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Card from 'components/Card'
 
 export const LayerCard = styled(Card)`
-  height: 410px;
+  height: 460px;
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
   display: flex;
 `

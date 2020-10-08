@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
 import theme from 'styles/theme'
+import Button from 'components/Button'
 import WithdrawButton from 'components/Button/WithdrawButton'
 import Divisor from 'components/Divisor'
 
@@ -27,6 +28,7 @@ import {
   TextCaption,
   TextError,
 } from './styles'
+import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
 
 const InvestorAccountMobile = () => {
   useFetchBankData()
@@ -85,6 +87,12 @@ const InvestorAccountMobile = () => {
             <CustomVerticalList
               elements={[
                 <TextCaption>SALDO EM CONTA</TextCaption>,
+                <Button
+                  color="primary"
+                  onClick={() => dispatch(OpenAccountExtractLayer())}
+                >
+                  Abrir layer
+                </Button>,
                 <>
                   {renderBallanceInfo(
                     bankData,

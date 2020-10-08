@@ -1,13 +1,26 @@
 import styled from 'styled-components'
 
+import IconButton from 'components/Button/Icon'
 import logoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Icon from 'components/IconExporter'
 import { TextStyle } from 'components/Text/styles'
+
+
+export const FloatButton = styled(IconButton)`
+  content: '';
+  border-radius: 50%;
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  z-index: 11;
+  border: none;
+`
 
 export const LogoConquistaBeta = styled.img.attrs(() => ({
   src: logoConquistaBeta,
   alt: 'Logo Conquista Beta'
 }))``
+
 
 export const HeaderWrapper = styled.div`
   width: 100%;

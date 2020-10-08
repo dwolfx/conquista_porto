@@ -17,14 +17,13 @@ describe('Credit Card actions', () => {
       dataFinal: '2020-01-02',
     }
 
-    expect(GetBankExtractRequest(payload, '3333333333')).toEqual({
+    expect(GetBankExtractRequest(payload)).toEqual({
       type: Types.GET_REQUEST,
       payload: {
         tipoFiltro: 30,
         dataInicial: '2020-01-01',
         dataFinal: '2020-01-02',
-      },
-      cpf: '3333333333',
+      }
     })
   })
 

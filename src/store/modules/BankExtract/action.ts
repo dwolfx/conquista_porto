@@ -1,10 +1,9 @@
 import { Types } from './types'
 
-export function GetBankExtractRequest(payload: any, cpf: string) {
+export function GetBankExtractRequest(payload: any) {
   return {
     type: Types.GET_REQUEST,
     payload,
-    cpf,
   }
 }
 

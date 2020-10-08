@@ -160,6 +160,8 @@ const DatePickerRangeModal: React.FC<IProps> = ({
         </s.DatePickerRangeWrapper>
         {!isMobile ? (
           <s.CloseButton
+            role="button"
+            aria-label="button close modal"
             data-gtm-subname="modal datepickerrange"
             data-gtm-name="botao fechar"
             data-gtm-type="click"
@@ -198,6 +200,7 @@ const DatePickerRangeModal: React.FC<IProps> = ({
           data-gtm-name="selecao de periodo"
           data-gtm-subname="aplicar selecao de periodo"
           onClick={handleApplyRangeDates}
+          disabled={!rangeDates.dateBegin || !rangeDates.dateEnd}
         >
           aplicar
         </s.ButtonStyled>

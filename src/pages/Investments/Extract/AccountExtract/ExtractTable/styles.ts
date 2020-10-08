@@ -1,13 +1,10 @@
 import styled from 'styled-components'
+
 import TableComp from 'components/Table'
 import Text from 'components/Text'
 
-interface IProps {
-  hasError: boolean
-}
-
 export const Table = styled(TableComp)`
-  height: calc(100% - 77px);
+  height: 100%;
 `
 export const StyledDate = styled(Text).attrs(({
   type: "body",
@@ -22,14 +19,4 @@ export const BoldText = styled(Text).attrs(({
   bold: true,
 }))`
   text-transform: capitalize;
-`
-
-export const TableWrapper = styled.div<IProps>`
-  border: ${({ theme, hasError }) => hasError && `1px solid ${theme.colors.gray3}`};
-  border-radius: ${({ hasError }) => hasError && '6px'};
-  height: 100%;
-
-  > div {
-    height: 100%;
-  }
 `
