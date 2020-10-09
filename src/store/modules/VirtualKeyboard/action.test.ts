@@ -1,5 +1,6 @@
 import { Types } from './types'
 import {
+  PostNewSignatureDataRequest,
   PostVirtualKeyboardDataRequest,
   PostVirtualKeyboardDataSuccess,
   PostVirtualKeyboardDataFailure,
@@ -64,6 +65,26 @@ describe('VirtualKeyboard Actions', () => {
     const payload = true
     expect(SetNewSignatureLoading(payload)).toEqual({
       type: Types.SET_LOADING_NEW_SIGNATURE,
+      payload,
+    })
+  })
+
+  test('if PostNewSignatureDataRequest returns the correct object', () => {
+    const payload = {
+      type: 'sms_otp',
+      onSuccessChangeStep: () => {},
+      addToast: () => {},
+      handleModalNewSignatureCloseOrOpen: () => {},
+    }
+    expect(
+      PostNewSignatureDataRequest(
+        'sms_otp',
+        payload.onSuccessChangeStep,
+        payload.addToast,
+        payload.handleModalNewSignatureCloseOrOpen
+      )
+    ).toEqual({
+      type: Types.POST_NEW_SIGNATURE,
       payload,
     })
   })

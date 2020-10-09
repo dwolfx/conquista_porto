@@ -107,6 +107,7 @@ const DigitalSignature = ({
     dispatch(
       PostNewSignatureDataRequest(
         'email_otp',
+        onPrevious,
         addToast,
         handleModalNewSignatureCloseOrOpen
       )
