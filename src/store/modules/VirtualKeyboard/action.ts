@@ -55,6 +55,7 @@ export function SetNewSignatureLoading(payload: boolean) {
 
 export function PostNewSignatureDataRequest(
   type: 'email_otp' | 'sms_otp',
+  onSuccessChangeStep: (stepNumber: number) => void,
   addToast?: (toast: Omit<IToast, 'id'>) => void,
   handleModalNewSignatureCloseOrOpen?: (closeModal: boolean) => void
 ) {
@@ -64,6 +65,7 @@ export function PostNewSignatureDataRequest(
       type,
       addToast,
       handleModalNewSignatureCloseOrOpen,
+      onSuccessChangeStep,
     },
   }
 }

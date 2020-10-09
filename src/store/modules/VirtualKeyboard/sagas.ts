@@ -121,7 +121,11 @@ export function* generateNewSignature() {
 }
 
 export function* postNewSignature({ payload }: IGenerateNewSignaturePayload) {
-  const { addToast, handleModalNewSignatureCloseOrOpen } = payload
+  const {
+    onSuccessChangeStep,
+    addToast,
+    handleModalNewSignatureCloseOrOpen,
+  } = payload
 
   try {
     const auth = yield select(getAuth)
@@ -140,6 +144,8 @@ export function* postNewSignature({ payload }: IGenerateNewSignaturePayload) {
         title: `Enviado para: ${emailToNewSignature}`,
         description: 'Nova assinatura enviada com sucesso',
       })
+
+      onSuccessChangeStep(2)
     }
   } catch (err) {
     yield put(SetNewSignatureLoading(false))

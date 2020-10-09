@@ -16,6 +16,7 @@ export interface IGenerateNewSignaturePayload {
   type: string
   payload: {
     type: 'email_otp' | 'sms_otp'
+    onSuccessChangeStep: (stepNumber: number) => void
     addToast?: (toast: Omit<IToast, 'id'>) => void
     handleModalNewSignatureCloseOrOpen: (closeModal: boolean) => void
   }
