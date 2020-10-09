@@ -13,7 +13,6 @@ import Divisor from 'components/Divisor'
 import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
 import Loading from 'components/Loading'
-import Modal from 'components/Modal/ModalNew'
 import InformativeHeader from 'components/Objective/InformativeHeader'
 import Text from 'components/Text'
 import TransactionHeader from 'components/Header/TransactionsHeader'
@@ -34,7 +33,6 @@ import { get, baseURLNamespaceGoal } from 'services/api'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 import {
   GetObjectiveManagementDataRequest,
-  DeleteObjectiveRequest,
   GetOtherGoalsDataRequest,
 } from 'store/modules/ObjectiveManagement/action'
 

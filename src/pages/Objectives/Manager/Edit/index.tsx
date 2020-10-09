@@ -7,7 +7,6 @@ import { ObjectiveType } from 'helpers/objectives'
 import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
-import Button from 'components/Button'
 import ButtonLink from 'components/Button/Link'
 import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
