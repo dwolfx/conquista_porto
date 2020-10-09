@@ -1,6 +1,7 @@
 import React from 'react'
 
 import userEvent from '@testing-library/user-event'
+import { act } from '@testing-library/react'
 import { renderWithReduxAndTheme } from 'testUtils'
 import { storeFactory } from 'setupTests'
 
@@ -64,6 +65,8 @@ describe('DigitalSignature', () => {
     expect(buttonNode).toBeDisabled()
 
     userEvent.click(getByText('4 ou 9'))
+    userEvent.click(buttonNode)
+
     expect(buttonNode).toBeEnabled()
   })
 
@@ -79,5 +82,19 @@ describe('DigitalSignature', () => {
     expect(buttonNode).toBeEnabled()
     userEvent.click(getByText('backspace.svg'))
     expect(buttonNode).toBeDisabled()
+  })
+
+  it(`should display modal`, () => {
+    const { getByText } = setup()
+    const aNode = getByText('gerar nova assinatura')
+    act(() => {
+      window.resizeTo(500, 500)
+    })
+    userEvent.click(aNode)
+    expect(aNode).toBeEnabled()
+    const modalText = getByText(
+      'Tem certeza que deseja gerar uma nova assinatura eletrônica?'
+    )
+    expect(modalText).toBeInTheDocument()
   })
 })
