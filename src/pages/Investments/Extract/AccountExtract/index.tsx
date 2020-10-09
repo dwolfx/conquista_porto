@@ -1,20 +1,20 @@
 import React from 'react'
+import { Row, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-import { Container, Row, Col } from 'styled-bootstrap-grid'
 
-import Anbima from 'components/Anbima'
 import Card from 'components/Card'
-import Layer from 'components/Layer'
-import Text from 'components/Text'
 
-import {
-  HeaderWrapper,
-  LogoConquistaBeta,
-  CloseIcon,
-  SubHeader,
-  TitleWrapper,
-} from './styles'
+import BaseLayer from '../BaseLayer'
 import InvestmentAccountDetail from '../InvestmentAccountDetail'
+
+export const initialFilters = {
+  interval: {
+    startDate: '',
+    endDate: ''
+  },
+  entry: false,
+  withdraw: false
+}
 
 interface IProps {
   isOpen: boolean
@@ -22,58 +22,28 @@ interface IProps {
 }
 const AccountExtract = ({ isOpen, handleClose }: IProps) => {
   return (
-    <Layer
-      data-testid="layer-account-extract"
+    <BaseLayer
       handleClose={handleClose}
       isOpen={isOpen}
-      alignItems="center"
-      headerContent={
-        <HeaderWrapper>
-          <LogoConquistaBeta />
-          <CloseIcon
-            data-gtm-subname="botao fechar extrato conta"
-            data-gtm-name="botao fechar"
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            name="close"
-            width={24}
-            height={24}
-            onClick={() => handleClose()}
-          />
-        </HeaderWrapper>
-      }
+      id="extrato-conta"
+      title="Conta de investimento"
     >
-      <SubHeader data-testid="subheader">
-        <TitleWrapper>
-          <Text type="headline" color="gray4">Extrato da</Text>
-          <Text type="headline" color="white" data-testid="text-investment-account">Conta de investimento</Text>
-        </TitleWrapper>
-      </SubHeader>
-        <Container
-          css={`
-            margin-top: 28px;
-          `}
-        >
-          <Row>
-            <Col lg={3} md={12}>
-              <InvestmentAccountDetail />
-            </Col>
-            <Col lg={9} md={12}>
-              <Card
-                data-testid="table-account-extract"
-                css={`
-                  height: 410px;
-                `}
-              >Table Extract</Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col col={12}>
-              <Anbima data-testid="ambima" />
-            </Col>
-          </Row>
-        </Container>
-    </Layer>
+      <Row>
+        <Col lg={3} md={12}>
+          <InvestmentAccountDetail />
+        </Col>
+        <Col lg={9} md={12}>
+          <Card
+            data-testid="table-account-extract"
+            css={`
+              height: 410px;
+            `}
+          >
+            table content
+          </Card>
+        </Col>
+      </Row>
+    </BaseLayer>
   )
 }
 export default AccountExtract
