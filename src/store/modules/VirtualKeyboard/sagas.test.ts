@@ -103,6 +103,7 @@ describe('VirtualKeyboard Sagas', () => {
         })
       )
     })
+
     it('postNewSignature: success triggers success action', () => {
       const param: IGenerateNewSignaturePayload = {
         type: 'email_otp',
