@@ -17,7 +17,7 @@ import {
   HOME,
   RETIREMENT,
   SAVE_MONEY,
-  TRIP,
+  TRAVEL,
   IData,
   IDataObject,
   ISuggestionValues,
@@ -240,7 +240,7 @@ const firstStep: IData = {
 
 const dataObjective: IDataObject[] = [
   {
-    goal_type: TRIP,
+    goal_type: TRAVEL,
     enable: false,
     icon: 'plane',
     label: 'Viagem',

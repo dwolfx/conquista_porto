@@ -3,9 +3,9 @@
   "nickname": "Disney",
   "target_value": 22000,
   "target_date": "10/10/2021",
-  "goal_type": 1,
+  "goal_type": "TRAVEL",
   "conquered": false,
-  "total_balance": 16000,  
+  "total_balance": 16000,
   "years": [
     {
       "year": 2019,
@@ -164,7 +164,7 @@
           "id": 1,
           "name": "Las Vegas",
           "value": 1000,
-          "goal_type": 1
+          "goal_type": "TRAVEL"
         }
       ]
     },

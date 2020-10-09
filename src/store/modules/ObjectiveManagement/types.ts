@@ -82,7 +82,7 @@ export type TObjectiveFunds = {
     id: number
     name: string
     value: number
-    goal_type: number
+    goal_type: string
   }[]
   profitability: TProfitability[]
   pendency?: 'INITIAL_VALUE_PENDING'
@@ -95,7 +95,7 @@ export interface IObjectManagement {
   monthly_value: number
   target_value: number
   target_date: string
-  goal_type: number
+  goal_type: string
   conquered: boolean
   total_balance: number
   years: TYear[]

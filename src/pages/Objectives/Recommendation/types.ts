@@ -118,5 +118,5 @@ export interface IFormData {
   is_target_date_flexible?: boolean
   would_like_to_receive_before_final_date?: boolean
   would_like_to_receive_monthly_income?: boolean
-  goal_type?: number
+  goal_type?: string
 }

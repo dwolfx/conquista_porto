@@ -81,7 +81,7 @@ export default function ObjectiveManager() {
     target_value: 0,
     initial_value: 0,
     monthly_value: 0,
-    goal_type: 0,
+    goal_type: 'TRAVEL',
   })
 
   const { pageRecommendation } = location.state || { pageRecommendation: false }

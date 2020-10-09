@@ -77,7 +77,7 @@ export default function EditDrawer({
     target_value: 0,
     initial_value: 0,
     monthly_value: 0,
-    goal_type: 0,
+    goal_type: 'TRAVEL',
   })
 
   const { isLoadingDelete } = useSelector(
@@ -110,7 +110,7 @@ export default function EditDrawer({
             id: objectiveId,
             nickname:
               editValues.nickname ||
-              ObjectiveType.parseIdToName(editValues.goal_type),
+              ObjectiveType.translate(editValues.goal_type),
             addToast,
             onSuccess: () => {
               onClose()

@@ -6102,7 +6102,7 @@
     "initial_value": 15300,
     "monthly_value": 1500,
     "target_date": "10/10/2021",
-    "goal_type": 1,
+    "goal_type": "TRAVEL",
     "conquered": false,
     "total_balance": 16000,
     "years": [
@@ -6261,7 +6261,7 @@
             "id": 626,
             "name": "PVEV-772",
             "value": 1000.7,
-            "goal_type": 3
+            "goal_type": "TRAVEL"
           }
         ],
         "arena_category": "Renda Fixa",
@@ -6350,7 +6350,7 @@
       "is_target_date_flexible": false,
       "would_like_to_receive_before_final_date": false,
       "would_like_to_receive_monthly_income": false,
-      "goal_type": 1,
+      "goal_type": "CAR",
       "profile": 3
     },
     "fund_total_income": {

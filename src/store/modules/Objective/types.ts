@@ -27,7 +27,15 @@ export interface IAnswer {
   target_value: number
   initial_value: number
   monthly_value: number
-  goal_type: number
+  goal_type:
+    | string
+    | 'TRAVEL'
+    | 'RETIRE'
+    | 'CAR'
+    | 'COURSE'
+    | 'EVENT'
+    | 'HOUSE'
+    | 'MONEY'
   is_easy_to_save_planned_amount?: boolean
   is_target_date_flexible?: boolean
   would_like_to_receive_before_final_date?: boolean
