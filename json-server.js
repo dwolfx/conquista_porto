@@ -9,10 +9,9 @@ const middlewares = jsonServer.defaults()
 const recommendationMock = require('./src/mocks/recommendation.json')
 const recommendationMockMobile = require('./src/mocks/recommendation-mobile.json')
 const recommendationRecalculatedFunds = require('./src/mocks/recommendationRecalculatedFunds.json')
-const objectiveMock = require('./src/mocks/objective.json')
-const objectiveMock2 = require('./src/mocks/objective2.json')
-const objectivesMock = require('./src/mocks/objectives.json')
-const otherObjectivesMock = require('./src/mocks/otherObjectives.json')
+const objectiveDetailsMock = require('./src/mocks/objective.json')
+const objectivePut = require('./src/mocks/objectivesUpdateMovement-put.json')
+const objectivesListMock = require('./src/mocks/objectivesList.json')
 const summaryObjectivesMock = require('./src/mocks/summaryObjectives.json')
 const financialApplicationMock = require('./src/mocks/financialApplication.json')
 const withdrawPOSTMock = require('./src/mocks/withdrawPOST.json')
@@ -91,41 +90,37 @@ router.render = (req, res) => {
       },
     })
   }
-  if (req.originalUrl.startsWith('/api/goal/goals/1/funds')) {
-    if (req.method === 'POST') {
-      return res.jsonp(objectiveMock2)
-    }
-  }
 
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
-      if (req.originalUrl.includes('bytype')) {
-        // get other objectives
-        return res.jsonp({ ...otherObjectivesMock })
-      }
-
       if (req.originalUrl.includes('summary')) {
         return res.jsonp(summaryObjectivesMock)
       }
 
+      // specific id - manager screen
       if (!req.originalUrl.endsWith('/api/goal/goals')) {
         // get specific objective
-        return res.jsonp({ ...objectiveMock, id: req.query.id })
+        return res.jsonp({ ...objectiveDetailsMock, id: req.query.id })
       }
 
       // list all objectives
-      return res.jsonp(objectivesMock)
+      return res.jsonp(objectivesListMock)
     }
 
     if (req.method === 'POST') {
-      return res.jsonp({ ...objectiveMock, ...req.body.answer })
+      return res.jsonp({ ...objectiveDetailsMock, ...req.body.answer })
     }
+
     if (req.method === 'DELETE') {
       return res.status(204).jsonp({})
     }
 
     if (req.method === 'PATCH') {
       return res.status(204).jsonp({})
+    }
+
+    if (req.method === 'PUT') {
+      return res.jsonp({ ...objectivePut })
     }
   }
   if (req.originalUrl.endsWith('/adesoes/titular/cpf')) {

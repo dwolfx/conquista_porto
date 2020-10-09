@@ -8,8 +8,10 @@ import Table from 'components/Table'
 
 import useMedia from 'hooks/useMedia'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 
 import RedeemDrawer from './Actions/Redeem'
+import LinkDrawer from './Actions/Link'
 import FundsCards from './Mobile'
 import { columns } from './tableStructure'
 import * as t from './types'
@@ -31,9 +33,11 @@ export default function FundsTable({
   const isTabletVertical = useMedia('md')
 
   const [fundDetailsOpen, setFundDetailsOpen] = useState(false)
-  const [fundDetailsTitle, setFundDetailsTitle] = useState('')
-  const [fundDetailsCategory, setFundDetailsCategory] = useState('')
+  const [fundsDetailsSelected, setFundsDetailsSelected] = useState<
+    TObjectiveFunds | undefined
+  >(undefined)
   const [isRedeemActionOpen, setRedeemActionOpen] = useState(false)
+  const [isLinkActionOpen, setLinkActionOpen] = useState(false)
 
   const menuActions: t.IActions = {
     invest: () => {
@@ -41,16 +45,15 @@ export default function FundsTable({
     },
     redeem: fundInfo => {
       setRedeemActionOpen(true)
-      setFundDetailsTitle(fundInfo.nickname)
-      setFundDetailsCategory(fundInfo.arena_category)
+      setFundsDetailsSelected(fundInfo)
     },
-    attach: () => {
-      console.log('attach')
+    link: fundInfo => {
+      setLinkActionOpen(true)
+      setFundsDetailsSelected(fundInfo)
     },
     info: fundInfo => {
       setFundDetailsOpen(true)
-      setFundDetailsTitle(fundInfo.nickname)
-      setFundDetailsCategory(fundInfo.arena_category)
+      setFundsDetailsSelected(fundInfo)
       dispatch(GetInvestmentDetailsRequest(fundInfo.fund_id))
     },
   }
@@ -62,21 +65,29 @@ export default function FundsTable({
 
   const renderActions = () => (
     <>
-      {isRedeemActionOpen ? (
+      {isRedeemActionOpen && fundsDetailsSelected ? (
         <RedeemDrawer
           isOpen={isRedeemActionOpen}
           handleClose={() => setRedeemActionOpen(false)}
-          fundNickname={fundDetailsTitle}
-          fundCategory={fundDetailsCategory}
+          fund={fundsDetailsSelected}
         />
       ) : null}
 
-      {fundDetailsOpen ? (
+      {isLinkActionOpen && fundsDetailsSelected ? (
+        <LinkDrawer
+          isOpen={isLinkActionOpen}
+          handleClose={() => setLinkActionOpen(false)}
+          fund={fundsDetailsSelected}
+          type={type}
+        />
+      ) : null}
+
+      {fundDetailsOpen && fundsDetailsSelected ? (
         <FundDetails
           isOpen={fundDetailsOpen}
           setIsOpen={setFundDetailsOpen}
-          category={fundDetailsCategory}
-          title={fundDetailsTitle}
+          category={fundsDetailsSelected.arena_category}
+          title={fundsDetailsSelected.nickname}
         />
       ) : null}
     </>

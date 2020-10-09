@@ -96,7 +96,13 @@ export default function EditDrawer({
   const isLoading = useSelector<any, any>(state => state.objective.isLoading)
 
   function handleDeleteGoal(id: number) {
-    dispatch(DeleteObjectiveRequest(id, () => history.push('/'), addToast))
+    dispatch(
+      DeleteObjectiveRequest({
+        id,
+        pushHistoryToHomeScreen: () => history.push('/'),
+        addToast,
+      })
+    )
   }
 
   const footerDrawer = () => (
@@ -106,7 +112,7 @@ export default function EditDrawer({
       onClick={() => {
         dispatch(
           UpdateObjectiveNicknameRequest({
-            id: objectiveId,
+            id: +objectiveId,
             nickname:
               editValues.nickname ||
               ObjectiveType.translate(editValues.goal_type),

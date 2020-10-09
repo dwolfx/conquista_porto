@@ -29,10 +29,7 @@ import {
   UpdateRecommendationRequest,
   PostRecalculateFundsRequest,
 } from 'store/modules/Objective/action'
-import {
-  GetOtherGoalsDataRequest,
-  PostObjectiveManagementDataRequest,
-} from 'store/modules/ObjectiveManagement/action'
+import { PostObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 
 import ResultPredictionCard from './ResultPrediction/Card'
 import ResultPredictionModal from './ResultPrediction/Modal'
@@ -333,9 +330,6 @@ export default function WalletComposition({ onClose }: IProps) {
           addToast,
           onSuccess: () => {
             setIsLoadingObjectiveManagement(false)
-            dispatch(
-              GetOtherGoalsDataRequest({ id: recommendationData.id, addToast })
-            )
           },
           onError: () => setIsLoadingObjectiveManagement(false),
         })

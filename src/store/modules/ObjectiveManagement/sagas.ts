@@ -1,4 +1,4 @@
-import { all, takeLatest, call, put } from 'redux-saga/effects'
+import { all, takeLatest, call, select, put } from 'redux-saga/effects'
 
 import {
   get,
@@ -7,31 +7,45 @@ import {
   remove,
   patch,
   baseURLNamespaceGoal,
+  put as putMethod,
 } from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
 
-import { Types } from './types'
 import {
   PostObjectiveManagementDataSuccess,
   PostObjectiveManagementDataFailure,
-  PutSaveFundsSuccess,
-  PutSaveFundsFailure,
   GetObjectiveManagementDataSuccess,
   GetObjectiveManagementDataFailure,
-  GetOtherGoalsDataSuccess,
-  GetOtherGoalsDataFailure,
   DeleteObjectiveSuccess,
   DeleteObjectiveFailure,
   UpdateObjectiveNicknameSuccess,
   UpdateObjectiveNicknameFailure,
+  PutObjectiveFundsMovementSuccess,
+  PutObjectiveFundsMovementFailure,
 } from './action'
+import { getGoalId } from './selectors'
+import {
+  IDeleteObjectiveRequest,
+  IGetObjectiveManagementDataRequest,
+  IPostObjectiveManagementDataRequest,
+  IPutObjectiveFundsMovementRequest,
+  IUpdateObjectiveNicknameRequest,
+  Types,
+} from './types'
 
-export function* postData({ data, pushHistory, onSuccess, addToast, onError }) {
+export function* postData({
+  data,
+  pushHistory,
+  onSuccess,
+  addToast,
+  onError,
+}: IPostObjectiveManagementDataRequest) {
   try {
     const response = yield call(post, `${baseURLNamespaceGoal}/goals`, {
       ...data,
     })
     yield put(PostObjectiveManagementDataSuccess(response.data))
+
     pushHistory(`/objetivos/gerenciar/${response.data.id}`)
 
     if (onSuccess) {
@@ -53,38 +67,12 @@ export function* postData({ data, pushHistory, onSuccess, addToast, onError }) {
   }
 }
 
-export function* putSaveFunds({ payload }) {
-  const { idGoal, data, onSuccess, addToast } = payload
-  try {
-    const response = yield call(
-      axiosPut,
-      `${baseURLNamespaceGoal}/goals/${idGoal}`,
-      data
-    )
-    yield put(PutSaveFundsSuccess(response.data))
-
-    addToast({
-      type: 'success',
-      title: 'Alterações salvas com sucesso.',
-    })
-
-    if (onSuccess) {
-      onSuccess()
-    }
-  } catch (err) {
-    yield put(PutSaveFundsFailure())
-
-    addToast({
-      type: 'error',
-      description: 'Por favor, tente novamente',
-      title: JSON.parse(err.message).msg || 'Erro ao enviar solicitação.',
-    })
-  }
-}
-
-export function* getData(payload) {
-  const { id, history, path, addToast } = payload
-
+export function* getData({
+  id,
+  onSuccess,
+  onError,
+  addToast,
+}: IGetObjectiveManagementDataRequest) {
   // 'if' added to prevent an API call when breadcrumb is clicked
   if (id) {
     try {
@@ -93,8 +81,8 @@ export function* getData(payload) {
       if (response.data) {
         yield put(GetObjectiveManagementDataSuccess(response.data))
 
-        if (path) {
-          history.push(path)
+        if (onSuccess) {
+          onSuccess()
         }
       } else {
         yield put(GetObjectiveManagementDataFailure())
@@ -107,7 +95,9 @@ export function* getData(payload) {
     } catch (err) {
       yield put(GetObjectiveManagementDataFailure())
 
-      history.push('/')
+      if (onError) {
+        onError()
+      }
 
       addToast({
         type: 'error',
@@ -118,56 +108,9 @@ export function* getData(payload) {
   } else {
     yield put(GetObjectiveManagementDataFailure())
 
-    history.push('/')
-
-    addToast({
-      type: 'error',
-      description: 'Ocorreu um erro',
-      title: 'Tente novamente mais tarde.',
-    })
-  }
-}
-
-export function* getOtherGoalsData(payload) {
-  const { id, history, path, addToast } = payload
-
-  // 'if' added to prevent an API call when breadcrumb is clicked
-  if (id) {
-    try {
-      const response = yield call(
-        get,
-        `${baseURLNamespaceGoal}/goals/bytype/${id}`
-      )
-
-      if (response.data) {
-        yield put(GetOtherGoalsDataSuccess(response.data))
-
-        if (path) {
-          history.push(path)
-        }
-      } else {
-        yield put(GetOtherGoalsDataFailure())
-
-        addToast({
-          type: 'error',
-          title: 'Nenhum objetivo encontrado',
-        })
-      }
-    } catch (err) {
-      yield put(GetOtherGoalsDataFailure())
-
-      history.push('/')
-
-      addToast({
-        type: 'error',
-        description: 'Ocorreu um erro',
-        title: JSON.parse(err.message).msg || 'Tente novamente mais tarde.',
-      })
+    if (onError) {
+      onError()
     }
-  } else {
-    yield put(GetOtherGoalsDataFailure())
-
-    history.push('/')
 
     addToast({
       type: 'error',
@@ -177,11 +120,12 @@ export function* getOtherGoalsData(payload) {
   }
 }
 
-export function* deleteObjective({ payload }) {
-  const { addToast } = payload
-
+export function* deleteObjective({
+  addToast,
+  id,
+  pushHistoryToHomeScreen,
+}: IDeleteObjectiveRequest) {
   try {
-    const { id, pushHistoryToHomeScreen } = payload
     yield call(remove, `${baseURLNamespaceGoal}/goals/${id}`)
     pushHistoryToHomeScreen()
 
@@ -202,8 +146,52 @@ export function* deleteObjective({ payload }) {
   }
 }
 
-export function* updateObjectiveNickname({ payload }) {
-  const { addToast, id, nickname, onSuccess } = payload
+function* putObjectiveFundsMovement({
+  data,
+  addToast,
+  onSuccess,
+  onError,
+}: IPutObjectiveFundsMovementRequest) {
+  try {
+    const goalId = yield select(getGoalId)
+
+    const response = yield call(
+      putMethod,
+      `${baseURLNamespaceGoal}/goals/${goalId}`,
+      data
+    )
+
+    yield put(PutObjectiveFundsMovementSuccess(response.data))
+
+    if (onSuccess) {
+      onSuccess()
+    }
+
+    addToast({
+      type: 'success',
+      title: 'Movimentação do fundo alterada com sucesso',
+    })
+  } catch (error) {
+    yield put(PutObjectiveFundsMovementFailure())
+
+    if (onError) {
+      onError()
+    }
+
+    addToast({
+      type: 'error',
+      description: 'Ocorreu um erro',
+      title: JSON.parse(error.message).msg || 'Tente novamente mais tarde.',
+    })
+  }
+}
+
+export function* updateObjectiveNickname({
+  addToast,
+  id,
+  nickname,
+  onSuccess,
+}: IUpdateObjectiveNicknameRequest) {
   try {
     yield call(
       patch,
@@ -233,9 +221,9 @@ export function* updateObjectiveNickname({ payload }) {
 
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
-  takeLatest(Types.PUT_SAVE_FUNDS_REQUEST, putSaveFunds),
   takeLatest(Types.GET_REQUEST, getData),
-  takeLatest(Types.GET_OTHER_GOALS_REQUEST, getOtherGoalsData),
+  takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.DELETE_REQUEST, deleteObjective),
   takeLatest(Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST, updateObjectiveNickname),
+  takeLatest(Types.PUT_FUNDS_MOVEMENT_REQUEST, putObjectiveFundsMovement),
 ])

@@ -10,7 +10,11 @@ export const generateActionMenuOptions = (
     {
       icon: 'add',
       text: 'Investir',
-      onClick: () => actions?.invest(fundInfo),
+      onClick: () => {
+        if (actions?.invest) {
+          actions.invest(fundInfo)
+        }
+      },
     },
   ]
 
@@ -20,7 +24,11 @@ export const generateActionMenuOptions = (
       {
         icon: 'minus',
         text: 'Resgatar',
-        onClick: () => actions?.redeem(fundInfo),
+        onClick: () => {
+          if (actions?.redeem) {
+            actions.redeem(fundInfo)
+          }
+        },
       },
     ]
   }
@@ -31,7 +39,11 @@ export const generateActionMenuOptions = (
   //     {
   //       icon: 'list',
   //       text: 'Extrato de movimentações',
-  //       onClick: () => actions?.extract(fundInfo),
+  // onClick: () => {
+  //   if (actions?.extract) {
+  //     actions?.extract(fundInfo)
+  //   }
+  // },
   //     },
   //   ]
   // }
@@ -42,7 +54,11 @@ export const generateActionMenuOptions = (
       {
         icon: 'money',
         text: 'Vincular disponível ao objetivo',
-        onClick: () => actions?.attach(fundInfo),
+        onClick: () => {
+          if (actions?.link) {
+            actions.link(fundInfo)
+          }
+        },
       },
     ]
   }
@@ -52,7 +68,11 @@ export const generateActionMenuOptions = (
     {
       icon: 'information',
       text: 'Mais informações',
-      onClick: () => actions?.info(fundInfo),
+      onClick: () => {
+        if (actions?.info) {
+          actions.info(fundInfo)
+        }
+      },
     },
   ]
 }

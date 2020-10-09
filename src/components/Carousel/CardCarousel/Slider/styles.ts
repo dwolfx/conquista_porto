@@ -13,6 +13,10 @@ export const ContentContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   display: flex;
   margin-top: ${({ theme }) => theme.spacing(5)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin-top: 0;
+  }
 `
 
 const ChangePageButton = styled(IconButton).attrs(() => ({

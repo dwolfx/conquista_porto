@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
@@ -6,13 +6,28 @@ import HorizontalList from 'components/HorizontalList'
 import MoneyInput from 'components/Inputs/Money'
 import Text from 'components/Text'
 
-import { Currency } from 'helpers/money'
+import { Currency, BRLCurrency } from 'helpers/money'
 
-import { IUnlinkContent } from './types'
+import { IUnlinkContent, TError } from './types'
 import * as s from './styles'
 
-export default function({ value: { value }, setValue }: IUnlinkContent) {
+export default function({
+  value,
+  setValue,
+  fundInfo,
+  setButtonIsDisabled,
+}: IUnlinkContent) {
   const theme = useContext(ThemeContext)
+  const [innerValue, setInnerValue] = useState(value)
+  const [error, setError] = useState<TError>(undefined)
+
+  // useEffect(() => {
+  //   if (innerValue === 0 || error) {
+  //     setHasError(true)
+  //   } else {
+  //     setHasError(false)
+  //   }
+  // }, [innerValue])
 
   return (
     <>
@@ -24,7 +39,7 @@ export default function({ value: { value }, setValue }: IUnlinkContent) {
         ]}
         endItems={[
           <Text type="headline" color="gray6" bold>
-            {Currency.parse(1500, true)}
+            {Currency.parse(fundInfo.invested, true)}
           </Text>,
         ]}
         noPadding
@@ -43,13 +58,26 @@ export default function({ value: { value }, setValue }: IUnlinkContent) {
       </Text>
 
       <MoneyInput
-        value={Currency.parse(value || 0)}
-        onChange={({ target }: React.ChangeEvent<HTMLInputElement>) =>
-          setValue(currentValue => ({
-            ...currentValue,
-            value: +target.value,
-          }))
-        }
+        error={error}
+        value={Currency.parse(innerValue)}
+        onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
+          const targetValue = new BRLCurrency(target.value).toNumber()
+
+          if (targetValue > fundInfo.invested) {
+            setError({
+              icon: 'alertrounded',
+              message: 'Valor acima do disponível',
+            })
+          } else {
+            setError(undefined)
+          }
+          setInnerValue(targetValue)
+        }}
+        onBlur={({ target }: React.ChangeEvent<HTMLInputElement>) => {
+          const targetValue = new BRLCurrency(target.value).toNumber()
+
+          setValue(targetValue)
+        }}
       />
     </>
   )

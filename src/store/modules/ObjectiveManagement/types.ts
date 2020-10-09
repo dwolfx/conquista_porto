@@ -1,26 +1,28 @@
-import { TProfitability } from 'store/modules/Objective/types'
+import { IToast } from 'hooks/toast'
+import { TProfitability, IRecommendations } from 'store/modules/Objective/types'
 
 export const Types = {
   POST_REQUEST: 'MANAGEMENT_POST_REQUEST',
   POST_SUCCESS: 'MANAGEMENT_POST_SUCCESS',
   POST_FAILURE: 'MANAGEMENT_POST_FAILURE',
-  POST_SAVE_FUNDS_REQUEST: 'SAVE_FUNDS_POST_REQUEST',
-  POST_SAVE_FUNDS_SUCCESS: 'SAVE_FUNDS_POST_SUCCESS',
-  POST_SAVE_FUNDS_FAILURE: 'SAVE_FUNDS_POST_FAILURE',
   GET_REQUEST: 'MANAGEMENT_GET_REQUEST',
   GET_SUCCESS: 'MANAGEMENT_GET_SUCCESS',
   GET_FAILURE: 'MANAGEMENT_GET_FAILURE',
-  GET_OTHER_GOALS_REQUEST: 'MANAGEMENT_GET_OTHER_GOALS_REQUEST',
-  GET_OTHER_GOALS_SUCCESS: 'MANAGEMENT_GET_OTHER_GOALS_SUCCESS',
-  GET_OTHER_GOALS_FAILURE: 'MANAGEMENT_GET_OTHER_GOALS_FAILURE',
   DELETE_REQUEST: 'MANAGEMENT_DELETE_REQUEST',
   DELETE_SUCCESS: 'MANAGEMENT_DELETE_SUCCESS',
   DELETE_FAILURE: 'MANAGEMENT_DELETE_FAILURE',
+  PUT_FUNDS_MOVEMENT_REQUEST: 'PUT_FUNDS_MOVEMENT_REQUEST',
+  PUT_FUNDS_MOVEMENT_SUCCESS: 'PUT_FUNDS_MOVEMENT_SUCCESS',
+  PUT_FUNDS_MOVEMENT_FAILURE: 'PUT_FUNDS_MOVEMENT_FAILURE',
   CLEAN_DATA: 'MANAGEMENT_CLEAN_DATA',
   UPDATE_OBJECTIVE_NICKNAME_REQUEST: 'MANAGEMENT_UPDATE_NICKNAME_REQUEST',
   UPDATE_OBJECTIVE_NICKNAME_SUCCESS: 'MANAGEMENT_UPDATE_NICKNAME_SUCCESS',
   UPDATE_OBJECTIVE_NICKNAME_FAILURE: 'MANAGEMENT_UPDATE_NICKNAME_FAILURE',
 }
+
+/**
+ * API CONTRACT INTERFACES
+ */
 
 type TMonthsInNumbers =
   | '1'
@@ -111,4 +113,55 @@ export interface IObjectManagement {
       checked: boolean
     }[]
   }
+}
+
+/**
+ * ACTIONS INTERFACES
+ */
+
+type TToast = (toast: Omit<IToast, 'id'>) => void
+
+export interface IPostObjectiveManagementDataRequest {
+  type: keyof typeof Types.POST_REQUEST
+  data: Omit<IRecommendations, 'income'>
+  pushHistory: (path: string) => void
+  onSuccess: () => void
+  onError: () => void
+  addToast: TToast
+}
+
+export interface IGetObjectiveManagementDataRequest {
+  type: keyof typeof Types.GET_REQUEST
+  id: number
+  onSuccess?: () => void
+  onError?: () => void
+  addToast: TToast
+}
+
+export interface IDeleteObjectiveRequest {
+  type: keyof typeof Types.DELETE_REQUEST
+  id: number
+  pushHistoryToHomeScreen: () => void
+  addToast: TToast
+}
+
+export interface IPutObjectiveFundsMovementRequest {
+  type: keyof typeof Types.PUT_FUNDS_MOVEMENT_REQUEST
+  data: {
+    fund_list: {
+      fund_id: number
+      value: number
+    }[]
+  }
+  onSuccess?: () => void
+  onError?: () => void
+  addToast: TToast
+}
+
+export interface IUpdateObjectiveNicknameRequest {
+  type: keyof typeof Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST
+  id: number
+  nickname: string
+  onSuccess?: () => void
+  addToast: TToast
 }

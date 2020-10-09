@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
 import Button from 'components/Button'
 import Drawer from 'components/Drawer'
 import Icon from 'components/IconExporter'
+import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
+
+import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
+import { PutObjectiveFundsMovementRequest } from 'store/modules/ObjectiveManagement/action'
 
 import RedeemContent from './RedeemContent'
 import TransferContent from './TransferContent'
@@ -12,18 +18,20 @@ import UnlinkContent from './UnlinkContent'
 import * as t from './types'
 import * as s from './styles'
 
-export default function({
-  isOpen,
-  handleClose,
-  fundNickname,
-  fundCategory,
-}: t.IRedeem) {
+export default function({ isOpen, handleClose, fund }: t.IRedeem) {
+  const dispatch = useDispatch()
+  const isMobile = useMedia('sm')
+  const { addToast } = useToast()
+
+  const { isLoadingFundsMovement } = useSelector(
+    (state: t.IState) => state.objectiveManagement
+  )
+
   const [redeemOptionSelected, setRedeemOptionSelected] = useState<
     t.TRedeemOptions
   >(undefined)
-  const [unlinkValue, setUnlinkValue] = useState({
-    value: 0,
-  })
+  const [buttonIsDisabled, setButtonIsDisabled] = useState(true)
+  const [unlinkValue, setUnlinkValue] = useState(0)
   const [transferValue, setTransferValue] = useState({
     value: 0,
     objectiveId: 0,
@@ -68,17 +76,70 @@ export default function({
     ]
   )
 
-  if (!fundNickname || !fundCategory) {
+  if (!fund) {
     return null
   }
 
-  const DrawerFooter = () => {
+  const DrawerHeader = useCallback(
+    () => (
+      <s.DrawerHeader>
+        <s.DrawerTitle>
+          <Text type="heading4" color="gray6" bold>
+            {fund.nickname}
+          </Text>
+          <Text color="gray4" bold>
+            {fund.arena_category}
+          </Text>
+        </s.DrawerTitle>
+        {redeemOptionSelected ? (
+          <Icon
+            data-gtm-subname={`drawer resgatar opção ${redeemOptionSelected} - ${fund.nickname}`}
+            data-gtm-name="botao voltar"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            name="arrowleft"
+            height={36}
+            width={36}
+            onClick={() => setRedeemOptionSelected(undefined)}
+          />
+        ) : (
+          <Icon
+            data-gtm-subname={`drawer resgatar - ${fund.nickname}`}
+            data-gtm-name="botao fechar"
+            data-gtm-type="click"
+            data-gtm-clicktype="button"
+            name="close"
+            height={36}
+            width={36}
+            onClick={handleClose}
+          />
+        )}
+      </s.DrawerHeader>
+    ),
+    [fund, redeemOptionSelected, handleClose]
+  )
+
+  const DrawerFooter = useCallback(() => {
     switch (redeemOptionSelected) {
       case 'unlink':
         return (
           <Button
-            onClick={handleClose}
-            disabled
+            onClick={() => {
+              const { fund_id, invested } = fund
+
+              dispatch(
+                PutObjectiveFundsMovementRequest({
+                  data: {
+                    fund_list: [{ fund_id, value: invested - unlinkValue }],
+                  },
+                  onSuccess: handleClose,
+                  addToast,
+                })
+              )
+            }}
+            disabled={buttonIsDisabled}
+            loading={isLoadingFundsMovement}
+            loadingColor="white"
             css={`
               width: 100%;
             `}
@@ -122,15 +183,35 @@ export default function({
           </Button>
         )
     }
-  }
+  }, [
+    redeemOptionSelected,
+    handleClose,
+    unlinkValue,
+    addToast,
+    buttonIsDisabled,
+    dispatch,
+    fund,
+    isLoadingFundsMovement,
+  ])
 
-  const DrawerContent = () => {
+  const DrawerContent = useCallback(() => {
     switch (redeemOptionSelected) {
       case 'unlink':
-        return <UnlinkContent value={unlinkValue} setValue={setUnlinkValue} />
+        return (
+          <UnlinkContent
+            value={unlinkValue}
+            setValue={setUnlinkValue}
+            fundInfo={fund}
+            setButtonIsDisabled={setButtonIsDisabled}
+          />
+        )
       case 'transfer':
         return (
-          <TransferContent value={transferValue} setValue={setTransferValue} />
+          <TransferContent
+            value={transferValue}
+            setValue={setTransferValue}
+            fundInfo={fund}
+          />
         )
       case 'redeem':
         return (
@@ -139,7 +220,9 @@ export default function({
             setOptions={setRedeemOptions}
           />
         )
-      default:
+      default: {
+        setButtonIsDisabled(false)
+
         return (
           <>
             <s.DrawerItem>
@@ -180,49 +263,36 @@ export default function({
             </s.DrawerItem>
           </>
         )
+      }
     }
+  }, [
+    redeemOptionSelected,
+    redeemOptions,
+    transferValue,
+    unlinkValue,
+    fund,
+    setButtonIsDisabled,
+  ])
+
+  if (isMobile) {
+    return (
+      <Modal
+        isOpen={isOpen}
+        footer={<DrawerFooter />}
+        handleClose={handleClose}
+        header={<DrawerHeader />}
+      >
+        <DrawerContent />
+      </Modal>
+    )
   }
 
   return (
     <Drawer
       isOpen={isOpen}
-      handleClose={handleClose}
-      header={
-        <s.DrawerHeader>
-          <s.DrawerTitle>
-            <Text type="heading4" color="gray6" bold>
-              {fundNickname}
-            </Text>
-            <Text color="gray4" bold>
-              {fundCategory}
-            </Text>
-          </s.DrawerTitle>
-          {redeemOptionSelected ? (
-            <Icon
-              data-gtm-subname={`drawer resgatar opção ${redeemOptionSelected} - ${fundNickname}`}
-              data-gtm-name="botao voltar"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              name="arrowleft"
-              height={36}
-              width={36}
-              onClick={() => setRedeemOptionSelected(undefined)}
-            />
-          ) : (
-            <Icon
-              data-gtm-subname={`drawer resgatar - ${fundNickname}`}
-              data-gtm-name="botao fechar"
-              data-gtm-type="click"
-              data-gtm-clicktype="button"
-              name="close"
-              height={36}
-              width={36}
-              onClick={handleClose}
-            />
-          )}
-        </s.DrawerHeader>
-      }
       footer={<DrawerFooter />}
+      handleClose={handleClose}
+      header={<DrawerHeader />}
     >
       <DrawerContent />
     </Drawer>

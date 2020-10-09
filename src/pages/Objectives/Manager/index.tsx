@@ -31,14 +31,11 @@ import ObjectiveTracking from 'pages/Objectives/Manager/ObjectiveTracking'
 
 import { get, baseURLNamespaceGoal } from 'services/api'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
-import {
-  GetObjectiveManagementDataRequest,
-  GetOtherGoalsDataRequest,
-} from 'store/modules/ObjectiveManagement/action'
+import { GetObjectiveManagementDataRequest } from 'store/modules/ObjectiveManagement/action'
 
 import theme from 'styles/theme'
 
-import { IRecommendations, IAnswer } from 'store/modules/Objective/types'
+import { IAnswer } from 'store/modules/Objective/types'
 import * as t from './types'
 import * as s from './styles'
 
@@ -139,15 +136,12 @@ export default function ObjectiveManager() {
     ) {
       dispatch(
         GetObjectiveManagementDataRequest({
-          id: objectiveId,
-          history,
+          id: +objectiveId,
           addToast,
         })
       )
-
-      dispatch(GetOtherGoalsDataRequest({ id: objectiveId, addToast }))
     }
-  }, [dispatch, history, objectiveData, objectiveId, addToast])
+  }, [dispatch, objectiveData, objectiveId, addToast])
 
   useEffect(() => {
     if (objectiveData) {
@@ -245,7 +239,7 @@ export default function ObjectiveManager() {
         funds={pendingFunds}
         icon="financial"
         title="Fundos com investimento inicial pendente"
-        type="monthly"
+        type="initial"
         showInfoCardOnMobile={showInfoCardOnMobile}
         isAccordion
         footer={renderCardFooterTotalInitalInvested(pendingFunds)}

@@ -1,10 +1,10 @@
 import { dict } from 'components/IconExporter'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 
-type TActions = 'invest' | 'redeem' | 'extract' | 'attach' | 'info'
-
-export interface IActions {
-  [key: string]: (fundInfo: TObjectiveFunds) => void
+export type IActions = {
+  [key in 'invest' | 'redeem' | 'extract' | 'link' | 'info']?: (
+    fundInfo: TObjectiveFunds
+  ) => void
 }
 
 export interface IProps {

@@ -3,21 +3,23 @@ import { Types } from './types'
 const INITIAL_STATE = {
   data: null,
   isLoading: true,
-  isLoadingSave: false,
+  isLoadingObjectiveList: true,
   isLoadingDelete: false,
   isLoadingUpdate: false,
-  otherGoalsManagement: {},
-  isLoadingOtherGoals: true,
+  isLoadingFundsMovement: false,
+  hasErrorFundsMovement: false,
 }
 
 export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
+    case Types.GET_REQUEST:
     case Types.POST_REQUEST:
     case Types.GET_REQUEST:
       return {
         ...state,
         isLoading: true,
       }
+    case Types.GET_SUCCESS:
     case Types.POST_SUCCESS:
     case Types.GET_SUCCESS:
       return {
@@ -25,47 +27,13 @@ export default function(state = INITIAL_STATE, action: any) {
         data: action.payload,
         isLoading: false,
       }
+    case Types.GET_FAILURE:
     case Types.POST_FAILURE:
     case Types.GET_FAILURE:
       return {
         ...state,
         data: {},
         isLoading: false,
-      }
-    case Types.PUT_SAVE_FUNDS_REQUEST:
-      return {
-        ...state,
-        isLoadingSave: true,
-      }
-    case Types.PUT_SAVE_FUNDS_SUCCESS:
-      return {
-        ...state,
-        data: action.payload ? action.payload : state.data,
-        isLoadingSave: false,
-      }
-    case Types.PUT_SAVE_FUNDS_FAILURE:
-      return {
-        ...state,
-        error: true,
-        isLoadingSave: false,
-      }
-
-    case Types.GET_OTHER_GOALS_REQUEST:
-      return {
-        ...state,
-        isLoadingOtherGoals: true,
-      }
-    case Types.GET_OTHER_GOALS_SUCCESS:
-      return {
-        ...state,
-        otherGoalsManagement: action.payload,
-        isLoadingOtherGoals: false,
-      }
-    case Types.GET_OTHER_GOALS_FAILURE:
-      return {
-        ...state,
-        otherGoalsManagement: {},
-        isLoadingOtherGoals: false,
       }
     case Types.DELETE_REQUEST:
       return {
@@ -83,6 +51,24 @@ export default function(state = INITIAL_STATE, action: any) {
         ...state,
         isLoadingDelete: false,
       }
+    case Types.PUT_FUNDS_MOVEMENT_REQUEST:
+      return {
+        ...state,
+        isLoadingFundsMovement: true,
+        hasErrorFundsMovement: false,
+      }
+    case Types.PUT_FUNDS_MOVEMENT_SUCCESS:
+      return {
+        ...state,
+        isLoadingFundsMovement: false,
+        data: { ...action.payload },
+      }
+    case Types.PUT_FUNDS_MOVEMENT_FAILURE:
+      return {
+        ...state,
+        isLoadingFundsMovement: false,
+        hasErrorFundsMovement: true,
+      }
     case Types.CLEAN_DATA:
       return {
         ...state,
@@ -97,7 +83,10 @@ export default function(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         isLoadingUpdate: false,
-        data: { ...state.data, nickname: action.payload },
+        data: {
+          ...(state.data || {}),
+          nickname: action.payload,
+        },
       }
     case Types.UPDATE_OBJECTIVE_NICKNAME_FAILURE:
       return {
