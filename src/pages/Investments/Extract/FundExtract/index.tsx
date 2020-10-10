@@ -90,27 +90,23 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
     >
       <Row>
         <Col lg={3} md={12}>
-          <FundDetailContainer>
             <FundDetailCard
               handleFundDetailOpen={() => setFundDetailOpen(true)}
               selectedFundId={idFund}
               isRedeem={false}
             />
-          </FundDetailContainer>
-        </Col>
-        <Col lg={9} md={12}>
-          <Card
-            data-testid="table-account-extract"
-            css={`
-              height: 460px;
-              padding: 21px 21px 0 21px;
-            `}
-          >
-            <Filter />
-            <ExtractTable dataTable={extractTableData} />
-          </Card>
-        </Col>
-      </Row>
+          </Col>
+          <Col lg={9} md={12}>
+            <Card
+              data-testid="table-account-extract"
+              css={`
+                height: 410px;
+              `}
+            >
+              Table Extract
+            </Card>
+          </Col>
+        </Row>
       {isMobile ? (
         <FundDetailModal
           isOpen={isFundDetailOpen}

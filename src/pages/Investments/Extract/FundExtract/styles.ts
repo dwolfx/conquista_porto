@@ -9,7 +9,7 @@ import { TheadTr, TbodyTr } from 'components/Table/styles'
 import logoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Icon from 'components/IconExporter'
 import { TextStyle } from 'components/Text/styles'
-import { LayerCard } from 'components/FundDetail/Card/styles'
+import { Row } from 'styled-bootstrap-grid'
 
 export const LogoConquistaBeta = styled.img.attrs(() => ({
   src: logoConquistaBeta,
@@ -70,31 +70,4 @@ export const ButtonClearFilters = styled(ButtonLink)<IButtonClearFilters>`
   margin-left: ${({ theme }) => theme.spacing(1)}px;
   color: ${props =>
     props.hasFilter ? props.theme.colors.blue4 : props.theme.colors.gray4};
-`
-
-export const FundDetailContainer = styled.div`
-  ${LayerCard} {
-    height: 460px;
-  }
-`
-
-export const WrapperSelectRange = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  margin-right: ${({ theme }) => theme.spacing(3)}px;
-`
-
-export const WrapperFilters = styled.div`
-  display: flex;
-`
-
-export const StyledTable = styled(Table)`
-  height: 292px;
-  ${TheadTr} {
-    justify-content: space-between;
-  }
-  ${TbodyTr} {
-    justify-content: space-between;
-    height: 56px;
-  }
 `
