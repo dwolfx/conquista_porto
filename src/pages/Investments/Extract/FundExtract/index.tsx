@@ -11,19 +11,11 @@ import FundDetailModal from 'components/FundDetail/Modal'
 import Layer from 'components/Layer'
 import Text from 'components/Text'
 
-import Filter from './filter'
-import ExtractTable from './extractTable'
-
 import useMedia from 'hooks/useMedia'
-
-// import useFilterExtract from './useFilter'
 
 import {
   HeaderWrapper,
   LogoConquistaBeta,
-  CloseIcon,
-  SubHeader,
-  TitleWrapper,
   FundDetailContainer,
 } from './styles'
 
@@ -133,24 +125,20 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
       >
         <Row>
           <Col lg={3} md={12}>
-            <FundDetailContainer>
-              <FundDetailCard
-                handleFundDetailOpen={() => setFundDetailOpen(true)}
-                selectedFundId={idFund}
-                isRedeem={false}
-              />
-            </FundDetailContainer>
+            <FundDetailCard
+              handleFundDetailOpen={() => setFundDetailOpen(true)}
+              selectedFundId={idFund}
+              isRedeem={false}
+            />
           </Col>
           <Col lg={9} md={12}>
             <Card
               data-testid="table-account-extract"
               css={`
                 height: 410px;
-                padding: 21px 21px 0 21px;
               `}
             >
-              <Filter />
-              <ExtractTable dataTable={extractTableData} />
+              Table Extract
             </Card>
           </Col>
         </Row>
