@@ -32,7 +32,7 @@ afterEach(() => {
 const defaultStore = {
   consolidatedPosition: {
     data: {
-      saldototal: 1000,
+      saldo_total: 1000,
       categorias: [
         {
           nome: 'Multimercado',

@@ -13,7 +13,7 @@ interface ICategoria {
 }
 
 export interface IDataConsolidatedPosition {
-  saldototal: number
+  saldo_total: number
   categorias?: ICategoria[]
 }
 

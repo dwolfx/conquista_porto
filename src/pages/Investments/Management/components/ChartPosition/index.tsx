@@ -135,7 +135,7 @@ const ChartPosition: React.FC = () => {
         payload || {
           value:
             (consolidatedPosition.data &&
-              consolidatedPosition.data.saldototal) ||
+              consolidatedPosition.data.saldo_total) ||
             0,
           percent: 0,
         }
@@ -152,7 +152,8 @@ const ChartPosition: React.FC = () => {
     if (consolidatedPosition.data) {
       settingPieChartInfo({
         value:
-          (consolidatedPosition.data && consolidatedPosition.data.saldototal) ||
+          (consolidatedPosition.data &&
+            consolidatedPosition.data.saldo_total) ||
           0,
       })
     }

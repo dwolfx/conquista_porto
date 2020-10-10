@@ -15,7 +15,7 @@ describe('Consolidated Position Actions', () => {
   test('if GetConsolidatedPositionDataSuccess returns the correct object', () => {
     const payload = {
       categorias: [{ nome: 'teste ok', valor: 0 }],
-      saldototal: 0,
+      saldo_total: 0,
     }
 
     expect(GetConsolidatedPositionDataSuccess(payload)).toEqual({

@@ -11,6 +11,7 @@ import useMedia from 'hooks/useMedia'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
+import { OpenBankExtractFundLayer } from 'store/modules/BankExtractFund/action'
 
 import { InvestorAccountInfoEnum } from '../../types'
 

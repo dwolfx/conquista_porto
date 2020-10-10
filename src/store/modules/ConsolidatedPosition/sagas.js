@@ -2,7 +2,7 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import {
   get,
-  // baseURLNamespaceAtlas,
+  baseURLNamespaceAtlas,
   baseURLNamespaceInvest,
 } from 'services/api'
 
@@ -16,7 +16,12 @@ import {
 export function* getData() {
   const getConsolidatedPositionURL = `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
   try {
-    const response = yield call(get, getConsolidatedPositionURL)
+    // const response = yield call(get, getConsolidatedPositionURL)
+    const response = yield call(
+      get,
+      `${baseURLNamespaceAtlas}/cotista/posicao/consolidado`
+      // `${baseURLNamespaceInvest}/cotistas/posicao-consolidada`
+    )
     /*
       Esta alteração "remendo" que estamos fazendo na release 3.1.1, é para ajustar
       um problema que ocorreu no dia 23/09/2020. Ao subir a release 3.1.1 em
@@ -77,10 +82,10 @@ export function* getData() {
             "valor": 3654814.94
           }
         ],
-        "saldototal": 20991547.42
+        "saldo_total": 20991547.42
       }
       Esta alteração de um serviço para outro mudaram o nome da propriedade de
-      "saldototal" para "saldo_total". Esta mudança nos obriga a trocar
+      "saldo_total" para "saldo_total". Esta mudança nos obriga a trocar
       este campo em todos os lugares que o utilizam, causando assim várias
       alterações que seriam desnecessárias se padrões e boas práticas fosse
       seguidos pelas API's que o conquista consome.

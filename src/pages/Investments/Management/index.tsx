@@ -7,6 +7,7 @@ import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
 import useMedia from 'hooks/useMedia'
 import Redeem from 'pages/Redeem'
 import AccountExtract from 'pages/Investments/Extract/AccountExtract'
+import FundExtract from 'pages/Investments/Extract/FundExtract'
 import { RedeemLayerToggleClose } from 'store/modules/Investment/Redeem/action'
 import { SetIdFund } from 'store/modules/Investment/Position/action'
 
@@ -16,16 +17,23 @@ import TabletComponent from './Tablet'
 import { TFundsLayout } from './types'
 import { GridContainer } from './styles'
 import { CloseAccountExtractLayer } from 'store/modules/BankExtract/action'
+import { CloseBankExtractFundLayer } from 'store/modules/BankExtractFund/action'
 
 const ManagementInvestments: React.FC = ({ ...rest }) => {
   const dispatch = useDispatch()
   const isTablet = useMedia('lg')
   const [filters, setFilters] = useState<string[]>([])
   const [viewMode, setViewMode] = useState<TFundsLayout>('CARDS')
-  const { idFund, isLayerOpen, isAccountExtractOpen } = useSelector((state: any) => ({
+  const {
+    idFund,
+    isLayerOpen,
+    isAccountExtractOpen,
+    isFundExtractOpen,
+  } = useSelector((state: any) => ({
     idFund: state.investmentPosition.idFund,
     isLayerOpen: state.redeemData.isLayerOpen,
-    isAccountExtractOpen: state.bankExtract.isLayerOpen
+    isAccountExtractOpen: state.bankExtract.isLayerOpen,
+    isFundExtractOpen: state.bankExtractFund.isLayerOpen,
   }))
 
   useFetchPosition()
@@ -86,9 +94,13 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
         handleClose={() => dispatch(RedeemLayerToggleClose())}
         selectedFundId={idFund}
       />
-      <AccountExtract 
+      <AccountExtract
         isOpen={isAccountExtractOpen}
         handleClose={() => dispatch(CloseAccountExtractLayer())}
+      />
+      <FundExtract
+        isOpen={isFundExtractOpen}
+        handleClose={() => dispatch(CloseBankExtractFundLayer())}
       />
     </>
   )

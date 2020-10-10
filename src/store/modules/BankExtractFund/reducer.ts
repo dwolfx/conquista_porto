@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   data: [],
   isLoading: false,
   hasError: false,
+  isLayerOpen: false,
 }
 
 export default function(state = INITIAL_STATE, action: any) {
@@ -33,6 +34,16 @@ export default function(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         data: {},
+      }
+    case Types.OPEN_LAYER_EXTRATO:
+      return {
+        ...state,
+        isLayerOpen: true,
+      }
+    case Types.CLOSE_LAYER_EXTRATO:
+      return {
+        ...state,
+        isLayerOpen: false,
       }
     default:
       return state
