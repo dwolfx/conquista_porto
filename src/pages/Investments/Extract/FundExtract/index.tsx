@@ -11,6 +11,9 @@ import FundDetailModal from 'components/FundDetail/Modal'
 import Layer from 'components/Layer'
 import Text from 'components/Text'
 
+import Filter from './filter'
+import ExtractTable from './extractTable'
+
 import useMedia from 'hooks/useMedia'
 
 import {
@@ -125,20 +128,24 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
       >
         <Row>
           <Col lg={3} md={12}>
-            <FundDetailCard
-              handleFundDetailOpen={() => setFundDetailOpen(true)}
-              selectedFundId={idFund}
-              isRedeem={false}
-            />
+            <FundDetailContainer>
+              <FundDetailCard
+                handleFundDetailOpen={() => setFundDetailOpen(true)}
+                selectedFundId={idFund}
+                isRedeem={false}
+              />
+            </FundDetailContainer>
           </Col>
           <Col lg={9} md={12}>
             <Card
               data-testid="table-account-extract"
               css={`
                 height: 410px;
+                padding: 21px 21px 0 21px;
               `}
             >
-              Table Extract
+              <Filter />
+              <ExtractTable dataTable={[]} />
             </Card>
           </Col>
         </Row>
