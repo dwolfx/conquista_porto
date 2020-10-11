@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Row } from 'styled-bootstrap-grid'
 
 import ButtonTag from 'components/Button/Tag'
 import ButtonLink from 'components/Button/Link'
@@ -6,7 +7,7 @@ import ButtonLink from 'components/Button/Link'
 import logoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Icon from 'components/IconExporter'
 import { TextStyle } from 'components/Text/styles'
-import { Row } from 'styled-bootstrap-grid'
+import { LayerCard } from 'components/FundDetail/Card/styles'
 
 export const LogoConquistaBeta = styled.img.attrs(() => ({
   src: logoConquistaBeta,
@@ -47,7 +48,12 @@ export const TitleWrapper = styled.div`
 `
 
 export const RowFilter = styled(Row)`
+  margin: 0;
   justify-content: space-between;
+`
+
+export const RowTable = styled(Row)`
+  margin: ${({ theme }) => theme.spacing(3)}px 0 0 0;
 `
 
 export const ButtonTagStyled = styled(ButtonTag)`
@@ -62,4 +68,20 @@ export const ButtonClearFilters = styled(ButtonLink)<IButtonClearFilters>`
   margin-left: ${({ theme }) => theme.spacing(1)}px;
   color: ${props =>
     props.hasFilter ? props.theme.colors.blue4 : props.theme.colors.gray4};
+`
+
+export const FundDetailContainer = styled.div`
+  ${LayerCard} {
+    height: 410px;
+  }
+`
+
+export const WrapperSelectRange = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-right: ${({ theme }) => theme.spacing(3)}px;
+`
+
+export const WrapperFilters = styled.div`
+  display: flex;
 `
