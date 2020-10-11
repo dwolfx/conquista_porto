@@ -101,9 +101,11 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
               data-testid="table-account-extract"
               css={`
                 height: 410px;
+                padding: 21px 21px 0 21px;
               `}
             >
-              Table Extract
+              <Filter />
+              <ExtractTable dataTable={[]} />
             </Card>
           </Col>
         </Row>

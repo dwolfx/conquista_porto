@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Table from 'components/Table'
+
 import * as s from './styles'
 
 interface IProps {
@@ -9,20 +11,20 @@ interface IProps {
 const extractTable: React.FC<IProps> = ({ dataTable }) => {
   return (
     <s.RowTable>
-      <s.StyledTable
+      <Table
         data={dataTable}
         columns={[
           {
             Header: 'Data da Transação',
-            accessor: 'data',
+            accessor: 'transactionDate',
           },
           {
             Header: 'Tipo',
-            accessor: 'tipo',
+            accessor: 'type',
           },
           {
             Header: 'Valor',
-            accessor: 'valor',
+            accessor: 'value',
           },
         ]}
       />
