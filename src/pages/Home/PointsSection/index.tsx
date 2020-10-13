@@ -32,6 +32,8 @@ import {
 
 import { pointsRulesConditions } from './modalPointsData'
 import PointsOfferCard from './RecommendationCard'
+import PointsCardContent from './PointsCardContent'
+import CarouselCard from 'components/Card/CarouselCard'
 
 import { ICardsInfo } from './types'
 import { PointsCol, RulesButton } from './styles'
@@ -51,7 +53,6 @@ import {
   Icon,
   PointsEmptyContainer,
   HomePointsCard,
-  HomePointsOffersCard,
   HorizontalListTruncateStartBlock,
 } from '../styles'
 import { capitalize, formatNumber } from 'helpers'
@@ -460,7 +461,7 @@ export default function PointsSection({ points }: IProps) {
 
       {isTabletHorizontal && !isTabletVertical ? (
         <PointsCol sm={6} md={6}>
-          <HomePointsOffersCard
+          <CarouselCard
             headerIcon="target"
             headerTitle="Troque seus pontos"
             headerEndItem={
@@ -478,9 +479,17 @@ export default function PointsSection({ points }: IProps) {
                 }}
               />
             }
-          >
-            <span>Content</span>
-          </HomePointsOffersCard>
+            arrayContent={[
+              <PointsCardContent
+                hasCreditCard={!creditCard || !creditCard.length}
+                offer={belowOffer || cardsRecommendationData[0]}
+              />,
+              <PointsCardContent
+                hasCreditCard={!creditCard || !creditCard.length}
+                offer={aboveOffer || cardsRecommendationData[1]}
+              />,
+            ]}
+          />
         </PointsCol>
       ) : (
         <>
