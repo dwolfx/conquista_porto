@@ -23,6 +23,7 @@ const Table = ({
   isLoading = false,
   isSticky = false,
   onRowClick,
+  customRef,
   ...rest
 }: ITable) => {
   const {
@@ -44,7 +45,8 @@ const Table = ({
     useSticky
   )
 
-  const tableRef = useRef() as React.RefObject<HTMLDivElement>
+  const ref = useRef() as React.RefObject<HTMLDivElement>
+  const tableRef = customRef || ref
   const [showLeftShadow, setShowLeftShadow] = useState(false)
   const [showRightShadow, setShowRightShadow] = useState(true)
 

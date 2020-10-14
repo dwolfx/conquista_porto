@@ -28,6 +28,7 @@ import CardCombine from 'pages/Objectives/Manager/CardCombine'
 import GoalChart from 'pages/Objectives/Manager/GoalChart'
 import FundsTable from 'pages/Objectives/Manager/FundsTable'
 import ObjectiveTracking from 'pages/Objectives/Manager/ObjectiveTracking'
+import LinkInvestmentFunds from 'pages/Objectives/Manager/LinkInvestmentFunds'
 
 import { get, baseURLNamespaceGoal } from 'services/api'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
@@ -56,7 +57,7 @@ export default function ObjectiveManager() {
     []
   )
   const [bannerImage, setBannerImage] = useState('')
-  const [addFundsLayer, setAddFundsLayer] = useState(false)
+  const [showAddFundsLayer, setShowAddFundsLayer] = useState(false)
   const [pendingFundsLayer, setPendingFundsLayer] = useState(false)
   const [objectiveFundsLayer, setObjectiveFundsLayer] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -267,7 +268,7 @@ export default function ObjectiveManager() {
           <Button
             outline
             onClick={() => {
-              setAddFundsLayer(true)
+              setShowAddFundsLayer(true)
 
               if (isMobile) {
                 setObjectiveFundsLayer(false)
@@ -494,13 +495,24 @@ export default function ObjectiveManager() {
       </Container>
 
       <s.Layer
-        isOpen={addFundsLayer}
-        handleClose={() => setAddFundsLayer(false)}
+        isOpen={showAddFundsLayer}
+        handleClose={() => setShowAddFundsLayer(false)}
         headerContent={
-          <TransactionHeader onClose={() => setAddFundsLayer(false)} />
+          <TransactionHeader
+            onClose={() => setShowAddFundsLayer(false)}
+            showStepsBar
+            stepsBarProps={{
+              title: 'Adicionar',
+              subtitle: 'Meus fundos',
+              hideSteps: true,
+            }}
+          />
         }
       >
-        <Text>Add funds layer</Text>
+        <LinkInvestmentFunds
+          funds={objectiveData.fund_list}
+          onSuccess={() => setShowAddFundsLayer(false)}
+        />
       </s.Layer>
     </>
   )

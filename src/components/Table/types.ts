@@ -1,3 +1,4 @@
+import { RefObject } from 'react'
 import { Row } from 'react-table'
 
 export type TColumns = {
@@ -68,6 +69,7 @@ export interface ITable {
   errorMessage?: string
   isFiltering?: boolean
   isSticky?: boolean
+  customRef?: RefObject<HTMLDivElement>
   onRowClick?: (param: any) => void
 }
 

@@ -11,10 +11,11 @@ export interface IProps {
   onClose?: () => void
   showStepsBar?: boolean
   stepsBarProps?: {
-    step: number
-    maxSteps: number
+    step?: number
+    maxSteps?: number
     setStep?: (step: number) => void
     title: string
+    subtitle?: string
     hideSteps?: boolean
   }
   showBackButton?: boolean
@@ -104,6 +105,13 @@ const TransactionHeader = ({
                       data-testid="section-name"
                     >
                       {stepsBarProps.title}
+                    </Text>,
+                    <Text
+                      color="white"
+                      type="headline"
+                      data-testid="section-subname"
+                    >
+                      {stepsBarProps.subtitle}
                     </Text>,
                   ]}
                   endItems={getStepCount()}
