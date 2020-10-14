@@ -258,7 +258,7 @@ const Table = ({
               defaultValue={pageIndex + 1}
               onChange={e => {
                 const page = e.target.value ? Number(e.target.value) - 1 : 0
-                if (page <= 0) {
+                if (page < 0 || page === 0) {
                   gotoPage(0)
                   setIndexPage(1)
                   inputRef.current.value = ''

@@ -216,7 +216,6 @@ export const TheadColumn = styled.div<ITheadColumn>`
 `
 
 export const Tbody = styled.div`
-  /* border: 1px solid ${({ theme }) => theme.colors.gray3}; */
   height: calc(100% - 56px);
   display: block;
 
@@ -401,12 +400,14 @@ export const Pagination = styled.div`
   display: flex;
   align-items: center;
 `
-export const PageNumber = styled.div`
+export const Input = styled(NewInput)`
   margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
-  background: ${({theme}) => theme.colors.gray1};
-  border-radius: 8px 8px 0px 0px;
-  padding: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(5)}px ${theme.spacing(1)}px ${theme.spacing(2)}px`};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray4};
+  width: 70px;
+  height: 35px;
+
+  input {
+    color: ${({ theme }) => theme.colors.gray4};
+  }
 `
 
 export const PageButtons = styled.div`
