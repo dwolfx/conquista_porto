@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import moment from 'moment'
 
 import VerticalList from 'components/VerticalList'
@@ -20,18 +20,17 @@ interface IProps {
 }
 const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) => {
   const [listSize, setListSize] = useState(8)
+  const [buttonShouldAppear, setButtonShouldAppear] = useState(true)
   const dispatch = useDispatch()
 
+  const handleOnClick = useCallback(() => {
+    setButtonShouldAppear(false)
+    setListSize(listSize + 8)
+  }, [listSize])
+
   useEffect(() => {
-    window.addEventListener("scroll", e => {
-      e.preventDefault()
-    })
-    return () => {
-      window.removeEventListener("scroll", e => {
-        e.preventDefault()
-      })
-    }
-   }, []);
+    setButtonShouldAppear(true)
+  }, [handleOnClick]);
 
   if(isLoading) {
     return (
@@ -64,7 +63,7 @@ const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) 
 
   return (
   <>
-      {extracts.slice(0, listSize).map((extract, index) => (
+      {extracts.slice(0, listSize).map((extract, index, array) => (
           <S.StyledCard
             data-testid="table-account-extract"
             key={`extract-${index}`}
@@ -99,7 +98,7 @@ const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) 
             />
           </S.StyledCard>
       ))}
-    {listSize < extracts.length &&
+      {listSize < extracts.length && buttonShouldAppear &&
       <S.ButtonWrapper data-testid="button-wrapper">
         <Button
             outline
@@ -108,7 +107,7 @@ const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) 
             data-gtm-type="click"
             data-gtm-clicktype="button"
             color="primary"
-            onClick={() => setListSize(listSize + 8)}
+            onClick={handleOnClick}
           >
             Carregar mais
         </Button>
