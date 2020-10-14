@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import HorizontalList from 'components/HorizontalList'
+import Card from 'components/Card'
 
 import TableComp from 'components/Table'
 import Text from 'components/Text'
@@ -19,4 +21,50 @@ export const BoldText = styled(Text).attrs(({
   bold: true,
 }))`
   text-transform: capitalize;
+`
+
+export const StyledHorizontalList = styled(HorizontalList)`
+  height: ${({theme}) => theme.spacing(4)}px;
+`
+
+export const StyledCard = styled(Card)`
+  & + & {
+    margin-top: ${({theme}) => theme.spacing(2)}px
+  }
+  margin-left: 7px;
+  margin-right: 7px;
+`
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
+
+  button {
+    width: 100%;
+  }
+`
+
+export const StyledErrorOrLoadingCard = styled(Card)`
+  height: 358px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: ${({theme}) => theme.spacing(6)}px;
+
+  > div {
+    flex: unset;
+  }
+
+  p {
+    width: 75%;
+    margin: ${({ theme }) => `0 auto ${theme.spacing(1)}px`};
+  }
+
+  button {
+    width: 70%;
+    margin: 0 auto;
+  }
 `

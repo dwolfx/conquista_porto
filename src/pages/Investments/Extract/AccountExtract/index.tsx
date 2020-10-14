@@ -9,6 +9,7 @@ import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
 import BaseLayer from '../BaseLayer'
 import TableFilter from './TableFilter'
+import ExtractTableMobile from './ExtractTable/Mobile'
 import ExtractTable from './ExtractTable'
 import accountExtractFilters from './TableFilter/utils/accountExtractFilters'
 import InvestmentAccountDetail from './InvestmentAccountDetail'
@@ -82,34 +83,28 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
           <InvestmentAccountDetail />
         </ColStyled>
         <ColStyled lg={9} md={12}>
-          <ContentCard
-            data-testid="table-account-extract"
-          >
-            {isMobile ? (
-              <>
-                <FloatButton
-                  color="primary"
-                  onClick={() => setOpenFilterDrawer(true)}
-                  size="large"
-                  icon="filter"
-                />
-                {isOpenFilterDrawer && 
-                  <TableFilterDrawer
-                    isOpen={isOpenFilterDrawer} 
-                    onHandleClose={() => setOpenFilterDrawer(false)}
-                    filters={filters}
-                    handleFilters={setFilters}
-                    interval={interval}
-                    handleInterval={setInterval}
-                    selectedInterval={selectedInterval}
-                    handleSelectInterval={setSelectedInterval}
-                    handleClearFilters={clearFilters}
-                  />
-                }
-              </>
-            ) : (
-              <TableWrapper hasError={false}>
-                <TableFilter 
+          {isMobile ? (
+            <>
+              <ExtractTableMobile
+                isLoading={isLoading}
+                hasError={hasError}
+                extracts={filteredExtracts}
+                request={{
+                  tipoFiltro: 0,
+                  dataInicial: interval.startDate,
+                  dataFinal: interval.endDate
+                }}
+              />
+              <FloatButton
+                color="primary"
+                onClick={() => setOpenFilterDrawer(true)}
+                size="large"
+                icon="filter"
+              />
+              {isOpenFilterDrawer &&
+                <TableFilterDrawer
+                  isOpen={isOpenFilterDrawer}
+                  onHandleClose={() => setOpenFilterDrawer(false)}
                   filters={filters}
                   handleFilters={setFilters}
                   interval={interval}
@@ -118,15 +113,31 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
                   handleSelectInterval={setSelectedInterval}
                   handleClearFilters={clearFilters}
                 />
-                <ExtractTable 
-                  isLoading={isLoading}
-                  hasError={hasError}
-                  extracts={filteredExtracts}
-                  request={false}
-                />
-              </TableWrapper>
-            )}
-          </ContentCard>
+              }
+            </>
+          ) : (
+            <ContentCard
+                data-testid="table-account-extract"
+              >
+                <TableWrapper hasError={false}>
+                  <TableFilter
+                    filters={filters}
+                    handleFilters={setFilters}
+                    interval={interval}
+                    handleInterval={setInterval}
+                    selectedInterval={selectedInterval}
+                    handleSelectInterval={setSelectedInterval}
+                    handleClearFilters={clearFilters}
+                  />
+                  <ExtractTable
+                    isLoading={isLoading}
+                    hasError={hasError}
+                    extracts={filteredExtracts}
+                    request={false}
+                  />
+                </TableWrapper>
+            </ContentCard>
+          )}
         </ColStyled>
       </Row>
     </BaseLayer>

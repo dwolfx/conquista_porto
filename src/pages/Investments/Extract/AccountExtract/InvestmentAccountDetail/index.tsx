@@ -11,7 +11,7 @@ import * as S from './styles'
 
 export default function InvestmentAccountDetail() {
   const dispatch = useDispatch()
-  const isMobile = useMedia('sm')
+  const isMobile = useMedia('xs')
 
   const { cpf, details, hasError, isLoading } = useSelector<any, any>(
     state => ({
