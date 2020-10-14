@@ -492,11 +492,7 @@ Object {
   padding: 14px;
 }
 
-.c86 svg {
-  margin-right: 15px;
-}
-
-.c87 {
+.c88 {
   font-family: Open Sans;
   font-size: 22px;
   -webkit-letter-spacing: 0;
@@ -2157,6 +2153,7 @@ Object {
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Sair da página?"
                     data-gtm-type="click"
+                    data-testid="modal-close-button"
                     fill="#BABABA"
                     height="28"
                     role="img"
@@ -2229,6 +2226,7 @@ Object {
                     data-gtm-name="botao fechar"
                     data-gtm-subname="modal Risco acima do seu perfil"
                     data-gtm-type="click"
+                    data-testid="modal-close-button"
                     fill="#BABABA"
                     height="28"
                     role="img"
@@ -2842,7 +2840,7 @@ Object {
               class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fznMAR ikWISA"
+                class="sc-fzoLag jCCsch"
               >
                 <h3
                   class="sc-fzolEj kXgqsQ"
@@ -2856,6 +2854,7 @@ Object {
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Sair da página?"
                   data-gtm-type="click"
+                  data-testid="modal-close-button"
                   fill="#BABABA"
                   height="28"
                   role="img"
@@ -2914,7 +2913,7 @@ Object {
               class="sc-fznxKY hddCP"
             >
               <header
-                class="sc-fznMAR ikWISA"
+                class="sc-fzoLag jCCsch"
               >
                 <h3
                   class="sc-fzolEj kXgqsQ"
@@ -2928,6 +2927,7 @@ Object {
                   data-gtm-name="botao fechar"
                   data-gtm-subname="modal Risco acima do seu perfil"
                   data-gtm-type="click"
+                  data-testid="modal-close-button"
                   fill="#BABABA"
                   height="28"
                   role="img"

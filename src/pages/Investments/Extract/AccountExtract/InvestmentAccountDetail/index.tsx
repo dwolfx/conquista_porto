@@ -1,14 +1,17 @@
+import useMedia from 'hooks/useMedia'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 
 import DetailContent from './InvestmentAccountDetailContent'
+import MobileDetailContent from './InvestmentAccountDetailContent/Mobile'
 import Error from './InvestmentAccountDetailError'
 import Loading from './InvestmentAccountDetailLoading'
 import * as S from './styles'
 
 export default function InvestmentAccountDetail() {
   const dispatch = useDispatch()
+  const isMobile = useMedia('sm')
 
   const { cpf, details, hasError, isLoading } = useSelector<any, any>(
     state => ({
@@ -27,6 +30,10 @@ export default function InvestmentAccountDetail() {
 
   const contentIsNotEmpty = () =>
     details && Object.keys(details).length > 0 && !isLoading && !hasError
+
+  if(isMobile) {
+    return <MobileDetailContent cpf_cnpj={cpf} {...details?.DadosContaPortoSeguro} />
+  }
 
   return (
     <>

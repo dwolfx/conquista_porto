@@ -4,10 +4,13 @@ import { formatCpf } from 'helpers'
 
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
+import useMedia from 'hooks/useMedia'
+
+import Tablet from './Tablet'
 
 import * as S from './styles'
 
-interface IProps {
+export interface IProps {
   codigo_banco?: string
   nome_banco?: string
   agencia?: string
@@ -16,14 +19,10 @@ interface IProps {
   titular?: string
 }
 
-export default function AccountDetailContent({
-  codigo_banco,
-  nome_banco,
-  agencia,
-  conta,
-  cpf_cnpj,
-  titular,
-}: IProps) {
+export default function AccountDetailContent(props: IProps) {
+  const isTablet = useMedia('lg')
+  const { codigo_banco, nome_banco, agencia, conta, cpf_cnpj, titular } = props
+
   const content = [
     {
       label: 'Banco',
@@ -48,6 +47,10 @@ export default function AccountDetailContent({
   ]
 
   const lastIndex = (i: number, arr: any[]) => i + 1 === arr.length
+
+  if (isTablet) {
+    return <Tablet {...props}/>
+  }
 
   return (
     <>

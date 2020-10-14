@@ -28,11 +28,13 @@ interface IProps {
   footer?: React.ReactNode
   isHeaderComponent?: boolean
   header?: React.ReactNode
+  noChildrenPadding?: boolean
 }
 
 const ModalNew: React.FC<IProps> = ({
   headerIcon = null,
   modalTitle = '',
+  noChildrenPadding = false,
   modalSubtitle = '',
   handleClose,
   isOpen,
@@ -112,11 +114,41 @@ const ModalNew: React.FC<IProps> = ({
       <ModalContainer>
         {isHeaderComponent ? (
           <>
-            <ModalHeader>{renderHeader()}</ModalHeader>
-            <Divisor customSize="calc(100% - 14px)" />
+            <ModalHeader>
+              {headerIcon && (
+                <Icon
+                  width="28"
+                  fill={themeContext.colors.blue4}
+                  name={headerIcon}
+                />
+              )}
+              {!!modalSubtitle ? (
+                <TitleWrapper>
+                  <ModalTitle>{modalTitle}</ModalTitle>
+                  <Text bold color="gray4">
+                    {modalSubtitle}
+                  </Text>
+                </TitleWrapper>
+              ) : (
+                <ModalTitle>{modalTitle}</ModalTitle>
+              )}
+              <CloseButton
+                data-gtm-subname={`modal ${modalTitle}`}
+                data-gtm-name="botao fechar"
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                onClick={handleClose}
+                name="close"
+                color="gray4"
+                width={28}
+                height={28}
+                data-testid="modal-close-button"
+              />
+            </ModalHeader>
+            <Divisor />
           </>
         ) : null}
-        <ChildrenWrapper>{children}</ChildrenWrapper>
+        <ChildrenWrapper noChildrenPadding={noChildrenPadding}>{children}</ChildrenWrapper>
         {footer && (
           <>
             <Divisor customSize="100%" />

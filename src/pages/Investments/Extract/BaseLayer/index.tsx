@@ -13,6 +13,7 @@ import {
   SubHeader,
   TitleWrapper,
 } from './styles'
+import useMedia from 'hooks/useMedia'
 
 interface IProps {
   id: string
@@ -22,6 +23,9 @@ interface IProps {
 }
 
 const BaseLayer: React.FC<IProps> = ({ id, isOpen, handleClose, title, children }) => {
+  const isMobile = useMedia('sm')
+  const marginTop = isMobile ? '0' : '28px'
+
   return (
     <Layer
       data-testid={`layer-${id}`}
@@ -52,7 +56,7 @@ const BaseLayer: React.FC<IProps> = ({ id, isOpen, handleClose, title, children 
       </SubHeader>
       <Container
         css={`
-          margin-top: 28px;
+          margin-top: ${marginTop};
         `}
       >
         { children }

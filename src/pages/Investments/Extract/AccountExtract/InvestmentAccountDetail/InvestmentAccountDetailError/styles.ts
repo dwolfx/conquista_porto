@@ -6,6 +6,17 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    width: 53%;
+    margin: 0 auto;
+
+    button {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+
   @media ${props => props.theme.mediaQueries.smUp} {
     height: 100%;
   }

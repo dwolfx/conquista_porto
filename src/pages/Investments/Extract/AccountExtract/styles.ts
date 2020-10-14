@@ -3,6 +3,12 @@ import styled from 'styled-components'
 import { Col } from 'styled-bootstrap-grid'
 
 export const ColStyled = styled(Col)`
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    &:first-child {
+      padding: 0;
+    }
+  }
+
   @media ${({ theme }) => theme.mediaQueries.lg} {
     &:first-child {
       margin-bottom: ${({ theme }) => theme.spacing(3)}px;
