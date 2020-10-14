@@ -17,8 +17,8 @@ export default function({ options, setOptions }: IRedeemContent) {
           margin-bottom: ${theme.spacing(3)}px;
         `}
       >
-        Se você quer desvincular uma quantia do seu objetivo sem tirá-la do
-        fundo, escolha esta opção.
+        Por favor, aponte, abaixo, o motivo pelo qual deseja resgatar valores
+        deste fundo:
       </Text>
 
       {options.map(option => (

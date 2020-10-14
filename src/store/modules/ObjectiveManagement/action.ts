@@ -6,6 +6,7 @@ import {
   IObjectManagement,
   IPutObjectiveFundsMovementRequest,
   IUpdateObjectiveNicknameRequest,
+  ITransferBetweenObjectivesRequest,
 } from './types'
 
 export function PostObjectiveManagementDataRequest(
@@ -114,6 +115,28 @@ export function UpdateObjectiveNicknameSuccess(payload: string) {
 export function UpdateObjectiveNicknameFailure() {
   return {
     type: Types.UPDATE_OBJECTIVE_NICKNAME_FAILURE,
+  }
+}
+
+export function TransferBetweenObjectivesRequest(
+  payload: Omit<ITransferBetweenObjectivesRequest, 'type'>
+) {
+  return {
+    type: Types.TRANSFER_BETWEEN_OBJECTIVES_REQUEST,
+    ...payload,
+  }
+}
+
+export function TransferBetweenObjectivesSuccess(payload: IObjectManagement) {
+  return {
+    type: Types.TRANSFER_BETWEEN_OBJECTIVES_SUCCESS,
+    payload,
+  }
+}
+
+export function TransferBetweenObjectivesFailure() {
+  return {
+    type: Types.TRANSFER_BETWEEN_OBJECTIVES_FAILURE,
   }
 }
 

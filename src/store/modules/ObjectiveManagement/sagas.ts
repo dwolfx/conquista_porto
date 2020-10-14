@@ -22,6 +22,8 @@ import {
   UpdateObjectiveNicknameFailure,
   PutObjectiveFundsMovementSuccess,
   PutObjectiveFundsMovementFailure,
+  TransferBetweenObjectivesSuccess,
+  TransferBetweenObjectivesFailure,
 } from './action'
 import { getGoalId } from './selectors'
 import {
@@ -29,6 +31,7 @@ import {
   IGetObjectiveManagementDataRequest,
   IPostObjectiveManagementDataRequest,
   IPutObjectiveFundsMovementRequest,
+  ITransferBetweenObjectivesRequest,
   IUpdateObjectiveNicknameRequest,
   Types,
 } from './types'
@@ -219,6 +222,43 @@ export function* updateObjectiveNickname({
   }
 }
 
+function* transferBetweenObjectives({
+  data,
+  onSuccess,
+  onError,
+  addToast,
+}: ITransferBetweenObjectivesRequest) {
+  try {
+    const response = yield call(
+      putMethod,
+      `${baseURLNamespaceGoal}/goals/transfer-fund-value`,
+      data
+    )
+
+    yield put(TransferBetweenObjectivesSuccess(response.data))
+
+    if (onSuccess) {
+      onSuccess()
+    }
+
+    addToast({
+      type: 'success',
+      title: 'Valor transferido com sucesso',
+    })
+  } catch (error) {
+    yield put(TransferBetweenObjectivesFailure())
+
+    if (onError) {
+      onError()
+    }
+
+    addToast({
+      type: 'error',
+      title: 'Não foi possível realizar operação no momento.',
+    })
+  }
+}
+
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.GET_REQUEST, getData),
@@ -226,4 +266,8 @@ export default all([
   takeLatest(Types.DELETE_REQUEST, deleteObjective),
   takeLatest(Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST, updateObjectiveNickname),
   takeLatest(Types.PUT_FUNDS_MOVEMENT_REQUEST, putObjectiveFundsMovement),
+  takeLatest(
+    Types.TRANSFER_BETWEEN_OBJECTIVES_REQUEST,
+    transferBetweenObjectives
+  ),
 ])

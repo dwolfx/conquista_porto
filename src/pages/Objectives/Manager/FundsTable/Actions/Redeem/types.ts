@@ -1,6 +1,10 @@
 import { dict } from 'components/IconExporter'
 import { Dispatch, SetStateAction } from 'react'
-import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
+import { IObjectiveList } from 'store/modules/Objective/types'
+import {
+  IObjectManagement,
+  TObjectiveFunds,
+} from 'store/modules/ObjectiveManagement/types'
 
 export interface IRedeem {
   fund: TObjectiveFunds
@@ -9,11 +13,6 @@ export interface IRedeem {
 }
 
 export type TRedeemOptions = 'unlink' | 'transfer' | 'redeem' | undefined
-
-type TContentValue = {
-  objectiveId: number
-  value: number
-}
 
 export type TError =
   | {
@@ -29,11 +28,17 @@ export interface IUnlinkContent {
   setValue: Dispatch<SetStateAction<number>>
 }
 
+export type TTransferObject = {
+  name?: string
+  id?: number
+  value?: number
+}
+
 export interface ITransferContent {
   fundInfo: TObjectiveFunds
-  value: TContentValue
-  setButtonIsDisabled?: Dispatch<SetStateAction<boolean>>
-  setValue: Dispatch<SetStateAction<TContentValue>>
+  value: TTransferObject
+  setButtonIsDisabled: Dispatch<SetStateAction<boolean>>
+  setValue: Dispatch<SetStateAction<TTransferObject>>
 }
 
 export type TRedeemContentOptions = {
@@ -51,5 +56,11 @@ export interface IRedeemContent {
 export interface IState {
   objectiveManagement: {
     isLoadingFundsMovement: boolean
+    isLoadingTransfer: boolean
+    data: IObjectManagement
+  }
+  objective: {
+    objectives: IObjectiveList[]
+    isLoadingList: boolean
   }
 }

@@ -100,7 +100,7 @@ router.render = (req, res) => {
       // specific id - manager screen
       if (!req.originalUrl.endsWith('/api/goal/goals')) {
         // get specific objective
-        return res.jsonp({ ...objectiveDetailsMock, id: req.query.id })
+        return res.jsonp({ ...objectiveDetailsMock, id: +req.query.id })
       }
 
       // list all objectives

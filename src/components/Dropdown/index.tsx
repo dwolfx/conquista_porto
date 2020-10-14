@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useHistory } from 'react-router-dom'
 import { Manager, Reference, Popper } from 'react-popper'
+import 'styled-components/macro'
 
 import { handlePrivateWelfareRedirect } from 'helpers'
 

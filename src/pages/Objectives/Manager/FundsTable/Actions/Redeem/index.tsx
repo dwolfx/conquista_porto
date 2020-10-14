@@ -10,7 +10,10 @@ import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { PutObjectiveFundsMovementRequest } from 'store/modules/ObjectiveManagement/action'
+import {
+  PutObjectiveFundsMovementRequest,
+  TransferBetweenObjectivesRequest,
+} from 'store/modules/ObjectiveManagement/action'
 
 import RedeemContent from './RedeemContent'
 import TransferContent from './TransferContent'
@@ -23,19 +26,18 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
   const isMobile = useMedia('sm')
   const { addToast } = useToast()
 
-  const { isLoadingFundsMovement } = useSelector(
-    (state: t.IState) => state.objectiveManagement
-  )
+  const {
+    isLoadingFundsMovement,
+    isLoadingTransfer,
+    data: objectiveData,
+  } = useSelector((state: t.IState) => state.objectiveManagement)
 
   const [redeemOptionSelected, setRedeemOptionSelected] = useState<
     t.TRedeemOptions
   >(undefined)
   const [buttonIsDisabled, setButtonIsDisabled] = useState(true)
   const [unlinkValue, setUnlinkValue] = useState(0)
-  const [transferValue, setTransferValue] = useState({
-    value: 0,
-    objectiveId: 0,
-  })
+  const [transferValue, setTransferValue] = useState<t.TTransferObject>({})
   const [redeemOptions, setRedeemOptions] = useState<t.TRedeemContentOptions[]>(
     [
       {
@@ -150,8 +152,34 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
       case 'transfer':
         return (
           <Button
-            onClick={handleClose}
-            disabled
+            onClick={() => {
+              const { fund_id } = fund
+
+              if (transferValue.id && transferValue.value) {
+                dispatch(
+                  TransferBetweenObjectivesRequest({
+                    data: {
+                      fund_id,
+                      from_goal_id: objectiveData.id,
+                      to_goal_id: transferValue.id,
+                      value: transferValue.value,
+                    },
+                    onSuccess: handleClose,
+                    addToast,
+                  })
+                )
+              } else {
+                addToast({
+                  type: 'error',
+                  title: 'Não foi possível realizar operação',
+                  description:
+                    'Verifique se os campos foram preenchidos corretamente e tente novamente.',
+                })
+              }
+            }}
+            disabled={buttonIsDisabled}
+            loading={isLoadingTransfer}
+            loadingColor="white"
             css={`
               width: 100%;
             `}
@@ -163,7 +191,7 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
         return (
           <Button
             onClick={handleClose}
-            disabled
+            disabled={buttonIsDisabled}
             css={`
               width: 100%;
             `}
@@ -187,11 +215,14 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
     redeemOptionSelected,
     handleClose,
     unlinkValue,
+    transferValue,
+    objectiveData,
     addToast,
     buttonIsDisabled,
     dispatch,
     fund,
     isLoadingFundsMovement,
+    isLoadingTransfer,
   ])
 
   const DrawerContent = useCallback(() => {
@@ -211,6 +242,7 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
             value={transferValue}
             setValue={setTransferValue}
             fundInfo={fund}
+            setButtonIsDisabled={setButtonIsDisabled}
           />
         )
       case 'redeem':
@@ -221,7 +253,7 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
           />
         )
       default: {
-        setButtonIsDisabled(false)
+        setButtonIsDisabled(true)
 
         return (
           <>

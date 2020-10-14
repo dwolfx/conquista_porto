@@ -1,19 +1,104 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
+import Dropdown, { IItemsProps } from 'components/Dropdown'
 import HorizontalList from 'components/HorizontalList'
+import Icon from 'components/IconExporter'
 import MoneyInput from 'components/Inputs/Money'
 import Text from 'components/Text'
 import TextInput from 'components/NewInput'
 
-import { Currency } from 'helpers/money'
+import { Currency, BRLCurrency } from 'helpers/money'
 
-import { ITransferContent } from './types'
+import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
+
+import { ITransferContent, IState, TError } from './types'
 import * as s from './styles'
 
-export default function({ value: { value }, setValue }: ITransferContent) {
+enum goalTypeIcons {
+  'TRAVEL' = 'plane',
+  'RETIRE' = 'time',
+  'CAR' = 'car2',
+  'COURSE' = 'student',
+  'EVENT' = 'drink',
+  'HOUSE' = 'homewithwindow',
+  'MONEY' = 'money',
+}
+
+export default function({
+  value,
+  setValue,
+  fundInfo,
+  setButtonIsDisabled,
+}: ITransferContent) {
   const theme = useContext(ThemeContext)
+  const dispatch = useDispatch()
+  const inputRef = useRef() as React.RefObject<HTMLDivElement>
+
+  const [error, setError] = useState<TError>(undefined)
+  const [objectiveSelected, setObjectiveSelected] = useState<{
+    name?: string
+    id?: number
+    value?: number
+  }>(value)
+
+  const {
+    objectives: objectiveList,
+    isLoadingList,
+    objectiveDetails,
+  } = useSelector((state: IState) => ({
+    ...state.objective,
+    objectiveDetails: state.objectiveManagement.data,
+  }))
+
+  useEffect(() => {
+    if (!objectiveList) {
+      dispatch(GetObjectiveDataRequest())
+    }
+  }, [objectiveList, isLoadingList, dispatch])
+
+  const itemsDropdown: IItemsProps[] = useMemo(
+    () =>
+      objectiveList
+        ? [...objectiveList]
+            .filter(item => item.id !== objectiveDetails.id)
+            .map(item => ({
+              text: item.nickname,
+              icon: goalTypeIcons[item.goal_type],
+              onClick: () => {
+                if (
+                  objectiveSelected.value === 0 ||
+                  (objectiveSelected.value || 0) > fundInfo.invested
+                ) {
+                  setButtonIsDisabled(true)
+                } else {
+                  setButtonIsDisabled(false)
+                }
+
+                setObjectiveSelected(currentValues => ({
+                  ...currentValues,
+                  id: item.id,
+                  name: item.nickname,
+                }))
+                setValue(currentValues => ({
+                  ...currentValues,
+                  id: item.id,
+                  name: item.nickname,
+                }))
+              },
+            }))
+        : [],
+    [
+      objectiveList,
+      objectiveDetails,
+      setValue,
+      fundInfo,
+      objectiveSelected,
+      setButtonIsDisabled,
+    ]
+  )
 
   return (
     <>
@@ -43,7 +128,23 @@ export default function({ value: { value }, setValue }: ITransferContent) {
         Para qual objetivo você deseja transferir?
       </Text>
 
-      <TextInput value="Nome do fundo" />
+      <Dropdown
+        items={itemsDropdown}
+        zIndex={14}
+        containerPadding="0"
+        customWidth={`${inputRef.current?.clientWidth}px`}
+      >
+        <div ref={inputRef}>
+          <TextInput
+            value={objectiveSelected?.name || 'Selecione'}
+            placeholder="Selecione"
+            suffix={
+              <Icon name="arrowdown" color="gray6" width={21} height={21} />
+            }
+            readOnly
+          />
+        </div>
+      </Dropdown>
 
       <Text
         type="headline"
@@ -56,13 +157,36 @@ export default function({ value: { value }, setValue }: ITransferContent) {
       </Text>
 
       <MoneyInput
-        value={Currency.parse(value || 0)}
-        onChange={({ target }: React.ChangeEvent<HTMLInputElement>) =>
-          setValue(currentValue => ({
-            ...currentValue,
-            value: +target.value,
+        error={error}
+        value={Currency.parse(objectiveSelected.value || 0)}
+        onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
+          const targetValue = new BRLCurrency(target.value).toNumber()
+
+          if (targetValue > fundInfo.invested) {
+            setError({
+              icon: 'alertrounded',
+              message: 'Valor acima do disponível',
+            })
+          } else {
+            setError(undefined)
+          }
+
+          if (
+            targetValue === 0 ||
+            (targetValue || 0) > fundInfo.invested ||
+            !objectiveSelected?.name
+          ) {
+            setButtonIsDisabled(true)
+          } else {
+            setButtonIsDisabled(false)
+          }
+
+          setObjectiveSelected(currentSelected => ({
+            ...currentSelected,
+            value: targetValue,
           }))
-        }
+        }}
+        onBlur={() => setValue(objectiveSelected)}
       />
     </>
   )

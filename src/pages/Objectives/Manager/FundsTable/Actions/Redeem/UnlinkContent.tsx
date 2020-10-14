@@ -21,14 +21,6 @@ export default function({
   const [innerValue, setInnerValue] = useState(value)
   const [error, setError] = useState<TError>(undefined)
 
-  // useEffect(() => {
-  //   if (innerValue === 0 || error) {
-  //     setHasError(true)
-  //   } else {
-  //     setHasError(false)
-  //   }
-  // }, [innerValue])
-
   return (
     <>
       <HorizontalList
@@ -68,8 +60,10 @@ export default function({
               icon: 'alertrounded',
               message: 'Valor acima do disponível',
             })
+            setButtonIsDisabled(true)
           } else {
             setError(undefined)
+            setButtonIsDisabled(false)
           }
           setInnerValue(targetValue)
         }}

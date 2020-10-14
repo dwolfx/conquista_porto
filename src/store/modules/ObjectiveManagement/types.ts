@@ -18,6 +18,9 @@ export const Types = {
   UPDATE_OBJECTIVE_NICKNAME_REQUEST: 'MANAGEMENT_UPDATE_NICKNAME_REQUEST',
   UPDATE_OBJECTIVE_NICKNAME_SUCCESS: 'MANAGEMENT_UPDATE_NICKNAME_SUCCESS',
   UPDATE_OBJECTIVE_NICKNAME_FAILURE: 'MANAGEMENT_UPDATE_NICKNAME_FAILURE',
+  TRANSFER_BETWEEN_OBJECTIVES_REQUEST: 'TRANSFER_BETWEEN_OBJECTIVES_REQUEST',
+  TRANSFER_BETWEEN_OBJECTIVES_SUCCESS: 'TRANSFER_BETWEEN_OBJECTIVES_SUCCESS',
+  TRANSFER_BETWEEN_OBJECTIVES_FAILURE: 'TRANSFER_BETWEEN_OBJECTIVES_FAILURE',
 }
 
 /**
@@ -122,7 +125,7 @@ export interface IObjectManagement {
 type TToast = (toast: Omit<IToast, 'id'>) => void
 
 export interface IPostObjectiveManagementDataRequest {
-  type: keyof typeof Types.POST_REQUEST
+  type: typeof Types.POST_REQUEST
   data: Omit<IRecommendations, 'income'>
   pushHistory: (path: string) => void
   onSuccess: () => void
@@ -131,7 +134,7 @@ export interface IPostObjectiveManagementDataRequest {
 }
 
 export interface IGetObjectiveManagementDataRequest {
-  type: keyof typeof Types.GET_REQUEST
+  type: typeof Types.GET_REQUEST
   id: number
   onSuccess?: () => void
   onError?: () => void
@@ -139,14 +142,14 @@ export interface IGetObjectiveManagementDataRequest {
 }
 
 export interface IDeleteObjectiveRequest {
-  type: keyof typeof Types.DELETE_REQUEST
+  type: typeof Types.DELETE_REQUEST
   id: number
   pushHistoryToHomeScreen: () => void
   addToast: TToast
 }
 
 export interface IPutObjectiveFundsMovementRequest {
-  type: keyof typeof Types.PUT_FUNDS_MOVEMENT_REQUEST
+  type: typeof Types.PUT_FUNDS_MOVEMENT_REQUEST
   data: {
     fund_list: {
       fund_id: number
@@ -159,9 +162,22 @@ export interface IPutObjectiveFundsMovementRequest {
 }
 
 export interface IUpdateObjectiveNicknameRequest {
-  type: keyof typeof Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST
+  type: typeof Types.UPDATE_OBJECTIVE_NICKNAME_REQUEST
   id: number
   nickname: string
   onSuccess?: () => void
+  addToast: TToast
+}
+
+export interface ITransferBetweenObjectivesRequest {
+  type: typeof Types.TRANSFER_BETWEEN_OBJECTIVES_REQUEST
+  data: {
+    fund_id: number
+    value: number
+    from_goal_id: number
+    to_goal_id: number
+  }
+  onSuccess?: () => void
+  onError?: () => void
   addToast: TToast
 }

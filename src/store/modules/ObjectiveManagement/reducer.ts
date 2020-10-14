@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   isLoadingUpdate: false,
   isLoadingFundsMovement: false,
   hasErrorFundsMovement: false,
+  isLoadingTransfer: false,
 }
 
 export default function(state = INITIAL_STATE, action: any) {
@@ -92,6 +93,22 @@ export default function(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         isLoadingUpdate: false,
+      }
+    case Types.TRANSFER_BETWEEN_OBJECTIVES_REQUEST:
+      return {
+        ...state,
+        isLoadingTransfer: true,
+      }
+    case Types.TRANSFER_BETWEEN_OBJECTIVES_SUCCESS:
+      return {
+        ...state,
+        isLoadingTransfer: false,
+        data: action.payload,
+      }
+    case Types.TRANSFER_BETWEEN_OBJECTIVES_FAILURE:
+      return {
+        ...state,
+        isLoadingTransfer: false,
       }
     default:
       return state

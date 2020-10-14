@@ -9,6 +9,7 @@ const defaultState = {
   isLoadingUpdate: false,
   isLoadingFundsMovement: false,
   hasErrorFundsMovement: false,
+  isLoadingTransfer: false,
 }
 
 describe('ObjectiveManagement Reducer', () => {

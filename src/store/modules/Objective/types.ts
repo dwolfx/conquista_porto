@@ -136,3 +136,20 @@ export interface IRecommendations {
   credit_product?: ICreditProduct
   suggestion_goal?: ISuggestion
 }
+
+export interface IObjectiveList {
+  id: number
+  nickname: string
+  total_balance: number
+  remaining_value: number
+  target_value: number
+  percentage: number
+  goal_type:
+    | 'TRAVEL'
+    | 'RETIRE'
+    | 'CAR'
+    | 'COURSE'
+    | 'EVENT'
+    | 'HOUSE'
+    | 'MONEY'
+}
