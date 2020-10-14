@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import 'styled-components/macro'
 
+import theme from 'styles/theme'
+
 import objectiveTypes from 'components/Card/Objectives/types'
 import BannerTips from 'components/Banner/Tip'
 import Text from 'components/Text'
@@ -61,8 +63,19 @@ export default function SectionTwo({ onRedirect }) {
   }, [])
 
   useEffect(() => {
-    setMaxObjectiveCards(isMobile ? 3 : 2)
-  }, [isMobile])
+    switch (true) {
+      case isMobile:
+      case isTabletVertical:
+        setMaxObjectiveCards(2)
+        break
+      case isTablet:
+        setMaxObjectiveCards(1)
+        break
+      default:
+        setMaxObjectiveCards(2)
+        break
+    }
+  }, [isMobile, isTabletVertical, isTablet])
 
   const getBannerHeight = () => {
     if (isMobile) {
@@ -78,7 +91,18 @@ export default function SectionTwo({ onRedirect }) {
     objectiveTypes
       .slice(objectiveCardIndex, objectiveCardIndex + maxObjectiveCards)
       .map(item => (
-        <SectionCol md="6" xs="12" lg="4" sm="4" key={`type-${item.icon}`}>
+        <SectionCol
+          md="6"
+          xs="12"
+          lg="4"
+          sm="4"
+          key={`type-${item.icon}`}
+          css={`
+            @media ${theme.mediaQueries.sm} {
+              max-width: 50%;
+            }
+          `}
+        >
           <FullHeightCardObjectives
             icon={item.icon}
             title={item.title}
@@ -127,9 +151,7 @@ export default function SectionTwo({ onRedirect }) {
 
       <SectionCol md="6" sm="12" lg="6">
         <ObjectivesContainer>
-          {(isTablet && !isTabletVertical) || isMobile
-            ? renderObjectiveCards()[0]
-            : renderObjectiveCards()}
+          {renderObjectiveCards()}
           <SectionCol sm="4" md="6" xs="12" lg="4">
             <FullHeightCardObjectives
               icon="add"

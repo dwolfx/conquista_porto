@@ -45,6 +45,14 @@ export const OfferTextBox = styled.div`
   margin: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`};
 `
 
+export const OfferWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 72px;
+  margin: ${({ theme }) => `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`};
+`
+
 export const OfferTitle = styled(Text)`
   color: ${props => props.theme.colors.gray6};
   margin-bottom: ${({ theme }) => `${theme.spacing(1)}px`};
