@@ -29,4 +29,18 @@ describe('TableFilterDrawer tests', () => {
     expect(screen.getByRole('img', { name: 'close' })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: 'Logo Conquista Beta' })).toBeInTheDocument()
   })
+  it('should have a footer with 3 buttons', () => {
+    renderWithReduxAndTheme(<TableFilterDrawer isOpen />, { container: createRootContainer() })
+    expect(screen.getByRole('button', { name: /aplicar/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /cancelar/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /limpar/i })).toBeInTheDocument()
+  })
+  it('should have button filters', () => {
+    renderWithReduxAndTheme(<TableFilterDrawer isOpen />, { container: createRootContainer() })
+    expect(screen.getByRole('button', { name: /últimos 7 dias/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /últimos 30 dias/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /período específico/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /retirada/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /entrada/i })).toBeInTheDocument()
+  })
 })

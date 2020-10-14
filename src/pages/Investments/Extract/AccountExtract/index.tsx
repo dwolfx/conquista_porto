@@ -4,6 +4,7 @@ import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Card from 'components/Card'
+import useMedia from 'hooks/useMedia'
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
 import BaseLayer from '../BaseLayer'
@@ -12,6 +13,8 @@ import ExtractTable from './ExtractTable'
 import accountExtractFilters from './TableFilter/utils/accountExtractFilters'
 import InvestmentAccountDetail from './InvestmentAccountDetail'
 import { IFilter, IInterval, ITransaction } from './types'
+import TableFilterDrawer from './TableFilterDrawer'
+import { FloatButton } from '../BaseLayer/styles'
 
 import { ColStyled, TableWrapper } from './styles'
 
@@ -32,6 +35,8 @@ interface IProps {
 }
 const AccountExtract = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
+  const isMobile = useMedia('xs')
+  const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
   const [filters, setFilters] = useState<IFilter>({ ...initialFilters })
   const [interval, setInterval] = useState<IInterval>({ ...initialInterval })
   const [filteredExtracts, setFilteredExtracts] = useState<ITransaction[]>([])
@@ -73,20 +78,32 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
               height: 460px;
             `}
           >
-            <TableWrapper hasError={false}>
-              <TableFilter 
-                filters={filters}
-                interval={interval}
-                handleInterval={setInterval}
-                handleFilters={setFilters}
-              />
-              <ExtractTable 
-                isLoading={isLoading}
-                hasError={hasError}
-                extracts={filteredExtracts}
-                request={false}
-              />
-            </TableWrapper>
+            {isMobile ? (
+              <>
+                <FloatButton
+                  color="primary"
+                  onClick={() => setOpenFilterDrawer(true)}
+                  size="large"
+                  icon="filter"
+                />
+                <TableFilterDrawer isOpen={isOpenFilterDrawer} onHandleClose={() => setOpenFilterDrawer(false)}/>
+              </>
+            ) : (
+              <TableWrapper hasError={false}>
+                <TableFilter 
+                  filters={filters}
+                  interval={interval}
+                  handleInterval={setInterval}
+                  handleFilters={setFilters}
+                />
+                <ExtractTable 
+                  isLoading={isLoading}
+                  hasError={hasError}
+                  extracts={filteredExtracts}
+                  request={false}
+                />
+              </TableWrapper>
+            )}
           </Card>
         </ColStyled>
       </Row>
