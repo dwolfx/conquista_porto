@@ -19,11 +19,9 @@ import InvestmentsFunds from 'pages/Investments/FundsList'
 import ManagementInvestimentos from 'pages/Investments/Management'
 import InvestimentosExtrato from 'pages/Investments/Extract'
 import PrevidenciaPrivada from 'pages/PrivateWelfare'
-import Points from 'pages/Points'
 import VehicleFinancing from 'pages/VehicleFinancing'
 import ManagementVehicleFinancing from 'pages/VehicleFinancing/Management'
 import TripInsurance from 'pages/TripInsurance'
-import PointsStatement from 'pages/Points/Statement'
 import ConsortiumVehicle from 'pages/ConsortiumVehicle'
 import ManagementConsortiumVehicle from 'pages/ConsortiumVehicle/Management'
 import ConsortiumBuilding from 'pages/ConsortiumBuilding'
@@ -338,18 +336,6 @@ export default function Routes({ ...props }) {
           exact
           component={PrevidenciaPrivada}
           pageTitle="Home - Previdência Privada"
-        />
-        <DefaultRoute
-          path="/pontos"
-          exact
-          component={Points}
-          pageTitle="Home - Pontos"
-        />
-        <DefaultRoute
-          path="/pontos/extrato"
-          exact
-          component={PointsStatement}
-          pageTitle="Pontos - Extrato"
         />
         <DefaultRoute
           path="/objetivos/gerenciar/:objectiveId"

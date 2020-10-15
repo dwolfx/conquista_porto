@@ -7,13 +7,11 @@ interface IProps {
   itemsAlign?: 'flex-start' | 'center' | 'flex-end'
   marginLeft?: number
   marginRight?: number
-  options?:
-    | {
-        value: string | number
-        name: string
-        disabled?: boolean
-      }[]
-    | undefined
+  options?: {
+    value: string | number
+    name: string
+    disabled?: boolean
+  }[]
   name?: string
   paddingLeft?: number
   paddingRight?: number

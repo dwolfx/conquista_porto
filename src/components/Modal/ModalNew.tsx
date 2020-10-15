@@ -29,7 +29,7 @@ interface IProps {
   isHeaderComponent?: boolean
 }
 
-const Modal: React.FC<IProps> = ({
+const ModalNew: React.FC<IProps> = ({
   headerIcon = null,
   modalTitle = '',
   modalSubtitle = '',
@@ -121,4 +121,4 @@ const Modal: React.FC<IProps> = ({
   )
 }
 
-export default Modal
+export default ModalNew

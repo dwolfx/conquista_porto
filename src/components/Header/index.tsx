@@ -212,7 +212,7 @@ export default function HeaderNew({ crumbs }: IProps) {
             />
           </DropDown>
           {crumbs.length > 0 && crumbs[0] && <Icon name="arrowright" />}
-          <BreadCrumb crumbs={[...crumbs]} version="new" />
+          <BreadCrumb crumbs={[...crumbs]} />
         </LeftBlock>
         <RightBlock>
           <div

@@ -23,11 +23,8 @@ const CEPInput = ({ onKeyUp, ...props }) => {
 
   const applyCEPMask = event => {
     const strippedValue = event.target.value.replace(/\D/g, '')
-    let newValue = strippedValue
 
-    newValue = strippedValue.replace(/(\d{5})(\d{1})/g, '$1-$2')
-
-    event.target.value = newValue
+    event.target.value = strippedValue.replace(/(\d{5})(\d{1})/g, '$1-$2')
 
     if (strippedValue.length === 8) {
       searchCEP(strippedValue).then(res => console.log(res))
