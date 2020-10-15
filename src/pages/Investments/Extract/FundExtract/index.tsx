@@ -14,6 +14,8 @@ import Filter from './filter'
 import ExtractTable from './extractTable'
 // import useFilterExtract from './useFilter'
 
+// import useFilterExtract from './useFilter'
+
 import {
   HeaderWrapper,
   LogoConquistaBeta,
@@ -24,6 +26,7 @@ interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
+
 const FundExtract = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
@@ -105,7 +108,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
               `}
             >
               <Filter />
-              <ExtractTable dataTable={[]} />
+              <ExtractTable dataTable={extractTableData} />
             </Card>
           </Col>
         </Row>

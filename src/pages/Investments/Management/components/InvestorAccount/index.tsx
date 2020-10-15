@@ -90,7 +90,6 @@ const InvestorAccount = () => {
       data-gtm-type="click"
       data-gtm-clicktype="link"
       onClick={() => {
-        // history.push('/investimentos/extrato')
         dispatch(OpenBankExtractFundLayer())
       }}
     >

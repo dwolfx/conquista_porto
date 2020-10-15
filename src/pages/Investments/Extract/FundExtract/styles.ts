@@ -87,3 +87,14 @@ export const WrapperSelectRange = styled.div`
 export const WrapperFilters = styled.div`
   display: flex;
 `
+
+export const StyledTable = styled(Table)`
+  height: 292px;
+  ${TheadTr} {
+    justify-content: space-between;
+  }
+  ${TbodyTr} {
+    justify-content: space-between;
+    height: 56px;
+  }
+`
