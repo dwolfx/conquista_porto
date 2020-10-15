@@ -17,6 +17,11 @@ export const FilterDrawerHeader = styled.div`
   }
 `
 
+export const DatePickerContainer = styled.div`
+  margin: ${({ theme }) => `${theme.spacing(2)}px 0 0`};
+
+`
+
 export const HeaderColTitle = styled.div`
   flex: 1;
   display: flex;
@@ -63,6 +68,7 @@ export const ContentWrapper = styled.div`
 
 export const FooterWrapper = styled.div`
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
 `
 

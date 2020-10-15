@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
+import moment from 'moment'
 
-import Card from 'components/Card'
 import useMedia from 'hooks/useMedia'
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
@@ -12,11 +12,12 @@ import TableFilter from './TableFilter'
 import ExtractTable from './ExtractTable'
 import accountExtractFilters from './TableFilter/utils/accountExtractFilters'
 import InvestmentAccountDetail from './InvestmentAccountDetail'
-import { IFilter, IInterval, ITransaction } from './types'
 import TableFilterDrawer from './TableFilterDrawer'
 import { FloatButton } from '../BaseLayer/styles'
+import { months } from './constants'
+import { IFilter, IInterval, ITransaction, ISelectInterval } from './types'
 
-import { ColStyled, TableWrapper } from './styles'
+import { ColStyled, TableWrapper, ContentCard } from './styles'
 
 
 export const initialFilters = {
@@ -37,9 +38,10 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
+  const [selectedInterval, setSelectedInterval] = useState<ISelectInterval>(months[0])
+  const [filteredExtracts, setFilteredExtracts] = useState<ITransaction[]>([])
   const [filters, setFilters] = useState<IFilter>({ ...initialFilters })
   const [interval, setInterval] = useState<IInterval>({ ...initialInterval })
-  const [filteredExtracts, setFilteredExtracts] = useState<ITransaction[]>([])
   const { transactions, isLoading, hasError } = useSelector<any, any>(state => ({
     transactions: state.bankExtract.data?.transacoes,
     isLoading: state.bankExtract.isLoading,
@@ -60,6 +62,14 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
     }
   }, [filters, transactions])
 
+  const clearFilters = () => {
+    setFilters({ ...initialFilters })
+    setInterval({
+      startDate: moment().subtract(7, 'days').format('YYYY-MM-DD'),
+      endDate: moment().format('YYYY-MM-DD')
+    })
+  }
+
   return (
     <BaseLayer
       handleClose={handleClose}
@@ -72,11 +82,8 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
           <InvestmentAccountDetail />
         </ColStyled>
         <ColStyled lg={9} md={12}>
-          <Card
+          <ContentCard
             data-testid="table-account-extract"
-            css={`
-              height: 460px;
-            `}
           >
             {isMobile ? (
               <>
@@ -86,15 +93,30 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
                   size="large"
                   icon="filter"
                 />
-                <TableFilterDrawer isOpen={isOpenFilterDrawer} onHandleClose={() => setOpenFilterDrawer(false)}/>
+                {isOpenFilterDrawer && 
+                  <TableFilterDrawer
+                    isOpen={isOpenFilterDrawer} 
+                    onHandleClose={() => setOpenFilterDrawer(false)}
+                    filters={filters}
+                    handleFilters={setFilters}
+                    interval={interval}
+                    handleInterval={setInterval}
+                    selectedInterval={selectedInterval}
+                    handleSelectInterval={setSelectedInterval}
+                    handleClearFilters={clearFilters}
+                  />
+                }
               </>
             ) : (
               <TableWrapper hasError={false}>
                 <TableFilter 
                   filters={filters}
+                  handleFilters={setFilters}
                   interval={interval}
                   handleInterval={setInterval}
-                  handleFilters={setFilters}
+                  selectedInterval={selectedInterval}
+                  handleSelectInterval={setSelectedInterval}
+                  handleClearFilters={clearFilters}
                 />
                 <ExtractTable 
                   isLoading={isLoading}
@@ -104,7 +126,7 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
                 />
               </TableWrapper>
             )}
-          </Card>
+          </ContentCard>
         </ColStyled>
       </Row>
     </BaseLayer>

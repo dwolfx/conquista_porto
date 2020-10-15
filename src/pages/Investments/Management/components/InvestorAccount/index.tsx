@@ -6,10 +6,11 @@ import 'styled-components/macro'
 import ButtonLink from 'components/Button/Link'
 import WithdrawButton from 'components/Button/WithdrawButton'
 import Divisor from 'components/Divisor'
-import { GetBankDataRequest } from 'store/modules/BankData/action'
+import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 import useMedia from 'hooks/useMedia'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
-import { formatMoney, formatLocaleStringToNumber } from 'helpers'
+import { GetBankDataRequest } from 'store/modules/BankData/action'
+import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
 
 import { InvestorAccountInfoEnum } from '../../types'
 
@@ -26,8 +27,6 @@ import {
   ButtonsWrapper,
   IconRetry,
 } from './styles'
-import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
-import Button from 'components/Button'
 
 const InvestorAccount = () => {
   useFetchBankData()
@@ -108,10 +107,6 @@ const InvestorAccount = () => {
     return (
       <>
         <InfoContainer>
-          <Button
-            color="primary"
-            onClick={() => dispatch(OpenAccountExtractLayer())}
-          >Abrir layer</Button>
           <CustomHorizontalList
             startItems={[
               <CustomVerticalList
@@ -142,9 +137,7 @@ const InvestorAccount = () => {
               <ButtonBlock
                 outline
                 color="primary"
-                onClick={() => {
-                  history.push('/investimentos/extrato')
-                }}
+                onClick={() => dispatch(OpenAccountExtractLayer())}
                 disabled={
                   !formatLocaleStringToNumber(
                     bankData?.DadosContaPortoSeguro?.saldo_disponivel || '0'
@@ -156,12 +149,24 @@ const InvestorAccount = () => {
             )}
             <WithdrawButton
               gtmSubname="investimentos gerenciar"
-              css={`
-                width: 100%;
-              `}
+              css={`width: 100%;`}
             />
           </ButtonsWrapper>
-          {!isTablet && renderExtractLink('saldo')}
+          {!isTablet && 
+            <ButtonLink
+              noIcon
+              data-testid={`link-investor-extract`}
+              data-gtm-subname="conta de investimentos"
+              data-gtm-name="ver extrato"
+              data-gtm-type="click"
+              data-gtm-clicktype="link"
+              css={`margin-top: 14px;`}
+              onClick={() => dispatch(OpenAccountExtractLayer())}
+            >
+              ver extrato &gt;
+            </ButtonLink>
+          }              
+
         </InfoContainer>
         <Divisor />
         <InfoContainer>

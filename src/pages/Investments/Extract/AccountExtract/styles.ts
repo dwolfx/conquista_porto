@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-
 import { Col } from 'styled-bootstrap-grid'
+
+import Card from 'components/Card'
 
 export const ColStyled = styled(Col)`
   @media ${({ theme }) => theme.mediaQueries.sm} {
@@ -14,6 +15,10 @@ export const ColStyled = styled(Col)`
       margin-bottom: ${({ theme }) => theme.spacing(3)}px;
     }
   }
+`
+
+export const ContentCard = styled(Card)`
+  height: 460px;
 `
 
 interface ITableWrapperProps {

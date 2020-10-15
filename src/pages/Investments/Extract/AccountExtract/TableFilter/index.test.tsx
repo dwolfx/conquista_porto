@@ -2,6 +2,9 @@ import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 
+import { initialFilters, initialInterval } from '../'
+import { months } from '../constants'
+
 import TableFilter from '.'
 
 const createRootContainer = () => {
@@ -26,28 +29,36 @@ describe('TableFilter tests', () => {
   })
   it('should have the select period input', () => {
     renderWithReduxAndTheme(
-    <MemoryRouter>
-      <TableFilter 
-        handleFilters={() => {}}
-        filters={{ entry: false, withdraw: false }} 
-        handleInterval={() => {}}
-        interval={{ startDate: '', endDate: '' }}
-      />
-    </MemoryRouter>
-    , { container: createRootContainer() })
+      <MemoryRouter>
+        <TableFilter 
+          handleFilters={() => {}}
+          filters={initialFilters} 
+          handleInterval={() => {}}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
+        />
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
     expect(screen.getByTestId('select-period')).toBeInTheDocument()
   })
   it('should have button filters', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
         <TableFilter 
-          handleFilters={() => {}} 
-          filters={{ entry: false, withdraw: false }} 
+          handleFilters={() => {}}
+          filters={initialFilters} 
           handleInterval={() => {}}
-          interval={{ startDate: '', endDate: '' }}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>
-      , { container: createRootContainer() })
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
     expect(screen.getByRole('button', { name: /entrada/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /retirada/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /limpar filtros/i })).toBeInTheDocument()
@@ -58,79 +69,112 @@ describe('TableFilter tests', () => {
       <MemoryRouter>
         <TableFilter 
           handleFilters={handleFiltersMock}
-          filters={{ entry: true, withdraw: false }}
+          filters={{ ...initialFilters, entry: true }} 
           handleInterval={() => {}}
-          interval={{ startDate: '', endDate: '' }}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>
-      , { container: createRootContainer() })
-      const entryButton = screen.getByRole('button', { name: /entrada/i })
-      fireEvent.click(entryButton)
-      expect(entryButton).toHaveStyleRule('border-color', '#00ADEF')
-      expect(handleFiltersMock).toHaveBeenCalled()
-    })
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    const entryButton = screen.getByRole('button', { name: /entrada/i })
+    fireEvent.click(entryButton)
+    expect(entryButton).toHaveStyleRule('border-color', '#00ADEF')
+    expect(handleFiltersMock).toHaveBeenCalled()
+  })
   test('the button "retirada" should behave correclty', () => {
     const handleFiltersMock = jest.fn()
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter
+        <TableFilter 
           handleFilters={handleFiltersMock}
-          filters={{ entry: false, withdraw: true }}
+          filters={{ ...initialFilters, withdraw: true }} 
           handleInterval={() => {}}
-          interval={{ startDate: '', endDate: '' }}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>
-      , { container: createRootContainer() })
-      const withdrawButton = screen.getByRole('button', { name: /retirada/i })
-      fireEvent.click(withdrawButton)
-      expect(withdrawButton).toHaveStyleRule('border-color', '#00ADEF')
-      expect(handleFiltersMock).toHaveBeenCalled()
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    const withdrawButton = screen.getByRole('button', { name: /retirada/i })
+    fireEvent.click(withdrawButton)
+    expect(withdrawButton).toHaveStyleRule('border-color', '#00ADEF')
+    expect(handleFiltersMock).toHaveBeenCalled()
   })
   it('should clean filters button behaves', () => {
-    const handleFiltersMock = jest.fn()
+    const handleCleanFiltersMock = jest.fn()
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter
-          handleFilters={handleFiltersMock}
-          filters={{ entry: false, withdraw: false }}
+        <TableFilter 
+          handleFilters={() => {}}
+          filters={initialFilters} 
           handleInterval={() => {}}
-          interval={{ startDate: '', endDate: '' }}
+          interval={initialInterval}
+          handleClearFilters={handleCleanFiltersMock}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>, { container: createRootContainer() }
+      </MemoryRouter>,
+      { container: createRootContainer() }
     )
     const clearButton = screen.getByRole('button', { name: /limpar filtros/i })
     fireEvent.click(clearButton)
-    expect(handleFiltersMock).toHaveBeenCalled()
+    expect(handleCleanFiltersMock).toHaveBeenCalled()
   })
   it('should select the correct period filters', () => {
-    const handleIntervalMock = jest.fn()
-    renderWithReduxAndTheme(
+    const handleSelectIntervalMock = jest.fn()
+    const { rerender } = renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter
+        <TableFilter 
           handleFilters={() => {}}
-          filters={{ entry: false, withdraw: false }}
-          handleInterval={handleIntervalMock}
-          interval={{ startDate: '', endDate: '' }}
+          filters={initialFilters} 
+          handleInterval={() => {}}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={handleSelectIntervalMock}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>, { container: createRootContainer() }
+      </MemoryRouter>,
+      { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
     fireEvent.click(screen.getByTestId('select-period'))
     fireEvent.click(screen.getByText(/Últimos 30 dias/i))
-    expect(handleIntervalMock).toHaveBeenCalled()
+    rerender(
+      <MemoryRouter>
+        <TableFilter 
+          handleFilters={() => {}}
+          filters={initialFilters} 
+          handleInterval={() => {}}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={handleSelectIntervalMock}
+          selectedInterval={months[1]}
+        />
+      </MemoryRouter>
+    )
+    expect(handleSelectIntervalMock).toHaveBeenCalled()
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 30 dias')
   })
   it('should select the especific period filter and datepicker should show', () => {
     const handleIntervalMock = jest.fn()
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter
+        <TableFilter 
           handleFilters={() => {}}
-          filters={{ entry: false, withdraw: false }}
+          filters={initialFilters} 
           handleInterval={handleIntervalMock}
-          interval={{ startDate: '', endDate: '' }}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>, { container: createRootContainer() }
+      </MemoryRouter>,
+      { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
     fireEvent.click(screen.getByTestId('select-period'))
@@ -140,13 +184,17 @@ describe('TableFilter tests', () => {
   it('should show the datepicker and close', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter
+        <TableFilter 
           handleFilters={() => {}}
-          filters={{ entry: false, withdraw: false }}
+          filters={initialFilters} 
           handleInterval={() => {}}
-          interval={{ startDate: '', endDate: '' }}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>, { container: createRootContainer() }
+      </MemoryRouter>,
+      { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
     fireEvent.click(screen.getByTestId('select-period'))
@@ -159,13 +207,17 @@ describe('TableFilter tests', () => {
     const handleIntervalMock = jest.fn()
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter
+        <TableFilter 
           handleFilters={() => {}}
-          filters={{ entry: false, withdraw: false }}
+          filters={initialFilters} 
           handleInterval={handleIntervalMock}
-          interval={{ startDate: '', endDate: '' }}
+          interval={initialInterval}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={months[0]}
         />
-      </MemoryRouter>, { container: createRootContainer() }
+      </MemoryRouter>,
+      { container: createRootContainer() }
     )
     expect(screen.getByTestId('select-value').innerHTML).toEqual('Últimos 7 dias')
     fireEvent.click(screen.getByTestId('select-period'))

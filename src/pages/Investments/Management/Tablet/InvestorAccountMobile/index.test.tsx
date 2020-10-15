@@ -113,25 +113,7 @@ describe('InvestorAccountMobile', () => {
       expect(getByTestId('button-ballance-retry')).toBeDefined()
     })
   })
-  describe('behaves correcly', () => {
-    it('goes to ballance extract page after clicking at "view extract"', () => {
-      let locationLocal: RouteProps['location']
-      const { getAllByRole } = renderWithReduxAndTheme(
-        <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccountMobile />
-          <Route
-            path="*"
-            render={({ location }) => {
-              locationLocal = location
-              return null
-            }}
-          />
-        </MemoryRouter>,
-        { store: customStore }
-      )
-      fireEvent.click(getAllByRole('button', { name: 'ver extrato' })[0])
-      expect(locationLocal!.pathname).toBe('/investimentos/extrato')
-    })
+  describe('behaves correcly', () => { 
     it('goes to settle extract page after clicking at "view extract"', () => {
       let locationLocal: RouteProps['location']
       const { getAllByRole } = renderWithReduxAndTheme(

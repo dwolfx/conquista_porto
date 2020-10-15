@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
 import theme from 'styles/theme'
-import Button from 'components/Button'
 import WithdrawButton from 'components/Button/WithdrawButton'
 import Divisor from 'components/Divisor'
 
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
+import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
 import { formatMoney, formatLocaleStringToNumber } from 'helpers'
 
 import { InvestorAccountInfoEnum } from '../../types'
@@ -28,7 +28,6 @@ import {
   TextCaption,
   TextError,
 } from './styles'
-import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
 
 const InvestorAccountMobile = () => {
   useFetchBankData()
@@ -70,9 +69,7 @@ const InvestorAccountMobile = () => {
     return (
       <TextHeadline
         data-testid={id}
-        css={`
-          -webkit-text-security: ${displayInformation ? 'disc' : 'none'};
-        `}
+        css={`-webkit-text-security: ${displayInformation ? 'disc' : 'none'};`}
       >
         {formatMoney(value)}
       </TextHeadline>
@@ -87,12 +84,6 @@ const InvestorAccountMobile = () => {
             <CustomVerticalList
               elements={[
                 <TextCaption>SALDO EM CONTA</TextCaption>,
-                <Button
-                  color="primary"
-                  onClick={() => dispatch(OpenAccountExtractLayer())}
-                >
-                  Abrir layer
-                </Button>,
                 <>
                   {renderBallanceInfo(
                     bankData,
@@ -123,9 +114,7 @@ const InvestorAccountMobile = () => {
             data-gtm-type="click"
             data-gtm-button="button"
             color="primary"
-            onClick={() => {
-              history.push('/investimentos/extrato')
-            }}
+            onClick={() => dispatch(OpenAccountExtractLayer())}
             disabled={
               !formatLocaleStringToNumber(
                 bankData?.DadosContaPortoSeguro?.saldo_disponivel || '0'

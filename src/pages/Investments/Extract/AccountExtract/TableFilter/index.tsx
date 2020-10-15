@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 import moment from 'moment'
@@ -10,8 +10,8 @@ import DatePickerRangeModal from 'components/Dates/DatePickerRangeModal'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
-import { initialFilters } from '../index'
-import { IFilter, IInterval } from '../types'
+import { months } from '../constants'
+import { IFilter, IInterval, ISelectInterval } from '../types'
 
 import { 
   Wrapper,
@@ -21,36 +21,38 @@ import {
   ButtonsWrapper
 } from './styles'
 
-export const months = [
-  {
-    name: 'Últimos 7 dias',
-    value: 7,
-  },
-  {
-    name: 'Últimos 30 dias',
-    value: 30,
-  },
-  {
-    name: 'Período específico',
-    value: null,
-  },
-]
 
 interface IProps {
   handleFilters: (nextFilters: IFilter) => void
   handleInterval: (nextInterval: IInterval) => void
+  handleClearFilters: () => void
   interval: IInterval
+  selectedInterval: ISelectInterval
+  handleSelectInterval: (newSelectedInterval: ISelectInterval) => void
   filters: IFilter
 }
-const TableFilter = ({ filters, handleFilters, interval, handleInterval }: IProps) => {
+const TableFilter = ({
+  filters,
+  handleFilters,
+  interval,
+  selectedInterval,
+  handleInterval,
+  handleSelectInterval,
+  handleClearFilters
+}: IProps) => {
   const themeContext = useContext(ThemeContext)
-  const [period, setPeriod] = useState(months[0].name);
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false)
+  const [period, setPeriod] = useState('')
+
+  useEffect(() => {
+    if (selectedInterval.id !== 3)
+    setPeriod(selectedInterval.name)
+  }, [selectedInterval])
 
   const renderSelectItems = (closeFunc: Function) => {
-    const handleClick = (item: any) => {
-      setPeriod(item.name)
-      if (!item.value) {
+    const handleClick = (item: ISelectInterval) => {
+      handleSelectInterval(item)
+      if (item.id === 3) {
         closeFunc()
         return setIsDatepickerOpen(true)
       }
@@ -68,15 +70,6 @@ const TableFilter = ({ filters, handleFilters, interval, handleInterval }: IProp
       </DropdownLineContent>
     ))
     return nodes
-  }
-
-  const clearFilters = () => {
-    handleFilters({ ...initialFilters })
-    setPeriod(months[0].name)
-    handleInterval({
-      startDate: moment().subtract(7, 'days').format('YYYY-MM-DD'),
-      endDate: moment().format('YYYY-MM-DD')
-    })
   }
 
   return (
@@ -142,7 +135,7 @@ const TableFilter = ({ filters, handleFilters, interval, handleInterval }: IProp
         css={`
           margin-left: auto;
         `}
-        onClick={clearFilters}
+        onClick={handleClearFilters}
       >
         limpar filtros
       </ButtonLink>

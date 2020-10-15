@@ -13,3 +13,9 @@ export interface ITransaction {
   data: string
   valor: string
 }
+
+export interface ISelectInterval {
+  id: number,
+  name: string,
+  value: number | null,
+}
