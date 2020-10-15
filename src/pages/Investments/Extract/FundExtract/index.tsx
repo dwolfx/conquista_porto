@@ -12,13 +12,8 @@ import useMedia from 'hooks/useMedia'
 import BaseLayer from '../BaseLayer'
 import Filter from './filter'
 import ExtractTable from './extractTable'
-// import useFilterExtract from './useFilter'
-
-// import useFilterExtract from './useFilter'
 
 import {
-  HeaderWrapper,
-  LogoConquistaBeta,
   FundDetailContainer,
 } from './styles'
 
@@ -26,7 +21,6 @@ interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
-
 const FundExtract = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)

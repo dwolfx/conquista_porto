@@ -74,7 +74,7 @@ export const ButtonClearFilters = styled(ButtonLink)<IButtonClearFilters>`
 
 export const FundDetailContainer = styled.div`
   ${LayerCard} {
-    height: 410px;
+    height: 460px;
   }
 `
 
