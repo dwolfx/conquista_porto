@@ -22,7 +22,7 @@ export const AccordionHeaderText = styled(Text).attrs(() => ({
 }))``
 
 interface IAccordionWrapper {
-  isOpen?: Boolean
+  isOpen?: boolean
   bodyPadding?: string
 }
 

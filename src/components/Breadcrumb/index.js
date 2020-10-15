@@ -3,18 +3,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import {
-  Crumbcontainer,
-  CrumbText,
-  CrumbCurrentPage,
-  Container,
-  Icon,
-  StyledText,
-} from './styles'
-
-const isLastCrumb = length => currentIndex => length === currentIndex + 1
-
-const getCrumbTag = isLast => (isLast ? CrumbCurrentPage : CrumbText)
+import { Crumbcontainer, Container, Icon, StyledText } from './styles'
 
 const crumbList = {
   'cartao-credito': 'Cartão de Crédito',
@@ -26,7 +15,7 @@ const crumbList = {
   'previdencia-privada': 'Previdência privada',
 }
 
-export default function Breadcrumb({ crumbs, version, ...props }) {
+export default function Breadcrumb({ crumbs }) {
   const history = useHistory()
 
   const gtmAttrs = crumb => ({
@@ -47,57 +36,38 @@ export default function Breadcrumb({ crumbs, version, ...props }) {
     }
   }
 
-  if (version === 'new') {
-    return (
-      <Container>
-        {crumbs.map((crumb, index) => {
-          const isLast = crumbs.length === index + 1
-
-          return (
-            <React.Fragment key={`crumbKey-${index}`}>
-              {typeof crumb === 'string' ? (
-                <Crumbcontainer
-                  cursorStyle={!isLast ? 'pointer' : 'auto'}
-                  {...(!isLast ? gtmAttrs(crumb) : null)}
-                  onClick={() => (!isLast ? handleBreadcrumbLink(index) : null)}
-                >
-                  <StyledText>
-                    {crumb in crumbList ? crumbList[crumb] : crumb}
-                  </StyledText>
-                </Crumbcontainer>
-              ) : (
-                crumb
-              )}
-              {!isLast && <Icon name="arrowright" color="gray6" />}
-            </React.Fragment>
-          )
-        })}
-      </Container>
-    )
-  }
-
   return (
-    <div {...props}>
+    <Container>
       {crumbs.map((crumb, index) => {
-        const isLast = isLastCrumb(crumbs.length)(index)
-        const CrumbTag = getCrumbTag(isLast)
+        const isLast = crumbs.length === index + 1
+
         return (
-          <CrumbTag key={`crumbKey-${index}`}>
-            {crumb}
-            {!isLast && ' » '}
-          </CrumbTag>
+          <React.Fragment key={`crumbKey-${index}`}>
+            {typeof crumb === 'string' ? (
+              <Crumbcontainer
+                cursorStyle={!isLast ? 'pointer' : 'auto'}
+                {...(!isLast ? gtmAttrs(crumb) : null)}
+                onClick={() => (!isLast ? handleBreadcrumbLink(index) : null)}
+              >
+                <StyledText>
+                  {crumb in crumbList ? crumbList[crumb] : crumb}
+                </StyledText>
+              </Crumbcontainer>
+            ) : (
+              crumb
+            )}
+            {!isLast && <Icon name="arrowright" color="gray6" />}
+          </React.Fragment>
         )
       })}
-    </div>
+    </Container>
   )
 }
 
 Breadcrumb.defaultProps = {
   crumbs: [],
-  version: '',
 }
 
 Breadcrumb.propTypes = {
   crumbs: PropTypes.arrayOf(PropTypes.string),
-  version: PropTypes.string,
 }

@@ -18,15 +18,15 @@ const DateInput = forwardRef<HTMLInputElement, IProps>(
   ({ newInput = false, onChange, ...rest }, ref) => {
     const applyDateMask = (event: any) => {
       const strippedValue = event.target.value.replace(/\D/g, '')
-      let newValue = strippedValue
 
       if (strippedValue.length < 5) {
-        newValue = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
+        event.target.value = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
       } else {
-        newValue = strippedValue.replace(/(\d{2})(\d{2})(\d{1})/g, '$1/$2/$3')
+        event.target.value = strippedValue.replace(
+          /(\d{2})(\d{2})(\d{1})/g,
+          '$1/$2/$3'
+        )
       }
-
-      event.target.value = newValue
 
       onChange!(event)
     }

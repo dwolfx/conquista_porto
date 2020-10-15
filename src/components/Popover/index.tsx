@@ -42,17 +42,15 @@ const Popover: React.FC<IProps> = ({
     if (alwaysVisible) {
       return null
     }
-    switch (trigger) {
-      case 'click': {
-        return {
-          onClick: () => setIsOpen(current => !current),
-        }
+
+    if (trigger === 'click') {
+      return {
+        onClick: () => setIsOpen(current => !current),
       }
-      default: {
-        return {
-          onMouseEnter: () => setIsOpen(true),
-          onMouseLeave: () => setIsOpen(false),
-        }
+    } else {
+      return {
+        onMouseEnter: () => setIsOpen(true),
+        onMouseLeave: () => setIsOpen(false),
       }
     }
   }

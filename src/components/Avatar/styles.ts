@@ -16,7 +16,7 @@ const hasAvatarStyle = css`
 `
 
 interface IAvatarWrapper {
-  hasAvatar?: Boolean
+  hasAvatar?: boolean
 }
 
 export const AvatarWrapper = styled.div<IAvatarWrapper>`
