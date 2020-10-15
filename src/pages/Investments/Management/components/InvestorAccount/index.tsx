@@ -92,6 +92,20 @@ const InvestorAccount = () => {
       onClick={() => {
         // history.push('/investimentos/extrato')
         dispatch(OpenBankExtractFundLayer())
+        dispatch(
+          GetBankExtractFundRequest(
+            {
+              idFundo: idFund,
+              tipoFiltro: 5,
+              dataInicial: null,
+              dataFinal: null,
+            },
+            auth.cpf
+          )
+        )
+
+        if (bankExtractFund && bankExtractFund.selectedFilter) {
+        }
       }}
     >
       ver extrato &gt;

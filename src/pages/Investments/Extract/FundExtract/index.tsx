@@ -16,6 +16,8 @@ import ExtractTable from './extractTable'
 
 import useMedia from 'hooks/useMedia'
 
+// import useFilterExtract from './useFilter'
+
 import {
   HeaderWrapper,
   LogoConquistaBeta,
@@ -145,7 +147,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
               `}
             >
               <Filter />
-              <ExtractTable dataTable={[]} />
+              <ExtractTable dataTable={extractTableData} />
             </Card>
           </Col>
         </Row>
