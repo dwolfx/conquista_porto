@@ -41,12 +41,16 @@ const InvestorAccount = () => {
     isLoading,
     hasError,
     displayInformation,
+    bankExtractFund,
+    idFund,
   } = useSelector<any, any>(state => ({
     bankData: state.bankData.data,
     auth: state.auth,
     isLoading: state.bankData.isLoading,
     hasError: state.bankData.hasError,
     displayInformation: state.investmentPosition.displayInformation,
+    bankExtractFund: state.bankExtractFund,
+    idFund: state.investmentPosition.idFund,
   }))
 
   const renderBallanceInfo = (
@@ -88,6 +92,20 @@ const InvestorAccount = () => {
       onClick={() => {
         // history.push('/investimentos/extrato')
         dispatch(OpenBankExtractFundLayer())
+        dispatch(
+          GetBankExtractFundRequest(
+            {
+              idFundo: idFund,
+              tipoFiltro: 5,
+              dataInicial: null,
+              dataFinal: null,
+            },
+            auth.cpf
+          )
+        )
+
+        if (bankExtractFund && bankExtractFund.selectedFilter) {
+        }
       }}
     >
       ver extrato &gt;

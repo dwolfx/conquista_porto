@@ -3,6 +3,8 @@ import { Row } from 'styled-bootstrap-grid'
 
 import ButtonTag from 'components/Button/Tag'
 import ButtonLink from 'components/Button/Link'
+import Table from 'components/Table'
+import { TheadTr, TbodyTr } from 'components/Table/styles'
 
 import logoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Icon from 'components/IconExporter'
@@ -84,4 +86,15 @@ export const WrapperSelectRange = styled.div`
 
 export const WrapperFilters = styled.div`
   display: flex;
+`
+
+export const StyledTable = styled(Table)`
+  height: 292px;
+  ${TheadTr} {
+    justify-content: space-between;
+  }
+  ${TbodyTr} {
+    justify-content: space-between;
+    height: 56px;
+  }
 `

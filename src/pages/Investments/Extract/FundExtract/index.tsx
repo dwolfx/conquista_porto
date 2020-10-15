@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 
@@ -16,6 +16,8 @@ import ExtractTable from './extractTable'
 
 import useMedia from 'hooks/useMedia'
 
+// import useFilterExtract from './useFilter'
+
 import {
   HeaderWrapper,
   LogoConquistaBeta,
@@ -29,11 +31,63 @@ interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
+
 const FundExtract = ({ isOpen, handleClose }: IProps) => {
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
-  const { idFund } = useSelector((state: any) => ({
+  const { idFund, selectedExtratFilter, auth } = useSelector((state: any) => ({
+    auth: state.auth,
     idFund: state.investmentPosition.idFund,
+    selectedExtratFilter: state.bankExtractFund.selectedFilter,
   }))
+  const dispatch = useDispatch()
+
+  const extractTableData = [
+    {
+      data: '30/12/2020',
+      tipo: 'Aplicação',
+      valor: 'R$ 90.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Resgate',
+      valor: 'R$ 5.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Aplicação',
+      valor: 'R$ 45.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Aplicação',
+      valor: 'R$ 90.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Resgate',
+      valor: 'R$ 5.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Aplicação',
+      valor: 'R$ 45.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Aplicação',
+      valor: 'R$ 90.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Resgate',
+      valor: 'R$ 5.000,00',
+    },
+    {
+      data: '30/12/2020',
+      tipo: 'Aplicação',
+      valor: 'R$ 45.000,00',
+    },
+  ]
   const isMobile = useMedia('sm')
 
   return (
@@ -96,7 +150,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
               `}
             >
               <Filter />
-              <ExtractTable dataTable={[]} />
+              <ExtractTable dataTable={extractTableData} />
             </Card>
           </Col>
         </Row>
