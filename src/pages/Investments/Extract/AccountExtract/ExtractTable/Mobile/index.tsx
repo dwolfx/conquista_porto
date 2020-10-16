@@ -54,41 +54,41 @@ const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) 
 
   return (
   <>
-    {extracts.slice(0, listSize).map((extract, index) => (
-      <S.StyledCard
-        data-testid="table-account-extract"
-        key={`extract-${index}`}
-      >
-        <VerticalList
-          elements={[
-            <S.StyledHorizontalList
-              startItems={[
-                <Text bold type="body" color="gray5">Data da transação</Text>
-              ]}
-              endItems={[
-                <Text bold type="title">{moment(extract.data).format('DD/MM/YYYY')}</Text>
-              ]}
-            />,
-            <S.StyledHorizontalList
-              startItems={[
-                <Text bold type="body" color="gray5">Tipo</Text>
-              ]}
-              endItems={[
-                <Text bold type="title">{extract.tipo}</Text>
-              ]}
-            />,
-            <S.StyledHorizontalList
-              startItems={[
-                <Text bold type="body" color="gray5">Valor</Text>
-              ]}
-              endItems={[
-                <Text bold type="title">{formatMoney(extract.valor)}</Text>
+      {extracts.slice(0, listSize).map((extract, index) => (
+          <S.StyledCard
+            data-testid="table-account-extract"
+            key={`extract-${index}`}
+          >
+            <VerticalList
+              elements={[
+                <S.StyledHorizontalList
+                  startItems={[
+                    <Text bold type="body" color="gray5">Data da transação</Text>
+                  ]}
+                  endItems={[
+                    <Text bold type="title">{moment(extract.data).format('DD/MM/YYYY')}</Text>
+                  ]}
+                />,
+                <S.StyledHorizontalList
+                  startItems={[
+                    <Text bold type="body" color="gray5">Tipo</Text>
+                  ]}
+                  endItems={[
+                    <Text bold type="title">{extract.tipo}</Text>
+                  ]}
+                />,
+                <S.StyledHorizontalList
+                  startItems={[
+                    <Text bold type="body" color="gray5">Valor</Text>
+                  ]}
+                  endItems={[
+                    <Text bold type="title">{formatMoney(extract.valor)}</Text>
+                  ]}
+                />
               ]}
             />
-          ]}
-        />
-      </S.StyledCard>
-    ))}
+          </S.StyledCard>
+      ))}
     {listSize < extracts.length &&
       <S.ButtonWrapper data-testid="button-wrapper">
         <Button

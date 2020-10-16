@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import HorizontalList from 'components/HorizontalList'
+import { Container, Col } from 'styled-bootstrap-grid'
 import Card from 'components/Card'
 
 import TableComp from 'components/Table'
@@ -28,11 +29,14 @@ export const StyledHorizontalList = styled(HorizontalList)`
 `
 
 export const StyledCard = styled(Card)`
-  & + & {
-    margin-top: ${({theme}) => theme.spacing(2)}px
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    & + & {
+      margin-top: ${({ theme }) => theme.spacing(2)}px;
+    }
+    margin-left: ${({ theme }) => theme.spacing(1)}px;
+    margin-right: ${({ theme }) => theme.spacing(1)}px;
   }
-  margin-left: 7px;
-  margin-right: 7px;
 `
 
 export const ButtonWrapper = styled.div`
@@ -67,4 +71,12 @@ export const StyledErrorOrLoadingCard = styled(Card)`
     width: 70%;
     margin: 0 auto;
   }
+`
+
+export const StyledContainer = styled(Container)`
+  overflow: auto;
+`
+
+export const StyledCol = styled(Col)`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
 `

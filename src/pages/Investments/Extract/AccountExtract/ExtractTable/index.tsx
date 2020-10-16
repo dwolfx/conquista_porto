@@ -2,10 +2,12 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
+import ExtractTableTabletVertical from './Tablet'
 
 import { columns } from './constants'
 import { ITransaction } from '../types'
 import * as S from './styles'
+import useMedia from 'hooks/useMedia'
 
 
 interface IProps {
@@ -14,9 +16,15 @@ interface IProps {
   hasError: boolean
   request: any
 }
-const ExtractTable = ({ extracts, isLoading, hasError, request }: IProps) => {
+const ExtractTable = (props: IProps) => {
+  const { extracts, isLoading, hasError, request } = props
   const columnsToRender = columns()
   const dispatch = useDispatch()
+  const isTabletVertical = useMedia('md')
+
+  if(isTabletVertical) {
+    return <ExtractTableTabletVertical {...props}/>
+  }
 
   return (
       <S.Table
