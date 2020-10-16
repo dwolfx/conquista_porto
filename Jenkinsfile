@@ -138,10 +138,73 @@ pipeline {
           }
         }
 
-        stage('Deployment') {
+        stage('Deployment - EVOLUCAO') {
+          when { expression { env.CHANGE_TARGET?.startsWith("sprint/PCNE") } }
+          steps {
+            withAWS (credentials:"${AWS_CREDENTIALS}") {
+              sh '''
+                docker run \
+                  -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  amazon/aws-cli:2.0.47 s3 rm s3://evolucao.conquista.sciensa.click --recursive
+              '''
+              sh '''
+                docker run -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  -v ~/.aws:/root/.aws \
+                  -v \$(pwd):/app \
+                  -w /app \
+                  amazon/aws-cli:2.0.47 s3 sync ./build s3://evolucao.conquista.sciensa.click/conquista/ --acl public-read --include '**/*'
+              '''
+            }
+          }
+          post {
+            success {
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }
+            failure {
+              slackSend (color: 'danger', message: "[ FALHA ] Erro ao publicar as alterações no ambiente (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }  
+          }
+        }
+
+        stage('Deployment - ROBO') {
+          when { expression { env.CHANGE_TARGET?.startsWith("sprint/PVEV") } }
+          steps {
+            withAWS (credentials:"${AWS_CREDENTIALS}") {
+              sh '''
+                docker run \
+                  -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  amazon/aws-cli:2.0.47 s3 rm s3://robo.conquista.sciensa.click --recursive
+              '''
+              sh '''
+                docker run -e AWS_DEFAULT_REGION=us-east-1 \
+                  -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+                  -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+                  -v ~/.aws:/root/.aws \
+                  -v \$(pwd):/app \
+                  -w /app \
+                  amazon/aws-cli:2.0.47 s3 sync ./build s3://robo.conquista.sciensa.click/conquista/ --acl public-read --include '**/*'
+              '''
+            }
+          }
+          post {
+            success {
+              slackSend (color: 'good', message: "[ SUCESSO ] Deploy aplicado com sucesso (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }
+            failure {
+              slackSend (color: 'danger', message: "[ FALHA ] Erro ao publicar as alterações no ambiente (<${BUILD_URL}|${BRANCH_NAME} #${BUILD_NUMBER}>)", channel: "${SLACK_CHANNEL}", tokenCredentialId: 'slack-token')
+            }  
+          }
+        }
+
+        stage('Deployment - DEVELOP') {
           when { anyOf {
             branch 'develop';
-            branch 'qa';
             expression { return Boolean.valueOf(FORCE_DEPLOY) }
           }}
           steps {
