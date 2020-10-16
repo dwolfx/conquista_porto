@@ -29,13 +29,13 @@ export const StyledHorizontalList = styled(HorizontalList)`
 `
 
 export const StyledCard = styled(Card)`
-
   @media ${({ theme }) => theme.mediaQueries.xs} {
     & + & {
       margin-top: ${({ theme }) => theme.spacing(2)}px;
     }
     margin-left: ${({ theme }) => theme.spacing(1)}px;
     margin-right: ${({ theme }) => theme.spacing(1)}px;
+    padding: ${({theme}) => `${theme.spacing(1)}px 0`};
   }
 `
 
