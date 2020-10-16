@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useHistory } from 'react-router-dom'
 import { Manager, Reference, Popper } from 'react-popper'
+import { uuid } from 'uuidv4'
 import 'styled-components/macro'
 
 import { handlePrivateWelfareRedirect } from 'helpers'
@@ -139,7 +140,7 @@ const Dropdown: React.FC<IProps> = ({
           data-gtm-clicktype={item.children ? 'sub-menu' : 'link'}
           data-gtm-subname={title}
           data-gtm-name={item.text}
-          key={item.text}
+          key={`${item.text}-${uuid()}`}
           onMouseEnter={() => {
             if (item.children) {
               handleMountChildren(item.children, item.text)

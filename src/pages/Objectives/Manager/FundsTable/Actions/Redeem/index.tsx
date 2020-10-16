@@ -10,6 +10,10 @@ import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
+
+import RedeemLayer from 'pages/Redeem'
+
+import { get, post, baseURLNamespaceGoal } from 'services/api'
 import {
   PutObjectiveFundsMovementRequest,
   TransferBetweenObjectivesRequest,
@@ -32,55 +36,84 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
     data: objectiveData,
   } = useSelector((state: t.IState) => state.objectiveManagement)
 
+  const [isDrawerOpen, setDrawerOpen] = useState(isOpen)
+  const [isRedeemLayerOpen, setRedeemLayerOpen] = useState(false)
   const [redeemOptionSelected, setRedeemOptionSelected] = useState<
     t.TRedeemOptions
   >(undefined)
   const [buttonIsDisabled, setButtonIsDisabled] = useState(true)
   const [unlinkValue, setUnlinkValue] = useState(0)
   const [transferValue, setTransferValue] = useState<t.TTransferObject>({})
-  const [redeemOptions, setRedeemOptions] = useState<t.TRedeemContentOptions[]>(
-    [
-      {
-        id: 'mudar',
-        label: 'Vou mudar de fundo',
-        checked: false,
-      },
-      {
-        id: 'bill',
-        label: 'Preciso pagar contas',
-        checked: false,
-      },
-      {
-        id: 'buy',
-        label: 'Vou fazer uma compra',
-        checked: false,
-      },
-      {
-        id: 'performance',
-        label: 'Baixa performance',
-        checked: false,
-      },
-      {
-        id: 'completed',
-        label: 'Completei meu objetivo',
-        checked: false,
-      },
-      {
-        id: 'like',
-        label: 'Não gostei do Conquista',
-        checked: false,
-      },
-      {
-        id: 'hide',
-        label: 'Prefiro não informar',
-        checked: false,
-      },
-    ]
+  const [isLoadingRedeemQuestions, setIsLoadingRedeemQuestions] = useState(
+    false
   )
+  const [isLoadingRedeemAnswer, setIsLoadingRedeemAnswer] = useState(false)
+  const [redeemQuestions, setRedeemQuestions] = useState<
+    t.TRedeemContentQuestions[] | []
+  >([])
 
   if (!fund) {
     return null
   }
+
+  const getRedeemQuestions = useCallback(async () => {
+    try {
+      if (!redeemQuestions.length) {
+        setIsLoadingRedeemQuestions(true)
+        const { data } = await get(`${baseURLNamespaceGoal}/redeems/questions`)
+
+        setRedeemQuestions(data)
+      }
+      setRedeemOptionSelected('redeem')
+    } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Algo inesperado aconteceu',
+        description: 'Aguarde alguns instantes e tente novamente.',
+      })
+
+      console.error(error)
+    } finally {
+      if (redeemQuestions.length) {
+        const uncheckQuestions = [...redeemQuestions].map(question => ({
+          ...question,
+          checked: false,
+        }))
+        setRedeemQuestions(uncheckQuestions)
+      }
+
+      setIsLoadingRedeemQuestions(false)
+    }
+  }, [addToast, redeemQuestions])
+
+  const postRedeemAnswers = useCallback(async () => {
+    try {
+      setIsLoadingRedeemAnswer(true)
+
+      const selectedIds = [...redeemQuestions]
+        .filter(item => item.checked)
+        .map(item => item.id)
+
+      await post(`${baseURLNamespaceGoal}/redeems/answers`, {
+        goal_id: objectiveData.id,
+        fund_id: fund.fund_id,
+        question_ids: selectedIds,
+      })
+
+      setDrawerOpen(false)
+      setRedeemLayerOpen(true)
+    } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Algo inesperado aconteceu',
+        description: 'Aguarde alguns instantes e tente novamente.',
+      })
+
+      console.error(error)
+    } finally {
+      setIsLoadingRedeemAnswer(false)
+    }
+  }, [addToast, fund, objectiveData, redeemQuestions])
 
   const DrawerHeader = useCallback(
     () => (
@@ -146,7 +179,7 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
               width: 100%;
             `}
           >
-            Salvar alteração
+            Salvar alteraçãoes
           </Button>
         )
       case 'transfer':
@@ -184,19 +217,23 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
               width: 100%;
             `}
           >
-            Salvar alteraçãos
+            Salvar alteraçãoes
           </Button>
         )
       case 'redeem':
         return (
           <Button
-            onClick={handleClose}
+            onClick={() => {
+              postRedeemAnswers()
+            }}
             disabled={buttonIsDisabled}
+            loading={isLoadingRedeemAnswer}
+            loadingColor="white"
             css={`
               width: 100%;
             `}
           >
-            Salvar alteraçãoe
+            Avançar
           </Button>
         )
       default:
@@ -223,6 +260,8 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
     fund,
     isLoadingFundsMovement,
     isLoadingTransfer,
+    isLoadingRedeemAnswer,
+    postRedeemAnswers,
   ])
 
   const DrawerContent = useCallback(() => {
@@ -248,8 +287,9 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
       case 'redeem':
         return (
           <RedeemContent
-            options={redeemOptions}
-            setOptions={setRedeemOptions}
+            questions={redeemQuestions}
+            setQuestions={setRedeemQuestions}
+            setButtonIsDisabled={setButtonIsDisabled}
           />
         )
       default: {
@@ -289,7 +329,11 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
                 Se você quer resgatar uma quantia do fundo para a sua conta,
                 escolha esta opção.
               </Text>
-              <Button outline onClick={() => setRedeemOptionSelected('redeem')}>
+              <Button
+                outline
+                onClick={() => getRedeemQuestions()}
+                loading={isLoadingRedeemQuestions}
+              >
                 Resgatar do fundo
               </Button>
             </s.DrawerItem>
@@ -299,34 +343,52 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
     }
   }, [
     redeemOptionSelected,
-    redeemOptions,
+    redeemQuestions,
     transferValue,
     unlinkValue,
     fund,
     setButtonIsDisabled,
+    getRedeemQuestions,
+    isLoadingRedeemQuestions,
   ])
 
   if (isMobile) {
     return (
-      <Modal
-        isOpen={isOpen}
+      <>
+        <Modal
+          isOpen={isDrawerOpen}
+          footer={<DrawerFooter />}
+          handleClose={handleClose}
+          header={<DrawerHeader />}
+        >
+          <DrawerContent />
+        </Modal>
+
+        <RedeemLayer
+          isOpen={isRedeemLayerOpen}
+          handleClose={handleClose}
+          selectedFundId={fund.fund_id}
+        />
+      </>
+    )
+  }
+
+  return (
+    <>
+      <Drawer
+        isOpen={isDrawerOpen}
         footer={<DrawerFooter />}
         handleClose={handleClose}
         header={<DrawerHeader />}
       >
         <DrawerContent />
-      </Modal>
-    )
-  }
+      </Drawer>
 
-  return (
-    <Drawer
-      isOpen={isOpen}
-      footer={<DrawerFooter />}
-      handleClose={handleClose}
-      header={<DrawerHeader />}
-    >
-      <DrawerContent />
-    </Drawer>
+      <RedeemLayer
+        isOpen={isRedeemLayerOpen}
+        handleClose={handleClose}
+        selectedFundId={fund.fund_id}
+      />
+    </>
   )
 }

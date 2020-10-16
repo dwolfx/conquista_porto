@@ -29,7 +29,7 @@ export const DrawerTitle = styled.div`
 export const Divisor = styled(DivisorCmp)`
   margin: ${({ theme }) => `${theme.spacing(3)}px 0`};
   margin-left: ${({ theme }) => -theme.spacing(2)}px;
-  width: ${({ theme }) => `calc(100% + ${theme.spacing(2)})`}px;
+  width: ${({ theme }) => `calc(100% + ${theme.spacing(2)}px)`};
 `
 
 export const DrawerItem = styled.div`

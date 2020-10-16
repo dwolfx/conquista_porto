@@ -7,5 +7,6 @@ export interface IState {
     isLoadingDelete: boolean
     otherGoalsManagement: boolean
     isLoadingOtherGoals: boolean
+    isLoadingUpdate: boolean
   }
 }

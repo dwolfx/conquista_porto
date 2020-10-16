@@ -87,9 +87,9 @@ export default function ObjectiveManager() {
   )
 
   const getObjectiveTypeImageById = useCallback(
-    async (id: number) => {
+    async (goalType: number) => {
       try {
-        const image = await ObjectiveType.getImageById(id)
+        const image = await ObjectiveType.getImageById(goalType)
         setBannerImage(image)
       } catch (error) {
         addToast({
@@ -124,8 +124,10 @@ export default function ObjectiveManager() {
   }, [getSummaryObjectives])
 
   useEffect(() => {
-    getObjectiveTypeImageById(Number(objectiveId))
-  }, [objectiveId, getObjectiveTypeImageById])
+    if (objectiveData && !isLoading) {
+      getObjectiveTypeImageById(+objectiveData.goal_type)
+    }
+  }, [objectiveData, getObjectiveTypeImageById, isLoading])
 
   useEffect(() => {
     if (
@@ -133,7 +135,7 @@ export default function ObjectiveManager() {
       (objectiveData &&
         objectiveData.id &&
         objectiveId &&
-        +objectiveData.id !== +objectiveId) // check if objectiveData exists and its id is equal to objectiveID
+        objectiveData.id !== +objectiveId) // check if objectiveData exists and its id is equal to objectiveID
     ) {
       dispatch(
         GetObjectiveManagementDataRequest({

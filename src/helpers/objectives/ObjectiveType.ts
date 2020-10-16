@@ -144,13 +144,33 @@ export default class ObjectiveType {
    * @returns {Promise<string>} - Objective type image url
    *
    * @example
-   * const image1 = await ObjectiveType.getImageById(1) //TRAVEL.jpg
+   * const image1 = await ObjectiveType.getImageById(1) //travel.jpg
    * const image2 = await ObjectiveType.getImageById(9999) //throw error
    */
   static async getImageById(id: number) {
     const filename = this.parseIdToName(id)
     const image: { default: string } = await import(
-      `assets/images/pages/Objectives/Manager/banner_default/${filename}.jpg`
+      `assets/images/pages/Objectives/Manager/banner_default/${filename.toLowerCase()}.jpg`
+    )
+    return image.default
+  }
+
+  /**
+   * Dynamically get the objective type image by goal type [enum: [ TRAVEL, RETIRE, CAR, COURSE, EVENT, HOUSE, MONEY ]]
+   *
+   * @static
+   * @memberof ObjectiveType
+   * @param {string} goalType - Objetive type id
+   * @returns {Promise<string>} - Objective type image url
+   *
+   * @example
+   * const image1 = await ObjectiveType.getImageByGoalType('TRAVEL') //travel.jpg
+   * const image2 = await ObjectiveType.getImageById(9999) //throw error
+   */
+  static async getImageByGoalType(goalType: string) {
+    console.log(goalType)
+    const image: { default: string } = await import(
+      `assets/images/pages/Objectives/Manager/banner_default/${goalType.toLowerCase()}.jpg`
     )
     return image.default
   }

@@ -1,20 +1,19 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
-import Dropdown, { IItemsProps } from 'components/Dropdown'
 import HorizontalList from 'components/HorizontalList'
-import Icon from 'components/IconExporter'
 import MoneyInput from 'components/Inputs/Money'
+import SelectInput from 'components/Inputs/Select'
+import { TOptions } from 'components/Inputs/Select/types'
 import Text from 'components/Text'
-import TextInput from 'components/NewInput'
 
 import { Currency, BRLCurrency } from 'helpers/money'
 
 import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
 
-import { ITransferContent, IState, TError } from './types'
+import { ITransferContent, IState, TError, TTransferObject } from './types'
 import * as s from './styles'
 
 enum goalTypeIcons {
@@ -35,14 +34,11 @@ export default function({
 }: ITransferContent) {
   const theme = useContext(ThemeContext)
   const dispatch = useDispatch()
-  const inputRef = useRef() as React.RefObject<HTMLDivElement>
 
   const [error, setError] = useState<TError>(undefined)
-  const [objectiveSelected, setObjectiveSelected] = useState<{
-    name?: string
-    id?: number
-    value?: number
-  }>(value)
+  const [objectiveSelected, setObjectiveSelected] = useState<TTransferObject>(
+    value
+  )
 
   const {
     objectives: objectiveList,
@@ -59,13 +55,14 @@ export default function({
     }
   }, [objectiveList, isLoadingList, dispatch])
 
-  const itemsDropdown: IItemsProps[] = useMemo(
+  const itemsDropdown: TOptions[] = useMemo(
     () =>
       objectiveList
         ? [...objectiveList]
             .filter(item => item.id !== objectiveDetails.id)
             .map(item => ({
               text: item.nickname,
+              id: item.id,
               icon: goalTypeIcons[item.goal_type],
               onClick: () => {
                 if (
@@ -128,23 +125,7 @@ export default function({
         Para qual objetivo você deseja transferir?
       </Text>
 
-      <Dropdown
-        items={itemsDropdown}
-        zIndex={14}
-        containerPadding="0"
-        customWidth={`${inputRef.current?.clientWidth}px`}
-      >
-        <div ref={inputRef}>
-          <TextInput
-            value={objectiveSelected?.name || 'Selecione'}
-            placeholder="Selecione"
-            suffix={
-              <Icon name="arrowdown" color="gray6" width={21} height={21} />
-            }
-            readOnly
-          />
-        </div>
-      </Dropdown>
+      <SelectInput selected={objectiveSelected} options={itemsDropdown} />
 
       <Text
         type="headline"

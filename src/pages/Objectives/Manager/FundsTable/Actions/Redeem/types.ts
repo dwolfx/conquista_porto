@@ -41,16 +41,16 @@ export interface ITransferContent {
   setValue: Dispatch<SetStateAction<TTransferObject>>
 }
 
-export type TRedeemContentOptions = {
+export type TRedeemContentQuestions = {
   id: string
-  label: string
-  checked: boolean
-  setButtonIsDisabled?: Dispatch<SetStateAction<boolean>>
+  text: string
+  checked?: boolean
 }
 
 export interface IRedeemContent {
-  options: TRedeemContentOptions[]
-  setOptions: Dispatch<SetStateAction<TRedeemContentOptions[]>>
+  questions: TRedeemContentQuestions[]
+  setQuestions: Dispatch<SetStateAction<TRedeemContentQuestions[]>>
+  setButtonIsDisabled: Dispatch<SetStateAction<boolean>>
 }
 
 export interface IState {

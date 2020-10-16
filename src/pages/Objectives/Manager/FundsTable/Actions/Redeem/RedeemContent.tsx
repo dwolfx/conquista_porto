@@ -7,8 +7,13 @@ import Text from 'components/Text'
 import { IRedeemContent } from './types'
 import { Checkbox } from './styles'
 
-export default function({ options, setOptions }: IRedeemContent) {
+export default function({
+  questions,
+  setQuestions,
+  setButtonIsDisabled,
+}: IRedeemContent) {
   const theme = useContext(ThemeContext)
+
   return (
     <>
       <Text
@@ -21,24 +26,29 @@ export default function({ options, setOptions }: IRedeemContent) {
         deste fundo:
       </Text>
 
-      {options.map(option => (
+      {questions.map(option => (
         <Checkbox
           id={option.id}
-          checked={option.checked}
+          checked={!!option.checked}
           onChange={() =>
-            setOptions(currentOptions => {
-              const newOptions = [...currentOptions].map(item =>
+            setQuestions(currentQuestions => {
+              const newOptions = [...currentQuestions].map(item =>
                 item.id === option.id
                   ? { ...item, checked: !item.checked }
                   : item
               )
+              const selectedItemsQuantity = [...newOptions].filter(
+                item => item.checked
+              )
+
+              setButtonIsDisabled(selectedItemsQuantity.length === 0)
 
               return [...newOptions]
             })
           }
           label={
             <Text color="gray5" bold>
-              {option.label}
+              {option.text}
             </Text>
           }
           key={`redeem-option-${option.id}`}

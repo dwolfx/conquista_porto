@@ -1,11 +1,12 @@
 import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
+import userEvent from '@testing-library/user-event'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
-import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
+import { renderWithReduxAndTheme, screen, waitFor } from 'testUtils'
 
 import RedeemDrawer from './index'
 import UnlinkContent from './UnlinkContent'
 import TransferContent from './TransferContent'
-import { MemoryRouter } from 'react-router-dom'
 
 const fundMock: TObjectiveFunds = {
   adm_tax: 0.4,
@@ -58,7 +59,9 @@ describe('Objective Manager Redeem Drawer', () => {
     }
 
     renderWithReduxAndTheme(
-      <RedeemDrawer isOpen handleClose={handleClose} fund={fundMock} />,
+      <MemoryRouter>
+        <RedeemDrawer isOpen handleClose={handleClose} fund={fundMock} />
+      </MemoryRouter>,
       { container: portalRoot }
     )
 
@@ -89,7 +92,7 @@ describe('Objective Manager Redeem Drawer', () => {
   })
 
   // test case
-  it('should render contents when action button is clicked', () => {
+  it('should render contents when action button is clicked', async () => {
     const handleClose = jest.fn()
     let portalRoot = document.getElementById('root')
     if (!portalRoot) {
@@ -114,12 +117,12 @@ describe('Objective Manager Redeem Drawer', () => {
       screen.queryByText('Quanto você deseja desvincular deste objetivo?')
     ).toBeNull()
     expect(unlinkButton).toBeDefined()
-    fireEvent.click(unlinkButton)
+    userEvent.click(unlinkButton)
     expect(
       screen.getByText('Quanto você deseja desvincular deste objetivo?')
     ).toBeDefined()
 
-    fireEvent.click(screen.getByText(/arrow-left.svg/g))
+    userEvent.click(screen.getByText(/arrow-left.svg/g))
 
     const transferButton = screen.getByRole('button', {
       name: 'Transferir de objetivo',
@@ -128,12 +131,12 @@ describe('Objective Manager Redeem Drawer', () => {
       screen.queryByText('Para qual objetivo você deseja transferir?')
     ).toBeNull()
     expect(transferButton).toBeDefined()
-    fireEvent.click(transferButton)
+    userEvent.click(transferButton)
     expect(
       screen.getByText('Para qual objetivo você deseja transferir?')
     ).toBeDefined()
 
-    fireEvent.click(screen.getByText(/arrow-left.svg/g))
+    userEvent.click(screen.getByText(/arrow-left.svg/g))
 
     const redeemButton = screen.getByRole('button', {
       name: 'Resgatar do fundo',
@@ -144,11 +147,14 @@ describe('Objective Manager Redeem Drawer', () => {
       )
     ).toBeNull()
     expect(redeemButton).toBeDefined()
-    fireEvent.click(redeemButton)
-    expect(
-      screen.getByText(
-        'Por favor, aponte, abaixo, o motivo pelo qual deseja resgatar valores deste fundo:'
-      )
-    ).toBeDefined()
+
+    expect(screen.queryAllByText(/spinner.svg/g)[0]).toBeDefined()
+    await waitFor(() =>
+      expect(
+        screen.queryAllByText(
+          'Por favor, aponte, abaixo, o motivo pelo qual deseja resgatar valores deste fundo:'
+        )
+      ).toBeDefined()
+    )
   })
 })

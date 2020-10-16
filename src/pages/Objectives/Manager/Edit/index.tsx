@@ -50,7 +50,6 @@ export default function EditDrawer({
   isDrawerOpen,
   onClose,
   formData,
-  setFormData,
   objectiveId,
 }: IProps) {
   const { addToast } = useToast()
@@ -79,7 +78,7 @@ export default function EditDrawer({
     goal_type: 'TRAVEL',
   })
 
-  const { isLoadingDelete } = useSelector(
+  const { isLoadingDelete, isLoadingUpdate } = useSelector(
     (state: t.IState) => state.objectiveManagement
   )
 
@@ -93,8 +92,6 @@ export default function EditDrawer({
     }
   }, [editValues.nickname])
 
-  const isLoading = useSelector<any, any>(state => state.objective.isLoading)
-
   function handleDeleteGoal(id: number) {
     dispatch(
       DeleteObjectiveRequest({
@@ -107,8 +104,8 @@ export default function EditDrawer({
 
   const footerDrawer = () => (
     <s.ButtonSubmit
-      data-gtm-form="submit"
-      data-gtm-name="confirmar e recalcular"
+      data-gtm-subname={`drawer editar objetivo - ${formData.nickname}`}
+      data-gtm-name="confirmar"
       onClick={() => {
         dispatch(
           UpdateObjectiveNicknameRequest({
@@ -125,11 +122,10 @@ export default function EditDrawer({
       }}
       disabled={
         hasError ||
-        isLoading ||
         inputCounter > 20 ||
         editValues.nickname === formData.nickname
       }
-      loading={isLoading}
+      loading={isLoadingUpdate}
     >
       Confirmar
     </s.ButtonSubmit>
