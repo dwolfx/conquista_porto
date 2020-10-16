@@ -5,6 +5,7 @@ const defaultState = {
   data: [],
   isLoading: false,
   hasError: false,
+  isLayerOpen: false
 }
 
 describe('BankExtractFund Reducer', () => {

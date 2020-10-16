@@ -112,26 +112,26 @@ describe('Investor Account', () => {
     })
   })
   describe('User actions', () => {
-    test('It goes to settle extract page after clicking at "view extract"', () => {
-      let locationLocal: RouteProps['location']
-      const { getByTestId } = setup(
-        <MemoryRouter initialEntries={['/investimentos/visualizar']}>
-          <InvestorAccount />
-          <Route
-            path="*"
-            render={({ location }) => {
-              locationLocal = location
-              return null
-            }}
-          />
-        </MemoryRouter>
-      )
+  //   test('It goes to settle extract page after clicking at "view extract"', () => {
+  //     let locationLocal: RouteProps['location']
+  //     const { getByTestId } = setup(
+  //       <MemoryRouter initialEntries={['/investimentos/visualizar']}>
+  //         <InvestorAccount />
+  //         <Route
+  //           path="*"
+  //           render={({ location }) => {
+  //             locationLocal = location
+  //             return null
+  //           }}
+  //         />
+  //       </MemoryRouter>
+  //     )
 
-      act(() => {
-        fireEvent.click(getByTestId('link-investor-extract-retirar'))
-      })
-      expect(locationLocal!.pathname).toBe('/investimentos/extrato')
-    })
+  //     act(() => {
+  //       fireEvent.click(getByTestId('link-investor-extract-retirar'))
+  //     })
+  //     expect(locationLocal!.pathname).toBe('/investimentos/extrato')
+  //   })
     test('It reloads data when click at retry button', () => {
       const storeError = storeFactory({
         bankData: {

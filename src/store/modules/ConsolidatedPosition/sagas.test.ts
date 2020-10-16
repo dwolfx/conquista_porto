@@ -19,8 +19,8 @@ describe('Consolidated Position Sagas', () => {
     }
 
     expect(generator.next().value).toEqual(
-      // call(get, `/cotista/posicao/consolidado`)
-      call(get, `/cotistas/posicao-consolidada`)
+      call(get, `/cotista/posicao/consolidado`)
+      // call(get, `/cotistas/posicao-consolidada`)
     )
 
     expect(generator.next(response).value).toEqual(
@@ -34,8 +34,8 @@ describe('Consolidated Position Sagas', () => {
     const generator = getData()
     const response = undefined
     expect(generator.next().value).toEqual(
-      // call(get, `/cotista/posicao/consolidado`)
-      call(get, `/cotistas/posicao-consolidada`)
+      call(get, `/cotista/posicao/consolidado`)
+      // call(get, `/cotistas/posicao-consolidada`)
     )
     expect(generator.next(response).value).toEqual(
       put(GetConsolidatedPositionDataFailure())
