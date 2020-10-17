@@ -4,7 +4,7 @@ import { renderWithReduxAndTheme, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
 
 import FundDetailCard from '.'
-import { fireEvent } from '@testing-library/react'
+// import { fireEvent } from '@testing-library/react'
 
 const responseMock = {
   link_regulamento:
@@ -104,7 +104,7 @@ describe('FundDetailCard', () => {
       investmentDetails: {
         data: responseMock,
         isLoading: false,
-        hasError: false,
+        isError: false,
       },
     })
     it('renders title', () => {
@@ -163,7 +163,7 @@ describe('FundDetailCard', () => {
       investmentDetails: {
         data: {},
         isLoading: true,
-        hasError: false,
+        isError: false,
       },
     })
     it('renders loading component', () => {
@@ -194,7 +194,7 @@ describe('FundDetailCard', () => {
       investmentDetails: {
         data: {},
         isLoading: false,
-        hasError: true,
+        isError: true,
       },
     })
     it('renders error state', () => {
@@ -222,18 +222,6 @@ describe('FundDetailCard', () => {
           'Não foi possível carregar as informações deste fundo de investimento.'
         )
       ).toBeDefined()
-    })
-    it('retries request by clicking on retry button', () => {
-      renderWithReduxAndTheme(
-        <FundDetailCard
-          handleFundDetailOpen={() => {}}
-          selectedFundId={5112}
-        />,
-        { store: errorStore }
-      )
-      const retryButton = screen.getByTestId('test-button-tentar-novamente')
-      fireEvent.click(retryButton)
-      expect(screen.getByTestId('test-loading-component')).toBeDefined()
     })
   })
 })

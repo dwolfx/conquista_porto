@@ -26,6 +26,7 @@ import {
   ColumnItem,
   TextError,
 } from './styles'
+import { IFund } from 'store/modules/Investment/Position/iPositions'
 
 interface IData {
   minimo_inicial: string
@@ -61,33 +62,34 @@ const FundDetailCard = ({
   const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
 
-  let { data: fundDetails, isLoading, isError } = useSelector((state: any) => {
-    return {
-      ...state.investmentDetails,
-      data: Object.keys(state.investmentDetails.data).length
-        ? state.investmentDetails.data
-        : null,
-    }
-  })
+  const { fundDetails, isLoading, isError, nameFund } = useSelector(
+    (state: any) => ({
+      fundDetails: state.investmentDetails.data,
+      isLoading: state.investmentDetails.isLoading,
+      isError: state.investmentDetails.isError,
+      nameFund: state.investmentPosition?.data?.find(
+        (item: IFund) => item.id === selectedFundId
+      )?.apelido,
+    })
+  )
 
   useEffect(() => {
     dispatch(GetInvestmentDetailsRequest(selectedFundId))
   }, [selectedFundId, dispatch])
 
-  const headerTitle =
-    !isLoading && !isError && fundDetails ? fundDetails.nome_carteira : ''
-
-
   const mobile = useMedia('xs')
+
+  const isNotFunDetailsEmpty =
+    fundDetails && Object.keys(fundDetails).length > 0 && !isLoading && !isError
 
   return (
     <LayerCard
-      headerTitle={headerTitle}
+      headerTitle={nameFund || ''}
       headerIconInfo
       headerIconInfoClick={handleFundDetailOpen}
       headerIconInfoMsg="Mais informações"
     >
-      {isLoading && !fundDetails && (
+      {isLoading && (
         <EmptyStateWrapper>
           <Loading
             data-testid="test-loading-component"
@@ -97,7 +99,7 @@ const FundDetailCard = ({
         </EmptyStateWrapper>
       )}
 
-      {isError && !isLoading && !fundDetails && (
+      {isError && (
         <EmptyStateWrapper>
           <TextError type="headline" color="magenta2">
             Não foi possível carregar as informações deste fundo de
@@ -116,7 +118,12 @@ const FundDetailCard = ({
           </Button>
         </EmptyStateWrapper>
       )}
-      {!mobile && !isLoading && !isError && fundDetails ? (
+
+      {isNotFunDetailsEmpty &&
+      !mobile &&
+      !isLoading &&
+      !isError &&
+      fundDetails ? (
         <ContentLayerCard>
           <Row>
             <ColumnItem>
@@ -172,7 +179,7 @@ const FundDetailCard = ({
                   </Text>,
                   <Text bold color="gray6" type="headline">
                     {fundDetails?.categoria_arena?.toLowerCase() ===
-                      'renda variável'
+                    'renda variável'
                       ? 'Ações'
                       : fundDetails.categoria_arena}
                   </Text>,
