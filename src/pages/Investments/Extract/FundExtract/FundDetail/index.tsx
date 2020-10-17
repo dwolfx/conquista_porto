@@ -1,20 +1,20 @@
 import React, { useEffect, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from 'styled-components/macro'
+import { Col, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
-import { Col, Row } from 'styled-bootstrap-grid'
-import Loading from 'components/Loading'
 import Button from 'components/Button'
 import Divisor from 'components/Divisor'
-import Text from 'components/Text'
 import HorizontalList from 'components/HorizontalList'
-
-import useMedia from 'hooks/useMedia'
-import { formatMoney, capitalize } from 'helpers'
-
+import Loading from 'components/Loading'
 import SquareRisk from 'components/FundDetail/Card/SquareRisk'
+import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
+import { IFund } from 'store/modules/Investment/Position/iPositions'
+
+import { formatMoney, capitalize } from 'helpers'
 
 import {
   LayerCard,
@@ -26,39 +26,12 @@ import {
   ColumnItem,
   TextError,
 } from './styles'
-import { IFund } from 'store/modules/Investment/Position/iPositions'
-
-interface IData {
-  minimo_inicial: string
-  perfil_risco: string
-  nome_carteira: string
-  resgate_cotizacao: string
-  aplicao_minima: string
-  id_carteira: number
-  categoria_arena: string
-}
-
-interface iInvestmentDetails {
-  data: IData
-  isLoading: boolean
-  hasError: boolean
-}
-
-interface iRootState {
-  investmentDetails: iInvestmentDetails
-}
-
 interface IProps {
   handleFundDetailOpen?: () => void
   selectedFundId: number
-  isRedeem?: boolean
 }
 
-const FundDetailCard = ({
-  handleFundDetailOpen,
-  selectedFundId,
-  isRedeem,
-}: IProps) => {
+const FundDetailCard = ({ handleFundDetailOpen, selectedFundId }: IProps) => {
   const dispatch = useDispatch()
   const themeContext = useContext(ThemeContext)
 
@@ -129,13 +102,9 @@ const FundDetailCard = ({
             <ColumnItem>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    {isRedeem ? 'horário limite' : 'aplicação inicial mínima'}
-                  </TextTitle>,
+                  <TextTitle>{'aplicação inicial mínima'}</TextTitle>,
                   <TextValue>
-                    {isRedeem
-                      ? fundDetails.hora_resgate
-                      : formatMoney(fundDetails.minimo_inicial)}
+                    {formatMoney(fundDetails?.minimo_inicial)}
                   </TextValue>,
                 ]}
               />
@@ -146,13 +115,9 @@ const FundDetailCard = ({
             <ColumnItem>
               <VerticalListMargin
                 elements={[
-                  <TextTitle>
-                    {isRedeem ? 'saldo mínimo' : 'movimentação mínima'}
-                  </TextTitle>,
+                  <TextTitle>{'movimentação mínima'}</TextTitle>,
                   <TextValue>
-                    {isRedeem
-                      ? formatMoney(fundDetails.saldo_minimo)
-                      : formatMoney(fundDetails.aplicao_minima)}
+                    {formatMoney(fundDetails?.aplicao_minima)}
                   </TextValue>,
                 ]}
               />
@@ -164,7 +129,7 @@ const FundDetailCard = ({
               <VerticalListMargin
                 elements={[
                   <TextTitle>Resgate (Cotização)</TextTitle>,
-                  <TextValue>{fundDetails.resgate_cotizacao}</TextValue>,
+                  <TextValue>{fundDetails?.resgate_cotizacao}</TextValue>,
                 ]}
               />
             </ColumnItem>
@@ -181,7 +146,7 @@ const FundDetailCard = ({
                     {fundDetails?.categoria_arena?.toLowerCase() ===
                     'renda variável'
                       ? 'Ações'
-                      : fundDetails.categoria_arena}
+                      : fundDetails?.categoria_arena}
                   </Text>,
                 ]}
               />
@@ -202,10 +167,10 @@ const FundDetailCard = ({
                           width: max-content;
                         `}
                       >
-                        {capitalize(fundDetails.perfil_risco)}
+                        {capitalize(fundDetails?.perfil_risco)}
                       </TextValue>,
                       <SquareRisk
-                        perfilRisco={fundDetails.perfil_risco}
+                        perfilRisco={fundDetails?.perfil_risco}
                         tabletVersion
                       />,
                     ]}

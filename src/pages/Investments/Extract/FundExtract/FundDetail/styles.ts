@@ -43,50 +43,6 @@ export const VerticalListMargin = styled(VerticalList)`
   margin: ${props => props.theme.spacing(1)}px 0px;
 `
 
-export const SquareRiskContainer = styled.div<{ tabletVersion: boolean }>`
-  @media ${props => props.theme.mediaQueries.mdUp} {
-    display: flex;
-  }
-  @media ${props => props.theme.mediaQueries.smUp} {
-    display: ${props => (props.tabletVersion ? 'flex' : 'none')};
-  }
-`
-
-interface ISquareRiskProps {
-  color: keyof typeof themeColors
-  value: string
-  selectedRisk: string
-}
-const handleOpacitySquareRisk = ({ value, selectedRisk }: ISquareRiskProps) => {
-  if (!selectedRisk || value === selectedRisk) {
-    return 1
-  }
-  return 0.3
-}
-
-const handleDisplay = ({ value, selectedRisk }: ISquareRiskProps) => {
-  if (value === selectedRisk) {
-    return 'block'
-  }
-  return 'none'
-}
-
-export const SquareRiskLevel = styled.div<ISquareRiskProps>`
-  width: ${({ theme }) => theme.spacing(3)}px;
-  height: ${({ theme }) => theme.spacing(3)}px;
-  margin-right: 4px;
-  background-color: ${({ theme, color }) => theme.colors[color]};
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  opacity: ${handleOpacitySquareRisk};
-  @media ${({ theme }) => theme.mediaQueries.smUp} {
-    display: ${handleDisplay};
-  }
-  @media ${({ theme }) => theme.mediaQueries.mdUp} {
-    display: block;
-  }
-`
-
 export const ContentLayerCard = styled(Container)`
   margin-top: ${props => props.theme.spacing(1)}px;
 

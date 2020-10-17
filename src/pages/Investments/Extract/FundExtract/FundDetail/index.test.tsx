@@ -4,7 +4,6 @@ import { renderWithReduxAndTheme, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
 
 import FundDetailCard from '.'
-// import { fireEvent } from '@testing-library/react'
 
 const responseMock = {
   link_regulamento:
@@ -157,7 +156,52 @@ describe('FundDetailCard', () => {
       )
       expect(screen.queryByText('Medio-alto')).toBeDefined()
     })
+    it('renders horizontal tablet', () => {
+      window.resizeTo(1024, 980)
+      renderWithReduxAndTheme(
+        <FundDetailCard
+          handleFundDetailOpen={() => {}}
+          selectedFundId={5112}
+        />,
+        { store: successStore }
+      )
+      expect(screen.queryByText('Medio-alto')).toBeDefined()
+    })
+    it('renders vertical tablet "md"', () => {
+      window.resizeTo(979, 600)
+      renderWithReduxAndTheme(
+        <FundDetailCard
+          handleFundDetailOpen={() => {}}
+          selectedFundId={5112}
+        />,
+        { store: successStore }
+      )
+      expect(screen.queryByText('Medio-alto')).toBeDefined()
+    })
+    it('renders vertical tablet "sm"', () => {
+      window.resizeTo(730, 480)
+      renderWithReduxAndTheme(
+        <FundDetailCard
+          handleFundDetailOpen={() => {}}
+          selectedFundId={5112}
+        />,
+        { store: successStore }
+      )
+      expect(screen.queryByText('Medio-alto')).toBeDefined()
+    })
+    it('renders mobile', () => {
+      window.resizeTo(320, 568)
+      renderWithReduxAndTheme(
+        <FundDetailCard
+          handleFundDetailOpen={() => {}}
+          selectedFundId={5112}
+        />,
+        { store: successStore }
+      )
+      expect(screen.queryByText('Medio-alto')).toBeDefined()
+    })
   })
+
   describe('renders correcly when loading', () => {
     const loadingStore = storeFactory({
       investmentDetails: {
@@ -189,6 +233,7 @@ describe('FundDetailCard', () => {
       ).toBeInTheDocument()
     })
   })
+
   describe('renders correcly when error occours', () => {
     const errorStore = storeFactory({
       investmentDetails: {
