@@ -4,7 +4,7 @@ import 'styled-components/macro'
 import { Row, Col } from 'styled-bootstrap-grid'
 
 import Card from 'components/Card'
-import FundDetailCard from 'components/FundDetail/Card'
+import FundDetailCard from './FundDetail'
 import FundDetailDrawer from 'components/FundDetail/Drawer'
 import FundDetailModal from 'components/FundDetail/Modal'
 import useMedia from 'hooks/useMedia'
@@ -16,6 +16,7 @@ import ExtractTable from './extractTable'
 
 import {
   FundDetailContainer,
+  ColFundDetail,
 } from './styles'
 import { ISelectInterval, IInterval } from '../AccountExtract/types'
 import { INTERVAL_SELECT_OPTIONS } from '../constants'
@@ -92,7 +93,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
       title="Movimentações do fundo"
     >
       <Row>
-        <Col lg={3} md={12} sm={12}>
+        <ColFundDetail lg={3} md={12} sm={12}>
           <FundDetailContainer>
             <FundDetailCard
               handleFundDetailOpen={() => setFundDetailOpen(true)}
@@ -100,7 +101,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
               isRedeem={false}
             />
           </FundDetailContainer>
-        </Col>
+        </ColFundDetail>
         <Col lg={9} md={12}>
           <Card
             data-testid="table-account-extract"
@@ -109,7 +110,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
               padding: 21px 21px 0 21px;
             `}
           >
-            <TableFilter 
+            <TableFilter
               selectedInterval={selectedInterval}
               handleSelectInterval={setSelectedInterval}
               handleInterval={setInterval}
@@ -127,12 +128,12 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
           title="Detalhes do fundo"
         />
       ) : (
-        <FundDetailDrawer
-          isOpen={isFundDetailOpen}
-          isLayerOpen
-          handleClose={() => setFundDetailOpen(false)}
-        />
-      )}
+          <FundDetailDrawer
+            isOpen={isFundDetailOpen}
+            isLayerOpen
+            handleClose={() => setFundDetailOpen(false)}
+          />
+        )}
     </BaseLayer>
   )
 }

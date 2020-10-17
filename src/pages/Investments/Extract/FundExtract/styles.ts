@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Row } from 'styled-bootstrap-grid'
+import { Row, Col } from 'styled-bootstrap-grid'
 
 import ButtonTag from 'components/Button/Tag'
 import ButtonLink from 'components/Button/Link'
@@ -66,16 +66,14 @@ interface IButtonClearFilters {
   hasFilter: boolean
 }
 
-export const ButtonClearFilters = styled(ButtonLink)<IButtonClearFilters>`
+export const ButtonClearFilters = styled(ButtonLink) <IButtonClearFilters>`
   margin-left: ${({ theme }) => theme.spacing(1)}px;
   color: ${props =>
     props.hasFilter ? props.theme.colors.blue4 : props.theme.colors.gray4};
 `
 
 export const FundDetailContainer = styled.div`
-  ${LayerCard} {
-    height: 460px;
-  }
+  margin: 0;
 `
 
 export const WrapperSelectRange = styled.div`
@@ -96,5 +94,12 @@ export const StyledTable = styled(Table)`
   ${TbodyTr} {
     justify-content: space-between;
     height: 56px;
+  }
+`
+
+export const ColFundDetail = styled(Col)`
+  @media ${props => props.theme.mediaQueries.xs} {
+    margin: 0;
+    padding: 0;
   }
 `

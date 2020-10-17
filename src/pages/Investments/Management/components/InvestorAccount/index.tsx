@@ -197,7 +197,8 @@ const InvestorAccount = () => {
               outline
               color="primary"
               onClick={() => {
-                history.push('/investimentos/extrato')
+                dispatch(OpenBankExtractFundLayer())
+                // history.push('/investimentos/extrato')
               }}
             >
               ver extrato

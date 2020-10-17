@@ -11,7 +11,7 @@ import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
 import { formatMoney, formatLocaleStringToNumber } from 'helpers'
-
+import { OpenBankExtractFundLayer} from 'store/modules/BankExtractFund/action'
 import { InvestorAccountInfoEnum } from '../../types'
 
 import {
@@ -187,7 +187,8 @@ const InvestorAccountMobile = () => {
               data-gtm-button="button"
               color="primary"
               onClick={() => {
-                history.push('/investimentos/extrato')
+                dispatch(OpenBankExtractFundLayer())
+                // history.push('/investimentos/extrato')
               }}
             >
               ver extrato
