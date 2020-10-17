@@ -113,7 +113,7 @@ describe('InvestorAccountMobile', () => {
       expect(getByTestId('button-ballance-retry')).toBeDefined()
     })
   })
-  describe('behaves correcly', () => { 
+  describe('behaves correcly', () => {
     it('goes to settle extract page after clicking at "view extract"', () => {
       let locationLocal: RouteProps['location']
       const { getAllByRole } = renderWithReduxAndTheme(
@@ -130,7 +130,7 @@ describe('InvestorAccountMobile', () => {
         { store: customStore }
       )
       fireEvent.click(getAllByRole('button', { name: 'ver extrato' })[1])
-      expect(locationLocal!.pathname).toBe('/investimentos/extrato')
+      expect(locationLocal!.pathname).toBe('/investimentos/visualizar')
     })
     it('reloads data when click at retry button', () => {
       const storeError = storeFactory({
