@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import 'styled-components/macro'
 
@@ -32,7 +31,6 @@ import {
 const InvestorAccountMobile = () => {
   useFetchBankData()
   const dispatch = useDispatch()
-  const history = useHistory()
 
   const {
     bankData,

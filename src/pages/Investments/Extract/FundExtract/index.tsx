@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import 'styled-components/macro'
-import { Row, Col } from 'styled-bootstrap-grid'
+import { Row } from 'styled-bootstrap-grid'
 
-import Card from 'components/Card'
 import FundDetailCard from './FundDetail'
 import FundDetailDrawer from 'components/FundDetail/Drawer'
 import FundDetailModal from 'components/FundDetail/Modal'
 import useMedia from 'hooks/useMedia'
 
+import ExtractTableMobile from 'pages/Investments/Extract/AccountExtract/ExtractTable/Mobile' // copy components
+import { FloatButton } from '../BaseLayer/styles'
+
 import BaseLayer from '../BaseLayer'
 import TableFilter from './TableFilter'
+import TableFilterDrawer from './TableFilterDrawer'
 import ExtractTable from './ExtractTable'
 
 import { FundDetailContainer, ColFundDetail, ColStyled, ContentCard, TableWrapper } from './styles'
@@ -51,6 +54,7 @@ interface IProps {
   handleClose: () => void
 }
 const FundExtract = ({ isOpen, handleClose }: IProps) => {
+  const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
   const [filters, setFilters] = useState<IFundExtractFilter>({ 
     apply: false,
     redeem: false,
@@ -64,8 +68,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
     startDate: '',
     endDate: '',
   })
-  const { idFund, auth } = useSelector((state: any) => ({
-    auth: state.auth,
+  const { idFund } = useSelector((state: any) => ({
     idFund: state.investmentPosition.idFund,
   }))
 
@@ -96,24 +99,58 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
           </FundDetailContainer>
         </ColFundDetail>
         <ColStyled lg={9} md={12} data-testid="table-fund-extract">
-          <ContentCard>
-            <TableWrapper hasError={false}>
-              <TableFilter
-                filters={filters}
-                handleFilters={setFilters}
-                selectedInterval={selectedInterval}
-                handleSelectInterval={setSelectedInterval}
-                handleInterval={setInterval}
-                handleClearFilters={cleanFilters}
-              />
-              <ExtractTable 
+          {isMobile ? (
+            <>
+              <ExtractTableMobile
                 isLoading={false}
                 hasError={false}
                 extracts={extractsMock}
-                request={false}
+                request={{
+                  tipoFiltro: 0,
+                  dataInicial: interval.startDate,
+                  dataFinal: interval.endDate
+                }}
               />
-            </TableWrapper>
-          </ContentCard>
+              <FloatButton
+                color="primary"
+                onClick={() => setOpenFilterDrawer(true)}
+                size="large"
+                icon="filter"
+              />
+              {isOpenFilterDrawer &&
+                <TableFilterDrawer
+                  isOpen={isOpenFilterDrawer}
+                  onHandleClose={() => setOpenFilterDrawer(false)}
+                  filters={filters}
+                  handleFilters={setFilters}
+                  interval={interval}
+                  handleInterval={setInterval}
+                  selectedInterval={selectedInterval}
+                  handleSelectInterval={setSelectedInterval}
+                  handleClearFilters={cleanFilters}
+                />
+              }
+            </>
+          ) : (
+            <ContentCard data-testid="table-account-extract">
+              <TableWrapper hasError={false}>
+                <TableFilter
+                  filters={filters}
+                  handleFilters={setFilters}
+                  selectedInterval={selectedInterval}
+                  handleSelectInterval={setSelectedInterval}
+                  handleInterval={setInterval}
+                  handleClearFilters={cleanFilters}
+                />
+                <ExtractTable 
+                  isLoading={false}
+                  hasError={false}
+                  extracts={extractsMock}
+                  request={false}
+                />
+              </TableWrapper>
+            </ContentCard>
+          )}
         </ColStyled>
       </Row>
       {isMobile ? (

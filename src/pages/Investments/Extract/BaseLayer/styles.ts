@@ -46,6 +46,10 @@ export const SubHeader = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.grayblue1};
   padding: ${({ theme }) => `0 ${theme.spacing(6)}px`};
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
+  }
 `
 
 export const TitleWrapper = styled.div`

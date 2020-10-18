@@ -17,8 +17,6 @@ const createRootContainer = () => {
   return container
 }
 
-const extractsMock = {}
-
 const authMock = {
   accessToken: '9dd993fc2a66c77d80404ac79c601ad8b7df12bc',
   cpf: '11122233300',

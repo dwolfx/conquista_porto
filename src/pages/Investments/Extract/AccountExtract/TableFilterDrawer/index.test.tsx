@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { renderWithReduxAndTheme, screen } from 'testUtils'
+import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 import { initialFilters, initialInterval } from '../'
 import { months } from '../constants'
 
 import TableFilterDrawer from '.'
-import { fireEvent } from '@testing-library/dom'
 
 const createRootContainer = () => {
   let container = document.getElementById('root')

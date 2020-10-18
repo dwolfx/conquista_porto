@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { themeColors } from 'styles/theme'
 import { Container } from 'styled-bootstrap-grid'
 
 import Card from 'components/Card'

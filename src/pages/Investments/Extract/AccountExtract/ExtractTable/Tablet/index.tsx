@@ -13,7 +13,6 @@ import { formatMoney } from 'helpers'
 import { useDispatch } from 'react-redux'
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
-
 interface IProps {
   extracts: ITransaction[]
   isLoading: boolean,

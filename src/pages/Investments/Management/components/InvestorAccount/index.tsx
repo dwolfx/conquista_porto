@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import 'styled-components/macro'
 
 import ButtonLink from 'components/Button/Link'
@@ -33,7 +32,6 @@ const InvestorAccount = () => {
   useFetchBankData()
   const isTablet = useMedia('lg')
   const dispatch = useDispatch()
-  const history = useHistory()
 
   const {
     bankData,
@@ -41,16 +39,12 @@ const InvestorAccount = () => {
     isLoading,
     hasError,
     displayInformation,
-    bankExtractFund,
-    idFund,
   } = useSelector<any, any>(state => ({
     bankData: state.bankData.data,
     auth: state.auth,
     isLoading: state.bankData.isLoading,
     hasError: state.bankData.hasError,
     displayInformation: state.investmentPosition.displayInformation,
-    bankExtractFund: state.bankExtractFund,
-    idFund: state.investmentPosition.idFund,
   }))
 
   const renderBallanceInfo = (
@@ -198,7 +192,6 @@ const InvestorAccount = () => {
               color="primary"
               onClick={() => {
                 dispatch(OpenBankExtractFundLayer())
-                // history.push('/investimentos/extrato')
               }}
             >
               ver extrato

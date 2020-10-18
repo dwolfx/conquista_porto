@@ -81,14 +81,14 @@ const TableFilterDrawer = ({
   }
 
   const changeInterval = (interval: ISelectInterval) => {
-      setIsDatePickerOpen(false)
-      setFinalDate(null)
-      setInitialDate(null)
-      handleSelectInterval(interval)
-      setNewInterval({
-        startDate: moment().subtract(interval.value, 'days').format('YYYY-MM-DD'),
-        endDate: moment().format('YYYY-MM-DD')
-      })
+    setIsDatePickerOpen(false)
+    setFinalDate(null)
+    setInitialDate(null)
+    handleSelectInterval(interval)
+    setNewInterval({
+      startDate: moment().subtract(interval.value, 'days').format('YYYY-MM-DD'),
+      endDate: moment().format('YYYY-MM-DD')
+    })
   }
 
   const applyFilters = () => {
@@ -100,34 +100,34 @@ const TableFilterDrawer = ({
   const DrawerHeader = (handleCloseFilters: () => void) => {
     return (
       <FilterDrawerHeader>
-      <PrevButton
-        data-gtm-subname="drawer filtros"
-        data-gtm-name="botao fechar drawer filtros"
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        role="button"
-        name="arrowleft"
-        color="gray4"
-        width={28}
-        height={28}
-        onClick={() => handleCloseFilters()}
-      />
-      <HeaderColTitle>
-        <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
-      </HeaderColTitle>
-      <CloseButton
-        data-gtm-subname="drawer close"
-        data-gtm-name="botao fechar drawer filtros"
-        data-gtm-type="click"
-        data-gtm-clicktype="button"
-        role="button"
-        name="close"
-        color="gray4"
-        width={28}
-        height={28}
-        onClick={() => handleCloseFilters()}
-      />
-    </FilterDrawerHeader>
+        <PrevButton
+          data-gtm-subname="drawer filtros"
+          data-gtm-name="botao fechar drawer filtros"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          role="button"
+          name="arrowleft"
+          color="gray4"
+          width={28}
+          height={28}
+          onClick={() => handleCloseFilters()}
+        />
+        <HeaderColTitle>
+          <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
+        </HeaderColTitle>
+        <CloseButton
+          data-gtm-subname="drawer close"
+          data-gtm-name="botao fechar drawer filtros"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          role="button"
+          name="close"
+          color="gray4"
+          width={28}
+          height={28}
+          onClick={() => handleCloseFilters()}
+        />
+      </FilterDrawerHeader>
     )
   }
 
