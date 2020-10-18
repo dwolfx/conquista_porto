@@ -24,6 +24,9 @@ describe('TableFilter tests', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
         <TableFilter
+          filters={{ quotaEater: false, redeem: false, apply: false }}
+          handleFilters={() => {}}
+          handleClearFilters={() => {}}
           handleInterval={() => {}}
           selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
           handleSelectInterval={() => {}}
@@ -38,6 +41,9 @@ describe('TableFilter tests', () => {
     const { rerender } = renderWithReduxAndTheme(
       <MemoryRouter>
         <TableFilter
+          filters={{ quotaEater: false, redeem: false, apply: false }}
+          handleFilters={() => {}}
+          handleClearFilters={() => {}}
           handleInterval={() => {}}
           handleSelectInterval={handleSelectIntervalMock}
           selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
@@ -50,7 +56,10 @@ describe('TableFilter tests', () => {
     fireEvent.click(screen.getByText(/Últimos 30 dias/i))
     rerender(
       <MemoryRouter>
-        <TableFilter 
+        <TableFilter
+          filters={{ quotaEater: false, redeem: false, apply: false }}
+          handleFilters={() => {}}
+          handleClearFilters={() => {}}
           handleInterval={() => {}}
           handleSelectInterval={handleSelectIntervalMock}
           selectedInterval={INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION}
@@ -64,7 +73,10 @@ describe('TableFilter tests', () => {
     const handleIntervalMock = jest.fn()
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter 
+        <TableFilter
+          filters={{ quotaEater: false, redeem: false, apply: false }}
+          handleFilters={() => {}}
+          handleClearFilters={() => {}}
           handleInterval={handleIntervalMock}
           handleSelectInterval={() => {}}
           selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
@@ -80,7 +92,10 @@ describe('TableFilter tests', () => {
   it('should show the datepicker and close', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter 
+        <TableFilter
+          filters={{ quotaEater: false, redeem: false, apply: false }}
+          handleFilters={() => {}}
+          handleClearFilters={() => {}}
           handleInterval={() => {}}
           handleSelectInterval={() => {}}
           selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
@@ -99,7 +114,10 @@ describe('TableFilter tests', () => {
     const handleIntervalMock = jest.fn()
     renderWithReduxAndTheme(
       <MemoryRouter>
-        <TableFilter 
+        <TableFilter
+          filters={{ quotaEater: false, redeem: false, apply: false }}
+          handleFilters={() => {}}
+          handleClearFilters={() => {}}
           handleInterval={handleIntervalMock}
           handleSelectInterval={() => {}}
           selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
@@ -116,5 +134,102 @@ describe('TableFilter tests', () => {
     fireEvent.click(screen.getByRole('button', { name: /Aplicar/i }))
     expect(handleIntervalMock).toHaveBeenCalled()
     expect(screen.getByText('28/09/2020 - 10/10/2020')).toBeInTheDocument()
+  })
+  it('should have button filters', () => {
+    renderWithReduxAndTheme(
+      <MemoryRouter>
+        <TableFilter 
+          filters={{ quotaEater: false, redeem: false, apply: false }}
+          handleFilters={() => {}}
+          handleClearFilters={() => {}}
+          handleInterval={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
+        />
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    expect(screen.getByRole('button', { name: /aplicação/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /resgate/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /come-cotas/i })).toBeInTheDocument()
+  })
+  test('the button "aplicação" should behave correclty', () => {
+    const handleFiltersMock = jest.fn()
+    renderWithReduxAndTheme(
+      <MemoryRouter>
+        <TableFilter 
+          handleFilters={handleFiltersMock}
+          filters={{ apply: true, quotaEater: false, redeem: false }} 
+          handleInterval={() => {}}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
+        />
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    const applyButton = screen.getByRole('button', { name: /aplicação/i })
+    fireEvent.click(applyButton)
+    expect(applyButton).toHaveStyleRule('border-color', '#00ADEF')
+    expect(handleFiltersMock).toHaveBeenCalled()
+  })
+  test('the button "resgate" should behave correclty', () => {
+    const handleFiltersMock = jest.fn()
+    renderWithReduxAndTheme(
+      <MemoryRouter>
+        <TableFilter 
+          handleFilters={handleFiltersMock}
+          filters={{ apply: false, quotaEater: false, redeem: true }} 
+          handleInterval={() => {}}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
+        />
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    const redeemButton = screen.getByRole('button', { name: /resgate/i })
+    fireEvent.click(redeemButton)
+    expect(redeemButton).toHaveStyleRule('border-color', '#00ADEF')
+    expect(handleFiltersMock).toHaveBeenCalled()
+  })
+  test('the button "come-cotas" should behave correclty', () => {
+    const handleFiltersMock = jest.fn()
+    renderWithReduxAndTheme(
+      <MemoryRouter>
+        <TableFilter 
+          handleFilters={handleFiltersMock}
+          filters={{ apply: false, quotaEater: true, redeem: false }} 
+          handleInterval={() => {}}
+          handleClearFilters={() => {}}
+          handleSelectInterval={() => {}}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
+        />
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    const quotaEaterButton = screen.getByRole('button', { name: /come-cotas/i })
+    fireEvent.click(quotaEaterButton)
+    expect(quotaEaterButton).toHaveStyleRule('border-color', '#00ADEF')
+    expect(handleFiltersMock).toHaveBeenCalled()
+  })
+  it('should clean filters button behaves', () => {
+    const handleCleanFiltersMock = jest.fn()
+    renderWithReduxAndTheme(
+      <MemoryRouter>
+        <TableFilter 
+          handleFilters={() => {}}
+          filters={{ apply: true, quotaEater: false, redeem: true }} 
+          handleInterval={() => {}}
+          handleClearFilters={handleCleanFiltersMock}
+          handleSelectInterval={() => {}}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
+        />
+      </MemoryRouter>,
+      { container: createRootContainer() }
+    )
+    const clearButton = screen.getByRole('button', { name: /limpar filtros/i })
+    fireEvent.click(clearButton)
+    expect(handleCleanFiltersMock).toHaveBeenCalled()
   })
 })

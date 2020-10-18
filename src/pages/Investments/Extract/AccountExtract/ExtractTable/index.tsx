@@ -9,7 +9,6 @@ import { ITransaction } from '../types'
 import * as S from './styles'
 import useMedia from 'hooks/useMedia'
 
-
 interface IProps {
   extracts: ITransaction[]
   isLoading: boolean,

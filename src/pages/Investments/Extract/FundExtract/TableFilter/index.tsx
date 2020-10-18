@@ -1,11 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { ThemeContext } from 'styled-components'
+import 'styled-components/macro'
 import moment from 'moment'
 
+import ButtonLink from 'components/Button/Link'
+import ButtonTag from 'components/Button/Tag'
 import DatePickerRangeModal from 'components/Dates/DatePickerRangeModal'
-import Text from 'components/Text'
-import Icon from 'components/IconExporter'
 import Dropdown from 'components/Dropdown'
+import Icon from 'components/IconExporter'
+import Text from 'components/Text'
 
 import { INTERVAL_SELECT_OPTIONS } from 'pages/Investments/Extract/constants'
 import { ISelectInterval, IInterval } from 'pages/Investments/Extract/types'
@@ -18,12 +21,25 @@ import {
   DropdownLineContent
 } from './styles'
 
+import { IFundExtractFilter } from '../types'
+
 interface IProps {
+  filters: IFundExtractFilter
+  // interval: IInterval
+  handleClearFilters: () => void
   selectedInterval: ISelectInterval
+  handleFilters: (newFilters: IFundExtractFilter) => void
   handleInterval: (newInterval: IInterval) => void
   handleSelectInterval: (newSelectedInterval: ISelectInterval) => void
 }
-const TableFilter = ({ selectedInterval, handleSelectInterval, handleInterval }: IProps) => {
+const TableFilter = ({
+  selectedInterval,
+  handleSelectInterval,
+  handleInterval,
+  filters,
+  handleFilters,
+  handleClearFilters,
+}: IProps) => {
   const themeContext = useContext(ThemeContext)
   const [period, setPeriod] = useState('')
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false)
@@ -93,6 +109,46 @@ const TableFilter = ({ selectedInterval, handleSelectInterval, handleInterval }:
           </ButtonContent>
         </Dropdown>
       </DropdownWrapper>
+      <ButtonsWrapper>
+        <ButtonTag
+          color={filters.apply ? 'primary' : ''}
+          onClick={() => handleFilters({
+            ...filters,
+            apply: !filters.apply
+          })}
+        >
+          aplicação
+        </ButtonTag>
+        <ButtonTag
+          color={filters.redeem ? 'primary' : ''}
+          onClick={() => handleFilters({
+            ...filters,
+            redeem: !filters.redeem
+          })}
+        >
+          resgate
+        </ButtonTag>
+        <ButtonTag
+          color={filters.quotaEater ? 'primary' : ''}
+          onClick={() => handleFilters({
+            ...filters,
+            quotaEater: !filters.quotaEater
+          })}
+        >
+          come-cotas
+        </ButtonTag>
+      </ButtonsWrapper>
+      <ButtonLink
+        color="primary"
+        noIcon
+        role="button"
+        css={`
+          margin-left: auto;
+        `}
+        onClick={handleClearFilters}
+      >
+        limpar filtros
+      </ButtonLink>
     </Wrapper>
   )
 }

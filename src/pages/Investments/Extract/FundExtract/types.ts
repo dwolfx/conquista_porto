@@ -6,3 +6,9 @@ export interface ISelectedExtractFundFilter {
   dataInicial: moment.Moment | null
   dataFinal: moment.Moment | null
 }
+
+export interface IFundExtractFilter {
+  apply: boolean
+  redeem: boolean
+  quotaEater: boolean
+}

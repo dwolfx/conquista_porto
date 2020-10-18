@@ -32,7 +32,10 @@ export const ButtonContent = styled.div`
 export const ButtonsWrapper = styled.div`
   display: flex;
 
-  > button:first-child {
-    margin-right: ${({ theme }) => theme.spacing(2)}px;
+  > button {
+    margin-right: ${({ theme }) => theme.spacing(1)}px;
+    &:last-child : {
+      margin: 0;
+    }
   }
 `

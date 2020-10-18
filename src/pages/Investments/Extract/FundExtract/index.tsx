@@ -11,16 +11,51 @@ import useMedia from 'hooks/useMedia'
 
 import BaseLayer from '../BaseLayer'
 import TableFilter from './TableFilter'
+import ExtractTable from './ExtractTable'
 
-import { FundDetailContainer, ColFundDetail } from './styles'
+import { FundDetailContainer, ColFundDetail, ColStyled, ContentCard, TableWrapper } from './styles'
 import { ISelectInterval, IInterval } from '../AccountExtract/types'
 import { INTERVAL_SELECT_OPTIONS } from '../constants'
+import { IFundExtractFilter } from './types'
+
+const extractsMock = [
+  {
+    "tipo": "Retirada",
+    "data": "2019-09-03T00:00:00-03:00",
+    "valor": "100"
+  },
+  {
+    "tipo": "Retirada",
+    "data": "2019-07-03T00:00:00-03:00",
+    "valor": "500"
+  },
+  {
+    "tipo": "Retirada",
+    "data": "2019-08-27T00:00:00-03:00",
+    "valor": "100"
+  },
+  {
+    "tipo": "Retirada",
+    "data": "2019-09-03T00:00:00-03:00",
+    "valor": "100"
+  },
+  {
+    "tipo": "Retirada",
+    "data": "2019-07-03T00:00:00-03:00",
+    "valor": "500"
+  }
+]
 
 interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
 const FundExtract = ({ isOpen, handleClose }: IProps) => {
+  const [filters, setFilters] = useState<IFundExtractFilter>({ 
+    apply: false,
+    redeem: false,
+    quotaEater: false
+   })
   const [isFundDetailOpen, setFundDetailOpen] = useState(false)
   const [selectedInterval, setSelectedInterval] = useState<ISelectInterval>(
     INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION
@@ -35,6 +70,14 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
   }))
 
   const isMobile = useMedia('sm')
+
+  const cleanFilters = () => {
+    setFilters({
+      apply: false,
+      redeem: false,
+      quotaEater: false
+    })
+  }
 
   return (
     <BaseLayer
@@ -52,20 +95,26 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
             />
           </FundDetailContainer>
         </ColFundDetail>
-        <Col lg={9} md={12} data-testid="table-fund-extract">
-          <Card
-            css={`
-              height: 460px;
-              padding: 21px 21px 0 21px;
-            `}
-          >
-            <TableFilter
-              selectedInterval={selectedInterval}
-              handleSelectInterval={setSelectedInterval}
-              handleInterval={setInterval}
-            />
-          </Card>
-        </Col>
+        <ColStyled lg={9} md={12} data-testid="table-fund-extract">
+          <ContentCard>
+            <TableWrapper hasError={false}>
+              <TableFilter
+                filters={filters}
+                handleFilters={setFilters}
+                selectedInterval={selectedInterval}
+                handleSelectInterval={setSelectedInterval}
+                handleInterval={setInterval}
+                handleClearFilters={cleanFilters}
+              />
+              <ExtractTable 
+                isLoading={false}
+                hasError={false}
+                extracts={extractsMock}
+                request={false}
+              />
+            </TableWrapper>
+          </ContentCard>
+        </ColStyled>
       </Row>
       {isMobile ? (
         <FundDetailModal
