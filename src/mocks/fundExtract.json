@@ -1,0 +1,9 @@
+[
+  {
+    "transaction_date": "01/01/2020",
+    "transaction_type": "INVEST",
+    "value": 9000,
+    "transaction_status": "DONE",
+    "processed_transaction_date": "01/01/2020"
+  }
+]

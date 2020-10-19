@@ -9218,5 +9218,14 @@
   },
   "goals_update_nickname": {}
   "goals_update_nickname": {},
-  "goal_transfer_between_goals": {}
+  "goal_transfer_between_goals": {},
+  "goal_extract_fund": [
+    {
+      "transaction_date": "01/01/2020",
+      "transaction_type": "INVEST",
+      "value": 9000,
+      "transaction_status": "DONE",
+      "processed_transaction_date": "01/01/2020"
+    }
+  ]
 }

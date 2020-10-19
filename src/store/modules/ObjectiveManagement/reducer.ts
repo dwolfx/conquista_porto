@@ -9,6 +9,8 @@ const INITIAL_STATE = {
   isLoadingFundsMovement: false,
   hasErrorFundsMovement: false,
   isLoadingTransfer: false,
+  isLoadingExtractFund: false,
+  dataExtract: [],
 }
 
 export default function(state = INITIAL_STATE, action: any) {
@@ -109,6 +111,23 @@ export default function(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         isLoadingTransfer: false,
+      }
+    case Types.GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST:
+      return {
+        ...state,
+        isLoadingExtractFund: true,
+      }
+    case Types.GET_OBJECTIVE_FUNDS_EXTRACT_SUCCESS:
+      return {
+        ...state,
+        isLoadingExtractFund: false,
+        dataExtract: [...action.payload],
+      }
+    case Types.GET_OBJECTIVE_FUNDS_EXTRACT_FAILURE:
+      return {
+        ...state,
+        isLoadingExtractFund: false,
+        hasErrorFundsExtract: true,
       }
     default:
       return state

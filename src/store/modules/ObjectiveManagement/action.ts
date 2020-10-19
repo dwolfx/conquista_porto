@@ -7,6 +7,7 @@ import {
   IPutObjectiveFundsMovementRequest,
   IUpdateObjectiveNicknameRequest,
   ITransferBetweenObjectivesRequest,
+  IGetObjectiveManagementExtractFundRequest,
 } from './types'
 
 export function PostObjectiveManagementDataRequest(
@@ -50,6 +51,28 @@ export function GetObjectiveManagementDataSuccess(payload: IObjectManagement) {
 export function GetObjectiveManagementDataFailure() {
   return {
     type: Types.GET_FAILURE,
+  }
+}
+
+export function GetObjectiveManagementExtractFundRequest(
+  payload: Omit<IGetObjectiveManagementExtractFundRequest, 'type'>
+) {
+  return {
+    type: Types.GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST,
+    ...payload,
+  }
+}
+
+export function GetObjectiveManagementExtractFundSuccess(payload: any) {
+  return {
+    type: Types.GET_OBJECTIVE_FUNDS_EXTRACT_SUCCESS,
+    payload,
+  }
+}
+
+export function GetObjectiveManagementExtractFundFailure() {
+  return {
+    type: Types.GET_OBJECTIVE_FUNDS_EXTRACT_FAILURE,
   }
 }
 

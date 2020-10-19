@@ -20,6 +20,7 @@ const fundDetails = require('./src/mocks/fundDetails.json')
 const privateWelfare = require('./src/mocks/privateWelfare.json')
 const privateWelfateWithStatusPRE = require('./src/mocks/privateWelfateWithStatusPRE.json')
 const getBond = require('./src/mocks/getBond.json')
+const fundExtract = require('./src/mocks/fundExtract.json')
 
 server.use(middlewares)
 
@@ -93,6 +94,10 @@ router.render = (req, res) => {
 
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
+      if (req.originalUrl.includes('allocation-statement')) {
+        return res.status(200).jsonp(fundExtract)
+      }
+
       if (req.originalUrl.includes('summary')) {
         return res.jsonp(summaryObjectivesMock)
       }

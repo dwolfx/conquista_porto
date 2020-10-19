@@ -66,5 +66,6 @@
   "/investimento/seguranca/v1/conquista/locker\\?token:token": "/locker-mock",
   "/goal/goals/summary": "/goals_summary",
   "/goal/goals/:id?nickname=:nickname": "goals_update_nickname",
-  "/goal/goals/transfer-fund-value": "goal_transfer_between_goals"
+  "/goal/goals/transfer-fund-value": "goal_transfer_between_goals",
+  "/goal/goals/allocation-statement/:id?fund_id=:fund_id": "goal_extract_fund"
 }

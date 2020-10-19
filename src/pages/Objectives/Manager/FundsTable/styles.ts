@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import PercentualInfosCmp from 'components/Objective/PercentualInfo'
 import Text from 'components/Text'
+import LayerCmp from 'components/Layer'
+import { LayerHeader } from 'components/Layer/styles'
 
 export const FundoWrapper = styled.div`
   display: flex;

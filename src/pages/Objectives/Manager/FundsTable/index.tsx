@@ -12,6 +12,7 @@ import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 
 import RedeemDrawer from './Actions/Redeem'
 import LinkDrawer from './Actions/Link'
+import ExtractLayer from './Actions/Extract'
 import FundsCards from './Mobile'
 import { columns } from './tableStructure'
 import * as t from './types'
@@ -38,6 +39,7 @@ export default function FundsTable({
   >(undefined)
   const [isRedeemActionOpen, setRedeemActionOpen] = useState(false)
   const [isLinkActionOpen, setLinkActionOpen] = useState(false)
+  const [isExtractLayerOpen, setExtractLayerOpen] = useState(false)
 
   const menuActions: t.IActions = {
     invest: () => {
@@ -49,6 +51,10 @@ export default function FundsTable({
     },
     link: fundInfo => {
       setLinkActionOpen(true)
+      setFundsDetailsSelected(fundInfo)
+    },
+    extract: fundInfo => {
+      setExtractLayerOpen(true)
       setFundsDetailsSelected(fundInfo)
     },
     info: fundInfo => {
@@ -79,6 +85,14 @@ export default function FundsTable({
           handleClose={() => setLinkActionOpen(false)}
           fund={fundsDetailsSelected}
           type={type}
+        />
+      ) : null}
+
+      {isExtractLayerOpen && fundsDetailsSelected ? (
+        <ExtractLayer
+          isOpen={isExtractLayerOpen}
+          handleClose={() => setExtractLayerOpen(false)}
+          fund={fundsDetailsSelected}
         />
       ) : null}
 

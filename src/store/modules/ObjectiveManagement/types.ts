@@ -21,6 +21,9 @@ export const Types = {
   TRANSFER_BETWEEN_OBJECTIVES_REQUEST: 'TRANSFER_BETWEEN_OBJECTIVES_REQUEST',
   TRANSFER_BETWEEN_OBJECTIVES_SUCCESS: 'TRANSFER_BETWEEN_OBJECTIVES_SUCCESS',
   TRANSFER_BETWEEN_OBJECTIVES_FAILURE: 'TRANSFER_BETWEEN_OBJECTIVES_FAILURE',
+  GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST: 'GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST',
+  GET_OBJECTIVE_FUNDS_EXTRACT_SUCCESS: 'GET_OBJECTIVE_FUNDS_EXTRACT_SUCCESS',
+  GET_OBJECTIVE_FUNDS_EXTRACT_FAILURE: 'GET_OBJECTIVE_FUNDS_EXTRACT_FAILURE',
 }
 
 /**
@@ -118,6 +121,14 @@ export interface IObjectManagement {
   }
 }
 
+export interface IFundExtract {
+  transaction_date: string
+  transaction_type: string
+  value: number
+  transaction_status: string
+  processed_transaction_date: string
+}
+
 /**
  * ACTIONS INTERFACES
  */
@@ -136,6 +147,15 @@ export interface IPostObjectiveManagementDataRequest {
 export interface IGetObjectiveManagementDataRequest {
   type: typeof Types.GET_REQUEST
   id: number
+  onSuccess?: () => void
+  onError?: () => void
+  addToast: TToast
+}
+
+export interface IGetObjectiveManagementExtractFundRequest {
+  type: typeof Types.GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST
+  id: number
+  fund_id: number
   onSuccess?: () => void
   onError?: () => void
   addToast: TToast

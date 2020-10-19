@@ -33,20 +33,20 @@ export const generateActionMenuOptions = (
     ]
   }
 
-  // if (fundInfo.) {
-  //   menuOptions = [
-  //     ...menuOptions,
-  //     {
-  //       icon: 'list',
-  //       text: 'Extrato de movimentações',
-  // onClick: () => {
-  //   if (actions?.extract) {
-  //     actions?.extract(fundInfo)
-  //   }
-  // },
-  //     },
-  //   ]
-  // }
+  if (fundInfo.invested) {
+    menuOptions = [
+      ...menuOptions,
+      {
+        icon: 'list',
+        text: 'Extrato de movimentações',
+        onClick: () => {
+          if (actions?.extract) {
+            actions?.extract(fundInfo)
+          }
+        },
+      },
+    ]
+  }
 
   if (fundInfo.available) {
     menuOptions = [

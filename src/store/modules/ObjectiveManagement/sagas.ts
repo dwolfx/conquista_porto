@@ -24,6 +24,8 @@ import {
   PutObjectiveFundsMovementFailure,
   TransferBetweenObjectivesSuccess,
   TransferBetweenObjectivesFailure,
+  GetObjectiveManagementExtractFundSuccess,
+  GetObjectiveManagementExtractFundFailure,
 } from './action'
 import { getGoalId } from './selectors'
 import {
@@ -33,6 +35,7 @@ import {
   IPutObjectiveFundsMovementRequest,
   ITransferBetweenObjectivesRequest,
   IUpdateObjectiveNicknameRequest,
+  IGetObjectiveManagementExtractFundRequest,
   Types,
 } from './types'
 
@@ -259,6 +262,62 @@ function* transferBetweenObjectives({
   }
 }
 
+function* extractFund({
+  id,
+  fund_id,
+  onSuccess,
+  onError,
+  addToast,
+}: IGetObjectiveManagementExtractFundRequest) {
+  if (id && fund_id) {
+    try {
+      const response = yield call(
+        get,
+        `${baseURLNamespaceGoal}/goals/allocation-statement/${id}?fund_id=${fund_id}`
+      )
+
+      if (response.data) {
+        yield put(GetObjectiveManagementExtractFundSuccess(response.data))
+
+        if (onSuccess) {
+          onSuccess()
+        }
+      } else {
+        yield put(GetObjectiveManagementExtractFundFailure())
+
+        addToast({
+          type: 'error',
+          title: 'Nenhum extrato encontrado',
+        })
+      }
+    } catch (err) {
+      yield put(GetObjectiveManagementExtractFundFailure())
+
+      if (onError) {
+        onError()
+      }
+
+      addToast({
+        type: 'error',
+        description: 'Ocorreu um erro',
+        title: 'Tente novamente mais tarde.',
+      })
+    }
+  } else {
+    yield put(GetObjectiveManagementDataFailure())
+
+    if (onError) {
+      onError()
+    }
+
+    addToast({
+      type: 'error',
+      description: 'Ocorreu um erro',
+      title: 'Tente novamente mais tarde.',
+    })
+  }
+}
+
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
   takeLatest(Types.GET_REQUEST, getData),
@@ -270,4 +329,5 @@ export default all([
     Types.TRANSFER_BETWEEN_OBJECTIVES_REQUEST,
     transferBetweenObjectives
   ),
+  takeLatest(Types.GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST, extractFund),
 ])

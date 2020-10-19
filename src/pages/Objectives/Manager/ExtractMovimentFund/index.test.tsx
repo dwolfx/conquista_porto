@@ -1,0 +1,20 @@
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { renderWithReduxAndTheme } from 'testUtils'
+import ExtractMovimentFund from '.'
+import { IExtractFund } from './types'
+import { MemoryRouter } from 'react-router-dom'
+
+describe('ExtractMovimentFund component', () => {
+  const funds: IExtractFund[] = []
+
+  it('should be render', () => {
+    const { getByTestId } = renderWithReduxAndTheme(
+      <MemoryRouter>
+        <ExtractMovimentFund fund={funds} />
+      </MemoryRouter>
+    )
+
+    expect(getByTestId('ExtractMovimentFund')).toBeTruthy()
+  })
+})
