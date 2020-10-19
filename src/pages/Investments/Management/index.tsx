@@ -14,6 +14,7 @@ import { SetIdFund } from 'store/modules/Investment/Position/action'
 import useFilter from './useFilter'
 import DesktopComponent from './Desktop'
 import TabletComponent from './Tablet'
+// import AmountsToBeSettledExtract from '../Extract/AmountsToBeSettledExtract'
 import { TFundsLayout } from './types'
 import { GridContainer } from './styles'
 import { CloseAccountExtractLayer } from 'store/modules/BankExtract/action'
@@ -98,6 +99,10 @@ const ManagementInvestments: React.FC = ({ ...rest }) => {
         isOpen={isAccountExtractOpen}
         handleClose={() => dispatch(CloseAccountExtractLayer())}
       />
+      {/* <AmountsToBeSettledExtract
+        isOpen={isAccountExtractOpen}
+        handleClose={() => dispatch(CloseAccountExtractLayer())}
+      /> */}
       <FundExtract
         isOpen={isFundExtractOpen}
         handleClose={() => dispatch(CloseBankExtractFundLayer())}

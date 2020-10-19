@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import IconButton from 'components/Button/Icon'
 import logoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Icon from 'components/IconExporter'
+import AnbimaComponent from 'components/Anbima'
 import { TextStyle } from 'components/Text/styles'
-
 
 export const FloatButton = styled(IconButton)`
   content: '';
@@ -18,9 +18,8 @@ export const FloatButton = styled(IconButton)`
 
 export const LogoConquistaBeta = styled.img.attrs(() => ({
   src: logoConquistaBeta,
-  alt: 'Logo Conquista Beta'
+  alt: 'Logo Conquista Beta',
 }))``
-
 
 export const HeaderWrapper = styled.div`
   width: 100%;
@@ -57,4 +56,8 @@ export const TitleWrapper = styled.div`
   > ${TextStyle}:first-of-type {
     margin-right: ${({ theme }) => theme.spacing(2)}px;
   }
+`
+
+export const Anbima = styled(AnbimaComponent)`
+  margin-top: 0;
 `

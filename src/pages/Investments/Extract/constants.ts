@@ -13,5 +13,5 @@ export const INTERVAL_SELECT_OPTIONS = {
     id: 3,
     name: 'Período específico',
     value: null,
-  }
+  },
 }

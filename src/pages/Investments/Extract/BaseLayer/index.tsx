@@ -2,14 +2,14 @@ import React from 'react'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
-import Anbima from 'components/Anbima'
 import Layer from 'components/Layer'
 import Text from 'components/Text'
 
 import {
+  Anbima,
+  CloseIcon,
   HeaderWrapper,
   LogoConquistaBeta,
-  CloseIcon,
   SubHeader,
   TitleWrapper,
 } from './styles'
@@ -22,7 +22,13 @@ interface IProps {
   title: string
 }
 
-const BaseLayer: React.FC<IProps> = ({ id, isOpen, handleClose, title, children }) => {
+const BaseLayer: React.FC<IProps> = ({
+  id,
+  isOpen,
+  handleClose,
+  title,
+  children,
+}) => {
   const isMobile = useMedia('sm')
   const marginTop = isMobile ? '0' : '28px'
 
@@ -50,8 +56,16 @@ const BaseLayer: React.FC<IProps> = ({ id, isOpen, handleClose, title, children 
     >
       <SubHeader data-testid="subheader">
         <TitleWrapper>
-          <Text type="headline" color="gray4">Extrato da</Text>
-          <Text type="headline" color="white" data-testid="text-investment-account">{title}</Text>
+          <Text type="headline" color="gray4">
+            Extrato de
+          </Text>
+          <Text
+            type="headline"
+            color="white"
+            data-testid="text-investment-account"
+          >
+            {title}
+          </Text>
         </TitleWrapper>
       </SubHeader>
       <Container
@@ -59,7 +73,7 @@ const BaseLayer: React.FC<IProps> = ({ id, isOpen, handleClose, title, children 
           margin-top: ${marginTop};
         `}
       >
-        { children }
+        {children}
         <Row>
           <Col col={12}>
             <Anbima data-testid="ambima" />
