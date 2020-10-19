@@ -6,12 +6,20 @@ import { IExtractFund } from './types'
 import { MemoryRouter } from 'react-router-dom'
 
 describe('ExtractMovimentFund component', () => {
-  const funds: IExtractFund[] = []
+  const fund: IExtractFund[] = [
+    {
+      transaction_date: '01/01/2020',
+      transaction_type: 'INVEST',
+      value: 9000,
+      transaction_status: 'DONE',
+      processed_transaction_date: '01/01/2020',
+    },
+  ]
 
   it('should be render', () => {
     const { getByTestId } = renderWithReduxAndTheme(
       <MemoryRouter>
-        <ExtractMovimentFund fund={funds} />
+        <ExtractMovimentFund fund={fund} />
       </MemoryRouter>
     )
 
