@@ -26,6 +26,11 @@ export const LayerCard = styled(Card)`
 
   ${CardBody} {
     overflow-y: auto;
+    min-height: 158px;
+
+    @media ${({ theme }) => theme.mediaQueries.xs} {
+      min-height: auto;
+    }
   }
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
@@ -57,7 +62,7 @@ export const EmptyStateWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 240px;
+  width: 330px;
   margin: auto;
 `
 

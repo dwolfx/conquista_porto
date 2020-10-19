@@ -49,13 +49,8 @@ describe('get bank extract', () => {
       )
     )
 
-    const toast = {
-      message: "Cannot read property 'data' of undefined",
-      type: 'error',
-    }
-
     expect(generator.next().value).toEqual(
-      put({ ...GetBankExtractFailure(), toast })
+      put(GetBankExtractFailure())
     )
 
     expect(generator.next()).toEqual({ done: true, value: undefined })

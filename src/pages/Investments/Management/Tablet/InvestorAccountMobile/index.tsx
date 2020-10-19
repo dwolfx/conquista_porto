@@ -186,7 +186,6 @@ const InvestorAccountMobile = () => {
               color="primary"
               onClick={() => {
                 dispatch(OpenBankExtractFundLayer())
-                // history.push('/investimentos/extrato')
               }}
             >
               ver extrato

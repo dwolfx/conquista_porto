@@ -172,7 +172,7 @@ TabMoreInfo.defaultProps = {
 
 TabMoreInfo.propTypes = {
   fund: PropTypes.shape({
-    data_inicio: PropTypes.number,
+    data_inicio: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     nome_gestor: PropTypes.string,
     benchmark: PropTypes.shape({
       nome: PropTypes.string,

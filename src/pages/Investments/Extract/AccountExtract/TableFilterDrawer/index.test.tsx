@@ -1,8 +1,8 @@
 import React from 'react'
+import moment from 'moment'
 
 import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
-import { initialFilters, initialInterval } from '../'
-import { months } from '../constants'
+import { INTERVAL_SELECT_OPTIONS } from '../../constants'
 
 import TableFilterDrawer from '.'
 
@@ -17,6 +17,16 @@ const createRootContainer = () => {
   return container
 }
 
+const initialInterval = {
+  startDate: moment().subtract(7, 'days').format('YYYY-MM-DD'),
+  endDate: moment().format('YYYY-MM-DD')
+}
+
+const initialFilters = {
+  entry: false,
+  withdraw: false
+}
+
 describe('TableFilterDrawer tests', () => {
   it('should exists', () => {
     expect(TableFilterDrawer).toBeDefined()
@@ -27,7 +37,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -44,7 +54,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -64,7 +74,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -83,7 +93,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -102,7 +112,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -124,7 +134,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -144,7 +154,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[1]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -164,7 +174,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[2]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -188,7 +198,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[2]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -209,7 +219,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[2]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -235,7 +245,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[1]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -255,7 +265,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[1]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -275,7 +285,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={handleClearFiltersMock}
         handleFilters={() => {}}
         handleInterval={() => {}}
@@ -298,7 +308,7 @@ describe('TableFilterDrawer tests', () => {
         isOpen
         filters={initialFilters}
         interval={initialInterval}
-        selectedInterval={months[0]}
+        selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         handleClearFilters={() => {}}
         handleFilters={handleFiltersMock}
         handleInterval={handleIntervalMock}

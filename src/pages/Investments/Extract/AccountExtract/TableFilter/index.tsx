@@ -10,7 +10,7 @@ import DatePickerRangeModal from 'components/Dates/DatePickerRangeModal'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
-import { months } from '../constants'
+import { INTERVAL_SELECT_OPTIONS } from '../../constants'
 import { IFilter, IInterval, ISelectInterval } from '../types'
 
 import { 
@@ -62,7 +62,7 @@ const TableFilter = ({
       })
       closeFunc()
     }
-    const nodes = months.map(item => (
+    const nodes = Object.values(INTERVAL_SELECT_OPTIONS).map(item => (
       <DropdownLineContent key={item.name} onClick={() => handleClick(item)}>
         <Text type="headline" bold color="gray6">
           {item.name}
@@ -76,6 +76,7 @@ const TableFilter = ({
     <Wrapper>
     {isDatepickerOpen && <DatePickerRangeModal
       isOpen={isDatepickerOpen}
+      blockFutureDays
       onChangeModalOpen={() => setIsDatepickerOpen(false)}
       onHandleApply={(startDate, endDate) => {
         handleInterval({
@@ -135,7 +136,9 @@ const TableFilter = ({
         css={`
           margin-left: auto;
         `}
-        onClick={handleClearFilters}
+        onClick={() => {
+          handleClearFilters()
+        }}
       >
         limpar filtros
       </ButtonLink>

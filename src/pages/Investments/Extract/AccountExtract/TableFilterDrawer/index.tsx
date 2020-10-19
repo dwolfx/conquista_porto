@@ -12,8 +12,7 @@ import ButtonTag from 'components/Button/Tag'
 import ButtonLink from 'components/Button/Link'
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 
-import { months } from '../constants'
-import { initialFilters, initialInterval } from '../'
+import { INTERVAL_SELECT_OPTIONS } from '../../constants'
 import { IFilter, IInterval, ISelectInterval } from '../types'
 
 import {
@@ -60,20 +59,36 @@ const TableFilterDrawer = ({
   const [finalDate, setFinalDate] = useState<moment.Moment | null>(null)
   const [focusedInput, setFocusedInput] = useState(null)
 
-  const [newFilters, setNewFilters] = useState<IFilter>(initialFilters)
-  const [newInterval, setNewInterval] = useState<IInterval>(initialInterval)
+  const [newFilters, setNewFilters] = useState<IFilter>({
+    entry: false,
+    withdraw: false
+  })
+  const [newInterval, setNewInterval] = useState<IInterval>({
+    startDate: '',
+    endDate: ''
+  })
 
   useEffect(() => {
-    setNewFilters(filters)
+    if (selectedInterval.id === 3) {
+      setInitialDate(moment(interval.startDate))
+      setFinalDate(moment(interval.endDate))
+    } else {
+      setInitialDate(null)
+      setFinalDate(null)
+    }
+  }, [selectedInterval, interval])
+
+  useEffect(() => {
+    setNewFilters({ ...filters })
   }, [filters])
 
   useEffect(() => {
-    setNewInterval(interval)
+    setNewInterval({ ...interval })
   }, [interval])
 
   const clearFilters = () => {
     handleClearFilters()
-    changeInterval(months[0])
+    changeInterval(INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION)
   }
 
   const onHandleRangeFocused = (focus: any) => {
@@ -181,38 +196,43 @@ const TableFilterDrawer = ({
         >
           <ButtonTag
             color={selectedInterval.id === 1 ? 'primary' : ''}
-            onClick={() => changeInterval(months[0])}
+            onClick={() => changeInterval(INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION)}
             css={`margin: 0 ${themeContext.spacing(1)}px ${themeContext.spacing(1)}px 0;`}
           >
             últimos 7 dias
           </ButtonTag>
           <ButtonTag
             color={selectedInterval.id === 2 ? 'primary' : ''}
-            onClick={() => changeInterval(months[1])}
+            onClick={() => changeInterval(INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION)}
           >
             últimos 30 dias
           </ButtonTag>
           <ButtonTag
-            color={isDatePickerOpen && selectedInterval.id === 3 ? 'primary' : ''}
+            color={isDatePickerOpen || selectedInterval.id === 3 ? 'primary' : ''}
             onClick={() => {
-              handleSelectInterval(months[2])
+              handleSelectInterval(INTERVAL_SELECT_OPTIONS.SPECIFIC_INTERVAL_SELECT_OPTION)
               setIsDatePickerOpen(!isDatePickerOpen)
             }}
           >
-            período específico
+            {
+              selectedInterval.id === 3 && initialDate && finalDate ?
+              `${moment(initialDate).format('DD/MM/YYYY')} - ${moment(finalDate).format('DD/MM/YYYY')}` :
+              'período específico' 
+            }
           </ButtonTag>
           {isDatePickerOpen && (
             <DatePickerContainer>
               <DatePickerRange
                 idDatePickerRange="id-interval"
+                blockFutureDays
                 numberOfMonths={1}
+                onHandleFocusedInput={focused => onHandleRangeFocused(focused)}
+                focusedInput={focusedInput}
                 rangeDates={{
                   dateBegin: initialDate,
                   dateEnd: finalDate,
                   intervalDateType: INTERVAL_DATE_TYPE.MONTH,
                 }}
-                onHandleFocusedInput={focused => onHandleRangeFocused(focused)}
-                focusedInput={focusedInput}
                 onHandleSetRangeDates={(initialDateInput, finalDateInput) => {
                   setInitialDate(initialDateInput)
                   setFinalDate(finalDateInput)

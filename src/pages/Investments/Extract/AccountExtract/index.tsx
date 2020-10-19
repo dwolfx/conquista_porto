@@ -15,20 +15,20 @@ import accountExtractFilters from './TableFilter/utils/accountExtractFilters'
 import InvestmentAccountDetail from './InvestmentAccountDetail'
 import TableFilterDrawer from './TableFilterDrawer'
 import { FloatButton } from '../BaseLayer/styles'
-import { months } from './constants'
+import { INTERVAL_SELECT_OPTIONS } from '../constants'
 import { IFilter, IInterval, ITransaction, ISelectInterval } from './types'
 
 import { ColStyled, TableWrapper, ContentCard } from './styles'
 
 
-export const initialFilters = {
+const initialFilters = {
   entry: false,
   withdraw: false
 }
 
-export const initialInterval = {
-  startDate: '',
-  endDate: ''
+const initialInterval = {
+  startDate: moment().subtract(7, 'days').format('YYYY-MM-DD'),
+  endDate: moment().format('YYYY-MM-DD')
 }
 
 interface IProps {
@@ -39,7 +39,8 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
-  const [selectedInterval, setSelectedInterval] = useState<ISelectInterval>(months[0])
+  const [selectedInterval, setSelectedInterval] = 
+    useState<ISelectInterval>(INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION)
   const [filteredExtracts, setFilteredExtracts] = useState<ITransaction[]>([])
   const [filters, setFilters] = useState<IFilter>({ ...initialFilters })
   const [interval, setInterval] = useState<IInterval>({ ...initialInterval })
@@ -65,6 +66,7 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
 
   const clearFilters = () => {
     setFilters({ ...initialFilters })
+    setSelectedInterval(INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION)
     setInterval({
       startDate: moment().subtract(7, 'days').format('YYYY-MM-DD'),
       endDate: moment().format('YYYY-MM-DD')
@@ -133,7 +135,11 @@ const AccountExtract = ({ isOpen, handleClose }: IProps) => {
                     isLoading={isLoading}
                     hasError={hasError}
                     extracts={filteredExtracts}
-                    request={false}
+                    request={{
+                      tipoFiltro: 0,
+                      dataInicial: interval.startDate,
+                      dataFinal: interval.endDate
+                    }}
                   />
                 </TableWrapper>
             </ContentCard>

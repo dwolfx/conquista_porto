@@ -1,9 +1,9 @@
 import React from 'react'
+import moment from 'moment'
 import { MemoryRouter } from 'react-router-dom'
 import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 
-import { initialFilters, initialInterval } from '../'
-import { months } from '../constants'
+import { INTERVAL_SELECT_OPTIONS } from '../../constants'
 
 import TableFilter from '.'
 
@@ -18,10 +18,16 @@ const createRootContainer = () => {
   return container
 }
 
-const dateMock = {
-  startDate: '',
-  endDate: ''
+const initialInterval = {
+  startDate: moment().subtract(7, 'days').format('YYYY-MM-DD'),
+  endDate: moment().format('YYYY-MM-DD')
 }
+
+const initialFilters = {
+  entry: false,
+  withdraw: false
+}
+
 
 describe('TableFilter tests', () => {
   it('should exists', () => {
@@ -37,7 +43,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -54,7 +60,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -74,7 +80,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -95,7 +101,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -116,7 +122,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={handleCleanFiltersMock}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -136,7 +142,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={handleSelectIntervalMock}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -153,7 +159,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={handleSelectIntervalMock}
-          selectedInterval={months[1]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>
     )
@@ -171,7 +177,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -191,7 +197,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }
@@ -214,7 +220,7 @@ describe('TableFilter tests', () => {
           interval={initialInterval}
           handleClearFilters={() => {}}
           handleSelectInterval={() => {}}
-          selectedInterval={months[0]}
+          selectedInterval={INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION}
         />
       </MemoryRouter>,
       { container: createRootContainer() }

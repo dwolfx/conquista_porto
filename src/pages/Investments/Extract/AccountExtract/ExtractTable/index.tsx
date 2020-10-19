@@ -13,7 +13,11 @@ interface IProps {
   extracts: ITransaction[]
   isLoading: boolean,
   hasError: boolean
-  request: any
+  request: {
+    tipoFiltro: number
+    dataInicial: string | null
+    dataFinal: string | null
+  }
 }
 const ExtractTable = (props: IProps) => {
   const { extracts, isLoading, hasError, request } = props

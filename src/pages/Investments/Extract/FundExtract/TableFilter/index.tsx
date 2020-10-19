@@ -25,7 +25,6 @@ import { IFundExtractFilter } from '../types'
 
 interface IProps {
   filters: IFundExtractFilter
-  // interval: IInterval
   handleClearFilters: () => void
   selectedInterval: ISelectInterval
   handleFilters: (newFilters: IFundExtractFilter) => void

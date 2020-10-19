@@ -67,6 +67,7 @@ const FundDetailCard = ({ handleFundDetailOpen, selectedFundId }: IProps) => {
           <Loading
             data-testid="test-loading-component"
             type="bar"
+            textAlign="center"
             legend="Buscando informações do fundo de investimento..."
           />
         </EmptyStateWrapper>

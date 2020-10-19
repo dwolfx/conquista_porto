@@ -40,10 +40,9 @@ export const StyledCard = styled(Card)`
 `
 
 export const ButtonWrapper = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: ${({ theme }) => theme.spacing(2)}px;
+  margin: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(1)}px`};
 
   button {
     width: 100%;

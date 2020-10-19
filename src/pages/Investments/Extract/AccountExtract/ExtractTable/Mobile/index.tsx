@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 
 import VerticalList from 'components/VerticalList'
@@ -12,7 +12,6 @@ import { formatMoney } from 'helpers'
 import { useDispatch } from 'react-redux'
 import { GetBankExtractRequest } from 'store/modules/BankExtract/action'
 
-
 interface IProps {
   extracts: ITransaction[]
   isLoading: boolean,
@@ -22,6 +21,17 @@ interface IProps {
 const ExtractTableMobile = ({ extracts, isLoading, hasError, request }: IProps) => {
   const [listSize, setListSize] = useState(8)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    window.addEventListener("scroll", e => {
+      e.preventDefault()
+    })
+    return () => {
+      window.removeEventListener("scroll", e => {
+        e.preventDefault()
+      })
+    }
+   }, []);
 
   if(isLoading) {
     return (
