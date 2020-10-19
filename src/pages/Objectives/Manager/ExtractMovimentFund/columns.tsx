@@ -1,4 +1,5 @@
 import React from 'react'
+import { uuid } from 'uuidv4'
 
 import { TColumns } from 'components/Table/types'
 import { IExtractFund } from './types'
@@ -7,11 +8,9 @@ import { IFundExtract } from 'store/modules/ObjectiveManagement/types'
 import Text from 'components/Text'
 
 import { Currency } from 'helpers/money'
-import { RiskColorTag } from 'pages/Objectives/Recommendation/WalletSection/styles'
 
 import { IActions } from '../FundsTable/types'
 import * as s from './styles'
-import FundsInput from './FundInput'
 
 export const columns = (
   actions?: IActions,
@@ -19,7 +18,7 @@ export const columns = (
 ): TColumns[] => {
   let columnsTemplate: TColumns[] = [
     {
-      accessor: 'date',
+      accessor: 'transaction_date',
       Header: 'Data da transação',
       styles: {
         minWidth: 120,
@@ -32,7 +31,7 @@ export const columns = (
       align: 'flex-start',
       justifyHeader: 'flex-start',
       format: (row: IFundExtract) => (
-        <s.FundoWrapper>
+        <s.FundoWrapper key={uuid()}>
           <s.FundoNameWrapper color="gray5">
             {row.transaction_date}
           </s.FundoNameWrapper>
@@ -97,7 +96,7 @@ export const columns = (
       ),
     },
     {
-      accessor: 'date',
+      accessor: 'processed_transaction_date',
       Header: 'Data da efetivação',
       align: 'end',
       justifyHeader: 'flex-end',
