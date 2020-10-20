@@ -1,8 +1,9 @@
 import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 import { renderWithReduxAndTheme, screen } from 'testUtils'
 
-import LinkDrawer from './index'
+import ExtractLayer from './index'
 
 const fundMock: TObjectiveFunds = {
   adm_tax: 0.4,
@@ -43,49 +44,24 @@ const fundMock: TObjectiveFunds = {
     'https://www.portoseguro.com.br/NovoInstitucional/static_files/documents/para-mim/investimentos/DI/InformativoDesempenho_PS_ReferenciadoDICreditoPrivado.pdf',
 }
 
-describe('Objective Manager Link Drawer', () => {
-  // it('should render fund infos (type = initial)', () => {
-  //   const handleClose = jest.fn()
-  //   let portalRoot = document.getElementById('root')
-  //   if (!portalRoot) {
-  //     portalRoot = document.createElement('div')
-  //     portalRoot.setAttribute('id', 'root')
-  //     document.body.appendChild(portalRoot)
-  //   }
-  //   renderWithReduxAndTheme(
-  //     <LinkDrawer
-  //       isOpen
-  //       handleClose={handleClose}
-  //       fund={fundMock}
-  //       type="initial"
-  //     />,
-  //     { container: portalRoot }
-  //   )
-  //   expect(screen.queryByText('Disponível no fundo')).toBeDefined()
-  //   expect(screen.queryByText('R$ 1.500,70')).toBeDefined()
-  //   expect(screen.queryByText('Inv. inicial')).toBeDefined()
-  //   expect(screen.queryByText('R$ 10.300,23')).toBeDefined()
-  // })
-  // it('should render fund infos (type = monthly)', () => {
-  //   const handleClose = jest.fn()
-  //   let portalRoot = document.getElementById('root')
-  //   if (!portalRoot) {
-  //     portalRoot = document.createElement('div')
-  //     portalRoot.setAttribute('id', 'root')
-  //     document.body.appendChild(portalRoot)
-  //   }
-  //   renderWithReduxAndTheme(
-  //     <LinkDrawer
-  //       isOpen
-  //       handleClose={handleClose}
-  //       fund={fundMock}
-  //       type="monthly"
-  //     />,
-  //     { container: portalRoot }
-  //   )
-  //   expect(screen.queryByText('Disponível no fundo')).toBeDefined()
-  //   expect(screen.queryByText('R$ 1.500,70')).toBeDefined()
-  //   expect(screen.queryByText('Inv. mensal')).toBeDefined()
-  //   expect(screen.queryByText('R$ 1.100,77')).toBeDefined()
-  // })
+describe('Objective Manager Extract Layer', () => {
+  it('should render extract layer option', () => {
+    const handleClose = jest.fn()
+    let portalRoot = document.getElementById('root')
+    if (!portalRoot) {
+      portalRoot = document.createElement('div')
+      portalRoot.setAttribute('id', 'root')
+      document.body.appendChild(portalRoot)
+    }
+    renderWithReduxAndTheme(
+      <MemoryRouter>
+        <ExtractLayer isOpen handleClose={handleClose} fund={fundMock} />,
+      </MemoryRouter>,
+      { container: portalRoot }
+    )
+    expect(screen.queryByText('Disponível no fundo')).toBeDefined()
+    expect(screen.queryByText('R$ 1.500,70')).toBeDefined()
+    expect(screen.queryByText('Inv. inicial')).toBeDefined()
+    expect(screen.queryByText('R$ 10.300,23')).toBeDefined()
+  })
 })

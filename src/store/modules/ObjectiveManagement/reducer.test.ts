@@ -10,6 +10,8 @@ const defaultState = {
   isLoadingFundsMovement: false,
   hasErrorFundsMovement: false,
   isLoadingTransfer: false,
+  isLoadingExtractFund: false,
+  dataExtract: [],
 }
 
 describe('ObjectiveManagement Reducer', () => {

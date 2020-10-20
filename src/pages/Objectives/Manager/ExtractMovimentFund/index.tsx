@@ -22,7 +22,7 @@ export default function ExtractMovimentFund({
   const tableRef = useRef<HTMLDivElement>(null)
 
   return (
-    <s.ExtractFund data-testid="ExtractFund">
+    <s.ExtractFund data-testid="ExtractMovimentFund">
       <s.CardContainer>
         <s.CustomCard>
           {isLoading ? (
