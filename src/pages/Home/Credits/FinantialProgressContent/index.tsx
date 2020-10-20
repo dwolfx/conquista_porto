@@ -15,33 +15,36 @@ const FinantialProgressContent = ({
   title,
   path,
   paidInstallments,
-  totalInstallments
-}: Pick<FinanceableInfo, 'title' | 'paidInstallments' | 'totalInstallments' | 'path'>) => {
+  totalInstallments,
+}: Pick<
+  FinanceableInfo,
+  'title' | 'paidInstallments' | 'totalInstallments' | 'path'
+>) => {
   const history = useHistory()
   return (
     <CardInfo>
-      <Title> 
+      <Title>
         <Text type="headline">{title}</Text>
       </Title>
       <HorizontalListStyled
         noPadding
         size="medium"
         startItems={[
-          <Text type="captionUppercase" bold color="gray5">parcelas pagas</Text>,
+          <Text type="captionUppercase" bold color="gray5">
+            parcelas pagas
+          </Text>,
         ]}
         endItems={[
           <LinearProgressBarContent>
-            <MiniLinearProgressBar atual={paidInstallments || 0} max={totalInstallments || 0} />
+            <MiniLinearProgressBar
+              current={+(paidInstallments || 0)}
+              max={+(totalInstallments || 0)}
+            />
           </LinearProgressBarContent>,
-          <Text
-            type="captionUppercase"
-            color="gray5"
-            textAlign="left"
-            bold
-          >
+          <Text type="captionUppercase" color="gray5" textAlign="left" bold>
             {`${paidInstallments}/${totalInstallments}`}
-          </Text>
-          ]}
+          </Text>,
+        ]}
       />
       <Button
         data-gtm-type="click"

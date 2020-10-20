@@ -147,27 +147,5 @@ describe('ObjectiveManagement Sagas', () => {
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })
-
-    it('GET: deleteObjective: fail triggers fail action', () => {
-      //Mock JSON.parse toast err.message
-      JSON.parse = jest.fn().mockImplementationOnce(() => {
-        return { msg: `pushHistoryToHomeScreen is not a function` }
-      })
-
-      const param: IDeleteObjectiveRequest = {
-        type: 'DELETE_REQUEST',
-        id: null,
-        pushHistoryToHomeScreen: () => {},
-        addToast: () => {},
-      }
-
-      const generator = deleteObjective(param)
-
-      expect(generator.next().value).toEqual(call(remove, `/goals/${param.id}`))
-
-      expect(generator.next().value).toEqual(put(DeleteObjectiveFailure()))
-
-      expect(generator.next()).toEqual({ done: true, value: undefined })
-    })
   })
 })

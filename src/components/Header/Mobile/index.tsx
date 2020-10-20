@@ -77,15 +77,16 @@ export default function Mobile({
             <Icon name="close" />
           </ResponsiveMenu>
         </Header>
-        <ProfileContainer 
-          onClick={() => { 
-            setIsOpen(false) 
+        <ProfileContainer
+          onClick={() => {
+            setIsOpen(false)
             handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
           }}
           data-gtm-type="click"
           data-gtm-clicktype="link"
           data-gtm-subname="responsive header menu"
-          data-gtm-name="perfil">
+          data-gtm-name="perfil"
+        >
           <HorizontalList
             startItems={[
               <Avatar />,

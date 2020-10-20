@@ -1,4 +1,4 @@
-import { IItemsProps } from 'components/Dropdown'
+import { IItemsProps } from 'components/Dropdown/interface'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 import { IActions } from './types'
 

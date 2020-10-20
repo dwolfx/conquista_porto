@@ -1,7 +1,8 @@
 import React from 'react'
 
 import ButtonIcon from 'components/Button/Icon'
-import Dropdown, { IItemsProps } from 'components/Dropdown'
+import Dropdown from 'components/Dropdown'
+import { IItemsProps } from 'components/Dropdown/interface'
 import { TColumns } from 'components/Table/types'
 import Text from 'components/Text'
 
