@@ -15,7 +15,7 @@ export default function ExtractMovimentFund({
 }: {
   extractFund: IFundExtract[]
   onSuccess?: () => void
-  isLoading: boolean
+  isLoading?: boolean
 }) {
   const { addToast } = useToast()
   const dispatch = useDispatch()
