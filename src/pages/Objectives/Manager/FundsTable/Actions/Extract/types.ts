@@ -8,7 +8,6 @@ export interface IExtractProps {
   fund: TObjectiveFunds
   handleClose: () => void
   isOpen: boolean
-  // TObjectiveFunds | undefined
 }
 
 export type TError =
