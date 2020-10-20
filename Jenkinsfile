@@ -139,7 +139,7 @@ pipeline {
         }
 
         stage('Deployment - EVOLUCAO') {
-          when { expression { env.CHANGE_TARGET?.startsWith("sprint/PCNE") } }
+          when { expression { env.GIT_BRANCH?.startsWith("sprint/PCNE") } }
           steps {
             withAWS (credentials:"${AWS_CREDENTIALS}") {
               sh '''
@@ -171,7 +171,7 @@ pipeline {
         }
 
         stage('Deployment - ROBO') {
-          when { expression { env.CHANGE_TARGET?.startsWith("sprint/PVEV") } }
+          when { expression { env.GIT_BRANCH?.startsWith("sprint/PVEV") } }
           steps {
             withAWS (credentials:"${AWS_CREDENTIALS}") {
               sh '''
