@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 
 import { HashRouter, useLocation } from 'react-router-dom'
 import AppProviders from 'AppProviders'
-import ToastContainer from 'components/Toast'
 import 'moment/locale/pt-br'
 import injectExternalScripts from 'ExternalScripts/injectExternalScripts'
 import smoothscroll from 'smoothscroll-polyfill'
@@ -39,7 +38,6 @@ const App = () => (
         <ScrollToTopOnMount />
         <GlobalStyle />
         <Routes />
-        <ToastContainer />
       </HashRouter>
     </AppProviders>
   </>

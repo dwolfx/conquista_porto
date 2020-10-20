@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
-import { storeFactory } from 'setupTests'
 
 import ExtractTable from '.'
 import ExtractTableMobile from './Mobile'
@@ -44,7 +43,11 @@ describe('ExtractTable tests', () => {
         extracts={extractsMock}
         isLoading={false}
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(screen.getByText('DATA DA TRANSAÇÃO')).toBeInTheDocument()
@@ -57,7 +60,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading={true}
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(
@@ -71,7 +78,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading={false}
         hasError
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(
@@ -85,7 +96,11 @@ describe('ExtractTable tests', () => {
         extracts={extractsMock}
         isLoading={false}
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(screen.getAllByTestId('styled-date')[0]).toHaveStyle('padding: 21px 0 21px 14px')
@@ -96,7 +111,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading={false}
         hasError
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
 
@@ -107,7 +126,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(
@@ -117,7 +140,7 @@ describe('ExtractTable tests', () => {
   })
   it('should render mobile empty state', () => {
     window.resizeTo(400, 600)
-    const { rerender } = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <ExtractTableMobile
         extracts={[]}
         isLoading={false}
@@ -129,7 +152,7 @@ describe('ExtractTable tests', () => {
   })
   it('should render mobile error state', () => {
     window.resizeTo(400, 600)
-    const { rerender } = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <ExtractTableMobile
         extracts={[]}
         isLoading={false}
@@ -141,7 +164,7 @@ describe('ExtractTable tests', () => {
   })
   it('should render mobile loading state', () => {
     window.resizeTo(400, 600)
-    const { rerender } = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <ExtractTableMobile
         extracts={[]}
         isLoading
@@ -231,7 +254,11 @@ describe('ExtractTable tests', () => {
         extracts={extractsMock}
         isLoading={false}
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(screen.getAllByText('Data da transação')).toHaveLength(5)
@@ -245,7 +272,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading={false}
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(screen.getByText('A sua conta de investimento não foi movimentada até o presente momento.')).toBeInTheDocument()
@@ -257,7 +288,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading={false}
         hasError
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(screen.getByText('Não foi possível carregar a lista de fundos. Por favor, tente novamente.')).toBeInTheDocument()
@@ -269,7 +304,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(
@@ -298,7 +337,11 @@ describe('ExtractTable tests', () => {
         extracts={mock}
         isLoading={false}
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     const button = screen.getByRole('button', { name: /carregar mais/i })
@@ -313,7 +356,11 @@ describe('ExtractTable tests', () => {
         extracts={mock}
         isLoading={false}
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
 
@@ -327,7 +374,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading={false}
         hasError={true}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     const button = screen.getByRole('button', { name: /tentar novamente/i })
@@ -339,7 +390,11 @@ describe('ExtractTable tests', () => {
         extracts={[]}
         isLoading
         hasError={false}
-        request={{}}
+        request={{
+          tipoFiltro: 0,
+          dataInicial: '',
+          dataFinal: ''
+        }}
       />
     )
     expect(
