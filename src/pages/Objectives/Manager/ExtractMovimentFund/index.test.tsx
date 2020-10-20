@@ -2,7 +2,7 @@ import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { renderWithReduxAndTheme } from 'testUtils'
 import ExtractMovimentFund from '.'
-import { IExtractFund } from './types'
+import { IFundExtract } from 'store/modules/ObjectiveManagement/types'
 import { MemoryRouter } from 'react-router-dom'
 
 describe('ExtractMovimentFund component', () => {
