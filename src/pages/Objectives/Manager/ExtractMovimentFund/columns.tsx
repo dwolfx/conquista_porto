@@ -2,10 +2,9 @@ import React from 'react'
 import { uuid } from 'uuidv4'
 
 import { TColumns } from 'components/Table/types'
-import { IExtractFund } from './types'
-import { IFundExtract } from 'store/modules/ObjectiveManagement/types'
-
 import Text from 'components/Text'
+
+import { IFundExtract } from 'store/modules/ObjectiveManagement/types'
 
 import { Currency } from 'helpers/money'
 
