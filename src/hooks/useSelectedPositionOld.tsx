@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-const useSelectedPosition = () => {
+const useSelectedPositionOld = () => {
   const [position, setPosition] = useState<any | null>(null)
 
-  const { investmentPosition } = useSelector(({ investmentPosition }: any) => ({
-    investmentPosition,
+  const { investmentPosition } = useSelector<any, any>(state => ({
+    investmentPosition: state.investmentPosition,
   }))
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const useSelectedPosition = () => {
   return position
 }
 
-export default useSelectedPosition
+export default useSelectedPositionOld

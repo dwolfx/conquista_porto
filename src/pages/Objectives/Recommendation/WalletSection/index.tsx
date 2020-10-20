@@ -16,7 +16,7 @@ import PercentualInfos from 'pages/Objectives/Recommendation/components/Percentu
 import CardInfosText from './CardInfosText'
 import CardsView from './CardsView'
 import TableView from './TableView'
-import TableLabel from './TableView/Label'
+import TableLabel from './TableView/TableLabel'
 import CardCreditProduct from './CardCreditProduct'
 
 import * as s from './styles'

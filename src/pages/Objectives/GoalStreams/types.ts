@@ -33,9 +33,7 @@ export interface IData {
   sideTip?: React.ReactNode
   tooltip?: React.ReactNode
   type: string
-  validate?:
-    | ((value: string | number) => undefined | string | number)
-    | undefined
+  validate?: (value: string | number) => undefined | string | number
   description?: string
   suggestionValues?: ISuggestionValues[]
   minValue?: number

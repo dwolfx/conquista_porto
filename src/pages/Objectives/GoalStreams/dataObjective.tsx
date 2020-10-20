@@ -238,7 +238,7 @@ const firstStep: IData = {
   maxLength: STRING_INPUT_MAX_LENGTH,
 }
 
-const dataObject: IDataObject[] = [
+const dataObjective: IDataObject[] = [
   {
     goal_type: TRIP,
     enable: false,
@@ -789,4 +789,4 @@ const dataObject: IDataObject[] = [
   },
 ]
 
-export default dataObject
+export default dataObjective

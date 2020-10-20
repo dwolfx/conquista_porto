@@ -10,7 +10,7 @@ import Text from 'components/Text'
 
 import { GetInvestmentListRequest } from 'store/modules/Investment/action'
 import { useDispatch } from 'react-redux'
-import FormatColumns from './formatters'
+import FormatColumns from './formatColumns'
 import TableBody from './TableBody'
 
 import {

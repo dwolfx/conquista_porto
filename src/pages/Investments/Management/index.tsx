@@ -12,7 +12,7 @@ import { TFundsLayout } from './types'
 import { GridContainer } from './styles'
 import { RedeemLayerToggleClose } from 'store/modules/Investment/Redeem/action'
 import Redeem from 'pages/Redeem'
-import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
+import useFetchSuitabilityInfo from 'hooks/Suitability/useFetchSuitabilityInfo'
 import { SetIdFund } from 'store/modules/Investment/Position/action'
 
 const ManagementInvestments: React.FC = ({ ...rest }) => {

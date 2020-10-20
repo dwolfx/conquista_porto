@@ -74,7 +74,7 @@ const OutterWrapper = React.forwardRef<HTMLInputElement, IProps>(
     const questionToDisplay = question?.replace('{{{nome}}}', nomeCliente)
     let descriptionToDisplay: string | React.ReactNode | undefined = description
 
-    if (description && description.indexOf('{{{') > 0) {
+    if (description && description.includes('{{{')) {
       // if the value is above 0, show the full custom message, replacing the text variables by the value of each.
       // the recommended monthly value will be between the minValue and the recommededMonthlyValue calculated
       // if recommededMonthlyValue <= 0, the text that will be showed it'll be only the first part of the text.

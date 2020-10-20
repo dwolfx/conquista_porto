@@ -11,7 +11,7 @@ export function calculateDepositPercentages(monthObject, monthNumber, year) {
   }
 
   if (monthObject && monthObject.deposit === 0) {
-    depositPercentage = 0
+    if (depositPercentage !== 0) depositPercentage = 0
   } else {
     depositPercentage =
       monthObject &&

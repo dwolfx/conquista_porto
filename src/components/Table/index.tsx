@@ -3,7 +3,7 @@ import { useTable, useSortBy } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 
-import FormatColumns from './formatters'
+import formatColumns from './formatColumns'
 import TableHeader from './TableHeader'
 import TableBody from './TableBody'
 import { ITable } from './types'
@@ -33,8 +33,8 @@ const Table = ({
     rows,
   } = useTable(
     {
-      // to edit how each column should render see FormatColumns function
-      columns: useMemo(() => FormatColumns(columnsProps, onRowClick), [
+      // to edit how each column should render see formatColumns function
+      columns: useMemo(() => formatColumns(columnsProps, onRowClick), [
         columnsProps,
         onRowClick,
       ]),

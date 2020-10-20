@@ -25,7 +25,7 @@ interface IProps extends IData {
     | boolean
     | null
   button?: React.ReactNode
-  category?: string | undefined
+  category?: string
   valueNickname: boolean
 }
 

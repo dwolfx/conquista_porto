@@ -162,7 +162,7 @@ const ButtonInvest = ({
 
     if (suitabilityData && suitabilityData.isValid) {
       const fundInfo = fundsResponse.filter(
-        (fund: { id_fundo: number }) => fund.id_fundo === fundId
+        (fundItem: { id_fundo: number }) => fundItem.id_fundo === fundId
       )
       const { fundForProfessionalInvestor, fundForQualifiedInvestor } = {
         fundForProfessionalInvestor: fundInfo[0].fundo_investidor_profissional,
