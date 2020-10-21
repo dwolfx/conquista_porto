@@ -158,25 +158,37 @@ const ChartPosition: React.FC = () => {
     }
   }, [consolidatedPosition.data, settingPieChartInfo])
 
-  const graphValuesGenerator = (data: any, theme: DefaultTheme) => {
+  const graphValuesGenerator = (
+    consolidatedPositionData: any,
+    themeProps: DefaultTheme
+  ) => {
     const colorsPriority = [
-      theme.colors.magenta2,
-      theme.colors.blue4,
-      theme.colors.yellow2,
-      theme.colors.green3,
-      theme.colors.darkBlue2,
+      themeProps.colors.magenta2,
+      themeProps.colors.blue4,
+      themeProps.colors.yellow2,
+      themeProps.colors.green3,
+      themeProps.colors.darkBlue2,
     ]
 
     let result = []
 
-    if (data && data.saldototal && data.categorias) {
-      result = data.categorias.sort((a: any, b: any) => b.valor - a.valor)
+    if (
+      consolidatedPositionData &&
+      consolidatedPositionData.saldototal &&
+      consolidatedPositionData.categorias
+    ) {
+      result = consolidatedPositionData.categorias.sort(
+        (a: any, b: any) => b.valor - a.valor
+      )
       result = result.map((item: any, index: number) => ({
         id: `${index}`,
         label: item.nome,
         value: item.valor,
         color: colorsPriority[index],
-        percent: ((item.valor / data.saldototal) * 100).toFixed(2),
+        percent: (
+          (item.valor / consolidatedPositionData.saldototal) *
+          100
+        ).toFixed(2),
       }))
     }
 

@@ -13,7 +13,7 @@ interface IText {
   bold: boolean
   textAlign: 'left' | 'center' | 'right' | 'unset'
   type: keyof typeof fontTypes
-  truncate?: boolean | undefined
+  truncate?: boolean
 }
 
 export const TextStyle = styled.p<IText>`

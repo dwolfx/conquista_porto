@@ -34,7 +34,7 @@ export default function sortFundList(
     )
 
     const sortedList = [
-      ...sorteableValues.sort(
+      ...[...sorteableValues].sort(
         (fund1, fund2) =>
           (fund2[sortBy as keyof IFundsList] as any) -
           (fund1[sortBy as keyof IFundsList] as any)

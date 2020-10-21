@@ -37,8 +37,8 @@ const InvestedFundsList = ({
     })
   )
 
-  const onHandleChangeIdFund = (idFund: number) => {
-    dispatch(SetIdFund(idFund))
+  const onHandleChangeIdFund = (idFundValue: number) => {
+    dispatch(SetIdFund(idFundValue))
   }
 
   const renderContent = () => {
@@ -72,15 +72,15 @@ const InvestedFundsList = ({
     }
 
     const PrevAndNextButtons = ({
-      filteredFunds,
+      filteredFundsArray,
     }: {
-      filteredFunds: IFund[]
+      filteredFundsArray: IFund[]
     }) => (
       <s.ButtonWrapper>
-        {filteredFunds && filteredFunds.length > 1 && (
+        {filteredFundsArray && filteredFundsArray.length > 1 && (
           <>
             <s.ChangePageButton
-              disabled={count <= 1 || filteredFunds.length === 3}
+              disabled={count <= 1 || filteredFundsArray.length === 3}
               onClick={() => {
                 cardSlider.current && cardSlider.current.slickPrev()
               }}
@@ -89,7 +89,8 @@ const InvestedFundsList = ({
             </s.ChangePageButton>
             <s.ChangePageButton
               disabled={
-                count >= filteredFunds.length - 2 || filteredFunds.length === 3
+                count >= filteredFundsArray.length - 2 ||
+                filteredFundsArray.length === 3
               }
               onClick={() => {
                 cardSlider.current && cardSlider.current.slickNext()
@@ -114,7 +115,7 @@ const InvestedFundsList = ({
               onHandleChangeFilter={onHandleChangeFilter}
             />
             {viewMode === 'CARDS' && (
-              <PrevAndNextButtons filteredFunds={filteredFunds} />
+              <PrevAndNextButtons filteredFundsArray={filteredFunds} />
             )}
           </s.FilterAndButtonWrapper>
         )}

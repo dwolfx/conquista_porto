@@ -155,8 +155,8 @@ const LayerInvestment: React.FC<IProps> = ({
     handleClose()
   }
 
-  const checkCloseOrBack = (step: number, actionType: string) => {
-    switch (step) {
+  const checkCloseOrBack = (stepNumber: number, actionType: string) => {
+    switch (stepNumber) {
       case 0:
         if (hasFormChanged) {
           setIsConfirmationModalOpen(true)
@@ -171,7 +171,7 @@ const LayerInvestment: React.FC<IProps> = ({
           setIsConfirmationModalOpen(true)
         }
         if (actionType === 'BACK') {
-          setStep(step - 1)
+          setStep(stepNumber - 1)
         }
         setIsAlignmentTermOpen(false)
         setIsAlignmentTermOpenModal(false)

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Header from './header'
-import Footer from './footer'
+import DrawerHeader from './DrawerHeader'
+import DrawerFooter from './DrawerFooter'
 import Divisor from 'components/Divisor'
 import useMedia from 'hooks/useMedia'
 import IconViewList from 'assets/icons/list.svg'
@@ -104,11 +104,11 @@ const Filter: React.FC<IProps> = ({
   }
 
   const applyFiltersAndViewMode = (
-    selectedFilters: string[],
-    selectedViewMode: TFundsLayout
+    selectedFiltersArg: string[],
+    selectedViewModeArg: TFundsLayout
   ) => {
-    onHandleChangeFilter([...selectedFilters])
-    onHandleChangeView(selectedViewMode)
+    onHandleChangeFilter([...selectedFiltersArg])
+    onHandleChangeView(selectedViewModeArg)
     handleCloseFilters()
   }
 
@@ -132,11 +132,11 @@ const Filter: React.FC<IProps> = ({
   return (
     <Drawer
       isOpen={isDrawerOpen}
-      header={isMobile ? Header(handleCloseFilters) : null}
+      header={isMobile ? DrawerHeader(handleCloseFilters) : null}
       drawerTitle={'Filtros'}
       handleClose={handleCloseFilters}
       footer={
-        <Footer
+        <DrawerFooter
           onSubmitNewFilters={() =>
             applyFiltersAndViewMode(selectedFilters, selectedViewMode)
           }

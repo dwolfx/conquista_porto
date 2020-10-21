@@ -23,10 +23,10 @@ import {
 } from './styles'
 
 const ProductItemGenerator = (
+  onRetry,
   productList = {},
   type = 'notImplemented',
-  history = () => {},
-  onRetry
+  history = () => {}
 ) => {
   if (type === 'notImplemented') return []
 

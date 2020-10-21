@@ -15,7 +15,7 @@ import AnswerForm from 'pages/Objectives/Recommendation/Edit/commons/AnswerForm'
 import { IView, answerLabels } from './types'
 import * as s from './styles'
 
-export default function SuggestionAccordion({
+export default function AccordionView({
   editValues,
   setEditValues,
   answer,

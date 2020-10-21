@@ -16,7 +16,7 @@ const useFilter = (filter: IFilterProps, funds: IFundsList[]) => {
     )
   }
   function sortFundsByRisk(fundsList: IFundsList[]) {
-    let sortedList = fundsList.sort(
+    let sortedList = [...fundsList].sort(
       (itemList1: IFundsList, itemList2: IFundsList) => {
         const indexItemList1 = Object.values(FILTER_RISKS).indexOf(
           itemList1.perfil_risco.toLowerCase()

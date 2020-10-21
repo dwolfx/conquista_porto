@@ -13,7 +13,7 @@ import useMedia from 'hooks/useMedia'
 import InfoText from 'components/InfoText'
 import ObjectivesSlider from './ObjectivesSlider'
 
-export default function FundAccordionHeader({
+export default function AccordionHeader({
   fund,
   fundListCopy,
   setFundListCopy,
@@ -146,7 +146,7 @@ export default function FundAccordionHeader({
   )
 }
 
-FundAccordionHeader.propTypes = {
+AccordionHeader.propTypes = {
   fund: PropTypes.shape({
     name: PropTypes.string,
     id: PropTypes.number.isRequired,
@@ -168,6 +168,6 @@ FundAccordionHeader.propTypes = {
   setFundListCopy: PropTypes.func,
 }
 
-FundAccordionHeader.defaultProps = {
+AccordionHeader.defaultProps = {
   setFundListCopy: null,
 }

@@ -24,7 +24,7 @@ import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import InformativeHeader from 'pages/Objectives/Recommendation/InformativeHeader'
-import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/Label'
+import TableLabel from 'pages/Objectives/Recommendation/WalletSection/TableView/TableLabel'
 
 import {
   UpdateRecommendationRequest,

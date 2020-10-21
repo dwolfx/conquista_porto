@@ -31,11 +31,11 @@ const LastTransations = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const isTabletVerticalOrSmaller = useMedia('sm')
-  const { lastTransaction, investmentPosition, idFund } = useSelector(
-    ({ lastTransaction, investmentPosition }: any) => ({
-      lastTransaction,
-      investmentPosition,
-      idFund: investmentPosition.idFund,
+  const { lastTransaction, investmentPosition, idFund } = useSelector<any, any>(
+    state => ({
+      lastTransaction: state.lastTransaction,
+      investmentPosition: state.investmentPosition,
+      idFund: state.investmentPosition.idFund,
     })
   )
 

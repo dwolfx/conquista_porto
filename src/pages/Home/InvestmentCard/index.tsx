@@ -53,8 +53,7 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
     (payload: t.IPieChartInfoState) => {
       setPieChartInfo(
         payload || {
-          value:
-            (consolidatedPosition && consolidatedPosition.saldototal) || 0,
+          value: (consolidatedPosition && consolidatedPosition.saldototal) || 0,
           percent: 0,
         }
       )
@@ -70,20 +69,22 @@ export const InvestmentCard: React.FC<t.IInvestmentCard> = ({
 
   const graphValuesGenerator = (
     data: t.IDataConsolidatedPosition,
-    theme: DefaultTheme
+    themeProps: DefaultTheme
   ) => {
     const colorsPriority = [
-      theme.colors.magenta2,
-      theme.colors.blue4,
-      theme.colors.yellow2,
-      theme.colors.green3,
-      theme.colors.darkBlue2,
+      themeProps.colors.magenta2,
+      themeProps.colors.blue4,
+      themeProps.colors.yellow2,
+      themeProps.colors.green3,
+      themeProps.colors.darkBlue2,
     ]
 
     let result: t.IGraphValuesResult[]
 
     if (data?.saldototal && data?.categorias) {
-      const sortedResult = data.categorias.sort((a, b) => b.valor - a.valor)
+      const sortedResult = [...data.categorias].sort(
+        (a, b) => b.valor - a.valor
+      )
       result = sortedResult.map((item, index) => ({
         id: `${index}`,
         label: item.nome,

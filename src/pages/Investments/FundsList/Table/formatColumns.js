@@ -108,7 +108,7 @@ const FormatColumnDotToCommaBold = column => {
   )
 }
 
-export default function FormatColumns(
+export default function formatColumns(
   columns,
   handleLayerOpen,
   clickedFundInvestButton

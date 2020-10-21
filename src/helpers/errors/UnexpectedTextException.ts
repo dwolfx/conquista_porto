@@ -1,5 +1,5 @@
 export default class UnexpectedTextException extends Error {
-  constructor(location: String, expected: String[], received: String) {
+  constructor(location: string, expected: string[], received: string) {
     super(
       `${location} expected ${expected
         .map(i => `"${i}"`)
