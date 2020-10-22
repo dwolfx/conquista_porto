@@ -7,6 +7,7 @@ describe('Credit Card reducer', () => {
       data: null,
       hasError: false,
       isLoading: false,
+      isCreationLayerOpen: false
     })
   })
 
@@ -17,6 +18,7 @@ describe('Credit Card reducer', () => {
           data: null,
           hasError: false,
           isLoading: false,
+          isCreationLayerOpen: false,
         },
         {
           type: Types.GET_REQUEST,
@@ -26,6 +28,7 @@ describe('Credit Card reducer', () => {
       data: null,
       hasError: false,
       isLoading: true,
+      isCreationLayerOpen: false,
     })
   })
 
@@ -36,6 +39,7 @@ describe('Credit Card reducer', () => {
           data: null,
           hasError: false,
           isLoading: false,
+          isCreationLayerOpen: false,
         },
         {
           type: Types.GET_SUCCESS,
@@ -46,6 +50,7 @@ describe('Credit Card reducer', () => {
       data: [{ name: 'Aqui tem coragi' }],
       hasError: false,
       isLoading: false,
+      isCreationLayerOpen: false,
     })
   })
 
@@ -56,6 +61,7 @@ describe('Credit Card reducer', () => {
           data: null,
           hasError: false,
           isLoading: false,
+          isCreationLayerOpen: false,
         },
         {
           type: Types.GET_FAILURE,
@@ -65,6 +71,47 @@ describe('Credit Card reducer', () => {
       data: null,
       hasError: true,
       isLoading: false,
+      isCreationLayerOpen: false,
+    })
+  })
+  it('should handle OPEN_CREDIT_CARD_CREATION', () => {
+    expect(
+      reducer(
+        {
+          data: null,
+          hasError: false,
+          isLoading: false,
+          isCreationLayerOpen: false,
+        },
+        {
+          type: Types.OPEN_CREDIT_CARD_CREATION,
+        }
+      )
+    ).toEqual({
+      data: null,
+      hasError: false,
+      isLoading: false,
+      isCreationLayerOpen: true,
+    })
+  })
+  it('should handle CLOSE_CREDIT_CARD_CREATION', () => {
+    expect(
+      reducer(
+        {
+          data: null,
+          hasError: false,
+          isLoading: false,
+          isCreationLayerOpen: true,
+        },
+        {
+          type: Types.CLOSE_CREDIT_CARD_CREATION,
+        }
+      )
+    ).toEqual({
+      data: null,
+      hasError: false,
+      isLoading: false,
+      isCreationLayerOpen: false,
     })
   })
 })

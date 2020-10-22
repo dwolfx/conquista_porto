@@ -1,4 +1,6 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import BannerCartaoCreditoImage from 'assets/images/pages/solutions/creditCard/banner_cartao_credito.jpg'
 import SeloCartaoCredito from 'assets/images/pages/solutions/creditCard/selo-cartao-credito.svg'
@@ -9,9 +11,13 @@ import MakeSenseSection from 'components/Solutions/MakeSenseSection'
 import HighlightSection from 'components/Solutions/HighlightSection'
 import FileDownloadSection from 'components/Solutions/FileDownloadSection'
 import MoreDetails from 'components/Solutions/MoreDetails'
+import {
+  CloseCreationLayer,
+  OpenCreationLayer,
+} from 'store/modules/CreditCard/action'
 
 import { handleGiwRedirect } from 'helpers'
-import { useLocation } from 'react-router-dom'
+import Creation from './Creation'
 
 const makeSenseSectionData = [
   {
@@ -107,6 +113,10 @@ const moreDetailsData = [
 
 export default function CreditCard() {
   const { state: locationState } = useLocation()
+  const dispatch = useDispatch()
+  const { isCreationLayerOpen } = useSelector(state => ({
+    isCreationLayerOpen: state.creditCard.isCreationLayerOpen,
+  }))
 
   return (
     <>
@@ -149,16 +159,19 @@ export default function CreditCard() {
         subDescription="Além das conveniências da Porto Seguro, o Cartão de Crédito tem bandeiras e limites para
         vários perfis. Inclusive, na simulação, você pode verificar se há pré-aprovações para você."
         buttonText="Simular e contratar"
-        onClick={() =>
-          handleGiwRedirect(
-            'portaldecliente/conquista/cartao-de-credito/simular?r=true'
-          )
-        }
+        onClick={() => dispatch(OpenCreationLayer())}
       />
 
       <MoreDetails title="Saiba mais:" data={moreDetailsData} />
 
       <FileDownloadSection data={downloadFileSectionData} />
+
+      {isCreationLayerOpen && (
+        <Creation
+          isOpen={isCreationLayerOpen}
+          handleClose={() => dispatch(CloseCreationLayer())}
+        />
+      )}
     </>
   )
 }

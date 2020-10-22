@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { ThemeContext } from 'styled-components/macro'
 
@@ -14,10 +13,15 @@ import LeftNav from 'components/Management/LeftNav'
 import RightContent from 'components/Management/RightContent'
 import Icon from 'components/IconExporter'
 import TopicsIconContent from 'components/TopicsIconContent'
+import {
+  CloseCreationLayer,
+  OpenCreationLayer,
+} from 'store/modules/CreditCard/action'
 
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
 import { formatMoney, handleGiwRedirect } from 'helpers'
+import Creation from '../Creation'
 
 import {
   AddBtnLink,
@@ -87,8 +91,9 @@ export default function ManagementCreditCard() {
   const [selectedCreditCard, setSelectedCreditCard] = useState(null)
 
   const themeContext = useContext(ThemeContext)
+  const dispatch = useDispatch()
   const creditCard = useSelector(state => state.creditCard)
-  const { state: locationState } = useLocation()
+  // const { state: locationState } = useLocation()
 
   useFetchCreditCard()
 
@@ -117,15 +122,7 @@ export default function ManagementCreditCard() {
                 data-gtm-clicktype="card"
                 data-gtm-subname="card custodia visualizar"
                 data-gtm-name="adicionar"
-                onClick={() => {
-                  handleGiwRedirect(
-                    `portaldecliente/conquista/cartao-de-credito/simular?r=true${
-                      (locationState || {}).idGoal
-                        ? `&idObjetivo=${(locationState || {}).idGoal}`
-                        : ''
-                    }`
-                  )
-                }}
+                onClick={() => dispatch(OpenCreationLayer())}
               >
                 <Icon width="48" fill={themeContext.colors.gray3} name="add" />
                 <Text fontColor={themeContext.colors.gray4} fontSize="14px">
@@ -271,6 +268,12 @@ export default function ManagementCreditCard() {
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />
+        {creditCard.isCreationLayerOpen && (
+          <Creation
+            isOpen={creditCard.isCreationLayerOpen}
+            handleClose={() => dispatch(CloseCreationLayer())}
+          />
+        )}
       </>
     )
   }

@@ -1,0 +1,123 @@
+import React, { useState } from 'react'
+import 'styled-components/macro'
+
+import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
+import Layer from 'components/Layer'
+import HorizontalList from 'components/HorizontalList'
+import Text from 'components/Text'
+
+import {
+  HeaderContent,
+  LogoWrapper,
+  CloseIcon,
+  PreviousIcon,
+  GridContainer,
+  GridCol,
+  GridRow,
+  StepBar,
+  GridRowStepBar,
+  ColStepBar,
+} from './styles'
+
+interface IProps {
+  isOpen: boolean
+  handleClose: () => void
+}
+type steps = 1 | 2 | 3 | 4 | 5
+const Creation = ({ isOpen, handleClose }: IProps) => {
+  const [step, setStep] = useState<steps>(1)
+  const [form, setForm] = useState({}) // form object
+
+  const goBack = () => {
+    if (step === 1) {
+      return handleClose()
+    }
+    setStep((prevState) => prevState - 1 as steps)
+  }
+
+  const getStepCount = () => {
+    return [
+      <Text color="gray4" type="title">
+        {`ETAPA ${step} de 5`}
+      </Text>,
+    ]
+  }
+
+  // Each step goes here
+  const content = [
+    <div>Step1</div>, // <Step1 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
+    <div>Step2</div>,
+    <div>Step3</div>,
+    <div>Step4</div>,
+    <div>Step5</div>,
+  ]
+
+  const getContent = () => {
+    return content[step - 1]
+  }
+
+
+  return (
+    <Layer
+      data-testid="layer-credit-card-creation"
+      isOpen={isOpen}
+      handleClose={handleClose}
+      headerContent={
+        <GridContainer>
+          <GridRow>
+            <GridCol lg={12}>
+              <HeaderContent>
+                <PreviousIcon
+                  data-gtm-subname="layer Investimentir"
+                  data-gtm-name="botao voltar step"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={() => goBack()}
+                />
+                <LogoWrapper>
+                  <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
+                </LogoWrapper>
+                <CloseIcon
+                  className="layer-close-button"
+                  data-gtm-subname="botao fechar layer"
+                  data-gtm-name="botao fechar"
+                  data-gtm-type="click"
+                  data-gtm-clicktype="button"
+                  onClick={handleClose}
+                />
+              </HeaderContent>
+            </GridCol>
+          </GridRow>
+        </GridContainer>
+      }
+    >
+    <StepBar>
+      <GridContainer>
+        <GridRowStepBar>
+          <ColStepBar lg={12}>
+            <HorizontalList
+              size="small"
+              startItems={[
+                <Text color="gray4" type="headline">
+                  Solicitação
+                </Text>,
+                <Text color="white" type="headline">
+                  Cartão de Crédito
+                </Text>,
+              ]}
+              endItems={getStepCount()}
+              css={`
+                width: 100%;
+                padding: 0;
+              `}
+            />
+          </ColStepBar>
+        </GridRowStepBar>
+      </GridContainer>
+    </StepBar>
+      {getContent()}
+    </Layer>
+  )
+}
+
+export default Creation
