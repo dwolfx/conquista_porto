@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import 'styled-components/macro'
 
+import FirstStep from './FirstStep'
+
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
@@ -32,7 +34,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     if (step === 1) {
       return handleClose()
     }
-    setStep((prevState) => prevState - 1 as steps)
+    setStep(prevState => (prevState - 1) as steps)
   }
 
   const getStepCount = () => {
@@ -45,8 +47,8 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
 
   // Each step goes here
   const content = [
-    <div>Step1</div>, // <Step1 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
-    <div>Step2</div>,
+    <FirstStep onNextStep={setStep} />,
+    <div>Step2</div>, // <Step2 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
     <div>Step3</div>,
     <div>Step4</div>,
     <div>Step5</div>,
@@ -55,7 +57,6 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   const getContent = () => {
     return content[step - 1]
   }
-
 
   return (
     <Layer
@@ -91,30 +92,30 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
         </GridContainer>
       }
     >
-    <StepBar>
-      <GridContainer>
-        <GridRowStepBar>
-          <ColStepBar lg={12}>
-            <HorizontalList
-              size="small"
-              startItems={[
-                <Text color="gray4" type="headline">
-                  Solicitação
-                </Text>,
-                <Text color="white" type="headline">
-                  Cartão de Crédito
-                </Text>,
-              ]}
-              endItems={getStepCount()}
-              css={`
-                width: 100%;
-                padding: 0;
-              `}
-            />
-          </ColStepBar>
-        </GridRowStepBar>
-      </GridContainer>
-    </StepBar>
+      <StepBar>
+        <GridContainer>
+          <GridRowStepBar>
+            <ColStepBar lg={12}>
+              <HorizontalList
+                size="small"
+                startItems={[
+                  <Text color="gray4" type="headline">
+                    Solicitação
+                  </Text>,
+                  <Text color="white" type="headline">
+                    Cartão de Crédito
+                  </Text>,
+                ]}
+                endItems={getStepCount()}
+                css={`
+                  width: 100%;
+                  padding: 0;
+                `}
+              />
+            </ColStepBar>
+          </GridRowStepBar>
+        </GridContainer>
+      </StepBar>
       {getContent()}
     </Layer>
   )

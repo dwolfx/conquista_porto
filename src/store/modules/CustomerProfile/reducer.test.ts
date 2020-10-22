@@ -49,6 +49,8 @@ describe('Customer Profile reducer', () => {
             emailCliente: '',
             estado: '',
             dataNascimento: '',
+            numeroTelefone: '',
+            dddNumeroTelefone: '',
           },
         }
       )
@@ -59,6 +61,8 @@ describe('Customer Profile reducer', () => {
         customerEmail: '',
         customerState: '',
         customerBirthdate: '',
+        customerPhoneNumber: '',
+        customerAreaCode: '',
       },
       hasError: false,
       status: 'loaded',
