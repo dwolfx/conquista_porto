@@ -57,7 +57,9 @@ export default function ObjectiveManager() {
     []
   )
   const [bannerImage, setBannerImage] = useState('')
-  const [showAddFundsLayer, setShowAddFundsLayer] = useState(false)
+  const [showLinkInvestmentFundsLayer, setLinkInvestmentFundsLayer] = useState(
+    false
+  )
   const [pendingFundsLayer, setPendingFundsLayer] = useState(false)
   const [objectiveFundsLayer, setObjectiveFundsLayer] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -270,7 +272,7 @@ export default function ObjectiveManager() {
           <Button
             outline
             onClick={() => {
-              setShowAddFundsLayer(true)
+              setLinkInvestmentFundsLayer(true)
 
               if (isMobile) {
                 setObjectiveFundsLayer(false)
@@ -497,11 +499,11 @@ export default function ObjectiveManager() {
       </Container>
 
       <s.Layer
-        isOpen={showAddFundsLayer}
-        handleClose={() => setShowAddFundsLayer(false)}
+        isOpen={showLinkInvestmentFundsLayer}
+        handleClose={() => setLinkInvestmentFundsLayer(false)}
         headerContent={
           <TransactionHeader
-            onClose={() => setShowAddFundsLayer(false)}
+            onClose={() => setLinkInvestmentFundsLayer(false)}
             showStepsBar
             stepsBarProps={{
               title: 'Adicionar',
@@ -513,7 +515,7 @@ export default function ObjectiveManager() {
       >
         <LinkInvestmentFunds
           funds={objectiveData.fund_list}
-          onSuccess={() => setShowAddFundsLayer(false)}
+          onSuccess={() => setLinkInvestmentFundsLayer(false)}
         />
       </s.Layer>
     </>
