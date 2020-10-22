@@ -53,7 +53,7 @@ const CarouselCard: React.FC<ICarouselCard> = ({
 
   const PrevAndNextButtons = () => (
     <>
-      {HeaderEndItem && HeaderEndItem}
+      {HeaderEndItem}
       <s.ButtonWrapper>
         {arrayContent && arrayContent?.length > 1 && (
           <>
