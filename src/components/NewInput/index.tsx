@@ -42,7 +42,7 @@ const NewInput = forwardRef<
           }}
         >
           {prefix && <InputAddon id="prefix">{prefix}</InputAddon>}
-          <Input ref={inputRef} {...rest} />
+          <Input ref={inputRef} data-testid={label?.toLowerCase()} {...rest} />
           {suffix && <InputAddon id="suffix">{suffix}</InputAddon>}
         </InputWrapper>
       </InputGroupWrapper>

@@ -7,7 +7,7 @@ import { ThemeContext } from 'styled-components'
 
 import Icon from 'components/IconExporter'
 import DateInput from 'components/Inputs/DateInput'
-import Select from 'components/Inputs/Select'
+import Select from 'components/Inputs/Select/Old'
 import Table from 'components/TableParati'
 import Header from 'components/Header/TransactionsHeader'
 import Tab from 'components/Tab'

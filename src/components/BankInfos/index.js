@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 
 import RadioInput from 'components/Inputs/Radio'
-import SelectInput from 'components/Inputs/Select'
+import SelectInput from 'components/Inputs/Select/Old'
 import TextInput from 'components/Inputs/Text'
 import Icon from 'components/IconExporter'
 
