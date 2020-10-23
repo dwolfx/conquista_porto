@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import 'styled-components/macro'
 
 import FirstStep from './FirstStep'
+import SecondStep from './SecondStep'
+import ThirdStep from './ThirdStep'
 
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Layer from 'components/Layer'
@@ -47,9 +49,13 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
 
   // Each step goes here
   const content = [
-    <FirstStep onNextStep={setStep} />,
-    <div>Step2</div>, // <Step2 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
-    <div>Step3</div>,
+    <FirstStep onNextStep={setStep} />, // <Step1 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
+    <SecondStep
+      form={form}
+      onChangeForm={setForm}
+      onNextStep={() => setStep((step + 1) as steps)}
+    />,
+    <ThirdStep changeStep={() => {}} />,
     <div>Step4</div>,
     <div>Step5</div>,
   ]

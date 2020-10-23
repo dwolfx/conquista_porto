@@ -16,7 +16,7 @@ export const LogoWrapper = styled.div`
 `
 
 export const CloseIcon = styled(Icon).attrs(() => ({
-  name: 'close'
+  name: 'close',
 }))`
   cursor: pointer;
   transition: all ease 0.3s;
@@ -29,7 +29,7 @@ export const CloseIcon = styled(Icon).attrs(() => ({
 `
 
 export const PreviousIcon = styled(Icon).attrs(() => ({
-  name: 'arrowleft'
+  name: 'arrowleft',
 }))`
   cursor: pointer;
   transition: all ease 0.3s;
@@ -41,7 +41,9 @@ export const PreviousIcon = styled(Icon).attrs(() => ({
 `
 
 export const GridContainer = styled(Container)`
-  padding: 0px;
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    padding: 0px;
+  }
 `
 
 export const GridRow = styled(Row)``
@@ -64,6 +66,13 @@ export const GridRowStepBar = styled(Row)`
 
 export const ColStepBar = styled(Col)`
   height: 56px;
+  display: flex;
+  align-items: center;
+`
+
+export const WhiteContent = styled.div`
+  background: ${({ theme }) => theme.colors.white};
+  min-height: calc(100% - 56px);
   display: flex;
   align-items: center;
 `

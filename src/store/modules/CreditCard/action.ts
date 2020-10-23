@@ -1,4 +1,4 @@
-import { Types , ICreditCard } from './types'
+import { Types, ICreditCard } from './types'
 
 export function GetCreditCardDataRequest() {
   return {
@@ -20,14 +20,13 @@ export function GetCreditCardDataFailure() {
 }
 
 export function OpenCreationLayer() {
-  console.log(Types.OPEN_CREDIT_CARD_CREATION)
   return {
-    type: Types.OPEN_CREDIT_CARD_CREATION
+    type: Types.OPEN_CREDIT_CARD_CREATION,
   }
 }
 
 export function CloseCreationLayer() {
   return {
-    type: Types.CLOSE_CREDIT_CARD_CREATION
+    type: Types.CLOSE_CREDIT_CARD_CREATION,
   }
 }

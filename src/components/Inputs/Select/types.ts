@@ -8,13 +8,15 @@ export type TOptions = {
   selected?: boolean
 }
 
+export type TSelected = {
+  name?: string
+  id?: number
+  value?: number
+}
+
 export interface IProps {
   options: TOptions[]
-  selected: {
-    name?: string
-    id?: number
-    value?: number
-  }
+  selected: TSelected
   label: string
   testId?: string
 }

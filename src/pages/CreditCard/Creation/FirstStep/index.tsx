@@ -11,6 +11,7 @@ import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfi
 
 import * as s from './styles'
 import * as t from './types'
+import { GridContainer, WhiteContent } from '../styles'
 
 const FirstStep: React.FC<t.IFirstStep> = ({ onNextStep, ...rest }) => {
   const [customerData, setCustomerData] = useState<t.ICustomerData[] | null>(
@@ -52,55 +53,59 @@ const FirstStep: React.FC<t.IFirstStep> = ({ onNextStep, ...rest }) => {
   }, [customerProfile.data])
 
   return (
-    <s.GridRow {...rest}>
-      <s.GridCol lg={4} md={6} sm={7} xs={12}>
-        <s.InfoContainer>
-          <s.Title>Confirme as informações abaixo</s.Title>
+    <WhiteContent>
+      <GridContainer>
+        <s.GridRow {...rest}>
+          <s.GridCol lg={4} md={6} sm={7} xs={12}>
+            <s.InfoContainer>
+              <s.Title>Confirme as informações abaixo</s.Title>
 
-          {customerData
-            ? customerData.map((item, index) => (
-                <React.Fragment key={uuid()}>
-                  {console.log(index)}
-                  <VerticalList
-                    elements={[
-                      <s.Label>{item.label}</s.Label>,
-                      <s.Value>{item.value}</s.Value>,
-                    ]}
-                  />
-                  {index === 3 ? null : <s.Divisor />}
-                </React.Fragment>
-              ))
-            : null}
+              {customerData
+                ? customerData.map((item, index) => (
+                    <React.Fragment key={uuid()}>
+                      {console.log(index)}
+                      <VerticalList
+                        elements={[
+                          <s.Label>{item.label}</s.Label>,
+                          <s.Value>{item.value}</s.Value>,
+                        ]}
+                      />
+                      {index === 3 ? null : <s.Divisor />}
+                    </React.Fragment>
+                  ))
+                : null}
 
-          <s.Button
-            outline
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            data-gtm-subname={'primeira etapa - cartão de crédito'}
-            data-gtm-name="alterar no perfil"
-            onClick={() => {
-              handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
-            }}
-          >
-            ALTERAR NO PERFIL
-          </s.Button>
-          <s.Button
-            data-gtm-type="click"
-            data-gtm-clicktype="button"
-            data-gtm-subname={'primeira etapa - cartão de crédito'}
-            data-gtm-name="confirmar"
-            onClick={() => onNextStep(2)}
-          >
-            CONFIRMAR
-          </s.Button>
-          <s.Divisor />
-          <s.FooterText>
-            Não se preocupe, a solicitação só será enviada após informarmos o
-            cartão disponível para você.
-          </s.FooterText>
-        </s.InfoContainer>
-      </s.GridCol>
-    </s.GridRow>
+              <s.Button
+                outline
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname={'primeira etapa - cartão de crédito'}
+                data-gtm-name="alterar no perfil"
+                onClick={() => {
+                  handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
+                }}
+              >
+                ALTERAR NO PERFIL
+              </s.Button>
+              <s.Button
+                data-gtm-type="click"
+                data-gtm-clicktype="button"
+                data-gtm-subname={'primeira etapa - cartão de crédito'}
+                data-gtm-name="confirmar"
+                onClick={() => onNextStep(2)}
+              >
+                CONFIRMAR
+              </s.Button>
+              <s.Divisor />
+              <s.FooterText>
+                Não se preocupe, a solicitação só será enviada após informarmos
+                o cartão disponível para você.
+              </s.FooterText>
+            </s.InfoContainer>
+          </s.GridCol>
+        </s.GridRow>
+      </GridContainer>
+    </WhiteContent>
   )
 }
 
