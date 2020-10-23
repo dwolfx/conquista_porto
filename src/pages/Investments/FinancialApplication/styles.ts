@@ -1,6 +1,4 @@
 import styled, { css } from 'styled-components'
-import ArrowLeft from 'assets/icons/arrow-left.svg'
-import CloseIcon from 'assets/icons/close.svg'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 import TextComponent from 'components/Text'
 import AnbimaComponent from 'components/Anbima'
@@ -37,24 +35,10 @@ export const HeaderColTitle = styled.div`
   justify-content: center;
 `
 
-interface HeaderIconButtonProps {
-  icon: string
-}
-
-export const HeaderIconButton = styled.div<HeaderIconButtonProps>`
-  background-color: ${props => props.theme.colors.gray4};
+export const IconButton = styled.div`
+  width: 35px;
+  height: 35px;
   cursor: pointer;
-  height: 24px;
-  ${props =>
-    props.icon === 'ArrowLeft'
-      ? `mask-image: url(${ArrowLeft});`
-      : `mask-image: url(${CloseIcon});`}
-  transition: all ease 0.3s;
-  width: 24px;
-
-  &:hover {
-    background-color: ${props => props.theme.colors.blue4};
-  }
 `
 
 export const GridContainer = styled(Container)`

@@ -1,11 +1,12 @@
 import React from 'react'
 
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
+import Icon from 'components/IconExporter'
 
 import {
   HeaderContent,
   HeaderColTitle,
-  HeaderIconButton,
+  IconButton,
   GridContainer,
   GridCol,
   GridRow,
@@ -24,26 +25,27 @@ const LayerHeader = (props: IProps) => {
       <GridRow>
         <GridCol lg={12}>
           <HeaderContent>
-            <HeaderIconButton
-              data-gtm-subname="layer Investimentir"
+            <IconButton
+              data-gtm-subname="header"
               data-gtm-name="botao voltar step"
               data-gtm-type="click"
               data-gtm-clicktype="button"
-              icon="ArrowLeft"
               onClick={() => handleClose('BACK')}
-            />
+            >
+              <Icon name="arrowleft" width={35} height={35} />
+            </IconButton>
             <HeaderColTitle>
               <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
             </HeaderColTitle>
-            <HeaderIconButton
-              className="layer-close-button"
-              data-gtm-subname="botao fechar layer"
-              data-gtm-name="botao fechar"
+            <IconButton
+              data-gtm-subname="header"
+              data-gtm-name="botao fechar step"
               data-gtm-type="click"
               data-gtm-clicktype="button"
-              icon="CloseIcon"
               onClick={() => handleClose('CLOSE')}
-            />
+            >
+              <Icon name="close" width={35} height={35} />
+            </IconButton>
           </HeaderContent>
         </GridCol>
       </GridRow>
