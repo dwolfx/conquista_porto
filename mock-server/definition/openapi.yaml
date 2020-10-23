@@ -1,0 +1,203 @@
+openapi: "3.0.2"
+info:
+  title: "conquista-react-front"
+  description: |
+    O swagger pode estar em 2 servidores diferente, dependendo da forma como você rode
+    * SWAGGER url: http://127.0.0.1:9090/openapi.yaml
+    * MOCK url: http://localhost:3001/static/openapi.yaml
+  version: 0.0.1
+  contact:
+    name: "Mauro Catto"
+    email: "mauro.catto@sciensa.com"
+
+servers:
+  - url: "http://localhost:{port}/{basePath}"
+    description: Local server
+    variables:
+      port:
+        enum:
+          - '3001'
+          - '5000'
+        default: "5000"
+      basePath:
+        default: "api"
+  - url: "http://api-proxy.conquista.sciensa.click/{basePath}"
+    description: API DEV Segurança
+    variables:
+      basePath:
+        default: "api"
+
+tags:
+  - name: Cliente Authentication (login)
+    description: Serviços para autenticação de usuario.
+  - name: Perfil
+    description: Serviços para dados do cliente.
+
+paths:
+  ################################################################################
+  #                         Cliente Authentication                               #
+  ################################################################################
+  /auth2/clientes/login:
+    post:
+      tags:
+        - Cliente Authentication (login)
+      description: |
+        - Autoriza usuário.
+        - Usuarios Validos
+          - 39597862808 (moderado)
+          - 22890390802 (arrojado)
+          - 33244452809 (conservador)
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: 33244452809
+                password:
+                  type: string
+                  example: senha123
+                grant_type:
+                  type: string
+                  example: password
+                client_id:
+                  type: string
+                  example: ae80fa79-2fc0-4d29-b57b-92f4de4595c2
+                client_secret:
+                  type: string
+                  example: c431e59c-9c95-4f12-8770-2b820c75d849
+                social:
+                  type: string
+                  example: 13213
+              required:
+                - username
+                - password
+                - grant_type
+                - client_id
+                - client_secret
+      responses:
+        200:
+          description: Autorizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthenticationToken"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/perfil/dados-cliente:
+    post:
+      tags:
+        - Perfil
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: Dados do usuário
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DadosCliente"
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+components:
+  securitySchemes:
+    # apiToken:
+    #   type: apiKey
+    #   name: authorization
+    #   description: Token JWT passado via header. ex
+    #     Bearer bb8ffb57-a039-4820-8dd9-e9fd3168d0aa
+    #   in: header
+    # REF: https://swagger.io/docs/specification/authentication/bearer-authentication/
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        - Token JWT passado via header. ex 
+          - Moderado
+            - 64838715-6d8d-48d1-81ee-83a60b4c9f11
+          - Arrojado
+            - c0288986-ae1b-4711-af9d-7be0ee1c523b
+          - Conservador (padrão)
+            - bb8ffb57-a039-4820-8dd9-e9fd3168d0aa
+
+  schemas:
+    GeneralError:
+      $ref: "./components/schemas/dominio.yaml#/GeneralError"
+    AuthenticationToken:
+      $ref: "./components/schemas/dominio.yaml#/AuthenticationToken"
+    DadosCliente:
+      $ref: "./components/schemas/dominio.yaml#/DadosCliente"
+
+  responses:
+    Conflict:
+      description: O status de resposta '409 Conflict' indica que a solicitação atual conflitou com o recurso que está no servidor.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+          example:
+            error: 409
+            error_description: O status de resposta '409 Conflict' indica que a solicitação atual conflitou com o recurso que está no servidor.
+
+    NotFound:
+      description: O servidor não pode encontrar o recurso solicitado.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+          example:
+            error: 404
+            error_description: O servidor não pode encontrar o recurso solicitado. Este código de resposta talvez seja o mais famoso devido à frequência com que acontece na web.
+
+    GeneralError:
+      description: Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+          example:
+            error: 400
+            error_description: Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida
+
+    InternalServerError:
+      description: O servidor encontrou uma situação com a qual não sabe lidar.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+          example:
+            error: 500
+            error_description: O servidor encontrou uma situação com a qual não sabe lidar.
+
+    Unauthorized:
+      description: Embora o padrão HTTP especifique 'unauthorized', semanticamente, essa resposta significa 'unauthenticated'. Ou seja, o cliente deve se autenticar para obter a resposta solicitada.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+          example:
+            error: login_required
+            error_description: The resource owner could not be authenticated due to missing or invalid credentials.
+
+    Forbidden:
+      description: O cliente não tem direitos de acesso ao conteúdo portanto o servidor está rejeitando dar a resposta. Diferente do código 401, aqui a identidade do cliente é conhecida.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+          example:
+            error: login_required
+            error_description: The resource owner could not be authenticated due to missing or invalid credentials.
