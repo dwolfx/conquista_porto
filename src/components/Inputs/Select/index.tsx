@@ -8,7 +8,14 @@ import Text from 'components/Text'
 import * as s from './styles'
 import * as t from './types'
 
-export default function Select({ selected, options, label, testId }: t.IProps) {
+export default function Select({
+  selected,
+  options,
+  label,
+  testId,
+  optionBoxSize = 400,
+  optionBoxDirection = 'bottom',
+}: t.IProps) {
   const [isOptionsOpen, setOptionsOpen] = useState(false)
 
   const renderOptions = useCallback(
@@ -54,7 +61,12 @@ export default function Select({ selected, options, label, testId }: t.IProps) {
         />
 
         {isOptionsOpen ? (
-          <s.OptionsWrapper>{renderOptions()}</s.OptionsWrapper>
+          <s.OptionsWrapper
+            optionBoxDirection={optionBoxDirection}
+            optionBoxSize={optionBoxSize}
+            >
+              {renderOptions()}
+            </s.OptionsWrapper>
         ) : null}
       </s.InputContainer>
     </>

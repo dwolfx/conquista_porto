@@ -14,15 +14,19 @@ export const InputContainer = styled.div`
   }
 `
 
-export const OptionsWrapper = styled.div`
+export const OptionsWrapper = styled.div<{ optionBoxDirection: 'top' | 'bottom', optionBoxSize: number }>`
   position: absolute;
-  top: ${({theme}) => theme.spacing(10)}px;
   width: 100%;
   z-index: 14;
   box-shadow: ${({ theme }) => theme.shadows.gray2};
-  max-height: 400px;
+  max-height: ${({ optionBoxSize }) => `${optionBoxSize}px`};
   padding: ${({ theme }) => `${theme.spacing(2)}px 0`};
   overflow-y: auto;
+  ${({ optionBoxDirection, theme }) =>  
+    optionBoxDirection === 'top' ?
+    `bottom: ${theme.spacing(10)}px` :
+    `top: ${theme.spacing(10)}px`
+    };
 `
 
 interface IOptionsItem {

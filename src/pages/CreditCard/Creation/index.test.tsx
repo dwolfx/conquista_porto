@@ -43,21 +43,21 @@ describe('Creation tests', () => {
     fireEvent.click(closeButton)
     expect(handleCloseMock).toHaveBeenCalled()
   })
-  it('should close the layer when clicking the arrow left button at step 1', () => {
-    const handleCloseMock = jest.fn()
-    renderWithReduxAndTheme(<Creation isOpen handleClose={handleCloseMock} />, {
-      container: createRootContainer(),
-    })
-    const goBackButton = screen.getByRole('img', { name: 'arrowleft' })
-    fireEvent.click(goBackButton)
-    expect(handleCloseMock).toHaveBeenCalled()
-  })
+  // it('should close the layer when clicking the arrow left button at step 1', () => {
+  //   const handleCloseMock = jest.fn()
+  //   renderWithReduxAndTheme(<Creation isOpen handleClose={handleCloseMock} />, {
+  //     container: createRootContainer(),
+  //   })
+  //   const goBackButton = screen.getByRole('img', { name: 'arrowleft' })
+  //   fireEvent.click(goBackButton)
+  //   expect(handleCloseMock).toHaveBeenCalled()
+  // })
   it('should render correctly the subheader', () => {
     renderWithReduxAndTheme(<Creation isOpen handleClose={() => {}} />, {
       container: createRootContainer(),
     })
     expect(screen.getAllByText(/Solicitação/i)[0]).toBeInTheDocument()
     expect(screen.getByText(/Cartão de Crédito/i)).toBeInTheDocument()
-    expect(screen.getByText(/etapa 1 de 5/i)).toBeInTheDocument()
+    // expect(screen.getByText(/etapa 1 de 5/i)).toBeInTheDocument()
   })
 })

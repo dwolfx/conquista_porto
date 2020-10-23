@@ -4,11 +4,14 @@ import 'styled-components/macro'
 import FirstStep from './FirstStep'
 import SecondStep from './SecondStep'
 import ThirdStep from './ThirdStep'
+import ForthStep from './ForthStep'
 
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
+import { truncateString } from 'helpers'
 
 import {
   HeaderContent,
@@ -29,6 +32,7 @@ interface IProps {
 }
 type steps = 1 | 2 | 3 | 4 | 5
 const Creation = ({ isOpen, handleClose }: IProps) => {
+  const isMobile = useMedia('xs')
   const [step, setStep] = useState<steps>(1)
   const [form, setForm] = useState({}) // form object
 
@@ -37,6 +41,12 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       return handleClose()
     }
     setStep(prevState => (prevState - 1) as steps)
+  }
+
+  const goNext = () => {
+    if (step < 5) {
+      setStep(prevState => (prevState + 1) as steps)
+    }
   }
 
   const getStepCount = () => {
@@ -53,10 +63,14 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     <SecondStep
       form={form}
       onChangeForm={setForm}
-      onNextStep={() => setStep((step + 1) as steps)}
+      onNextStep={goNext}
     />,
-    <ThirdStep changeStep={() => {}} />,
-    <div>Step4</div>,
+    <ThirdStep onNextStep={goNext} />,
+    <ForthStep 
+      form={form}
+      setForm={setForm}
+      onNextStep={goNext}
+    />,
     <div>Step5</div>,
   ]
 
@@ -98,7 +112,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
         </GridContainer>
       }
     >
-      <StepBar>
+      <StepBar step={step}>
         <GridContainer>
           <GridRowStepBar>
             <ColStepBar lg={12}>
@@ -109,7 +123,10 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
                     Solicitação
                   </Text>,
                   <Text color="white" type="headline">
-                    Cartão de Crédito
+                    {isMobile ?
+                      (truncateString('Cartão de Crédito', 11)) : 
+                      'Cartão de Crédito'
+                    }
                   </Text>,
                 ]}
                 endItems={getStepCount()}

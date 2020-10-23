@@ -46,6 +46,7 @@ export const LayerWrapper = styled.div<ILayerWrapperProps>`
 export const ChildrenWrapper = styled.div`
   overflow: auto;
   padding: 0px;
+  position: relative;
   height: 100%;
   background-color: ${props => props.theme.colors.gray1};
 `

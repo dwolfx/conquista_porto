@@ -10,7 +10,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should render correctly', () => {
     renderWithReduxAndTheme(
-      <Step3 changeStep={() => {}}/>
+      <Step3 onNextStep={() => {}}/>
     )
     expect(screen.getByText('Agora confirme alguns dados do seu cadastro:')).toBeInTheDocument()
     expect(screen.getByText('estado civil')).toBeInTheDocument()
@@ -21,7 +21,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should open select when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 changeStep={() => {}}/>
+      <Step3 onNextStep={() => {}}/>
     )
     const civilStateSelect = screen.getByTestId('select-estado civil')
     const sexSelect = screen.getByTestId('select-sexo')
@@ -36,7 +36,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should civil-state select the proper option when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 changeStep={() => {}}/>
+      <Step3 onNextStep={() => {}}/>
     )
     const civilStateSelect = screen.getByTestId('select-estado civil')
 
@@ -59,7 +59,7 @@ describe('Credit Card Step 3', () => {
 
   it('should sex select the proper option when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 changeStep={() => {}}/>
+      <Step3 onNextStep={() => {}}/>
     )
     const sexSelect = screen.getByTestId('select-sexo')
 
@@ -73,7 +73,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should ocupation select the proper option when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 changeStep={() => {}}/>
+      <Step3 onNextStep={() => {}}/>
     )
     const ocupationSelect = screen.getByTestId('select-ocupação')
 
@@ -95,7 +95,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should input work correctly', () => {
     renderWithReduxAndTheme(
-      <Step3 changeStep={() => {}}/>
+      <Step3 onNextStep={() => {}}/>
     )
     const cityInput = screen.getByTestId('cidade')
     fireEvent.change(cityInput, {target: { value: 'Londrina' }})
@@ -108,7 +108,7 @@ describe('Credit Card Step 3', () => {
   it('should show loading when button is clicked', () => {
     const changeStepFunction = jest.fn()
     renderWithReduxAndTheme(
-      <Step3 changeStep={changeStepFunction} />
+      <Step3 onNextStep={changeStepFunction} />
     )
     fireEvent.click(screen.getByRole('button', { name: /próximo/i }))
     expect(changeStepFunction).toHaveBeenCalled()

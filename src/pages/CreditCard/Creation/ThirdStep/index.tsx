@@ -14,10 +14,10 @@ export interface IOption {
 }
 
 interface IProps {
-  changeStep: () => void
+  onNextStep: () => void
 }
 
-const Step3 = ({ changeStep }: IProps) => {
+const Step3 = ({ onNextStep }: IProps) => {
   const cityError = {
     icon: 'information' as keyof typeof dict,
     message: 'A cidade informada não é válida.'
@@ -36,7 +36,7 @@ const Step3 = ({ changeStep }: IProps) => {
 
   const handleOnClick = () => {
     setLoading(true)
-    changeStep()
+    onNextStep()
     setLoading(false)
   }
 

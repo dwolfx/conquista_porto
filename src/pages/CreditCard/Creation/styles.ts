@@ -55,12 +55,13 @@ export const GridCol = styled(Col)`
   }
 `
 
-export const StepBar = styled.div`
+export const StepBar = styled.div<{ step: number }>`
   background-color: ${props => props.theme.colors.grayblue1};
-  height: 56px;
+  height: ${({ step }) => step === 4 ? '210' : '56'}px;
 `
 
 export const GridRowStepBar = styled(Row)`
+  margin: 0;
   padding: 0 ${({ theme }) => theme.spacing(2)}px;
 `
 

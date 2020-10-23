@@ -19,4 +19,6 @@ export interface IProps {
   selected: TSelected
   label: string
   testId?: string
+  optionBoxDirection?: 'top' | 'bottom'
+  optionBoxSize?: number
 }

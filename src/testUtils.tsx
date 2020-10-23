@@ -29,6 +29,7 @@ function renderWithReduxAndTheme(
 
 // re-export everything
 export * from '@testing-library/react'
+export * from '@testing-library/user-event'
 
 // override render method - render with redux
 export { renderWithReduxAndTheme }
