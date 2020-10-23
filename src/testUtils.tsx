@@ -27,9 +27,20 @@ function renderWithReduxAndTheme(
   })
 }
 
+function createRootContainer() {
+  let container = document.getElementById('root')
+  if (!container) {
+    container = document.createElement('div')
+    container.setAttribute('id', 'root')
+    container.setAttribute('role', 'main')
+    document.body.appendChild(container)
+  }
+  return container
+}
+
 // re-export everything
 export * from '@testing-library/react'
 export * from '@testing-library/user-event'
 
 // override render method - render with redux
-export { renderWithReduxAndTheme }
+export { renderWithReduxAndTheme, createRootContainer }

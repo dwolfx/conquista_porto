@@ -61,7 +61,7 @@ export default function({
         ? [...objectiveList]
             .filter(item => item.id !== objectiveDetails.id)
             .map(item => ({
-              text: item.nickname,
+              name: item.nickname,
               id: item.id,
               icon: goalTypeIcons[item.goal_type],
               onClick: () => {

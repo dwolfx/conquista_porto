@@ -27,7 +27,8 @@
     "swagger:start": "http-server ./mock-server/definition/ --cors=true -o /swagger-ui/index.html -p 9090",
     "swagger:test": "openapi-generator-cli validate -i ./mock-server/definition/openapi.yaml",
     "mock:start": "nodemon ./mock-server/server.js",
-    "novo": "env-cmd -f .env.novo react-scripts start"
+    "novo": "env-cmd -f .env.novo react-scripts start",
+    "sonar:scan": "sonar-scanner"
   },
   "dependencies": {
     "@nivo/bar": "^0.61.1",
@@ -117,7 +118,8 @@
     "nodemon": "^2.0.2",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
-    "react-test-renderer": "^16.11.0"
+    "react-test-renderer": "^16.11.0",
+    "sonarqube-scanner": "^2.7.0"
   },
   "eslintConfig": {
     "extends": "react-app"

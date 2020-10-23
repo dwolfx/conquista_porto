@@ -96,6 +96,10 @@ export type TObjectiveFunds = {
   pendency?: 'INITIAL_VALUE_PENDING'
 }
 
+export type TAdditional = {
+  [key in 'travel_security' | 'life_security' | 'credit_card']: boolean
+}
+
 export interface IObjectManagement {
   id: number
   nickname: string
@@ -108,9 +112,7 @@ export interface IObjectManagement {
   total_balance: number
   years: TYear[]
   fund_list: TObjectiveFunds[]
-  additional: {
-    [key in 'travel_security' | 'life_security' | 'credit_card']: boolean
-  }
+  additional: TAdditional
   credit_product: {
     name: string
     values: {

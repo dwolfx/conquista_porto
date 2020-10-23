@@ -93,6 +93,10 @@ const ProductBanner = ({ additional }: IProps) => {
     ],
   })
 
+  if (!renderedProducts.length) {
+    return null
+  }
+
   return (
     <>
       <GridRow>
@@ -103,9 +107,7 @@ const ProductBanner = ({ additional }: IProps) => {
             md={renderedProducts.length > 1 ? 6 : 12}
             xs={12}
           >
-            <s.ProductBanner
-              bgImage={product.image}
-            >
+            <s.ProductBanner bgImage={product.image}>
               <Text bold type="captionUppercase">
                 {product.category}
               </Text>
@@ -150,23 +152,25 @@ const ProductBanner = ({ additional }: IProps) => {
           </Column>
         ))}
       </GridRow>
-      <s.ProductBannerModal
-        modalTitle={modalState.title}
-        alignItems="center"
-        isOpen={modalState.isOpen}
-        handleClose={() =>
-          setModalState({
-            ...modalState,
-            isOpen: false,
-          })
-        }
-      >
-        <ModalContent
-          items={modalState.items}
-          text={modalState.text}
-          isMobile={isMobile}
-        />
-      </s.ProductBannerModal>
+      {modalState.isOpen ? (
+        <s.ProductBannerModal
+          modalTitle={modalState.title}
+          alignItems="center"
+          isOpen={modalState.isOpen}
+          handleClose={() =>
+            setModalState({
+              ...modalState,
+              isOpen: false,
+            })
+          }
+        >
+          <ModalContent
+            items={modalState.items}
+            text={modalState.text}
+            isMobile={isMobile}
+          />
+        </s.ProductBannerModal>
+      ) : null}
     </>
   )
 }

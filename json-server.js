@@ -92,6 +92,19 @@ router.render = (req, res) => {
     })
   }
 
+  if (req.originalUrl.startsWith('/api/goal/redeems')) {
+    if (req.method === 'GET') {
+      return res.status(200).jsonp([
+        {
+          id: 1,
+          text: 'Vou fazer uma compra',
+        },
+      ])
+    }
+
+    return res.status(200).jsonp({})
+  }
+
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
       if (req.originalUrl.includes('allocation-statement')) {

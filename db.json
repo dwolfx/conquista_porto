@@ -6340,8 +6340,8 @@
   "goal_management": {
     "fund_list": [
       {
-        "fund_id": "5105",
-        "value": "12"
+        "fund_id": 5071,
+        "value": 0
       }
     ]
   },
@@ -9227,5 +9227,12 @@
       "transaction_status": "DONE",
       "processed_transaction_date": "01/01/2020"
     }
-  ]
+  ],
+  "redeem_questions": [
+    {
+      "id": 1,
+      "text": "Vou fazer uma compra"
+    }
+  ],
+  "redeem_answers": {}
 }

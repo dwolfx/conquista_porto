@@ -54,10 +54,7 @@ export const OptionsItem = styled.div<IOptionsItem>`
   display: flex;
   height: 49px;
   padding: 0 ${({ theme }) => theme.spacing(3)}px;
-<<<<<<< HEAD
   text-transform: capitalize;
-=======
->>>>>>> d21df399 ([PVEV-888] - add redeem action/integration)
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.gray1};
@@ -66,7 +63,6 @@ export const OptionsItem = styled.div<IOptionsItem>`
     margin-right: ${({ theme }) => theme.spacing(3)}px;
   }
 `
-<<<<<<< HEAD
 
 export const Overlay = styled.div`
   height: 100vh;
@@ -84,5 +80,3 @@ export const Popover = styled(PopoverCmp)`
   width: 100%;
   margin: ${({ theme }) => theme.spacing(4)}px 0 ${({ theme }) => theme.spacing(4)}px 0 ;
 `
-=======
->>>>>>> d21df399 ([PVEV-888] - add redeem action/integration)

@@ -67,5 +67,7 @@
   "/goal/goals/summary": "/goals_summary",
   "/goal/goals/:id?nickname=:nickname": "goals_update_nickname",
   "/goal/goals/transfer-fund-value": "goal_transfer_between_goals",
-  "/goal/goals/allocation-statement/:id?fund_id=:fund_id": "goal_extract_fund"
+  "/goal/goals/allocation-statement/:id?fund_id=:fund_id": "goal_extract_fund",
+  "/goal/redeems/questions": "redeem_questions",
+  "/goal/redeems/answers": "redeem_answers"
 }
