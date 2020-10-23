@@ -23,7 +23,10 @@
     "cy:run": "./node_modules/.bin/cypress run",
     "cy:open": "./node_modules/.bin/cypress open",
     "percy": "percy exec -- ./node_modules/.bin/cypress run",
-    "percy:open": "percy exec -- ./node_modules/.bin/cypress open"
+    "percy:open": "percy exec -- ./node_modules/.bin/cypress open",
+    "swagger:start": "http-server ./mock-server/definition/ --cors=true -o /swagger-ui/index.html -p 9090",
+    "swagger:test": "openapi-generator-cli validate -i ./mock-server/definition/openapi.yaml",
+    "mock:start": "nodemon ./mock-server/server.js"
   },
   "dependencies": {
     "@nivo/bar": "^0.61.1",
@@ -71,6 +74,7 @@
     "yup": "^0.28.1"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.0.3",
     "@percy/cypress": "^2.3.1",
     "@testing-library/cypress": "^5.3.0",
     "@testing-library/dom": "^7.20.1",
@@ -100,6 +104,7 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "husky": "^3.0.9",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-sonar-reporter": "^2.0.0",
