@@ -14,7 +14,7 @@ import { formatNumber } from 'helpers'
 
 import { ColStyled, InfoContent, HorizontalList } from './styles'
 
-export default function TabMoreInfo({ fund, historicBenchmark }) {
+export default function TabMoreInfo({ fund }) {
   return (
     <InfoContent>
       <div>
@@ -60,7 +60,7 @@ export default function TabMoreInfo({ fund, historicBenchmark }) {
                   benchmark
                 </Text>,
                 <Text type="headline" color="gray6" bold>
-                  {historicBenchmark?.benchmark?.nome}
+                  {fund?.benchmark?.nome}
                 </Text>,
               ]}
             />
