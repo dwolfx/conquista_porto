@@ -7,7 +7,20 @@ import Text from 'components/Text'
 import { Row, Col } from 'styled-bootstrap-grid'
 
 export const Wrapper = styled(Row)`
+  height: calc(100% - 56px);
   background-color: ${({ theme }) => theme.colors.white};
+
+  @media ${props => props.theme.mediaQueries.lg} {
+    height: auto
+  }
+
+  @media ${props => props.theme.mediaQueries.md} {
+    height: calc(100% - 56px);
+  }
+
+  @media ${props => props.theme.mediaQueries.sm} {
+    height: auto
+  }
 `
 
 export const StyledMain = styled(Col)`

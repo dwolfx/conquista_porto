@@ -25,6 +25,7 @@ import {
   GridRowStepBar,
   ColStepBar,
 } from './styles'
+import FifthStep from './FifthStep'
 
 interface IProps {
   isOpen: boolean
@@ -60,18 +61,21 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   // Each step goes here
   const content = [
     <FirstStep onNextStep={setStep} />, // <Step1 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
-    <SecondStep
+    <ThirdStep
       form={form}
       onChangeForm={setForm}
-      onNextStep={goNext}
+      onNextStep={() => setStep((step + 1) as steps)}
     />,
-    <ThirdStep onNextStep={goNext} />,
-    <ForthStep 
+    <ForthStep
       form={form}
       setForm={setForm}
       onNextStep={goNext}
     />,
-    <div>Step5</div>,
+    <FifthStep
+      form={form}
+      onChangeForm={setForm}
+      onNextStep={() => { }}
+    />,
   ]
 
   const getContent = () => {
@@ -124,7 +128,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
                   </Text>,
                   <Text color="white" type="headline">
                     {isMobile ?
-                      (truncateString('Cartão de Crédito', 11)) : 
+                      (truncateString('Cartão de Crédito', 11)) :
                       'Cartão de Crédito'
                     }
                   </Text>,

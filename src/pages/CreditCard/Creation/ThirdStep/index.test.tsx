@@ -10,7 +10,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should render correctly', () => {
     renderWithReduxAndTheme(
-      <Step3 onNextStep={() => {}}/>
+      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
     )
     expect(screen.getByText('Agora confirme alguns dados do seu cadastro:')).toBeInTheDocument()
     expect(screen.getByText('estado civil')).toBeInTheDocument()
@@ -21,7 +21,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should open select when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 onNextStep={() => {}}/>
+      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
     )
     const civilStateSelect = screen.getByTestId('select-estado civil')
     const sexSelect = screen.getByTestId('select-sexo')
@@ -36,7 +36,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should civil-state select the proper option when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 onNextStep={() => {}}/>
+      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
     )
     const civilStateSelect = screen.getByTestId('select-estado civil')
 
@@ -59,7 +59,7 @@ describe('Credit Card Step 3', () => {
 
   it('should sex select the proper option when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 onNextStep={() => {}}/>
+      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
     )
     const sexSelect = screen.getByTestId('select-sexo')
 
@@ -73,7 +73,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should ocupation select the proper option when clicked', () => {
     renderWithReduxAndTheme(
-      <Step3 onNextStep={() => {}}/>
+      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
     )
     const ocupationSelect = screen.getByTestId('select-ocupação')
 
@@ -95,7 +95,7 @@ describe('Credit Card Step 3', () => {
   })
   it('should input work correctly', () => {
     renderWithReduxAndTheme(
-      <Step3 onNextStep={() => {}}/>
+      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
     )
     const cityInput = screen.getByTestId('cidade')
     fireEvent.change(cityInput, {target: { value: 'Londrina' }})
@@ -105,11 +105,24 @@ describe('Credit Card Step 3', () => {
     fireEvent.change(momNameInput, { target: { value: 'Carla' } })
     expect(momNameInput).toHaveValue('Carla')
   })
-  it('should show loading when button is clicked', () => {
+  it('should show next step when button is clicked', () => {
     const changeStepFunction = jest.fn()
     renderWithReduxAndTheme(
-      <Step3 onNextStep={changeStepFunction} />
+      <Step3 form={{}} onChangeForm={() => { }} onNextStep={changeStepFunction}/>
     )
+    const civilStateSelect = screen.getByTestId('select-estado civil')
+    const sexSelect = screen.getByTestId('select-sexo')
+    const ocupationSelect = screen.getByTestId('select-ocupação')
+
+    fireEvent.click(civilStateSelect)
+    fireEvent.click(screen.getByTestId('option-Casado'))
+
+    fireEvent.click(sexSelect)
+    fireEvent.click(screen.getByTestId('option-Masculino'))
+
+    fireEvent.click(ocupationSelect)
+    fireEvent.click(screen.getByTestId('option-Designer'))
+
     fireEvent.click(screen.getByRole('button', { name: /próximo/i }))
     expect(changeStepFunction).toHaveBeenCalled()
   })
