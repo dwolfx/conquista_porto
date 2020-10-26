@@ -28,19 +28,19 @@ export const StyledMain = styled(Col)`
   margin: 0 auto;
 `
 
-export const StyledText = styled(Text).attrs(({
-  type: "heading4",
-  color: "gray6",
-  textAlign: "center",
-}))`
+export const StyledText = styled(Text).attrs({
+  type: 'heading4',
+  color: 'gray6',
+  textAlign: 'center',
+})`
   width: 70%;
   margin: 0 auto;
 `
 
 export const AnotherStyledText = styled(Text).attrs({
-  type: "body",
-  color: "gray5",
-  textAlign: "center",
+  type: 'body',
+  color: 'gray5',
+  textAlign: 'center',
   bold: true,
 })`
   margin-top: ${({ theme }) => theme.spacing(4)}px;
@@ -59,15 +59,16 @@ export const StyledForm = styled.div`
   }
 
   @media ${props => props.theme.mediaQueries.sm} {
-    padding: 0 ${({theme}) => theme.spacing(3)}px;
+    padding: 0 ${({ theme }) => theme.spacing(3)}px;
   }
 `
-export const StyledButton = styled(Button) `
+export const StyledButton = styled(Button)`
   margin-top: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const StyledInput = styled(NewInput)`
-  margin-bottom: ${({ error, theme}) => !!error && `${theme.spacing(3)}px`};
+  margin-bottom: ${({ error, theme }) => !!error && `${theme.spacing(3)}px`};
+  width: 100%;
 `
 
 export const SelectWrapper = styled.div`
@@ -101,4 +102,3 @@ export const FlexWrapper = styled.div`
 export const Footer = styled.div`
   margin: ${({ theme }) => `${theme.spacing(4)}px 0 ${theme.spacing(6)}px`};
 `
-

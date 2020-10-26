@@ -75,14 +75,22 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
 
   // Each step goes here
   const content = [
-    <FirstStep onNextStep={setStep} />, // <Step1 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
+    <FirstStep onNextStep={goNext} />, // <Step1 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
     <ThirdStep
-      form={form}
-      onChangeForm={setForm}
-      onNextStep={() => setStep((step + 1) as steps)}
+      // form={form}
+      // onChangeForm={setForm}
+      form={{}}
+      onChangeForm={() => {}}
+      onNextStep={goNext}
     />,
     <ForthStep form={form} setForm={setForm} onNextStep={goNext} />,
-    <FifthStep form={form} onChangeForm={setForm} onNextStep={() => {}} />,
+    <FifthStep
+      // form={form}
+      // onChangeForm={setForm}
+      form={{}}
+      onChangeForm={() => {}}
+      onNextStep={() => {}}
+    />,
   ]
 
   const getContent = () => {

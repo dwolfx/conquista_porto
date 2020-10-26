@@ -4,7 +4,7 @@ export interface ICustomerData {
 }
 
 export interface IFirstStep {
-  onNextStep: (step: 1 | 2 | 3 | 4 | 5) => void
+  onNextStep: () => void
 }
 
 export interface ICustomerProfile {

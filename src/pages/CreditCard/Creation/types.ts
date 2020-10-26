@@ -1,6 +1,25 @@
 import { Dispatch, SetStateAction } from 'react'
 
-export interface IForm {}
+export interface IPersonalData {}
+
+export interface ICardData {
+  flag: {
+    id: number
+    name: '' | 'Mastercard' | 'Visa'
+  }
+  dueDate: {
+    id: number
+    name: string
+  }
+}
+
+export interface IDeliveryData {}
+
+export interface IForm {
+  personalData: IPersonalData
+  cardData: ICardData
+  deliveryData: IDeliveryData
+}
 
 export interface IStepComponent {
   form: {}

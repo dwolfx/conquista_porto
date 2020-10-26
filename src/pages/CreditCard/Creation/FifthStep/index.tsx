@@ -22,50 +22,58 @@ const FifthStep = ({ onNextStep }: IStepComponent) => {
     onNextStep()
   }
 
- return (
-   <>
-    <S.Wrapper>
-      <GridContainer>
-        <Row>
-          <Col lg={3} md={12}>
-            <S.StyledVerticalList
-              elements={[
-                <Text bold type="heading4" color="gray6">Resumo</Text>,
-                <Text bold type="body" color="gray5">Antes de enviar a solicitação, por favor, revise as informações.</Text>
-              ]}
-            />
-          </Col>
-          <S.StyledCol lg={8} md={12}>
-            <PersonalData />
-            <CardData />
-            <DeliveryData />
+  return (
+    <>
+      <S.Wrapper>
+        <GridContainer>
+          <Row>
+            <Col lg={3} md={12}>
+              <S.StyledVerticalList
+                elements={[
+                  <Text bold type="heading4" color="gray6">
+                    Resumo
+                  </Text>,
+                  <Text bold type="body" color="gray5">
+                    Antes de enviar a solicitação, por favor, revise as
+                    informações.
+                  </Text>,
+                ]}
+              />
+            </Col>
+            <S.StyledCol lg={8} md={12}>
+              <PersonalData />
+              <CardData />
+              <DeliveryData />
 
-            <StyledCard>
-              <S.CheckboxWrapper>
+              <StyledCard>
+                <S.CheckboxWrapper>
                   <Checkbox
                     data-testid="credit-card-check"
                     id="credit-card-check"
                     checked={isChecked}
                     onChange={() => setChecked(!isChecked)}
-                    label= {
+                    label={
                       <S.StyledText bold type="body" color="gray6">
-                        Concordo com a solicitação do Cartão de Crédito Porto Seguro e com as
-                        condições do contrato, que será enviado com o cartão.
+                        Concordo com a solicitação do Cartão de Crédito Porto
+                        Seguro e com as condições do contrato, que será enviado
+                        com o cartão.
                       </S.StyledText>
                     }
                   />
-              </S.CheckboxWrapper>
-            </StyledCard>
-          </S.StyledCol>
-         </Row>
-      </GridContainer>
-    </S.Wrapper>
+                </S.CheckboxWrapper>
+              </StyledCard>
+            </S.StyledCol>
+          </Row>
+        </GridContainer>
+      </S.Wrapper>
 
-    <S.Footer>
-      <Button color="secondary" disabled={!isChecked} onClick={handleClick}>SOLICITAR CARTÃO</Button>
-    </S.Footer>
-   </>
- )
+      <S.Footer>
+        <Button color="secondary" disabled={!isChecked} onClick={handleClick}>
+          SOLICITAR CARTÃO
+        </Button>
+      </S.Footer>
+    </>
+  )
 }
 
 export default FifthStep

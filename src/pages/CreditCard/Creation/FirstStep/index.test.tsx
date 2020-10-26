@@ -62,7 +62,7 @@ describe('CreditCard FirstStep tests', () => {
       expect(getByText(/\(11\) 9 9725-7249/i)).toBeDefined()
     })
   })
-  describe('Test buttons', () => {
+  describe('Buttons tests', () => {
     it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
       renderWithReduxAndTheme(<FirstStep onNextStep={() => {}} />)
 

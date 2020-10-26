@@ -63,7 +63,6 @@ const FirstStep: React.FC<t.IFirstStep> = ({ onNextStep, ...rest }) => {
               {customerData
                 ? customerData.map((item, index) => (
                     <React.Fragment key={uuid()}>
-                      {console.log(index)}
                       <VerticalList
                         elements={[
                           <s.Label>{item.label}</s.Label>,
@@ -92,7 +91,7 @@ const FirstStep: React.FC<t.IFirstStep> = ({ onNextStep, ...rest }) => {
                 data-gtm-clicktype="button"
                 data-gtm-subname={'primeira etapa - cartão de crédito'}
                 data-gtm-name="confirmar"
-                onClick={() => onNextStep(2)}
+                onClick={onNextStep}
               >
                 CONFIRMAR
               </s.Button>

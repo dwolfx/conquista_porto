@@ -54,7 +54,7 @@ export const DrawerHeader = styled.div`
 `
 
 export const DrawerTitle = styled(Text).attrs(() => ({
-  type: 'heading4',
+  type: 'headline',
   bold: true,
 }))`
   color: ${props => props.theme.colors.gray6};

@@ -8,26 +8,35 @@ import { IOption } from '../../../types'
 
 interface IProps {
   type: 'visa' | 'mastercard' | ''
-  selectedOption: IOption,
+  selectedOption: IOption
   setSelectedOption: (expirationDate: IOption) => void
 }
-const SelectExpirationDays = ({ type, selectedOption, setSelectedOption }: IProps) => {
+const SelectExpirationDays = ({
+  type,
+  selectedOption,
+  setSelectedOption,
+}: IProps) => {
   const [options, setOptions] = useState<TOptions[]>([])
   const { expirationDays, isLoading } = useSelector((state: any) => ({
     expirationDays: state.creditCardExpirationDays.data,
-    isLoading: state.creditCardExpirationDays.isLoading
+    isLoading: state.creditCardExpirationDays.isLoading,
   }))
 
   useEffect(() => {
     if (type) {
-      setSelectedOption({ id: 0, name: '' })
-      setOptions(expirationDays[type].map((dia: any) => ({
-        id: +dia.descricao,
-        text: dia.descricao,
-        onClick: () => setSelectedOption({ id: +dia.descricao, name: dia.descricao })
-      })))
+      setSelectedOption(selectedOption ?? { id: 0, name: '' })
+      if (!isLoading && expirationDays && expirationDays[type]) {
+        setOptions(
+          expirationDays[type].map((dia: any) => ({
+            id: +dia.descricao,
+            text: dia.descricao,
+            onClick: () =>
+              setSelectedOption({ id: +dia.descricao, name: dia.descricao }),
+          }))
+        )
+      }
     }
-  }, [type, setSelectedOption, expirationDays])
+  }, [type, setSelectedOption, expirationDays, selectedOption, isLoading])
 
   return (
     <Select
