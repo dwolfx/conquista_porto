@@ -490,9 +490,12 @@ Object {
 }
 
 .c55 {
-  height: 19px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
-  width: 19px;
+  width: 100%;
 }
 
 .c56 {
@@ -2574,7 +2577,7 @@ Object {
                           class="sc-pBolk bFNXtZ"
                         >
                           <div
-                            class="sc-fzqNqU kHGjOk"
+                            class="sc-fzqNqU UOrqS"
                           >
                             <input
                               class="sc-fzoNJl FjBCk"

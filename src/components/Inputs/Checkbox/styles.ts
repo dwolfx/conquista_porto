@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const CheckboxWrapper = styled.div`
-  height: 19px;
+  display: flex;
   position: relative;
-  width: 19px;
+  width: 100%;
 `
 
 export const Label = styled.label``

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 
+import CheckboxComponent from 'components/Inputs/Checkbox'
 import Text from 'components/Text'
 
 interface IWrapper {
@@ -317,5 +318,15 @@ export const StickyDivisor = styled.div<IStickyDivisor>`
     top: 0;
     width: 2px;
     ${props => (props.side === 'right' ? `left: -4px` : `right: -1px`)};
+  }
+`
+
+export const Checkbox = styled(CheckboxComponent)`
+  display: block;
+  height: 19px;
+  width: 19px;
+
+  input {
+    z-index: 1;
   }
 `

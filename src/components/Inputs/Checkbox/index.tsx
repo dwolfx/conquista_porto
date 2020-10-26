@@ -11,9 +11,9 @@ interface IProps {
 const Checkbox = forwardRef<
   HTMLInputElement,
   IProps & React.HTMLAttributes<HTMLInputElement>
->(({ id, label, checked, disabled, ...rest }, ref) => {
+>(({ id, label, checked, disabled, className, ...rest }, ref) => {
   return (
-    <CheckboxWrapper>
+    <CheckboxWrapper className={className}>
       <Input
         ref={ref}
         type="checkbox"
