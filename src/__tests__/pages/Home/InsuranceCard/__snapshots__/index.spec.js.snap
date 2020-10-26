@@ -6,12 +6,12 @@ exports[`InsuranceCard Renders correctly 1`] = `
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c21 {
@@ -533,7 +533,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
         <p
           className="c8 "
           color="unset"
-          type="heading4"
+          type="headline"
         >
           Seguros
         </p>

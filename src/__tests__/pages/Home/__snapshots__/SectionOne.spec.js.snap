@@ -172,12 +172,12 @@ Array [
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c6 {
@@ -590,7 +590,7 @@ Array [
             <p
               className="c9 "
               color="unset"
-              type="heading4"
+              type="headline"
             >
               Previdência
             </p>
@@ -642,12 +642,12 @@ Array [
   text-align: unset;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c23 {
@@ -1342,7 +1342,7 @@ Array [
             <p
               className="c9 "
               color="unset"
-              type="heading4"
+              type="headline"
             >
               Crédito
             </p>
