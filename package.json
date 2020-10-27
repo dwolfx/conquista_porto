@@ -26,7 +26,8 @@
     "percy:open": "percy exec -- ./node_modules/.bin/cypress open",
     "swagger:start": "http-server ./mock-server/definition/ --cors=true -o /swagger-ui/index.html -p 9090",
     "swagger:test": "openapi-generator-cli validate -i ./mock-server/definition/openapi.yaml",
-    "mock:start": "nodemon ./mock-server/server.js"
+    "mock:start": "nodemon ./mock-server/server.js",
+    "novo": "env-cmd -f .env.novo react-scripts start"
   },
   "dependencies": {
     "@nivo/bar": "^0.61.1",

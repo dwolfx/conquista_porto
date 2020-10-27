@@ -5,6 +5,8 @@ info:
     O swagger pode estar em 2 servidores diferente, dependendo da forma como você rode
     * SWAGGER url: http://127.0.0.1:9090/openapi.yaml
     * MOCK url: http://localhost:3001/static/openapi.yaml
+
+    - Servidor mock antigo 5000, novo MOCK 3001
   version: 0.0.1
   contact:
     name: "Mauro Catto"
@@ -12,13 +14,13 @@ info:
 
 servers:
   - url: "http://localhost:{port}/{basePath}"
-    description: Local server
+    description: Local server. (NOVO MOCK 3001)
     variables:
       port:
         enum:
-          - '3001'
-          - '5000'
-        default: "5000"
+          - "3001"
+          - "5000"
+        default: "3001"
       basePath:
         default: "api"
   - url: "http://api-proxy.conquista.sciensa.click/{basePath}"
@@ -32,6 +34,8 @@ tags:
     description: Serviços para autenticação de usuario.
   - name: Perfil
     description: Serviços para dados do cliente.
+  - name: Pontos
+    description: Serviços para Programa de Pontos.
 
 paths:
   ################################################################################
@@ -89,8 +93,33 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/perfil/dados-cliente:
+  /dev/oauth/access-token:
     post:
+      tags:
+        - Cliente Authentication (login)
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: access token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthenticationToken"
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  ################################################################################
+  #                                   Perfil                                     #
+  ################################################################################
+  /invest/perfil/dados-cliente:
+    get:
       tags:
         - Perfil
       security:
@@ -102,6 +131,52 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DadosCliente"
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  ################################################################################
+  #                            Programa de pontos                                #
+  ################################################################################
+  /invest/programa-pontos/extrato:
+    get:
+      tags:
+        - Pontos
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: Extrato
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pontos"
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/programa-pontos/consultar-pontos:
+    get:
+      tags:
+        - Pontos
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: consultar-pontos
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PontosConsultar"
         400:
           $ref: "#/components/responses/GeneralError"
         401:
@@ -139,7 +214,11 @@ components:
     AuthenticationToken:
       $ref: "./components/schemas/dominio.yaml#/AuthenticationToken"
     DadosCliente:
-      $ref: "./components/schemas/dominio.yaml#/DadosCliente"
+      $ref: "./components/schemas/perfil.yaml#/DadosCliente"
+    Pontos:
+      $ref: "./components/schemas/pontos.yaml#/Pontos"
+    PontosConsultar:
+      $ref: "./components/schemas/pontos.yaml#/PontosConsultar"
 
   responses:
     Conflict:

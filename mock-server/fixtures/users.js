@@ -1,7 +1,8 @@
+const { conservador, moderado, arrojado } = require('./tokens');
+
 module.exports = [
   {
-    access_token: 'Bearer bb8ffb57-a039-4820-8dd9-e9fd3168d0aa',
-    role: 'conservador',
+    ...conservador,
     data: {
       emailCliente: 'rafaelrodrigues.vieira@portoseguro.com.br',
       estado: 'SP',
@@ -22,18 +23,16 @@ module.exports = [
       nomeMae: 'MARILENE CORREA',
     },
   },
-  // {
-  //   access_token: 'Bearer bb8ffb57-a039-4820-8dd9-e9fd3168d0aa',
-  //   role: 'moderado',
-  //   data: {
-  //     emailCliente: 'ricardo.eufrasio@portoseguro.com.br',
-  //   },
-  // },
-  // {
-  //   access_token: 'Bearer bb8ffb57-a039-4820-8dd9-e9fd3168d0aa',
-  //   role: 'arrojado',
-  //   data: {
-  //     emailCliente: 'ricardo.eufrasio@portoseguro.com.br',
-  //   },
-  // },
+  {
+    ...moderado,
+    data: {
+      emailCliente: 'ricardo.eufrasio@portoseguro.com.br',
+    },
+  },
+  {
+    ...arrojado,
+    data: {
+      emailCliente: 'ricardo.eufrasio@portoseguro.com.br',
+    },
+  },
 ];
