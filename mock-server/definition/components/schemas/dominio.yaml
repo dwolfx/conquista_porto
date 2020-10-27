@@ -27,48 +27,15 @@ AuthenticationToken:
       type: string
       example: oob
 
-DadosCliente:
-  description: dados-cliente
+Message:
   type: object
   properties:
-    emailCliente:
+    TipoCritica:
       type: string
-      example: ricardo.eufrasio@portoseguro.com.br
-    estado:
+      example: SUCESSO
+    Mensagem:
       type: string
-      example: SP
-    Message:
-      type: object
-      properties:
-        TipoCritica:
-          type: string
-          example: SUCESSO
-        Mensagem: 
-          type: string
-          example: SUCESSO
-    numeroEnderecoResidencial:
-      type: string
-      example: 11
-    numeroTelefone:
-      type: string
-      example: 996229303
-    cpfCnpj:
-      type: string
-      example: 36275312807
-    dddNumeroTelefone:
-      type: string
-      example: 11
-    nomeCliente:
-      type: string
-      example: Rubao
-    dataNascimento:
-      description: |
-        - Data format ISO 8601. Ex 2020-03-05T12:44Z
-        - REF [https://tools.ietf.org/html/rfc3339#section-5.6]
-      type: string
-      format: date-time
-    cep:
-      type: string
-      example: 01010010
+      example: SUCESSO
   required:
-    - emailCliente
+    - TipoCritica
+    - Mensagem

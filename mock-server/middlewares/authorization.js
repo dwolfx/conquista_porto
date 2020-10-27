@@ -2,8 +2,14 @@ const auths = require('../fixtures/auth');
 const erro401 = require('../fixtures/401');
 const faker = require('faker');
 
+// variavel de ambiente do REACT
+// process.env.REACT_APP_SENSEDIA_AUTHORIZATION_ACCESS_TOKEN
+const REACT_APP_SENSEDIA_AUTHORIZATION_ACCESS_TOKEN =
+  'Basic M2E0YWY1NjUtMjA0NS0zNjllLWFmZDAtN2U4MmU4NTgzMjIxOjg3MmQwOTRhLTk3YzYtMzNlMi05YzQ3LWIzMThlYjg1NTQ5NA==';
+
 module.exports = function(req, res, next) {
-  const tokensValid = auths.map(auth => `Bearer ${auth.token.access_token}`);
+  const tokensValid = auths.map(auth => `Bearer ${auth.data.access_token}`);
+  tokensValid.push(REACT_APP_SENSEDIA_AUTHORIZATION_ACCESS_TOKEN);
 
   const isValidAuthorization = tokensValid.includes(req.headers.authorization);
 

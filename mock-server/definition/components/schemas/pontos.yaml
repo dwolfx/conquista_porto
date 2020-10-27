@@ -1,0 +1,74 @@
+DetalheExtratoOptemaisTypes:
+  description: detalheExtratoOptemaisTypes
+  type: object
+  properties:
+    pontoGanho:
+      type: string
+      example: 200
+    descricaoTipo:
+      type: string
+      example: PONTUAÇÃO
+    nomeTransacao:
+      type: string
+      example: CONQUISTA
+    valorCompra:
+      type: string
+      example: 0,00
+    taxaCon:
+      type: string
+      example: 0,00
+    tipoDebitoCredito:
+      type: string
+      example: C
+    dataCompra:
+      type: string
+      example: 01/10/2020
+  required:
+    - pontoGanho
+    - nomeTransacao
+    - valorCompra
+
+Pontos:
+  description: Pontos
+  type: object
+  properties:
+    Message:
+      $ref: "./dominio.yaml#/Message"
+    DetalheExtratoOptemaisTypes:
+      type: array
+      items:
+        $ref: "#/DetalheExtratoOptemaisTypes"
+  required:
+    - Message
+
+PontosConsultar:
+  description: Pontos Consultar
+  type: object
+  properties:
+    consultaPontosResponseType:
+      type: object
+      properties:
+        pontoasAvencer: 
+          type: string
+          example: 0
+        saldoAtual: 
+          type: string
+          example: 550
+        dataPontosAacumular:
+          type: string
+        pontosAacumular: 
+          type: string
+          example: 0
+        dataPontosAvencer: 
+          type: string
+    extratoOptemaisType:
+      type: object
+      properties:
+        saldoCliente: 
+          type: string
+          example: 550
+        saldoConsolidado: 
+          type: string
+          example: 550
+    Message:
+      $ref: "./dominio.yaml#/Message"

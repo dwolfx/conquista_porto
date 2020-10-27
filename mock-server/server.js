@@ -32,8 +32,12 @@ const router = express.Router();
 
 // Auth
 require('./routes/auth')(app, urlBase);
+require('./routes/auth2')(app, urlBase);
+require('./routes/authentication')(app, urlBase);
 
-require('./routes/perfil')(app, urlBase);
+require('./routes/perfis')(app, urlBase);
+
+require('./routes/programa-pontos')(app, urlBase);
 
 app.use(urlBase, router);
 
