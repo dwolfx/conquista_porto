@@ -143,10 +143,11 @@ export default function ObjectiveManager() {
         GetObjectiveManagementDataRequest({
           id: +objectiveId,
           addToast,
+          onError: () => history.push('/'),
         })
       )
     }
-  }, [dispatch, objectiveData, objectiveId, addToast])
+  }, [dispatch, objectiveData, objectiveId, addToast, history])
 
   useEffect(() => {
     if (objectiveData) {

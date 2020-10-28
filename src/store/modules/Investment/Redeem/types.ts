@@ -12,6 +12,7 @@ export interface IGetRedeemRequest {
   id_fundo: number
   data_operacao: string
   onErrorToast: (toast: Omit<IToast, 'id'>) => void
+  onSuccess?: () => void
 }
 
 export interface IGetRedeemRequestData {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ButtonIcon from 'components/Button/Icon'
 
 import * as s from './styles'
@@ -9,6 +9,8 @@ interface IProps {
   icon?: keyof typeof dict
   initialHeight: number
   title: React.ReactNode | string
+  isOpen?: boolean
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AccordionCard: React.FC<IProps> = ({
@@ -17,9 +19,17 @@ const AccordionCard: React.FC<IProps> = ({
   icon,
   initialHeight,
   title,
+  isOpen,
+  setIsOpen,
   ...rest
 }) => {
-  const [isExpanded, setExpanded] = useState(false)
+  const [isExpanded, setExpanded] = useState(isOpen || false)
+
+  useEffect(() => {
+    if (setIsOpen) {
+      setIsOpen(isExpanded)
+    }
+  }, [isExpanded, setIsOpen])
 
   return (
     <s.Card

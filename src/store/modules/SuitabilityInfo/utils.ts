@@ -1,16 +1,5 @@
 import { handleGiwRedirect } from 'helpers'
-
-interface ISuitabilityInfo {
-  CotistaContaOrdemPortoPar?: string
-  codigo_status_cotista: string
-  id_cotista?: string
-  investidor_profissional?: string
-  investidor_qualificado?: string
-  status_cotista: boolean
-  status_data_vencimento_cadastro?: boolean
-  status_data_vigencia_suitability?: boolean
-  status_possui_suitability?: boolean
-}
+import { ISuitabilityInfo } from './types'
 
 interface ICustomerProfile {
   cpfCnpj: string
@@ -67,7 +56,7 @@ const getInvestmentModalContent = (
         handleClick: () => {
           window.location.href = `https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${
             customerProfile ? customerProfile.cpfCnpj : ''
-            }&nome=${customerProfile ? customerProfile.customerName : ''}`
+          }&nome=${customerProfile ? customerProfile.customerName : ''}`
         },
         buttonName: 'Conversar',
       },
@@ -184,7 +173,7 @@ const getRedeemModalContent = (
         handleClick: () => {
           window.location.href = `https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${
             customerProfile ? customerProfile.cpfCnpj : ''
-            }&nome=${customerProfile ? customerProfile.customerName : ''}`
+          }&nome=${customerProfile ? customerProfile.customerName : ''}`
         },
         buttonName: 'Conversar',
       },
@@ -242,7 +231,7 @@ const getWithdrawModalContent = (
         handleClick: () => {
           window.location.href = `https://wwws.portoseguro.com.br/bot/conquista/index.html?cpf=${
             customerProfile ? customerProfile.cpfCnpj : ''
-            }&nome=${customerProfile ? customerProfile.customerName : ''}`
+          }&nome=${customerProfile ? customerProfile.customerName : ''}`
         },
         buttonName: 'Conversar',
       },

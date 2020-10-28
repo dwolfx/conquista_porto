@@ -7,13 +7,16 @@ import FundDetails from 'components/Objective/FundDetails'
 import Table from 'components/Table'
 
 import useMedia from 'hooks/useMedia'
+
 import { GetInvestmentDetailsRequest } from 'store/modules/Investment/Details/action'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 
+import InvestLayer from './Actions/Invest'
 import RedeemDrawer from './Actions/Redeem'
 import LinkDrawer from './Actions/Link'
 import ExtractLayer from './Actions/Extract'
 import FundsCards from './Mobile'
+
 import { columns } from './tableStructure'
 import * as t from './types'
 import * as s from './styles'
@@ -33,6 +36,7 @@ export default function FundsTable({
   const isMobile = useMedia('sm')
   const isTabletVertical = useMedia('md')
 
+  const [isInvestLayerOpen, setInvestLayerOpen] = useState(false)
   const [fundDetailsOpen, setFundDetailsOpen] = useState(false)
   const [fundsDetailsSelected, setFundsDetailsSelected] = useState<
     TObjectiveFunds | undefined
@@ -42,8 +46,9 @@ export default function FundsTable({
   const [isExtractLayerOpen, setExtractLayerOpen] = useState(false)
 
   const menuActions: t.IActions = {
-    invest: () => {
-      console.log('invest')
+    invest: fundInfo => {
+      setInvestLayerOpen(true)
+      setFundsDetailsSelected(fundInfo)
     },
     redeem: fundInfo => {
       setRedeemActionOpen(true)
@@ -71,6 +76,14 @@ export default function FundsTable({
 
   const renderActions = () => (
     <>
+      {isInvestLayerOpen && fundsDetailsSelected ? (
+        <InvestLayer
+          isOpen={isInvestLayerOpen}
+          handleClose={() => setInvestLayerOpen(false)}
+          fund={fundsDetailsSelected}
+        />
+      ) : null}
+
       {isRedeemActionOpen && fundsDetailsSelected ? (
         <RedeemDrawer
           isOpen={isRedeemActionOpen}

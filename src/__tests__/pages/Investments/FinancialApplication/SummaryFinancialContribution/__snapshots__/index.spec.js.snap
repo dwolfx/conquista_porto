@@ -600,17 +600,17 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-fzoNJl fuJQuW sc-fzoMdx lepFav"
+      class="sc-fzoNJl fuJQuW sc-fzplgP dGyDRe"
     >
       <div
         class="sc-fznWOq dKRoL"
         data-testid="card-body"
       >
         <div
-          class="sc-fznYue gXiWZI"
+          class="sc-fzqzEs lbiyUS"
         >
           <div
-            class="sc-fzqARJ hHBXB sc-fzqLLg GzjYN"
+            class="sc-fzqARJ hHBXB sc-fzoMdx cbjImN"
           >
             <div
               class="sc-fzqNqU kyKKEL"
@@ -628,10 +628,10 @@ Object {
             class="sc-AxjAm gmpEky"
           />
           <div
-            class="sc-fzonjX dlLvVW"
+            class="sc-fzqOul cQpMui"
           >
             <div
-              class="sc-fzqARJ hHBXB sc-fzqLLg GzjYN"
+              class="sc-fzqARJ hHBXB sc-fzoMdx cbjImN"
             >
               <div
                 class="sc-fzqNqU gbjgec"
@@ -658,7 +658,7 @@ Object {
               </div>
             </div>
             <div
-              class="sc-fzqARJ hHBXB sc-fzqLLg GzjYN"
+              class="sc-fzqARJ hHBXB sc-fzoMdx cbjImN"
             >
               <div
                 class="sc-fzqNqU gbjgec"
@@ -685,7 +685,7 @@ Object {
             </div>
           </div>
           <div
-            class="sc-fznMnq gWWVZe"
+            class="sc-fzoydu kJZDxV"
           >
             <p
               class="sc-AxirZ bfbjft"
@@ -699,7 +699,7 @@ Object {
             class="sc-AxjAm gmpEky"
           />
           <div
-            class="sc-fznMnq gWWVZe"
+            class="sc-fzoydu kJZDxV"
           >
             <p
               class="sc-AxirZ ebSHwB"
@@ -717,25 +717,25 @@ Object {
         class="sc-fzolEj iwMlca"
       >
         <div
-          class="sc-fznOgF iXEuVm"
+          class="sc-fzonjX KnbOB"
         >
           <button
-            class="sc-fzokvW gVJcIL sc-fzoWqW sc-fzplgP fwxauD"
+            class="sc-fzqLLg bXpJVI sc-fznzqM sc-fznOgF eELXDs"
             color="primary"
           >
             <span
-              class="sc-fzqzlV dYezbz"
+              class="sc-fzoxnE kuOguG"
             >
               VOLTAR
             </span>
           </button>
           <button
-            class="sc-fzokvW cmoNtu sc-fzoWqW sc-fznzqM fyybvc"
+            class="sc-fzqLLg dkVgkl sc-fznzqM sc-fznYue cwExOj"
             color="secondary"
             disabled=""
           >
             <span
-              class="sc-fzqzlV dYezbz"
+              class="sc-fzoxnE kuOguG"
             >
               CONFIRMAR
             </span>
