@@ -54,6 +54,7 @@
   "/invest/aws/cotista/retiradas?id_cotista=:id_cotista&cpf_cnpj=:cpf_cnpj": "/invest_aws_cotista_retiradas",
   "/invest/aws/cotista/retiradas": "/retiradas_post",
   "/invest/aws/cotista/resgates": "/resgates_post",
+  "/invest/aws/cartoes/dia/vencimento?codigo_canal=:codigo_canal": "/cartao-credito-dias-fatura",
   "/invest/aws/cotista/retiradas/resumo?cpf_cnpj=:cpf_cnpj&id_cotista=:id_cotista&valor_operacao=:valor_operacao": "/retiradas-resumo",
   "/invest/atlas/cotista/ultimas/movimentacoes/:id_fundo": "/ultimas_movimentacoes",
   "/invest/previdencia/conquista/arenasimcontratprodutosprevidenciaService/api/consulta/adesao": "/previdencia"

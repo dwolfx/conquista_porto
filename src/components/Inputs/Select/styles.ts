@@ -30,7 +30,7 @@ export const OptionsWrapper = styled.div<{ optionBoxDirection: 'top' | 'bottom',
 `
 
 interface IOptionsItem {
-  selected: boolean
+  selected?: boolean
 }
 
 export const OptionsItem = styled.div<IOptionsItem>`

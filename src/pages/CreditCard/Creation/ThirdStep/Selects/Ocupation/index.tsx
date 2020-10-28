@@ -2,7 +2,7 @@ import React from 'react'
 
 import Select from 'components/Inputs/Select'
 import { TOptions } from 'components/Inputs/Select/types'
-import { IOption } from '../..'
+import { IOption } from '../../../types'
 import * as S from '../../styles'
 
 interface IProps {

@@ -7957,5 +7957,211 @@
       },
       "hora_limite_retirada_ted": "17"
     }
+  },
+  "cartao-credito-dias-fatura": {
+    "codRetorno": "0",
+    "bandeiras": [
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "1"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "3"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "5"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "7"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "8"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "9"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "10"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "11"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "13"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "14"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "15"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "16"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "17"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "18"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "20"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "21"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "23"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "25"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "26"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "28"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "1"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "3"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "5"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "7"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "8"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "9"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "10"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "11"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "13"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "14"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "15"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "16"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "17"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "18"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "20"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "21"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "23"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "25"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "26"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "28"
+      }
+    ],
+    "msgRetorno": "Consulta realizada com sucesso."
   }
 }

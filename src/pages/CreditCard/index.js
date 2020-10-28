@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import BannerCartaoCreditoImage from 'assets/images/pages/solutions/creditCard/banner_cartao_credito.jpg'
@@ -16,7 +15,6 @@ import {
   OpenCreationLayer,
 } from 'store/modules/CreditCard/action'
 
-import { handleGiwRedirect } from 'helpers'
 import Creation from './Creation'
 
 const makeSenseSectionData = [
@@ -112,7 +110,6 @@ const moreDetailsData = [
 ]
 
 export default function CreditCard() {
-  const { state: locationState } = useLocation()
   const dispatch = useDispatch()
   const { isCreationLayerOpen } = useSelector(state => ({
     isCreationLayerOpen: state.creditCard.isCreationLayerOpen,
@@ -126,15 +123,7 @@ export default function CreditCard() {
         buttonText="Simule e Contrate"
         image={BannerCartaoCreditoImage}
         imageDescription="Mulher segurando cartão de crédito em casa"
-        onClick={() =>
-          handleGiwRedirect(
-            `portaldecliente/conquista/cartao-de-credito/simular?r=true${
-              (locationState || {}).idGoal
-                ? `&idObjetivo=${(locationState || {}).idGoal}`
-                : ''
-            }`
-          )
-        }
+        onClick={() => dispatch(OpenCreationLayer())}
       />
       <BulletsSection
         title="Por que contratar o Cartão de Crédito?"

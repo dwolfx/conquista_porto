@@ -1,4 +1,5 @@
 import React from 'react'
+import { storeFactory } from 'setupTests'
 
 import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 
@@ -35,22 +36,78 @@ describe('ForthStep tests', () => {
     expect(validityCreditCard).toBeInTheDocument()
   })
   it('should test credit card bill expiration date input', () => {
+    const store = storeFactory({
+      creditCardExpirationDays: {
+        data: {
+          codRetorno: '0',
+          bandeiras: [
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '1'
+            },
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '3'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '1'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '3'
+            },
+          ],
+          msgRetorno: 'Consulta realizada com sucesso.',
+          visa: [
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '1'
+            },
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '3'
+            },
+          ],
+          mastercard: [
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '1'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '3'
+            },
+          ]
+        },
+        isLoading: false,
+        hasError: false
+      }
+    })
     renderWithReduxAndTheme(
       <ForthStep 
         form={{}}
         setForm={() => {}}
         onNextStep={() => {}}  
-      />
+      />, { store }
     )
     const dayInput = screen.getByTestId('select-option-input-data-vencimento-fatura')
+    fireEvent.click(screen.getByRole('radio', { name: 'master' }))
+    fireEvent.click(dayInput)
+    fireEvent.click(screen.getByTestId('option-1'))
+    expect(screen.getByTestId('select-option-input-data-vencimento-fatura')).toHaveValue('1')
 
     fireEvent.click(dayInput)
-    fireEvent.click(screen.getByTestId('option-01'))
-    expect(screen.getByTestId('select-option-input-data-vencimento-fatura')).toHaveValue('01')
-
-    fireEvent.click(dayInput)
-    fireEvent.click(screen.getByTestId('option-02'))
-    expect(screen.getByTestId('select-option-input-data-vencimento-fatura')).toHaveValue('02')
+    fireEvent.click(screen.getByTestId('option-3'))
+    expect(screen.getByTestId('select-option-input-data-vencimento-fatura')).toHaveValue('3')
   })
   it('should have the address form card', () => {
     renderWithReduxAndTheme(
@@ -120,24 +177,136 @@ describe('ForthStep tests', () => {
     expect(visaOption).not.toBeChecked()
   })
   it('should be checked the flag mastercard', () => {
+    const store = storeFactory({
+      creditCardExpirationDays: {
+        data: {
+          codRetorno: '0',
+          bandeiras: [
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '1'
+            },
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '3'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '1'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '3'
+            },
+          ],
+          msgRetorno: 'Consulta realizada com sucesso.',
+          visa: [
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '1'
+            },
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '3'
+            },
+          ],
+          mastercard: [
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '1'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '3'
+            },
+          ]
+        },
+        isLoading: false,
+        hasError: false
+      }
+    })
     renderWithReduxAndTheme(
       <ForthStep 
         form={{}}
         setForm={() => {}}
         onNextStep={() => {}}  
-      />
+      />, { store }
     )
     fireEvent.click(screen.getByRole('radio', { name: 'master' }))
     expect(screen.getByRole('radio', { name: 'master' })).toBeChecked()
     expect(screen.getByTestId('card-credit-card-flag-master')).toHaveStyleRule('border-color', '#00ADEF')
   })
   it('should be checked the flag visa', () => {
+    const store = storeFactory({
+      creditCardExpirationDays: {
+        data: {
+          codRetorno: '0',
+          bandeiras: [
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '1'
+            },
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '3'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '1'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '3'
+            },
+          ],
+          msgRetorno: 'Consulta realizada com sucesso.',
+          visa: [
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '1'
+            },
+            {
+              codBandeira: '1',
+              bandeira: 'VISA',
+              descricao: '3'
+            },
+          ],
+          mastercard: [
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '1'
+            },
+            {
+              codBandeira: '2',
+              bandeira: 'MASTER',
+              descricao: '3'
+            },
+          ]
+        },
+        isLoading: false,
+        hasError: false
+      }
+    })
     renderWithReduxAndTheme(
       <ForthStep 
         form={{}}
         setForm={() => {}}
         onNextStep={() => {}}  
-      />
+      />, { store }
     )
     fireEvent.click(screen.getByRole('radio', { name: 'visa' }))
     expect(screen.getByRole('radio', { name: 'visa' })).toBeChecked()

@@ -7,15 +7,10 @@ import CivilState from './Selects/CivilState'
 import Sex from './Selects/Sex'
 import Ocupation from './Selects/Ocupation'
 
-import { IStepComponent } from '../types'
+import { IStepComponent, IOption } from '../types'
 
 import { GridContainer } from '../styles'
 import * as S from './styles'
-
-export interface IOption {
-  id: number,
-  name: string
-}
 
 const ThirdStep = ({ onNextStep, onChangeForm, form }: IStepComponent) => {
   const cityError = {

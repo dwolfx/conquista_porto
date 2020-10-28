@@ -11,8 +11,10 @@ import Icon from 'components/IconExporter'
 import HorizontalList from 'components/HorizontalList'
 import { TOptions } from 'components/Inputs/Select/types'
 import useMedia from 'hooks/useMedia'
-
 import * as s from './styles'
+
+import SelectExpirationDays from './Selects/ExpirationDays'
+import { IOption } from '../types'
 
 interface IProps {
   form: any,
@@ -21,9 +23,10 @@ interface IProps {
 }
 const ForthStep = ({ form, setForm, onNextStep }: IProps) => {
   const isMobile = useMedia('xs')
-  const [selectedOption, setSelectedOption] = useState({ id: 1, name: '01'})
-  const [stateOption, setStateOption] = useState({ id: 1, name: 'SP' })
-  const [selectedFlag, setSelectedFlag] = useState('')
+  const [selectedOption, setSelectedOption] = useState<IOption>({ id: 0, name: '' })
+  const [stateOption, setStateOption] = useState<IOption>({ id: 1, name: 'SP' })
+  const [selectedFlag, setSelectedFlag] = useState<'mastercard' | 'visa' | ''>('')
+
 
   const stateOptions: TOptions[] = [
     {
@@ -36,19 +39,6 @@ const ForthStep = ({ form, setForm, onNextStep }: IProps) => {
       text: "RJ",
       onClick: () => setStateOption({ id: 2, name: 'RJ' })
     }
-  ] 
-
-  const options: TOptions[] = [
-    {
-      id: 1,
-      text: '01',
-      onClick: () => setSelectedOption({ id: 1, name: '01'})
-    },
-    {
-      id: 2,
-      text: '02',
-      onClick: () => setSelectedOption({ id: 2, name: '02'})
-    },
   ]
 
   return (
@@ -63,9 +53,9 @@ const ForthStep = ({ form, setForm, onNextStep }: IProps) => {
             <s.RadioCardWrapper>
               {isMobile && <s.SectionTitle>Bandeira do cartão</s.SectionTitle>}
               <s.RadioCard
-                checked={selectedFlag === 'master'}
+                checked={selectedFlag === 'mastercard'}
                 data-testid="card-credit-card-flag-master"
-                onClick={() => setSelectedFlag('master')}
+                onClick={() => setSelectedFlag('mastercard')}
               >
                 <HorizontalList 
                   startItems={[
@@ -73,8 +63,8 @@ const ForthStep = ({ form, setForm, onNextStep }: IProps) => {
                       id="master"
                       name="flag"
                       value="master"
-                      checked={selectedFlag === 'master'}
-                      handleChange={() => setSelectedFlag('master')}
+                      checked={selectedFlag === 'mastercard'}
+                      handleChange={() => setSelectedFlag('mastercard')}
                     />,
                     <Icon name="mastercard" width={56} height={56} />
                   ]}
@@ -106,12 +96,10 @@ const ForthStep = ({ form, setForm, onNextStep }: IProps) => {
               </s.RadioCard>
               {isMobile && (
                 <s.SelectWrapper>
-                  <Select
-                    label="data de vencimento"
-                    options={options}
-                    selected={selectedOption}
-                    testId="data-vencimento-fatura"
-                  />
+                  <SelectExpirationDays
+                    type={selectedFlag}
+                    selectedOption={selectedOption}
+                    setSelectedOption={setSelectedOption} />
                 </s.SelectWrapper>
               )}
             </s.RadioCardWrapper>
@@ -124,11 +112,10 @@ const ForthStep = ({ form, setForm, onNextStep }: IProps) => {
                 headerTitle={<s.TextTitle>Selecione o dia de vencimento da fatura</s.TextTitle>}
               >
                 <s.SelectWrapper>
-                  <Select 
-                    testId="data-vencimento-fatura"
-                    label="data de vencimento"
-                    options={options}
-                    selected={selectedOption}
+                  <SelectExpirationDays 
+                    type={selectedFlag}
+                    selectedOption={selectedOption}
+                    setSelectedOption={setSelectedOption} 
                   />
                 </s.SelectWrapper>
               </s.Card>

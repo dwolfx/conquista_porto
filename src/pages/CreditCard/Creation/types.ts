@@ -8,6 +8,11 @@ export interface IStepComponent {
   onNextStep: () => void
 }
 
+export interface IOption {
+  id: number,
+  name: string
+}
+
 export enum DocumentType {
   RG = 'RG',
   RNE = 'RNE',

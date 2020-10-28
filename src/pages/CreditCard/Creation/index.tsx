@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import 'styled-components/macro'
 
 import FirstStep from './FirstStep'
@@ -12,6 +13,11 @@ import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 import { truncateString } from 'helpers'
+
+import {
+  GetCreditCardExpirationDaysRequest,
+  GetCreditCardExpirationDaysClearData
+} from 'store/modules/CreditCard/ExpirationDays/action'
 
 import {
   HeaderContent,
@@ -33,9 +39,17 @@ interface IProps {
 }
 type steps = 1 | 2 | 3 | 4 | 5
 const Creation = ({ isOpen, handleClose }: IProps) => {
+  const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const [step, setStep] = useState<steps>(1)
   const [form, setForm] = useState({}) // form object
+
+  useEffect(() => {
+    dispatch(GetCreditCardExpirationDaysRequest())
+    return () => {
+      dispatch(GetCreditCardExpirationDaysClearData())
+    }
+  }, [dispatch])
 
   const goBack = () => {
     if (step === 1) {

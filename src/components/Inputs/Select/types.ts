@@ -9,8 +9,8 @@ export type TOptions = {
 }
 
 export type TSelected = {
-  name?: string
   id?: number
+  name?: string
   value?: number
 }
 
@@ -19,6 +19,9 @@ export interface IProps {
   selected: TSelected
   label: string
   testId?: string
+  disabled?: boolean
+  isLoading?: boolean
+  emptyText?: string
   optionBoxDirection?: 'top' | 'bottom'
   optionBoxSize?: number
 }

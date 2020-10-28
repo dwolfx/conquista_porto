@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { uuid } from 'uuidv4'
 
+import Loading from 'components/Loading'
 import Icon from 'components/IconExporter'
 import InputText from 'components/NewInput'
 import Text from 'components/Text'
@@ -13,14 +14,29 @@ export default function Select({
   options,
   label,
   testId,
+  disabled = false,
+  isLoading = false,
   optionBoxSize = 400,
   optionBoxDirection = 'bottom',
+  emptyText = 'Não há opções disponíveis',
 }: t.IProps) {
   const [isOptionsOpen, setOptionsOpen] = useState(false)
 
   const renderOptions = useCallback(
-    () =>
-      options.map(option => (
+    () => {
+      if (!options.length) {
+        return (
+          <s.OptionsItem
+            data-testid={`option-empty`}
+            key={uuid()}
+          >
+          <Text type="headline" color="gray6" bold>
+            {emptyText}
+          </Text>
+        </s.OptionsItem>
+        )
+      }
+      return options.map(option => (
         <s.OptionsItem
           selected={option.id === selected.id}
           onClick={() => {
@@ -31,43 +47,51 @@ export default function Select({
           data-testid={`option-${option.text}`}
           key={uuid()}
         >
-          {option.icon ? (
-            <Icon name={option.icon} color="gray6" width={21} height={21} />
-          ) : null}
+          {option.icon && (<Icon name={option.icon} color="gray6" width={21} height={21} />)}
           <Text type="headline" color="gray6" bold>
             {option.text}
           </Text>
         </s.OptionsItem>
-      )),
-    [options, selected]
+      ))
+    }, [options, selected, emptyText]
   )
 
   return (
     <>
       <s.InputContainer
         onClick={() => {
-          setOptionsOpen(currentState => !currentState)
+          if (!isLoading && !disabled) {
+            setOptionsOpen(currentState => !currentState)
+          }
         }}
         data-testid={`select-${label}`}
       >
         <InputText
           label={label}
-          value={selected?.name || 'Selecione'}
-          suffix={
-            <Icon name="arrowdown" color="gray6" width={21} height={21} />
-          }
+          placeholder="Selecione"
+          value={selected?.name}
+          disabled={isLoading || disabled}
+          suffix={isLoading ? (
+            <Loading type="spinner" color="blue4" />
+          ) : (
+            <Icon 
+              name={isOptionsOpen ? 'arrowup' : 'arrowdown'}
+              color={disabled ? 'gray4' : 'gray6'}
+              width={21} 
+              height={21} />
+          )}
           readOnly
           data-testid={`select-option-input-${testId}`}
         />
 
-        {isOptionsOpen ? (
+        {isOptionsOpen && (
           <s.OptionsWrapper
             optionBoxDirection={optionBoxDirection}
             optionBoxSize={optionBoxSize}
             >
               {renderOptions()}
             </s.OptionsWrapper>
-        ) : null}
+        )}
       </s.InputContainer>
     </>
   )

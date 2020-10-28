@@ -6,6 +6,7 @@ import bankData from './BankData/sagas'
 import bankExtract from './BankExtract/sagas'
 import bankExtractFund from './BankExtractFund/sagas'
 import creditCard from './CreditCard/sagas'
+import creditCardExpirationDays from './CreditCard/ExpirationDays/sagas'
 import consolidatedPosition from './ConsolidatedPosition/sagas'
 import consortiumBuilding from './ConsortiumBuilding/sagas'
 import consortiumVehicle from './ConsortiumVehicle/sagas'
@@ -47,6 +48,7 @@ export default function* rootSaga() {
     bankExtract,
     bankExtractFund,
     creditCard,
+    creditCardExpirationDays,
     consolidatedPosition,
     consortiumBuilding,
     consortiumVehicle,
