@@ -9055,5 +9055,14 @@
       }
     ],
     "codigoErro": "0"
+  },
+  "credit-card-ofertas": {
+    "CodigoOferta": "3",
+    "MensagemOferta": "Nenhum cartão disponível no momento.",
+    "IdSimulacao": "1717",
+    "Message": {
+        "TipoCritica": "SUCESSO"
+    },
+    "CodigoRetorno": "0"
   }
 }

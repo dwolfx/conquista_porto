@@ -67,3 +67,8 @@ export interface IOrderResponse {
   },
   numeroProposta?: number
 }
+
+export enum FLAGS {
+  VISA = '1',
+  MASTERCARD = '2'
+}

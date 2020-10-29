@@ -4,15 +4,11 @@ import Select from 'components/Inputs/Select'
 import { TOptions } from 'components/Inputs/Select/types'
 
 import { SelectWrapper } from '../styles'
-
-const flags = {
-  2: 'Mastercard',
-  1: 'Visa',
-}
+import { FLAGS } from '../../types'
 
 interface IProps {
-  selectedOption: string
-  setSelectedOption: (state: string) => void
+  selectedOption: FLAGS | ''
+  setSelectedOption: (state: FLAGS | '') => void
 }
 
 const SelectCardFlag = ({ selectedOption, setSelectedOption }: IProps) => {
@@ -21,34 +17,27 @@ const SelectCardFlag = ({ selectedOption, setSelectedOption }: IProps) => {
     id: number | string
     name: string
   }>({
-    id: '0',
+    id: 0,
     name: '',
   })
 
   if (!options.length) {
-    setOptions(
-      Object.entries(flags).map(([key, value]) => ({
-        id: key,
-        text: value,
-        onClick: () => setSelectedOption(key),
-      }))
-    )
+    setOptions([{
+      id: FLAGS.VISA,
+      text: 'VISA',
+      onClick: () => setSelectedOption(FLAGS.VISA),
+    }, {
+      id: FLAGS.MASTERCARD,
+      text: 'MASTERCARD',
+      onClick: () => setSelectedOption(FLAGS.MASTERCARD),
+    }])
   }
 
   useEffect(() => {
-    const selectedStateObject = Object.entries(flags).find(
-      ([key]) => key === selectedOption
-    )
-    if (options.length > 0 && selectedStateObject) {
-      const filteredOption = options.find(
-        option => option.text === selectedStateObject[1]
-      )
-
-      if (filteredOption) {
-        const option = { id: filteredOption?.id, name: filteredOption?.text }
-
-        setSelected(option)
-      }
+    const selectedStateObject = options.find(option => option.id === selectedOption)
+    if (selectedStateObject) {
+      const option = { id: selectedStateObject.id, name: selectedStateObject.text }
+      setSelected(option)
     }
   }, [options, selectedOption])
 

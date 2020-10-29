@@ -4,10 +4,14 @@ import { uuid } from 'uuidv4'
 import moment from 'moment'
 
 import VerticalList from 'components/VerticalList'
-
+import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
+import { ICreditCardOffer, OFFER_CODE } from 'store/modules/CreditCard/Offers/types'
+import { GetCreditCardOfferRequest } from 'store/modules/CreditCard/Offers/action'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 import { useToast } from 'hooks/toast'
-import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
+
+import LoadingState from '../ForthStep/ForthStepLoadingState'
+import NoOffersState from '../ForthStep/ForthStepNoOffersState'
 
 import {
   ICreditCardCreationPayload,
@@ -23,19 +27,24 @@ const FirstStep = ({
 }: Pick<IStepComponent, 'onNextStep'>) => {
   const dispatch = useDispatch()
   const { addToast } = useToast()
+  const [hasNoOffers, setHasNoOffers] = useState(false)
   const [customerData, setCustomerData] = useState<t.TCustomerData | undefined>(
     undefined
   )
 
-  const { clientData: creditCardClient } = useSelector(
-    (state: t.IState) => state.creditCard
+  const { creditCardClient, creditCardOffers, isLoadingCreditCardOffers } = useSelector(
+    (state: any) => ({
+      creditCardClient: state.creditCard.clientData,
+      creditCardOffers: state.creditCardOffer.data,
+      isLoadingCreditCardOffers: state.creditCardOffer.isLoading
+    })
   )
 
   useEffect(() => {
     if (!creditCardClient) {
       dispatch(GetCreditCardClientDataRequest({ addToast }))
     }
-  }, [dispatch, creditCardClient, addToast])
+  }, [dispatch, creditCardClient, addToast, creditCardOffers])
 
   useEffect(() => {
     if (creditCardClient) {
@@ -60,6 +69,32 @@ const FirstStep = ({
       })
     }
   }, [creditCardClient])
+
+  const onSuccess = (data: ICreditCardOffer) => {
+    let stepAnswers: ICreditCardCreationPayload = {}
+
+    if (data.CodigoOferta === OFFER_CODE.NO_FLAGS_AVAILABLE) {
+      setHasNoOffers(true)
+    } else {
+      stepAnswers = {
+        cep: creditCardClient.cep,
+        codigoEstadoCivil: creditCardClient.codigoEstadoCivil.toString(),
+        dataEmissaoDocumento: creditCardClient.dataExpedicao,
+        dataNascimento: creditCardClient.dataNascimento,
+        dddTelefone: creditCardClient.dddNumeroTelefone.toString(),
+        email: creditCardClient.emailCliente,
+        nome: creditCardClient.nomeCliente,
+        nomeMae: creditCardClient.nomeMae,
+        numeroDocumentoIdentificacao: creditCardClient.numeroDocumento.toString(),
+        numeroTelefone: creditCardClient.numeroTelefone.toString(),
+        orgaoExpedidor: creditCardClient.orgaoEmissor,
+        sexo: creditCardClient.sexo,
+        tipoDocumento: creditCardClient.tipoDocumento,
+        uf: creditCardClient.estado,
+      }
+      onNextStep(stepAnswers)
+    }
+  }
 
   const renderContent = () => {
     return (
@@ -98,27 +133,14 @@ const FirstStep = ({
           data-gtm-subname={'primeira etapa - cartão de crédito'}
           data-gtm-name="confirmar"
           onClick={() => {
-            let stepAnswers: ICreditCardCreationPayload = {}
-
             if (creditCardClient) {
-              stepAnswers = {
-                cep: creditCardClient.cep,
-                codigoEstadoCivil: creditCardClient.codigoEstadoCivil.toString(),
-                dataEmissaoDocumento: creditCardClient.dataExpedicao,
-                dataNascimento: creditCardClient.dataNascimento,
-                dddTelefone: creditCardClient.dddNumeroTelefone.toString(),
-                email: creditCardClient.emailCliente,
-                nome: creditCardClient.nomeCliente,
-                nomeMae: creditCardClient.nomeMae,
-                numeroDocumentoIdentificacao: creditCardClient.numeroDocumento.toString(),
-                numeroTelefone: creditCardClient.numeroTelefone.toString(),
-                orgaoExpedidor: creditCardClient.orgaoEmissor,
-                sexo: creditCardClient.sexo,
-                tipoDocumento: creditCardClient.tipoDocumento,
-                uf: creditCardClient.estado,
-              }
+              dispatch(GetCreditCardOfferRequest({
+                onSuccess,
+                nome: creditCardClient.nomeCliente.replace(' ', ''),
+                dataNasc: moment(creditCardClient.dataNascimento).format('DD/MM/YYYY'),
+                uf: creditCardClient.estado
+              }))
             }
-            onNextStep(stepAnswers)
           }}
         >
           CONFIRMAR
@@ -133,15 +155,31 @@ const FirstStep = ({
   }
 
   return (
-    <WhiteContent>
-      <GridContainer>
-        <s.GridRow {...rest}>
-          <s.GridCol lg={4} md={6} sm={7} xs={12}>
-            <s.InfoContainer>{renderContent()}</s.InfoContainer>
-          </s.GridCol>
-        </s.GridRow>
-      </GridContainer>
-    </WhiteContent>
+    <>
+      {isLoadingCreditCardOffers && (
+        <GridContainer>
+          <LoadingState />
+        </GridContainer>
+      )}
+
+      {hasNoOffers && (
+        <GridContainer>
+          <NoOffersState />
+        </GridContainer>
+      )}
+
+      {!isLoadingCreditCardOffers && !hasNoOffers && (
+        <WhiteContent>
+          <GridContainer>
+            <s.GridRow {...rest}>
+              <s.GridCol lg={4} md={6} sm={7} xs={12}>
+                <s.InfoContainer>{renderContent()}</s.InfoContainer>
+              </s.GridCol>
+            </s.GridRow>
+          </GridContainer>
+        </WhiteContent>
+      )}
+    </>
   )
 }
 

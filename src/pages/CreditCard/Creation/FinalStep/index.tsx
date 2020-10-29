@@ -3,7 +3,6 @@ import { handleGiwRedirect } from 'helpers'
 
 import Button from 'components/Button'
 import SuccessContent from './SuccessContent'
-// import PendingContent from './PendingContent'
 import ErrorContent from './ErrorContent'
 
 import { ECardFlagLabel } from 'pages/CreditCard/Creation/common/labels'

@@ -39,13 +39,12 @@ interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
-type steps = 1 | 2 | 3 | 4 | 5
-
+type steps = 1 | 2 | 3 | 4
 const Creation = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const [step, setStep] = useState<steps>(1)
-  const [formData, setFormData] = useState<ICreditCardCreationPayload>({}) // form object
+  const [formData, setFormData] = useState<ICreditCardCreationPayload>({})
   const [formResponse, setFormResponse] = useState<IOrderResponse>({})
 
   useEffect(() => {

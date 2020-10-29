@@ -5,6 +5,7 @@ import Drawer from 'components/Drawer'
 import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
 import SelectCardFlag from 'pages/CreditCard/Creation/common/SelectCardFlag'
+import { FLAGS } from 'pages/CreditCard/Creation/types'
 import SelectExpirationDays from '../../../ForthStep/Selects/ExpirationDays'
 import useMedia from 'hooks/useMedia'
 
@@ -22,7 +23,7 @@ const EditingCardData: React.FC<t.ICardData> = ({
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 
-  const [selectedFlagOption, setSelectedFlagOption] = useState('0')
+  const [selectedFlagOption, setSelectedFlagOption] = useState<FLAGS | ''>('')
   const [selectedDueDateOption, setSelectedDueDateOption] = useState<
     t.IOptions
   >({
@@ -37,7 +38,7 @@ const EditingCardData: React.FC<t.ICardData> = ({
   //Initial value
   useEffect(() => {
     if (formData?.codigoBandeira) {
-      setSelectedFlagOption(formData.codigoBandeira)
+      setSelectedFlagOption(formData.codigoBandeira as FLAGS)
     }
     if (formData?.diaVencimento) {
       setSelectedDueDateOption({
@@ -56,7 +57,7 @@ const EditingCardData: React.FC<t.ICardData> = ({
     }
   }, [isLoading, selectedDueDateOption])
 
-  const handleFlagChanging = (option: string) => {
+  const handleFlagChanging = (option: FLAGS | '') => {
     setSelectedFlagOption(prevState => {
       if (prevState !== option) {
         setSelectedDueDateOption({ id: 0, name: '' })
@@ -74,12 +75,6 @@ const EditingCardData: React.FC<t.ICardData> = ({
       )
     }
 
-    const flags: { [key: string]: '' | 'visa' | 'mastercard' } = {
-      0: '',
-      1: 'visa',
-      2: 'mastercard',
-    }
-
     return (
       <s.Container>
         <s.SelectWrapper>
@@ -90,7 +85,7 @@ const EditingCardData: React.FC<t.ICardData> = ({
         </s.SelectWrapper>
         <s.SelectWrapper>
           <SelectExpirationDays
-            type={flags[selectedFlagOption]}
+            type={selectedFlagOption as FLAGS}
             selectedOption={selectedDueDateOption}
             setSelectedOption={setSelectedDueDateOption}
           />

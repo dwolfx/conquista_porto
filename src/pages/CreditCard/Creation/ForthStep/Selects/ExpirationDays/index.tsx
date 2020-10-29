@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 
 import Select from 'components/Inputs/Select'
 import { TOptions } from 'components/Inputs/Select/types'
 
-import { IOption } from '../../../types'
+import { IOption, FLAGS } from '../../../types'
 
 interface IProps {
-  type: 'visa' | 'mastercard' | ''
+  type: FLAGS | ''
   selectedOption: IOption
   setSelectedOption: (expirationDate: IOption) => void
 }
@@ -22,21 +22,49 @@ const SelectExpirationDays = ({
     isLoading: state.creditCardExpirationDays.isLoading,
   }))
 
+  const generateMasterCardOptions = useCallback(() => {
+    setOptions(
+      expirationDays.mastercard.map((dia: any) => ({
+        id: +dia.descricao,
+        text: dia.descricao,
+        onClick: () =>
+          setSelectedOption({ id: +dia.descricao, name: dia.descricao }),
+      }))
+    )
+  }, [expirationDays, setSelectedOption])
+
+  const generateVisaOptions = useCallback(() => {
+    setOptions(
+      expirationDays.visa.map((dia: any) => ({
+        id: +dia.descricao,
+        text: dia.descricao,
+        onClick: () =>
+          setSelectedOption({ id: +dia.descricao, name: dia.descricao }),
+      }))
+    )
+  }, [expirationDays, setSelectedOption])
+
   useEffect(() => {
-    if (type) {
-      setSelectedOption(selectedOption ?? { id: 0, name: '' })
-      if (!isLoading && expirationDays && expirationDays[type]) {
-        setOptions(
-          expirationDays[type].map((dia: any) => ({
-            id: +dia.descricao,
-            text: dia.descricao,
-            onClick: () =>
-              setSelectedOption({ id: +dia.descricao, name: dia.descricao }),
-          }))
-        )
-      }
+    if (
+      !isLoading &&
+      expirationDays && 
+      expirationDays.mastercard &&
+      expirationDays.visa
+      ) {
+        if (type === FLAGS.MASTERCARD) {
+          generateMasterCardOptions()
+        } else {
+          generateVisaOptions()
+        }
     }
-  }, [type, setSelectedOption, expirationDays, selectedOption, isLoading])
+  }, [
+    type,
+    expirationDays,
+    selectedOption,
+    isLoading,
+    generateVisaOptions,
+    generateMasterCardOptions,
+  ])
 
   return (
     <Select
