@@ -1,0 +1,32 @@
+module.exports = {
+  hist_rentabil_benchmark: {
+    benchmark: {
+      id: 1,
+      nome: 'CDI',
+    },
+    rentabil_Ano: '1.01',
+    rentabil_mes: '0.34',
+    rentabil_dia: '0.01',
+    rentabil_mes_anteiror: '0.29',
+    rentabil_12_meses: '5.45',
+    rentabil_24_meses: '12.14',
+    rentabil_36_meses: '21.57',
+  },
+  hist_rentabil_fundo: {
+    id_carteira: 5112,
+    rentabil_dia: '-0.02',
+    rentabil_mes: '-2.95',
+    rentabil_ano: '-3.01',
+    rentabil_mes_anteiror: '-0.73',
+    rentabil_12_meses: '6.53',
+    rentabil_24_meses: '12.75',
+    rentabil_36_meses: '25.29',
+    rel_fundo_benchmark_dia: '-',
+    rel_fundo_benchmark_mes: '-',
+    rel_fundo_benchmark_ano: '-',
+    rel_fundo_benchmark_mes_ant: '-',
+    rel_fundo_benchmark_12_meses: '119.78',
+    rel_fundo_benchmark_24_meses: '105.04',
+    rel_fundo_benchmark_36_meses: '117.24',
+  },
+};

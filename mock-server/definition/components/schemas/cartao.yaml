@@ -1,0 +1,69 @@
+CartaoCredito:
+  description: cartao_credito
+  type: object
+  properties:
+    CodigoCanal:
+      type: number
+      example: 0
+    CpfCnpj:
+      type: string
+      example: '32036703801'
+    Bandeira:
+      type: string
+      example: 'Visa'
+    Fatura:
+      type: object
+      properties:
+        MelhorDataCompra:
+          type: number
+          example: 22
+        Status:
+          type: string
+          example: 'Aberta'
+        Valor:
+          type: number
+          example: 25090
+        Vencimento:
+          type: number
+          example: 16
+    LimiteCartaoAdicional:
+      type: object
+      properties:
+        LimiteCredito:
+          type: number
+          example: 4588.55
+        LimiteDisponivel:
+          type: number
+          example: 5000
+        LimiteDisponivelOverlimitt:
+          type: number
+          example: 1000
+        LimiteSaque:
+          type: number
+          example: 399.45
+    LimiteTitularCartao:
+      type: object
+      properties:
+        LimiteCredito:
+          type: number
+          example: 7000.44
+        LimiteDisponivel:
+          type: number
+          example: 10000
+        LimiteDisponivelOverlimitt:
+          type: number
+          example: 2000
+        LimiteSaque:
+          type: number
+          example: 501.33
+    Link:
+      type: string
+      example: 'string'
+    Tipo:
+      type: string
+      example: 'Gold'
+    UltimosDigitos:
+      type: number
+      example: 3212
+  required:
+    - CodigoCanal

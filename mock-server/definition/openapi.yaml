@@ -36,6 +36,20 @@ tags:
     description: Serviços para dados do cliente.
   - name: Pontos
     description: Serviços para Programa de Pontos.
+  - name: Cartões
+    description: Serviços para Cartões de Credito.
+  - name: Consórcios
+    description: Serviços para Consórcios.
+  - name: Previdência
+    description: Serviços para Previdência Privada.
+  - name: Financiamento
+    description: Serviços para Financiamento.
+  - name: Produtos
+    description: Serviços para Produtos.
+  - name: Fundos
+    description: Serviços para Fundos.
+  - name: Atlas
+    description: Serviços para Atlas.
 
 paths:
   ################################################################################
@@ -186,6 +200,445 @@ paths:
         500:
           $ref: "#/components/responses/InternalServerError"
 
+  ################################################################################
+  #                                   Cartões                                    #
+  ################################################################################
+  /invest/cartoes:
+    get:
+      tags:
+        - Cartões
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Cartões
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CartaoCredito"
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  ################################################################################
+  #                                  Consorcios                                  #
+  ################################################################################
+  /invest/consorcios/imovel:
+    get:
+      tags:
+        - Consórcios
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/consorcios/auto:
+    get:
+      tags:
+        - Consórcios
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  ################################################################################
+  #                             previdencia privada                              #
+  ################################################################################
+  /previdencia:
+    get:
+      tags:
+        - Previdência
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  ################################################################################
+  #                                 financiamento                                #
+  ################################################################################
+  /produtos/financiamento:
+    get:
+      tags:
+        - Financiamento
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/financiamentos/auto:
+    get:
+      tags:
+        - Financiamento
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  ################################################################################
+  #                                 financiamento                                #
+  ################################################################################
+  /invest/produtos/vida:
+    get:
+      tags:
+        - Produtos
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+        - in: query
+          name: tipoSeguro
+          required: true
+          schema:
+            enum:
+              - VIDA
+              - VIAGEM
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+
+  ################################################################################
+  #                                 financiamento                                #
+  ################################################################################
+  /invest/fundos:
+    get:
+      tags:
+        - Fundos
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/fundos/{fundId}:
+    get:
+      tags:
+        - Fundos
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: fundId
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 51380125
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/fundos/movimentacoes:
+    get:
+      tags:
+        - Fundos
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: idFundo
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 51380125
+        - name: tipoFiltro
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: dataInicial
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: dataFinal
+          in: query
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: codigoCanal
+          schema:
+            type: integer
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  ################################################################################
+  #                                     Atlas                                    #
+  ################################################################################
+  /invest/atlas/cotista/posicao:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/atlas/cotista/posicao/consolidado:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/atlas/cotista/ultimas/movimentacoes/{id_fundo}:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id_fundo
+          in: path
+          description: id_fundo
+          required: true
+          schema:
+            type: integer
+          example: 51380037
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/atlas/fundo/grade:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/atlas/fundo/detalhes/{idFundo}:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: idFundo
+          in: path
+          description: idFundo
+          required: true
+          schema:
+            type: integer
+          example: 51380037
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/atlas/fundo/rentabilidade/{idFundo}:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: idFundo
+          in: path
+          description: idFundo
+          required: true
+          schema:
+            type: integer
+          example: 51380037
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /invest/atlas/fundo/rentabilidade/comparativo/{idFundo}:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: idFundo
+          in: path
+          description: idFundo
+          required: true
+          schema:
+            type: integer
+          example: 51380037
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+
 components:
   securitySchemes:
     # apiToken:
@@ -219,6 +672,8 @@ components:
       $ref: "./components/schemas/pontos.yaml#/Pontos"
     PontosConsultar:
       $ref: "./components/schemas/pontos.yaml#/PontosConsultar"
+    CartaoCredito:
+      $ref: "./components/schemas/cartao.yaml#/CartaoCredito"
 
   responses:
     Conflict:
