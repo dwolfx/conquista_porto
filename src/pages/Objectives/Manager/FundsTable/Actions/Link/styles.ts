@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 import DivisorCmp from 'components/Divisor'
+import ModalCmp from 'components/Modal/ModalNew'
+import { ChildrenWrapper, ModalContainer } from 'components/Modal/stylesNew'
 
 export const DrawerHeader = styled.div`
   align-items: center;
@@ -35,5 +37,15 @@ export const DrawerItem = styled.div`
   button {
     margin-top: ${({ theme }) => theme.spacing(3)}px;
     width: 100%;
+  }
+`
+
+export const Modal = styled(ModalCmp)`
+  ${ModalContainer} {
+    height: 100%;
+
+    ${ChildrenWrapper} {
+      flex: 1;
+    }
   }
 `

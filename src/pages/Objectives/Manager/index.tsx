@@ -193,7 +193,11 @@ export default function ObjectiveManager() {
   }
 
   if (isLoading) {
-    return <Loading />
+    return (
+      <s.LoadingStateContainer>
+        <Loading />
+      </s.LoadingStateContainer>
+    )
   }
 
   const renderCardFooterTotalInitalInvested = (

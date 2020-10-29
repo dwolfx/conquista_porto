@@ -63,4 +63,24 @@ export interface IState {
     objectives: IObjectiveList[]
     isLoadingList: boolean
   }
+  suitabilityInfo: {
+    isLoading: boolean
+  }
+  redeemData: {
+    isLoading: boolean
+  }
+}
+
+export type TSuitabilityData = {
+  isOpen?: boolean
+  title?: string
+  description?: string
+  button?: {
+    buttonName: string
+    dataGtmName: string
+    dataGtmType: string
+    dataGtmClicktype: string
+    handleClick: () => void
+  }
+  isValid: boolean
 }

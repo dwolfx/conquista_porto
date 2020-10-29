@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 import 'styled-components/macro'
 
 import Button from 'components/Button'
 import Drawer from 'components/Drawer'
 import Icon from 'components/IconExporter'
-import Modal from 'components/Modal/ModalNew'
 import Text from 'components/Text'
 
 import useMedia from 'hooks/useMedia'
@@ -14,10 +14,12 @@ import { useToast } from 'hooks/toast'
 import RedeemLayer from 'pages/Redeem'
 
 import { get, post, baseURLNamespaceGoal } from 'services/api'
+import { GetRedeemRequest } from 'store/modules/Investment/Redeem/action'
 import {
   PutObjectiveFundsMovementRequest,
   TransferBetweenObjectivesRequest,
 } from 'store/modules/ObjectiveManagement/action'
+import { GetSuitabilityInfoAndValidate } from 'store/modules/SuitabilityInfo/action'
 
 import RedeemContent from './RedeemContent'
 import TransferContent from './TransferContent'
@@ -30,14 +32,38 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
   const isMobile = useMedia('sm')
   const { addToast } = useToast()
 
+  const modalSuitabilityInfoInitialState: t.TSuitabilityData = {
+    isOpen: false,
+    title: '',
+    description: '',
+    button: {
+      buttonName: '',
+      dataGtmName: '',
+      dataGtmType: '',
+      dataGtmClicktype: '',
+      handleClick: () => {},
+    },
+    isValid: false,
+  }
+
   const {
     isLoadingFundsMovement,
     isLoadingTransfer,
     data: objectiveData,
-  } = useSelector((state: t.IState) => state.objectiveManagement)
+    isLoadingSuitabilityInfo,
+    isLoadingRedeemRequest,
+  } = useSelector((state: t.IState) => ({
+    ...state.objectiveManagement,
+    isLoadingSuitabilityInfo: state.suitabilityInfo.isLoading,
+    isLoadingRedeemRequest: state.redeemData.isLoading,
+  }))
 
   const [isDrawerOpen, setDrawerOpen] = useState(isOpen)
   const [isRedeemLayerOpen, setRedeemLayerOpen] = useState(false)
+  const [
+    showRedeemActionHiddenElements,
+    setShowRedeemActionHiddenElements,
+  ] = useState(false)
   const [redeemOptionSelected, setRedeemOptionSelected] = useState<
     t.TRedeemOptions
   >(undefined)
@@ -51,20 +77,40 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
   const [redeemQuestions, setRedeemQuestions] = useState<
     t.TRedeemContentQuestions[] | []
   >([])
+  const [modalSuitabilityInfo, setModalSuitabilityInfo] = useState<
+    t.TSuitabilityData
+  >(modalSuitabilityInfoInitialState)
 
   if (!fund) {
     return null
   }
 
-  const getRedeemQuestions = useCallback(async () => {
+  const getRedeemQuestions = useCallback(() => {
     try {
-      if (!redeemQuestions.length) {
-        setIsLoadingRedeemQuestions(true)
-        const { data } = await get(`${baseURLNamespaceGoal}/redeems/questions`)
+      if (!isLoadingSuitabilityInfo) {
+        dispatch(
+          GetSuitabilityInfoAndValidate(
+            async (modalProps: t.TSuitabilityData) => {
+              setModalSuitabilityInfo({ ...modalProps })
 
-        setRedeemQuestions(data)
+              if (modalProps.isValid) {
+                if (!redeemQuestions.length) {
+                  setIsLoadingRedeemQuestions(true)
+                  const { data } = await get(
+                    `${baseURLNamespaceGoal}/redeems/questions`
+                  )
+
+                  setRedeemQuestions(data)
+                }
+                setRedeemOptionSelected('redeem')
+                setIsLoadingRedeemQuestions(false)
+              }
+            },
+            'resgatar',
+            addToast
+          )
+        )
       }
-      setRedeemOptionSelected('redeem')
     } catch (error) {
       addToast({
         type: 'error',
@@ -84,7 +130,7 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
 
       setIsLoadingRedeemQuestions(false)
     }
-  }, [addToast, redeemQuestions])
+  }, [addToast, redeemQuestions, dispatch, isLoadingSuitabilityInfo])
 
   const postRedeemAnswers = useCallback(async () => {
     try {
@@ -100,8 +146,17 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
         question_ids: selectedIds,
       })
 
-      setDrawerOpen(false)
-      setRedeemLayerOpen(true)
+      dispatch(
+        GetRedeemRequest({
+          id_fundo: fund.fund_id,
+          data_operacao: moment().format('YYYY-MM-DD'),
+          onErrorToast: addToast,
+          onSuccess: () => {
+            setDrawerOpen(false)
+            setRedeemLayerOpen(true)
+          },
+        })
+      )
     } catch (error) {
       addToast({
         type: 'error',
@@ -113,7 +168,7 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
     } finally {
       setIsLoadingRedeemAnswer(false)
     }
-  }, [addToast, fund, objectiveData, redeemQuestions])
+  }, [addToast, fund, objectiveData, redeemQuestions, dispatch])
 
   const DrawerHeader = useCallback(
     () => (
@@ -227,7 +282,11 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
               postRedeemAnswers()
             }}
             disabled={buttonIsDisabled}
-            loading={isLoadingRedeemAnswer}
+            loading={
+              isLoadingRedeemAnswer ||
+              isLoadingSuitabilityInfo ||
+              isLoadingRedeemRequest
+            }
             loadingColor="white"
             css={`
               width: 100%;
@@ -262,6 +321,8 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
     isLoadingTransfer,
     isLoadingRedeemAnswer,
     postRedeemAnswers,
+    isLoadingRedeemRequest,
+    isLoadingSuitabilityInfo,
   ])
 
   const DrawerContent = useCallback(() => {
@@ -331,8 +392,11 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
               </Text>
               <Button
                 outline
-                onClick={() => getRedeemQuestions()}
-                loading={isLoadingRedeemQuestions}
+                onClick={() => {
+                  setShowRedeemActionHiddenElements(true)
+                  getRedeemQuestions()
+                }}
+                loading={isLoadingRedeemQuestions || isLoadingSuitabilityInfo}
               >
                 Resgatar do fundo
               </Button>
@@ -350,25 +414,75 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
     setButtonIsDisabled,
     getRedeemQuestions,
     isLoadingRedeemQuestions,
+    isLoadingSuitabilityInfo,
   ])
+
+  const RedeemActionHiddenElements = useMemo(
+    () => (
+      <>
+        {isRedeemLayerOpen ? (
+          <RedeemLayer
+            isOpen={isRedeemLayerOpen}
+            handleClose={handleClose}
+            selectedFundId={fund.fund_id}
+          />
+        ) : null}
+
+        <s.Modal
+          modalTitle={modalSuitabilityInfo.title}
+          isOpen={modalSuitabilityInfo.isOpen || false}
+          handleClose={() => {
+            setModalSuitabilityInfo({
+              ...modalSuitabilityInfo,
+              isOpen: false,
+            })
+            handleClose()
+          }}
+        >
+          <Text type="headline" color="gray6">
+            {modalSuitabilityInfo.description}
+          </Text>
+          <s.ModalButtonWrapper>
+            {modalSuitabilityInfo.button && (
+              <s.ModalButton
+                data-gtm-name={modalSuitabilityInfo.button.dataGtmName}
+                data-gtm-type={modalSuitabilityInfo.button.dataGtmType}
+                data-gtm-clicktype={
+                  modalSuitabilityInfo.button.dataGtmClicktype
+                }
+                onClick={
+                  modalSuitabilityInfo.button.handleClick
+                    ? modalSuitabilityInfo.button.handleClick
+                    : () =>
+                        setModalSuitabilityInfo({
+                          ...modalSuitabilityInfo,
+                          isOpen: false,
+                        })
+                }
+              >
+                {modalSuitabilityInfo.button.buttonName}
+              </s.ModalButton>
+            )}
+          </s.ModalButtonWrapper>
+        </s.Modal>
+      </>
+    ),
+    [fund.fund_id, handleClose, isRedeemLayerOpen, modalSuitabilityInfo]
+  )
 
   if (isMobile) {
     return (
       <>
-        <Modal
+        <s.RedeemModal
           isOpen={isDrawerOpen}
           footer={<DrawerFooter />}
           handleClose={handleClose}
           header={<DrawerHeader />}
         >
           <DrawerContent />
-        </Modal>
+        </s.RedeemModal>
 
-        <RedeemLayer
-          isOpen={isRedeemLayerOpen}
-          handleClose={handleClose}
-          selectedFundId={fund.fund_id}
-        />
+        {showRedeemActionHiddenElements ? RedeemActionHiddenElements : null}
       </>
     )
   }
@@ -384,11 +498,7 @@ export default function({ isOpen, handleClose, fund }: t.IRedeem) {
         <DrawerContent />
       </Drawer>
 
-      <RedeemLayer
-        isOpen={isRedeemLayerOpen}
-        handleClose={handleClose}
-        selectedFundId={fund.fund_id}
-      />
+      {showRedeemActionHiddenElements ? RedeemActionHiddenElements : null}
     </>
   )
 }

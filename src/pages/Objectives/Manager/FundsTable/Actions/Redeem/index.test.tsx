@@ -2,11 +2,17 @@ import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
-import { renderWithReduxAndTheme, screen, waitFor } from 'testUtils'
+import {
+  renderWithReduxAndTheme,
+  screen,
+  waitFor,
+  createRootContainer,
+} from 'testUtils'
 
 import RedeemDrawer from './index'
 import UnlinkContent from './UnlinkContent'
 import TransferContent from './TransferContent'
+import { storeFactory } from 'setupTests'
 
 const fundMock: TObjectiveFunds = {
   adm_tax: 0.4,
@@ -94,18 +100,12 @@ describe('Objective Manager Redeem Drawer', () => {
   // test case
   it('should render contents when action button is clicked', async () => {
     const handleClose = jest.fn()
-    let portalRoot = document.getElementById('root')
-    if (!portalRoot) {
-      portalRoot = document.createElement('div')
-      portalRoot.setAttribute('id', 'root')
-      document.body.appendChild(portalRoot)
-    }
 
     renderWithReduxAndTheme(
       <MemoryRouter>
         <RedeemDrawer isOpen handleClose={handleClose} fund={fundMock} />
       </MemoryRouter>,
-      { container: portalRoot }
+      { container: createRootContainer() }
     )
 
     const unlinkButton = screen.getByRole('button', {
@@ -148,7 +148,7 @@ describe('Objective Manager Redeem Drawer', () => {
     ).toBeNull()
     expect(redeemButton).toBeDefined()
 
-    expect(screen.queryAllByText(/spinner.svg/g)[0]).toBeDefined()
+    userEvent.click(redeemButton)
     await waitFor(() =>
       expect(
         screen.queryAllByText(
@@ -156,5 +156,57 @@ describe('Objective Manager Redeem Drawer', () => {
         )
       ).toBeDefined()
     )
+  })
+
+  // test case
+  it('should show Redeem modals', () => {
+    const store = storeFactory({
+      suitabilityInfo: {
+        data: {
+          status_cotista: true,
+          CotistaContaOrdemPortoPar: 'S',
+          investidor_qualificado: 'S',
+          investidor_profissional: 'N',
+          codigo_status_cotista: '101',
+          id_cotista: '2000130464',
+          status_possui_suitability: true,
+          status_data_vigencia_suitability: true,
+          status_data_vencimento_cadastro: false,
+          isOpen: true,
+          title: 'Falha ao processar solicitação',
+          description:
+            'Seu cadastro está em análise. Em até 48 horas, você poderá investir.',
+          button: {
+            dataGtmName: 'fechar',
+            dataGtmType: 'click',
+            dataGtmClicktype: 'button',
+            handleClick: null,
+            buttonName: 'Fechar',
+          },
+        },
+        status: 'loaded',
+        hasError: false,
+        isLoading: false,
+      },
+    })
+
+    const handleClose = jest.fn()
+
+    renderWithReduxAndTheme(
+      <MemoryRouter>
+        <RedeemDrawer isOpen handleClose={handleClose} fund={fundMock} />
+      </MemoryRouter>,
+      { container: createRootContainer(), store }
+    )
+
+    const redeemButton = screen.getByRole('button', {
+      name: 'Resgatar do fundo',
+    })
+    userEvent.click(redeemButton)
+    expect(
+      screen.queryByText(
+        'Seu cadastro está em análise. Em até 48 horas, você poderá investir.'
+      )
+    ).toBeDefined()
   })
 })

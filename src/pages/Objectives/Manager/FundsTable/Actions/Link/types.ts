@@ -1,6 +1,10 @@
 import { dict } from 'components/IconExporter'
 import { TObjectiveFunds } from 'store/modules/ObjectiveManagement/types'
 
+export enum ETypeLabel {
+  'initial' = 'inicial',
+  'monthly' = 'mensal',
+}
 export interface ILinkProps {
   fund: TObjectiveFunds
   handleClose: () => void

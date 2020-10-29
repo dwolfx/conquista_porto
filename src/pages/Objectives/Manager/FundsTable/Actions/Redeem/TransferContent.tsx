@@ -10,11 +10,13 @@ import { TOptions } from 'components/Inputs/Select/types'
 import Text from 'components/Text'
 
 import { Currency, BRLCurrency } from 'helpers/money'
+import useMedia from 'hooks/useMedia'
 
 import { GetObjectiveDataRequest } from 'store/modules/Objective/action'
 
 import { ITransferContent, IState, TError, TTransferObject } from './types'
 import * as s from './styles'
+import { VerticalList } from 'pages/Objectives/Recommendation/SuggestedPlanDetail/styles'
 
 enum goalTypeIcons {
   'TRAVEL' = 'plane',
@@ -33,6 +35,7 @@ export default function({
   setButtonIsDisabled,
 }: ITransferContent) {
   const theme = useContext(ThemeContext)
+  const isMobile = useMedia('sm')
   const dispatch = useDispatch()
 
   const [error, setError] = useState<TError>(undefined)
@@ -99,19 +102,35 @@ export default function({
 
   return (
     <>
-      <HorizontalList
-        startItems={[
-          <Text type="headline" color="gray5">
-            Valor no objetivo
-          </Text>,
-        ]}
-        endItems={[
-          <Text type="headline" color="gray6" bold>
-            {Currency.parse(1500, true)}
-          </Text>,
-        ]}
-        noPadding
-      />
+      {isMobile ? (
+        <VerticalList
+          elements={[
+            <Text type="headline" color="gray5">
+              Valor no objetivo
+            </Text>,
+            <Text type="headline" color="gray6" bold>
+              {Currency.parse(fundInfo.invested, true)}
+            </Text>,
+          ]}
+          css={`
+            padding: 0;
+          `}
+        />
+      ) : (
+        <HorizontalList
+          startItems={[
+            <Text type="headline" color="gray5">
+              Valor no objetivo
+            </Text>,
+          ]}
+          endItems={[
+            <Text type="headline" color="gray6" bold>
+              {Currency.parse(fundInfo.invested, true)}
+            </Text>,
+          ]}
+          noPadding
+        />
+      )}
 
       <s.Divisor />
 

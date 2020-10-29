@@ -7,9 +7,9 @@ import Button from 'components/Button'
 import Drawer from 'components/Drawer'
 import HorizontalList from 'components/HorizontalList'
 import Icon from 'components/IconExporter'
-import Modal from 'components/Modal/ModalNew'
 import MoneyInput from 'components/Inputs/Money'
 import Text from 'components/Text'
+import VerticalList from 'components/VerticalList'
 
 import { BRLCurrency, Currency } from 'helpers/money'
 import useMedia from 'hooks/useMedia'
@@ -17,7 +17,7 @@ import { useToast } from 'hooks/toast'
 
 import { PutObjectiveFundsMovementRequest } from 'store/modules/ObjectiveManagement/action'
 
-import { ILinkProps, TError, IState } from './types'
+import { ILinkProps, TError, IState, ETypeLabel } from './types'
 import * as s from './styles'
 
 export default function({ isOpen, handleClose, fund, type }: ILinkProps) {
@@ -88,48 +88,75 @@ export default function({ isOpen, handleClose, fund, type }: ILinkProps) {
 
   const renderContent = () => (
     <>
-      <HorizontalList
-        startItems={[
-          <Text type="headline" color="gray5">
-            Disponível no fundo
-          </Text>,
-        ]}
-        endItems={[
-          <Text type="headline" color="gray6" bold>
-            {Currency.parse(fund.available, true)}
-          </Text>,
-        ]}
-        noPadding
-      />
+      {isMobile ? (
+        <>
+          <VerticalList
+            elements={[
+              <Text type="headline" color="gray5">
+                Disponível no fundo
+              </Text>,
+              <Text type="headline" color="gray6" bold>
+                {Currency.parse(fund.available, true)}
+              </Text>,
+            ]}
+            css={`
+              margin-bottom: ${theme.spacing(2)}px;
+              padding-left: 0;
+              padding-right: 0;
+            `}
+          />
 
-      {type === 'initial' ? (
-        <HorizontalList
-          startItems={[
-            <Text type="headline" color="gray5">
-              Inv. inicial
-            </Text>,
-          ]}
-          endItems={[
-            <Text type="headline" color="gray6" bold>
-              {Currency.parse(fund.initial_value, true)}
-            </Text>,
-          ]}
-          noPadding
-        />
+          <VerticalList
+            elements={[
+              <Text type="headline" color="gray5">
+                Inv. {ETypeLabel[type]}
+              </Text>,
+              <Text type="headline" color="gray6" bold>
+                {Currency.parse(
+                  fund[`${type}_value` as 'initial_value' | 'monthly_value'],
+                  true
+                )}
+              </Text>,
+            ]}
+            css={`
+              padding-left: 0;
+              padding-right: 0;
+            `}
+          />
+        </>
       ) : (
-        <HorizontalList
-          startItems={[
-            <Text type="headline" color="gray5">
-              Inv. mensal
-            </Text>,
-          ]}
-          endItems={[
-            <Text type="headline" color="gray6" bold>
-              {Currency.parse(fund.monthly_value, true)}
-            </Text>,
-          ]}
-          noPadding
-        />
+        <>
+          <HorizontalList
+            startItems={[
+              <Text type="headline" color="gray5">
+                Disponível no fundo
+              </Text>,
+            ]}
+            endItems={[
+              <Text type="headline" color="gray6" bold>
+                {Currency.parse(fund.available, true)}
+              </Text>,
+            ]}
+            noPadding
+          />
+
+          <HorizontalList
+            startItems={[
+              <Text type="headline" color="gray5">
+                Inv. {ETypeLabel[type]}
+              </Text>,
+            ]}
+            endItems={[
+              <Text type="headline" color="gray6" bold>
+                {Currency.parse(
+                  fund[`${type}_value` as 'initial_value' | 'monthly_value'],
+                  true
+                )}
+              </Text>,
+            ]}
+            noPadding
+          />
+        </>
       )}
 
       <s.Divisor />
@@ -143,7 +170,6 @@ export default function({ isOpen, handleClose, fund, type }: ILinkProps) {
       >
         Quanto você deseja vincular a este objetivo?
       </Text>
-
       <MoneyInput
         placeholder={Currency.parse(0)}
         value={Currency.parse(valueToLink)}
@@ -178,14 +204,14 @@ export default function({ isOpen, handleClose, fund, type }: ILinkProps) {
 
   if (isMobile) {
     return (
-      <Modal
+      <s.Modal
         isOpen={isOpen}
         handleClose={handleClose}
         header={<RenderHeader />}
         footer={<RenderFooter />}
       >
         {renderContent()}
-      </Modal>
+      </s.Modal>
     )
   }
 

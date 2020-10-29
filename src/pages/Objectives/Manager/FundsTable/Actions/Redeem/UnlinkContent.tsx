@@ -5,8 +5,10 @@ import 'styled-components/macro'
 import HorizontalList from 'components/HorizontalList'
 import MoneyInput from 'components/Inputs/Money'
 import Text from 'components/Text'
+import VerticalList from 'components/VerticalList'
 
 import { Currency, BRLCurrency } from 'helpers/money'
+import useMedia from 'hooks/useMedia'
 
 import { IUnlinkContent, TError } from './types'
 import * as s from './styles'
@@ -18,24 +20,42 @@ export default function({
   setButtonIsDisabled,
 }: IUnlinkContent) {
   const theme = useContext(ThemeContext)
+  const isMobile = useMedia('sm')
+
   const [innerValue, setInnerValue] = useState(value)
   const [error, setError] = useState<TError>(undefined)
 
   return (
     <>
-      <HorizontalList
-        startItems={[
-          <Text type="headline" color="gray5">
-            Valor no objetivo
-          </Text>,
-        ]}
-        endItems={[
-          <Text type="headline" color="gray6" bold>
-            {Currency.parse(fundInfo.invested, true)}
-          </Text>,
-        ]}
-        noPadding
-      />
+      {isMobile ? (
+        <VerticalList
+          elements={[
+            <Text type="headline" color="gray5">
+              Valor no objetivo
+            </Text>,
+            <Text type="headline" color="gray6" bold>
+              {Currency.parse(fundInfo.invested, true)}
+            </Text>,
+          ]}
+          css={`
+            padding: 0;
+          `}
+        />
+      ) : (
+        <HorizontalList
+          startItems={[
+            <Text type="headline" color="gray5">
+              Valor no objetivo
+            </Text>,
+          ]}
+          endItems={[
+            <Text type="headline" color="gray6" bold>
+              {Currency.parse(fundInfo.invested, true)}
+            </Text>,
+          ]}
+          noPadding
+        />
+      )}
 
       <s.Divisor />
 
