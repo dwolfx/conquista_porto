@@ -88,7 +88,7 @@ export default function ManagementConsortiumBuilding() {
                     data-gtm-name={`contrato ${index + 1}`}
                     active={selectedConsortiumBuilding === item.Id}
                     onClick={() => {
-                      setSelectedConsortiumBuilding(item.id)
+                      setSelectedConsortiumBuilding(item.Id)
                       scrollPage()
                     }}
                   >
