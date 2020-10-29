@@ -62,8 +62,9 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
 
   useFetchCustomerProfile()
 
-  const { customerProfile } = useSelector<any, any>(state => ({
+  const { customerProfile, creditCardOccupation } = useSelector<any, any>(state => ({
     customerProfile: state.customerProfile,
+    creditCardOccupation: state.creditCardOccupation,
   }))
 
   //Customer data
@@ -175,6 +176,7 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
           <Ocupation
             selectedOption={selectedProfession}
             setSelectedOption={setSelectedProfession}
+            creditCardOccupation={creditCardOccupation}
           />
           <s.Input
             label="nome da mãe"

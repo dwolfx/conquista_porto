@@ -22,8 +22,8 @@ export interface IForm {
 }
 
 export interface IStepComponent {
-  form: {}
-  onChangeForm: Dispatch<SetStateAction<{}>>
+  form: ICreditCardCreationPayload
+  onChangeForm: Dispatch<SetStateAction<ICreditCardCreationPayload>>
   onNextStep: () => void
 }
 

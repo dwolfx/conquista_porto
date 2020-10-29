@@ -16,6 +16,10 @@ export const InputContainer = styled.div`
     top: 0;
     width: 100%;
   }
+
+  input {
+      text-transform: capitalize;
+  }
 `
 
 export const OptionsWrapper = styled.div<{
@@ -47,6 +51,7 @@ export const OptionsItem = styled.div<IOptionsItem>`
   display: flex;
   height: 49px;
   padding: 0 ${({ theme }) => theme.spacing(3)}px;
+  text-transform: capitalize;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.gray1};

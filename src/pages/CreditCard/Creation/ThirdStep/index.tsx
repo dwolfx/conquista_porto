@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupation/action'
 
 import { dict } from 'components/IconExporter'
 import Divisor from 'components/Divisor'
@@ -21,13 +24,16 @@ const ThirdStep = ({ onNextStep, onChangeForm, form }: IStepComponent) => {
     icon: 'information' as keyof typeof dict,
     message: 'O nome informado não é válido.'
   }
-
-  const [city, setCity] = useState('São Paulo')
-  const [motherName, setMotherName] = useState('Francisca de Oliveira Santos')
+  const dispatch = useDispatch()
+  const { creditCardOccupation } = useSelector((state: any) => ({
+    creditCardOccupation: state.creditCardOccupation,
+  }))
+  const [city, setCity] = useState('')
+  const [motherName, setMotherName] = useState('')
+  const [errors, setErrors] = useState({ mother: false, city: false })
   const [selectedCivilState, setSelectedCivilState] = useState<IOption>({ id: 0, name: '' })
   const [selectedSex, setSelectedSex] = useState<IOption>({ id: 0, name: '' })
   const [selectedOcupation, setSelectedOcupation] = useState<IOption>({ id: 0, name: '' })
-
   const hasAnyError =  !motherName.length
                       || !city.length
                       || selectedCivilState.id === 0
@@ -35,9 +41,31 @@ const ThirdStep = ({ onNextStep, onChangeForm, form }: IStepComponent) => {
                       || selectedOcupation.id === 0
 
   const handleOnClick = () => {
-    onChangeForm({ ...form, city, motherName, selectedCivilState, selectedSex, selectedOcupation })
+    onChangeForm({
+      ...form,
+      cidade: city,
+      nomeMae: motherName,
+      codigoEstadoCivil: selectedCivilState.id,
+      sexo: selectedSex.name,
+      codigoProfissao: selectedOcupation.id,
+    })
     onNextStep()
   }
+
+  useEffect(() => {
+    if(creditCardOccupation.data === null) {
+      dispatch(GetCreditCardOccupationRequest())
+    }
+  }, [dispatch, creditCardOccupation.data])
+
+  useEffect(() => {
+    if(form.nomeMae) {
+      setMotherName(form.nomeMae)
+    }
+    if(form.cidade) {
+      setCity(form.cidade)
+    }
+  }, [form])
 
  return (
     <S.Wrapper>
@@ -47,28 +75,41 @@ const ThirdStep = ({ onNextStep, onChangeForm, form }: IStepComponent) => {
         <S.StyledForm>
           <S.FlexWrapper>
             <>
-              <CivilState selectedOption={selectedCivilState} setSelectedOption={setSelectedCivilState} />
+              <CivilState preSelectedCivilState={form.codigoEstadoCivil} selectedOption={selectedCivilState} setSelectedOption={setSelectedCivilState} />
             </>
             <>
-              <Sex selectedOption={selectedSex} setSelectedOption={setSelectedSex} />
+               <Sex preSelectedSex={form.sexo} selectedOption={selectedSex} setSelectedOption={setSelectedSex} />
             </>
           </S.FlexWrapper>
 
           <>
-            <Ocupation selectedOption={selectedOcupation} setSelectedOption={setSelectedOcupation} />
+             <Ocupation
+              selectedOption={selectedOcupation}
+              setSelectedOption={setSelectedOcupation}
+              creditCardOccupation={creditCardOccupation}
+              preSelectedOccupation={form.codigoProfissao}
+             />
           </>
 
           <S.StyledInput
             label="cidade"
-            error={!city.length && cityError}
+            error={errors.city && cityError}
             value={city}
-            onChange={e => setCity(e.target.value)}/>
+            onChange={e => {
+              const { value } = e.target
+              setCity(value)
+              setErrors({...errors, city: !value.length})
+              }}/>
 
           <S.StyledInput
             label="nome da mãe"
-            error={!motherName.length && motherNameError}
+            error={errors.mother && motherNameError}
             value={motherName}
-            onChange={e => setMotherName(e.target.value)}/>
+            onChange={e => {
+              const { value } = e.target
+              setMotherName(value)
+              setErrors({ ...errors, mother: !value.length })
+            }}/>
 
           <S.StyledButton
             disabled={hasAnyError}
