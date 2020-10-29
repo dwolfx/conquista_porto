@@ -42,9 +42,9 @@ const TableBody = ({
               margin-bottom: 14px;
             `}
           >
-            ${errorMessage}
+            {errorMessage}
           </Text>
-          <Button onClick={onError}>Tentar novamente</Button>
+          {onError ? <Button onClick={onError}>Tentar novamente</Button> : null}
         </div>
       </s.InfoTableContent>
     )

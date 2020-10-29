@@ -39,6 +39,7 @@ const Table = ({
   disableSort = false,
   hasError = false,
   errorMessage = 'Não foi possível carregar suas informações da tabela.',
+  onError,
   isFiltering = false,
   isLoading = false,
   isSticky = false,
@@ -210,6 +211,7 @@ const Table = ({
               isLoading={isLoading}
               prepareRow={prepareRow}
               hasError={hasError}
+              onError={onError}
               errorMessage={errorMessage}
               isFiltering={isFiltering}
               onRowClick={onRowClick}

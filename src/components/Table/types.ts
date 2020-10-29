@@ -67,6 +67,7 @@ export interface ITable {
   isLoading?: boolean
   hasError?: boolean
   errorMessage?: string
+  onError?: () => void
   isFiltering?: boolean
   isSticky?: boolean
   customRef?: RefObject<HTMLDivElement>
