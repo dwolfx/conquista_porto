@@ -36,8 +36,14 @@ require('./routes/auth2')(app, urlBase);
 require('./routes/authentication')(app, urlBase);
 
 require('./routes/perfis')(app, urlBase);
-
+require('./routes/cartoes')(app, urlBase);
+require('./routes/consorcios')(app, urlBase);
+require('./routes/previdencia-privada')(app, urlBase);
+require('./routes/financiamento')(app, urlBase);
 require('./routes/programa-pontos')(app, urlBase);
+require('./routes/produtos')(app, urlBase);
+require('./routes/fundos')(app, urlBase);
+require('./routes/atlas')(app, urlBase);
 
 app.use(urlBase, router);
 
