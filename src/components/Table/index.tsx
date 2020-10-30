@@ -1,5 +1,11 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react'
-import { useTable, useSortBy } from 'react-table'
+import React, {
+  useMemo,
+  useState,
+  useEffect,
+  useRef,
+  MutableRefObject,
+} from 'react'
+import { useTable, useSortBy, usePagination } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 
@@ -8,6 +14,8 @@ import TableHeader from './TableHeader'
 import TableBody from './TableBody'
 import { ITable } from './types'
 import * as s from './styles'
+import Text from 'components/Text'
+import IconExporter from 'components/IconExporter'
 
 /**
  * @author: Rodrigo Condurú <rodrigo.conduru@sciensa.com>
@@ -22,6 +30,7 @@ const Table = ({
   isFiltering = false,
   isLoading = false,
   isSticky = false,
+  hasPagination = false,
   onRowClick,
   customRef,
   ...rest
@@ -32,6 +41,14 @@ const Table = ({
     getTableBodyProps,
     prepareRow,
     rows,
+    page,
+    canPreviousPage,
+    canNextPage,
+    nextPage,
+    previousPage,
+    pageOptions,
+    state: { pageIndex },
+    gotoPage,
   } = useTable(
     {
       // to edit how each column should render see formatColumns function
@@ -40,8 +57,10 @@ const Table = ({
         onRowClick,
       ]),
       data,
+      initialState: { pageIndex: 0, pageSize: 12 },
     },
     useSortBy,
+    usePagination,
     useSticky
   )
 
@@ -49,6 +68,18 @@ const Table = ({
   const tableRef = customRef || ref
   const [showLeftShadow, setShowLeftShadow] = useState(false)
   const [showRightShadow, setShowRightShadow] = useState(true)
+  const [indexPage, setIndexPage] = useState(pageIndex + 1)
+  const inputRef = useRef<HTMLInputElement>() as MutableRefObject<
+    HTMLInputElement
+  >
+
+  useEffect(() => {
+    gotoPage(0)
+    setIndexPage(1)
+    if (inputRef?.current?.value) {
+      inputRef.current.value = '1'
+    }
+  }, [inputRef, data])
 
   useEffect(() => {
     if (tableRef?.current?.onscroll) {
@@ -121,16 +152,72 @@ const Table = ({
           <s.Tbody {...getTableBodyProps()} className="body">
             <TableBody
               rows={rows}
+              page={page}
               isLoading={isLoading}
               prepareRow={prepareRow}
               hasError={hasError}
               errorMessage={errorMessage}
               isFiltering={isFiltering}
               onRowClick={onRowClick}
+              hasPagination={hasPagination}
             />
           </s.Tbody>
         </s.Table>
       </s.TableWrapper>
+      {hasPagination && (
+        <s.PaginationWrapper>
+          <s.Pagination>
+            <Text type="body" bold color="gray5">
+              Página
+            </Text>
+            <s.Input
+              ref={inputRef}
+              type="text"
+              defaultValue={pageIndex + 1}
+              onChange={e => {
+                const page = e.target.value ? Number(e.target.value) - 1 : 0
+                if (page < 0 || page === 0) {
+                  gotoPage(0)
+                  setIndexPage(1)
+                  inputRef.current.value = ''
+                } else if (page > pageOptions.length - 1) {
+                  gotoPage(pageOptions.length - 1)
+                  setIndexPage(pageOptions.length)
+                  inputRef.current.value = pageOptions.length.toString()
+                } else {
+                  setIndexPage(page)
+                  gotoPage(page)
+                }
+              }}
+            />
+            <Text type="body" bold color="gray5">
+              de {hasError ? 0 : pageOptions.length}
+            </Text>
+            <s.PageButtons>
+              <s.Button
+                onClick={() => {
+                  previousPage()
+                  setIndexPage(indexPage - 1)
+                  inputRef.current.value = (indexPage - 1).toString()
+                }}
+                disabled={!canPreviousPage}
+              >
+                <IconExporter name="arrowleft" color="blue4" />
+              </s.Button>
+              <s.Button
+                onClick={() => {
+                  nextPage()
+                  setIndexPage(indexPage + 1)
+                  inputRef.current.value = (indexPage + 1).toString()
+                }}
+                disabled={!canNextPage}
+              >
+                <IconExporter name="arrowright" color="blue4" />
+              </s.Button>
+            </s.PageButtons>
+          </s.Pagination>
+        </s.PaginationWrapper>
+      )}
     </>
   )
 }

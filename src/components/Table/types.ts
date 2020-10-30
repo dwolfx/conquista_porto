@@ -70,6 +70,7 @@ export interface ITable {
   onError?: () => void
   isFiltering?: boolean
   isSticky?: boolean
+  hasPagination?: boolean
   customRef?: RefObject<HTMLDivElement>
   onRowClick?: (param: any) => void
 }
@@ -83,4 +84,6 @@ export interface ITableBody {
   onRowClick?: (param: any) => void
   prepareRow: (row: Row<object>) => void
   rows: Row<object>[]
+  page: Row<object>[]
+  hasPagination: boolean
 }

@@ -17,7 +17,10 @@ const TableBody = ({
   onError,
   onRowClick,
   isFiltering,
+  hasPagination,
+  page,
 }: ITableBody) => {
+  const rowOrPage = hasPagination ? page : rows
   if (isLoading) {
     return (
       <s.InfoTableContent>
@@ -50,7 +53,7 @@ const TableBody = ({
     )
   }
 
-  if (!rows || rows.length === 0) {
+  if (!rowOrPage || rowOrPage.length === 0) {
     return (
       <s.InfoTableContent>
         <div>
@@ -66,7 +69,7 @@ const TableBody = ({
 
   return (
     <>
-      {rows.map((row: any) => {
+      {rowOrPage.map((row: any) => {
         prepareRow(row)
 
         return (

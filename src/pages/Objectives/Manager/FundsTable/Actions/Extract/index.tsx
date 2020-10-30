@@ -28,9 +28,6 @@ export default function({ isOpen, handleClose, fund }: IExtractProps) {
   const isMobile = useMedia('sm')
   const { addToast } = useToast()
 
-  const [valueToLink, setValueToLink] = useState(0)
-  const [hasError, setError] = useState<TError>(undefined)
-
   const { isLoadingExtractFund, dataExtract } = useSelector(
     (state: IState) => state.objectiveManagement
   )

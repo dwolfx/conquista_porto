@@ -5,7 +5,7 @@
   "initial_value": 10000,
   "monthly_value": 1000,
   "target_date": "01/08/2021",
-  "goal_type": 1,
+  "goal_type": "TRAVEL",
   "conquered": false,
   "total_balance": 4900,
   "years": [
