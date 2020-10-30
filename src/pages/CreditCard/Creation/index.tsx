@@ -2,11 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import 'styled-components/macro'
 
-import FirstStep from './FirstStep'
-import SecondStep from './SecondStep'
-import ThirdStep from './ThirdStep'
-import ForthStep from './ForthStep'
-
 import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
 import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
@@ -16,9 +11,15 @@ import { truncateString } from 'helpers'
 
 import {
   GetCreditCardExpirationDaysRequest,
-  GetCreditCardExpirationDaysClearData
+  GetCreditCardExpirationDaysClearData,
 } from 'store/modules/CreditCard/ExpirationDays/action'
 
+import FirstStep from './FirstStep'
+import ThirdStep from './ThirdStep'
+import ForthStep from './ForthStep'
+import FifthStep from './FifthStep'
+
+import { ICreditCardCreationPayload } from './types'
 import {
   HeaderContent,
   LogoWrapper,
@@ -31,18 +32,18 @@ import {
   GridRowStepBar,
   ColStepBar,
 } from './styles'
-import FifthStep from './FifthStep'
 
 interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
 type steps = 1 | 2 | 3 | 4 | 5
+
 const Creation = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const [step, setStep] = useState<steps>(1)
-  const [form, setForm] = useState({}) // form object
+  const [form, setForm] = useState<ICreditCardCreationPayload>({}) // form object
 
   useEffect(() => {
     dispatch(GetCreditCardExpirationDaysRequest())
@@ -80,16 +81,8 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       onChangeForm={setForm}
       onNextStep={() => setStep((step + 1) as steps)}
     />,
-    <ForthStep
-      form={form}
-      setForm={setForm}
-      onNextStep={goNext}
-    />,
-    <FifthStep
-      form={form}
-      onChangeForm={setForm}
-      onNextStep={() => { }}
-    />,
+    <ForthStep form={form} setForm={setForm} onNextStep={goNext} />,
+    <FifthStep form={form} onChangeForm={setForm} onNextStep={() => {}} />,
   ]
 
   const getContent = () => {
@@ -141,10 +134,9 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
                     Solicitação
                   </Text>,
                   <Text color="white" type="headline">
-                    {isMobile ?
-                      (truncateString('Cartão de Crédito', 11)) :
-                      'Cartão de Crédito'
-                    }
+                    {isMobile
+                      ? truncateString('Cartão de Crédito', 11)
+                      : 'Cartão de Crédito'}
                   </Text>,
                 ]}
                 endItems={getStepCount()}

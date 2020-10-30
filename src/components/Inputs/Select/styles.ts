@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Container = styled.div`
+  position: relative;
+`
+
 export const InputContainer = styled.div`
   position: relative;
 
@@ -14,7 +18,10 @@ export const InputContainer = styled.div`
   }
 `
 
-export const OptionsWrapper = styled.div<{ optionBoxDirection: 'top' | 'bottom', optionBoxSize: number }>`
+export const OptionsWrapper = styled.div<{
+  optionBoxDirection: 'top' | 'bottom'
+  optionBoxSize: number
+}>`
   position: absolute;
   width: 100%;
   z-index: 14;
@@ -22,11 +29,10 @@ export const OptionsWrapper = styled.div<{ optionBoxDirection: 'top' | 'bottom',
   max-height: ${({ optionBoxSize }) => `${optionBoxSize}px`};
   padding: ${({ theme }) => `${theme.spacing(2)}px 0`};
   overflow-y: auto;
-  ${({ optionBoxDirection, theme }) =>  
-    optionBoxDirection === 'top' ?
-    `bottom: ${theme.spacing(10)}px` :
-    `top: ${theme.spacing(10)}px`
-    };
+  ${({ optionBoxDirection, theme }) =>
+    optionBoxDirection === 'top'
+      ? `bottom: ${theme.spacing(10)}px`
+      : `top: ${theme.spacing(10)}px`};
 `
 
 interface IOptionsItem {
@@ -48,4 +54,12 @@ export const OptionsItem = styled.div<IOptionsItem>`
   svg {
     margin-right: ${({ theme }) => theme.spacing(3)}px;
   }
+`
+
+export const Overlay = styled.div`
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 `
