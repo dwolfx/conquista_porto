@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 
 import Icon from 'components/IconExporter'
@@ -57,7 +57,21 @@ export const GridCol = styled(Col)`
 
 export const StepBar = styled.div<{ step: number }>`
   background-color: ${props => props.theme.colors.grayblue1};
-  height: ${({ step }) => step === 4 ? '210' : '56'}px;
+  height: 56px;
+  position: relative;
+
+  ${({ step }) =>
+    step === 3 &&
+    css`
+      &:after {
+        background-color: inherit;
+        content: '';
+        height: 154px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+    `}
 `
 
 export const GridRowStepBar = styled(Row)`

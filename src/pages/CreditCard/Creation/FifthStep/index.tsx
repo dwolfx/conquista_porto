@@ -9,18 +9,14 @@ import PersonalData from './PersonalData'
 import CardData from './CardData'
 import DeliveryData from './DeliveryData'
 
-import { IStepComponent } from '../types'
+import { ISummaryStepStep } from '../types'
 
 import { StyledCard } from './CardData/styles'
 import { GridContainer } from '../styles'
 import * as S from './styles'
 
-const FifthStep = ({ onNextStep }: IStepComponent) => {
+const FifthStep = ({ onSubmit }: ISummaryStepStep) => {
   const [isChecked, setChecked] = useState(false)
-
-  const handleClick = () => {
-    onNextStep()
-  }
 
   return (
     <>
@@ -68,7 +64,11 @@ const FifthStep = ({ onNextStep }: IStepComponent) => {
       </S.Wrapper>
 
       <S.Footer>
-        <Button color="secondary" disabled={!isChecked} onClick={handleClick}>
+        <Button
+          color="secondary"
+          disabled={!isChecked}
+          onClick={() => onSubmit()}
+        >
           SOLICITAR CARTÃO
         </Button>
       </S.Footer>

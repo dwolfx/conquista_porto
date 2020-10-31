@@ -12,10 +12,10 @@ describe('Credit Card Step 3', () => {
     expect(Step3).toBeDefined()
   })
   it('should render correctly', () => {
-    renderWithReduxAndTheme(
-      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
-    )
-    expect(screen.getByText('Agora confirme alguns dados do seu cadastro:')).toBeInTheDocument()
+    renderWithReduxAndTheme(<Step3 formData={{}} onNextStep={() => {}} />)
+    expect(
+      screen.getByText('Agora confirme alguns dados do seu cadastro:')
+    ).toBeInTheDocument()
     expect(screen.getByText('estado civil')).toBeInTheDocument()
     expect(screen.getByText('sexo')).toBeInTheDocument()
     expect(screen.getByText('ocupação')).toBeInTheDocument()
@@ -27,12 +27,12 @@ describe('Credit Card Step 3', () => {
       creditCardOccupation: {
         isLoading: false,
         hasError: false,
-        data: mock
+        data: mock,
       },
     })
-    renderWithReduxAndTheme(
-      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => { }} />, { store }
-    )
+    renderWithReduxAndTheme(<Step3 formData={{}} onNextStep={() => {}} />, {
+      store,
+    })
     const civilStateSelect = screen.getByTestId('select-estado civil')
     const sexSelect = screen.getByTestId('select-sexo')
     const ocupationSelect = screen.getByTestId('select-ocupação')
@@ -45,48 +45,54 @@ describe('Credit Card Step 3', () => {
     expect(screen.getByText('medico')).toBeInTheDocument()
   })
   it('should civil-state select the proper option when clicked', () => {
-    renderWithReduxAndTheme(
-      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
-    )
+    renderWithReduxAndTheme(<Step3 formData={{}} onNextStep={() => {}} />)
     const civilStateSelect = screen.getByTestId('select-estado civil')
 
     fireEvent.click(civilStateSelect)
     fireEvent.click(screen.getByTestId('option-Casado'))
-    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue('Casado')
+    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue(
+      'Casado'
+    )
 
     fireEvent.click(civilStateSelect)
     fireEvent.click(screen.getByTestId('option-Solteiro'))
-    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue('Solteiro')
+    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue(
+      'Solteiro'
+    )
 
     fireEvent.click(civilStateSelect)
     fireEvent.click(screen.getByTestId('option-Outros'))
-    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue('Outros')
+    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue(
+      'Outros'
+    )
 
     fireEvent.click(civilStateSelect)
     fireEvent.click(screen.getByTestId('option-Viúvo'))
-    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue('Viúvo')
+    expect(screen.getByTestId('select-option-input-civil-state')).toHaveValue(
+      'Viúvo'
+    )
   })
 
   it('should sex select the proper option when clicked', () => {
-    renderWithReduxAndTheme(
-      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
-    )
+    renderWithReduxAndTheme(<Step3 formData={{}} onNextStep={() => {}} />)
     const sexSelect = screen.getByTestId('select-sexo')
 
     fireEvent.click(sexSelect)
     fireEvent.click(screen.getByTestId('option-Masculino'))
-    expect(screen.getByTestId('select-option-input-sex')).toHaveValue('Masculino')
+    expect(screen.getByTestId('select-option-input-sex')).toHaveValue(
+      'Masculino'
+    )
 
     fireEvent.click(sexSelect)
     fireEvent.click(screen.getByTestId('option-Feminino'))
-    expect(screen.getByTestId('select-option-input-sex')).toHaveValue('Feminino')
+    expect(screen.getByTestId('select-option-input-sex')).toHaveValue(
+      'Feminino'
+    )
   })
   it('should input work correctly', () => {
-    renderWithReduxAndTheme(
-      <Step3 form={{}} onChangeForm={() => { }} onNextStep={() => {}}/>
-    )
+    renderWithReduxAndTheme(<Step3 formData={{}} onNextStep={() => {}} />)
     const cityInput = screen.getByTestId('cidade')
-    fireEvent.change(cityInput, {target: { value: 'Londrina' }})
+    fireEvent.change(cityInput, { target: { value: 'Londrina' } })
     expect(cityInput).toHaveValue('Londrina')
 
     const momNameInput = screen.getByTestId('nome da mãe')
@@ -98,12 +104,13 @@ describe('Credit Card Step 3', () => {
       creditCardOccupation: {
         isLoading: false,
         hasError: false,
-        data: mock
+        data: mock,
       },
     })
     const changeStepFunction = jest.fn()
     renderWithReduxAndTheme(
-      <Step3 form={{}} onChangeForm={() => { }} onNextStep={changeStepFunction} />, { store }
+      <Step3 formData={{}} onNextStep={changeStepFunction} />,
+      { store }
     )
     const civilStateSelect = screen.getByTestId('select-estado civil')
     const sexSelect = screen.getByTestId('select-sexo')
@@ -128,7 +135,10 @@ describe('Credit Card Step 3', () => {
   })
   it('should snow pre selected inputs', () => {
     renderWithReduxAndTheme(
-      <Step3 form={{ nomeMae: 'Carla', cidade: 'Londrina' }} onChangeForm={() => { }} onNextStep={() => { }} />
+      <Step3
+        formData={{ nomeMae: 'Carla', cidade: 'Londrina' }}
+        onNextStep={() => {}}
+      />
     )
     const cityInput = screen.getByTestId('cidade')
     expect(cityInput).toHaveValue('Londrina')

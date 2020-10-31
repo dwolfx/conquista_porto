@@ -22,9 +22,14 @@ export interface IForm {
 }
 
 export interface IStepComponent {
-  form: ICreditCardCreationPayload
-  onChangeForm: Dispatch<SetStateAction<ICreditCardCreationPayload>>
-  onNextStep: () => void
+  formData: ICreditCardCreationPayload
+  onNextStep: (stepAnswers: ICreditCardCreationPayload) => void
+}
+
+export interface ISummaryStepStep {
+  formData: ICreditCardCreationPayload
+  setFormData: Dispatch<SetStateAction<ICreditCardCreationPayload>>
+  onSubmit: () => void
 }
 
 export interface IOption {

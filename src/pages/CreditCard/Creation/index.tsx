@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import 'styled-components/macro'
 
@@ -9,6 +9,7 @@ import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
 import { truncateString } from 'helpers'
 
+import { baseURLNamespaceInvestAws, post } from 'services/api'
 import {
   GetCreditCardExpirationDaysRequest,
   GetCreditCardExpirationDaysClearData,
@@ -43,7 +44,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
   const [step, setStep] = useState<steps>(1)
-  const [form, setForm] = useState<ICreditCardCreationPayload>({}) // form object
+  const [formData, setFormData] = useState<ICreditCardCreationPayload>({}) // form object
 
   useEffect(() => {
     dispatch(GetCreditCardExpirationDaysRequest())
@@ -59,10 +60,15 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     setStep(prevState => (prevState - 1) as steps)
   }
 
-  const goNext = () => {
+  const goNext = (stepAnswers: ICreditCardCreationPayload) => {
     if (step < 5) {
       setStep(prevState => (prevState + 1) as steps)
     }
+
+    setFormData(currentFormState => ({
+      ...currentFormState,
+      ...stepAnswers,
+    }))
   }
 
   const getStepCount = () => {
@@ -73,21 +79,24 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     ]
   }
 
+  const handlePostSubmit = useCallback(async () => {
+    const { data } = await post(
+      `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
+      formData
+    )
+
+    console.log(data)
+  }, [formData])
+
   // Each step goes here
   const content = [
-    <FirstStep onNextStep={goNext} />, // <Step1 form={form} onChangeForm={setForm} onNextStep={() => setStep(step + 1)} />
-    <ThirdStep
-      form={form}
-      onChangeForm={setForm}
-      onNextStep={goNext}
-    />,
-    <ForthStep form={form} setForm={setForm} onNextStep={goNext} />,
+    <FirstStep onNextStep={goNext} />,
+    <ThirdStep formData={formData} onNextStep={goNext} />,
+    <ForthStep formData={formData} onNextStep={goNext} />,
     <FifthStep
-      // form={form}
-      // onChangeForm={setForm}
-      form={{}}
-      onChangeForm={() => {}}
-      onNextStep={() => {}}
+      formData={formData}
+      setFormData={setFormData}
+      onSubmit={handlePostSubmit}
     />,
   ]
 

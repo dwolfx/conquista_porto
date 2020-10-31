@@ -15,14 +15,14 @@ import { IStepComponent, IOption } from '../types'
 import { GridContainer } from '../styles'
 import * as S from './styles'
 
-const ThirdStep = ({ onNextStep, onChangeForm, form }: IStepComponent) => {
+const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
   const cityError = {
     icon: 'information' as keyof typeof dict,
-    message: 'A cidade informada não é válida.'
+    message: 'A cidade informada não é válida.',
   }
   const motherNameError = {
     icon: 'information' as keyof typeof dict,
-    message: 'O nome informado não é válido.'
+    message: 'O nome informado não é válido.',
   }
   const dispatch = useDispatch()
   const { creditCardOccupation } = useSelector((state: any) => ({
@@ -31,104 +31,122 @@ const ThirdStep = ({ onNextStep, onChangeForm, form }: IStepComponent) => {
   const [city, setCity] = useState('')
   const [motherName, setMotherName] = useState('')
   const [errors, setErrors] = useState({ mother: false, city: false })
-  const [selectedCivilState, setSelectedCivilState] = useState<IOption>({ id: 0, name: '' })
+  const [selectedCivilState, setSelectedCivilState] = useState<IOption>({
+    id: 0,
+    name: '',
+  })
   const [selectedSex, setSelectedSex] = useState<IOption>({ id: 0, name: '' })
-  const [selectedOcupation, setSelectedOcupation] = useState<IOption>({ id: 0, name: '' })
-  const hasAnyError =  !motherName.length
-                      || !city.length
-                      || selectedCivilState.id === 0
-                      || selectedSex.id === 0
-                      || selectedOcupation.id === 0
+  const [selectedOcupation, setSelectedOcupation] = useState<IOption>({
+    id: 0,
+    name: '',
+  })
+  const hasAnyError =
+    !motherName.length ||
+    !city.length ||
+    selectedCivilState.id === 0 ||
+    selectedSex.id === 0 ||
+    selectedOcupation.id === 0
 
   const handleOnClick = () => {
-    onChangeForm({
-      ...form,
+    onNextStep({
       cidade: city,
       nomeMae: motherName,
       codigoEstadoCivil: selectedCivilState.id,
-      sexo: selectedSex.name,
       codigoProfissao: selectedOcupation.id,
+      sexo: selectedSex.name,
     })
-    onNextStep()
   }
 
   useEffect(() => {
-    if(creditCardOccupation.data === null) {
+    if (creditCardOccupation.data === null) {
       dispatch(GetCreditCardOccupationRequest())
     }
   }, [dispatch, creditCardOccupation.data])
 
   useEffect(() => {
-    if(form.nomeMae) {
-      setMotherName(form.nomeMae)
+    if (formData.nomeMae) {
+      setMotherName(formData.nomeMae)
     }
-    if(form.cidade) {
-      setCity(form.cidade)
+    if (formData.cidade) {
+      setCity(formData.cidade)
     }
-  }, [form])
+  }, [formData])
 
- return (
+  return (
     <S.Wrapper>
-     <GridContainer>
-      <S.StyledMain xs={12} sm={6} lg={4}>
-        <S.StyledText>Agora confirme alguns dados do seu cadastro:</S.StyledText>
-        <S.StyledForm>
-          <S.FlexWrapper>
+      <GridContainer>
+        <S.StyledMain xs={12} sm={6} lg={4}>
+          <S.StyledText>
+            Agora confirme alguns dados do seu cadastro:
+          </S.StyledText>
+          <S.StyledForm>
+            <S.FlexWrapper>
+              <>
+                <CivilState
+                  preSelectedCivilState={formData.codigoEstadoCivil}
+                  selectedOption={selectedCivilState}
+                  setSelectedOption={setSelectedCivilState}
+                />
+              </>
+              <>
+                <Sex
+                  preSelectedSex={formData.sexo}
+                  selectedOption={selectedSex}
+                  setSelectedOption={setSelectedSex}
+                />
+              </>
+            </S.FlexWrapper>
+
             <>
-              <CivilState preSelectedCivilState={form.codigoEstadoCivil} selectedOption={selectedCivilState} setSelectedOption={setSelectedCivilState} />
+              <Ocupation
+                selectedOption={selectedOcupation}
+                setSelectedOption={setSelectedOcupation}
+                creditCardOccupation={creditCardOccupation}
+                preSelectedOccupation={formData.codigoProfissao}
+              />
             </>
-            <>
-               <Sex preSelectedSex={form.sexo} selectedOption={selectedSex} setSelectedOption={setSelectedSex} />
-            </>
-          </S.FlexWrapper>
 
-          <>
-             <Ocupation
-              selectedOption={selectedOcupation}
-              setSelectedOption={setSelectedOcupation}
-              creditCardOccupation={creditCardOccupation}
-              preSelectedOccupation={form.codigoProfissao}
-             />
-          </>
+            <S.StyledInput
+              label="cidade"
+              error={errors.city && cityError}
+              value={city}
+              onChange={e => {
+                const { value } = e.target
+                setCity(value)
+                setErrors({ ...errors, city: !value.length })
+              }}
+            />
 
-          <S.StyledInput
-            label="cidade"
-            error={errors.city && cityError}
-            value={city}
-            onChange={e => {
-              const { value } = e.target
-              setCity(value)
-              setErrors({...errors, city: !value.length})
-              }}/>
+            <S.StyledInput
+              label="nome da mãe"
+              error={errors.mother && motherNameError}
+              value={motherName}
+              onChange={e => {
+                const { value } = e.target
+                setMotherName(value)
+                setErrors({ ...errors, mother: !value.length })
+              }}
+            />
 
-          <S.StyledInput
-            label="nome da mãe"
-            error={errors.mother && motherNameError}
-            value={motherName}
-            onChange={e => {
-              const { value } = e.target
-              setMotherName(value)
-              setErrors({ ...errors, mother: !value.length })
-            }}/>
+            <S.StyledButton
+              disabled={hasAnyError}
+              onClick={() => handleOnClick()}
+            >
+              próximo
+            </S.StyledButton>
 
-          <S.StyledButton
-            disabled={hasAnyError}
-            onClick={() => handleOnClick()}
-          >
-            próximo
-          </S.StyledButton>
-
-          <S.Footer>
-            <Divisor />
-            <S.AnotherStyledText>
-              Não se preocupe, a solicitação só será enviada após informarmos o cartão disponível para você.
-            </S.AnotherStyledText>
-          </S.Footer>
-        </S.StyledForm>
-      </S.StyledMain>
-     </GridContainer>
+            <S.Footer>
+              <Divisor />
+              <S.AnotherStyledText>
+                Não se preocupe, a solicitação só será enviada após informarmos
+                o cartão disponível para você.
+              </S.AnotherStyledText>
+            </S.Footer>
+          </S.StyledForm>
+        </S.StyledMain>
+      </GridContainer>
     </S.Wrapper>
- )
+  )
 }
 
 export default ThirdStep

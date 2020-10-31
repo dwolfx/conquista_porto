@@ -7,11 +7,7 @@ import BrazilianStatesSelect from './selects/BrazilianStates'
 import { GridContainer, WhiteContent } from '../styles'
 import * as S from './styles'
 
-export default function SecondCreditCardStep({
-  form,
-  onChangeForm,
-  onNextStep,
-}: IStepComponent) {
+export default function SecondCreditCardStep({ onNextStep }: IStepComponent) {
   const [document, setDocument] = useState<DocumentType | null>(null)
   const [brazilianState, setBrazilianState] = useState<BrazilianState | null>(
     null
@@ -25,7 +21,7 @@ export default function SecondCreditCardStep({
 
   function onSubmitStep() {
     // TODO setar valor dos campos do formulario geral
-    onNextStep()
+    onNextStep({})
   }
 
   return (

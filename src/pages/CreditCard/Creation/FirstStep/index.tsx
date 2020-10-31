@@ -1,56 +1,52 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { uuid } from 'uuidv4'
 import moment from 'moment'
 
 import VerticalList from 'components/VerticalList'
 
 import { formatCpf, handleGiwRedirect } from 'helpers'
+import { useToast } from 'hooks/toast'
+import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
 
-import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
-
+import { IStepComponent, ICreditCardCreationPayload } from '../types'
+import { GridContainer, WhiteContent } from '../styles'
 import * as s from './styles'
 import * as t from './types'
-import { GridContainer, WhiteContent } from '../styles'
 
-const FirstStep: React.FC<t.IFirstStep> = ({ onNextStep, ...rest }) => {
-  const [customerData, setCustomerData] = useState<t.ICustomerData[] | null>(
-    null
+const FirstStep = ({
+  onNextStep,
+  ...rest
+}: Pick<IStepComponent, 'onNextStep'>) => {
+  const dispatch = useDispatch()
+  const { addToast } = useToast()
+  const [customerData, setCustomerData] = useState<t.TCustomerData | undefined>(
+    undefined
   )
 
-  useFetchCustomerProfile()
+  useEffect(() => {
+    dispatch(GetCreditCardClientDataRequest({ addToast }))
+  }, [dispatch])
 
-  const { customerProfile } = useSelector<any, any>(state => ({
-    customerProfile: state.customerProfile,
+  const { creditCardClient } = useSelector((state: t.IState) => ({
+    creditCardClient: state.creditCard.clientData,
   }))
 
   useEffect(() => {
-    if (customerProfile.data) {
-      setCustomerData([
-        {
-          label: 'E-MAIL',
-          value: customerProfile.data.customerEmail,
-        },
-        {
-          label: 'CPF',
-          value: formatCpf(customerProfile.data.cpfCnpj),
-        },
-        {
-          label: 'DATA DE NASCIMENTO',
-          value: moment(customerProfile.data.customerBirthdate).format(
-            'DD/MM/YYYY'
-          ),
-        },
-        {
-          label: 'CELULAR',
-          value: `${customerProfile.data.customerAreaCode}${customerProfile.data.customerPhoneNumber}`.replace(
-            /(\d{2})(\d{1})(\d{4})(\d{4})/,
-            '($1) $2 $3-$4'
-          ),
-        },
-      ])
+    if (creditCardClient) {
+      setCustomerData({
+        email: creditCardClient.emailCliente,
+        numeroDocumentoIdentificacao: formatCpf(creditCardClient.cpfCnpj),
+        dataNascimento: moment(creditCardClient.dataNascimento).format(
+          'DD/MM/YYYY'
+        ),
+        numeroTelefone: `${creditCardClient.dddNumeroTelefone}${creditCardClient.numeroTelefone}`.replace(
+          /(\d{2})(\d{1})(\d{4})(\d{4})/,
+          '($1) $2 $3-$4'
+        ),
+      })
     }
-  }, [customerProfile.data])
+  }, [creditCardClient])
 
   return (
     <WhiteContent>
@@ -61,12 +57,14 @@ const FirstStep: React.FC<t.IFirstStep> = ({ onNextStep, ...rest }) => {
               <s.Title>Confirme as informações abaixo</s.Title>
 
               {customerData
-                ? customerData.map((item, index) => (
+                ? Object.entries(customerData).map(([key, value], index) => (
                     <React.Fragment key={uuid()}>
                       <VerticalList
                         elements={[
-                          <s.Label>{item.label}</s.Label>,
-                          <s.Value>{item.value}</s.Value>,
+                          <s.Label>
+                            {t.EInputsLabel[key as t.TEnumKeys]}
+                          </s.Label>,
+                          <s.Value>{value}</s.Value>,
                         ]}
                       />
                       {index === 3 ? null : <s.Divisor />}
@@ -91,7 +89,20 @@ const FirstStep: React.FC<t.IFirstStep> = ({ onNextStep, ...rest }) => {
                 data-gtm-clicktype="button"
                 data-gtm-subname={'primeira etapa - cartão de crédito'}
                 data-gtm-name="confirmar"
-                onClick={onNextStep}
+                onClick={() => {
+                  let stepAnswers: ICreditCardCreationPayload = {}
+
+                  if (creditCardClient) {
+                    stepAnswers = {
+                      ...customerData,
+                      tipoDocumento: 'CPF',
+                      numeroDocumentoIdentificacao: +creditCardClient.cpfCnpj,
+                      dddTelefone: +creditCardClient.dddNumeroTelefone,
+                      numeroTelefone: +creditCardClient.numeroTelefone,
+                    }
+                  }
+                  onNextStep(stepAnswers)
+                }}
               >
                 CONFIRMAR
               </s.Button>
