@@ -84,8 +84,6 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
       formData
     )
-
-    console.log(data)
   }, [formData])
 
   // Each step goes here

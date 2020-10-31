@@ -7,7 +7,7 @@ import useMedia from 'hooks/useMedia'
 
 interface IProps {
   label: string
-  value: string
+  value: string | undefined
 }
 
 const DataShower = ({ label, value }: IProps) => {
@@ -20,10 +20,14 @@ const DataShower = ({ label, value }: IProps) => {
   return (
     <S.FlexWrapper>
       <S.KeyWrapper>
-        <Text bold type={labelTextType} color={labelColor}>{label}</Text>
+        <Text bold type={labelTextType} color={labelColor}>
+          {label}
+        </Text>
       </S.KeyWrapper>
       <S.ValueWrapper>
-        <Text bold type={valueTextType} color="gray6">{value}</Text>
+        <Text bold type={valueTextType} color="gray6">
+          {value}
+        </Text>
       </S.ValueWrapper>
     </S.FlexWrapper>
   )

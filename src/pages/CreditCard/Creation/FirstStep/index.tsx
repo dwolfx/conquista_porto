@@ -9,7 +9,10 @@ import { formatCpf, handleGiwRedirect } from 'helpers'
 import { useToast } from 'hooks/toast'
 import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
 
-import { IStepComponent, ICreditCardCreationPayload } from '../types'
+import {
+  ICreditCardCreationPayload,
+  IStepComponent,
+} from 'pages/CreditCard/Creation/types'
 import { GridContainer, WhiteContent } from '../styles'
 import * as s from './styles'
 import * as t from './types'
@@ -26,7 +29,7 @@ const FirstStep = ({
 
   useEffect(() => {
     dispatch(GetCreditCardClientDataRequest({ addToast }))
-  }, [dispatch])
+  }, [dispatch, addToast])
 
   const { creditCardClient } = useSelector((state: t.IState) => ({
     creditCardClient: state.creditCard.clientData,
@@ -34,16 +37,24 @@ const FirstStep = ({
 
   useEffect(() => {
     if (creditCardClient) {
+      const phoneNumber =
+        String(creditCardClient.numeroTelefone).length === 9
+          ? String(creditCardClient.numeroTelefone).replace(
+              /(\d{1})(\d{4})(\d{4})/,
+              '$1 $2-$3'
+            )
+          : String(creditCardClient.numeroTelefone).replace(
+              /(\d{4})(\d{4})/,
+              '$1-$2'
+            )
+
       setCustomerData({
         email: creditCardClient.emailCliente,
         numeroDocumentoIdentificacao: formatCpf(creditCardClient.cpfCnpj),
         dataNascimento: moment(creditCardClient.dataNascimento).format(
           'DD/MM/YYYY'
         ),
-        numeroTelefone: `${creditCardClient.dddNumeroTelefone}${creditCardClient.numeroTelefone}`.replace(
-          /(\d{2})(\d{1})(\d{4})(\d{4})/,
-          '($1) $2 $3-$4'
-        ),
+        numeroTelefone: `(${creditCardClient.dddNumeroTelefone}) ${phoneNumber}`,
       })
     }
   }, [creditCardClient])
@@ -96,9 +107,9 @@ const FirstStep = ({
                     stepAnswers = {
                       ...customerData,
                       tipoDocumento: 'CPF',
-                      numeroDocumentoIdentificacao: +creditCardClient.cpfCnpj,
-                      dddTelefone: +creditCardClient.dddNumeroTelefone,
-                      numeroTelefone: +creditCardClient.numeroTelefone,
+                      numeroDocumentoIdentificacao: creditCardClient.cpfCnpj,
+                      dddTelefone: String(creditCardClient.dddNumeroTelefone),
+                      numeroTelefone: String(creditCardClient.numeroTelefone),
                     }
                   }
                   onNextStep(stepAnswers)

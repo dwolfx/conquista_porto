@@ -1,6 +1,8 @@
+import { ICreditCardCreationPayload } from 'pages/CreditCard/Creation/types'
+
 export interface IEditingDeliveryData {
   isOpen: boolean
   handleClose: () => void
-  formData: any
+  formData: ICreditCardCreationPayload
   setFormData: (formDataObject: any) => void
 }

@@ -9,7 +9,7 @@ export type TOptions = {
 }
 
 export type TSelected = {
-  id?: number
+  id?: number | string
   name?: string
   value?: number
 }

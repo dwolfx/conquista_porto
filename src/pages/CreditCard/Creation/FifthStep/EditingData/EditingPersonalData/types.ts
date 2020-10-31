@@ -1,19 +1,6 @@
-export interface IPersonalFormData {
-  email: string
-  CPF: string
-  birthDate: string
-  phone: string
-  documentType: string
-  documentNumber: string
-  effectiveDate: string
-  issuingBody: string
-  expiryDate?: string
-  city: string
-  civilStatus: string
-  gender: string
-  profession: string
-  motherName: string
-}
+import { ICreditCardClientData } from 'store/modules/CreditCard/types'
+import { Occupation } from 'store/modules/CreditCard/Occupation/types'
+
 export interface IEditingPersonalData {
   isOpen: boolean
   handleClose: () => void
@@ -26,14 +13,14 @@ export interface ICustomerData {
   value: string
 }
 
-export interface ICustomerProfile {
-  customerProfile: {
+export interface IDefaultStore {
+  creditCard: {
+    clientData: ICreditCardClientData
+    isClientDataLoading: false
+  }
+  creditCardOccupation: {
     data: {
-      customerEmail: string
-      cpfCnpj: string
-      customerBirthdate: string
-      customerAreaCode: string
-      customerPhoneNumber: string
+      profissoesVO: Occupation[]
     }
   }
 }

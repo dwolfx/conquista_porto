@@ -41,7 +41,7 @@ const setup = (initialState: {
 }) => {
   const store = storeFactory(initialState)
   return renderWithReduxAndTheme(
-    <FifthStep form={{}} onChangeForm={() => {}} onNextStep={() => {}} />,
+    <FifthStep formData={{}} setFormData={() => {}} onSubmit={() => {}} />,
     { store, container: createRootContainer() }
   )
 }
@@ -82,9 +82,9 @@ describe('FifthStep tests', () => {
     const store = storeFactory(defaultStore)
     renderWithReduxAndTheme(
       <FifthStep
-        form={{}}
-        onChangeForm={() => {}}
-        onNextStep={changeStepFunction}
+        formData={{}}
+        setFormData={() => {}}
+        onSubmit={changeStepFunction}
       />,
       { store, container: createRootContainer() }
     )

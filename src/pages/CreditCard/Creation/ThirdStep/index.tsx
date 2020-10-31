@@ -51,8 +51,8 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
     onNextStep({
       cidade: city,
       nomeMae: motherName,
-      codigoEstadoCivil: selectedCivilState.id,
-      codigoProfissao: selectedOcupation.id,
+      codigoEstadoCivil: String(selectedCivilState.id),
+      codigoProfissao: String(selectedOcupation.id),
       sexo: selectedSex.name,
     })
   }
@@ -83,7 +83,9 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
             <S.FlexWrapper>
               <>
                 <CivilState
-                  preSelectedCivilState={formData.codigoEstadoCivil}
+                  preSelectedCivilState={
+                    formData.codigoEstadoCivil ? +formData.codigoEstadoCivil : 0
+                  }
                   selectedOption={selectedCivilState}
                   setSelectedOption={setSelectedCivilState}
                 />
@@ -102,7 +104,9 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
                 selectedOption={selectedOcupation}
                 setSelectedOption={setSelectedOcupation}
                 creditCardOccupation={creditCardOccupation}
-                preSelectedOccupation={formData.codigoProfissao}
+                preSelectedOccupation={
+                  formData.codigoProfissao ? +formData.codigoProfissao : 0
+                }
               />
             </>
 

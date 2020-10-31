@@ -1,24 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
+import { ICreditCardState } from 'store/modules/CreditCard/types'
 
-export interface IPersonalData {}
-
-export interface ICardData {
-  flag: {
-    id: number
-    name: '' | 'Mastercard' | 'Visa'
-  }
-  dueDate: {
-    id: number
-    name: string
-  }
-}
-
-export interface IDeliveryData {}
-
-export interface IForm {
-  personalData: IPersonalData
-  cardData: ICardData
-  deliveryData: IDeliveryData
+export interface IState {
+  creditCard: ICreditCardState
 }
 
 export interface IStepComponent {
@@ -26,7 +10,7 @@ export interface IStepComponent {
   onNextStep: (stepAnswers: ICreditCardCreationPayload) => void
 }
 
-export interface ISummaryStepStep {
+export interface ISummaryStep {
   formData: ICreditCardCreationPayload
   setFormData: Dispatch<SetStateAction<ICreditCardCreationPayload>>
   onSubmit: () => void
@@ -50,27 +34,27 @@ export interface ICreditCardCreationPayload {
   bairro?: string
   cep?: string
   cidade?: string
-  codigoBandeira?: number
-  codigoCanal?: number
-  codigoEstadoCivil?: number
-  codigoProfissao?: number
+  codigoBandeira?: string
+  codigoCanal?: string
+  codigoEstadoCivil?: string
+  codigoProfissao?: string
   complemento?: string
   dataEmissaoDocumento?: string
   dataNascimento?: string
-  dddTelefone?: number
-  diaVencimento?: number
+  dddTelefone?: string
+  diaVencimento?: string
   email?: string
-  idSimulacao?: number
+  idSimulacao?: string
   logradouro?: string
   nacionalidade?: string
   nome?: string
   nomeMae?: string
-  numeroDocumentoIdentificacao?: number
-  numeroLogradouro?: number
-  numeroTelefone?: number
+  numeroDocumentoIdentificacao?: string
+  numeroLogradouro?: string
+  numeroTelefone?: string
   orgaoExpedidor?: string
   sexo?: string
   tipoDocumento?: string
   uf?: string
-  valorRenda?: number
+  valorRenda?: string
 }

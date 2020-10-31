@@ -6,16 +6,15 @@ import moment from 'moment'
 import Drawer from 'components/Drawer'
 import Modal from 'components/Modal/ModalNew'
 
-import CivilState from '../../../ThirdStep/Selects/CivilState'
 import Loading from 'components/Loading'
-import Ocupation from '../../../ThirdStep/Selects/Ocupation'
-import Gender from '../../../ThirdStep/Selects/Sex'
+import CivilState from 'pages/CreditCard/Creation/ThirdStep/Selects/CivilState'
+import Ocupation from 'pages/CreditCard/Creation/ThirdStep/Selects/Ocupation'
+import Gender from 'pages/CreditCard/Creation/ThirdStep/Selects/Sex'
 
 import { dict } from 'components/IconExporter'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 
 import useMedia from 'hooks/useMedia'
-import useFetchCustomerProfile from 'hooks/CustomerProfile/useFetchCustomerProfile'
 
 import * as s from './styles'
 import * as t from './types'
@@ -45,69 +44,79 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     null
   )
 
-  const [city, setCity] = useState('São Paulo')
+  const [city, setCity] = useState('')
   const [mothersName, setMothersName] = useState('')
   const [selectedCivilState, setSelectedCivilState] = useState<t.IOption>({
-    id: 1,
-    name: 'Solteiro',
+    id: 0,
+    name: '',
   })
   const [selectedGender, setSelectedGender] = useState<t.IOption>({
-    id: 1,
-    name: 'Masculino',
+    id: 0,
+    name: '',
   })
   const [selectedProfession, setSelectedProfession] = useState<t.IOption>({
-    id: 1,
-    name: 'Projetista',
+    id: 0,
+    name: '',
   })
 
-  useFetchCustomerProfile()
-
-  const { customerProfile, creditCardOccupation } = useSelector<any, any>(state => ({
-    customerProfile: state.customerProfile,
+  const {
+    creditCardClient,
+    isClientDataLoading,
+    creditCardOccupation,
+  } = useSelector<any, any>(state => ({
+    creditCardClient: state.creditCard.clientData,
+    isClientDataLoading: state.creditCard.isClientDataLoading,
     creditCardOccupation: state.creditCardOccupation,
   }))
 
   //Customer data
   useEffect(() => {
-    if (customerProfile.isLoading) {
+    if (isClientDataLoading) {
       setIsLoading(true)
     } else {
       setIsLoading(false)
     }
-    if (customerProfile.data) {
+    if (creditCardClient) {
       setCustomerData([
         {
           label: 'E-MAIL',
-          value: customerProfile.data.customerEmail,
+          value: creditCardClient.emailCliente,
         },
         {
           label: 'CPF',
-          value: formatCpf(customerProfile.data.cpfCnpj),
+          value: formatCpf(creditCardClient.cpfCnpj),
         },
         {
           label: 'DATA DE NASCIMENTO',
-          value: moment(customerProfile.data.customerBirthdate).format(
-            'DD/MM/YYYY'
-          ),
+          value: moment(creditCardClient.dataNascimento).format('DD/MM/YYYY'),
         },
         {
-          label: 'CELULAR',
-          value: `${customerProfile.data.customerAreaCode}${customerProfile.data.customerPhoneNumber}`.replace(
-            /(\d{2})(\d{1})(\d{4})(\d{4})/,
-            '($1) $2 $3-$4'
-          ),
+          label:
+            String(creditCardClient.numeroTelefone).length === 9
+              ? 'CELULAR'
+              : 'TELEFONE',
+          value:
+            String(creditCardClient.numeroTelefone).length === 9
+              ? `${creditCardClient.dddNumeroTelefone}${creditCardClient.numeroTelefone}`.replace(
+                  /(\d{2})(\d{1})(\d{4})(\d{4})/,
+                  '($1) $2 $3-$4'
+                )
+              : `${creditCardClient.dddNumeroTelefone}${creditCardClient.numeroTelefone}`.replace(
+                  /(\d{2})(\d{4})(\d{4})/,
+                  '($1) $2-$3'
+                ),
         },
       ])
     }
-  }, [customerProfile.data, customerProfile.isLoading])
+  }, [creditCardClient, isClientDataLoading])
 
   //Initial value
   useEffect(() => {
-    if (formData?.personalData?.city) {
-      setCity(formData.personalData.city)
+    if (formData?.cidade) {
+      setCity(formData.cidade)
     }
-    if (formData?.personalData?.mothersName) {
-      setMothersName(formData.personalData.mothersName)
+    if (formData?.nomeMae) {
+      setMothersName(formData.nomeMae)
     }
   }, [formData])
 
@@ -168,15 +177,18 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
           <CivilState
             selectedOption={selectedCivilState}
             setSelectedOption={setSelectedCivilState}
+            preSelectedCivilState={+formData.codigoEstadoCivil}
           />
           <Gender
             selectedOption={selectedGender}
             setSelectedOption={setSelectedGender}
+            preSelectedSex={formData.sexo === 'M' ? 'Masculino' : 'Feminino'}
           />
           <Ocupation
             selectedOption={selectedProfession}
             setSelectedOption={setSelectedProfession}
             creditCardOccupation={creditCardOccupation}
+            preSelectedOccupation={+formData.codigoProfissao}
           />
           <s.Input
             label="nome da mãe"
@@ -193,14 +205,11 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     handleClose()
     setFormData({
       ...formData,
-      personalData: {
-        ...formData.personalData,
-        city,
-        civilStatus: selectedCivilState,
-        gender: selectedGender,
-        profession: selectedProfession,
-        mothersName,
-      },
+      cidade: city,
+      codigoEstadoCivil: `${selectedCivilState.id}`,
+      sexo: selectedGender.name === 'Masculino' ? 'M' : 'F',
+      codigoProfissao: `${selectedProfession.id}`,
+      nomeMae: mothersName,
     })
   }
 

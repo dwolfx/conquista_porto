@@ -6,21 +6,30 @@ import { storeFactory } from 'setupTests'
 import FirstStep from './'
 import userEvent from '@testing-library/user-event'
 
-import * as t from './types'
-
-const defaultStore = {
-  customerProfile: {
-    data: {
-      customerEmail: 'email@sciensa.com.br',
-      cpfCnpj: '88888888888',
-      customerBirthdate: '1989-06-29T00:00:00-03:00',
-      customerAreaCode: '11',
-      customerPhoneNumber: '997257249',
+interface IDefaultStore {
+  creditCard: {
+    clientData: {
+      cpfCnpj: string
+      dataNascimento: string
+      dddNumeroTelefone: number
+      emailCliente: string
+      numeroTelefone: number
+    }
+  }
+}
+const defaultStore: IDefaultStore = {
+  creditCard: {
+    clientData: {
+      cpfCnpj: '00000000191',
+      dataNascimento: '1987-11-25T00:00:00-03:00',
+      dddNumeroTelefone: 11,
+      emailCliente: 'blablabla@whiskas.com',
+      numeroTelefone: 40028922,
     },
   },
 }
 
-const setup = (initialState: t.ICustomerProfile) => {
+const setup = (initialState: IDefaultStore) => {
   const store = storeFactory(initialState)
   return renderWithReduxAndTheme(<FirstStep onNextStep={() => {}} />, { store })
 }
@@ -41,31 +50,54 @@ describe('CreditCard FirstStep tests', () => {
       const { getByText } = setup(defaultStore)
 
       expect(getByText(/e-mail/i)).toBeDefined()
-      expect(getByText(/email@sciensa\.com\.br/i)).toBeDefined()
+      expect(getByText(/blablabla@whiskas\.com/i)).toBeDefined()
     })
-    it('should render CPF', () => {
+    it(`should render 'CPF' field and value`, () => {
       const { getByText } = setup(defaultStore)
 
       expect(getByText(/cpf/i)).toBeDefined()
-      expect(getByText(/888.888.888-88/i)).toBeDefined()
+      expect(getByText(/000.000.001-91/i)).toBeDefined()
     })
-    it('should render Data de Nascimento', () => {
+    it(`should render 'Data de Nascimento' field and value`, () => {
       const { getByText } = setup(defaultStore)
 
       expect(getByText(/data de nascimento/i)).toBeDefined()
-      expect(getByText(/29\/06\/1989/i)).toBeDefined()
+      expect(getByText(/25\/11\/1987/i)).toBeDefined()
     })
-    it('should render Celular', () => {
+    it(`should render 'Celular' field and value with 8 numbers`, () => {
       const { getByText } = setup(defaultStore)
 
       expect(getByText(/celular/i)).toBeDefined()
-      expect(getByText(/\(11\) 9 9725-7249/i)).toBeDefined()
+      expect(getByText(/\(11\) 4002-8922/i)).toBeDefined()
+    })
+    it(`should render 'Celular' field and value with 9 numbers`, () => {
+      const storeMock: IDefaultStore = {
+        creditCard: {
+          clientData: {
+            cpfCnpj: '00000000191',
+            dataNascimento: '1987-11-25T00:00:00-03:00',
+            dddNumeroTelefone: 11,
+            emailCliente: 'blablabla@whiskas.com',
+            numeroTelefone: 940028922,
+          },
+        },
+      }
+
+      const store = storeFactory(storeMock)
+      const { getByText } = renderWithReduxAndTheme(
+        <FirstStep onNextStep={() => {}} />,
+        { store }
+      )
+
+      expect(getByText(/celular/i)).toBeDefined()
+      expect(getByText(/\(11\) 9 4002-8922/i)).toBeDefined()
     })
   })
   describe('Buttons tests', () => {
     it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
       renderWithReduxAndTheme(<FirstStep onNextStep={() => {}} />)
 
+      //@ts-expect-error
       delete window.location
       window.location = {
         ...window.location,

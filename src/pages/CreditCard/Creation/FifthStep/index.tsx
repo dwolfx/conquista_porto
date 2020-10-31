@@ -9,13 +9,13 @@ import PersonalData from './PersonalData'
 import CardData from './CardData'
 import DeliveryData from './DeliveryData'
 
-import { ISummaryStepStep } from '../types'
+import { ISummaryStep } from 'pages/CreditCard/Creation/types'
 
 import { StyledCard } from './CardData/styles'
 import { GridContainer } from '../styles'
 import * as S from './styles'
 
-const FifthStep = ({ onSubmit }: ISummaryStepStep) => {
+const FifthStep = ({ formData, setFormData, onSubmit }: ISummaryStep) => {
   const [isChecked, setChecked] = useState(false)
 
   return (
@@ -37,7 +37,7 @@ const FifthStep = ({ onSubmit }: ISummaryStepStep) => {
               />
             </Col>
             <S.StyledCol lg={8} md={12}>
-              <PersonalData />
+              <PersonalData formData={formData} setFormData={setFormData} />
               <CardData />
               <DeliveryData />
 

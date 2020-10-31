@@ -8,34 +8,54 @@ import EditingPersonalData from '.'
 
 import * as t from './types'
 
-const defaultStore = {
-  customerProfile: {
-    data: {
-      customerEmail: 'email@sciensa.com.br',
+const defaultStore: t.IDefaultStore = {
+  creditCard: {
+    clientData: {
+      emailCliente: 'email@sciensa.com.br',
       cpfCnpj: '88888888888',
-      customerBirthdate: '1989-06-29T00:00:00-03:00',
-      customerAreaCode: '11',
-      customerPhoneNumber: '997257249',
+      dataNascimento: '1989-06-29T00:00:00-03:00',
+      dddNumeroTelefone: 11,
+      numeroTelefone: 997257249,
+      cep: '0918919',
+      codigoEstadoCivil: 1,
+      dataExpedicao: '2017-01-17T00:00:00-03:00',
+      estado: 'SP',
+      message: {
+        mensagem: 'SUCESSO',
+        tipoCritica: 'SUCESSO',
+      },
+      nomeCliente: 'Naruto Uzumaki',
+      nomeMae: 'Kushina Uzumaki',
+      numeroDocumento: 999999999,
+      numeroEnderecoResidencial: 321,
+      orgaoEmissor: 'DETRAN',
+      sexo: 'M',
+      tipoDocumento: 'CNH',
+    },
+    isClientDataLoading: false,
+  },
+  creditCardOccupation: {
+    data: {
+      profissoesVO: [
+        {
+          codUsuarioAlteracao: 'P0621470',
+          codProfissaoProduto: '1',
+          dataInclusao: '2015-12-17T11:22:40-02:00',
+          nome: 'MEDICO',
+          dataAlteracao: '2015-12-17T11:22:40-02:00',
+          codProduto: '0',
+        },
+      ],
     },
   },
 }
 
 const formData = {
-  personalData: {
-    email: 'teste@email.com',
-    CPF: '99999999999',
-    birthDate: '1989-06-29T00:00:00-03:00',
-    phone: '11999999999',
-    documentType: 'Passaporte',
-    documentNumber: '99888877x',
-    effectiveDate: '2020-06-20T00:00:00-03:00',
-    issuingBody: 'SSP/SP',
-    city: 'Rio de Janeiro',
-    civilStatus: 'solteiro',
-    gender: 'feminino',
-    profession: 'arquiteto',
-    mothersName: 'Dona Florinda',
-  },
+  cidade: 'Rio de Janeiro',
+  nomeMae: 'Dona Florinda',
+  codigoEstadoCivil: '2',
+  sexo: 'F',
+  codigoProfissao: '1',
 }
 
 const createRootContainer = () => {
@@ -48,7 +68,7 @@ const createRootContainer = () => {
   return container
 }
 
-const setup = (initialState: t.ICustomerProfile) => {
+const setup = (initialState: t.IDefaultStore) => {
   const store = storeFactory(initialState)
   return renderWithReduxAndTheme(
     <EditingPersonalData
@@ -66,7 +86,7 @@ describe('EditingPersonalData component', () => {
     expect(EditingPersonalData).toBeDefined()
   })
   it('should render Title', () => {
-    const { getByText } = renderWithReduxAndTheme(
+    renderWithReduxAndTheme(
       <EditingPersonalData
         isOpen
         handleClose={() => {}}
@@ -76,19 +96,19 @@ describe('EditingPersonalData component', () => {
       { container: createRootContainer() }
     )
 
-    expect(getByText(/alterar dados pessoais/i)).toBeDefined()
+    expect(screen.getByText(/alterar dados pessoais/i)).toBeDefined()
   })
   it('should render customer data', () => {
-    const { getByText } = setup(defaultStore)
+    setup(defaultStore)
 
-    expect(getByText(/e-mail/i)).toBeDefined()
-    expect(getByText(/email@sciensa\.com\.br/i)).toBeDefined()
-    expect(getByText(/cpf/i)).toBeDefined()
-    expect(getByText(/888.888.888-88/i)).toBeDefined()
-    expect(getByText(/data de nascimento/i)).toBeDefined()
-    expect(getByText(/29\/06\/1989/i)).toBeDefined()
-    expect(getByText(/celular/i)).toBeDefined()
-    expect(getByText(/\(11\) 9 9725-7249/i)).toBeDefined()
+    expect(screen.getByText(/e-mail/i)).toBeDefined()
+    expect(screen.getByText(/email@sciensa\.com\.br/i)).toBeDefined()
+    expect(screen.getByText(/cpf/i)).toBeDefined()
+    expect(screen.getByText(/888.888.888-88/i)).toBeDefined()
+    expect(screen.getByText(/data de nascimento/i)).toBeDefined()
+    expect(screen.getByText(/29\/06\/1989/i)).toBeDefined()
+    expect(screen.getByText(/celular/i)).toBeDefined()
+    expect(screen.getByText(/\(11\) 9 9725-7249/i)).toBeDefined()
   })
   describe('Buttons tests', () => {
     it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
@@ -160,17 +180,24 @@ describe('EditingPersonalData component', () => {
     })
   })
   it('should render loading state', () => {
-    const { getByTestId } = renderWithReduxAndTheme(
+    const storeMock = {
+      creditCard: {
+        clientData: null,
+        isClientDataLoading: true,
+      },
+    }
+    const store = storeFactory(storeMock)
+    renderWithReduxAndTheme(
       <EditingPersonalData
         isOpen
         handleClose={() => {}}
         formData={formData}
         setFormData={() => {}}
       />,
-      { container: createRootContainer() }
+      { store, container: createRootContainer() }
     )
 
-    expect(getByTestId(/loading-bar/i)).toBeDefined()
+    expect(screen.getByTestId(/loading-bar/i)).toBeDefined()
   })
   describe('Text inputs tests', () => {
     it('should render cityInput correctly', () => {
@@ -204,7 +231,7 @@ describe('EditingPersonalData component', () => {
       )
 
       const cityInput = screen.getByTestId('cidade')
-      expect(cityInput).toHaveValue('São Paulo')
+      expect(cityInput).toHaveValue('')
 
       const motherNameInput = screen.getByTestId('nome da mãe')
       expect(motherNameInput).toHaveValue('')
@@ -213,8 +240,8 @@ describe('EditingPersonalData component', () => {
   it('should render modal', () => {
     window.resizeTo(400, 600)
 
-    const { getByText } = setup(defaultStore)
+    setup(defaultStore)
 
-    expect(getByText(/alterar dados pessoais/i)).toBeDefined()
+    expect(screen.getByText(/alterar dados pessoais/i)).toBeDefined()
   })
 })
