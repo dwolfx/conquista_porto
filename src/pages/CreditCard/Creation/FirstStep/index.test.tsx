@@ -14,7 +14,8 @@ interface IDefaultStore {
       dddNumeroTelefone: number
       emailCliente: string
       numeroTelefone: number
-    }
+    },
+    isClientDataLoading: boolean
   }
 }
 const defaultStore: IDefaultStore = {
@@ -26,6 +27,7 @@ const defaultStore: IDefaultStore = {
       emailCliente: 'blablabla@whiskas.com',
       numeroTelefone: 40028922,
     },
+    isClientDataLoading: false
   },
 }
 
@@ -39,12 +41,24 @@ describe('CreditCard FirstStep tests', () => {
     expect(FirstStep).toBeDefined()
   })
   it('should render Title', () => {
-    const { getByText } = renderWithReduxAndTheme(
-      <FirstStep onNextStep={() => {}} />
-    )
+    setup(defaultStore)
 
-    expect(getByText(/confirme as informações abaixo/i)).toBeDefined()
+    expect(screen.getByText(/confirme as informações abaixo/i)).toBeDefined()
   })
+  it('should show Loading', () => {
+    const mockStore = {
+      creditCard: {
+        clientData: null,
+        isClientDataLoading: true,
+      }
+    }
+
+    const store = storeFactory(mockStore)
+    renderWithReduxAndTheme(<FirstStep onNextStep={() => {}} />, { store })
+
+    expect(screen.getByTestId('loading-bar')).toBeDefined()
+  })
+
   describe('Test user data', () => {
     it('should render E-mail', () => {
       const { getByText } = setup(defaultStore)
@@ -80,6 +94,7 @@ describe('CreditCard FirstStep tests', () => {
             emailCliente: 'blablabla@whiskas.com',
             numeroTelefone: 940028922,
           },
+          isClientDataLoading: false
         },
       }
 
@@ -93,9 +108,32 @@ describe('CreditCard FirstStep tests', () => {
       expect(getByText(/\(11\) 9 4002-8922/i)).toBeDefined()
     })
   })
+  it('should render footer text', () => {
+    setup(defaultStore)
+
+    expect(
+      screen.getByText(
+        /não se preocupe, a solicitação só será enviada após informarmos o cartão disponível para você./i
+      )
+    ).toBeDefined()
+  })
   describe('Buttons tests', () => {
     it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
-      renderWithReduxAndTheme(<FirstStep onNextStep={() => {}} />)
+      const mockStore = {
+        creditCard: {
+          clientData: {
+            cpfCnpj: '00000000191',
+            dataNascimento: '1987-11-25T00:00:00-03:00',
+            dddNumeroTelefone: 11,
+            emailCliente: 'blablabla@whiskas.com',
+            numeroTelefone: 40028922,
+          },
+          isClientDataLoading: false,
+        }
+      }
+
+      const store = storeFactory(mockStore)
+      renderWithReduxAndTheme(<FirstStep onNextStep={() => {}} />, { store })
 
       //@ts-expect-error
       delete window.location
@@ -107,30 +145,39 @@ describe('CreditCard FirstStep tests', () => {
       const updateAtProfileButton = screen.getByRole('button', {
         name: /alterar no perfil/i,
       })
+
       userEvent.click(updateAtProfileButton)
 
       expect(
         window.location.href.includes('portaldecliente/conquista/perfil?r=true')
       ).toBeTruthy()
     })
-    // it(`should trigger 'CONFIRMAR' button`, () => {
-    //   const onNextStepMock = jest.fn()
-    //   renderWithReduxAndTheme(<FirstStep onNextStep={onNextStepMock} />)
+    it(`should trigger 'CONFIRMAR' button`, () => {
+      const onNextStepMock = jest.fn()
+      const mockStore = {
+        creditCard: {
+          clientData: {
+            cpfCnpj: '00000000191',
+            dataNascimento: '1987-11-25T00:00:00-03:00',
+            dddNumeroTelefone: 11,
+            emailCliente: 'blablabla@whiskas.com',
+            numeroTelefone: 40028922,
+            codigoEstadoCivil: 1,
+            numeroDocumento: 123,
+            nomeCliente: 'Jose',
+          },
+          isClientDataLoading: false,
+        }
+      }
 
-    //   const confirmButton = screen.getByRole('button', { name: /confirmar/i })
-    //   userEvent.click(confirmButton)
-    //   expect(onNextStepMock).toHaveBeenCalled()
-    // })
-  })
-  it('should render footer text', () => {
-    const { getByText } = renderWithReduxAndTheme(
-      <FirstStep onNextStep={() => {}} />
-    )
+      const store = storeFactory(mockStore)
+      renderWithReduxAndTheme(<FirstStep onNextStep={onNextStepMock} />, { store })
 
-    expect(
-      getByText(
-        /não se preocupe, a solicitação só será enviada após informarmos o cartão disponível para você./i
-      )
-    ).toBeDefined()
+      const confirmButton = screen.getByRole('button', { name: /confirmar/i })
+
+      userEvent.click(confirmButton)
+
+      expect(confirmButton).toBeEnabled()
+    })
   })
 })

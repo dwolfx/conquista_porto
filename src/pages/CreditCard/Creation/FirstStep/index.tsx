@@ -20,6 +20,8 @@ import {
 import { GridContainer, WhiteContent } from '../styles'
 import * as s from './styles'
 import * as t from './types'
+import Loading from 'components/Loading'
+import Button from 'components/Button'
 
 const FirstStep = ({
   onNextStep,
@@ -32,11 +34,13 @@ const FirstStep = ({
     undefined
   )
 
-  const { creditCardClient, creditCardOffers, isLoadingCreditCardOffers } = useSelector(
+  const { creditCardClient, creditCardOffers, isLoadingCreditCardOffers, isClientDataLoading, hasClientDataError } = useSelector(
     (state: any) => ({
       creditCardClient: state.creditCard.clientData,
       creditCardOffers: state.creditCardOffer.data,
-      isLoadingCreditCardOffers: state.creditCardOffer.isLoading
+      isLoadingCreditCardOffers: state.creditCardOffer.isLoading,
+      isClientDataLoading: state.creditCard.isClientDataLoading,
+      hasClientDataError: state.creditCard.hasClientDataError,
     })
   )
 
@@ -96,7 +100,41 @@ const FirstStep = ({
     }
   }
 
+  const FirstStepErrorState = () => {
+    const dispatch = useDispatch()
+    return (
+      <s.ErrorWrapper>
+        <s.ErrorText>
+          Desculpe, não foi possível carregar suas informações. Aguarde alguns
+          instantes e tente novamente.
+        </s.ErrorText>
+
+        <Button
+          data-gtm-subname="primeira etapa - cartão de crédito"
+          data-gtm-name="tentar novamente"
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          color="primary"
+          onClick={() => dispatch(GetCreditCardClientDataRequest({ addToast }))}>
+            tentar novamente
+        </Button>
+      </s.ErrorWrapper>
+    )
+  }
+
   const renderContent = () => {
+    if(hasClientDataError){
+      return <FirstStepErrorState />
+    }
+
+    if(isClientDataLoading){
+      return (
+        <s.LoadingWrapper>
+          <Loading type="bar" legend="Aguarde, estamos buscando suas informações..."/>
+        </s.LoadingWrapper>
+      )
+    }
+
     return (
       <>
         <s.Title>Confirme as informações abaixo</s.Title>
@@ -113,7 +151,7 @@ const FirstStep = ({
                 {index === 3 ? null : <s.Divisor />}
               </React.Fragment>
             ))
-          : null}
+            : null}
 
         <s.Button
           outline

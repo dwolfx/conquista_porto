@@ -73,3 +73,29 @@ export const FooterText = styled(Text).attrs(() => ({
   text-align: center;
   margin-top: ${({ theme }) => theme.spacing(3)}px;
 `
+
+export const LoadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 308px;
+  width: 100%;
+`
+export const ErrorWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+  margin: ${({ theme }) => `0 ${theme.spacing(5)}px`};
+`
+
+export const ErrorText = styled(Text).attrs(() => ({
+  type: 'headline',
+  color: 'magenta2',
+}))`
+  margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+  text-align: center;
+`
