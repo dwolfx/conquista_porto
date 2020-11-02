@@ -7,6 +7,7 @@ import Loading from 'components/Loading'
 import Text from 'components/Text'
 
 import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
+import { IObjectManagement } from 'store/modules/ObjectiveManagement/types'
 
 import ChartItems from './components/ChartItems'
 import {
@@ -18,8 +19,15 @@ import {
   MonthsContainer,
 } from './styles'
 
-export default function HorizontalChart({ data, isLoading }) {
-  const [indexSelectedYear, setIndexSelectedYear] = useState(null)
+interface IProps {
+  data: IObjectManagement
+  isLoading: boolean
+}
+
+export default function HorizontalChart({ data, isLoading }: IProps) {
+  const [indexSelectedYear, setIndexSelectedYear] = useState<number | null>(
+    null
+  )
   useEffect(() => {
     setIndexSelectedYear(
       data && data.years
@@ -32,7 +40,7 @@ export default function HorizontalChart({ data, isLoading }) {
     if (indexSelectedYear === 0) {
       setIndexSelectedYear(data.years.length - 1)
     } else {
-      setIndexSelectedYear(indexSelectedYear - 1)
+      setIndexSelectedYear(indexSelectedYear! - 1)
     }
   }
 
@@ -40,7 +48,7 @@ export default function HorizontalChart({ data, isLoading }) {
     if (indexSelectedYear === data.years.length - 1) {
       setIndexSelectedYear(0)
     } else {
-      setIndexSelectedYear(indexSelectedYear + 1)
+      setIndexSelectedYear(indexSelectedYear! + 1)
     }
   }
 
@@ -132,27 +140,4 @@ export default function HorizontalChart({ data, isLoading }) {
       </ChartContainer>
     </Card>
   ) : null
-}
-
-HorizontalChart.propTypes = {
-  data: PropTypes.shape({
-    total_balance: PropTypes.number,
-    years: PropTypes.arrayOf(
-      PropTypes.shape({
-        month_map: PropTypes.shape({}),
-        year: PropTypes.number,
-      })
-    ),
-    conquered: PropTypes.bool,
-  }),
-  isLoading: PropTypes.bool,
-}
-
-HorizontalChart.defaultProps = {
-  data: {
-    total_balance: 0,
-    years: [],
-    conquered: false,
-  },
-  isLoading: false,
 }

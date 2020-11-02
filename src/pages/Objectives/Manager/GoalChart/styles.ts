@@ -14,7 +14,7 @@ export const ChartContainer = styled.div`
   height: 322px;
   margin-top: 35px;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     align-items: flex-start;
     height: 700px;
     margin-top: 49px;
@@ -36,25 +36,25 @@ export const NextButton = styled(IconButton).attrs(() => ({
   color: 'transparent',
 }))``
 
-export const ChartItemContainer = styled.div`
+interface IChartItemContainer {
+  flexDirection?: 'row' | 'column'
+}
+
+export const ChartItemContainer = styled.div<IChartItemContainer>`
   display: flex;
   justify-content: center;
-  flex-direction: ${props => props.flexDirection};
   align-items: flex-end;
   position: relative;
+  ${({ flexDirection }) =>
+    flexDirection &&
+    css`
+      flex-direction: ${flexDirection};
+    `};
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-  }
-
-  ${props => props.labelMoment} {
-    min-height: 220px;
-
-    @media ${props => props.theme.mediaQueries.sm} {
-      min-height: inherit;
-    }
   }
 `
 
@@ -76,19 +76,26 @@ const scaleX = keyframes`
   }
 `
 
-export const ChartItem = styled.div`
-  width: ${props => `${props.width}px`};
-  height: ${props => `${props.height}px`};
+interface IChartItem {
+  missingDepositPercentage: number
+  depositPercentage: number
+  height: number
+  width: number
+}
+
+export const ChartItem = styled.div<IChartItem>`
+  width: ${({ width }) => `${width}px`};
+  height: ${({ height }) => `${height}px`};
   border-radius: 7px 7px 0px 0px;
-  background-color: ${props => props.theme.colors.gray2};
+  background-color: ${({ theme }) => theme.colors.gray2};
   position: relative;
   overflow: hidden;
 
   &:before {
     content: '';
     width: 100%;
-    height: ${props => `${props.missingDepositPercentage}%`};
-    background-color: ${props => props.theme.colors.magenta2};
+    height: ${({ missingDepositPercentage }) => `${missingDepositPercentage}%`};
+    background-color: ${({ theme }) => theme.colors.magenta2};
     display: block;
     animation: ${scaleY} 0.3s ease-out 0s 1 backwards;
     transform-origin: bottom center;
@@ -97,8 +104,8 @@ export const ChartItem = styled.div`
   &:after {
     content: '';
     width: 100%;
-    height: ${props => `${props.depositPercentage}%`};
-    background-color: ${props => props.theme.colors.blue4};
+    height: ${({ depositPercentage }) => `${depositPercentage}%`};
+    background-color: ${({ theme }) => theme.colors.blue4};
     display: block;
     position: absolute;
     bottom: 0;
@@ -106,7 +113,7 @@ export const ChartItem = styled.div`
     transform-origin: bottom center;
   }
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     border-radius: 0px 7px 7px 0px;
 
     &:before {
@@ -149,7 +156,7 @@ export const ChartEvolutionWrapper = styled.div`
   justify-content: center;
   border-bottom: 2px dashed #ccc;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     border-bottom: none;
     flex-direction: column;
     border-left: 2px dashed #ccc;
@@ -166,7 +173,7 @@ export const MonthsContainer = styled.div`
   justify-content: center;
   flex-direction: row;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: space-evenly;
     flex-direction: column;
     height: 100%;
@@ -183,36 +190,40 @@ const indicatorStyle = css`
   position: absolute;
   z-index: 1;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     width: 70%;
     height: 0;
   }
 `
 
 const indicatorAfterSelectorStyle = css`
-  ${props => props.theme.fontTypes.captionUppercase};
-  color: ${props => props.theme.colors.gray5};
+  ${({ theme }) => theme.fontTypes.captionUppercase};
+  color: ${({ theme }) => theme.colors.gray5};
   position: absolute;
   top: -14px;
   transform: translate(-50%, -50%);
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     top: 0;
     right: -91px;
   }
 `
 
-export const StartOrEndIndicator = styled.div`
+interface IStartOrEndIndicator {
+  content: string
+}
+
+export const StartOrEndIndicator = styled.div<IStartOrEndIndicator>`
   ${indicatorStyle};
   :after {
-    content: ${props => `'${props.content}'`};
+    content: ${({ content }) => `'${content}'`};
     ${indicatorAfterSelectorStyle}
   }
 `
 
 export const DepositTextValue = styled.span`
   font-weight: normal;
-  color: ${props => props.theme.colors.gray6};
+  color: ${({ theme }) => theme.colors.gray6};
 `
 
 export const CustomDropdownWrapper = styled(Col)`
@@ -221,12 +232,12 @@ export const CustomDropdownWrapper = styled(Col)`
   z-index: 1;
 `
 export const CustomSelectDropdown = styled(SelectDropdown)`
-  background-color: ${props => props.theme.colors.gray1};
+  background-color: ${({ theme }) => theme.colors.gray1};
   margin: 14px auto;
   border-radius: 7px;
   text-align: left;
   padding-left: 14px;
-  font-size: ${props => props.theme.fontTypes.heading4};
+  font-size: ${({ theme }) => theme.fontTypes.heading4};
 
   &:before {
     background-color: transparent;
@@ -243,7 +254,7 @@ export const CustomSelectDropdown = styled(SelectDropdown)`
   }
 
   ${Option} {
-    background-color: ${props => props.theme.colors.gray1};
+    background-color: ${({ theme }) => theme.colors.gray1};
     padding: 7px 14px;
   }
 
@@ -260,7 +271,7 @@ export const TopInfoContentPopover = styled.div`
 `
 
 export const IdealMomentLabel = styled.div`
-  border-bottom: 1px solid ${props => props.theme.colors.gray3};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
   margin-top: -98px;
   min-width: 240px;
   padding-bottom: 14px;
@@ -268,7 +279,7 @@ export const IdealMomentLabel = styled.div`
   top: 0%;
   z-index: 1;
 
-  @media ${props => props.theme.mediaQueries.sm} {
+  @media ${({ theme }) => theme.mediaQueries.sm} {
     max-width: 140px;
     min-width: inherit;
     right: 0;

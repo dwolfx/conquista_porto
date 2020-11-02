@@ -7,6 +7,7 @@ import Text from 'components/Text'
 import Loading from 'components/Loading'
 
 import { LoadingStateContainer } from 'pages/Objectives/Manager/styles'
+import { IObjectManagement } from 'store/modules/ObjectiveManagement/types'
 
 import ChartItems from './components/ChartItems'
 import {
@@ -19,10 +20,28 @@ import {
 
 const currentYear = moment().year()
 
-export default function VerticalChart({ data, isLoading, isMobile }) {
-  const [indexSelectedYear, setIndexSelectedYear] = useState(null)
+interface IProps {
+  data: IObjectManagement
+  isLoading: boolean
+  isMobile: boolean
+}
+
+export default function VerticalChart({
+  data,
+  isLoading,
+  isMobile = true,
+}: IProps) {
+  const [indexSelectedYear, setIndexSelectedYear] = useState<number | null>(
+    null
+  )
   const [selectedOptionValue, setSelectedOptionValue] = useState(currentYear)
-  const [options, setOptions] = useState(null)
+  const [options, setOptions] = useState<
+    | {
+        name: string
+        value: number
+      }[]
+    | null
+  >(null)
 
   useEffect(() => {
     if (!selectedOptionValue) {
@@ -121,29 +140,4 @@ export default function VerticalChart({ data, isLoading, isMobile }) {
       </ChartContainer>
     </Card>
   )
-}
-
-VerticalChart.propTypes = {
-  data: PropTypes.shape({
-    total_balance: PropTypes.number,
-    years: PropTypes.arrayOf(
-      PropTypes.shape({
-        month_map: PropTypes.shape({}),
-        year: PropTypes.number,
-      })
-    ),
-    conquered: PropTypes.bool,
-  }),
-  isLoading: PropTypes.bool,
-  isMobile: PropTypes.bool,
-}
-
-VerticalChart.defaultProps = {
-  data: {
-    total_balance: 0,
-    years: [],
-    conquered: false,
-  },
-  isLoading: false,
-  isMobile: true,
 }

@@ -1,6 +1,10 @@
 import moment from 'moment'
 
-export function calculateDepositPercentages(monthObject, monthNumber, year) {
+export function calculateDepositPercentages(
+  monthObject: any,
+  monthNumber: number,
+  year: number
+) {
   let depositPercentage = 0
 
   if (!monthObject) {
@@ -46,7 +50,7 @@ export function calculateDepositPercentages(monthObject, monthNumber, year) {
   }
 }
 
-export function calcBarSize(monthNumber, vertical) {
+export function calcBarSize(monthNumber: number, vertical: boolean) {
   const scale = vertical ? 14 : 20
   return monthNumber * scale
 }
