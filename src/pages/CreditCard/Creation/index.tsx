@@ -19,8 +19,9 @@ import FirstStep from './FirstStep'
 import ThirdStep from './ThirdStep'
 import ForthStep from './ForthStep'
 import FifthStep from './FifthStep'
+import FinalStep from './FinalStep'
 
-import { ICreditCardCreationPayload } from './types'
+import { ICreditCardCreationPayload, IOrderResponse } from './types'
 import {
   HeaderContent,
   LogoWrapper,
@@ -45,6 +46,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   const isMobile = useMedia('xs')
   const [step, setStep] = useState<steps>(1)
   const [formData, setFormData] = useState<ICreditCardCreationPayload>({}) // form object
+  const [formResponse, setFormResponse] = useState<IOrderResponse>({})
 
   useEffect(() => {
     dispatch(GetCreditCardExpirationDaysRequest())
@@ -60,7 +62,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     setStep(prevState => (prevState - 1) as steps)
   }
 
-  const goNext = (stepAnswers: ICreditCardCreationPayload) => {
+  const goNext = useCallback((stepAnswers: ICreditCardCreationPayload) => {
     if (step < 5) {
       setStep(prevState => (prevState + 1) as steps)
     }
@@ -69,7 +71,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       ...currentFormState,
       ...stepAnswers,
     }))
-  }
+  }, [step])
 
   const getStepCount = () => {
     return [
@@ -84,7 +86,12 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
       formData
     )
-  }, [formData])
+
+    if (data) {
+      setFormResponse(data);
+      goNext({});
+    }
+  }, [formData, goNext])
 
   // Each step goes here
   const content = [
@@ -96,6 +103,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       setFormData={setFormData}
       onSubmit={handlePostSubmit}
     />,
+    <FinalStep formData={formData} formOrderResponse={formResponse}/>
   ]
 
   const getContent = () => {

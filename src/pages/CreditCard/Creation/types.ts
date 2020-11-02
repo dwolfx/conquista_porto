@@ -58,3 +58,12 @@ export interface ICreditCardCreationPayload {
   uf?: string
   valorRenda?: string
 }
+
+export interface IOrderResponse {
+  codigoRetorno?: number,
+  mensagem?: {
+    mensagem?: string,
+    tipoCritica?: string
+  },
+  numeroProposta?: number
+}
