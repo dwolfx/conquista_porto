@@ -2,21 +2,18 @@ import React from 'react'
 
 import Select from 'components/Inputs/Select'
 import { TOptions, TSelected } from 'components/Inputs/Select/types'
-import { IOption } from '../../../types'
-import * as S from '../../styles'
 import {
-  IResponse,
+  ICreditCardOccupationState,
   Occupation,
 } from 'store/modules/CreditCard/Occupation/types'
+
+import { IOption } from '../../types'
+import * as S from '../styles'
 
 interface IProps {
   selectedOption: IOption
   setSelectedOption: (ocupation: IOption) => void
-  creditCardOccupation: {
-    data: IResponse
-    hasError: boolean
-    isLoading: boolean
-  }
+  creditCardOccupation: ICreditCardOccupationState
   preSelectedOccupation?: number
 }
 

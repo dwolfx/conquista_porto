@@ -6,6 +6,6 @@ export interface ICardData {
 }
 
 export interface IOptions {
-  id: number
-  name: '' | 'Visa' | 'Mastercard'
+  id: number | string
+  name: string
 }

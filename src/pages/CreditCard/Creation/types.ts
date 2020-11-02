@@ -17,7 +17,7 @@ export interface ISummaryStep {
 }
 
 export interface IOption {
-  id: number
+  id: number | string
   name: string
 }
 

@@ -27,7 +27,9 @@ const EditingCardData: React.FC<t.ICardData> = ({
     id: 1,
     name: 'Mastercard',
   })
-  const [selectedDueDateOption, setSelectedDueDateOption] = useState({
+  const [selectedDueDateOption, setSelectedDueDateOption] = useState<
+    t.IOptions
+  >({
     id: 1,
     name: '01',
   })

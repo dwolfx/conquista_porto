@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Drawer from 'components/Drawer'
 import Modal from 'components/Modal/ModalNew'
 
-import BrazilianStatesSelect from './BrazilianStates'
+import BrazilianStatesSelect from 'pages/CreditCard/Creation/common/BrazilianStates'
 
 import useMedia from 'hooks/useMedia'
 

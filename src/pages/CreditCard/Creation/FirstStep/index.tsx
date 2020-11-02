@@ -27,13 +27,15 @@ const FirstStep = ({
     undefined
   )
 
-  useEffect(() => {
-    dispatch(GetCreditCardClientDataRequest({ addToast }))
-  }, [dispatch, addToast])
+  const { clientData: creditCardClient } = useSelector(
+    (state: t.IState) => state.creditCard
+  )
 
-  const { creditCardClient } = useSelector((state: t.IState) => ({
-    creditCardClient: state.creditCard.clientData,
-  }))
+  useEffect(() => {
+    if (!creditCardClient) {
+      dispatch(GetCreditCardClientDataRequest({ addToast }))
+    }
+  }, [dispatch, creditCardClient, addToast])
 
   useEffect(() => {
     if (creditCardClient) {
@@ -59,70 +61,83 @@ const FirstStep = ({
     }
   }, [creditCardClient])
 
+  const renderContent = () => {
+    return (
+      <>
+        <s.Title>Confirme as informações abaixo</s.Title>
+
+        {customerData
+          ? Object.entries(customerData).map(([key, value], index) => (
+              <React.Fragment key={uuid()}>
+                <VerticalList
+                  elements={[
+                    <s.Label>{t.EInputsLabel[key as t.TEnumKeys]}</s.Label>,
+                    <s.Value>{value}</s.Value>,
+                  ]}
+                />
+                {index === 3 ? null : <s.Divisor />}
+              </React.Fragment>
+            ))
+          : null}
+
+        <s.Button
+          outline
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname={'primeira etapa - cartão de crédito'}
+          data-gtm-name="alterar no perfil"
+          onClick={() => {
+            handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
+          }}
+        >
+          ALTERAR NO PERFIL
+        </s.Button>
+        <s.Button
+          data-gtm-type="click"
+          data-gtm-clicktype="button"
+          data-gtm-subname={'primeira etapa - cartão de crédito'}
+          data-gtm-name="confirmar"
+          onClick={() => {
+            let stepAnswers: ICreditCardCreationPayload = {}
+
+            if (creditCardClient) {
+              stepAnswers = {
+                cep: creditCardClient.cep,
+                codigoEstadoCivil: creditCardClient.codigoEstadoCivil.toString(),
+                dataEmissaoDocumento: creditCardClient.dataExpedicao,
+                dataNascimento: creditCardClient.dataNascimento,
+                dddTelefone: creditCardClient.dddNumeroTelefone.toString(),
+                email: creditCardClient.emailCliente,
+                nome: creditCardClient.nomeCliente,
+                nomeMae: creditCardClient.nomeMae,
+                numeroDocumentoIdentificacao: creditCardClient.numeroDocumento.toString(),
+                numeroTelefone: creditCardClient.numeroTelefone.toString(),
+                orgaoExpedidor: creditCardClient.orgaoEmissor,
+                sexo: creditCardClient.sexo,
+                tipoDocumento: creditCardClient.tipoDocumento,
+                uf: creditCardClient.estado,
+              }
+            }
+            onNextStep(stepAnswers)
+          }}
+        >
+          CONFIRMAR
+        </s.Button>
+        <s.Divisor />
+        <s.FooterText>
+          Não se preocupe, a solicitação só será enviada após informarmos o
+          cartão disponível para você.
+        </s.FooterText>
+      </>
+    )
+  }
+
   return (
     <WhiteContent>
       <GridContainer>
         <s.GridRow {...rest}>
           <s.GridCol lg={4} md={6} sm={7} xs={12}>
-            <s.InfoContainer>
-              <s.Title>Confirme as informações abaixo</s.Title>
-
-              {customerData
-                ? Object.entries(customerData).map(([key, value], index) => (
-                    <React.Fragment key={uuid()}>
-                      <VerticalList
-                        elements={[
-                          <s.Label>
-                            {t.EInputsLabel[key as t.TEnumKeys]}
-                          </s.Label>,
-                          <s.Value>{value}</s.Value>,
-                        ]}
-                      />
-                      {index === 3 ? null : <s.Divisor />}
-                    </React.Fragment>
-                  ))
-                : null}
-
-              <s.Button
-                outline
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                data-gtm-subname={'primeira etapa - cartão de crédito'}
-                data-gtm-name="alterar no perfil"
-                onClick={() => {
-                  handleGiwRedirect('portaldecliente/conquista/perfil?r=true')
-                }}
-              >
-                ALTERAR NO PERFIL
-              </s.Button>
-              <s.Button
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-                data-gtm-subname={'primeira etapa - cartão de crédito'}
-                data-gtm-name="confirmar"
-                onClick={() => {
-                  let stepAnswers: ICreditCardCreationPayload = {}
-
-                  if (creditCardClient) {
-                    stepAnswers = {
-                      ...customerData,
-                      tipoDocumento: 'CPF',
-                      numeroDocumentoIdentificacao: creditCardClient.cpfCnpj,
-                      dddTelefone: String(creditCardClient.dddNumeroTelefone),
-                      numeroTelefone: String(creditCardClient.numeroTelefone),
-                    }
-                  }
-                  onNextStep(stepAnswers)
-                }}
-              >
-                CONFIRMAR
-              </s.Button>
-              <s.Divisor />
-              <s.FooterText>
-                Não se preocupe, a solicitação só será enviada após informarmos
-                o cartão disponível para você.
-              </s.FooterText>
-            </s.InfoContainer>
+            <s.InfoContainer>{renderContent()}</s.InfoContainer>
           </s.GridCol>
         </s.GridRow>
       </GridContainer>

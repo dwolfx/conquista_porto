@@ -7,9 +7,11 @@ import Drawer from 'components/Drawer'
 import Modal from 'components/Modal/ModalNew'
 
 import Loading from 'components/Loading'
-import CivilState from 'pages/CreditCard/Creation/ThirdStep/Selects/CivilState'
-import Ocupation from 'pages/CreditCard/Creation/ThirdStep/Selects/Ocupation'
-import Gender from 'pages/CreditCard/Creation/ThirdStep/Selects/Sex'
+import CivilState from 'pages/CreditCard/Creation/common/CivilState'
+import { ECivilStateLabel } from 'pages/CreditCard/Creation/common/CivilState/types'
+import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
+import Gender from 'pages/CreditCard/Creation/common/Sex'
+import { ESexLabel } from 'pages/CreditCard/Creation/common/Sex/types'
 
 import { dict } from 'components/IconExporter'
 import { formatCpf, handleGiwRedirect } from 'helpers'
@@ -112,11 +114,23 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
 
   //Initial value
   useEffect(() => {
-    if (formData?.cidade) {
-      setCity(formData.cidade)
-    }
-    if (formData?.nomeMae) {
+    if (formData.nomeMae) {
       setMothersName(formData.nomeMae)
+    }
+    if (formData.codigoEstadoCivil) {
+      setSelectedCivilState({
+        id: formData.codigoEstadoCivil,
+        name: ECivilStateLabel[formData.codigoEstadoCivil],
+      })
+    }
+    if (formData.sexo) {
+      setSelectedGender({
+        id: formData.sexo,
+        name: ESexLabel[formData.sexo as 'M' | 'F'],
+      })
+    }
+    if (formData.cidade) {
+      setCity(formData.cidade)
     }
   }, [formData])
 
@@ -182,7 +196,7 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
           <Gender
             selectedOption={selectedGender}
             setSelectedOption={setSelectedGender}
-            preSelectedSex={formData.sexo === 'M' ? 'Masculino' : 'Feminino'}
+            preSelectedSex={formData.sexo}
           />
           <Ocupation
             selectedOption={selectedProfession}

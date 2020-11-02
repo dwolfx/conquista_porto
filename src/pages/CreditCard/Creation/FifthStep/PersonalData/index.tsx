@@ -87,11 +87,17 @@ const PersonalData = ({
           <Divisor />
           <DataShower label="Cidade" value={formData.cidade} />
           <Divisor />
-          <DataShower label="Estado Civil" value={formData.codigoEstadoCivil} />
+          <DataShower
+            label="Estado Civil"
+            value={formData.codigoEstadoCivil?.toString()}
+          />
           <Divisor />
           <DataShower label="Sexo" value={formData.sexo} />
           <Divisor />
-          <DataShower label="Ocupação" value={formData.codigoProfissao} />
+          <DataShower
+            label="Ocupação"
+            value={formData.codigoProfissao?.toString()}
+          />
           <Divisor />
           <DataShower label="Nome da mãe" value={formData.nomeMae} />
         </S.Wrapper>

@@ -6,13 +6,16 @@ import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupat
 import { dict } from 'components/IconExporter'
 import Divisor from 'components/Divisor'
 
-import CivilState from './Selects/CivilState'
-import Sex from './Selects/Sex'
-import Ocupation from './Selects/Ocupation'
+import CivilState from 'pages/CreditCard/Creation/common/CivilState'
+import { ECivilStateLabel } from 'pages/CreditCard/Creation/common/CivilState/types'
+import Sex from 'pages/CreditCard/Creation/common/Sex'
+import { ESexLabel } from 'pages/CreditCard/Creation/common/Sex/types'
+import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
 
 import { IStepComponent, IOption } from '../types'
 
 import { GridContainer } from '../styles'
+import { IState } from './types'
 import * as S from './styles'
 
 const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
@@ -25,35 +28,30 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
     message: 'O nome informado não é válido.',
   }
   const dispatch = useDispatch()
-  const { creditCardOccupation } = useSelector((state: any) => ({
+  const { creditCardOccupation } = useSelector((state: IState) => ({
     creditCardOccupation: state.creditCardOccupation,
   }))
   const [city, setCity] = useState('')
   const [motherName, setMotherName] = useState('')
   const [errors, setErrors] = useState({ mother: false, city: false })
   const [selectedCivilState, setSelectedCivilState] = useState<IOption>({
-    id: 0,
+    id: -1,
     name: '',
   })
-  const [selectedSex, setSelectedSex] = useState<IOption>({ id: 0, name: '' })
+  const [selectedSex, setSelectedSex] = useState<IOption>({ id: -1, name: '' })
   const [selectedOcupation, setSelectedOcupation] = useState<IOption>({
-    id: 0,
+    id: -1,
     name: '',
   })
-  const hasAnyError =
-    !motherName.length ||
-    !city.length ||
-    selectedCivilState.id === 0 ||
-    selectedSex.id === 0 ||
-    selectedOcupation.id === 0
+  const [hasAnyError, setHasAnyError] = useState(true)
 
   const handleOnClick = () => {
     onNextStep({
       cidade: city,
       nomeMae: motherName,
-      codigoEstadoCivil: String(selectedCivilState.id),
-      codigoProfissao: String(selectedOcupation.id),
-      sexo: selectedSex.name,
+      codigoEstadoCivil: selectedCivilState.id.toString(),
+      codigoProfissao: selectedOcupation.id.toString(),
+      sexo: selectedSex.id.toString(),
     })
   }
 
@@ -67,10 +65,43 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
     if (formData.nomeMae) {
       setMotherName(formData.nomeMae)
     }
+    if (formData.codigoEstadoCivil) {
+      setSelectedCivilState({
+        id: formData.codigoEstadoCivil,
+        name: ECivilStateLabel[+formData.codigoEstadoCivil],
+      })
+    }
+    if (formData.sexo) {
+      console.log(formData.sexo)
+      setSelectedSex({
+        id: formData.sexo,
+        name: ESexLabel[formData.sexo as 'M' | 'F'],
+      })
+    }
+    if (formData.codigoProfissao) {
+      const selectedOccupationName = creditCardOccupation.data?.profissoesVO
+        .flatMap(item => item)
+        .find(item => formData.codigoProfissao === item.codProfissaoProduto)
+
+      setSelectedOcupation({
+        id: formData.codigoProfissao,
+        name: selectedOccupationName ? selectedOccupationName.nome : '',
+      })
+    }
     if (formData.cidade) {
       setCity(formData.cidade)
     }
-  }, [formData])
+  }, [formData, creditCardOccupation.data])
+
+  useEffect(() => {
+    setHasAnyError(
+      !motherName.length ||
+        !city.length ||
+        selectedCivilState.id === -1 ||
+        selectedSex.id === -1 ||
+        selectedOcupation.id === -1
+    )
+  }, [motherName, city, selectedCivilState, selectedSex, selectedOcupation])
 
   return (
     <S.Wrapper>
