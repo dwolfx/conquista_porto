@@ -28,6 +28,8 @@ servers:
     variables:
       basePath:
         default: "api"
+  - url: "https://swagger.conquista.sciensa.click/conquista/cartoes/https:/apihml.portoseguro.brasil:8443"
+    description: API DEV Cartões
 
 tags:
   - name: Cliente Authentication (login)
@@ -234,6 +236,196 @@ paths:
         500:
           $ref: "#/components/responses/InternalServerError"
 
+  /investimento/aws/v1/cartoes/dados/cliente/cadastrado:
+    get:
+      description: Pesquisa aplicações
+      tags:
+        - Cartões
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              example:
+                cep: 0918919
+                codigoEstadoCivil: 1
+                cpfCnpj: 00000000191
+                dataExpedicao: 2017-01-17T00:00:00-03:00
+                dataNascimento: 1987-11-25T00:00:00-03:00
+                dddNumeroTelefone: 11
+                emailCliente: blablabla@whiskas.com
+                estado: SP
+                message:
+                  mensagem: SUCESSO
+                  tipoCritica: SUCESSO
+                nomeCliente: Naruto Uzumaki
+                nomeMae: Kushina Uzumaki
+                numeroDocumento: 999999999
+                numeroEnderecoResidencial: 321
+                numeroTelefone: 40028922
+                orgaoEmissor: DETRAN
+                sexo: M
+                tipoDocumento: CNH
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /investimento/aws/v1/cartoes/dia/vencimento:
+    get:
+      description: Pesquisa Dias de Vencimento
+      tags:
+        - Cartões
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: codigo_canal
+          in: query
+          description: codigo_canal
+          required: true
+          schema:
+            type: string
+          example: 14
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              example:
+                bandeiras:
+                  bandeira: VISA
+                  codBandeira: 1
+                  descricao: 1
+                codRetorno: 0
+                msgRetorno: Consulta realizada com sucesso
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /investimento/aws/v1/cartoes/ofertas:
+    get:
+      description: Obter Ofertas de Cartão
+      tags:
+        - Cartões
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: codigoCanal
+          required: true
+          schema:
+            type: string
+          example: 1
+        - in: query
+          name: dataNascimento
+          required: true
+          schema:
+            type: string
+          example: 10/06/1984
+        - in: query
+          name: nome
+          required: true
+          schema:
+            type: string
+          example: Rafael Rodrigues
+        - in: query
+          name: uf
+          required: true
+          schema:
+            type: string
+          example: SP
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              example:
+                codigoOferta: 3
+                codigoRetorno: 0
+                idSimulacao: 1503
+                mensagem:
+                  mensagem: SUCESSO
+                  tipoCritica: SUCESSO
+                mensagemOferta: Cartões Visa e Master disponíveis.
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /investimento/aws/v1/cartoes/profissoes:
+    get:
+      description: Pesquisa Profissoes
+      tags:
+        - Cartões
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              example:
+                descricaoErro: Profissoes buscadas com sucesso.
+                profissoesVO:
+                  - codProduto: 0
+                    codProfissaoProduto: 1
+                    codUsuarioAlteracao: P0621470
+                    dataAlteracao: 2015-12-17T11:22:40-02:00
+                    dataInclusao: 2015-12-17T11:22:40-02:00
+                    nome: MÉDICO
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /investimento/aws/v1/cartoes/solicitacao:
+    post:
+      description: Solicitar Cartão de Crédito
+      tags:
+        - Cartões
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SolicitarCartaoCreditoRequest"
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              example:
+                codigoRetorno: 0
+                mensagem:
+                  mensagem: SUCESSO
+                  tipoCritica: SUCESSO
+                numeroProposta: 85398
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
   ################################################################################
   #                                  Consorcios                                  #
   ################################################################################
@@ -388,7 +580,6 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-
 
   ################################################################################
   #                                 financiamento                                #
@@ -790,6 +981,8 @@ components:
       $ref: "./components/schemas/pontos.yaml#/PontosConsultar"
     CartaoCredito:
       $ref: "./components/schemas/cartao.yaml#/CartaoCredito"
+    SolicitarCartaoCreditoRequest:
+      $ref: "./components/schemas/cartao.yaml#/SolicitarCartaoCreditoRequest"
 
   responses:
     Conflict:
