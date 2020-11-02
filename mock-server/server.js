@@ -44,6 +44,8 @@ require('./routes/programa-pontos')(app, urlBase);
 require('./routes/produtos')(app, urlBase);
 require('./routes/fundos')(app, urlBase);
 require('./routes/atlas')(app, urlBase);
+require('./routes/extrato')(app, urlBase);
+require('./routes/notificacao')(app, urlBase);
 
 app.use(urlBase, router);
 
