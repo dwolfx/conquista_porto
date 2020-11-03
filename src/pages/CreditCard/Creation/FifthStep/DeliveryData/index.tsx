@@ -4,21 +4,16 @@ import Button from 'components/Button/Link'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
+import { ISummaryStep } from '../../types'
 import DataShower from '../DataShower'
 import EditingDeliveryData from '../EditingData/EditingDeliveryData'
 
 import * as S from './styles'
 
-const DeliveryData = () => {
-  const cardData = {
-    cep: 'Mastercard',
-    address: '131.507.476-19',
-    complement: 'Apto. 412B',
-    neighborhood: 'Consolação',
-    city: 'São Paulo',
-    state: 'SP',
-  }
-
+const DeliveryData = ({
+  formData,
+  setFormData,
+}: Omit<ISummaryStep, 'onSubmit'>) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -26,35 +21,8 @@ const DeliveryData = () => {
       <EditingDeliveryData
         isOpen={isOpen}
         handleClose={() => setIsOpen(false)}
-        formData={{
-          bairro: 'Aldeia da Areia',
-          cep: '01412111',
-          cidade: 'São Paulo',
-          codigoBandeira: '2',
-          codigoCanal: '14',
-          codigoEstadoCivil: '1',
-          codigoProfissao: '3',
-          complemento: 'Ap 171',
-          dataEmissaoDocumento: '12/02;2010',
-          dataNascimento: '10/06/1984',
-          dddTelefone: '11',
-          diaVencimento: '17',
-          email: 'uchiha@konoha.com.jp',
-          idSimulacao: '16',
-          logradouro: 'Avenida Brasil',
-          nacionalidade: 'Brasileira',
-          nome: 'Sasuke',
-          nomeMae: 'Senhora Uchiha',
-          numeroDocumentoIdentificacao: '92637929',
-          numeroLogradouro: '20',
-          numeroTelefone: '40028922',
-          orgaoExpedidor: 'SP',
-          sexo: 'M',
-          tipoDocumento: 'RG',
-          uf: 'SP',
-          valorRenda: '10000',
-        }}
-        setFormData={() => {}}
+        formData={formData}
+        setFormData={setFormData}
       />
       <S.StyledCard
         headerTitle={
@@ -71,17 +39,17 @@ const DeliveryData = () => {
         }
       >
         <S.Wrapper>
-          <DataShower label="CEP" value={cardData.cep} />
+          <DataShower label="CEP" value={formData.cep} />
           <Divisor />
-          <DataShower label="Endereço" value={cardData.address} />
+          <DataShower label="Endereço" value={formData.logradouro} />
           <Divisor />
-          <DataShower label="Complemento" value={cardData.complement} />
+          <DataShower label="Complemento" value={formData.complemento} />
           <Divisor />
-          <DataShower label="Bairro" value={cardData.neighborhood} />
+          <DataShower label="Bairro" value={formData.bairro} />
           <Divisor />
-          <DataShower label="Cidade" value={cardData.city} />
+          <DataShower label="Cidade" value={formData.cidade} />
           <Divisor />
-          <DataShower label="Estado" value={cardData.state} />
+          <DataShower label="Estado" value={formData.uf} />
         </S.Wrapper>
       </S.StyledCard>
     </>

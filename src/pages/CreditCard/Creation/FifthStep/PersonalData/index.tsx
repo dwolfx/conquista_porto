@@ -6,12 +6,17 @@ import Button from 'components/Button/Link'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
-import DataShower from '../DataShower'
-import EditingPersonalData from '../EditingData/EditingPersonalData'
-
 import { formatCpf } from 'helpers'
 
 import { ISummaryStep, IState } from 'pages/CreditCard/Creation/types'
+import {
+  ESexLabel,
+  ECivilStateLabel,
+  OcuppationLabel,
+} from 'pages/CreditCard/Creation/common/labels'
+
+import DataShower from '../DataShower'
+import EditingPersonalData from '../EditingData/EditingPersonalData'
 import * as S from './styles'
 
 const PersonalData = ({
@@ -89,14 +94,17 @@ const PersonalData = ({
           <Divisor />
           <DataShower
             label="Estado Civil"
-            value={formData.codigoEstadoCivil?.toString()}
+            value={ECivilStateLabel[+formData.codigoEstadoCivil!]}
           />
           <Divisor />
-          <DataShower label="Sexo" value={formData.sexo} />
+          <DataShower
+            label="Sexo"
+            value={ESexLabel[formData.sexo! as 'M' | 'F']}
+          />
           <Divisor />
           <DataShower
             label="Ocupação"
-            value={formData.codigoProfissao?.toString()}
+            value={OcuppationLabel(formData.codigoProfissao!)}
           />
           <Divisor />
           <DataShower label="Nome da mãe" value={formData.nomeMae} />

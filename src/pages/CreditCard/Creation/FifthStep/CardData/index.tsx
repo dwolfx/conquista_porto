@@ -4,23 +4,17 @@ import Button from 'components/Button/Link'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
+import { ECardFlagLabel } from 'pages/CreditCard/Creation/common/labels'
+import { ISummaryStep } from '../../types'
 import DataShower from '../DataShower'
 import EditingCardData from '../EditingData/EditingCardData'
 
 import * as S from './styles'
 
-const CardData = () => {
-  const cardData = {
-    flag: {
-      id: 1,
-      name: 'Mastercard',
-    },
-    dueDate: {
-      id: 17,
-      name: '17',
-    },
-  }
-
+const CardData = ({
+  formData,
+  setFormData,
+}: Omit<ISummaryStep, 'onSubmit'>) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -28,8 +22,8 @@ const CardData = () => {
       <EditingCardData
         isOpen={isOpen}
         handleClose={() => setIsOpen(false)}
-        formData={{ cardData }}
-        setFormData={() => {}}
+        formData={formData}
+        setFormData={setFormData}
       />
       <S.StyledCard
         headerTitle={
@@ -50,11 +44,14 @@ const CardData = () => {
         }
       >
         <S.Wrapper>
-          <DataShower label="Bandeira" value={cardData.flag.name} />
+          <DataShower
+            label="Bandeira"
+            value={ECardFlagLabel[+formData.codigoBandeira!]}
+          />
           <Divisor />
           <DataShower
             label="Vencimento da fatura"
-            value={cardData.dueDate.name}
+            value={formData.diaVencimento}
           />
         </S.Wrapper>
       </S.StyledCard>

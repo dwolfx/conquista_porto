@@ -38,8 +38,8 @@ const FifthStep = ({ formData, setFormData, onSubmit }: ISummaryStep) => {
             </Col>
             <S.StyledCol lg={8} md={12}>
               <PersonalData formData={formData} setFormData={setFormData} />
-              <CardData />
-              <DeliveryData />
+              <CardData formData={formData} setFormData={setFormData} />
+              <DeliveryData formData={formData} setFormData={setFormData} />
 
               <StyledCard>
                 <S.CheckboxWrapper>

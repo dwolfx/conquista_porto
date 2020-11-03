@@ -6,10 +6,12 @@ import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupat
 import { dict } from 'components/IconExporter'
 import Divisor from 'components/Divisor'
 
+import {
+  ECivilStateLabel,
+  ESexLabel,
+} from 'pages/CreditCard/Creation/common/labels'
 import CivilState from 'pages/CreditCard/Creation/common/CivilState'
-import { ECivilStateLabel } from 'pages/CreditCard/Creation/common/CivilState/types'
 import Sex from 'pages/CreditCard/Creation/common/Sex'
-import { ESexLabel } from 'pages/CreditCard/Creation/common/Sex/types'
 import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
 
 import { IStepComponent, IOption } from '../types'

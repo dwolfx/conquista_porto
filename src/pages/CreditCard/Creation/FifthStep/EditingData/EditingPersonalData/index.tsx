@@ -4,16 +4,18 @@ import { uuid } from 'uuidv4'
 import moment from 'moment'
 
 import Drawer from 'components/Drawer'
+import { dict } from 'components/IconExporter'
+import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
 
-import Loading from 'components/Loading'
+import {
+  ECivilStateLabel,
+  ESexLabel,
+} from 'pages/CreditCard/Creation/common/labels'
 import CivilState from 'pages/CreditCard/Creation/common/CivilState'
-import { ECivilStateLabel } from 'pages/CreditCard/Creation/common/CivilState/types'
 import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
 import Gender from 'pages/CreditCard/Creation/common/Sex'
-import { ESexLabel } from 'pages/CreditCard/Creation/common/Sex/types'
 
-import { dict } from 'components/IconExporter'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 
 import useMedia from 'hooks/useMedia'

@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Text from 'components/Text'
+import useMedia from 'hooks/useMedia'
 
 import * as S from './styles'
-import useMedia from 'hooks/useMedia'
 
 interface IProps {
   label: string
