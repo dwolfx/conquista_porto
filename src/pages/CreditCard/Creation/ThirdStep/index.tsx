@@ -74,7 +74,6 @@ const ThirdStep = ({ formData, onNextStep }: IStepComponent) => {
       })
     }
     if (formData.sexo) {
-      console.log(formData.sexo)
       setSelectedSex({
         id: formData.sexo,
         name: ESexLabel[formData.sexo as 'M' | 'F'],

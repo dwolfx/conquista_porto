@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Drawer from 'components/Drawer'
 import Modal from 'components/Modal/ModalNew'
 
-import BrazilianStatesSelect from 'pages/CreditCard/Creation/common/BrazilianStates'
+import SelectBrazilianStates from 'pages/CreditCard/Creation/common/SelectBrazilianStates'
 
 import useMedia from 'hooks/useMedia'
 
@@ -121,7 +121,7 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
         label="número"
         error={!addressNumber.length && addressNumberError}
         value={addressNumber}
-        onChange={e => setAddressNumber(e.target.value.replace(/[\D]/g, ''))}
+        onChange={e => setAddressNumber(e.target.value)}
       />
       <s.Input
         label="complemento"
@@ -140,7 +140,7 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
         value={city}
         onChange={e => setCity(e.target.value)}
       />
-      <BrazilianStatesSelect
+      <SelectBrazilianStates
         selectedOption={selectedBrazilianState}
         setSelectedOption={setSelectedBrazilianState}
       />

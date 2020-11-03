@@ -40,7 +40,7 @@ interface IProps {
   setSelectedOption: (state: string) => void
 }
 
-const BrazilianStatesSelect = ({
+const SelectBrazilianStates = ({
   selectedOption,
   setSelectedOption,
 }: IProps) => {
@@ -65,7 +65,7 @@ const BrazilianStatesSelect = ({
 
   useEffect(() => {
     const selectedStateObject = Object.entries(brazilianStates).find(
-      ([key, value]) => key === selectedOption
+      ([key]) => key === selectedOption
     )
     if (options.length > 0 && selectedStateObject) {
       const filteredOption = options.find(
@@ -93,4 +93,4 @@ const BrazilianStatesSelect = ({
   )
 }
 
-export default BrazilianStatesSelect
+export default SelectBrazilianStates

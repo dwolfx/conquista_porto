@@ -9,10 +9,32 @@ import EditingCardData from './index'
 import { ICreditCardExpirationDays } from 'store/modules/CreditCard/ExpirationDays/types'
 
 const formData = {
-  cardData: {
-    flag: { id: 1, name: 'Mastercard' },
-    dueDate: { id: 2, name: '02' },
-  },
+  bairro: 'Aldeia da Areia',
+  cep: '01412111',
+  cidade: 'São Paulo',
+  codigoBandeira: '2',
+  codigoCanal: '14',
+  codigoEstadoCivil: '1',
+  codigoProfissao: '3',
+  complemento: 'Ap 171',
+  dataEmissaoDocumento: '12/02;2010',
+  dataNascimento: '10/06/1984',
+  dddTelefone: '11',
+  diaVencimento: '17',
+  email: 'uchiha@konoha.com.jp',
+  idSimulacao: '16',
+  logradouro: 'Avenida Brasil',
+  nacionalidade: 'Brasileira',
+  nome: 'Sasuke',
+  nomeMae: 'Senhora Uchiha',
+  numeroDocumentoIdentificacao: '92637929',
+  numeroLogradouro: '20',
+  numeroTelefone: '40028922',
+  orgaoExpedidor: 'SP',
+  sexo: 'M',
+  tipoDocumento: 'RG',
+  uf: 'SP',
+  valorRenda: '10000',
 }
 
 const defaultStore = {
@@ -112,18 +134,34 @@ describe('EditingCardData component', () => {
       expect(handleClose).toHaveBeenCalled()
     })
   })
-  it('should render flag select correctly', () => {
-    setup(defaultStore)
+  it('should render flag selected correctly', () => {
+    const { rerender } = setup(defaultStore)
 
     const flagInput = screen.getByTestId('select-option-input-data-bandeira')
 
     userEvent.click(flagInput)
-    userEvent.click(screen.getByTestId('option-Mastercard'))
-    expect(flagInput).toHaveValue('Mastercard')
+    userEvent.click(screen.getByTestId('option-Visa'))
+    rerender(
+      <EditingCardData
+        isOpen
+        handleClose={() => {}}
+        formData={formData}
+        setFormData={() => {}}
+      />
+    )
+    expect(flagInput).toHaveValue('Visa')
 
     userEvent.click(flagInput)
-    userEvent.click(screen.getByTestId('option-Visa'))
-    expect(flagInput).toHaveValue('Visa')
+    userEvent.click(screen.getByTestId('option-Mastercard'))
+    rerender(
+      <EditingCardData
+        isOpen
+        handleClose={() => {}}
+        formData={formData}
+        setFormData={() => {}}
+      />
+    )
+    expect(flagInput).toHaveValue('Mastercard')
   })
   it('should render due date select correctly', () => {
     setup(defaultStore)
@@ -153,12 +191,12 @@ describe('EditingCardData component', () => {
 
     const flagInput = screen.getByTestId('select-option-input-data-bandeira')
 
-    expect(flagInput).toHaveValue('Mastercard')
+    expect(flagInput).toHaveValue('')
 
     const dueDateInput = screen.getByTestId(
       'select-option-input-data-vencimento-fatura'
     )
-    expect(dueDateInput).toHaveValue('01')
+    expect(dueDateInput).toHaveValue('')
   })
   it('should render modal', () => {
     window.resizeTo(400, 600)

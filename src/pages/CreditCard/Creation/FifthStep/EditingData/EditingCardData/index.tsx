@@ -4,9 +4,8 @@ import { useSelector } from 'react-redux'
 import Drawer from 'components/Drawer'
 import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
-import Select from 'components/Inputs/Select'
+import SelectCardFlag from 'pages/CreditCard/Creation/common/SelectCardFlag'
 import SelectExpirationDays from '../../../ForthStep/Selects/ExpirationDays'
-import { TOptions } from 'components/Inputs/Select/types'
 import useMedia from 'hooks/useMedia'
 
 import * as s from './styles'
@@ -23,60 +22,28 @@ const EditingCardData: React.FC<t.ICardData> = ({
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 
-  const [selectedFlagOption, setSelectedFlagOption] = useState<t.IOptions>({
-    id: 1,
-    name: 'Mastercard',
-  })
+  const [selectedFlagOption, setSelectedFlagOption] = useState('0')
   const [selectedDueDateOption, setSelectedDueDateOption] = useState<
     t.IOptions
   >({
-    id: 1,
-    name: '01',
+    id: 0,
+    name: '',
   })
 
   const { isLoading } = useSelector((state: any) => ({
     isLoading: state.creditCardExpirationDays.isLoading,
   }))
 
-  const handleFlagSelection = (
-    prevState: t.IOptions,
-    id: number,
-    flagName: '' | 'Visa' | 'Mastercard'
-  ) => {
-    if (prevState !== { id: id, name: flagName }) {
-      setSelectedDueDateOption({ id: 0, name: '' })
-      return { id: id, name: flagName }
-    } else {
-      return prevState
-    }
-  }
-
-  const flagOptions: TOptions[] = [
-    {
-      id: 1,
-      text: 'Mastercard',
-      onClick: () =>
-        setSelectedFlagOption(prevState =>
-          handleFlagSelection(prevState, 1, 'Mastercard')
-        ),
-    },
-    {
-      id: 2,
-      text: 'Visa',
-      onClick: () =>
-        setSelectedFlagOption(prevState =>
-          handleFlagSelection(prevState, 2, 'Visa')
-        ),
-    },
-  ]
-
   //Initial value
   useEffect(() => {
-    if (formData?.cardData?.flag) {
-      setSelectedFlagOption(formData.cardData.flag)
+    if (formData?.codigoBandeira) {
+      setSelectedFlagOption(formData.codigoBandeira)
     }
-    if (formData?.cardData?.dueDate) {
-      setSelectedDueDateOption(formData.cardData.dueDate)
+    if (formData?.diaVencimento) {
+      setSelectedDueDateOption({
+        id: formData.diaVencimento,
+        name: formData.diaVencimento,
+      })
     }
   }, [formData])
 
@@ -89,6 +56,15 @@ const EditingCardData: React.FC<t.ICardData> = ({
     }
   }, [isLoading, selectedDueDateOption])
 
+  const handleFlagChanging = (option: string) => {
+    setSelectedFlagOption(prevState => {
+      if (prevState !== option) {
+        setSelectedDueDateOption({ id: 0, name: '' })
+      }
+      return option
+    })
+  }
+
   const getContent = () => {
     if (isLoading) {
       return (
@@ -98,28 +74,28 @@ const EditingCardData: React.FC<t.ICardData> = ({
       )
     }
 
+    const flags: { [key: string]: '' | 'visa' | 'mastercard' } = {
+      0: '',
+      1: 'visa',
+      2: 'mastercard',
+    }
+
     return (
-      <>
-        <s.Container>
-          <s.SelectWrapper>
-            <Select
-              testId="data-bandeira"
-              label="Bandeira"
-              options={flagOptions}
-              selected={selectedFlagOption}
-            />
-          </s.SelectWrapper>
-          <s.SelectWrapper>
-            <SelectExpirationDays
-              type={
-                selectedFlagOption.name === 'Mastercard' ? 'mastercard' : 'visa'
-              }
-              selectedOption={selectedDueDateOption}
-              setSelectedOption={setSelectedDueDateOption}
-            />
-          </s.SelectWrapper>
-        </s.Container>
-      </>
+      <s.Container>
+        <s.SelectWrapper>
+          <SelectCardFlag
+            selectedOption={selectedFlagOption}
+            setSelectedOption={handleFlagChanging}
+          />
+        </s.SelectWrapper>
+        <s.SelectWrapper>
+          <SelectExpirationDays
+            type={flags[selectedFlagOption]}
+            selectedOption={selectedDueDateOption}
+            setSelectedOption={setSelectedDueDateOption}
+          />
+        </s.SelectWrapper>
+      </s.Container>
     )
   }
 
@@ -127,10 +103,8 @@ const EditingCardData: React.FC<t.ICardData> = ({
     handleClose()
     setFormData({
       ...formData,
-      cardData: {
-        flag: selectedFlagOption,
-        invoiceExpiration: selectedDueDateOption,
-      },
+      codigoBandeira: selectedFlagOption,
+      diaVencimento: selectedDueDateOption.name,
     })
   }
 
