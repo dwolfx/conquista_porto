@@ -23,7 +23,11 @@ export default function LinkInvestmentFundsDesktop({
   const tableRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setLinkableFunds(funds.filter(linkableFundsRule))
+    try {
+      setLinkableFunds(funds.filter(linkableFundsRule))
+    } catch {
+      setLinkableFunds([])
+    }
   }, [funds])
 
   function linkableFundsRule({

@@ -158,27 +158,34 @@ export default function ObjectiveManager() {
   }, [objectiveData])
 
   useEffect(() => {
-    const pending = objectiveData?.fund_list.filter(
-      item => item.pendency === 'INITIAL_VALUE_PENDING'
-    )
-    const notPending = objectiveData?.fund_list.filter(
-      item => item.pendency !== 'INITIAL_VALUE_PENDING'
-    )
+    try {
+      const pending = objectiveData?.fund_list.filter(
+        item => item.pendency === 'INITIAL_VALUE_PENDING'
+      )
+      const notPending = objectiveData?.fund_list.filter(
+        item => item.pendency !== 'INITIAL_VALUE_PENDING'
+      )
 
-    setPendingFunds(pending || [])
-    setObjectiveFunds(notPending || [])
+      setPendingFunds(pending || [])
+      setObjectiveFunds(notPending || [])
+    } catch {
+      setPendingFunds([])
+      setObjectiveFunds([])
+    }
   }, [objectiveData])
 
-  if (!objectiveId || (!isLoading && !objectiveData)) {
-    // if objectiveId dont exists, redirect to "objetivos" page
-    history.push('/')
+  const objectiveDontDataExists =
+    !objectiveData || Object.entries(objectiveData).length === 0
 
+  if (!objectiveId || (!isLoading && objectiveDontDataExists)) {
+    // if objectiveId dont exists, redirect to "objetivos" page
     addToast({
       type: 'error',
       title: 'Algo inesperado ocorreu.',
       description:
         'Certifique-se de que o objetivo realmente existe e tente novamente.',
     })
+    history.push('/')
 
     return null
   }
