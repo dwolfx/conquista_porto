@@ -156,11 +156,9 @@ export interface IGetObjectiveManagementDataRequest {
 
 export interface IGetObjectiveManagementExtractFundRequest {
   type: typeof Types.GET_OBJECTIVE_FUNDS_EXTRACT_REQUEST
-  data?: {
-    allocation_type_list: string[]
-    initial_date: string
-    final_date: string
-  }
+  allocationTypeList?: string[]
+  initialDate?: string
+  finalDate?: string
   id: number
   fund_id: number
   onSuccess?: () => void

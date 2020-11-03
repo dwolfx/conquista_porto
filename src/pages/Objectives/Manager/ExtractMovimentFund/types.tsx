@@ -7,8 +7,8 @@ export interface IFundExtractFilter {
 }
 
 export interface IInterval {
-  startDate: string
-  endDate: string
+  initialDate: string
+  finalDate: string
 }
 
 export interface ITransaction {

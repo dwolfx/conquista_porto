@@ -27,7 +27,10 @@ const Table = ({
   data,
   hasError = false,
   errorMessage = 'Não foi possível carregar suas informações da tabela.',
+  emptyMessage,
+  loadingMessage,
   isFiltering = false,
+  filteringEmptyMessage,
   isLoading = false,
   isSticky = false,
   hasPagination = false,
@@ -79,7 +82,7 @@ const Table = ({
     if (inputRef?.current?.value) {
       inputRef.current.value = '1'
     }
-  }, [inputRef, data])
+  }, [inputRef, data, gotoPage, setIndexPage])
 
   useEffect(() => {
     if (tableRef?.current?.onscroll) {
@@ -157,7 +160,10 @@ const Table = ({
               prepareRow={prepareRow}
               hasError={hasError}
               errorMessage={errorMessage}
+              loadingMessage={loadingMessage}
+              emptyMessage={emptyMessage}
               isFiltering={isFiltering}
+              filteringEmptyMessage={filteringEmptyMessage}
               onRowClick={onRowClick}
               hasPagination={hasPagination}
             />

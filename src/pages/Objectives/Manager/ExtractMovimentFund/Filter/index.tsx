@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import ButtonLink from 'components/Button/Link'
 import ButtonTag from 'components/Button/Tag'
-// import DatePickerRangeModal from 'components/Dates/DatePickerRangeModal'
+import DatePickerRangeModal from 'components/Dates/DatePickerRangeModal'
 import Dropdown from 'components/Dropdown'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
@@ -41,11 +41,12 @@ const INTERVAL_SELECT_OPTIONS = {
 }
 
 interface IProps {
-  filters: t.IFundExtractFilter
+  filters: string[]
+  // t.IFundExtractFilter
   interval: t.IInterval
   handleClearFilters: () => void
   selectedInterval: t.ISelectInterval
-  handleFilters: (newFilters: t.IFundExtractFilter) => void
+  handleFilters: (newFilters: string[]) => void
   handleInterval: (newInterval: t.IInterval) => void
   handleSelectInterval: (newSelectedInterval: t.ISelectInterval) => void
 }
@@ -76,10 +77,10 @@ const ExtractFilter = ({
         return setIsDatepickerOpen(true)
       }
       handleInterval({
-        startDate: moment()
+        initialDate: moment()
           .subtract(optionSelected.value, 'days')
           .format('YYYY-MM-DD'),
-        endDate: moment().format('YYYY-MM-DD'),
+        finalDate: moment().format('YYYY-MM-DD'),
       })
       closeFunc()
     }
@@ -95,23 +96,24 @@ const ExtractFilter = ({
 
   return (
     <Wrapper>
-      {/* {isDatepickerOpen && (
+      {isDatepickerOpen && (
         <DatePickerRangeModal
           isOpen={isDatepickerOpen}
           onChangeModalOpen={() => setIsDatepickerOpen(false)}
-          onHandleApply={(startDate, endDate) => {
+          onHandleApply={(initialDate, finalDate) => {
             handleInterval({
-              startDate: moment(startDate).format('YYYY-MM-DD'),
-              endDate: moment(endDate).format('YYYY-MM-DD'),
+              initialDate: moment(initialDate).format('DD/MM/YYYY'),
+              finalDate: moment(finalDate).format('DD/MM/YYYY'),
             })
+            debugger
             setPeriod(
-              `${moment(startDate).format('DD/MM/YYYY')} - ${moment(
-                endDate
+              `${moment(initialDate).format('DD/MM/YYYY')} - ${moment(
+                finalDate
               ).format('DD/MM/YYYY')}`
             )
           }}
         />
-      )} */}
+      )}
       <DropdownWrapper data-testid="select-period">
         <Dropdown
           nodes={[renderSelectItems]}
@@ -141,57 +143,72 @@ const ExtractFilter = ({
       </DropdownWrapper>
       <ButtonsWrapper>
         <ButtonTag
-          color={filters.applyFund ? 'primary' : ''}
-          onClick={() =>
-            handleFilters({
-              ...filters,
-              applyFund: !filters.applyFund,
-            })
-          }
+          color={filters.includes('Aplicação no fundo') ? 'primary' : ''}
+          onClick={() => {
+            if (filters.includes('Aplicação no fundo')) {
+              handleFilters(
+                filters.filter(item => item !== 'Aplicação no fundo')
+              )
+            } else {
+              handleFilters([...filters, 'Aplicação no fundo'])
+            }
+          }}
         >
           aplicação no fundo
         </ButtonTag>
         <ButtonTag
-          color={filters.linkObjective ? 'primary' : ''}
-          onClick={() =>
-            handleFilters({
-              ...filters,
-              linkObjective: !filters.linkObjective,
-            })
-          }
+          color={filters.includes('Vinculo ao Objetivo') ? 'primary' : ''}
+          onClick={() => {
+            if (filters.includes('Vinculo ao Objetivo')) {
+              handleFilters(
+                filters.filter(item => item !== 'Vinculo ao Objetivo')
+              )
+            } else {
+              handleFilters([...filters, 'Vinculo ao Objetivo'])
+            }
+          }}
         >
           vínculo ao objetivo
         </ButtonTag>
         <ButtonTag
-          color={filters.redeemFund ? 'primary' : ''}
-          onClick={() =>
-            handleFilters({
-              ...filters,
-              redeemFund: !filters.redeemFund,
-            })
-          }
+          color={filters.includes('Resgate do fundo') ? 'primary' : ''}
+          onClick={() => {
+            if (filters.includes('Resgate do fundo')) {
+              handleFilters(filters.filter(item => item !== 'Resgate do fundo'))
+            } else {
+              handleFilters([...filters, 'Resgate do fundo'])
+            }
+          }}
         >
           resgate do fundo
         </ButtonTag>
         <ButtonTag
-          color={filters.delinkObjective ? 'primary' : ''}
-          onClick={() =>
-            handleFilters({
-              ...filters,
-              delinkObjective: !filters.delinkObjective,
-            })
-          }
+          color={filters.includes('Desvinculo do objetivo') ? 'primary' : ''}
+          onClick={() => {
+            if (filters.includes('Desvinculo do objetivo')) {
+              handleFilters(
+                filters.filter(item => item !== 'Desvinculo do objetivo')
+              )
+            } else {
+              handleFilters([...filters, 'Desvinculo do objetivo'])
+            }
+          }}
         >
           desvínculo do objetivo
         </ButtonTag>
         <ButtonTag
-          color={filters.transferBetweenObjectives ? 'primary' : ''}
-          onClick={() =>
-            handleFilters({
-              ...filters,
-              transferBetweenObjectives: !filters.transferBetweenObjectives,
-            })
+          color={
+            filters.includes('Transferência entre objetivos') ? 'primary' : ''
           }
+          onClick={() => {
+            if (filters.includes('Transferência entre objetivos')) {
+              handleFilters(
+                filters.filter(item => item !== 'Transferência entre objetivos')
+              )
+            } else {
+              handleFilters([...filters, 'Transferência entre objetivos'])
+            }
+          }}
         >
           transferência entre objetivos
         </ButtonTag>

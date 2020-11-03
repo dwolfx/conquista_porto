@@ -68,7 +68,10 @@ export interface ITable {
   hasError?: boolean
   errorMessage?: string
   onError?: () => void
+  emptyMessage?: string
+  loadingMessage?: string
   isFiltering?: boolean
+  filteringEmptyMessage?: string
   isSticky?: boolean
   hasPagination?: boolean
   customRef?: RefObject<HTMLDivElement>
@@ -79,7 +82,10 @@ export interface ITableBody {
   isLoading: boolean
   hasError: boolean
   errorMessage: string
+  emptyMessage?: string
+  loadingMessage?: string
   isFiltering: boolean
+  filteringEmptyMessage?: string
   onError?: () => void
   onRowClick?: (param: any) => void
   prepareRow: (row: Row<object>) => void

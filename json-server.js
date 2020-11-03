@@ -108,7 +108,13 @@ router.render = (req, res) => {
   if (req.originalUrl.startsWith('/api/goal/goals')) {
     if (req.method === 'GET') {
       if (req.originalUrl.includes('allocation-statement')) {
-        return res.status(200).jsonp(fundExtract)
+        let fundExtractFiltered = fundExtract
+        if (req.originalUrl.includes('Vinculo')) {
+          fundExtractFiltered = fundExtract.filter(
+            item => item.transaction_type === 'Vinculo ao Objetivo'
+          )
+        }
+        return res.status(200).jsonp(fundExtractFiltered)
       }
 
       if (req.originalUrl.includes('summary')) {

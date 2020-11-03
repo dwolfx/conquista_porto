@@ -268,12 +268,21 @@ function* extractFund({
   onSuccess,
   onError,
   addToast,
+  allocationTypeList,
+  initialDate,
+  finalDate,
 }: IGetObjectiveManagementExtractFundRequest) {
   if (id && fund_id) {
     try {
       const response = yield call(
         get,
-        `${baseURLNamespaceGoal}/goals/allocation-statement/${id}?fund_id=${fund_id}`
+        `${baseURLNamespaceGoal}/goals/allocation-statement/${id}?fund_id=${fund_id}${
+          allocationTypeList && allocationTypeList.length > 0
+            ? `&allocation_type=${allocationTypeList.join(',')}`
+            : ''
+        }${initialDate ? `&initial_date=${initialDate}` : ''}${
+          finalDate ? `&final_date=${finalDate}` : ''
+        }`
       )
 
       if (response.data) {

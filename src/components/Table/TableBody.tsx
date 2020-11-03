@@ -12,11 +12,14 @@ const TableBody = ({
   isLoading,
   hasError,
   errorMessage,
+  emptyMessage = 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.',
+  loadingMessage = 'Aguarde enquanto buscamos informações de fundos de investimentos...',
   rows,
   prepareRow,
   onError,
   onRowClick,
   isFiltering,
+  filteringEmptyMessage = 'Nenhum fundo de investimento encontrado com os filtros selecionados.',
   hasPagination,
   page,
 }: ITableBody) => {
@@ -25,10 +28,7 @@ const TableBody = ({
     return (
       <s.InfoTableContent>
         <div>
-          <Loading
-            type="bar"
-            legend="Aguarde enquanto buscamos informações de fundos de investimentos..."
-          />
+          <Loading type="bar" legend={loadingMessage} />
         </div>
       </s.InfoTableContent>
     )
@@ -58,9 +58,7 @@ const TableBody = ({
       <s.InfoTableContent>
         <div>
           <Text type="headline" color="gray5">
-            {isFiltering
-              ? 'Nenhum fundo de investimento encontrado com os filtros selecionados.'
-              : 'No momento não possuímos nenhum fundo de investimento em nossa plataforma.'}
+            {isFiltering ? filteringEmptyMessage : emptyMessage}
           </Text>
         </div>
       </s.InfoTableContent>
