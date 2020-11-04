@@ -9,14 +9,14 @@ import { ICreditCardOffer, OFFER_CODE } from 'store/modules/CreditCard/Offers/ty
 import { GetCreditCardOfferRequest } from 'store/modules/CreditCard/Offers/action'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 import { useToast } from 'hooks/toast'
-
-import LoadingState from '../ForthStep/ForthStepLoadingState'
-import NoOffersState from '../ForthStep/ForthStepNoOffersState'
-
 import {
   ICreditCardCreationPayload,
   IStepComponent,
 } from 'pages/CreditCard/Creation/types'
+
+import LoadingState from './FullScreenLoadingState'
+import NoOffersState from './NoOffersState'
+
 import { GridContainer, WhiteContent } from '../styles'
 import * as s from './styles'
 import * as t from './types'
@@ -76,21 +76,20 @@ const FirstStep = ({
 
   const onSuccess = (data: ICreditCardOffer) => {
     let stepAnswers: ICreditCardCreationPayload = {}
-
     if (data.CodigoOferta === OFFER_CODE.NO_FLAGS_AVAILABLE) {
       setHasNoOffers(true)
     } else {
       stepAnswers = {
         cep: creditCardClient.cep,
-        codigoEstadoCivil: creditCardClient.codigoEstadoCivil.toString(),
+        codigoEstadoCivil: creditCardClient.codigoEstadoCivil?.toString() || '',
         dataEmissaoDocumento: creditCardClient.dataExpedicao,
         dataNascimento: creditCardClient.dataNascimento,
-        dddTelefone: creditCardClient.dddNumeroTelefone.toString(),
+        dddTelefone: creditCardClient.dddNumeroTelefone?.toString() || '',
         email: creditCardClient.emailCliente,
         nome: creditCardClient.nomeCliente,
         nomeMae: creditCardClient.nomeMae,
-        numeroDocumentoIdentificacao: creditCardClient.numeroDocumento.toString(),
-        numeroTelefone: creditCardClient.numeroTelefone.toString(),
+        numeroDocumentoIdentificacao: creditCardClient.numeroDocumento?.toString() || '',
+        numeroTelefone: creditCardClient.numeroTelefone?.toString() || '',
         orgaoExpedidor: creditCardClient.orgaoEmissor,
         sexo: creditCardClient.sexo,
         tipoDocumento: creditCardClient.tipoDocumento,
@@ -138,9 +137,8 @@ const FirstStep = ({
     return (
       <>
         <s.Title>Confirme as informações abaixo</s.Title>
-
         {customerData
-          ? Object.entries(customerData).map(([key, value], index) => (
+          && Object.entries(customerData).map(([key, value], index) => (
               <React.Fragment key={uuid()}>
                 <VerticalList
                   elements={[
@@ -151,8 +149,7 @@ const FirstStep = ({
                 {index === 3 ? null : <s.Divisor />}
               </React.Fragment>
             ))
-            : null}
-
+          }
         <s.Button
           outline
           data-gtm-type="click"

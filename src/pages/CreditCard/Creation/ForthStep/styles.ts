@@ -34,16 +34,6 @@ export const Row = styled(RowComponent)`
   }
 `
 
-export const FullHeightRow = styled(RowComponent)`
-  height: calc(90vh - 142px);
-  margin: ${({ theme }) => `${theme.spacing(2)}px 0`};
-
-  @media ${({ theme }) => theme.mediaQueries.xs} {
-    height: calc(90vh - 155px);
-    ;
-  }
-`
-
 export const RadioCard = styled(CardComponent)<{ checked: boolean }>`
   margin-bottom: ${({ theme }) => theme.spacing(2)}px;
   border-color: ${({ checked, theme }) => checked ? theme.colors.blue4 : theme.colors.gray3};
@@ -101,34 +91,12 @@ export const Card = styled(CardComponent)`
   }
 `
 
-export const CenterContentCard = styled(CardComponent)`
-  height: 100%;
-  align-items: center;
-  justify-content: center;
 
-  ${CardBody} {
-    overflow: visible;
-    align-items: center;
-    justify-content: center;
-
-    @media ${({ theme }) => theme.mediaQueries.xs} {
-      padding: ${({ theme }) => theme.spacing(2)}px;
-    }
-  }
-`
 export const SelectWrapper = styled.div`
   margin: ${({ theme }) => `${theme.spacing(6)}px ${theme.spacing(4)}px 0`};
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     margin: ${({ theme }) => `${theme.spacing(2)}px 0`};
-  }
-`
-
-export const ButtonPrimary = styled(ButtonComponent).attrs(() => ({
-  color: 'primary'
-}))`
-  @media ${({ theme }) => theme.mediaQueries.xs} {
-    width: 100%;
   }
 `
 
@@ -161,33 +129,6 @@ export const Footer = styled.div`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
   }
-`
-
-export const CenterContentCardWrapper = styled.div`
-  display: flex;
-  width: 458px;
-
-  @media ${({ theme }) => theme.mediaQueries.xs} {
-    width: 100%;
-  }
-`
-
-export const TextTitleNoOffer = styled(Text).attrs(() => ({
-  type: 'headline',
-  bold: true,
-  color: 'gray6',
-}))`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
-`
-
-export const TextBodyNoOffer = styled(Text).attrs(() => ({
-  type: 'body',
-  bold: true,
-  color: 'gray5'
-}))``
-
-export const IconWrapper = styled.div`
-  margin: ${({ theme }) => `0 ${theme.spacing(3)}px`};
 `
 
 export const FormInput = styled(NewInput)<{ hasError: boolean }>`

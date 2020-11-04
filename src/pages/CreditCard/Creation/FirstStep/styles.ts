@@ -1,16 +1,21 @@
 import styled from 'styled-components'
-import { Col, Row } from 'styled-bootstrap-grid'
+import {
+  Col as ColComponent,
+  Row as RowComponent,
+} from 'styled-bootstrap-grid'
 
 import ButtonComponent from 'components/Button'
 import DivisorComponent from 'components/Divisor'
 import Text from 'components/Text'
+import CardComponent from 'components/Card'
+import { CardBody } from 'components/Card/styles'
 
-export const GridRow = styled(Row)`
+export const GridRow = styled(RowComponent)`
   justify-content: center;
   height: 100%;
 `
 
-export const GridCol = styled(Col)`
+export const GridCol = styled(ColComponent)`
   height: 100%;
 `
 
@@ -98,4 +103,82 @@ export const ErrorText = styled(Text).attrs(() => ({
 }))`
   margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
   text-align: center;
+`
+
+export const CenterContentCardWrapper = styled.div`
+  display: flex;
+  width: 458px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 100%;
+  }
+`
+
+export const TextTitleNoOffer = styled(Text).attrs(() => ({
+  type: 'headline',
+  bold: true,
+  color: 'gray6',
+}))`
+  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+`
+
+export const TextBodyNoOffer = styled(Text).attrs(() => ({
+  type: 'body',
+  bold: true,
+  color: 'gray5'
+}))``
+
+export const FullHeightRow = styled(RowComponent)`
+  height: calc(90vh - 142px);
+  margin: ${({ theme }) => `${theme.spacing(2)}px 0`};
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    height: calc(90vh - 155px);
+    ;
+  }
+`
+
+export const IconWrapper = styled.div`
+  margin: ${({ theme }) => `0 ${theme.spacing(3)}px`};
+`
+
+export const CenterContentCard = styled(CardComponent)`
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  ${CardBody} {
+    overflow: visible;
+    align-items: center;
+    justify-content: center;
+
+    @media ${({ theme }) => theme.mediaQueries.xs} {
+      padding: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
+`
+
+export const ButtonPrimary = styled(ButtonComponent).attrs(() => ({
+  color: 'primary'
+}))`
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 100%;
+  }
+`
+
+export const Footer = styled.div`
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 42px;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 63px;
+  background-color: white;
+  
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
+  }
 `

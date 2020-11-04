@@ -39,7 +39,7 @@ interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
-type steps = 1 | 2 | 3 | 4
+type steps = 1 | 2 | 3 | 4 | 5
 const Creation = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
