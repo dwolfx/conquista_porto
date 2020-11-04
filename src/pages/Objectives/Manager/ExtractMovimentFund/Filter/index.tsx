@@ -87,7 +87,6 @@ const ExtractFilter = ({
               initialDate: moment(initialDate).format('DD/MM/YYYY'),
               finalDate: moment(finalDate).format('DD/MM/YYYY'),
             })
-            debugger
             setPeriod(
               `${moment(initialDate).format('DD/MM/YYYY')} - ${moment(
                 finalDate
