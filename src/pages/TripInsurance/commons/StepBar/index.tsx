@@ -1,0 +1,44 @@
+import React from 'react'
+
+import useMedia from 'hooks/useMedia'
+
+import HorizontalList from 'components/HorizontalList'
+import Text from 'components/Text'
+
+import { IProps } from './types'
+import * as S from './styles'
+
+export default function StepBar({ actualStep, totalNumberOfSteps }: IProps) {
+  const isMobile = useMedia('xs')
+
+  return (
+    <S.StepBar step={actualStep}>
+      <S.GridContainer>
+        <S.GridRowStepBar>
+          <S.ColStepBar lg={12}>
+            <HorizontalList
+              size="small"
+              startItems={[
+                <Text color="gray4" type="headline">
+                  {!isMobile && 'Simulação'}
+                  </Text>,
+                <Text color="white" type="headline">
+                  Seguro Viagem
+                </Text>,
+              ]}
+              endItems={[
+                <Text color="gray4" type="title">
+                  {`ETAPA ${actualStep} de ${totalNumberOfSteps}`}
+                </Text>
+              ]}
+              css={`
+                  width: 100%;
+                  padding: 0;
+                `}
+            />
+          </S.ColStepBar>
+        </S.GridRowStepBar>
+      </S.GridContainer>
+    </S.StepBar>
+  )
+}

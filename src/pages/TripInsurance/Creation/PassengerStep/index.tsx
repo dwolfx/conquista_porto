@@ -3,24 +3,37 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import { ThemeContext } from 'styled-components'
 
 import useMedia from 'hooks/useMedia'
+
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
+
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import Popover from 'components/Popover'
 
 import * as S from './styles'
-import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+import { StepComponent } from 'hooks/FluxManagement/types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { Steps } from '../types'
 
-export default function PassengerStep() {
+const PassengerStep: StepComponent = () => {
   const maximumPermittedPassengers = 20
   const theme = React.useContext(ThemeContext)
   const [counts, setCounts] = React.useState({ young: 0, old: 0, total: 0 })
   const isTabletVertical = useMedia('md')
+  const { instantiate } = useStackFluxManagement()
 
   React.useEffect(() => {
     setCounts(counts => ({ ...counts, total: counts.young + counts.old }))
   }, [counts.young, counts.old])
 
+  const handleButtonClick = () => {
+    instantiate(Steps.adventureSports)
+  }
+
   return (
+  <>
+    <StepBar actualStep={1} totalNumberOfSteps={5}/>
     <S.Wrapper>
       <S.StyledContainer>
         <Row alignItems="center" justifyContent={isTabletVertical ? "center" : "start"}>
@@ -54,6 +67,7 @@ export default function PassengerStep() {
 
             <S.StyledCounter
             label="PASSAGEIROS ATÉ 70 ANOS"
+            initialValue={counts.young}
             maxValue={maximumPermittedPassengers - counts.old}
             disabledCase={counts.total >= maximumPermittedPassengers}
             afterOnChange={value => setCounts({...counts, young: value})}
@@ -61,14 +75,18 @@ export default function PassengerStep() {
 
             <S.StyledCounter
             label="PASSAGEIROS DE 71 ATÉ 90 ANOS "
+            initialValue={counts.old}
             maxValue={maximumPermittedPassengers - counts.young}
             disabledCase={counts.total === maximumPermittedPassengers}
             afterOnChange={value => setCounts({...counts, old: value})}
             />
-            <S.StyledButton disabled={counts.total === 0}>Próximo</S.StyledButton>
+            <S.StyledButton onClick={handleButtonClick} disabled={counts.total === 0}>Próximo</S.StyledButton>
           </Col>
         </Row>
       </S.StyledContainer>
     </S.Wrapper>
+    </>
   )
 }
+
+export default PassengerStep

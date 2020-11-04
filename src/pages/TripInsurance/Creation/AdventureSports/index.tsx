@@ -3,6 +3,8 @@ import * as s from './styles'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 import Radio from 'components/Inputs/Radio'
 import { useState } from 'react'
+import { StepComponent } from 'hooks/FluxManagement/types'
+import StepBar from 'pages/TripInsurance/commons/StepBar'
 
 const radioOptions = [
   {
@@ -15,7 +17,7 @@ const radioOptions = [
   },
 ]
 
-const AdventureSports = () => {
+const AdventureSports: StepComponent = () => {
   const [hasAdventureSports, setHasAdventureSports] = useState<string>()
 
   const handleChange = (value: string) => {
@@ -24,6 +26,7 @@ const AdventureSports = () => {
 
   return (
     <s.ContentWrapper>
+      <StepBar actualStep={2} totalNumberOfSteps={4}/>
       <Container>
         <Row justifyContent="center">
           <Col lg={4} md={4} sm={6} alignSelf="center">
