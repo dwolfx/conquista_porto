@@ -67,3 +67,86 @@ CartaoCredito:
       example: 3212
   required:
     - CodigoCanal
+
+SolicitarCartaoCreditoRequest:
+  description: cartao_credito
+  type: object
+  properties:
+    bairro:
+      type: string
+      example: Aldeia da Areia
+    cep:
+      type: string
+      example: 01412000
+    cidade:
+      type: string
+      example: Guarulhos
+    codigoBandeira:
+      type: string
+      example: 2
+    codigoCanal:
+      type: string
+      example: 14
+    codigoEstadoCivil:
+      type: string
+      example: 1
+    codigoProfissao:
+      type: string
+      example: 3
+    complemento:
+      type: string
+      example: Ap 171
+    dataEmissaoDocumento:
+      type: string
+      example: 12/02/2010
+    dataNascimento:
+      type: string
+      example: 10/06/1984
+    dddTelefone:
+      type: string
+      example: 11
+    diaVencimento:
+      type: string
+      example: 17
+    email:
+      type: string
+      example: feifluefelf@teste.com
+    idSimulacao:
+      type: string
+      example: 16
+    logradouro:
+      type: string
+      example: Avenida
+    nacionalidade:
+      type: string
+      example: Brasileira
+    nome:
+      type: string
+      example: Rafael Rodrigues
+    nomeMae:
+      type: string
+      example: MARILENE CORREA
+    numeroDocumentoIdentificacao:
+      type: string
+      example: 2000112690
+    numeroLogradouro:
+      type: string
+      example: 20
+    numeroTelefone:
+      type: string
+      example: 888888888
+    orgaoExpedidor:
+      type: string
+      example: SSP
+    sexo:
+      type: string
+      example: M
+    tipoDocumento:
+      type: string
+      example: CNH
+    uf:
+      type: string
+      example: SP
+    valorRenda:
+      type: string
+      example: 10000
