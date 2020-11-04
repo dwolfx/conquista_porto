@@ -134,35 +134,35 @@ describe('EditingCardData component', () => {
       expect(handleClose).toHaveBeenCalled()
     })
   })
-  // it('should render flag selected correctly', () => {
-  //   const { rerender } = setup(defaultStore)
+  it('should render flag selected correctly', () => {
+    const { rerender } = setup(defaultStore)
 
-  //   const flagInput = screen.getByTestId('select-option-input-data-bandeira')
+    const flagInput = screen.getByTestId('select-option-input-data-bandeira')
 
-  //   userEvent.click(flagInput)
-  //   userEvent.click(screen.getByTestId('option-Visa'))
-  //   rerender(
-  //     <EditingCardData
-  //       isOpen
-  //       handleClose={() => {}}
-  //       formData={formData}
-  //       setFormData={() => {}}
-  //     />
-  //   )
-  //   expect(flagInput).toHaveValue('Visa')
+    userEvent.click(flagInput)
+    userEvent.click(screen.getByTestId('option-VISA'))
+    rerender(
+      <EditingCardData
+        isOpen
+        handleClose={() => {}}
+        formData={formData}
+        setFormData={() => {}}
+      />
+    )
+    expect(flagInput).toHaveValue('VISA')
 
-  //   userEvent.click(flagInput)
-  //   userEvent.click(screen.getByTestId('option-Mastercard'))
-  //   rerender(
-  //     <EditingCardData
-  //       isOpen
-  //       handleClose={() => {}}
-  //       formData={formData}
-  //       setFormData={() => {}}
-  //     />
-  //   )
-  //   expect(flagInput).toHaveValue('Mastercard')
-  // })
+    userEvent.click(flagInput)
+    userEvent.click(screen.getByTestId('option-MASTERCARD'))
+    rerender(
+      <EditingCardData
+        isOpen
+        handleClose={() => {}}
+        formData={formData}
+        setFormData={() => {}}
+      />
+    )
+    expect(flagInput).toHaveValue('MASTERCARD')
+  })
   it('should render due date select correctly', () => {
     setup(defaultStore)
 

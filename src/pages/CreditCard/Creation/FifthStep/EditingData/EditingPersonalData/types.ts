@@ -1,11 +1,12 @@
+import { ICreditCardCreationPayload } from 'pages/CreditCard/Creation/types'
 import { ICreditCardClientData } from 'store/modules/CreditCard/types'
 import { Occupation } from 'store/modules/CreditCard/Occupation/types'
 
 export interface IEditingPersonalData {
   isOpen: boolean
   handleClose: () => void
-  formData: any
-  setFormData: (formDataObject: any) => void
+  formData: ICreditCardCreationPayload
+  setFormData: (formDataObject: ICreditCardCreationPayload) => void
 }
 
 export interface ICustomerData {

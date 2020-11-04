@@ -16,7 +16,7 @@ const IssuingBodyInput: React.FC<IProps> = ({
 }) => {
   const issuingBodyError = {
     icon: 'information' as keyof typeof dict,
-    message: 'O informe um órgãao emissor válido.',
+    message: 'O informe um órgão emissor válido.',
   }
   return (
     <s.Input

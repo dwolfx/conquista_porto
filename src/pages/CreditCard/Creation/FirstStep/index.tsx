@@ -89,8 +89,12 @@ const FirstStep = ({
       stepAnswers = {
         cep: creditCardClient.cep,
         codigoEstadoCivil: creditCardClient.codigoEstadoCivil?.toString() || '',
-        dataEmissaoDocumento: creditCardClient.dataExpedicao,
-        dataNascimento: creditCardClient.dataNascimento,
+        dataEmissaoDocumento: moment(creditCardClient.dataExpedicao).format(
+          'DD/MM/YYYY'
+        ),
+        dataNascimento: moment(creditCardClient.dataNascimento).format(
+          'DD/MM/YYYY'
+        ),
         dddTelefone: creditCardClient.dddNumeroTelefone?.toString() || '',
         email: creditCardClient.emailCliente,
         nome: creditCardClient.nomeCliente,

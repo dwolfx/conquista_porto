@@ -9,7 +9,6 @@ const documents = {
   1: 'RG',
   2: 'RNE',
   3: 'CNH',
-  4: 'Passaporte',
 }
 
 interface IProps {
@@ -32,14 +31,14 @@ const SelectDocument = ({ selectedOption, setSelectedOption }: IProps) => {
       Object.entries(documents).map(([key, value]) => ({
         id: key,
         text: value,
-        onClick: () => setSelectedOption(key),
+        onClick: () => setSelectedOption(value),
       }))
     )
   }
 
   useEffect(() => {
     const selectedStateObject = Object.entries(documents).find(
-      ([key]) => key === selectedOption
+      ([key, value]) => value === selectedOption
     )
     if (options.length > 0 && selectedStateObject) {
       const filteredOption = options.find(

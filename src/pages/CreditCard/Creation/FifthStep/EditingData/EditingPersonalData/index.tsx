@@ -15,7 +15,10 @@ import {
 import CivilState from 'pages/CreditCard/Creation/common/CivilState'
 import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
 import Gender from 'pages/CreditCard/Creation/common/Sex'
+import DocumentHandler from './DocumentHandler'
 
+import { isExpeditionDateValid } from 'pages/CreditCard/Creation/common/ExpeditionDateInput'
+import { isExpiredDateValid } from 'pages/CreditCard/Creation/common/ExpiredDateInput'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 
 import useMedia from 'hooks/useMedia'
@@ -62,6 +65,14 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     id: 0,
     name: '',
   })
+
+  //Document inputs
+  const [selectedBrazilianState, setSelectedBrazilianState] = useState('')
+  const [selectedDocument, setSelectedDocument] = useState('')
+  const [documentNumber, setDocumentNumber] = useState('')
+  const [expeditionDate, setExpeditionDate] = useState('')
+  const [expiredDate, setExpiredDate] = useState('')
+  const [issuingBody, setIssuingBody] = useState('')
 
   const {
     creditCardClient,
@@ -122,7 +133,7 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     if (formData.codigoEstadoCivil) {
       setSelectedCivilState({
         id: formData.codigoEstadoCivil,
-        name: ECivilStateLabel[formData.codigoEstadoCivil],
+        name: ECivilStateLabel[+formData.codigoEstadoCivil],
       })
     }
     if (formData.sexo) {
@@ -134,16 +145,80 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     if (formData.cidade) {
       setCity(formData.cidade)
     }
+    if (formData.tipoDocumento) {
+      setSelectedDocument(formData.tipoDocumento)
+    }
+    if (formData.numeroDocumentoIdentificacao) {
+      setDocumentNumber(formData.numeroDocumentoIdentificacao)
+    }
+    if (formData.dataEmissaoDocumento) {
+      setExpeditionDate(formData.dataEmissaoDocumento)
+    }
+    // if (formData.dataVencimentoDocumento) {
+    //   setExpiredDate(formData.dataVencimentoDocumento)
+    // }
+    if (formData.orgaoExpedidor) {
+      setIssuingBody(formData.orgaoExpedidor)
+    }
+    // if (formData.estadoDeEmissaoDoDocumento) {
+    //   setSelectedBrazilianState(formData.estadoDeEmissaoDoDocumento)
+    // }
   }, [formData])
 
   //set button disabled
   useEffect(() => {
-    if (isLoading || !city.length || !mothersName.length) {
-      setIsButtonDisabled(true)
-    } else {
-      setIsButtonDisabled(false)
+    switch (true) {
+      case selectedDocument === '' || !selectedDocument.length:
+        setIsButtonDisabled(true)
+        break
+      case selectedDocument === 'RG' &&
+        (isLoading ||
+          !city.length ||
+          !mothersName.length ||
+          !documentNumber.length ||
+          !isExpeditionDateValid(expeditionDate) ||
+          !issuingBody.length ||
+          issuingBody.length < 3):
+        // !selectedBrazilianState.length ||
+        setIsButtonDisabled(true)
+        break
+      case selectedDocument === 'RNE' &&
+        (isLoading ||
+          !city.length ||
+          !mothersName.length ||
+          !documentNumber.length ||
+          !isExpeditionDateValid(expeditionDate) ||
+          !isExpiredDateValid(expiredDate) ||
+          !issuingBody.length ||
+          issuingBody.length < 3):
+        // !selectedBrazilianState.length ||
+        setIsButtonDisabled(true)
+        break
+      case selectedDocument === 'CNH' &&
+        (isLoading ||
+          !city.length ||
+          !mothersName.length ||
+          !documentNumber.length ||
+          !isExpeditionDateValid(expeditionDate) ||
+          !isExpiredDateValid(expiredDate)):
+        // !selectedBrazilianState.length ||
+        setIsButtonDisabled(true)
+        break
+      default:
+        setIsButtonDisabled(false)
+        break
     }
-  }, [isLoading, city, mothersName])
+  }, [
+    isLoading,
+    city,
+    mothersName,
+    selectedBrazilianState,
+    selectedDocument,
+    documentNumber,
+    expeditionDate,
+    expiredDate,
+    issuingBody,
+  ])
 
   const getContent = () => {
     if (isLoading) {
@@ -190,10 +265,28 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
             value={city}
             onChange={e => setCity(e.target.value)}
           />
+          <DocumentHandler
+            selectedDocument={selectedDocument}
+            setSelectedDocument={setSelectedDocument}
+            documentNumber={documentNumber}
+            setDocumentNumber={setDocumentNumber}
+            expeditionDate={expeditionDate}
+            setExpeditionDate={setExpeditionDate}
+            expiredDate={expiredDate}
+            setExpiredDate={setExpiredDate}
+            selectedBrazilianState={selectedBrazilianState}
+            setSelectedBrazilianState={setSelectedBrazilianState}
+            issuingBody={issuingBody}
+            setIssuingBody={setIssuingBody}
+          />
           <CivilState
             selectedOption={selectedCivilState}
             setSelectedOption={setSelectedCivilState}
-            preSelectedCivilState={+formData.codigoEstadoCivil}
+            preSelectedCivilState={
+              formData.codigoEstadoCivil
+                ? +formData.codigoEstadoCivil
+                : undefined
+            }
           />
           <Gender
             selectedOption={selectedGender}
@@ -204,7 +297,9 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
             selectedOption={selectedProfession}
             setSelectedOption={setSelectedProfession}
             creditCardOccupation={creditCardOccupation}
-            preSelectedOccupation={+formData.codigoProfissao}
+            preSelectedOccupation={
+              formData.codigoProfissao ? +formData.codigoProfissao : undefined
+            }
           />
           <s.Input
             label="nome da mãe"
@@ -226,6 +321,12 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
       sexo: selectedGender.name === 'Masculino' ? 'M' : 'F',
       codigoProfissao: `${selectedProfession.id}`,
       nomeMae: mothersName,
+      tipoDocumento: selectedDocument,
+      numeroDocumentoIdentificacao: documentNumber,
+      dataEmissaoDocumento: expeditionDate,
+      orgaoExpedidor: issuingBody,
+      // estadoDoDocument: selectedBrazilianState,
+      // dataDeVencimentoDoDocumento: expiredDate,
     })
   }
 

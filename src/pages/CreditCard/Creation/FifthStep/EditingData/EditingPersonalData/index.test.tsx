@@ -56,6 +56,10 @@ const formData = {
   codigoEstadoCivil: '2',
   sexo: 'F',
   codigoProfissao: '1',
+  tipoDocumento: 'RG',
+  numeroDocumentoIdentificacao: '99999999x',
+  dataEmissaoDocumento: '10/10/2017',
+  orgaoExpedidor: 'SSP',
 }
 
 const createRootContainer = () => {
@@ -110,6 +114,32 @@ describe('EditingPersonalData component', () => {
     expect(screen.getByText(/celular/i)).toBeDefined()
     expect(screen.getByText(/\(11\) 9 9725-7249/i)).toBeDefined()
   })
+  it('should render client phone number data', () => {
+    const storeMock = {
+      ...defaultStore,
+      creditCard: {
+        ...defaultStore.creditCard,
+        clientData: {
+          ...defaultStore.creditCard.clientData,
+          numeroTelefone: 88888888,
+        },
+      },
+    }
+
+    const store = storeFactory(storeMock)
+    renderWithReduxAndTheme(
+      <EditingPersonalData
+        isOpen
+        handleClose={() => {}}
+        formData={formData}
+        setFormData={() => {}}
+      />,
+      { store, container: createRootContainer() }
+    )
+
+    expect(screen.getByText(/telefone/i)).toBeDefined()
+    expect(screen.getByText(/\(11\) 8888-8888/i)).toBeDefined()
+  })
   describe('Buttons tests', () => {
     it(`should trigger 'ALTERAR NO PERFIL' button`, () => {
       setup(defaultStore)
@@ -147,7 +177,6 @@ describe('EditingPersonalData component', () => {
           container: createRootContainer(),
         }
       )
-
       const saveButton = screen.getByRole('button', {
         name: /SALVAR ALTERAÇÕES/i,
       })
@@ -209,6 +238,68 @@ describe('EditingPersonalData component', () => {
       userEvent.type(cityInput, '{backspace}Natal')
       expect(cityInput).toHaveValue('Natal')
     })
+    it('should render documentNumberInput correctly', () => {
+      setup(defaultStore)
+
+      const documentNumberInput = screen.getByTestId('número do documento')
+      // @ts-expect-error:
+      documentNumberInput.setSelectionRange(0, 9)
+      userEvent.type(documentNumberInput, '{backspace}11111111x')
+      expect(documentNumberInput).toHaveValue('11111111x')
+    })
+    it('should render issuingBodyInput correctly', () => {
+      setup(defaultStore)
+
+      const issuingBodyInput = screen.getByTestId('órgão emissor')
+      // @ts-expect-error:
+      issuingBodyInput.setSelectionRange(0, 3)
+      userEvent.type(issuingBodyInput, '{backspace}SSP')
+      expect(issuingBodyInput).toHaveValue('SSP')
+    })
+    it('should render expeditionDateInput correctly', () => {
+      setup(defaultStore)
+
+      const expeditionDateInput = screen.getByTestId('data de expedição')
+      // @ts-expect-error:
+      expeditionDateInput.setSelectionRange(0, 10)
+      userEvent.type(expeditionDateInput, '{backspace}01012015')
+      expect(expeditionDateInput).toHaveValue('01/01/2015')
+    })
+    it('should render expiredDateInput correctly', () => {
+      const formDataWithCNH = {
+        cidade: 'Rio de Janeiro',
+        nomeMae: 'Dona Florinda',
+        codigoEstadoCivil: '2',
+        sexo: 'F',
+        codigoProfissao: '1',
+        tipoDocumento: 'CNH',
+        numeroDocumentoIdentificacao: '77777777777',
+        dataEmissaoDocumento: '10/10/2017',
+        orgaoExpedidor: 'DETRAN',
+      }
+
+      const store = storeFactory(defaultStore)
+      renderWithReduxAndTheme(
+        <EditingPersonalData
+          isOpen
+          handleClose={() => {}}
+          formData={formDataWithCNH}
+          setFormData={() => {}}
+        />,
+        { store, container: createRootContainer() }
+      )
+
+      const expiredDateInput = screen.getByTestId('data de vencimento')
+      // @ts-expect-error:
+      expiredDateInput.setSelectionRange(0, 10)
+      userEvent.type(expiredDateInput, '{backspace}01012015')
+      expect(screen.getByText(/digite uma data válida/i)).toBeDefined()
+
+      // @ts-expect-error:
+      expiredDateInput.setSelectionRange(0, 10)
+      userEvent.type(expiredDateInput, '{backspace}01012021')
+      expect(expiredDateInput).toHaveValue('01/01/2021')
+    })
     it('should render motherNameInput correctly', () => {
       setup(defaultStore)
 
@@ -235,6 +326,127 @@ describe('EditingPersonalData component', () => {
 
       const motherNameInput = screen.getByTestId('nome da mãe')
       expect(motherNameInput).toHaveValue('')
+    })
+  })
+  describe('Documents tests', () => {
+    it(`should render 'RG' inputs`, () => {
+      setup(defaultStore)
+
+      const documentSelect = screen.getByTestId(
+        'select-option-input-data-documento'
+      )
+      expect(documentSelect).toHaveValue('RG')
+
+      const documentNumberInput = screen.getByTestId('número do documento')
+      expect(documentNumberInput).toHaveValue('99999999x')
+
+      const expeditionDate = screen.getByTestId('data de expedição')
+      expect(expeditionDate).toHaveValue('10/10/2017')
+
+      const issuingBody = screen.getByTestId('órgão emissor')
+      expect(issuingBody).toHaveValue('SSP')
+    })
+    it(`should render 'RNE' inputs`, () => {
+      const formDataWithRNE = {
+        cidade: 'Rio de Janeiro',
+        nomeMae: 'Dona Florinda',
+        codigoEstadoCivil: '2',
+        sexo: 'F',
+        codigoProfissao: '1',
+        tipoDocumento: 'RNE',
+        numeroDocumentoIdentificacao: '88888888',
+        dataEmissaoDocumento: '10/10/2017',
+        orgaoExpedidor: 'CGPI/DIREX/DPF',
+      }
+
+      const store = storeFactory(defaultStore)
+      renderWithReduxAndTheme(
+        <EditingPersonalData
+          isOpen
+          handleClose={() => {}}
+          formData={formDataWithRNE}
+          setFormData={() => {}}
+        />,
+        { store, container: createRootContainer() }
+      )
+
+      const documentSelect = screen.getByTestId(
+        'select-option-input-data-documento'
+      )
+      expect(documentSelect).toHaveValue('RNE')
+
+      const documentNumberInput = screen.getByTestId('número do documento')
+      expect(documentNumberInput).toHaveValue('88888888')
+
+      const expeditionDate = screen.getByTestId('data de expedição')
+      expect(expeditionDate).toHaveValue('10/10/2017')
+
+      // const expeditionDate = screen.getByTestId('data de vencimento')
+      // expect(expeditionDate).toHaveValue('10/10/2021')
+
+      const issuingBody = screen.getByTestId('órgão emissor')
+      expect(issuingBody).toHaveValue('CGPI/DIREX/DPF')
+    })
+    it(`should render 'CNH' inputs`, () => {
+      const formDataWithCNH = {
+        cidade: 'Rio de Janeiro',
+        nomeMae: 'Dona Florinda',
+        codigoEstadoCivil: '2',
+        sexo: 'F',
+        codigoProfissao: '1',
+        tipoDocumento: 'CNH',
+        numeroDocumentoIdentificacao: '77777777777',
+        dataEmissaoDocumento: '10/10/2017',
+        orgaoExpedidor: 'DETRAN',
+      }
+
+      const store = storeFactory(defaultStore)
+      renderWithReduxAndTheme(
+        <EditingPersonalData
+          isOpen
+          handleClose={() => {}}
+          formData={formDataWithCNH}
+          setFormData={() => {}}
+        />,
+        { store, container: createRootContainer() }
+      )
+
+      const documentSelect = screen.getByTestId(
+        'select-option-input-data-documento'
+      )
+      expect(documentSelect).toHaveValue('CNH')
+
+      const documentNumberInput = screen.getByTestId('número do documento')
+      expect(documentNumberInput).toHaveValue('77777777777')
+
+      const expeditionDate = screen.getByTestId('data de expedição')
+      expect(expeditionDate).toHaveValue('10/10/2017')
+
+      // const expeditionDate = screen.getByTestId('data de vencimento')
+      // expect(expeditionDate).toHaveValue('10/10/2025')
+    })
+    it(`should be able to select 'CNH' option`, () => {
+      const { rerender } = setup(defaultStore)
+
+      const documentSelect = screen.getByTestId(
+        'select-option-input-data-documento'
+      )
+
+      userEvent.click(documentSelect)
+
+      const CNHOption = screen.getByTestId('option-CNH')
+      userEvent.click(CNHOption)
+
+      rerender(
+        <EditingPersonalData
+          isOpen
+          handleClose={() => {}}
+          formData={formData}
+          setFormData={() => {}}
+        />
+      )
+
+      expect(documentSelect).toHaveValue('CNH')
     })
   })
   it('should render modal', () => {

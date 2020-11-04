@@ -5,15 +5,16 @@ import { dict } from 'components/IconExporter'
 
 import * as s from '../styles'
 
-const validateDate = (value: string) => {
+export const isExpeditionDateValid = (value: string) => {
   const inputValue = moment(value, 'DD/MM/YYYY').format('YYYY-MM-DD')
   const today = moment().format('YYYY-MM-DD')
 
   // is valid date and past date
-  if (moment(inputValue).isValid() && moment(inputValue).isBefore(today)) {
-    return true
-  }
-  return false
+  return (
+    moment(inputValue).isValid() &&
+    moment(inputValue).isBefore(today) &&
+    value.length >= 10
+  )
 }
 
 interface IProps {
@@ -35,10 +36,7 @@ const ExpeditionDateInput: React.FC<IProps> = ({
     <s.DateInput
       newInput
       label="data de expedição"
-      error={
-        (!validateDate(expeditionDate) || !expeditionDate.length) &&
-        expeditionDateError
-      }
+      error={!isExpeditionDateValid(expeditionDate) && expeditionDateError}
       value={expeditionDate}
       onChange={(e: any) => setExpeditionDate(e.target.value)}
       {...rest}
