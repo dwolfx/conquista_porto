@@ -13,7 +13,7 @@ import * as S from './styles'
 const DeliveryData = ({
   formData,
   setFormData,
-}: Omit<ISummaryStep, 'onSubmit'>) => {
+}: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit'>) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (

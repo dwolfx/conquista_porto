@@ -7,6 +7,7 @@ import Layer from 'components/Layer'
 import HorizontalList from 'components/HorizontalList'
 import Text from 'components/Text'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 import { truncateString } from 'helpers'
 
 import { baseURLNamespaceInvestAws, post } from 'services/api'
@@ -46,6 +47,8 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   const [step, setStep] = useState<steps>(1)
   const [formData, setFormData] = useState<ICreditCardCreationPayload>({})
   const [formResponse, setFormResponse] = useState<IOrderResponse>({})
+  const [retrySubmit, setRetrySubmit] = useState<boolean>(false)
+  const { addToast } = useToast()
 
   useEffect(() => {
     dispatch(GetCreditCardExpirationDaysRequest())
@@ -81,16 +84,27 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   }
 
   const handlePostSubmit = useCallback(async () => {
-    const { data } = await post(
-      `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
-      formData
-    )
+    try {
+      const { data } = await post(
+        `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
+        formData
+      )
 
-    if (data) {
-      setFormResponse(data);
-      goNext({});
+      if (data) {
+        setFormResponse(data);
+        goNext({});
+      }
+
+    } catch (error) {
+      setRetrySubmit(true);
+      addToast({
+        type: 'error',
+        title: 'Desculpe, ocorreu uma falha ao enviar a solicitação',
+        description: JSON.parse(error.message)?.msg,
+      })
     }
-  }, [formData, goNext])
+
+  }, [formData, goNext, addToast])
 
   // Each step goes here
   const content = [
@@ -101,8 +115,9 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       formData={formData}
       setFormData={setFormData}
       onSubmit={handlePostSubmit}
+      retrySubmit={retrySubmit}
     />,
-    <FinalStep formData={formData} formOrderResponse={formResponse}/>
+    <FinalStep formData={formData} formOrderResponse={formResponse} />
   ]
 
   const getContent = () => {

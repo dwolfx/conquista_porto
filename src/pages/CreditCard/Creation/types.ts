@@ -13,7 +13,8 @@ export interface IStepComponent {
 export interface ISummaryStep {
   formData: ICreditCardCreationPayload
   setFormData: Dispatch<SetStateAction<ICreditCardCreationPayload>>
-  onSubmit: () => void
+  onSubmit: () => void,
+  retrySubmit: boolean
 }
 
 export interface IOption {

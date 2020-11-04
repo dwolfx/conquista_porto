@@ -22,7 +22,7 @@ import * as S from './styles'
 const PersonalData = ({
   formData,
   setFormData,
-}: Omit<ISummaryStep, 'onSubmit'>) => {
+}: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit'>) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const { creditCardClient } = useSelector((state: IState) => ({

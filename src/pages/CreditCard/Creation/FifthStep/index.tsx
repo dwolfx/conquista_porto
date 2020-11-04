@@ -15,7 +15,7 @@ import { StyledCard } from './CardData/styles'
 import { GridContainer } from '../styles'
 import * as S from './styles'
 
-const FifthStep = ({ formData, setFormData, onSubmit }: ISummaryStep) => {
+const FifthStep = ({ formData, setFormData, onSubmit, retrySubmit }: ISummaryStep) => {
   const [isChecked, setChecked] = useState(false)
 
   return (
@@ -68,7 +68,7 @@ const FifthStep = ({ formData, setFormData, onSubmit }: ISummaryStep) => {
           disabled={!isChecked}
           onClick={() => onSubmit()}
         >
-          SOLICITAR CARTÃO
+          {retrySubmit ? 'TENTAR NOVAMENTE' : 'SOLICITAR CARTÃO' }
         </Button>
       </S.Footer>
     </>

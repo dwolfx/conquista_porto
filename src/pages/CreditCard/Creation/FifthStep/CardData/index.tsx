@@ -14,7 +14,7 @@ import * as S from './styles'
 const CardData = ({
   formData,
   setFormData,
-}: Omit<ISummaryStep, 'onSubmit'>) => {
+}: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit'>) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
