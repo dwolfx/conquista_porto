@@ -7,6 +7,9 @@ import { useToast } from 'hooks/toast'
 
 import { columns } from './columns'
 import ExtractFilter from './Filter'
+import ExtractTableMobile from './Mobile'
+import TableFilterDrawer from './TableFilterDrawer'
+import { INTERVAL_SELECT_OPTIONS } from './constants'
 
 import { GetObjectiveManagementExtractFundRequest } from 'store/modules/ObjectiveManagement/action'
 
@@ -14,24 +17,6 @@ import { IFundExtract } from 'store/modules/ObjectiveManagement/types'
 
 import * as s from './styles'
 import * as t from './types'
-
-export const INTERVAL_SELECT_OPTIONS = {
-  WEEK_INTERVAL_SELECT_OPTION: {
-    id: 1,
-    name: 'Últimos 7 dias',
-    value: 7,
-  },
-  MONTH_INTERVAL_SELECT_OPTION: {
-    id: 2,
-    name: 'Últimos 30 dias',
-    value: 30,
-  },
-  SPECIFIC_INTERVAL_SELECT_OPTION: {
-    id: 3,
-    name: 'Período específico',
-    value: null,
-  },
-}
 
 const initialInterval = {
   initialDate: moment()
@@ -54,7 +39,7 @@ export default function ExtractMovimentFund({
   fundId: number
 }) {
   const dispatch = useDispatch()
-  const isMobile = useMedia('xs')
+  const isMobile = useMedia('sm')
   const { addToast } = useToast()
   const tableRef = useRef<HTMLDivElement>(null)
   const [selectedInterval, setSelectedInterval] = useState<t.ISelectInterval>(
@@ -62,11 +47,24 @@ export default function ExtractMovimentFund({
   )
   const [interval, setInterval] = useState<t.IInterval>({ ...initialInterval })
   const [filters, setFilters] = useState<string[]>([])
+  const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
 
   const cleanFilters = () => {
     setFilters([])
   }
 
+  const request = () => {
+    dispatch(
+      GetObjectiveManagementExtractFundRequest({
+        id: +objectiveId,
+        fund_id: fundId,
+        addToast,
+        allocationTypeList: filters,
+        initialDate: interval.initialDate,
+        finalDate: interval.finalDate,
+      })
+    )
+  }
   useEffect(() => {
     if (filters.length > 0 || (interval.initialDate && interval.finalDate)) {
       dispatch(
@@ -86,31 +84,63 @@ export default function ExtractMovimentFund({
     <s.ExtractFund data-testid="ExtractMovimentFund">
       <s.CardContainer>
         <s.CustomCard>
-          {/* {isLoading ? (
-            <s.Loading type="bar" legend="Buscando informações do extrato..." />
-          ) : ( */}
-          <>
-            <ExtractFilter
-              filters={filters}
-              handleFilters={setFilters}
-              interval={interval}
-              selectedInterval={selectedInterval}
-              handleSelectInterval={setSelectedInterval}
-              handleInterval={setInterval}
-              handleClearFilters={cleanFilters}
-            />
-            <s.CustomTable
-              customRef={tableRef}
-              data={extractFund}
-              columns={columns()}
-              isLoading={isLoading}
-              loadingMessage="Buscando informações do extrato…"
-              emptyMessage="Não há movimentações com essas especificações"
-              filteringEmptyMessage="Não há movimentações com essas especificações"
-              hasPagination
-            />
-          </>
-          {/* )} */}
+          {isMobile ? (
+            <>
+              <ExtractTableMobile
+                extractFund={extractFund}
+                isLoading={isLoading}
+                filters={filters}
+                handleFilters={setFilters}
+                interval={interval}
+                selectedInterval={selectedInterval}
+                handleSelectInterval={setSelectedInterval}
+                handleInterval={setInterval}
+                handleClearFilters={cleanFilters}
+                request={request}
+              />
+              <s.FloatButton
+                color="primary"
+                onClick={() => setOpenFilterDrawer(true)}
+                size="large"
+                icon="filter"
+              />
+              {isOpenFilterDrawer && (
+                <TableFilterDrawer
+                  isOpen={isOpenFilterDrawer}
+                  onHandleClose={() => setOpenFilterDrawer(false)}
+                  filters={filters}
+                  handleFilters={setFilters}
+                  interval={interval}
+                  handleInterval={setInterval}
+                  selectedInterval={selectedInterval}
+                  handleSelectInterval={setSelectedInterval}
+                  handleClearFilters={cleanFilters}
+                />
+              )}
+            </>
+          ) : (
+            <>
+              <ExtractFilter
+                filters={filters}
+                handleFilters={setFilters}
+                interval={interval}
+                selectedInterval={selectedInterval}
+                handleSelectInterval={setSelectedInterval}
+                handleInterval={setInterval}
+                handleClearFilters={cleanFilters}
+              />
+              <s.CustomTable
+                customRef={tableRef}
+                data={extractFund}
+                columns={columns()}
+                isLoading={isLoading}
+                loadingMessage="Buscando informações do extrato…"
+                emptyMessage="Não há movimentações com essas especificações"
+                filteringEmptyMessage="Não há movimentações com essas especificações"
+                hasPagination
+              />
+            </>
+          )}
         </s.CustomCard>
       </s.CardContainer>
     </s.ExtractFund>

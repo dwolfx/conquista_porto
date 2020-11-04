@@ -10,7 +10,7 @@ import Dropdown from 'components/Dropdown'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
-// import { INTERVAL_SELECT_OPTIONS } from 'pages/Investments/Extract/constants'
+import { INTERVAL_SELECT_OPTIONS } from '../constants'
 // import { ISelectInterval, IInterval } from 'pages/Investments/Extract/types'
 import {
   Wrapper,
@@ -21,24 +21,6 @@ import {
 } from './styles'
 
 import * as t from '../types'
-
-const INTERVAL_SELECT_OPTIONS = {
-  WEEK_INTERVAL_SELECT_OPTION: {
-    id: 1,
-    name: 'Últimos 7 dias',
-    value: 7,
-  },
-  MONTH_INTERVAL_SELECT_OPTION: {
-    id: 2,
-    name: 'Últimos 30 dias',
-    value: 30,
-  },
-  SPECIFIC_INTERVAL_SELECT_OPTION: {
-    id: 3,
-    name: 'Período específico',
-    value: null,
-  },
-}
 
 interface IProps {
   filters: string[]

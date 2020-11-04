@@ -83,5 +83,14 @@ export const FilterContentWrapper = styled.div`
 
 export const FilterButtonsWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin: ${({ theme }) => `${theme.spacing(2)}px 0 ${theme.spacing(4)}px`};
+
+  > button {
+    margin-right: ${({ theme }) => theme.spacing(1)}px;
+    margin-bottom: ${({ theme }) => theme.spacing(1)}px;
+    &:last-child : {
+      margin: 0;
+    }
+  }
 `

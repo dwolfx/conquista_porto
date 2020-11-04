@@ -8,6 +8,7 @@ import InputMoney from 'components/Inputs/Money'
 import LoadingCmp from 'components/Loading'
 import { LoadingContainer } from 'components/Loading/styles'
 import { TheadTh } from 'components/Table/styles'
+import IconButton from 'components/Button/Icon'
 
 export const Loading = styled(LoadingCmp)`
   display: flex;
@@ -67,4 +68,14 @@ export const FundoNameWrapper = styled(Text)`
   max-width: 220px;
   font-weight: normal;
   white-space: pre-wrap;
+`
+
+export const FloatButton = styled(IconButton)`
+  content: '';
+  border-radius: 50%;
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  z-index: 11;
+  border: none;
 `
