@@ -64,6 +64,12 @@ const SelectBrazilianStates = ({
   }
 
   useEffect(() => {
+    if (selectedOption === '') {
+      setSelected({
+        id: 0,
+        name: '',
+      })
+    }
     const selectedStateObject = Object.entries(brazilianStates).find(
       ([key]) => key === selectedOption
     )

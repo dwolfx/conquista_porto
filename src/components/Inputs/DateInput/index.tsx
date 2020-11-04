@@ -12,10 +12,11 @@ interface IProps {
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void
   name?: string
   placeholder?: string
+  label?: string
 }
 
 const DateInput = forwardRef<HTMLInputElement, IProps>(
-  ({ newInput = false, onChange, ...rest }, ref) => {
+  ({ newInput = false, onChange, label, ...rest }, ref) => {
     const applyDateMask = (event: any) => {
       const strippedValue = event.target.value.replace(/\D/g, '')
 
@@ -34,6 +35,7 @@ const DateInput = forwardRef<HTMLInputElement, IProps>(
     if (newInput) {
       return (
         <NewTextInput
+          label={label}
           onChange={applyDateMask}
           maxLength={10}
           ref={ref}
