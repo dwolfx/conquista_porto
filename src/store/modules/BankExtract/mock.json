@@ -2,77 +2,77 @@
   "transacoes": {
     "transacao": [
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-09-03T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-07-03T00:00:00-03:00",
         "valor": "500"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-08-27T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-09-03T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-07-03T00:00:00-03:00",
         "valor": "500"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-08-27T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-09-03T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-07-03T00:00:00-03:00",
         "valor": "500"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-08-27T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-09-03T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-07-03T00:00:00-03:00",
         "valor": "500"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-08-27T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-09-03T00:00:00-03:00",
         "valor": "100"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-07-03T00:00:00-03:00",
         "valor": "500"
       },
       {
-        "tipo": "Retirada",
+        "tipo": "Entrada",
         "data": "2019-08-27T00:00:00-03:00",
         "valor": "100"
       }

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Anbima from 'components/Anbima'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
-import useFetchSuitabilityInfo from 'hooks/Suitability/useSuitabilityInfo'
+import useFetchSuitabilityInfo from 'hooks/Suitability/useFetchSuitabilityInfo'
 import useMedia from 'hooks/useMedia'
 import Redeem from 'pages/Redeem'
 import AccountExtract from 'pages/Investments/Extract/AccountExtract'

@@ -18,6 +18,13 @@ export function* getData({
     )
     let newResponse = response
 
+    const getType = (tipo: string) => {
+      if (tipo === 'APLICAÇÃO' || tipo === 'TED ENVIADA') {
+        return 'Retirada'
+      }
+      return 'Entrada'
+    }
+
     if (newResponse.data.transacoes === '') {
       newResponse = {
         data: {
@@ -32,7 +39,13 @@ export function* getData({
         data: {
           ...newResponse.data,
           transacoes: {
-            transacao: [...newResponse.data.transacoes.transacao],
+            transacao: [...newResponse.data.transacoes.transacao].map(
+              (res: any) => ({
+                ...res,
+                tipo: getType(res.tipo),
+                valor: res.valor.replace('-', ''),
+              })
+            ),
           },
         },
       }
@@ -43,7 +56,7 @@ export function* getData({
           transacoes: {
             transacao: response.data?.transacoes?.transacao.map((res: any) => ({
               ...res,
-              tipo: res.tipo === 'APLICAÇÃO' ? 'Entrada' : 'Retirada',
+              tipo: getType(res.tipo),
               valor: res.valor.replace('-', ''),
             })),
           },

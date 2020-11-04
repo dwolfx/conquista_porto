@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Row as RowComponent } from 'styled-bootstrap-grid'
 
 import IconButton from 'components/Button/Icon'
 import logoConquistaBeta from 'assets/images/logoConquistaBeta.png'
@@ -60,4 +61,8 @@ export const TitleWrapper = styled.div`
 
 export const Anbima = styled(AnbimaComponent)`
   margin-top: 0;
+`
+
+export const RowStyled = styled(RowComponent)`
+  margin-top: ${({ theme }) => theme.spacing(4)}px;
 `

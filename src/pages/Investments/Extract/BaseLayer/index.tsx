@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col } from 'styled-bootstrap-grid'
+import { Container, Col } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
 
 import Layer from 'components/Layer'
@@ -12,6 +12,7 @@ import {
   LogoConquistaBeta,
   SubHeader,
   TitleWrapper,
+  RowStyled
 } from './styles'
 import useMedia from 'hooks/useMedia'
 
@@ -74,11 +75,11 @@ const BaseLayer: React.FC<IProps> = ({
         `}
       >
         {children}
-        <Row>
+        <RowStyled>
           <Col col={12}>
             <Anbima data-testid="ambima" />
           </Col>
-        </Row>
+        </RowStyled>
       </Container>
     </Layer>
   )
