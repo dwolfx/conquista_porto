@@ -32,18 +32,6 @@ export default function({ isOpen, handleClose, fund }: IExtractProps) {
     (state: IState) => state.objectiveManagement
   )
 
-  // useEffect(() => {
-  //   if (fund) {
-  //     dispatch(
-  //       GetObjectiveManagementExtractFundRequest({
-  //         id: +objectiveId,
-  //         fund_id: fund.fund_id,
-  //         addToast,
-  //       })
-  //     )
-  //   }
-  // }, [fund, addToast, objectiveId])
-
   return (
     <s.Layer
       isOpen={isOpen}

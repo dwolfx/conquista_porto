@@ -11,7 +11,6 @@ import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
 import { INTERVAL_SELECT_OPTIONS } from '../constants'
-// import { ISelectInterval, IInterval } from 'pages/Investments/Extract/types'
 import {
   Wrapper,
   DropdownWrapper,
@@ -24,7 +23,6 @@ import * as t from '../types'
 
 interface IProps {
   filters: string[]
-  // t.IFundExtractFilter
   interval: t.IInterval
   handleClearFilters: () => void
   selectedInterval: t.ISelectInterval
@@ -124,14 +122,14 @@ const ExtractFilter = ({
       </DropdownWrapper>
       <ButtonsWrapper>
         <ButtonTag
-          color={filters.includes('Aplicação no fundo') ? 'primary' : ''}
+          color={filters.includes('Aplicacao no fundo') ? 'primary' : ''}
           onClick={() => {
-            if (filters.includes('Aplicação no fundo')) {
+            if (filters.includes('Aplicacao no fundo')) {
               handleFilters(
-                filters.filter(item => item !== 'Aplicação no fundo')
+                filters.filter(item => item !== 'Aplicacao no fundo')
               )
             } else {
-              handleFilters([...filters, 'Aplicação no fundo'])
+              handleFilters([...filters, 'Aplicacao no fundo'])
             }
           }}
         >
@@ -179,15 +177,15 @@ const ExtractFilter = ({
         </ButtonTag>
         <ButtonTag
           color={
-            filters.includes('Transferência entre objetivos') ? 'primary' : ''
+            filters.includes('Transferencia entre objetivos') ? 'primary' : ''
           }
           onClick={() => {
-            if (filters.includes('Transferência entre objetivos')) {
+            if (filters.includes('Transferencia entre objetivos')) {
               handleFilters(
-                filters.filter(item => item !== 'Transferência entre objetivos')
+                filters.filter(item => item !== 'Transferencia entre objetivos')
               )
             } else {
-              handleFilters([...filters, 'Transferência entre objetivos'])
+              handleFilters([...filters, 'Transferencia entre objetivos'])
             }
           }}
         >
