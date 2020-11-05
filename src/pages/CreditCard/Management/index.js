@@ -18,9 +18,9 @@ import {
   OpenCreationLayer,
 } from 'store/modules/CreditCard/action'
 
+import { formatMoney } from 'helpers'
 import useFetchCreditCard from 'hooks/CreditCard/useFetchCreditCard'
 
-import { formatMoney, handleGiwRedirect } from 'helpers'
 import Creation from '../Creation'
 
 import {
@@ -260,11 +260,7 @@ export default function ManagementCreditCard() {
               </span>
             </span>
           }
-          onClick={() =>
-            handleGiwRedirect(
-              'portaldecliente/conquista/cartao-de-credito/simular?r=true'
-            )
-          }
+          onClick={() => dispatch(OpenCreationLayer())}
         />
         <MoreDetails title="Saiba mais:" data={moreDetailsData} />
         <FileDownloadSection data={downloadFileSectionData} />
