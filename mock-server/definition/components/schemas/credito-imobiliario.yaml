@@ -1,0 +1,377 @@
+OrcamentoConsultivoRequest:
+  description: Orçamento Consultivo
+  type: object
+  properties:
+    consultivo:
+      type: object
+      properties:
+        codigoOfertaConsultiva:
+          type: string
+          example: VIAGEM
+        canalDistribuicao:
+          type: string
+          example: COR
+        identificadorRepresentante:
+          type: string
+          example: P5005J
+        meioComercializacao:
+          type: string
+          example: Portal
+        entradaNegocio:
+          type: string
+          example: CO2
+        voltar:
+          type: boolean
+          example: true
+    acao:
+      type: string
+      example: CONTRATAR
+  required:
+    - consultivo
+    - acao
+
+OrcamentoOfertaResquest:
+  description: Orçamento Oferta
+  type: object
+  properties:
+    orcamento:
+      type: object
+      example: null
+    consultivo:
+      type: object
+      properties:
+        codigoOfertaConsultiva:
+          type: string
+          example: VIAGEM
+        canalDistribuicao:
+          type: string
+          example: COR
+        identificadorRepresentante:
+          type: string
+          example: P5005J
+        meioComercializacao:
+          type: string
+          example: Portal
+        respostas:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: TIPO_VIAGEM
+              conteudo:
+                type: string
+                example: INTERNACIONAL
+
+PropostaTransmissaoResquest:
+  description: Orçamento Oferta
+  type: object
+  properties:
+    propostas:
+      type: array
+      items:
+        type: object
+        properties:
+          indice:
+            type: string
+            example: 1
+          codigoEmpresa:
+            type: string
+            example: 1
+          tipoSeguro:
+            type: string
+            example: NOVO
+          numeroOrcamento:
+            type: string
+            example: 00382996
+          numeroPortal:
+            type: string
+            example: 0
+          dataProtocolo:
+            type: string
+            example: 2020-08-13
+          remuneracoes:
+            type: array
+            items:
+              type: object
+              properties:
+                percentual:
+                  type: string
+                  example: 25
+                tipoRemuneracao:
+                  type: string
+                  example: COR
+                favorecidos:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      papel:
+                        type: string
+                        example: COR
+                      participacao:
+                        type: number
+                        example: 100
+                      corretorLider:
+                        type: boolean
+                        example: true
+                      susep:
+                        type: string
+                        example: P5005J
+                      pessoa:
+                        type: object
+                        example: null
+          contratantes:
+            type: array
+            items:
+              type: object
+              properties:
+                tipo:
+                  type: string
+                  example: PRI
+                numero:
+                  type: number
+                  example: 1
+                grupos:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      numero:
+                        type: string
+                        example: 1
+                      tipoCalculo:
+                        type: string
+                        example: Sintetico
+                      nome:
+                        type: string
+                        example: Passageiros até 70 anos
+                      qtdeVidas:
+                        type: string
+                        example: 1
+                      segurados:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            pessoa:
+                              type: object
+                              properties:
+                                tipo:
+                                  type: string
+                                  example: FIS
+                                enderecos:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      enderecos:
+                                        type: object
+                                        properties:
+                                          tipoEndereco:
+                                            type: string
+                                            example: Residencial
+                                          logradouro:
+                                            type: string
+                                            example: R TURIACU
+                                          bairro:
+                                            type: string
+                                            example: VILA ALICE
+                                          cidade:
+                                            type: string
+                                            example: SANTO ANDRE
+                                          uf:
+                                            type: string
+                                            example: SP
+                                          cep:
+                                            type: string
+                                            example: 09060
+                                          complementoCep:
+                                            type: string
+                                            example: 320
+                                          numeroLogradouro:
+                                            type: string
+                                            example: 45
+                                          complemento:
+                                            type: string
+                                            example: 0
+                                          paisResidencia:
+                                            type: string
+                                            example: Brasil
+                                nome:
+                                  type: string
+                                  example: ILSO LOVATE
+                                dadosPessoaFisica:
+                                  type: object
+                                  properties:
+                                    digitoCpf:
+                                      type: string
+                                      example: 00
+                                    numeroCpf:
+                                      type: string
+                                      example: 367284707
+                                    sexo:
+                                      type: string
+                                      example: MASCULINO
+                                    dataNascimento:
+                                      type: string
+                                      example: 1977-03-24
+                                email:
+                                  type: string
+                                  example: guimar.salviano@gmail.com
+                                telefones:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      tipoTelefone:
+                                        type: string
+                                        example: RES
+                                      numeroTelefone:
+                                        type: string
+                                        example: 981015830
+                                      dddTelefone:
+                                        type: string
+                                        example: 11
+                                pep:
+                                  type: string
+                                  example: RelacionamentoProximo
+                                pessoaRelacionamentoPep:
+                                  type: object
+                                  properties:
+                                    tipo:
+                                      type: string
+                                      example: FIS
+                                    nome:
+                                      type: string
+                                      example: RENAN CALHEIROS
+                                    dadosPessoaFisica:
+                                      type: object
+                                      properties:
+                                        digitoCpf:
+                                          type: string
+                                          example: 00
+                                        numeroCpf:
+                                          type: string
+                                          example: 367284707
+                            contatoEmergencia:
+                              type: object
+                              properties:
+                                nome:
+                                  type: string
+                                  example: CONTATO DO ILSO
+                                ddd:
+                                  type: string
+                                  example: 11
+                                telefone:
+                                  type: string
+                                  example: 111111111
+                            numero:
+                              type: number
+                              example: 1
+                pessoa:
+                  type: object
+                  properties:
+                    tipo:
+                      type: string
+                      example: FIS
+                    nome:
+                      type: string
+                      example: ILSO LOVATE
+                    dadosPessoaFisica:
+                      type: object
+                      properties:
+                        digitoCpf:
+                          type: string
+                          example: 00
+                        numeroCpf:
+                          type: string
+                          example: 367284707
+                        sexo:
+                          type: string
+                          example: MASCULINO
+                        dataNascimento:
+                          type: string
+                          example: 1977-03-24
+                dadosPagamento:
+                  type: object
+                  properties:
+                    opcao:
+                      type: string
+                      example: 0
+                    codigoFormaPagamento:
+                      type: string
+                      example: 62
+                    quantidadeParcelas:
+                      type: string
+                      example: 1
+                    cartaoCredito:
+                      type: string
+                      example: null
+                    dadosBancarios:
+                      type: string
+                      example: null
+                    formaPagamento:
+                      type: object
+                      properties:
+                        codigo:
+                          type: string
+                          example: 62
+                        descricao:
+                          type: string
+                          example: CARTÃO DE CRÉDITO - DEMAIS BANDEIRAS
+                        idFormaPagamento:
+                          type: string
+                          example: a0a0t000001jSQwAAM
+                        planoParcelamento:
+                          type: string
+                          example: null
+                    responsavelPagamento:
+                      type: object
+                      properties:
+                        dadosPessoaFisica:
+                          type: object
+                          properties:
+                            digitoCpf:
+                              type: string
+                              example: 91
+                            numeroCpf:
+                              type: string
+                              example: 751.207.390
+                            sexo:
+                              type: string
+                              example: MASCULINO
+                        nome:
+                          type: string
+                          example: LETICIA REICHERT VIEIRA
+                        rendaMensal:
+                          type: string
+                          example: null
+                        tipo:
+                          type: string
+                          example: FIS
+                    tipoResponsavelPagamento:
+                      type: string
+                      example: CON
+                    vencimentoPrimeiraParcela:
+                      type: string
+                      example: 2020-09-12
+                    dadosCartaoCredito:
+                      type: object
+                      properties:
+                        cartaoPorto:
+                          type: string
+                          example: false
+                        cvv:
+                          type: string
+                          example: 200
+                        nome:
+                          type: string
+                          example: ILSO
+                        numero:
+                          type: string
+                          example: 5311964097493431
+                        validade:
+                          type: string
+                          example: 072021

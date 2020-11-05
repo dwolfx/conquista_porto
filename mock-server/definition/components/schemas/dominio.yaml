@@ -39,3 +39,10 @@ Message:
   required:
     - TipoCritica
     - Mensagem
+
+GeneralErrorSeguroViagem:
+  description: General Error
+  type: object
+  properties:
+    message:
+      type: string

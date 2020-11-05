@@ -13,7 +13,7 @@ info:
     email: "mauro.catto@sciensa.com"
 
 servers:
-  - url: "http://localhost:{port}/{basePath}"
+  - url: "http://localhost:{port}"
     description: Local server. (NOVO MOCK 3001)
     variables:
       port:
@@ -21,15 +21,12 @@ servers:
           - "3001"
           - "5000"
         default: "3001"
-      basePath:
-        default: "api"
-  - url: "http://api-proxy.conquista.sciensa.click/{basePath}"
+  - url: "http://api-proxy.conquista.sciensa.click/"
     description: API DEV Segurança
-    variables:
-      basePath:
-        default: "api"
-  - url: "https://swagger.conquista.sciensa.click/conquista/cartoes/https:/apihml.portoseguro.brasil:8443"
+  - url: "https:/apihml.portoseguro.brasil:8443/"
     description: API DEV Cartões
+  - url: "https://hml.portoseguro.com.br/"
+    description: API HML Seguro Viagem
 
 tags:
   - name: Cliente Authentication (login)
@@ -55,13 +52,15 @@ tags:
   - name: Conta
     description: Serviços para Programa Pontos.
   - name: Notificações
-    description: Serviços Notificações.
+    description: Serviços para Notificações.
+  - name: Seguro Viagem
+    description: Serviços para Seguro Viagem.
 
 paths:
   ################################################################################
   #                         Cliente Authentication                               #
   ################################################################################
-  /auth2/clientes/login:
+  /api/auth2/clientes/login:
     post:
       tags:
         - Cliente Authentication (login)
@@ -113,7 +112,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /dev/oauth/access-token:
+  /api/dev/oauth/access-token:
     post:
       tags:
         - Cliente Authentication (login)
@@ -138,7 +137,7 @@ paths:
   ################################################################################
   #                                   Perfil                                     #
   ################################################################################
-  /invest/perfil/dados-cliente:
+  /api/invest/perfil/dados-cliente:
     get:
       tags:
         - Perfil
@@ -163,7 +162,7 @@ paths:
   ################################################################################
   #                            Programa de pontos                                #
   ################################################################################
-  /invest/programa-pontos/extrato:
+  /api/invest/programa-pontos/extrato:
     get:
       tags:
         - Pontos
@@ -184,7 +183,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/programa-pontos/consultar-pontos:
+  /api/invest/programa-pontos/consultar-pontos:
     get:
       tags:
         - Pontos
@@ -209,7 +208,7 @@ paths:
   ################################################################################
   #                                   Cartões                                    #
   ################################################################################
-  /invest/cartoes:
+  /api/invest/cartoes:
     get:
       tags:
         - Cartões
@@ -236,7 +235,7 @@ paths:
         500:
           $ref: "#/components/responses/InternalServerError"
 
-  /investimento/aws/v1/cartoes/dados/cliente/cadastrado:
+  /api/investimento/aws/v1/cartoes/dados/cliente/cadastrado:
     get:
       description: Pesquisa aplicações
       tags:
@@ -276,7 +275,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /investimento/aws/v1/cartoes/dia/vencimento:
+  /api/investimento/aws/v1/cartoes/dia/vencimento:
     get:
       description: Pesquisa Dias de Vencimento
       tags:
@@ -311,7 +310,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /investimento/aws/v1/cartoes/ofertas:
+  /api/investimento/aws/v1/cartoes/ofertas:
     get:
       description: Obter Ofertas de Cartão
       tags:
@@ -364,7 +363,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /investimento/aws/v1/cartoes/profissoes:
+  /api/investimento/aws/v1/cartoes/profissoes:
     get:
       description: Pesquisa Profissoes
       tags:
@@ -393,7 +392,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /investimento/aws/v1/cartoes/solicitacao:
+  /api/investimento/aws/v1/cartoes/solicitacao:
     post:
       description: Solicitar Cartão de Crédito
       tags:
@@ -429,7 +428,7 @@ paths:
   ################################################################################
   #                                  Consorcios                                  #
   ################################################################################
-  /invest/consorcios/imovel:
+  /api/invest/consorcios/imovel:
     get:
       tags:
         - Consórcios
@@ -451,7 +450,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/consorcios/auto:
+  /api/invest/consorcios/auto:
     get:
       tags:
         - Consórcios
@@ -477,7 +476,7 @@ paths:
   ################################################################################
   #                             previdencia privada                              #
   ################################################################################
-  /previdencia:
+  /api/previdencia:
     get:
       tags:
         - Previdência
@@ -503,7 +502,7 @@ paths:
   ################################################################################
   #                                 financiamento                                #
   ################################################################################
-  /produtos/financiamento:
+  /api/produtos/financiamento:
     get:
       tags:
         - Financiamento
@@ -525,7 +524,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/financiamentos/auto:
+  /api/invest/financiamentos/auto:
     get:
       tags:
         - Financiamento
@@ -551,7 +550,7 @@ paths:
   ################################################################################
   #                                 financiamento                                #
   ################################################################################
-  /invest/produtos/vida:
+  /api/invest/produtos/vida:
     get:
       tags:
         - Produtos
@@ -584,7 +583,7 @@ paths:
   ################################################################################
   #                                 financiamento                                #
   ################################################################################
-  /invest/fundos:
+  /api/invest/fundos:
     get:
       tags:
         - Fundos
@@ -606,7 +605,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/fundos/{fundId}:
+  /api/invest/fundos/{fundId}:
     get:
       tags:
         - Fundos
@@ -636,7 +635,7 @@ paths:
           $ref: "#/components/responses/NotFound"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/fundos/movimentacoes:
+  /api/invest/fundos/movimentacoes:
     get:
       tags:
         - Fundos
@@ -683,7 +682,7 @@ paths:
   ################################################################################
   #                                     Atlas                                    #
   ################################################################################
-  /invest/atlas/cotista/posicao:
+  /api/invest/atlas/cotista/posicao:
     get:
       tags:
         - Atlas
@@ -700,7 +699,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/atlas/cotista/posicao/consolidado:
+  /api/invest/atlas/cotista/posicao/consolidado:
     get:
       tags:
         - Atlas
@@ -717,7 +716,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/atlas/cotista/ultimas/movimentacoes/{id_fundo}:
+  /api/invest/atlas/cotista/ultimas/movimentacoes/{id_fundo}:
     get:
       tags:
         - Atlas
@@ -744,7 +743,7 @@ paths:
           $ref: "#/components/responses/NotFound"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/atlas/fundo/grade:
+  /api/invest/atlas/fundo/grade:
     get:
       tags:
         - Atlas
@@ -761,34 +760,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/atlas/fundo/detalhes/{idFundo}:
-    get:
-      tags:
-        - Atlas
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: idFundo
-          in: path
-          description: idFundo
-          required: true
-          schema:
-            type: integer
-          example: 51380037
-      responses:
-        200:
-          description: N/D
-        400:
-          $ref: "#/components/responses/GeneralError"
-        401:
-          $ref: "#/components/responses/Unauthorized"
-        403:
-          $ref: "#/components/responses/Forbidden"
-        404:
-          $ref: "#/components/responses/NotFound"
-        500:
-          $ref: "#/components/responses/InternalServerError"
-  /invest/atlas/fundo/rentabilidade/{idFundo}:
+  /api/invest/atlas/fundo/detalhes/{idFundo}:
     get:
       tags:
         - Atlas
@@ -815,7 +787,34 @@ paths:
           $ref: "#/components/responses/NotFound"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /invest/atlas/fundo/rentabilidade/comparativo/{idFundo}:
+  /api/invest/atlas/fundo/rentabilidade/{idFundo}:
+    get:
+      tags:
+        - Atlas
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: idFundo
+          in: path
+          description: idFundo
+          required: true
+          schema:
+            type: integer
+          example: 51380037
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralError"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+  /api/invest/atlas/fundo/rentabilidade/comparativo/{idFundo}:
     get:
       tags:
         - Atlas
@@ -846,7 +845,7 @@ paths:
   ################################################################################
   #                                     Conta                                    #
   ################################################################################
-  /conta/extrato:
+  /api/conta/extrato:
     get:
       tags:
         - Conta
@@ -886,7 +885,7 @@ paths:
   ################################################################################
   #                                Notificações                                  #
   ################################################################################
-  /notificacao/buscar/{cpf}:
+  /api/notificacao/buscar/{cpf}:
     get:
       tags:
         - Notificações
@@ -911,7 +910,7 @@ paths:
           $ref: "#/components/responses/Forbidden"
         500:
           $ref: "#/components/responses/InternalServerError"
-  /notificacao/lida/{id}/{cpf}:
+  /api/notificacao/lida/{id}/{cpf}:
     get:
       tags:
         - Notificações
@@ -946,6 +945,97 @@ paths:
         500:
           $ref: "#/components/responses/InternalServerError"
 
+  ################################################################################
+  #                                 Seguro Viagem                                #
+  ################################################################################
+  /apivida/vida/v1/orcamentos/consultivo:
+    post:
+      tags:
+        - Seguro Viagem
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrcamentoConsultivoRequest"
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralErrorSeguroViagem"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerErrorSeguroViagem"
+  /apivida/vida/v1/orcamentos/oferta:
+    post:
+      tags:
+        - Seguro Viagem
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrcamentoOfertaResquest"
+      responses:
+        200:
+          description: N/D
+        400:
+          $ref: "#/components/responses/GeneralErrorSeguroViagem"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerErrorSeguroViagem"
+  /apivida/vida/v1/propostas/transmissao:
+    post:
+      tags:
+        - Seguro Viagem
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PropostaTransmissaoResquest"
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              example:
+                validacoesEstruturais:
+                  valido: false
+                  problemas:
+                  - codigo: 242
+                    integracao: 2.4.2
+                    descricao: Problema na transmissão. Verifique os dados preenchidos, caso o erro
+                      persista favor entrar em contato com administradora do cartão.
+                retornoFinanceiro:
+                  autorizacaoCartao:
+                    codigo: 
+                    mensagem: ''
+                    codigoGateway: 
+                    mensagemGateway: ''
+                devolutivasPropostas: []
+        400:
+          $ref: "#/components/responses/GeneralErrorSeguroViagem"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        500:
+          $ref: "#/components/responses/InternalServerErrorSeguroViagem"
+
+
 components:
   securitySchemes:
     # apiToken:
@@ -971,6 +1061,8 @@ components:
   schemas:
     GeneralError:
       $ref: "./components/schemas/dominio.yaml#/GeneralError"
+    GeneralErrorSeguroViagem:
+      $ref: "./components/schemas/dominio.yaml#/GeneralErrorSeguroViagem"
     AuthenticationToken:
       $ref: "./components/schemas/dominio.yaml#/AuthenticationToken"
     DadosCliente:
@@ -983,6 +1075,14 @@ components:
       $ref: "./components/schemas/cartao.yaml#/CartaoCredito"
     SolicitarCartaoCreditoRequest:
       $ref: "./components/schemas/cartao.yaml#/SolicitarCartaoCreditoRequest"
+    OrcamentoConsultivoRequest:
+      $ref: "./components/schemas/credito-imobiliario.yaml#/OrcamentoConsultivoRequest"
+    OrcamentoOfertaResquest:
+      $ref: "./components/schemas/credito-imobiliario.yaml#/OrcamentoOfertaResquest"
+    PropostaTransmissaoResquest:
+      $ref: "./components/schemas/credito-imobiliario.yaml#/PropostaTransmissaoResquest"
+    PropostaTransmissaoResponse:
+      $ref: "./components/schemas/credito-imobiliario.yaml#/PropostaTransmissaoResponse"
 
   responses:
     Conflict:
@@ -1044,3 +1144,21 @@ components:
           example:
             error: login_required
             error_description: The resource owner could not be authenticated due to missing or invalid credentials.
+
+    GeneralErrorSeguroViagem:
+      description: Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralErrorSeguroViagem"
+          example:
+            message: Essa resposta significa que o servidor não entendeu a requisição pois está com uma sintaxe inválida
+
+    InternalServerErrorSeguroViagem:
+      description: O servidor encontrou uma situação com a qual não sabe lidar.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralErrorSeguroViagem"
+          example:
+            message: O servidor encontrou uma situação com a qual não sabe lidar.

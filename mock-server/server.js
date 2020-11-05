@@ -11,6 +11,7 @@ const cors = require('cors');
 const authorization = require('./middlewares/authorization');
 
 const urlBase = '/api';
+const urlBaseVida = '/apivida';
 
 // for parsing application/json
 app.use(bodyParser.json());
@@ -46,6 +47,7 @@ require('./routes/fundos')(app, urlBase);
 require('./routes/atlas')(app, urlBase);
 require('./routes/extrato')(app, urlBase);
 require('./routes/notificacao')(app, urlBase);
+require('./routes/seguro-viagem')(app, urlBaseVida);
 
 app.use(urlBase, router);
 
