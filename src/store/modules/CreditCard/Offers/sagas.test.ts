@@ -3,10 +3,9 @@ import { get } from 'services/api'
 import { Types, ICreditCardOfferRequest } from './types'
 
 import { getOffers } from './sagas'
-import {
-  GetCreditCardOfferSuccess,
-  GetCreditCardOfferFailure
-} from './action'
+import { GetCreditCardOfferSuccess, GetCreditCardOfferFailure } from './action'
+
+const addToast = () => {}
 
 describe('ExpirationDays sagas tests', () => {
   it('should exists', () => {
@@ -18,26 +17,32 @@ describe('ExpirationDays sagas tests', () => {
       onSuccess: () => {},
       dataNasc: '28/09/1995',
       uf: 'SP',
-      nome: 'CarlosAlberto'
+      nome: 'CarlosAlberto',
+      addToast,
     }
     const generator = getOffers(params)
-    const response = { 
+    const response = {
       data: {
-        CodigoOferta: "3",
-        MensagemOferta: "Nenhum cartão disponível no momento.",
-        IdSimulacao: "1717",
+        CodigoOferta: '3',
+        MensagemOferta: 'Nenhum cartão disponível no momento.',
+        IdSimulacao: '1717',
         Message: {
-          TipoCritica: "SUCESSO"
+          TipoCritica: 'SUCESSO',
         },
         isMasterCardActive: true,
         isVisaActive: true,
-        CodigoRetorno: "0"
+        CodigoRetorno: '0',
       },
       isLoading: false,
-      hasError: false
+      hasError: false,
     }
 
-    expect(generator.next().value).toEqual(call(get, '/cartoes/ofertas?codigoCanal=1&nome=CarlosAlberto&uf=SP&dataNascimento=28/09/1995'))
+    expect(generator.next().value).toEqual(
+      call(
+        get,
+        '/cartoes/ofertas?codigoCanal=1&nome=CarlosAlberto&uf=SP&dataNascimento=28/09/1995'
+      )
+    )
 
     expect(generator.next(response).value).toEqual(
       put(GetCreditCardOfferSuccess(response.data))
@@ -50,13 +55,15 @@ describe('ExpirationDays sagas tests', () => {
       onSuccess: () => {},
       dataNasc: '28/09/1995',
       uf: 'SP',
-      nome: 'CarlosAlberto'
+      nome: 'CarlosAlberto',
+      addToast,
     }
     const generator = getOffers(params)
     const response = undefined
     generator.next()
-    expect(generator.throw(response).value).toEqual(put(GetCreditCardOfferFailure()))
+    expect(generator.throw(response).value).toEqual(
+      put(GetCreditCardOfferFailure())
+    )
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })
- 
 })
