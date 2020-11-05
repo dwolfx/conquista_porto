@@ -5,7 +5,10 @@ import moment from 'moment'
 
 import VerticalList from 'components/VerticalList'
 import { GetCreditCardClientDataRequest } from 'store/modules/CreditCard/action'
-import { ICreditCardOffer, OFFER_CODE } from 'store/modules/CreditCard/Offers/types'
+import {
+  ICreditCardOffer,
+  OFFER_CODE,
+} from 'store/modules/CreditCard/Offers/types'
 import { GetCreditCardOfferRequest } from 'store/modules/CreditCard/Offers/action'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 import { useToast } from 'hooks/toast'
@@ -34,15 +37,19 @@ const FirstStep = ({
     undefined
   )
 
-  const { creditCardClient, creditCardOffers, isLoadingCreditCardOffers, isClientDataLoading, hasClientDataError } = useSelector(
-    (state: any) => ({
-      creditCardClient: state.creditCard.clientData,
-      creditCardOffers: state.creditCardOffer.data,
-      isLoadingCreditCardOffers: state.creditCardOffer.isLoading,
-      isClientDataLoading: state.creditCard.isClientDataLoading,
-      hasClientDataError: state.creditCard.hasClientDataError,
-    })
-  )
+  const {
+    creditCardClient,
+    creditCardOffers,
+    isLoadingCreditCardOffers,
+    isClientDataLoading,
+    hasClientDataError,
+  } = useSelector((state: any) => ({
+    creditCardClient: state.creditCard.clientData,
+    creditCardOffers: state.creditCardOffer.data,
+    isLoadingCreditCardOffers: state.creditCardOffer.isLoading,
+    isClientDataLoading: state.creditCard.isClientDataLoading,
+    hasClientDataError: state.creditCard.hasClientDataError,
+  }))
 
   useEffect(() => {
     if (!creditCardClient) {
@@ -88,7 +95,8 @@ const FirstStep = ({
         email: creditCardClient.emailCliente,
         nome: creditCardClient.nomeCliente,
         nomeMae: creditCardClient.nomeMae,
-        numeroDocumentoIdentificacao: creditCardClient.numeroDocumento?.toString() || '',
+        numeroDocumentoIdentificacao:
+          creditCardClient.numeroDocumento?.toString() || '',
         numeroTelefone: creditCardClient.numeroTelefone?.toString() || '',
         orgaoExpedidor: creditCardClient.orgaoEmissor,
         sexo: creditCardClient.sexo,
@@ -114,22 +122,26 @@ const FirstStep = ({
           data-gtm-type="click"
           data-gtm-clicktype="button"
           color="primary"
-          onClick={() => dispatch(GetCreditCardClientDataRequest({ addToast }))}>
-            tentar novamente
+          onClick={() => dispatch(GetCreditCardClientDataRequest({ addToast }))}
+        >
+          tentar novamente
         </Button>
       </s.ErrorWrapper>
     )
   }
 
   const renderContent = () => {
-    if(hasClientDataError){
+    if (hasClientDataError) {
       return <FirstStepErrorState />
     }
 
-    if(isClientDataLoading){
+    if (isClientDataLoading) {
       return (
         <s.LoadingWrapper>
-          <Loading type="bar" legend="Aguarde, estamos buscando suas informações..."/>
+          <Loading
+            type="bar"
+            legend="Aguarde, estamos buscando suas informações..."
+          />
         </s.LoadingWrapper>
       )
     }
@@ -137,19 +149,18 @@ const FirstStep = ({
     return (
       <>
         <s.Title>Confirme as informações abaixo</s.Title>
-        {customerData
-          && Object.entries(customerData).map(([key, value], index) => (
-              <React.Fragment key={uuid()}>
-                <VerticalList
-                  elements={[
-                    <s.Label>{t.EInputsLabel[key as t.TEnumKeys]}</s.Label>,
-                    <s.Value>{value}</s.Value>,
-                  ]}
-                />
-                {index === 3 ? null : <s.Divisor />}
-              </React.Fragment>
-            ))
-          }
+        {customerData &&
+          Object.entries(customerData).map(([key, value], index) => (
+            <React.Fragment key={uuid()}>
+              <VerticalList
+                elements={[
+                  <s.Label>{t.EInputsLabel[key as t.TEnumKeys]}</s.Label>,
+                  <s.Value>{value}</s.Value>,
+                ]}
+              />
+              {index === 3 ? null : <s.Divisor />}
+            </React.Fragment>
+          ))}
         <s.Button
           outline
           data-gtm-type="click"
@@ -169,12 +180,17 @@ const FirstStep = ({
           data-gtm-name="confirmar"
           onClick={() => {
             if (creditCardClient) {
-              dispatch(GetCreditCardOfferRequest({
-                onSuccess,
-                nome: creditCardClient.nomeCliente.replace(' ', ''),
-                dataNasc: moment(creditCardClient.dataNascimento).format('DD/MM/YYYY'),
-                uf: creditCardClient.estado
-              }))
+              dispatch(
+                GetCreditCardOfferRequest({
+                  onSuccess,
+                  nome: creditCardClient.nomeCliente.replace(' ', ''),
+                  dataNasc: moment(creditCardClient.dataNascimento).format(
+                    'DD/MM/YYYY'
+                  ),
+                  uf: creditCardClient.estado,
+                  addToast,
+                })
+              )
             }
           }}
         >

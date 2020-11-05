@@ -1,7 +1,9 @@
+import { IToast } from 'hooks/toast'
+
 export const Types = {
   GET_CREDIT_CARD_OFFERS_REQUEST: 'GET_CREDIT_CARD_OFFERS_REQUEST',
   GET_CREDIT_CARD_OFFERS_SUCCESS: 'GET_CREDIT_CARD_OFFERS_SUCCESS',
-  GET_CREDIT_CARD_OFFERS_FAILURE: 'GET_CREDIT_CARD_OFFERS_FAILURE'   
+  GET_CREDIT_CARD_OFFERS_FAILURE: 'GET_CREDIT_CARD_OFFERS_FAILURE',
 }
 
 export interface ICreditCardOfferRequest {
@@ -10,6 +12,7 @@ export interface ICreditCardOfferRequest {
   dataNasc: string
   nome: string
   uf: string
+  addToast: (toast: Omit<IToast, 'id'>) => void
 }
 export interface ICreditCardOffer {
   CodigoOferta: string
@@ -24,8 +27,8 @@ export interface ICreditCardOffer {
 }
 
 export enum OFFER_CODE {
-  ONLY_VISA_CODE = "1",
-  ONLY_MASTER_CODE = "2",
-  BOTH_FLAGS_AVAILABLE = "3",
-  NO_FLAGS_AVAILABLE = "4"
+  ONLY_VISA_CODE = '1',
+  ONLY_MASTER_CODE = '2',
+  BOTH_FLAGS_AVAILABLE = '3',
+  NO_FLAGS_AVAILABLE = '4',
 }

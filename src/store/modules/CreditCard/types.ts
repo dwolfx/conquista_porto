@@ -52,26 +52,26 @@ export interface ICreditCardClientDataRequest {
 }
 
 export interface ICreditCardClientData {
-  cep: string
-  codigoEstadoCivil: number
+  cep?: string
+  codigoEstadoCivil?: number
   cpfCnpj: string
-  dataExpedicao: string
+  dataExpedicao?: string
   dataNascimento: string
   dddNumeroTelefone: number
   emailCliente: string
-  estado: string
+  estado?: string
   message: {
     mensagem: string
     tipoCritica: string
   }
   nomeCliente: string
-  nomeMae: string
-  numeroDocumento: number
-  numeroEnderecoResidencial: number
+  nomeMae?: string
+  numeroDocumento?: number
+  numeroEnderecoResidencial?: number
   numeroTelefone: number
-  orgaoEmissor: string
-  sexo: string
-  tipoDocumento: string
+  orgaoEmissor?: string
+  sexo?: string
+  tipoDocumento?: string
 }
 
 export interface ICreditCardState {

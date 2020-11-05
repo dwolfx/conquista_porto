@@ -1,10 +1,21 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceInvestAws } from 'services/api'
-import { Types, ICreditCardOffer, OFFER_CODE, ICreditCardOfferRequest} from './types'
+import {
+  Types,
+  ICreditCardOffer,
+  OFFER_CODE,
+  ICreditCardOfferRequest,
+} from './types'
 import * as a from './action'
 
-export function* getOffers({ onSuccess, dataNasc, nome, uf }: ICreditCardOfferRequest) {
+export function* getOffers({
+  onSuccess,
+  dataNasc,
+  nome,
+  uf,
+  addToast,
+}: ICreditCardOfferRequest) {
   try {
     const response = yield call(
       get,
@@ -22,20 +33,27 @@ export function* getOffers({ onSuccess, dataNasc, nome, uf }: ICreditCardOfferRe
 
     responseData = {
       ...responseData,
-      isMasterCardActive: 
-        responseData.CodigoOferta === 
-          OFFER_CODE.ONLY_MASTER_CODE || responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
-      isVisaActive: 
-        responseData.CodigoOferta === 
-          OFFER_CODE.ONLY_VISA_CODE || responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
+      isMasterCardActive:
+        responseData.CodigoOferta === OFFER_CODE.ONLY_MASTER_CODE ||
+        responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
+      isVisaActive:
+        responseData.CodigoOferta === OFFER_CODE.ONLY_VISA_CODE ||
+        responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
     }
 
     onSuccess(responseData)
     yield put(a.GetCreditCardOfferSuccess(responseData))
   } catch (err) {
     yield put(a.GetCreditCardOfferFailure())
+
+    addToast({
+      type: 'error',
+      title: 'Erro ao verificar ofertas',
+      description: 'Tente novamente em alguns instantes.',
+    })
   }
 }
 
-export default all([takeLatest(Types.GET_CREDIT_CARD_OFFERS_REQUEST, getOffers)])
- 
+export default all([
+  takeLatest(Types.GET_CREDIT_CARD_OFFERS_REQUEST, getOffers),
+])
