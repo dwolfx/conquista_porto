@@ -44,11 +44,13 @@ type steps = 1 | 2 | 3 | 4 | 5
 const Creation = ({ isOpen, handleClose }: IProps) => {
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
+  const { addToast } = useToast()
+
   const [step, setStep] = useState<steps>(1)
   const [formData, setFormData] = useState<ICreditCardCreationPayload>({})
   const [formResponse, setFormResponse] = useState<IOrderResponse>({})
   const [retrySubmit, setRetrySubmit] = useState<boolean>(false)
-  const { addToast } = useToast()
+  const [submitErrorCount, setSubmitErrorCount] = useState(0)
 
   useEffect(() => {
     dispatch(GetCreditCardExpirationDaysRequest())
@@ -64,16 +66,19 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     setStep(prevState => (prevState - 1) as steps)
   }
 
-  const goNext = useCallback((stepAnswers: ICreditCardCreationPayload) => {
-    if (step < 5) {
-      setStep(prevState => (prevState + 1) as steps)
-    }
+  const goNext = useCallback(
+    (stepAnswers: ICreditCardCreationPayload) => {
+      if (step < 5) {
+        setStep(prevState => (prevState + 1) as steps)
+      }
 
-    setFormData(currentFormState => ({
-      ...currentFormState,
-      ...stepAnswers,
-    }))
-  }, [step])
+      setFormData(currentFormState => ({
+        ...currentFormState,
+        ...stepAnswers,
+      }))
+    },
+    [step]
+  )
 
   const getStepCount = () => {
     return [
@@ -91,20 +96,24 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       )
 
       if (data) {
-        setFormResponse(data);
-        goNext({});
+        setFormResponse(data)
+        goNext({})
       }
-
     } catch (error) {
-      setRetrySubmit(true);
+      setRetrySubmit(true)
+      setSubmitErrorCount(submitErrorCount + 1)
       addToast({
         type: 'error',
         title: 'Desculpe, ocorreu uma falha ao enviar a solicitação',
         description: JSON.parse(error.message)?.msg,
       })
-    }
 
-  }, [formData, goNext, addToast])
+      if (submitErrorCount + 1 === 3) {
+        setFormResponse({})
+        goNext({})
+      }
+    }
+  }, [formData, goNext, addToast, submitErrorCount])
 
   // Each step goes here
   const content = [
@@ -117,7 +126,12 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       onSubmit={handlePostSubmit}
       retrySubmit={retrySubmit}
     />,
-    <FinalStep formData={formData} formOrderResponse={formResponse} />
+    <FinalStep
+      formData={formData}
+      formOrderResponse={formResponse}
+      hasError={submitErrorCount === 3}
+      handleClose={handleClose}
+    />,
   ]
 
   const getContent = () => {

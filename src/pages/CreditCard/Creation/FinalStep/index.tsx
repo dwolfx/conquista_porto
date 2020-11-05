@@ -1,5 +1,5 @@
 import React from 'react'
-import { handleGiwRedirect } from 'helpers'
+import { useHistory } from 'react-router-dom'
 
 import Button from 'components/Button'
 import SuccessContent from './SuccessContent'
@@ -11,24 +11,36 @@ import * as S from './styles'
 import { ICreditCardCreationPayload, IOrderResponse } from '../types'
 
 interface IProps {
-  formData: ICreditCardCreationPayload,
+  formData: ICreditCardCreationPayload
   formOrderResponse: IOrderResponse
+  hasError?: boolean
+  handleClose: () => void
 }
 
-export const renderFooter = () => (
+export const renderFooter = (handleClose: () => void) => (
   <S.FooterWrapper>
-    <Button color="primary" onClick={() => handleGiwRedirect('portaldecliente/conquista/perfil?r=true')}>Início</Button>
+    <Button color="primary" onClick={handleClose}>
+      Início
+    </Button>
   </S.FooterWrapper>
 )
 
-const FinalStep: React.FC<IProps> = ({ formData, formOrderResponse }: IProps) => {
+const FinalStep = ({
+  formData,
+  formOrderResponse,
+  hasError,
+  handleClose,
+}: IProps) => {
   const { mensagem } = formOrderResponse
-  if (mensagem?.tipoCritica !== 'SUCESSO') return <ErrorContent />
+
+  if (mensagem?.tipoCritica !== 'SUCESSO' || hasError) {
+    return <ErrorContent handleClose={handleClose} />
+  }
 
   return (
     <S.GridContainer>
       <S.GridRow>
-        <S.GridCol lg={3} md={4} sm={12} >
+        <S.GridCol lg={3} md={4} sm={12}>
           <S.StyledCard headerTitle="Sua solicitação">
             <S.ListWrapper>
               <S.StyledItem>
@@ -45,9 +57,12 @@ const FinalStep: React.FC<IProps> = ({ formData, formOrderResponse }: IProps) =>
           </S.StyledCard>
         </S.GridCol>
         <S.GridCol lg={9} md={8} sm={12}>
-          <S.StyledCard footer={renderFooter()}>
+          <S.StyledCard footer={renderFooter(handleClose)}>
             <S.WrapperContent>
-              <SuccessContent formData={formData} formOrderResponse={formOrderResponse} />
+              <SuccessContent
+                formData={formData}
+                formOrderResponse={formOrderResponse}
+              />
             </S.WrapperContent>
           </S.StyledCard>
         </S.GridCol>
@@ -56,4 +71,4 @@ const FinalStep: React.FC<IProps> = ({ formData, formOrderResponse }: IProps) =>
   )
 }
 
-export default FinalStep;
+export default FinalStep
