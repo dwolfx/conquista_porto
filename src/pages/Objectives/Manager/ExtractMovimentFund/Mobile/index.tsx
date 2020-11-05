@@ -12,39 +12,22 @@ import { formatMoney } from 'helpers'
 import { GetObjectiveManagementExtractFundRequest } from 'store/modules/ObjectiveManagement/action'
 
 import { IFundExtract } from 'store/modules/ObjectiveManagement/types'
-import * as S from './styles'
+import * as S from '../styles'
 
 interface IProps {
   extractFund: IFundExtract[]
   isLoading?: boolean
   hasError?: boolean
-  request: any
-  filters: any
-  handleFilters: any
-  interval: any
-  selectedInterval: any
-  handleSelectInterval: any
-  handleInterval: any
-  handleClearFilters: any
+  request: () => void
 }
 const ExtractTableMobile = ({
   extractFund,
   isLoading,
   hasError,
-  filters,
-  handleFilters,
-  interval,
-  selectedInterval,
-  handleSelectInterval,
-  handleInterval,
-  handleClearFilters,
   request,
-}: //   objectiveId,
-//   fundId,
-IProps) => {
+}: IProps) => {
   const [listSize, setListSize] = useState(8)
   const [buttonShouldAppear, setButtonShouldAppear] = useState(true)
-  const dispatch = useDispatch()
 
   const handleOnClick = useCallback(() => {
     setButtonShouldAppear(false)
@@ -83,8 +66,7 @@ IProps) => {
     return (
       <S.StyledErrorOrLoadingCard>
         <Text type="headline" color="gray5" textAlign="center">
-          A sua conta de investimento não foi movimentada até o presente
-          momento.
+          Não há movimentações com essas especificações
         </Text>
       </S.StyledErrorOrLoadingCard>
     )

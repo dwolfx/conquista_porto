@@ -8,6 +8,7 @@ import { useToast } from 'hooks/toast'
 import { columns } from './columns'
 import ExtractFilter from './Filter'
 import ExtractTableMobile from './Mobile'
+import ExtractTableTablet from './Tablet'
 import TableFilterDrawer from './TableFilterDrawer'
 import { INTERVAL_SELECT_OPTIONS } from './constants'
 
@@ -40,6 +41,7 @@ export default function ExtractMovimentFund({
 }) {
   const dispatch = useDispatch()
   const isMobile = useMedia('sm')
+  const isTablet = useMedia('md')
   const { addToast } = useToast()
   const tableRef = useRef<HTMLDivElement>(null)
   const [selectedInterval, setSelectedInterval] = useState<t.ISelectInterval>(
@@ -65,18 +67,10 @@ export default function ExtractMovimentFund({
       })
     )
   }
+
   useEffect(() => {
     if (filters.length > 0 || (interval.initialDate && interval.finalDate)) {
-      dispatch(
-        GetObjectiveManagementExtractFundRequest({
-          id: +objectiveId,
-          fund_id: fundId,
-          addToast,
-          allocationTypeList: filters,
-          initialDate: interval.initialDate,
-          finalDate: interval.finalDate,
-        })
-      )
+      request()
     }
   }, [filters, interval])
 
@@ -84,20 +78,21 @@ export default function ExtractMovimentFund({
     <s.ExtractFund data-testid="ExtractMovimentFund">
       <s.CardContainer>
         <s.CustomCard>
-          {isMobile ? (
+          {isMobile || isTablet ? (
             <>
-              <ExtractTableMobile
-                extractFund={extractFund}
-                isLoading={isLoading}
-                filters={filters}
-                handleFilters={setFilters}
-                interval={interval}
-                selectedInterval={selectedInterval}
-                handleSelectInterval={setSelectedInterval}
-                handleInterval={setInterval}
-                handleClearFilters={cleanFilters}
-                request={request}
-              />
+              {isMobile ? (
+                <ExtractTableMobile
+                  extractFund={extractFund}
+                  isLoading={isLoading}
+                  request={request}
+                />
+              ) : (
+                <ExtractTableTablet
+                  extractFund={extractFund}
+                  isLoading={isLoading}
+                  request={request}
+                />
+              )}
               <s.FloatButton
                 color="primary"
                 onClick={() => setOpenFilterDrawer(true)}

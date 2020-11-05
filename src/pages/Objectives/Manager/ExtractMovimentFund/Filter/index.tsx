@@ -61,8 +61,8 @@ const ExtractFilter = ({
       handleInterval({
         initialDate: moment()
           .subtract(optionSelected.value, 'days')
-          .format('YYYY-MM-DD'),
-        finalDate: moment().format('YYYY-MM-DD'),
+          .format('DD/MM/YYYY'),
+        finalDate: moment().format('DD/MM/YYYY'),
       })
       closeFunc()
     }

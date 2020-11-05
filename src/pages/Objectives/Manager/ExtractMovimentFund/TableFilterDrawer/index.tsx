@@ -67,8 +67,8 @@ const TableFilterDrawer = ({
 
   useEffect(() => {
     if (selectedInterval.id === 3) {
-      setInitialDate(moment(interval.initialDate))
-      setFinalDate(moment(interval.finalDate))
+      setInitialDate(moment(interval.initialDate, 'DD/MM/YYYY'))
+      setFinalDate(moment(interval.finalDate, 'DD/MM/YYYY'))
     } else {
       setInitialDate(null)
       setFinalDate(null)
@@ -100,8 +100,8 @@ const TableFilterDrawer = ({
     setNewInterval({
       initialDate: moment()
         .subtract(interval.value, 'days')
-        .format('YYYY-MM-DD'),
-      finalDate: moment().format('YYYY-MM-DD'),
+        .format('DD/MM/YYYY'),
+      finalDate: moment().format('DD/MM/YYYY'),
     })
   }
 
@@ -234,7 +234,7 @@ const TableFilterDrawer = ({
                 onHandleFocusedInput={focused => onHandleRangeFocused(focused)}
                 focusedInput={focusedInput}
                 rangeDates={{
-                  dateBegin: initialDate,
+                  dateBegin: moment(initialDate),
                   dateEnd: finalDate,
                   intervalDateType: INTERVAL_DATE_TYPE.MONTH,
                 }}
@@ -242,8 +242,8 @@ const TableFilterDrawer = ({
                   setInitialDate(initialDateInput)
                   setFinalDate(finalDateInput)
                   setNewInterval({
-                    initialDate: moment(initialDateInput).format('YYYY-MM-DD'),
-                    finalDate: moment(finalDateInput).format('YYYY-MM-DD'),
+                    initialDate: moment(initialDateInput).format('DD/MM/YYYY'),
+                    finalDate: moment(finalDateInput).format('DD/MM/YYYY'),
                   })
                 }}
               />
