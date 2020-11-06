@@ -121,7 +121,10 @@ pipeline {
                       sonarsource/sonar-scanner-cli:4.4 \
                         -Dsonar.login="${SONAR_AUTH_TOKEN}" \
                         -Dsonar.host.url="${SONAR_HOST_URL}" \
-                        -Dsonar.projectBaseDir=./
+                        -Dsonar.projectKey="${SONAR_PROJECT}" \
+                        -Dsonar.projectBaseDir="/app" \
+                        -Dsonar.javascript.lcov.reportPaths="/app/coverage/lcov.info" \
+                        -Dsonar.sources=./src
                   '''
                 }
               }
