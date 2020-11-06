@@ -3,7 +3,7 @@ import React from 'react'
 import { renderWithReduxAndTheme, screen } from 'testUtils'
 import { storeFactory } from 'setupTests'
 
-import FirstStep from './'
+import FirstStep from '.'
 import userEvent from '@testing-library/user-event'
 
 interface IDefaultStore {
@@ -14,7 +14,7 @@ interface IDefaultStore {
       dddNumeroTelefone: number
       emailCliente: string
       numeroTelefone: number
-    },
+    }
     isClientDataLoading: boolean
   }
 }
@@ -27,7 +27,7 @@ const defaultStore: IDefaultStore = {
       emailCliente: 'blablabla@whiskas.com',
       numeroTelefone: 40028922,
     },
-    isClientDataLoading: false
+    isClientDataLoading: false,
   },
 }
 
@@ -50,7 +50,7 @@ describe('CreditCard FirstStep tests', () => {
       creditCard: {
         clientData: null,
         isClientDataLoading: true,
-      }
+      },
     }
 
     const store = storeFactory(mockStore)
@@ -94,7 +94,7 @@ describe('CreditCard FirstStep tests', () => {
             emailCliente: 'blablabla@whiskas.com',
             numeroTelefone: 940028922,
           },
-          isClientDataLoading: false
+          isClientDataLoading: false,
         },
       }
 
@@ -129,7 +129,7 @@ describe('CreditCard FirstStep tests', () => {
             numeroTelefone: 40028922,
           },
           isClientDataLoading: false,
-        }
+        },
       }
 
       const store = storeFactory(mockStore)
@@ -167,11 +167,13 @@ describe('CreditCard FirstStep tests', () => {
             nomeCliente: 'Jose',
           },
           isClientDataLoading: false,
-        }
+        },
       }
 
       const store = storeFactory(mockStore)
-      renderWithReduxAndTheme(<FirstStep onNextStep={onNextStepMock} />, { store })
+      renderWithReduxAndTheme(<FirstStep onNextStep={onNextStepMock} />, {
+        store,
+      })
 
       const confirmButton = screen.getByRole('button', { name: /confirmar/i })
 

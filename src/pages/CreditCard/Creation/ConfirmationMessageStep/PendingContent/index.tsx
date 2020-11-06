@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICreditCardCreationPayload, IOrderResponse } from '../../types'
-import * as S from './../styles'
+import * as S from '../styles'
 
 interface IProps {
   formData: ICreditCardCreationPayload

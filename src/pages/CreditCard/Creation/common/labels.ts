@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { IState } from 'pages/CreditCard/Creation/ThirdStep/types'
+import { IState } from 'pages/CreditCard/Creation/AddicionalInfoStep/types'
 
 export enum ECivilStateLabel {
   'Casado' = 1,

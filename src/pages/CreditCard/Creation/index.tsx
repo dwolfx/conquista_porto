@@ -16,11 +16,11 @@ import {
   GetCreditCardExpirationDaysClearData,
 } from 'store/modules/CreditCard/ExpirationDays/action'
 
-import FirstStep from './FirstStep'
-import ThirdStep from './ThirdStep'
-import ForthStep from './ForthStep'
-import FifthStep from './FifthStep'
-import FinalStep from './FinalStep'
+import ClientInfoStep from './ClientInfoStep'
+import AddicionalInfoStep from './AddicionalInfoStep'
+import CreditCardStep from './CreditCardStep'
+import SummaryStep from './SummaryStep'
+import ConfirmationMessageStep from './ConfirmationMessageStep'
 
 import { ICreditCardCreationPayload, IOrderResponse } from './types'
 import {
@@ -117,16 +117,16 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
 
   // Each step goes here
   const content = [
-    <FirstStep onNextStep={goNext} />,
-    <ThirdStep formData={formData} onNextStep={goNext} />,
-    <ForthStep formData={formData} onNextStep={goNext} />,
-    <FifthStep
+    <ClientInfoStep onNextStep={goNext} />,
+    <AddicionalInfoStep formData={formData} onNextStep={goNext} />,
+    <CreditCardStep formData={formData} onNextStep={goNext} />,
+    <SummaryStep
       formData={formData}
       setFormData={setFormData}
       onSubmit={handlePostSubmit}
       retrySubmit={retrySubmit}
     />,
-    <FinalStep
+    <ConfirmationMessageStep
       formData={formData}
       formOrderResponse={formResponse}
       hasError={submitErrorCount === 3}

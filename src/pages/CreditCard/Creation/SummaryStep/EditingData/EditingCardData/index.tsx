@@ -6,7 +6,7 @@ import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
 import SelectCardFlag from 'pages/CreditCard/Creation/common/SelectCardFlag'
 import { FLAGS } from 'pages/CreditCard/Creation/types'
-import SelectExpirationDays from '../../../ForthStep/Selects/ExpirationDays'
+import SelectExpirationDays from '../../../CreditCardStep/Selects/ExpirationDays'
 import useMedia from 'hooks/useMedia'
 
 import * as s from './styles'

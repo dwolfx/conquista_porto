@@ -1,8 +1,5 @@
 import styled from 'styled-components'
-import {
-  Col as ColComponent,
-  Row as RowComponent,
-} from 'styled-bootstrap-grid'
+import { Col as ColComponent, Row as RowComponent } from 'styled-bootstrap-grid'
 
 import ButtonComponent from 'components/Button'
 import DivisorComponent from 'components/Divisor'
@@ -125,7 +122,7 @@ export const TextTitleNoOffer = styled(Text).attrs(() => ({
 export const TextBodyNoOffer = styled(Text).attrs(() => ({
   type: 'body',
   bold: true,
-  color: 'gray5'
+  color: 'gray5',
 }))``
 
 export const FullHeightRow = styled(RowComponent)`
@@ -134,7 +131,6 @@ export const FullHeightRow = styled(RowComponent)`
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     height: calc(90vh - 155px);
-    ;
   }
 `
 
@@ -159,7 +155,7 @@ export const CenterContentCard = styled(CardComponent)`
 `
 
 export const ButtonPrimary = styled(ButtonComponent).attrs(() => ({
-  color: 'primary'
+  color: 'primary',
 }))`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
@@ -177,7 +173,7 @@ export const Footer = styled.div`
   width: 100vw;
   height: 63px;
   background-color: white;
-  
+
   @media ${({ theme }) => theme.mediaQueries.xs} {
     padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
   }

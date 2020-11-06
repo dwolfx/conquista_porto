@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { renderFooter } from '../'
+import { renderFooter } from '..'
 
-import * as S from './../styles'
+import * as S from '../styles'
 
 interface IProps {
   handleClose: () => void
