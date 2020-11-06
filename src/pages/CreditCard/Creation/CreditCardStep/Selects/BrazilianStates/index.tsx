@@ -9,7 +9,7 @@ interface IProps {
   selectedOption: IOption,
   setSelectedOption: (expirationDate: IOption) => void
 }
-const SelectBrazilianStates = ({ selectedOption, setSelectedOption }: IProps) => {
+const SelectBrazilianStates = ({ selectedOption, setSelectedOption, ...rest }: IProps) => {
 
   const generateStateOptions = () => {
     return brazilianStates.map((state, index) => ({
@@ -20,13 +20,14 @@ const SelectBrazilianStates = ({ selectedOption, setSelectedOption }: IProps) =>
   }
 
   return (
-    <Select 
+    <Select
       label="estado"
       testId="estado"
-      options={generateStateOptions()} 
-      selected={selectedOption} 
+      options={generateStateOptions()}
+      selected={selectedOption}
       optionBoxDirection="top"
       optionBoxSize={200}
+      {...rest}
     />
   )
 }

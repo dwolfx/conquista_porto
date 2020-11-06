@@ -165,6 +165,7 @@ describe('CreditCard FirstStep tests', () => {
             codigoEstadoCivil: 1,
             numeroDocumento: 123,
             nomeCliente: 'Jose',
+            estado: 'SP',
           },
           isClientDataLoading: false,
         },
@@ -180,6 +181,31 @@ describe('CreditCard FirstStep tests', () => {
       userEvent.click(confirmButton)
 
       expect(confirmButton).toBeEnabled()
+    })
+    it('should not show select option when brazilian state is wrong', () => {
+      const onNextStepMock = jest.fn()
+      const mockStore = {
+        creditCard: {
+          clientData: {
+            cpfCnpj: '00000000191',
+            dataNascimento: '1987-11-25T00:00:00-03:00',
+            dddNumeroTelefone: 11,
+            emailCliente: 'blablabla@whiskas.com',
+            numeroTelefone: 40028922,
+            codigoEstadoCivil: 1,
+            numeroDocumento: 123,
+            nomeCliente: 'Jose',
+            estado: 'LK',
+          },
+          isClientDataLoading: false,
+        }
+      }
+
+      const store = storeFactory(mockStore)
+      renderWithReduxAndTheme(<FirstStep onNextStep={onNextStepMock} />, { store })
+      const confirmButton = screen.getByRole('button', { name: /confirmar/i })
+      expect(screen.getByTestId('select-option-input-estado').getAttribute('placeholder')).toEqual('Selecione')
+      expect(confirmButton).not.toBeEnabled()
     })
   })
 })

@@ -6,6 +6,7 @@ import DivisorComponent from 'components/Divisor'
 import Text from 'components/Text'
 import CardComponent from 'components/Card'
 import { CardBody } from 'components/Card/styles'
+import SelectBrazilianStates from '../CreditCardStep/Selects/BrazilianStates'
 
 export const GridRow = styled(RowComponent)`
   justify-content: center;
@@ -109,6 +110,11 @@ export const CenterContentCardWrapper = styled.div`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     width: 100%;
   }
+`
+
+export const StyledSelectBrazilianStates = styled(SelectBrazilianStates)`
+    width: 100%;
+    margin-top: ${({ theme }) => theme.spacing(4)}px;
 `
 
 export const TextTitleNoOffer = styled(Text).attrs(() => ({

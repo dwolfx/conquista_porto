@@ -19,6 +19,7 @@ export default function Select({
   optionBoxSize = 400,
   optionBoxDirection = 'bottom',
   emptyText = 'Não há opções disponíveis',
+  ...rest
 }: t.IProps) {
   const [isOptionsOpen, setOptionsOpen] = useState(false)
 
@@ -55,7 +56,7 @@ export default function Select({
   }, [options, selected, emptyText])
 
   return (
-    <s.Container>
+    <s.Container {...rest}>
       <s.InputContainer
         onClick={() => {
           if (!isLoading && !disabled) {
