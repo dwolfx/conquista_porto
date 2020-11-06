@@ -14,10 +14,16 @@ export const Link = styled.a<IAnchorProps>`
 
   svg {
     height: 21px;
-    margin-left: ${({ noIconPadding, theme }) =>
-      noIconPadding ? 0 : theme.spacing(2)}px;
     path {
       fill: currentColor;
     }
   }
+`
+
+export const BadgeNotification = styled.span`
+  padding: 4px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.magenta2};
+  margin-left: 3px;
+  margin-bottom: 6px;
 `

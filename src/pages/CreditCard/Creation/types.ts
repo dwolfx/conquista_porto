@@ -56,6 +56,8 @@ export interface ICreditCardCreationPayload {
   tipoDocumento?: string
   uf?: string
   valorRenda?: string
+  cpf?: string
+  estado?: string
 }
 
 export interface IOrderResponse {

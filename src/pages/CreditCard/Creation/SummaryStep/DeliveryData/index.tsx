@@ -4,7 +4,7 @@ import Button from 'components/Button/Link'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
-import { ISummaryStep } from '../../types'
+import { ICreditCardCreationPayload, ISummaryStep } from '../../types'
 import DataShower from '../DataShower'
 import EditingDeliveryData from '../EditingData/EditingDeliveryData'
 
@@ -15,6 +15,17 @@ const DeliveryData = ({
   setFormData,
 }: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit'>) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const isDeliveryDataValid = (formData: ICreditCardCreationPayload) => {
+    return (
+      !!formData.cep &&
+      !!formData.logradouro &&
+      !!formData.complemento &&
+      !!formData.bairro &&
+      !!formData.cidade &&
+      !!formData.uf
+    )
+  }
 
   return (
     <>
@@ -31,7 +42,10 @@ const DeliveryData = ({
           </Text>
         }
         headerEndItem={
-          <Button onClick={() => setIsOpen(true)}>
+          <Button
+            onClick={() => setIsOpen(true)}
+            hasNotification={!isDeliveryDataValid(formData)}
+          >
             <Text bold type="button" color="blue4">
               Alterar
             </Text>

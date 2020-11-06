@@ -56,8 +56,8 @@ export interface ICreditCardClientData {
   codigoEstadoCivil?: number
   cpfCnpj: string
   dataExpedicao?: string
-  dataNascimento: string
-  dddNumeroTelefone: number
+  dataNascimento?: string
+  dddNumeroTelefone?: number
   emailCliente: string
   estado?: string
   message: {
@@ -68,7 +68,7 @@ export interface ICreditCardClientData {
   nomeMae?: string
   numeroDocumento?: number
   numeroEnderecoResidencial?: number
-  numeroTelefone: number
+  numeroTelefone?: number
   orgaoEmissor?: string
   sexo?: string
   tipoDocumento?: string

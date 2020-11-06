@@ -33,6 +33,7 @@ import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
+import SummaryProposal from 'pages/CreditCard/Pro/SummaryProposal'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
@@ -285,6 +286,12 @@ export default function Routes({ ...props }) {
           exact
           component={ManagementCreditCard}
           pageTitle="Gestão - Cartão de Crédito"
+        />
+        <Route
+          path="/cartao-credito/proposta"
+          exact
+          component={SummaryProposal}
+          pageTitle="Proposta - Cartão de Crédito"
         />
         <DefaultRoute
           path="/seguro-viagem/visualizar"

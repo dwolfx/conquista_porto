@@ -24,7 +24,6 @@ exports[`FundsInfo renders correctly 1`] = `
 
 .c38 svg {
   height: 21px;
-  margin-left: 14px;
 }
 
 .c38 svg path {

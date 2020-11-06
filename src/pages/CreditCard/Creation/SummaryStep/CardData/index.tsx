@@ -5,7 +5,7 @@ import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 
 import { ECardFlagLabel } from 'pages/CreditCard/Creation/common/labels'
-import { ISummaryStep } from '../../types'
+import { ICreditCardCreationPayload, ISummaryStep } from '../../types'
 import DataShower from '../DataShower'
 import EditingCardData from '../EditingData/EditingCardData'
 
@@ -16,6 +16,10 @@ const CardData = ({
   setFormData,
 }: Omit<ISummaryStep, 'onSubmit' | 'retrySubmit'>) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const isCreditCardDataValid = (formData: ICreditCardCreationPayload) => {
+    return !!formData.codigoBandeira && !!formData.diaVencimento
+  }
 
   return (
     <>
@@ -36,6 +40,7 @@ const CardData = ({
             onClick={() => {
               setIsOpen(true)
             }}
+            hasNotification={!isCreditCardDataValid(formData)}
           >
             <Text bold type="button" color="blue4">
               Alterar

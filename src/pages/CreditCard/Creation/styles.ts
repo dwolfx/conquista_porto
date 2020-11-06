@@ -83,6 +83,7 @@ export const ColStepBar = styled(Col)`
   height: 56px;
   display: flex;
   align-items: center;
+  padding: 0;
 `
 
 export const WhiteContent = styled.div`

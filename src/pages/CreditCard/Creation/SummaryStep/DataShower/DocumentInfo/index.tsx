@@ -12,66 +12,67 @@ interface IDocumentInfo {
   formData: ICreditCardCreationPayload
 }
 
-const DocumentInfo = ({ formData }: IDocumentInfo) => {
-  const isMobile = useMedia('sm')
+interface IDocumentProps {
+  label: string
+  value: string | undefined
+  isMobile: boolean
+}
+
+const DocumentData = ({ label, value, isMobile }: IDocumentProps) => {
   const labelTextType = isMobile ? 'captionUppercase' : 'caption'
   const labelColor = isMobile ? 'gray4' : 'gray5'
-
   const valueTextType = isMobile ? 'headline' : 'title'
 
   return (
+    <s.FlexWrapper>
+      <s.KeyWrapper>
+        <Text bold type={labelTextType} color={labelColor}>
+          {label}
+        </Text>
+      </s.KeyWrapper>
+      <s.ValueWrapper>
+        {value ? (
+          <Text bold type={valueTextType} color="gray6">
+            {value}
+          </Text>
+        ) : (
+          <Text type="caption" color="magenta2">
+            Não preenchido
+          </Text>
+        )}
+      </s.ValueWrapper>
+    </s.FlexWrapper>
+  )
+}
+
+const DocumentInfo = ({ formData }: IDocumentInfo) => {
+  const isMobile = useMedia('sm')
+
+  return (
     <s.Wrapper>
-      <s.FlexWrapper>
-        <s.KeyWrapper>
-          <Text bold type={labelTextType} color={labelColor}>
-            Documento
-          </Text>
-        </s.KeyWrapper>
-        <s.ValueWrapper>
-          <Text bold type={valueTextType} color="gray6">
-            {formData.tipoDocumento}
-          </Text>
-        </s.ValueWrapper>
-      </s.FlexWrapper>
+      <DocumentData
+        label="Documento"
+        value={formData.tipoDocumento}
+        isMobile={isMobile}
+      />
       {isMobile && <Divisor />}
-      <s.FlexWrapper>
-        <s.KeyWrapper>
-          <Text bold type={labelTextType} color={labelColor}>
-            Número
-          </Text>
-        </s.KeyWrapper>
-        <s.ValueWrapper>
-          <Text bold type={valueTextType} color="gray6">
-            {formData.numeroDocumentoIdentificacao}
-          </Text>
-        </s.ValueWrapper>
-      </s.FlexWrapper>
+      <DocumentData
+        label="Número"
+        value={formData.numeroDocumentoIdentificacao}
+        isMobile={isMobile}
+      />
       {isMobile && <Divisor />}
-      <s.FlexWrapper>
-        <s.KeyWrapper>
-          <Text bold type={labelTextType} color={labelColor}>
-            Data de expedição
-          </Text>
-        </s.KeyWrapper>
-        <s.ValueWrapper>
-          <Text bold type={valueTextType} color="gray6">
-            {formData.dataEmissaoDocumento}
-          </Text>
-        </s.ValueWrapper>
-      </s.FlexWrapper>
+      <DocumentData
+        label="Data de expedição"
+        value={formData.dataEmissaoDocumento}
+        isMobile={isMobile}
+      />
       {isMobile && <Divisor />}
-      <s.FlexWrapper>
-        <s.KeyWrapper>
-          <Text bold type={labelTextType} color={labelColor}>
-            Orgão emissor
-          </Text>
-        </s.KeyWrapper>
-        <s.ValueWrapper>
-          <Text bold type={valueTextType} color="gray6">
-            {formData.orgaoExpedidor}
-          </Text>
-        </s.ValueWrapper>
-      </s.FlexWrapper>
+      <DocumentData
+        label="Órgão emissor"
+        value={formData.orgaoExpedidor}
+        isMobile={isMobile}
+      />
     </s.Wrapper>
   )
 }

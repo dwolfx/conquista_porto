@@ -25,9 +25,15 @@ const DataShower = ({ label, value }: IProps) => {
         </Text>
       </S.KeyWrapper>
       <S.ValueWrapper>
-        <Text bold type={valueTextType} color="gray6">
-          {value}
-        </Text>
+        {value ? (
+          <Text bold type={valueTextType} color="gray6">
+            {value}
+          </Text>
+        ) : (
+          <Text type="caption" color="magenta2">
+            Não preenchido
+          </Text>
+        )}
       </S.ValueWrapper>
     </S.FlexWrapper>
   )

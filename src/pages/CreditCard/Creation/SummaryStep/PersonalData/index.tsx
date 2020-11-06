@@ -7,9 +7,13 @@ import Text from 'components/Text'
 import Divisor from 'components/Divisor'
 import DocumentInfo from 'pages/CreditCard/Creation/SummaryStep/DataShower/DocumentInfo'
 
-import { formatCpf } from 'helpers'
+import { formatCpf, formatPhoneNumber } from 'helpers'
 
-import { ISummaryStep, IState } from 'pages/CreditCard/Creation/types'
+import {
+  ISummaryStep,
+  IState,
+  ICreditCardCreationPayload,
+} from 'pages/CreditCard/Creation/types'
 import {
   ESexLabel,
   ECivilStateLabel,
@@ -19,6 +23,7 @@ import {
 import DataShower from '../DataShower'
 import EditingPersonalData from '../EditingData/EditingPersonalData'
 import * as S from './styles'
+import { ICreditCardClientData } from 'store/modules/CreditCard/types'
 
 const PersonalData = ({
   formData,
@@ -29,6 +34,43 @@ const PersonalData = ({
   const { creditCardClient } = useSelector((state: IState) => ({
     creditCardClient: state.creditCard.clientData,
   }))
+
+  // DADOS MOCKADOS -- TIRAR ASSIM QUE A INTEGRAÇÃO ESTIVER FEITA
+  // const creditCardClient: ICreditCardClientData = {
+  //   cpfCnpj: '12345678901',
+  //   dataNascimento: '1987-11-25T00:00:00-03:00',
+  //   dddNumeroTelefone: 11,
+  //   emailCliente: 'email@email.com',
+  //   message: {
+  //     mensagem: '',
+  //     tipoCritica: '',
+  //   },
+  //   nomeCliente: 'José da Silva Sauro',
+  //   numeroTelefone: 962365254,
+  // }
+
+  const isPersonalDataValid = (
+    personalData: ICreditCardClientData | null,
+    formData: ICreditCardCreationPayload
+  ) => {
+    return (
+      personalData &&
+      !!personalData?.emailCliente &&
+      !!personalData?.cpfCnpj &&
+      !!personalData?.dataNascimento &&
+      !!personalData?.dddNumeroTelefone &&
+      !!personalData?.numeroTelefone &&
+      !!formData?.tipoDocumento &&
+      !!formData?.numeroDocumentoIdentificacao &&
+      !!formData?.dataEmissaoDocumento &&
+      !!formData?.orgaoExpedidor &&
+      !!formData?.cidade &&
+      !!formData?.codigoEstadoCivil &&
+      !!formData?.sexo &&
+      !!formData?.codigoProfissao &&
+      !!formData?.nomeMae
+    )
+  }
 
   return (
     <>
@@ -45,7 +87,10 @@ const PersonalData = ({
           </Text>
         }
         headerEndItem={
-          <Button onClick={() => setIsOpen(true)}>
+          <Button
+            onClick={() => setIsOpen(true)}
+            hasNotification={!isPersonalDataValid(creditCardClient, formData)}
+          >
             <Text bold type="button" color="blue4">
               Alterar
             </Text>
@@ -53,45 +98,33 @@ const PersonalData = ({
         }
       >
         <S.Wrapper>
-          {creditCardClient && (
-            <>
-              <DataShower
-                label="E-mail"
-                value={creditCardClient.emailCliente}
-              />
-              <Divisor />
-              <DataShower
-                label="CPF"
-                value={formatCpf(creditCardClient.cpfCnpj)}
-              />
-              <Divisor />
-              <DataShower
-                label="Data de nascimento"
-                value={moment(creditCardClient.dataNascimento).format(
-                  'DD/MM/YYYY'
-                )}
-              />
-              <Divisor />
-              <DataShower
-                label="Celular"
-                value={
-                  String(creditCardClient.numeroTelefone).length === 9
-                    ? `${creditCardClient.dddNumeroTelefone}${creditCardClient.numeroTelefone}`.replace(
-                        /(\d{2})(\d{1})(\d{4})(\d{4})/,
-                        '($1) $2 $3-$4'
-                      )
-                    : `${creditCardClient.dddNumeroTelefone}${creditCardClient.numeroTelefone}`.replace(
-                        /(\d{2})(\d{4})(\d{4})/,
-                        '($1) $2-$3'
-                      )
-                }
-              />
-            </>
-          )}
+          <DataShower label="E-mail" value={creditCardClient?.emailCliente} />
+          <Divisor />
+          <DataShower
+            label="CPF"
+            value={formatCpf(creditCardClient ? creditCardClient.cpfCnpj : '')}
+          />
+          <Divisor />
+          <DataShower
+            label="Data de nascimento"
+            value={
+              moment(creditCardClient?.dataNascimento).isValid()
+                ? moment(creditCardClient?.dataNascimento).format('DD/MM/YYYY')
+                : ''
+            }
+          />
+          <Divisor />
+          <DataShower
+            label="Celular"
+            value={formatPhoneNumber(
+              creditCardClient?.dddNumeroTelefone,
+              creditCardClient?.numeroTelefone
+            )}
+          />
+          <Divisor />
+          <DataShower label="Estado onde reside" value={formData.cidade} />
           <Divisor />
           <DocumentInfo formData={formData} />
-          <Divisor />
-          <DataShower label="Cidade" value={formData.cidade} />
           <Divisor />
           <DataShower
             label="Estado Civil"
