@@ -6,8 +6,8 @@ import ErrorContent from './ErrorContent'
 
 import { ECardFlagLabel } from 'pages/CreditCard/Creation/common/labels'
 
-import * as S from './styles'
 import { ICreditCardCreationPayload, IOrderResponse } from '../types'
+import * as S from './styles'
 
 interface IProps {
   formData: ICreditCardCreationPayload

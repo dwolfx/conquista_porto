@@ -111,28 +111,25 @@ const FirstStep = ({
     }
   }
 
-  const FirstStepErrorState = () => {
-    const dispatch = useDispatch()
-    return (
-      <s.ErrorWrapper>
-        <s.ErrorText>
-          Desculpe, não foi possível carregar suas informações. Aguarde alguns
-          instantes e tente novamente.
-        </s.ErrorText>
+  const FirstStepErrorState = () => (
+    <s.ErrorWrapper>
+      <s.ErrorText>
+        Desculpe, não foi possível carregar suas informações. Aguarde alguns
+        instantes e tente novamente.
+      </s.ErrorText>
 
-        <Button
-          data-gtm-subname="primeira etapa - cartão de crédito"
-          data-gtm-name="tentar novamente"
-          data-gtm-type="click"
-          data-gtm-clicktype="button"
-          color="primary"
-          onClick={() => dispatch(GetCreditCardClientDataRequest({ addToast }))}
-        >
-          tentar novamente
-        </Button>
-      </s.ErrorWrapper>
-    )
-  }
+      <Button
+        data-gtm-subname="primeira etapa - cartão de crédito"
+        data-gtm-name="tentar novamente"
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        color="primary"
+        onClick={() => dispatch(GetCreditCardClientDataRequest({ addToast }))}
+      >
+        tentar novamente
+      </Button>
+    </s.ErrorWrapper>
+  )
 
   const renderContent = () => {
     if (hasClientDataError) {
