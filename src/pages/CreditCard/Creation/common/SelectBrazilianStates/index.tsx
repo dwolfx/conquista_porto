@@ -36,11 +36,13 @@ const brazilianStates = {
 }
 
 interface IProps {
+  label?: string
   selectedOption: string
   setSelectedOption: (state: string) => void
 }
 
 const SelectBrazilianStates = ({
+  label = 'estado',
   selectedOption,
   setSelectedOption,
 }: IProps) => {
@@ -89,11 +91,11 @@ const SelectBrazilianStates = ({
   return (
     <SelectWrapper>
       <Select
-        label="estado"
+        label={label}
         options={options}
         selected={selected}
         testId="data-test-id-estados"
-        optionBoxDirection="top"
+        optionBoxDirection="bottom"
       />
     </SelectWrapper>
   )

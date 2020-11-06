@@ -13,12 +13,15 @@ import {
   ESexLabel,
 } from 'pages/CreditCard/Creation/common/labels'
 import CivilState from 'pages/CreditCard/Creation/common/CivilState'
+import ExpeditionDateInput, {
+  isExpeditionDateValid,
+} from 'pages/CreditCard/Creation/common/ExpeditionDateInput'
+import IssuingBodyInput from 'pages/CreditCard/Creation/common/IssuingBodyInput'
 import Ocupation from 'pages/CreditCard/Creation/common/Ocupation'
 import Gender from 'pages/CreditCard/Creation/common/Sex'
-import DocumentHandler from './DocumentHandler'
+import SelectBrazilianStates from 'pages/CreditCard/Creation/common/SelectBrazilianStates'
+import SelectDocument from 'pages/CreditCard/Creation/common/SelectDocument'
 
-import { isExpeditionDateValid } from 'pages/CreditCard/Creation/common/ExpeditionDateInput'
-import { isExpiredDateValid } from 'pages/CreditCard/Creation/common/ExpiredDateInput'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 
 import useMedia from 'hooks/useMedia'
@@ -43,14 +46,16 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     icon: 'information' as keyof typeof dict,
     message: 'O nome informado não é válido.',
   }
-
-  const [isLoading, setIsLoading] = useState(false)
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false)
+  const documentNumberError = {
+    icon: 'information' as keyof typeof dict,
+    message: 'O número informado não é válido.',
+  }
 
   const [customerData, setCustomerData] = useState<t.ICustomerData[] | null>(
     null
   )
 
+  const [selectedBrazilianState, setSelectedBrazilianState] = useState('')
   const [city, setCity] = useState('')
   const [mothersName, setMothersName] = useState('')
   const [selectedCivilState, setSelectedCivilState] = useState<t.IOption>({
@@ -67,11 +72,9 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
   })
 
   //Document inputs
-  const [selectedBrazilianState, setSelectedBrazilianState] = useState('')
   const [selectedDocument, setSelectedDocument] = useState('')
   const [documentNumber, setDocumentNumber] = useState('')
   const [expeditionDate, setExpeditionDate] = useState('')
-  const [expiredDate, setExpiredDate] = useState('')
   const [issuingBody, setIssuingBody] = useState('')
 
   const {
@@ -86,11 +89,6 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
 
   //Customer data
   useEffect(() => {
-    if (isClientDataLoading) {
-      setIsLoading(true)
-    } else {
-      setIsLoading(false)
-    }
     if (creditCardClient) {
       setCustomerData([
         {
@@ -123,7 +121,7 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
         },
       ])
     }
-  }, [creditCardClient, isClientDataLoading])
+  }, [creditCardClient])
 
   //Initial value
   useEffect(() => {
@@ -142,6 +140,12 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
         name: ESexLabel[formData.sexo as 'M' | 'F'],
       })
     }
+    if (formData.uf) {
+      setSelectedBrazilianState(formData.uf)
+    }
+    if (formData.tipoDocumento) {
+      setSelectedDocument(formData.tipoDocumento)
+    }
     if (formData.cidade) {
       setCity(formData.cidade)
     }
@@ -154,74 +158,30 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
     if (formData.dataEmissaoDocumento) {
       setExpeditionDate(formData.dataEmissaoDocumento)
     }
-    // if (formData.dataVencimentoDocumento) {
-    //   setExpiredDate(formData.dataVencimentoDocumento)
-    // }
     if (formData.orgaoExpedidor) {
       setIssuingBody(formData.orgaoExpedidor)
     }
-    // if (formData.estadoDeEmissaoDoDocumento) {
-    //   setSelectedBrazilianState(formData.estadoDeEmissaoDoDocumento)
-    // }
   }, [formData])
 
-  //set button disabled
+  // set issuing body
   useEffect(() => {
-    switch (true) {
-      case selectedDocument === '' || !selectedDocument.length:
-        setIsButtonDisabled(true)
-        break
-      case selectedDocument === 'RG' &&
-        (isLoading ||
-          !city.length ||
-          !mothersName.length ||
-          !documentNumber.length ||
-          !isExpeditionDateValid(expeditionDate) ||
-          !issuingBody.length ||
-          issuingBody.length < 3):
-        // !selectedBrazilianState.length ||
-        setIsButtonDisabled(true)
-        break
-      case selectedDocument === 'RNE' &&
-        (isLoading ||
-          !city.length ||
-          !mothersName.length ||
-          !documentNumber.length ||
-          !isExpeditionDateValid(expeditionDate) ||
-          !isExpiredDateValid(expiredDate) ||
-          !issuingBody.length ||
-          issuingBody.length < 3):
-        // !selectedBrazilianState.length ||
-        setIsButtonDisabled(true)
-        break
-      case selectedDocument === 'CNH' &&
-        (isLoading ||
-          !city.length ||
-          !mothersName.length ||
-          !documentNumber.length ||
-          !isExpeditionDateValid(expeditionDate) ||
-          !isExpiredDateValid(expiredDate)):
-        // !selectedBrazilianState.length ||
-        setIsButtonDisabled(true)
-        break
-      default:
-        setIsButtonDisabled(false)
-        break
+    if (selectedDocument === 'RG') {
+      setIssuingBody('SSP')
     }
-  }, [
-    isLoading,
-    city,
-    mothersName,
-    selectedBrazilianState,
-    selectedDocument,
-    documentNumber,
-    expeditionDate,
-    expiredDate,
-    issuingBody,
-  ])
+    if (selectedDocument === 'RNE') {
+      setIssuingBody('CGPI/DIREX/DPF')
+    }
+  }, [selectedDocument, setIssuingBody])
+
+  const handleDocumentChange = (value: string) => {
+    setDocumentNumber('')
+    setExpeditionDate('')
+    setIssuingBody('')
+    setSelectedDocument(value)
+  }
 
   const getContent = () => {
-    if (isLoading) {
+    if (isClientDataLoading) {
       return (
         <s.LoadingWrapper>
           <Loading type="bar" />
@@ -259,25 +219,38 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
         </s.CustomerData>
         <s.Divisor />
         <s.Container>
+          <SelectBrazilianStates
+            label="estado onde reside"
+            selectedOption={selectedBrazilianState}
+            setSelectedOption={setSelectedBrazilianState}
+          />
+          <SelectDocument
+            selectedOption={selectedDocument}
+            setSelectedOption={handleDocumentChange}
+          />
+          <s.Input
+            label="número do documento"
+            error={
+              (!documentNumber.length || documentNumber.length < 6) &&
+              documentNumberError
+            }
+            maxLength={11}
+            value={documentNumber}
+            onChange={e => setDocumentNumber(e.target.value)}
+          />
+          <ExpeditionDateInput
+            expeditionDate={expeditionDate}
+            setExpeditionDate={setExpeditionDate}
+          />
+          <IssuingBodyInput
+            issuingBody={issuingBody}
+            setIssuingBody={setIssuingBody}
+          />
           <s.Input
             label="cidade"
             error={!city.length && cityError}
             value={city}
             onChange={e => setCity(e.target.value)}
-          />
-          <DocumentHandler
-            selectedDocument={selectedDocument}
-            setSelectedDocument={setSelectedDocument}
-            documentNumber={documentNumber}
-            setDocumentNumber={setDocumentNumber}
-            expeditionDate={expeditionDate}
-            setExpeditionDate={setExpeditionDate}
-            expiredDate={expiredDate}
-            setExpiredDate={setExpiredDate}
-            selectedBrazilianState={selectedBrazilianState}
-            setSelectedBrazilianState={setSelectedBrazilianState}
-            issuingBody={issuingBody}
-            setIssuingBody={setIssuingBody}
           />
           <CivilState
             selectedOption={selectedCivilState}
@@ -325,23 +298,34 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
       numeroDocumentoIdentificacao: documentNumber,
       dataEmissaoDocumento: expeditionDate,
       orgaoExpedidor: issuingBody,
-      // estadoDoDocument: selectedBrazilianState,
-      // dataDeVencimentoDoDocumento: expiredDate,
     })
   }
 
-  const footerButton = () => (
-    <s.Button
-      disabled={isButtonDisabled}
-      data-gtm-type="click"
-      data-gtm-clicktype="button"
-      data-gtm-subname={'edição de dados pessoais - cartão de crédito'}
-      data-gtm-name="salvar alterações"
-      onClick={() => saveChanges()}
-    >
-      SALVAR ALTERAÇÕES
-    </s.Button>
-  )
+  const footerButton = () => {
+    return (
+      <s.Button
+        disabled={
+          isClientDataLoading ||
+          !selectedBrazilianState.length ||
+          !city.length ||
+          !mothersName.length ||
+          !selectedDocument.length ||
+          !documentNumber.length ||
+          documentNumber.length < 6 ||
+          !isExpeditionDateValid(expeditionDate) ||
+          !issuingBody.length ||
+          issuingBody.length < 3
+        }
+        data-gtm-type="click"
+        data-gtm-clicktype="button"
+        data-gtm-subname={'edição de dados pessoais - cartão de crédito'}
+        data-gtm-name="salvar alterações"
+        onClick={() => saveChanges()}
+      >
+        SALVAR ALTERAÇÕES
+      </s.Button>
+    )
+  }
 
   if (isMobile) {
     return (

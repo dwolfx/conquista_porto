@@ -8,7 +8,8 @@ import { SelectWrapper } from '../styles'
 const documents = {
   1: 'RG',
   2: 'RNE',
-  3: 'CNH',
+  3: 'Classe',
+  4: 'Outros',
 }
 
 interface IProps {
@@ -40,15 +41,19 @@ const SelectDocument = ({ selectedOption, setSelectedOption }: IProps) => {
     const selectedStateObject = Object.entries(documents).find(
       ([key, value]) => value === selectedOption
     )
-    if (options.length > 0 && selectedStateObject) {
-      const filteredOption = options.find(
-        option => option.text === selectedStateObject[1]
-      )
+    if (!selectedStateObject && selectedOption.length) {
+      setSelected({ id: options[3].id, name: options[3].text })
+    } else {
+      if (options.length > 0 && selectedStateObject) {
+        const filteredOption = options.find(
+          option => option.text === selectedStateObject[1]
+        )
 
-      if (filteredOption) {
-        const option = { id: filteredOption?.id, name: filteredOption?.text }
+        if (filteredOption) {
+          const option = { id: filteredOption?.id, name: filteredOption?.text }
 
-        setSelected(option)
+          setSelected(option)
+        }
       }
     }
   }, [options, selectedOption])
