@@ -1,4 +1,4 @@
-const { conservador, moderado, arrojado } = require('./tokens');
+const { conservador, moderado, arrojado } = require('../tokens');
 
 const _posicao = {
   perfil_cotista: 2,

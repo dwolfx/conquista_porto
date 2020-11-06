@@ -1,4 +1,4 @@
-const { conservador, moderado, arrojado } = require('./tokens');
+const { conservador, moderado, arrojado } = require('../tokens');
 
 const message = {
   TipoCritica: 'SUCESSO',

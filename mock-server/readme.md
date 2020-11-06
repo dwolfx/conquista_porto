@@ -1,5 +1,5 @@
 # Pendencias para limpar o projeto depois de aprovado o mock
-  - apagar as pastas
+  - apagar as pastas e arquivos
     - /localAPI/
     - /src/mocks/
     - /resposta_novos_servicos_atlas/

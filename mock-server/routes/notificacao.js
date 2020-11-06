@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-const dataFixturesNotificacoes = require('../fixtures/notificacoes');
+const dataFixturesNotificacoes = require('../fixtures/notificacao/notificacoes');
 const erro400 = require('../fixtures/400');
 const erro404 = require('../fixtures/404');
 const erro500 = require('../fixtures/500');
