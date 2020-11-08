@@ -26,7 +26,7 @@ export const DrawerBody = styled.div`
 
 export const DrawerFooter = styled.div<{ footerHeight?: string }>`
   border-top: 1px solid ${props => props.theme.colors.gray3};
-  height: ${({ footerHeight }) => (footerHeight ? footerHeight : '63px')};
+  height: ${({ footerHeight }) => footerHeight || '63px'};
   display: flex;
   justify-content: center;
   padding: 0 14px;

@@ -10,7 +10,7 @@ import Dropdown from 'components/Dropdown'
 import Icon from 'components/IconExporter'
 import Text from 'components/Text'
 
-import { INTERVAL_SELECT_OPTIONS } from '../constants'
+import { INTERVAL_SELECT_OPTIONS, ALLOCATION_TYPES } from '../constants'
 import {
   Wrapper,
   DropdownWrapper,
@@ -22,11 +22,11 @@ import {
 import * as t from '../types'
 
 interface IProps {
-  filters: string[]
+  filters: t.IAllocationType[]
   interval: t.IInterval
   handleClearFilters: () => void
   selectedInterval: t.ISelectInterval
-  handleFilters: (newFilters: string[]) => void
+  handleFilters: (newFilters: t.IAllocationType[]) => void
   handleInterval: (newInterval: t.IInterval) => void
   handleSelectInterval: (newSelectedInterval: t.ISelectInterval) => void
 }
@@ -47,6 +47,14 @@ const ExtractFilter = ({
   useEffect(() => {
     if (selectedInterval.id !== 3) setPeriod(selectedInterval.name)
   }, [selectedInterval])
+
+  const filterSelect = (allocationType: t.IAllocationType) => {
+    if (filters.some(filter => filter === allocationType)) {
+      handleFilters(filters.filter(filter => filter !== allocationType))
+    } else {
+      handleFilters([...filters, allocationType])
+    }
+  }
 
   const renderSelectItems = (closeFunc: Function) => {
     const handleClick = (optionSelected: t.ISelectInterval) => {
@@ -122,71 +130,61 @@ const ExtractFilter = ({
       </DropdownWrapper>
       <ButtonsWrapper>
         <ButtonTag
-          color={filters.includes('Aplicacao no fundo') ? 'primary' : ''}
+          color={
+            filters.some(item => item === ALLOCATION_TYPES.INVEST)
+              ? 'primary'
+              : ''
+          }
           onClick={() => {
-            if (filters.includes('Aplicacao no fundo')) {
-              handleFilters(
-                filters.filter(item => item !== 'Aplicacao no fundo')
-              )
-            } else {
-              handleFilters([...filters, 'Aplicacao no fundo'])
-            }
+            filterSelect(ALLOCATION_TYPES.INVEST)
           }}
         >
           aplicação no fundo
         </ButtonTag>
         <ButtonTag
-          color={filters.includes('Vinculo ao Objetivo') ? 'primary' : ''}
+          color={
+            filters.some(item => item === ALLOCATION_TYPES.GOAL_LINK)
+              ? 'primary'
+              : ''
+          }
           onClick={() => {
-            if (filters.includes('Vinculo ao Objetivo')) {
-              handleFilters(
-                filters.filter(item => item !== 'Vinculo ao Objetivo')
-              )
-            } else {
-              handleFilters([...filters, 'Vinculo ao Objetivo'])
-            }
+            filterSelect(ALLOCATION_TYPES.GOAL_LINK)
           }}
         >
           vínculo ao objetivo
         </ButtonTag>
         <ButtonTag
-          color={filters.includes('Resgate do fundo') ? 'primary' : ''}
+          color={
+            filters.some(item => item === ALLOCATION_TYPES.REDEEM)
+              ? 'primary'
+              : ''
+          }
           onClick={() => {
-            if (filters.includes('Resgate do fundo')) {
-              handleFilters(filters.filter(item => item !== 'Resgate do fundo'))
-            } else {
-              handleFilters([...filters, 'Resgate do fundo'])
-            }
+            filterSelect(ALLOCATION_TYPES.REDEEM)
           }}
         >
           resgate do fundo
         </ButtonTag>
         <ButtonTag
-          color={filters.includes('Desvinculo do objetivo') ? 'primary' : ''}
+          color={
+            filters.some(item => item === ALLOCATION_TYPES.GOAL_UNLINK)
+              ? 'primary'
+              : ''
+          }
           onClick={() => {
-            if (filters.includes('Desvinculo do objetivo')) {
-              handleFilters(
-                filters.filter(item => item !== 'Desvinculo do objetivo')
-              )
-            } else {
-              handleFilters([...filters, 'Desvinculo do objetivo'])
-            }
+            filterSelect(ALLOCATION_TYPES.GOAL_UNLINK)
           }}
         >
           desvínculo do objetivo
         </ButtonTag>
         <ButtonTag
           color={
-            filters.includes('Transferencia entre objetivos') ? 'primary' : ''
+            filters.some(item => item === ALLOCATION_TYPES.GOAL_TRANSFER)
+              ? 'primary'
+              : ''
           }
           onClick={() => {
-            if (filters.includes('Transferencia entre objetivos')) {
-              handleFilters(
-                filters.filter(item => item !== 'Transferencia entre objetivos')
-              )
-            } else {
-              handleFilters([...filters, 'Transferencia entre objetivos'])
-            }
+            filterSelect(ALLOCATION_TYPES.GOAL_TRANSFER)
           }}
         >
           transferência entre objetivos

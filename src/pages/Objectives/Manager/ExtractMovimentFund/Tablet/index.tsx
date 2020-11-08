@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
 

@@ -12,8 +12,8 @@ import ButtonTag from 'components/Button/Tag'
 import ButtonLink from 'components/Button/Link'
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
 
-import { INTERVAL_SELECT_OPTIONS } from '../constants'
-import { IInterval, ISelectInterval } from '../types'
+import { INTERVAL_SELECT_OPTIONS, ALLOCATION_TYPES } from '../constants'
+import { IInterval, ISelectInterval, IAllocationType } from '../types'
 
 import {
   ButtonSubmit,
@@ -33,8 +33,8 @@ import {
 interface IProps {
   isOpen: boolean
   onHandleClose: () => void
-  filters: string[]
-  handleFilters: (newFilters: string[]) => void
+  filters: IAllocationType[]
+  handleFilters: (newFilters: IAllocationType[]) => void
   interval: IInterval
   handleInterval: (newInterval: IInterval) => void
   selectedInterval: ISelectInterval
@@ -59,7 +59,7 @@ const TableFilterDrawer = ({
   const [finalDate, setFinalDate] = useState<moment.Moment | null>(null)
   const [focusedInput, setFocusedInput] = useState(null)
 
-  const [newFilters, setNewFilters] = useState<string[]>([])
+  const [newFilters, setNewFilters] = useState<IAllocationType[]>([])
   const [newInterval, setNewInterval] = useState<IInterval>({
     initialDate: '',
     finalDate: '',
@@ -82,6 +82,14 @@ const TableFilterDrawer = ({
   useEffect(() => {
     setNewInterval({ ...interval })
   }, [interval])
+
+  const filterSelect = (allocationType: IAllocationType) => {
+    if (newFilters.some(filter => filter === allocationType)) {
+      setNewFilters(newFilters.filter(filter => filter !== allocationType))
+    } else {
+      setNewFilters([...newFilters, allocationType])
+    }
+  }
 
   const clearFilters = () => {
     handleClearFilters()
@@ -257,84 +265,61 @@ const TableFilterDrawer = ({
           </Text>
           <FilterButtonsWrapper>
             <ButtonTag
-              color={newFilters.includes('Aplicação no fundo') ? 'primary' : ''}
+              color={
+                newFilters.some(item => item === ALLOCATION_TYPES.INVEST)
+                  ? 'primary'
+                  : ''
+              }
               onClick={() => {
-                if (newFilters.includes('Aplicação no fundo')) {
-                  setNewFilters(
-                    newFilters.filter(item => item !== 'Aplicação no fundo')
-                  )
-                } else {
-                  setNewFilters([...newFilters, 'Aplicação no fundo'])
-                }
+                filterSelect(ALLOCATION_TYPES.INVEST)
               }}
             >
               aplicação no fundo
             </ButtonTag>
             <ButtonTag
               color={
-                newFilters.includes('Vinculo ao Objetivo') ? 'primary' : ''
+                newFilters.some(item => item === ALLOCATION_TYPES.GOAL_LINK)
+                  ? 'primary'
+                  : ''
               }
               onClick={() => {
-                if (newFilters.includes('Vinculo ao Objetivo')) {
-                  setNewFilters(
-                    newFilters.filter(item => item !== 'Vinculo ao Objetivo')
-                  )
-                } else {
-                  setNewFilters([...newFilters, 'Vinculo ao Objetivo'])
-                }
+                filterSelect(ALLOCATION_TYPES.GOAL_LINK)
               }}
             >
               vínculo ao objetivo
             </ButtonTag>
             <ButtonTag
-              color={newFilters.includes('Resgate do fundo') ? 'primary' : ''}
+              color={
+                newFilters.some(item => item === ALLOCATION_TYPES.REDEEM)
+                  ? 'primary'
+                  : ''
+              }
               onClick={() => {
-                if (newFilters.includes('Resgate do fundo')) {
-                  setNewFilters(
-                    newFilters.filter(item => item !== 'Resgate do fundo')
-                  )
-                } else {
-                  setNewFilters([...newFilters, 'Resgate do fundo'])
-                }
+                filterSelect(ALLOCATION_TYPES.REDEEM)
               }}
             >
               resgate do fundo
             </ButtonTag>
             <ButtonTag
               color={
-                newFilters.includes('Desvinculo do objetivo') ? 'primary' : ''
+                newFilters.some(item => item === ALLOCATION_TYPES.GOAL_UNLINK)
+                  ? 'primary'
+                  : ''
               }
               onClick={() => {
-                if (newFilters.includes('Desvinculo do objetivo')) {
-                  setNewFilters(
-                    newFilters.filter(item => item !== 'Desvinculo do objetivo')
-                  )
-                } else {
-                  setNewFilters([...newFilters, 'Desvinculo do objetivo'])
-                }
+                filterSelect(ALLOCATION_TYPES.GOAL_UNLINK)
               }}
             >
               desvínculo do objetivo
             </ButtonTag>
             <ButtonTag
               color={
-                newFilters.includes('Transferência entre objetivos')
+                newFilters.some(item => item === ALLOCATION_TYPES.GOAL_TRANSFER)
                   ? 'primary'
                   : ''
               }
               onClick={() => {
-                if (newFilters.includes('Transferência entre objetivos')) {
-                  setNewFilters(
-                    newFilters.filter(
-                      item => item !== 'Transferência entre objetivos'
-                    )
-                  )
-                } else {
-                  setNewFilters([
-                    ...newFilters,
-                    'Transferência entre objetivos',
-                  ])
-                }
+                filterSelect(ALLOCATION_TYPES.GOAL_TRANSFER)
               }}
             >
               transferência entre objetivos

@@ -15,3 +15,11 @@ export const INTERVAL_SELECT_OPTIONS = {
     value: null,
   },
 }
+
+export const ALLOCATION_TYPES = {
+  GOAL_LINK: { id: 1, name: 'Vinculo ao Objetivo' },
+  GOAL_UNLINK: { id: 2, name: 'Desvinculo do objetivo' },
+  GOAL_TRANSFER: { id: 3, name: 'Transferência entre objetivos' },
+  INVEST: { id: 4, name: 'Aplicação no fundo' },
+  REDEEM: { id: 5, name: 'Resgate do fundo' },
+}

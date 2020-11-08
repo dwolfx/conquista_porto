@@ -48,7 +48,7 @@ export default function ExtractMovimentFund({
     INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION
   )
   const [interval, setInterval] = useState<t.IInterval>({ ...initialInterval })
-  const [filters, setFilters] = useState<string[]>([])
+  const [filters, setFilters] = useState<t.IAllocationType[]>([])
   const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
 
   const cleanFilters = () => {
@@ -61,7 +61,7 @@ export default function ExtractMovimentFund({
         id: +objectiveId,
         fund_id: fundId,
         addToast,
-        allocationTypeList: filters,
+        allocationTypeList: filters.map(item => item.id),
         initialDate: interval.initialDate,
         finalDate: interval.finalDate,
       })
@@ -70,6 +70,7 @@ export default function ExtractMovimentFund({
 
   useEffect(() => {
     if (filters.length > 0 || (interval.initialDate && interval.finalDate)) {
+      debugger
       request()
     }
   }, [filters, interval])

@@ -22,3 +22,8 @@ export interface ISelectInterval {
   name: string
   value: number | null
 }
+
+export interface IAllocationType {
+  id: number
+  name: string
+}
