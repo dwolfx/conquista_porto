@@ -1,4 +1,4 @@
-const { conservador, moderado, arrojado } = require('./tokens');
+const { conservador, moderado, arrojado } = require('../tokens');
 
 const _consolidado = {
   saldo_total: 20655214.49,

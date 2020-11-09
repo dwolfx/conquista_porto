@@ -1,10 +1,10 @@
 const faker = require('faker');
 
-const dataFixturesCartoes = require('../fixtures/cartoes-credito/cartoes');
-const dataFixturesClientes = require('../fixtures/cartoes-credito/clientes');
-const dataFixturesVencimento = require('../fixtures/cartoes-credito/vencimento');
-const dataFixturesOfertas = require('../fixtures/cartoes-credito/ofertas');
-const dataFixturesProfissoes = require('../fixtures/cartoes-credito/profissoes');
+const dataFixturesCartoes = require('../fixtures/cartoes/cartoes');
+const dataFixturesClientes = require('../fixtures/cartoes/clientes');
+const dataFixturesVencimento = require('../fixtures/cartoes/vencimento');
+const dataFixturesOfertas = require('../fixtures/cartoes/ofertas');
+const dataFixturesProfissoes = require('../fixtures/cartoes/profissoes');
 const erro400 = require('../fixtures/400');
 const erro500 = require('../fixtures/500');
 

@@ -1,4 +1,4 @@
-const dataFixtures = require('../fixtures/previdencia-privada');
+const dataFixtures = require('../fixtures/previdencia-privada/previdencia-privada');
 const erro400 = require('../fixtures/400');
 const erro500 = require('../fixtures/500');
 

@@ -1,5 +1,5 @@
-const dataFixturesExtrato = require('../fixtures/pontos-extrato');
-const dataFixturesConsultar = require('../fixtures/pontos-consultar');
+const dataFixturesExtrato = require('../fixtures/programa-pontos/pontos-extrato');
+const dataFixturesConsultar = require('../fixtures/programa-pontos/pontos-consultar');
 const erro404 = require('../fixtures/404');
 
 module.exports = function(server, urlBase) {

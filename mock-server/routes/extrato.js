@@ -1,4 +1,4 @@
-const dataFixturesExtrato = require('../fixtures/extrato');
+const dataFixturesExtrato = require('../fixtures/extrato/extrato');
 
 module.exports = function(server, urlBase) {
   console.log(`[GET] - ${urlBase}/conta/extrato`);

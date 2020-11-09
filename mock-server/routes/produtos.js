@@ -1,5 +1,5 @@
-const dataFixturesViagem = require('../fixtures/seguro-viagem');
-const dataFixturesVida = require('../fixtures/seguro-vida');
+const dataFixturesViagem = require('../fixtures/produtos/seguro-viagem');
+const dataFixturesVida = require('../fixtures/produtos/seguro-vida');
 const erro400 = require('../fixtures/400');
 const erro500 = require('../fixtures/500');
 

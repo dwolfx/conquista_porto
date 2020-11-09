@@ -1,5 +1,5 @@
-const dataFixturesImovel = require('../fixtures/consorcios-imovel');
-const dataFixturesAuto = require('../fixtures/consorcios-auto');
+const dataFixturesImovel = require('../fixtures/consorcios/consorcios-imovel');
+const dataFixturesAuto = require('../fixtures/consorcios/consorcios-auto');
 const erro400 = require('../fixtures/400');
 const erro500 = require('../fixtures/500');
 
