@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useDispatch } from 'react-redux'
-import moment from 'moment'
-
+import { uuid } from 'uuidv4'
 import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
 import Button from 'components/Button'
@@ -75,10 +73,7 @@ const ExtractTableMobile = ({
   return (
     <>
       {extractFund.slice(0, listSize).map((extract, index, array) => (
-        <S.StyledCard
-          data-testid="table-account-extract"
-          key={`extract-${index}`}
-        >
+        <S.StyledCard data-testid="table-account-extract" key={uuid()}>
           <VerticalList
             elements={[
               <S.StyledHorizontalList

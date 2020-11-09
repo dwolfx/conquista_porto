@@ -70,7 +70,6 @@ export default function ExtractMovimentFund({
 
   useEffect(() => {
     if (filters.length > 0 || (interval.initialDate && interval.finalDate)) {
-      debugger
       request()
     }
   }, [filters, interval])

@@ -45,7 +45,9 @@ const ExtractFilter = ({
   const [isDatepickerOpen, setIsDatepickerOpen] = useState(false)
 
   useEffect(() => {
-    if (selectedInterval.id !== 3) setPeriod(selectedInterval.name)
+    if (selectedInterval.id !== 3) {
+      setPeriod(selectedInterval.name)
+    }
   }, [selectedInterval])
 
   const filterSelect = (allocationType: t.IAllocationType) => {

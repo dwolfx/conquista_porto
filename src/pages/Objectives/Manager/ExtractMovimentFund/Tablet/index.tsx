@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Row } from 'styled-bootstrap-grid'
+import { uuid } from 'uuidv4'
 
 import VerticalList from 'components/VerticalList'
 import Text from 'components/Text'
@@ -66,7 +67,7 @@ const ExtractTableTablet = ({
     <S.StyledContainer>
       <Row>
         {extractFund.slice(0, listSize).map((extract, index) => (
-          <S.StyledCol sm={6} key={`extract-${index}`}>
+          <S.StyledCol sm={6} key={uuid()}>
             <S.StyledCard data-testid="table-account-extract">
               <VerticalList
                 elements={[
