@@ -5,6 +5,7 @@ import moment from 'moment'
 import Button from 'components/Button/Link'
 import Text from 'components/Text'
 import Divisor from 'components/Divisor'
+import DocumentInfo from 'pages/CreditCard/Creation/SummaryStep/DataShower/DocumentInfo'
 
 import { formatCpf } from 'helpers'
 
@@ -87,8 +88,8 @@ const PersonalData = ({
               />
             </>
           )}
-          {/* <Divisor />
-       <DocumentInfo document={formData.document}/> */}
+          <Divisor />
+          <DocumentInfo formData={formData} />
           <Divisor />
           <DataShower label="Cidade" value={formData.cidade} />
           <Divisor />

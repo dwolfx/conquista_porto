@@ -3,7 +3,7 @@ import React from 'react'
 import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 import { storeFactory } from 'setupTests'
 
-import FifthStep from '.'
+import SummaryStep from '.'
 
 import { ICreditCardExpirationDays } from 'store/modules/CreditCard/ExpirationDays/types'
 
@@ -41,14 +41,19 @@ const setup = (initialState: {
 }) => {
   const store = storeFactory(initialState)
   return renderWithReduxAndTheme(
-    <FifthStep formData={{}} setFormData={() => {}} onSubmit={() => {}} />,
+    <SummaryStep
+      formData={{}}
+      setFormData={() => {}}
+      onSubmit={() => {}}
+      retrySubmit={false}
+    />,
     { store, container: createRootContainer() }
   )
 }
 
-describe('FifthStep tests', () => {
+describe('SummaryStep tests', () => {
   it('should exist', () => {
-    expect(FifthStep).toBeDefined()
+    expect(SummaryStep).toBeDefined()
   })
   it('should render correctly', () => {
     setup(defaultStore)
@@ -81,10 +86,11 @@ describe('FifthStep tests', () => {
     const changeStepFunction = jest.fn()
     const store = storeFactory(defaultStore)
     renderWithReduxAndTheme(
-      <FifthStep
+      <SummaryStep
         formData={{}}
         setFormData={() => {}}
         onSubmit={changeStepFunction}
+        retrySubmit={false}
       />,
       { store, container: createRootContainer() }
     )
