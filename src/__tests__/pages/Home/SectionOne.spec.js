@@ -75,11 +75,6 @@ jest.mock('pages/Home/InsuranceCard', () => ({
   default: () => [],
 }))
 
-jest.mock('pages/Home/ProductItemGenerator.js', () => ({
-  __esModule: true,
-  default: () => [],
-}))
-
 describe('SectionOne', () => {
   it('Renders correctly', () => {
     const tree = renderer

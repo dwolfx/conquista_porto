@@ -10,7 +10,7 @@ export const buildToast = (message, type, options) => ({
   options,
 })
 
-export default (message, type = ToastTypes.info, options) => ({
+export default (message, options, type = ToastTypes.info) => ({
   type: 'SHOW_TOAST',
   toast: buildToast(message, type, options),
 })

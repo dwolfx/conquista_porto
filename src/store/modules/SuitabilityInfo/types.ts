@@ -1,4 +1,4 @@
-import { IToast } from "hooks/toast";
+import { IToast } from 'hooks/toast'
 
 export const Types = {
   SUITABILITY_INFO_GET_DATA_REQUEST: 'SUITABILITY_INFO_GET_DATA_REQUEST',

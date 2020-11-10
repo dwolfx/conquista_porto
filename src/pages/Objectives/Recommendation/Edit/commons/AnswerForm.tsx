@@ -34,10 +34,10 @@ export default function AnswerForm({
     if (setHasError) {
       setHasError(
         // !ValidateNickname(values.nickname)[0] ||
-        !ValidateTargetDate(values!.target_date)[0] ||
-          !ValidateTargetValue(values!.target_value)[0] ||
-          !ValidateInitialInvestment(values!.initial_value)[0] ||
-          !ValidateMonthlyInvestment(values!.monthly_value)[0]
+        !ValidateTargetDate(values.target_date || '')[0] ||
+          !ValidateTargetValue(values.target_value || 0)[0] ||
+          !ValidateInitialInvestment(values.initial_value || 0)[0] ||
+          !ValidateMonthlyInvestment(values.monthly_value || 0)[0]
       )
     }
   }, [values, setHasError])
@@ -52,14 +52,14 @@ export default function AnswerForm({
 
   const formatDateMask = (event: React.ChangeEvent<HTMLInputElement>) => {
     const strippedValue = event.target.value.replace(/\D/g, '')
-    let newValue = strippedValue
     if (strippedValue.length < 5) {
-      newValue = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
+      event.target.value = strippedValue.replace(/(\d{2})(\d{1})/g, '$1/$2')
     } else {
-      newValue = strippedValue.replace(/(\d{2})(\d{2})(\d{1})/g, '$1/$2/$3')
+      event.target.value = strippedValue.replace(
+        /(\d{2})(\d{2})(\d{1})/g,
+        '$1/$2/$3'
+      )
     }
-    // eslint-disable-next-line no-param-reassign
-    event.target.value = newValue
   }
 
   const renderErrorMessage = (message: string) => (
@@ -115,7 +115,7 @@ export default function AnswerForm({
           error={!ValidateNickname(values.nickname)[0]}
           label="Apelido"
           onChange={handleSingleValue}
-          value={values!.nickname}
+          value={values.nickname || ''}
           suffix={<>{inputCounter}/20</>}
         />
 
@@ -124,89 +124,89 @@ export default function AnswerForm({
       </s.ColInput>
 
       <s.ColInput
-        error={!ValidateTargetDate(values!.target_date)[0]}
+        error={!ValidateTargetDate(values.target_date || '')[0]}
         {...colSizes}
       >
         <s.Input
           data-gtm-form="input"
           data-gtm-name="data-alvo"
           name="target_date"
-          error={!ValidateTargetDate(values!.target_date)[0]}
+          error={!ValidateTargetDate(values.target_date || '')[0]}
           label="Data alvo"
           onChange={handleSingleValue}
-          value={values!.target_date}
+          value={values.target_date || ''}
           maxLength={10}
         />
 
-        {!ValidateTargetDate(values!.target_date)[0] &&
+        {!ValidateTargetDate(values.target_date || '')[0] &&
           renderErrorMessage(
-            ValidateTargetDate(values!.target_date)[1]?.toString()
+            ValidateTargetDate(values.target_date || '')[1]?.toString()
           )}
       </s.ColInput>
 
       <s.ColInput
-        error={!ValidateTargetValue(values!.target_value)[0]}
+        error={!ValidateTargetValue(values.target_value || 0)[0]}
         {...colSizes}
       >
         <s.Input
           data-gtm-form="input"
           data-gtm-name="meta financeira"
           name="target_value"
-          error={!ValidateTargetValue(values!.target_value)[0]}
+          error={!ValidateTargetValue(values.target_value || 0)[0]}
           prefix="R$"
           label="Meta financeira"
           onChange={handleSingleValue}
-          value={formatMoney(values!.target_value, { style: 'decimal' })}
+          value={formatMoney(values.target_value || 0, { style: 'decimal' })}
           maxLength={14}
         />
 
-        {!ValidateTargetValue(values!.target_value)[0] &&
+        {!ValidateTargetValue(values.target_value || 0)[0] &&
           renderErrorMessage(
-            ValidateTargetValue(values!.target_value)[1]?.toString()
+            ValidateTargetValue(values.target_value || 0)[1]?.toString()
           )}
       </s.ColInput>
 
       <s.ColInput
-        error={!ValidateInitialInvestment(values!.initial_value)[0]}
+        error={!ValidateInitialInvestment(values.initial_value || 0)[0]}
         {...colSizes}
       >
         <s.Input
           data-gtm-form="input"
           data-gtm-name="investimento inicial"
           name="initial_value"
-          error={!ValidateInitialInvestment(values!.initial_value)[0]}
+          error={!ValidateInitialInvestment(values.initial_value || 0)[0]}
           prefix="R$"
           label="Investimento inicial"
           onChange={handleSingleValue}
-          value={formatMoney(values!.initial_value, { style: 'decimal' })}
+          value={formatMoney(values.initial_value || 0, { style: 'decimal' })}
           maxLength={14}
         />
 
-        {!ValidateInitialInvestment(values!.initial_value)[0] &&
+        {!ValidateInitialInvestment(values.initial_value || 0)[0] &&
           renderErrorMessage(
-            ValidateInitialInvestment(values!.initial_value)[1]?.toString()
+            ValidateInitialInvestment(values.initial_value || 0)[1]?.toString()
           )}
       </s.ColInput>
 
       <s.ColInput
-        error={!ValidateMonthlyInvestment(values!.monthly_value)[0]}
+        error={!ValidateMonthlyInvestment(values.monthly_value || 0)[0]}
         {...colSizes}
       >
         <s.Input
           data-gtm-form="input"
           data-gtm-name="investimento mensal"
           name="monthly_value"
-          error={!ValidateMonthlyInvestment(values!.monthly_value)[0]}
+          error={!ValidateMonthlyInvestment(values.monthly_value || 0)[0]}
           prefix="R$"
           label="Investimento mensal"
           onChange={handleSingleValue}
-          value={formatMoney(values!.monthly_value, { style: 'decimal' })}
+          value={formatMoney(values.monthly_value || 0, { style: 'decimal' })}
           maxLength={14}
         />
 
-        {!ValidateMonthlyInvestment(values!.monthly_value)[0] &&
+        {!ValidateMonthlyInvestment(values.monthly_value || 0)[0] &&
           renderErrorMessage(
-            ValidateMonthlyInvestment(values!.monthly_value)[1]?.toString()
+            ValidateMonthlyInvestment(values.monthly_value || 0)[1]?.toString()
           )}
       </s.ColInput>
     </s.FormWrapper>

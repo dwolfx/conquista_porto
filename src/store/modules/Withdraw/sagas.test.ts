@@ -24,28 +24,34 @@ describe('Withdraw Sagas', () => {
         },
       }
       const generator = getWithdrawDetails(param)
-      const response = { data: {} }
 
-      const getAuthResponse = { cpf: '11111111111' }
-      const getSuitabilityInfoResponse = { id_cotista: 1 }
+      const getAuthResponse = { cpf: '11111111111', data: {} }
+      const getSuitabilityInfoResponse = {
+        id_cotista: 1,
+        cpf: '11111111111',
+        data: {},
+      }
 
       expect(generator.next(getAuthResponse).value).toEqual(select(getAuth))
+
+      expect(JSON.stringify(generator.next(getAuthResponse).value)).toEqual(
+        JSON.stringify(
+          call(getDataValidate, {
+            type: SuitabilityTypes.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE,
+            payload: {
+              onSuccess: () => null,
+              buttonType: 'retirar',
+              onErrorToast: param.payload.addToast,
+            },
+          })
+        )
+      )
 
       expect(generator.next(getSuitabilityInfoResponse).value).toEqual(
         select(getSuitabilityInfo)
       )
 
-      // TODO: Verificar como fazer um mock
-      // expect(generator.next({}).value).toEqual(
-      //   call(getDataValidate, {
-      //     type: SuitabilityTypes.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE,
-      //     payload: {
-      //       onSuccess: () => null,
-      //       buttonType: 'retirar',
-      //       onErrorToast: param.payload.addToast,
-      //     },
-      //   })
-      // )
+      expect(generator.next()).toEqual({ done: true, value: undefined })
     })
 
     it('getWithdrawDetails: fail triggers fail action', () => {

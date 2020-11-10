@@ -56,7 +56,7 @@ export function* getDataValidate({ payload }: IPayload) {
       suitabilityInfo = { ...response.data }
     }
 
-    let isValid: { isValid: boolean } | {} = {
+    let isValid: { isValid?: boolean } = {
       isValid: false,
     }
 

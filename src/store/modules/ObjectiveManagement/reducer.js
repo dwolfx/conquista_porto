@@ -12,17 +12,20 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.POST_REQUEST:
+    case Types.GET_REQUEST:
       return {
         ...state,
         isLoading: true,
       }
     case Types.POST_SUCCESS:
+    case Types.GET_SUCCESS:
       return {
         ...state,
         data: action.payload,
         isLoading: false,
       }
     case Types.POST_FAILURE:
+    case Types.GET_FAILURE:
       return {
         ...state,
         data: {},
@@ -45,23 +48,7 @@ export default function(state = INITIAL_STATE, action) {
         error: true,
         isLoadingSave: false,
       }
-    case Types.GET_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-      }
-    case Types.GET_SUCCESS:
-      return {
-        ...state,
-        data: action.payload,
-        isLoading: false,
-      }
-    case Types.GET_FAILURE:
-      return {
-        ...state,
-        data: {},
-        isLoading: false,
-      }
+
     case Types.GET_OTHER_GOALS_REQUEST:
       return {
         ...state,
