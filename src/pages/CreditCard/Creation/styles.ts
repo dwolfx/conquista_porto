@@ -61,7 +61,7 @@ export const StepBar = styled.div<{ step: number }>`
   position: relative;
 
   ${({ step }) =>
-    step === 3 &&
+    step === 4 &&
     css`
       &:after {
         background-color: inherit;

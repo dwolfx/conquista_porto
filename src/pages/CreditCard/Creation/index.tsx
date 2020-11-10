@@ -17,6 +17,7 @@ import {
 } from 'store/modules/CreditCard/ExpirationDays/action'
 
 import ClientInfoStep from './ClientInfoStep'
+import RegisterDocumentStep from './RegisterDocumentStep'
 import AddicionalInfoStep from './AddicionalInfoStep'
 import CreditCardStep from './CreditCardStep'
 import SummaryStep from './SummaryStep'
@@ -47,6 +48,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   const { addToast } = useToast()
 
   const [step, setStep] = useState<steps>(1)
+  const [isLastStep, setIsLastStep] = useState(false)
   const [formData, setFormData] = useState<ICreditCardCreationPayload>({})
   const [formResponse, setFormResponse] = useState<IOrderResponse>({})
   const [retrySubmit, setRetrySubmit] = useState<boolean>(false)
@@ -68,7 +70,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
 
   const goNext = useCallback(
     (stepAnswers: ICreditCardCreationPayload) => {
-      if (step < 5) {
+      if (isLastStep) {
         setStep(prevState => (prevState + 1) as steps)
       }
 
@@ -77,7 +79,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
         ...stepAnswers,
       }))
     },
-    [step]
+    [isLastStep]
   )
 
   const getStepCount = () => {
@@ -118,6 +120,7 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
   // Each step goes here
   const content = [
     <ClientInfoStep onNextStep={goNext} />,
+    <RegisterDocumentStep formData={formData} onNextStep={goNext} />,
     <AddicionalInfoStep formData={formData} onNextStep={goNext} />,
     <CreditCardStep formData={formData} onNextStep={goNext} />,
     <SummaryStep
@@ -133,6 +136,10 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
       handleClose={handleClose}
     />,
   ]
+
+  useEffect(() => {
+    setIsLastStep(step < content.length)
+  }, [content, step])
 
   const getContent = () => {
     return content[step - 1]

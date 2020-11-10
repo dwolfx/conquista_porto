@@ -35,7 +35,10 @@ const FirstStep = ({
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const [hasNoOffers, setHasNoOffers] = useState(false)
-  const [brazilianStateOption, setBrazilianStateOption] = useState<IOption>({ id: 0, name: '' })
+  const [brazilianStateOption, setBrazilianStateOption] = useState<IOption>({
+    id: 0,
+    name: '',
+  })
   const [customerData, setCustomerData] = useState<t.TCustomerData | undefined>(
     undefined
   )
@@ -66,9 +69,9 @@ const FirstStep = ({
 
     setBrazilianStateOption({
       id: brazilianStates.indexOf(creditCardClient.estado),
-      name: creditCardClient.estado
+      name: creditCardClient.estado,
     })
-  }, [creditCardClient]);
+  }, [creditCardClient])
 
   useEffect(() => {
     if (creditCardClient) {

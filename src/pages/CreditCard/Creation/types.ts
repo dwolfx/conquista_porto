@@ -13,7 +13,7 @@ export interface IStepComponent {
 export interface ISummaryStep {
   formData: ICreditCardCreationPayload
   setFormData: Dispatch<SetStateAction<ICreditCardCreationPayload>>
-  onSubmit: () => void,
+  onSubmit: () => void
   retrySubmit: boolean
 }
 
@@ -26,10 +26,8 @@ export enum DocumentType {
   RG = 'RG',
   RNE = 'RNE',
   CNH = 'CNH',
-  PASSPORT = 'Passaporte',
+  CLASSE = 'Classe',
 }
-
-export type BrazilianState = {}
 
 export interface ICreditCardCreationPayload {
   bairro?: string
@@ -61,15 +59,15 @@ export interface ICreditCardCreationPayload {
 }
 
 export interface IOrderResponse {
-  codigoRetorno?: number,
+  codigoRetorno?: number
   mensagem?: {
-    mensagem?: string,
+    mensagem?: string
     tipoCritica?: string
-  },
+  }
   numeroProposta?: number
 }
 
 export enum FLAGS {
   VISA = '1',
-  MASTERCARD = '2'
+  MASTERCARD = '2',
 }

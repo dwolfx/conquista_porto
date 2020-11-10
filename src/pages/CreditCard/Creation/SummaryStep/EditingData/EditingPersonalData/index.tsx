@@ -174,9 +174,6 @@ const EditingPersonalData: React.FC<t.IEditingPersonalData> = ({
   }, [selectedDocument, setIssuingBody])
 
   const handleDocumentChange = (value: string) => {
-    setDocumentNumber('')
-    setExpeditionDate('')
-    setIssuingBody('')
     setSelectedDocument(value)
   }
 

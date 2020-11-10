@@ -39,10 +39,11 @@ const SelectDocument = ({ selectedOption, setSelectedOption }: IProps) => {
 
   useEffect(() => {
     const selectedStateObject = Object.entries(documents).find(
-      ([key, value]) => value === selectedOption
+      ([, value]) => value === selectedOption
     )
     if (!selectedStateObject && selectedOption.length) {
       setSelected({ id: options[3].id, name: options[3].text })
+      setSelectedOption(options[3].text)
     } else {
       if (options.length > 0 && selectedStateObject) {
         const filteredOption = options.find(
@@ -53,10 +54,11 @@ const SelectDocument = ({ selectedOption, setSelectedOption }: IProps) => {
           const option = { id: filteredOption?.id, name: filteredOption?.text }
 
           setSelected(option)
+          setSelectedOption(filteredOption?.text)
         }
       }
     }
-  }, [options, selectedOption])
+  }, [options, selectedOption, setSelectedOption])
 
   return (
     <SelectWrapper>

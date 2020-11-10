@@ -1,28 +1,73 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'styled-bootstrap-grid'
-import { IStepComponent, DocumentType, BrazilianState } from '../types'
+import { useSelector } from 'react-redux'
+import moment from 'moment'
+
+import { dict } from 'components/IconExporter'
 import Input from 'components/NewInput'
-import DocumentsSelect from './selects/Documents'
-import BrazilianStatesSelect from './selects/BrazilianStates'
+
+import ExpeditionDateInput, {
+  isExpeditionDateValid,
+} from '../common/ExpeditionDateInput'
+import IssuingBodyInput from '../common/IssuingBodyInput'
+import SelectDocument from '../common/SelectDocument'
+
+import { IState, IStepComponent } from '../types'
 import { GridContainer, WhiteContent } from '../styles'
 import * as S from './styles'
 
-export default function SecondCreditCardStep({ onNextStep }: IStepComponent) {
-  const [document, setDocument] = useState<DocumentType | null>(null)
-  const [brazilianState, setBrazilianState] = useState<BrazilianState | null>(
-    null
+export default function RegisterDocumentStep({
+  formData,
+  onNextStep,
+}: IStepComponent) {
+  const documentNumberError = {
+    icon: 'information' as keyof typeof dict,
+    message: 'O número informado não é válido.',
+  }
+
+  const creditCardClient = useSelector(
+    (state: IState) => state.creditCard.clientData
+  )
+
+  const [selectedDocument, setSelectedDocument] = useState(
+    formData.tipoDocumento || creditCardClient?.tipoDocumento || ''
+  )
+  const [documentNumber, setDocumentNumber] = useState(
+    formData.numeroDocumentoIdentificacao ||
+      creditCardClient?.numeroDocumento?.toString() ||
+      ''
+  )
+  const [expeditionDate, setExpeditionDate] = useState(
+    formData.dataEmissaoDocumento ||
+      (creditCardClient?.dataExpedicao
+        ? moment(creditCardClient.dataExpedicao).format('DD/MM/YYYY')
+        : '')
+  )
+  const [issuingBody, setIssuingBody] = useState(
+    formData.orgaoExpedidor || creditCardClient?.orgaoEmissor || ''
   )
 
   const [isDisabledNextStepButton, setDisabledNextStepButton] = useState(true)
 
-  // TODO validar campo ao digitar
-  // TODO verificar se o grupo de formulario preenchido é o grupo do DocumentType selecionado
-  // TODO liberar botao de avançar se as condições acimas forem cumpridas
+  useEffect(() => {
+    setDisabledNextStepButton(
+      selectedDocument === '' ||
+        !documentNumber.length ||
+        documentNumber.length < 6 ||
+        !isExpeditionDateValid(expeditionDate) ||
+        !issuingBody.length ||
+        issuingBody.length < 3
+    )
+  }, [selectedDocument, documentNumber, expeditionDate, issuingBody])
 
-  function onSubmitStep() {
-    // TODO setar valor dos campos do formulario geral
-    onNextStep({})
-  }
+  useEffect(() => {
+    if (selectedDocument === 'RG') {
+      setIssuingBody('SSP')
+    }
+    if (selectedDocument === 'RNE') {
+      setIssuingBody('CGPI/DIREX/DPF')
+    }
+  }, [selectedDocument, setIssuingBody])
 
   return (
     <WhiteContent>
@@ -37,86 +82,70 @@ export default function SecondCreditCardStep({ onNextStep }: IStepComponent) {
 
         <Row justifyContent="center">
           <Col md={4}>
-            <S.FieldForm error={false}>
-              <DocumentsSelect state={[document, setDocument]} />
+            <S.FieldForm>
+              <SelectDocument
+                selectedOption={selectedDocument}
+                setSelectedOption={setSelectedDocument}
+              />
             </S.FieldForm>
           </Col>
         </Row>
 
-        {null !== document && (
-          <Row justifyContent="center">
-            <Col md={4}>
-              <S.FieldForm error={false}>
-                <Input label="Número do documento" placeholder="Digite" />
-              </S.FieldForm>
-            </Col>
-          </Row>
-        )}
+        <Row justifyContent="center">
+          <Col md={4}>
+            <S.FieldForm
+              error={!documentNumber.length || documentNumber.length < 6}
+            >
+              <Input
+                label="Número do documento"
+                placeholder="Digite aqui..."
+                error={
+                  (!documentNumber.length || documentNumber.length < 6) &&
+                  documentNumberError
+                }
+                maxLength={11}
+                value={documentNumber}
+                onChange={e => setDocumentNumber(e.target.value)}
+                data-testid="document-number"
+              />
+            </S.FieldForm>
+          </Col>
+        </Row>
 
-        {DocumentType.RG === document && (
-          <Row justifyContent="center">
-            <Col md={4}>
-              <S.FieldForm error={false}>
-                <Input label="Data de expedição" placeholder="00/00/0000" />
-              </S.FieldForm>
-            </Col>
-          </Row>
-        )}
+        <Row justifyContent="center">
+          <Col md={4}>
+            <S.FieldForm error={!isExpeditionDateValid(expeditionDate)}>
+              <ExpeditionDateInput
+                expeditionDate={expeditionDate}
+                setExpeditionDate={setExpeditionDate}
+              />
+            </S.FieldForm>
+          </Col>
+        </Row>
 
-        {DocumentType.RG !== document && null !== document && (
-          <Row justifyContent="center">
-            <Col md={2}>
-              <S.FieldForm error={false}>
-                <Input
-                  label="Data de emissão"
-                  placeholder="00/00/0000"
-                  // error={{ icon: 'alertrounded', message: 'aaa' }}
-                />
-              </S.FieldForm>
-            </Col>
-            <Col md={2}>
-              <S.FieldForm error={false}>
-                <Input label="Data de vencimento" placeholder="00/00/0000" />
-              </S.FieldForm>
-            </Col>
-          </Row>
-        )}
-
-        {(DocumentType.RG === document || DocumentType.RNE === document) && (
-          <Row justifyContent="center">
-            <Col md={2}>
-              <S.FieldForm error={false}>
-                <Input label="Orgão emissor" placeholder="Digite" />
-              </S.FieldForm>
-            </Col>
-            <Col md={2}>
-              <S.FieldForm error={false}>
-                <BrazilianStatesSelect
-                  state={[brazilianState, setBrazilianState]}
-                />
-              </S.FieldForm>
-            </Col>
-          </Row>
-        )}
-
-        {(DocumentType.PASSPORT === document ||
-          DocumentType.CNH === document) && (
-          <Row justifyContent="center">
-            <Col md={4}>
-              <S.FieldForm error={false}>
-                <BrazilianStatesSelect
-                  state={[brazilianState, setBrazilianState]}
-                />
-              </S.FieldForm>
-            </Col>
-          </Row>
-        )}
+        <Row justifyContent="center">
+          <Col md={4}>
+            <S.FieldForm error={!issuingBody.length || issuingBody.length < 3}>
+              <IssuingBodyInput
+                issuingBody={issuingBody}
+                setIssuingBody={setIssuingBody}
+              />
+            </S.FieldForm>
+          </Col>
+        </Row>
 
         <Row justifyContent="center">
           <Col md={4}>
             <S.NextStepButton
               disabled={isDisabledNextStepButton}
-              onClick={onSubmitStep}
+              onClick={() => {
+                onNextStep({
+                  tipoDocumento: selectedDocument,
+                  numeroDocumentoIdentificacao: documentNumber,
+                  orgaoExpedidor: issuingBody,
+                  dataEmissaoDocumento: expeditionDate,
+                })
+              }}
             >
               Próximo
             </S.NextStepButton>
