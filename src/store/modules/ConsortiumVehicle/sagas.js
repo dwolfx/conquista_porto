@@ -8,7 +8,7 @@ import {
 } from './action'
 
 function addId(consorcios) {
-  return consorcios.map((consorcio = {}, index) => ({
+  return consorcios.map((consorcio, index) => ({
     ...consorcio,
     Id: index,
   }))

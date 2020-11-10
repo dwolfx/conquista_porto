@@ -4,6 +4,7 @@ import { Types } from './types'
 const defaultState = {
   accessToken: undefined,
   cpf: undefined,
+  digitalSign: undefined,
 }
 
 describe('Auth Reducer', () => {
@@ -53,7 +54,7 @@ describe('Auth Reducer', () => {
       )
     ).toEqual({
       ...defaultState,
-      error: {}
+      error: {},
     })
   })
 })

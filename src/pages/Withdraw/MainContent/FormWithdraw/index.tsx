@@ -26,8 +26,7 @@ const FormWithdraw = React.forwardRef<HTMLInputElement, IFormWithdraw>(
     },
     ref
   ) => {
-    const innerRef =
-      ref || (React.createRef() as React.RefObject<HTMLInputElement>)
+    const innerRef = ref || React.createRef()
 
     const isAmountGreaterThanAccountBalance = () => {
       const withdrawValue = formatLocaleStringToNumber(formData.withdrawValue)
