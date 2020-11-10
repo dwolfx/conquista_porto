@@ -75,9 +75,9 @@ export default function EditSuggestion({
             PostObjectiveDataRequest({
               data: {
                 ...editValues,
-                initial_value: editValues!.initial_value,
-                monthly_value: editValues!.monthly_value,
-                target_value: editValues!.target_value,
+                initial_value: editValues.initial_value || 0,
+                monthly_value: editValues.monthly_value || 0,
+                target_value: editValues.target_value || 0,
                 profile: +suitabilityData.idperfilinvest,
               },
               onErrorToast: addToast,

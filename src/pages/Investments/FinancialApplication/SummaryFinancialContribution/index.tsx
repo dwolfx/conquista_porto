@@ -90,7 +90,7 @@ const SummaryFinancialContribution = ({
         VOLTAR
       </StyledReturnButton>
       <StyledConfirmButton
-        disabled={!formData!.isAwareOfTerms}
+        disabled={!!formData.isAwareOfTerms}
         loading={isLoading}
         retryAction={errorCount > 0}
         color="secondary"
@@ -126,7 +126,7 @@ const SummaryFinancialContribution = ({
               ]}
               endItems={[
                 <Text type="headline" color="gray6" bold>
-                  R$ {formData!.moneyToInvest}
+                  R$ {formData.moneyToInvest || 0}
                 </Text>,
               ]}
             />
@@ -146,7 +146,7 @@ const SummaryFinancialContribution = ({
                   ) && (
                     <>
                       <Text type="headline" color="gray4" bold>
-                        {formData!.whenToInvest}
+                        {formData.whenToInvest || ''}
                       </Text>
                       <Icon name="arrowright" color="gray4" width={21} />
                     </>

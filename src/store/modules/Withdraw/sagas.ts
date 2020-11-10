@@ -18,8 +18,6 @@ export function* getWithdrawDetails({ payload }: any) {
 
   try {
     const { cpf } = yield select(getAuth)
-    let suitabilityInfo = yield select(getSuitabilityInfo)
-
     yield call(getDataValidate, {
       type: SuitabilityTypes.SUITABILITY_INFO_GET_DATA_REQUEST_VALIDATE,
       payload: {
@@ -29,7 +27,7 @@ export function* getWithdrawDetails({ payload }: any) {
       },
     })
 
-    suitabilityInfo = yield select(getSuitabilityInfo)
+    let suitabilityInfo = yield select(getSuitabilityInfo)
 
     if (suitabilityInfo?.id_cotista && suitabilityInfo?.isValid) {
       const { data } = yield call(

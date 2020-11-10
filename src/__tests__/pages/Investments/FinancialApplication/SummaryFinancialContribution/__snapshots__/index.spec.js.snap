@@ -248,14 +248,14 @@ Object {
 }
 
 .c23 {
-  background: #EBEBEB;
+  background: linear-gradient( to left, #2F736B -35%, #46A166 );
   background-repeat: no-repeat;
   border: none;
   border-radius: 4px;
   box-sizing: border-box;
   display: inline-block;
-  color: #BABABA;
-  cursor: not-allowed;
+  color: #FFFFFF;
+  cursor: pointer;
   height: 35px;
   overflow: hidden;
   position: relative;
@@ -266,7 +266,7 @@ Object {
 }
 
 .c23:hover:active {
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .c23:hover:active:after {
@@ -275,6 +275,25 @@ Object {
   opacity: 0.2;
   -webkit-transition: all ease 0s;
   transition: all ease 0s;
+}
+
+.c23:hover:before {
+  width: 100%;
+}
+
+.c23:hover:after {
+  background: transparent radial-gradient( circle, #000 1%, transparent 1% ) center/15000%;
+  background-position: center;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  width: 100%;
 }
 
 .c23:before {
@@ -608,7 +627,6 @@ Object {
             <button
               class="c23 sc-fzoWqW c24"
               color="secondary"
-              disabled=""
             >
               <span
                 class="c22"
@@ -767,9 +785,8 @@ Object {
             </span>
           </button>
           <button
-            class="sc-fzokvW cmoNtu sc-fzoWqW sc-fznzqM fyybvc"
+            class="sc-fzokvW jOoTDy sc-fzoWqW sc-fznzqM fyybvc"
             color="secondary"
-            disabled=""
           >
             <span
               class="sc-fzqzlV dYezbz"

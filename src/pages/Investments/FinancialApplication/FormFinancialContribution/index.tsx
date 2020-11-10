@@ -200,9 +200,15 @@ const FormFinancialContribution = ({
     )
   }
 
-  const isDateInvalid = () =>
-    isInvalidDate(formData!.whenToInvest) ||
-    isPastDate(formData!.whenToInvest, moment())
+  const isDateInvalid = () => {
+    if (formData) {
+      return (
+        isInvalidDate(formData.whenToInvest) ||
+        isPastDate(formData.whenToInvest, moment())
+      )
+    }
+    return true
+  }
 
   const checkValidInputs = () => {
     return (
@@ -244,7 +250,10 @@ const FormFinancialContribution = ({
 
     return `O valor não pode ser menor do que ${formatMoneyDecimal(
       Number(
-        financialApplicationData.dados_para_aplicacao.fundo.aplicacao_minima
+        (
+          +financialApplicationData.dados_para_aplicacao.fundo
+            .aplicacao_minima * 100
+        )
           .toString()
           .replace(/\D/g, '')
       )
@@ -448,11 +457,11 @@ const FormFinancialContribution = ({
                     .
                   </Text>
                 }
-                checked={formData!.isAwareOfTerms}
+                checked={!!formData.isAwareOfTerms}
                 onChange={() =>
                   onChangeFormData({
-                    ...formData!,
-                    isAwareOfTerms: !formData!.isAwareOfTerms,
+                    ...formData,
+                    isAwareOfTerms: !formData.isAwareOfTerms,
                   })
                 }
                 id="checkbox-1"
