@@ -409,6 +409,7 @@ exports[`FundsInfo renders correctly 1`] = `
 .c36 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 11px;

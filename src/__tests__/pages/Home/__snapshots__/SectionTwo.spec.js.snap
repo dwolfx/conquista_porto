@@ -5,6 +5,7 @@ Array [
   .c8 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -18,6 +19,7 @@ Array [
 .c14 {
   color: #898989;
   text-align: left;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -520,6 +522,7 @@ Array [
   .c10 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -533,6 +536,7 @@ Array [
 .c18 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -548,6 +552,7 @@ Array [
 .c20 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 34px;

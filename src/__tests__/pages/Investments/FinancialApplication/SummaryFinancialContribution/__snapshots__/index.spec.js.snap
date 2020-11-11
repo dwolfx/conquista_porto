@@ -12,6 +12,7 @@ Object {
 .c8 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -25,6 +26,7 @@ Object {
 .c12 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -38,6 +40,7 @@ Object {
 .c14 {
   color: #BABABA;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -51,6 +54,7 @@ Object {
 .c16 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -64,6 +68,7 @@ Object {
 .c17 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -656,7 +661,7 @@ Object {
               class="sc-fzqNqU kyKKEL"
             >
               <p
-                class="sc-AxirZ qtrMY"
+                class="sc-AxirZ gsnnra"
                 color="gray6"
                 type="headline"
               >
@@ -677,7 +682,7 @@ Object {
                 class="sc-fzqNqU gbjgec"
               >
                 <p
-                  class="sc-AxirZ hLOGwM"
+                  class="sc-AxirZ kHNXxK"
                   color="gray5"
                   type="headline"
                 >
@@ -688,7 +693,7 @@ Object {
                 class="sc-fzoyTs dcaVVS"
               >
                 <p
-                  class="sc-AxirZ qtrMY"
+                  class="sc-AxirZ gsnnra"
                   color="gray6"
                   type="headline"
                 >
@@ -704,7 +709,7 @@ Object {
                 class="sc-fzqNqU gbjgec"
               >
                 <p
-                  class="sc-AxirZ hLOGwM"
+                  class="sc-AxirZ kHNXxK"
                   color="gray5"
                   type="headline"
                 >
@@ -715,7 +720,7 @@ Object {
                 class="sc-fzoyTs dcaVVS"
               >
                 <p
-                  class="sc-AxirZ eAzBhG"
+                  class="sc-AxirZ hFdQKs"
                   color="gray4"
                   type="headline"
                 >
@@ -730,7 +735,7 @@ Object {
                   arrow-right.svg
                 </svg>
                 <p
-                  class="sc-AxirZ qtrMY"
+                  class="sc-AxirZ gsnnra"
                   color="gray6"
                   type="headline"
                 >
@@ -743,7 +748,7 @@ Object {
             class="sc-fznMnq gWWVZe"
           >
             <p
-              class="sc-AxirZ bnAOhT"
+              class="sc-AxirZ bfbjft"
               color="gray6"
               type="body"
             >
@@ -757,7 +762,7 @@ Object {
             class="sc-fznMnq gWWVZe"
           >
             <p
-              class="sc-AxirZ gmegBb"
+              class="sc-AxirZ ebSHwB"
               color="gray5"
               type="body"
             >

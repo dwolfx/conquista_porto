@@ -6,6 +6,7 @@ Object {
   "baseElement": .c19 {
   color: #BABABA;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -19,6 +20,7 @@ Object {
 .c21 {
   color: #BABABA;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-size: 14px;
   -webkit-letter-spacing: 0.25px;
@@ -32,6 +34,7 @@ Object {
 .c35 {
   color: #BABABA;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -47,6 +50,7 @@ Object {
 .c36 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -60,6 +64,7 @@ Object {
 .c37 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -74,6 +79,7 @@ Object {
 .c42 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -87,6 +93,7 @@ Object {
 .c53 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -100,6 +107,7 @@ Object {
 .c72 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -2367,7 +2375,7 @@ Object {
                         class="sc-AxheI iUjYEW"
                       >
                         <p
-                          class="sc-AxjAm fLOUSR"
+                          class="sc-AxjAm jcWOvb"
                           color="gray4"
                           type="headline"
                         >
@@ -2378,7 +2386,7 @@ Object {
                         class="sc-Axmtr iaWKVR"
                       >
                         <p
-                          class="sc-AxjAm jrLIVw"
+                          class="sc-AxjAm inUCKS"
                           color="gray4"
                           type="title"
                         >
@@ -2427,21 +2435,21 @@ Object {
                               class="sc-qYiqT ghlBFd"
                             >
                               <p
-                                class="sc-AxjAm bvIKRM"
+                                class="sc-AxjAm gyHhKC"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 conta de investimento
                               </p>
                               <p
-                                class="sc-AxjAm lilPin"
+                                class="sc-AxjAm esYIWJ"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 1.987.123,99
                               </p>
                               <p
-                                class="sc-AxjAm fwsEyy"
+                                class="sc-AxjAm kRUhHc"
                                 color="gray5"
                                 type="caption"
                               >
@@ -2456,21 +2464,21 @@ Object {
                               class="sc-qYiqT ghlBFd"
                             >
                               <p
-                                class="sc-AxjAm bvIKRM"
+                                class="sc-AxjAm gyHhKC"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 fundo
                               </p>
                               <p
-                                class="sc-AxjAm lilPin"
+                                class="sc-AxjAm esYIWJ"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 31.905,05
                               </p>
                               <p
-                                class="sc-AxjAm fwsEyy"
+                                class="sc-AxjAm kRUhHc"
                                 color="gray5"
                                 type="caption"
                               >
@@ -2491,7 +2499,7 @@ Object {
                             data-name="col-sm-6"
                           >
                             <p
-                              class="sc-AxjAm htQgCT"
+                              class="sc-AxjAm fJtvcl"
                               color="gray6"
                               type="headline"
                             >
@@ -2528,7 +2536,7 @@ Object {
                             data-name="col-sm-6"
                           >
                             <p
-                              class="sc-AxjAm htQgCT"
+                              class="sc-AxjAm fJtvcl"
                               color="gray6"
                               type="headline"
                             >
@@ -2562,7 +2570,7 @@ Object {
                           class="sc-fzqOul hQzBzN"
                         >
                           <p
-                            class="sc-AxjAm hvlAI"
+                            class="sc-AxjAm fvLGTa"
                             color="gray5"
                             type="body"
                           >
@@ -2590,7 +2598,7 @@ Object {
                               for="checkbox-1"
                             >
                               <p
-                                class="sc-AxjAm hvlAI"
+                                class="sc-AxjAm fvLGTa"
                                 color="gray5"
                                 type="body"
                               >
@@ -2646,7 +2654,7 @@ Object {
                     data-name=""
                   >
                     <p
-                      class="sc-AxjAm hvlAI sc-fznNvL gmTXou"
+                      class="sc-AxjAm fvLGTa sc-fznNvL gmTXou"
                       color="gray5"
                       type="body"
                     >
@@ -2668,14 +2676,14 @@ Object {
                             class="sc-fzoydu cQInoN"
                           >
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
+                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
                             </p>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
+                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2689,7 +2697,7 @@ Object {
                               href="mailto:ouvidoria@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoYHE dEedgL"
+                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2697,7 +2705,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
+                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2711,7 +2719,7 @@ Object {
                               href="mailto:suporte.conquista@portoseguro.com.br"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoYHE dEedgL"
+                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2719,14 +2727,14 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
+                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
                               .
                             </p>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
+                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2744,7 +2752,7 @@ Object {
                               target="_blank"
                             >
                               <p
-                                class="sc-AxjAm cjwdiX sc-fzoYHE dEedgL"
+                                class="sc-AxjAm gLsLGV sc-fzoYHE dEedgL"
                                 color="unset"
                                 type="body"
                               >
@@ -2752,7 +2760,7 @@ Object {
                               </p>
                             </a>
                             <p
-                              class="sc-AxjAm cjwdiX sc-fzoJMP jbGAMr"
+                              class="sc-AxjAm gLsLGV sc-fzoJMP jbGAMr"
                               color="unset"
                               type="body"
                             >
@@ -2855,7 +2863,7 @@ Object {
                 class="sc-fzqBZW esRFc"
               >
                 <p
-                  class="sc-AxjAm htQgCT"
+                  class="sc-AxjAm fJtvcl"
                   color="gray6"
                   type="headline"
                 >
@@ -2927,7 +2935,7 @@ Object {
                 class="sc-fzqBZW esRFc"
               >
                 <p
-                  class="sc-AxjAm htQgCT"
+                  class="sc-AxjAm fJtvcl"
                   color="gray6"
                   type="headline"
                 >

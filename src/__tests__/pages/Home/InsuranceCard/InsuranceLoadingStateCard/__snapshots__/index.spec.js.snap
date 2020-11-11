@@ -4,6 +4,7 @@ exports[`InsuranceCard LifeInsuranceLoadingStateCard Renders correctly 1`] = `
 .c2 {
   color: #898989;
   text-align: left;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -106,6 +107,7 @@ exports[`InsuranceCard TripInsuranceLoadingStateCard Renders correctly 1`] = `
 .c2 {
   color: #898989;
   text-align: left;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;

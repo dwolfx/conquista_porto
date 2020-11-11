@@ -4,6 +4,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c8 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   white-space: nowrap;
   overflow: hidden;
@@ -20,6 +21,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c14 {
   color: #898989;
   text-align: left;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -35,6 +37,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c26 {
   color: #BABABA;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 12px;
@@ -50,6 +53,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c27 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;

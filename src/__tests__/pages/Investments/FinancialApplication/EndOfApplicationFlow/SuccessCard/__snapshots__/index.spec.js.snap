@@ -46,6 +46,7 @@ Object {
 .c6 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -59,6 +60,7 @@ Object {
 .c8 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -72,6 +74,7 @@ Object {
 .c16 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -87,6 +90,7 @@ Object {
 .c20 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -799,7 +803,7 @@ Object {
               check.svg
             </svg>
             <p
-              class="sc-AxiKw ffGjZL sc-fzoxKX hxygUX"
+              class="sc-AxiKw hKkLVt sc-fzoxKX hxygUX"
               color="unset"
               type="headline"
             >
@@ -807,7 +811,7 @@ Object {
             </p>
           </div>
           <p
-            class="sc-AxiKw fANohM sc-fznMAR iDzilq"
+            class="sc-AxiKw pMGfi sc-fznMAR iDzilq"
             color="unset"
             type="body"
           >
@@ -816,7 +820,7 @@ Object {
             Pode levar alguns minutos até que o fundo apareça na sua tela de gestão.
           </p>
           <p
-            class="sc-AxiKw ffGjZL sc-fzqBkg bXhEJI"
+            class="sc-AxiKw hKkLVt sc-fzqBkg bXhEJI"
             color="unset"
             type="headline"
           >
@@ -838,14 +842,14 @@ Object {
                     class="sc-AxirZ eDJESt"
                   >
                     <p
-                      class="sc-AxiKw cTXOhC sc-fznWqX ftdOPh"
+                      class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       BANCO
                     </p>
                     <p
-                      class="sc-AxiKw ffGjZL sc-fznJRM fXCptg"
+                      class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
@@ -864,14 +868,14 @@ Object {
                     class="sc-AxirZ eDJESt"
                   >
                     <p
-                      class="sc-AxiKw cTXOhC sc-fznWqX ftdOPh"
+                      class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       AGÊNCIA
                     </p>
                     <p
-                      class="sc-AxiKw ffGjZL sc-fznJRM fXCptg"
+                      class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
@@ -890,14 +894,14 @@ Object {
                     class="sc-AxirZ eDJESt"
                   >
                     <p
-                      class="sc-AxiKw cTXOhC sc-fznWqX ftdOPh"
+                      class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       CONTA
                     </p>
                     <p
-                      class="sc-AxiKw ffGjZL sc-fznJRM fXCptg"
+                      class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
@@ -916,14 +920,14 @@ Object {
                     class="sc-AxirZ eDJESt"
                   >
                     <p
-                      class="sc-AxiKw cTXOhC sc-fznWqX ftdOPh"
+                      class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       CPF
                     </p>
                     <p
-                      class="sc-AxiKw ffGjZL sc-fznJRM fXCptg"
+                      class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
@@ -942,14 +946,14 @@ Object {
                     class="sc-AxirZ eDJESt"
                   >
                     <p
-                      class="sc-AxiKw cTXOhC sc-fznWqX ftdOPh"
+                      class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       FAVORECIDO
                     </p>
                     <p
-                      class="sc-AxiKw ffGjZL sc-fznJRM fXCptg"
+                      class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
@@ -961,7 +965,7 @@ Object {
             </div>
           </div>
           <p
-            class="sc-AxiKw ffGjZL sc-fzqBkg bXhEJI"
+            class="sc-AxiKw hKkLVt sc-fzqBkg bXhEJI"
             color="unset"
             type="headline"
           >
@@ -971,21 +975,21 @@ Object {
             class="sc-fzolEj fRSMzZ"
           >
             <p
-              class="sc-AxiKw gKiRtf sc-fznWOq cgBhOL"
+              class="sc-AxiKw dVgsGp sc-fznWOq cgBhOL"
               color="unset"
               type="headline"
             >
               Esta conta é para recursos relacionados a investimentos apenas.
             </p>
             <p
-              class="sc-AxiKw gKiRtf sc-fznWOq cgBhOL"
+              class="sc-AxiKw dVgsGp sc-fznWOq cgBhOL"
               color="unset"
               type="headline"
             >
               As transferências devem ser de contas de mesma titularidade do favorecido.
             </p>
             <p
-              class="sc-AxiKw gKiRtf sc-fznWOq cgBhOL"
+              class="sc-AxiKw dVgsGp sc-fznWOq cgBhOL"
               color="unset"
               type="headline"
             >

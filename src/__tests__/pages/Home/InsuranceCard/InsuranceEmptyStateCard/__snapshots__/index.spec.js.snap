@@ -4,6 +4,7 @@ exports[`InsuranceCard LifeInsuranceEmptyStateCard Renders correctly 1`] = `
 .c1 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -17,6 +18,7 @@ exports[`InsuranceCard LifeInsuranceEmptyStateCard Renders correctly 1`] = `
 .c2 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -176,6 +178,7 @@ exports[`InsuranceCard TripInsuranceEmptyStateCard Renders correctly 1`] = `
 .c1 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -189,6 +192,7 @@ exports[`InsuranceCard TripInsuranceEmptyStateCard Renders correctly 1`] = `
 .c2 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
