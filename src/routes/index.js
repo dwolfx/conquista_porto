@@ -48,7 +48,7 @@ import useFetchLifeInsurance from 'hooks/LifeInsurance/useFetchLifeInsurance'
 import useFetchVehicleFinancing from 'hooks/VehicleFinancing/useFetchVehicleFinancing'
 import useFetchPosition from 'hooks/Investments/useFetchPosition'
 import googleTagManagerHandler from 'GoogleTagManager'
-import useAuth from './auth'
+import useAuth from './useAuth'
 
 import { LoadingContainer } from './styles'
 

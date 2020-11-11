@@ -89,11 +89,10 @@ export function* validateToken({ payload }: IPropsPutPayload) {
   } catch (err) {
     yield put(Put2FATokenDataFailure())
 
-    switch (err.constructor) {
-      case NotFoundException:
-        throw new ValidateTokenNotFoundException(err.message)
-      default:
-        throw new ValidateTokenException(err.message)
+    if (err.constructor == NotFoundException) {
+      throw new ValidateTokenNotFoundException(err.message)
+    } else {
+      throw new ValidateTokenException(err.message)
     }
   }
 }
@@ -120,11 +119,11 @@ export function* getTokenData() {
     yield put(Get2FADataSuccess(response.data))
   } catch (err) {
     yield put(Get2FADataFailure())
-    switch (err.constructor) {
-      case RequiredDevicesException:
-        throw err
-      default:
-        throw new GetTokenDataException(`${err.message}`)
+
+    if (err.constructor == RequiredDevicesException) {
+      throw err
+    } else {
+      throw new GetTokenDataException(`${err.message}`)
     }
   }
 }
@@ -150,18 +149,16 @@ export function* run2FAInitialRequest({
       onSuccess()
     }
   } catch (err) {
-    switch (err.constructor) {
-      case RequiredDevicesException:
-        console.error(`${err.name}: ${JSON.parse(err.message).msg}`)
-        onError()
-        break
-      default:
-        console.error(`${err.name}: ${JSON.parse(err.message).msg}`)
-        addToast({
-          description: 'Tente novamente.',
-          title: 'Um erro inesperado ocorreu.',
-          type: 'error',
-        })
+    if (err.constructor == RequiredDevicesException) {
+      console.error(`${err.name}: ${JSON.parse(err.message).msg}`)
+      onError()
+    } else {
+      console.error(`${err.name}: ${JSON.parse(err.message).msg}`)
+      addToast({
+        description: 'Tente novamente.',
+        title: 'Um erro inesperado ocorreu.',
+        type: 'error',
+      })
     }
   } finally {
     yield put(

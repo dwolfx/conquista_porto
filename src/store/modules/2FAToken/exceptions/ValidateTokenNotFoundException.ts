@@ -1,4 +1,4 @@
-export default class ValidadeTokenNotFoundException extends Error {
+export default class ValidateTokenNotFoundException extends Error {
   constructor(message: string) {
     super(message)
     this.name = this.constructor.name
