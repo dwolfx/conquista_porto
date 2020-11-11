@@ -14,7 +14,7 @@ describe('Consolidated Position Sagas', () => {
     const response = {
       data: {
         categorias: [{ nome: 'teste ok', valor: 0 }],
-        saldo_total: 0,
+        saldototal: 0,
       },
     }
 

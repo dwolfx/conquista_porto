@@ -208,7 +208,7 @@
     "status_data_vencimento_cadastro": false
   },
   "consolidado": {
-    "saldo_total": 20655214.49,
+    "saldototal": 20655214.49,
     "categorias": [
       {
         "nome": "Renda Variável",

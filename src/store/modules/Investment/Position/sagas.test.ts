@@ -34,10 +34,10 @@ describe('get customer profile', () => {
     )
     expect(generator.next()).toEqual({ done: true, value: undefined })
   })
-  it('success triggers success action with saldo_total 0', () => {
+  it('success triggers success action with saldototal 0', () => {
     const generator = getData()
     const response = {
-      data: { saldo_total: 0 },
+      data: { saldototal: 0 },
     }
     expect(generator.next(response).value).toEqual(
       call(get, '/cotista/posicao')
