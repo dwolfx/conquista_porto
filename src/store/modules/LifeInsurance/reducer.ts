@@ -7,22 +7,22 @@ const INITIAL_STATE = {
   hasError: false,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
-    case Types.GET_REQUEST:
+    case Types.GET_DATA_REQUEST:
       return {
         ...state,
-        isLoading: true,
         hasError: false,
+        isLoading: true,
       }
-    case Types.GET_SUCCESS:
+    case Types.GET_DATA_SUCCESS:
       return {
         ...state,
         status: 'loaded',
         data: [...action.payload],
         isLoading: false,
       }
-    case Types.GET_FAILURE:
+    case Types.GET_DATA_FAILURE:
       return {
         ...state,
         isLoading: false,

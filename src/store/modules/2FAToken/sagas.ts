@@ -89,7 +89,7 @@ export function* validateToken({ payload }: IPropsPutPayload) {
   } catch (err) {
     yield put(Put2FATokenDataFailure())
 
-    if (err.constructor == NotFoundException) {
+    if (err.constructor === NotFoundException) {
       throw new ValidateTokenNotFoundException(err.message)
     } else {
       throw new ValidateTokenException(err.message)
@@ -120,7 +120,7 @@ export function* getTokenData() {
   } catch (err) {
     yield put(Get2FADataFailure())
 
-    if (err.constructor == RequiredDevicesException) {
+    if (err.constructor === RequiredDevicesException) {
       throw err
     } else {
       throw new GetTokenDataException(`${err.message}`)
@@ -149,7 +149,7 @@ export function* run2FAInitialRequest({
       onSuccess()
     }
   } catch (err) {
-    if (err.constructor == RequiredDevicesException) {
+    if (err.constructor === RequiredDevicesException) {
       console.error(`${err.name}: ${JSON.parse(err.message).msg}`)
       onError()
     } else {

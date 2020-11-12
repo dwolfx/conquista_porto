@@ -1,31 +1,30 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: null,
   status: '',
+  data: null,
+  isLoading: false,
   hasError: false,
-  isLoading: true,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
-    case Types.BANK_DATA_GET_DATA_REQUEST:
+    case Types.GET_REQUEST:
       return {
         ...state,
         isLoading: true,
         hasError: false,
       }
-    case Types.BANK_DATA_GET_DATA_SUCCESS:
+    case Types.GET_SUCCESS:
       return {
         ...state,
         status: 'loaded',
+        data: [...action.payload],
         isLoading: false,
-        data: action.payload,
       }
-    case Types.BANK_DATA_GET_DATA_FAILURE:
+    case Types.GET_FAILURE:
       return {
         ...state,
-        data: {},
         isLoading: false,
         hasError: true,
       }
