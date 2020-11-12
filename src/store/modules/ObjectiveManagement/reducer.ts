@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   isLoadingOtherGoals: true,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.POST_REQUEST:
     case Types.GET_REQUEST:

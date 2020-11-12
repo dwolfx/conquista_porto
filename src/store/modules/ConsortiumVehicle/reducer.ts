@@ -1,12 +1,13 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
+  status: '',
   data: null,
-  isLoading: true,
+  isLoading: false,
   hasError: false,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.GET_REQUEST:
       return {
@@ -17,7 +18,8 @@ export default function(state = INITIAL_STATE, action) {
     case Types.GET_SUCCESS:
       return {
         ...state,
-        data: { ...action.payload },
+        status: 'loaded',
+        data: [...action.payload],
         isLoading: false,
       }
     case Types.GET_FAILURE:

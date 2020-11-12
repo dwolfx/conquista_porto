@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   },
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.GET_DATA_SUCCESS:
       return {
@@ -22,36 +22,36 @@ export default function(state = INITIAL_STATE, action) {
       const { payload } = action
       let indexItemToBeUpdated = null
       indexItemToBeUpdated = state.data.novas.findIndex(
-        item => item.idNotificacao === payload.idNotificacao
+        (item: any) => item.idNotificacao === payload.idNotificacao
       )
       if (indexItemToBeUpdated >= 0) {
-        const newState = [...state.data.novas]
-        newState.splice(indexItemToBeUpdated, 1, {
-          ...state.data.novas[indexItemToBeUpdated],
+        const newNovasState = [...state.data.novas] as any
+        newNovasState.splice(indexItemToBeUpdated, 1, {
+          ...newNovasState[indexItemToBeUpdated],
           lida: true,
         })
         return {
           ...state,
           data: {
             anteriores: [...state.data.anteriores],
-            novas: [...newState],
+            novas: [...newNovasState],
           },
         }
       }
       indexItemToBeUpdated = state.data.anteriores.findIndex(
-        item => item.idNotificacao === payload.idNotificacao
+        (item: any) => item.idNotificacao === payload.idNotificacao
       )
 
-      const newState = [...state.data.anteriores]
-      newState.splice(indexItemToBeUpdated, 1, {
-        ...state.data.anteriores[indexItemToBeUpdated],
+      const newAnterioresState = [...state.data.anteriores] as any
+      newAnterioresState.splice(indexItemToBeUpdated, 1, {
+        ...newAnterioresState[indexItemToBeUpdated],
         lida: true,
       })
 
       return {
         ...state,
         data: {
-          anteriores: [...newState],
+          anteriores: [...newAnterioresState],
           novas: [...state.data.novas],
         },
       }

@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   hasErrorPutRecommendation: false,
 }
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case Types.GET_REQUEST:
       return {

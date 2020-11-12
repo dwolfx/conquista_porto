@@ -13,7 +13,7 @@ const INITIAL_STATE = () => {
   }
 }
 
-export default function(state = INITIAL_STATE(), action) {
+export default function(state = INITIAL_STATE(), action: any) {
   switch (action.type) {
     case Types.AUTH_REQUEST_LOGIN_SUCCESS:
       return {
