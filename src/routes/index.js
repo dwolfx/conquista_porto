@@ -33,7 +33,7 @@ import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
-import SummaryProposal from 'pages/CreditCard/Pro/SummaryProposal'
+import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
