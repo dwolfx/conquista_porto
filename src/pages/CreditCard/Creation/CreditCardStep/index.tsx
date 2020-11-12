@@ -41,13 +41,13 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
     stateOption: false,
   })
 
-  const {
-    creditCardOffer,
-    isCreditCardExpirationDaysLoading
-  } = useSelector((state: any) => ({
-    creditCardOffer: state.creditCardOffer.data,
-    isCreditCardExpirationDaysLoading: state.creditCardExpirationDays.isLoading
-  }))
+  const { creditCardOffer, isCreditCardExpirationDaysLoading } = useSelector(
+    (state: any) => ({
+      creditCardOffer: state.creditCardOffer.data,
+      isCreditCardExpirationDaysLoading:
+        state.creditCardExpirationDays.isLoading,
+    })
+  )
 
   useEffect(() => {
     if (
@@ -81,7 +81,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
   const touch = (key: string) => {
     setTouched(touched => ({
       ...touched,
-      [key]: true
+      [key]: true,
     }))
   }
 
@@ -92,81 +92,80 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
           <Col lg={6} md={6} sm={6} xs={12}>
             <s.Card
               data-testid="card-credit-card-flags"
-              headerTitle={<s.TextTitle>Selecione a bandeira do cartão</s.TextTitle>}
+              headerTitle={
+                <s.TextTitle>Selecione a bandeira do cartão</s.TextTitle>
+              }
             >
               <s.RadioCardWrapper>
-                {isMobile && <s.SectionTitle>Bandeira do cartão</s.SectionTitle>}
-                {
-                  creditCardOffer && creditCardOffer.isMasterCardActive && (
-                    <s.RadioCard
-                      checked={
-                        selectedFlag === FLAGS.MASTERCARD || 
-                        (creditCardOffer &&
-                        creditCardOffer.CodigoOferta === OFFER_CODE.ONLY_MASTER_CODE)}
-                      data-testid="card-credit-card-flag-master"
-                      onClick={() => {
-                        if (!isCreditCardExpirationDaysLoading) {
-                          setSelectedFlag(FLAGS.MASTERCARD)
-                          setSelectedDay({ id: 0, name: '' })
-                        }
-                      }}
-                    >
-                      <HorizontalList 
-                        startItems={[
-                          <>
-                            { 
-                              creditCardOffer && 
-                              creditCardOffer.CodigoOferta !== OFFER_CODE.ONLY_MASTER_CODE && 
-                              (
-                                <Radio
-                                  id="master"
-                                  name="flag"
-                                  value={FLAGS.MASTERCARD}
-                                  checked={selectedFlag === FLAGS.MASTERCARD}
-                                  handleChange={() => {
-                                    setSelectedDay({ id: 0, name: '' })
-                                    setSelectedFlag(FLAGS.MASTERCARD)
-                                  }}
-                                />
-                              )
-                            }
-                          </>,
-                          <Icon name="mastercard" width={56} height={56} />
-                        ]}
-                        endItems={[
-                          <Text type="title" bold color="gray6">Mastercard</Text>
-                        ]}
-                      />
-                    </s.RadioCard>
-                  )
-                }
-                {
-                  creditCardOffer && 
-                  creditCardOffer.isVisaActive && 
-                  (
-                    <s.RadioCard
-                      checked={
-                        selectedFlag === FLAGS.VISA ||
-                        (
-                          creditCardOffer &&
-                          creditCardOffer.CodigoOferta === OFFER_CODE.ONLY_VISA_CODE
-                        )
+                {isMobile && (
+                  <s.SectionTitle>Bandeira do cartão</s.SectionTitle>
+                )}
+                {creditCardOffer && creditCardOffer.isMasterCardActive && (
+                  <s.RadioCard
+                    checked={
+                      selectedFlag === FLAGS.MASTERCARD ||
+                      (creditCardOffer &&
+                        creditCardOffer.CodigoOferta ===
+                          OFFER_CODE.ONLY_MASTER_CODE)
+                    }
+                    data-testid="card-credit-card-flag-master"
+                    onClick={() => {
+                      if (!isCreditCardExpirationDaysLoading) {
+                        setSelectedFlag(FLAGS.MASTERCARD)
+                        setSelectedDay({ id: 0, name: '' })
                       }
-                      onClick={() => {
-                        if (!isCreditCardExpirationDaysLoading) {
-                          setSelectedFlag(FLAGS.VISA)
-                          setSelectedDay({ id: 0, name: '' })
-                        }
-                      }}
-                      data-testid="card-credit-card-flag-visa"
-                    >
-                      <HorizontalList 
-                        startItems={[
-                          <>
-                          {
-                            creditCardOffer &&
-                            creditCardOffer.CodigoOferta !== OFFER_CODE.ONLY_VISA_CODE &&
-                            (
+                    }}
+                  >
+                    <HorizontalList
+                      startItems={[
+                        <>
+                          {creditCardOffer &&
+                            creditCardOffer.CodigoOferta !==
+                              OFFER_CODE.ONLY_MASTER_CODE && (
+                              <Radio
+                                id="master"
+                                name="flag"
+                                value={FLAGS.MASTERCARD}
+                                checked={selectedFlag === FLAGS.MASTERCARD}
+                                handleChange={() => {
+                                  setSelectedDay({ id: 0, name: '' })
+                                  setSelectedFlag(FLAGS.MASTERCARD)
+                                }}
+                              />
+                            )}
+                        </>,
+                        <Icon name="mastercard" width={56} height={56} />,
+                      ]}
+                      endItems={[
+                        <Text type="title" bold color="gray6">
+                          Mastercard
+                        </Text>,
+                      ]}
+                    />
+                  </s.RadioCard>
+                )}
+                {creditCardOffer && creditCardOffer.isVisaActive && (
+                  <s.RadioCard
+                    checked={
+                      selectedFlag === FLAGS.VISA ||
+                      (creditCardOffer &&
+                        creditCardOffer.CodigoOferta ===
+                          OFFER_CODE.ONLY_VISA_CODE)
+                    }
+                    onClick={() => {
+                      if (!isCreditCardExpirationDaysLoading) {
+                        setSelectedFlag(FLAGS.VISA)
+                        setSelectedDay({ id: 0, name: '' })
+                      }
+                    }}
+                    data-testid="card-credit-card-flag-visa"
+                  >
+                    <HorizontalList
+                      startItems={[
+                        <>
+                          {creditCardOffer &&
+                            creditCardOffer.CodigoOferta !==
+                              OFFER_CODE.ONLY_VISA_CODE && (
                               <Radio
                                 id="visa"
                                 name="flag"
@@ -177,24 +176,24 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                                   setSelectedDay({ id: 0, name: '' })
                                 }}
                               />
-                            )
-                          }
-                          </>,
-                          <Icon name="visa" width={56} height={56} />
-                        ]}
-                        endItems={[
-                          <Text type="title" bold color="gray6">Visa</Text>
-                        ]}
-                      />
-                    </s.RadioCard>
-                  )
-                }
+                            )}
+                        </>,
+                        <Icon name="visa" width={56} height={56} />,
+                      ]}
+                      endItems={[
+                        <Text type="title" bold color="gray6">
+                          Visa
+                        </Text>,
+                      ]}
+                    />
+                  </s.RadioCard>
+                )}
                 {isMobile && (
                   <s.SelectWrapper>
                     <SelectExpirationDays
                       type={selectedFlag}
                       selectedOption={selectedDay}
-                      setSelectedOption={setSelectedDay} 
+                      setSelectedOption={setSelectedDay}
                     />
                   </s.SelectWrapper>
                 )}
@@ -204,17 +203,21 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
           {!isMobile && (
             <Col lg={6} md={6} sm={6}>
               <s.Card
-                  data-testid="card-credit-card-bill-expiration"
-                  headerTitle={<s.TextTitle>Selecione o dia de vencimento da fatura</s.TextTitle>}
-                >
-                  <s.SelectWrapper>
-                    <SelectExpirationDays 
-                      type={selectedFlag}
-                      selectedOption={selectedDay}
-                      setSelectedOption={setSelectedDay}
-                    />
-                  </s.SelectWrapper>
-                </s.Card>
+                data-testid="card-credit-card-bill-expiration"
+                headerTitle={
+                  <s.TextTitle>
+                    Selecione o dia de vencimento da fatura
+                  </s.TextTitle>
+                }
+              >
+                <s.SelectWrapper>
+                  <SelectExpirationDays
+                    type={selectedFlag}
+                    selectedOption={selectedDay}
+                    setSelectedOption={setSelectedDay}
+                  />
+                </s.SelectWrapper>
+              </s.Card>
             </Col>
           )}
         </s.Row>
@@ -222,7 +225,11 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
           <Col lg={12}>
             <s.Card
               data-testid="card-credit-card-address"
-              headerTitle={<s.TextTitle>Informe um endereço para receber o cartão</s.TextTitle>}
+              headerTitle={
+                <s.TextTitle>
+                  Informe um endereço para receber o cartão
+                </s.TextTitle>
+              }
               // Aguardando definição de negócio: API de CEP
               // headerEndItem={
               //   <s.ButtonLink onClick={() => console.log('clicked')}>
@@ -239,10 +246,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       value={cep}
                       placeholder="00000-000"
                       hasError={isInvalidCEP(cep, touched.cep)}
-                      error={
-                        isInvalidCEP(cep, touched.cep) &&
-                        errorCEP(cep)
-                      }
+                      error={isInvalidCEP(cep, touched.cep) && errorCEP(cep)}
                       onBlur={() => touch('cep')}
                       onChange={(e: any) => {
                         setCep(e.target.value)
@@ -256,12 +260,14 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       placeholder="Digite"
                       maxLength={40}
                       value={streetAddress}
-                      hasError={streetAddress.length === 0 && touched.streetAddress}
+                      hasError={
+                        streetAddress.length === 0 && touched.streetAddress
+                      }
                       error={
                         streetAddress.length === 0 &&
                         touched.streetAddress && {
                           icon: 'information',
-                          message: 'Campo obrigatório'
+                          message: 'Campo obrigatório',
                         }
                       }
                       onBlur={() => touch('streetAddress')}
@@ -286,7 +292,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                         number.length === 0 &&
                         touched.number && {
                           icon: 'information',
-                          message: 'Campo obrigatório'
+                          message: 'Campo obrigatório',
                         }
                       }
                     />
@@ -297,7 +303,9 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       name="complemento"
                       maxLength={20}
                       value={additionalInfo}
-                      hasError={additionalInfo.length === 0 && touched.additionalInfo}
+                      hasError={
+                        additionalInfo.length === 0 && touched.additionalInfo
+                      }
                       placeholder="Digite"
                       onBlur={() => touch('additionalInfo')}
                       onChange={(e: any) => {
@@ -307,7 +315,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                         additionalInfo.length === 0 &&
                         touched.additionalInfo && {
                           icon: 'information',
-                          message: 'Campo obrigatório'
+                          message: 'Campo obrigatório',
                         }
                       }
                     />
@@ -319,7 +327,9 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       placeholder="Digite"
                       maxLength={30}
                       value={neighbourhood}
-                      hasError={neighbourhood.length === 0 && touched.neighbourhood}
+                      hasError={
+                        neighbourhood.length === 0 && touched.neighbourhood
+                      }
                       onBlur={() => touch('neighbourhood')}
                       onChange={(e: any) => {
                         setNeighbourhood(e.target.value)
@@ -328,7 +338,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                         neighbourhood.length === 0 &&
                         touched.neighbourhood && {
                           icon: 'information',
-                          message: 'Campo obrigatório'
+                          message: 'Campo obrigatório',
                         }
                       }
                     />
@@ -349,14 +359,17 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                         city.length === 0 &&
                         touched.city && {
                           icon: 'information',
-                          message: 'Campo obrigatório'
+                          message: 'Campo obrigatório',
                         }
                       }
                     />
                   </s.FormCol>
 
                   <s.FormCol md={3} sm={4} xs={12}>
-                    <SelectBrazilianStates selectedOption={stateOption} setSelectedOption={setStateOption} />
+                    <SelectBrazilianStates
+                      selectedOption={stateOption}
+                      setSelectedOption={setStateOption}
+                    />
                   </s.FormCol>
                 </Row>
               </s.FormContainer>
@@ -366,7 +379,8 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
         <s.Footer data-testid="footer-layer">
           <s.ButtonNext
             disabled={hasAnyError}
-            onClick={() => onNextStep({
+            onClick={() =>
+              onNextStep({
                 ...formData,
                 cep: cep,
                 cidade: city,
@@ -376,9 +390,11 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                 complemento: additionalInfo,
                 uf: stateOption.name,
                 codigoBandeira: selectedFlag,
-                diaVencimento: selectedDay.name
-              })}
-            >
+                diaVencimento: selectedDay.name,
+                idSimulacao: creditCardOffer.IdSimulacao,
+              })
+            }
+          >
             próximo
           </s.ButtonNext>
         </s.Footer>

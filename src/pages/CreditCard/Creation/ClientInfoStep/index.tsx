@@ -105,6 +105,7 @@ const FirstStep = ({
       stepAnswers = {
         cep: creditCardClient.cep,
         codigoEstadoCivil: creditCardClient.codigoEstadoCivil?.toString() || '',
+        codigoCanal: '14',
         dataEmissaoDocumento: moment(creditCardClient.dataExpedicao).format(
           'DD/MM/YYYY'
         ),
