@@ -14,6 +14,7 @@ import {
   CloseCreationLayer,
   OpenCreationLayer,
 } from 'store/modules/CreditCard/action'
+import { ICreditCardState } from 'store/modules/CreditCard/types'
 
 import Creation from './Creation'
 
@@ -111,9 +112,11 @@ const moreDetailsData = [
 
 export default function CreditCard() {
   const dispatch = useDispatch()
-  const { isCreationLayerOpen } = useSelector(state => ({
-    isCreationLayerOpen: state.creditCard.isCreationLayerOpen,
-  }))
+  const { isCreationLayerOpen } = useSelector(
+    (state: { creditCard: ICreditCardState }) => ({
+      isCreationLayerOpen: state.creditCard.isCreationLayerOpen,
+    })
+  )
 
   return (
     <>

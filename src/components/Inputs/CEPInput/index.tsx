@@ -13,6 +13,8 @@ interface IProps {
   placeholder?: string
   error?: boolean | { icon: keyof typeof dict; message: string }
   disabled?: boolean
+  isLoading?: boolean
+  suffix?: React.ReactNode
 }
 
 const CEPInput = forwardRef<
@@ -26,12 +28,7 @@ const CEPInput = forwardRef<
   }
 
   return (
-    <TextInput
-      maxLength={9}
-      ref={ref}
-      onChange={onChangeHandler} 
-      {...rest} 
-    />
+    <TextInput maxLength={9} ref={ref} onChange={onChangeHandler} {...rest} />
   )
 })
 

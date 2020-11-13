@@ -108,6 +108,7 @@ const PersonalData = ({
           <DataShower
             label="Data de nascimento"
             value={
+              creditCardClient?.dataNascimento &&
               moment(creditCardClient?.dataNascimento).isValid()
                 ? moment(creditCardClient?.dataNascimento).format('DD/MM/YYYY')
                 : ''

@@ -106,12 +106,12 @@ const FirstStep = ({
         cep: creditCardClient.cep,
         codigoEstadoCivil: creditCardClient.codigoEstadoCivil?.toString() || '',
         codigoCanal: '14',
-        dataEmissaoDocumento: moment(creditCardClient.dataExpedicao).format(
-          'DD/MM/YYYY'
-        ),
-        dataNascimento: moment(creditCardClient.dataNascimento).format(
-          'DD/MM/YYYY'
-        ),
+        dataEmissaoDocumento: creditCardClient.dataExpedicao
+          ? moment(creditCardClient.dataExpedicao).format('DD/MM/YYYY')
+          : '',
+        dataNascimento: creditCardClient.dataNascimento
+          ? moment(creditCardClient.dataNascimento).format('DD/MM/YYYY')
+          : '',
         dddTelefone: creditCardClient.dddNumeroTelefone?.toString() || '',
         email: creditCardClient.emailCliente,
         nome: creditCardClient.nomeCliente,

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
 import Drawer from 'components/Drawer'
+import Loading from 'components/Loading'
 import Modal from 'components/Modal/ModalNew'
 
 import SelectBrazilianStates from 'pages/CreditCard/Creation/common/SelectBrazilianStates'
 
+import { useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import { dict } from 'components/IconExporter'
+import { axiosInstance } from 'services/api'
 
 import * as s from './styles'
 import * as t from './types'
@@ -20,6 +23,7 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
   ...rest
 }) => {
   const isMobile = useMedia('sm')
+  const { addToast } = useToast()
 
   const zipCodeError = {
     icon: 'information' as keyof typeof dict,
@@ -42,6 +46,7 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
     message: 'A cidade informada não é válida.',
   }
 
+  const [isLoading, setIsLoading] = useState(false)
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 
   const [zipCode, setZipCode] = useState('')
@@ -101,6 +106,40 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
     selectedBrazilianState,
   ])
 
+  const getAddress = async (cep: string) => {
+    const [cepPrefix, cepSufix] = cep.split('-')
+
+    setIsLoading(true)
+    await axiosInstance
+      .get('/cliente/endereco', {
+        params: {
+          cep: cepPrefix,
+          cepSufixo: cepSufix,
+        },
+      })
+      .then(response => {
+        if (response.data.bairro) {
+          setAddress(
+            `${response.data.tipoLogradouro}. ${response.data.logradouro}`
+          )
+          setAddressNumber('')
+          setAdditionalInfo('')
+          setNeighborhood(response.data.bairro)
+          setCity(response.data.cidade)
+          setSelectedBrazilianState(response.data.uf)
+        }
+        return response.data
+      })
+      .catch(() =>
+        addToast({
+          title: `Houve um erro ao buscar o CEP`,
+          description: `Por favor, edite o endereço manualmente.`,
+          type: 'error',
+        })
+      )
+      .finally(() => setIsLoading(false))
+  }
+
   const getContent = () => (
     <s.Container>
       <s.CEPInput
@@ -109,12 +148,20 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
         error={(!zipCode.length || zipCode.length < 9) && zipCodeError}
         value={zipCode.replace(/(\d{5})(\d{1})/g, '$1-$2')}
         placeholder="00000-000"
-        onChange={(e: any) => setZipCode(e.target.value)}
+        suffix={isLoading && <Loading type="spinner" color="blue4" />}
+        disabled={isLoading}
+        onChange={(e: any) => {
+          setZipCode(e.target.value)
+          if (e.target.value.length >= 9) {
+            getAddress(e.target.value)
+          }
+        }}
       />
       <s.Input
         label="endereço"
         error={!address.length && addressError}
         value={address}
+        disabled={isLoading}
         onChange={e => setAddress(e.target.value)}
       />
       <s.Input
@@ -126,23 +173,28 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
       <s.Input
         label="complemento"
         value={additionalInfo}
+        disabled={isLoading}
         onChange={e => setAdditionalInfo(e.target.value)}
       />
       <s.Input
         label="bairro"
         error={!neighborhood.length && neighborhoodError}
         value={neighborhood}
+        disabled={isLoading}
         onChange={e => setNeighborhood(e.target.value)}
       />
       <s.Input
         label="cidade"
         error={!city.length && cityError}
         value={city}
+        disabled={isLoading}
         onChange={e => setCity(e.target.value)}
       />
       <SelectBrazilianStates
         selectedOption={selectedBrazilianState}
         setSelectedOption={setSelectedBrazilianState}
+        disabled={isLoading}
+        optionBoxDirection="top"
       />
     </s.Container>
   )

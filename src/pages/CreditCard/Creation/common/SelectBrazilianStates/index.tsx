@@ -37,12 +37,16 @@ const brazilianStates = {
 
 interface IProps {
   label?: string
+  disabled?: boolean
+  optionBoxDirection?: 'bottom' | 'top'
   selectedOption: string
   setSelectedOption: (state: string) => void
 }
 
 const SelectBrazilianStates = ({
   label = 'estado',
+  disabled = false,
+  optionBoxDirection = 'bottom',
   selectedOption,
   setSelectedOption,
 }: IProps) => {
@@ -94,8 +98,9 @@ const SelectBrazilianStates = ({
         label={label}
         options={options}
         selected={selected}
+        disabled={disabled}
         testId="data-test-id-estados"
-        optionBoxDirection="bottom"
+        optionBoxDirection={optionBoxDirection}
       />
     </SelectWrapper>
   )
