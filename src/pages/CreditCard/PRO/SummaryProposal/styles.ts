@@ -143,13 +143,13 @@ export const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
 
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    padding: ${({ theme }) => `${theme.spacing(2)}px ${theme.spacing(3)}px`};
+  }
+
   @media ${({ theme }) => theme.mediaQueries.sm} {
     padding: ${({ theme }) => `${theme.spacing(2)}px`};
-    justify-content: flex-start;
-
-    button {
-      width: 100%;
-    }
+    flex-direction: column;
   }
 `
 
@@ -163,4 +163,10 @@ export const TooltipText = styled(Text)`
 
 export const AcceptButton = styled(Button)`
   margin-left: ${({ theme }) => theme.spacing(2)}px;
+
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    margin-left: 0px;
+    margin-top: ${({ theme }) => theme.spacing(2)}px;
+    width: 100%;
+  }
 `
