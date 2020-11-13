@@ -9064,5 +9064,14 @@
         "TipoCritica": "SUCESSO"
     },
     "CodigoRetorno": "0"
+  },
+  "cep-mock": {
+    "uf": "SP",
+    "cep": "04004",
+    "complementoCep": "2",
+    "cidade": "SAO PAULO",
+    "tipoLogradouro": "R",
+    "bairro": "PARAISO",
+    "logradouro": "SAMPAIO VIANA"
   }
 }

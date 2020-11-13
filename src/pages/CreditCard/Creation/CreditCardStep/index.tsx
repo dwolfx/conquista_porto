@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Col, Container, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
+import { axiosInstance } from 'services/api'
 
 import Radio from 'components/Inputs/Radio/New'
 import Text from 'components/Text'
@@ -83,6 +84,15 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
       ...touched,
       [key]: true,
     }))
+  }
+
+  const getAddress = async () => {
+    const { data } = await axiosInstance.get('/cliente/endereco', {
+      params: {
+        cep: '11533',
+        cepSufixo: '230'
+      }
+    })
   }
 
   return (
@@ -247,7 +257,10 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       placeholder="00000-000"
                       hasError={isInvalidCEP(cep, touched.cep)}
                       error={isInvalidCEP(cep, touched.cep) && errorCEP(cep)}
-                      onBlur={() => touch('cep')}
+                      onBlur={() => {
+                        getAddress()
+                        touch('cep')
+                      }}
                       onChange={(e: any) => {
                         setCep(e.target.value)
                       }}
