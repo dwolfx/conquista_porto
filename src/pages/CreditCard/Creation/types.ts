@@ -73,3 +73,13 @@ export enum FLAGS {
   VISA = '1',
   MASTERCARD = '2',
 }
+
+export interface CEPResponse {
+  bairro: string
+  cep: string
+  cidade: string
+  complementoCep: string
+  logradouro: string
+  tipoLogradouro: string
+  uf: string
+}

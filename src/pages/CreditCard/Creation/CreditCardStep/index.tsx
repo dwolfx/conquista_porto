@@ -9,17 +9,19 @@ import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import HorizontalList from 'components/HorizontalList'
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
 import { OFFER_CODE } from 'store/modules/CreditCard/Offers/types'
 
 import SelectExpirationDays from './Selects/ExpirationDays'
 import SelectBrazilianStates from './Selects/BrazilianStates'
 import { errorCEP, isInvalidCEP } from './validators'
-import { FLAGS, IOption, IStepComponent } from '../types'
+import { FLAGS, IOption, IStepComponent, CEPResponse } from '../types'
 
 import * as s from './styles'
 
 const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
   const isMobile = useMedia('xs')
+  const { addToast } = useToast()
   const [selectedDay, setSelectedDay] = useState<IOption>({ id: 0, name: '' })
   const [selectedFlag, setSelectedFlag] = useState<FLAGS | ''>('')
 
@@ -32,6 +34,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
   const [city, setCity] = useState('')
   const [stateOption, setStateOption] = useState<IOption>({ id: 0, name: '' })
   const [hasAnyError, setHasAnyError] = useState(true)
+  const [addressDisabled, setAddressDisabled] = useState(false)
   const [touched, setTouched] = useState({
     cep: false,
     streetAddress: false,
@@ -87,12 +90,27 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
   }
 
   const getAddress = async () => {
-    const { data } = await axiosInstance.get('/cliente/endereco', {
-      params: {
-        cep: '11533',
-        cepSufixo: '230'
+    if (cep.length === 9) {
+      const [cepPrefix, cepSufix] = cep.split('-')
+      const { data, status } = await axiosInstance.get<CEPResponse>('/cliente/endereco', {
+        params: { cep: cepPrefix, cepSufixo: cepSufix }
+      })
+      if (status === 200) {
+        const { bairro, uf, cidade, logradouro, tipoLogradouro } = data
+        setStreetAddress(`${tipoLogradouro}. ${logradouro}`)
+        setCity(cidade)
+        setNeighbourhood(bairro)
+        setStateOption({ id: 99, name: uf })
+        setAddressDisabled(true)
+      } else {
+        setAddressDisabled(false)
+        addToast({
+          type: 'error',
+          title: 'Houve um erro ao buscar CEP.',
+          description: 'Por favor, edite o endereço manualmente.'
+        })
       }
-    })
+    }
   }
 
   return (
@@ -272,6 +290,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       name="endereco"
                       placeholder="Digite"
                       maxLength={40}
+                      disabled={addressDisabled}
                       value={streetAddress}
                       hasError={
                         streetAddress.length === 0 && touched.streetAddress
@@ -339,6 +358,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       name="bairro"
                       placeholder="Digite"
                       maxLength={30}
+                      disabled={addressDisabled}
                       value={neighbourhood}
                       hasError={
                         neighbourhood.length === 0 && touched.neighbourhood
@@ -360,9 +380,10 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                     <s.FormInput
                       label="cidade"
                       name="cidade"
+                      placeholder="Digite"
                       value={city}
                       maxLength={25}
-                      placeholder="Digite"
+                      disabled={addressDisabled}
                       hasError={city.length === 0 && touched.city}
                       onBlur={() => touch('city')}
                       onChange={(e: any) => {
@@ -380,6 +401,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
 
                   <s.FormCol md={3} sm={4} xs={12}>
                     <SelectBrazilianStates
+                      disabled={addressDisabled}
                       selectedOption={stateOption}
                       setSelectedOption={setStateOption}
                     />

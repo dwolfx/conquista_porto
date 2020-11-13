@@ -8,8 +8,9 @@ import { IOption } from '../../../types'
 interface IProps {
   selectedOption: IOption,
   setSelectedOption: (expirationDate: IOption) => void
+  disabled?: boolean
 }
-const SelectBrazilianStates = ({ selectedOption, setSelectedOption, ...rest }: IProps) => {
+const SelectBrazilianStates = ({ selectedOption, setSelectedOption, disabled = false, ...rest }: IProps) => {
 
   const generateStateOptions = () => {
     return brazilianStates.map((state, index) => ({
@@ -24,6 +25,7 @@ const SelectBrazilianStates = ({ selectedOption, setSelectedOption, ...rest }: I
       label="estado"
       testId="estado"
       options={generateStateOptions()}
+      disabled={disabled}
       selected={selectedOption}
       optionBoxDirection="top"
       optionBoxSize={200}
