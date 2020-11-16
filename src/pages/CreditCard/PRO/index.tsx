@@ -1,7 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 
 import useMedia from 'hooks/useMedia'
+import { useToast } from 'hooks/toast'
+import { getCookieValue } from 'helpers'
+import { baseURLNamespaceInvestAws, post } from 'services/api'
+
+import {
+  GetCreditCardExpirationDaysRequest,
+  GetCreditCardExpirationDaysClearData,
+} from 'store/modules/CreditCard/ExpirationDays/action'
 
 import Radio from 'components/Inputs/Radio/New'
 import Text from 'components/Text'
@@ -12,20 +21,84 @@ import UserCard from 'components/Card/UserCard'
 import SelectExpirationDays from './../Creation/CreditCardStep/Selects/ExpirationDays'
 import SelectBrazilianStates from './../Creation/CreditCardStep/Selects/BrazilianStates'
 
-import { ContentWrapper, SidebarWrapper, Title, SubTitle } from './styles'
+import { ContentWrapper, SidebarWrapper, Title, SubTitle, SendButton } from './styles'
 import * as S from './../Creation/CreditCardStep/styles'
 
 import { FLAGS, IOption, ICreditCardCreationPayload } from '../Creation/types'
 
 const CreditCardPro = () => {
+  const dispatch = useDispatch()
   const isMobile = useMedia('xs')
-  const [formData, setFormData] = useState<ICreditCardCreationPayload>({})
+  const { addToast } = useToast()
+  const [token, setToken] = useState(getCookieValue('TOKEN') || null)
+  const [isLoading, setIsLoading] = useState(false)
+
   const [selectedFlag, setSelectedFlag] = useState<FLAGS | ''>('')
   const [selectedDay, setSelectedDay] = useState<IOption>({ id: 0, name: '' })
+
+  // Address states
+  const [cep, setCep] = useState('')
+  const [streetAddress, setStreetAddress] = useState('')
+  const [number, setNumber] = useState('')
+  const [additionalInfo, setAdditionalInfo] = useState('')
+  const [neighbourhood, setNeighbourhood] = useState('')
+  const [city, setCity] = useState('')
   const [stateOption, setStateOption] = useState<IOption>({ id: 0, name: '' })
 
-  function handleSubmit() {
-    console.log('handleSubmit formData', formData)
+  // Busca Token enviado pela aplicação Angular
+  useEffect(() => {
+    if (token) {
+      console.log('Token', token)
+    }
+  }, [token])
+
+  useEffect(() => {
+    dispatch(GetCreditCardExpirationDaysRequest())
+    return () => {
+      dispatch(GetCreditCardExpirationDaysClearData())
+    }
+  }, [dispatch])
+
+  const handleFormSubmit = async () => {
+    setIsLoading(true)
+    const payload: ICreditCardCreationPayload = {
+      cep: cep,
+      cidade: city,
+      logradouro: streetAddress,
+      bairro: neighbourhood,
+      numeroLogradouro: number,
+      complemento: additionalInfo,
+      uf: stateOption.name,
+      codigoBandeira: selectedFlag,
+      diaVencimento: selectedDay.name,
+    }
+
+    try {
+      // const { data } = await post(
+      //   `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
+      //   payload
+      // )
+
+      setTimeout(() => {
+        setIsLoading(false)
+        addToast({
+          type: 'success',
+          title: 'Solicitação enviada',
+          description: 'A solicitação do cartão para o cliente foi enviada',
+        })
+
+      }, 4321)
+
+    } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Desculpe, ocorreu uma falha ao enviar a solicitação',
+        description: JSON.parse(error.message)?.msg,
+      })
+      setIsLoading(false)
+    }
+
+    console.log('payload', payload)
   }
 
   return (
@@ -60,6 +133,7 @@ const CreditCardPro = () => {
                         data-testid="card-credit-card-flag-master"
                         onClick={() => {
                           setSelectedFlag(FLAGS.MASTERCARD)
+                          setSelectedDay({ id: 0, name: '' })
                         }}
                       >
                         <HorizontalList
@@ -72,6 +146,7 @@ const CreditCardPro = () => {
                                 checked={selectedFlag === FLAGS.MASTERCARD}
                                 handleChange={() => {
                                   setSelectedFlag(FLAGS.MASTERCARD)
+                                  setSelectedDay({ id: 0, name: '' })
                                 }}
                               />
                             </>,
@@ -90,6 +165,7 @@ const CreditCardPro = () => {
                         }
                         onClick={() => {
                           setSelectedFlag(FLAGS.VISA)
+                          setSelectedDay({ id: 0, name: '' })
 
                         }}
                         data-testid="card-credit-card-flag-visa"
@@ -104,6 +180,7 @@ const CreditCardPro = () => {
                                 checked={selectedFlag === FLAGS.VISA}
                                 handleChange={() => {
                                   setSelectedFlag(FLAGS.VISA)
+                                  setSelectedDay({ id: 0, name: '' })
                                 }}
                               />
                             </>,
@@ -156,7 +233,7 @@ const CreditCardPro = () => {
                     headerTitle={
                       <S.TextTitle>
                         Informe um endereço para receber o cartão
-                </S.TextTitle>
+                      </S.TextTitle>
                     }
                   >
                     <S.FormContainer>
@@ -167,8 +244,13 @@ const CreditCardPro = () => {
                             name="cep"
                             hasError={false}
                             placeholder="00000-000"
-                            value="00000-000"
-                            onChange={() => { }}
+                            onChange={(e: any) => {
+                              setCep(e.target.value)
+                            }}
+                            value={cep}
+                            onBlur={() => {
+                              console.log('CEP', cep)
+                            }}
                           />
                         </S.FormCol>
                         <S.FormCol md={6} sm={8} xs={12}>
@@ -177,7 +259,10 @@ const CreditCardPro = () => {
                             name="endereco"
                             placeholder="Digite"
                             maxLength={40}
-                            value={1}
+                            value={streetAddress}
+                            onChange={(e: any) => {
+                              setStreetAddress(e.target.value)
+                            }}
                             hasError={false}
                           />
                         </S.FormCol>
@@ -187,7 +272,10 @@ const CreditCardPro = () => {
                             name="numero"
                             placeholder="Digite"
                             maxLength={5}
-                            value={1}
+                            value={number}
+                            onChange={(e: any) => {
+                              setNumber(e.target.value)
+                            }}
                             hasError={false}
                           />
                         </S.FormCol>
@@ -196,7 +284,10 @@ const CreditCardPro = () => {
                             label="complemento"
                             name="complemento"
                             maxLength={20}
-                            value={1}
+                            value={additionalInfo}
+                            onChange={(e: any) => {
+                              setAdditionalInfo(e.target.value)
+                            }}
                             hasError={false}
                           />
                         </S.FormCol>
@@ -206,7 +297,10 @@ const CreditCardPro = () => {
                             name="bairro"
                             placeholder="Digite"
                             maxLength={30}
-                            value={1}
+                            value={neighbourhood}
+                            onChange={(e: any) => {
+                              setNeighbourhood(e.target.value)
+                            }}
                             hasError={false}
                           />
                         </S.FormCol>
@@ -215,7 +309,10 @@ const CreditCardPro = () => {
                             label="cidade"
                             name="cidade"
                             placeholder="Digite"
-                            value={1}
+                            value={city}
+                            onChange={(e: any) => {
+                              setCity(e.target.value)
+                            }}
                             hasError={false}
                             maxLength={25}
                           />
@@ -238,15 +335,11 @@ const CreditCardPro = () => {
         </Row>
       </Container>
       <S.Footer>
-        <S.ButtonNext
-          onClick={() =>
-            handleSubmit()
-          }
-        >
+        <SendButton onClick={handleFormSubmit} loading={isLoading}>
           ENVIAR PROPOSTA
-          </S.ButtonNext>
+        </SendButton>
       </S.Footer>
-    </ContentWrapper>
+    </ContentWrapper >
   )
 }
 

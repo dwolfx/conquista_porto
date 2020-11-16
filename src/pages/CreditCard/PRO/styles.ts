@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Text from 'components/Text'
+import ButtonComponent from 'components/Button'
 
 export const SidebarWrapper = styled.div`
   padding-top: ${({ theme }) => `${theme.spacing(3)}px`};
@@ -31,4 +32,15 @@ export const SubTitle = styled(Text).attrs(() => ({
 }))`
   text-transform: uppercase;
   margin-bottom: ${({ theme }) => `${theme.spacing(3)}px`};
+`
+
+export const SendButton = styled(ButtonComponent).attrs(() => ({
+  color: 'secondary',
+  loadingColor: 'white'
+}))`
+  width: 180px;
+  background-color: ${props => props.theme.colors.green4};
+  @media ${({ theme }) => theme.mediaQueries.xs} {
+    width: 100%;
+  }
 `
