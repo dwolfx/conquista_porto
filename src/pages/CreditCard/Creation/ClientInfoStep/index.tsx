@@ -14,7 +14,6 @@ import { formatCpf, handleGiwRedirect } from 'helpers'
 import { useToast } from 'hooks/toast'
 import {
   ICreditCardCreationPayload,
-  IOption,
   IStepComponent,
 } from 'pages/CreditCard/Creation/types'
 
@@ -35,10 +34,7 @@ const FirstStep = ({
   const dispatch = useDispatch()
   const { addToast } = useToast()
   const [hasNoOffers, setHasNoOffers] = useState(false)
-  const [brazilianStateOption, setBrazilianStateOption] = useState<IOption>({
-    id: 0,
-    name: '',
-  })
+  const [brazilianStateOption, setBrazilianStateOption] = useState('')
   const [customerData, setCustomerData] = useState<t.TCustomerData | undefined>(
     undefined
   )
@@ -64,13 +60,10 @@ const FirstStep = ({
   }, [dispatch, creditCardClient, addToast, creditCardOffers])
 
   useEffect(() => {
-    const existsInArray = brazilianStates.includes(creditCardClient?.estado)
-    if (!existsInArray) return
-
-    setBrazilianStateOption({
-      id: brazilianStates.indexOf(creditCardClient.estado),
-      name: creditCardClient.estado,
-    })
+    if(creditCardClient?.estado) {
+      const stateIsValid = brazilianStates.find(state => state === creditCardClient.estado)
+      setBrazilianStateOption(stateIsValid ? creditCardClient.estado : '')
+    }
   }, [creditCardClient])
 
   useEffect(() => {
@@ -194,13 +187,15 @@ const FirstStep = ({
         <s.StyledSelectBrazilianStates
           selectedOption={brazilianStateOption}
           setSelectedOption={setBrazilianStateOption}
+          label="ESTADO ONDE RESIDE"
+          optionBoxDirection="top"
         />
         <s.Button
           data-gtm-type="click"
           data-gtm-clicktype="button"
           data-gtm-subname={'primeira etapa - cartão de crédito'}
           data-gtm-name="confirmar"
-          disabled={!brazilianStateOption.name}
+          disabled={!brazilianStateOption}
           onClick={() => {
             if (creditCardClient) {
               dispatch(
@@ -210,7 +205,7 @@ const FirstStep = ({
                   dataNasc: moment(creditCardClient.dataNascimento).format(
                     'DD/MM/YYYY'
                   ),
-                  uf: brazilianStateOption.name,
+                  uf: brazilianStateOption,
                   addToast,
                 })
               )

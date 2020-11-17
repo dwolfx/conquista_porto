@@ -49,6 +49,7 @@ const SelectBrazilianStates = ({
   optionBoxDirection = 'bottom',
   selectedOption,
   setSelectedOption,
+  ...rest
 }: IProps) => {
   const [options, setOptions] = useState<TOptions[]>([])
   const [selected, setSelected] = useState<{
@@ -101,6 +102,7 @@ const SelectBrazilianStates = ({
         disabled={disabled}
         testId="data-test-id-estados"
         optionBoxDirection={optionBoxDirection}
+        {...rest}
       />
     </SelectWrapper>
   )

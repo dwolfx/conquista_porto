@@ -6,7 +6,7 @@ import DivisorComponent from 'components/Divisor'
 import Text from 'components/Text'
 import CardComponent from 'components/Card'
 import { CardBody } from 'components/Card/styles'
-import SelectBrazilianStates from '../CreditCardStep/Selects/BrazilianStates'
+import SelectBrazilianStates from '../common/SelectBrazilianStates'
 
 export const GridRow = styled(RowComponent)`
   justify-content: center;
@@ -138,6 +138,10 @@ export const FullHeightRow = styled(RowComponent)`
   @media ${({ theme }) => theme.mediaQueries.xs} {
     height: calc(90vh - 155px);
   }
+`
+
+export const Wrapper = styled.div`
+  max-height: calc(100% - 20px);
 `
 
 export const IconWrapper = styled.div`
