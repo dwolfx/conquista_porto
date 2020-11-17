@@ -500,13 +500,13 @@ Object {
               <div
                 class="c7"
               >
-                <p
+                <h5
                   class="c8"
                   color="gray6"
                   type="headline"
                 >
                   Solicitação
-                </p>
+                </h5>
               </div>
             </div>
             <div
@@ -521,25 +521,25 @@ Object {
                 <div
                   class="c11"
                 >
-                  <p
+                  <h5
                     class="c12"
                     color="gray5"
                     type="headline"
                   >
                     Valor do investimento
-                  </p>
+                  </h5>
                 </div>
                 <div
                   class="c13"
                 >
-                  <p
+                  <h5
                     class="c8"
                     color="gray6"
                     type="headline"
                   >
                     R$ 
                     1000
-                  </p>
+                  </h5>
                 </div>
               </div>
               <div
@@ -548,24 +548,24 @@ Object {
                 <div
                   class="c11"
                 >
-                  <p
+                  <h5
                     class="c12"
                     color="gray5"
                     type="headline"
                   >
                     Data do investimento
-                  </p>
+                  </h5>
                 </div>
                 <div
                   class="c13"
                 >
-                  <p
+                  <h5
                     class="c14"
                     color="gray4"
                     type="headline"
                   >
                     20/08/2020
-                  </p>
+                  </h5>
                   <svg
                     aria-label="arrowright"
                     fill="#BABABA"
@@ -574,13 +574,13 @@ Object {
                   >
                     arrow-right.svg
                   </svg>
-                  <p
+                  <h5
                     class="c8"
                     color="gray6"
                     type="headline"
                   >
                     20/07/2020
-                  </p>
+                  </h5>
                 </div>
               </div>
             </div>
@@ -660,13 +660,13 @@ Object {
             <div
               class="sc-fzqNqU kyKKEL"
             >
-              <p
+              <h5
                 class="sc-AxirZ gsnnra"
                 color="gray6"
                 type="headline"
               >
                 Solicitação
-              </p>
+              </h5>
             </div>
           </div>
           <div
@@ -681,25 +681,25 @@ Object {
               <div
                 class="sc-fzqNqU gbjgec"
               >
-                <p
+                <h5
                   class="sc-AxirZ kHNXxK"
                   color="gray5"
                   type="headline"
                 >
                   Valor do investimento
-                </p>
+                </h5>
               </div>
               <div
                 class="sc-fzoyTs dcaVVS"
               >
-                <p
+                <h5
                   class="sc-AxirZ gsnnra"
                   color="gray6"
                   type="headline"
                 >
                   R$ 
                   1000
-                </p>
+                </h5>
               </div>
             </div>
             <div
@@ -708,24 +708,24 @@ Object {
               <div
                 class="sc-fzqNqU gbjgec"
               >
-                <p
+                <h5
                   class="sc-AxirZ kHNXxK"
                   color="gray5"
                   type="headline"
                 >
                   Data do investimento
-                </p>
+                </h5>
               </div>
               <div
                 class="sc-fzoyTs dcaVVS"
               >
-                <p
+                <h5
                   class="sc-AxirZ hFdQKs"
                   color="gray4"
                   type="headline"
                 >
                   20/08/2020
-                </p>
+                </h5>
                 <svg
                   aria-label="arrowright"
                   fill="#BABABA"
@@ -734,13 +734,13 @@ Object {
                 >
                   arrow-right.svg
                 </svg>
-                <p
+                <h5
                   class="sc-AxirZ gsnnra"
                   color="gray6"
                   type="headline"
                 >
                   20/07/2020
-                </p>
+                </h5>
               </div>
             </div>
           </div>

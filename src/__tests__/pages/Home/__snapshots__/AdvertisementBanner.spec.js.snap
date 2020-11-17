@@ -236,7 +236,7 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
     <div
       className="c4"
     >
-      <p
+      <h3
         className="c5 c6"
         color="white"
         type="heading3"
@@ -244,7 +244,7 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
         Viva hoje
         <br />
         Amanhã é com a gente
-      </p>
+      </h3>
       <p
         className="c7"
         color="unset"

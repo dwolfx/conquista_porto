@@ -271,13 +271,13 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
       <div
         className="c6"
       >
-        <p
+        <h5
           className="c7 "
           color="unset"
           type="headline"
         >
           Investimentos
-        </p>
+        </h5>
       </div>
       <div
         className="c8"
@@ -293,14 +293,14 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
       <div
         className="c11"
       >
-        <p
+        <h5
           className="c12 c13"
           color="gray5"
           data-testid="legend"
           type="headline"
         >
           Aguarde, estamos buscando suas informações...
-        </p>
+        </h5>
         <div
           className="c14"
         >

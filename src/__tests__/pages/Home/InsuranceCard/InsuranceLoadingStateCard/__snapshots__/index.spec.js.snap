@@ -82,14 +82,14 @@ exports[`InsuranceCard LifeInsuranceLoadingStateCard Renders correctly 1`] = `
   <div
     className="c1"
   >
-    <p
+    <h5
       className="c2 c3"
       color="gray5"
       data-testid="legend"
       type="headline"
     >
       Aguarde, estamos buscando suas informações...
-    </p>
+    </h5>
     <div
       className="c4"
     >
@@ -185,14 +185,14 @@ exports[`InsuranceCard TripInsuranceLoadingStateCard Renders correctly 1`] = `
   <div
     className="c1"
   >
-    <p
+    <h5
       className="c2 c3"
       color="gray5"
       data-testid="legend"
       type="headline"
     >
       Aguarde, estamos buscando suas informações...
-    </p>
+    </h5>
     <div
       className="c4"
     >

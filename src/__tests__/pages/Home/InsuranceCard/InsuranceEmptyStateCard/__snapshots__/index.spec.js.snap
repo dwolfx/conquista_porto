@@ -141,13 +141,13 @@ exports[`InsuranceCard LifeInsuranceEmptyStateCard Renders correctly 1`] = `
 <div
   className="c0"
 >
-  <p
+  <h5
     className="c1"
     color="gray6"
     type="headline"
   >
     Seguro de Vida
-  </p>
+  </h5>
   <p
     className="c2"
     color="gray5"
@@ -315,13 +315,13 @@ exports[`InsuranceCard TripInsuranceEmptyStateCard Renders correctly 1`] = `
 <div
   className="c0"
 >
-  <p
+  <h5
     className="c1"
     color="gray6"
     type="headline"
   >
     Seguro Viagem
-  </p>
+  </h5>
   <p
     className="c2"
     color="gray5"

@@ -475,13 +475,13 @@ Array [
           <div
             className="c7"
           >
-            <p
+            <h5
               className="c8 "
               color="unset"
               type="headline"
             >
               Objetivos
-            </p>
+            </h5>
           </div>
           <div
             className="c9"
@@ -497,14 +497,14 @@ Array [
           <div
             className="c13"
           >
-            <p
+            <h5
               className="c14 c15 c16"
               color="gray5"
               data-testid="legend"
               type="headline"
             >
               Aguarde, estamos buscando suas informações...
-            </p>
+            </h5>
             <div
               className="c17"
             >
@@ -1119,13 +1119,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <h5
                 className="c10 c11"
                 color="unset"
                 type="headline"
               >
                 Viagem
-              </p>
+              </h5>
               <button
                 className="c12"
                 data-gtm-clicktype="button"
@@ -1173,13 +1173,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <h5
                 className="c10 c11"
                 color="unset"
                 type="headline"
               >
                 Aposentar
-              </p>
+              </h5>
               <button
                 className="c12"
                 data-gtm-clicktype="button"
@@ -1227,13 +1227,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <h5
                 className="c10 c11"
                 color="unset"
                 type="headline"
               >
                 Criar objetivo
-              </p>
+              </h5>
               <button
                 className="c12"
                 data-gtm-clicktype="button"
@@ -1270,27 +1270,27 @@ Array [
           <div
             className="sc-AxhCb c17"
           >
-            <p
+            <span
               className="c18 c19"
               color="unset"
               type="captionUppercase"
             >
               Dicas para economizar
-            </p>
-            <p
+            </span>
+            <h3
               className="c20 sc-AxiKw c21"
               color="unset"
               type="heading3"
             >
               Registre todas as despesas
-            </p>
-            <p
+            </h3>
+            <h5
               className="c10"
               color="unset"
               type="headline"
             >
               O primeiro passo para começar a poupar e controlar seu dinheiro é descobrir onde ele está. 
-            </p>
+            </h5>
           </div>
         </div>
       </div>

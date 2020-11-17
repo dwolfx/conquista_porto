@@ -1676,24 +1676,24 @@ Object {
                         <div
                           class="c18"
                         >
-                          <p
+                          <h5
                             class="c19"
                             color="gray4"
                             type="headline"
                           >
                             Investir
-                          </p>
+                          </h5>
                         </div>
                         <div
                           class="c20"
                         >
-                          <p
+                          <h6
                             class="c21"
                             color="gray4"
                             type="title"
                           >
                             ETAPA 1 de 2
-                          </p>
+                          </h6>
                         </div>
                       </div>
                     </div>
@@ -1736,27 +1736,27 @@ Object {
                               <div
                                 class="c34"
                               >
-                                <p
+                                <span
                                   class="c35"
                                   color="gray4"
                                   type="captionUppercase"
                                 >
                                   conta de investimento
-                                </p>
-                                <p
+                                </span>
+                                <h5
                                   class="c36"
                                   color="gray6"
                                   type="headline"
                                 >
                                   R$ 1.987.123,99
-                                </p>
-                                <p
+                                </h5>
+                                <span
                                   class="c37"
                                   color="gray5"
                                   type="caption"
                                 >
                                   Saldo em conta
-                                </p>
+                                </span>
                               </div>
                             </div>
                             <div
@@ -1765,27 +1765,27 @@ Object {
                               <div
                                 class="c34"
                               >
-                                <p
+                                <span
                                   class="c35"
                                   color="gray4"
                                   type="captionUppercase"
                                 >
                                   fundo
-                                </p>
-                                <p
+                                </span>
+                                <h5
                                   class="c36"
                                   color="gray6"
                                   type="headline"
                                 >
                                   R$ 31.905,05
-                                </p>
-                                <p
+                                </h5>
+                                <span
                                   class="c37"
                                   color="gray5"
                                   type="caption"
                                 >
                                   Saldo e rendimento bruto
-                                </p>
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -1800,13 +1800,13 @@ Object {
                               class="sc-fznxKY c41"
                               data-name="col-sm-6"
                             >
-                              <p
+                              <h5
                                 class="c42"
                                 color="gray6"
                                 type="headline"
                               >
                                 Quanto você quer investir?
-                              </p>
+                              </h5>
                               <div
                                 class="c43 c44"
                               >
@@ -1837,13 +1837,13 @@ Object {
                               class="sc-fznxKY c41"
                               data-name="col-sm-6"
                             >
-                              <p
+                              <h5
                                 class="c42"
                                 color="gray6"
                                 type="headline"
                               >
                                 Quando você deseja investir?
-                              </p>
+                              </h5>
                               <div
                                 class="c43 c50"
                               >
@@ -2164,13 +2164,13 @@ Object {
                 <div
                   class="c90"
                 >
-                  <p
+                  <h5
                     class="c42"
                     color="gray6"
                     type="headline"
                   >
                     Todas as informações serão perdidas e a solicitação não será finalizada.
-                  </p>
+                  </h5>
                   <div
                     class="c91"
                   >
@@ -2236,13 +2236,13 @@ Object {
                 <div
                   class="c90"
                 >
-                  <p
+                  <h5
                     class="c42"
                     color="gray6"
                     type="headline"
                   >
                     Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
-                  </p>
+                  </h5>
                   <div
                     class="c91"
                   >
@@ -2374,24 +2374,24 @@ Object {
                       <div
                         class="sc-AxheI iUjYEW"
                       >
-                        <p
+                        <h5
                           class="sc-AxjAm jcWOvb"
                           color="gray4"
                           type="headline"
                         >
                           Investir
-                        </p>
+                        </h5>
                       </div>
                       <div
                         class="sc-Axmtr iaWKVR"
                       >
-                        <p
+                        <h6
                           class="sc-AxjAm inUCKS"
                           color="gray4"
                           type="title"
                         >
                           ETAPA 1 de 2
-                        </p>
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -2434,27 +2434,27 @@ Object {
                             <div
                               class="sc-qYiqT ghlBFd"
                             >
-                              <p
+                              <span
                                 class="sc-AxjAm gyHhKC"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 conta de investimento
-                              </p>
-                              <p
+                              </span>
+                              <h5
                                 class="sc-AxjAm esYIWJ"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 1.987.123,99
-                              </p>
-                              <p
+                              </h5>
+                              <span
                                 class="sc-AxjAm kRUhHc"
                                 color="gray5"
                                 type="caption"
                               >
                                 Saldo em conta
-                              </p>
+                              </span>
                             </div>
                           </div>
                           <div
@@ -2463,27 +2463,27 @@ Object {
                             <div
                               class="sc-qYiqT ghlBFd"
                             >
-                              <p
+                              <span
                                 class="sc-AxjAm gyHhKC"
                                 color="gray4"
                                 type="captionUppercase"
                               >
                                 fundo
-                              </p>
-                              <p
+                              </span>
+                              <h5
                                 class="sc-AxjAm esYIWJ"
                                 color="gray6"
                                 type="headline"
                               >
                                 R$ 31.905,05
-                              </p>
-                              <p
+                              </h5>
+                              <span
                                 class="sc-AxjAm kRUhHc"
                                 color="gray5"
                                 type="caption"
                               >
                                 Saldo e rendimento bruto
-                              </p>
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -2498,13 +2498,13 @@ Object {
                             class="sc-fznxKY sc-pkhIR fxFPJo"
                             data-name="col-sm-6"
                           >
-                            <p
+                            <h5
                               class="sc-AxjAm fJtvcl"
                               color="gray6"
                               type="headline"
                             >
                               Quanto você quer investir?
-                            </p>
+                            </h5>
                             <div
                               class="sc-pZBmh bhuluA FormFinancialContribution___StyledMoneyInput-u3h0sg-0 fHPlos"
                             >
@@ -2535,13 +2535,13 @@ Object {
                             class="sc-fznxKY sc-pkhIR fxFPJo"
                             data-name="col-sm-6"
                           >
-                            <p
+                            <h5
                               class="sc-AxjAm fJtvcl"
                               color="gray6"
                               type="headline"
                             >
                               Quando você deseja investir?
-                            </p>
+                            </h5>
                             <div
                               class="sc-pZBmh bhuluA FormFinancialContribution___StyledDateInput-u3h0sg-1 dSqDJt"
                             >
@@ -2862,13 +2862,13 @@ Object {
               <div
                 class="sc-fzqBZW esRFc"
               >
-                <p
+                <h5
                   class="sc-AxjAm fJtvcl"
                   color="gray6"
                   type="headline"
                 >
                   Todas as informações serão perdidas e a solicitação não será finalizada.
-                </p>
+                </h5>
                 <div
                   class="sc-fzqARJ juUTYs"
                 >
@@ -2934,13 +2934,13 @@ Object {
               <div
                 class="sc-fzqBZW esRFc"
               >
-                <p
+                <h5
                   class="sc-AxjAm fJtvcl"
                   color="gray6"
                   type="headline"
                 >
                   Sua carteira passará a ter uma risco maior do que o permitido para o seu perfil. Para continuar, você deve assinar o termo de desenquadramento.
-                </p>
+                </h5>
                 <div
                   class="sc-fzqARJ juUTYs"
                 >

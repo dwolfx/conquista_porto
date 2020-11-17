@@ -402,13 +402,13 @@ exports[`InvestmentCard Renders correctly 1`] = `
       <div
         className="c6"
       >
-        <p
+        <h5
           className="c7 "
           color="unset"
           type="headline"
         >
           Investimentos
-        </p>
+        </h5>
       </div>
       <div
         className="c8"
@@ -431,25 +431,25 @@ exports[`InvestmentCard Renders correctly 1`] = `
         <div
           className="c12"
         >
-          <p
+          <span
             className="c13"
             color="white"
             type="button"
           >
             Fundos de Investimento
-          </p>
+          </span>
         </div>
       </div>
       <div
         className="c14"
       >
-        <p
+        <h6
           className="c15 c16"
           color="gray6"
           type="title"
         >
           Diversificar com menos riscos
-        </p>
+        </h6>
         <p
           className="c17 c18"
           color="gray5"

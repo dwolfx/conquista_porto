@@ -547,13 +547,13 @@ Object {
               >
                 check.svg
               </svg>
-              <p
+              <h5
                 class="c6 c7"
                 color="unset"
                 type="headline"
               >
                 Solicitação de aplicação recebida com sucesso
-              </p>
+              </h5>
             </div>
             <p
               class="c8 c9"
@@ -564,13 +564,13 @@ Object {
               <br />
               Pode levar alguns minutos até que o fundo apareça na sua tela de gestão.
             </p>
-            <p
+            <h5
               class="c6 c10"
               color="unset"
               type="headline"
             >
               Dados para tranferência (TED)
-            </p>
+            </h5>
             <div
               class="c11"
             >
@@ -586,20 +586,20 @@ Object {
                     <div
                       class="c15"
                     >
-                      <p
+                      <span
                         class="c16 c17"
                         color="unset"
                         type="captionUppercase"
                       >
                         BANCO
-                      </p>
-                      <p
+                      </span>
+                      <h5
                         class="c6 c18"
                         color="unset"
                         type="headline"
                       >
                         306- Banco Portopar
-                      </p>
+                      </h5>
                     </div>
                   </div>
                 </div>
@@ -612,20 +612,20 @@ Object {
                     <div
                       class="c15"
                     >
-                      <p
+                      <span
                         class="c16 c17"
                         color="unset"
                         type="captionUppercase"
                       >
                         AGÊNCIA
-                      </p>
-                      <p
+                      </span>
+                      <h5
                         class="c6 c18"
                         color="unset"
                         type="headline"
                       >
                         0001
-                      </p>
+                      </h5>
                     </div>
                   </div>
                 </div>
@@ -638,20 +638,20 @@ Object {
                     <div
                       class="c15"
                     >
-                      <p
+                      <span
                         class="c16 c17"
                         color="unset"
                         type="captionUppercase"
                       >
                         CONTA
-                      </p>
-                      <p
+                      </span>
+                      <h5
                         class="c6 c18"
                         color="unset"
                         type="headline"
                       >
                         47-7
-                      </p>
+                      </h5>
                     </div>
                   </div>
                 </div>
@@ -664,20 +664,20 @@ Object {
                     <div
                       class="c15"
                     >
-                      <p
+                      <span
                         class="c16 c17"
                         color="unset"
                         type="captionUppercase"
                       >
                         CPF
-                      </p>
-                      <p
+                      </span>
+                      <h5
                         class="c6 c18"
                         color="unset"
                         type="headline"
                       >
                         332.444.528-09
-                      </p>
+                      </h5>
                     </div>
                   </div>
                 </div>
@@ -690,56 +690,56 @@ Object {
                     <div
                       class="c15"
                     >
-                      <p
+                      <span
                         class="c16 c17"
                         color="unset"
                         type="captionUppercase"
                       >
                         FAVORECIDO
-                      </p>
-                      <p
+                      </span>
+                      <h5
                         class="c6 c18"
                         color="unset"
                         type="headline"
                       >
                         Rafael Rodrigues
-                      </p>
+                      </h5>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <p
+            <h5
               class="c6 c10"
               color="unset"
               type="headline"
             >
               Regras e Condições
-            </p>
+            </h5>
             <div
               class="c19"
             >
-              <p
+              <h5
                 class="c20 c21"
                 color="unset"
                 type="headline"
               >
                 Esta conta é para recursos relacionados a investimentos apenas.
-              </p>
-              <p
+              </h5>
+              <h5
                 class="c20 c21"
                 color="unset"
                 type="headline"
               >
                 As transferências devem ser de contas de mesma titularidade do favorecido.
-              </p>
-              <p
+              </h5>
+              <h5
                 class="c20 c21"
                 color="unset"
                 type="headline"
               >
                 A Porto Seguro faz a identificação e direcionamento dos recursos.
-              </p>
+              </h5>
             </div>
           </div>
         </div>
@@ -802,13 +802,13 @@ Object {
             >
               check.svg
             </svg>
-            <p
+            <h5
               class="sc-AxiKw hKkLVt sc-fzoxKX hxygUX"
               color="unset"
               type="headline"
             >
               Solicitação de aplicação recebida com sucesso
-            </p>
+            </h5>
           </div>
           <p
             class="sc-AxiKw pMGfi sc-fznMAR iDzilq"
@@ -819,13 +819,13 @@ Object {
             <br />
             Pode levar alguns minutos até que o fundo apareça na sua tela de gestão.
           </p>
-          <p
+          <h5
             class="sc-AxiKw hKkLVt sc-fzqBkg bXhEJI"
             color="unset"
             type="headline"
           >
             Dados para tranferência (TED)
-          </p>
+          </h5>
           <div
             class="sc-fzoiQi cdWIhU"
           >
@@ -841,20 +841,20 @@ Object {
                   <div
                     class="sc-AxirZ eDJESt"
                   >
-                    <p
+                    <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       BANCO
-                    </p>
-                    <p
+                    </span>
+                    <h5
                       class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
                       306- Banco Portopar
-                    </p>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -867,20 +867,20 @@ Object {
                   <div
                     class="sc-AxirZ eDJESt"
                   >
-                    <p
+                    <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       AGÊNCIA
-                    </p>
-                    <p
+                    </span>
+                    <h5
                       class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
                       0001
-                    </p>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -893,20 +893,20 @@ Object {
                   <div
                     class="sc-AxirZ eDJESt"
                   >
-                    <p
+                    <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       CONTA
-                    </p>
-                    <p
+                    </span>
+                    <h5
                       class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
                       47-7
-                    </p>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -919,20 +919,20 @@ Object {
                   <div
                     class="sc-AxirZ eDJESt"
                   >
-                    <p
+                    <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       CPF
-                    </p>
-                    <p
+                    </span>
+                    <h5
                       class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
                       332.444.528-09
-                    </p>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -945,56 +945,56 @@ Object {
                   <div
                     class="sc-AxirZ eDJESt"
                   >
-                    <p
+                    <span
                       class="sc-AxiKw knFkDY sc-fznWqX ftdOPh"
                       color="unset"
                       type="captionUppercase"
                     >
                       FAVORECIDO
-                    </p>
-                    <p
+                    </span>
+                    <h5
                       class="sc-AxiKw hKkLVt sc-fznJRM fXCptg"
                       color="unset"
                       type="headline"
                     >
                       Rafael Rodrigues
-                    </p>
+                    </h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <p
+          <h5
             class="sc-AxiKw hKkLVt sc-fzqBkg bXhEJI"
             color="unset"
             type="headline"
           >
             Regras e Condições
-          </p>
+          </h5>
           <div
             class="sc-fzolEj fRSMzZ"
           >
-            <p
+            <h5
               class="sc-AxiKw dVgsGp sc-fznWOq cgBhOL"
               color="unset"
               type="headline"
             >
               Esta conta é para recursos relacionados a investimentos apenas.
-            </p>
-            <p
+            </h5>
+            <h5
               class="sc-AxiKw dVgsGp sc-fznWOq cgBhOL"
               color="unset"
               type="headline"
             >
               As transferências devem ser de contas de mesma titularidade do favorecido.
-            </p>
-            <p
+            </h5>
+            <h5
               class="sc-AxiKw dVgsGp sc-fznWOq cgBhOL"
               color="unset"
               type="headline"
             >
               A Porto Seguro faz a identificação e direcionamento dos recursos.
-            </p>
+            </h5>
           </div>
         </div>
       </div>

@@ -42,8 +42,8 @@ const RiskProfileBar = ({ riskProfile, ...rest }: IRiskProfile) => {
       />
       <RiskClassification>
         <Bar riskColor="lowRisk" selected={risks.baixo}>
-          <RiskColor />
-          <RiskText data-testid="low-risk">Risco baixo</RiskText>
+          <RiskColor data-testid="low-risk" />
+          <RiskText>Risco baixo</RiskText>
         </Bar>
         <Bar riskColor="lowMediumRisk" selected={risks['medio-baixo']}>
           <RiskColor data-testid="low-medium-risk" />
@@ -58,8 +58,8 @@ const RiskProfileBar = ({ riskProfile, ...rest }: IRiskProfile) => {
           <RiskText>Risco médio-alto</RiskText>
         </Bar>
         <Bar riskColor="highRisk" selected={risks.alto}>
-          <RiskColor />
-          <RiskText data-testid="high-risk">Risco alto</RiskText>
+          <RiskColor data-testid="high-risk" />
+          <RiskText>Risco alto</RiskText>
         </Bar>
       </RiskClassification>
     </RiskProfileWrapper>

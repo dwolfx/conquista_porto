@@ -276,13 +276,13 @@ exports[`Login component should renders correctly with development value for env
           className="c4"
           data-name=""
         >
-          <p
+          <h5
             className="c5"
             color="blue4"
             type="headline"
           >
             Login Conquista - Dev/HML
-          </p>
+          </h5>
         </div>
         <div
           className="c4"
@@ -665,13 +665,13 @@ exports[`Login component should renders correctly with error message 1`] = `
           className="c4"
           data-name=""
         >
-          <p
+          <h5
             className="c5"
             color="blue4"
             type="headline"
           >
             Login Conquista - Dev/HML
-          </p>
+          </h5>
         </div>
         <div
           className="c4"
@@ -1052,13 +1052,13 @@ exports[`Login component should renders correctly with local value for env 1`] =
           className="c4"
           data-name=""
         >
-          <p
+          <h5
             className="c5"
             color="blue4"
             type="headline"
           >
             Login Conquista - Dev/HML
-          </p>
+          </h5>
         </div>
         <div
           className="c4"

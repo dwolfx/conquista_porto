@@ -187,13 +187,13 @@ exports[`Configurations renders correctly 1`] = `
   <section
     className="c1"
   >
-    <p
+    <h5
       className="c2 c3"
       color="unset"
       type="headline"
     >
       Configurações
-    </p>
+    </h5>
     <div
       className="c4"
     >

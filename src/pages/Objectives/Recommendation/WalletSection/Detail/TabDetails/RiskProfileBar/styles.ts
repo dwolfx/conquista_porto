@@ -59,7 +59,8 @@ export const Bar = styled.div<IBar>`
         : inactiveRiskColors[props.riskColor]};
   }
 
-  & p {
+  & p,
+  span {
     ${props => !props.selected && 'display: none'};
   }
 `

@@ -143,20 +143,20 @@ exports[`InsuranceCard LifeInsuranceErrorStateCard Renders correctly 1`] = `
 <div
   className="c0"
 >
-  <p
+  <h5
     className="c1"
     color="gray6"
     type="headline"
   >
     Seguro de Vida
-  </p>
-  <p
+  </h5>
+  <span
     className="c2"
     color="magenta2"
     type="captionUppercase"
   >
     Falha ao carregar
-  </p>
+  </span>
   <button
     className="c3 c4"
     color="primary"
@@ -319,20 +319,20 @@ exports[`InsuranceCard TripInsuranceErrorStateCard Renders correctly 1`] = `
 <div
   className="c0"
 >
-  <p
+  <h5
     className="c1"
     color="gray6"
     type="headline"
   >
     Seguro Viagem
-  </p>
-  <p
+  </h5>
+  <span
     className="c2"
     color="magenta2"
     type="captionUppercase"
   >
     Falha ao carregar
-  </p>
+  </span>
   <button
     className="c3 c4"
     color="primary"

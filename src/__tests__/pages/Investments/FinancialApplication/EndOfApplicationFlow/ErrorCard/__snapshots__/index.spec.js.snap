@@ -365,13 +365,13 @@ Object {
               >
                 close-rounded.svg
               </svg>
-              <p
+              <h5
                 class="c6 c7"
                 color="unset"
                 type="headline"
               >
                 Não foi possível confirmar sua solicitação.
-              </p>
+              </h5>
             </div>
             <p
               class="c8 c9"
@@ -441,13 +441,13 @@ Object {
             >
               close-rounded.svg
             </svg>
-            <p
+            <h5
               class="sc-AxjAm kdRIiC sc-fzqBkg bAFAQQ"
               color="unset"
               type="headline"
             >
               Não foi possível confirmar sua solicitação.
-            </p>
+            </h5>
           </div>
           <p
             class="sc-AxjAm gLsLGV sc-fzoXWK crPfML"
