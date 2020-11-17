@@ -13,6 +13,7 @@ import {
   ISummaryStep,
   IState,
   ICreditCardCreationPayload,
+  ICreditCardProposalResponse,
 } from 'pages/CreditCard/Creation/types'
 import {
   ESexLabel,
@@ -35,23 +36,9 @@ const PersonalData = ({
     creditCardClient: state.creditCard.clientData,
   }))
 
-  // DADOS MOCKADOS -- TIRAR ASSIM QUE A INTEGRAÇÃO ESTIVER FEITA
-  // const creditCardClient: ICreditCardClientData = {
-  //   cpfCnpj: '12345678901',
-  //   dataNascimento: '1987-11-25T00:00:00-03:00',
-  //   dddNumeroTelefone: 11,
-  //   emailCliente: 'email@email.com',
-  //   message: {
-  //     mensagem: '',
-  //     tipoCritica: '',
-  //   },
-  //   nomeCliente: 'José da Silva Sauro',
-  //   numeroTelefone: 962365254,
-  // }
-
   const isPersonalDataValid = (
     personalData: ICreditCardClientData | null,
-    formData: ICreditCardCreationPayload
+    formData: ICreditCardCreationPayload | ICreditCardProposalResponse
   ) => {
     return (
       personalData &&

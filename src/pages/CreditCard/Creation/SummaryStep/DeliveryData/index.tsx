@@ -20,7 +20,7 @@ const DeliveryData = ({
     return (
       !!formData.cep &&
       !!formData.logradouro &&
-      !!formData.complemento &&
+      !!formData.numeroLogradouro &&
       !!formData.bairro &&
       !!formData.cidade &&
       !!formData.uf
@@ -55,7 +55,10 @@ const DeliveryData = ({
         <S.Wrapper>
           <DataShower label="CEP" value={formData.cep} />
           <Divisor />
-          <DataShower label="Endereço" value={formData.logradouro} />
+          <DataShower
+            label="Endereço"
+            value={`${formData.logradouro}, ${formData.numeroLogradouro}`}
+          />
           <Divisor />
           <DataShower label="Complemento" value={formData.complemento} />
           <Divisor />

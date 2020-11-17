@@ -56,8 +56,63 @@ export interface ICreditCardCreationPayload {
   tipoDocumento?: string
   uf?: string
   valorRenda?: string
+}
+
+export interface ICreditCardProposalResponse {
+  bairro?: string
+  cep?: string
+  cidade?: string
+  codigoBandeira?: string
+  codigoCanal?: string
+  codigoEstadoCivil?: string
+  codigoProfissao?: string
+  complemento?: string
+  dataEmissaoDocumento?: string
+  dataNascimento?: string
+  dddTelefone?: string
+  diaVencimento?: string
+  email?: string
+  idSimulacao?: string
+  logradouro?: string
+  nome?: string
+  nomeMae?: string
+  numeroDocumentoIdentificacao?: string
+  numeroLogradouro?: string
+  numeroTelefone?: string
+  orgaoExpedidor?: string
+  sexo?: string
+  susep?: string
+  tipoDocumento?: string
+  uf?: string
+}
+
+export interface ICreditCardProposalRequest {
+  aceite?: string
+  bairroResidencial?: string
+  bandeira?: string
+  celular?: string
+  cepResidencial?: string
+  cidadeResidencial?: string
+  codigoCanal?: string
   cpf?: string
-  estado?: string
+  estadoCivil?: string
+  ocupacao?: string
+  complementoResidencial?: string
+  dataExpedicao?: string
+  nascimento?: string
+  dddTelefone?: string
+  diaVencimento?: string
+  email?: string
+  estadoResidencial?: string
+  idSimulacao?: string
+  enderecoResidencial?: string
+  nomeMae?: string
+  numeroDocumento?: string
+  numeroResidencial?: string
+  orgaoEmissor?: string
+  sexo?: string
+  tipoDocumento?: string
+  uf?: string
 }
 
 export interface IOrderResponse {

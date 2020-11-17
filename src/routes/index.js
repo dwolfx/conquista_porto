@@ -288,7 +288,7 @@ export default function Routes({ ...props }) {
           pageTitle="Gestão - Cartão de Crédito"
         />
         <Route
-          path="/cartao-credito/proposta"
+          path="/cartao-credito/proposta/:tokenLocker"
           exact
           component={SummaryProposal}
           pageTitle="Proposta - Cartão de Crédito"

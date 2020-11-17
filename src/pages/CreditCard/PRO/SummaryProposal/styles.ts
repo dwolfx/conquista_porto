@@ -5,6 +5,8 @@ import Text from 'components/Text'
 import VerticalList from 'components/VerticalList'
 import Button from 'components/Button'
 import Popover from 'components/Popover'
+import CardComponent from 'components/Card'
+import { CardBody } from 'components/Card/styles'
 
 export const Header = styled.div`
   width: 100%;
@@ -169,4 +171,31 @@ export const AcceptButton = styled(Button)`
     margin-top: ${({ theme }) => theme.spacing(2)}px;
     width: 100%;
   }
+`
+
+export const FullHeightRow = styled(Row)`
+  height: calc(100vh - 135px);
+`
+
+export const CenterContentCard = styled(CardComponent)`
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+  border: 0px;
+
+  ${CardBody} {
+    overflow: visible;
+    align-items: center;
+    justify-content: center;
+    max-width: 512px;
+
+    @media ${({ theme }) => theme.mediaQueries.xs} {
+      padding: ${({ theme }) => theme.spacing(2)}px;
+    }
+  }
+`
+
+export const TryAgainButton = styled(Button)`
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
 `

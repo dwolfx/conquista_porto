@@ -1,4 +1,13 @@
 {
+  "locker-mock": {
+    "data": {
+      "params": "portal=7&idParceiro=312&cpf=98277767030&nascimento=31%2F07%2F1989&email=cartao.claus%40mozej.com&celular=11980820533&bandeira=1&uf=SP&diaVencimento=1&cepResidencial=02357-120&enderecoResidencial=Rua+Capitao+Jose+Aguirre+Camargo&numeroResidencial=150&complementoResidencial=&bairroResidencial=Tremembe&estadoResidencial=SP&cidadeResidencial=Sao+Paulo&ocupacao=1&estadoCivil=2&sexo=M&tipoDocumento=RG&numeroDocumento=447767768&orgaoEmissor=ssp&dataExpedicao=12/12/2018&nomeMae=mae do cartao&aceite=&idSimulacao=2003",
+      "lockerExpiredDate": "13/12/2020 12:33:00"
+    },
+    "info": {
+      "date": "16/11/2020 10:57:21"
+    }
+  },
   "redeem_summary_get": {
     "Message": {
       "TipoCritica": "SUCESSO",
@@ -9061,7 +9070,7 @@
     "MensagemOferta": "Nenhum cartão disponível no momento.",
     "IdSimulacao": "1717",
     "Message": {
-        "TipoCritica": "SUCESSO"
+      "TipoCritica": "SUCESSO"
     },
     "CodigoRetorno": "0"
   },
