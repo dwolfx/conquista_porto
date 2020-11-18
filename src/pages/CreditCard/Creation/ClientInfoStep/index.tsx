@@ -237,7 +237,9 @@ const FirstStep = ({
         </GridContainer>
       )}
 
-      {!isLoadingCreditCardOffers && !hasNoOffers && (
+      {
+        !isLoadingCreditCardOffers && 
+        !hasNoOffers && (
         <WhiteContent>
           <GridContainer>
             <s.GridRow {...rest}>

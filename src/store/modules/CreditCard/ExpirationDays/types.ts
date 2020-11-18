@@ -10,6 +10,7 @@ type TFlag = {
   bandeira: string,
   descricao: string
 }
+
 export interface ICreditCardExpirationDays {
   codRetorno: string
   bandeiras: Array<TFlag>

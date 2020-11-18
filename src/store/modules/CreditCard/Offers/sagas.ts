@@ -6,6 +6,7 @@ import {
   ICreditCardOffer,
   OFFER_CODE,
   ICreditCardOfferRequest,
+  ICreditCardOfferError,
 } from './types'
 import * as a from './action'
 
@@ -22,7 +23,7 @@ export function* getOffers({
       `${baseURLNamespaceInvestAws}/cartoes/ofertas?codigoCanal=1&nome=${nome}&uf=${uf}&dataNascimento=${dataNasc}`
     )
 
-    let responseData: ICreditCardOffer = response.data
+    let responseData: ICreditCardOffer & ICreditCardOfferError = response.data
 
     /*
       CodigoOferta === 1 // Somente Visa Disponível
@@ -31,21 +32,26 @@ export function* getOffers({
       CodigoOferta === 4 // Nenhum disponível
      */
 
-    responseData = {
-      ...responseData,
-      isMasterCardActive:
-        responseData.CodigoOferta === OFFER_CODE.ONLY_MASTER_CODE ||
-        responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
-      isVisaActive:
-        responseData.CodigoOferta === OFFER_CODE.ONLY_VISA_CODE ||
-        responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
+    if (
+      responseData.Message.Mensagem ||
+      responseData.Message.TipoCritica === 'CRITICA_NEGOCIO'
+    ) {
+      throw new Error('Erro ao verificar ofertas')
+    } else {
+      responseData = {
+        ...responseData,
+        isMasterCardActive:
+          responseData.CodigoOferta === OFFER_CODE.ONLY_MASTER_CODE ||
+          responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
+        isVisaActive:
+          responseData.CodigoOferta === OFFER_CODE.ONLY_VISA_CODE ||
+          responseData.CodigoOferta === OFFER_CODE.BOTH_FLAGS_AVAILABLE,
+      }
+      onSuccess(responseData)
+      yield put(a.GetCreditCardOfferSuccess(responseData))
     }
-
-    onSuccess(responseData)
-    yield put(a.GetCreditCardOfferSuccess(responseData))
   } catch (err) {
     yield put(a.GetCreditCardOfferFailure())
-
     addToast({
       type: 'error',
       title: 'Erro ao verificar ofertas',

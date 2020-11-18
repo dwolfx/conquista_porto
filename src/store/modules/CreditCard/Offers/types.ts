@@ -26,6 +26,13 @@ export interface ICreditCardOffer {
   isVisaActive?: boolean
 }
 
+export interface ICreditCardOfferError {
+  Message: {
+    Mensagem: string
+    TipoCritica: string
+  }
+}
+
 export enum OFFER_CODE {
   ONLY_VISA_CODE = '1',
   ONLY_MASTER_CODE = '2',
