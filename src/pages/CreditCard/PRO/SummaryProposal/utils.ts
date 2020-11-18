@@ -70,18 +70,19 @@ export const getSummaryProposal = async (
 ) => {
   setIsLoading(true)
   setHasError(false)
-  await axiosInstance
-    .get(`/investimento/seguranca/v1/conquista/locker`, {
-      params: {
-        token: token,
-      },
-    })
-    .then(response => {
-      setLockerProposalData(getParams(response.data.data.params))
-      return response
-    })
-    .catch(e => {
-      setHasError(true)
-    })
-    .finally(() => setIsLoading(false))
+  try {
+    const response = await axiosInstance.get(
+      `/investimento/seguranca/v1/conquista/locker`,
+      {
+        params: {
+          token: token,
+        },
+      }
+    )
+    setLockerProposalData(getParams(response.data.data.params))
+  } catch (e) {
+    setHasError(true)
+  } finally {
+    setIsLoading(false)
+  }
 }

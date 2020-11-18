@@ -106,11 +106,11 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
     selectedBrazilianState,
   ])
 
-  const getAddress = async (cep: string) => {
+  const getAddress = (cep: string) => {
     const [cepPrefix, cepSufix] = cep.split('-')
 
     setIsLoading(true)
-    await axiosInstance
+    axiosInstance
       .get('/cliente/endereco', {
         params: {
           cep: cepPrefix,
