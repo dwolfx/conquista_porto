@@ -138,3 +138,9 @@ export interface CEPResponse {
   tipoLogradouro: string
   uf: string
 }
+
+export interface IBase64DecodedResponse {
+  cpfCliente: number,
+  idCliente: number,
+  nomeCliente: string
+}

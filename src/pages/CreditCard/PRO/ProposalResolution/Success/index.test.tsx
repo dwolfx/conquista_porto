@@ -10,7 +10,7 @@ describe('ProposalResolutionSuccess component', () => {
   it('should be exists', () => {
     const { getByTestId } = render(
       <ThemeProvider theme={theme}>
-        <ProposalResolutionSuccess />
+        <ProposalResolutionSuccess customerName="Felipe Silva" />
       </ThemeProvider>
     )
     expect(getByTestId('proposalResolutionSuccess')).toBeVisible()
@@ -19,7 +19,7 @@ describe('ProposalResolutionSuccess component', () => {
   it('should have content', () => {
     const { getByText } = render(
       <ThemeProvider theme={theme}>
-        <ProposalResolutionSuccess />
+        <ProposalResolutionSuccess customerName="Felipe Silva" />
       </ThemeProvider>
     )
     expect(getByText('Proposta enviada com sucesso')).toBeVisible()

@@ -218,3 +218,14 @@ export const formatPhoneNumber = (
         )
   }
 }
+
+export const base64decode = (token: any) => {
+  let parsed
+  try {
+    const decoded = decodeURIComponent(escape(atob(token)))
+    parsed = JSON.parse(decoded)
+  } catch (error) {
+    console.log(error)
+  }
+  return parsed
+}

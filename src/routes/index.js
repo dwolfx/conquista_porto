@@ -235,8 +235,7 @@ export default function Routes({ ...props }) {
           pageTitle="Home - Cartão de Crédito"
         />
         <DefaultRoute
-          path="/cartao-credito/pro"
-          exact
+          path="/cartao-credito/pro/:hash"
           component={CartaoCreditoPro}
           pageTitle="Home - Cartão de Crédito - PRO"
         />

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 
 import useMedia from 'hooks/useMedia'
 import { useToast } from 'hooks/toast'
-import { getCookieValue } from 'helpers'
-import { baseURLNamespaceInvestAws, post } from 'services/api'
+import { getCookieValue, base64decode } from 'helpers'
+import { axiosInstance, baseURLNamespaceInvestAws, post } from 'services/api'
 
 import {
   GetCreditCardExpirationDaysRequest,
@@ -18,20 +19,29 @@ import Icon from 'components/IconExporter'
 import HorizontalList from 'components/HorizontalList'
 import UserCard from 'components/Card/UserCard'
 
+import ProposalResolutionSuccess from './ProposalResolution/Success'
+import ProposalResolutionFail from './ProposalResolution/Fail'
+
 import SelectExpirationDays from './../Creation/CreditCardStep/Selects/ExpirationDays'
 import SelectBrazilianStates from './../Creation/CreditCardStep/Selects/BrazilianStates'
 
 import { ContentWrapper, SidebarWrapper, Title, SubTitle, SendButton } from './styles'
 import * as S from './../Creation/CreditCardStep/styles'
 
-import { FLAGS, IOption, ICreditCardCreationPayload } from '../Creation/types'
+import { FLAGS, IOption, CEPResponse, ICreditCardCreationPayload, IBase64DecodedResponse } from '../Creation/types'
 
 const CreditCardPro = () => {
+  const token = getCookieValue('TOKEN') || null
+  const { addToast } = useToast()
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
-  const { addToast } = useToast()
-  const [token, setToken] = useState(getCookieValue('TOKEN') || null)
+  const { hash } = useParams()
+
+  const [customerName, setCustomerName] = useState<string>('')
   const [isLoading, setIsLoading] = useState(false)
+  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false) // {}
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
+  const [submitErrorCount, setSubmitErrorCount] = useState(0)
 
   const [selectedFlag, setSelectedFlag] = useState<FLAGS | ''>('')
   const [selectedDay, setSelectedDay] = useState<IOption>({ id: 0, name: '' })
@@ -45,12 +55,24 @@ const CreditCardPro = () => {
   const [city, setCity] = useState('')
   const [stateOption, setStateOption] = useState<IOption>({ id: 0, name: '' })
 
-  // Busca Token enviado pela aplicação Angular
+
   useEffect(() => {
+    // Setar a header do Axios com este accessToken
     if (token) {
       console.log('Token', token)
     }
   }, [token])
+
+  // Base64 Decode
+  useEffect(() => {
+    if (hash && base64decode(hash)) {
+      const dataDecoded: IBase64DecodedResponse = base64decode(hash)
+      console.log('Base64 Decoded', dataDecoded)
+      setCustomerName(dataDecoded.nomeCliente)
+    } else {
+      setShowErrorMessage(true)
+    }
+  }, [hash])
 
   useEffect(() => {
     dispatch(GetCreditCardExpirationDaysRequest())
@@ -58,6 +80,28 @@ const CreditCardPro = () => {
       dispatch(GetCreditCardExpirationDaysClearData())
     }
   }, [dispatch])
+
+  const getAddress = async () => {
+    if (cep.length === 9) {
+      const [cepPrefix, cepSufix] = cep.split('-')
+      const { data, status } = await axiosInstance.get<CEPResponse>('/cliente/endereco', {
+        params: { cep: cepPrefix, cepSufixo: cepSufix }
+      })
+      if (status === 200) {
+        const { bairro, uf, cidade, logradouro, tipoLogradouro } = data
+        setStreetAddress(`${tipoLogradouro}. ${logradouro}`)
+        setCity(cidade)
+        setNeighbourhood(bairro)
+        setStateOption({ id: 99, name: uf })
+      } else {
+        addToast({
+          type: 'error',
+          title: 'Houve um erro ao buscar CEP.',
+          description: 'Por favor, edite o endereço manualmente.'
+        })
+      }
+    }
+  }
 
   const handleFormSubmit = async () => {
     setIsLoading(true)
@@ -73,46 +117,63 @@ const CreditCardPro = () => {
       diaVencimento: selectedDay.name,
     }
 
+    console.log('[Form Payload]:', payload)
+
     try {
-      // const { data } = await post(
-      //   `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
-      //   payload
-      // )
+      const { data } = await post(
+        `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
+        payload
+      )
 
-      setTimeout(() => {
-        setIsLoading(false)
-        addToast({
-          type: 'success',
-          title: 'Solicitação enviada',
-          description: 'A solicitação do cartão para o cliente foi enviada',
-        })
-
-      }, 4321)
+      if (data) {
+        setShowSuccessMessage(true)
+      }
 
     } catch (error) {
+      setSubmitErrorCount(submitErrorCount + 1)
       addToast({
         type: 'error',
         title: 'Desculpe, ocorreu uma falha ao enviar a solicitação',
         description: JSON.parse(error.message)?.msg,
       })
+
+      if (submitErrorCount + 1 === 3) {
+        setShowErrorMessage(true)
+      }
+
+    } finally {
       setIsLoading(false)
     }
+  }
 
-    console.log('payload', payload)
+  if (showSuccessMessage) {
+    return (
+      <ContentWrapper>
+        <ProposalResolutionSuccess customerName={customerName} />
+      </ContentWrapper>
+    )
+  }
+
+  if (showErrorMessage) {
+    return (
+      <ContentWrapper>
+        <ProposalResolutionFail />
+      </ContentWrapper>
+    )
   }
 
   return (
     <ContentWrapper>
       <Container>
         <Row>
-          <Col lg={3}>
+          <Col md={3} sm={12}>
             <SidebarWrapper>
               <Title>Dados da Proposta</Title>
               <SubTitle>ENVIAR PROPOSTA PARA</SubTitle>
-              <UserCard name="Felipe Santos" role="Cliente" />
+              <UserCard name={customerName} role="Cliente" />
             </SidebarWrapper>
           </Col>
-          <Col lg={9}>
+          <Col md={9} sm={12}>
             <Container>
               <S.Row>
                 <Col lg={6} md={6} sm={6} xs={12}>
@@ -249,7 +310,7 @@ const CreditCardPro = () => {
                             }}
                             value={cep}
                             onBlur={() => {
-                              console.log('CEP', cep)
+                              getAddress()
                             }}
                           />
                         </S.FormCol>

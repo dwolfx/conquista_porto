@@ -5,7 +5,11 @@ import IconExporter from 'components/IconExporter'
 import Text from 'components/Text'
 import BottomNavigationContent from '../commons/BottomNavigationContent'
 
-export default function ProposalResolutionSuccess() {
+interface IProps {
+  customerName: string
+}
+
+export default function ProposalResolutionSuccess({ customerName }: IProps) {
   return (
     <S.FlexibleLayerContent
       data-testid="proposalResolutionSuccess"
@@ -33,7 +37,7 @@ export default function ProposalResolutionSuccess() {
         >
           Proposta enviada para:
         </Text>
-        <UserCard name="Felipe Santos" role="Cliente" />
+        <UserCard name={customerName} role="Cliente" />
       </S.UserBox>
     </S.FlexibleLayerContent>
   )
