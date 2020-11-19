@@ -225,7 +225,7 @@ export const base64decode = (token: any) => {
     const decoded = decodeURIComponent(escape(atob(token)))
     parsed = JSON.parse(decoded)
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
   return parsed
 }
