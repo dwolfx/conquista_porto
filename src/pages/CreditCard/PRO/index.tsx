@@ -128,13 +128,15 @@ const CreditCardPro = () => {
     console.log('[Form Payload]:', payload)
 
     try {
-      const { data: { mensagem } } = await post(
+      const { data: { mensagem: {tipoCritica, mensagem} } } = await post(
         `${baseURLNamespaceInvestAws}/cartoes/sugestao`,
         payload
       )
 
-      if (mensagem?.tipoCritica === 'SUCESSO') {
+      if (tipoCritica === 'SUCESSO') {
         setShowSuccessMessage(true)
+      } else {
+        throw new Error(JSON.stringify({ msg: mensagem }))
       }
 
     } catch (error) {
