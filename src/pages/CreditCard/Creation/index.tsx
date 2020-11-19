@@ -82,13 +82,14 @@ const Creation = ({ isOpen, handleClose }: IProps) => {
     [isLastStep]
   )
 
-  const getStepCount = () => {
-    return [
-      <Text color="gray4" type="title">
-        {`ETAPA ${step} de 5`}
-      </Text>,
-    ]
-  }
+  const getStepCount = () =>
+    step <= 5
+      ? [
+          <Text color="gray4" type="title">
+            {`ETAPA ${step} de 5`}
+          </Text>,
+        ]
+      : null
 
   const handlePostSubmit = useCallback(async () => {
     try {

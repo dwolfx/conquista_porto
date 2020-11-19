@@ -32,7 +32,6 @@ import {
 import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupation/action'
 import SummaryProposalLoading from './Loading'
 import SummaryProposalError from './Error'
-
 interface IRouteParams {
   tokenLocker: string
 }
@@ -134,7 +133,6 @@ const SummaryProposal = () => {
             </S.HaderGridRow>
           </S.HeaderGridContainer>
         </S.Header>
-
         <S.SubHeader>
           <S.GridContainer>
             <S.GridRow>

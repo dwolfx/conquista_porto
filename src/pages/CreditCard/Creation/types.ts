@@ -45,7 +45,6 @@ export interface ICreditCardCreationPayload {
   email?: string
   idSimulacao?: string
   logradouro?: string
-  nacionalidade?: string
   nome?: string
   nomeMae?: string
   numeroDocumentoIdentificacao?: string
@@ -55,7 +54,6 @@ export interface ICreditCardCreationPayload {
   sexo?: string
   tipoDocumento?: string
   uf?: string
-  valorRenda?: string
   idParceiro?: string
 }
 
@@ -82,7 +80,6 @@ export interface ICreditCardProposalResponse {
   numeroTelefone?: string
   orgaoExpedidor?: string
   sexo?: string
-  susep?: string
   tipoDocumento?: string
   uf?: string
 }

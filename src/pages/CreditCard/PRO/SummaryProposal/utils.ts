@@ -37,7 +37,6 @@ export const populateData = (
     cidade: lockerProposalData.cidadeResidencial,
     codigoBandeira: lockerProposalData.bandeira,
     codigoCanal: '14',
-    susep: 'CONQ1J', //Nao sei onde pega
     codigoEstadoCivil: lockerProposalData.estadoCivil,
     codigoProfissao: lockerProposalData.ocupacao,
     complemento: lockerProposalData.complementoResidencial,
@@ -48,7 +47,6 @@ export const populateData = (
     email: lockerProposalData.email,
     idSimulacao: lockerProposalData.idSimulacao,
     logradouro: lockerProposalData.enderecoResidencial,
-    nome: 'Huhu', //Nao sei onde pega
     nomeMae: lockerProposalData.nomeMae,
     numeroDocumentoIdentificacao: lockerProposalData.numeroDocumento,
     numeroLogradouro: lockerProposalData.numeroResidencial,

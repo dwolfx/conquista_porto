@@ -60,8 +60,10 @@ const FirstStep = ({
   }, [dispatch, creditCardClient, addToast, creditCardOffers])
 
   useEffect(() => {
-    if(creditCardClient?.estado) {
-      const stateIsValid = brazilianStates.find(state => state === creditCardClient.estado)
+    if (creditCardClient?.estado) {
+      const stateIsValid = brazilianStates.find(
+        state => state === creditCardClient.estado
+      )
       setBrazilianStateOption(stateIsValid ? creditCardClient.estado : '')
     }
   }, [creditCardClient])
@@ -107,6 +109,7 @@ const FirstStep = ({
           : '',
         dddTelefone: creditCardClient.dddNumeroTelefone?.toString() || '',
         email: creditCardClient.emailCliente,
+        idSimulacao: data.IdSimulacao,
         nome: creditCardClient.nomeCliente,
         nomeMae: creditCardClient.nomeMae,
         numeroDocumentoIdentificacao:
