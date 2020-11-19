@@ -56,6 +56,7 @@ export interface ICreditCardCreationPayload {
   tipoDocumento?: string
   uf?: string
   valorRenda?: string
+  idParceiro?: string
 }
 
 export interface ICreditCardProposalResponse {
@@ -140,7 +141,7 @@ export interface CEPResponse {
 }
 
 export interface IBase64DecodedResponse {
-  cpfCliente: number,
-  idCliente: number,
+  cpfCliente: number
+  idCorretor: string
   nomeCliente: string
 }

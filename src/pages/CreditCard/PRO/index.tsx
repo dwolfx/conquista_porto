@@ -35,18 +35,16 @@ const CreditCardPro = () => {
   const { addToast } = useToast()
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
-  const { hash } = useParams()
+  const { hash } = useParams<{ hash: string }>();
 
   const [customerName, setCustomerName] = useState<string>('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false) // {}
-  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
-  const [submitErrorCount, setSubmitErrorCount] = useState(0)
+  const [codCorretor, setCodCorretor] = useState<string>('')
 
   const [selectedFlag, setSelectedFlag] = useState<FLAGS | ''>('')
   const [selectedDay, setSelectedDay] = useState<IOption>({ id: 0, name: '' })
 
   // Address states
+  const [loadingCep, setLoadingCep] = useState<boolean>(false)
   const [cep, setCep] = useState('')
   const [streetAddress, setStreetAddress] = useState('')
   const [number, setNumber] = useState('')
@@ -55,6 +53,10 @@ const CreditCardPro = () => {
   const [city, setCity] = useState('')
   const [stateOption, setStateOption] = useState<IOption>({ id: 0, name: '' })
 
+  const [isLoading, setIsLoading] = useState(false)
+  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false) // {}
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
+  const [submitErrorCount, setSubmitErrorCount] = useState<number>(0)
 
   useEffect(() => {
     // Setar a header do Axios com este accessToken
@@ -69,6 +71,7 @@ const CreditCardPro = () => {
       const dataDecoded: IBase64DecodedResponse = base64decode(hash)
       console.log('Base64 Decoded', dataDecoded)
       setCustomerName(dataDecoded.nomeCliente)
+      setCodCorretor(dataDecoded.idCorretor)
     } else {
       setShowErrorMessage(true)
     }
@@ -83,6 +86,7 @@ const CreditCardPro = () => {
 
   const getAddress = async () => {
     if (cep.length === 9) {
+      setLoadingCep(true)
       const [cepPrefix, cepSufix] = cep.split('-')
       const { data, status } = await axiosInstance.get<CEPResponse>('/cliente/endereco', {
         params: { cep: cepPrefix, cepSufixo: cepSufix }
@@ -93,19 +97,23 @@ const CreditCardPro = () => {
         setCity(cidade)
         setNeighbourhood(bairro)
         setStateOption({ id: 99, name: uf })
+        setLoadingCep(false)
       } else {
         addToast({
           type: 'error',
           title: 'Houve um erro ao buscar CEP.',
           description: 'Por favor, edite o endereço manualmente.'
         })
+        setLoadingCep(false)
       }
     }
   }
 
   const handleFormSubmit = async () => {
     setIsLoading(true)
+
     const payload: ICreditCardCreationPayload = {
+      idParceiro: codCorretor,
       cep: cep,
       cidade: city,
       logradouro: streetAddress,
@@ -120,12 +128,12 @@ const CreditCardPro = () => {
     console.log('[Form Payload]:', payload)
 
     try {
-      const { data } = await post(
-        `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
+      const { data: { mensagem } } = await post(
+        `${baseURLNamespaceInvestAws}/cartoes/sugestao`,
         payload
       )
 
-      if (data) {
+      if (mensagem?.tipoCritica === 'SUCESSO') {
         setShowSuccessMessage(true)
       }
 
@@ -273,7 +281,7 @@ const CreditCardPro = () => {
                       headerTitle={
                         <S.TextTitle>
                           Selecione o dia de vencimento da fatura
-                  </S.TextTitle>
+                        </S.TextTitle>
                       }
                     >
                       <S.SelectWrapper>
@@ -325,6 +333,7 @@ const CreditCardPro = () => {
                               setStreetAddress(e.target.value)
                             }}
                             hasError={false}
+                            disabled={loadingCep}
                           />
                         </S.FormCol>
                         <S.FormCol md={3} sm={4} xs={12}>
@@ -338,6 +347,7 @@ const CreditCardPro = () => {
                               setNumber(e.target.value)
                             }}
                             hasError={false}
+                            disabled={loadingCep}
                           />
                         </S.FormCol>
                         <S.FormCol md={3} sm={4} xs={12}>
@@ -350,6 +360,7 @@ const CreditCardPro = () => {
                               setAdditionalInfo(e.target.value)
                             }}
                             hasError={false}
+                            disabled={loadingCep}
                           />
                         </S.FormCol>
                         <S.FormCol md={6} sm={4} xs={12}>
@@ -363,6 +374,7 @@ const CreditCardPro = () => {
                               setNeighbourhood(e.target.value)
                             }}
                             hasError={false}
+                            disabled={loadingCep}
                           />
                         </S.FormCol>
                         <S.FormCol md={3} sm={4} xs={12}>
@@ -376,6 +388,7 @@ const CreditCardPro = () => {
                             }}
                             hasError={false}
                             maxLength={25}
+                            disabled={loadingCep}
                           />
                         </S.FormCol>
 
