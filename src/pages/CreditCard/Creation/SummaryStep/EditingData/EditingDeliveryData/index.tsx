@@ -6,7 +6,7 @@ import Modal from 'components/Modal/ModalNew'
 
 import SelectBrazilianStates from 'pages/CreditCard/Creation/common/SelectBrazilianStates'
 
-import { useToast } from 'hooks/toast'
+import { IToast, useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import { dict } from 'components/IconExporter'
@@ -14,6 +14,62 @@ import { axiosInstance } from 'services/api'
 
 import * as s from './styles'
 import * as t from './types'
+
+interface IGetAddress {
+  cep: string
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setAddress: React.Dispatch<React.SetStateAction<string>>
+  setAddressNumber: React.Dispatch<React.SetStateAction<string>>
+  setAdditionalInfo: React.Dispatch<React.SetStateAction<string>>
+  setNeighborhood: React.Dispatch<React.SetStateAction<string>>
+  setCity: React.Dispatch<React.SetStateAction<string>>
+  setSelectedBrazilianState: React.Dispatch<React.SetStateAction<string>>
+  addToast: (toast: Pick<IToast, 'type' | 'title' | 'description'>) => void
+}
+
+const getAddress = async ({
+  cep,
+  setIsLoading,
+  setAddress,
+  setAddressNumber,
+  setAdditionalInfo,
+  setNeighborhood,
+  setCity,
+  setSelectedBrazilianState,
+  addToast,
+}: IGetAddress) => {
+  try {
+    setIsLoading(true)
+    const [cepPrefix, cepSufix] = cep.split('-')
+    const { data, status } = await axiosInstance.get('/cliente/endereco', {
+      params: {
+        cep: cepPrefix,
+        cepSufixo: cepSufix,
+      },
+    })
+
+    setIsLoading(false)
+
+    if (status === 200) {
+      if (data.bairro) {
+        setAddress(`${data.tipoLogradouro}. ${data.logradouro}`)
+        setAddressNumber('')
+        setAdditionalInfo('')
+        setNeighborhood(data.bairro)
+        setCity(data.cidade)
+        setSelectedBrazilianState(data.uf)
+      }
+      return data
+    }
+  } catch (e) {
+    setIsLoading(false)
+    addToast({
+      title: `Houve um erro ao buscar o CEP`,
+      description: `Por favor, edite o endereço manualmente.`,
+      type: 'error',
+    })
+  }
+}
 
 const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
   isOpen,
@@ -106,40 +162,6 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
     selectedBrazilianState,
   ])
 
-  const getAddress = (cep: string) => {
-    const [cepPrefix, cepSufix] = cep.split('-')
-
-    setIsLoading(true)
-    axiosInstance
-      .get('/cliente/endereco', {
-        params: {
-          cep: cepPrefix,
-          cepSufixo: cepSufix,
-        },
-      })
-      .then(response => {
-        if (response.data.bairro) {
-          setAddress(
-            `${response.data.tipoLogradouro}. ${response.data.logradouro}`
-          )
-          setAddressNumber('')
-          setAdditionalInfo('')
-          setNeighborhood(response.data.bairro)
-          setCity(response.data.cidade)
-          setSelectedBrazilianState(response.data.uf)
-        }
-        return response.data
-      })
-      .catch(() =>
-        addToast({
-          title: `Houve um erro ao buscar o CEP`,
-          description: `Por favor, edite o endereço manualmente.`,
-          type: 'error',
-        })
-      )
-      .finally(() => setIsLoading(false))
-  }
-
   const getContent = () => (
     <s.Container>
       <s.CEPInput
@@ -153,7 +175,17 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
         onChange={(e: any) => {
           setZipCode(e.target.value)
           if (e.target.value.length >= 9) {
-            getAddress(e.target.value)
+            getAddress({
+              cep: e.target.value,
+              setIsLoading,
+              setAddress,
+              setAddressNumber,
+              setAdditionalInfo,
+              setNeighborhood,
+              setCity,
+              setSelectedBrazilianState,
+              addToast,
+            })
           }
         }}
       />
