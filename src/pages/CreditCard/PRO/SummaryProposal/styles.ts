@@ -165,6 +165,7 @@ export const TooltipText = styled(Text)`
 
 export const AcceptButton = styled(Button)`
   margin-left: ${({ theme }) => theme.spacing(2)}px;
+  width: 234px;
 
   @media ${({ theme }) => theme.mediaQueries.xs} {
     margin-left: 0px;
