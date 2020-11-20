@@ -3,7 +3,12 @@ import { Row, Col } from 'styled-bootstrap-grid'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { isFormValid, populateData, getSummaryProposal } from './utils'
+import {
+  isFormValid,
+  populateData,
+  getSummaryProposal,
+  handlePostSubmit,
+} from './utils'
 
 import Text from 'components/Text'
 import Checkbox from 'components/Inputs/Checkbox'
@@ -18,6 +23,7 @@ import { StyledCard } from '../../Creation/SummaryStep/CardData/styles'
 import {
   ICreditCardProposalResponse,
   ICreditCardProposalRequest,
+  IOrderResponse,
 } from 'pages/CreditCard/Creation/types'
 
 import * as S from './styles'
@@ -32,6 +38,8 @@ import {
 import { GetCreditCardOccupationRequest } from 'store/modules/CreditCard/Occupation/action'
 import SummaryProposalLoading from './Loading'
 import SummaryProposalError from './Error'
+import { useToast } from 'hooks/toast'
+import SummaryProposalResponse from './Response'
 interface IRouteParams {
   tokenLocker: string
 }
@@ -39,8 +47,12 @@ interface IRouteParams {
 const SummaryProposal = () => {
   const [isChecked, setChecked] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isButtonLoading, setIsButtonLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [formResponse, setFormResponse] = useState<IOrderResponse>({})
+  const [submitErrorCount, setSubmitErrorCount] = useState(0)
   const dispatch = useDispatch()
+  const { addToast } = useToast()
 
   const [proposalData, setProposalData] = useState<ICreditCardProposalResponse>(
     {}
@@ -116,6 +128,16 @@ const SummaryProposal = () => {
       isLoading
     ) {
       return <SummaryProposalLoading />
+    }
+
+    if (formResponse.numeroProposta || submitErrorCount === 3) {
+      return (
+        <SummaryProposalResponse
+          formData={proposalData}
+          formOrderResponse={formResponse}
+          hasError={submitErrorCount === 3}
+        />
+      )
     }
 
     return (
@@ -223,11 +245,22 @@ const SummaryProposal = () => {
             <S.AcceptButton
               color="secondary"
               disabled={!isFormValid(proposalData, isChecked)}
+              loading={isButtonLoading}
               data-testid="proposal-summary-accept-button"
               data-gtm-subname="botao aceitar proposta"
               data-gtm-name="botao aceitar"
               data-gtm-type="click"
               data-gtm-clicktype="button"
+              onClick={() =>
+                handlePostSubmit(
+                  proposalData,
+                  setFormResponse,
+                  setSubmitErrorCount,
+                  submitErrorCount,
+                  addToast,
+                  setIsButtonLoading
+                )
+              }
             >
               Concluir contratação
             </S.AcceptButton>

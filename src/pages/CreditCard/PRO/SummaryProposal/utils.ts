@@ -1,8 +1,11 @@
+import { IToast } from 'hooks/toast'
 import {
   ICreditCardProposalResponse,
   ICreditCardProposalRequest,
+  IOrderResponse,
+  ICreditCardCreationPayload,
 } from 'pages/CreditCard/Creation/types'
-import { axiosInstance } from 'services/api'
+import { axiosInstance, baseURLNamespaceInvestAws, post } from 'services/api'
 
 export const getParams = (encodedQueryParams: string) => {
   return JSON.parse(
@@ -82,5 +85,39 @@ export const getSummaryProposal = async (
     setHasError(true)
   } finally {
     setIsLoading(false)
+  }
+}
+
+export const handlePostSubmit = async (
+  formData: ICreditCardCreationPayload,
+  setFormResponse: (value: React.SetStateAction<IOrderResponse>) => void,
+  setSubmitErrorCount: (value: React.SetStateAction<number>) => void,
+  submitErrorCount: number,
+  addToast: (toast: Pick<IToast, 'type' | 'title' | 'description'>) => void,
+  setIsButtonLoading: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  try {
+    setIsButtonLoading(true)
+    const { data } = await post(
+      `${baseURLNamespaceInvestAws}/cartoes/solicitacao`,
+      formData
+    )
+
+    if (data) {
+      setFormResponse(data)
+    }
+    setIsButtonLoading(false)
+  } catch (error) {
+    setIsButtonLoading(false)
+    setSubmitErrorCount(submitErrorCount + 1)
+    addToast({
+      type: 'error',
+      title: 'Desculpe, ocorreu uma falha ao enviar a solicitação',
+      description: JSON.parse(error.message)?.msg,
+    })
+
+    if (submitErrorCount + 1 === 3) {
+      setFormResponse({})
+    }
   }
 }
