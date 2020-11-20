@@ -63,11 +63,13 @@ const getAddress = async ({
     }
   } catch (e) {
     setIsLoading(false)
-    addToast({
-      title: `Houve um erro ao buscar o CEP`,
-      description: `Por favor, edite o endereço manualmente.`,
-      type: 'error',
-    })
+    if (addToast) {
+      addToast({
+        title: `Houve um erro ao buscar o CEP`,
+        description: `Por favor, edite o endereço manualmente.`,
+        type: 'error',
+      })
+    }
   }
 }
 
