@@ -91,23 +91,29 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
 
   const getAddress = async () => {
     if (cep.length === 9) {
-      const [cepPrefix, cepSufix] = cep.split('-')
-      const { data, status } = await axiosInstance.get<CEPResponse>('/cliente/endereco', {
-        params: { cep: cepPrefix, cepSufixo: cepSufix }
-      })
-      if (status === 200) {
-        const { bairro, uf, cidade, logradouro, tipoLogradouro } = data
-        setStreetAddress(`${tipoLogradouro}. ${logradouro}`)
-        setCity(cidade)
-        setNeighbourhood(bairro)
-        setStateOption({ id: 99, name: uf })
-        setAddressDisabled(true)
-      } else {
+      try {
+        const [cepPrefix, cepSufix] = cep.split('-')
+        const { data, status } = await axiosInstance.get<CEPResponse>(
+          '/cliente/endereco',
+          {
+            params: { cep: cepPrefix, cepSufixo: cepSufix },
+          }
+        )
+
+        if (status === 200) {
+          const { bairro, uf, cidade, logradouro, tipoLogradouro } = data
+          setStreetAddress(`${tipoLogradouro}. ${logradouro}`)
+          setCity(cidade)
+          setNeighbourhood(bairro)
+          setStateOption({ id: 99, name: uf })
+          setAddressDisabled(true)
+        }
+      } catch (e) {
         setAddressDisabled(false)
         addToast({
           type: 'error',
           title: 'Houve um erro ao buscar CEP.',
-          description: 'Por favor, edite o endereço manualmente.'
+          description: 'Por favor, edite o endereço manualmente.',
         })
       }
     }

@@ -52,8 +52,10 @@ const generateErrorDataWithMessage = (statusCode, errorData) => {
 }
 
 const responseErrorInterceptor = error => {
-  const HTTPStatusCode = error.response.status
-  const errorData = error.response.data
+  const HTTPStatusCode = error?.response?.status ? error.response.status : 0
+  const errorData = error?.response?.data
+    ? error.response.data
+    : errorMessages[0]
 
   switch (true) {
     case HTTPStatusCode === 400:

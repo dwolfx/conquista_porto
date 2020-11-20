@@ -53,7 +53,10 @@ const DeliveryData = ({
         }
       >
         <S.Wrapper>
-          <DataShower label="CEP" value={formData.cep} />
+          <DataShower
+            label="CEP"
+            value={formData?.cep?.replace(/(\d{5})(\d{3})/g, '$1-$2')}
+          />
           <Divisor />
           <DataShower
             label="Endereço"

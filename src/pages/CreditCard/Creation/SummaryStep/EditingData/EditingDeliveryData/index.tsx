@@ -146,7 +146,7 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
         label="cep"
         name="cep"
         error={(!zipCode.length || zipCode.length < 9) && zipCodeError}
-        value={zipCode.replace(/(\d{5})(\d{1})/g, '$1-$2')}
+        value={zipCode.replace(/(\d{5})(\d{3})/g, '$1-$2')}
         placeholder="00000-000"
         suffix={isLoading && <Loading type="spinner" color="blue4" />}
         disabled={isLoading}
@@ -203,7 +203,7 @@ const EditingDeliveryData: React.FC<t.IEditingDeliveryData> = ({
     handleClose()
     setFormData({
       ...formData,
-      cep: zipCode,
+      cep: zipCode.replace('-', ''),
       logradouro: address,
       numeroLogradouro: addressNumber,
       complemento: additionalInfo,
