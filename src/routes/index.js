@@ -234,11 +234,11 @@ export default function Routes({ ...props }) {
           hook={useFetchCreditCard}
           pageTitle="Home - Cartão de Crédito"
         />
-        <DefaultRoute
+        {/* <DefaultRoute
           path="/cartao-credito/pro/:hash"
           component={CartaoCreditoPro}
           pageTitle="Home - Cartão de Crédito - PRO"
-        />
+        /> */}
         <DefaultRoute
           path="/seguro-viagem"
           exact
@@ -293,12 +293,12 @@ export default function Routes({ ...props }) {
           component={ManagementCreditCard}
           pageTitle="Gestão - Cartão de Crédito"
         />
-        <Route
+        {/* <Route
           path="/cartao-credito/proposta/:tokenLocker"
           exact
           component={SummaryProposal}
           pageTitle="Proposta - Cartão de Crédito"
-        />
+        /> */}
         <DefaultRoute
           path="/seguro-viagem/visualizar"
           component={ManagementTripInsurance}
