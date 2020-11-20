@@ -170,14 +170,15 @@ Array [
   .c9 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c6 {
@@ -587,13 +588,13 @@ Array [
           <div
             className="c8"
           >
-            <p
+            <h5
               className="c9 "
               color="unset"
-              type="heading4"
+              type="headline"
             >
               Previdência
-            </p>
+            </h5>
           </div>
           <div
             className="c10"
@@ -640,19 +641,21 @@ Array [
   .c9 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c23 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -666,6 +669,7 @@ Array [
 .c25 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 14px;
@@ -1339,13 +1343,13 @@ Array [
           <div
             className="c8"
           >
-            <p
+            <h5
               className="c9 "
               color="unset"
-              type="heading4"
+              type="headline"
             >
               Crédito
-            </p>
+            </h5>
           </div>
           <div
             className="c10"
@@ -1454,13 +1458,13 @@ Array [
                       <div
                         className="c22"
                       >
-                        <p
+                        <h5
                           className="c23"
                           color="unset"
                           type="headline"
                         >
                           Cartão de Crédito
-                        </p>
+                        </h5>
                       </div>
                       <div
                         className="c24"
@@ -1523,13 +1527,13 @@ Array [
                       <div
                         className="c22"
                       >
-                        <p
+                        <h5
                           className="c23"
                           color="unset"
                           type="headline"
                         >
                           Financiamento de Veículo
-                        </p>
+                        </h5>
                       </div>
                       <div
                         className="c24"
@@ -1592,13 +1596,13 @@ Array [
                       <div
                         className="c22"
                       >
-                        <p
+                        <h5
                           className="c23"
                           color="unset"
                           type="headline"
                         >
                           Consórcio de Veículo
-                        </p>
+                        </h5>
                       </div>
                       <div
                         className="c24"
@@ -1661,13 +1665,13 @@ Array [
                       <div
                         className="c22"
                       >
-                        <p
+                        <h5
                           className="c23"
                           color="unset"
                           type="headline"
                         >
                           Consórcio de imóvel
-                        </p>
+                        </h5>
                       </div>
                       <div
                         className="c24"

@@ -5,19 +5,21 @@ Array [
   .c8 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c14 {
   color: #898989;
   text-align: left;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -449,7 +451,7 @@ Array [
     data-name="col-sm-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1"
   >
     <div
-      className="c1 sc-fzoCUK c2"
+      className="c1 sc-fzoOEf c2"
     >
       <div
         className="c3"
@@ -473,13 +475,13 @@ Array [
           <div
             className="c7"
           >
-            <p
+            <h5
               className="c8 "
               color="unset"
-              type="heading4"
+              type="headline"
             >
               Objetivos
-            </p>
+            </h5>
           </div>
           <div
             className="c9"
@@ -495,14 +497,14 @@ Array [
           <div
             className="c13"
           >
-            <p
+            <h5
               className="c14 c15 c16"
               color="gray5"
               data-testid="legend"
               type="headline"
             >
               Aguarde, estamos buscando suas informações...
-            </p>
+            </h5>
             <div
               className="c17"
             >
@@ -520,6 +522,7 @@ Array [
   .c10 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -533,6 +536,7 @@ Array [
 .c18 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -548,6 +552,7 @@ Array [
 .c20 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 34px;
@@ -1114,13 +1119,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <h5
                 className="c10 c11"
                 color="unset"
                 type="headline"
               >
                 Viagem
-              </p>
+              </h5>
               <button
                 className="c12"
                 data-gtm-clicktype="button"
@@ -1168,13 +1173,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <h5
                 className="c10 c11"
                 color="unset"
                 type="headline"
               >
                 Aposentar
-              </p>
+              </h5>
               <button
                 className="c12"
                 data-gtm-clicktype="button"
@@ -1222,13 +1227,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <h5
                 className="c10 c11"
                 color="unset"
                 type="headline"
               >
                 Criar objetivo
-              </p>
+              </h5>
               <button
                 className="c12"
                 data-gtm-clicktype="button"
@@ -1265,27 +1270,27 @@ Array [
           <div
             className="sc-AxhCb c17"
           >
-            <p
+            <span
               className="c18 c19"
               color="unset"
               type="captionUppercase"
             >
               Dicas para economizar
-            </p>
-            <p
+            </span>
+            <h3
               className="c20 sc-AxiKw c21"
               color="unset"
               type="heading3"
             >
               Registre todas as despesas
-            </p>
-            <p
+            </h3>
+            <h5
               className="c10"
               color="unset"
               type="headline"
             >
               O primeiro passo para começar a poupar e controlar seu dinheiro é descobrir onde ele está. 
-            </p>
+            </h5>
           </div>
         </div>
       </div>

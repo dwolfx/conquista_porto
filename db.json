@@ -1,4 +1,13 @@
 {
+  "locker-mock": {
+    "data": {
+      "params": "portal=7&idParceiro=312&cpf=98277767030&nascimento=31%2F07%2F1989&email=cartao.claus%40mozej.com&celular=11980820533&bandeira=1&uf=SP&diaVencimento=1&cepResidencial=02357-120&enderecoResidencial=Rua+Capitao+Jose+Aguirre+Camargo&numeroResidencial=150&complementoResidencial=&bairroResidencial=Tremembe&estadoResidencial=SP&cidadeResidencial=Sao+Paulo&ocupacao=1&estadoCivil=2&sexo=M&tipoDocumento=RG&numeroDocumento=447767768&orgaoEmissor=ssp&dataExpedicao=12/12/2018&nomeMae=mae do cartao&aceite=&idSimulacao=2003",
+      "lockerExpiredDate": "13/12/2020 12:33:00"
+    },
+    "info": {
+      "date": "16/11/2020 10:57:21"
+    }
+  },
   "redeem_summary_get": {
     "Message": {
       "TipoCritica": "SUCESSO",
@@ -7957,5 +7966,1121 @@
       },
       "hora_limite_retirada_ted": "17"
     }
+  },
+  "cartao_dados_cliente": {
+    "cep": "0918919",
+    "codigoEstadoCivil": 1,
+    "cpfCnpj": "00000000191",
+    "dataExpedicao": "2017-01-17T00:00:00-03:00",
+    "dataNascimento": "1987-11-25T00:00:00-03:00",
+    "dddNumeroTelefone": 11,
+    "emailCliente": "blablabla@whiskas.com",
+    "estado": "SP",
+    "message": {
+      "mensagem": "SUCESSO",
+      "tipoCritica": "SUCESSO"
+    },
+    "nomeCliente": "Naruto Uzumaki",
+    "nomeMae": "Kushina Uzumaki",
+    "numeroDocumento": 999999999,
+    "numeroEnderecoResidencial": 321,
+    "numeroTelefone": 40028922,
+    "orgaoEmissor": "DETRAN",
+    "sexo": "M",
+    "tipoDocumento": "CNH"
+  },
+  "cartao-credito-dias-fatura": {
+    "codRetorno": "0",
+    "bandeiras": [
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "1"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "3"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "5"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "7"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "8"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "9"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "10"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "11"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "13"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "14"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "15"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "16"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "17"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "18"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "20"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "21"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "23"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "25"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "26"
+      },
+      {
+        "codBandeira": "1",
+        "bandeira": "VISA",
+        "descricao": "28"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "1"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "3"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "5"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "7"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "8"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "9"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "10"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "11"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "13"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "14"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "15"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "16"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "17"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "18"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "20"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "21"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "23"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "25"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "26"
+      },
+      {
+        "codBandeira": "2",
+        "bandeira": "MASTER",
+        "descricao": "28"
+      }
+    ],
+    "msgRetorno": "Consulta realizada com sucesso."
+  },
+  "cartao-profissoes": {
+    "descricaoErro": "Profissoes buscadas com sucesso.",
+    "profissoesVO": [
+      {
+        "codUsuarioAlteracao": "P0621470",
+        "codProfissaoProduto": "1",
+        "dataInclusao": "2015-12-17T11:22:40-02:00",
+        "nome": "MEDICO",
+        "dataAlteracao": "2015-12-17T11:22:40-02:00",
+        "codProduto": "0"
+      },
+      {
+        "codUsuarioAlteracao": "P0621470",
+        "codProfissaoProduto": "99",
+        "dataInclusao": "2011-07-15T00:00:00-03:00",
+        "nome": "ASSALARIADO",
+        "dataAlteracao": "2015-12-17T11:55:17-02:00",
+        "codProduto": "1"
+      },
+      {
+        "codUsuarioAlteracao": "F0110876",
+        "codProfissaoProduto": "2",
+        "dataInclusao": "2011-07-15T00:00:00-03:00",
+        "nome": "AUTONOMO",
+        "dataAlteracao": "2011-07-15T00:00:00-03:00",
+        "codProduto": "2"
+      },
+      {
+        "codUsuarioAlteracao": "F0109630",
+        "codProfissaoProduto": "1250",
+        "dataInclusao": "2016-07-18T08:18:55-03:00",
+        "nome": "TESTE APW",
+        "dataAlteracao": "2016-07-18T08:18:55-03:00",
+        "codProduto": "3"
+      },
+      {
+        "codUsuarioAlteracao": "F0110876",
+        "codProfissaoProduto": "5",
+        "dataInclusao": "2011-07-15T00:00:00-03:00",
+        "nome": "FUNCIONARIO PUBLICO",
+        "dataAlteracao": "2011-07-15T00:00:00-03:00",
+        "codProduto": "5"
+      },
+      {
+        "codUsuarioAlteracao": "F0110876",
+        "codProfissaoProduto": "6",
+        "dataInclusao": "2011-07-15T00:00:00-03:00",
+        "nome": "LIBERAIS",
+        "dataAlteracao": "2011-07-15T00:00:00-03:00",
+        "codProduto": "6"
+      },
+      {
+        "codUsuarioAlteracao": "F0109630",
+        "codProfissaoProduto": "139",
+        "dataInclusao": "2015-06-18T16:38:24-03:00",
+        "nome": "Estafeta",
+        "dataAlteracao": "2015-06-18T16:38:24-03:00",
+        "codProduto": "7"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "143",
+        "dataInclusao": "2011-05-26T20:11:22-03:00",
+        "nome": "PROFESSORES",
+        "dataAlteracao": "2011-05-26T20:11:22-03:00",
+        "codProduto": "9"
+      },
+      {
+        "codUsuarioAlteracao": "F0110876",
+        "codProfissaoProduto": "13",
+        "dataInclusao": "2011-07-15T00:00:00-03:00",
+        "nome": "AUTONOMO",
+        "dataAlteracao": "2011-07-15T00:00:00-03:00",
+        "codProduto": "13"
+      },
+      {
+        "codUsuarioAlteracao": "F0110876",
+        "codProfissaoProduto": "1204",
+        "dataInclusao": "2011-07-14T20:37:03-03:00",
+        "nome": "OUTROS/OUTROS",
+        "dataAlteracao": "2011-07-14T20:37:03-03:00",
+        "codProduto": "16"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1202",
+        "dataInclusao": "2011-05-26T19:52:22-03:00",
+        "nome": "ADMINISTRADORES-ECONOMISTAS",
+        "dataAlteracao": "2011-05-26T19:52:22-03:00",
+        "codProduto": "24"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "131",
+        "dataInclusao": "2011-05-26T19:54:36-03:00",
+        "nome": "ADVOGADOS",
+        "dataAlteracao": "2011-05-26T19:54:36-03:00",
+        "codProduto": "25"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "126",
+        "dataInclusao": "2011-05-26T19:54:44-03:00",
+        "nome": "ANALISTAS DE SISTEMAS",
+        "dataAlteracao": "2011-05-26T19:54:44-03:00",
+        "codProduto": "26"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "953",
+        "dataInclusao": "2011-05-26T19:59:12-03:00",
+        "nome": "ATLETAS PROFISSIONAIS",
+        "dataAlteracao": "2011-05-26T19:59:12-03:00",
+        "codProduto": "27"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1160",
+        "dataInclusao": "2011-05-26T19:59:14-03:00",
+        "nome": "AUXILIARES DE ENFERMAGEM",
+        "dataAlteracao": "2011-05-26T19:59:14-03:00",
+        "codProduto": "28"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "598",
+        "dataInclusao": "2011-05-26T20:00:28-03:00",
+        "nome": "EMPREGADOS DOMESTICOS",
+        "dataAlteracao": "2011-05-26T20:00:28-03:00",
+        "codProduto": "30"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "113",
+        "dataInclusao": "2011-05-26T20:04:16-03:00",
+        "nome": "ENFERMEIRO-FISIOTERAPEUTA-PROF DA SAUDE",
+        "dataAlteracao": "2011-05-26T20:04:16-03:00",
+        "codProduto": "31"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "101",
+        "dataInclusao": "2011-05-26T20:06:51-03:00",
+        "nome": "ENG./Arquit./QUIM.-FISICOS/ASSEMELHADOS",
+        "dataAlteracao": "2011-05-26T20:06:51-03:00",
+        "codProduto": "32"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "511",
+        "dataInclusao": "2011-05-26T20:34:35-03:00",
+        "nome": "ESPECIALIZADOS CABELEIREIROS-MANICURES-M",
+        "dataAlteracao": "2011-05-26T20:34:35-03:00",
+        "codProduto": "33"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "23",
+        "dataInclusao": "2011-05-26T20:34:37-03:00",
+        "nome": "ESPECIALIZADOS COZINHEIROS-CONFEITEIROS-",
+        "dataAlteracao": "2011-05-26T20:34:37-03:00",
+        "codProduto": "34"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1166",
+        "dataInclusao": "2011-05-26T20:34:38-03:00",
+        "nome": "ESPECIALIZADOS TORNEIROS-FERRAMENTEIROS-",
+        "dataAlteracao": "2011-05-26T20:34:38-03:00",
+        "codProduto": "35"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "12",
+        "dataInclusao": "2011-05-26T20:34:39-03:00",
+        "nome": "EXECUTIVOS-DIRETORES-VICE DIRETORES-SUPE",
+        "dataAlteracao": "2011-05-26T20:34:39-03:00",
+        "codProduto": "36"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "303",
+        "dataInclusao": "2011-05-26T20:09:51-03:00",
+        "nome": "EXECUTIVOS-NIVEL DE GERENCIA",
+        "dataAlteracao": "2011-05-26T20:09:51-03:00",
+        "codProduto": "37"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "8",
+        "dataInclusao": "2011-05-26T20:10:36-03:00",
+        "nome": "MOTOBOYS-LIQUIDANTES-INFORMANTES",
+        "dataAlteracao": "2011-05-26T20:10:36-03:00",
+        "codProduto": "38"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "532",
+        "dataInclusao": "2011-05-26T20:10:38-03:00",
+        "nome": "MOTORISTAS ASSALARIADOS",
+        "dataAlteracao": "2011-05-26T20:10:38-03:00",
+        "codProduto": "39"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1061",
+        "dataInclusao": "2011-05-26T20:10:51-03:00",
+        "nome": "NAO ESPECIALIZADOS AJUDANTES DE PRODUCAO",
+        "dataAlteracao": "2011-05-26T20:10:51-03:00",
+        "codProduto": "40"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1130",
+        "dataInclusao": "2011-05-26T20:34:45-03:00",
+        "nome": "NAO ESPECIALIZADOS OPERADORES DE MÁQUINA",
+        "dataAlteracao": "2011-05-26T20:34:45-03:00",
+        "codProduto": "41"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "394",
+        "dataInclusao": "2011-05-26T20:34:46-03:00",
+        "nome": "NAO QUALIFICADOS-AUXILIARES DE ESCRITORI",
+        "dataAlteracao": "2011-05-26T20:34:46-03:00",
+        "codProduto": "42"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "501",
+        "dataInclusao": "2011-05-26T20:34:48-03:00",
+        "nome": "NAO QUALIFICADOS-MANOBRISTAS-FRENTISTAS",
+        "dataAlteracao": "2011-05-26T20:34:48-03:00",
+        "codProduto": "43"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "391",
+        "dataInclusao": "2011-05-26T20:34:54-03:00",
+        "nome": "NIVEL DE CHEFIA INTERMEDIARIA-SETOR-SECA",
+        "dataAlteracao": "2011-05-26T20:34:54-03:00",
+        "codProduto": "44"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1138",
+        "dataInclusao": "2011-05-26T20:35:01-03:00",
+        "nome": "PORTEIROS-VIGIAS-ZELADORES-SEGURANCAS-MA",
+        "dataAlteracao": "2011-05-26T20:35:01-03:00",
+        "codProduto": "45"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "143",
+        "dataInclusao": "2011-05-26T20:11:24-03:00",
+        "nome": "PROFESSORES PRIMARIO-SECUNDARIO",
+        "dataAlteracao": "2011-05-26T20:11:24-03:00",
+        "codProduto": "46"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "143",
+        "dataInclusao": "2011-05-26T20:11:26-03:00",
+        "nome": "PROFESSORES UNIVERSITARIOS",
+        "dataAlteracao": "2011-05-26T20:11:26-03:00",
+        "codProduto": "47"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "10",
+        "dataInclusao": "2011-05-26T20:11:33-03:00",
+        "nome": "PROGRAMADORES",
+        "dataAlteracao": "2011-05-26T20:11:33-03:00",
+        "codProduto": "48"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1066",
+        "dataInclusao": "2011-05-26T20:35:11-03:00",
+        "nome": "QUALIFICADOS-ANALISTAS-ASSISTENTES QUALI",
+        "dataAlteracao": "2011-05-26T20:35:11-03:00",
+        "codProduto": "49"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "23",
+        "dataInclusao": "2011-05-26T20:35:12-03:00",
+        "nome": "QUALIFICADOS-COZINHEIROS-CONFEITEIROS-PI",
+        "dataAlteracao": "2011-05-26T20:35:12-03:00",
+        "codProduto": "50"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "17",
+        "dataInclusao": "2011-05-26T20:11:56-03:00",
+        "nome": "QUALIFICADOS-SECRETÁRIAS DE DIRETORIA",
+        "dataAlteracao": "2011-05-26T20:11:56-03:00",
+        "codProduto": "51"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "104",
+        "dataInclusao": "2011-05-26T20:11:58-03:00",
+        "nome": "QUIMICOS-FARMACEUTICOS",
+        "dataAlteracao": "2011-05-26T20:11:58-03:00",
+        "codProduto": "52"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "166",
+        "dataInclusao": "2011-05-26T20:35:13-03:00",
+        "nome": "RADIALISTAS-LOCUTORES-REPORTERES E SIMIL",
+        "dataAlteracao": "2011-05-26T20:35:13-03:00",
+        "codProduto": "53"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "402",
+        "dataInclusao": "2011-05-26T20:12:21-03:00",
+        "nome": "VENDEDORES ASSALARIADOS",
+        "dataAlteracao": "2011-05-26T20:12:21-03:00",
+        "codProduto": "55"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "171",
+        "dataInclusao": "2011-05-26T19:59:09-03:00",
+        "nome": "ARTISTAS SACERDOTES E JORNALISTAS",
+        "dataAlteracao": "2011-05-26T19:59:09-03:00",
+        "codProduto": "57"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "511",
+        "dataInclusao": "2011-05-26T19:59:16-03:00",
+        "nome": "CABELEIREROS-MANICURES-ESTETICISTAS",
+        "dataAlteracao": "2011-05-26T19:59:16-03:00",
+        "codProduto": "58"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "124",
+        "dataInclusao": "2011-05-26T19:59:44-03:00",
+        "nome": "CONSULTORES-CONTADORES SEM ESCRITORIO",
+        "dataAlteracao": "2011-05-26T19:59:44-03:00",
+        "codProduto": "59"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "403",
+        "dataInclusao": "2011-05-26T19:59:50-03:00",
+        "nome": "CORRETORES DE IMOVEIS-VALORES",
+        "dataAlteracao": "2011-05-26T19:59:50-03:00",
+        "codProduto": "60"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "591",
+        "dataInclusao": "2011-05-26T19:59:54-03:00",
+        "nome": "COSTUREIRAS-BORDADEIRAS E SIMILARES",
+        "dataAlteracao": "2011-05-26T19:59:54-03:00",
+        "codProduto": "61"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "593",
+        "dataInclusao": "2011-05-26T20:00:20-03:00",
+        "nome": "DESPACHANTES-SERVICOS JUNTO A AUTARQUIAS",
+        "dataAlteracao": "2011-05-26T20:00:20-03:00",
+        "codProduto": "62"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "413",
+        "dataInclusao": "2011-05-26T20:09:54-03:00",
+        "nome": "FEIRANTES",
+        "dataAlteracao": "2011-05-26T20:09:54-03:00",
+        "codProduto": "63"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1119",
+        "dataInclusao": "2011-05-26T20:34:41-03:00",
+        "nome": "JARDINEIROS-COZINHEIROS-SERVICOS RESIDEN",
+        "dataAlteracao": "2011-05-26T20:34:41-03:00",
+        "codProduto": "64"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1111",
+        "dataInclusao": "2011-05-26T20:10:23-03:00",
+        "nome": "MESTRES DE OBRA-CONSTRUTORES AUTONOMOS",
+        "dataAlteracao": "2011-05-26T20:10:23-03:00",
+        "codProduto": "65"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "532",
+        "dataInclusao": "2011-05-26T20:10:39-03:00",
+        "nome": "MOTORISTAS AUTONOMOS-CAMINHAO",
+        "dataAlteracao": "2011-05-26T20:10:39-03:00",
+        "codProduto": "66"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "531",
+        "dataInclusao": "2011-05-26T20:10:41-03:00",
+        "nome": "MOTORISTAS AUTONOMOS-PERUEIROS",
+        "dataAlteracao": "2011-05-26T20:10:41-03:00",
+        "codProduto": "67"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1151",
+        "dataInclusao": "2011-05-26T20:10:43-03:00",
+        "nome": "MOTORISTAS AUTONOMOS-TAXI",
+        "dataAlteracao": "2011-05-26T20:10:43-03:00",
+        "codProduto": "68"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "531",
+        "dataInclusao": "2011-05-26T20:34:44-03:00",
+        "nome": "MOTORISTAS AUTONOMOS-TRANSPORTE DE PASSA",
+        "dataAlteracao": "2011-05-26T20:34:44-03:00",
+        "codProduto": "69"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "531",
+        "dataInclusao": "2011-05-26T20:10:48-03:00",
+        "nome": "MOTORISTAS AUTONOMOS-TRANSPORTE ESCOLAR",
+        "dataAlteracao": "2011-05-26T20:10:48-03:00",
+        "codProduto": "70"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "13",
+        "dataInclusao": "2011-05-26T20:35:00-03:00",
+        "nome": "PEDREIROS-CARPINTEIROS-SERRALHEIROS E AS",
+        "dataAlteracao": "2011-05-26T20:35:00-03:00",
+        "codProduto": "71"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "10",
+        "dataInclusao": "2011-05-26T20:35:06-03:00",
+        "nome": "PROFISSIONAIS AUTONOMOS DA AREA DE INFOR",
+        "dataAlteracao": "2011-05-26T20:35:06-03:00",
+        "codProduto": "72"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1142",
+        "dataInclusao": "2011-05-26T20:11:38-03:00",
+        "nome": "PROMOTORES DE EVENTOS-FEIRAS-FESTAS",
+        "dataAlteracao": "2011-05-26T20:11:38-03:00",
+        "codProduto": "73"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "592",
+        "dataInclusao": "2011-05-26T20:35:08-03:00",
+        "nome": "PROTETICOS-INSTRUMENTISTAS E ASSEMELHADO",
+        "dataAlteracao": "2011-05-26T20:35:08-03:00",
+        "codProduto": "74"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "402",
+        "dataInclusao": "2011-05-26T20:12:22-03:00",
+        "nome": "VENDEDORES-REPRESENTANTES-INTERMEDIARIOS",
+        "dataAlteracao": "2011-05-26T20:12:22-03:00",
+        "codProduto": "75"
+      },
+      {
+        "codUsuarioAlteracao": "F0110876",
+        "codProfissaoProduto": "993",
+        "dataInclusao": "2011-07-15T14:58:43-03:00",
+        "nome": "OUTROS ESTABELECIDOS",
+        "dataAlteracao": "2011-07-15T14:58:43-03:00",
+        "codProduto": "76"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "902",
+        "dataInclusao": "2011-05-26T20:10:25-03:00",
+        "nome": "MICRO EMPRESARIOS-COMERCIO",
+        "dataAlteracao": "2011-05-26T20:10:25-03:00",
+        "codProduto": "80"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "903",
+        "dataInclusao": "2011-05-26T20:10:27-03:00",
+        "nome": "MICRO EMPRESARIOS-INDUSTRIA",
+        "dataAlteracao": "2011-05-26T20:10:27-03:00",
+        "codProduto": "81"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "601",
+        "dataInclusao": "2011-05-26T20:34:59-03:00",
+        "nome": "PECUARISTAS-AGRICULTORES DE PEQUENO PORT",
+        "dataAlteracao": "2011-05-26T20:34:59-03:00",
+        "codProduto": "83"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "601",
+        "dataInclusao": "2011-05-26T20:34:56-03:00",
+        "nome": "PECUARISTAS-AGRICULTORES DE GRANDE PORTE",
+        "dataAlteracao": "2011-05-26T20:34:56-03:00",
+        "codProduto": "84"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "601",
+        "dataInclusao": "2011-05-26T20:34:58-03:00",
+        "nome": "PECUARISTAS-AGRICULTORES DE MÉDIO PORTE-",
+        "dataAlteracao": "2011-05-26T20:34:58-03:00",
+        "codProduto": "85"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1107",
+        "dataInclusao": "2011-05-26T20:11:40-03:00",
+        "nome": "PROPRIETARIOS DE BARES E LANCHONETES",
+        "dataAlteracao": "2011-05-26T20:11:40-03:00",
+        "codProduto": "86"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "902",
+        "dataInclusao": "2011-05-26T20:11:42-03:00",
+        "nome": "PROPRIETARIOS DE PADARIAS-FARMACIAS",
+        "dataAlteracao": "2011-05-26T20:11:42-03:00",
+        "codProduto": "87"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1107",
+        "dataInclusao": "2011-05-26T20:11:44-03:00",
+        "nome": "PROPRIETARIOS DE RESTAURANTES",
+        "dataAlteracao": "2011-05-26T20:11:44-03:00",
+        "codProduto": "88"
+      },
+      {
+        "codUsuarioAlteracao": "F0110876",
+        "codProfissaoProduto": "1148",
+        "dataInclusao": "2011-07-15T14:58:39-03:00",
+        "nome": "OUTROS AUTONOMOS",
+        "dataAlteracao": "2011-07-15T14:58:39-03:00",
+        "codProduto": "90"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1066",
+        "dataInclusao": "2011-05-26T19:54:42-03:00",
+        "nome": "ANALISTA DE DOCUMENTOS",
+        "dataAlteracao": "2011-05-26T19:54:42-03:00",
+        "codProduto": "92"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "303",
+        "dataInclusao": "2011-05-26T20:10:11-03:00",
+        "nome": "GERENTE",
+        "dataAlteracao": "2011-05-26T20:10:11-03:00",
+        "codProduto": "94"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "10",
+        "dataInclusao": "2011-05-26T20:11:31-03:00",
+        "nome": "PROGRAMADOR DE COMPUTADOR",
+        "dataAlteracao": "2011-05-26T20:11:31-03:00",
+        "codProduto": "95"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "491",
+        "dataInclusao": "2011-05-26T20:11:36-03:00",
+        "nome": "PROMOTOR DE VENDAS E OUTROS DO PERFIL",
+        "dataAlteracao": "2011-05-26T20:11:36-03:00",
+        "codProduto": "96"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "396",
+        "dataInclusao": "2011-05-26T20:12:07-03:00",
+        "nome": "SECURITARIOS",
+        "dataAlteracao": "2011-05-26T20:12:07-03:00",
+        "codProduto": "97"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "297",
+        "dataInclusao": "2011-05-26T20:09:56-03:00",
+        "nome": "FUNCIONARIO PUBLICO-NIVEL DE AUXILIAR",
+        "dataAlteracao": "2011-05-26T20:09:56-03:00",
+        "codProduto": "98"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "297",
+        "dataInclusao": "2011-05-26T20:09:58-03:00",
+        "nome": "FUNCIONARIO PUBLICO-NIVEL DE CHEFIA",
+        "dataAlteracao": "2011-05-26T20:09:58-03:00",
+        "codProduto": "99"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "297",
+        "dataInclusao": "2011-05-26T20:10:00-03:00",
+        "nome": "FUNCIONARIO PUBLICO-NIVEL DE DIRETORIA",
+        "dataAlteracao": "2011-05-26T20:10:00-03:00",
+        "codProduto": "100"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "297",
+        "dataInclusao": "2011-05-26T20:34:40-03:00",
+        "nome": "FUNCIONARIO PUBLICO-NIVEL DE SUPERINTENA",
+        "dataAlteracao": "2011-05-26T20:34:40-03:00",
+        "codProduto": "101"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "297",
+        "dataInclusao": "2011-05-26T20:10:07-03:00",
+        "nome": "FUNCIONARIO PUBLICO-NIVEL TECNICO",
+        "dataAlteracao": "2011-05-26T20:10:07-03:00",
+        "codProduto": "102"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "297",
+        "dataInclusao": "2011-05-26T20:11:07-03:00",
+        "nome": "OUTROS FUNCIONARIOS PUBLICOS",
+        "dataAlteracao": "2011-05-26T20:11:07-03:00",
+        "codProduto": "103"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "131",
+        "dataInclusao": "2011-05-26T19:54:40-03:00",
+        "nome": "ADVOGADOS SEM VINCULO EMPREGATICIO",
+        "dataAlteracao": "2011-05-26T19:54:40-03:00",
+        "codProduto": "104"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "102",
+        "dataInclusao": "2011-05-26T19:57:14-03:00",
+        "nome": "ARQUITETOS SEM VINCULO EMPREGATICIO",
+        "dataAlteracao": "2011-05-26T19:57:14-03:00",
+        "codProduto": "105"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "121",
+        "dataInclusao": "2011-05-26T20:00:25-03:00",
+        "nome": "ECONOMISTAS-ADMINISTRADORES",
+        "dataAlteracao": "2011-05-26T20:00:25-03:00",
+        "codProduto": "106"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "101",
+        "dataInclusao": "2011-05-26T20:04:19-03:00",
+        "nome": "ENGENHEIROS",
+        "dataAlteracao": "2011-05-26T20:04:19-03:00",
+        "codProduto": "107"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "111",
+        "dataInclusao": "2011-05-26T20:10:21-03:00",
+        "nome": "MEDICOS E CIRURGIOES DENTISTAS",
+        "dataAlteracao": "2011-05-26T20:10:21-03:00",
+        "codProduto": "108"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "132",
+        "dataInclusao": "2011-05-26T20:35:09-03:00",
+        "nome": "PSICOLOGOS-FONOAUDIOLOGOS-ODONTOLOGOS ES",
+        "dataAlteracao": "2011-05-26T20:35:09-03:00",
+        "codProduto": "109"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1165",
+        "dataInclusao": "2011-05-26T20:12:14-03:00",
+        "nome": "TOPOGRAFOS-AGRIMENSORES E ASSEMELHADOS",
+        "dataAlteracao": "2011-05-26T20:12:14-03:00",
+        "codProduto": "110"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "960",
+        "dataInclusao": "2011-05-26T19:54:46-03:00",
+        "nome": "APOSENTADOS COM CAIXA DE PREVIDENCIA",
+        "dataAlteracao": "2011-05-26T19:54:46-03:00",
+        "codProduto": "112"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "963",
+        "dataInclusao": "2011-05-26T19:57:10-03:00",
+        "nome": "APOSENTADOS EMPRESA PRIVADA-PENSIONISTAS",
+        "dataAlteracao": "2011-05-26T19:57:10-03:00",
+        "codProduto": "113"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "181",
+        "dataInclusao": "2011-05-26T19:59:21-03:00",
+        "nome": "COMANDANTE DE AERONAVES-EMBARCACOES",
+        "dataAlteracao": "2011-05-26T19:59:21-03:00",
+        "codProduto": "114"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "965",
+        "dataInclusao": "2011-05-26T20:00:23-03:00",
+        "nome": "DO LAR-PRENDAS DOMÉSTICAS",
+        "dataAlteracao": "2011-05-26T20:00:23-03:00",
+        "codProduto": "115"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "3",
+        "dataInclusao": "2011-05-26T20:34:43-03:00",
+        "nome": "MILITARES DE ALTA PATENTE-GENERAIS E BR)",
+        "dataAlteracao": "2011-05-26T20:34:43-03:00",
+        "codProduto": "116"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "3",
+        "dataInclusao": "2011-05-26T20:10:33-03:00",
+        "nome": "MILITARES DE PATENTE INTERMEDIARIA",
+        "dataAlteracao": "2011-05-26T20:10:33-03:00",
+        "codProduto": "117"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "982",
+        "dataInclusao": "2011-05-26T20:12:05-03:00",
+        "nome": "RENTISTAS",
+        "dataAlteracao": "2011-05-26T20:12:05-03:00",
+        "codProduto": "118"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "3",
+        "dataInclusao": "2011-05-26T20:34:30-03:00",
+        "nome": "SOLDADOS-POLICIAIS-MILITARES SEM PATENTL",
+        "dataAlteracao": "2011-05-26T20:34:30-03:00",
+        "codProduto": "120"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "201",
+        "dataInclusao": "2011-05-26T20:12:12-03:00",
+        "nome": "SUB PREFEITOS-VEREADORES-REGIONAIS",
+        "dataAlteracao": "2011-05-26T20:12:12-03:00",
+        "codProduto": "121"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1064",
+        "dataInclusao": "2011-05-26T20:12:16-03:00",
+        "nome": "TREINADORES",
+        "dataAlteracao": "2011-05-26T20:12:16-03:00",
+        "codProduto": "122"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "939",
+        "dataInclusao": "2011-05-26T20:12:19-03:00",
+        "nome": "UNIVERSITARIOS",
+        "dataAlteracao": "2011-05-26T20:12:19-03:00",
+        "codProduto": "123"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "201",
+        "dataInclusao": "2011-05-26T20:12:24-03:00",
+        "nome": "VEREADORES-DEPUTADOS",
+        "dataAlteracao": "2011-05-26T20:12:24-03:00",
+        "codProduto": "124"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1089",
+        "dataInclusao": "2011-05-26T19:59:47-03:00",
+        "nome": "CORRETOR PESSOA FISICA",
+        "dataAlteracao": "2011-05-26T19:59:47-03:00",
+        "codProduto": "129"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1089",
+        "dataInclusao": "2011-05-26T19:59:48-03:00",
+        "nome": "CORRETOR PESSOA JURIDICA",
+        "dataAlteracao": "2011-05-26T19:59:48-03:00",
+        "codProduto": "130"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "303",
+        "dataInclusao": "2011-05-26T20:10:13-03:00",
+        "nome": "GERENTE GRUPO P ORTO SEGURO",
+        "dataAlteracao": "2011-05-26T20:10:13-03:00",
+        "codProduto": "133"
+      },
+      {
+        "codUsuarioAlteracao": "F0104181",
+        "codProfissaoProduto": "1064",
+        "dataInclusao": "2011-05-26T20:12:18-03:00",
+        "nome": "TREINADORES-AUTONOMOS",
+        "dataAlteracao": "2011-05-26T20:12:18-03:00",
+        "codProduto": "134"
+      },
+      {
+        "codUsuarioAlteracao": "F0109630",
+        "codProfissaoProduto": "139",
+        "dataInclusao": "2015-06-18T16:42:44-03:00",
+        "nome": "Office Boy",
+        "dataAlteracao": "2015-06-19T12:17:46-03:00",
+        "codProduto": "139"
+      },
+      {
+        "codUsuarioAlteracao": "P0621470",
+        "codProfissaoProduto": "1249",
+        "dataInclusao": "2015-11-23T09:37:19-02:00",
+        "nome": "TESTE",
+        "dataAlteracao": "2015-11-23T09:38:59-02:00",
+        "codProduto": "140"
+      },
+      {
+        "codUsuarioAlteracao": "P0621470",
+        "codProfissaoProduto": "666",
+        "dataInclusao": "2015-12-17T15:21:24-02:00",
+        "nome": "DEUS",
+        "dataAlteracao": "2015-12-17T15:21:24-02:00",
+        "codProduto": "141"
+      },
+      {
+        "codUsuarioAlteracao": "P0621470",
+        "codProfissaoProduto": "214",
+        "dataInclusao": "2015-12-17T15:28:50-02:00",
+        "nome": "HSJKNZ",
+        "dataAlteracao": "2015-12-17T15:28:50-02:00",
+        "codProduto": "142"
+      },
+      {
+        "codUsuarioAlteracao": "F0109630",
+        "codProfissaoProduto": "341",
+        "dataInclusao": "2015-12-17T15:37:28-02:00",
+        "nome": "APW 1",
+        "dataAlteracao": "2016-07-18T11:23:01-03:00",
+        "codProduto": "143"
+      }
+    ],
+    "codigoErro": "0"
+  },
+  "credit-card-ofertas": {
+    "CodigoOferta": "3",
+    "MensagemOferta": "Nenhum cartão disponível no momento.",
+    "IdSimulacao": "1717",
+    "Message": {
+      "TipoCritica": "SUCESSO"
+    },
+    "CodigoRetorno": "0"
+  },
+  "cep-mock": {
+    "uf": "SP",
+    "cep": "04004",
+    "complementoCep": "2",
+    "cidade": "SAO PAULO",
+    "tipoLogradouro": "R",
+    "bairro": "PARAISO",
+    "logradouro": "SAMPAIO VIANA"
   }
 }

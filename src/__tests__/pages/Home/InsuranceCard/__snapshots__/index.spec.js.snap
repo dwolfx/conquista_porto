@@ -4,19 +4,21 @@ exports[`InsuranceCard Renders correctly 1`] = `
 .c8 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c21 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -30,6 +32,7 @@ exports[`InsuranceCard Renders correctly 1`] = `
 .c22 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -530,13 +533,13 @@ exports[`InsuranceCard Renders correctly 1`] = `
       <div
         className="c7"
       >
-        <p
+        <h5
           className="c8 "
           color="unset"
-          type="heading4"
+          type="headline"
         >
           Seguros
-        </p>
+        </h5>
       </div>
       <div
         className="c9"
@@ -642,13 +645,13 @@ exports[`InsuranceCard Renders correctly 1`] = `
                 <div
                   className="c20"
                 >
-                  <p
+                  <h5
                     className="c21"
                     color="gray6"
                     type="headline"
                   >
                     Seguro de Vida
-                  </p>
+                  </h5>
                   <p
                     className="c22"
                     color="gray5"
@@ -703,13 +706,13 @@ exports[`InsuranceCard Renders correctly 1`] = `
                 <div
                   className="c20"
                 >
-                  <p
+                  <h5
                     className="c21"
                     color="gray6"
                     type="headline"
                   >
                     Seguro Viagem
-                  </p>
+                  </h5>
                   <p
                     className="c22"
                     color="gray5"

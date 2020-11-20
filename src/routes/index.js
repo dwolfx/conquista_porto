@@ -27,12 +27,14 @@ import ManagementConsortiumVehicle from 'pages/ConsortiumVehicle/Management'
 import ConsortiumBuilding from 'pages/ConsortiumBuilding'
 import ManagementConsortiumBuilding from 'pages/ConsortiumBuilding/Management'
 import CartaoCredito from 'pages/CreditCard'
+import CartaoCreditoPro from 'pages/CreditCard/PRO'
 import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
 import ManagementTripInsurance from 'pages/TripInsurance/Management'
 import RedirectComponent from 'pages/Redirect'
 import Withdraw from 'pages/Withdraw'
+import SummaryProposal from 'pages/CreditCard/PRO/SummaryProposal'
 
 import Objectives from 'pages/Objectives'
 import ObjectivesManager from 'pages/Objectives/Manager'
@@ -232,6 +234,11 @@ export default function Routes({ ...props }) {
           hook={useFetchCreditCard}
           pageTitle="Home - Cartão de Crédito"
         />
+        {/* <DefaultRoute
+          path="/cartao-credito/pro/:hash"
+          component={CartaoCreditoPro}
+          pageTitle="Home - Cartão de Crédito - PRO"
+        /> */}
         <DefaultRoute
           path="/seguro-viagem"
           exact
@@ -286,6 +293,12 @@ export default function Routes({ ...props }) {
           component={ManagementCreditCard}
           pageTitle="Gestão - Cartão de Crédito"
         />
+        {/* <Route
+          path="/cartao-credito/proposta/:tokenLocker"
+          exact
+          component={SummaryProposal}
+          pageTitle="Proposta - Cartão de Crédito"
+        /> */}
         <DefaultRoute
           path="/seguro-viagem/visualizar"
           component={ManagementTripInsurance}

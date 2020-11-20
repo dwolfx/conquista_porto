@@ -45,6 +45,7 @@ exports[`Login component should renders correctly with development value for env
 .c5 {
   color: #00ADEF;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -58,6 +59,7 @@ exports[`Login component should renders correctly with development value for env
 .c6 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 11px;
@@ -274,13 +276,13 @@ exports[`Login component should renders correctly with development value for env
           className="c4"
           data-name=""
         >
-          <p
+          <h5
             className="c5"
             color="blue4"
             type="headline"
           >
             Login Conquista - Dev/HML
-          </p>
+          </h5>
         </div>
         <div
           className="c4"
@@ -418,6 +420,7 @@ exports[`Login component should renders correctly with error message 1`] = `
 .c5 {
   color: #00ADEF;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -431,6 +434,7 @@ exports[`Login component should renders correctly with error message 1`] = `
 .c6 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 11px;
@@ -445,6 +449,7 @@ exports[`Login component should renders correctly with error message 1`] = `
 .c12 {
   color: #E72176;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 14px;
@@ -660,13 +665,13 @@ exports[`Login component should renders correctly with error message 1`] = `
           className="c4"
           data-name=""
         >
-          <p
+          <h5
             className="c5"
             color="blue4"
             type="headline"
           >
             Login Conquista - Dev/HML
-          </p>
+          </h5>
         </div>
         <div
           className="c4"
@@ -816,6 +821,7 @@ exports[`Login component should renders correctly with local value for env 1`] =
 .c5 {
   color: #00ADEF;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -829,6 +835,7 @@ exports[`Login component should renders correctly with local value for env 1`] =
 .c6 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 11px;
@@ -1045,13 +1052,13 @@ exports[`Login component should renders correctly with local value for env 1`] =
           className="c4"
           data-name=""
         >
-          <p
+          <h5
             className="c5"
             color="blue4"
             type="headline"
           >
             Login Conquista - Dev/HML
-          </p>
+          </h5>
         </div>
         <div
           className="c4"

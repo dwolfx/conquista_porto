@@ -13,6 +13,7 @@ Array [
 .c3 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 34px;
@@ -26,6 +27,7 @@ Array [
 .c10 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-size: 11px;
   font-weight: 600;
@@ -40,6 +42,7 @@ Array [
 .c12 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 14px;
@@ -262,13 +265,13 @@ Array [
       <article
         className="c2"
       >
-        <p
+        <h3
           className="c3 c4"
           color="unset"
           type="heading3"
         >
           Notificações
-        </p>
+        </h3>
         <div
           className="c5"
         >
@@ -296,13 +299,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <span
                 className="c10 c11"
                 color="unset"
                 type="button"
               >
                 Cadastro de investidor incompleto.
-              </p>
+              </span>
               <p
                 className="c12 c13"
                 color="unset"
@@ -349,13 +352,13 @@ Array [
             <div
               className="c9"
             >
-              <p
+              <span
                 className="c10 c11"
                 color="unset"
                 type="button"
               >
                 Cadastro de investidor incompleto.
-              </p>
+              </span>
               <p
                 className="c12 c13"
                 color="unset"
@@ -385,6 +388,7 @@ Array [
   .c7 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 14px;

@@ -4,6 +4,7 @@ exports[`CheckboxItem renders correctly 1`] = `
 .c1 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 14px;

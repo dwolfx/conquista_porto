@@ -180,6 +180,31 @@ router.render = (req, res) => {
     })
   }
 
+  if (
+    req.originalUrl.endsWith('/cartoes/solicitacao') &&
+    req.method === 'POST'
+  ) {
+    return res.status(200).jsonp({
+      codigoRetorno: 0,
+      mensagem: {
+        mensagem: 'SUCESSO',
+        tipoCritica: 'SUCESSO',
+      },
+      numeroProposta: 85398,
+    })
+  }
+
+  if (req.originalUrl.endsWith('/cartoes/sugestao') && req.method === 'POST') {
+    return res.status(200).jsonp({
+      codigoRetorno: 0,
+      mensagem: {
+        mensagem: 'SUCESSO',
+        tipoCritica: 'SUCESSO',
+      },
+      numeroProposta: 85398,
+    })
+  }
+
   return res.jsonp(res.locals.data)
 }
 

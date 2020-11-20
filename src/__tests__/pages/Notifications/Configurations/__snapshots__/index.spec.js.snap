@@ -4,6 +4,7 @@ exports[`Configurations renders correctly 1`] = `
 .c2 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -17,6 +18,7 @@ exports[`Configurations renders correctly 1`] = `
 .c7 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 14px;
@@ -185,13 +187,13 @@ exports[`Configurations renders correctly 1`] = `
   <section
     className="c1"
   >
-    <p
+    <h5
       className="c2 c3"
       color="unset"
       type="headline"
     >
       Configurações
-    </p>
+    </h5>
     <div
       className="c4"
     >

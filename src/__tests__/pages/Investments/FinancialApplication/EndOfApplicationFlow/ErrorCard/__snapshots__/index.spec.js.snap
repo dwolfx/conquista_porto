@@ -6,6 +6,7 @@ Object {
   "baseElement": .c6 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -19,6 +20,7 @@ Object {
 .c8 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -363,13 +365,13 @@ Object {
               >
                 close-rounded.svg
               </svg>
-              <p
+              <h5
                 class="c6 c7"
                 color="unset"
                 type="headline"
               >
                 Não foi possível confirmar sua solicitação.
-              </p>
+              </h5>
             </div>
             <p
               class="c8 c9"
@@ -439,16 +441,16 @@ Object {
             >
               close-rounded.svg
             </svg>
-            <p
-              class="sc-AxjAm dhbOyc sc-fzqBkg bAFAQQ"
+            <h5
+              class="sc-AxjAm kdRIiC sc-fzqBkg bAFAQQ"
               color="unset"
               type="headline"
             >
               Não foi possível confirmar sua solicitação.
-            </p>
+            </h5>
           </div>
           <p
-            class="sc-AxjAm cjwdiX sc-fzoXWK crPfML"
+            class="sc-AxjAm gLsLGV sc-fzoXWK crPfML"
             color="unset"
             type="body"
           >

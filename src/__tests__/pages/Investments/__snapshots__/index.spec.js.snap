@@ -6,6 +6,7 @@ Object {
   "baseElement": .c55 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -5816,14 +5817,14 @@ Object {
             class="sc-fzqAui LXOwS"
           >
             <p
-              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              class="sc-AxjAm gLsLGV sc-fzqMdD bflNEL"
               color="unset"
               type="body"
             >
               Você está conectado ao Conquista, a Plataforma Digital de Produtos Financeiros da Porto Seguro. A Portopar recebe remuneração de distribuição do(s) Administrador(es) e/ou do(s) Fundo(s) de Investimento em que seus clientes aplicam recursos, seja na forma de investimento direto, seja por meio de conta e ordem e que esta remuneração pode ser diferenciada em função dos diversos Fundos de Investimento investidos. Leia o Prospecto, o Formulário de Informações Complementares, Lâmina de Informações Essenciais e o Regulamento antes de investir.
             </p>
             <p
-              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              class="sc-AxjAm gLsLGV sc-fzqMdD bflNEL"
               color="unset"
               type="body"
             >
@@ -5837,7 +5838,7 @@ Object {
               href="mailto:ouvidoria@portoseguro.com.br"
             >
               <p
-                class="sc-AxjAm cjwdiX sc-fzowVh jwkaIi"
+                class="sc-AxjAm gLsLGV sc-fzowVh jwkaIi"
                 color="unset"
                 type="body"
               >
@@ -5845,7 +5846,7 @@ Object {
               </p>
             </a>
             <p
-              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              class="sc-AxjAm gLsLGV sc-fzqMdD bflNEL"
               color="unset"
               type="body"
             >
@@ -5859,7 +5860,7 @@ Object {
               href="mailto:suporte.conquista@portoseguro.com.br"
             >
               <p
-                class="sc-AxjAm cjwdiX sc-fzowVh jwkaIi"
+                class="sc-AxjAm gLsLGV sc-fzowVh jwkaIi"
                 color="unset"
                 type="body"
               >
@@ -5867,14 +5868,14 @@ Object {
               </p>
             </a>
             <p
-              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              class="sc-AxjAm gLsLGV sc-fzqMdD bflNEL"
               color="unset"
               type="body"
             >
               .
             </p>
             <p
-              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              class="sc-AxjAm gLsLGV sc-fzqMdD bflNEL"
               color="unset"
               type="body"
             >
@@ -5892,7 +5893,7 @@ Object {
               target="_blank"
             >
               <p
-                class="sc-AxjAm cjwdiX sc-fzowVh jwkaIi"
+                class="sc-AxjAm gLsLGV sc-fzowVh jwkaIi"
                 color="unset"
                 type="body"
               >
@@ -5900,7 +5901,7 @@ Object {
               </p>
             </a>
             <p
-              class="sc-AxjAm cjwdiX sc-fzqMdD bflNEL"
+              class="sc-AxjAm gLsLGV sc-fzqMdD bflNEL"
               color="unset"
               type="body"
             >

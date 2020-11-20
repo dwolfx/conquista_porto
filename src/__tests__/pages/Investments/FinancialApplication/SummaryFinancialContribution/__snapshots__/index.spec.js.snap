@@ -12,6 +12,7 @@ Object {
 .c8 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -25,6 +26,7 @@ Object {
 .c12 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -38,6 +40,7 @@ Object {
 .c14 {
   color: #BABABA;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 18px;
@@ -51,6 +54,7 @@ Object {
 .c16 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -64,6 +68,7 @@ Object {
 .c17 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -495,13 +500,13 @@ Object {
               <div
                 class="c7"
               >
-                <p
+                <h5
                   class="c8"
                   color="gray6"
                   type="headline"
                 >
                   Solicitação
-                </p>
+                </h5>
               </div>
             </div>
             <div
@@ -516,25 +521,25 @@ Object {
                 <div
                   class="c11"
                 >
-                  <p
+                  <h5
                     class="c12"
                     color="gray5"
                     type="headline"
                   >
                     Valor do investimento
-                  </p>
+                  </h5>
                 </div>
                 <div
                   class="c13"
                 >
-                  <p
+                  <h5
                     class="c8"
                     color="gray6"
                     type="headline"
                   >
                     R$ 
                     1000
-                  </p>
+                  </h5>
                 </div>
               </div>
               <div
@@ -543,24 +548,24 @@ Object {
                 <div
                   class="c11"
                 >
-                  <p
+                  <h5
                     class="c12"
                     color="gray5"
                     type="headline"
                   >
                     Data do investimento
-                  </p>
+                  </h5>
                 </div>
                 <div
                   class="c13"
                 >
-                  <p
+                  <h5
                     class="c14"
                     color="gray4"
                     type="headline"
                   >
                     20/08/2020
-                  </p>
+                  </h5>
                   <svg
                     aria-label="arrowright"
                     fill="#BABABA"
@@ -569,13 +574,13 @@ Object {
                   >
                     arrow-right.svg
                   </svg>
-                  <p
+                  <h5
                     class="c8"
                     color="gray6"
                     type="headline"
                   >
                     20/07/2020
-                  </p>
+                  </h5>
                 </div>
               </div>
             </div>
@@ -655,13 +660,13 @@ Object {
             <div
               class="sc-fzqNqU kyKKEL"
             >
-              <p
-                class="sc-AxirZ qtrMY"
+              <h5
+                class="sc-AxirZ gsnnra"
                 color="gray6"
                 type="headline"
               >
                 Solicitação
-              </p>
+              </h5>
             </div>
           </div>
           <div
@@ -676,25 +681,25 @@ Object {
               <div
                 class="sc-fzqNqU gbjgec"
               >
-                <p
-                  class="sc-AxirZ hLOGwM"
+                <h5
+                  class="sc-AxirZ kHNXxK"
                   color="gray5"
                   type="headline"
                 >
                   Valor do investimento
-                </p>
+                </h5>
               </div>
               <div
                 class="sc-fzoyTs dcaVVS"
               >
-                <p
-                  class="sc-AxirZ qtrMY"
+                <h5
+                  class="sc-AxirZ gsnnra"
                   color="gray6"
                   type="headline"
                 >
                   R$ 
                   1000
-                </p>
+                </h5>
               </div>
             </div>
             <div
@@ -703,24 +708,24 @@ Object {
               <div
                 class="sc-fzqNqU gbjgec"
               >
-                <p
-                  class="sc-AxirZ hLOGwM"
+                <h5
+                  class="sc-AxirZ kHNXxK"
                   color="gray5"
                   type="headline"
                 >
                   Data do investimento
-                </p>
+                </h5>
               </div>
               <div
                 class="sc-fzoyTs dcaVVS"
               >
-                <p
-                  class="sc-AxirZ eAzBhG"
+                <h5
+                  class="sc-AxirZ hFdQKs"
                   color="gray4"
                   type="headline"
                 >
                   20/08/2020
-                </p>
+                </h5>
                 <svg
                   aria-label="arrowright"
                   fill="#BABABA"
@@ -729,13 +734,13 @@ Object {
                 >
                   arrow-right.svg
                 </svg>
-                <p
-                  class="sc-AxirZ qtrMY"
+                <h5
+                  class="sc-AxirZ gsnnra"
                   color="gray6"
                   type="headline"
                 >
                   20/07/2020
-                </p>
+                </h5>
               </div>
             </div>
           </div>
@@ -743,7 +748,7 @@ Object {
             class="sc-fznMnq gWWVZe"
           >
             <p
-              class="sc-AxirZ bnAOhT"
+              class="sc-AxirZ bfbjft"
               color="gray6"
               type="body"
             >
@@ -757,7 +762,7 @@ Object {
             class="sc-fznMnq gWWVZe"
           >
             <p
-              class="sc-AxirZ gmegBb"
+              class="sc-AxirZ ebSHwB"
               color="gray5"
               type="body"
             >

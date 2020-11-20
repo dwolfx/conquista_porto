@@ -15,6 +15,8 @@ interface IAction {
     emailCliente: string
     estado: string
     dataNascimento: string
+    numeroTelefone: string
+    dddNumeroTelefone: string
   }
 }
 
@@ -34,6 +36,8 @@ export default function(state = INITIAL_STATE, action: IAction) {
           customerEmail: action.payload.emailCliente,
           customerState: action.payload.estado,
           customerBirthdate: action.payload.dataNascimento,
+          customerPhoneNumber: action.payload.numeroTelefone,
+          customerAreaCode: action.payload.dddNumeroTelefone,
         },
         status: 'loaded',
         isLoading: false,

@@ -3,8 +3,6 @@ import { useTable, useSortBy, useRowSelect } from 'react-table'
 import { useSticky } from 'react-table-sticky'
 import 'styled-components/macro'
 
-import Checkbox from 'components/Inputs/Checkbox'
-
 import formatColumns from '../formatColumns'
 import TableHeader from '../TableHeader'
 import TableBody from '../TableBody'
@@ -26,17 +24,7 @@ const IndeterminateCheckbox = React.forwardRef<HTMLInputElement, any>(
       }
     }, [resolvedRef, indeterminate])
 
-    return (
-      <>
-        <Checkbox
-          ref={resolvedRef}
-          {...rest}
-          css={`
-            z-index: 1;
-          `}
-        />
-      </>
-    )
+    return <s.Checkbox ref={resolvedRef} {...rest} />
   }
 )
 

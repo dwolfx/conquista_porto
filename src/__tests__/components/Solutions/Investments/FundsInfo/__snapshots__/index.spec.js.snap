@@ -24,7 +24,6 @@ exports[`FundsInfo renders correctly 1`] = `
 
 .c38 svg {
   height: 21px;
-  margin-left: 14px;
 }
 
 .c38 svg path {
@@ -409,6 +408,7 @@ exports[`FundsInfo renders correctly 1`] = `
 .c36 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 11px;

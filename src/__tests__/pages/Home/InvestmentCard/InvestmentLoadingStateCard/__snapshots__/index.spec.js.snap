@@ -4,19 +4,21 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
 .c7 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c12 {
   color: #898989;
   text-align: left;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -269,13 +271,13 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
       <div
         className="c6"
       >
-        <p
+        <h5
           className="c7 "
           color="unset"
-          type="heading4"
+          type="headline"
         >
           Investimentos
-        </p>
+        </h5>
       </div>
       <div
         className="c8"
@@ -291,14 +293,14 @@ exports[`Home InvestmentCard InvestmentLoadingStateCard Renders correctly 1`] = 
       <div
         className="c11"
       >
-        <p
+        <h5
           className="c12 c13"
           color="gray5"
           data-testid="legend"
           type="headline"
         >
           Aguarde, estamos buscando suas informações...
-        </p>
+        </h5>
         <div
           className="c14"
         >

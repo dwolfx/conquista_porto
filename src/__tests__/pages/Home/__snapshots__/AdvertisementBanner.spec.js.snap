@@ -4,6 +4,7 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
 .c5 {
   color: #FFFFFF;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 34px;
@@ -17,6 +18,7 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
 .c7 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -234,7 +236,7 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
     <div
       className="c4"
     >
-      <p
+      <h3
         className="c5 c6"
         color="white"
         type="heading3"
@@ -242,7 +244,7 @@ exports[`AdvertisementBanner Renders correctly 1`] = `
         Viva hoje
         <br />
         Amanhã é com a gente
-      </p>
+      </h3>
       <p
         className="c7"
         color="unset"

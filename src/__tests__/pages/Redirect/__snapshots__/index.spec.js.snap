@@ -24,7 +24,6 @@ exports[`Redirect renders correctly 1`] = `
 
 .c9 svg {
   height: 21px;
-  margin-left: 14px;
 }
 
 .c9 svg path {
@@ -186,15 +185,15 @@ exports[`Redirect renders correctly 1`] = `
   className="c0"
 >
   <div
-    className="sc-AxirZ c1"
+    className="sc-AxiKw c1"
     data-name="container"
   >
     <div
-      className="sc-AxiKw c2"
+      className="sc-AxhCb c2"
       data-name="row"
     >
       <div
-        className="sc-AxhCb c3"
+        className="sc-AxhUy c3"
         data-name="col-xl-12"
       >
         <img

@@ -82,7 +82,7 @@ export const ErrorIcon = styled(Icon)`
 export const Input = styled.input`
   background-color: inherit;
   border: none;
-  color: ${props => props.theme.colors.gray6};
+  color: ${({ theme, disabled }) => disabled ? theme.colors.gray4 : theme.colors.gray6};
   font: inherit;
   height: 100%;
   padding: ${({ theme }) => `0 ${theme.spacing(1)}px`};
@@ -90,13 +90,13 @@ export const Input = styled.input`
 
   &:-webkit-autofill {
     box-shadow: none;
-    -webkit-box-shadow: 0 0 0 30px ${props => props.theme.colors.gray1} inset;
+    -webkit-box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.gray1} inset;
   }
 
   ::-webkit-input-placeholder {
-    color: ${props => props.theme.colors.gray4};
+    color: ${({ theme }) => theme.colors.gray4};
     font-weight: normal;
-    ${props => props.theme.fontTypes.headline};
+    ${({ theme }) => theme.fontTypes.headline};
   }
 `
 

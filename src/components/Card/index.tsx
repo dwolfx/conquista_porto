@@ -41,7 +41,7 @@ const Card: React.FC<IProps & React.HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const CardHeaderContent = () => {
     let HeaderTitle: string | React.ReactNode = (
-      <CardTitle type="heading4" bold>
+      <CardTitle type="headline" bold>
         {headerTitle}
       </CardTitle>
     )

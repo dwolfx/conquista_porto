@@ -4,19 +4,21 @@ exports[`Home InvestmentCard InvestmentErrorStateCard Renders correctly 1`] = `
 .c7 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c11 {
   color: #E72176;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -316,13 +318,13 @@ exports[`Home InvestmentCard InvestmentErrorStateCard Renders correctly 1`] = `
       <div
         className="c6"
       >
-        <p
+        <h5
           className="c7 "
           color="unset"
-          type="heading4"
+          type="headline"
         >
           Investimentos
-        </p>
+        </h5>
       </div>
       <div
         className="c8"
@@ -335,13 +337,13 @@ exports[`Home InvestmentCard InvestmentErrorStateCard Renders correctly 1`] = `
     <div
       className="c10"
     >
-      <p
+      <h5
         className="c11 c12"
         color="magenta2"
         type="headline"
       >
         Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente.
-      </p>
+      </h5>
       <button
         className="c13"
         color="primary"

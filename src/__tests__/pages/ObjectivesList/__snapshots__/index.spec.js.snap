@@ -4,6 +4,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c8 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   white-space: nowrap;
   overflow: hidden;
@@ -20,6 +21,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c14 {
   color: #898989;
   text-align: left;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -35,6 +37,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c26 {
   color: #BABABA;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 12px;
@@ -50,6 +53,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
 .c27 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -498,13 +502,13 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
         <div
           className="c6 c7"
         >
-          <p
+          <h5
             className="c8"
             color="gray5"
             type="headline"
           >
             23
-          </p>
+          </h5>
         </div>
         <div
           className="c9"
@@ -523,13 +527,13 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
                 />
               </div>
             </div>
-            <p
+            <span
               className="c14 c15"
               color="gray5"
               type="captionUppercase"
             >
               123%
-            </p>
+            </span>
           </div>
         </div>
       </div>
@@ -565,20 +569,20 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
             <div
               className="c25"
             >
-              <p
+              <span
                 className="c26"
                 color="gray4"
                 type="captionUppercase"
               >
                 ALCANÇADO
-              </p>
-              <p
+              </span>
+              <h5
                 className="c27"
                 color="gray6"
                 type="headline"
               >
                 R$ 123,00
-              </p>
+              </h5>
             </div>
           </div>
         </div>
@@ -592,20 +596,20 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
             <div
               className="c25"
             >
-              <p
+              <span
                 className="c26"
                 color="gray4"
                 type="captionUppercase"
               >
                 FALTAM
-              </p>
-              <p
+              </span>
+              <h5
                 className="c27"
                 color="gray6"
                 type="headline"
               >
                 R$ 123,00
-              </p>
+              </h5>
             </div>
           </div>
         </div>
@@ -619,20 +623,20 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
             <div
               className="c25"
             >
-              <p
+              <span
                 className="c26"
                 color="gray4"
                 type="captionUppercase"
               >
                 META
-              </p>
-              <p
+              </span>
+              <h5
                 className="c27"
                 color="gray6"
                 type="headline"
               >
                 R$ 234,00
-              </p>
+              </h5>
             </div>
           </div>
         </div>

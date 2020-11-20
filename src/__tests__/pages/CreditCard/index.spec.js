@@ -9,7 +9,14 @@ import theme from 'styles/theme'
 
 import CreditCard from '../../../pages/CreditCard'
 
-const INITIAL_STATE = {}
+const INITIAL_STATE = {
+  creditCard: {
+    data: null,
+    hasError: false,
+    isLoading: false,
+    isCreationLayerOpen: false,
+  },
+}
 
 const mockStore = createStore([])
 const store = mockStore(INITIAL_STATE)

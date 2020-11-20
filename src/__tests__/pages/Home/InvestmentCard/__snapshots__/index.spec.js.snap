@@ -4,19 +4,21 @@ exports[`InvestmentCard Renders correctly 1`] = `
 .c7 {
   color: unset;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .c13 {
   color: #FFFFFF;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-size: 11px;
   font-weight: 600;
@@ -31,6 +33,7 @@ exports[`InvestmentCard Renders correctly 1`] = `
 .c15 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-size: 14px;
   -webkit-letter-spacing: 0.25px;
@@ -44,6 +47,7 @@ exports[`InvestmentCard Renders correctly 1`] = `
 .c17 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -398,13 +402,13 @@ exports[`InvestmentCard Renders correctly 1`] = `
       <div
         className="c6"
       >
-        <p
+        <h5
           className="c7 "
           color="unset"
-          type="heading4"
+          type="headline"
         >
           Investimentos
-        </p>
+        </h5>
       </div>
       <div
         className="c8"
@@ -427,25 +431,25 @@ exports[`InvestmentCard Renders correctly 1`] = `
         <div
           className="c12"
         >
-          <p
+          <span
             className="c13"
             color="white"
             type="button"
           >
             Fundos de Investimento
-          </p>
+          </span>
         </div>
       </div>
       <div
         className="c14"
       >
-        <p
+        <h6
           className="c15 c16"
           color="gray6"
           type="title"
         >
           Diversificar com menos riscos
-        </p>
+        </h6>
         <p
           className="c17 c18"
           color="gray5"

@@ -8,6 +8,7 @@ interface IProps {
   prefix?: React.ReactNode
   onChange: (event: any) => void
   value?: string
+  label?: string
   name?: string
   maxLength?: number
   placeholder?: string

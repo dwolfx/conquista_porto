@@ -4,6 +4,7 @@ exports[`InsuranceCard LifeInsuranceDataStateCard Renders correctly 1`] = `
 .c3 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -17,6 +18,7 @@ exports[`InsuranceCard LifeInsuranceDataStateCard Renders correctly 1`] = `
 .c5 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -32,6 +34,7 @@ exports[`InsuranceCard LifeInsuranceDataStateCard Renders correctly 1`] = `
 .c7 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -221,13 +224,13 @@ exports[`InsuranceCard LifeInsuranceDataStateCard Renders correctly 1`] = `
     <div
       className="c2"
     >
-      <p
+      <h5
         className="c3"
         color="gray6"
         type="headline"
       >
         Seguro de Vida
-      </p>
+      </h5>
     </div>
   </div>
   <div
@@ -237,13 +240,13 @@ exports[`InsuranceCard LifeInsuranceDataStateCard Renders correctly 1`] = `
     <div
       className="c4"
     >
-      <p
+      <span
         className="c5"
         color="gray5"
         type="captionUppercase"
       >
         
-      </p>
+      </span>
     </div>
     <div
       className="c6"
@@ -280,6 +283,7 @@ exports[`InsuranceCard TripInsuranceDataStateCard Renders correctly 1`] = `
 .c3 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: 300;
   font-family: Open Sans;
   font-size: 18px;
@@ -293,6 +297,7 @@ exports[`InsuranceCard TripInsuranceDataStateCard Renders correctly 1`] = `
 .c5 {
   color: #898989;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 12px;
@@ -308,6 +313,7 @@ exports[`InsuranceCard TripInsuranceDataStateCard Renders correctly 1`] = `
 .c7 {
   color: #272727;
   text-align: unset;
+  text-transform: none;
   font-weight: normal;
   font-family: Open Sans;
   font-size: 14px;
@@ -497,13 +503,13 @@ exports[`InsuranceCard TripInsuranceDataStateCard Renders correctly 1`] = `
     <div
       className="c2"
     >
-      <p
+      <h5
         className="c3"
         color="gray6"
         type="headline"
       >
         Seguro Viagem
-      </p>
+      </h5>
     </div>
   </div>
   <div
@@ -513,13 +519,13 @@ exports[`InsuranceCard TripInsuranceDataStateCard Renders correctly 1`] = `
     <div
       className="c4"
     >
-      <p
+      <span
         className="c5"
         color="gray5"
         type="captionUppercase"
       >
         MORTE ACIDENTAL
-      </p>
+      </span>
     </div>
     <div
       className="c6"

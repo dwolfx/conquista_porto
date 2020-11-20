@@ -12,13 +12,22 @@ interface IText {
   color: keyof typeof themeColors
   bold: boolean
   textAlign: 'left' | 'center' | 'right' | 'unset'
+  textTransform:
+    | 'none'
+    | 'capitalize'
+    | 'uppercase'
+    | 'lowercase'
+    | 'full-width'
+    | 'full-size-kana'
   type: keyof typeof fontTypes
   truncate?: boolean
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
 }
 
 export const TextStyle = styled.p<IText>`
   color: ${props => props.theme.colors[props.color]};
   text-align: ${props => props.textAlign};
+  text-transform: ${props => props.textTransform};
   font-weight: ${props => (props.bold ? 'normal' : '300')};
 
   ${props => props.truncate && truncate};
