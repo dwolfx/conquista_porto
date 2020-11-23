@@ -58,7 +58,6 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
       cep.trim().length !== 0 &&
       streetAddress.trim().length !== 0 &&
       number.trim().length !== 0 &&
-      additionalInfo.trim().length !== 0 &&
       neighbourhood.trim().length !== 0 &&
       city.trim().length !== 0 &&
       stateOption.id !== 0 &&
@@ -341,21 +340,12 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                       name="complemento"
                       maxLength={20}
                       value={additionalInfo}
-                      hasError={
-                        additionalInfo.length === 0 && touched.additionalInfo
-                      }
+                      hasError={false}
                       placeholder="Digite"
                       onBlur={() => touch('additionalInfo')}
                       onChange={(e: any) => {
                         setAdditionalInfo(e.target.value)
                       }}
-                      error={
-                        additionalInfo.length === 0 &&
-                        touched.additionalInfo && {
-                          icon: 'information',
-                          message: 'Campo obrigatório',
-                        }
-                      }
                     />
                   </s.FormCol>
                   <s.FormCol md={6} sm={4} xs={12}>
@@ -428,7 +418,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
                 logradouro: streetAddress,
                 bairro: neighbourhood,
                 numeroLogradouro: number,
-                complemento: additionalInfo,
+                complemento: additionalInfo.length > 0 ? additionalInfo : '',
                 uf: stateOption.name,
                 codigoBandeira: selectedFlag,
                 diaVencimento: selectedDay.name,

@@ -18,7 +18,7 @@ const SuccessContent = ({ formData, formOrderResponse }: IProps) => (
         sucesso!
       </S.Title>
       <S.Description>
-        Sua proposta de número <b>{formOrderResponse.numeroProposta}</b> será
+        Sua proposta de número <b>{formOrderResponse.NumeroProposta}</b> será
         analisada em breve.
       </S.Description>
       <S.Description>

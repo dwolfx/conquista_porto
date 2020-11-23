@@ -16,7 +16,7 @@ const PendingContent = ({ formData, formOrderResponse }: IProps) => (
     <S.BoxContent>
       <S.Title>Proposta de Cartão de Crédito Porto Seguro em análise.</S.Title>
       <S.Description>
-        A sua proposta de número <b>{formOrderResponse.numeroProposta}</b>{' '}
+        A sua proposta de número <b>{formOrderResponse.NumeroProposta}</b>{' '}
         encontra-se em análise.
       </S.Description>
       <S.Description>

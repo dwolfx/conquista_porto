@@ -35,21 +35,19 @@ const formData = {
 }
 
 const orderResponseSuccess = {
-  codigoRetorno: 0,
-  mensagem: {
-    mensagem: 'SUCESSO',
-    tipoCritica: 'SUCESSO',
+  CodigoRetorno: 0,
+  Message: {
+    TipoCritica: 'SUCESSO',
   },
-  numeroProposta: 85398,
+  NumeroProposta: 85398,
 }
 
 const orderResponseError = {
-  codigoRetorno: 9,
-  mensagem: {
-    mensagem: 'ERRO',
-    tipoCritica: 'ERRO',
+  CodigoRetorno: 9,
+  Message: {
+    TipoCritica: 'ERRO',
   },
-  numeroProposta: 99999,
+  NumeroProposta: 99999,
 }
 
 const handleClose = () => jest.fn()
@@ -94,7 +92,7 @@ describe('Credit Card - Final Step', () => {
       />
     )
     expect(
-      screen.getByText(`${orderResponseSuccess.numeroProposta}`)
+      screen.getByText(`${orderResponseSuccess.NumeroProposta}`)
     ).toBeInTheDocument()
   })
 
