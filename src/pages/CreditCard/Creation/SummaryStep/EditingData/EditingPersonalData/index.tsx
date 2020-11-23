@@ -22,7 +22,6 @@ import Gender from 'pages/CreditCard/Creation/common/Sex'
 import SelectBrazilianStates from 'pages/CreditCard/Creation/common/SelectBrazilianStates'
 import SelectDocument from 'pages/CreditCard/Creation/common/SelectDocument'
 
-import { isExpiredDateValid } from 'pages/CreditCard/Creation/common/ExpiredDateInput'
 import { formatCpf, handleGiwRedirect } from 'helpers'
 
 import useMedia from 'hooks/useMedia'
