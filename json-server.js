@@ -185,23 +185,20 @@ router.render = (req, res) => {
     req.method === 'POST'
   ) {
     return res.status(200).jsonp({
-      codigoRetorno: 0,
-      mensagem: {
-        mensagem: 'SUCESSO',
-        tipoCritica: 'SUCESSO',
+      CodigoRetorno: 0,
+      Message: {
+        TipoCritica: 'SUCESSO',
       },
-      numeroProposta: 85398,
+      NumeroProposta: 85398,
     })
   }
 
   if (req.originalUrl.endsWith('/cartoes/sugestao') && req.method === 'POST') {
     return res.status(200).jsonp({
-      codigoRetorno: 0,
-      mensagem: {
-        mensagem: 'SUCESSO',
+      CodigoRetorno: 0,
+      Message: {
         tipoCritica: 'SUCESSO',
       },
-      numeroProposta: 85398,
     })
   }
 

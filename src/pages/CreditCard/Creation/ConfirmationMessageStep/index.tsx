@@ -30,9 +30,9 @@ const FinalStep = ({
   hasError,
   handleClose,
 }: IProps) => {
-  const { mensagem } = formOrderResponse
+  const { Message } = formOrderResponse
 
-  if (mensagem?.tipoCritica !== 'SUCESSO' || hasError) {
+  if (Message?.TipoCritica !== 'SUCESSO' || hasError) {
     return <ErrorContent handleClose={handleClose} />
   }
 

@@ -114,12 +114,11 @@ export interface ICreditCardProposalRequest {
 }
 
 export interface IOrderResponse {
-  codigoRetorno?: number
-  mensagem?: {
-    mensagem?: string
-    tipoCritica?: string
+  CodigoRetorno?: number
+  Message?: {
+    TipoCritica?: string
   }
-  numeroProposta?: number
+  NumeroProposta?: number
 }
 
 export enum FLAGS {

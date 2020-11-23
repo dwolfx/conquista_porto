@@ -130,7 +130,7 @@ const SummaryProposal = () => {
       return <SummaryProposalLoading />
     }
 
-    if (formResponse.numeroProposta || submitErrorCount === 3) {
+    if (formResponse.NumeroProposta || submitErrorCount === 3) {
       return (
         <SummaryProposalResponse
           formData={proposalData}
