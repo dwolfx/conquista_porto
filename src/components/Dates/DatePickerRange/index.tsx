@@ -1,6 +1,10 @@
 import React from 'react'
 import moment from 'moment'
-import { DateRangePicker as DRP, FocusedInputShape } from 'react-dates'
+import {
+  DateRangePicker as DRP,
+  FocusedInputShape,
+  isInclusivelyBeforeDay,
+} from 'react-dates'
 
 import { ButtonNavPrev, ButtonNavNext } from '../styles'
 
@@ -33,6 +37,8 @@ interface IDatePickerRange {
   idDatePickerRange: string
   numberOfMonths: number
   rangeDates: IRangeDates
+  blockFutureDays?: boolean
+  blockPastDays?: boolean
   focusedInput: FocusedInputShape | null
   isOpenInsideModal?: boolean
   daysToBlock?: moment.Moment[]
@@ -52,6 +58,8 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
   daysToBlock,
   onHandleFocusedInput,
   onHandleSetRangeDates,
+  blockFutureDays = false,
+  blockPastDays = false,
 }) => {
   moment.locale('pt-BR')
 
@@ -97,7 +105,15 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
         /* Usar esta prop para desabilitar informações de teclas de atalho */
         hideKeyboardShortcutsPanel
         /* Usar esta prop para habilitar ou desabilitar seleção de datas passadas */
-        isOutsideRange={() => false}
+        isOutsideRange={day => {
+          if (blockFutureDays) {
+            return !isInclusivelyBeforeDay(day, moment())
+          }
+          if (blockPastDays) {
+            return isInclusivelyBeforeDay(day, moment())
+          }
+          return false
+        }}
         /* Usar esta prop para definir aparecer somente um mês no calendário */
         numberOfMonths={numberOfMonths}
       />
