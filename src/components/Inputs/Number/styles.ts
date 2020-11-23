@@ -49,15 +49,20 @@ export const StyledInput = styled(NewInput).attrs(({
   }
   div {
     border-radius: 0;
+    border-bottom: 0;
   }
 `
 
 export const ControlButton = styled(Button)<{left?: boolean}>`
   height: 100%;
-  width: 28px;
+  width: 35px;
   padding: 0 ${({ theme }) => theme.spacing(1)}px;
   display: flex;
   align-items: center;
+  border-radius: 7px;
+  background: ${({ theme, disabled }) => disabled
+                                        ? theme.colors.gray2
+                                        : `linear-gradient(90deg, ${theme.colors.blue4} 0%, ${theme.colors.blue5} 146.43%)`};
 
 
 

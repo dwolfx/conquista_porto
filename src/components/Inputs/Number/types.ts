@@ -18,4 +18,5 @@ export interface IProps {
   testId?: string
   disabledCase?: boolean
   initialValue?: number
+  afterOnChange: (actualValue: number) => void
 }

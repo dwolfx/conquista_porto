@@ -1,0 +1,74 @@
+import React from 'react'
+import { Row, Col } from 'styled-bootstrap-grid'
+import { ThemeContext } from 'styled-components'
+
+import useMedia from 'hooks/useMedia'
+import Text from 'components/Text'
+import Icon from 'components/IconExporter'
+import Popover from 'components/Popover'
+
+import * as S from './styles'
+import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
+
+export default function PassengerStep() {
+  const maximumPermittedPassengers = 20
+  const theme = React.useContext(ThemeContext)
+  const [counts, setCounts] = React.useState({ young: 0, old: 0, total: 0 })
+  const isTabletVertical = useMedia('md')
+
+  React.useEffect(() => {
+    setCounts(counts => ({ ...counts, total: counts.young + counts.old }))
+  }, [counts.young, counts.old])
+
+  return (
+    <S.Wrapper>
+      <S.StyledContainer>
+        <Row alignItems="center" justifyContent={isTabletVertical ? "center" : "start"}>
+          <Col hiddenMdDown md={3} auto>
+            <DivisorDescription title="Passageiros" text="O seguro cobre até 20 passageiros"/>
+          </Col>
+          <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={7} md={4}>
+            <S.FlexContainer>
+              <Text type="headline" color="gray6" textAlign="center">
+                  Quantos passageiros haverá na viagem?
+                <Popover
+                  tooltip
+                  content={() => (
+                    <Text bold type="body" color="gray5">
+                      O seguro cobre até 20 passageiros.
+                    </Text>
+                  )}
+                >
+                  <Icon
+                    data-testid="passenger-info"
+                    name="information"
+                    role="button"
+                    aria-label="info-passengers"
+                    fill={theme.colors.blue4}
+                    width={21}
+                    height={21}
+                  />
+                </Popover>
+              </Text>
+            </S.FlexContainer>
+
+            <S.StyledCounter
+            label="PASSAGEIROS ATÉ 70 ANOS"
+            maxValue={maximumPermittedPassengers - counts.old}
+            disabledCase={counts.total >= maximumPermittedPassengers}
+            afterOnChange={value => setCounts({...counts, young: value})}
+            />
+
+            <S.StyledCounter
+            label="PASSAGEIROS DE 71 ATÉ 90 ANOS "
+            maxValue={maximumPermittedPassengers - counts.young}
+            disabledCase={counts.total === maximumPermittedPassengers}
+            afterOnChange={value => setCounts({...counts, old: value})}
+            />
+            <S.StyledButton disabled={counts.total === 0}>Próximo</S.StyledButton>
+          </Col>
+        </Row>
+      </S.StyledContainer>
+    </S.Wrapper>
+  )
+}

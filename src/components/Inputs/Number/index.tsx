@@ -7,7 +7,10 @@ import * as S from './styles'
 import { Actions, IPerformArguments, IProps, IGetFillColorArguments } from './types'
 
 
-export default function InputNumber({ label = '', minValue = 0, maxValue = 99, initialValue = 0, disabledCase = false, testId = '' } : IProps) {
+export default function InputNumber(
+    { label = '', minValue = 0, maxValue = 99, initialValue = 0, disabledCase = false, afterOnChange,
+     testId = '', ...rest } : IProps
+  ) {
   const [value, setValue] = React.useState(initialValue)
 
   const getFillColor = ({ checkingIfIsDisabled }: IGetFillColorArguments) => {
@@ -24,27 +27,36 @@ export default function InputNumber({ label = '', minValue = 0, maxValue = 99, i
 
     if (valueAsNumber > maxValue) {
       setValue(maxValue)
+      afterOnChange(maxValue)
     } else if (valueAsNumber < minValue) {
       setValue(minValue)
+      afterOnChange(minValue)
     } else {
       setValue(valueAsNumber)
+      afterOnChange(valueAsNumber)
     }
   }
 
   const perform = ({ action }: IPerformArguments ) => {
     switch(action) {
       case Actions.ADD:
-        value < maxValue && setValue(value + 1)
+        if(value < maxValue) {
+          setValue(value + 1)
+          afterOnChange(value + 1)
+        }
         break
 
       case Actions.SUBTRACT:
-        value > minValue && setValue(value - 1)
+        if (value > minValue) {
+          setValue(value - 1)
+          afterOnChange(value - 1)
+        }
         break
     }
   }
 
   return (
-    <S.Wrapper>
+    <S.Wrapper {...rest}>
         <S.Label>
           <S.LabelText>{label}</S.LabelText>
         </S.Label>
@@ -75,7 +87,7 @@ export default function InputNumber({ label = '', minValue = 0, maxValue = 99, i
 
         <S.ControlButton
           onClick={() => perform({ action: Actions.ADD })}
-          disabled={value === maxValue}
+          disabled={value === maxValue || disabledCase}
           data-testid={`${testId}-add-button`}
         >
           <IconExporter
