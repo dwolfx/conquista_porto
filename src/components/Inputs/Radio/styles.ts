@@ -48,6 +48,7 @@ export const RadioInput = styled.input.attrs(() => ({ type: 'radio' }))`
 
 interface ILabel {
   disabled: boolean | undefined
+  itemsDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse'
 }
 
 export const RadioLabel = styled.label<ILabel>`
@@ -61,10 +62,14 @@ export const RadioLabel = styled.label<ILabel>`
   margin: 8px 16px 8px 0;
   pointer-events: ${props => (props.disabled ? 'none' : 'all')};
 
-  &:last-of-type {
+
+  ${props =>
+    (props.itemsDirection === 'row' ||
+      props.itemsDirection === 'row-reverse') &&
+    `&:last-of-type {
     margin-right: 0;
-  }
-`
+  }`}
+}`
 
 interface IWrapper {
   itemsAlign: 'flex-start' | 'center' | 'flex-end'
