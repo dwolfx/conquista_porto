@@ -62,7 +62,7 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
   onHandleSetRangeDates,
   blockFutureDays = false,
   blockPastDays = false,
-  startDateText = 'Data Inicial',
+  startDateText = 'Data inicial',
   endDateText = 'Data final',
   ...rest
 }) => {
