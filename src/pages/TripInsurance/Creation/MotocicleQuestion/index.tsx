@@ -44,7 +44,7 @@ const MotocicleQuestion = () => {
               </Text>
             </s.ContentWrapper>
           </Col>
-          <Col lg={1} md={1} hiddenSmDown></Col>
+          <Col lg={1} md={1} hiddenSmDown />
           <Col lg={4} md={4} sm={6}>
             <s.ContentWrapper>
               <s.QuestionText textAlign="center" type="headline">

@@ -22,9 +22,8 @@ export const SimulateButton = styled(Button)`
   }
 `
 export const QuestionText = styled(Text)`
-  margin-bottom: ${({ theme }) => theme.spacing(4)}px;
-  margin-left: ${({ theme }) => theme.spacing(2)}px;
-  margin-right: ${({ theme }) => theme.spacing(2)}px;
+  margin: 0 ${({ theme }) => theme.spacing(2)}px
+    ${({ theme }) => theme.spacing(4)}px ${({ theme }) => theme.spacing(2)}px;
 `
 
 export const TitleInfo = styled(Text)`
