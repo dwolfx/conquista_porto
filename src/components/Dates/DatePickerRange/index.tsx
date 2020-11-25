@@ -47,6 +47,8 @@ interface IDatePickerRange {
     startDate: moment.Moment | null,
     endDate: moment.Moment | null
   ) => void
+  startDateText?: string
+  endDateText?: string
 }
 
 const DatePickerRange: React.FC<IDatePickerRange> = ({
@@ -60,11 +62,14 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
   onHandleSetRangeDates,
   blockFutureDays = false,
   blockPastDays = false,
+  startDateText = 'Data Inicial',
+  endDateText = 'Data final',
+  ...rest
 }) => {
   moment.locale('pt-BR')
 
   return (
-    <s.Container isOpenInsideModal={isOpenInsideModal}>
+    <s.Container {...rest} isOpenInsideModal={isOpenInsideModal}>
       <DRP
         /* Usar esta prop para tirar a borda dos inputs */
         noBorder
@@ -97,9 +102,9 @@ const DatePickerRange: React.FC<IDatePickerRange> = ({
         /* Usar esta prop para setar o focus nos inputs*/
         onFocusChange={res => onHandleFocusedInput(res)}
         /* Usar esta prop para informar no placeholder do input inicial um valor */
-        startDatePlaceholderText="Data inicial"
+        startDatePlaceholderText={startDateText}
         /* Usar esta prop para informar no placeholder do input final um valor */
-        endDatePlaceholderText="Data final"
+        endDatePlaceholderText={endDateText}
         /* Usar esta prop para formatar a data dos inputs */
         displayFormat="DD/MM/YYYY"
         /* Usar esta prop para desabilitar informações de teclas de atalho */
