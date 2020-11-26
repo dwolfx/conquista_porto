@@ -21,7 +21,7 @@ describe('Adventure Sports Question tests', () => {
   })
   it('should have the button disabled', () => {
     renderWithReduxAndTheme(<CoverageDate />)
-    const nextButton = screen.getByRole('button', { name: /next-button/i })
+    const nextButton = screen.getByRole('button', { name: /PRÓXIMO/i })
 
     expect(nextButton).toBeDisabled()
   })
