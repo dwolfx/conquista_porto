@@ -25,17 +25,29 @@ import ProposalResolutionFail from './ProposalResolution/Fail'
 import SelectExpirationDays from './../Creation/CreditCardStep/Selects/ExpirationDays'
 import SelectBrazilianStates from './../Creation/CreditCardStep/Selects/BrazilianStates'
 
-import { ContentWrapper, SidebarWrapper, Title, SubTitle, SendButton } from './styles'
+import {
+  ContentWrapper,
+  SidebarWrapper,
+  Title,
+  SubTitle,
+  SendButton,
+} from './styles'
 import * as S from './../Creation/CreditCardStep/styles'
 
-import { FLAGS, IOption, CEPResponse, ICreditCardCreationPayload, IBase64DecodedResponse } from '../Creation/types'
+import {
+  FLAGS,
+  IOption,
+  CEPResponse,
+  ICreditCardCreationPayload,
+  IBase64DecodedResponse,
+} from '../Creation/types'
 
 const CreditCardPro = () => {
   const token = getCookieValue('TOKEN') || null
   const { addToast } = useToast()
   const dispatch = useDispatch()
   const isMobile = useMedia('xs')
-  const { hash } = useParams<{ hash: string }>();
+  const { hash } = useParams<{ hash: string }>()
 
   const [customerName, setCustomerName] = useState<string>('')
   const [codCorretor, setCodCorretor] = useState<string>('')
@@ -88,9 +100,12 @@ const CreditCardPro = () => {
     if (cep.length === 9) {
       setLoadingCep(true)
       const [cepPrefix, cepSufix] = cep.split('-')
-      const { data, status } = await axiosInstance.get<CEPResponse>('/cliente/endereco', {
-        params: { cep: cepPrefix, cepSufixo: cepSufix }
-      })
+      const { data, status } = await axiosInstance.get<CEPResponse>(
+        `${baseURLNamespaceInvestAws}/cliente/endereco`,
+        {
+          params: { cep: cepPrefix, cepSufixo: cepSufix },
+        }
+      )
       if (status === 200) {
         const { bairro, uf, cidade, logradouro, tipoLogradouro } = data
         setStreetAddress(`${tipoLogradouro}. ${logradouro}`)
@@ -102,7 +117,7 @@ const CreditCardPro = () => {
         addToast({
           type: 'error',
           title: 'Houve um erro ao buscar CEP.',
-          description: 'Por favor, edite o endereço manualmente.'
+          description: 'Por favor, edite o endereço manualmente.',
         })
         setLoadingCep(false)
       }
@@ -128,17 +143,17 @@ const CreditCardPro = () => {
     console.log('[Form Payload]:', payload)
 
     try {
-      const { data: { mensagem: {tipoCritica, mensagem} } } = await post(
-        `${baseURLNamespaceInvestAws}/cartoes/sugestao`,
-        payload
-      )
+      const {
+        data: {
+          mensagem: { tipoCritica, mensagem },
+        },
+      } = await post(`${baseURLNamespaceInvestAws}/cartoes/sugestao`, payload)
 
       if (tipoCritica === 'SUCESSO') {
         setShowSuccessMessage(true)
       } else {
         throw new Error(JSON.stringify({ msg: mensagem }))
       }
-
     } catch (error) {
       setSubmitErrorCount(submitErrorCount + 1)
       addToast({
@@ -150,7 +165,6 @@ const CreditCardPro = () => {
       if (submitErrorCount + 1 === 3) {
         setShowErrorMessage(true)
       }
-
     } finally {
       setIsLoading(false)
     }
@@ -198,9 +212,7 @@ const CreditCardPro = () => {
                         <S.SectionTitle>Bandeira do cartão</S.SectionTitle>
                       )}
                       <S.RadioCard
-                        checked={
-                          selectedFlag === FLAGS.MASTERCARD
-                        }
+                        checked={selectedFlag === FLAGS.MASTERCARD}
                         data-testid="card-credit-card-flag-master"
                         onClick={() => {
                           setSelectedFlag(FLAGS.MASTERCARD)
@@ -226,18 +238,15 @@ const CreditCardPro = () => {
                           endItems={[
                             <Text type="title" bold color="gray6">
                               Mastercard
-                        </Text>,
+                            </Text>,
                           ]}
                         />
                       </S.RadioCard>
                       <S.RadioCard
-                        checked={
-                          selectedFlag === FLAGS.VISA
-                        }
+                        checked={selectedFlag === FLAGS.VISA}
                         onClick={() => {
                           setSelectedFlag(FLAGS.VISA)
                           setSelectedDay({ id: 0, name: '' })
-
                         }}
                         data-testid="card-credit-card-flag-visa"
                       >
@@ -260,7 +269,7 @@ const CreditCardPro = () => {
                           endItems={[
                             <Text type="title" bold color="gray6">
                               Visa
-                        </Text>,
+                            </Text>,
                           ]}
                         />
                       </S.RadioCard>
@@ -406,7 +415,6 @@ const CreditCardPro = () => {
                 </Col>
               </S.AddressRow>
             </Container>
-
           </Col>
         </Row>
       </Container>
@@ -415,7 +423,7 @@ const CreditCardPro = () => {
           ENVIAR PROPOSTA
         </SendButton>
       </S.Footer>
-    </ContentWrapper >
+    </ContentWrapper>
   )
 }
 
