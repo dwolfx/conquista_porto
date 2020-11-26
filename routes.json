@@ -61,6 +61,6 @@
   "/invest/previdencia/conquista/arenasimcontratprodutosprevidenciaService/api/consulta/adesao": "/previdencia",
   "/invest/aws/cartoes/ofertas\\?codigoCanal=1&nome=:nome&uf=:uf&dataNascimento=:dataNascimento": "/credit-card-ofertas",
   "/invest/aws/cartoes/profissoes": "/cartao-profissoes",
-  "/cliente/endereco\\?cep=:cep&cepSufixo=:cepSufixo": "/cep-mock",
+  "/invest/aws/cliente/endereco\\?cep=:cep&cepSufixo=:cepSufixo": "/cep-mock",
   "/investimento/seguranca/v1/conquista/locker\\?token:token": "/locker-mock"
 }

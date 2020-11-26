@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Col, Container, Row } from 'styled-bootstrap-grid'
 import 'styled-components/macro'
-import { axiosInstance } from 'services/api'
+import { baseURLNamespaceInvestAws, axiosInstance } from 'services/api'
 
 import Radio from 'components/Inputs/Radio/New'
 import Text from 'components/Text'
@@ -93,7 +93,7 @@ const ForthStep = ({ formData, onNextStep }: IStepComponent) => {
       try {
         const [cepPrefix, cepSufix] = cep.split('-')
         const { data, status } = await axiosInstance.get<CEPResponse>(
-          '/cliente/endereco',
+          `${baseURLNamespaceInvestAws}/cliente/endereco`,
           {
             params: { cep: cepPrefix, cepSufixo: cepSufix },
           }

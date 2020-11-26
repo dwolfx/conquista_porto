@@ -10,7 +10,7 @@ import { IToast, useToast } from 'hooks/toast'
 import useMedia from 'hooks/useMedia'
 
 import { dict } from 'components/IconExporter'
-import { axiosInstance } from 'services/api'
+import { baseURLNamespaceInvestAws, axiosInstance } from 'services/api'
 
 import * as s from './styles'
 import * as t from './types'
@@ -41,12 +41,15 @@ const getAddress = async ({
   try {
     setIsLoading(true)
     const [cepPrefix, cepSufix] = cep.split('-')
-    const { data, status } = await axiosInstance.get('/cliente/endereco', {
-      params: {
-        cep: cepPrefix,
-        cepSufixo: cepSufix,
-      },
-    })
+    const { data, status } = await axiosInstance.get(
+      `${baseURLNamespaceInvestAws}/cliente/endereco`,
+      {
+        params: {
+          cep: cepPrefix,
+          cepSufixo: cepSufix,
+        },
+      }
+    )
 
     setIsLoading(false)
 
