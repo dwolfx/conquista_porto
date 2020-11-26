@@ -71,8 +71,8 @@ const CoverageDate = () => {
                 blockPastDays={true}
               />
               <s.NextButton
+                id="next-button"
                 disabled={!(initialDate && finalDate)}
-                data-testid="button-coverage-date"
               >
                 PRÓXIMO
               </s.NextButton>
