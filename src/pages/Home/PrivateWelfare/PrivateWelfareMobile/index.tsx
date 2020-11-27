@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 
 import VerticalList from 'components/VerticalList'
@@ -7,7 +6,11 @@ import Text from 'components/Text'
 import Popover from 'components/Popover'
 import Icon from 'components/IconExporter'
 import { IPrivateWelfare } from 'store/modules/PrivateWelfare/types'
-import { formatMoney, truncateString } from 'helpers'
+import {
+  formatMoney,
+  truncateString,
+  handlePrivateWelfareRedirect,
+} from 'helpers'
 
 import {
   StyledCarousel,
@@ -15,16 +18,18 @@ import {
   ContentWrapper,
   CategoryWrapper,
   ButtonWrapper,
-  ManageButton
+  ManageButton,
 } from '../styles'
 
 interface IProps {
   privateWelfareList: IPrivateWelfare[]
   headerEndItem: React.ReactNode
 }
-const PrivateWelfareMobile = ({ privateWelfareList, headerEndItem }: IProps) => {
+const PrivateWelfareMobile = ({
+  privateWelfareList,
+  headerEndItem,
+}: IProps) => {
   const theme = useContext(ThemeContext)
-  const history = useHistory()
   return (
     <StyledCarousel
       headerIcon="time"
@@ -41,7 +46,12 @@ const PrivateWelfareMobile = ({ privateWelfareList, headerEndItem }: IProps) => 
                     Produto
                   </Text>,
                   <Text type="headline" color="gray6" bold>
-                    {truncateString(pV.benefits.reserves.funds[0].fundName, 30)}
+                    {truncateString(
+                      pV?.benefits[0]?.reserves?.funds[0]?.fundName
+                        ? pV?.benefits[0]?.reserves?.funds[0]?.fundName
+                        : '',
+                      30
+                    )}
                   </Text>,
                 ]}
               />
@@ -100,7 +110,7 @@ const PrivateWelfareMobile = ({ privateWelfareList, headerEndItem }: IProps) => 
                     </Popover>
                   </CategoryWrapper>,
                   <Text color="gray6" type="headline" bold>
-                    {formatMoney(pV.benefits.expectedContributionValue)}
+                    {formatMoney(pV?.benefits[0]?.expectedContributionValue)}
                   </Text>,
                 ]}
               />
@@ -115,8 +125,8 @@ const PrivateWelfareMobile = ({ privateWelfareList, headerEndItem }: IProps) => 
                       data-testid="tributes-info"
                       content={() => (
                         <Text type="body" color="white">
-                          O valor do tributo a ser cobrado aumenta de acordo
-                          com a renda.
+                          O valor do tributo a ser cobrado aumenta de acordo com
+                          a renda.
                         </Text>
                       )}
                     >
@@ -137,7 +147,7 @@ const PrivateWelfareMobile = ({ privateWelfareList, headerEndItem }: IProps) => 
             </ContentWrapper>
             <ButtonWrapper>
               <ManageButton
-                onClick={() => history.push('/previdencia-privada')}
+                onClick={() => handlePrivateWelfareRedirect()}
                 data-gtm-type="click"
                 data-gtm-clicktype="button"
                 data-gtm-subname="Gerenciar previdencia privada"

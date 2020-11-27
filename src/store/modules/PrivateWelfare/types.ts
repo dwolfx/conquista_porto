@@ -27,16 +27,18 @@ interface IValidationResult {
 
 // limpar campos desnecessários
 export interface IPrivateWelfare {
-  benefits: {
-    planId: number
-    benefitId: string
-    reserves: {
-      reserveId: number
-      funds: IFund[]
+  benefits: [
+    {
+      planId: number
+      benefitId: string
+      reserves: {
+        reserveId: number
+        funds: IFund[]
+      }
+      expectedContributionValue: string
+      initialContributionValue: string
     }
-    expectedContributionValue: string
-    initialContributionValue: string
-  }
+  ]
   client: {
     physicalPersonId: number
     maritalStatus: string

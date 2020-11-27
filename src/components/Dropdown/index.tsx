@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { handlePrivateWelfareRedirect } from 'helpers'
+
 import { IItemsProps } from './interface'
 
 import {
@@ -164,7 +166,9 @@ const Dropdown: React.FC<IProps> = ({
   function handleClick(path?: string | undefined) {
     if (path) {
       handleDropDown(false)
-      history.push(path)
+      path === '/previdencia-privada'
+        ? handlePrivateWelfareRedirect()
+        : history.push(path)
     }
     return handleDropDown(false)
   }

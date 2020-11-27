@@ -99,6 +99,13 @@ export function handleGiwRedirect(link: string) {
   window.location.href = `${window.location.origin}/${link}`
 }
 
+export function handlePrivateWelfareRedirect() {
+  window.location.href =
+    process.env.REACT_APP_ENV === 'production'
+      ? 'https://cliente.portoseguro.com.br/react/previdencia.html#/'
+      : 'http://otclienthom.portoseguro.brasil/react/previdencia.html#/'
+}
+
 export const getCookieValue = (key: string) => {
   return Cookies.get(key)
 }
