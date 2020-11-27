@@ -18,7 +18,6 @@ import Investimentos from 'pages/Investments'
 import InvestmentsFunds from 'pages/Investments/FundsList'
 import ManagementInvestimentos from 'pages/Investments/Management'
 import InvestimentosExtrato from 'pages/Investments/Extract'
-import PrevidenciaPrivada from 'pages/PrivateWelfare'
 import VehicleFinancing from 'pages/VehicleFinancing'
 import ManagementVehicleFinancing from 'pages/VehicleFinancing/Management'
 import TripInsurance from 'pages/TripInsurance'
@@ -343,12 +342,6 @@ export default function Routes({ ...props }) {
           path="/investimentos/lista-fundos"
           component={InvestmentsFunds}
           pageTitle="Investimentos - Lista de Fundos"
-        />
-        <DefaultRoute
-          path="/previdencia-privada"
-          exact
-          component={PrevidenciaPrivada}
-          pageTitle="Home - Previdência Privada"
         />
         <DefaultRoute
           path="/objetivos/gerenciar/:objectiveId"

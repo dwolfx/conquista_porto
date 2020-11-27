@@ -1,21 +1,39 @@
 [
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -99,22 +117,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -198,22 +234,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1250.0"
       },
-      "expectedContributionValue": "350.0",
-      "initialContributionValue": "1250.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1250.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -309,22 +363,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -436,22 +508,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -563,22 +653,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -674,22 +782,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -785,22 +911,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -896,22 +1040,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1008,22 +1170,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1107,22 +1287,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1500.0"
       },
-      "expectedContributionValue": "150.0",
-      "initialContributionValue": "1500.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1500.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1218,22 +1416,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "3500.01"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "3500.01"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "3500.01"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1336,22 +1552,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.05",
+        "initialContributionValue": "1250.35"
       },
-      "expectedContributionValue": "350.05",
-      "initialContributionValue": "1250.35"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.05",
+        "initialContributionValue": "1250.35"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1447,22 +1681,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
       },
-      "expectedContributionValue": "3300.0",
-      "initialContributionValue": "0.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1546,22 +1798,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1352.0"
       },
-      "expectedContributionValue": "150.0",
-      "initialContributionValue": "1352.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1352.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1657,22 +1927,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1500.0"
       },
-      "expectedContributionValue": "350.0",
-      "initialContributionValue": "1500.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1500.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1768,22 +2056,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1879,22 +2185,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "100.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "100.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "100.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -1990,22 +2314,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.03",
+        "initialContributionValue": "1500.45"
       },
-      "expectedContributionValue": "150.03",
-      "initialContributionValue": "1500.45"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.03",
+        "initialContributionValue": "1500.45"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2101,22 +2443,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2204,22 +2564,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2316,22 +2694,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1500.0"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1500.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1500.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2415,22 +2811,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2514,22 +2928,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2625,22 +3057,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1250.0"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1250.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1250.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2724,22 +3174,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1010.5"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1010.5"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1010.5"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2823,22 +3291,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
       },
-      "expectedContributionValue": "3300.0",
-      "initialContributionValue": "0.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -2922,22 +3408,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3021,22 +3525,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "201.01",
+        "initialContributionValue": "1000.01"
       },
-      "expectedContributionValue": "201.01",
-      "initialContributionValue": "1000.01"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "201.01",
+        "initialContributionValue": "1000.01"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3133,22 +3655,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3244,22 +3784,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1540.0"
       },
-      "expectedContributionValue": "350.0",
-      "initialContributionValue": "1540.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1540.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3356,22 +3914,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "350.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3468,22 +4044,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "350.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3580,22 +4174,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "350.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3692,22 +4304,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1500.0"
       },
-      "expectedContributionValue": "150.0",
-      "initialContributionValue": "1500.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1500.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3803,22 +4433,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "125.0",
+        "initialContributionValue": "125.0"
       },
-      "expectedContributionValue": "125.0",
-      "initialContributionValue": "125.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "125.0",
+        "initialContributionValue": "125.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -3915,22 +4563,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1500.0"
       },
-      "expectedContributionValue": "150.0",
-      "initialContributionValue": "1500.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.0",
+        "initialContributionValue": "1500.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4026,22 +4692,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.03",
+        "initialContributionValue": "1500.45"
       },
-      "expectedContributionValue": "150.03",
-      "initialContributionValue": "1500.45"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "150.03",
+        "initialContributionValue": "1500.45"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4137,22 +4821,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4248,22 +4950,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
       },
-      "expectedContributionValue": "3300.0",
-      "initialContributionValue": "0.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4347,22 +5067,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
       },
-      "expectedContributionValue": "3300.0",
-      "initialContributionValue": "0.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "3300.0",
+        "initialContributionValue": "0.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4446,22 +5184,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "125.05",
+        "initialContributionValue": "3500.01"
       },
-      "expectedContributionValue": "125.05",
-      "initialContributionValue": "3500.01"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "125.05",
+        "initialContributionValue": "3500.01"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4558,22 +5314,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "125.05",
+        "initialContributionValue": "3500.01"
       },
-      "expectedContributionValue": "125.05",
-      "initialContributionValue": "3500.01"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "125.05",
+        "initialContributionValue": "3500.01"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4670,22 +5444,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.05",
+        "initialContributionValue": "1500.45"
       },
-      "expectedContributionValue": "350.05",
-      "initialContributionValue": "1500.45"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "350.05",
+        "initialContributionValue": "1500.45"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4781,22 +5573,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -4908,22 +5718,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -5035,22 +5863,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -5162,22 +6008,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "106.1",
+        "initialContributionValue": "1250.01"
       },
-      "expectedContributionValue": "106.1",
-      "initialContributionValue": "1250.01"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "106.1",
+        "initialContributionValue": "1250.01"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -5273,22 +6137,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "250.0",
+        "initialContributionValue": "1000.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -5384,22 +6266,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "3500.01"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "3500.01"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "3500.01"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -5502,22 +6402,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "3500.01"
       },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "3500.01"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "0.0",
+        "initialContributionValue": "3500.01"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",
@@ -5612,22 +6530,40 @@
     ]
   },
   {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
-          {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "106.0",
+        "initialContributionValue": "1250.0"
       },
-      "expectedContributionValue": "106.0",
-      "initialContributionValue": "1250.0"
-    },
+      {
+        "planId": 20,
+        "benefitId": "55",
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
+              "fundId": 1006,
+              "distributionPercent": "100.0"
+            }
+          ]
+        },
+        "expectedContributionValue": "106.0",
+        "initialContributionValue": "1250.0"
+      }
+    ],
     "client": {
       "physicalPersonId": 1111265,
       "maritalStatus": "S",

@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
 import { ThemeContext } from 'styled-components'
 import 'styled-components/macro'
 
@@ -8,7 +7,11 @@ import Popover from 'components/Popover'
 import Text from 'components/Text'
 import Icon from 'components/IconExporter'
 import { IPrivateWelfare } from 'store/modules/PrivateWelfare/types'
-import { formatMoney, truncateString } from 'helpers'
+import {
+  formatMoney,
+  truncateString,
+  handlePrivateWelfareRedirect,
+} from 'helpers'
 
 import PrivateWelfareEmptyState from './PrivateWelfareEmptyState'
 import PrivateWelfareLoadingState from './PrivateWelfareLoadingState'
@@ -33,7 +36,6 @@ interface IProps {
 export default function PrivateWelfareSection({ headerEndItem }: IProps) {
   const dispatch = useDispatch()
   const theme = useContext(ThemeContext)
-  const history = useHistory()
   const isDesktop = useMedia('lgUp')
   const isTabletHorizontal = useMedia('mdUp')
   const isTabletVertical = useMedia('md')
@@ -130,7 +132,11 @@ export default function PrivateWelfareSection({ headerEndItem }: IProps) {
                   ]}
                   endItems={[
                     <Text bold type="headline" color="gray6">
-                      {truncateName(pV.benefits.reserves.funds[0].fundName)}
+                      {pV?.benefits[0]?.reserves?.funds[0]?.fundName
+                        ? truncateName(
+                            pV?.benefits[0]?.reserves?.funds[0]?.fundName
+                          )
+                        : ''}
                     </Text>,
                   ]}
                 />
@@ -189,7 +195,7 @@ export default function PrivateWelfareSection({ headerEndItem }: IProps) {
                   ]}
                   endItems={[
                     <Text bold type="headline" color="gray6">
-                      {formatMoney(pV.benefits.expectedContributionValue)}
+                      {formatMoney(pV?.benefits[0]?.expectedContributionValue)}
                     </Text>,
                   ]}
                 />
@@ -226,7 +232,7 @@ export default function PrivateWelfareSection({ headerEndItem }: IProps) {
               </ContentWrapper>
               <ButtonWrapper>
                 <ManageButton
-                  onClick={() => history.push('/previdencia-privada')}
+                  onClick={() => handlePrivateWelfareRedirect()}
                   data-gtm-type="click"
                   data-gtm-clicktype="button"
                   data-gtm-subname="Gerenciar previdencia privada"

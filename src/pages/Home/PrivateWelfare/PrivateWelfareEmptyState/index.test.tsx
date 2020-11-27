@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { renderWithReduxAndTheme, screen } from 'testUtils'
+import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 import { MemoryRouter } from 'react-router-dom'
 import { storeFactory } from 'setupTests'
 
@@ -26,25 +26,21 @@ describe('Private Welfare Section - Home', () => {
         </MemoryRouter>,
         { store }
       )
-      expect(screen.getByRole('button').textContent).toBe('Em Breve')
+      expect(screen.getByRole('button').textContent).toBe('Simular')
     })
-    // Descomentar após integração com a Previdência Privada
-    // it('should redirect to more info', () => {
-    //   let locationLocal: RouteProps['location']
-    //   renderWithReduxAndTheme(
-    //     <MemoryRouter initialEntries={['/']}>
-    //       <PrivateWalfareSection />
-    //       <Route
-    //         path="*"
-    //         render={({ location }) => {
-    //           locationLocal = location
-    //           return null
-    //         }}
-    //       />
-    //     </MemoryRouter>,
-    //   )
-    //   fireEvent.click(screen.getByRole('button', { name: /Em Breve/i }))
-    //   expect(locationLocal!.pathname).toBe('/previdencia-privada')
-    // })
+    it('should redirect to previdencia.html', () => {
+      //@ts-expect-error
+      delete window.location
+      window.location = {
+        ...window.location,
+        href: '/',
+      }
+
+      renderWithReduxAndTheme(<PrivateWalfareSection />)
+      fireEvent.click(screen.getByRole('button', { name: /Simular/i }))
+      expect(window.location.href).toBe(
+        'https://cliente.portoseguro.com.br/react/previdencia.html#/'
+      )
+    })
   })
 })

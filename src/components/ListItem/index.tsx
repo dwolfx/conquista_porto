@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { uuid } from 'uuidv4'
-import { handleGiwRedirect } from 'helpers'
+import { handleGiwRedirect, handlePrivateWelfareRedirect } from 'helpers'
 import { themeColors, fontTypes } from 'styles/theme'
 
 import Text from 'components/Text'
@@ -36,8 +36,11 @@ export default function ListItem({
   const history = useHistory()
 
   function handleClick(pathToRedirect: string) {
-    history.push(pathToRedirect)
-    if (callbackClickFn) callbackClickFn()
+    path === '/previdencia-privada'
+      ? handlePrivateWelfareRedirect()
+      : history.push(pathToRedirect)
+
+    if (callbackClickFn && path !== '/previdencia-privada') callbackClickFn()
   }
 
   return (

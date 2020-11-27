@@ -1,13 +1,23 @@
 import React from 'react'
 
 import { renderWithReduxAndTheme, screen, fireEvent, act } from 'testUtils'
-import { MemoryRouter, RouteProps, Route } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { storeFactory } from 'setupTests'
 import { truncateString } from 'helpers'
 
 import mock from 'store/modules/PrivateWelfare/mock.json'
 import PrivateWelfareSection from '.'
 import { IPrivateWelfare } from 'store/modules/PrivateWelfare/types'
+
+//@ts-ignore
+global.document.createRange = () => ({
+  setStart: () => {},
+  setEnd: () => {},
+  commonAncestorContainer: {
+    nodeName: 'BODY',
+    ownerDocument: document,
+  },
+})
 
 const createRootContainer = () => {
   let container = document.getElementById('root')
@@ -69,7 +79,9 @@ describe('PrivateWelfareSection - Home', () => {
         'Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente.'
       )
     ).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /tentar novamente/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /tentar novamente/i })
+    ).toBeInTheDocument()
   })
   it('should be able to render EmptyState properly', () => {
     const store = storeFactory({
@@ -86,7 +98,9 @@ describe('PrivateWelfareSection - Home', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
         <PrivateWelfareSection />
-      </MemoryRouter>, { store })
+      </MemoryRouter>,
+      { store }
+    )
 
     expect(screen.getByText('Viver melhor hoje e amanhã')).toBeInTheDocument()
   })
@@ -105,13 +119,17 @@ describe('PrivateWelfareSection - Home', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
         <PrivateWelfareSection />
-      </MemoryRouter>, { store })
+      </MemoryRouter>,
+      { store }
+    )
 
     expect(screen.getAllByText('Produto')).toHaveLength(1)
     expect(screen.getAllByText('Saldo bruto')).toHaveLength(1)
     expect(screen.getAllByText('Contribuição mensal')).toHaveLength(1)
     expect(screen.getAllByText('Tributação')).toHaveLength(1)
-    expect(screen.getByRole('button', { name: /gerenciar/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /gerenciar/i })
+    ).toBeInTheDocument()
   })
   it('should redirect to private welfare page', () => {
     const store = storeFactory({
@@ -125,22 +143,18 @@ describe('PrivateWelfareSection - Home', () => {
         cpf: '13150747619',
       },
     })
-    let locationLocal: RouteProps['location']
-    renderWithReduxAndTheme(
-      <MemoryRouter initialEntries={['/']}>
-        <PrivateWelfareSection />
-        <Route
-          path="*"
-          render={({ location }) => {
-            locationLocal = location
-            return null
-          }}
-        />
-      </MemoryRouter>,
-      { store }
-    )
+    //@ts-expect-error
+    delete window.location
+    window.location = {
+      ...window.location,
+      href: '/',
+    }
+
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
     fireEvent.click(screen.getByRole('button', { name: /gerenciar/i }))
-    expect(locationLocal!.pathname).toBe('/previdencia-privada')
+    expect(window.location.href).toBe(
+      'https://cliente.portoseguro.com.br/react/previdencia.html#/'
+    )
   })
   it('should be able to dispatch action on useEffect', () => {
     const store = storeFactory({
@@ -179,10 +193,18 @@ describe('PrivateWelfareSection - Home', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
         <PrivateWelfareSection />
-      </MemoryRouter>, { store, container: createRootContainer() })
-    const infoBallancePopoverElement = screen.getByRole('button', { name: 'info-ballance' })
+      </MemoryRouter>,
+      { store, container: createRootContainer() }
+    )
+    const infoBallancePopoverElement = screen.getByRole('button', {
+      name: 'info-ballance',
+    })
     fireEvent.mouseOver(infoBallancePopoverElement)
-    expect(screen.getByText('Valor disponível em conta, sem desconto de taxas e impostos.')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'Valor disponível em conta, sem desconto de taxas e impostos.'
+      )
+    ).toBeInTheDocument()
   })
   it('should show Popover Contibution message', () => {
     const store = storeFactory({
@@ -199,10 +221,16 @@ describe('PrivateWelfareSection - Home', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
         <PrivateWelfareSection />
-      </MemoryRouter>, { store, container: createRootContainer() })
-    const infoContributionPopoverElement = screen.getByRole('button', { name: 'info-contribution' })
+      </MemoryRouter>,
+      { store, container: createRootContainer() }
+    )
+    const infoContributionPopoverElement = screen.getByRole('button', {
+      name: 'info-contribution',
+    })
     fireEvent.mouseOver(infoContributionPopoverElement)
-    expect(screen.getByText('Aplicação de um mesmo valor todos os meses.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Aplicação de um mesmo valor todos os meses.')
+    ).toBeInTheDocument()
   })
   it('should show Popover Taxes message', () => {
     const store = storeFactory({
@@ -219,10 +247,18 @@ describe('PrivateWelfareSection - Home', () => {
     renderWithReduxAndTheme(
       <MemoryRouter>
         <PrivateWelfareSection />
-      </MemoryRouter>, { store, container: createRootContainer() })
-    const infoTaxPopoverElement = screen.getByRole('button', { name: 'info-tax' })
+      </MemoryRouter>,
+      { store, container: createRootContainer() }
+    )
+    const infoTaxPopoverElement = screen.getByRole('button', {
+      name: 'info-tax',
+    })
     fireEvent.mouseOver(infoTaxPopoverElement)
-    expect(screen.getByText('O valor do tributo a ser cobrado aumenta de acordo com a renda.')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'O valor do tributo a ser cobrado aumenta de acordo com a renda.'
+      )
+    ).toBeInTheDocument()
   })
   it('should render mobile correctly', () => {
     const store = storeFactory({
@@ -244,7 +280,9 @@ describe('PrivateWelfareSection - Home', () => {
       { store, container: createRootContainer() }
     )
 
-    const infoBallancePopoverElement = screen.getByRole('button', { name: 'info-ballance' })
+    const infoBallancePopoverElement = screen.getByRole('button', {
+      name: 'info-ballance',
+    })
     const infoContributionPopoverElement = screen.getByRole('button', {
       name: 'info-contribution',
     })
@@ -252,16 +290,24 @@ describe('PrivateWelfareSection - Home', () => {
       name: 'info-tax',
     })
 
-
-
     fireEvent.mouseOver(infoBallancePopoverElement)
-    expect(screen.getByText('Valor disponível em conta, sem desconto de taxas e impostos.')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'Valor disponível em conta, sem desconto de taxas e impostos.'
+      )
+    ).toBeInTheDocument()
 
     fireEvent.mouseOver(infoContributionPopoverElement)
-    expect(screen.getByText('Aplicação de um mesmo valor todos os meses.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Aplicação de um mesmo valor todos os meses.')
+    ).toBeInTheDocument()
 
     fireEvent.mouseOver(infoTaxPopoverElement)
-    expect(screen.getByText('O valor do tributo a ser cobrado aumenta de acordo com a renda.')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'O valor do tributo a ser cobrado aumenta de acordo com a renda.'
+      )
+    ).toBeInTheDocument()
 
     expect(screen.getByText('Produto')).toBeInTheDocument()
     expect(screen.getByText('Saldo bruto')).toBeInTheDocument()
@@ -283,23 +329,20 @@ describe('PrivateWelfareSection - Home', () => {
         cpf: '13150747619',
       },
     })
-    let locationLocal: RouteProps['location']
+
+    //@ts-expect-error
+    delete window.location
+    window.location = {
+      ...window.location,
+      href: '/',
+    }
+
     window.resizeTo(400, 600)
-    renderWithReduxAndTheme(
-      <MemoryRouter initialEntries={['/']}>
-        <PrivateWelfareSection />
-        <Route
-          path="*"
-          render={({ location }) => {
-            locationLocal = location
-            return null
-          }}
-        />
-      </MemoryRouter>,
-      { store }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
     fireEvent.click(screen.getByRole('button', { name: /gerenciar/i }))
-    expect(locationLocal!.pathname).toBe('/previdencia-privada')
+    expect(window.location.href).toBe(
+      'https://cliente.portoseguro.com.br/react/previdencia.html#/'
+    )
   })
   it('should be able to truncate name correctly on all devices', () => {
     const store = storeFactory({
@@ -320,9 +363,10 @@ describe('PrivateWelfareSection - Home', () => {
       </MemoryRouter>,
       { store }
     )
-    const [privateWelfare] = store.getState().privateWelfare.data as IPrivateWelfare[]
-    const [fund] = privateWelfare.benefits.reserves.funds
-    const { fundName } = fund
+    const [privateWelfare] = store.getState().privateWelfare
+      .data as IPrivateWelfare[]
+    const fund = privateWelfare?.benefits[0]?.reserves.funds
+    const fundName = fund[0]?.fundName
     let textElements = screen.getByText(fundName)
 
     expect(textElements).toBeInTheDocument()
@@ -335,4 +379,3 @@ describe('PrivateWelfareSection - Home', () => {
     expect(textElements).toBeInTheDocument()
   })
 })
-
