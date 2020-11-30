@@ -283,15 +283,19 @@ export default function PointsSection({ points }: IProps) {
     ))
 
   const renderModalContent = () => {
-    return pointsRulesConditions.map(item => (
+    return pointsRulesConditions.map((item, index) => (
       <React.Fragment key={item.id}>
         <ModalTextWrapper>
           <Text type="headline" color="gray6" bold>
             {item.title}
           </Text>
-          <Text type="headline" color="gray5">
-            {item.text}
-          </Text>
+          {index === 0 ? (
+            ''
+          ) : (
+            <Text type="headline" color="gray5">
+              {item.text}
+            </Text>
+          )}
         </ModalTextWrapper>
         {item.points && (
           <ContainerBox>
