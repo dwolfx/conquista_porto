@@ -5,7 +5,11 @@ import Divisor from 'components/Divisor'
 import Button from 'components/Button'
 
 export const CardComponent = styled(Card)`
-  margin: auto;
+  margin-right: 14px;
+
+  &:last-of-type {
+    margin-right: 0px;
+  }
   padding: ${({ theme }) => theme.spacing(3)}px
     ${({ theme }) => theme.spacing(2)}px ${({ theme }) => theme.spacing(2)}px;
   width: 418px;
@@ -15,6 +19,12 @@ export const CardComponent = styled(Card)`
   }
   @media ${({ theme }) => theme.mediaQueries.md} {
     width: 607px;
+    margin-right: 0px;
+    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
   }
   @media ${({ theme }) => theme.mediaQueries.sm} {
     width: 332px;
