@@ -144,6 +144,7 @@ export default function Investments({ history }) {
               data-gtm-clicktype="button"
               data-gtm-subname="banner - investindo em objetivos"
               data-gtm-name="criar objetivo"
+              onClick={() => history.push('/objetivos')}
             >
               Criar Objetivo
             </Button>
