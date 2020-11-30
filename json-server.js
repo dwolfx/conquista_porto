@@ -18,6 +18,7 @@ const withdrawPOSTMock = require('./src/mocks/withdrawPOST.json')
 const redeemPOSTMock = require('./src/mocks/redeemPOST.json')
 const fundDetails = require('./src/mocks/fundDetails.json')
 const privateWelfare = require('./src/mocks/privateWelfare.json')
+const privateWelfateWithStatusPRE = require('./src/mocks/privateWelfateWithStatusPRE.json')
 
 server.use(middlewares)
 
@@ -115,8 +116,11 @@ router.render = (req, res) => {
       return res.status(204).jsonp({})
     }
   }
-  if (req.originalUrl.endsWith('/consulta/adesao')) {
+  if (req.originalUrl.endsWith('/adesoes/titular/cpf')) {
     return res.status(200).jsonp(privateWelfare)
+  }
+  if (req.originalUrl.endsWith('/adesoes/aprovada/titular/cpf')) {
+    return res.status(200).jsonp(privateWelfateWithStatusPRE)
   }
   if (req.originalUrl.endsWith('/teclado-virtual')) {
     if (req.method === 'POST') {

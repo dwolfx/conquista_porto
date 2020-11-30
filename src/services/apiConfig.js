@@ -15,7 +15,7 @@ const baseURLNamespaceInvestAws =
 const baseURLNamespaceInvestPortovida =
   process.env.REACT_APP_BASE_URL_INVEST_PORTOVIDA || ''
 const baseURLNamespaceInvestPrevidencia =
-  process.env.REACT_APP_BASE_URL_PORTOPREVIDENCIA || ''
+  process.env.REACT_APP_BASE_URL_PREVIDENCIA || ''
 const baseURLNamespaceGoal = process.env.REACT_APP_BASE_URL_GOAL || ''
 const baseURLNamespaceGoalFunds =
   process.env.REACT_APP_BASE_URL_GOAL_FUNDS || ''

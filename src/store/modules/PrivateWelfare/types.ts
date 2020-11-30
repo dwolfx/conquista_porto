@@ -3,11 +3,12 @@ export const Types = {
   PRIVATE_WELFARE_SUCCESS: 'PRIVATE_WELFARE_SUCCESS',
   PRIVATE_WELFARE_FAILURE: 'PRIVATE_WELFARE_FAILURE',
   PRIVATE_WELFARE_EMPTY: 'PRIVATE_WELFARE_EMPTY',
-}
-
-export interface IGetPrivateWelfareRequestData {
-  type: keyof typeof Types
-  cpf: string
+  PRIVATE_WELFARE_WITH_STATUS_PRE_REQUEST:
+    'PRIVATE_WELFARE_WITH_STATUS_PRE_REQUEST',
+  PRIVATE_WELFARE_WITH_STATUS_PRE_SUCCESS:
+    'PRIVATE_WELFARE_WITH_STATUS_PRE_SUCCESS',
+  PRIVATE_WELFARE_WITH_STATUS_PRE_FAILURE:
+    'PRIVATE_WELFARE_WITH_STATUS_PRE_FAILURE',
 }
 
 interface IFund {
@@ -25,20 +26,17 @@ interface IValidationResult {
   observation: string
 }
 
-// limpar campos desnecessários
 export interface IPrivateWelfare {
-  benefits: [
-    {
-      planId: number
-      benefitId: string
-      reserves: {
-        reserveId: number
-        funds: IFund[]
-      }
-      expectedContributionValue: string
-      initialContributionValue: string
+  benefits: {
+    planId: number
+    benefitId: string
+    reserves: {
+      reserveId: number
+      funds: IFund[]
     }
-  ]
+    expectedContributionValue: string
+    initialContributionValue: string
+  }[]
   client: {
     physicalPersonId: number
     maritalStatus: string
@@ -95,4 +93,47 @@ export interface IPrivateWelfare {
   totalMonthlyIncome: number
   consignorUnit: {}
   validationResults: IValidationResult[]
+}
+
+export interface IPrivateWelfareWithStatusPRE {
+  previdencia: {
+    produtos: {
+      produto: {
+        administradora: string
+        filial: string
+        dataPrevistaAposent: string
+        nomcomproduto: string
+        nomeformapagto: string
+        nomestatusproposta: string
+        certificado: string
+        nomparticipante: string
+        numdiavencto: string
+        origem: string
+        produto: string
+        proposta: string
+        propostacomplementoauto: string
+        regimetributacao: string
+        tipo: string
+        tipoproduto: string
+        coberturas: {
+          cobertura: {
+            nomcobertura: string
+            nomstatuscob: string
+            datafinalvigencia: string
+            valorcontrib: string
+            valorsaldoatual: string
+          }[]
+        }
+        fundos: {
+          fundo: {
+            indicadorquempaga: string
+            valordistrifundo: string
+            nomfundocom: string
+            valorpercentdistribuicao: string
+            valortotalporfundo: string
+          }[]
+        }
+      }[]
+    }
+  }
 }

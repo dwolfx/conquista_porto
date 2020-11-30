@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { renderWithReduxAndTheme, screen, fireEvent, act } from 'testUtils'
-import { MemoryRouter } from 'react-router-dom'
+import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 import { storeFactory } from 'setupTests'
-import { truncateString } from 'helpers'
 
-import mock from 'store/modules/PrivateWelfare/mock.json'
+import privateWelfareResponse from 'mocks/privateWelfare.json'
+import privateWelfateWithStatusPREResponse from 'mocks/privateWelfateWithStatusPRE.json'
+
 import PrivateWelfareSection from '.'
 import { IPrivateWelfare } from 'store/modules/PrivateWelfare/types'
 
@@ -29,8 +29,31 @@ const createRootContainer = () => {
   }
   return container
 }
-const filteredMock = mock.filter(pv => pv.status !== 'ERR')
+//garante que o retorno será um array
+const newData = [privateWelfareResponse].flatMap(item => item)
 
+//pega todas as previdências que não possuem status 'CAN' ou 'RCH' ou 'ERR
+//@ts-ignore
+const filteredData: IPrivateWelfare[] = [...newData].filter(
+  //@ts-ignore
+  (pv: IPrivateWelfare) =>
+    pv.status !== 'CAN' && pv.status !== 'RCH' && pv.status !== 'ERR'
+)
+
+//garante que o retorno do campo 'benefits' será um array
+const filteredDataWithNewBenefitsArrayMock = [...filteredData].map(pv => {
+  return { ...pv, benefits: [pv.benefits].flatMap(item => item) }
+})
+
+const INITIAL_STATE = {
+  data: filteredDataWithNewBenefitsArrayMock,
+  hasError: false,
+  isLoading: false,
+  isEmpty: false,
+  dataStatusPRE: privateWelfateWithStatusPREResponse,
+  hasErrorStatusPRE: false,
+  isLoadingStatusPRE: false,
+}
 describe('PrivateWelfareSection - Home', () => {
   it('component should exist', () => {
     expect(PrivateWelfareSection).toBeDefined()
@@ -38,41 +61,24 @@ describe('PrivateWelfareSection - Home', () => {
   it('should show PrivateWelfareLoadingState component', () => {
     const store = storeFactory({
       privateWelfare: {
+        ...INITIAL_STATE,
         isLoading: true,
-        hasError: false,
-        data: null,
-        isEmpty: false,
       },
     })
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
     expect(
       screen.getByText('Aguarde, estamos buscando suas informações...')
     ).toBeInTheDocument()
     expect(screen.getByTestId('loading-bar')).toBeInTheDocument()
   })
   it('should show PrivateWelfareErrorState component', () => {
-    const errorStore = storeFactory({
+    const store = storeFactory({
       privateWelfare: {
-        data: {},
-        isLoading: false,
+        ...INITIAL_STATE,
         hasError: true,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
       },
     })
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store: errorStore }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
 
     expect(
       screen.getByText(
@@ -86,47 +92,27 @@ describe('PrivateWelfareSection - Home', () => {
   it('should be able to render EmptyState properly', () => {
     const store = storeFactory({
       privateWelfare: {
+        ...INITIAL_STATE,
         data: [],
-        isLoading: false,
-        hasError: false,
         isEmpty: true,
       },
-      auth: {
-        cpf: '13150747619',
-      },
     })
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
 
     expect(screen.getByText('Viver melhor hoje e amanhã')).toBeInTheDocument()
   })
   it('should show PrivateWelfare component', () => {
     const store = storeFactory({
       privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
+        ...INITIAL_STATE,
       },
     })
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
 
-    expect(screen.getAllByText('Produto')).toHaveLength(1)
-    expect(screen.getAllByText('Saldo bruto')).toHaveLength(1)
-    expect(screen.getAllByText('Contribuição mensal')).toHaveLength(1)
-    expect(screen.getAllByText('Tributação')).toHaveLength(1)
+    expect(screen.getAllByText('Produto')).toHaveLength(3)
+    expect(screen.getAllByText('Saldo bruto')).toHaveLength(3)
+    expect(screen.getAllByText('Contribuição mensal')).toHaveLength(3)
+    expect(screen.getAllByText('Tributação')).toHaveLength(3)
     expect(
       screen.getByRole('button', { name: /gerenciar/i })
     ).toBeInTheDocument()
@@ -134,13 +120,7 @@ describe('PrivateWelfareSection - Home', () => {
   it('should redirect to private welfare page', () => {
     const store = storeFactory({
       privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
+        ...INITIAL_STATE,
       },
     })
     //@ts-expect-error
@@ -156,46 +136,40 @@ describe('PrivateWelfareSection - Home', () => {
       'https://cliente.portoseguro.com.br/react/previdencia.html#/'
     )
   })
-  it('should be able to dispatch action on useEffect', () => {
+  it('should be able to dispatch action GetPrivateWelfareRequest on useEffect', () => {
     const store = storeFactory({
       privateWelfare: {
+        ...INITIAL_STATE,
         data: null,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
       },
     })
 
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
+
+    expect(screen.getByTestId('loading-bar')).toBeInTheDocument()
+  })
+  it('should be able to dispatch action GetPrivateWelfareWithStatusPRERequest on useEffect', () => {
+    const store = storeFactory({
+      privateWelfare: {
+        ...INITIAL_STATE,
+        dataStatusPRE: null,
+      },
+    })
+
+    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
 
     expect(screen.getByTestId('loading-bar')).toBeInTheDocument()
   })
   it('should show Popover Ballance message', () => {
     const store = storeFactory({
       privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
+        ...INITIAL_STATE,
       },
     })
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store, container: createRootContainer() }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, {
+      store,
+      container: createRootContainer(),
+    })
     const infoBallancePopoverElement = screen.getByRole('button', {
       name: 'info-ballance',
     })
@@ -209,21 +183,13 @@ describe('PrivateWelfareSection - Home', () => {
   it('should show Popover Contibution message', () => {
     const store = storeFactory({
       privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
+        ...INITIAL_STATE,
       },
     })
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store, container: createRootContainer() }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, {
+      store,
+      container: createRootContainer(),
+    })
     const infoContributionPopoverElement = screen.getByRole('button', {
       name: 'info-contribution',
     })
@@ -235,21 +201,13 @@ describe('PrivateWelfareSection - Home', () => {
   it('should show Popover Taxes message', () => {
     const store = storeFactory({
       privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
+        ...INITIAL_STATE,
       },
     })
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store, container: createRootContainer() }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, {
+      store,
+      container: createRootContainer(),
+    })
     const infoTaxPopoverElement = screen.getByRole('button', {
       name: 'info-tax',
     })
@@ -263,22 +221,14 @@ describe('PrivateWelfareSection - Home', () => {
   it('should render mobile correctly', () => {
     const store = storeFactory({
       privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
+        ...INITIAL_STATE,
       },
     })
     window.resizeTo(400, 600)
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store, container: createRootContainer() }
-    )
+    renderWithReduxAndTheme(<PrivateWelfareSection />, {
+      store,
+      container: createRootContainer(),
+    })
 
     const infoBallancePopoverElement = screen.getByRole('button', {
       name: 'info-ballance',
@@ -309,10 +259,10 @@ describe('PrivateWelfareSection - Home', () => {
       )
     ).toBeInTheDocument()
 
-    expect(screen.getByText('Produto')).toBeInTheDocument()
-    expect(screen.getByText('Saldo bruto')).toBeInTheDocument()
-    expect(screen.getByText('Contribuição mensal')).toBeInTheDocument()
-    expect(screen.getByText('Tributação')).toBeInTheDocument()
+    expect(screen.getAllByText('Produto')).toHaveLength(3)
+    expect(screen.getAllByText('Saldo bruto')).toHaveLength(3)
+    expect(screen.getAllByText('Contribuição mensal')).toHaveLength(3)
+    expect(screen.getAllByText('Tributação')).toHaveLength(3)
     expect(
       screen.getByRole('button', { name: /gerenciar/i })
     ).toBeInTheDocument()
@@ -320,13 +270,7 @@ describe('PrivateWelfareSection - Home', () => {
   it('should redirect to private welfare page on mobile', () => {
     const store = storeFactory({
       privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
+        ...INITIAL_STATE,
       },
     })
 
@@ -343,39 +287,5 @@ describe('PrivateWelfareSection - Home', () => {
     expect(window.location.href).toBe(
       'https://cliente.portoseguro.com.br/react/previdencia.html#/'
     )
-  })
-  it('should be able to truncate name correctly on all devices', () => {
-    const store = storeFactory({
-      privateWelfare: {
-        data: filteredMock,
-        isLoading: false,
-        hasError: false,
-        isEmpty: false,
-      },
-      auth: {
-        cpf: '13150747619',
-      },
-    })
-    window.resizeTo(979, 600)
-    renderWithReduxAndTheme(
-      <MemoryRouter>
-        <PrivateWelfareSection />
-      </MemoryRouter>,
-      { store }
-    )
-    const [privateWelfare] = store.getState().privateWelfare
-      .data as IPrivateWelfare[]
-    const fund = privateWelfare?.benefits[0]?.reserves.funds
-    const fundName = fund[0]?.fundName
-    let textElements = screen.getByText(fundName)
-
-    expect(textElements).toBeInTheDocument()
-
-    act(() => {
-      window.resizeTo(981, 600)
-    })
-
-    textElements = screen.getByText(truncateString(fundName, 30))
-    expect(textElements).toBeInTheDocument()
   })
 })

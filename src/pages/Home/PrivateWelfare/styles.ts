@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
 import CarouselCard from 'components/Card/CarouselCard'
+import TextComponent from 'components/Text'
 
 export const StyledCarousel = styled(CarouselCard)`
   height: 490px;
@@ -16,7 +17,7 @@ export const StyledCarousel = styled(CarouselCard)`
     height: 518px;
   }
 
-  .slick-track{
+  .slick-track {
     height: calc(100% - 14px);
   }
 
@@ -46,19 +47,29 @@ export const ContentWrapper = styled.div`
 `
 export const ManageButton = styled(Button).attrs(() => ({
   outline: true,
-  color: "primary"
+  color: 'primary',
 }))`
   width: 100%;
 `
 
 export const ButtonWrapper = styled.div`
-  padding: ${({theme}) => `0 ${theme.spacing(2)}px`};
+  padding: ${({ theme }) => `0 ${theme.spacing(2)}px`};
 `
 
 export const CategoryWrapper = styled.div`
   display: flex;
   align-items: center;
   p {
-    margin-right: ${({theme}) => theme.spacing(2)}px;
+    margin-right: ${({ theme }) => theme.spacing(2)}px;
   }
+`
+
+export const LabelText = styled(TextComponent).attrs(() => ({
+  type: 'captionUppercase',
+  color: 'gray4',
+  bold: true,
+}))`
+  display: flex;
+  align-items: center;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
 `
