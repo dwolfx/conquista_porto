@@ -22,14 +22,15 @@ export default function TripInsurenceCreation({
   const { pop, getLast, getLength, instantiate } = useStackFluxManagement<StepComponentProps>()
 
   React.useEffect(() => {
-    if(isOpen)
+    if(isOpen && getLength() === 0)
       instantiate(Steps.passengerStep)
-  }, [isOpen, instantiate])
+  }, [isOpen, instantiate, getLength])
 
   return (
     <Layer
       isOpen={isOpen}
       handleClose={closeHandler}
+      data-testid="trip-insurance-layer"
       headerContent={
         <Container>
           <Row>
