@@ -47,8 +47,12 @@ export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
   )
 
   useEffect(() => {
-    setCompareError(innerValue < minValue)
-  }, [innerValue, minValue])
+    if(type === 'monthly_value') {
+      setCompareError(innerValue !== 0 && innerValue < minValue)
+    } else {
+      setCompareError(innerValue < minValue)
+    }
+  }, [innerValue, minValue, type])
 
   function getMinFundValue(moneyInputName: string): number {
     let minFundValue: number
@@ -90,7 +94,8 @@ export const FormatValue = ({ row, onBlur, onChange, type }: IFormatValue) => {
           break
         case errors.CompareCurrencyException:
           const currency = new BRLCurrency(event.target.value)
-          setCompareError(true)
+          const isZero = currency.toNumber() === 0
+          setCompareError(type === 'monthly_value' ? !isZero : true)
           setInnerValue(currency.toNumber())
           break
         default:
