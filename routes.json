@@ -20,6 +20,7 @@
   "/invest/programa-pontos/extrato": "/pontos",
   "/invest/programa-pontos/consultar-pontos": "/pontos_consultar",
   "/invest/atlas/cotista/posicao/consolidado": "/consolidado",
+  "/invest/cotistas/posicao-consolidada": "/posicao_consolidada",
   "/conta/extrato\\?tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal": "/extrato?tipoFiltro=:tipoFiltro&dataInicial=:dataInicial&dataFinal=:dataFinal",
   "/notificacao/buscar/:cpf": "/notificacoes",
   "/notificacao/lida/:id/:cpf": "/notificacoes?id=:id&cpf=:cpf",
