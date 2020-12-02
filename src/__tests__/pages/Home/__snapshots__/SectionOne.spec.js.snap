@@ -190,7 +190,7 @@ Array [
 }
 
 .c15 {
-  color: unset;
+  color: #FFFFFF;
   text-align: unset;
   text-transform: none;
   font-weight: normal;
@@ -769,7 +769,7 @@ Array [
             >
               <span
                 className="c15"
-                color="unset"
+                color="white"
                 type="button"
               >
                 PGBL ou VGBL
