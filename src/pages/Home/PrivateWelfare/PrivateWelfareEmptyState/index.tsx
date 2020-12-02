@@ -22,15 +22,13 @@ const PrivateWelfareEmptyState = () => {
       <ImageWrapper>
         <img src={WelFareEmptyImg} alt="PGBL ou VGBL" />
         <SliderCaption>
-          <Text type="button" bold>
+          <Text type="button" color="white" bold>
             PGBL ou VGBL
           </Text>
         </SliderCaption>
       </ImageWrapper>
       <ContentWrapper>
-        <Title>
-          Viver melhor hoje e amanhã
-        </Title>
+        <Title>Viver melhor hoje e amanhã</Title>
         <Description>
           Dedique uma parte de sua renda para investir em um futuro confortável.
           Gestores profissionais farão o seu dinheiro render ao longo dos anos
