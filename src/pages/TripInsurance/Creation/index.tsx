@@ -13,17 +13,18 @@ import { HeaderContent, LogoWrapper, CloseIcon, PreviousIcon } from './styles'
 import { Steps } from './types'
 
 export default function TripInsurenceCreation({
-  isOpen = false,
-  closeHandler = () => {  },
+  isOpen = true,
+  closeHandler = () => {},
 }: {
   isOpen: boolean
   closeHandler: () => void
 }) {
-  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<StepComponentProps>()
+  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
+    StepComponentProps
+  >()
 
   React.useEffect(() => {
-    if(isOpen && getLength() === 0)
-      instantiate(Steps.passengerStep)
+    if (isOpen && getLength() === 0) instantiate(Steps.originTrip)
   }, [isOpen, instantiate, getLength])
 
   return (
@@ -41,11 +42,11 @@ export default function TripInsurenceCreation({
                   data-gtm-name="botao voltar step"
                   data-gtm-type="click"
                   data-gtm-clicktype="button"
-                  onClick={() => getLength() === 1 ? closeHandler() : pop()}
+                  onClick={() => (getLength() === 1 ? closeHandler() : pop())}
                 />
                 <LogoWrapper>
                   <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
-               </LogoWrapper>
+                </LogoWrapper>
                 <CloseIcon
                   className="layer-close-button"
                   data-gtm-subname="botao fechar layer"
@@ -54,13 +55,13 @@ export default function TripInsurenceCreation({
                   data-gtm-clicktype="button"
                   onClick={closeHandler}
                 />
-              </HeaderContent >
-            </Col >
-          </Row >
-        </Container >
+              </HeaderContent>
+            </Col>
+          </Row>
+        </Container>
       }
     >
       {getLast()}
-    </Layer >
+    </Layer>
   )
 }

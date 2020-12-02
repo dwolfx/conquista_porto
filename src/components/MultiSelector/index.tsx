@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef, useCallback, MutableRefObject } from 'react'
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  MutableRefObject,
+} from 'react'
 
 import {
   StSelectWrapper,
@@ -66,7 +72,9 @@ const MultiSelector: React.FC<IProps> = ({
   const [selectedOptions, setSelectedOptions] = useState<IOption[]>([])
   const [selectIcon, setSelectIcon] = useState<keyof typeof dict>('arrowdown')
 
-  const selectContainerElement = useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>
+  const selectContainerElement = useRef<HTMLDivElement>() as MutableRefObject<
+    HTMLDivElement
+  >
   const handleClickOutsideSelectContainerElement = useCallback(
     (event: MouseEvent) => {
       if (
