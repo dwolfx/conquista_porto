@@ -90,7 +90,7 @@ const SummaryFinancialContribution = ({
         VOLTAR
       </StyledReturnButton>
       <StyledConfirmButton
-        disabled={!!formData.isAwareOfTerms}
+        disabled={!formData.isAwareOfTerms}
         loading={isLoading}
         retryAction={errorCount > 0}
         color="secondary"
