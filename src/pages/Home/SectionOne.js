@@ -8,9 +8,8 @@ import InsuranceCard from './InsuranceCard'
 import InvestmentCard from './InvestmentCard'
 
 import CardHeaderState from './commons/CardHeaderState'
-import PrivateWelfareEmptyState from './PrivateWelfare/PrivateWelfareEmptyState'
-import { GridCol, GridColFlexContainer, HomePrivateWelfareCard } from './styles'
-// import PrivateWalfareSection from './PrivateWelfare'
+import { GridCol, GridColFlexContainer } from './styles'
+import PrivateWalfareSection from './PrivateWelfare'
 
 const SectionOne = ({ onFetchInvestments }) => {
   const { investments } = useSelector(state => ({
@@ -37,14 +36,7 @@ const SectionOne = ({ onFetchInvestments }) => {
         />
       </GridCol>
       <GridCol lg="4" md="6" sm="12">
-        {/* <PrivateWalfareSection headerEndItem={cardHeaderState} /> */}
-        <HomePrivateWelfareCard
-          headerIcon="time"
-          headerTitle="Previdência"
-          headerEndItem={cardHeaderState}
-        >
-          <PrivateWelfareEmptyState />
-        </HomePrivateWelfareCard>
+        <PrivateWalfareSection headerEndItem={cardHeaderState} />
       </GridCol>
       <GridColFlexContainer lg="3" md="12" mdOffset="0" sm="12" xs="12">
         <InsuranceCard headerEndItem={cardHeaderState} />

@@ -5,6 +5,9 @@ const INITIAL_STATE = {
   hasError: false,
   isLoading: false,
   isEmpty: false,
+  dataStatusPRE: null,
+  hasErrorStatusPRE: false,
+  isLoadingStatusPRE: false,
 }
 
 export default function(state = INITIAL_STATE, action: any) {
@@ -36,6 +39,24 @@ export default function(state = INITIAL_STATE, action: any) {
         isEmpty: true,
         isLoading: false,
         hasError: false,
+      }
+    case Types.PRIVATE_WELFARE_WITH_STATUS_PRE_REQUEST:
+      return {
+        ...state,
+        hasErrorStatusPRE: false,
+        isLoadingStatusPRE: true,
+      }
+    case Types.PRIVATE_WELFARE_WITH_STATUS_PRE_SUCCESS:
+      return {
+        ...state,
+        dataStatusPRE: action.payload,
+        isLoadingStatusPRE: false,
+      }
+    case Types.PRIVATE_WELFARE_WITH_STATUS_PRE_FAILURE:
+      return {
+        ...state,
+        isLoadingStatusPRE: false,
+        hasErrorStatusPRE: true,
       }
     default:
       return state

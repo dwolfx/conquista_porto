@@ -1,43 +1,39 @@
-import { takeLatest, call, put } from 'redux-saga/effects'
-import { post } from 'services/api'
-import { Types, IGetPrivateWelfareRequestData, IPrivateWelfare } from './types'
+import { all, call, put, takeLatest } from 'redux-saga/effects'
+import { get } from 'services/api'
+import { Types, IPrivateWelfare } from './types'
 import {
+  GetPrivateWelfareEmpty,
   GetPrivateWelfareFailure,
   GetPrivateWelfareSuccess,
-  GetPrivateWelfareEmpty
+  GetPrivateWelfareWithStatusPREFailure,
+  GetPrivateWelfareWithStatusPRESuccess,
 } from './action'
 import { baseURLNamespaceInvestPrevidencia } from 'services/apiConfig'
 import BadRequestException from 'services/exceptions/BadRequestException'
 
-export function* getData({ cpf }: IGetPrivateWelfareRequestData) {
+export function* getPrivateWelfareData() {
   try {
-    const postPayload = {
-      filter: {
-        companyId: "",
-        productId: "",
-        cpf,
-        cnpj: "",
-        sponsorAccountId: "",
-        certificateId: "",
-        clientName: "",
-        certificateStatus: "",
-        paymentStatus: "",
-        status: "",
-        affiliationId: "",
-        planId: "",
-        benefitId: "",
-        clientId: "",
-        withdrawalId: ""
-      }
-    }
     const { data } = yield call(
-      post,
-      `${baseURLNamespaceInvestPrevidencia}/conquista/arenasimcontratprodutosprevidenciaService/api/consulta/adesao`, postPayload)
+      get,
+      `${baseURLNamespaceInvestPrevidencia}/adesoes/titular/cpf`
+    )
 
-    const filteredData: IPrivateWelfare[] = data.filter((pv: IPrivateWelfare) => pv.status !== 'ERR')
+    //garante que o retorno será um array
+    const newData = [data].flatMap(item => item)
 
-    if (filteredData.length) {
-      yield put(GetPrivateWelfareSuccess(filteredData))
+    //pega todas as previdências que não possuem status 'CAN' ou 'RCH' ou 'ERR
+    const filteredData: IPrivateWelfare[] = [...newData].filter(
+      (pv: IPrivateWelfare) =>
+        pv.status !== 'CAN' && pv.status !== 'RCH' && pv.status !== 'ERR'
+    )
+
+    //garante que o retorno do campo 'benefits' será um array
+    const filteredDataWithNewBenefitsArray = [...filteredData].map(pv => {
+      return { ...pv, benefits: [pv.benefits].flatMap(item => item) }
+    })
+
+    if (filteredDataWithNewBenefitsArray.length) {
+      yield put(GetPrivateWelfareSuccess(filteredDataWithNewBenefitsArray))
     } else {
       yield put(GetPrivateWelfareEmpty())
     }
@@ -50,4 +46,25 @@ export function* getData({ cpf }: IGetPrivateWelfareRequestData) {
   }
 }
 
-export default takeLatest(Types.PRIVATE_WELFARE_REQUEST, getData)
+export function* getPrivateWelfareWithStatusPRE() {
+  try {
+    const { data } = yield call(
+      get,
+      `${baseURLNamespaceInvestPrevidencia}/adesoes/aprovada/titular/cpf`
+    )
+
+    if (data) {
+      yield put(GetPrivateWelfareWithStatusPRESuccess(data))
+    }
+  } catch (e) {
+    yield put(GetPrivateWelfareWithStatusPREFailure())
+  }
+}
+
+export default all([
+  takeLatest(Types.PRIVATE_WELFARE_REQUEST, getPrivateWelfareData),
+  takeLatest(
+    Types.PRIVATE_WELFARE_WITH_STATUS_PRE_REQUEST,
+    getPrivateWelfareWithStatusPRE
+  ),
+])

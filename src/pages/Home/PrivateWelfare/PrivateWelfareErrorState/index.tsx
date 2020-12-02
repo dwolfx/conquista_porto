@@ -9,9 +9,8 @@ import { ErrorText, ErrorWrapper } from './styles'
 
 interface IProps {
   isLoading: boolean
-  cpf: string
 }
-const PrivateWelfareErrorState = ({ isLoading, cpf }: IProps) => {
+const PrivateWelfareErrorState = ({ isLoading }: IProps) => {
   const dispatch = useDispatch()
   return (
     <ErrorWrapper>
@@ -27,8 +26,9 @@ const PrivateWelfareErrorState = ({ isLoading, cpf }: IProps) => {
         data-gtm-clicktype="button"
         color="primary"
         loading={isLoading}
-        onClick={() => dispatch(GetPrivateWelfareRequest(cpf))}>
-          tentar novamente
+        onClick={() => dispatch(GetPrivateWelfareRequest())}
+      >
+        tentar novamente
       </Button>
     </ErrorWrapper>
   )

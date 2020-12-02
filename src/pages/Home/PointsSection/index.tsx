@@ -36,7 +36,7 @@ import PointsCardContent from './PointsCardContent'
 import CarouselCard from 'components/Card/CarouselCard'
 
 import { ICardsInfo } from './types'
-import { PointsCol, RulesButton } from './styles'
+import { PointsCol, RulesButton, LabelText } from './styles'
 import {
   EmptyBody,
   CardPontosFooter,
@@ -369,9 +369,7 @@ export default function PointsSection({ points }: IProps) {
     return (
       <>
         <PointsInfo>
-          <Text type="headline" color="gray6">
-            {pointsInfoAmountBalance()}
-          </Text>
+          <LabelText>{pointsInfoAmountBalance()}</LabelText>
           <Popover
             content={() => (
               <Text

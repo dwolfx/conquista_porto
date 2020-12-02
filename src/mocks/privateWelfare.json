@@ -3,356 +3,116 @@
     "benefits": {
       "planId": 20,
       "benefitId": "54",
+      "portability": [
+        {
+          "assignorPlan": "PGBL AVERBADO - Composto",
+          "totalRequestedValue": "5500.0",
+          "externalAssignorAccount": "6151651656454",
+          "portabilityId": "060330002397395",
+          "notificationAgreement": false,
+          "portabilityDetails": [
+            {
+              "exitType": "T",
+              "fundId": "5082",
+              "reserveId": "1000",
+              "requestedValue": "1375.0"
+            },
+            {
+              "exitType": "T",
+              "fundId": "51380151",
+              "reserveId": "1000",
+              "requestedValue": "1375.0"
+            },
+            {
+              "exitType": "T",
+              "fundId": "51380145",
+              "reserveId": "1000",
+              "requestedValue": "1375.0"
+            },
+            {
+              "exitType": "T",
+              "fundId": "51380146",
+              "reserveId": "1000",
+              "requestedValue": "1375.0"
+            }
+          ]
+        }
+      ],
       "reserves": {
         "reserveId": 1000,
         "funds": [
           {
-            "nameFund": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
-      },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1000.0"
-    },
-    "client": {
-      "physicalPersonId": 1111265,
-      "maritalStatus": "S",
-      "professionId": 358,
-      "birthDate": "1990-02-21",
-      "personName": "IRIS OLIVEIRA ALMEIDA",
-      "cpf": "39049924816",
-      "sexIndication": "F",
-      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
-    },
-    "clientId": 1111265,
-    "retirementDate": "2030-09-14",
-    "requestDate": "2020-09-14",
-    "addresses": {
-      "addressDescription": "Minha residência",
-      "streetName": "Rua São Vicente de Paula",
-      "streetType": "AV",
-      "streetNumber": "10",
-      "addressType": "RE",
-      "stateId": "SP",
-      "neighborhood": "Centro",
-      "cityId": "9240",
-      "defaultInd": "S",
-      "countryId": "105",
-      "cep": "18200280"
-    },
-    "maritalStatus": "S",
-    "affiliationId": 980127424,
-    "salesAgencyId": 1,
-    "salesChannelId": 1026,
-    "nationalityId": "BR",
-    "salesOriginId": "9",
-    "residenceCountryId": 105,
-    "incomeTaxDeductible": false,
-    "incomingPortabilityInd": "N",
-    "initialPayment": {
-      "paymentDate": "2020-09-29",
-      "paymentDescription": "Boleto",
-      "address": {
-        "addressId": "1176897"
-      },
-      "finantialResponsiblePersonId": 1111265,
-      "paymentTypeId": 104,
-      "paymentMethod": "FC"
-    },
-    "product": {
-      "companyId": 500,
-      "productId": 2074
-    },
-    "professionId": 358,
-    "status": "ERR",
-    "formType": "I",
-    "taxOptionType": "TP",
-    "totalMonthlyIncome": 10000,
-    "consignorUnit": {},
-    "validationResults": [
-      {
-        "errorDate": "2020-09-14",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "C",
-        "fieldName": "REGRA: COD.001, NUM.167, RST.130.",
-        "observation": "VALIDAÇÃO DOS DOCUMENTOS DO PROPONENTE: DOCUMENTO DE CLASSE EXIGE ÓRGÃO EXPEDIDOR, LOCAL DE EMISSÃO E DATA DE EMISSÃO"
-      },
-      {
-        "errorDate": "2020-09-14",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "P",
-        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
-        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
-      },
-      {
-        "errorDate": "2020-09-14",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "P",
-        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
-        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
-      }
-    ]
-  },
-  {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
+            "fundName": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+            "fundId": 1030,
+            "distributionPercent": "25.0",
+            "risk": 17,
+            "category": 3
+          },
           {
-            "nameFund": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
-      },
-      "expectedContributionValue": "0.0",
-      "initialContributionValue": "1000.0"
-    },
-    "client": {
-      "physicalPersonId": 1111265,
-      "maritalStatus": "S",
-      "professionId": 358,
-      "birthDate": "1990-02-21",
-      "personName": "IRIS OLIVEIRA ALMEIDA",
-      "cpf": "39049924816",
-      "sexIndication": "F",
-      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
-    },
-    "clientId": 1111265,
-    "retirementDate": "2030-09-09",
-    "requestDate": "2020-09-09",
-    "addresses": {
-      "addressDescription": "Minha residência",
-      "streetName": "Rua Augusta",
-      "streetType": "AV",
-      "streetNumber": "12",
-      "addressType": "RE",
-      "stateId": "SP",
-      "neighborhood": "Consolação",
-      "cityId": "9668",
-      "defaultInd": "S",
-      "countryId": "105",
-      "cep": "01304001"
-    },
-    "maritalStatus": "S",
-    "affiliationId": 980127254,
-    "salesAgencyId": 1,
-    "salesChannelId": 1026,
-    "nationalityId": "BR",
-    "salesOriginId": "9",
-    "residenceCountryId": 105,
-    "incomeTaxDeductible": false,
-    "incomingPortabilityInd": "N",
-    "initialPayment": {
-      "paymentDate": "2020-09-24",
-      "paymentDescription": "Boleto",
-      "address": {
-        "addressId": "1176792"
-      },
-      "finantialResponsiblePersonId": 1111265,
-      "paymentTypeId": 104,
-      "paymentMethod": "FC"
-    },
-    "product": {
-      "companyId": 500,
-      "productId": 2074
-    },
-    "professionId": 358,
-    "status": "ERR",
-    "formType": "I",
-    "taxOptionType": "TP",
-    "totalMonthlyIncome": 10000,
-    "consignorUnit": {},
-    "validationResults": [
-      {
-        "errorDate": "2020-09-09",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "C",
-        "fieldName": "REGRA: COD.001, NUM.167, RST.130.",
-        "observation": "VALIDAÇÃO DOS DOCUMENTOS DO PROPONENTE: DOCUMENTO DE CLASSE EXIGE ÓRGÃO EXPEDIDOR, LOCAL DE EMISSÃO E DATA DE EMISSÃO"
-      },
-      {
-        "errorDate": "2020-09-09",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "P",
-        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
-        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
-      },
-      {
-        "errorDate": "2020-09-09",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "P",
-        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
-        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
-      }
-    ]
-  },
-  {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
+            "fundName": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+            "fundId": 1031,
+            "distributionPercent": "25.0",
+            "risk": 18,
+            "category": 1
+          },
           {
-            "nameFund": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
-          }
-        ]
-      },
-      "expectedContributionValue": "350.0",
-      "initialContributionValue": "1250.0"
-    },
-    "client": {
-      "physicalPersonId": 1111265,
-      "maritalStatus": "S",
-      "professionId": 358,
-      "birthDate": "1990-02-21",
-      "personName": "IRIS OLIVEIRA ALMEIDA",
-      "cpf": "39049924816",
-      "sexIndication": "F",
-      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
-    },
-    "clientId": 1111265,
-    "retirementDate": "2030-08-26",
-    "requestDate": "2020-08-26",
-    "addresses": {
-      "addressDescription": "Minha residência",
-      "streetName": "Rua Augusta",
-      "streetType": "AV",
-      "streetNumber": "123",
-      "addressType": "RE",
-      "stateId": "SP",
-      "neighborhood": "Consolação",
-      "cityId": "9668",
-      "defaultInd": "S",
-      "countryId": "105",
-      "cep": "01304001"
-    },
-    "maritalStatus": "S",
-    "affiliationId": 980126998,
-    "salesAgencyId": 1,
-    "salesChannelId": 1026,
-    "nationalityId": "BR",
-    "salesOriginId": "9",
-    "residenceCountryId": 105,
-    "incomeTaxDeductible": false,
-    "incomingPortabilityInd": "N",
-    "initialPayment": {
-      "paymentDate": "2020-09-10",
-      "paymentDescription": "Boleto",
-      "paymentDay": "2",
-      "address": {
-        "addressId": "1176678"
-      },
-      "finantialResponsiblePersonId": 1111265,
-      "paymentTypeId": 104,
-      "paymentMethod": "FC"
-    },
-    "regularPayment": {
-      "bankNumber": "341",
-      "paymentDate": "2020-09-10",
-      "paymentDescription": "Débito Caixa",
-      "paymentDay": "2",
-      "finantialResponsiblePersonId": 1111265,
-      "paymentTypeId": 109,
-      "paymentMethod": "CB",
-      "bankBranchNumber": "0355",
-      "bankAccountNumber": "59147"
-    },
-    "product": {
-      "companyId": 500,
-      "productId": 2074
-    },
-    "professionId": 358,
-    "status": "ERR",
-    "formType": "I",
-    "taxOptionType": "TP",
-    "totalMonthlyIncome": 10000,
-    "consignorUnit": {},
-    "validationResults": [
-      {
-        "errorDate": "2020-09-17",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "C",
-        "fieldName": "REGRA: COD.001, NUM.167, RST.130.",
-        "observation": "VALIDAÇÃO DOS DOCUMENTOS DO PROPONENTE: DOCUMENTO DE CLASSE EXIGE ÓRGÃO EXPEDIDOR, LOCAL DE EMISSÃO E DATA DE EMISSÃO"
-      },
-      {
-        "errorDate": "2020-08-26",
-        "correctedInd": false,
-        "correctableInd": true,
-        "level": "P",
-        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
-        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
-      },
-      {
-        "errorDate": "2020-08-26",
-        "correctedInd": true,
-        "correctableInd": true,
-        "level": "P",
-        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
-        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
-      }
-    ]
-  },
-  {
-    "benefits": {
-      "planId": 20,
-      "benefitId": "54",
-      "reserves": {
-        "reserveId": 1000,
-        "funds": [
+            "fundName": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+            "fundId": 1032,
+            "distributionPercent": "25.0",
+            "risk": 17,
+            "category": 3
+          },
           {
-            "fundName": "PS Multimercado Diamante FIC FI Previdenciario",
-            "fundId": 1006,
-            "distributionPercent": "100.0"
+            "fundName": "Porto Seguro RF Diamante Plus FIC FI Previdenciario",
+            "fundId": 1011,
+            "distributionPercent": "25.0",
+            "risk": 18,
+            "category": 1
           }
         ]
       },
-      "expectedContributionValue": "250.0",
-      "initialContributionValue": "1000.0"
+      "expectedContributionValue": "250.1",
+      "initialContributionValue": "1000.0",
+      "beneficiaries": [
+        {
+          "physicalPerson": {
+            "personName": "HERDEIRO LEGAL",
+            "sexIndication": "M",
+            "physicalPersonId": "3"
+          },
+          "distributionPct": "100.0"
+        }
+      ]
     },
     "client": {
-      "physicalPersonId": 1111265,
+      "physicalPersonId": 1112084,
       "maritalStatus": "S",
-      "professionId": 358,
-      "birthDate": "1990-02-21",
-      "personName": "IRIS OLIVEIRA ALMEIDA",
-      "cpf": "39049924816",
-      "sexIndication": "F",
-      "contact": "leandrotinfo19@gmail.com +55 11 978002101"
+      "professionId": 145,
+      "birthDate": "1993-03-26",
+      "personName": "THALES PEDRO VICENTE DA CONCEIÇÃO",
+      "cpf": "22890390802",
+      "sexIndication": "M",
+      "contact": "adriano.santos@portoseguro.com.br +55 11 974220722"
     },
-    "clientId": 1111265,
-    "retirementDate": "2030-08-25",
-    "requestDate": "2020-08-25",
+    "clientId": 1112084,
+    "retirementDate": "2053-11-19",
+    "requestDate": "2020-11-19",
     "addresses": {
       "addressDescription": "Minha residência",
-      "streetName": "Rua Augusta",
+      "streetName": "Rua Kumamoto",
       "streetType": "AV",
-      "streetNumber": "123",
+      "streetNumber": "205",
       "addressType": "RE",
-      "stateId": "SP",
-      "neighborhood": "Consolação",
-      "cityId": "9668",
+      "stateId": "AM",
+      "neighborhood": "Parque 10 de Novembro",
+      "cityId": "243",
+      "complement": "CASA",
       "defaultInd": "S",
       "countryId": "105",
-      "cep": "01304001"
+      "cep": "69054309"
     },
     "maritalStatus": "S",
-    "affiliationId": 980126902,
+    "affiliationId": 980130000,
     "salesAgencyId": 1,
     "salesChannelId": 1026,
     "nationalityId": "BR",
@@ -361,53 +121,716 @@
     "incomeTaxDeductible": false,
     "incomingPortabilityInd": "S",
     "initialPayment": {
-      "paymentDate": "2020-09-09",
+      "paymentDate": "2020-12-09",
       "paymentDescription": "Boleto",
       "paymentDay": "20",
       "address": {
-        "addressId": "1176597"
+        "addressId": "1178076"
       },
-      "finantialResponsiblePersonId": 1111265,
+      "finantialResponsiblePersonId": 1112084,
       "paymentTypeId": 104,
       "paymentMethod": "FC"
     },
     "regularPayment": {
       "bankNumber": "341",
-      "paymentDate": "2020-09-09",
-      "paymentDescription": "Débito Caixa",
+      "bankName": "341 - Banco Itaú S.A.",
+      "paymentDate": "2020-12-09",
+      "paymentDescription": "Débito Itaú",
       "paymentDay": "20",
-      "finantialResponsiblePersonId": 1111265,
-      "paymentTypeId": 109,
+      "finantialResponsiblePersonId": 1112084,
+      "paymentTypeId": 110,
       "paymentMethod": "CB",
-      "bankBranchNumber": "0355",
-      "bankAccountNumber": "59147"
+      "bankBranchNumber": "3034",
+      "bankAccountNumber": "68608"
     },
     "product": {
       "companyId": 500,
       "productId": 2074
     },
-    "professionId": 358,
+    "professionId": 145,
     "status": "PRE",
     "formType": "I",
     "taxOptionType": "TR",
-    "totalMonthlyIncome": 10000,
+    "totalMonthlyIncome": 20000.0,
     "consignorUnit": {},
     "validationResults": [
       {
-        "errorDate": "2020-08-25",
+        "errorDate": "2020-11-19",
         "correctedInd": true,
         "correctableInd": true,
         "level": "P",
         "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
         "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
+      }
+    ]
+  },
+  {
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "portability": [
+          {
+            "assignorPlan": "PGBL AVERBADO - Composto",
+            "totalRequestedValue": "5500.0",
+            "externalAssignorAccount": "6151651656454",
+            "portabilityId": "060330002397395",
+            "notificationAgreement": false,
+            "portabilityDetails": [
+              {
+                "exitType": "T",
+                "fundId": "5082",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380151",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380145",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380146",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              }
+            ]
+          }
+        ],
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+              "fundId": 1030,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+              "fundId": 1031,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            },
+            {
+              "fundName": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+              "fundId": 1032,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro RF Diamante Plus FIC FI Previdenciario",
+              "fundId": 1011,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            }
+          ]
+        },
+        "expectedContributionValue": "251.1",
+        "initialContributionValue": "1000.0",
+        "beneficiaries": [
+          {
+            "physicalPerson": {
+              "personName": "HERDEIRO LEGAL",
+              "sexIndication": "M",
+              "physicalPersonId": "3"
+            },
+            "distributionPct": "100.0"
+          }
+        ]
       },
       {
-        "errorDate": "2020-08-25",
-        "correctedInd": true,
+        "planId": 20,
+        "benefitId": "54",
+        "portability": [
+          {
+            "assignorPlan": "PGBL AVERBADO - Composto",
+            "totalRequestedValue": "5500.0",
+            "externalAssignorAccount": "6151651656454",
+            "portabilityId": "060330002397396",
+            "notificationAgreement": false,
+            "portabilityDetails": [
+              {
+                "exitType": "T",
+                "fundId": "5082",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380151",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380145",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380146",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              }
+            ]
+          }
+        ],
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+              "fundId": 1030,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+              "fundId": 1031,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            },
+            {
+              "fundName": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+              "fundId": 1032,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro RF Diamante Plus FIC FI Previdenciario",
+              "fundId": 1011,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            }
+          ]
+        },
+        "expectedContributionValue": "251.2",
+        "initialContributionValue": "1000.0",
+        "beneficiaries": [
+          {
+            "physicalPerson": {
+              "personName": "HERDEIRO LEGAL",
+              "sexIndication": "M",
+              "physicalPersonId": "3"
+            },
+            "distributionPct": "100.0"
+          }
+        ]
+      },
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "portability": [
+          {
+            "assignorPlan": "PGBL AVERBADO - Composto",
+            "totalRequestedValue": "5500.0",
+            "externalAssignorAccount": "6151651656454",
+            "portabilityId": "060330002397397",
+            "notificationAgreement": false,
+            "portabilityDetails": [
+              {
+                "exitType": "T",
+                "fundId": "5082",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380151",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380145",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380146",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              }
+            ]
+          }
+        ],
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+              "fundId": 1030,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+              "fundId": 1031,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            },
+            {
+              "fundName": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+              "fundId": 1032,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro RF Diamante Plus FIC FI Previdenciario",
+              "fundId": 1011,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            }
+          ]
+        },
+        "expectedContributionValue": "251.3",
+        "initialContributionValue": "1000.0",
+        "beneficiaries": [
+          {
+            "physicalPerson": {
+              "personName": "HERDEIRO LEGAL",
+              "sexIndication": "M",
+              "physicalPersonId": "3"
+            },
+            "distributionPct": "100.0"
+          }
+        ]
+      }
+    ],
+    "client": {
+      "physicalPersonId": 1112084,
+      "maritalStatus": "S",
+      "professionId": 145,
+      "birthDate": "1993-03-26",
+      "personName": "THALES PEDRO VICENTE DA CONCEIÇÃO",
+      "cpf": "22890390802",
+      "sexIndication": "M",
+      "contact": "adriano.santos@portoseguro.com.br +55 11 974220722"
+    },
+    "clientId": 1112084,
+    "retirementDate": "2053-11-19",
+    "requestDate": "2020-11-19",
+    "addresses": {
+      "addressDescription": "Minha residência",
+      "streetName": "Rua Kumamoto",
+      "streetType": "AV",
+      "streetNumber": "205",
+      "addressType": "RE",
+      "stateId": "AM",
+      "neighborhood": "Parque 10 de Novembro",
+      "cityId": "243",
+      "complement": "CASA",
+      "defaultInd": "S",
+      "countryId": "105",
+      "cep": "69054309"
+    },
+    "maritalStatus": "S",
+    "affiliationId": 980130001,
+    "salesAgencyId": 1,
+    "salesChannelId": 1026,
+    "nationalityId": "BR",
+    "salesOriginId": "9",
+    "residenceCountryId": 105,
+    "incomeTaxDeductible": false,
+    "incomingPortabilityInd": "S",
+    "initialPayment": {
+      "paymentDate": "2020-12-09",
+      "paymentDescription": "Boleto",
+      "paymentDay": "20",
+      "address": {
+        "addressId": "1178077"
+      },
+      "finantialResponsiblePersonId": 1112084,
+      "paymentTypeId": 104,
+      "paymentMethod": "FC"
+    },
+    "regularPayment": {
+      "bankNumber": "341",
+      "bankName": "341 - Banco Itaú S.A.",
+      "paymentDate": "2020-12-09",
+      "paymentDescription": "Débito Itaú",
+      "paymentDay": "20",
+      "finantialResponsiblePersonId": 1112084,
+      "paymentTypeId": 110,
+      "paymentMethod": "CB",
+      "bankBranchNumber": "3034",
+      "bankAccountNumber": "68608"
+    },
+    "product": {
+      "companyId": 500,
+      "productId": 2074
+    },
+    "professionId": 145,
+    "status": "PND",
+    "formType": "I",
+    "taxOptionType": "TR",
+    "totalMonthlyIncome": 20000.0,
+    "consignorUnit": {},
+    "validationResults": [
+      {
+        "errorDate": "2020-11-19",
+        "correctedInd": false,
         "correctableInd": true,
         "level": "P",
-        "fieldName": "REGRA: COD.002, NUM.2493, RST.70.",
-        "observation": "PENDÊNCIA PLD: PROPOSTA AGUARDANDO ANÁLISE DA ÁREA DE PLD"
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
+        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
+      }
+    ]
+  },
+  {
+    "benefits": [
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "portability": [
+          {
+            "assignorPlan": "PGBL AVERBADO - Composto",
+            "totalRequestedValue": "5500.0",
+            "externalAssignorAccount": "6151651656454",
+            "portabilityId": "060330002397395",
+            "notificationAgreement": false,
+            "portabilityDetails": [
+              {
+                "exitType": "T",
+                "fundId": "5082",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380151",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380145",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380146",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              }
+            ]
+          }
+        ],
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+              "fundId": 1030,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+              "fundId": 1031,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            },
+            {
+              "fundName": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+              "fundId": 1032,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro RF Diamante Plus FIC FI Previdenciario",
+              "fundId": 1011,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            }
+          ]
+        },
+        "expectedContributionValue": "252.1",
+        "initialContributionValue": "1000.0",
+        "beneficiaries": [
+          {
+            "physicalPerson": {
+              "personName": "HERDEIRO LEGAL",
+              "sexIndication": "M",
+              "physicalPersonId": "3"
+            },
+            "distributionPct": "100.0"
+          }
+        ]
+      },
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "portability": [
+          {
+            "assignorPlan": "PGBL AVERBADO - Composto",
+            "totalRequestedValue": "5500.0",
+            "externalAssignorAccount": "6151651656454",
+            "portabilityId": "060330002397396",
+            "notificationAgreement": false,
+            "portabilityDetails": [
+              {
+                "exitType": "T",
+                "fundId": "5082",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380151",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380145",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380146",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              }
+            ]
+          }
+        ],
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+              "fundId": 1030,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+              "fundId": 1031,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            },
+            {
+              "fundName": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+              "fundId": 1032,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro RF Diamante Plus FIC FI Previdenciario",
+              "fundId": 1011,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            }
+          ]
+        },
+        "expectedContributionValue": "252.2",
+        "initialContributionValue": "1000.0",
+        "beneficiaries": [
+          {
+            "physicalPerson": {
+              "personName": "HERDEIRO LEGAL",
+              "sexIndication": "M",
+              "physicalPersonId": "3"
+            },
+            "distributionPct": "100.0"
+          }
+        ]
+      },
+      {
+        "planId": 20,
+        "benefitId": "54",
+        "portability": [
+          {
+            "assignorPlan": "PGBL AVERBADO - Composto",
+            "totalRequestedValue": "5500.0",
+            "externalAssignorAccount": "6151651656454",
+            "portabilityId": "060330002397397",
+            "notificationAgreement": false,
+            "portabilityDetails": [
+              {
+                "exitType": "T",
+                "fundId": "5082",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380151",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380145",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              },
+              {
+                "exitType": "T",
+                "fundId": "51380146",
+                "reserveId": "1000",
+                "requestedValue": "1375.0"
+              }
+            ]
+          }
+        ],
+        "reserves": {
+          "reserveId": 1000,
+          "funds": [
+            {
+              "fundName": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+              "fundId": 1030,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+              "fundId": 1031,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            },
+            {
+              "fundName": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+              "fundId": 1032,
+              "distributionPercent": "25.0",
+              "risk": 17,
+              "category": 3
+            },
+            {
+              "fundName": "Porto Seguro RF Diamante Plus FIC FI Previdenciario",
+              "fundId": 1011,
+              "distributionPercent": "25.0",
+              "risk": 18,
+              "category": 1
+            }
+          ]
+        },
+        "expectedContributionValue": "252.3",
+        "initialContributionValue": "1000.0",
+        "beneficiaries": [
+          {
+            "physicalPerson": {
+              "personName": "HERDEIRO LEGAL",
+              "sexIndication": "M",
+              "physicalPersonId": "3"
+            },
+            "distributionPct": "100.0"
+          }
+        ]
+      }
+    ],
+    "client": {
+      "physicalPersonId": 1112084,
+      "maritalStatus": "S",
+      "professionId": 145,
+      "birthDate": "1993-03-26",
+      "personName": "THALES PEDRO VICENTE DA CONCEIÇÃO",
+      "cpf": "22890390802",
+      "sexIndication": "M",
+      "contact": "adriano.santos@portoseguro.com.br +55 11 974220722"
+    },
+    "clientId": 1112084,
+    "retirementDate": "2053-11-19",
+    "requestDate": "2020-11-19",
+    "addresses": {
+      "addressDescription": "Minha residência",
+      "streetName": "Rua Kumamoto",
+      "streetType": "AV",
+      "streetNumber": "205",
+      "addressType": "RE",
+      "stateId": "AM",
+      "neighborhood": "Parque 10 de Novembro",
+      "cityId": "243",
+      "complement": "CASA",
+      "defaultInd": "S",
+      "countryId": "105",
+      "cep": "69054309"
+    },
+    "maritalStatus": "S",
+    "affiliationId": 980130002,
+    "salesAgencyId": 1,
+    "salesChannelId": 1026,
+    "nationalityId": "BR",
+    "salesOriginId": "9",
+    "residenceCountryId": 105,
+    "incomeTaxDeductible": false,
+    "incomingPortabilityInd": "S",
+    "initialPayment": {
+      "paymentDate": "2020-12-09",
+      "paymentDescription": "Boleto",
+      "paymentDay": "20",
+      "address": {
+        "addressId": "1178078"
+      },
+      "finantialResponsiblePersonId": 1112084,
+      "paymentTypeId": 104,
+      "paymentMethod": "FC"
+    },
+    "regularPayment": {
+      "bankNumber": "341",
+      "bankName": "341 - Banco Itaú S.A.",
+      "paymentDate": "2020-12-09",
+      "paymentDescription": "Débito Itaú",
+      "paymentDay": "20",
+      "finantialResponsiblePersonId": 1112084,
+      "paymentTypeId": 110,
+      "paymentMethod": "CB",
+      "bankBranchNumber": "3034",
+      "bankAccountNumber": "68608"
+    },
+    "product": {
+      "companyId": 500,
+      "productId": 3074
+    },
+    "professionId": 145,
+    "status": "PND",
+    "formType": "I",
+    "taxOptionType": "TP",
+    "totalMonthlyIncome": 20000.0,
+    "consignorUnit": {},
+    "validationResults": [
+      {
+        "errorDate": "2020-11-19",
+        "correctedInd": false,
+        "correctableInd": true,
+        "level": "P",
+        "fieldName": "REGRA: COD.002, NUM.2493, RST.30.",
+        "observation": "SERASA: CPF NÃO ENCONTRADO NA BASE DO SERASA"
       }
     ]
   }

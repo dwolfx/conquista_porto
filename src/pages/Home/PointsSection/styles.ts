@@ -82,3 +82,12 @@ export const RulesButton = styled(Button)`
   width: 100%;
   margin: ${({ theme }) => `0 ${theme.spacing(2)}px`};
 `
+
+export const LabelText = styled(Text).attrs(() => ({
+  type: 'headline',
+  color: 'gray6',
+}))`
+  display: flex;
+  align-items: center;
+  margin-right: ${({ theme }) => theme.spacing(2)}px;
+`

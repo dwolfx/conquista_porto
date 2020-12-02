@@ -1,0 +1,69 @@
+{
+  "previdencia": {
+    "produtos": {
+      "produto": [
+        {
+          "administradora": "1",
+          "filial": "1",
+          "dataPrevistaAposent": "19/11/2053",
+          "nomcomproduto": "Porto Seguro PGBL Individual",
+          "nomeformapagto": "CB",
+          "nomestatusproposta": "Pré-Conta",
+          "certificado": "980130000",
+          "nomparticipante": "THALES PEDRO VICENTE DA CONCEIÇÃO",
+          "numdiavencto": "20",
+          "origem": "9",
+          "produto": "2074",
+          "proposta": "80130000",
+          "propostacomplementoauto": "80130000",
+          "regimetributacao": "REGRESSIVA",
+          "tipo": "INDIVIDUAL",
+          "tipoproduto": "PGBL",
+          "coberturas": {
+            "cobertura": [
+              {
+                "nomcobertura": "Renda Mensal Vitalícia",
+                "nomstatuscob": "Pendente De Pagamento",
+                "datafinalvigencia": "19/11/2053",
+                "valorcontrib": "250.00",
+                "valorsaldoatual": "10.09"
+              }
+            ]
+          },
+          "fundos": {
+            "fundo": [
+              {
+                "indicadorquempaga": "P",
+                "valordistrifundo": "62.50",
+                "nomfundocom": "Porto Seguro RF Diamante Plus FIC FI Previdenciário",
+                "valorpercentdistribuicao": "25.00",
+                "valortotalporfundo": "250.00"
+              },
+              {
+                "indicadorquempaga": "P",
+                "valordistrifundo": "62.50",
+                "nomfundocom": "Porto Seguro Claritas LONG BIAS PREV FIC FI Multimercado",
+                "valorpercentdistribuicao": "25.00",
+                "valortotalporfundo": "250.00"
+              },
+              {
+                "indicadorquempaga": "P",
+                "valordistrifundo": "62.50",
+                "nomfundocom": "Porto Seguro ARX Denali PREV FIC FI RF Crédito Privado",
+                "valorpercentdistribuicao": "25.00",
+                "valortotalporfundo": "250.00"
+              },
+              {
+                "indicadorquempaga": "P",
+                "valordistrifundo": "62.50",
+                "nomfundocom": "Porto Seguro ARX Income 70 PREV FIC FI Multimercado",
+                "valorpercentdistribuicao": "25.00",
+                "valortotalporfundo": "250.00"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
