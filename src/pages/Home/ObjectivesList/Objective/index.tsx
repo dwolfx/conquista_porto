@@ -30,7 +30,11 @@ export default function Objective({ objective }: IObjectiveProps) {
   const { isLoading } = useSelector((state: any) => state.objectiveManagement)
   const [loadingObjectiveButton, setLoadingObjectiveButton] = useState('')
 
-  const horizontalListProgressAndPorcentage = (actual: number, max: number, percentage: number) => (
+  const horizontalListProgressAndPorcentage = (
+    actual: number,
+    max: number,
+    percentage: number
+  ) => (
     <ObjectivePercentageContainer>
       <LinearProgressBarContent>
         <MiniLinearProgressBar atual={actual} max={max} />
@@ -44,7 +48,7 @@ export default function Objective({ objective }: IObjectiveProps) {
           min-width: 44px;
         `}
       >
-        {`${percentage}%`}
+        {`${percentage.toFixed(2)}%`}
       </Text>
     </ObjectivePercentageContainer>
   )

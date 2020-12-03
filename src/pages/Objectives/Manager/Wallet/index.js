@@ -30,7 +30,7 @@ import {
   LoadingStateContainer,
 } from 'pages/Objectives/Manager/styles'
 
-import { PostSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
+import { PutSaveFundsRequest } from 'store/modules/ObjectiveManagement/action'
 
 import FundAccordionHeader from './AccordionHeader'
 import ButtonInvest from './ButtonInvest'
@@ -97,7 +97,7 @@ export default function Wallet({
     }
 
     dispatch(
-      PostSaveFundsRequest({
+      PutSaveFundsRequest({
         idGoal,
         data: {
           fund_list: formatRequestPayload(),
