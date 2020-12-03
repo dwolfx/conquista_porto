@@ -1,6 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceInvestAws } from 'services/api'
+import { loggerSucess, loggerError } from 'logger'
 import {
   Types,
   ICreditCardOffer,
@@ -17,10 +18,11 @@ export function* getOffers({
   uf,
   addToast,
 }: ICreditCardOfferRequest) {
+  const getCreditCardOffersURL = `${baseURLNamespaceInvestAws}/cartoes/ofertas?codigoCanal=1`
   try {
     const response = yield call(
       get,
-      `${baseURLNamespaceInvestAws}/cartoes/ofertas?codigoCanal=1&nome=${nome}&uf=${uf}&dataNascimento=${dataNasc}`
+      `${getCreditCardOffersURL}&nome=${nome}&uf=${uf}&dataNascimento=${dataNasc}`
     )
 
     let responseData: ICreditCardOffer & ICreditCardOfferError = response.data
@@ -36,6 +38,7 @@ export function* getOffers({
       responseData.Message.Mensagem ||
       responseData.Message.TipoCritica === 'CRITICA_NEGOCIO'
     ) {
+      loggerError(getCreditCardOffersURL, 'GET', 'Erro ao verificar ofertas')
       throw new Error('Erro ao verificar ofertas')
     } else {
       responseData = {
@@ -49,9 +52,11 @@ export function* getOffers({
       }
       onSuccess(responseData)
       yield put(a.GetCreditCardOfferSuccess(responseData))
+      loggerSucess(getCreditCardOffersURL, 'GET', response?.status)
     }
   } catch (err) {
     yield put(a.GetCreditCardOfferFailure())
+    loggerError(getCreditCardOffersURL, 'GET', err)
     addToast({
       type: 'error',
       title: 'Erro ao verificar ofertas',

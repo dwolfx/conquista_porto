@@ -23,6 +23,7 @@ import {
   SetTokenLoading,
 } from './action'
 import { getAuth, getToken } from './selectors'
+import { loggerSucess, loggerError } from 'logger'
 import {
   Types,
   IGenerate,
@@ -46,15 +47,15 @@ function handleOrganizacao() {
 export function* generateAndSendToken({ payload }: IPropsPostData) {
   const { type, addToast } = payload
 
+  const generateAndSendTokenURL = `${baseURLNamespaceAuth2}/otp`
   try {
     const auth = yield select(getAuth)
-    yield call(post, `${baseURLNamespaceAuth2}/otp`, {
+    const response = yield call(post, generateAndSendTokenURL, {
       usuario: auth?.cpf,
       organizacao: handleOrganizacao(),
       tipo: type,
     })
     yield put(Post2FATokenDataSuccess())
-
     if (addToast) {
       addToast({
         type: 'success',
@@ -63,6 +64,7 @@ export function* generateAndSendToken({ payload }: IPropsPostData) {
         description: 'Token enviado com sucesso.',
       })
     }
+    loggerSucess(generateAndSendTokenURL, 'POST', response?.status)
   } catch (err) {
     yield put(Post2FATokenDataFailure())
     if (addToast) {
@@ -72,23 +74,27 @@ export function* generateAndSendToken({ payload }: IPropsPostData) {
         description: 'Tente novamente.',
       })
     }
+    loggerError(generateAndSendTokenURL, 'POST', err)
   }
 }
 
 export function* validateToken({ payload }: IPropsPutPayload) {
   const { type, token } = payload
+  const validateTokenURL = `${baseURLNamespaceAuth2}/otp`
   try {
     const auth = yield select(getAuth)
-    yield call(putAxios, `${baseURLNamespaceAuth2}/otp`, {
+    const response = yield call(putAxios, validateTokenURL, {
       usuario: auth?.cpf,
       organizacao: handleOrganizacao(),
       tipo: type,
       otp_token: token, //precisa identificar se receberemos como props ou se vai ser pela store
     })
     yield put(Put2FATokenDataSuccess())
+    loggerSucess(validateTokenURL, 'PUT', response?.status)
   } catch (err) {
     yield put(Put2FATokenDataFailure())
 
+    loggerError(validateTokenURL, 'PUT', err)
     if (err.constructor === NotFoundException) {
       throw new ValidateTokenNotFoundException(err.message)
     } else {
@@ -98,13 +104,13 @@ export function* validateToken({ payload }: IPropsPutPayload) {
 }
 
 export function* getTokenData() {
+  let getTokenData = `${baseURLNamespaceAuth2}/cadastro-dispositivo`
+
   try {
     const auth = yield select(getAuth)
     const response = yield call(
       get,
-      `${baseURLNamespaceAuth2}/cadastro-dispositivo?usuario=${
-        auth.cpf
-      }&organizacao=${handleOrganizacao()}`
+      `${getTokenData}?usuario=${auth.cpf}&organizacao=${handleOrganizacao()}`
     )
 
     if (
@@ -117,9 +123,11 @@ export function* getTokenData() {
       )
     }
     yield put(Get2FADataSuccess(response.data))
+    loggerSucess(getTokenData, 'GET', response?.status)
   } catch (err) {
     yield put(Get2FADataFailure())
 
+    loggerError(getTokenData, 'GET', err)
     if (err.constructor === RequiredDevicesException) {
       throw err
     } else {

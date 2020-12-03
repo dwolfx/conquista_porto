@@ -3,23 +3,24 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 import { get, baseURLNamespaceInvest } from 'services/api'
 import { buildToast, ToastTypes } from 'store/modules/toastActions'
 
+import { loggerSucess, loggerError } from 'logger'
 import { Types } from './types'
 import { GetBankExtractSuccess, GetBankExtractFailure } from './action'
 
 export function* getData({
   payload: { tipoFiltro, dataInicial, dataFinal },
 }: any) {
+  const getBankExtractURL = `${baseURLNamespaceInvest}/conta/extrato?tipoFiltro=${tipoFiltro}&dataInicial=${dataInicial}&dataFinal=${dataFinal}`
   try {
-    const response = yield call(
-      get,
-      `${baseURLNamespaceInvest}/conta/extrato?tipoFiltro=${tipoFiltro}&dataInicial=${dataInicial}&dataFinal=${dataFinal}`
-    )
+    const response = yield call(get, getBankExtractURL)
     yield put(GetBankExtractSuccess(response.data))
+    loggerSucess(getBankExtractURL, 'GET', response?.status)
   } catch (err) {
     yield put({
       ...GetBankExtractFailure(),
       toast: buildToast(JSON.parse(err.message).msg, ToastTypes.error),
     })
+    loggerError(getBankExtractURL, 'GET', err)
   }
 }
 

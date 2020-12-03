@@ -1,6 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects'
 
 import { get, baseURLNamespaceInvest } from 'services/api'
+import { loggerSucess, loggerError } from 'logger'
 import { Types } from './types'
 import {
   GetConsortiumBuildingDataSuccess,
@@ -8,11 +9,9 @@ import {
 } from './action'
 
 export function* getData() {
+  const getConsortiumBuildingDataURL = `${baseURLNamespaceInvest}/consorcios/imovel?codigoCanal=1`
   try {
-    const response = yield call(
-      get,
-      `${baseURLNamespaceInvest}/consorcios/imovel?codigoCanal=1`
-    )
+    const response = yield call(get, getConsortiumBuildingDataURL)
 
     let responseData = response.data
 
@@ -21,8 +20,10 @@ export function* getData() {
     }
 
     yield put(GetConsortiumBuildingDataSuccess(responseData.consorcios || []))
+    loggerSucess(getConsortiumBuildingDataURL, 'GET', response?.status)
   } catch (err) {
     yield put(GetConsortiumBuildingDataFailure())
+    loggerError(getConsortiumBuildingDataURL, 'GET', err)
   }
 }
 

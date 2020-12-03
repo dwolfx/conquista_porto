@@ -11,14 +11,13 @@ import {
   GetCreditCardClientDataFailure,
   GetCreditCardClientDataSuccess,
 } from './action'
+import { loggerSucess, loggerError } from 'logger'
 import { ICreditCardClientDataRequest, Types } from './types'
 
 export function* getData() {
+  const getCreditCardDataURL = `${baseURLNamespaceInvest}/cartoes?codigoCanal=0`
   try {
-    const response = yield call(
-      get,
-      `${baseURLNamespaceInvest}/cartoes?codigoCanal=0`
-    )
+    const response = yield call(get, getCreditCardDataURL)
 
     let responseData = response.data
 
@@ -30,8 +29,10 @@ export function* getData() {
     }
 
     yield put(GetCreditCardDataSuccess(responseData))
+    loggerSucess(getCreditCardDataURL, 'GET', response?.status)
   } catch (err) {
     yield put(GetCreditCardDataFailure())
+    loggerError(getCreditCardDataURL, 'GET', err)
   }
 }
 
@@ -40,19 +41,19 @@ function* getClientData({
   onError,
   addToast,
 }: ICreditCardClientDataRequest) {
+  const getCreditCardClientDataURL = `${baseURLNamespaceInvestAws}/cartoes/dados/cliente/cadastrado`
   try {
-    const { data } = yield call(
-      get,
-      `${baseURLNamespaceInvestAws}/cartoes/dados/cliente/cadastrado`
-    )
+    const { data, status } = yield call(get, getCreditCardClientDataURL)
 
     yield put(GetCreditCardClientDataSuccess(data))
+    loggerSucess(getCreditCardClientDataURL, 'GET', status)
 
     if (onSuccess) {
       onSuccess(data)
     }
   } catch (error) {
     yield put(GetCreditCardClientDataFailure())
+    loggerError(getCreditCardClientDataURL, 'GET', error)
 
     if (onError) {
       onError()
