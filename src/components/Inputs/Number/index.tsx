@@ -4,17 +4,27 @@ import IconExporter from 'components/IconExporter'
 import { themeColors } from 'styles/theme'
 
 import * as S from './styles'
-import { Actions, IPerformArguments, IProps, IGetFillColorArguments } from './types'
+import {
+  Actions,
+  IPerformArguments,
+  IProps,
+  IGetFillColorArguments,
+} from './types'
 
-
-export default function InputNumber(
-    { label = '', minValue = 0, maxValue = 99, initialValue = 0, disabledCase = false, afterOnChange,
-     testId = '', ...rest } : IProps
-  ) {
+export default function InputNumber({
+  label = '',
+  minValue = 0,
+  maxValue = 99,
+  initialValue = 0,
+  disabledCase = false,
+  afterOnChange,
+  testId = '',
+  ...rest
+}: IProps) {
   const [value, setValue] = React.useState(initialValue)
 
   const getFillColor = ({ checkingIfIsDisabled }: IGetFillColorArguments) => {
-    const color = checkingIfIsDisabled ? "gray4" : "white"
+    const color = checkingIfIsDisabled ? 'gray4' : 'white'
     return color as keyof typeof themeColors
   }
 
@@ -37,10 +47,10 @@ export default function InputNumber(
     }
   }
 
-  const perform = ({ action }: IPerformArguments ) => {
-    switch(action) {
+  const perform = ({ action }: IPerformArguments) => {
+    switch (action) {
       case Actions.ADD:
-        if(value < maxValue) {
+        if (value < maxValue) {
           setValue(value + 1)
           afterOnChange(value + 1)
         }
@@ -57,17 +67,16 @@ export default function InputNumber(
 
   return (
     <S.Wrapper {...rest}>
-        <S.Label>
-          <S.LabelText>{label}</S.LabelText>
-        </S.Label>
-
+      <S.Label>
+        <S.LabelText>{label}</S.LabelText>
+      </S.Label>
 
       <S.InputNumberContainer>
         <S.ControlButton
-        left
-        onClick={() => perform({ action: Actions.SUBTRACT })}
-        disabled={value === minValue}
-        data-testid={`${testId}-subtract-button`}
+          left
+          onClick={() => perform({ action: Actions.SUBTRACT })}
+          disabled={value === minValue}
+          data-testid={`${testId}-subtract-button`}
         >
           <IconExporter
             name="subtract"
@@ -97,7 +106,6 @@ export default function InputNumber(
           />
         </S.ControlButton>
       </S.InputNumberContainer>
-
     </S.Wrapper>
   )
 }

@@ -14,7 +14,7 @@ describe('InputNumber component', () => {
   it('should exists', () => {
     const { getByTestId } = render(
       <ThemeProvider theme={theme}>
-        <InputNumber testId="default" afterOnChange={fn}/>
+        <InputNumber testId="default" afterOnChange={fn} />
       </ThemeProvider>
     )
     expect(getByTestId('input-number-default')).toBeVisible()
@@ -23,7 +23,7 @@ describe('InputNumber component', () => {
   it('should render a label', () => {
     const { getByText } = render(
       <ThemeProvider theme={theme}>
-        <InputNumber testId="default" label="Teste" afterOnChange={fn}/>
+        <InputNumber testId="default" label="Teste" afterOnChange={fn} />
       </ThemeProvider>
     )
     expect(getByText('Teste')).toBeVisible()
@@ -33,7 +33,7 @@ describe('InputNumber component', () => {
     it('handle the add action', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" afterOnChange={fn}/>
+          <InputNumber testId="default" afterOnChange={fn} />
         </ThemeProvider>
       )
       const button = getByTestId('default-add-button')
@@ -44,7 +44,7 @@ describe('InputNumber component', () => {
     it('handle the subtract action', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" initialValue={1} afterOnChange={fn}/>
+          <InputNumber testId="default" initialValue={1} afterOnChange={fn} />
         </ThemeProvider>
       )
       let button = getByTestId('default-subtract-button')
@@ -56,7 +56,7 @@ describe('InputNumber component', () => {
     it('be disabled when maxValue is reached', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" initialValue={98} afterOnChange={fn}/>
+          <InputNumber testId="default" initialValue={98} afterOnChange={fn} />
         </ThemeProvider>
       )
       let button = getByTestId('default-add-button')
@@ -68,7 +68,7 @@ describe('InputNumber component', () => {
     it('be disabled when minValue is reached', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" initialValue={1} afterOnChange={fn}/>
+          <InputNumber testId="default" initialValue={1} afterOnChange={fn} />
         </ThemeProvider>
       )
       let button = getByTestId('default-subtract-button')
@@ -82,7 +82,7 @@ describe('InputNumber component', () => {
     it('handle onChange event', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" afterOnChange={fn}/>
+          <InputNumber testId="default" afterOnChange={fn} />
         </ThemeProvider>
       )
       const input = getByTestId('input-number-default')
@@ -93,7 +93,7 @@ describe('InputNumber component', () => {
     it('handle NaN event', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" afterOnChange={fn}/>
+          <InputNumber testId="default" afterOnChange={fn} />
         </ThemeProvider>
       )
       const input = getByTestId('input-number-default')
@@ -104,7 +104,7 @@ describe('InputNumber component', () => {
     it('handle maxNumber', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" afterOnChange={fn}/>
+          <InputNumber testId="default" afterOnChange={fn} />
         </ThemeProvider>
       )
       const input = getByTestId('input-number-default')
@@ -115,7 +115,7 @@ describe('InputNumber component', () => {
     it('handle minNumber', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" afterOnChange={fn}/>
+          <InputNumber testId="default" afterOnChange={fn} />
         </ThemeProvider>
       )
       const input = getByTestId('input-number-default')
@@ -126,7 +126,11 @@ describe('InputNumber component', () => {
     it('be disabled when needed', () => {
       const { getByTestId } = render(
         <ThemeProvider theme={theme}>
-          <InputNumber testId="default" disabledCase={true} afterOnChange={fn}/>
+          <InputNumber
+            testId="default"
+            disabledCase={true}
+            afterOnChange={fn}
+          />
         </ThemeProvider>
       )
       expect(getByTestId('input-number-default')).toBeDisabled()

@@ -1,6 +1,6 @@
 export enum Actions {
   ADD,
-  SUBTRACT
+  SUBTRACT,
 }
 
 export interface IPerformArguments {
