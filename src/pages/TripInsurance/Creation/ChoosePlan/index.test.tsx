@@ -4,12 +4,20 @@ import { renderWithReduxAndTheme, screen, fireEvent } from 'testUtils'
 
 import ChoosePlan from '.'
 
+let portalRoot = document.getElementById('root')
+
+if (!portalRoot) {
+  portalRoot = document.createElement('div')
+  portalRoot.setAttribute('id', 'root')
+  document.body.appendChild(portalRoot)
+}
+
 describe('Choose Plan tests', () => {
   it('should exists', () => {
     expect(ChoosePlan).toBeDefined()
   })
   it('should render one card correctly', () => {
-    renderWithReduxAndTheme(<ChoosePlan />)
+    renderWithReduxAndTheme(<ChoosePlan />, { container: portalRoot })
     const title = screen.getByText('Escolha um plano disponível')
     const switchText = screen.getByText(
       'simular em até 12x sem juros com 5% de desconto no Cartão Porto Seguro'

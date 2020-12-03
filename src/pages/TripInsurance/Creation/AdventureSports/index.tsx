@@ -3,8 +3,10 @@ import * as s from './styles'
 import { Container, Col, Row } from 'styled-bootstrap-grid'
 import Radio from 'components/Inputs/Radio'
 import { useState } from 'react'
-import { StepComponent } from 'hooks/FluxManagement/types'
 import StepBar from 'pages/TripInsurance/commons/StepBar'
+import { Steps } from '../types'
+import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
+import { StepComponent, StepComponentProps } from 'hooks/FluxManagement/types'
 
 const radioOptions = [
   {
@@ -20,15 +22,19 @@ const radioOptions = [
 const AdventureSports: StepComponent = () => {
   const [hasAdventureSports, setHasAdventureSports] = useState<string>()
 
+  const { pop, getLast, getLength, instantiate } = useStackFluxManagement<
+    StepComponentProps
+  >()
+
   const handleChange = (value: string) => {
     setHasAdventureSports(value)
   }
 
   return (
     <s.ContentWrapper>
-      <StepBar actualStep={2} totalNumberOfSteps={4}/>
-      <Container>
-        <Row justifyContent="center">
+      <StepBar actualStep={4} totalNumberOfSteps={5} />
+      <s.ContentContainer>
+        <s.RowContainer justifyContent="center" lgAlignItems="center">
           <Col lg={4} md={4} sm={6} alignSelf="center">
             <s.ContentWrapper>
               <s.QuestionText textAlign="center" type="headline">
@@ -45,13 +51,14 @@ const AdventureSports: StepComponent = () => {
               <s.NextButton
                 disabled={hasAdventureSports === undefined}
                 data-testid="button-adventure-sports"
+                onClick={() => instantiate(Steps.motocicleQuestion)}
               >
                 PRÓXIMO
               </s.NextButton>
             </s.ContentWrapper>
           </Col>
-        </Row>
-      </Container>
+        </s.RowContainer>
+      </s.ContentContainer>
     </s.ContentWrapper>
   )
 }

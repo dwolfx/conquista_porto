@@ -40,4 +40,8 @@ export const CoverageText = styled(Text)`
 
 export const Divider = styled(Divisor)`
   margin: ${({ theme }) => theme.spacing(1)}px 0px;
+
+  @media ${({ theme }) => theme.mediaQueries.sm} {
+    margin: ${({ theme }) => theme.spacing(2)}px 0px;
+  }
 `

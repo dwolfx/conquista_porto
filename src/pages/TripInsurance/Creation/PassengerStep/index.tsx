@@ -32,59 +32,70 @@ const PassengerStep: StepComponent = () => {
   }
 
   return (
-  <>
-    <StepBar actualStep={1} totalNumberOfSteps={5}/>
-    <S.Wrapper>
-      <S.StyledContainer>
-        <Row alignItems="center" justifyContent={isTabletVertical ? "center" : "start"}>
-          <Col hiddenMdDown md={3} auto>
-            <DivisorDescription title="Passageiros" text="O seguro cobre até 20 passageiros"/>
-          </Col>
-          <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={7} md={4}>
-            <S.FlexContainer>
-              <Text type="headline" color="gray6" textAlign="center">
+    <>
+      <StepBar actualStep={3} totalNumberOfSteps={5} />
+      <S.Wrapper>
+        <S.StyledContainer>
+          <Row
+            alignItems="center"
+            justifyContent={isTabletVertical ? 'center' : 'start'}
+          >
+            <Col hiddenMdDown md={3} auto>
+              <DivisorDescription
+                title="Passageiros"
+                text="O seguro cobre até 20 passageiros"
+              />
+            </Col>
+            <Col offset={isTabletVertical ? 0 : 1} xs={12} sm={7} md={4}>
+              <S.FlexContainer>
+                <Text type="headline" color="gray6" textAlign="center">
                   Quantos passageiros haverá na viagem?
-                <Popover
-                  tooltip
-                  content={() => (
-                    <Text bold type="body" color="gray5">
-                      O seguro cobre até 20 passageiros.
-                    </Text>
-                  )}
-                >
-                  <Icon
-                    data-testid="passenger-info"
-                    name="information"
-                    role="button"
-                    aria-label="info-passengers"
-                    fill={theme.colors.blue4}
-                    width={21}
-                    height={21}
-                  />
-                </Popover>
-              </Text>
-            </S.FlexContainer>
+                  <Popover
+                    tooltip
+                    content={() => (
+                      <Text bold type="body" color="gray5">
+                        O seguro cobre até 20 passageiros.
+                      </Text>
+                    )}
+                  >
+                    <Icon
+                      data-testid="passenger-info"
+                      name="information"
+                      role="button"
+                      aria-label="info-passengers"
+                      fill={theme.colors.blue4}
+                      width={21}
+                      height={21}
+                    />
+                  </Popover>
+                </Text>
+              </S.FlexContainer>
 
-            <S.StyledCounter
-            label="PASSAGEIROS ATÉ 70 ANOS"
-            initialValue={counts.young}
-            maxValue={maximumPermittedPassengers - counts.old}
-            disabledCase={counts.total >= maximumPermittedPassengers}
-            afterOnChange={value => setCounts({...counts, young: value})}
-            />
+              <S.StyledCounter
+                label="PASSAGEIROS ATÉ 70 ANOS"
+                initialValue={counts.young}
+                maxValue={maximumPermittedPassengers - counts.old}
+                disabledCase={counts.total >= maximumPermittedPassengers}
+                afterOnChange={value => setCounts({ ...counts, young: value })}
+              />
 
-            <S.StyledCounter
-            label="PASSAGEIROS DE 71 ATÉ 90 ANOS "
-            initialValue={counts.old}
-            maxValue={maximumPermittedPassengers - counts.young}
-            disabledCase={counts.total === maximumPermittedPassengers}
-            afterOnChange={value => setCounts({...counts, old: value})}
-            />
-            <S.StyledButton onClick={handleButtonClick} disabled={counts.total === 0}>Próximo</S.StyledButton>
-          </Col>
-        </Row>
-      </S.StyledContainer>
-    </S.Wrapper>
+              <S.StyledCounter
+                label="PASSAGEIROS DE 71 ATÉ 90 ANOS "
+                initialValue={counts.old}
+                maxValue={maximumPermittedPassengers - counts.young}
+                disabledCase={counts.total === maximumPermittedPassengers}
+                afterOnChange={value => setCounts({ ...counts, old: value })}
+              />
+              <S.StyledButton
+                onClick={handleButtonClick}
+                disabled={counts.total === 0}
+              >
+                Próximo
+              </S.StyledButton>
+            </Col>
+          </Row>
+        </S.StyledContainer>
+      </S.Wrapper>
     </>
   )
 }

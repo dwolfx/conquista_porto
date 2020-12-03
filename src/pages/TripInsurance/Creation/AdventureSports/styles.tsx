@@ -1,12 +1,22 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
 import Text from 'components/Text'
+import { Container, Row } from 'styled-bootstrap-grid'
 
 export const ContentWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
   display: flex;
   justify-content: center;
   flex-direction: column;
+  height: 100%;
+`
+
+export const ContentContainer = styled(Container)`
+  height: 100%;
+`
+
+export const RowContainer = styled(Row)`
+  height: 100%;
 `
 
 export const NextButton = styled(Button)`

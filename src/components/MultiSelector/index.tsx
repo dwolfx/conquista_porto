@@ -79,7 +79,7 @@ const MultiSelector: React.FC<IProps> = ({
     (event: MouseEvent) => {
       if (
         selectOptionsDropdown &&
-        !selectContainerElement.current.contains(event.target as Node)
+        !selectContainerElement.current?.contains(event.target as Node)
       ) {
         setSelectOptionsDropdown(false)
       }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Container, Col } from 'styled-bootstrap-grid'
 import Text from 'components/Text'
 import Switch from 'components/Inputs/Switch'
 import * as s from './styles'
 import PlanCard from './PlanCard'
 import useMedia from 'hooks/useMedia'
 
-import LogoConquistaBeta from 'assets/images/logoConquistaBeta.png'
+import ComparativeModal from '../ComparativeModal'
+import { StepComponent } from 'hooks/FluxManagement/types'
 
 const planos = [
   {
@@ -41,39 +41,17 @@ const planos = [
   },
 ]
 
-const ChoosePlan = () => {
+const ChoosePlan: StepComponent = () => {
   const [isInstallmentPayment, setIsInstallmentPayment] = useState(false)
   const isMobile = useMedia('sm')
   const isTabletHorizontal = useMedia('mdUp')
   const isLgDown = useMedia('lg')
   const handleSwitch = () => setIsInstallmentPayment(!isInstallmentPayment)
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <>
-      <s.HeaderWrapper>
-        <Container>
-          <Col lg={12}>
-            <s.HeaderContent>
-              <s.PreviousIcon
-                data-gtm-subname="layer seguro viagem"
-                data-gtm-name="botao voltar step"
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-              />
-              <s.LogoWrapper>
-                <img src={LogoConquistaBeta} alt="Logo Conquista Beta" />
-              </s.LogoWrapper>
-              <s.CloseIcon
-                className="layer-close-button"
-                data-gtm-subname="botao fechar layer"
-                data-gtm-name="botao fechar"
-                data-gtm-type="click"
-                data-gtm-clicktype="button"
-              />
-            </s.HeaderContent>
-          </Col>
-        </Container>
-      </s.HeaderWrapper>
+      <ComparativeModal isOpen={modalOpen} handleClose={setModalOpen} />
       <s.BackgroundWrapper>
         <s.DarkBackground />
         <s.ContentContainer>
@@ -212,7 +190,9 @@ const ChoosePlan = () => {
         </s.ContentContainer>
       </s.BackgroundWrapper>
       <s.Footer>
-        <s.Button outline>comparativo de coberturas</s.Button>
+        <s.Button outline onClick={() => setModalOpen(true)}>
+          comparativo de coberturas
+        </s.Button>
         <s.Button outline>alterar dados</s.Button>
       </s.Footer>
     </>
