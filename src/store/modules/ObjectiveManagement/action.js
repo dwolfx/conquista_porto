@@ -30,23 +30,23 @@ export function PostObjectiveManagementDataFailure() {
   }
 }
 
-export function PostSaveFundsRequest(payload) {
+export function PutSaveFundsRequest(payload) {
   return {
-    type: Types.POST_SAVE_FUNDS_REQUEST,
+    type: Types.PUT_SAVE_FUNDS_REQUEST,
     payload,
   }
 }
 
-export function PostSaveFundsSuccess(payload) {
+export function PutSaveFundsSuccess(payload) {
   return {
-    type: Types.POST_SAVE_FUNDS_SUCCESS,
+    type: Types.PUT_SAVE_FUNDS_SUCCESS,
     payload,
   }
 }
 
-export function PostSaveFundsFailure() {
+export function PutSaveFundsFailure() {
   return {
-    type: Types.POST_SAVE_FUNDS_FAILURE,
+    type: Types.PUT_SAVE_FUNDS_FAILURE,
   }
 }
 

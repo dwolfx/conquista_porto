@@ -1,18 +1,18 @@
 import { call, put } from 'redux-saga/effects'
-import { get, post, remove } from 'services/api'
+import { get, post, put as axiosPut, remove } from 'services/api'
 
 import {
   getData,
   postData,
-  postSaveFunds,
+  putSaveFunds,
   getOtherGoalsData,
   deleteObjective,
 } from './sagas'
 import {
   PostObjectiveManagementDataSuccess,
   PostObjectiveManagementDataFailure,
-  PostSaveFundsSuccess,
-  PostSaveFundsFailure,
+  PutSaveFundsSuccess,
+  PutSaveFundsFailure,
   GetObjectiveManagementDataSuccess,
   GetObjectiveManagementDataFailure,
   GetOtherGoalsDataSuccess,
@@ -74,8 +74,8 @@ describe('ObjectiveManagement Sagas', () => {
     })
   })
 
-  describe('postSaveFunds function', () => {
-    it('GET: postSaveFunds: success triggers success action', () => {
+  describe('putSaveFunds function', () => {
+    it('PUT: putSaveFunds: success triggers success action', () => {
       const param = {
         payload: {
           idGoal: 1,
@@ -85,21 +85,21 @@ describe('ObjectiveManagement Sagas', () => {
         },
       }
 
-      const generator = postSaveFunds(param)
+      const generator = putSaveFunds(param)
       const response = { data: {} }
 
       expect(generator.next().value).toEqual(
-        call(post, `/goals/${param.payload.idGoal}/funds`, {})
+        call(axiosPut, `/goals/${param.payload.idGoal}`, {})
       )
 
       expect(generator.next(response).value).toEqual(
-        put(PostSaveFundsSuccess({}))
+        put(PutSaveFundsSuccess({}))
       )
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })
 
-    it('GET: postSaveFunds: fail triggers fail action', () => {
+    it('PUT: putSaveFunds: fail triggers fail action', () => {
       const param = {
         payload: {
           idGoal: 1,
@@ -109,16 +109,14 @@ describe('ObjectiveManagement Sagas', () => {
         },
       }
 
-      const generator = postSaveFunds(param)
+      const generator = putSaveFunds(param)
       const response = undefined
 
       expect(generator.next().value).toEqual(
-        call(post, `/goals/${param.payload.idGoal}/funds`, {})
+        call(axiosPut, `/goals/${param.payload.idGoal}`, {})
       )
 
-      expect(generator.next(response).value).toEqual(
-        put(PostSaveFundsFailure())
-      )
+      expect(generator.next(response).value).toEqual(put(PutSaveFundsFailure()))
 
       expect(generator.next()).toEqual({ done: true, value: undefined })
     })

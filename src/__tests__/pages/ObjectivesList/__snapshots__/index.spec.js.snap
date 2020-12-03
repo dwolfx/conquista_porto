@@ -532,7 +532,7 @@ exports[`ObjectiveListContent Renders correctly 1`] = `
               color="gray5"
               type="captionUppercase"
             >
-              123%
+              123.00%
             </span>
           </div>
         </div>

@@ -3,9 +3,9 @@ import {
   PostObjectiveManagementDataRequest,
   PostObjectiveManagementDataSuccess,
   PostObjectiveManagementDataFailure,
-  PostSaveFundsRequest,
-  PostSaveFundsSuccess,
-  PostSaveFundsFailure,
+  PutSaveFundsRequest,
+  PutSaveFundsSuccess,
+  PutSaveFundsFailure,
   GetObjectiveManagementDataRequest,
   GetObjectiveManagementDataSuccess,
   GetObjectiveManagementDataFailure,
@@ -47,24 +47,24 @@ describe('ObjectiveManagement Actions', () => {
     })
   })
 
-  test('if PostSaveFundsRequest returns the correct object', () => {
+  test('if PutSaveFundsRequest returns the correct object', () => {
     const payload = {}
 
-    expect(PostSaveFundsRequest(payload)).toEqual({
-      type: Types.POST_SAVE_FUNDS_REQUEST,
+    expect(PutSaveFundsRequest(payload)).toEqual({
+      type: Types.PUT_SAVE_FUNDS_REQUEST,
       payload,
     })
   })
 
-  test('if PostSaveFundsSuccess returns the correct object', () => {
-    expect(PostSaveFundsSuccess()).toEqual({
-      type: Types.POST_SAVE_FUNDS_SUCCESS,
+  test('if PutSaveFundsSuccess returns the correct object', () => {
+    expect(PutSaveFundsSuccess()).toEqual({
+      type: Types.PUT_SAVE_FUNDS_SUCCESS,
     })
   })
 
-  test('if PostSaveFundsFailure returns the correct object', () => {
-    expect(PostSaveFundsFailure()).toEqual({
-      type: Types.POST_SAVE_FUNDS_FAILURE,
+  test('if PutSaveFundsFailure returns the correct object', () => {
+    expect(PutSaveFundsFailure()).toEqual({
+      type: Types.PUT_SAVE_FUNDS_FAILURE,
     })
   })
 

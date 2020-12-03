@@ -66,14 +66,14 @@ describe('ObjectiveManagement Reducer', () => {
     })
   })
 
-  it('should handle POST_SAVE_FUNDS_REQUEST', () => {
+  it('should handle PUT_SAVE_FUNDS_REQUEST', () => {
     expect(
       reducer(
         {
           ...defaultState,
         },
         {
-          type: Types.POST_SAVE_FUNDS_REQUEST,
+          type: Types.PUT_SAVE_FUNDS_REQUEST,
         }
       )
     ).toEqual({
@@ -82,14 +82,14 @@ describe('ObjectiveManagement Reducer', () => {
     })
   })
 
-  it('should handle POST_SAVE_FUNDS_SUCCESS', () => {
+  it('should handle PUT_SAVE_FUNDS_SUCCESS', () => {
     expect(
       reducer(
         {
           ...defaultState,
         },
         {
-          type: Types.POST_SAVE_FUNDS_SUCCESS,
+          type: Types.PUT_SAVE_FUNDS_SUCCESS,
           payload: {},
         }
       )
@@ -100,14 +100,14 @@ describe('ObjectiveManagement Reducer', () => {
     })
   })
 
-  it('should handle POST_SAVE_FUNDS_FAILURE', () => {
+  it('should handle PUT_SAVE_FUNDS_FAILURE', () => {
     expect(
       reducer(
         {
           ...defaultState,
         },
         {
-          type: Types.POST_SAVE_FUNDS_FAILURE,
+          type: Types.PUT_SAVE_FUNDS_FAILURE,
         }
       )
     ).toEqual({
