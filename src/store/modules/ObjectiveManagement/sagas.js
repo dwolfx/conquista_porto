@@ -3,9 +3,9 @@ import { all, takeLatest, call, put } from 'redux-saga/effects'
 import {
   get,
   post,
+  put as axiosPut,
   remove,
   baseURLNamespaceGoal,
-  baseURLNamespaceGoalFunds,
 } from 'services/api'
 import { CleanObjectiveData } from 'store/modules/Objective/action'
 
@@ -13,8 +13,8 @@ import { Types } from './types'
 import {
   PostObjectiveManagementDataSuccess,
   PostObjectiveManagementDataFailure,
-  PostSaveFundsSuccess,
-  PostSaveFundsFailure,
+  PutSaveFundsSuccess,
+  PutSaveFundsFailure,
   GetObjectiveManagementDataSuccess,
   GetObjectiveManagementDataFailure,
   GetOtherGoalsDataSuccess,
@@ -50,15 +50,15 @@ export function* postData({ data, pushHistory, onSuccess, addToast, onError }) {
   }
 }
 
-export function* postSaveFunds({ payload }) {
+export function* putSaveFunds({ payload }) {
   const { idGoal, data, onSuccess, addToast } = payload
   try {
     const response = yield call(
-      post,
-      `${baseURLNamespaceGoalFunds}/goals/${idGoal}/funds`,
+      axiosPut,
+      `${baseURLNamespaceGoal}/goals/${idGoal}`,
       data
     )
-    yield put(PostSaveFundsSuccess(response.data))
+    yield put(PutSaveFundsSuccess(response.data))
 
     addToast({
       type: 'success',
@@ -69,7 +69,7 @@ export function* postSaveFunds({ payload }) {
       onSuccess()
     }
   } catch (err) {
-    yield put(PostSaveFundsFailure())
+    yield put(PutSaveFundsFailure())
 
     addToast({
       type: 'error',
@@ -201,7 +201,7 @@ export function* deleteObjective({ payload }) {
 
 export default all([
   takeLatest(Types.POST_REQUEST, postData),
-  takeLatest(Types.POST_SAVE_FUNDS_REQUEST, postSaveFunds),
+  takeLatest(Types.PUT_SAVE_FUNDS_REQUEST, putSaveFunds),
   takeLatest(Types.GET_REQUEST, getData),
   takeLatest(Types.GET_OTHER_GOALS_REQUEST, getOtherGoalsData),
   takeLatest(Types.DELETE_REQUEST, deleteObjective),

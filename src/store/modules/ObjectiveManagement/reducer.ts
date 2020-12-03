@@ -31,18 +31,18 @@ export default function(state = INITIAL_STATE, action: any) {
         data: {},
         isLoading: false,
       }
-    case Types.POST_SAVE_FUNDS_REQUEST:
+    case Types.PUT_SAVE_FUNDS_REQUEST:
       return {
         ...state,
         isLoadingSave: true,
       }
-    case Types.POST_SAVE_FUNDS_SUCCESS:
+    case Types.PUT_SAVE_FUNDS_SUCCESS:
       return {
         ...state,
         data: action.payload ? action.payload : state.data,
         isLoadingSave: false,
       }
-    case Types.POST_SAVE_FUNDS_FAILURE:
+    case Types.PUT_SAVE_FUNDS_FAILURE:
       return {
         ...state,
         error: true,
