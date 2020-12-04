@@ -155,7 +155,11 @@ Array [
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:736px) {
+
+}
+
+@media (min-width:1280px) {
 
 }
 
@@ -377,7 +381,7 @@ Array [
 }
 
 .c2 {
-  height: 518px;
+  height: 490px;
   margin-bottom: 14px;
 }
 
@@ -539,9 +543,15 @@ Array [
 
 }
 
-@media (max-width:1280px) {
+@media (min-width:736px) {
   .c2 {
     height: 458px;
+  }
+}
+
+@media (min-width:1280px) {
+  .c2 {
+    height: 518px;
   }
 }
 
@@ -550,7 +560,7 @@ Array [
     data-name="col-sm-12 col-md-6 col-lg-4"
   >
     <div
-      className="c1 sc-pkhIR c2"
+      className="c1 c2"
     >
       <div
         className="c3"
@@ -1286,7 +1296,11 @@ Array [
   }
 }
 
-@media (max-width:1280px) {
+@media (min-width:736px) {
+
+}
+
+@media (min-width:1280px) {
 
 }
 

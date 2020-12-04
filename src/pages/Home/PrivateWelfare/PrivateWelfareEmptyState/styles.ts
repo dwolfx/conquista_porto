@@ -14,11 +14,17 @@ export const Wrapper = styled.div`
 
 export const ImageWrapper = styled.div`
   border-radius: 8px;
-  height: 100%;
+  height: 181px;
   margin-top: 14px;
   margin-bottom: 21px;
   overflow: hidden;
   position: relative;
+  @media ${props => props.theme.mediaQueries.smUp} {
+    height: 210px;
+  }
+  @media ${props => props.theme.mediaQueries.mdUp} {
+    height: 191px;
+  }
   @media ${props => props.theme.mediaQueries.lgUp} {
     height: 231px;
   }
@@ -76,5 +82,3 @@ export const Description = styled(Text).attrs(() => ({
 }))`
   padding-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
 `
-
-
