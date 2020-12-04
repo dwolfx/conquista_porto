@@ -1,0 +1,39 @@
+import React from 'react'
+
+import 'jest-styled-components'
+import { renderWithReduxAndTheme } from 'testUtils'
+
+import PassengerStep from '.'
+import { fireEvent } from '@testing-library/dom'
+
+const fn = jest.fn()
+
+describe('PassengerStep tests', () => {
+  it('should exists', () => {
+    const { getByTestId } = renderWithReduxAndTheme(
+      <PassengerStep />
+    )
+    expect(getByTestId('passenger-step')).toBeVisible()
+  })
+
+  it('should be able to show text when icon is hovered', () => {
+    window.resizeTo(400, 400)
+    const { getByTestId, getByText } = renderWithReduxAndTheme(
+      <PassengerStep />
+    )
+
+    fireEvent.mouseOver(getByTestId('passenger-info'))
+    expect(getByText('O seguro cobre até 20 passageiros')).toBeVisible()
+  })
+
+  it('should increment state on afterOnChange', () => {
+    const { getAllByRole, getByText, getAllByTestId } = renderWithReduxAndTheme(
+      <PassengerStep />
+    )
+    const button = getAllByRole('button', { name: 'plus' })[0]
+    const input = getAllByTestId('input-number-')[0]
+
+    fireEvent.click(button)
+    expect(input).toHaveValue(1)
+  })
+})

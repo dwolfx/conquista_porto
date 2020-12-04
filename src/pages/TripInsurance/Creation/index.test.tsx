@@ -2,11 +2,12 @@ import React from 'react'
 
 import 'jest-styled-components'
 import { ThemeProvider } from 'styled-components'
-import { render, renderWithReduxAndTheme } from 'testUtils'
+import { renderWithReduxAndTheme } from 'testUtils'
 import { storeFactory } from 'setupTests'
 import theme from 'styles/theme'
 
 import TripInsuranceCreation from '.'
+import { WhiteContent } from './styles'
 import { fireEvent } from '@testing-library/dom'
 
 const fn = jest.fn()
@@ -64,5 +65,12 @@ describe('Trip Insurance creation', () => {
     expect(storeA.getState().fluxManagement.stack).toHaveLength(1)
     fireEvent.click(getByRole('img', { name: /arrowleft/i }))
     expect(fn).toHaveBeenCalled()
+  })
+
+  it('should be able to render WhiteContent', () => {
+    renderWithReduxAndTheme(
+      <WhiteContent />
+    )
+    expect(WhiteContent).toBeVisible
   })
 })

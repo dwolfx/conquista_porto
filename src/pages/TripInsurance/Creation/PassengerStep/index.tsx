@@ -14,27 +14,23 @@ import Popover from 'components/Popover'
 import * as S from './styles'
 import { StepComponent } from 'hooks/FluxManagement/types'
 import useStackFluxManagement from 'hooks/FluxManagement/useStackFluxManagement'
-import { Steps } from '../types'
 
 const PassengerStep: StepComponent = () => {
   const maximumPermittedPassengers = 20
   const theme = React.useContext(ThemeContext)
   const [counts, setCounts] = React.useState({ young: 0, old: 0, total: 0 })
   const isTabletVertical = useMedia('md')
-  const { instantiate } = useStackFluxManagement()
 
   React.useEffect(() => {
     setCounts(counts => ({ ...counts, total: counts.young + counts.old }))
   }, [counts.young, counts.old])
 
-  const handleButtonClick = () => {
-    instantiate(Steps.adventureSports)
-  }
+  const handleButtonClick = () => {}
 
   return (
     <>
       <StepBar actualStep={3} totalNumberOfSteps={5} />
-      <S.Wrapper>
+      <S.Wrapper data-testid="passenger-step">
         <S.StyledContainer>
           <Row
             alignItems="center"
