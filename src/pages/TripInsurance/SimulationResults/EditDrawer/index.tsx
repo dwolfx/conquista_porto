@@ -246,13 +246,13 @@ export default function EditDrawer() {
             )}
             placement="top"
             turnOff={numberOfPassangersAboveSeventyYears.value === 0}
-            zIndex={14}
+            // zIndex={14}
           >
             <s.Select
               options={adventureSportsOptions}
               selected={selectedAdventureSportsOption}
               label="Esportes de aventura"
-              hasLockIcon={numberOfPassangersAboveSeventyYears.value > 0}
+              // hasLockIcon={numberOfPassangersAboveSeventyYears.value > 0}
               disabled={numberOfPassangersAboveSeventyYears.value > 0}
             />
           </s.Popover>

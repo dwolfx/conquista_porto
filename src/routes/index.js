@@ -26,7 +26,7 @@ import ManagementConsortiumVehicle from 'pages/ConsortiumVehicle/Management'
 import ConsortiumBuilding from 'pages/ConsortiumBuilding'
 import ManagementConsortiumBuilding from 'pages/ConsortiumBuilding/Management'
 import CartaoCredito from 'pages/CreditCard'
-import CartaoCreditoPro from 'pages/CreditCard/PRO'
+// import CartaoCreditoPro from 'pages/CreditCard/PRO'
 import ManagementCreditCard from 'pages/CreditCard/Management'
 import SeguroVida from 'pages/LifeInsurance'
 import ManagementSeguroVida from 'pages/LifeInsurance/Management'
@@ -233,11 +233,11 @@ export default function Routes({ ...props }) {
           hook={useFetchCreditCard}
           pageTitle="Home - Cartão de Crédito"
         />
-        <DefaultRoute
+        {/* <DefaultRoute
           path="/cartao-credito/pro/:hash"
           component={CartaoCreditoPro}
           pageTitle="Home - Cartão de Crédito - PRO"
-        />
+        /> */}
         <DefaultRoute
           path="/seguro-viagem"
           exact

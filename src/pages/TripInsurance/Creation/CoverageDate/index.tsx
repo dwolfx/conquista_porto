@@ -5,6 +5,7 @@ import { Container, Col, Row } from 'styled-bootstrap-grid'
 import useMedia from 'hooks/useMedia'
 
 import { INTERVAL_DATE_TYPE } from 'components/Dates/types'
+
 import DivisorDescription from 'pages/TripInsurance/commons/DivisorDescription'
 
 import * as s from './styles'
@@ -86,7 +87,7 @@ const CoverageDate: StepComponent = () => {
                 <s.NextButton
                   id="next-button"
                   disabled={!(initialDate && finalDate)}
-                  onClick={() => instantiate(Steps.passengerStep)}
+                  onClick={() => instantiate(Steps.motocicleQuestion)}
                 >
                   PRÓXIMO
                 </s.NextButton>

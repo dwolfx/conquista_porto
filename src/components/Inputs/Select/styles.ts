@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+import Text from 'components/Text'
+import PopoverCmp from 'components/Popover'
+
 export const Container = styled.div`
   position: relative;
 `
@@ -67,4 +70,13 @@ export const Overlay = styled.div`
   position: fixed;
   top: 0;
   width: 100vw;
+`
+
+export const TooltipText = styled(Text)`
+  width: 213px;
+` 
+
+export const Popover = styled(PopoverCmp)`
+  width: 100%;
+  margin: ${({ theme }) => theme.spacing(4)}px 0 ${({ theme }) => theme.spacing(4)}px 0 ;
 `
