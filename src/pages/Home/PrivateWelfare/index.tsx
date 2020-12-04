@@ -14,7 +14,7 @@ import { formatMoney, handlePrivateWelfareRedirect } from 'helpers'
 
 import PrivateWelfareEmptyState from './PrivateWelfareEmptyState'
 import PrivateWelfareLoadingState from './PrivateWelfareLoadingState'
-import PrivateWelfareErrorState from './PrivateWelfareErrorState'
+// import PrivateWelfareErrorState from './PrivateWelfareErrorState'
 import PrivateWelfareMobile from './PrivateWelfareMobile'
 import { useSelector, useDispatch } from 'react-redux'
 import {
@@ -132,21 +132,21 @@ export default function PrivateWelfareSection({ headerEndItem }: IProps) {
       )
     }
 
-    if (hasError) {
-      return (
-        <HomePrivateWelfareCard
-          headerIcon="time"
-          headerTitle="Previdência"
-          headerEndItem={headerEndItem}
-        >
-          <PrivateWelfareErrorState
-            isLoading={isLoading || isLoadingStatusPRE}
-          />
-        </HomePrivateWelfareCard>
-      )
-    }
+    // if (hasError) {
+    //   return (
+    //     <HomePrivateWelfareCard
+    //       headerIcon="time"
+    //       headerTitle="Previdência"
+    //       headerEndItem={headerEndItem}
+    //     >
+    //       <PrivateWelfareErrorState
+    //         isLoading={isLoading || isLoadingStatusPRE}
+    //       />
+    //     </HomePrivateWelfareCard>
+    //   )
+    // }
 
-    if (isEmpty) {
+    if (isEmpty || hasError) {
       return (
         <HomePrivateWelfareCard
           headerIcon="time"

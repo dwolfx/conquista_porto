@@ -71,24 +71,24 @@ describe('PrivateWelfareSection - Home', () => {
     ).toBeInTheDocument()
     expect(screen.getByTestId('loading-bar')).toBeInTheDocument()
   })
-  it('should show PrivateWelfareErrorState component', () => {
-    const store = storeFactory({
-      privateWelfare: {
-        ...INITIAL_STATE,
-        hasError: true,
-      },
-    })
-    renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
+  // it('should show PrivateWelfareErrorState component', () => {
+  //   const store = storeFactory({
+  //     privateWelfare: {
+  //       ...INITIAL_STATE,
+  //       hasError: true,
+  //     },
+  //   })
+  //   renderWithReduxAndTheme(<PrivateWelfareSection />, { store })
 
-    expect(
-      screen.getByText(
-        'Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente.'
-      )
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: /tentar novamente/i })
-    ).toBeInTheDocument()
-  })
+  //   expect(
+  //     screen.getByText(
+  //       'Desculpe, não foi possível carregar suas informações. Aguarde alguns instantes e tente novamente.'
+  //     )
+  //   ).toBeInTheDocument()
+  //   expect(
+  //     screen.getByRole('button', { name: /tentar novamente/i })
+  //   ).toBeInTheDocument()
+  // })
   it('should be able to render EmptyState properly', () => {
     const store = storeFactory({
       privateWelfare: {
