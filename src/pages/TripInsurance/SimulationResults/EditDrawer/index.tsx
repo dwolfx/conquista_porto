@@ -202,15 +202,15 @@ const EditDrawer: React.FC<IEditDrawer> = ({
             selected={selectedCountry}
             label="Origem"
           />
-          <MultiSelector
-            options={countryOptions}
-            onChange={() => {}}
-            inputLabel="Você irá para qual(is) país(es)"
-          />
           <s.Select
             options={destinations}
             selected={selectedDestination}
             label="Destino"
+          />
+          <MultiSelector
+            options={countryOptions}
+            onChange={() => {}}
+            inputLabel="Você irá para qual(is) país(es)"
           />
           <s.Divisor />
           <s.Label>Periodo da Viagem</s.Label>
