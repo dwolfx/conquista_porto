@@ -6,6 +6,7 @@ import PlanCard from './PlanCard'
 import useMedia from 'hooks/useMedia'
 
 import ComparativeModal from '../ComparativeModal'
+import EditDrawer from '../../SimulationResults/EditDrawer'
 import { StepComponent } from 'hooks/FluxManagement/types'
 
 const planos = [
@@ -48,10 +49,12 @@ const ChoosePlan: StepComponent = () => {
   const isLgDown = useMedia('lg')
   const handleSwitch = () => setIsInstallmentPayment(!isInstallmentPayment)
   const [modalOpen, setModalOpen] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
     <>
       <ComparativeModal isOpen={modalOpen} handleClose={setModalOpen} />
+      <EditDrawer isDrawerOpen={isDrawerOpen} handleClose={setIsDrawerOpen} />
       <s.BackgroundWrapper>
         <s.DarkBackground />
         <s.ContentContainer>
@@ -193,7 +196,9 @@ const ChoosePlan: StepComponent = () => {
         <s.Button outline onClick={() => setModalOpen(true)}>
           comparativo de coberturas
         </s.Button>
-        <s.Button outline>alterar dados</s.Button>
+        <s.Button outline onClick={() => setIsDrawerOpen(true)}>
+          alterar dados
+        </s.Button>
       </s.Footer>
     </>
   )

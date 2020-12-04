@@ -9,7 +9,7 @@ export const ContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 128px);
 `
 
 export const NextButton = styled(Button)`

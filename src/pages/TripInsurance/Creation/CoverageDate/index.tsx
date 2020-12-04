@@ -87,7 +87,7 @@ const CoverageDate: StepComponent = () => {
                 <s.NextButton
                   id="next-button"
                   disabled={!(initialDate && finalDate)}
-                  onClick={() => instantiate(Steps.motocicleQuestion)}
+                  onClick={() => instantiate(Steps.passengerStep)}
                 >
                   PRÓXIMO
                 </s.NextButton>

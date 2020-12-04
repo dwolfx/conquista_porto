@@ -12,9 +12,16 @@ import { TOptions, TSelected } from 'components/Inputs/Select/types'
 
 import * as s from './styles'
 
-export default function EditDrawer() {
+interface IEditDrawer {
+  isDrawerOpen: boolean
+  handleClose: (isDrawerOpen: boolean) => void
+}
+const EditDrawer: React.FC<IEditDrawer> = ({
+  isDrawerOpen,
+  handleClose,
+  ...rest
+}) => {
   const isMobile = useMedia('sm')
-  const [isDrawerOpen, setIsDrawerOpen] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [originOptions, setOriginOptions] = useState<TOptions[]>([
     { text: 'Brasil', id: 1 },
@@ -246,13 +253,13 @@ export default function EditDrawer() {
             )}
             placement="top"
             turnOff={numberOfPassangersAboveSeventyYears.value === 0}
-            // zIndex={14}
+            zIndex={14}
           >
             <s.Select
               options={adventureSportsOptions}
               selected={selectedAdventureSportsOption}
               label="Esportes de aventura"
-              // hasLockIcon={numberOfPassangersAboveSeventyYears.value > 0}
+              hasLockIcon={numberOfPassangersAboveSeventyYears.value > 0}
               disabled={numberOfPassangersAboveSeventyYears.value > 0}
             />
           </s.Popover>
@@ -267,16 +274,12 @@ export default function EditDrawer() {
     )
   }
 
-  const handleDrawer = () => {
-    setIsDrawerOpen(false)
-  }
-
   if (isMobile) {
     return (
       <Modal
         modalTitle="Alterar dados"
         isOpen={isDrawerOpen}
-        handleClose={handleDrawer}
+        handleClose={() => handleClose(false)}
         footer={footerDrawer()}
       >
         {isLoading ? loadingContent() : renderContent()}
@@ -288,7 +291,7 @@ export default function EditDrawer() {
     <Drawer
       isOpen={isDrawerOpen}
       drawerTitle="Alterar dados"
-      handleClose={handleDrawer}
+      handleClose={() => handleClose(false)}
       size="sm"
       footer={footerDrawer()}
     >
@@ -296,3 +299,5 @@ export default function EditDrawer() {
     </Drawer>
   )
 }
+
+export default EditDrawer

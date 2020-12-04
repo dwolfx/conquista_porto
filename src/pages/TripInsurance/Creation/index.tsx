@@ -24,7 +24,7 @@ export default function TripInsurenceCreation({
   >()
 
   React.useEffect(() => {
-    if (isOpen && getLength() === 0) instantiate(Steps.motocicleQuestion)
+    if (isOpen && getLength() === 0) instantiate(Steps.originTrip)
   }, [isOpen, instantiate, getLength])
 
   return (
