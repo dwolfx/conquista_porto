@@ -67,15 +67,6 @@ const arrowDirection = {
   },
 }
 
-type TPlacement = 'bottom' | 'left' | 'right' | 'top'
-
-// interface IPopoverContainer {
-//   ref: React.Ref<any>,
-//   style: object,
-//   placement: TPlacement | string,
-//   zIndex: number
-// }
-
 export const PopoverContainer = styled.div<any>`
   background-color: ${props => props.theme.colors.white};
   border-radius: 4px;

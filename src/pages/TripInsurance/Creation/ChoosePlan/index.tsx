@@ -6,7 +6,7 @@ import PlanCard from './PlanCard'
 import useMedia from 'hooks/useMedia'
 
 import ComparativeModal from '../ComparativeModal'
-import EditDrawer from '../../SimulationResults/EditDrawer'
+import EditDrawer from '../EditDrawer'
 import { StepComponent } from 'hooks/FluxManagement/types'
 
 const planos = [
