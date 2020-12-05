@@ -380,11 +380,6 @@ Array [
   transition: all 0.35s ease-in-out;
 }
 
-.c2 {
-  height: 490px;
-  margin-bottom: 14px;
-}
-
 .c12 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -401,6 +396,11 @@ Array [
   height: 100%;
   width: auto;
   margin: 0 35px;
+}
+
+.c2 {
+  height: 490px;
+  margin-bottom: 14px;
 }
 
 @media (max-width:1280px) {

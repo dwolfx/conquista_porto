@@ -22,9 +22,9 @@ import {
   GetPrivateWelfareWithStatusPRERequest,
 } from 'store/modules/PrivateWelfare/action'
 
-import { HomePrivateWelfareCard } from '../styles'
 import {
   ContentWrapper,
+  HomePrivateWelfareCard,
   ManageButton,
   ButtonWrapper,
   StyledCarousel,
@@ -132,6 +132,8 @@ export default function PrivateWelfareSection({ headerEndItem }: IProps) {
       )
     }
 
+    // o serviço de previdência não possue tratamento. Quando o cliente não possui previdência ele volta 500
+    // então enquanto não tratarem isso não podemos exibir o card de erro, devemos apenas exibir o empty state
     // if (hasError) {
     //   return (
     //     <HomePrivateWelfareCard

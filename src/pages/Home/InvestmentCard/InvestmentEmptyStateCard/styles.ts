@@ -28,11 +28,22 @@ export const ContentWrapper = styled.div`
 
 export const ImageWrapper = styled.div`
   border-radius: 8px;
-  height: 231px;
+  height: 184px;
   margin-top: ${({ theme }) => `${theme.spacing(2)}px`};
   margin-bottom: ${({ theme }) => `${theme.spacing(3)}px`};
   overflow: hidden;
   position: relative;
+
+  /* Vertical Tablet = 736px Up */
+  @media ${props => props.theme.mediaQueries.smUp} {
+    height: 171px;
+  }
+
+  /* Desktop = 1280px Up */
+  @media ${props => props.theme.mediaQueries.lgUp} {
+    height: 231px;
+  }
+
   img {
     object-fit: cover;
     height: 100%;
