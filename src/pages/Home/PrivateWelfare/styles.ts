@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
+import CardComponent from 'components/Card'
 import CarouselCard from 'components/Card/CarouselCard'
 import TextComponent from 'components/Text'
 
@@ -26,6 +27,21 @@ export const StyledCarousel = styled(CarouselCard)`
     > div {
       height: 100%;
     }
+  }
+`
+
+export const HomePrivateWelfareCard = styled(CardComponent)`
+  height: 490px;
+  margin-bottom: ${({ theme }) => `${theme.spacing(2)}px`};
+
+  /* Vertical Tablet = 736px Up */
+  @media ${({ theme }) => theme.mediaQueries.smUp} {
+    height: 458px;
+  }
+
+  /* Desktop = 1280px Up */
+  @media ${({ theme }) => theme.mediaQueries.lgUp} {
+    height: 518px;
   }
 `
 

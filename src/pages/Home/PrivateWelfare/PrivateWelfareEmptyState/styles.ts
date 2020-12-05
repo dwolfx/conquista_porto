@@ -14,20 +14,22 @@ export const Wrapper = styled.div`
 
 export const ImageWrapper = styled.div`
   border-radius: 8px;
-  height: 181px;
+  height: 184px;
   margin-top: 14px;
   margin-bottom: 21px;
   overflow: hidden;
   position: relative;
+
+  /* Vertical Tablet = 736px Up */
   @media ${props => props.theme.mediaQueries.smUp} {
-    height: 210px;
+    height: 171px;
   }
-  @media ${props => props.theme.mediaQueries.mdUp} {
-    height: 191px;
-  }
+
+  /* Desktop = 1280px Up */
   @media ${props => props.theme.mediaQueries.lgUp} {
     height: 231px;
   }
+
   img {
     object-fit: cover;
     height: 100%;

@@ -12,13 +12,7 @@ interface IMenu {
   ref3: RefObject<HTMLDivElement | null>
 }
 
-const Menu = ({
-  scrollFunc, 
-  homeContentRef, 
-  ref1, 
-  ref2, 
-  ref3
-}: IMenu) => {
+const Menu = ({ scrollFunc, homeContentRef, ref1, ref2, ref3 }: IMenu) => {
   const [selectedOption, setSelectedOption] = useState('produtos')
   const [showMenu, setShowMenu] = useState(true)
 
@@ -37,8 +31,8 @@ const Menu = ({
       // "offsetTop - 30" compensa o margin adicional calculado na função passada pela prop
       homeMenuPos = homeContentRef.current.getBoundingClientRect().bottom
       row1Pos = ref1.current.offsetTop + 1
-      row2Pos = ref2.current.offsetTop - 30  
-      row3Pos = ref3.current.offsetTop - 30 
+      row2Pos = ref2.current.offsetTop - 30
+      row3Pos = ref3.current.offsetTop - 30
     }
 
     if (row1Pos && row2Pos && row3Pos) {
