@@ -1,14 +1,13 @@
 import { Types } from './types'
 
-export function GetBankExtractFundRequest(payload, cpf) {
+export function GetBankExtractFundRequest(payload: any) {
   return {
     type: Types.GET_REQUEST,
     payload,
-    cpf,
   }
 }
 
-export function GetBankExtractFundSuccess(payload) {
+export function GetBankExtractFundSuccess(payload: any) {
   return {
     type: Types.GET_SUCCESS,
     payload,

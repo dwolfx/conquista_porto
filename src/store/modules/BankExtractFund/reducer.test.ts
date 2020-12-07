@@ -2,7 +2,7 @@ import reducer from './reducer'
 import { Types } from './types'
 
 const defaultState = {
-  data: [],
+  data: null,
   isLoading: false,
   hasError: false,
   isLayerOpen: false
@@ -25,7 +25,7 @@ describe('BankExtractFund Reducer', () => {
       )
     ).toEqual({
       ...defaultState,
-      data: [],
+      data: null,
       hasError: false,
       isLoading: true,
     })
@@ -39,12 +39,12 @@ describe('BankExtractFund Reducer', () => {
         },
         {
           type: Types.GET_SUCCESS,
-          payload: [],
+          payload: {},
         }
       )
     ).toEqual({
       ...defaultState,
-      data: [],
+      data: {},
       isLoading: false,
       hasError: false,
     })
@@ -79,7 +79,7 @@ describe('BankExtractFund Reducer', () => {
       )
     ).toEqual({
       ...defaultState,
-      data: {},
+      data: null,
     })
   })
 })

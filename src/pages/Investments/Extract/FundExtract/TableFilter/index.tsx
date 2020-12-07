@@ -62,10 +62,10 @@ const TableFilter = ({
       })
       closeFunc()
     }
-    const nodes = Object.values(INTERVAL_SELECT_OPTIONS).map(item => (
-      <DropdownLineContent key={item.name} onClick={() => handleClick(item)}>
+    const nodes = Object.values(INTERVAL_SELECT_OPTIONS).map(option => (
+      <DropdownLineContent key={option.name} onClick={() => handleClick(option)}>
         <Text type="headline" bold color="gray6">
-          {item.name}
+          {option.name}
         </Text>
       </DropdownLineContent>
     ))

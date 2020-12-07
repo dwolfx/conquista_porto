@@ -163,6 +163,17 @@ const TableFilterDrawer = ({
     )
   }
 
+  const getSpecificPeriodLabel = () => {
+    if (
+      selectedInterval.id === INTERVAL_SELECT_OPTIONS.SPECIFIC_INTERVAL_SELECT_OPTION.id &&
+      interval.startDate && 
+      interval.endDate
+    ) {
+      return `${moment(interval.startDate).format('DD/MM/YYYY')} - ${moment(interval.endDate).format('DD/MM/YYYY')}`
+    }
+    return 'período específico' 
+  }
+
   return (
     <Drawer
       isOpen={isOpen}
@@ -183,26 +194,29 @@ const TableFilterDrawer = ({
         <PeriodButtonsWrapper
         >
           <ButtonTag
-            color={selectedInterval.id === 1 ? 'primary' : ''}
+            color={selectedInterval.id === INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION.id ? 'primary' : ''}
             onClick={() => changeInterval(INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION)}
             css={`margin: 0 ${themeContext.spacing(1)}px ${themeContext.spacing(1)}px 0;`}
           >
             últimos 7 dias
           </ButtonTag>
           <ButtonTag
-            color={selectedInterval.id === 2 ? 'primary' : ''}
+            color={selectedInterval.id === INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION.id ? 'primary' : ''}
             onClick={() => changeInterval(INTERVAL_SELECT_OPTIONS.MONTH_INTERVAL_SELECT_OPTION)}
           >
             últimos 30 dias
           </ButtonTag>
           <ButtonTag
-            color={isDatePickerOpen && selectedInterval.id === 3 ? 'primary' : ''}
+            color={
+              isDatePickerOpen || 
+              selectedInterval.id === INTERVAL_SELECT_OPTIONS.SPECIFIC_INTERVAL_SELECT_OPTION.id ? 'primary' : ''
+            }
             onClick={() => {
               handleSelectInterval(INTERVAL_SELECT_OPTIONS.SPECIFIC_INTERVAL_SELECT_OPTION)
-              setIsDatePickerOpen(!isDatePickerOpen)
+              setIsDatePickerOpen(prevState => !prevState)
             }}
           >
-            período específico
+            {getSpecificPeriodLabel()}
           </ButtonTag>
           {isDatePickerOpen && (
             <DatePickerContainer>

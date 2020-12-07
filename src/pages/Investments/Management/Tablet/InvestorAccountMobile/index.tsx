@@ -10,7 +10,6 @@ import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
 import { formatMoney, formatLocaleStringToNumber } from 'helpers'
-import { OpenBankExtractFundLayer} from 'store/modules/BankExtractFund/action'
 import { InvestorAccountInfoEnum } from '../../types'
 
 import {
@@ -173,6 +172,8 @@ const InvestorAccountMobile = () => {
               />,
             ]}
           />
+          {/* 
+          Quando o serviço de 'saldos em conta' existir, apresentar este botão
           {Number(
             bankData &&
               bankData.DadosContaPortoSeguro &&
@@ -190,7 +191,7 @@ const InvestorAccountMobile = () => {
             >
               ver extrato
             </ButtonBlock>
-          )}
+          )} */}
         </InfoContainer>
       </CardAccordion>
     )

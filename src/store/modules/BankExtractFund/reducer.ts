@@ -1,7 +1,7 @@
 import { Types } from './types'
 
 const INITIAL_STATE = {
-  data: [],
+  data: null,
   isLoading: false,
   hasError: false,
   isLayerOpen: false,
@@ -12,7 +12,6 @@ export default function(state = INITIAL_STATE, action: any) {
     case Types.GET_REQUEST: {
       return {
         ...state,
-        data: [],
         hasError: false,
         isLoading: true,
       }
@@ -20,7 +19,7 @@ export default function(state = INITIAL_STATE, action: any) {
     case Types.GET_SUCCESS:
       return {
         ...state,
-        data: [...action.payload],
+        data: { ...action.payload },
         isLoading: false,
         hasError: false,
       }
@@ -33,7 +32,7 @@ export default function(state = INITIAL_STATE, action: any) {
     case Types.CLEAR_DATA:
       return {
         ...state,
-        data: {},
+        data: null,
       }
     case Types.OPEN_LAYER_EXTRATO:
       return {

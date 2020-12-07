@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import 'styled-components/macro'
 import { Row } from 'styled-bootstrap-grid'
 
@@ -20,59 +20,52 @@ import { FundDetailContainer, ColFundDetail, ColStyled, ContentCard, TableWrappe
 import { ISelectInterval, IInterval } from '../AccountExtract/types'
 import { INTERVAL_SELECT_OPTIONS } from '../constants'
 import { IFundExtractFilter } from './types'
-
-const extractsMock = [
-  {
-    "tipo": "Retirada",
-    "data": "2019-09-03T00:00:00-03:00",
-    "valor": "100"
-  },
-  {
-    "tipo": "Retirada",
-    "data": "2019-07-03T00:00:00-03:00",
-    "valor": "500"
-  },
-  {
-    "tipo": "Retirada",
-    "data": "2019-08-27T00:00:00-03:00",
-    "valor": "100"
-  },
-  {
-    "tipo": "Retirada",
-    "data": "2019-09-03T00:00:00-03:00",
-    "valor": "100"
-  },
-  {
-    "tipo": "Retirada",
-    "data": "2019-07-03T00:00:00-03:00",
-    "valor": "500"
-  }
-]
+import { GetBankExtractFundRequest } from 'store/modules/BankExtractFund/action'
 
 interface IProps {
   isOpen: boolean
   handleClose: () => void
 }
 const FundExtract = ({ isOpen, handleClose }: IProps) => {
+  const dispatch = useDispatch()
+  const isMobile = useMedia('sm')
   const [isOpenFilterDrawer, setOpenFilterDrawer] = useState(false)
+  const [isFundDetailOpen, setFundDetailOpen] = useState(false)
+  const [selectedInterval, setSelectedInterval] = useState<ISelectInterval>(
+    INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION
+  )
   const [filters, setFilters] = useState<IFundExtractFilter>({ 
     apply: false,
     redeem: false,
     quotaEater: false
    })
-  const [isFundDetailOpen, setFundDetailOpen] = useState(false)
-  const [selectedInterval, setSelectedInterval] = useState<ISelectInterval>(
-    INTERVAL_SELECT_OPTIONS.WEEK_INTERVAL_SELECT_OPTION
-  )
   const [interval, setInterval] = useState<IInterval>({
     startDate: '',
     endDate: '',
   })
-  const { idFund } = useSelector((state: any) => ({
-    idFund: state.investmentPosition.idFund,
+  const { idFundo, bankExtractFund, isLoadingExtractFund, hasErrorExtractFund } = useSelector((state: any) => ({
+    idFundo: state.investmentPosition.idFund,
+    bankExtractFund: state.bankExtractFund.data,
+    isLoadingExtractFund: state.bankExtractFund.isLoading,
+    hasErrorExtractFund: state.bankExtractFund.hasError,
   }))
 
-  const isMobile = useMedia('sm')
+  useEffect(() => {
+    if (idFundo) {
+      dispatch(GetBankExtractFundRequest({
+        idFundo,
+        tipoFiltro: 
+          selectedInterval.id !==
+            INTERVAL_SELECT_OPTIONS.SPECIFIC_INTERVAL_SELECT_OPTION.id ? selectedInterval.value : null,
+        dataInicial: 
+          selectedInterval.id === 
+            INTERVAL_SELECT_OPTIONS.SPECIFIC_INTERVAL_SELECT_OPTION.id ? interval.startDate : null,
+        dataFinal: 
+          selectedInterval.id === 
+            INTERVAL_SELECT_OPTIONS.SPECIFIC_INTERVAL_SELECT_OPTION.id ? interval.endDate : null
+      }))
+    }
+  }, [interval, idFundo, selectedInterval, dispatch])
 
   const cleanFilters = () => {
     setFilters({
@@ -80,6 +73,10 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
       redeem: false,
       quotaEater: false
     })
+  }
+
+  const getExtracts = () => {
+    return bankExtractFund ? bankExtractFund.operacoes.operacao : []
   }
 
   return (
@@ -94,7 +91,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
           <FundDetailContainer>
             <FundDetailCard
               handleFundDetailOpen={() => setFundDetailOpen(true)}
-              selectedFundId={idFund}
+              selectedFundId={idFundo}
             />
           </FundDetailContainer>
         </ColFundDetail>
@@ -102,9 +99,9 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
           {isMobile ? (
             <>
               <ExtractTableMobile
-                isLoading={false}
-                hasError={false}
-                extracts={extractsMock}
+                isLoading={isLoadingExtractFund}
+                hasError={hasErrorExtractFund}
+                extracts={getExtracts()}
                 request={{
                   tipoFiltro: 0,
                   dataInicial: interval.startDate,
@@ -133,7 +130,7 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
             </>
           ) : (
             <ContentCard data-testid="table-account-extract">
-              <TableWrapper hasError={false}>
+              <TableWrapper hasError={hasErrorExtractFund}>
                 <TableFilter
                   filters={filters}
                   handleFilters={setFilters}
@@ -143,9 +140,9 @@ const FundExtract = ({ isOpen, handleClose }: IProps) => {
                   handleClearFilters={cleanFilters}
                 />
                 <ExtractTable 
-                  isLoading={false}
-                  hasError={false}
-                  extracts={extractsMock}
+                  isLoading={isLoadingExtractFund}
+                  hasError={hasErrorExtractFund}
+                  extracts={getExtracts()}
                   request={false}
                 />
               </TableWrapper>

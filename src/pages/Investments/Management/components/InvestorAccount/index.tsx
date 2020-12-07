@@ -10,7 +10,7 @@ import useMedia from 'hooks/useMedia'
 import useFetchBankData from 'hooks/BankData/useFetchBankData'
 import { GetBankDataRequest } from 'store/modules/BankData/action'
 import { OpenAccountExtractLayer } from 'store/modules/BankExtract/action'
-import { OpenBankExtractFundLayer } from 'store/modules/BankExtractFund/action'
+// import { OpenBankExtractFundLayer } from 'store/modules/BankExtractFund/action'
 
 import { InvestorAccountInfoEnum } from '../../types'
 
@@ -74,22 +74,22 @@ const InvestorAccount = () => {
       </TextHeadline>
     )
   }
-
-  const renderExtractLink = (id: string) => (
-    <ButtonLink
-      noIcon
-      data-testid={`link-investor-extract-${id}`}
-      data-gtm-subname="conta de investimentos"
-      data-gtm-name="ver extrato"
-      data-gtm-type="click"
-      data-gtm-clicktype="link"
-      onClick={() => {
-        dispatch(OpenBankExtractFundLayer())
-      }}
-    >
-      ver extrato &gt;
-    </ButtonLink>
-  )
+  // Quando o serviço de 'saldos em conta' existir, apresentar este botão
+  // const renderExtractLink = (id: string) => (
+  //   <ButtonLink
+  //     noIcon
+  //     data-testid={`link-investor-extract-${id}`}
+  //     data-gtm-subname="conta de investimentos"
+  //     data-gtm-name="ver extrato"
+  //     data-gtm-type="click"
+  //     data-gtm-clicktype="link"
+  //     onClick={() => {
+  //       dispatch(OpenBankExtractFundLayer())
+  //     }}
+  //   >
+  //     ver extrato &gt;
+  //   </ButtonLink>
+  // )
 
   const renderBody = () => {
     if (isLoading) {
@@ -184,6 +184,8 @@ const InvestorAccount = () => {
               />,
             ]}
           />
+          {/* 
+          Quando o serviço de 'saldos em conta' existir, apresentar este botão
           {!isTablet ? (
             renderExtractLink('retirar')
           ) : (
@@ -196,7 +198,7 @@ const InvestorAccount = () => {
             >
               ver extrato
             </ButtonBlock>
-          )}
+          )} */}
         </InfoContainer>
       </>
     )
